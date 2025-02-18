@@ -1,9 +1,10 @@
 #!/bin/bash
 
-mkdir -p bench_build
+rm -rf original
+mkdir original
+export DUMP_PREFIX=$(pwd)/original
+rm -rf bench_build
+mkdir bench_build
 cd bench_build
-../../../scripts/configure_cmake.sh ../fmt
+../../../scripts/configure_cmake.sh ../fmt -DFMT_DOC=OFF -DFMT_TEST=ON
 cmake --build . -j
-cd ..
-find bench_build/CMakeFiles/fmt.dir -name "*.o" -exec ../../scripts/extract_bc.sh {} \;
-find bench_build/test/CMakeFiles -name "*.o" -exec ../../scripts/extract_bc.sh {} \;

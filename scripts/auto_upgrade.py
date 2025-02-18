@@ -85,6 +85,7 @@ supported_project = [
     "entt",
     "faiss",
     "flatbuffers",
+    "fmt",
 ]
 
 modify_only = [
