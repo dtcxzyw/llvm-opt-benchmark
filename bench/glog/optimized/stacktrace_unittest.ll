@@ -23,11 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 $_ZN6google10LogMessage9LogStreamC2EPcil = comdat any
 
-$_ZN6google12base_logging12LogStreamBufD2Ev = comdat any
-
 $_ZN6google10LogMessage9LogStreamC1EPcil = comdat any
-
-$_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc = comdat any
 
 $__clang_call_terminate = comdat any
 
@@ -45,47 +41,43 @@ $_ZN6google12base_logging12LogStreamBufD0Ev = comdat any
 
 $_ZN6google12base_logging12LogStreamBuf8overflowEi = comdat any
 
-$_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc = comdat any
+$_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc = comdat any
 
-$_ZN6google7logging8internal12Check_GEImplIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc = comdat any
+$_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc = comdat any
 
-$_ZN6google7logging8internal12Check_LEImplIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc = comdat any
+$_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc = comdat any
 
-$_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc = comdat any
-
-$_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc = comdat any
+$_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc = comdat any
 
 $_ZTVN6google10LogMessage9LogStreamE = comdat any
 
-$_ZTTN6google10LogMessage9LogStreamE = comdat any
-
 $_ZTCN6google10LogMessage9LogStreamE0_So = comdat any
-
-$_ZTSN6google10LogMessage9LogStreamE = comdat any
 
 $_ZTIN6google10LogMessage9LogStreamE = comdat any
 
-$_ZTVN6google12base_logging12LogStreamBufE = comdat any
+$_ZTSN6google10LogMessage9LogStreamE = comdat any
 
-$_ZTSN6google12base_logging12LogStreamBufE = comdat any
+$_ZTVN6google12base_logging12LogStreamBufE = comdat any
 
 $_ZTIN6google12base_logging12LogStreamBufE = comdat any
 
+$_ZTSN6google12base_logging12LogStreamBufE = comdat any
+
 @_ZTVN6google10LogMessage9LogStreamE = linkonce_odr hidden unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 88 to ptr), ptr null, ptr @_ZTIN6google10LogMessage9LogStreamE, ptr @_ZN6google10LogMessage9LogStreamD1Ev, ptr @_ZN6google10LogMessage9LogStreamD0Ev], [5 x ptr] [ptr inttoptr (i64 -88 to ptr), ptr inttoptr (i64 -88 to ptr), ptr @_ZTIN6google10LogMessage9LogStreamE, ptr @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev, ptr @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev] }, comdat, align 8
-@_ZTTN6google10LogMessage9LogStreamE = linkonce_odr hidden unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6google10LogMessage9LogStreamE0_So, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6google10LogMessage9LogStreamE0_So, i32 0, i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 1, i32 3)], comdat, align 8
 @expected_range = hidden global [6 x %struct.AddressRange] zeroinitializer, align 16
 @.str = private unnamed_addr constant [56 x i8] c"(&expected_range[5])->start < (&expected_range[5])->end\00", align 1
 @.str.1 = private unnamed_addr constant [114 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/glog/glog/src/stacktrace_unittest.cc\00", align 1
 @_ZN3fLB17FLAGS_logtostderrE = external local_unnamed_addr global i8, align 1
 @_ZTCN6google10LogMessage9LogStreamE0_So = linkonce_odr hidden unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 88 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -88 to ptr), ptr inttoptr (i64 -88 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTISo = external constant ptr
+@_ZTIN6google10LogMessage9LogStreamE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google10LogMessage9LogStreamE, ptr @_ZTISo }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN6google10LogMessage9LogStreamE = linkonce_odr hidden constant [32 x i8] c"N6google10LogMessage9LogStreamE\00", comdat, align 1
-@_ZTIN6google10LogMessage9LogStreamE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google10LogMessage9LogStreamE, ptr @_ZTISo }, comdat, align 8
-@_ZTVN6google12base_logging12LogStreamBufE = linkonce_odr hidden unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTIN6google12base_logging12LogStreamBufE, ptr @_ZN6google12base_logging12LogStreamBufD2Ev, ptr @_ZN6google12base_logging12LogStreamBufD0Ev, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE5imbueERKSt6locale, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6setbufEPcl, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekoffElSt12_Ios_SeekdirSt13_Ios_Openmode, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekposESt4fposI11__mbstate_tESt13_Ios_Openmode, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE4syncEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9showmanycEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsgetnEPcl, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9underflowEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE5uflowEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9pbackfailEi, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl, ptr @_ZN6google12base_logging12LogStreamBuf8overflowEi] }, comdat, align 8
+@_ZTVN6google12base_logging12LogStreamBufE = linkonce_odr hidden unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTIN6google12base_logging12LogStreamBufE, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev, ptr @_ZN6google12base_logging12LogStreamBufD0Ev, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE5imbueERKSt6locale, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6setbufEPcl, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekoffElSt12_Ios_SeekdirSt13_Ios_Openmode, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekposESt4fposI11__mbstate_tESt13_Ios_Openmode, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE4syncEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9showmanycEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsgetnEPcl, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9underflowEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE5uflowEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9pbackfailEi, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl, ptr @_ZN6google12base_logging12LogStreamBuf8overflowEi] }, comdat, align 8
+@_ZTIN6google12base_logging12LogStreamBufE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google12base_logging12LogStreamBufE, ptr @_ZTISt15basic_streambufIcSt11char_traitsIcEE }, comdat, align 8
 @_ZTSN6google12base_logging12LogStreamBufE = linkonce_odr hidden constant [38 x i8] c"N6google12base_logging12LogStreamBufE\00", comdat, align 1
 @_ZTISt15basic_streambufIcSt11char_traitsIcEE = external constant ptr
-@_ZTIN6google12base_logging12LogStreamBufE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google12base_logging12LogStreamBufE, ptr @_ZTISt15basic_streambufIcSt11char_traitsIcEE }, comdat, align 8
+@_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @.str.3 = private unnamed_addr constant [33 x i8] c"(&expected_range[5])->start < ra\00", align 1
 @.str.4 = private unnamed_addr constant [39 x i8] c"Adjusting range from %p..%p to %p..%p\0A\00", align 1
 @.str.5 = private unnamed_addr constant [56 x i8] c"(&expected_range[4])->start < (&expected_range[4])->end\00", align 1
@@ -113,441 +105,451 @@ $_ZTIN6google12base_logging12LogStreamBufE = comdat any
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC2EPcil(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, ptr noundef null)
-  %7 = load ptr, ptr %1, align 8
-  store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %0, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %7, i64 -24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
-  store ptr %9, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13)
-          to label %.noexc unwind label %27
+  store ptr %9, ptr %12, align 8, !tbaa !4
+  %13 = load ptr, ptr %0, align 8, !tbaa !4
+  %14 = getelementptr i8, ptr %13, i64 -24
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %16, ptr noundef null)
+  %17 = load ptr, ptr %1, align 8
+  store ptr %17, ptr %0, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr i8, ptr %17, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  store ptr %19, ptr %22, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %23, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false)
+  tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #20
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %23, align 8, !tbaa !4
+  %26 = sext i32 %3 to i64
+  %27 = getelementptr inbounds i8, ptr %2, i64 %26
+  %28 = getelementptr inbounds i8, ptr %27, i64 -2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %2, ptr %29, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %2, ptr %30, align 8, !tbaa !14
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %28, ptr %31, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %4, ptr %32, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %0, ptr %33, align 8, !tbaa !22
+  %34 = load ptr, ptr %0, align 8, !tbaa !4
+  %35 = getelementptr i8, ptr %34, i64 -24
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 %36
+  %38 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %37, ptr noundef nonnull %23)
+          to label %39 unwind label %40
 
-.noexc:                                           ; preds = %5
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %13, align 8
-  %14 = sext i32 %3 to i64
-  %15 = getelementptr inbounds i8, ptr %2, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 -2
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %2, ptr noundef nonnull %16)
-          to label %_ZN6google12base_logging12LogStreamBufC2EPci.exit unwind label %17
-
-17:                                               ; preds = %.noexc
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #15
-  br label %.body
-
-_ZN6google12base_logging12LogStreamBufC2EPci.exit: ; preds = %.noexc
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %4, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %0, ptr %20, align 8
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr i8, ptr %21, i64 -24
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  %25 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %24, ptr noundef nonnull %13)
-          to label %26 unwind label %29
-
-26:                                               ; preds = %_ZN6google12base_logging12LogStreamBufC2EPci.exit
+39:                                               ; preds = %5
   ret void
 
-27:                                               ; preds = %5
-  %28 = landingpad { ptr, i32 }
+40:                                               ; preds = %5
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
-
-29:                                               ; preds = %_ZN6google12base_logging12LogStreamBufC2EPci.exit
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #15
-  br label %.body
-
-.body:                                            ; preds = %27, %17, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ], [ %18, %17 ]
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6) #15
-  resume { ptr, i32 } %.pn
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %23, align 8, !tbaa !4
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #20
+  resume { ptr, i32 } %41
 }
-
-declare void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
 declare noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google12base_logging12LogStreamBufD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
-  ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #3
+declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2 align 2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC1EPcil(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5)
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8), ptr noundef null)
-          to label %6 unwind label %21
+  tail call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store ptr null, ptr %6, align 8, !tbaa !23
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i8 0, ptr %7, align 8, !tbaa !38
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 313
+  store i8 0, ptr %8, align 1, !tbaa !39
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTCN6google10LogMessage9LogStreamE0_So, i64 24), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTCN6google10LogMessage9LogStreamE0_So, i64 64), ptr %5, align 8, !tbaa !4
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef null)
+          to label %10 unwind label %28
 
-6:                                                ; preds = %4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %.noexc unwind label %23
+10:                                               ; preds = %4
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %5, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %11, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
+  tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %11, align 8, !tbaa !4
+  %14 = sext i32 %2 to i64
+  %15 = getelementptr inbounds i8, ptr %1, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 -2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %1, ptr %17, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %1, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %16, ptr %19, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %3, ptr %20, align 8, !tbaa !16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %0, ptr %21, align 8, !tbaa !22
+  %22 = load ptr, ptr %0, align 8, !tbaa !4
+  %23 = getelementptr i8, ptr %22, i64 -24
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 %24
+  %26 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %25, ptr noundef nonnull %11)
+          to label %27 unwind label %30
 
-.noexc:                                           ; preds = %6
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %7, align 8
-  %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds i8, ptr %1, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 -2
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %1, ptr noundef nonnull %10)
-          to label %_ZN6google12base_logging12LogStreamBufC2EPci.exit unwind label %11
-
-11:                                               ; preds = %.noexc
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
-  br label %.body
-
-_ZN6google12base_logging12LogStreamBufC2EPci.exit: ; preds = %.noexc
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %3, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %0, ptr %14, align 8
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr i8, ptr %15, i64 -24
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
-  %19 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %18, ptr noundef nonnull %7)
-          to label %20 unwind label %25
-
-20:                                               ; preds = %_ZN6google12base_logging12LogStreamBufC2EPci.exit
+27:                                               ; preds = %10
   ret void
 
-21:                                               ; preds = %4
-  %22 = landingpad { ptr, i32 }
+28:                                               ; preds = %4
+  %29 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %32
 
-23:                                               ; preds = %6
-  %24 = landingpad { ptr, i32 }
+30:                                               ; preds = %10
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %11, align 8, !tbaa !4
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
+  br label %32
 
-25:                                               ; preds = %_ZN6google12base_logging12LogStreamBufC2EPci.exit
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
-  br label %.body
-
-.body:                                            ; preds = %23, %11, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %12, %11 ]
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
-  br label %27
-
-27:                                               ; preds = %.body, %21
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %22, %21 ]
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #15
+32:                                               ; preds = %30, %28
+  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #20
   resume { ptr, i32 } %.pn.pn
 }
 
-declare void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264)) unnamed_addr #1
-
 ; Function Attrs: nounwind
-declare void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264)) unnamed_addr #3
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #3
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_Z15CheckStackTracei(i32 noundef %0) #0 personality ptr @__gxx_personality_v0 {
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit:
-  %1 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %2 = alloca %"class.std::unique_ptr", align 8
-  %3 = alloca %"class.google::LogMessageFatal", align 8
-  store ptr blockaddress(@_Z15CheckStackTracei, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16
-  store ptr blockaddress(@_Z15CheckStackTracei, %._crit_edge), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), ptr noundef nonnull @.str)
-  %4 = load i64, ptr %2, align 8
-  store i64 %4, ptr %1, align 8
-  store ptr null, ptr %2, align 8
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %5
+; Function Attrs: mustprogress noinline uwtable
+define hidden void @_Z15CheckStackTracei(i32 noundef %0) #4 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %3 = alloca %"class.std::unique_ptr", align 8
+  %4 = alloca %"class.google::LogMessageFatal", align 8
+  store ptr blockaddress(@_Z15CheckStackTracei, %16), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16, !tbaa !40
+  store ptr blockaddress(@_Z15CheckStackTracei, %._crit_edge), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  %5 = icmp ult ptr blockaddress(@_Z15CheckStackTracei, %16), blockaddress(@_Z15CheckStackTracei, %._crit_edge)
+  br i1 %5, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
-5:                                                ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull @.str.1, i32 noundef 216, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %6 unwind label %10
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %1
+  store ptr null, ptr %3, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
 
-6:                                                ; preds = %5
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %8 unwind label %12
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %1
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), ptr noundef nonnull @.str)
+  %.pre = load i64, ptr %3, align 8, !tbaa !44
+  store i64 %.pre, ptr %2, align 8, !tbaa !44
+  store ptr null, ptr %3, align 8, !tbaa !44
+  %.not = icmp eq i64 %.pre, 0
+  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %6
 
-8:                                                ; preds = %6
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #16
-          to label %9 unwind label %10
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  br label %16
 
-9:                                                ; preds = %8
+6:                                                ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str.1, i32 noundef 216, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %7 unwind label %11
+
+7:                                                ; preds = %6
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+          to label %9 unwind label %13
+
+9:                                                ; preds = %7
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
+          to label %10 unwind label %11
+
+10:                                               ; preds = %9
   unreachable
 
-10:                                               ; preds = %8, %5
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %9, %6
+  %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
-  resume { ptr, i32 } %11
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  resume { ptr, i32 } %12
 
-12:                                               ; preds = %6
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %7
+  %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #16
-          to label %14 unwind label %17
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
+          to label %15 unwind label %19
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   unreachable
 
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
-  %15 = icmp sgt i32 %0, -1
-  br i1 %15, label %.lr.ph, label %._crit_edge
+16:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !46
+  %17 = icmp sgt i32 %0, -1
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %.lr.ph
-  %.05 = phi i32 [ %16, %.lr.ph ], [ %0, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit ]
+.lr.ph:                                           ; preds = %16, %.lr.ph
+  %.05 = phi i32 [ %18, %.lr.ph ], [ %0, %16 ]
   call fastcc void @_ZL16CheckStackTrace1i(i32 noundef %.05)
-  %16 = add nsw i32 %.05, -1
-  %.not6 = icmp eq i32 %.05, 0
-  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  %18 = add nsw i32 %.05, -1
+  %.not7 = icmp eq i32 %.05, 0
+  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !8
+._crit_edge:                                      ; preds = %.lr.ph, %16
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !49
   ret void
 
-17:                                               ; preds = %12
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %13
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #17
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #22
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = icmp ult ptr %6, %7
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %4
-  store ptr null, ptr %0, align 8
-  br label %20
-
-10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3), !noalias !9
-  %11 = load ptr, ptr %5, align 8, !noalias !9
-  %12 = load ptr, ptr %1, align 8, !noalias !9
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i unwind label %18, !noalias !9
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i: ; preds = %10
-  %14 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %15 unwind label %18, !noalias !9
-
-15:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i
-  %16 = load ptr, ptr %2, align 8, !noalias !9
-  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %16)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4.i unwind label %18, !noalias !9
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4.i: ; preds = %15
-  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc.exit unwind label %18
-
-18:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4.i, %15, %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i, %10
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  resume { ptr, i32 } %19
-
-_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc.exit: ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4.i
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %20
-
-20:                                               ; preds = %_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc.exit, %9
-  ret void
-}
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #4
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #6
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #17
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !44
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
+  br i1 %.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %3
 
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i: ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %2, align 8, !tbaa !50
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = load i64, ptr %7, align 8, !tbaa !53
+  %9 = icmp ult i64 %8, 16
+  tail call void @llvm.assume(i1 %9)
+  br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %3
+  %10 = load i64, ptr %5, align 8, !tbaa !54
+  %11 = add i64 %10, 1
+  tail call void @_ZdlPvm(ptr noundef %4, i64 noundef %11) #23
+  br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
+
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #23
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
-  store ptr null, ptr %0, align 8
+  store ptr null, ptr %0, align 8, !tbaa !44
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16CheckStackTrace1i(i32 noundef range(i32 0, -2147483648) %0) #0 personality ptr @__gxx_personality_v0 {
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit:
-  %1 = alloca ptr, align 8
-  %2 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %3 = alloca %"class.std::unique_ptr", align 8
-  %4 = alloca %"class.google::LogMessageFatal", align 8
-  %5 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %6 = alloca %"class.std::unique_ptr", align 8
-  %7 = alloca %"class.google::LogMessageFatal", align 8
-  %8 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
-  %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr %2, align 8
-  store ptr null, ptr %3, align 8
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %13
+; Function Attrs: mustprogress noinline uwtable
+define internal fastcc void @_ZL16CheckStackTrace1i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %4 = alloca %"class.std::unique_ptr", align 8
+  %5 = alloca %"class.google::LogMessageFatal", align 8
+  %6 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %7 = alloca %"class.std::unique_ptr", align 8
+  %8 = alloca %"class.google::LogMessageFatal", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  %9 = tail call ptr @llvm.returnaddress(i32 0)
+  store ptr %9, ptr %2, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16, !tbaa !55, !noalias !56
+  %11 = icmp ult ptr %10, %9
+  br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  store ptr null, ptr %2, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8
-  %12 = icmp ugt ptr %10, %11
-  br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %1
+  store ptr null, ptr %4, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
 
-13:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %14 unwind label %18
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %1
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.3)
+  %.pre = load i64, ptr %4, align 8, !tbaa !44
+  store i64 %.pre, ptr %3, align 8, !tbaa !44
+  store ptr null, ptr %4, align 8, !tbaa !44
+  %.not = icmp eq i64 %.pre, 0
+  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %15
 
-14:                                               ; preds = %13
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8, !tbaa !42
+  %14 = icmp ugt ptr %12, %13
+  br i1 %14, label %24, label %28
+
+15:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %16 unwind label %20
 
-16:                                               ; preds = %14
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
-          to label %17 unwind label %18
+16:                                               ; preds = %15
+  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %18 unwind label %22
 
-17:                                               ; preds = %16
+18:                                               ; preds = %16
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
+          to label %19 unwind label %20
+
+19:                                               ; preds = %18
   unreachable
 
-18:                                               ; preds = %16, %13
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-20:                                               ; preds = %14
+20:                                               ; preds = %18, %15
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  br label %44
+
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
+          cleanup
   br label %.invoke
 
-22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16
-  %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
-  %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
+24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16, !tbaa !40
+  %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
+  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8, !tbaa !42
+  br label %28
 
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace1i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace1i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), ptr noundef nonnull @.str.5)
-  %26 = load i64, ptr %6, align 8
-  store i64 %26, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  %.not16 = icmp eq i64 %26, 0
-  br i1 %.not16, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15, label %27
+28:                                               ; preds = %24, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  store ptr blockaddress(@_ZL16CheckStackTrace1i, %40), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16, !tbaa !40
+  store ptr blockaddress(@_ZL16CheckStackTrace1i, %43), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  %29 = icmp ult ptr blockaddress(@_ZL16CheckStackTrace1i, %40), blockaddress(@_ZL16CheckStackTrace1i, %43)
+  br i1 %29, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14, !prof !43
 
-27:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull @.str.1, i32 noundef 197, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %28 unwind label %32
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread: ; preds = %28
+  store ptr null, ptr %7, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
 
-28:                                               ; preds = %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %30 unwind label %34
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14: ; preds = %28
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), ptr noundef nonnull @.str.5)
+  %.pre22 = load i64, ptr %7, align 8, !tbaa !44
+  store i64 %.pre22, ptr %6, align 8, !tbaa !44
+  store ptr null, ptr %7, align 8, !tbaa !44
+  %.not20 = icmp eq i64 %.pre22, 0
+  br i1 %.not20, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19, label %30
 
-30:                                               ; preds = %28
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #16
-          to label %31 unwind label %32
-
-31:                                               ; preds = %30
-  unreachable
-
-32:                                               ; preds = %30, %27
-  %33 = landingpad { ptr, i32 }
-          cleanup
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   br label %40
 
-34:                                               ; preds = %28
-  %35 = landingpad { ptr, i32 }
+30:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull @.str.1, i32 noundef 197, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %31 unwind label %35
+
+31:                                               ; preds = %30
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %31
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
+          to label %34 unwind label %35
+
+34:                                               ; preds = %33
+  unreachable
+
+35:                                               ; preds = %33, %30
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  br label %44
+
+37:                                               ; preds = %31
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %.invoke
 
-.invoke:                                          ; preds = %20, %34
-  %36 = phi ptr [ %7, %34 ], [ %4, %20 ]
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #16
-          to label %.cont unwind label %41
+.invoke:                                          ; preds = %22, %37
+  %39 = phi ptr [ %8, %37 ], [ %5, %22 ]
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #21
+          to label %.cont unwind label %45
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit15: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !12
-  br label %37
+40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !59
+  br label %41
 
-37:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15, %37
-  %.017 = phi i32 [ %0, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15 ], [ %38, %37 ]
-  call fastcc void @_ZL16CheckStackTrace2i(i32 noundef %.017)
-  %38 = add nsw i32 %.017, -1
-  %.not18 = icmp eq i32 %.017, 0
-  br i1 %.not18, label %39, label %37, !llvm.loop !13
+41:                                               ; preds = %40, %41
+  %.021 = phi i32 [ %0, %40 ], [ %42, %41 ]
+  call fastcc void @_ZL16CheckStackTrace2i(i32 noundef %.021)
+  %42 = add nsw i32 %.021, -1
+  %.not25 = icmp eq i32 %.021, 0
+  br i1 %.not25, label %43, label %41, !llvm.loop !60
 
-39:                                               ; preds = %37
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+43:                                               ; preds = %41
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !61
   ret void
 
-40:                                               ; preds = %32, %18
-  %.sink = phi ptr [ %5, %32 ], [ %2, %18 ]
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %19, %18 ]
-  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #15
+44:                                               ; preds = %35, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %36, %35 ]
   resume { ptr, i32 } %.pn
 
-41:                                               ; preds = %.invoke
-  %42 = landingpad { ptr, i32 }
+45:                                               ; preds = %.invoke
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #17
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
-  store i8 1, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1
-  %3 = load ptr, ptr %1, align 8
+define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+  store i8 1, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !62
+  %3 = load ptr, ptr %1, align 8, !tbaa !63
   tail call void @_ZN6google17InitGoogleLoggingEPKc(ptr noundef %3)
   tail call void @_Z15CheckStackTracei(i32 noundef 0)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -557,111 +559,119 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
 declare void @_ZN6google17InitGoogleLoggingEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
-
-; Function Attrs: nounwind
-declare void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
-
-; Function Attrs: nounwind
-declare void @_ZNSoD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
-
-; Function Attrs: nounwind
-declare void @_ZTv0_n24_NSoD1Ev(ptr noundef) unnamed_addr #3
-
-; Function Attrs: nounwind
-declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #15
-  ret void
-}
+declare void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
-  ret void
-}
+declare void @_ZNSoD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2 align 2
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8
+declare void @_ZTv0_n24_NSoD1Ev(ptr noundef) unnamed_addr #12 align 2
+
+; Function Attrs: nounwind uwtable
+declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #12 align 2
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #9 comdat align 2 {
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8, !tbaa !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8, !tbaa !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %3, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #9 comdat align 2 {
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8, !tbaa !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8, !tbaa !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %3, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 352) #23
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #15
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #20
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #15
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %5) #18
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef 352) #23
   ret void
 }
 
-declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
-
-declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google12base_logging12LogStreamBufD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #9 comdat align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #23
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google12base_logging12LogStreamBufD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
-  ret void
-}
+declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEE5imbueERKSt6locale(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2 align 2
 
-declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEE5imbueERKSt6locale(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+declare noundef ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6setbufEPcl(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) unnamed_addr #2 align 2
 
-declare noundef ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6setbufEPcl(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) unnamed_addr #1
+; Function Attrs: mustprogress uwtable
+declare { i64, i64 } @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekoffElSt12_Ios_SeekdirSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, i32 noundef, i32 noundef) unnamed_addr #0 align 2
 
-declare { i64, i64 } @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekoffElSt12_Ios_SeekdirSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, i32 noundef, i32 noundef) unnamed_addr #1
+; Function Attrs: mustprogress uwtable
+declare { i64, i64 } @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekposESt4fposI11__mbstate_tESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(64), i64, i64, i32 noundef) unnamed_addr #0 align 2
 
-declare { i64, i64 } @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekposESt4fposI11__mbstate_tESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(64), i64, i64, i32 noundef) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE4syncEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2 align 2
 
-declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE4syncEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
-
-declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9showmanycEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9showmanycEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2 align 2
 
 declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsgetnEPcl(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) unnamed_addr #1
 
-declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9underflowEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9underflowEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2 align 2
 
-declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5uflowEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
+; Function Attrs: mustprogress uwtable
+declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5uflowEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0 align 2
 
-declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9pbackfailEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9pbackfailEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) unnamed_addr #2 align 2
 
 declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) unnamed_addr #1
 
@@ -670,188 +680,216 @@ define linkonce_odr hidden noundef i32 @_ZN6google12base_logging12LogStreamBuf8o
   ret i32 %1
 }
 
+; Function Attrs: nounwind
+declare void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+
+; Function Attrs: nounwind
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.returnaddress(i32 immarg) #11
+declare ptr @llvm.returnaddress(i32 immarg) #16
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = icmp ult ptr %6, %7
-  br i1 %8, label %9, label %10
+; Function Attrs: mustprogress noinline uwtable
+define internal fastcc void @_ZL16CheckStackTrace2i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %4 = alloca %"class.std::unique_ptr", align 8
+  %5 = alloca %"class.google::LogMessageFatal", align 8
+  %6 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %7 = alloca %"class.std::unique_ptr", align 8
+  %8 = alloca %"class.google::LogMessageFatal", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  %9 = tail call ptr @llvm.returnaddress(i32 0)
+  store ptr %9, ptr %2, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16, !tbaa !55, !noalias !64
+  %11 = icmp ult ptr %10, %9
+  br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
-9:                                                ; preds = %4
-  store ptr null, ptr %0, align 8
-  br label %20
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %1
+  store ptr null, ptr %4, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
 
-10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3), !noalias !15
-  %11 = load ptr, ptr %5, align 8, !noalias !15
-  %12 = load ptr, ptr %1, align 8, !noalias !15
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i unwind label %18, !noalias !15
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %1
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.6)
+  %.pre = load i64, ptr %4, align 8, !tbaa !44
+  store i64 %.pre, ptr %3, align 8, !tbaa !44
+  store ptr null, ptr %4, align 8, !tbaa !44
+  %.not = icmp eq i64 %.pre, 0
+  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %15
 
-_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i: ; preds = %10
-  %14 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %15 unwind label %18, !noalias !15
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8, !tbaa !42
+  %14 = icmp ugt ptr %12, %13
+  br i1 %14, label %24, label %28
 
-15:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i
-  %16 = load ptr, ptr %2, align 8, !noalias !15
-  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %16)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i unwind label %18, !noalias !15
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i: ; preds = %15
-  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit unwind label %18
-
-18:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i, %15, %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i, %10
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  resume { ptr, i32 } %19
-
-_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit: ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %20
-
-20:                                               ; preds = %_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit, %9
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16CheckStackTrace2i(i32 noundef range(i32 0, -2147483648) %0) #0 personality ptr @__gxx_personality_v0 {
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit:
-  %1 = alloca ptr, align 8
-  %2 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %3 = alloca %"class.std::unique_ptr", align 8
-  %4 = alloca %"class.google::LogMessageFatal", align 8
-  %5 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %6 = alloca %"class.std::unique_ptr", align 8
-  %7 = alloca %"class.google::LogMessageFatal", align 8
-  %8 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6)
-  %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr %2, align 8
-  store ptr null, ptr %3, align 8
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %13
-
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  store ptr null, ptr %2, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8
-  %12 = icmp ugt ptr %10, %11
-  br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
-
-13:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %14 unwind label %18
-
-14:                                               ; preds = %13
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+15:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %16 unwind label %20
 
-16:                                               ; preds = %14
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
-          to label %17 unwind label %18
+16:                                               ; preds = %15
+  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %18 unwind label %22
 
-17:                                               ; preds = %16
+18:                                               ; preds = %16
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
+          to label %19 unwind label %20
+
+19:                                               ; preds = %18
   unreachable
 
-18:                                               ; preds = %16, %13
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-20:                                               ; preds = %14
+20:                                               ; preds = %18, %15
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  br label %44
+
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
+          cleanup
   br label %.invoke
 
-22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16
-  %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
-  %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
+24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16, !tbaa !40
+  %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
+  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8, !tbaa !42
+  br label %28
 
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace2i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace2i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), ptr noundef nonnull @.str.7)
-  %26 = load i64, ptr %6, align 8
-  store i64 %26, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  %.not16 = icmp eq i64 %26, 0
-  br i1 %.not16, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15, label %27
+28:                                               ; preds = %24, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  store ptr blockaddress(@_ZL16CheckStackTrace2i, %40), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16, !tbaa !40
+  store ptr blockaddress(@_ZL16CheckStackTrace2i, %43), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  %29 = icmp ult ptr blockaddress(@_ZL16CheckStackTrace2i, %40), blockaddress(@_ZL16CheckStackTrace2i, %43)
+  br i1 %29, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14, !prof !43
 
-27:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %28 unwind label %32
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread: ; preds = %28
+  store ptr null, ptr %7, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
 
-28:                                               ; preds = %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %30 unwind label %34
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14: ; preds = %28
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), ptr noundef nonnull @.str.7)
+  %.pre22 = load i64, ptr %7, align 8, !tbaa !44
+  store i64 %.pre22, ptr %6, align 8, !tbaa !44
+  store ptr null, ptr %7, align 8, !tbaa !44
+  %.not20 = icmp eq i64 %.pre22, 0
+  br i1 %.not20, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19, label %30
 
-30:                                               ; preds = %28
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #16
-          to label %31 unwind label %32
-
-31:                                               ; preds = %30
-  unreachable
-
-32:                                               ; preds = %30, %27
-  %33 = landingpad { ptr, i32 }
-          cleanup
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   br label %40
 
-34:                                               ; preds = %28
-  %35 = landingpad { ptr, i32 }
+30:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %31 unwind label %35
+
+31:                                               ; preds = %30
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %31
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
+          to label %34 unwind label %35
+
+34:                                               ; preds = %33
+  unreachable
+
+35:                                               ; preds = %33, %30
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  br label %44
+
+37:                                               ; preds = %31
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %.invoke
 
-.invoke:                                          ; preds = %20, %34
-  %36 = phi ptr [ %7, %34 ], [ %4, %20 ]
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #16
-          to label %.cont unwind label %41
+.invoke:                                          ; preds = %22, %37
+  %39 = phi ptr [ %8, %37 ], [ %5, %22 ]
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #21
+          to label %.cont unwind label %45
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit15: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
-  br label %37
+40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !67
+  br label %41
 
-37:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15, %37
-  %.017 = phi i32 [ %0, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15 ], [ %38, %37 ]
-  call fastcc void @_ZL16CheckStackTrace3i(i32 noundef %.017)
-  %38 = add nsw i32 %.017, -1
-  %.not18 = icmp eq i32 %.017, 0
-  br i1 %.not18, label %39, label %37, !llvm.loop !19
+41:                                               ; preds = %40, %41
+  %.021 = phi i32 [ %0, %40 ], [ %42, %41 ]
+  call fastcc void @_ZL16CheckStackTrace3i(i32 noundef %.021)
+  %42 = add nsw i32 %.021, -1
+  %.not25 = icmp eq i32 %.021, 0
+  br i1 %.not25, label %43, label %41, !llvm.loop !68
 
-39:                                               ; preds = %37
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !20
+43:                                               ; preds = %41
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !69
   ret void
 
-40:                                               ; preds = %32, %18
-  %.sink = phi ptr [ %5, %32 ], [ %2, %18 ]
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %19, %18 ]
-  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #15
+44:                                               ; preds = %35, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %36, %35 ]
   resume { ptr, i32 } %.pn
 
-41:                                               ; preds = %.invoke
-  %42 = landingpad { ptr, i32 }
+45:                                               ; preds = %.invoke
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #17
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #22
   unreachable
+}
+
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
+  %7 = load ptr, ptr %1, align 8, !tbaa !55
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit unwind label %14
+
+_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit: ; preds = %4
+  %9 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %10 unwind label %14
+
+10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit
+  %11 = load ptr, ptr %2, align 8, !tbaa !55
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit unwind label %14
+
+_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit: ; preds = %10
+  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  ret void
+
+14:                                               ; preds = %10, %4, %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit, %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  resume { ptr, i32 } %15
 }
 
 declare void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #1
@@ -863,322 +901,116 @@ declare void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx1
 ; Function Attrs: nounwind
 declare void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16CheckStackTrace3i(i32 noundef range(i32 0, -2147483648) %0) #0 personality ptr @__gxx_personality_v0 {
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit:
-  %1 = alloca ptr, align 8
-  %2 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %3 = alloca %"class.std::unique_ptr", align 8
-  %4 = alloca %"class.google::LogMessageFatal", align 8
-  %5 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %6 = alloca %"class.std::unique_ptr", align 8
-  %7 = alloca %"class.google::LogMessageFatal", align 8
-  %8 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8)
-  %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr %2, align 8
-  store ptr null, ptr %3, align 8
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %13
+; Function Attrs: mustprogress noinline uwtable
+define internal fastcc void @_ZL16CheckStackTrace3i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %4 = alloca %"class.std::unique_ptr", align 8
+  %5 = alloca %"class.google::LogMessageFatal", align 8
+  %6 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %7 = alloca %"class.std::unique_ptr", align 8
+  %8 = alloca %"class.google::LogMessageFatal", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  %9 = tail call ptr @llvm.returnaddress(i32 0)
+  store ptr %9, ptr %2, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16, !tbaa !55, !noalias !73
+  %11 = icmp ult ptr %10, %9
+  br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  store ptr null, ptr %2, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8
-  %12 = icmp ugt ptr %10, %11
-  br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %1
+  store ptr null, ptr %4, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
 
-13:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %14 unwind label %18
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %1
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.8)
+  %.pre = load i64, ptr %4, align 8, !tbaa !44
+  store i64 %.pre, ptr %3, align 8, !tbaa !44
+  store ptr null, ptr %4, align 8, !tbaa !44
+  %.not = icmp eq i64 %.pre, 0
+  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %15
 
-14:                                               ; preds = %13
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8, !tbaa !42
+  %14 = icmp ugt ptr %12, %13
+  br i1 %14, label %24, label %28
+
+15:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %16 unwind label %20
 
-16:                                               ; preds = %14
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
-          to label %17 unwind label %18
+16:                                               ; preds = %15
+  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %18 unwind label %22
 
-17:                                               ; preds = %16
+18:                                               ; preds = %16
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
+          to label %19 unwind label %20
+
+19:                                               ; preds = %18
   unreachable
 
-18:                                               ; preds = %16, %13
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-20:                                               ; preds = %14
+20:                                               ; preds = %18, %15
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  br label %44
+
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
+          cleanup
   br label %.invoke
 
-22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16
-  %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
-  %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
+24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16, !tbaa !40
+  %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
+  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8, !tbaa !42
+  br label %28
 
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace3i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace3i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), ptr noundef nonnull @.str.9)
-  %26 = load i64, ptr %6, align 8
-  store i64 %26, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  %.not16 = icmp eq i64 %26, 0
-  br i1 %.not16, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15, label %27
+28:                                               ; preds = %24, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  store ptr blockaddress(@_ZL16CheckStackTrace3i, %40), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16, !tbaa !40
+  store ptr blockaddress(@_ZL16CheckStackTrace3i, %43), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  %29 = icmp ult ptr blockaddress(@_ZL16CheckStackTrace3i, %40), blockaddress(@_ZL16CheckStackTrace3i, %43)
+  br i1 %29, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14, !prof !43
 
-27:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %28 unwind label %32
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread: ; preds = %28
+  store ptr null, ptr %7, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
 
-28:                                               ; preds = %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %30 unwind label %34
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14: ; preds = %28
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), ptr noundef nonnull @.str.9)
+  %.pre22 = load i64, ptr %7, align 8, !tbaa !44
+  store i64 %.pre22, ptr %6, align 8, !tbaa !44
+  store ptr null, ptr %7, align 8, !tbaa !44
+  %.not20 = icmp eq i64 %.pre22, 0
+  br i1 %.not20, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19, label %30
 
-30:                                               ; preds = %28
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #16
-          to label %31 unwind label %32
-
-31:                                               ; preds = %30
-  unreachable
-
-32:                                               ; preds = %30, %27
-  %33 = landingpad { ptr, i32 }
-          cleanup
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   br label %40
 
-34:                                               ; preds = %28
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  br label %.invoke
-
-.invoke:                                          ; preds = %20, %34
-  %36 = phi ptr [ %7, %34 ], [ %4, %20 ]
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #16
-          to label %.cont unwind label %41
-
-.cont:                                            ; preds = %.invoke
-  unreachable
-
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit15: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
-  br label %37
-
-37:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15, %37
-  %.017 = phi i32 [ %0, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15 ], [ %38, %37 ]
-  call fastcc void @_ZL16CheckStackTrace4i(i32 noundef %.017)
-  %38 = add nsw i32 %.017, -1
-  %.not18 = icmp eq i32 %.017, 0
-  br i1 %.not18, label %39, label %37, !llvm.loop !22
-
-39:                                               ; preds = %37
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
-  ret void
-
-40:                                               ; preds = %32, %18
-  %.sink = phi ptr [ %5, %32 ], [ %2, %18 ]
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %19, %18 ]
-  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #15
-  resume { ptr, i32 } %.pn
-
-41:                                               ; preds = %.invoke
-  %42 = landingpad { ptr, i32 }
-          catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #17
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16CheckStackTrace4i(i32 noundef range(i32 0, -2147483648) %0) #0 personality ptr @__gxx_personality_v0 {
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit:
-  %1 = alloca ptr, align 8
-  %2 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %3 = alloca %"class.std::unique_ptr", align 8
-  %4 = alloca %"class.google::LogMessageFatal", align 8
-  %5 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %6 = alloca %"class.std::unique_ptr", align 8
-  %7 = alloca %"class.google::LogMessageFatal", align 8
-  %8 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.10)
-  %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr %2, align 8
-  store ptr null, ptr %3, align 8
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %13
-
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  store ptr null, ptr %2, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8
-  %12 = icmp ugt ptr %10, %11
-  br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11
-
-13:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str.1, i32 noundef 169, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %14 unwind label %18
-
-14:                                               ; preds = %13
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
-          to label %16 unwind label %20
-
-16:                                               ; preds = %14
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
-          to label %17 unwind label %18
-
-17:                                               ; preds = %16
-  unreachable
-
-18:                                               ; preds = %16, %13
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-20:                                               ; preds = %14
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  br label %.invoke
-
-22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16
-  %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
-  %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11
-
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace4i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit14), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace4i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), ptr noundef nonnull @.str.11)
-  %26 = load i64, ptr %6, align 8
-  store i64 %26, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  %.not15 = icmp eq i64 %26, 0
-  br i1 %.not15, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit14, label %27
-
-27:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %28 unwind label %32
-
-28:                                               ; preds = %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %30 unwind label %34
-
-30:                                               ; preds = %28
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #16
-          to label %31 unwind label %32
-
-31:                                               ; preds = %30
-  unreachable
-
-32:                                               ; preds = %30, %27
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-34:                                               ; preds = %28
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  br label %.invoke
-
-.invoke:                                          ; preds = %20, %34
-  %36 = phi ptr [ %7, %34 ], [ %4, %20 ]
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #16
-          to label %.cont unwind label %41
-
-.cont:                                            ; preds = %.invoke
-  unreachable
-
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit14: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
-  br label %37
-
-37:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit14, %37
-  %.016 = phi i32 [ %0, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit14 ], [ %38, %37 ]
-  call fastcc void @_ZL19CheckStackTraceLeafv()
-  %38 = add nsw i32 %.016, -1
-  %.not17 = icmp eq i32 %.016, 0
-  br i1 %.not17, label %39, label %37, !llvm.loop !25
-
-39:                                               ; preds = %37
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !26
-  ret void
-
-40:                                               ; preds = %32, %18
-  %.sink = phi ptr [ %5, %32 ], [ %2, %18 ]
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %19, %18 ]
-  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #15
-  resume { ptr, i32 } %.pn
-
-41:                                               ; preds = %.invoke
-  %42 = landingpad { ptr, i32 }
-          catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #17
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19CheckStackTraceLeafv() #0 personality ptr @__gxx_personality_v0 {
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit:
-  %0 = alloca ptr, align 8
-  %1 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %2 = alloca %"class.std::unique_ptr", align 8
-  %3 = alloca %"class.google::LogMessageFatal", align 8
-  %4 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %5 = alloca %"class.std::unique_ptr", align 8
-  %6 = alloca %"class.google::LogMessageFatal", align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca i32, align 4
-  %11 = alloca [10 x ptr], align 16
-  %12 = alloca ptr, align 8
-  %13 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %14 = alloca %"class.std::unique_ptr", align 8
-  %15 = alloca %"class.google::LogMessageFatal", align 8
-  %16 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %17 = alloca %"class.std::unique_ptr", align 8
-  %18 = alloca %"class.google::LogMessageFatal", align 8
-  %19 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %20 = alloca %"class.std::unique_ptr", align 8
-  %21 = alloca %"class.google::LogMessageFatal", align 8
-  %22 = alloca %"struct.google::logging::internal::CheckOpString", align 8
-  %23 = alloca %"class.std::unique_ptr", align 8
-  %24 = alloca %"class.google::LogMessageFatal", align 8
-  %25 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %25, ptr %12, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.12)
-  %26 = load i64, ptr %14, align 8
-  store i64 %26, ptr %13, align 8
-  store ptr null, ptr %14, align 8
-  %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %30
-
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  store ptr null, ptr %13, align 8
-  %27 = load ptr, ptr %12, align 8
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8
-  %29 = icmp ugt ptr %27, %28
-  br i1 %29, label %39, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29
-
-30:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull @.str.1, i32 noundef 130, ptr noundef nonnull align 8 dereferenceable(8) %13)
+30:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit14
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %31 unwind label %35
 
 31:                                               ; preds = %30
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %33 unwind label %37
 
 33:                                               ; preds = %31
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #16
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
           to label %34 unwind label %35
 
 34:                                               ; preds = %33
@@ -1187,306 +1019,664 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
 35:                                               ; preds = %33, %30
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  br label %44
 
 37:                                               ; preds = %31
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %.invoke
 
-39:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16
-  %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %40, ptr noundef %28, ptr noundef %40, ptr noundef nonnull %27)
-  %42 = load ptr, ptr %12, align 8
-  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29
-
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %39
-  store ptr blockaddress(@_ZL19CheckStackTraceLeafv, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit35), ptr @expected_range, align 16
-  store ptr blockaddress(@_ZL19CheckStackTraceLeafv, %121), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 8), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) @expected_range, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 8), ptr noundef nonnull @.str.13)
-  %43 = load i64, ptr %17, align 8
-  store i64 %43, ptr %16, align 8
-  store ptr null, ptr %17, align 8
-  %.not46 = icmp eq i64 %43, 0
-  br i1 %.not46, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit32, label %44
-
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit32: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29
-  store ptr null, ptr %16, align 8
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit35
-
-44:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %45 unwind label %49
-
-45:                                               ; preds = %44
-  %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %18)
-          to label %47 unwind label %51
-
-47:                                               ; preds = %45
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #16
-          to label %48 unwind label %49
-
-48:                                               ; preds = %47
-  unreachable
-
-49:                                               ; preds = %47, %44
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-51:                                               ; preds = %45
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  br label %.invoke
-
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit35: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit32
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !27
-  %53 = call noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef nonnull %11, i32 noundef 10, i32 noundef 0)
-  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %53)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  store i32 %53, ptr %9, align 4, !noalias !28
-  store i32 1, ptr %10, align 4, !noalias !28
-  call void @_ZN6google7logging8internal12Check_GEImplIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %20, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull @.str.15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %55 = load i64, ptr %20, align 8
-  store i64 %55, ptr %19, align 8
-  store ptr null, ptr %20, align 8
-  %.not47 = icmp eq i64 %55, 0
-  br i1 %.not47, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit41, label %57
-
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit41: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit35
-  store ptr null, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  store i32 %53, ptr %7, align 4, !noalias !31
-  store i32 10, ptr %8, align 4, !noalias !31
-  call void @_ZN6google7logging8internal12Check_LEImplIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %23, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull @.str.16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %56 = load i64, ptr %23, align 8
-  store i64 %56, ptr %22, align 8
-  store ptr null, ptr %23, align 8
-  %.not48 = icmp eq i64 %56, 0
-  br i1 %.not48, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit44, label %69
-
-57:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit35
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull @.str.1, i32 noundef 135, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %58 unwind label %62
-
-58:                                               ; preds = %57
-  %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %21)
-          to label %60 unwind label %64
-
-60:                                               ; preds = %58
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #16
-          to label %61 unwind label %62
-
-61:                                               ; preds = %60
-  unreachable
-
-62:                                               ; preds = %60, %57
-  %63 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-64:                                               ; preds = %58
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  br label %.invoke
-
-_ZN6google7logging8internal13CheckOpStringD2Ev.exit44: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit41
-  store ptr null, ptr %22, align 8
-  %66 = call ptr @backtrace_symbols(ptr noundef nonnull %11, i32 noundef %53) #15
-  %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %53)
-  %68 = icmp sgt i32 %53, 0
-  br i1 %68, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit44
-  %wide.trip.count = zext nneg i32 %53 to i64
-  br label %.lr.ph
-
-69:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit41
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %70 unwind label %74
-
-70:                                               ; preds = %69
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %24)
-          to label %72 unwind label %76
-
-72:                                               ; preds = %70
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #16
-          to label %73 unwind label %74
-
-73:                                               ; preds = %72
-  unreachable
-
-74:                                               ; preds = %72, %69
-  %75 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-76:                                               ; preds = %70
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  br label %.invoke
-
-.invoke:                                          ; preds = %37, %51, %64, %76
-  %78 = phi ptr [ %24, %76 ], [ %21, %64 ], [ %18, %51 ], [ %15, %37 ]
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %78) #16
-          to label %.cont unwind label %122
+.invoke:                                          ; preds = %22, %37
+  %39 = phi ptr [ %8, %37 ], [ %5, %22 ]
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #21
+          to label %.cont unwind label %45
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
+40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !76
+  br label %41
+
+41:                                               ; preds = %40, %41
+  %.021 = phi i32 [ %0, %40 ], [ %42, %41 ]
+  call fastcc void @_ZL16CheckStackTrace4i(i32 noundef %.021)
+  %42 = add nsw i32 %.021, -1
+  %.not25 = icmp eq i32 %.021, 0
+  br i1 %.not25, label %43, label %41, !llvm.loop !77
+
+43:                                               ; preds = %41
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !78
+  ret void
+
+44:                                               ; preds = %35, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %36, %35 ]
+  resume { ptr, i32 } %.pn
+
+45:                                               ; preds = %.invoke
+  %46 = landingpad { ptr, i32 }
+          catch ptr null
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #22
+  unreachable
+}
+
+; Function Attrs: mustprogress noinline uwtable
+define internal fastcc void @_ZL16CheckStackTrace4i(i32 noundef range(i32 0, -2147483648) %0) #4 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %4 = alloca %"class.std::unique_ptr", align 8
+  %5 = alloca %"class.google::LogMessageFatal", align 8
+  %6 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %7 = alloca %"class.std::unique_ptr", align 8
+  %8 = alloca %"class.google::LogMessageFatal", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  %9 = tail call ptr @llvm.returnaddress(i32 0)
+  store ptr %9, ptr %2, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16, !tbaa !55, !noalias !79
+  %11 = icmp ult ptr %10, %9
+  br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %1
+  store ptr null, ptr %4, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %1
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.10)
+  %.pre = load i64, ptr %4, align 8, !tbaa !44
+  store i64 %.pre, ptr %3, align 8, !tbaa !44
+  store ptr null, ptr %4, align 8, !tbaa !44
+  %.not = icmp eq i64 %.pre, 0
+  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %15
+
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8, !tbaa !42
+  %14 = icmp ugt ptr %12, %13
+  br i1 %14, label %24, label %28
+
+15:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull @.str.1, i32 noundef 169, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %16 unwind label %20
+
+16:                                               ; preds = %15
+  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %18 unwind label %22
+
+18:                                               ; preds = %16
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
+          to label %19 unwind label %20
+
+19:                                               ; preds = %18
+  unreachable
+
+20:                                               ; preds = %18, %15
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  br label %44
+
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %.invoke
+
+24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16, !tbaa !40
+  %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
+  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8, !tbaa !42
+  br label %28
+
+28:                                               ; preds = %24, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  store ptr blockaddress(@_ZL16CheckStackTrace4i, %40), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16, !tbaa !40
+  store ptr blockaddress(@_ZL16CheckStackTrace4i, %43), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  %29 = icmp ult ptr blockaddress(@_ZL16CheckStackTrace4i, %40), blockaddress(@_ZL16CheckStackTrace4i, %43)
+  br i1 %29, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit13.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit13, !prof !43
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit13.thread: ; preds = %28
+  store ptr null, ptr %7, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit18
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit13: ; preds = %28
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), ptr noundef nonnull @.str.11)
+  %.pre21 = load i64, ptr %7, align 8, !tbaa !44
+  store i64 %.pre21, ptr %6, align 8, !tbaa !44
+  store ptr null, ptr %7, align 8, !tbaa !44
+  %.not19 = icmp eq i64 %.pre21, 0
+  br i1 %.not19, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit18, label %30
+
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit18: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit13.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  br label %40
+
+30:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit13
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %31 unwind label %35
+
+31:                                               ; preds = %30
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %31
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
+          to label %34 unwind label %35
+
+34:                                               ; preds = %33
+  unreachable
+
+35:                                               ; preds = %33, %30
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  br label %44
+
+37:                                               ; preds = %31
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  br label %.invoke
+
+.invoke:                                          ; preds = %22, %37
+  %39 = phi ptr [ %8, %37 ], [ %5, %22 ]
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #21
+          to label %.cont unwind label %45
+
+.cont:                                            ; preds = %.invoke
+  unreachable
+
+40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit18
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !82
+  br label %41
+
+41:                                               ; preds = %40, %41
+  %.020 = phi i32 [ %0, %40 ], [ %42, %41 ]
+  call fastcc void @_ZL19CheckStackTraceLeafv()
+  %42 = add nsw i32 %.020, -1
+  %.not24 = icmp eq i32 %.020, 0
+  br i1 %.not24, label %43, label %41, !llvm.loop !83
+
+43:                                               ; preds = %41
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !84
+  ret void
+
+44:                                               ; preds = %35, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %36, %35 ]
+  resume { ptr, i32 } %.pn
+
+45:                                               ; preds = %.invoke
+  %46 = landingpad { ptr, i32 }
+          catch ptr null
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #22
+  unreachable
+}
+
+; Function Attrs: mustprogress noinline uwtable
+define internal fastcc void @_ZL19CheckStackTraceLeafv() #4 personality ptr @__gxx_personality_v0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %3 = alloca %"class.std::unique_ptr", align 8
+  %4 = alloca %"class.google::LogMessageFatal", align 8
+  %5 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %6 = alloca %"class.std::unique_ptr", align 8
+  %7 = alloca %"class.google::LogMessageFatal", align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca [10 x ptr], align 16
+  %13 = alloca ptr, align 8
+  %14 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %15 = alloca %"class.std::unique_ptr", align 8
+  %16 = alloca %"class.google::LogMessageFatal", align 8
+  %17 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %18 = alloca %"class.std::unique_ptr", align 8
+  %19 = alloca %"class.google::LogMessageFatal", align 8
+  %20 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %21 = alloca %"class.std::unique_ptr", align 8
+  %22 = alloca %"class.google::LogMessageFatal", align 8
+  %23 = alloca %"struct.google::logging::internal::CheckOpString", align 8
+  %24 = alloca %"class.std::unique_ptr", align 8
+  %25 = alloca %"class.google::LogMessageFatal", align 8
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #20
+  %26 = tail call ptr @llvm.returnaddress(i32 0)
+  store ptr %26, ptr %13, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #20
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16, !tbaa !55, !noalias !85
+  %28 = icmp ult ptr %27, %26
+  br i1 %28, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %0
+  store ptr null, ptr %15, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %0
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.12)
+  %.pre = load i64, ptr %15, align 8, !tbaa !44
+  store i64 %.pre, ptr %14, align 8, !tbaa !44
+  store ptr null, ptr %15, align 8, !tbaa !44
+  %.not = icmp eq i64 %.pre, 0
+  br i1 %.not, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, label %32
+
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #20
+  %29 = load ptr, ptr %13, align 8, !tbaa !55
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8, !tbaa !42
+  %31 = icmp ugt ptr %29, %30
+  br i1 %31, label %41, label %45
+
+32:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull @.str.1, i32 noundef 130, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %32
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %16)
+          to label %35 unwind label %39
+
+35:                                               ; preds = %33
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #21
+          to label %36 unwind label %37
+
+36:                                               ; preds = %35
+  unreachable
+
+37:                                               ; preds = %35, %32
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #20
+  br label %125
+
+39:                                               ; preds = %33
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  br label %.invoke
+
+41:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16, !tbaa !40
+  %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %42, ptr noundef %30, ptr noundef %42, ptr noundef nonnull %29)
+  %44 = load ptr, ptr %13, align 8, !tbaa !55
+  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8, !tbaa !42
+  br label %45
+
+45:                                               ; preds = %41, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #20
+  store ptr blockaddress(@_ZL19CheckStackTraceLeafv, %56), ptr @expected_range, align 16, !tbaa !40
+  store ptr blockaddress(@_ZL19CheckStackTraceLeafv, %124), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 8), align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #20
+  %46 = icmp ult ptr blockaddress(@_ZL19CheckStackTraceLeafv, %56), blockaddress(@_ZL19CheckStackTraceLeafv, %124)
+  br i1 %46, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit31.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit31, !prof !43
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit31.thread: ; preds = %45
+  store ptr null, ptr %18, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit36
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit31: ; preds = %45
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) @expected_range, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 8), ptr noundef nonnull @.str.13)
+  %.pre71 = load i64, ptr %18, align 8, !tbaa !44
+  store i64 %.pre71, ptr %17, align 8, !tbaa !44
+  store ptr null, ptr %18, align 8, !tbaa !44
+  %.not61 = icmp eq i64 %.pre71, 0
+  br i1 %.not61, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit36, label %47
+
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit36: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit31.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit31
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #20
+  br label %56
+
+47:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit31
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %48 unwind label %52
+
+48:                                               ; preds = %47
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
+          to label %50 unwind label %54
+
+50:                                               ; preds = %48
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #21
+          to label %51 unwind label %52
+
+51:                                               ; preds = %50
+  unreachable
+
+52:                                               ; preds = %50, %47
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #20
+  br label %125
+
+54:                                               ; preds = %48
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  br label %.invoke
+
+56:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit36
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !88
+  %57 = call noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef nonnull %12, i32 noundef 10, i32 noundef 0)
+  %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %57)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  store i32 %57, ptr %10, align 4, !tbaa !89, !noalias !90
+  store i32 1, ptr %11, align 4, !tbaa !89, !noalias !90
+  %.not.i.i37 = icmp slt i32 %57, 1
+  br i1 %.not.i.i37, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47, !prof !93
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42: ; preds = %56
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %21, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull @.str.15)
+  %.pre72 = load i64, ptr %21, align 8, !tbaa !44
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  store i64 %.pre72, ptr %20, align 8, !tbaa !44
+  store ptr null, ptr %21, align 8, !tbaa !44
+  %.not62 = icmp eq i64 %.pre72, 0
+  br i1 %.not62, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47.thread, label %59
+
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit47.thread: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53.thread
+
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit47: ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  store ptr null, ptr %21, align 8, !tbaa !44
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  store i32 %57, ptr %8, align 4, !tbaa !89, !noalias !94
+  store i32 10, ptr %9, align 4, !tbaa !89, !noalias !94
+  %.not.i.i48 = icmp samesign ugt i32 %57, 10
+  br i1 %.not.i.i48, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53.thread, !prof !97
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53.thread: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47.thread
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  store ptr null, ptr %24, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit58
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %24, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull @.str.16)
+  %.pre73 = load i64, ptr %24, align 8, !tbaa !44
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  store i64 %.pre73, ptr %23, align 8, !tbaa !44
+  store ptr null, ptr %24, align 8, !tbaa !44
+  %.not63 = icmp eq i64 %.pre73, 0
+  br i1 %.not63, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit58, label %71
+
+59:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull @.str.1, i32 noundef 135, ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %60 unwind label %64
+
+60:                                               ; preds = %59
+  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
+          to label %62 unwind label %66
+
+62:                                               ; preds = %60
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #21
+          to label %63 unwind label %64
+
+63:                                               ; preds = %62
+  unreachable
+
+64:                                               ; preds = %62, %59
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #20
+  br label %125
+
+66:                                               ; preds = %60
+  %67 = landingpad { ptr, i32 }
+          cleanup
+  br label %.invoke
+
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit58: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #20
+  %68 = call ptr @backtrace_symbols(ptr noundef nonnull %12, i32 noundef %57) #20
+  %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %57)
+  %70 = icmp sgt i32 %57, 0
+  br i1 %70, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit58
+  %wide.trip.count = zext nneg i32 %57 to i64
+  br label %.lr.ph
+
+71:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %72 unwind label %76
+
+72:                                               ; preds = %71
+  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %25)
+          to label %74 unwind label %78
+
+74:                                               ; preds = %72
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #21
+          to label %75 unwind label %76
+
+75:                                               ; preds = %74
+  unreachable
+
+76:                                               ; preds = %74, %71
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #20
+  br label %125
+
+78:                                               ; preds = %72
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  br label %.invoke
+
+.invoke:                                          ; preds = %39, %54, %66, %78
+  %80 = phi ptr [ %25, %78 ], [ %22, %66 ], [ %19, %54 ], [ %16, %39 ]
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %80) #21
+          to label %.cont unwind label %126
+
+.cont:                                            ; preds = %.invoke
+  unreachable
+
+._crit_edge:                                      ; preds = %.lr.ph, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit58
+  %81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef nonnull @_Z15CheckStackTracei)
+  call void @free(ptr noundef %68) #20
+  br label %87
+
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %79 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv
-  %82 = load ptr, ptr %81, align 8
-  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %80, ptr noundef %82)
+  %82 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %83 = load ptr, ptr %82, align 8, !tbaa !63
+  %84 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %85 = load ptr, ptr %84, align 8, !tbaa !55
+  %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %83, ptr noundef %85)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit44
-  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef nonnull @_Z15CheckStackTracei)
-  call void @free(ptr noundef %66) #15
-  br label %85
-
-85:                                               ; preds = %._crit_edge, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit
-  %indvars.iv52 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next53, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit ]
-  %86 = getelementptr inbounds nuw [6 x %struct.AddressRange], ptr @expected_range, i64 0, i64 %indvars.iv52
-  %87 = load ptr, ptr %86, align 16
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv52
-  %91 = load ptr, ptr %90, align 8
-  %92 = trunc nuw nsw i64 %indvars.iv52 to i32
-  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %92, ptr noundef %87, ptr noundef %89, ptr noundef %91)
-  %94 = load ptr, ptr @stdout, align 8
-  %95 = call i32 @fflush(ptr noundef %94)
-  %96 = load ptr, ptr %90, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0)
+87:                                               ; preds = %._crit_edge, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit
+  %indvars.iv67 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next68, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit ]
+  %88 = getelementptr inbounds nuw [6 x %struct.AddressRange], ptr @expected_range, i64 0, i64 %indvars.iv67
+  %89 = load ptr, ptr %88, align 16, !tbaa !40
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !42
+  %92 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv67
+  %93 = load ptr, ptr %92, align 8, !tbaa !55
+  %94 = trunc nuw nsw i64 %indvars.iv67 to i32
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %94, ptr noundef %89, ptr noundef %91, ptr noundef %93)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !99
+  %97 = call i32 @fflush(ptr noundef %96)
+  %98 = load ptr, ptr %92, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
-  store ptr %96, ptr %0, align 8
-  call void @_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull @.str.21)
-  %97 = load i64, ptr %2, align 8
-  store i64 %97, ptr %1, align 8
-  store ptr null, ptr %2, align 8
-  %.not.i45 = icmp eq i64 %97, 0
-  br i1 %.not.i45, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit7.i, label %99
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store ptr %98, ptr %1, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
+  %99 = load ptr, ptr %88, align 16, !tbaa !55, !noalias !101
+  %.not.i.i59 = icmp ult ptr %98, %99
+  br i1 %.not.i.i59, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i, !prof !93
 
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit7.i: ; preds = %85
-  store ptr null, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.22)
-  %98 = load i64, ptr %5, align 8
-  store i64 %98, ptr %4, align 8
-  store ptr null, ptr %5, align 8
-  %.not11.i = icmp eq i64 %98, 0
-  br i1 %.not11.i, label %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit, label %108
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i: ; preds = %87
+  store ptr null, ptr %3, align 8, !tbaa !44
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit.i
 
-99:                                               ; preds = %85
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %100 unwind label %104
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i: ; preds = %87
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull @.str.21)
+  %.pre.i = load i64, ptr %3, align 8, !tbaa !44
+  store i64 %.pre.i, ptr %2, align 8, !tbaa !44
+  store ptr null, ptr %3, align 8, !tbaa !44
+  %.not.i60 = icmp eq i64 %.pre.i, 0
+  br i1 %.not.i60, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge, label %102
 
-100:                                              ; preds = %99
-  %101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %102 unwind label %106
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i
+  %.pre74 = load ptr, ptr %1, align 8, !tbaa !55, !noalias !104
+  br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit.i
 
-102:                                              ; preds = %100
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #16
-          to label %103 unwind label %104
+_ZN6google7logging8internal13CheckOpStringD2Ev.exit.i: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i
+  %100 = phi ptr [ %.pre74, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge ], [ %98, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  %101 = load ptr, ptr %90, align 8, !tbaa !55, !noalias !104
+  %.not.i6.i = icmp ugt ptr %100, %101
+  br i1 %.not.i6.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11.i, label %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit, !prof !93
+
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11.i: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit.i
+  call void @_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.22)
+  %.pre18.i = load i64, ptr %6, align 8, !tbaa !44
+  store i64 %.pre18.i, ptr %5, align 8, !tbaa !44
+  store ptr null, ptr %6, align 8, !tbaa !44
+  %.not17.i = icmp eq i64 %.pre18.i, 0
+  br i1 %.not17.i, label %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit, label %111
+
+102:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %103 unwind label %107
 
 103:                                              ; preds = %102
+  %104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+          to label %105 unwind label %109
+
+105:                                              ; preds = %103
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
+          to label %106 unwind label %107
+
+106:                                              ; preds = %105
   unreachable
 
-104:                                              ; preds = %102, %99
-  %105 = landingpad { ptr, i32 }
+107:                                              ; preds = %105, %102
+  %108 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
   br label %common.resume
 
-106:                                              ; preds = %100
-  %107 = landingpad { ptr, i32 }
+109:                                              ; preds = %103
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %.invoke.i
 
-108:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit7.i
-  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %109 unwind label %113
-
-109:                                              ; preds = %108
-  %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %111 unwind label %115
-
-111:                                              ; preds = %109
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #16
-          to label %112 unwind label %113
+111:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11.i
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #20
+  invoke void @_ZN6google15LogMessageFatalC1EPKciRKNS_7logging8internal13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %112 unwind label %116
 
 112:                                              ; preds = %111
+  %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
+          to label %114 unwind label %118
+
+114:                                              ; preds = %112
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
+          to label %115 unwind label %116
+
+115:                                              ; preds = %114
   unreachable
 
-113:                                              ; preds = %111, %108
-  %114 = landingpad { ptr, i32 }
+116:                                              ; preds = %114, %111
+  %117 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #20
+  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   br label %common.resume
 
-115:                                              ; preds = %109
-  %116 = landingpad { ptr, i32 }
+118:                                              ; preds = %112
+  %119 = landingpad { ptr, i32 }
           cleanup
   br label %.invoke.i
 
-.invoke.i:                                        ; preds = %115, %106
-  %117 = phi ptr [ %6, %115 ], [ %3, %106 ]
-  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %117) #16
-          to label %.cont.i unwind label %118
+.invoke.i:                                        ; preds = %118, %109
+  %120 = phi ptr [ %7, %118 ], [ %4, %109 ]
+  invoke void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %120) #21
+          to label %.cont.i unwind label %121
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-common.resume:                                    ; preds = %104, %113, %35, %49, %62, %74
-  %.sink = phi ptr [ %13, %35 ], [ %16, %49 ], [ %19, %62 ], [ %22, %74 ], [ %4, %113 ], [ %1, %104 ]
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %50, %49 ], [ %63, %62 ], [ %75, %74 ], [ %114, %113 ], [ %105, %104 ]
-  call void @_ZN6google7logging8internal13CheckOpStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #15
+common.resume:                                    ; preds = %107, %116, %125
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %125 ], [ %108, %107 ], [ %117, %116 ]
   resume { ptr, i32 } %common.resume.op
 
-118:                                              ; preds = %.invoke.i
-  %119 = landingpad { ptr, i32 }
+121:                                              ; preds = %.invoke.i
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #17
+  %123 = extractvalue { ptr, i32 } %122, 0
+  call void @__clang_call_terminate(ptr %123) #22
   unreachable
 
-_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit7.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %0)
+_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit.i, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next53, 6
-  br i1 %exitcond55.not, label %121, label %85, !llvm.loop !35
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 6
+  br i1 %exitcond70.not, label %124, label %87, !llvm.loop !107
 
-121:                                              ; preds = %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !36
+124:                                              ; preds = %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !108
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #20
   ret void
 
-122:                                              ; preds = %.invoke
-  %123 = landingpad { ptr, i32 }
+125:                                              ; preds = %76, %64, %52, %37
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %53, %52 ], [ %65, %64 ], [ %77, %76 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #20
+  br label %common.resume
+
+126:                                              ; preds = %.invoke
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #17
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #22
   unreachable
 }
 
@@ -1496,285 +1686,265 @@ declare noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(p
 declare ptr @backtrace_symbols(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #11
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google7logging8internal12Check_GEImplIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
-  %6 = load i32, ptr %1, align 4
-  %7 = load i32, ptr %2, align 4
-  %.not = icmp slt i32 %6, %7
-  br i1 %.not, label %9, label %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %1, align 4, !tbaa !89
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit unwind label %14
 
-8:                                                ; preds = %4
-  store ptr null, ptr %0, align 8
-  br label %19
+_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit: ; preds = %4
+  %9 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %10 unwind label %14
 
-9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3), !noalias !37
-  %10 = load ptr, ptr %5, align 8, !noalias !37
-  %11 = load i32, ptr %1, align 4, !noalias !37
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %11)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i unwind label %17, !noalias !37
+10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit
+  %11 = load i32, ptr %2, align 4, !tbaa !89
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %11)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4 unwind label %14
 
-_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i: ; preds = %9
-  %13 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %14 unwind label %17, !noalias !37
-
-14:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i
-  %15 = load i32, ptr %2, align 4, !noalias !37
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %15)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i unwind label %17, !noalias !37
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i: ; preds = %14
+_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4: ; preds = %10
   invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc.exit unwind label %17
+          to label %13 unwind label %14
 
-17:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i, %14, %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i, %9
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  resume { ptr, i32 } %18
-
-_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc.exit: ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %19
-
-19:                                               ; preds = %_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc.exit, %8
+13:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   ret void
+
+14:                                               ; preds = %10, %4, %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4, %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  resume { ptr, i32 } %15
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google7logging8internal12Check_LEImplIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
-  %6 = load i32, ptr %1, align 4
-  %7 = load i32, ptr %2, align 4
-  %.not = icmp sgt i32 %6, %7
-  br i1 %.not, label %9, label %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
+  %7 = load ptr, ptr %1, align 8, !tbaa !55
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit unwind label %14
 
-8:                                                ; preds = %4
-  store ptr null, ptr %0, align 8
-  br label %19
+_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit: ; preds = %4
+  %9 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %10 unwind label %14
 
-9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3), !noalias !40
-  %10 = load ptr, ptr %5, align 8, !noalias !40
-  %11 = load i32, ptr %1, align 4, !noalias !40
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %11)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i unwind label %17, !noalias !40
+10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit
+  %11 = load ptr, ptr %2, align 8, !tbaa !55
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit unwind label %14
 
-_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i: ; preds = %9
-  %13 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %14 unwind label %17, !noalias !40
-
-14:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i
-  %15 = load i32, ptr %2, align 4, !noalias !40
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %15)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i unwind label %17, !noalias !40
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i: ; preds = %14
+_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit: ; preds = %10
   invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc.exit unwind label %17
+          to label %13 unwind label %14
 
-17:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i, %14, %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i, %9
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  resume { ptr, i32 } %18
-
-_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc.exit: ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4.i
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %19
-
-19:                                               ; preds = %_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc.exit, %8
+13:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   ret void
+
+14:                                               ; preds = %10, %4, %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit, %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = load ptr, ptr %2, align 8
-  %.not = icmp ult ptr %6, %7
-  br i1 %.not, label %9, label %8
-
-8:                                                ; preds = %4
-  store ptr null, ptr %0, align 8
-  br label %19
-
-9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3), !noalias !43
-  %10 = load ptr, ptr %5, align 8, !noalias !43
-  %11 = load ptr, ptr %1, align 8, !noalias !43
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i unwind label %17, !noalias !43
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i: ; preds = %9
-  %13 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %14 unwind label %17, !noalias !43
-
-14:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i
-  %15 = load ptr, ptr %2, align 8, !noalias !43
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %15)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i unwind label %17, !noalias !43
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i: ; preds = %14
-  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit unwind label %17
-
-17:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i, %14, %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i, %9
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  resume { ptr, i32 } %18
-
-_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit: ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %19
-
-19:                                               ; preds = %_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit, %8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = load ptr, ptr %2, align 8
-  %.not = icmp ugt ptr %6, %7
-  br i1 %.not, label %9, label %8
-
-8:                                                ; preds = %4
-  store ptr null, ptr %0, align 8
-  br label %19
-
-9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3), !noalias !46
-  %10 = load ptr, ptr %5, align 8, !noalias !46
-  %11 = load ptr, ptr %1, align 8, !noalias !46
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i unwind label %17, !noalias !46
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i: ; preds = %9
-  %13 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %14 unwind label %17, !noalias !46
-
-14:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i
-  %15 = load ptr, ptr %2, align 8, !noalias !46
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %15)
-          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i unwind label %17, !noalias !46
-
-_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i: ; preds = %14
-  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit unwind label %17
-
-17:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i, %14, %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit.i, %9
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  resume { ptr, i32 } %18
-
-_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit: ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit.i
-  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %19
-
-19:                                               ; preds = %_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc.exit, %8
-  ret void
-}
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #3
+
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
+  %7 = load ptr, ptr %1, align 8, !tbaa !55
+  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit unwind label %14
+
+_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit: ; preds = %4
+  %9 = invoke noundef ptr @_ZN6google7logging8internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %10 unwind label %14
+
+10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit
+  %11 = load ptr, ptr %2, align 8, !tbaa !55
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
+          to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4 unwind label %14
+
+_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4: ; preds = %10
+  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  ret void
+
+14:                                               ; preds = %10, %4, %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4, %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6google7logging8internal21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nofree nounwind }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin nounwind }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { builtin nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 2150928803}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2150928958}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc: argument 0"}
-!11 = distinct !{!11, !"_ZN6google7logging8internal17MakeCheckOpStringIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc"}
-!12 = !{i64 2150927176}
-!13 = distinct !{!13, !7}
-!14 = !{i64 2150927331}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!17 = distinct !{!17, !"_ZN6google7logging8internal17MakeCheckOpStringIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!18 = !{i64 2150923970}
-!19 = distinct !{!19, !7}
-!20 = !{i64 2150924125}
-!21 = !{i64 2150920764}
-!22 = distinct !{!22, !7}
-!23 = !{i64 2150920919}
-!24 = !{i64 2150917558}
-!25 = distinct !{!25, !7}
-!26 = !{i64 2150917713}
-!27 = !{i64 2150912869}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc: argument 0"}
-!30 = distinct !{!30, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc: argument 0"}
-!33 = distinct !{!33, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc"}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = !{i64 2150914507}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc: argument 0"}
-!39 = distinct !{!39, !"_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc: argument 0"}
-!42 = distinct !{!42, !"_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!45 = distinct !{!45, !"_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!48 = distinct !{!48, !"_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"vtable pointer", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !9, i64 40}
+!8 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !12, i64 56}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !6, i64 0}
+!12 = !{!"_ZTSSt6locale", !13, i64 0}
+!13 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
+!14 = !{!8, !9, i64 32}
+!15 = !{!8, !9, i64 48}
+!16 = !{!17, !20, i64 72}
+!17 = !{!"_ZTSN6google10LogMessage9LogStreamE", !18, i64 0, !19, i64 8, !20, i64 72, !21, i64 80}
+!18 = !{!"_ZTSSo"}
+!19 = !{!"_ZTSN6google12base_logging12LogStreamBufE", !8, i64 0}
+!20 = !{!"long", !11, i64 0}
+!21 = !{!"p1 _ZTSN6google10LogMessage9LogStreamE", !10, i64 0}
+!22 = !{!17, !21, i64 80}
+!23 = !{!24, !32, i64 216}
+!24 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !25, i64 0, !32, i64 216, !11, i64 224, !33, i64 225, !34, i64 232, !35, i64 240, !36, i64 248, !37, i64 256}
+!25 = !{!"_ZTSSt8ios_base", !20, i64 8, !20, i64 16, !26, i64 24, !27, i64 28, !27, i64 32, !28, i64 40, !29, i64 48, !11, i64 64, !30, i64 192, !31, i64 200, !12, i64 208}
+!26 = !{!"_ZTSSt13_Ios_Fmtflags", !11, i64 0}
+!27 = !{!"_ZTSSt12_Ios_Iostate", !11, i64 0}
+!28 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !10, i64 0}
+!29 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !20, i64 8}
+!30 = !{!"int", !11, i64 0}
+!31 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
+!32 = !{!"p1 _ZTSSo", !10, i64 0}
+!33 = !{!"bool", !11, i64 0}
+!34 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !10, i64 0}
+!35 = !{!"p1 _ZTSSt5ctypeIcE", !10, i64 0}
+!36 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !10, i64 0}
+!37 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !10, i64 0}
+!38 = !{!24, !11, i64 224}
+!39 = !{!24, !33, i64 225}
+!40 = !{!41, !10, i64 0}
+!41 = !{!"_ZTS12AddressRange", !10, i64 0, !10, i64 8}
+!42 = !{!41, !10, i64 8}
+!43 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !10, i64 0}
+!46 = !{i64 2150958961}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.mustprogress"}
+!49 = !{i64 2150959116}
+!50 = !{!51, !9, i64 0}
+!51 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !52, i64 0, !20, i64 8, !11, i64 16}
+!52 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!53 = !{!51, !20, i64 8}
+!54 = !{!11, !11, i64 0}
+!55 = !{!10, !10, i64 0}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!58 = distinct !{!58, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!59 = !{i64 2150957334}
+!60 = distinct !{!60, !48}
+!61 = !{i64 2150957489}
+!62 = !{!33, !33, i64 0}
+!63 = !{!9, !9, i64 0}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!66 = distinct !{!66, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!67 = !{i64 2150954128}
+!68 = distinct !{!68, !48}
+!69 = !{i64 2150954283}
+!70 = !{!71, !72, i64 0}
+!71 = !{!"_ZTSN6google7logging8internal21CheckOpMessageBuilderE", !72, i64 0}
+!72 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !10, i64 0}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!75 = distinct !{!75, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!76 = !{i64 2150950922}
+!77 = distinct !{!77, !48}
+!78 = !{i64 2150951077}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!81 = distinct !{!81, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!82 = !{i64 2150947716}
+!83 = distinct !{!83, !48}
+!84 = !{i64 2150947871}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!87 = distinct !{!87, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!88 = !{i64 2150943027}
+!89 = !{!30, !30, i64 0}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc: argument 0"}
+!92 = distinct !{!92, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc"}
+!93 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc: argument 0"}
+!96 = distinct !{!96, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc"}
+!97 = !{!"branch_weights", !"expected", i32 1073742, i32 2146409906}
+!98 = distinct !{!98, !48}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!103 = distinct !{!103, !"_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!106 = distinct !{!106, !"_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!107 = distinct !{!107, !48}
+!108 = !{i64 2150944665}

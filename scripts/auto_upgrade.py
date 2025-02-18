@@ -88,6 +88,7 @@ supported_project = [
     "fmt",
     "folly",
     "g2o",
+    "glog",
 ]
 
 modify_only = [
@@ -115,6 +116,7 @@ modify_only = [
     "casadi",
     "ceres",
     "csmith",
+    "glog",
 ]
 
 
