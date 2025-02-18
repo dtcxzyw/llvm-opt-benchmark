@@ -1,1695 +1,7880 @@
 ; ModuleID = 'bench/qemu/original/pci.ll'
 source_filename = "bench/qemu/original/pci.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-@.str = private unnamed_addr constant [43 x i8] c"Skipping due to incomplete support for MSI\00", align 1
-@.str.1 = private unnamed_addr constant [33 x i8] c"../qemu/tests/qtest/libqos/pci.c\00", align 1
-@__func__.qpci_device_init = private unnamed_addr constant [17 x i8] c"qpci_device_init\00", align 1
-@.str.2 = private unnamed_addr constant [49 x i8] c"!addr->vendor_id || vendor_id == addr->vendor_id\00", align 1
-@.str.3 = private unnamed_addr constant [49 x i8] c"!addr->device_id || device_id == addr->device_id\00", align 1
-@__func__.qpci_device_enable = private unnamed_addr constant [19 x i8] c"qpci_device_enable\00", align 1
-@.str.4 = private unnamed_addr constant [39 x i8] c"cmd & PCI_COMMAND_IO == PCI_COMMAND_IO\00", align 1
-@.str.5 = private unnamed_addr constant [3 x i8] c"==\00", align 1
-@.str.6 = private unnamed_addr constant [47 x i8] c"cmd & PCI_COMMAND_MEMORY == PCI_COMMAND_MEMORY\00", align 1
-@.str.7 = private unnamed_addr constant [47 x i8] c"cmd & PCI_COMMAND_MASTER == PCI_COMMAND_MASTER\00", align 1
-@__func__.qpci_msix_enable = private unnamed_addr constant [17 x i8] c"qpci_msix_enable\00", align 1
-@.str.8 = private unnamed_addr constant [10 x i8] c"addr != 0\00", align 1
-@.str.9 = private unnamed_addr constant [3 x i8] c"!=\00", align 1
-@__func__.qpci_msix_disable = private unnamed_addr constant [18 x i8] c"qpci_msix_disable\00", align 1
-@.str.10 = private unnamed_addr constant [18 x i8] c"dev->msix_enabled\00", align 1
-@__func__.qpci_msix_pending = private unnamed_addr constant [18 x i8] c"qpci_msix_pending\00", align 1
-@__func__.qpci_msix_masked = private unnamed_addr constant [17 x i8] c"qpci_msix_masked\00", align 1
-@__func__.qpci_msix_table_size = private unnamed_addr constant [21 x i8] c"qpci_msix_table_size\00", align 1
-@__func__.qpci_memread = private unnamed_addr constant [13 x i8] c"qpci_memread\00", align 1
-@.str.11 = private unnamed_addr constant [13 x i8] c"!token.is_io\00", align 1
-@__func__.qpci_memwrite = private unnamed_addr constant [14 x i8] c"qpci_memwrite\00", align 1
-@qpci_iomap.bar_reg_map = internal unnamed_addr constant [6 x i32] [i32 16, i32 20, i32 24, i32 28, i32 32, i32 36], align 16
-@__func__.qpci_iomap = private unnamed_addr constant [11 x i8] c"qpci_iomap\00", align 1
-@.str.12 = private unnamed_addr constant [25 x i8] c"barno >= 0 && barno <= 5\00", align 1
-@.str.13 = private unnamed_addr constant [5 x i8] c"addr\00", align 1
-@.str.14 = private unnamed_addr constant [26 x i8] c"loc >= bus->pio_alloc_ptr\00", align 1
-@.str.15 = private unnamed_addr constant [29 x i8] c"loc + size <= bus->pio_limit\00", align 1
-@.str.16 = private unnamed_addr constant [27 x i8] c"loc >= bus->mmio_alloc_ptr\00", align 1
-@.str.17 = private unnamed_addr constant [30 x i8] c"loc + size <= bus->mmio_limit\00", align 1
-@__func__.add_qpci_address = private unnamed_addr constant [17 x i8] c"add_qpci_address\00", align 1
-@.str.18 = private unnamed_addr constant [5 x i8] c"opts\00", align 1
-@__func__.qpci_device_set = private unnamed_addr constant [16 x i8] c"qpci_device_set\00", align 1
-@.str.19 = private unnamed_addr constant [4 x i8] c"dev\00", align 1
+%struct.KVMRouteChange = type { ptr, i32 }
+%struct.anon.19 = type { i32, i32, i8, ptr }
+%struct.anon.20 = type { i32, i32, i8 }
+%struct.InterfaceInfo = type { ptr }
+%struct.VFIODeviceOps = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
+%union.anon.21 = type { i64 }
+%struct.vfio_irq_info = type { i32, i32, i32, i32 }
+%struct.timeval = type { i64, i64 }
+%union.anon.2 = type { i64 }
+%union.anon.3 = type { i64 }
+%struct.VFIOMSIVector = type { %struct.EventNotifier, %struct.EventNotifier, ptr, i32, i8 }
+%struct.EventNotifier = type { i32, i32, i8 }
+%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
+%struct.VFIOBAR = type { %struct.VFIORegion, ptr, i64, i8, i8, i8, %struct.anon.14 }
+%struct.VFIORegion = type { ptr, i64, ptr, i64, i32, i32, ptr, i8 }
+%struct.anon.14 = type { ptr }
+%struct.VFIOVGARegion = type { %struct.MemoryRegion, i64, i32, %struct.anon }
+%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
+%struct.Object = type { ptr, ptr, ptr, i32, ptr }
+%union.anon = type { %struct.QTailQLink }
+%struct.QTailQLink = type { ptr, ptr }
+%union.anon.0 = type { %struct.QTailQLink }
+%union.anon.1 = type { %struct.QTailQLink }
+%struct.anon = type { ptr }
+%struct.ErrorPropagator = type { ptr, ptr }
+%struct.PCIINTxRoute = type { i32, i32 }
+%union.anon.25 = type { i64 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_device_foreach(ptr noundef %bus, i32 noundef %vendor_id, i32 noundef %device_id, ptr noundef readonly captures(none) %func, ptr noundef %data) local_unnamed_addr #0 {
-entry:
-  %config_readw.i.i = getelementptr inbounds nuw i8, ptr %bus, i64 88
-  %cmp4.not = icmp eq i32 %vendor_id, -1
-  %cmp10.not = icmp eq i32 %device_id, -1
-  br i1 %cmp4.not, label %entry.split.us, label %for.cond1.preheader
-
-entry.split.us:                                   ; preds = %entry
-  br i1 %cmp10.not, label %for.cond1.preheader.us.us, label %for.cond1.preheader.us
-
-for.cond1.preheader.us.us:                        ; preds = %entry.split.us, %for.inc21.split.us.us.split.us.us
-  %slot.021.us.us = phi i32 [ %inc22.us.us, %for.inc21.split.us.us.split.us.us ], [ 0, %entry.split.us ]
-  %shl.us.us = shl nuw nsw i32 %slot.021.us.us, 3
-  br label %for.body3.us.us.us.us
-
-for.body3.us.us.us.us:                            ; preds = %for.inc.us.us.us.us, %for.cond1.preheader.us.us
-  %fn.020.us.us.us.us = phi i32 [ 0, %for.cond1.preheader.us.us ], [ %inc.us.us.us.us, %for.inc.us.us.us.us ]
-  %or.us.us.us.us = add nuw nsw i32 %fn.020.us.us.us.us, %shl.us.us
-  %call.i.us.us.us.us = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
-  %tobool.not.i.i.us.us.us.us = icmp eq ptr %call.i.us.us.us.us, null
-  br i1 %tobool.not.i.i.us.us.us.us, label %if.else.i.i, label %qpci_device_set.exit.i.us.us.us.us
-
-qpci_device_set.exit.i.us.us.us.us:               ; preds = %for.body3.us.us.us.us
-  store ptr %bus, ptr %call.i.us.us.us.us, align 8
-  %devfn2.i.i.us.us.us.us = getelementptr inbounds nuw i8, ptr %call.i.us.us.us.us, i64 8
-  store i32 %or.us.us.us.us, ptr %devfn2.i.i.us.us.us.us, align 8
-  %0 = load ptr, ptr %config_readw.i.i, align 8
-  %call.i.i.us.us.us.us = tail call zeroext i16 %0(ptr noundef %bus, i32 noundef %or.us.us.us.us, i8 noundef zeroext 0) #11
-  %cmp.i.us.us.us.us = icmp eq i16 %call.i.i.us.us.us.us, -1
-  br i1 %cmp.i.us.us.us.us, label %qpci_device_find.exit.thread.us.us.us.us, label %if.end.us.us.us.us
-
-if.end.us.us.us.us:                               ; preds = %qpci_device_set.exit.i.us.us.us.us
-  tail call void %func(ptr noundef nonnull %call.i.us.us.us.us, i32 noundef %or.us.us.us.us, ptr noundef %data) #11
-  br label %for.inc.us.us.us.us
-
-qpci_device_find.exit.thread.us.us.us.us:         ; preds = %qpci_device_set.exit.i.us.us.us.us
-  tail call void @g_free(ptr noundef nonnull %call.i.us.us.us.us) #11
-  br label %for.inc.us.us.us.us
-
-for.inc.us.us.us.us:                              ; preds = %qpci_device_find.exit.thread.us.us.us.us, %if.end.us.us.us.us
-  %inc.us.us.us.us = add nuw nsw i32 %fn.020.us.us.us.us, 1
-  %exitcond29.not = icmp eq i32 %inc.us.us.us.us, 8
-  br i1 %exitcond29.not, label %for.inc21.split.us.us.split.us.us, label %for.body3.us.us.us.us, !llvm.loop !5
-
-for.inc21.split.us.us.split.us.us:                ; preds = %for.inc.us.us.us.us
-  %inc22.us.us = add nuw nsw i32 %slot.021.us.us, 1
-  %exitcond30.not = icmp eq i32 %inc22.us.us, 32
-  br i1 %exitcond30.not, label %for.end23, label %for.cond1.preheader.us.us, !llvm.loop !7
-
-for.cond1.preheader.us:                           ; preds = %entry.split.us, %for.inc21.split.us.us.split
-  %slot.021.us = phi i32 [ %inc22.us, %for.inc21.split.us.us.split ], [ 0, %entry.split.us ]
-  %shl.us = shl nuw nsw i32 %slot.021.us, 3
-  br label %for.body3.us.us
-
-for.body3.us.us:                                  ; preds = %for.inc.us.us, %for.cond1.preheader.us
-  %fn.020.us.us = phi i32 [ 0, %for.cond1.preheader.us ], [ %inc.us.us, %for.inc.us.us ]
-  %or.us.us = add nuw nsw i32 %fn.020.us.us, %shl.us
-  %call.i.us.us = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
-  %tobool.not.i.i.us.us = icmp eq ptr %call.i.us.us, null
-  br i1 %tobool.not.i.i.us.us, label %if.else.i.i, label %qpci_device_set.exit.i.us.us
-
-qpci_device_set.exit.i.us.us:                     ; preds = %for.body3.us.us
-  store ptr %bus, ptr %call.i.us.us, align 8
-  %devfn2.i.i.us.us = getelementptr inbounds nuw i8, ptr %call.i.us.us, i64 8
-  store i32 %or.us.us, ptr %devfn2.i.i.us.us, align 8
-  %1 = load ptr, ptr %config_readw.i.i, align 8
-  %call.i.i.us.us = tail call zeroext i16 %1(ptr noundef %bus, i32 noundef %or.us.us, i8 noundef zeroext 0) #11
-  %cmp.i.us.us = icmp eq i16 %call.i.i.us.us, -1
-  br i1 %cmp.i.us.us, label %qpci_device_find.exit.thread.us.us, label %if.end.us.us
-
-if.end.us.us:                                     ; preds = %qpci_device_set.exit.i.us.us
-  %2 = load ptr, ptr %call.i.us.us, align 8
-  %config_readw.i15.us.us = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %3 = load ptr, ptr %config_readw.i15.us.us, align 8
-  %4 = load i32, ptr %devfn2.i.i.us.us, align 8
-  %call.i17.us.us = tail call zeroext i16 %3(ptr noundef %2, i32 noundef %4, i8 noundef zeroext 2) #11
-  %conv14.us.us = zext i16 %call.i17.us.us to i32
-  %cmp15.not.us.us = icmp eq i32 %device_id, %conv14.us.us
-  br i1 %cmp15.not.us.us, label %if.end18.us.us, label %if.then17.us.us
-
-if.then17.us.us:                                  ; preds = %if.end.us.us
-  tail call void @g_free(ptr noundef nonnull %call.i.us.us) #11
-  br label %for.inc.us.us
-
-if.end18.us.us:                                   ; preds = %if.end.us.us
-  tail call void %func(ptr noundef nonnull %call.i.us.us, i32 noundef %or.us.us, ptr noundef %data) #11
-  br label %for.inc.us.us
-
-qpci_device_find.exit.thread.us.us:               ; preds = %qpci_device_set.exit.i.us.us
-  tail call void @g_free(ptr noundef nonnull %call.i.us.us) #11
-  br label %for.inc.us.us
-
-for.inc.us.us:                                    ; preds = %qpci_device_find.exit.thread.us.us, %if.end18.us.us, %if.then17.us.us
-  %inc.us.us = add nuw nsw i32 %fn.020.us.us, 1
-  %exitcond27.not = icmp eq i32 %inc.us.us, 8
-  br i1 %exitcond27.not, label %for.inc21.split.us.us.split, label %for.body3.us.us, !llvm.loop !5
-
-for.inc21.split.us.us.split:                      ; preds = %for.inc.us.us
-  %inc22.us = add nuw nsw i32 %slot.021.us, 1
-  %exitcond28.not = icmp eq i32 %inc22.us, 32
-  br i1 %exitcond28.not, label %for.end23, label %for.cond1.preheader.us, !llvm.loop !7
-
-for.cond1.preheader:                              ; preds = %entry, %for.inc21.split
-  %slot.021 = phi i32 [ %inc22, %for.inc21.split ], [ 0, %entry ]
-  %shl = shl nuw nsw i32 %slot.021, 3
-  br label %for.body3
-
-for.body3:                                        ; preds = %for.cond1.preheader, %for.inc
-  %fn.020 = phi i32 [ 0, %for.cond1.preheader ], [ %inc, %for.inc ]
-  %or = add nuw nsw i32 %fn.020, %shl
-  %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
-  %tobool.not.i.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %qpci_device_set.exit.i
-
-if.else.i.i:                                      ; preds = %for.body3, %for.body3.us.us, %for.body3.us.us.us.us
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.qpci_device_set, ptr noundef nonnull @.str.19) #12
-  unreachable
-
-qpci_device_set.exit.i:                           ; preds = %for.body3
-  store ptr %bus, ptr %call.i, align 8
-  %devfn2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 %or, ptr %devfn2.i.i, align 8
-  %5 = load ptr, ptr %config_readw.i.i, align 8
-  %call.i.i = tail call zeroext i16 %5(ptr noundef %bus, i32 noundef %or, i8 noundef zeroext 0) #11
-  %cmp.i = icmp eq i16 %call.i.i, -1
-  br i1 %cmp.i, label %qpci_device_find.exit.thread, label %if.end
-
-qpci_device_find.exit.thread:                     ; preds = %qpci_device_set.exit.i
-  tail call void @g_free(ptr noundef nonnull %call.i) #11
-  br label %for.inc
-
-if.end:                                           ; preds = %qpci_device_set.exit.i
-  %6 = load ptr, ptr %call.i, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %7 = load ptr, ptr %config_readw.i, align 8
-  %8 = load i32, ptr %devfn2.i.i, align 8
-  %call.i14 = tail call zeroext i16 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext 0) #11
-  %conv = zext i16 %call.i14 to i32
-  %cmp6.not = icmp eq i32 %vendor_id, %conv
-  br i1 %cmp6.not, label %if.end9, label %if.then8
-
-if.then8:                                         ; preds = %if.end
-  tail call void @g_free(ptr noundef nonnull %call.i) #11
-  br label %for.inc
-
-if.end9:                                          ; preds = %if.end
-  br i1 %cmp10.not, label %if.end18, label %land.lhs.true12
-
-land.lhs.true12:                                  ; preds = %if.end9
-  %9 = load ptr, ptr %call.i, align 8
-  %config_readw.i15 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %10 = load ptr, ptr %config_readw.i15, align 8
-  %11 = load i32, ptr %devfn2.i.i, align 8
-  %call.i17 = tail call zeroext i16 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext 2) #11
-  %conv14 = zext i16 %call.i17 to i32
-  %cmp15.not = icmp eq i32 %device_id, %conv14
-  br i1 %cmp15.not, label %if.end18, label %if.then17
-
-if.then17:                                        ; preds = %land.lhs.true12
-  tail call void @g_free(ptr noundef nonnull %call.i) #11
-  br label %for.inc
-
-if.end18:                                         ; preds = %land.lhs.true12, %if.end9
-  tail call void %func(ptr noundef nonnull %call.i, i32 noundef %or, ptr noundef %data) #11
-  br label %for.inc
-
-for.inc:                                          ; preds = %qpci_device_find.exit.thread, %if.end18, %if.then17, %if.then8
-  %inc = add nuw nsw i32 %fn.020, 1
-  %exitcond.not = icmp eq i32 %inc, 8
-  br i1 %exitcond.not, label %for.inc21.split, label %for.body3, !llvm.loop !5
-
-for.inc21.split:                                  ; preds = %for.inc
-  %inc22 = add nuw nsw i32 %slot.021, 1
-  %exitcond26.not = icmp eq i32 %inc22, 32
-  br i1 %exitcond26.not, label %for.end23, label %for.cond1.preheader, !llvm.loop !7
-
-for.end23:                                        ; preds = %for.inc21.split, %for.inc21.split.us.us.split, %for.inc21.split.us.us.split.us.us
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qpci_device_find(ptr noundef %bus, i32 noundef %devfn) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
-  %tobool.not.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i, label %if.else.i, label %qpci_device_set.exit
-
-if.else.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.qpci_device_set, ptr noundef nonnull @.str.19) #12
-  unreachable
-
-qpci_device_set.exit:                             ; preds = %entry
-  store ptr %bus, ptr %call, align 8
-  %devfn2.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store i32 %devfn, ptr %devfn2.i, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %bus, i64 88
-  %0 = load ptr, ptr %config_readw.i, align 8
-  %call.i = tail call zeroext i16 %0(ptr noundef %bus, i32 noundef %devfn, i8 noundef zeroext 0) #11
-  %cmp = icmp eq i16 %call.i, -1
-  br i1 %cmp, label %if.then, label %return
-
-if.then:                                          ; preds = %qpci_device_set.exit
-  tail call void @g_free(ptr noundef nonnull %call) #11
-  br label %return
-
-return:                                           ; preds = %qpci_device_set.exit, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call, %qpci_device_set.exit ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @qpci_config_readw(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_readw = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %1 = load ptr, ptr %config_readw, align 8
-  %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn, align 8
-  %call = tail call zeroext i16 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset) #11
-  ret i16 %call
-}
-
-declare void @g_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qpci_has_buggy_msi(ptr noundef readonly captures(none) %dev) local_unnamed_addr #2 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %has_buggy_msi = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %1 = load i8, ptr %has_buggy_msi, align 8
-  %tobool = trunc i8 %1 to i1
-  ret i1 %tobool
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qpci_check_buggy_msi(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %has_buggy_msi.i = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %1 = load i8, ptr %has_buggy_msi.i, align 8
-  %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then, label %return
-
-if.then:                                          ; preds = %entry
-  tail call void @g_test_skip(ptr noundef nonnull @.str) #11
-  br label %return
-
-return:                                           ; preds = %entry, %if.then
-  ret i1 %tobool.i
-}
-
-declare void @g_test_skip(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_device_init(ptr noundef captures(address_is_null) %dev, ptr noundef %bus, ptr noundef readonly captures(none) %addr) local_unnamed_addr #0 {
-entry:
-  %tobool.not.i = icmp eq ptr %dev, null
-  br i1 %tobool.not.i, label %if.else.i, label %qpci_device_set.exit
-
-if.else.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.qpci_device_set, ptr noundef nonnull @.str.19) #12
-  unreachable
-
-qpci_device_set.exit:                             ; preds = %entry
-  %0 = load i32, ptr %addr, align 4
-  store ptr %bus, ptr %dev, align 8
-  %devfn2.i = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  store i32 %0, ptr %devfn2.i, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %bus, i64 88
-  %1 = load ptr, ptr %config_readw.i, align 8
-  %call.i = tail call zeroext i16 %1(ptr noundef %bus, i32 noundef %0, i8 noundef zeroext 0) #11
-  %2 = load ptr, ptr %dev, align 8
-  %config_readw.i9 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %3 = load ptr, ptr %config_readw.i9, align 8
-  %4 = load i32, ptr %devfn2.i, align 8
-  %call.i11 = tail call zeroext i16 %3(ptr noundef %2, i32 noundef %4, i8 noundef zeroext 2) #11
-  %vendor_id2 = getelementptr inbounds nuw i8, ptr %addr, i64 4
-  %5 = load i16, ptr %vendor_id2, align 4
-  %tobool.not = icmp eq i16 %5, 0
-  %cmp = icmp eq i16 %call.i, %5
-  %or.cond = select i1 %tobool.not, i1 true, i1 %cmp
-  br i1 %or.cond, label %do.body6, label %if.else
-
-if.else:                                          ; preds = %qpci_device_set.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__func__.qpci_device_init, ptr noundef nonnull @.str.2) #12
-  unreachable
-
-do.body6:                                         ; preds = %qpci_device_set.exit
-  %device_id7 = getelementptr inbounds nuw i8, ptr %addr, i64 6
-  %6 = load i16, ptr %device_id7, align 2
-  %tobool8.not = icmp eq i16 %6, 0
-  %cmp13 = icmp eq i16 %call.i11, %6
-  %or.cond8 = select i1 %tobool8.not, i1 true, i1 %cmp13
-  br i1 %or.cond8, label %do.end18, label %if.else16
-
-if.else16:                                        ; preds = %do.body6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 101, ptr noundef nonnull @__func__.qpci_device_init, ptr noundef nonnull @.str.3) #12
-  unreachable
-
-do.end18:                                         ; preds = %do.body6
-  ret void
-}
-
-; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qpci_secondary_buses_init(ptr noundef %bus) local_unnamed_addr #0 {
-entry:
-  %last_bus = alloca i32, align 4
-  store i32 0, ptr %last_bus, align 4
-  call fastcc void @qpci_secondary_buses_rec(ptr noundef %bus, i32 noundef 0, ptr noundef %last_bus)
-  %0 = load i32, ptr %last_bus, align 4
-  ret i32 %0
-}
+@.str = private unnamed_addr constant [39 x i8] c"vfio: unsupported write size, %d bytes\00", align 1
+@.str.1 = private unnamed_addr constant [33 x i8] c"%s(,0x%lx, 0x%lx, %d) failed: %m\00", align 1
+@__func__.vfio_vga_write = private unnamed_addr constant [15 x i8] c"vfio_vga_write\00", align 1
+@.str.2 = private unnamed_addr constant [26 x i8] c"%s(,0x%lx, %d) failed: %m\00", align 1
+@__func__.vfio_vga_read = private unnamed_addr constant [14 x i8] c"vfio_vga_read\00", align 1
+@.str.3 = private unnamed_addr constant [38 x i8] c"vfio: unsupported read size, %d bytes\00", align 1
+@.str.4 = private unnamed_addr constant [30 x i8] c"%s(%s, 0x%x, 0x%x) failed: %m\00", align 1
+@__func__.vfio_pci_read_config = private unnamed_addr constant [21 x i8] c"vfio_pci_read_config\00", align 1
+@.str.5 = private unnamed_addr constant [36 x i8] c"%s(%s, 0x%x, 0x%x, 0x%x) failed: %m\00", align 1
+@__func__.vfio_pci_write_config = private unnamed_addr constant [22 x i8] c"vfio_pci_write_config\00", align 1
+@.str.6 = private unnamed_addr constant [46 x i8] c"vfio: Unable to power on device, stuck in D%d\00", align 1
+@.str.7 = private unnamed_addr constant [10 x i8] c"vfio %s: \00", align 1
+@.str.8 = private unnamed_addr constant [31 x i8] c"%s(%s) reset bar %d failed: %m\00", align 1
+@__func__.vfio_pci_post_reset = private unnamed_addr constant [20 x i8] c"vfio_pci_post_reset\00", align 1
+@.str.9 = private unnamed_addr constant [19 x i8] c"%04x:%02x:%02x.%1x\00", align 1
+@.str.10 = private unnamed_addr constant [19 x i8] c"info_p && !*info_p\00", align 1
+@.str.11 = private unnamed_addr constant [22 x i8] c"../qemu/hw/vfio/pci.c\00", align 1
+@__PRETTY_FUNCTION__.vfio_pci_get_pci_hot_reset_info = private unnamed_addr constant [88 x i8] c"int vfio_pci_get_pci_hot_reset_info(VFIOPCIDevice *, struct vfio_pci_hot_reset_info **)\00", align 1
+@.str.12 = private unnamed_addr constant [60 x i8] c"vfio: Cannot reset device %s, no available reset mechanism.\00", align 1
+@.str.13 = private unnamed_addr constant [32 x i8] c"vfio: hot reset info failed: %m\00", align 1
+@__func__.vfio_populate_vga = private unnamed_addr constant [18 x i8] c"vfio_populate_vga\00", align 1
+@.str.14 = private unnamed_addr constant [51 x i8] c"failed getting region info for VGA region index %d\00", align 1
+@.str.15 = private unnamed_addr constant [45 x i8] c"unexpected VGA info, flags 0x%lx, size 0x%lx\00", align 1
+@.str.16 = private unnamed_addr constant [22 x i8] c"vfio-vga-mmio@0xa0000\00", align 1
+@.str.17 = private unnamed_addr constant [18 x i8] c"vfio-vga-io@0x3b0\00", align 1
+@.str.18 = private unnamed_addr constant [18 x i8] c"vfio-vga-io@0x3c0\00", align 1
+@trace_events_enabled_count = external local_unnamed_addr global i32, align 4
+@_TRACE_VFIO_VGA_WRITE_DSTATE = external local_unnamed_addr global i16, align 2
+@message_with_timestamp = external local_unnamed_addr global i8, align 1
+@.str.19 = private unnamed_addr constant [49 x i8] c"%d@%zu.%06zu:vfio_vga_write  (0x%lx, 0x%lx, %d)\0A\00", align 1
+@.str.20 = private unnamed_addr constant [36 x i8] c"vfio_vga_write  (0x%lx, 0x%lx, %d)\0A\00", align 1
+@qemu_loglevel = external local_unnamed_addr global i32, align 4
+@_TRACE_VFIO_VGA_READ_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.21 = private unnamed_addr constant [49 x i8] c"%d@%zu.%06zu:vfio_vga_read  (0x%lx, %d) = 0x%lx\0A\00", align 1
+@.str.22 = private unnamed_addr constant [36 x i8] c"vfio_vga_read  (0x%lx, %d) = 0x%lx\0A\00", align 1
+@.str.23 = private unnamed_addr constant [9 x i8] c"vfio-pci\00", align 1
+@.str.24 = private unnamed_addr constant [22 x i8] c"../qemu/hw/vfio/pci.h\00", align 1
+@__func__.VFIO_PCI = private unnamed_addr constant [9 x i8] c"VFIO_PCI\00", align 1
+@_TRACE_VFIO_PCI_READ_CONFIG_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.25 = private unnamed_addr constant [63 x i8] c"%d@%zu.%06zu:vfio_pci_read_config  (%s, @0x%x, len=0x%x) 0x%x\0A\00", align 1
+@.str.26 = private unnamed_addr constant [50 x i8] c"vfio_pci_read_config  (%s, @0x%x, len=0x%x) 0x%x\0A\00", align 1
+@_TRACE_VFIO_PCI_WRITE_CONFIG_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.27 = private unnamed_addr constant [65 x i8] c"%d@%zu.%06zu:vfio_pci_write_config  (%s, @0x%x, 0x%x, len=0x%x)\0A\00", align 1
+@.str.28 = private unnamed_addr constant [52 x i8] c"vfio_pci_write_config  (%s, @0x%x, 0x%x, len=0x%x)\0A\00", align 1
+@.str.29 = private unnamed_addr constant [40 x i8] c"vfio: Error: event_notifier_init failed\00", align 1
+@.str.30 = private unnamed_addr constant [41 x i8] c"vfio: Error: Failed to setup MSI fds: %m\00", align 1
+@.str.31 = private unnamed_addr constant [60 x i8] c"vfio: Error: Failed to enable %d MSI vectors, retry with %d\00", align 1
+@.str.32 = private unnamed_addr constant [34 x i8] c"vfio: Error: Failed to enable MSI\00", align 1
+@.str.33 = private unnamed_addr constant [29 x i8] c"!vdev->defer_kvm_irq_routing\00", align 1
+@__PRETTY_FUNCTION__.vfio_prepare_kvm_msi_virq_batch = private unnamed_addr constant [54 x i8] c"void vfio_prepare_kvm_msi_virq_batch(VFIOPCIDevice *)\00", align 1
+@vfio_route_change = internal global %struct.KVMRouteChange zeroinitializer, align 8
+@kvm_state = external local_unnamed_addr global ptr, align 8
+@_TRACE_VFIO_MSIX_PBA_ENABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.34 = private unnamed_addr constant [41 x i8] c"%d@%zu.%06zu:vfio_msix_pba_enable  (%s)\0A\00", align 1
+@.str.35 = private unnamed_addr constant [28 x i8] c"vfio_msix_pba_enable  (%s)\0A\00", align 1
+@_TRACE_VFIO_MSI_INTERRUPT_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.36 = private unnamed_addr constant [60 x i8] c"%d@%zu.%06zu:vfio_msi_interrupt  (%s) vector %d 0x%lx/0x%x\0A\00", align 1
+@.str.37 = private unnamed_addr constant [47 x i8] c"vfio_msi_interrupt  (%s) vector %d 0x%lx/0x%x\0A\00", align 1
+@.str.38 = private unnamed_addr constant [28 x i8] c"vdev->defer_kvm_irq_routing\00", align 1
+@__PRETTY_FUNCTION__.vfio_commit_kvm_msi_virq_batch = private unnamed_addr constant [53 x i8] c"void vfio_commit_kvm_msi_virq_batch(VFIOPCIDevice *)\00", align 1
+@_TRACE_VFIO_MSI_ENABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.39 = private unnamed_addr constant [59 x i8] c"%d@%zu.%06zu:vfio_msi_enable  (%s) Enabled %d MSI vectors\0A\00", align 1
+@.str.40 = private unnamed_addr constant [46 x i8] c"vfio_msi_enable  (%s) Enabled %d MSI vectors\0A\00", align 1
+@_TRACE_VFIO_MSI_DISABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.41 = private unnamed_addr constant [37 x i8] c"%d@%zu.%06zu:vfio_msi_disable  (%s)\0A\00", align 1
+@.str.42 = private unnamed_addr constant [24 x i8] c"vfio_msi_disable  (%s)\0A\00", align 1
+@.str.43 = private unnamed_addr constant [39 x i8] c"vfio: msix_set_vector_notifiers failed\00", align 1
+@.str.44 = private unnamed_addr constant [35 x i8] c"vfio: failed to enable vectors, %d\00", align 1
+@.str.45 = private unnamed_addr constant [33 x i8] c"vfio: failed to enable MSI-X, %d\00", align 1
+@_TRACE_VFIO_MSIX_VECTOR_DO_USE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.46 = private unnamed_addr constant [59 x i8] c"%d@%zu.%06zu:vfio_msix_vector_do_use  (%s) vector %d used\0A\00", align 1
+@.str.47 = private unnamed_addr constant [46 x i8] c"vfio_msix_vector_do_use  (%s) vector %d used\0A\00", align 1
+@_TRACE_VFIO_MSIX_PBA_DISABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.48 = private unnamed_addr constant [42 x i8] c"%d@%zu.%06zu:vfio_msix_pba_disable  (%s)\0A\00", align 1
+@.str.49 = private unnamed_addr constant [29 x i8] c"vfio_msix_pba_disable  (%s)\0A\00", align 1
+@_TRACE_VFIO_MSIX_VECTOR_RELEASE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.50 = private unnamed_addr constant [64 x i8] c"%d@%zu.%06zu:vfio_msix_vector_release  (%s) vector %d released\0A\00", align 1
+@.str.51 = private unnamed_addr constant [51 x i8] c"vfio_msix_vector_release  (%s) vector %d released\0A\00", align 1
+@_TRACE_VFIO_MSIX_ENABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.52 = private unnamed_addr constant [37 x i8] c"%d@%zu.%06zu:vfio_msix_enable  (%s)\0A\00", align 1
+@.str.53 = private unnamed_addr constant [24 x i8] c"vfio_msix_enable  (%s)\0A\00", align 1
+@_TRACE_VFIO_MSIX_DISABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.54 = private unnamed_addr constant [38 x i8] c"%d@%zu.%06zu:vfio_msix_disable  (%s)\0A\00", align 1
+@.str.55 = private unnamed_addr constant [25 x i8] c"vfio_msix_disable  (%s)\0A\00", align 1
+@_TRACE_VFIO_INTX_DISABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.56 = private unnamed_addr constant [38 x i8] c"%d@%zu.%06zu:vfio_intx_disable  (%s)\0A\00", align 1
+@.str.57 = private unnamed_addr constant [25 x i8] c"vfio_intx_disable  (%s)\0A\00", align 1
+@__func__.vfio_intx_enable = private unnamed_addr constant [17 x i8] c"vfio_intx_enable\00", align 1
+@.str.58 = private unnamed_addr constant [27 x i8] c"event_notifier_init failed\00", align 1
+@_TRACE_VFIO_INTX_INTERRUPT_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.59 = private unnamed_addr constant [47 x i8] c"%d@%zu.%06zu:vfio_intx_interrupt  (%s) Pin %c\0A\00", align 1
+@.str.60 = private unnamed_addr constant [34 x i8] c"vfio_intx_interrupt  (%s) Pin %c\0A\00", align 1
+@_TRACE_VFIO_INTX_ENABLE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.61 = private unnamed_addr constant [37 x i8] c"%d@%zu.%06zu:vfio_intx_enable  (%s)\0A\00", align 1
+@.str.62 = private unnamed_addr constant [24 x i8] c"vfio_intx_enable  (%s)\0A\00", align 1
+@vfio_vga_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.anon.19, %struct.anon.20, [4 x i8] } { ptr @vfio_vga_read, ptr @vfio_vga_write, ptr null, ptr null, i32 2, [4 x i8] zeroinitializer, %struct.anon.19 zeroinitializer, %struct.anon.20 zeroinitializer, [4 x i8] zeroinitializer }, align 8
+@.str.64 = private unnamed_addr constant [11 x i8] c"pci-device\00", align 1
+@.str.65 = private unnamed_addr constant [19 x i8] c"pci-express-device\00", align 1
+@.str.66 = private unnamed_addr constant [24 x i8] c"conventional-pci-device\00", align 1
+@.compoundliteral = internal global [3 x %struct.InterfaceInfo] [%struct.InterfaceInfo { ptr @.str.65 }, %struct.InterfaceInfo { ptr @.str.66 }, %struct.InterfaceInfo zeroinitializer], align 8
+@vfio_pci_dev_info = internal constant { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.23, ptr @.str.64, i64 3808, i64 0, ptr @vfio_instance_init, ptr null, ptr @vfio_instance_finalize, i8 0, [7 x i8] zeroinitializer, i64 0, ptr @vfio_pci_dev_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
+@.str.68 = private unnamed_addr constant [10 x i8] c"bootindex\00", align 1
+@vfio_pci_ops = internal global %struct.VFIODeviceOps { ptr @vfio_pci_compute_needs_reset, ptr @vfio_pci_hot_reset_multi, ptr @vfio_intx_eoi, ptr @vfio_pci_get_object, ptr @vfio_pci_save_config, ptr @vfio_pci_load_config }, align 8
+@.str.69 = private unnamed_addr constant [106 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/pci/pci_device.h\00", align 1
+@__func__.PCI_DEVICE = private unnamed_addr constant [11 x i8] c"PCI_DEVICE\00", align 1
+@.str.70 = private unnamed_addr constant [11 x i8] c"vfio-iommu\00", align 1
+@.str.71 = private unnamed_addr constant [116 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/vfio/vfio-container-base.h\00", align 1
+@__func__.VFIO_IOMMU_GET_CLASS = private unnamed_addr constant [21 x i8] c"VFIO_IOMMU_GET_CLASS\00", align 1
+@_TRACE_VFIO_INTX_EOI_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.72 = private unnamed_addr constant [38 x i8] c"%d@%zu.%06zu:vfio_intx_eoi  (%s) EOI\0A\00", align 1
+@.str.73 = private unnamed_addr constant [25 x i8] c"vfio_intx_eoi  (%s) EOI\0A\00", align 1
+@.str.74 = private unnamed_addr constant [14 x i8] c"VFIOPCIDevice\00", align 1
+@.str.75 = private unnamed_addr constant [5 x i8] c"pdev\00", align 1
+@vmstate_pci_device = external constant %struct.VMStateDescription, align 8
+@vmstate_msix = external constant %struct.VMStateDescription, align 8
+@.compoundliteral.76 = internal constant [3 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.75, ptr null, i64 0, i64 2752, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 8, [4 x i8] zeroinitializer, ptr @vmstate_pci_device, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.75, ptr null, i64 0, i64 2752, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 8, [4 x i8] zeroinitializer, ptr @vmstate_msix, i32 0, i32 0, ptr @vfio_msix_present }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@.compoundliteral.77 = internal constant [2 x ptr] [ptr @vmstate_vfio_display, ptr null], align 8
+@vmstate_vfio_pci_config = internal constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str.74, i8 0, i8 0, [2 x i8] zeroinitializer, i32 1, i32 1, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.compoundliteral.76, ptr @.compoundliteral.77 }, align 8
+@.str.79 = private unnamed_addr constant [26 x i8] c"VFIOPCIDevice/VFIODisplay\00", align 1
+@.str.80 = private unnamed_addr constant [4 x i8] c"dpy\00", align 1
+@vfio_display_vmstate = external constant %struct.VMStateDescription, align 8
+@.compoundliteral.81 = internal constant [2 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.80, ptr null, i64 3776, i64 8, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 10, [4 x i8] zeroinitializer, ptr @vfio_display_vmstate, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@vmstate_vfio_display = internal constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str.79, i8 0, i8 0, [2 x i8] zeroinitializer, i32 1, i32 1, i32 0, ptr null, ptr null, ptr null, ptr null, ptr @vfio_display_migration_needed, ptr null, ptr @.compoundliteral.81, ptr null }, align 8
+@.str.83 = private unnamed_addr constant [7 x i8] c"device\00", align 1
+@.str.84 = private unnamed_addr constant [101 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/qdev-core.h\00", align 1
+@__func__.DEVICE = private unnamed_addr constant [7 x i8] c"DEVICE\00", align 1
+@.str.85 = private unnamed_addr constant [10 x i8] c"bar->size\00", align 1
+@__PRETTY_FUNCTION__.vfio_bars_finalize = private unnamed_addr constant [41 x i8] c"void vfio_bars_finalize(VFIOPCIDevice *)\00", align 1
+@.str.86 = private unnamed_addr constant [33 x i8] c"VFIO-based PCI device assignment\00", align 1
+@__func__.DEVICE_CLASS = private unnamed_addr constant [13 x i8] c"DEVICE_CLASS\00", align 1
+@__func__.PCI_DEVICE_CLASS = private unnamed_addr constant [17 x i8] c"PCI_DEVICE_CLASS\00", align 1
+@_TRACE_VFIO_PCI_RESET_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.87 = private unnamed_addr constant [35 x i8] c"%d@%zu.%06zu:vfio_pci_reset  (%s)\0A\00", align 1
+@.str.88 = private unnamed_addr constant [22 x i8] c"vfio_pci_reset  (%s)\0A\00", align 1
+@_TRACE_VFIO_PCI_RESET_FLR_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.89 = private unnamed_addr constant [58 x i8] c"%d@%zu.%06zu:vfio_pci_reset_flr %s FLR/VFIO_DEVICE_RESET\0A\00", align 1
+@.str.90 = private unnamed_addr constant [45 x i8] c"vfio_pci_reset_flr %s FLR/VFIO_DEVICE_RESET\0A\00", align 1
+@_TRACE_VFIO_PCI_RESET_PM_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.91 = private unnamed_addr constant [48 x i8] c"%d@%zu.%06zu:vfio_pci_reset_pm %s PCI PM Reset\0A\00", align 1
+@.str.92 = private unnamed_addr constant [35 x i8] c"vfio_pci_reset_pm %s PCI PM Reset\0A\00", align 1
+@.str.93 = private unnamed_addr constant [5 x i8] c"host\00", align 1
+@qdev_prop_pci_host_devaddr = external constant %struct.PropertyInfo, align 8
+@.str.94 = private unnamed_addr constant [9 x i8] c"vf-token\00", align 1
+@qdev_prop_uuid = external constant %struct.PropertyInfo, align 8
+@.str.95 = private unnamed_addr constant [9 x i8] c"sysfsdev\00", align 1
+@qdev_prop_string = external constant %struct.PropertyInfo, align 8
+@.str.96 = private unnamed_addr constant [31 x i8] c"x-pre-copy-dirty-page-tracking\00", align 1
+@qdev_prop_on_off_auto = external constant %struct.PropertyInfo, align 8
+@.str.97 = private unnamed_addr constant [29 x i8] c"x-device-dirty-page-tracking\00", align 1
+@.str.98 = private unnamed_addr constant [8 x i8] c"display\00", align 1
+@.str.99 = private unnamed_addr constant [5 x i8] c"xres\00", align 1
+@qdev_prop_uint32 = external constant %struct.PropertyInfo, align 8
+@.str.100 = private unnamed_addr constant [5 x i8] c"yres\00", align 1
+@.str.101 = private unnamed_addr constant [23 x i8] c"x-intx-mmap-timeout-ms\00", align 1
+@.str.102 = private unnamed_addr constant [6 x i8] c"x-vga\00", align 1
+@qdev_prop_bit = external constant %struct.PropertyInfo, align 8
+@.str.103 = private unnamed_addr constant [6 x i8] c"x-req\00", align 1
+@.str.104 = private unnamed_addr constant [15 x i8] c"x-igd-opregion\00", align 1
+@.str.105 = private unnamed_addr constant [17 x i8] c"enable-migration\00", align 1
+@.str.106 = private unnamed_addr constant [17 x i8] c"migration-events\00", align 1
+@qdev_prop_bool = external constant %struct.PropertyInfo, align 8
+@.str.107 = private unnamed_addr constant [10 x i8] c"x-no-mmap\00", align 1
+@.str.108 = private unnamed_addr constant [18 x i8] c"x-balloon-allowed\00", align 1
+@.str.109 = private unnamed_addr constant [14 x i8] c"x-no-kvm-intx\00", align 1
+@.str.110 = private unnamed_addr constant [13 x i8] c"x-no-kvm-msi\00", align 1
+@.str.111 = private unnamed_addr constant [14 x i8] c"x-no-kvm-msix\00", align 1
+@.str.112 = private unnamed_addr constant [20 x i8] c"x-no-geforce-quirks\00", align 1
+@.str.113 = private unnamed_addr constant [19 x i8] c"x-no-kvm-ioeventfd\00", align 1
+@.str.114 = private unnamed_addr constant [20 x i8] c"x-no-vfio-ioeventfd\00", align 1
+@.str.115 = private unnamed_addr constant [16 x i8] c"x-pci-vendor-id\00", align 1
+@.str.116 = private unnamed_addr constant [16 x i8] c"x-pci-device-id\00", align 1
+@.str.117 = private unnamed_addr constant [20 x i8] c"x-pci-sub-vendor-id\00", align 1
+@.str.118 = private unnamed_addr constant [20 x i8] c"x-pci-sub-device-id\00", align 1
+@.str.119 = private unnamed_addr constant [10 x i8] c"x-igd-gms\00", align 1
+@.str.120 = private unnamed_addr constant [22 x i8] c"x-nv-gpudirect-clique\00", align 1
+@qdev_prop_nv_gpudirect_clique = external constant %struct.PropertyInfo, align 8
+@.str.121 = private unnamed_addr constant [18 x i8] c"x-msix-relocation\00", align 1
+@qdev_prop_off_auto_pcibar = external constant %struct.PropertyInfo, align 8
+@.str.122 = private unnamed_addr constant [15 x i8] c"skip-vsc-check\00", align 1
+@vfio_pci_dev_properties = internal constant [30 x { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] }] [{ ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.93, ptr @qdev_prop_pci_host_devaddr, i64 3640, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 0, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.94, ptr @qdev_prop_uuid, i64 3656, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 0, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.95, ptr @qdev_prop_string, i64 2816, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 0, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.96, ptr @qdev_prop_on_off_auto, i64 2904, ptr null, i64 0, %union.anon.21 { i64 1 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.97, ptr @qdev_prop_on_off_auto, i64 2908, ptr null, i64 0, %union.anon.21 { i64 1 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.98, ptr @qdev_prop_on_off_auto, i64 3724, ptr null, i64 0, %union.anon.21 { i64 2 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.99, ptr @qdev_prop_uint32, i64 3728, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.100, ptr @qdev_prop_uint32, i64 3732, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.101, ptr @qdev_prop_uint32, i64 3004, ptr null, i64 0, %union.anon.21 { i64 1100 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.102, ptr @qdev_prop_bit, i64 3720, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.103, ptr @qdev_prop_bit, i64 3720, ptr null, i64 0, %union.anon.21 { i64 1 }, ptr null, i32 0, i32 0, i8 1, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.104, ptr @qdev_prop_bit, i64 3720, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 2, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.105, ptr @qdev_prop_on_off_auto, i64 2856, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.106, ptr @qdev_prop_bool, i64 2860, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.107, ptr @qdev_prop_bool, i64 2851, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.108, ptr @qdev_prop_bool, i64 2852, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.109, ptr @qdev_prop_bool, i64 3755, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.110, ptr @qdev_prop_bool, i64 3756, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.111, ptr @qdev_prop_bool, i64 3757, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.112, ptr @qdev_prop_bool, i64 3758, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.113, ptr @qdev_prop_bool, i64 3759, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.114, ptr @qdev_prop_bool, i64 3760, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.115, ptr @qdev_prop_uint32, i64 3704, ptr null, i64 0, %union.anon.21 { i64 4294967295 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.116, ptr @qdev_prop_uint32, i64 3708, ptr null, i64 0, %union.anon.21 { i64 4294967295 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.117, ptr @qdev_prop_uint32, i64 3712, ptr null, i64 0, %union.anon.21 { i64 4294967295 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.118, ptr @qdev_prop_uint32, i64 3716, ptr null, i64 0, %union.anon.21 { i64 4294967295 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.119, ptr @qdev_prop_uint32, i64 3740, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.120, ptr @qdev_prop_nv_gpudirect_clique, i64 3749, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 0, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.121, ptr @qdev_prop_off_auto_pcibar, i64 3744, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.122, ptr @qdev_prop_bool, i64 3770, ptr null, i64 0, %union.anon.21 { i64 1 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }], align 16
+@error_fatal = external global ptr, align 8
+@__func__.vfio_realize = private unnamed_addr constant [13 x i8] c"vfio_realize\00", align 1
+@.str.124 = private unnamed_addr constant [24 x i8] c"No provided host device\00", align 1
+@.str.125 = private unnamed_addr constant [84 x i8] c"Use -device vfio-pci,host=DDDD:BB:DD.F or -device vfio-pci,sysfsdev=PATH_TO_DEVICE\0A\00", align 1
+@.str.126 = private unnamed_addr constant [41 x i8] c"/sys/bus/pci/devices/%04x:%02x:%02x.%01x\00", align 1
+@.str.127 = private unnamed_addr constant [64 x i8] c"x-balloon-allowed only potentially compatible with mdev devices\00", align 1
+@.str.128 = private unnamed_addr constant [15 x i8] c"%s vf_token=%s\00", align 1
+@.str.129 = private unnamed_addr constant [35 x i8] c"failed to read device config space\00", align 1
+@.str.130 = private unnamed_addr constant [31 x i8] c"invalid PCI vendor ID provided\00", align 1
+@.str.131 = private unnamed_addr constant [31 x i8] c"invalid PCI device ID provided\00", align 1
+@.str.132 = private unnamed_addr constant [41 x i8] c"invalid PCI subsystem vendor ID provided\00", align 1
+@.str.133 = private unnamed_addr constant [41 x i8] c"invalid PCI subsystem device ID provided\00", align 1
+@.str.134 = private unnamed_addr constant [23 x i8] c"Failed to set vIOMMU: \00", align 1
+@.str.135 = private unnamed_addr constant [57 x i8] c"cannot support IGD OpRegion feature on hotplugged device\00", align 1
+@.str.136 = private unnamed_addr constant [48 x i8] c"does not support requested IGD OpRegion feature\00", align 1
+@.str.137 = private unnamed_addr constant [29 x i8] c"ramfb=on requires display=on\00", align 1
+@.str.138 = private unnamed_addr constant [44 x i8] c"xres and yres properties require display=on\00", align 1
+@.str.139 = private unnamed_addr constant [43 x i8] c"xres and yres properties need edid support\00", align 1
+@.str.140 = private unnamed_addr constant [66 x i8] c"x-ramfb-migrate=on but ramfb=off. Forcing x-ramfb-migrate to off.\00", align 1
+@.str.141 = private unnamed_addr constant [42 x i8] c"x-ramfb-migrate requires enable-migration\00", align 1
+@_TRACE_VFIO_MDEV_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.142 = private unnamed_addr constant [41 x i8] c"%d@%zu.%06zu:vfio_mdev  (%s) is_mdev %d\0A\00", align 1
+@.str.143 = private unnamed_addr constant [28 x i8] c"vfio_mdev  (%s) is_mdev %d\0A\00", align 1
+@__const.vfio_populate_device.irq_info = private unnamed_addr constant %struct.vfio_irq_info { i32 16, i32 0, i32 0, i32 0 }, align 4
+@__func__.vfio_populate_device = private unnamed_addr constant [21 x i8] c"vfio_populate_device\00", align 1
+@.str.144 = private unnamed_addr constant [24 x i8] c"this isn't a PCI device\00", align 1
+@.str.145 = private unnamed_addr constant [35 x i8] c"unexpected number of io regions %u\00", align 1
+@.str.146 = private unnamed_addr constant [29 x i8] c"unexpected number of irqs %u\00", align 1
+@.str.147 = private unnamed_addr constant [10 x i8] c"%s BAR %d\00", align 1
+@.str.148 = private unnamed_addr constant [29 x i8] c"failed to get region %d info\00", align 1
+@.str.149 = private unnamed_addr constant [26 x i8] c"failed to get config info\00", align 1
+@.str.150 = private unnamed_addr constant [49 x i8] c"device does not support requested feature x-vga\0A\00", align 1
+@.str.151 = private unnamed_addr constant [56 x i8] c"vfio %s: Could not enable error recovery for the device\00", align 1
+@_TRACE_VFIO_POPULATE_DEVICE_CONFIG_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.152 = private unnamed_addr constant [103 x i8] c"%d@%zu.%06zu:vfio_populate_device_config Device '%s' config: size: 0x%lx, offset: 0x%lx, flags: 0x%lx\0A\00", align 1
+@.str.153 = private unnamed_addr constant [90 x i8] c"vfio_populate_device_config Device '%s' config: size: 0x%lx, offset: 0x%lx, flags: 0x%lx\0A\00", align 1
+@_TRACE_VFIO_POPULATE_DEVICE_GET_IRQ_INFO_FAILURE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.154 = private unnamed_addr constant [93 x i8] c"%d@%zu.%06zu:vfio_populate_device_get_irq_info_failure VFIO_DEVICE_GET_IRQ_INFO failure: %s\0A\00", align 1
+@.str.155 = private unnamed_addr constant [80 x i8] c"vfio_populate_device_get_irq_info_failure VFIO_DEVICE_GET_IRQ_INFO failure: %s\0A\00", align 1
+@_TRACE_VFIO_PCI_EMULATED_VENDOR_ID_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.156 = private unnamed_addr constant [52 x i8] c"%d@%zu.%06zu:vfio_pci_emulated_vendor_id %s 0x%04x\0A\00", align 1
+@.str.157 = private unnamed_addr constant [39 x i8] c"vfio_pci_emulated_vendor_id %s 0x%04x\0A\00", align 1
+@_TRACE_VFIO_PCI_EMULATED_DEVICE_ID_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.158 = private unnamed_addr constant [52 x i8] c"%d@%zu.%06zu:vfio_pci_emulated_device_id %s 0x%04x\0A\00", align 1
+@.str.159 = private unnamed_addr constant [39 x i8] c"vfio_pci_emulated_device_id %s 0x%04x\0A\00", align 1
+@_TRACE_VFIO_PCI_EMULATED_SUB_VENDOR_ID_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.160 = private unnamed_addr constant [56 x i8] c"%d@%zu.%06zu:vfio_pci_emulated_sub_vendor_id %s 0x%04x\0A\00", align 1
+@.str.161 = private unnamed_addr constant [43 x i8] c"vfio_pci_emulated_sub_vendor_id %s 0x%04x\0A\00", align 1
+@_TRACE_VFIO_PCI_EMULATED_SUB_DEVICE_ID_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.162 = private unnamed_addr constant [56 x i8] c"%d@%zu.%06zu:vfio_pci_emulated_sub_device_id %s 0x%04x\0A\00", align 1
+@.str.163 = private unnamed_addr constant [43 x i8] c"vfio_pci_emulated_sub_device_id %s 0x%04x\0A\00", align 1
+@.str.164 = private unnamed_addr constant [85 x i8] c"Device at %s is known to cause system instability issues during option rom execution\00", align 1
+@.str.165 = private unnamed_addr constant [48 x i8] c"Proceeding anyway since user specified romfile\0A\00", align 1
+@.str.166 = private unnamed_addr constant [18 x i8] c"%s(%s) failed: %m\00", align 1
+@__func__.vfio_pci_size_rom = private unnamed_addr constant [18 x i8] c"vfio_pci_size_rom\00", align 1
+@.str.167 = private unnamed_addr constant [66 x i8] c"Proceeding anyway since user specified positive value for rombar\0A\00", align 1
+@.str.168 = private unnamed_addr constant [80 x i8] c"Rom loading for device at %s has been disabled due to system instability issues\00", align 1
+@.str.169 = private unnamed_addr constant [38 x i8] c"Specify rombar=1 or romfile to force\0A\00", align 1
+@.str.170 = private unnamed_addr constant [13 x i8] c"vfio[%s].rom\00", align 1
+@_TRACE_VFIO_PCI_SIZE_ROM_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.171 = private unnamed_addr constant [49 x i8] c"%d@%zu.%06zu:vfio_pci_size_rom %s ROM size 0x%x\0A\00", align 1
+@.str.172 = private unnamed_addr constant [36 x i8] c"vfio_pci_size_rom %s ROM size 0x%x\0A\00", align 1
+@vfio_rom_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.anon.19, %struct.anon.20, [4 x i8] } { ptr @vfio_rom_read, ptr @vfio_rom_write, ptr null, ptr null, i32 2, [4 x i8] zeroinitializer, %struct.anon.19 zeroinitializer, %struct.anon.20 zeroinitializer, [4 x i8] zeroinitializer }, align 8
+@.str.174 = private unnamed_addr constant [39 x i8] c"vfio: unsupported read size, %d bytes\0A\00", align 1
+@.str.175 = private unnamed_addr constant [33 x i8] c"vfio: Error getting ROM info: %m\00", align 1
+@.str.176 = private unnamed_addr constant [39 x i8] c"vfio-pci: Cannot read device rom at %s\00", align 1
+@.str.177 = private unnamed_addr constant [133 x i8] c"Device option ROM contents are probably invalid (check dmesg).\0ASkip option ROM probe with rombar=0, or load from file with romfile=\0A\00", align 1
+@.str.178 = private unnamed_addr constant [35 x i8] c"vfio: Error reading device ROM: %m\00", align 1
+@.str.179 = private unnamed_addr constant [5 x i8] c"PCIR\00", align 1
+@_TRACE_VFIO_PCI_LOAD_ROM_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.180 = private unnamed_addr constant [90 x i8] c"%d@%zu.%06zu:vfio_pci_load_rom Device '%s' ROM: size: 0x%lx, offset: 0x%lx, flags: 0x%lx\0A\00", align 1
+@.str.181 = private unnamed_addr constant [77 x i8] c"vfio_pci_load_rom Device '%s' ROM: size: 0x%lx, offset: 0x%lx, flags: 0x%lx\0A\00", align 1
+@_TRACE_VFIO_ROM_READ_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.182 = private unnamed_addr constant [55 x i8] c"%d@%zu.%06zu:vfio_rom_read  (%s, 0x%lx, 0x%x) = 0x%lx\0A\00", align 1
+@.str.183 = private unnamed_addr constant [42 x i8] c"vfio_rom_read  (%s, 0x%lx, 0x%x) = 0x%lx\0A\00", align 1
+@.str.184 = private unnamed_addr constant [33 x i8] c"vfio: Failed to read BAR %d (%m)\00", align 1
+@__const.vfio_msix_early_setup.irq_info = private unnamed_addr constant %struct.vfio_irq_info { i32 16, i32 0, i32 2, i32 0 }, align 4
+@__func__.vfio_msix_early_setup = private unnamed_addr constant [22 x i8] c"vfio_msix_early_setup\00", align 1
+@.str.185 = private unnamed_addr constant [30 x i8] c"failed to read PCI MSIX FLAGS\00", align 1
+@.str.186 = private unnamed_addr constant [30 x i8] c"failed to read PCI MSIX TABLE\00", align 1
+@.str.187 = private unnamed_addr constant [28 x i8] c"failed to read PCI MSIX PBA\00", align 1
+@.str.188 = private unnamed_addr constant [29 x i8] c"failed to get MSI-X irq info\00", align 1
+@.str.189 = private unnamed_addr constant [74 x i8] c"hardware reports invalid configuration, MSIX PBA outside of specified BAR\00", align 1
+@_TRACE_VFIO_MSIX_EARLY_SETUP_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.190 = private unnamed_addr constant [106 x i8] c"%d@%zu.%06zu:vfio_msix_early_setup %s PCI MSI-X CAP @0x%x, BAR %d, offset 0x%lx, entries %d, noresize %d\0A\00", align 1
+@.str.191 = private unnamed_addr constant [93 x i8] c"vfio_msix_early_setup %s PCI MSI-X CAP @0x%x, BAR %d, offset 0x%lx, entries %d, noresize %d\0A\00", align 1
+@_TRACE_VFIO_MSIX_FIXUP_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.192 = private unnamed_addr constant [79 x i8] c"%d@%zu.%06zu:vfio_msix_fixup  (%s) MSI-X region %d mmap fixup [0x%lx - 0x%lx]\0A\00", align 1
+@.str.193 = private unnamed_addr constant [66 x i8] c"vfio_msix_fixup  (%s) MSI-X region %d mmap fixup [0x%lx - 0x%lx]\0A\00", align 1
+@__func__.vfio_pci_relocate_msix = private unnamed_addr constant [23 x i8] c"vfio_pci_relocate_msix\00", align 1
+@.str.194 = private unnamed_addr constant [61 x i8] c"No automatic MSI-X relocation available for device %04x:%04x\00", align 1
+@.str.195 = private unnamed_addr constant [46 x i8] c"Invalid MSI-X relocation BAR %d, I/O port BAR\00", align 1
+@.str.196 = private unnamed_addr constant [59 x i8] c"Invalid MSI-X relocation BAR %d, consumed by 64-bit BAR %d\00", align 1
+@.str.197 = private unnamed_addr constant [63 x i8] c"Invalid MSI-X relocation BAR %d, no space to extend 32-bit BAR\00", align 1
+@_TRACE_VFIO_MSIX_RELO_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.198 = private unnamed_addr constant [55 x i8] c"%d@%zu.%06zu:vfio_msix_relo  (%s) BAR %d offset 0x%lx\0A\00", align 1
+@.str.199 = private unnamed_addr constant [42 x i8] c"vfio_msix_relo  (%s) BAR %d offset 0x%lx\0A\00", align 1
+@.str.200 = private unnamed_addr constant [15 x i8] c"%s base BAR %d\00", align 1
+@.str.201 = private unnamed_addr constant [50 x i8] c"Failed to mmap %s BAR %d. Performance may be slow\00", align 1
+@.str.202 = private unnamed_addr constant [47 x i8] c"failed to add PCI capability 0x%x[0x%x]@0x%x: \00", align 1
+@__func__.vfio_msi_setup = private unnamed_addr constant [15 x i8] c"vfio_msi_setup\00", align 1
+@.str.203 = private unnamed_addr constant [33 x i8] c"failed reading MSI PCI_CAP_FLAGS\00", align 1
+@.str.204 = private unnamed_addr constant [18 x i8] c"msi_init failed: \00", align 1
+@_TRACE_VFIO_MSI_SETUP_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.205 = private unnamed_addr constant [50 x i8] c"%d@%zu.%06zu:vfio_msi_setup %s PCI MSI CAP @0x%x\0A\00", align 1
+@.str.206 = private unnamed_addr constant [37 x i8] c"vfio_msi_setup %s PCI MSI CAP @0x%x\0A\00", align 1
+@_TRACE_VFIO_CHECK_PCIE_FLR_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.207 = private unnamed_addr constant [63 x i8] c"%d@%zu.%06zu:vfio_check_pcie_flr %s Supports FLR via PCIe cap\0A\00", align 1
+@.str.208 = private unnamed_addr constant [50 x i8] c"vfio_check_pcie_flr %s Supports FLR via PCIe cap\0A\00", align 1
+@__func__.vfio_setup_pcie_cap = private unnamed_addr constant [20 x i8] c"vfio_setup_pcie_cap\00", align 1
+@.str.209 = private unnamed_addr constant [64 x i8] c"assignment of PCIe type 0x%x devices is not currently supported\00", align 1
+@.str.210 = private unnamed_addr constant [4 x i8] c"PCI\00", align 1
+@.str.211 = private unnamed_addr constant [99 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/pci/pci.h\00", align 1
+@__func__.PCI_BUS = private unnamed_addr constant [8 x i8] c"PCI_BUS\00", align 1
+@.str.212 = private unnamed_addr constant [23 x i8] c"vfio-no-msix-emulation\00", align 1
+@_TRACE_VFIO_CHECK_PM_RESET_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.213 = private unnamed_addr constant [55 x i8] c"%d@%zu.%06zu:vfio_check_pm_reset %s Supports PM reset\0A\00", align 1
+@.str.214 = private unnamed_addr constant [42 x i8] c"vfio_check_pm_reset %s Supports PM reset\0A\00", align 1
+@_TRACE_VFIO_CHECK_AF_FLR_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.215 = private unnamed_addr constant [59 x i8] c"%d@%zu.%06zu:vfio_check_af_flr %s Supports FLR via AF cap\0A\00", align 1
+@.str.216 = private unnamed_addr constant [46 x i8] c"vfio_check_af_flr %s Supports FLR via AF cap\0A\00", align 1
+@_TRACE_VFIO_ADD_EXT_CAP_DROPPED_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.217 = private unnamed_addr constant [52 x i8] c"%d@%zu.%06zu:vfio_add_ext_cap_dropped %s 0x%x@0x%x\0A\00", align 1
+@.str.218 = private unnamed_addr constant [39 x i8] c"vfio_add_ext_cap_dropped %s 0x%x@0x%x\0A\00", align 1
+@_TRACE_VFIO_INTX_UPDATE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.219 = private unnamed_addr constant [56 x i8] c"%d@%zu.%06zu:vfio_intx_update  (%s) IRQ moved %d -> %d\0A\00", align 1
+@.str.220 = private unnamed_addr constant [43 x i8] c"vfio_intx_update  (%s) IRQ moved %d -> %d\0A\00", align 1
+@.str.221 = private unnamed_addr constant [56 x i8] c"vfio: Unable to init event notifier for error detection\00", align 1
+@.str.222 = private unnamed_addr constant [94 x i8] c"%s(%s) Unrecoverable error detected. Please collect any data possible and then kill the guest\00", align 1
+@__func__.vfio_err_notifier_handler = private unnamed_addr constant [26 x i8] c"vfio_err_notifier_handler\00", align 1
+@__const.vfio_register_req_notifier.irq_info = private unnamed_addr constant %struct.vfio_irq_info { i32 16, i32 0, i32 4, i32 0 }, align 4
+@.str.223 = private unnamed_addr constant [55 x i8] c"vfio: Unable to init event notifier for device request\00", align 1
+@.str.224 = private unnamed_addr constant [19 x i8] c"vfio-pci-nohotplug\00", align 1
+@vfio_pci_nohotplug_dev_info = internal constant { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.224, ptr @.str.23, i64 3808, i64 0, ptr null, ptr null, ptr null, i8 0, [7 x i8] zeroinitializer, i64 0, ptr @vfio_pci_nohotplug_dev_class_init, ptr null, ptr null, ptr null }, align 8
+@.str.226 = private unnamed_addr constant [6 x i8] c"ramfb\00", align 1
+@.str.227 = private unnamed_addr constant [16 x i8] c"x-ramfb-migrate\00", align 1
+@vfio_pci_dev_nohotplug_properties = internal constant [2 x { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] }] [{ ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.226, ptr @qdev_prop_bool, i64 3761, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.21, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.227, ptr @qdev_prop_on_off_auto, i64 3764, ptr null, i64 0, %union.anon.21 zeroinitializer, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }], align 16
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_register_vfio_pci_dev_type, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qpci_secondary_buses_rec(ptr noundef %qbus, i32 noundef range(i32 0, 8161) %bus, ptr noundef nonnull captures(none) %pci_bus) unnamed_addr #0 {
-entry:
-  %config_readw.i.i = getelementptr inbounds nuw i8, ptr %qbus, i64 88
-  br label %for.body
-
-for.cond7.preheader:                              ; preds = %for.inc
-  %conv30 = trunc i32 %bus to i8
-  br label %for.body10
-
-for.body:                                         ; preds = %entry, %for.inc
-  %index.0101 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
-  %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
-  %tobool.not.i.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %qpci_device_set.exit.i
-
-if.else.i.i:                                      ; preds = %for.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.qpci_device_set, ptr noundef nonnull @.str.19) #12
-  unreachable
-
-qpci_device_set.exit.i:                           ; preds = %for.body
-  %add = add nuw nsw i32 %index.0101, %bus
-  %shl = shl nuw nsw i32 %add, 3
-  store ptr %qbus, ptr %call.i, align 8
-  %devfn2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 %shl, ptr %devfn2.i.i, align 8
-  %0 = load ptr, ptr %config_readw.i.i, align 8
-  %call.i.i = tail call zeroext i16 %0(ptr noundef %qbus, i32 noundef %shl, i8 noundef zeroext 0) #11
-  %cmp.i = icmp eq i16 %call.i.i, -1
-  br i1 %cmp.i, label %for.inc, label %if.end
-
-if.end:                                           ; preds = %qpci_device_set.exit.i
-  %1 = load ptr, ptr %call.i, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %2 = load ptr, ptr %config_readw.i, align 8
-  %3 = load i32, ptr %devfn2.i.i, align 8
-  %call.i52 = tail call zeroext i16 %2(ptr noundef %1, i32 noundef %3, i8 noundef zeroext 10) #11
-  %cmp3 = icmp eq i16 %call.i52, 1540
-  br i1 %cmp3, label %if.then5, label %for.inc
-
-if.then5:                                         ; preds = %if.end
-  %4 = load ptr, ptr %call.i, align 8
-  %config_writeb.i = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %5 = load ptr, ptr %config_writeb.i, align 8
-  %6 = load i32, ptr %devfn2.i.i, align 8
-  tail call void %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext 25, i8 noundef zeroext -1) #11
-  %7 = load ptr, ptr %call.i, align 8
-  %config_writeb.i54 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %8 = load ptr, ptr %config_writeb.i54, align 8
-  %9 = load i32, ptr %devfn2.i.i, align 8
-  tail call void %8(ptr noundef %7, i32 noundef %9, i8 noundef zeroext 26, i8 noundef zeroext 0) #11
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end, %if.then5, %qpci_device_set.exit.i
-  tail call void @g_free(ptr noundef nonnull %call.i) #11
-  %inc = add nuw nsw i32 %index.0101, 1
-  %exitcond.not = icmp eq i32 %inc, 32
-  br i1 %exitcond.not, label %for.cond7.preheader, label %for.body, !llvm.loop !8
-
-for.body10:                                       ; preds = %for.cond7.preheader, %for.inc91
-  %index.1102 = phi i32 [ 0, %for.cond7.preheader ], [ %inc92, %for.inc91 ]
-  %call.i56 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
-  %tobool.not.i.i57 = icmp eq ptr %call.i56, null
-  br i1 %tobool.not.i.i57, label %if.else.i.i65, label %qpci_device_set.exit.i58
-
-if.else.i.i65:                                    ; preds = %for.body10
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.qpci_device_set, ptr noundef nonnull @.str.19) #12
-  unreachable
-
-qpci_device_set.exit.i58:                         ; preds = %for.body10
-  %add11 = add nuw nsw i32 %index.1102, %bus
-  %shl12 = shl nuw nsw i32 %add11, 3
-  store ptr %qbus, ptr %call.i56, align 8
-  %devfn2.i.i59 = getelementptr inbounds nuw i8, ptr %call.i56, i64 8
-  store i32 %shl12, ptr %devfn2.i.i59, align 8
-  %10 = load ptr, ptr %config_readw.i.i, align 8
-  %call.i.i61 = tail call zeroext i16 %10(ptr noundef %qbus, i32 noundef %shl12, i8 noundef zeroext 0) #11
-  %cmp.i62 = icmp eq i16 %call.i.i61, -1
-  br i1 %cmp.i62, label %for.inc91, label %if.end18
-
-if.end18:                                         ; preds = %qpci_device_set.exit.i58
-  %11 = load ptr, ptr %call.i56, align 8
-  %config_readw.i67 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %12 = load ptr, ptr %config_readw.i67, align 8
-  %13 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i69 = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext 10) #11
-  %cmp21.not = icmp eq i16 %call.i69, 1540
-  br i1 %cmp21.not, label %if.end24, label %for.inc91
-
-if.end24:                                         ; preds = %if.end18
-  %14 = load ptr, ptr %call.i56, align 8
-  %config_readb.i = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %15 = load ptr, ptr %config_readb.i, align 8
-  %16 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i71 = tail call zeroext i8 %15(ptr noundef %14, i32 noundef %16, i8 noundef zeroext 24) #11
-  %conv26 = zext i8 %call.i71 to i32
-  %cmp27.not = icmp eq i32 %bus, %conv26
-  br i1 %cmp27.not, label %if.end31, label %if.then29
-
-if.then29:                                        ; preds = %if.end24
-  %17 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i72 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %18 = load ptr, ptr %config_writeb.i72, align 8
-  %19 = load i32, ptr %devfn2.i.i59, align 8
-  tail call void %18(ptr noundef %17, i32 noundef %19, i8 noundef zeroext 24, i8 noundef zeroext %conv30) #11
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.then29, %if.end24
-  %20 = load ptr, ptr %call.i56, align 8
-  %config_readb.i74 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %21 = load ptr, ptr %config_readb.i74, align 8
-  %22 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i76 = tail call zeroext i8 %21(ptr noundef %20, i32 noundef %22, i8 noundef zeroext 25) #11
-  %23 = load i32, ptr %pci_bus, align 4
-  %inc33 = add i32 %23, 1
-  store i32 %inc33, ptr %pci_bus, align 4
-  %conv34 = zext i8 %call.i76 to i32
-  %cmp35.not = icmp eq i32 %inc33, %conv34
-  br i1 %cmp35.not, label %if.end39, label %if.then37
-
-if.then37:                                        ; preds = %if.end31
-  %conv38 = trunc i32 %inc33 to i8
-  %24 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i77 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  %25 = load ptr, ptr %config_writeb.i77, align 8
-  %26 = load i32, ptr %devfn2.i.i59, align 8
-  tail call void %25(ptr noundef %24, i32 noundef %26, i8 noundef zeroext 25, i8 noundef zeroext %conv38) #11
-  %.pre = and i32 %inc33, 255
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.then37, %if.end31
-  %conv41.pre-phi = phi i32 [ %.pre, %if.then37 ], [ %conv34, %if.end31 ]
-  %secbus.0 = phi i8 [ %conv38, %if.then37 ], [ %call.i76, %if.end31 ]
-  %27 = load ptr, ptr %call.i56, align 8
-  %config_readb.i79 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  %28 = load ptr, ptr %config_readb.i79, align 8
-  %29 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i81 = tail call zeroext i8 %28(ptr noundef %27, i32 noundef %29, i8 noundef zeroext 26) #11
-  %30 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i82 = getelementptr inbounds nuw i8, ptr %30, i64 104
-  %31 = load ptr, ptr %config_writeb.i82, align 8
-  %32 = load i32, ptr %devfn2.i.i59, align 8
-  tail call void %31(ptr noundef %30, i32 noundef %32, i8 noundef zeroext 26, i8 noundef zeroext -1) #11
-  %shl42 = shl nuw nsw i32 %conv41.pre-phi, 5
-  tail call fastcc void @qpci_secondary_buses_rec(ptr noundef nonnull %qbus, i32 noundef %shl42, ptr noundef %pci_bus)
-  %conv43 = zext i8 %call.i81 to i32
-  %33 = load i32, ptr %pci_bus, align 4
-  %cmp44.not = icmp eq i32 %33, %conv43
-  br i1 %cmp44.not, label %if.end90, label %if.then46
-
-if.then46:                                        ; preds = %if.end39
-  %conv47 = trunc i32 %33 to i8
-  %34 = load ptr, ptr %call.i56, align 8
-  %config_readw.i.i84 = getelementptr inbounds nuw i8, ptr %34, i64 88
-  %35 = load ptr, ptr %config_readw.i.i84, align 8
-  %36 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i.i85 = tail call zeroext i16 %35(ptr noundef %34, i32 noundef %36, i8 noundef zeroext 0) #11
-  %cmp.not.i = icmp eq i16 %call.i.i85, 6966
-  br i1 %cmp.not.i, label %if.end.i, label %if.end88
-
-if.end.i:                                         ; preds = %if.then46
-  %37 = load ptr, ptr %call.i56, align 8
-  %config_readw.i11.i = getelementptr inbounds nuw i8, ptr %37, i64 88
-  %38 = load ptr, ptr %config_readw.i11.i, align 8
-  %39 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i13.i = tail call zeroext i16 %38(ptr noundef %37, i32 noundef %39, i8 noundef zeroext 2) #11
-  switch i16 %call.i13.i, label %if.end88 [
-    i16 12, label %do.body.i.preheader
-    i16 1, label %do.body.i.preheader
+define dso_local void @vfio_vga_write(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca %struct.timeval, align 8
+  %6 = alloca %union.anon.2, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %8 = load i32, ptr %7, align 8
+  %9 = sext i32 %8 to i64
+  %.neg = mul nsw i64 %9, -304
+  %10 = getelementptr i8, ptr %0, i64 %.neg
+  %11 = getelementptr i8, ptr %10, i64 -16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  store i64 0, ptr %6, align 8, !annotation !4
+  %12 = load i64, ptr %11, align 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %14 = load i64, ptr %13, align 16
+  %15 = add i64 %12, %1
+  %16 = add i64 %15, %14
+  switch i32 %3, label %23 [
+    i32 1, label %17
+    i32 2, label %19
+    i32 4, label %21
   ]
 
-do.body.i.preheader:                              ; preds = %if.end.i, %if.end.i
-  br label %do.body.i
+17:                                               ; preds = %4
+  %18 = trunc i64 %2 to i8
+  store i8 %18, ptr %6, align 8
+  br label %24
 
-do.body.i:                                        ; preds = %do.body.i.preheader, %land.rhs.i
-  %cap.0.i = phi i8 [ %addr.1.i.i, %land.rhs.i ], [ 0, %do.body.i.preheader ]
-  %tobool.not.i.i87 = icmp eq i8 %cap.0.i, 0
-  %add.i.i = add i8 %cap.0.i, 1
-  %.sink23.i.i = select i1 %tobool.not.i.i87, i8 52, i8 %add.i.i
-  %40 = load ptr, ptr %call.i56, align 8
-  %config_readb.i10.i.i = getelementptr inbounds nuw i8, ptr %40, i64 80
-  %41 = load ptr, ptr %config_readb.i10.i.i, align 8
-  %42 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i12.i.i = tail call zeroext i8 %41(ptr noundef %40, i32 noundef %42, i8 noundef zeroext %.sink23.i.i) #11
-  br label %do.body.i.i
+19:                                               ; preds = %4
+  %20 = trunc i64 %2 to i16
+  store i16 %20, ptr %6, align 8
+  br label %24
 
-do.body.i.i:                                      ; preds = %do.cond.i.i, %do.body.i
-  %addr.1.i.i = phi i8 [ %call.i12.i.i, %do.body.i ], [ %call.i18.i.i, %do.cond.i.i ]
-  %43 = load ptr, ptr %call.i56, align 8
-  %config_readb.i13.i.i = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %44 = load ptr, ptr %config_readb.i13.i.i, align 8
-  %45 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i15.i.i = tail call zeroext i8 %44(ptr noundef %43, i32 noundef %45, i8 noundef zeroext %addr.1.i.i) #11
-  %cmp.not.i.i = icmp eq i8 %call.i15.i.i, 9
-  br i1 %cmp.not.i.i, label %qpci_find_capability.exit.i, label %do.cond.i.i
+21:                                               ; preds = %4
+  %22 = trunc i64 %2 to i32
+  store i32 %22, ptr %6, align 8
+  br label %24
 
-do.cond.i.i:                                      ; preds = %do.body.i.i
-  %add9.i.i = add i8 %addr.1.i.i, 1
-  %46 = load ptr, ptr %call.i56, align 8
-  %config_readb.i16.i.i = getelementptr inbounds nuw i8, ptr %46, i64 80
-  %47 = load ptr, ptr %config_readb.i16.i.i, align 8
-  %48 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i18.i.i = tail call zeroext i8 %47(ptr noundef %46, i32 noundef %48, i8 noundef zeroext %add9.i.i) #11
-  %cmp18.not.i.i = icmp eq i8 %call.i18.i.i, 0
-  br i1 %cmp18.not.i.i, label %if.end88, label %do.body.i.i, !llvm.loop !9
+23:                                               ; preds = %4
+  tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str, i32 noundef %3) #27
+  unreachable
 
-qpci_find_capability.exit.i:                      ; preds = %do.body.i.i
-  %cond.i = icmp eq i8 %addr.1.i.i, 0
-  br i1 %cond.i, label %if.end88, label %land.rhs.i
+24:                                               ; preds = %21, %19, %17
+  %25 = getelementptr i8, ptr %10, i64 -8
+  %26 = load i32, ptr %25, align 8
+  %27 = zext nneg i32 %3 to i64
+  %28 = call i64 @pwrite64(i32 noundef %26, ptr noundef nonnull %6, i64 noundef %27, i64 noundef %16) #26
+  %.not = icmp eq i64 %28, %27
+  br i1 %.not, label %32, label %29
 
-land.rhs.i:                                       ; preds = %qpci_find_capability.exit.i
-  %add.i = add i8 %addr.1.i.i, 3
-  %49 = load ptr, ptr %call.i56, align 8
-  %config_readb.i.i = getelementptr inbounds nuw i8, ptr %49, i64 80
-  %50 = load ptr, ptr %config_readb.i.i, align 8
-  %51 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i15.i = tail call zeroext i8 %50(ptr noundef %49, i32 noundef %51, i8 noundef zeroext %add.i) #11
-  %cmp17.not.i = icmp eq i8 %call.i15.i, 1
-  br i1 %cmp17.not.i, label %if.then20.i, label %do.body.i, !llvm.loop !10
+29:                                               ; preds = %24
+  %30 = load i64, ptr %13, align 16
+  %31 = add i64 %30, %1
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.vfio_vga_write, i64 noundef %31, i64 noundef %2, i32 noundef %3) #26
+  br label %32
 
-if.then20.i:                                      ; preds = %land.rhs.i
-  %add22.i = add i8 %addr.1.i.i, 2
-  %52 = load ptr, ptr %call.i56, align 8
-  %config_readb.i16.i = getelementptr inbounds nuw i8, ptr %52, i64 80
-  %53 = load ptr, ptr %config_readb.i16.i, align 8
-  %54 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i18.i = tail call zeroext i8 %53(ptr noundef %52, i32 noundef %54, i8 noundef zeroext %add22.i) #11
-  %cmp26.i = icmp ult i8 %call.i18.i, 32
-  br i1 %cmp26.i, label %if.end88, label %if.then49
+32:                                               ; preds = %29, %24
+  %33 = load i64, ptr %13, align 16
+  %34 = add i64 %33, %1
+  %35 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %35, 0
+  br i1 %.not.i.i, label %trace_vfio_vga_write.exit, label %36, !prof !5
 
-if.then49:                                        ; preds = %if.then20.i
-  %add51 = add i8 %addr.1.i.i, 4
-  %55 = load ptr, ptr %call.i56, align 8
-  %config_readl.i = getelementptr inbounds nuw i8, ptr %55, i64 96
-  %56 = load ptr, ptr %config_readl.i, align 8
-  %57 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i89 = tail call i32 %56(ptr noundef %55, i32 noundef %57, i8 noundef zeroext %add51) #11
-  %cmp54.not = icmp eq i32 %call.i89, -1
-  br i1 %cmp54.not, label %if.end88, label %if.then56
+36:                                               ; preds = %32
+  %37 = load i16, ptr @_TRACE_VFIO_VGA_WRITE_DSTATE, align 2
+  %.not6.i.i = icmp eq i16 %37, 0
+  br i1 %.not6.i.i, label %trace_vfio_vga_write.exit, label %38
 
-if.then56:                                        ; preds = %if.then49
-  %58 = trunc i32 %call.i89 to i8
-  %conv61 = add i8 %secbus.0, %58
-  %cmp64 = icmp ult i8 %conv61, %secbus.0
-  br i1 %cmp64, label %if.then74, label %lor.lhs.false
+38:                                               ; preds = %36
+  %39 = load i32, ptr @qemu_loglevel, align 4
+  %40 = and i32 %39, 32768
+  %.not7.i.i = icmp eq i32 %40, 0
+  br i1 %.not7.i.i, label %trace_vfio_vga_write.exit, label %41
 
-lor.lhs.false:                                    ; preds = %if.then56
-  %conv62 = zext i8 %conv61 to i32
-  %conv58 = and i32 %call.i89, 255
-  %cmp72 = icmp samesign ugt i32 %conv58, %conv62
-  br i1 %cmp72, label %if.then74, label %if.end75
+41:                                               ; preds = %38
+  %42 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %50
 
-if.then74:                                        ; preds = %lor.lhs.false, %if.then56
-  br label %if.end75
+44:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !4
+  %45 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #26
+  %46 = call i32 @qemu_get_thread_id() #26
+  %47 = load i64, ptr %5, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %49 = load i64, ptr %48, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %46, i64 noundef %47, i64 noundef %49, i64 noundef %34, i64 noundef %2, i32 noundef %3) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  br label %trace_vfio_vga_write.exit
 
-if.end75:                                         ; preds = %if.then74, %lor.lhs.false
-  %res_bus.1 = phi i8 [ 0, %if.then74 ], [ %58, %lor.lhs.false ]
-  %conv77 = zext i8 %res_bus.1 to i32
-  %add78 = add nuw nsw i32 %conv41.pre-phi, %conv77
-  %59 = load i32, ptr %pci_bus, align 4
-  %cmp79 = icmp sgt i32 %add78, %59
-  %conv85 = trunc i32 %add78 to i8
-  %spec.select = select i1 %cmp79, i8 %conv85, i8 %res_bus.1
-  br label %if.end88
+50:                                               ; preds = %41
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i64 noundef %34, i64 noundef %2, i32 noundef %3) #26
+  br label %trace_vfio_vga_write.exit
 
-if.end88:                                         ; preds = %qpci_find_capability.exit.i, %do.cond.i.i, %if.then20.i, %if.end.i, %if.then46, %if.end75, %if.then49
-  %res_bus.0 = phi i8 [ %conv47, %if.then49 ], [ %spec.select, %if.end75 ], [ %conv47, %if.then46 ], [ %conv47, %if.end.i ], [ %conv47, %if.then20.i ], [ %conv47, %do.cond.i.i ], [ %conv47, %qpci_find_capability.exit.i ]
-  %conv89 = zext i8 %res_bus.0 to i32
-  store i32 %conv89, ptr %pci_bus, align 4
-  br label %if.end90
+trace_vfio_vga_write.exit:                        ; preds = %32, %36, %38, %44, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  ret void
+}
 
-if.end90:                                         ; preds = %if.end88, %if.end39
-  %subbus.0 = phi i8 [ %res_bus.0, %if.end88 ], [ %call.i81, %if.end39 ]
-  %60 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i90 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  %61 = load ptr, ptr %config_writeb.i90, align 8
-  %62 = load i32, ptr %devfn2.i.i59, align 8
-  tail call void %61(ptr noundef %60, i32 noundef %62, i8 noundef zeroext 26, i8 noundef zeroext %subbus.0) #11
-  br label %for.inc91
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-for.inc91:                                        ; preds = %if.end18, %qpci_device_set.exit.i58, %if.end90
-  tail call void @g_free(ptr noundef nonnull %call.i56) #11
-  %inc92 = add nuw nsw i32 %index.1102, 1
-  %exitcond106.not = icmp eq i32 %inc92, 32
-  br i1 %exitcond106.not, label %for.end93, label %for.body10, !llvm.loop !11
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-for.end93:                                        ; preds = %for.inc91
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
+; Function Attrs: noreturn
+declare void @hw_error(ptr noundef, ...) local_unnamed_addr #3
+
+declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+
+declare void @error_report(ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local range(i64 -1, 4294967296) i64 @vfio_vga_read(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = alloca %union.anon.3, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %7 = load i32, ptr %6, align 8
+  %8 = sext i32 %7 to i64
+  %.neg = mul nsw i64 %8, -304
+  %9 = getelementptr i8, ptr %0, i64 %.neg
+  %10 = getelementptr i8, ptr %9, i64 -16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  store i64 0, ptr %5, align 8, !annotation !4
+  %11 = load i64, ptr %10, align 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %13 = load i64, ptr %12, align 16
+  %14 = add i64 %11, %1
+  %15 = add i64 %14, %13
+  %16 = getelementptr i8, ptr %9, i64 -8
+  %17 = load i32, ptr %16, align 8
+  %18 = zext i32 %2 to i64
+  %19 = call i64 @pread64(i32 noundef %17, ptr noundef nonnull %5, i64 noundef %18, i64 noundef %15) #26
+  %.not = icmp eq i64 %19, %18
+  br i1 %.not, label %23, label %20
+
+20:                                               ; preds = %3
+  %21 = load i64, ptr %12, align 16
+  %22 = add i64 %21, %1
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.vfio_vga_read, i64 noundef %22, i32 noundef %2) #26
+  br label %trace_vfio_vga_read.exit
+
+23:                                               ; preds = %3
+  switch i32 %2, label %33 [
+    i32 1, label %24
+    i32 2, label %27
+    i32 4, label %30
+  ]
+
+24:                                               ; preds = %23
+  %25 = load i8, ptr %5, align 8
+  %26 = zext i8 %25 to i64
+  br label %34
+
+27:                                               ; preds = %23
+  %28 = load i16, ptr %5, align 8
+  %29 = zext i16 %28 to i64
+  br label %34
+
+30:                                               ; preds = %23
+  %31 = load i32, ptr %5, align 8
+  %32 = zext i32 %31 to i64
+  br label %34
+
+33:                                               ; preds = %23
+  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.3, i32 noundef %2) #27
+  unreachable
+
+34:                                               ; preds = %30, %27, %24
+  %.022 = phi i64 [ %32, %30 ], [ %29, %27 ], [ %26, %24 ]
+  %35 = load i64, ptr %12, align 16
+  %36 = add i64 %35, %1
+  %37 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %37, 0
+  br i1 %.not.i.i, label %trace_vfio_vga_read.exit, label %38, !prof !5
+
+38:                                               ; preds = %34
+  %39 = load i16, ptr @_TRACE_VFIO_VGA_READ_DSTATE, align 2
+  %.not6.i.i = icmp eq i16 %39, 0
+  br i1 %.not6.i.i, label %trace_vfio_vga_read.exit, label %40
+
+40:                                               ; preds = %38
+  %41 = load i32, ptr @qemu_loglevel, align 4
+  %42 = and i32 %41, 32768
+  %.not7.i.i = icmp eq i32 %42, 0
+  br i1 %.not7.i.i, label %trace_vfio_vga_read.exit, label %43
+
+43:                                               ; preds = %40
+  %44 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %46, label %52
+
+46:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
+  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %48 = call i32 @qemu_get_thread_id() #26
+  %49 = load i64, ptr %4, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %51 = load i64, ptr %50, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %48, i64 noundef %49, i64 noundef %51, i64 noundef %36, i32 noundef %2, i64 noundef range(i64 0, 4294967296) %.022) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  br label %trace_vfio_vga_read.exit
+
+52:                                               ; preds = %43
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i64 noundef %36, i32 noundef %2, i64 noundef range(i64 0, 4294967296) %.022) #26
+  br label %trace_vfio_vga_read.exit
+
+trace_vfio_vga_read.exit:                         ; preds = %52, %46, %40, %38, %34, %20
+  %.0 = phi i64 [ -1, %20 ], [ %.022, %34 ], [ %.022, %38 ], [ %.022, %40 ], [ %.022, %46 ], [ %.022, %52 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  ret i64 %.0
+}
+
+declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
+  store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #26
+  store i32 0, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 3024
+  %9 = load ptr, ptr %8, align 16
+  %10 = zext i32 %1 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %12 = sext i32 %2 to i64
+  %13 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %11, i64 noundef range(i64 -4294967294, 4294967296) %12, i64 noundef 4) #26, !alias.scope !8
+  %14 = load i32, ptr %5, align 4
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %17, label %15
+
+15:                                               ; preds = %3
+  %16 = call i32 @pci_default_read_config(ptr noundef %0, i32 noundef %1, i32 noundef %2) #26
+  %.pre = load i32, ptr %5, align 4
+  br label %17
+
+17:                                               ; preds = %15, %3
+  %18 = phi i32 [ %.pre, %15 ], [ 0, %3 ]
+  %.025 = phi i32 [ %16, %15 ], [ 0, %3 ]
+  %19 = xor i32 %18, -1
+  %20 = shl i32 %2, 3
+  %21 = sub i32 32, %20
+  %22 = lshr i32 -1, %21
+  %23 = and i32 %22, %19
+  %.not26 = icmp eq i32 %23, 0
+  br i1 %.not26, label %.thread, label %24
+
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 2840
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 3032
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, %10
+  %30 = call i64 @pread64(i32 noundef %26, ptr noundef nonnull %6, i64 noundef %12, i64 noundef %29) #26
+  %.not27 = icmp eq i64 %30, %12
+  br i1 %.not27, label %..thread_crit_edge, label %31
+
+..thread_crit_edge:                               ; preds = %24
+  %.pre29 = load i32, ptr %5, align 4
+  %.pre30 = load i32, ptr %6, align 4
+  %.pre31 = xor i32 %.pre29, -1
+  br label %.thread
+
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 2824
+  %33 = load ptr, ptr %32, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.vfio_pci_read_config, ptr noundef %33, i32 noundef %1, i32 noundef %2) #26
+  %34 = tail call ptr @__errno_location() #28
+  %35 = load i32, ptr %34, align 4
+  %36 = sub i32 0, %35
+  br label %trace_vfio_pci_read_config.exit
+
+.thread:                                          ; preds = %..thread_crit_edge, %17
+  %.pre-phi = phi i32 [ %.pre31, %..thread_crit_edge ], [ %19, %17 ]
+  %37 = phi i32 [ %.pre30, %..thread_crit_edge ], [ 0, %17 ]
+  %38 = phi i32 [ %.pre29, %..thread_crit_edge ], [ %18, %17 ]
+  %39 = and i32 %38, %.025
+  %40 = and i32 %37, %.pre-phi
+  %41 = or i32 %40, %39
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 2824
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %44, 0
+  br i1 %.not.i.i, label %trace_vfio_pci_read_config.exit, label %45, !prof !5
+
+45:                                               ; preds = %.thread
+  %46 = load i16, ptr @_TRACE_VFIO_PCI_READ_CONFIG_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %46, 0
+  br i1 %.not7.i.i, label %trace_vfio_pci_read_config.exit, label %47
+
+47:                                               ; preds = %45
+  %48 = load i32, ptr @qemu_loglevel, align 4
+  %49 = and i32 %48, 32768
+  %.not8.i.i = icmp eq i32 %49, 0
+  br i1 %.not8.i.i, label %trace_vfio_pci_read_config.exit, label %50
+
+50:                                               ; preds = %47
+  %51 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %53, label %59
+
+53:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
+  %54 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %55 = call i32 @qemu_get_thread_id() #26
+  %56 = load i64, ptr %4, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %58 = load i64, ptr %57, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %55, i64 noundef %56, i64 noundef %58, ptr noundef %43, i32 noundef %1, i32 noundef %2, i32 noundef %41) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  br label %trace_vfio_pci_read_config.exit
+
+59:                                               ; preds = %50
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %43, i32 noundef %1, i32 noundef %2, i32 noundef %41) #26
+  br label %trace_vfio_pci_read_config.exit
+
+trace_vfio_pci_read_config.exit:                  ; preds = %59, %53, %47, %45, %.thread, %31
+  %.1 = phi i32 [ %36, %31 ], [ %41, %.thread ], [ %41, %45 ], [ %41, %47 ], [ %41, %53 ], [ %41, %59 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
+  ret i32 %.1
+}
+
+declare i32 @pci_default_read_config(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @vfio_pci_write_config(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca %struct.timeval, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.timeval, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca [6 x i64], align 16
+  %10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #26
+  store i32 %2, ptr %8, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2824
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i, label %trace_vfio_pci_write_config.exit, label %14, !prof !5
+
+14:                                               ; preds = %4
+  %15 = load i16, ptr @_TRACE_VFIO_PCI_WRITE_CONFIG_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %15, 0
+  br i1 %.not7.i.i, label %trace_vfio_pci_write_config.exit, label %16
+
+16:                                               ; preds = %14
+  %17 = load i32, ptr @qemu_loglevel, align 4
+  %18 = and i32 %17, 32768
+  %.not8.i.i = icmp eq i32 %18, 0
+  br i1 %.not8.i.i, label %trace_vfio_pci_write_config.exit, label %19
+
+19:                                               ; preds = %16
+  %20 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !4
+  %23 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #26
+  %24 = tail call i32 @qemu_get_thread_id() #26
+  %25 = load i64, ptr %7, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %27 = load i64, ptr %26, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %24, i64 noundef %25, i64 noundef %27, ptr noundef %12, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  br label %trace_vfio_pci_write_config.exit
+
+28:                                               ; preds = %19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef %12, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
+  br label %trace_vfio_pci_write_config.exit
+
+trace_vfio_pci_write_config.exit:                 ; preds = %4, %14, %16, %22, %28
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 2840
+  %30 = load i32, ptr %29, align 8
+  %31 = sext i32 %3 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 3032
+  %33 = load i64, ptr %32, align 8
+  %34 = zext i32 %1 to i64
+  %35 = add i64 %33, %34
+  %36 = call i64 @pwrite64(i32 noundef %30, ptr noundef nonnull %8, i64 noundef %31, i64 noundef %35) #26
+  %.not = icmp eq i64 %36, %31
+  br i1 %.not, label %39, label %37
+
+37:                                               ; preds = %trace_vfio_pci_write_config.exit
+  %38 = load ptr, ptr %11, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.vfio_pci_write_config, ptr noundef %38, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
+  br label %39
+
+39:                                               ; preds = %37, %trace_vfio_pci_write_config.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1324
+  %41 = load i32, ptr %40, align 4
+  %42 = and i32 %41, 1
+  %.not79 = icmp eq i32 %42, 0
+  br i1 %.not79, label %114, label %43
+
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %45 = load i8, ptr %44, align 16
+  %46 = zext i8 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 3064
+  %48 = load i32, ptr %47, align 8
+  %49 = sext i32 %48 to i64
+  %50 = add nsw i64 %34, -1
+  %51 = add nsw i64 %50, %31
+  %52 = add nsw i64 %46, -1
+  %53 = add nsw i64 %52, %49
+  %54 = icmp uge i64 %53, %34
+  %55 = icmp uge i64 %51, %46
+  %.not9.i = select i1 %54, i1 %55, i1 false
+  br i1 %.not9.i, label %56, label %114
+
+56:                                               ; preds = %43
+  %57 = call zeroext i1 @msi_enabled(ptr noundef nonnull %0) #26
+  call void @pci_default_write_config(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
+  %58 = call zeroext i1 @msi_enabled(ptr noundef nonnull %0) #26
+  br i1 %57, label %61, label %59
+
+59:                                               ; preds = %56
+  br i1 %58, label %60, label %vfio_update_msi.exit
+
+60:                                               ; preds = %59
+  call fastcc void @vfio_msi_enable(ptr noundef nonnull %10)
+  br label %vfio_update_msi.exit
+
+61:                                               ; preds = %56
+  br i1 %58, label %86, label %62
+
+62:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  store ptr null, ptr %6, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 2752
+  call void @vfio_disable_irqindex(ptr noundef nonnull %63, i32 noundef 1) #26
+  call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %10)
+  %64 = call fastcc zeroext i1 @vfio_intx_enable(ptr noundef nonnull %10, ptr noundef nonnull %6)
+  %65 = load ptr, ptr %6, align 8
+  %.not.i = icmp eq ptr %65, null
+  br i1 %.not.i, label %68, label %66
+
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %65, ptr noundef nonnull @.str.7, ptr noundef %67) #26
+  br label %68
+
+68:                                               ; preds = %66, %62
+  %69 = load ptr, ptr %11, align 8
+  %70 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %70, 0
+  br i1 %.not.i.i.i, label %vfio_msi_disable.exit, label %71, !prof !5
+
+71:                                               ; preds = %68
+  %72 = load i16, ptr @_TRACE_VFIO_MSI_DISABLE_DSTATE, align 2
+  %.not2.i.i.i = icmp eq i16 %72, 0
+  br i1 %.not2.i.i.i, label %vfio_msi_disable.exit, label %73
+
+73:                                               ; preds = %71
+  %74 = load i32, ptr @qemu_loglevel, align 4
+  %75 = and i32 %74, 32768
+  %.not3.i.i.i = icmp eq i32 %75, 0
+  br i1 %.not3.i.i.i, label %vfio_msi_disable.exit, label %76
+
+76:                                               ; preds = %73
+  %77 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %78 = trunc nuw i8 %77 to i1
+  br i1 %78, label %79, label %85
+
+79:                                               ; preds = %76
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !4
+  %80 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #26
+  %81 = call i32 @qemu_get_thread_id() #26
+  %82 = load i64, ptr %5, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %84 = load i64, ptr %83, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %81, i64 noundef %82, i64 noundef %84, ptr noundef %69) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  br label %vfio_msi_disable.exit
+
+85:                                               ; preds = %76
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef %69) #26
+  br label %vfio_msi_disable.exit
+
+vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  br label %vfio_update_msi.exit
+
+86:                                               ; preds = %61
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 3088
+  %88 = load i32, ptr %87, align 16
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %.lr.ph.i, label %vfio_update_msi.exit
+
+.lr.ph.i:                                         ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 3072
+  br label %91
+
+91:                                               ; preds = %110, %.lr.ph.i
+  %92 = phi i32 [ %88, %.lr.ph.i ], [ %111, %110 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %110 ]
+  %93 = load ptr, ptr %90, align 16
+  %94 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %93, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 36
+  %96 = load i8, ptr %95, align 4, !range !6, !noundef !7
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %98, label %110
+
+98:                                               ; preds = %91
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %100 = load i32, ptr %99, align 8
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %110, label %102
+
+102:                                              ; preds = %98
+  %103 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %104 = call { i64, i32 } @msi_get_message(ptr noundef nonnull %10, i32 noundef %103) #26
+  %105 = extractvalue { i64, i32 } %104, 0
+  %106 = extractvalue { i64, i32 } %104, 1
+  %.val.i = load i32, ptr %99, align 8
+  %107 = load ptr, ptr @kvm_state, align 8
+  %108 = call i32 @kvm_irqchip_update_msi_route(ptr noundef %107, i32 noundef %.val.i, i64 %105, i32 %106, ptr noundef nonnull %10) #26
+  %109 = load ptr, ptr @kvm_state, align 8
+  call void @kvm_irqchip_commit_routes(ptr noundef %109) #26
+  %.pre.i = load i32, ptr %87, align 16
+  br label %110
+
+110:                                              ; preds = %102, %98, %91
+  %111 = phi i32 [ %92, %91 ], [ %92, %98 ], [ %.pre.i, %102 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %112 = sext i32 %111 to i64
+  %113 = icmp slt i64 %indvars.iv.next.i, %112
+  br i1 %113, label %91, label %vfio_update_msi.exit, !llvm.loop !12
+
+114:                                              ; preds = %43, %39
+  %115 = and i32 %41, 2
+  %.not80 = icmp eq i32 %115, 0
+  br i1 %.not80, label %._crit_edge, label %116
+
+._crit_edge:                                      ; preds = %114
+  %.pre = add nsw i64 %34, -1
+  %.pre95 = add nsw i64 %.pre, %31
+  br label %133
+
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %118 = load i8, ptr %117, align 16
+  %119 = zext i8 %118 to i64
+  %120 = add nsw i64 %34, -1
+  %121 = add nsw i64 %120, %31
+  %122 = add nuw nsw i64 %119, 11
+  %123 = icmp samesign uge i64 %122, %34
+  %124 = icmp uge i64 %121, %119
+  %.not9.i84 = select i1 %123, i1 %124, i1 false
+  br i1 %.not9.i84, label %125, label %133
+
+125:                                              ; preds = %116
+  %126 = call i32 @msix_enabled(ptr noundef nonnull %0) #26
+  call void @pci_default_write_config(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
+  %127 = call i32 @msix_enabled(ptr noundef nonnull %0) #26
+  %128 = icmp eq i32 %126, 0
+  %129 = icmp ne i32 %127, 0
+  %or.cond = select i1 %128, i1 %129, i1 false
+  br i1 %or.cond, label %130, label %131
+
+130:                                              ; preds = %125
+  call fastcc void @vfio_msix_enable(ptr noundef nonnull %10)
+  br label %vfio_update_msi.exit
+
+131:                                              ; preds = %125
+  %or.cond3 = select i1 %128, i1 true, i1 %129
+  br i1 %or.cond3, label %vfio_update_msi.exit, label %132
+
+132:                                              ; preds = %131
+  call fastcc void @vfio_msix_disable(ptr noundef nonnull %10)
+  br label %vfio_update_msi.exit
+
+133:                                              ; preds = %._crit_edge, %116
+  %.pre-phi96 = phi i64 [ %.pre95, %._crit_edge ], [ %121, %116 ]
+  %134 = icmp ult i32 %1, 40
+  %135 = icmp ugt i64 %.pre-phi96, 15
+  %.not9.i85 = select i1 %134, i1 %135, i1 false
+  br i1 %.not9.i85, label %139, label %136
+
+136:                                              ; preds = %133
+  %137 = icmp ugt i32 %1, 4
+  %138 = icmp ult i64 %.pre-phi96, 4
+  %narrow.i.not = select i1 %137, i1 true, i1 %138
+  br i1 %narrow.i.not, label %163, label %139
+
+139:                                              ; preds = %136, %133
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, i8 0, i64 48, i1 false), !annotation !4
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  br label %141
+
+141:                                              ; preds = %139, %141
+  %indvars.iv = phi i64 [ 0, %139 ], [ %indvars.iv.next, %141 ]
+  %142 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %140, i64 0, i64 %indvars.iv
+  %143 = load i64, ptr %142, align 8
+  %144 = getelementptr inbounds nuw [6 x i64], ptr %9, i64 0, i64 %indvars.iv
+  store i64 %143, ptr %144, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %145, label %141, !llvm.loop !14
+
+145:                                              ; preds = %141
+  call void @pci_default_write_config(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
+  %146 = getelementptr i8, ptr %10, i64 3120
+  br label %147
+
+147:                                              ; preds = %145, %161
+  %indvars.iv91 = phi i64 [ 0, %145 ], [ %indvars.iv.next92, %161 ]
+  %148 = getelementptr inbounds nuw [6 x i64], ptr %9, i64 0, i64 %indvars.iv91
+  %149 = load i64, ptr %148, align 8
+  %150 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %140, i64 0, i64 %indvars.iv91
+  %151 = load i64, ptr %150, align 8
+  %.not82 = icmp eq i64 %149, %151
+  br i1 %.not82, label %161, label %152
+
+152:                                              ; preds = %147
+  %.idx = mul nuw nsw i64 %indvars.iv91, 88
+  %153 = getelementptr i8, ptr %146, i64 %.idx
+  %154 = load i64, ptr %153, align 8
+  %.not83 = icmp eq i64 %154, 0
+  br i1 %.not83, label %161, label %155
+
+155:                                              ; preds = %152
+  %156 = tail call i32 @getpagesize() #28
+  %157 = sext i32 %156 to i64
+  %158 = icmp ult i64 %154, %157
+  br i1 %158, label %159, label %161
+
+159:                                              ; preds = %155
+  %160 = trunc nuw nsw i64 %indvars.iv91 to i32
+  call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef nonnull %0, i32 noundef %160)
+  br label %161
+
+161:                                              ; preds = %147, %152, %155, %159
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next92, 6
+  br i1 %exitcond94.not, label %162, label %147, !llvm.loop !15
+
+162:                                              ; preds = %161
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #26
+  br label %vfio_update_msi.exit
+
+163:                                              ; preds = %136
+  call void @pci_default_write_config(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
+  br label %vfio_update_msi.exit
+
+vfio_update_msi.exit:                             ; preds = %110, %86, %130, %132, %131, %60, %59, %vfio_msi_disable.exit, %163, %162
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
+  ret void
+}
+
+declare zeroext i1 @msi_enabled(ptr noundef) local_unnamed_addr #4
+
+declare void @pci_default_write_config(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_msi_enable(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.timeval, align 8
+  tail call fastcc void @vfio_disable_interrupts(ptr noundef %0)
+  %3 = tail call i32 @msi_nr_vectors_allocated(ptr noundef %0) #26
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3088
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3768
+  store i32 %3, ptr %4, align 16
+  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %._crit_edge50, label %vfio_prepare_kvm_msi_virq_batch.exit.lr.ph
+
+vfio_prepare_kvm_msi_virq_batch.exit.lr.ph:       ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3072
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3756
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3092
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  br label %vfio_prepare_kvm_msi_virq_batch.exit
+
+._crit_edge50:                                    ; preds = %66, %1
+  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.11, i32 noundef 649, ptr noundef nonnull @__PRETTY_FUNCTION__.vfio_prepare_kvm_msi_virq_batch) #27
+  unreachable
+
+vfio_prepare_kvm_msi_virq_batch.exit:             ; preds = %vfio_prepare_kvm_msi_virq_batch.exit.lr.ph, %66
+  %storemerge49 = phi i32 [ %3, %vfio_prepare_kvm_msi_virq_batch.exit.lr.ph ], [ %63, %66 ]
+  store i8 1, ptr %5, align 8
+  %12 = load ptr, ptr @kvm_state, align 8
+  store ptr %12, ptr @vfio_route_change, align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
+  %13 = sext i32 %storemerge49 to i64
+  %14 = tail call noalias ptr @g_malloc0_n(i64 noundef %13, i64 noundef 40) #29
+  store ptr %14, ptr %8, align 16
+  %15 = load i32, ptr %4, align 16
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %vfio_prepare_kvm_msi_virq_batch.exit, %vfio_add_kvm_msi_virq.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %vfio_add_kvm_msi_virq.exit ], [ 0, %vfio_prepare_kvm_msi_virq_batch.exit ]
+  %17 = load ptr, ptr %8, align 16
+  %18 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store ptr %0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store i32 -1, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 36
+  store i8 1, ptr %21, align 4
+  %22 = tail call i32 @event_notifier_init(ptr noundef %18, i32 noundef 0) #26
+  %.not47 = icmp eq i32 %22, 0
+  br i1 %.not47, label %24, label %23
+
+23:                                               ; preds = %.lr.ph
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29) #26
+  br label %24
+
+24:                                               ; preds = %23, %.lr.ph
+  %25 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %18) #26
+  tail call void @qemu_set_fd_handler(i32 noundef %25, ptr noundef nonnull @vfio_msi_interrupt, ptr noundef null, ptr noundef nonnull %18) #26
+  %26 = load i8, ptr %9, align 4, !range !6, !noundef !7
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %vfio_add_kvm_msi_virq.exit, label %28
+
+28:                                               ; preds = %24
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  %30 = tail call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull @vfio_route_change, i32 noundef %29, ptr noundef nonnull %0) #26
+  store i32 %30, ptr %20, align 8
+  br label %vfio_add_kvm_msi_virq.exit
+
+vfio_add_kvm_msi_virq.exit:                       ; preds = %24, %28
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %31 = load i32, ptr %4, align 16
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+
+._crit_edge:                                      ; preds = %vfio_add_kvm_msi_virq.exit, %vfio_prepare_kvm_msi_virq_batch.exit
+  tail call fastcc void @vfio_commit_kvm_msi_virq_batch(ptr noundef nonnull %0)
+  store i32 2, ptr %10, align 4
+  %34 = load i32, ptr %4, align 16
+  %35 = shl i32 %34, 2
+  %36 = add i32 %35, 20
+  %37 = sext i32 %36 to i64
+  %38 = tail call noalias ptr @g_malloc0(i64 noundef %37) #30
+  store i32 %36, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store i32 36, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i32 1, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  store i32 0, ptr %41, align 4
+  %42 = load i32, ptr %4, align 16
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store i32 %42, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  %45 = icmp sgt i32 %42, 0
+  br i1 %45, label %.lr.ph.split.i, label %vfio_enable_vectors.exit
+
+.lr.ph.split.i:                                   ; preds = %._crit_edge, %57
+  %46 = phi i32 [ %58, %57 ], [ %42, %._crit_edge ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %57 ], [ 0, %._crit_edge ]
+  %47 = load ptr, ptr %8, align 16
+  %48 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %47, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
+  %50 = load i8, ptr %49, align 4, !range !6, !noundef !7
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %.sink.split48.i, label %57
+
+.sink.split48.i:                                  ; preds = %.lr.ph.split.i
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp slt i32 %53, 0
+  %55 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %47, i64 %indvars.iv.i, i32 1
+  %.sink49.i = select i1 %54, ptr %48, ptr %55
+  %56 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink49.i) #26
+  %.pre = load i32, ptr %4, align 16
+  br label %57
+
+57:                                               ; preds = %.sink.split48.i, %.lr.ph.split.i
+  %58 = phi i32 [ %46, %.lr.ph.split.i ], [ %.pre, %.sink.split48.i ]
+  %.0.i = phi i32 [ -1, %.lr.ph.split.i ], [ %56, %.sink.split48.i ]
+  %59 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i
+  store i32 %.0.i, ptr %59, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %60 = sext i32 %58 to i64
+  %61 = icmp slt i64 %indvars.iv.next.i, %60
+  br i1 %61, label %.lr.ph.split.i, label %vfio_enable_vectors.exit, !llvm.loop !17
+
+vfio_enable_vectors.exit:                         ; preds = %57, %._crit_edge
+  %62 = load i32, ptr %11, align 8
+  %63 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %62, i64 noundef 15214, ptr noundef nonnull %38) #26
+  tail call void @g_free(ptr noundef nonnull %38) #26
+  %.not = icmp eq i32 %63, 0
+  br i1 %.not, label %71, label %64
+
+64:                                               ; preds = %vfio_enable_vectors.exit
+  %65 = icmp slt i32 %63, 0
+  br i1 %65, label %70, label %66
+
+66:                                               ; preds = %64
+  %67 = load i32, ptr %4, align 16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.31, i32 noundef %67, i32 noundef %63) #26
+  tail call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %0)
+  store i32 %63, ptr %4, align 16
+  %68 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %._crit_edge50, label %vfio_prepare_kvm_msi_virq_batch.exit
+
+70:                                               ; preds = %64
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30) #26
+  tail call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %0)
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32) #26
+  br label %trace_vfio_msi_enable.exit
+
+71:                                               ; preds = %vfio_enable_vectors.exit
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %73 = load ptr, ptr %72, align 8
+  %74 = load i32, ptr %4, align 16
+  %75 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %75, 0
+  br i1 %.not.i.i, label %trace_vfio_msi_enable.exit, label %76, !prof !5
+
+76:                                               ; preds = %71
+  %77 = load i16, ptr @_TRACE_VFIO_MSI_ENABLE_DSTATE, align 2
+  %.not3.i.i = icmp eq i16 %77, 0
+  br i1 %.not3.i.i, label %trace_vfio_msi_enable.exit, label %78
+
+78:                                               ; preds = %76
+  %79 = load i32, ptr @qemu_loglevel, align 4
+  %80 = and i32 %79, 32768
+  %.not4.i.i = icmp eq i32 %80, 0
+  br i1 %.not4.i.i, label %trace_vfio_msi_enable.exit, label %81
+
+81:                                               ; preds = %78
+  %82 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %83 = trunc nuw i8 %82 to i1
+  br i1 %83, label %84, label %90
+
+84:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %85 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %86 = tail call i32 @qemu_get_thread_id() #26
+  %87 = load i64, ptr %2, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %89 = load i64, ptr %88, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %86, i64 noundef %87, i64 noundef %89, ptr noundef %73, i32 noundef %74) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_msi_enable.exit
+
+90:                                               ; preds = %81
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef %73, i32 noundef %74) #26
+  br label %trace_vfio_msi_enable.exit
+
+trace_vfio_msi_enable.exit:                       ; preds = %90, %84, %78, %76, %71, %70
+  ret void
+}
+
+declare i32 @msix_enabled(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_msix_enable(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.timeval, align 8
+  tail call fastcc void @vfio_disable_interrupts(ptr noundef %0)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %6 = load i16, ptr %5, align 2
+  %7 = zext i16 %6 to i64
+  %8 = tail call noalias ptr @g_malloc0_n(i64 noundef %7, i64 noundef 40) #29
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3072
+  store ptr %8, ptr %9, align 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3092
+  store i32 3, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3768
+  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %14, label %vfio_prepare_kvm_msi_virq_batch.exit
+
+14:                                               ; preds = %1
+  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.11, i32 noundef 649, ptr noundef nonnull @__PRETTY_FUNCTION__.vfio_prepare_kvm_msi_virq_batch) #27
+  unreachable
+
+vfio_prepare_kvm_msi_virq_batch.exit:             ; preds = %1
+  store i8 1, ptr %11, align 8
+  %15 = load ptr, ptr @kvm_state, align 8
+  store ptr %15, ptr @vfio_route_change, align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
+  %16 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %0, ptr noundef nonnull @vfio_msix_vector_use, ptr noundef nonnull @vfio_msix_vector_release, ptr noundef null) #26
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %18, label %17
+
+17:                                               ; preds = %vfio_prepare_kvm_msi_virq_batch.exit
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.43) #26
+  br label %18
+
+18:                                               ; preds = %17, %vfio_prepare_kvm_msi_virq_batch.exit
+  tail call fastcc void @vfio_commit_kvm_msi_virq_batch(ptr noundef nonnull %0)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3088
+  %20 = load i32, ptr %19, align 16
+  %.not28 = icmp eq i32 %20, 0
+  br i1 %.not28, label %24, label %21
+
+21:                                               ; preds = %18
+  %22 = tail call fastcc i32 @vfio_enable_vectors(ptr noundef nonnull %0, i1 noundef zeroext true)
+  %.not30 = icmp eq i32 %22, 0
+  br i1 %.not30, label %35, label %23
+
+23:                                               ; preds = %21
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.44, i32 noundef %22) #26
+  br label %35
+
+24:                                               ; preds = %18
+  %25 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #30
+  store i32 24, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 36, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 2, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i32 1, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  store i32 -1, ptr %30, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %32 = load i32, ptr %31, align 8
+  %33 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %32, i64 noundef 15214, ptr noundef nonnull %25) #26
+  tail call void @g_free(ptr noundef nonnull %25) #26
+  %.not29 = icmp eq i32 %33, 0
+  br i1 %.not29, label %35, label %34
+
+34:                                               ; preds = %24
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.45, i32 noundef %33) #26
+  br label %35
+
+35:                                               ; preds = %24, %34, %21, %23
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %37 = load ptr, ptr %36, align 8
+  %38 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %38, 0
+  br i1 %.not.i.i, label %trace_vfio_msix_enable.exit, label %39, !prof !5
+
+39:                                               ; preds = %35
+  %40 = load i16, ptr @_TRACE_VFIO_MSIX_ENABLE_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %40, 0
+  br i1 %.not2.i.i, label %trace_vfio_msix_enable.exit, label %41
+
+41:                                               ; preds = %39
+  %42 = load i32, ptr @qemu_loglevel, align 4
+  %43 = and i32 %42, 32768
+  %.not3.i.i = icmp eq i32 %43, 0
+  br i1 %.not3.i.i, label %trace_vfio_msix_enable.exit, label %44
+
+44:                                               ; preds = %41
+  %45 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %53
+
+47:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %48 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %49 = tail call i32 @qemu_get_thread_id() #26
+  %50 = load i64, ptr %2, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %52 = load i64, ptr %51, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %49, i64 noundef %50, i64 noundef %52, ptr noundef %37) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_msix_enable.exit
+
+53:                                               ; preds = %44
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %37) #26
+  br label %trace_vfio_msix_enable.exit
+
+trace_vfio_msix_enable.exit:                      ; preds = %35, %39, %41, %47, %53
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_device_enable(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %1 = load ptr, ptr %config_readw.i, align 8
-  %devfn.i = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn.i, align 8
-  %call.i = tail call zeroext i16 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext 4) #11
-  %3 = or i16 %call.i, 7
-  %4 = load ptr, ptr %dev, align 8
-  %config_writew.i = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %5 = load ptr, ptr %config_writew.i, align 8
-  %6 = load i32, ptr %devfn.i, align 8
-  tail call void %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext 4, i16 noundef zeroext %3) #11
-  %7 = load ptr, ptr %dev, align 8
-  %config_readw.i14 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %8 = load ptr, ptr %config_readw.i14, align 8
-  %9 = load i32, ptr %devfn.i, align 8
-  %call.i16 = tail call zeroext i16 %8(ptr noundef %7, i32 noundef %9, i8 noundef zeroext 4) #11
-  %conv3 = zext i16 %call.i16 to i32
-  %and = and i32 %conv3, 1
-  %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.else, label %do.body8
+define internal fastcc void @vfio_msix_disable(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  store ptr null, ptr %3, align 8
+  tail call void @msix_unset_vector_notifiers(ptr noundef %0) #26
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3088
+  %5 = load i32, ptr %4, align 16
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @__func__.qpci_device_enable, ptr noundef nonnull @.str.4, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK3FFF8000000000000000, i8 noundef signext 120) #11
-  br label %do.body8
+.lr.ph:                                           ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3072
+  br label %8
 
-do.body8:                                         ; preds = %entry, %if.else
-  %and11 = and i32 %conv3, 2
-  %cmp14.not = icmp eq i32 %and11, 0
-  br i1 %cmp14.not, label %if.else17, label %do.body22
+8:                                                ; preds = %.lr.ph, %16
+  %9 = phi i32 [ %5, %.lr.ph ], [ %17, %16 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %10 = load ptr, ptr %7, align 16
+  %11 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %10, i64 %indvars.iv, i32 4
+  %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %14, label %16
 
-if.else17:                                        ; preds = %do.body8
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 233, ptr noundef nonnull @__func__.qpci_device_enable, ptr noundef nonnull @.str.6, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK40008000000000000000, i8 noundef signext 120) #11
-  br label %do.body22
+14:                                               ; preds = %8
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @vfio_msix_vector_release(ptr noundef nonnull %0, i32 noundef %15)
+  tail call void @msix_vector_unuse(ptr noundef nonnull %0, i32 noundef %15) #26
+  %.pre = load i32, ptr %4, align 16
+  br label %16
 
-do.body22:                                        ; preds = %do.body8, %if.else17
-  %and25 = and i32 %conv3, 4
-  %cmp28.not = icmp eq i32 %and25, 0
-  br i1 %cmp28.not, label %if.else31, label %do.end35
+16:                                               ; preds = %8, %14
+  %17 = phi i32 [ %9, %8 ], [ %.pre, %14 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %8, label %._crit_edge, !llvm.loop !18
 
-if.else31:                                        ; preds = %do.body22
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__func__.qpci_device_enable, ptr noundef nonnull @.str.7, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.5, x86_fp80 noundef 0xK40018000000000000000, i8 noundef signext 120) #11
-  br label %do.end35
+._crit_edge:                                      ; preds = %16, %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  tail call void @vfio_disable_irqindex(ptr noundef nonnull %20, i32 noundef 2) #26
+  tail call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %0)
+  %21 = call fastcc zeroext i1 @vfio_intx_enable(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  br i1 %21, label %26, label %22
 
-do.end35:                                         ; preds = %if.else31, %do.body22
+22:                                               ; preds = %._crit_edge
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %25 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %23, ptr noundef nonnull @.str.7, ptr noundef %25) #26
+  br label %26
+
+26:                                               ; preds = %22, %._crit_edge
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 2
+  %32 = load i16, ptr %31, align 2
+  %33 = zext i16 %32 to i64
+  %34 = add nuw nsw i64 %33, 63
+  %35 = lshr i64 %34, 3
+  %36 = and i64 %35, 16376
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %30, i8 noundef 0, i64 noundef %36, i1 noundef false) #26
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %39, 0
+  br i1 %.not.i.i, label %trace_vfio_msix_disable.exit, label %40, !prof !5
+
+40:                                               ; preds = %26
+  %41 = load i16, ptr @_TRACE_VFIO_MSIX_DISABLE_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %41, 0
+  br i1 %.not2.i.i, label %trace_vfio_msix_disable.exit, label %42
+
+42:                                               ; preds = %40
+  %43 = load i32, ptr @qemu_loglevel, align 4
+  %44 = and i32 %43, 32768
+  %.not3.i.i = icmp eq i32 %44, 0
+  br i1 %.not3.i.i, label %trace_vfio_msix_disable.exit, label %45
+
+45:                                               ; preds = %42
+  %46 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %54
+
+48:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %49 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %50 = call i32 @qemu_get_thread_id() #26
+  %51 = load i64, ptr %2, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %53 = load i64, ptr %52, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %50, i64 noundef %51, i64 noundef %53, ptr noundef %38) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_msix_disable.exit
+
+54:                                               ; preds = %45
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, ptr noundef %38) #26
+  br label %trace_vfio_msix_disable.exit
+
+trace_vfio_msix_disable.exit:                     ; preds = %26, %40, %42, %48, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_config_writew(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset, i16 noundef zeroext %value) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_writew = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %1 = load ptr, ptr %config_writew, align 8
-  %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn, align 8
-  tail call void %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset, i16 noundef zeroext %value) #11
-  ret void
-}
+define internal fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %0, i32 noundef range(i32 -2147483648, 6) %1) unnamed_addr #0 {
+  %3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3096
+  %5 = sext i32 %1 to i64
+  %6 = getelementptr inbounds [6 x %struct.VFIOBAR], ptr %4, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %10 = load i32, ptr %9, align 4
+  %.not = icmp eq i32 %10, 1
+  br i1 %.not, label %11, label %46
 
-declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #1
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 272
+  %15 = load ptr, ptr %14, align 16
+  %.not36 = icmp eq ptr %15, null
+  br i1 %.not36, label %46, label %16
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i8 @qpci_find_capability(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %id, i8 noundef zeroext %start_addr) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq i8 %start_addr, 0
-  %add = add i8 %start_addr, 1
-  %.sink23 = select i1 %tobool.not, i8 52, i8 %add
-  %0 = load ptr, ptr %dev, align 8
-  %config_readb.i10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1 = load ptr, ptr %config_readb.i10, align 8
-  %devfn.i11 = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn.i11, align 8
-  %call.i12 = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %.sink23) #11
-  %devfn.i14 = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  br label %do.body
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 288
+  %18 = load i64, ptr %17, align 16
+  %.not37 = icmp eq i64 %18, %8
+  br i1 %.not37, label %19, label %46
 
-do.body:                                          ; preds = %do.cond, %entry
-  %addr.1 = phi i8 [ %call.i12, %entry ], [ %call.i18, %do.cond ]
-  %3 = load ptr, ptr %dev, align 8
-  %config_readb.i13 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %4 = load ptr, ptr %config_readb.i13, align 8
-  %5 = load i32, ptr %devfn.i14, align 8
-  %call.i15 = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext %addr.1) #11
-  %cmp.not = icmp eq i8 %call.i15, %id
-  br i1 %cmp.not, label %do.end, label %do.cond
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %21 = getelementptr inbounds [7 x %struct.PCIIORegion], ptr %20, i64 0, i64 %5
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %.not38 = icmp eq i64 %22, -1
+  br i1 %.not38, label %32, label %27
 
-do.cond:                                          ; preds = %do.body
-  %add9 = add i8 %addr.1, 1
-  %6 = load ptr, ptr %dev, align 8
-  %config_readb.i16 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %7 = load ptr, ptr %config_readb.i16, align 8
-  %8 = load i32, ptr %devfn.i14, align 8
-  %call.i18 = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %add9) #11
-  %cmp18.not = icmp eq i8 %call.i18, 0
-  br i1 %cmp18.not, label %do.end, label %do.body, !llvm.loop !9
+27:                                               ; preds = %19
+  %28 = tail call i32 @getpagesize() #28
+  %29 = sext i32 %28 to i64
+  %30 = add nsw i64 %29, -1
+  %31 = and i64 %30, %22
+  %.not39 = icmp eq i64 %31, 0
+  %spec.select = select i1 %.not39, i64 %29, i64 %8
+  br label %32
 
-do.end:                                           ; preds = %do.body, %do.cond
-  %addr.221 = phi i8 [ 0, %do.cond ], [ %addr.1, %do.body ]
-  ret i8 %addr.221
-}
+32:                                               ; preds = %27, %19
+  %.0 = phi i64 [ %8, %19 ], [ %spec.select, %27 ]
+  tail call void @memory_region_transaction_begin() #26
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %34 = load i64, ptr %33, align 8
+  %35 = icmp ult i64 %34, %.0
+  br i1 %35, label %36, label %37
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @qpci_config_readb(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_readb = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1 = load ptr, ptr %config_readb, align 8
-  %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn, align 8
-  %call = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset) #11
-  ret i8 %call
-}
+36:                                               ; preds = %32
+  tail call void @memory_region_set_size(ptr noundef %24, i64 noundef %.0) #26
+  br label %37
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_msix_enable(ptr noundef captures(none) %dev) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn.i11.i, align 8
-  %call.i12.i = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext 52) #11
-  br label %do.body.i
+37:                                               ; preds = %36, %32
+  tail call void @memory_region_set_size(ptr noundef %26, i64 noundef %.0) #26
+  tail call void @memory_region_set_size(ptr noundef nonnull %13, i64 noundef %.0) #26
+  %38 = load i64, ptr %33, align 8
+  %.not40 = icmp eq i64 %.0, %38
+  br i1 %.not40, label %45, label %39
 
-do.body.i:                                        ; preds = %do.cond.i, %entry
-  %addr.1.i = phi i8 [ %call.i12.i, %entry ], [ %call.i18.i, %do.cond.i ]
-  %3 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %4 = load ptr, ptr %config_readb.i13.i, align 8
-  %5 = load i32, ptr %devfn.i11.i, align 8
-  %call.i15.i = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext %addr.1.i) #11
-  %cmp.not.i = icmp eq i8 %call.i15.i, 17
-  br i1 %cmp.not.i, label %qpci_find_capability.exit, label %do.cond.i
+39:                                               ; preds = %37
+  %40 = tail call zeroext i1 @memory_region_is_mapped(ptr noundef %24) #26
+  br i1 %40, label %41, label %45
 
-do.cond.i:                                        ; preds = %do.body.i
-  %add9.i = add i8 %addr.1.i, 1
-  %6 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %7 = load ptr, ptr %config_readb.i16.i, align 8
-  %8 = load i32, ptr %devfn.i11.i, align 8
-  %call.i18.i = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %add9.i) #11
-  %cmp18.not.i = icmp eq i8 %call.i18.i, 0
-  br i1 %cmp18.not.i, label %if.else, label %do.body.i, !llvm.loop !9
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %43 = load ptr, ptr %42, align 8
+  tail call void @memory_region_del_subregion(ptr noundef %43, ptr noundef %24) #26
+  %44 = load ptr, ptr %42, align 8
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %44, i64 noundef %22, ptr noundef %24, i32 noundef 0) #26
+  br label %45
 
-qpci_find_capability.exit:                        ; preds = %do.body.i
-  %cmp.not = icmp eq i8 %addr.1.i, 0
-  br i1 %cmp.not, label %if.else, label %do.end
+45:                                               ; preds = %41, %39, %37
+  tail call void @memory_region_transaction_commit() #26
+  br label %46
 
-if.else:                                          ; preds = %do.cond.i, %qpci_find_capability.exit
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 279, ptr noundef nonnull @__func__.qpci_msix_enable, ptr noundef nonnull @.str.8, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #11
-  br label %do.end
-
-do.end:                                           ; preds = %if.else, %qpci_find_capability.exit
-  %addr.221.i33 = phi i8 [ 0, %if.else ], [ %addr.1.i, %qpci_find_capability.exit ]
-  %add = add i8 %addr.221.i33, 2
-  %9 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %10 = load ptr, ptr %config_readw.i, align 8
-  %11 = load i32, ptr %devfn.i11.i, align 8
-  %call.i = tail call zeroext i16 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add) #11
-  %12 = or i16 %call.i, -32768
-  %13 = load ptr, ptr %dev, align 8
-  %config_writew.i = getelementptr inbounds nuw i8, ptr %13, i64 112
-  %14 = load ptr, ptr %config_writew.i, align 8
-  %15 = load i32, ptr %devfn.i11.i, align 8
-  tail call void %14(ptr noundef %13, i32 noundef %15, i8 noundef zeroext %add, i16 noundef zeroext %12) #11
-  %add13 = add i8 %addr.221.i33, 4
-  %16 = load ptr, ptr %dev, align 8
-  %config_readl.i = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %17 = load ptr, ptr %config_readl.i, align 8
-  %18 = load i32, ptr %devfn.i11.i, align 8
-  %call.i27 = tail call i32 %17(ptr noundef %16, i32 noundef %18, i8 noundef zeroext %add13) #11
-  %conv16 = and i32 %call.i27, 7
-  %msix_table_bar = getelementptr inbounds nuw i8, ptr %dev, i64 16
-  %call18 = tail call { i64, i8 } @qpci_iomap(ptr noundef nonnull %dev, i32 noundef %conv16, ptr noundef null)
-  %19 = extractvalue { i64, i8 } %call18, 0
-  %20 = extractvalue { i64, i8 } %call18, 1
-  store i64 %19, ptr %msix_table_bar, align 8
-  %tmp.sroa.2.0.msix_table_bar.sroa_idx = getelementptr inbounds nuw i8, ptr %dev, i64 24
-  store i8 %20, ptr %tmp.sroa.2.0.msix_table_bar.sroa_idx, align 8
-  %and19 = and i32 %call.i27, -8
-  %conv20 = zext i32 %and19 to i64
-  %msix_table_off = getelementptr inbounds nuw i8, ptr %dev, i64 48
-  store i64 %conv20, ptr %msix_table_off, align 8
-  %add22 = add i8 %addr.221.i33, 8
-  %21 = load ptr, ptr %dev, align 8
-  %config_readl.i28 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %22 = load ptr, ptr %config_readl.i28, align 8
-  %23 = load i32, ptr %devfn.i11.i, align 8
-  %call.i30 = tail call i32 %22(ptr noundef %21, i32 noundef %23, i8 noundef zeroext %add22) #11
-  %conv26 = and i32 %call.i30, 7
-  %cmp29.not = icmp eq i32 %conv26, %conv16
-  %msix_pba_bar36 = getelementptr inbounds nuw i8, ptr %dev, i64 32
-  br i1 %cmp29.not, label %if.else35, label %if.then31
-
-if.then31:                                        ; preds = %do.end
-  %call34 = tail call { i64, i8 } @qpci_iomap(ptr noundef nonnull %dev, i32 noundef %conv26, ptr noundef null)
-  %24 = extractvalue { i64, i8 } %call34, 0
-  %25 = extractvalue { i64, i8 } %call34, 1
-  store i64 %24, ptr %msix_pba_bar36, align 8
-  %tmp32.sroa.2.0.msix_pba_bar.sroa_idx = getelementptr inbounds nuw i8, ptr %dev, i64 40
-  store i8 %25, ptr %tmp32.sroa.2.0.msix_pba_bar.sroa_idx, align 8
-  br label %if.end38
-
-if.else35:                                        ; preds = %do.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msix_pba_bar36, ptr noundef nonnull align 8 dereferenceable(16) %msix_table_bar, i64 16, i1 false)
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else35, %if.then31
-  %and39 = and i32 %call.i30, -8
-  %conv40 = zext i32 %and39 to i64
-  %msix_pba_off = getelementptr inbounds nuw i8, ptr %dev, i64 56
-  store i64 %conv40, ptr %msix_pba_off, align 8
-  %msix_enabled = getelementptr inbounds nuw i8, ptr %dev, i64 12
-  store i8 1, ptr %msix_enabled, align 4
+46:                                               ; preds = %2, %11, %16, %45
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qpci_config_readl(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_readl = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %1 = load ptr, ptr %config_readl, align 8
-  %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn, align 8
-  %call = tail call i32 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset) #11
-  ret i32 %call
+define dso_local void @vfio_pci_pre_reset(ptr noundef %0) local_unnamed_addr #0 {
+  tail call fastcc void @vfio_disable_interrupts(ptr noundef %0)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3748
+  %3 = load i8, ptr %2, align 4
+  %.not = icmp eq i8 %3, 0
+  br i1 %.not, label %20, label %4
+
+4:                                                ; preds = %1
+  %5 = zext i8 %3 to i32
+  %6 = add nuw nsw i32 %5, 4
+  %7 = tail call i32 @vfio_pci_read_config(ptr noundef nonnull %0, i32 noundef %6, i32 noundef 2)
+  %8 = and i32 %7, 3
+  %.not20 = icmp eq i32 %8, 0
+  br i1 %.not20, label %20, label %9
+
+9:                                                ; preds = %4
+  %10 = and i32 %7, 65532
+  %11 = load i8, ptr %2, align 4
+  %12 = zext i8 %11 to i32
+  %13 = add nuw nsw i32 %12, 4
+  tail call void @vfio_pci_write_config(ptr noundef nonnull %0, i32 noundef %13, i32 noundef %10, i32 noundef 2)
+  %14 = load i8, ptr %2, align 4
+  %15 = zext i8 %14 to i32
+  %16 = add nuw nsw i32 %15, 4
+  %17 = tail call i32 @vfio_pci_read_config(ptr noundef nonnull %0, i32 noundef %16, i32 noundef 2)
+  %18 = and i32 %17, 3
+  %.not21 = icmp eq i32 %18, 0
+  br i1 %.not21, label %20, label %19
+
+19:                                               ; preds = %9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, i32 noundef %18) #26
+  br label %20
+
+20:                                               ; preds = %4, %19, %9, %1
+  %21 = tail call i32 @vfio_pci_read_config(ptr noundef nonnull %0, i32 noundef 4, i32 noundef 2)
+  %22 = and i32 %21, 64504
+  tail call void @vfio_pci_write_config(ptr noundef nonnull %0, i32 noundef 4, i32 noundef %22, i32 noundef 2)
+  ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i8 } @qpci_iomap(ptr noundef readonly captures(none) %dev, i32 noundef %barno, ptr noundef writeonly captures(address_is_null) %sizeptr) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %or.cond = icmp ult i32 %barno, 6
-  br i1 %or.cond, label %do.end, label %if.else
+define internal fastcc void @vfio_disable_interrupts(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = alloca ptr, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3092
+  %5 = load i32, ptr %4, align 4
+  switch i32 %5, label %32 [
+    i32 3, label %6
+    i32 2, label %7
+  ]
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.qpci_iomap, ptr noundef nonnull @.str.12) #12
+6:                                                ; preds = %1
+  tail call fastcc void @vfio_msix_disable(ptr noundef nonnull %0)
+  br label %thread-pre-split
+
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  store ptr null, ptr %3, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  tail call void @vfio_disable_irqindex(ptr noundef nonnull %8, i32 noundef 1) #26
+  tail call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %0)
+  %9 = call fastcc zeroext i1 @vfio_intx_enable(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %10 = load ptr, ptr %3, align 8
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %vfio_msi_disable.exit, label %11
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %13 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %10, ptr noundef nonnull @.str.7, ptr noundef %13) #26
+  br label %vfio_msi_disable.exit
+
+vfio_msi_disable.exit:                            ; preds = %7, %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %16, 0
+  br i1 %.not.i.i, label %trace_vfio_msi_disable.exit, label %17, !prof !5
+
+17:                                               ; preds = %vfio_msi_disable.exit
+  %18 = load i16, ptr @_TRACE_VFIO_MSI_DISABLE_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %18, 0
+  br i1 %.not2.i.i, label %trace_vfio_msi_disable.exit, label %19
+
+19:                                               ; preds = %17
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %21 = and i32 %20, 32768
+  %.not3.i.i = icmp eq i32 %21, 0
+  br i1 %.not3.i.i, label %trace_vfio_msi_disable.exit, label %22
+
+22:                                               ; preds = %19
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %31
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %27 = call i32 @qemu_get_thread_id() #26
+  %28 = load i64, ptr %2, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load i64, ptr %29, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %27, i64 noundef %28, i64 noundef %30, ptr noundef %15) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_msi_disable.exit
+
+31:                                               ; preds = %22
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef %15) #26
+  br label %trace_vfio_msi_disable.exit
+
+trace_vfio_msi_disable.exit:                      ; preds = %vfio_msi_disable.exit, %17, %19, %25, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  br label %thread-pre-split
+
+thread-pre-split:                                 ; preds = %6, %trace_vfio_msi_disable.exit
+  %.pr = load i32, ptr %4, align 4
+  br label %32
+
+32:                                               ; preds = %thread-pre-split, %1
+  %33 = phi i32 [ %.pr, %thread-pre-split ], [ %5, %1 ]
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %32
+  call fastcc void @vfio_intx_disable(ptr noundef nonnull %0)
+  br label %36
+
+36:                                               ; preds = %35, %32
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @vfio_pci_post_reset(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  store ptr null, ptr %2, align 8
+  %4 = call fastcc zeroext i1 @vfio_intx_enable(ptr noundef %0, ptr noundef nonnull %2)
+  br i1 %4, label %9, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %8 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %6, ptr noundef nonnull @.str.7, ptr noundef %8) #26
+  br label %9
+
+9:                                                ; preds = %5, %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3032
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  br label %13
+
+13:                                               ; preds = %9, %23
+  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %23 ]
+  %14 = load i64, ptr %10, align 8
+  %15 = shl nuw nsw i64 %indvars.iv, 2
+  %16 = add nuw nsw i64 %15, 16
+  %17 = add i64 %14, %16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
+  store i32 0, ptr %3, align 4
+  %18 = load i32, ptr %11, align 8
+  %19 = call i64 @pwrite64(i32 noundef %18, ptr noundef nonnull %3, i64 noundef 4, i64 noundef %17) #26
+  %.not = icmp eq i64 %19, 4
+  br i1 %.not, label %23, label %20
+
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %12, align 8
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.vfio_pci_post_reset, ptr noundef %21, i32 noundef %22) #26
+  br label %23
+
+23:                                               ; preds = %20, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %24, label %13, !llvm.loop !19
+
+24:                                               ; preds = %23
+  call void @vfio_quirk_reset(ptr noundef nonnull %0) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc noundef zeroext i1 @vfio_intx_enable(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = tail call i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef 61, i32 noundef 1)
+  %5 = trunc i32 %4 to i8
+  %.not = icmp eq i8 %5, 0
+  br i1 %.not, label %trace_vfio_intx_enable.exit, label %6
+
+6:                                                ; preds = %2
+  tail call fastcc void @vfio_disable_interrupts(ptr noundef %0)
+  %7 = add i8 %5, -1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2970
+  store i8 %7, ptr %8, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %10 = load ptr, ptr %9, align 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 61
+  store i8 %5, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2972
+  %13 = tail call i32 @event_notifier_init(ptr noundef nonnull %12, i32 noundef 0) #26
+  %.not26 = icmp eq i32 %13, 0
+  br i1 %.not26, label %16, label %14
+
+14:                                               ; preds = %6
+  %15 = sub i32 0, %13
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 294, ptr noundef nonnull @__func__.vfio_intx_enable, i32 noundef %15, ptr noundef nonnull @.str.58) #26
+  br label %trace_vfio_intx_enable.exit
+
+16:                                               ; preds = %6
+  %17 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %12) #26
+  tail call void @qemu_set_fd_handler(i32 noundef %17, ptr noundef nonnull @vfio_intx_interrupt, ptr noundef null, ptr noundef nonnull %0) #26
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  %19 = tail call zeroext i1 @vfio_set_irq_signaling(ptr noundef nonnull %18, i32 noundef 0, i32 noundef 0, i32 noundef 32, i32 noundef %17, ptr noundef %1) #26
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  tail call void @qemu_set_fd_handler(i32 noundef %17, ptr noundef null, ptr noundef null, ptr noundef nonnull %0) #26
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %12) #26
+  br label %trace_vfio_intx_enable.exit
+
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 3092
+  store i32 1, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %25, 0
+  br i1 %.not.i.i, label %trace_vfio_intx_enable.exit, label %26, !prof !5
+
+26:                                               ; preds = %21
+  %27 = load i16, ptr @_TRACE_VFIO_INTX_ENABLE_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %27, 0
+  br i1 %.not2.i.i, label %trace_vfio_intx_enable.exit, label %28
+
+28:                                               ; preds = %26
+  %29 = load i32, ptr @qemu_loglevel, align 4
+  %30 = and i32 %29, 32768
+  %.not3.i.i = icmp eq i32 %30, 0
+  br i1 %.not3.i.i, label %trace_vfio_intx_enable.exit, label %31
+
+31:                                               ; preds = %28
+  %32 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %40
+
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %35 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %36 = tail call i32 @qemu_get_thread_id() #26
+  %37 = load i64, ptr %3, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %39 = load i64, ptr %38, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %36, i64 noundef %37, i64 noundef %39, ptr noundef %24) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %trace_vfio_intx_enable.exit
+
+40:                                               ; preds = %31
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, ptr noundef %24) #26
+  br label %trace_vfio_intx_enable.exit
+
+trace_vfio_intx_enable.exit:                      ; preds = %40, %34, %28, %26, %21, %2, %20, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ true, %2 ], [ true, %21 ], [ true, %26 ], [ true, %28 ], [ true, %34 ], [ true, %40 ]
+  ret i1 %.0
+}
+
+declare void @error_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+declare void @vfio_quirk_reset(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind sspstrong uwtable
+define dso_local zeroext i1 @vfio_pci_host_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+  %3 = alloca [13 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %3, i8 0, i64 13, i1 false), !annotation !4
+  %4 = load i32, ptr %0, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %10 = load i32, ptr %9, align 4
+  %11 = call i32 (ptr, i32, i64, ptr, ...) @__sprintf_chk(ptr noundef nonnull %3, i32 noundef 1, i64 noundef 13, ptr noundef nonnull @.str.9, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef %10) #26
+  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1) #31
+  %13 = icmp eq i32 %12, 0
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %3) #26
+  ret i1 %13
+}
+
+; Function Attrs: nofree
+declare i32 @__sprintf_chk(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local i32 @vfio_pci_get_pci_hot_reset_info(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %5, label %3
+
+3:                                                ; preds = %2
+  %4 = load ptr, ptr %1, align 8
+  %.not24 = icmp eq ptr %4, null
+  br i1 %.not24, label %6, label %5
+
+5:                                                ; preds = %3, %2
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 2478, ptr noundef nonnull @__PRETTY_FUNCTION__.vfio_pci_get_pci_hot_reset_info) #27
   unreachable
 
-do.end:                                           ; preds = %entry
-  %idxprom = zext nneg i32 %barno to i64
-  %arrayidx = getelementptr [6 x i32], ptr @qpci_iomap.bar_reg_map, i64 0, i64 %idxprom
-  %1 = load i32, ptr %arrayidx, align 4
-  %conv = trunc i32 %1 to i8
-  %config_writel.i = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2 = load ptr, ptr %config_writel.i, align 8
-  %devfn.i = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %3 = load i32, ptr %devfn.i, align 8
-  tail call void %2(ptr noundef %0, i32 noundef %3, i8 noundef zeroext %conv, i32 noundef -1) #11
-  %4 = load ptr, ptr %dev, align 8
-  %config_readl.i = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %5 = load ptr, ptr %config_readl.i, align 8
-  %6 = load i32, ptr %devfn.i, align 8
-  %call.i = tail call i32 %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext %conv) #11
-  %and = and i32 %call.i, 1
-  %cmp4.not = icmp eq i32 %and, 0
-  %addr.0.v = select i1 %cmp4.not, i32 -16, i32 -4
-  %addr.0 = and i32 %addr.0.v, %call.i
-  %tobool.not = icmp eq i32 %addr.0, 0
-  br i1 %tobool.not, label %if.else17, label %do.end19
+6:                                                ; preds = %3
+  %7 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0(i64 noundef 12) #30
+  store i32 12, ptr %7, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %9 = load i32, ptr %8, align 8
+  %10 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 15216, ptr noundef nonnull %7) #26
+  %.not25 = icmp eq i32 %10, 0
+  br i1 %.not25, label %22, label %11
 
-if.else17:                                        ; preds = %do.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__func__.qpci_iomap, ptr noundef nonnull @.str.13) #12
+11:                                               ; preds = %6
+  %12 = tail call ptr @__errno_location() #28
+  %13 = load i32, ptr %12, align 4
+  %.not26 = icmp eq i32 %13, 28
+  br i1 %.not26, label %22, label %14
+
+14:                                               ; preds = %11
+  %15 = sub i32 0, %13
+  tail call void @g_free(ptr noundef nonnull %7) #26
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 3753
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %37, label %19
+
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %21 = load ptr, ptr %20, align 8
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.12, ptr noundef %21) #26
+  br label %37
+
+22:                                               ; preds = %11, %6
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %24 = load i32, ptr %23, align 4
+  %25 = sext i32 %24 to i64
+  %26 = shl nsw i64 %25, 3
+  %27 = add nsw i64 %26, 12
+  %28 = tail call ptr @g_realloc(ptr noundef nonnull %7, i64 noundef %27) #26
+  %29 = trunc i64 %27 to i32
+  store i32 %29, ptr %28, align 4
+  %30 = load i32, ptr %8, align 8
+  %31 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %30, i64 noundef 15216, ptr noundef nonnull %28) #26
+  %.not27 = icmp eq i32 %31, 0
+  br i1 %.not27, label %36, label %32
+
+32:                                               ; preds = %22
+  %33 = tail call ptr @__errno_location() #28
+  %34 = load i32, ptr %33, align 4
+  %35 = sub i32 0, %34
+  tail call void @g_free(ptr noundef nonnull %28) #26
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13) #26
+  br label %37
+
+36:                                               ; preds = %22
+  store ptr %28, ptr %1, align 8
+  br label %37
+
+37:                                               ; preds = %14, %19, %36, %32
+  %.0 = phi i32 [ %35, %32 ], [ 0, %36 ], [ %15, %19 ], [ %15, %14 ]
+  ret i32 %.0
+}
+
+; Function Attrs: noreturn nounwind
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
+
+; Function Attrs: nounwind
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #11
+
+declare void @g_free(ptr noundef) local_unnamed_addr #4
+
+declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local noundef zeroext i1 @vfio_populate_vga(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  store ptr null, ptr %3, align 8
+  %5 = call i32 @vfio_get_region_info(ptr noundef nonnull %4, i32 noundef 8, ptr noundef nonnull %3) #26
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %8, label %6
+
+6:                                                ; preds = %2
+  %7 = sub i32 0, %5
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 2675, ptr noundef nonnull @__func__.vfio_populate_vga, i32 noundef %7, ptr noundef nonnull @.str.14, i32 noundef 8) #26
+  br label %50
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = and i32 %11, 3
+  %or.cond.not = icmp ne i32 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp ult i64 %14, 786432
+  %or.cond = select i1 %or.cond.not, i1 true, i1 %15
+  br i1 %or.cond, label %._crit_edge, label %17
+
+._crit_edge:                                      ; preds = %8
+  %16 = zext i32 %11 to i64
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 2684, ptr noundef nonnull @__func__.vfio_populate_vga, ptr noundef nonnull @.str.15, i64 noundef %16, i64 noundef %14) #26
+  br label %50
+
+17:                                               ; preds = %8
+  %18 = call noalias dereferenceable_or_null(928) ptr @g_malloc0(i64 noundef 928) #30
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3624
+  store ptr %18, ptr %19, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %22 = load i64, ptr %21, align 8
+  store i64 %22, ptr %18, align 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 %24, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 288
+  store i64 655360, ptr %26, align 16
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 296
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 304
+  store ptr null, ptr %28, align 16
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  call void @memory_region_init_io(ptr noundef nonnull %29, ptr noundef nonnull %0, ptr noundef nonnull @vfio_vga_ops, ptr noundef nonnull %29, ptr noundef nonnull @.str.16, i64 noundef 131072) #26
+  %30 = load ptr, ptr %19, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 592
+  store i64 944, ptr %31, align 16
+  %32 = load ptr, ptr %19, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 600
+  store i32 1, ptr %33, align 8
+  %34 = load ptr, ptr %19, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 608
+  store ptr null, ptr %35, align 16
+  %36 = load ptr, ptr %19, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 320
+  call void @memory_region_init_io(ptr noundef nonnull %37, ptr noundef nonnull %0, ptr noundef nonnull @vfio_vga_ops, ptr noundef nonnull %37, ptr noundef nonnull @.str.17, i64 noundef 12) #26
+  %38 = load ptr, ptr %19, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 896
+  store i64 960, ptr %39, align 16
+  %40 = load ptr, ptr %19, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 904
+  store i32 2, ptr %41, align 8
+  %42 = load ptr, ptr %19, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 912
+  store ptr null, ptr %43, align 16
+  %44 = load ptr, ptr %19, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 624
+  call void @memory_region_init_io(ptr noundef nonnull %45, ptr noundef nonnull %0, ptr noundef nonnull @vfio_vga_ops, ptr noundef nonnull %45, ptr noundef nonnull @.str.18, i64 noundef 32) #26
+  %46 = load ptr, ptr %19, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 320
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 624
+  call void @pci_register_vga(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef nonnull %49) #26
+  br label %50
+
+50:                                               ; preds = %17, %._crit_edge, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %._crit_edge ], [ true, %17 ]
+  %.val = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %.val) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  ret i1 %.0
+}
+
+declare i32 @vfio_get_region_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: allocsize(0,1)
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
+
+declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare void @pci_register_vga(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @do_qemu_init_register_vfio_pci_dev_type() #0 {
+  tail call void @register_module_init(ptr noundef nonnull @register_vfio_pci_dev_type, i32 noundef 3) #26
+  ret void
+}
+
+declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @register_vfio_pci_dev_type() #0 {
+  %1 = tail call ptr @type_register_static(ptr noundef nonnull @vfio_pci_dev_info) #26
+  %2 = tail call ptr @type_register_static(ptr noundef nonnull @vfio_pci_nohotplug_dev_info) #26
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
+
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #4
+
+declare i32 @qemu_get_thread_id() local_unnamed_addr #4
+
+declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind memory(argmem: readwrite)
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #14
+
+declare i32 @msi_nr_vectors_allocated(ptr noundef) local_unnamed_addr #4
+
+declare i32 @event_notifier_init(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @event_notifier_get_fd(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_msi_interrupt(ptr noundef %0) #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = alloca %struct.timeval, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 3072
+  %7 = load ptr, ptr %6, align 16
+  %8 = ptrtoint ptr %0 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = sdiv exact i64 %10, 40
+  %12 = trunc i64 %11 to i32
+  %13 = tail call i32 @event_notifier_test_and_clear(ptr noundef %0) #26
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %72, label %14
+
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 3092
+  %16 = load i32, ptr %15, align 4
+  switch i32 %16, label %50 [
+    i32 3, label %17
+    i32 2, label %trace_vfio_msix_pba_enable.exit
+  ]
+
+17:                                               ; preds = %14
+  %18 = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %5, i32 noundef %12) #26
+  br i1 %18, label %19, label %trace_vfio_msix_pba_enable.exit
+
+19:                                               ; preds = %17
+  %sext = shl i64 %11, 32
+  %20 = ashr exact i64 %sext, 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 3080
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = and i64 %11, 63
+  %26 = shl nuw i64 1, %25
+  %27 = lshr i64 %20, 6
+  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %27
+  %29 = load i64, ptr %28, align 8
+  %30 = or i64 %29, %26
+  store i64 %30, ptr %28, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 1936
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %31, i1 noundef zeroext true) #26
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 2824
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %34, 0
+  br i1 %.not.i.i, label %trace_vfio_msix_pba_enable.exit, label %35, !prof !5
+
+35:                                               ; preds = %19
+  %36 = load i16, ptr @_TRACE_VFIO_MSIX_PBA_ENABLE_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %36, 0
+  br i1 %.not2.i.i, label %trace_vfio_msix_pba_enable.exit, label %37
+
+37:                                               ; preds = %35
+  %38 = load i32, ptr @qemu_loglevel, align 4
+  %39 = and i32 %38, 32768
+  %.not3.i.i = icmp eq i32 %39, 0
+  br i1 %.not3.i.i, label %trace_vfio_msix_pba_enable.exit, label %40
+
+40:                                               ; preds = %37
+  %41 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %49
+
+43:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %44 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %45 = tail call i32 @qemu_get_thread_id() #26
+  %46 = load i64, ptr %3, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %48 = load i64, ptr %47, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %45, i64 noundef %46, i64 noundef %48, ptr noundef %33) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %trace_vfio_msix_pba_enable.exit
+
+49:                                               ; preds = %40
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef %33) #26
+  br label %trace_vfio_msix_pba_enable.exit
+
+50:                                               ; preds = %14
+  tail call void @abort() #27
   unreachable
 
-do.end19:                                         ; preds = %do.end
-  %7 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, -3) %addr.0, i1 true)
-  %shl = shl nuw i32 1, %7
-  %tobool21.not = icmp eq ptr %sizeptr, null
-  br i1 %tobool21.not, label %if.end24, label %if.then22
+trace_vfio_msix_pba_enable.exit:                  ; preds = %49, %43, %37, %35, %19, %14, %17
+  %.022 = phi ptr [ @msix_notify, %17 ], [ @msi_notify, %14 ], [ @msix_notify, %19 ], [ @msix_notify, %35 ], [ @msix_notify, %37 ], [ @msix_notify, %43 ], [ @msix_notify, %49 ]
+  %.0 = phi ptr [ @msix_get_message, %17 ], [ @msi_get_message, %14 ], [ @msix_get_message, %19 ], [ @msix_get_message, %35 ], [ @msix_get_message, %37 ], [ @msix_get_message, %43 ], [ @msix_get_message, %49 ]
+  %51 = tail call { i64, i32 } %.0(ptr noundef nonnull %5, i32 noundef %12) #26, !callees !20
+  %52 = extractvalue { i64, i32 } %51, 0
+  %53 = extractvalue { i64, i32 } %51, 1
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 2824
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i24 = icmp eq i32 %56, 0
+  br i1 %.not.i.i24, label %trace_vfio_msi_interrupt.exit, label %57, !prof !5
 
-if.then22:                                        ; preds = %do.end19
-  %conv23 = zext i32 %shl to i64
-  store i64 %conv23, ptr %sizeptr, align 8
-  br label %if.end24
+57:                                               ; preds = %trace_vfio_msix_pba_enable.exit
+  %58 = load i16, ptr @_TRACE_VFIO_MSI_INTERRUPT_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %58, 0
+  br i1 %.not7.i.i, label %trace_vfio_msi_interrupt.exit, label %59
 
-if.end24:                                         ; preds = %if.then22, %do.end19
-  %conv54 = zext i32 %shl to i64
-  %add55 = add nsw i64 %conv54, -1
-  %8 = zext nneg i32 %7 to i64
-  %9 = shl nsw i64 -1, %8
-  br i1 %cmp4.not, label %if.else53, label %if.then27
+59:                                               ; preds = %57
+  %60 = load i32, ptr @qemu_loglevel, align 4
+  %61 = and i32 %60, 32768
+  %.not8.i.i = icmp eq i32 %61, 0
+  br i1 %.not8.i.i, label %trace_vfio_msi_interrupt.exit, label %62
 
-if.then27:                                        ; preds = %if.end24
-  %pio_alloc_ptr = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %10 = load i64, ptr %pio_alloc_ptr, align 8
-  %sub = add i64 %add55, %10
-  %mul = and i64 %sub, %9
-  %cmp33.not = icmp ult i64 %mul, %10
-  br i1 %cmp33.not, label %if.else36, label %do.body39
+62:                                               ; preds = %59
+  %63 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %65, label %71
 
-if.else36:                                        ; preds = %if.then27
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 556, ptr noundef nonnull @__func__.qpci_iomap, ptr noundef nonnull @.str.14) #12
+65:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %66 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %67 = tail call i32 @qemu_get_thread_id() #26
+  %68 = load i64, ptr %2, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %70 = load i64, ptr %69, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %67, i64 noundef %68, i64 noundef %70, ptr noundef %55, i32 noundef %12, i64 noundef %52, i32 noundef %53) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_msi_interrupt.exit
+
+71:                                               ; preds = %62
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %55, i32 noundef %12, i64 noundef %52, i32 noundef %53) #26
+  br label %trace_vfio_msi_interrupt.exit
+
+trace_vfio_msi_interrupt.exit:                    ; preds = %trace_vfio_msix_pba_enable.exit, %57, %59, %65, %71
+  tail call void %.022(ptr noundef nonnull %5, i32 noundef %12) #26, !callees !21
+  br label %72
+
+72:                                               ; preds = %1, %trace_vfio_msi_interrupt.exit
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_commit_kvm_msi_virq_batch(ptr noundef captures(none) %0) unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3768
+  %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %1
+  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.11, i32 noundef 658, ptr noundef nonnull @__PRETTY_FUNCTION__.vfio_commit_kvm_msi_virq_batch) #27
   unreachable
 
-do.body39:                                        ; preds = %if.then27
-  %add41 = add i64 %mul, %conv54
-  %pio_limit = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %11 = load i64, ptr %pio_limit, align 8
-  %cmp42.not = icmp ugt i64 %add41, %11
-  br i1 %cmp42.not, label %if.else45, label %do.end47
+6:                                                ; preds = %1
+  store i8 0, ptr %2, align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %kvm_irqchip_commit_route_changes.exit, label %8
 
-if.else45:                                        ; preds = %do.body39
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @__func__.qpci_iomap, ptr noundef nonnull @.str.15) #12
-  unreachable
+8:                                                ; preds = %6
+  %9 = load ptr, ptr @vfio_route_change, align 8
+  tail call void @kvm_irqchip_commit_routes(ptr noundef %9) #26
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
+  br label %kvm_irqchip_commit_route_changes.exit
 
-do.end47:                                         ; preds = %do.body39
-  store i64 %add41, ptr %pio_alloc_ptr, align 8
-  %12 = trunc i64 %mul to i32
-  %conv52 = or i32 %12, 1
-  br label %if.end84
+kvm_irqchip_commit_route_changes.exit:            ; preds = %6, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3088
+  %11 = load i32, ptr %10, align 16
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
-if.else53:                                        ; preds = %if.end24
-  %mmio_alloc_ptr = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %13 = load i64, ptr %mmio_alloc_ptr, align 8
-  %sub56 = add i64 %add55, %13
-  %mul60 = and i64 %sub56, %9
-  %cmp63.not = icmp ult i64 %mul60, %13
-  br i1 %cmp63.not, label %if.else66, label %do.body69
+.lr.ph:                                           ; preds = %kvm_irqchip_commit_route_changes.exit
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3072
+  br label %14
 
-if.else66:                                        ; preds = %if.else53
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 567, ptr noundef nonnull @__func__.qpci_iomap, ptr noundef nonnull @.str.16) #12
-  unreachable
+14:                                               ; preds = %.lr.ph, %vfio_connect_kvm_msi_virq.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %vfio_connect_kvm_msi_virq.exit ]
+  %15 = load ptr, ptr %13, align 16
+  %16 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %vfio_connect_kvm_msi_virq.exit, label %20
 
-do.body69:                                        ; preds = %if.else53
-  %add71 = add i64 %mul60, %conv54
-  %mmio_limit = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %14 = load i64, ptr %mmio_limit, align 8
-  %cmp72.not = icmp ugt i64 %add71, %14
-  br i1 %cmp72.not, label %if.else75, label %do.end77
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %22 = tail call i32 @event_notifier_init(ptr noundef nonnull %21, i32 noundef 0) #26
+  %.not.i6 = icmp eq i32 %22, 0
+  br i1 %.not.i6, label %23, label %29
 
-if.else75:                                        ; preds = %do.body69
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 568, ptr noundef nonnull @__func__.qpci_iomap, ptr noundef nonnull @.str.17) #12
-  unreachable
+23:                                               ; preds = %20
+  %24 = load ptr, ptr @kvm_state, align 8
+  %25 = load i32, ptr %17, align 8
+  %26 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %24, ptr noundef nonnull %21, ptr noundef null, i32 noundef %25) #26
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %vfio_connect_kvm_msi_virq.exit
 
-do.end77:                                         ; preds = %do.body69
-  store i64 %add71, ptr %mmio_alloc_ptr, align 8
-  %conv83 = trunc i64 %mul60 to i32
-  br label %if.end84
+28:                                               ; preds = %23
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %21) #26
+  br label %29
 
-if.end84:                                         ; preds = %do.end77, %do.end47
-  %conv83.sink = phi i32 [ %conv83, %do.end77 ], [ %conv52, %do.end47 ]
-  %retval.sroa.2.0 = phi i8 [ 0, %do.end77 ], [ 1, %do.end47 ]
-  %loc.0 = phi i64 [ %mul60, %do.end77 ], [ %mul, %do.end47 ]
-  %15 = load ptr, ptr %dev, align 8
-  %config_writel.i46 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %16 = load ptr, ptr %config_writel.i46, align 8
-  %17 = load i32, ptr %devfn.i, align 8
-  tail call void %16(ptr noundef %15, i32 noundef %17, i8 noundef zeroext %conv, i32 noundef %conv83.sink) #11
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %loc.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
-  ret { i64, i8 } %.fca.1.insert
+29:                                               ; preds = %28, %20
+  %30 = load ptr, ptr @kvm_state, align 8
+  %31 = load i32, ptr %17, align 8
+  tail call void @kvm_irqchip_release_virq(ptr noundef %30, i32 noundef %31) #26
+  store i32 -1, ptr %17, align 8
+  br label %vfio_connect_kvm_msi_virq.exit
+
+vfio_connect_kvm_msi_virq.exit:                   ; preds = %14, %23, %29
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %32 = load i32, ptr %10, align 16
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %indvars.iv.next, %33
+  br i1 %34, label %14, label %._crit_edge, !llvm.loop !22
+
+._crit_edge:                                      ; preds = %vfio_connect_kvm_msi_virq.exit, %kvm_irqchip_commit_route_changes.exit
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+  br i1 %1, label %3, label %19
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %19, label %9
+
+9:                                                ; preds = %3
+  %10 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #30
+  store i32 24, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 36, ptr %11, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 2, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i32 1, ptr %14, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  store i32 -1, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %17 = load i32, ptr %16, align 8
+  %18 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %17, i64 noundef 15214, ptr noundef nonnull %10) #26
+  tail call void @g_free(ptr noundef nonnull %10) #26
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %76
+
+19:                                               ; preds = %9, %3, %2
+  %20 = phi i32 [ 2, %9 ], [ 2, %3 ], [ 1, %2 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3088
+  %22 = load i32, ptr %21, align 16
+  %23 = shl i32 %22, 2
+  %24 = add i32 %23, 20
+  %25 = sext i32 %24 to i64
+  %26 = tail call noalias ptr @g_malloc0(i64 noundef %25) #30
+  store i32 %24, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 36, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 %20, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  store i32 0, ptr %29, align 4
+  %30 = load i32, ptr %21, align 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store i32 %30, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 20
+  %33 = icmp sgt i32 %30, 0
+  br i1 %33, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %19
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 3072
+  br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %53
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %53 ], [ 0, %.lr.ph ]
+  %35 = load ptr, ptr %34, align 16
+  %36 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %35, i64 %indvars.iv44
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
+  %38 = load i8, ptr %37, align 4, !range !6, !noundef !7
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %53
+
+40:                                               ; preds = %.lr.ph.split.us
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %49, label %44
+
+44:                                               ; preds = %40
+  %45 = trunc nuw nsw i64 %indvars.iv44 to i32
+  %46 = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %0, i32 noundef %45) #26
+  %.pre = load ptr, ptr %34, align 16
+  br i1 %46, label %49, label %47
+
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %.pre, i64 %indvars.iv44, i32 1
+  br label %.sink.split
+
+49:                                               ; preds = %44, %40
+  %50 = phi ptr [ %.pre, %44 ], [ %35, %40 ]
+  %51 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %50, i64 %indvars.iv44
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %47, %49
+  %.sink = phi ptr [ %51, %49 ], [ %48, %47 ]
+  %52 = tail call i32 @event_notifier_get_fd(ptr noundef %.sink) #26
+  br label %53
+
+53:                                               ; preds = %.sink.split, %.lr.ph.split.us
+  %.0.us = phi i32 [ -1, %.lr.ph.split.us ], [ %52, %.sink.split ]
+  %54 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv44
+  store i32 %.0.us, ptr %54, align 4
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %55 = load i32, ptr %21, align 16
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next45, %56
+  br i1 %57, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %68
+  %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
+  %58 = load ptr, ptr %34, align 16
+  %59 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %58, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
+  %61 = load i8, ptr %60, align 4, !range !6, !noundef !7
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %.sink.split48, label %68
+
+.sink.split48:                                    ; preds = %.lr.ph.split
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp slt i32 %64, 0
+  %66 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %58, i64 %indvars.iv, i32 1
+  %.sink49 = select i1 %65, ptr %59, ptr %66
+  %67 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink49) #26
+  br label %68
+
+68:                                               ; preds = %.sink.split48, %.lr.ph.split
+  %.0 = phi i32 [ -1, %.lr.ph.split ], [ %67, %.sink.split48 ]
+  %69 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  store i32 %.0, ptr %69, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %70 = load i32, ptr %21, align 16
+  %71 = sext i32 %70 to i64
+  %72 = icmp slt i64 %indvars.iv.next, %71
+  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
+
+._crit_edge:                                      ; preds = %68, %53, %19
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %74 = load i32, ptr %73, align 8
+  %75 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %74, i64 noundef 15214, ptr noundef nonnull %26) #26
+  tail call void @g_free(ptr noundef nonnull %26) #26
+  br label %76
+
+76:                                               ; preds = %9, %._crit_edge
+  %.038 = phi i32 [ %75, %._crit_edge ], [ %18, %9 ]
+  ret i32 %.038
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_msi_disable_common(ptr noundef captures(none) %0) unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3088
+  %3 = load i32, ptr %2, align 16
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3072
+  br label %6
+
+6:                                                ; preds = %.lr.ph, %25
+  %7 = phi i32 [ %3, %.lr.ph ], [ %26, %25 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %8 = load ptr, ptr %5, align 16
+  %9 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %11 = load i8, ptr %10, align 4, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %25
+
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %17, label %23
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr @kvm_state, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %20 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %15) #26
+  %21 = load ptr, ptr @kvm_state, align 8
+  %22 = load i32, ptr %14, align 8
+  tail call void @kvm_irqchip_release_virq(ptr noundef %21, i32 noundef %22) #26
+  store i32 -1, ptr %14, align 8
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %19) #26
+  br label %23
+
+23:                                               ; preds = %17, %13
+  %24 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %9) #26
+  tail call void @qemu_set_fd_handler(i32 noundef %24, ptr noundef null, ptr noundef null, ptr noundef null) #26
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %9) #26
+  %.pre = load i32, ptr %2, align 16
+  br label %25
+
+25:                                               ; preds = %23, %6
+  %26 = phi i32 [ %.pre, %23 ], [ %7, %6 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %6, label %._crit_edge, !llvm.loop !23
+
+._crit_edge:                                      ; preds = %25, %1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3072
+  %30 = load ptr, ptr %29, align 16
+  tail call void @g_free(ptr noundef %30) #26
+  store ptr null, ptr %29, align 16
+  store i32 0, ptr %2, align 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 3092
+  store i32 0, ptr %31, align 4
+  ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+
+declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #4
+
+declare { i64, i32 } @msix_get_message(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare zeroext i1 @msix_is_masked(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @memory_region_set_enabled(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+
+declare { i64, i32 } @msi_get_message(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #16
+
+declare i32 @kvm_irqchip_add_msi_route(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @kvm_irqchip_commit_routes(ptr noundef) local_unnamed_addr #4
+
+declare i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @event_notifier_cleanup(ptr noundef) local_unnamed_addr #4
+
+declare void @kvm_irqchip_release_virq(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @vfio_disable_irqindex(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @kvm_irqchip_update_msi_route(ptr noundef, i32 noundef, i64, i32, ptr noundef) local_unnamed_addr #4
+
+declare i32 @msix_set_vector_notifiers(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_msix_disable(ptr noundef captures(none) %dev) local_unnamed_addr #0 {
-entry:
-  %msix_enabled = getelementptr inbounds nuw i8, ptr %dev, i64 12
-  %0 = load i8, ptr %msix_enabled, align 4
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %do.end, label %if.else
+define internal noundef i32 @vfio_msix_vector_use(ptr noundef %0, i32 noundef %1, i64 %2, i32 %3) #0 {
+  %5 = alloca %struct.timeval, align 8
+  %6 = alloca %struct.timeval, align 8
+  %7 = alloca ptr, align 8
+  %8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 3088
+  %10 = load i32, ptr %9, align 16
+  %11 = add i32 %1, 1
+  %12 = icmp ult i32 %10, %11
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 2752
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 2824
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %16, 0
+  br i1 %.not.i.i.i, label %trace_vfio_msix_vector_do_use.exit.i, label %17, !prof !5
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 306, ptr noundef nonnull @__func__.qpci_msix_disable, ptr noundef nonnull @.str.10) #12
+17:                                               ; preds = %4
+  %18 = load i16, ptr @_TRACE_VFIO_MSIX_VECTOR_DO_USE_DSTATE, align 2
+  %.not3.i.i.i = icmp eq i16 %18, 0
+  br i1 %.not3.i.i.i, label %trace_vfio_msix_vector_do_use.exit.i, label %19
+
+19:                                               ; preds = %17
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %21 = and i32 %20, 32768
+  %.not4.i.i.i = icmp eq i32 %21, 0
+  br i1 %.not4.i.i.i, label %trace_vfio_msix_vector_do_use.exit.i, label %22
+
+22:                                               ; preds = %19
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %31
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #26
+  %27 = tail call i32 @qemu_get_thread_id() #26
+  %28 = load i64, ptr %6, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = load i64, ptr %29, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %27, i64 noundef %28, i64 noundef %30, ptr noundef %15, i32 noundef %1) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  br label %trace_vfio_msix_vector_do_use.exit.i
+
+31:                                               ; preds = %22
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef %15, i32 noundef %1) #26
+  br label %trace_vfio_msix_vector_do_use.exit.i
+
+trace_vfio_msix_vector_do_use.exit.i:             ; preds = %31, %25, %19, %17, %4
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 3072
+  %33 = load ptr, ptr %32, align 16
+  %34 = zext i32 %1 to i64
+  %35 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %37 = load i8, ptr %36, align 4, !range !6, !noundef !7
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %45, label %39
+
+39:                                               ; preds = %trace_vfio_msix_vector_do_use.exit.i
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store ptr %8, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i32 -1, ptr %41, align 8
+  %42 = tail call i32 @event_notifier_init(ptr noundef nonnull %35, i32 noundef 0) #26
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %44, label %43
+
+43:                                               ; preds = %39
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29) #26
+  br label %44
+
+44:                                               ; preds = %43, %39
+  store i8 1, ptr %36, align 4
+  tail call void @msix_vector_use(ptr noundef %0, i32 noundef %1) #26
+  br label %45
+
+45:                                               ; preds = %44, %trace_vfio_msix_vector_do_use.exit.i
+  %46 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %35) #26
+  tail call void @qemu_set_fd_handler(i32 noundef %46, ptr noundef nonnull @vfio_msi_interrupt, ptr noundef null, ptr noundef nonnull %35) #26
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp sgt i32 %48, -1
+  br i1 %49, label %50, label %54
+
+50:                                               ; preds = %45
+  %51 = load ptr, ptr @kvm_state, align 8
+  %52 = tail call i32 @kvm_irqchip_update_msi_route(ptr noundef %51, i32 noundef %48, i64 %2, i32 %3, ptr noundef %0) #26
+  %53 = load ptr, ptr @kvm_state, align 8
+  tail call void @kvm_irqchip_commit_routes(ptr noundef %53) #26
+  br label %vfio_add_kvm_msi_virq.exit.i
+
+54:                                               ; preds = %45
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 3768
+  %56 = load i8, ptr %55, align 8, !range !6, !noundef !7
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %64
+
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 3757
+  %60 = load i8, ptr %59, align 1, !range !6, !noundef !7
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %vfio_add_kvm_msi_virq.exit.i, label %62
+
+62:                                               ; preds = %58
+  %63 = tail call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull @vfio_route_change, i32 noundef %1, ptr noundef nonnull %8) #26
+  store i32 %63, ptr %47, align 8
+  br label %vfio_add_kvm_msi_virq.exit.i
+
+64:                                               ; preds = %54
+  %65 = load ptr, ptr @kvm_state, align 8
+  store ptr %65, ptr @vfio_route_change, align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 3757
+  %67 = load i8, ptr %66, align 1, !range !6, !noundef !7
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, label %vfio_add_kvm_msi_virq.exit62.i
+
+vfio_add_kvm_msi_virq.exit62.i:                   ; preds = %64
+  %69 = tail call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull @vfio_route_change, i32 noundef %1, ptr noundef nonnull %8) #26
+  store i32 %69, ptr %47, align 8
+  %.pr.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
+  %.not.i.i = icmp eq i32 %.pr.i, 0
+  br i1 %.not.i.i, label %kvm_irqchip_commit_route_changes.exit.i, label %70
+
+70:                                               ; preds = %vfio_add_kvm_msi_virq.exit62.i
+  %71 = load ptr, ptr @vfio_route_change, align 8
+  tail call void @kvm_irqchip_commit_routes(ptr noundef %71) #26
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
+  br label %kvm_irqchip_commit_route_changes.exitthread-pre-split.i
+
+kvm_irqchip_commit_route_changes.exitthread-pre-split.i: ; preds = %70, %64
+  %.pr2.i = load i32, ptr %47, align 8
+  br label %kvm_irqchip_commit_route_changes.exit.i
+
+kvm_irqchip_commit_route_changes.exit.i:          ; preds = %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, %vfio_add_kvm_msi_virq.exit62.i
+  %72 = phi i32 [ %.pr2.i, %kvm_irqchip_commit_route_changes.exitthread-pre-split.i ], [ %69, %vfio_add_kvm_msi_virq.exit62.i ]
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %vfio_add_kvm_msi_virq.exit.i, label %74
+
+74:                                               ; preds = %kvm_irqchip_commit_route_changes.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %76 = tail call i32 @event_notifier_init(ptr noundef nonnull %75, i32 noundef 0) #26
+  %.not.i63.i = icmp eq i32 %76, 0
+  br i1 %.not.i63.i, label %77, label %83
+
+77:                                               ; preds = %74
+  %78 = load ptr, ptr @kvm_state, align 8
+  %79 = load i32, ptr %47, align 8
+  %80 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %78, ptr noundef nonnull %75, ptr noundef null, i32 noundef %79) #26
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %vfio_add_kvm_msi_virq.exit.i
+
+82:                                               ; preds = %77
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %75) #26
+  br label %83
+
+83:                                               ; preds = %82, %74
+  %84 = load ptr, ptr @kvm_state, align 8
+  %85 = load i32, ptr %47, align 8
+  tail call void @kvm_irqchip_release_virq(ptr noundef %84, i32 noundef %85) #26
+  store i32 -1, ptr %47, align 8
+  br label %vfio_add_kvm_msi_virq.exit.i
+
+vfio_add_kvm_msi_virq.exit.i:                     ; preds = %83, %77, %kvm_irqchip_commit_route_changes.exit.i, %62, %58, %50
+  br i1 %12, label %86, label %87
+
+86:                                               ; preds = %vfio_add_kvm_msi_virq.exit.i
+  store i32 %11, ptr %9, align 16
+  br label %87
+
+87:                                               ; preds = %86, %vfio_add_kvm_msi_virq.exit.i
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 3768
+  %89 = load i8, ptr %88, align 8, !range !6, !noundef !7
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %109, label %91
+
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 3080
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %95 = load i8, ptr %94, align 8, !range !6, !noundef !7
+  %96 = trunc nuw i8 %95 to i1
+  %brmerge.not.i = select i1 %96, i1 %12, i1 false
+  br i1 %brmerge.not.i, label %97, label %100
+
+97:                                               ; preds = %91
+  tail call void @vfio_disable_irqindex(ptr noundef nonnull %13, i32 noundef 2) #26
+  %98 = tail call fastcc i32 @vfio_enable_vectors(ptr noundef nonnull %8, i1 noundef zeroext true)
+  %.not59.i = icmp eq i32 %98, 0
+  br i1 %.not59.i, label %109, label %99
+
+99:                                               ; preds = %97
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.44, i32 noundef %98) #26
+  br label %109
+
+100:                                              ; preds = %91
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
+  store ptr null, ptr %7, align 8
+  %101 = load i32, ptr %47, align 8
+  %102 = icmp slt i32 %101, 0
+  %.sink.idx.i = select i1 %102, i64 0, i64 12
+  %.sink.i = getelementptr inbounds nuw i8, ptr %35, i64 %.sink.idx.i
+  %103 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink.i) #26
+  %104 = call zeroext i1 @vfio_set_irq_signaling(ptr noundef nonnull %13, i32 noundef 2, i32 noundef %1, i32 noundef 32, i32 noundef %103, ptr noundef nonnull %7) #26
+  br i1 %104, label %108, label %105
+
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %7, align 8
+  %107 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %106, ptr noundef nonnull @.str.7, ptr noundef %107) #26
+  br label %108
+
+108:                                              ; preds = %105, %100
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
+  br label %109
+
+109:                                              ; preds = %108, %99, %97, %87
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 3080
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %113 = load ptr, ptr %112, align 8
+  %114 = and i64 %34, 63
+  %115 = shl nuw i64 1, %114
+  %116 = lshr i64 %34, 6
+  %117 = getelementptr inbounds nuw i64, ptr %113, i64 %116
+  %118 = xor i64 %115, -1
+  %119 = load i64, ptr %117, align 8
+  %120 = and i64 %119, %118
+  store i64 %120, ptr %117, align 8
+  %121 = load i32, ptr %9, align 16
+  %122 = sext i32 %121 to i64
+  %.not19.i.i = icmp eq i32 %121, 0
+  br i1 %.not19.i.i, label %find_first_bit.exit.i, label %.lr.ph.i.preheader.i
+
+.lr.ph.i.preheader.i:                             ; preds = %109
+  %123 = load ptr, ptr %110, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %131, %.lr.ph.i.preheader.i
+  %.018.i.i = phi i64 [ %133, %131 ], [ 0, %.lr.ph.i.preheader.i ]
+  %.01317.i.i = phi ptr [ %132, %131 ], [ %125, %.lr.ph.i.preheader.i ]
+  %126 = load i64, ptr %.01317.i.i, align 8
+  %.not.i64.i = icmp eq i64 %126, 0
+  br i1 %.not.i64.i, label %131, label %127
+
+127:                                              ; preds = %.lr.ph.i.i
+  %128 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %126, i1 true)
+  %129 = or disjoint i64 %128, %.018.i.i
+  %130 = call i64 @llvm.umin.i64(i64 %129, i64 range(i64 -2147483648, 2147483648) %122)
+  br label %find_first_bit.exit.i
+
+131:                                              ; preds = %.lr.ph.i.i
+  %132 = getelementptr inbounds nuw i8, ptr %.01317.i.i, i64 8
+  %133 = add i64 %.018.i.i, 64
+  %134 = icmp ult i64 %133, %122
+  br i1 %134, label %.lr.ph.i.i, label %find_first_bit.exit.thread.i, !llvm.loop !24
+
+find_first_bit.exit.i:                            ; preds = %127, %109
+  %.012.i.i = phi i64 [ %130, %127 ], [ 0, %109 ]
+  %135 = icmp eq i64 %.012.i.i, %122
+  br i1 %135, label %find_first_bit.exit.thread.i, label %vfio_msix_vector_do_use.exit
+
+find_first_bit.exit.thread.i:                     ; preds = %131, %find_first_bit.exit.i
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 1936
+  call void @memory_region_set_enabled(ptr noundef nonnull %136, i1 noundef zeroext false) #26
+  %137 = load ptr, ptr %14, align 8
+  %138 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i65.i = icmp eq i32 %138, 0
+  br i1 %.not.i.i65.i, label %vfio_msix_vector_do_use.exit, label %139, !prof !5
+
+139:                                              ; preds = %find_first_bit.exit.thread.i
+  %140 = load i16, ptr @_TRACE_VFIO_MSIX_PBA_DISABLE_DSTATE, align 2
+  %.not2.i.i.i = icmp eq i16 %140, 0
+  br i1 %.not2.i.i.i, label %vfio_msix_vector_do_use.exit, label %141
+
+141:                                              ; preds = %139
+  %142 = load i32, ptr @qemu_loglevel, align 4
+  %143 = and i32 %142, 32768
+  %.not3.i.i66.i = icmp eq i32 %143, 0
+  br i1 %.not3.i.i66.i, label %vfio_msix_vector_do_use.exit, label %144
+
+144:                                              ; preds = %141
+  %145 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %146 = trunc nuw i8 %145 to i1
+  br i1 %146, label %147, label %153
+
+147:                                              ; preds = %144
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !4
+  %148 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #26
+  %149 = call i32 @qemu_get_thread_id() #26
+  %150 = load i64, ptr %5, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %152 = load i64, ptr %151, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %149, i64 noundef %150, i64 noundef %152, ptr noundef %137) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  br label %vfio_msix_vector_do_use.exit
+
+153:                                              ; preds = %144
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef %137) #26
+  br label %vfio_msix_vector_do_use.exit
+
+vfio_msix_vector_do_use.exit:                     ; preds = %find_first_bit.exit.i, %find_first_bit.exit.thread.i, %139, %141, %147, %153
+  ret i32 0
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_msix_vector_release(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = alloca ptr, align 8
+  %5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 3072
+  %7 = load ptr, ptr %6, align 16
+  %8 = zext i32 %1 to i64
+  %9 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 2824
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i, label %trace_vfio_msix_vector_release.exit, label %13, !prof !5
+
+13:                                               ; preds = %2
+  %14 = load i16, ptr @_TRACE_VFIO_MSIX_VECTOR_RELEASE_DSTATE, align 2
+  %.not3.i.i = icmp eq i16 %14, 0
+  br i1 %.not3.i.i, label %trace_vfio_msix_vector_release.exit, label %15
+
+15:                                               ; preds = %13
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %17 = and i32 %16, 32768
+  %.not4.i.i = icmp eq i32 %17, 0
+  br i1 %.not4.i.i, label %trace_vfio_msix_vector_release.exit, label %18
+
+18:                                               ; preds = %15
+  %19 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %21, label %27
+
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %22 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %23 = tail call i32 @qemu_get_thread_id() #26
+  %24 = load i64, ptr %3, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %26 = load i64, ptr %25, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %23, i64 noundef %24, i64 noundef %26, ptr noundef %11, i32 noundef %1) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %trace_vfio_msix_vector_release.exit
+
+27:                                               ; preds = %18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, ptr noundef %11, i32 noundef %1) #26
+  br label %trace_vfio_msix_vector_release.exit
+
+trace_vfio_msix_vector_release.exit:              ; preds = %2, %13, %15, %21, %27
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %31, label %39
+
+31:                                               ; preds = %trace_vfio_msix_vector_release.exit
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 2752
+  %33 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %9) #26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  store ptr null, ptr %4, align 8
+  %34 = call zeroext i1 @vfio_set_irq_signaling(ptr noundef nonnull %32, i32 noundef 2, i32 noundef %1, i32 noundef 32, i32 noundef %33, ptr noundef nonnull %4) #26
+  br i1 %34, label %38, label %35
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %4, align 8
+  %37 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %36, ptr noundef nonnull @.str.7, ptr noundef %37) #26
+  br label %38
+
+38:                                               ; preds = %35, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  br label %39
+
+39:                                               ; preds = %38, %trace_vfio_msix_vector_release.exit
+  ret void
+}
+
+declare void @msix_vector_use(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_set_irq_signaling(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #17
+
+declare void @msix_unset_vector_notifiers(ptr noundef) local_unnamed_addr #4
+
+declare void @msix_vector_unuse(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i32 @getpagesize() local_unnamed_addr #5
+
+declare void @memory_region_transaction_begin() local_unnamed_addr #4
+
+declare void @memory_region_set_size(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare zeroext i1 @memory_region_is_mapped(ptr noundef) local_unnamed_addr #4
+
+declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @memory_region_transaction_commit() local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_intx_disable(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3008
+  %5 = load ptr, ptr %4, align 8
+  tail call void @timer_del(ptr noundef %5) #26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  tail call void @vfio_disable_irqindex(ptr noundef nonnull %6, i32 noundef 0) #26
+  store i8 0, ptr %3, align 8
+  tail call void @pci_set_irq(ptr noundef %0, i32 noundef 0) #26
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  br label %8
+
+8:                                                ; preds = %8, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
+  %9 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %7, i64 0, i64 %indvars.iv.i
+  tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %9, i1 noundef zeroext true) #26
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %8, !llvm.loop !25
+
+vfio_mmap_set_enabled.exit:                       ; preds = %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2972
+  %11 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %10) #26
+  tail call void @qemu_set_fd_handler(i32 noundef %11, ptr noundef null, ptr noundef null, ptr noundef nonnull %0) #26
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %10) #26
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3092
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %15, 0
+  br i1 %.not.i.i, label %trace_vfio_intx_disable.exit, label %16, !prof !5
+
+16:                                               ; preds = %vfio_mmap_set_enabled.exit
+  %17 = load i16, ptr @_TRACE_VFIO_INTX_DISABLE_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %17, 0
+  br i1 %.not2.i.i, label %trace_vfio_intx_disable.exit, label %18
+
+18:                                               ; preds = %16
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %20 = and i32 %19, 32768
+  %.not3.i.i = icmp eq i32 %20, 0
+  br i1 %.not3.i.i, label %trace_vfio_intx_disable.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %30
+
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %26 = tail call i32 @qemu_get_thread_id() #26
+  %27 = load i64, ptr %2, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %26, i64 noundef %27, i64 noundef %29, ptr noundef %14) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_intx_disable.exit
+
+30:                                               ; preds = %21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef %14) #26
+  br label %trace_vfio_intx_disable.exit
+
+trace_vfio_intx_disable.exit:                     ; preds = %vfio_mmap_set_enabled.exit, %16, %18, %24, %30
+  ret void
+}
+
+declare void @timer_del(ptr noundef) local_unnamed_addr #4
+
+declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @vfio_region_mmaps_set_enabled(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_intx_interrupt(ptr noundef %0) #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2972
+  %4 = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %3) #26
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %43, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2968
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2970
+  %10 = load i8, ptr %9, align 2
+  %11 = add i8 %10, 65
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i, label %trace_vfio_intx_interrupt.exit, label %13, !prof !5
+
+13:                                               ; preds = %5
+  %14 = load i16, ptr @_TRACE_VFIO_INTX_INTERRUPT_DSTATE, align 2
+  %.not3.i.i = icmp eq i16 %14, 0
+  br i1 %.not3.i.i, label %trace_vfio_intx_interrupt.exit, label %15
+
+15:                                               ; preds = %13
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %17 = and i32 %16, 32768
+  %.not4.i.i = icmp eq i32 %17, 0
+  br i1 %.not4.i.i, label %trace_vfio_intx_interrupt.exit, label %18
+
+18:                                               ; preds = %15
+  %19 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %21, label %28
+
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %22 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %23 = tail call i32 @qemu_get_thread_id() #26
+  %24 = load i64, ptr %2, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = sext i8 %11 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %23, i64 noundef %24, i64 noundef %26, ptr noundef %8, i32 noundef %27) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_intx_interrupt.exit
+
+28:                                               ; preds = %18
+  %29 = sext i8 %11 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, ptr noundef %8, i32 noundef %29) #26
+  br label %trace_vfio_intx_interrupt.exit
+
+trace_vfio_intx_interrupt.exit:                   ; preds = %5, %13, %15, %21, %28
+  store i8 1, ptr %6, align 8
+  tail call void @pci_set_irq(ptr noundef nonnull %0, i32 noundef 1) #26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  br label %31
+
+31:                                               ; preds = %31, %trace_vfio_intx_interrupt.exit
+  %indvars.iv.i = phi i64 [ 0, %trace_vfio_intx_interrupt.exit ], [ %indvars.iv.next.i, %31 ]
+  %32 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %30, i64 0, i64 %indvars.iv.i
+  tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %32, i1 noundef zeroext false) #26
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %31, !llvm.loop !25
+
+vfio_mmap_set_enabled.exit:                       ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 3004
+  %34 = load i32, ptr %33, align 4
+  %.not10 = icmp eq i32 %34, 0
+  br i1 %.not10, label %43, label %35
+
+35:                                               ; preds = %vfio_mmap_set_enabled.exit
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 3008
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #26
+  %39 = sdiv i64 %38, 1000000
+  %40 = load i32, ptr %33, align 4
+  %41 = zext i32 %40 to i64
+  %42 = add nsw i64 %39, %41
+  tail call void @timer_mod(ptr noundef %37, i64 noundef %42) #26
+  br label %43
+
+43:                                               ; preds = %vfio_mmap_set_enabled.exit, %35, %1
+  ret void
+}
+
+declare void @warn_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #4
+
+declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_instance_init(ptr noundef %0) #0 {
+  %2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.69, i32 noundef 11, ptr noundef nonnull @__func__.PCI_DEVICE) #26
+  %3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2752
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 3736
+  tail call void @device_add_bootindex_property(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef %2) #26
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 3640
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 -1, i64 16, i1 false)
+  %7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  tail call void @vfio_device_init(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @vfio_pci_ops, ptr noundef %7, i1 noundef zeroext false) #26
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 3749
+  store i8 -1, ptr %8, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1324
+  %10 = load i32, ptr %9, align 4
+  %11 = or i32 %10, 4
+  store i32 %11, ptr %9, align 4
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_instance_finalize(ptr noundef %0) #0 {
+  %2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  tail call void @vfio_display_finalize(ptr noundef %2) #26
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 3096
+  br label %4
+
+4:                                                ; preds = %15, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %15 ]
+  %5 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %3, i64 0, i64 %indvars.iv.i
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
+  tail call void @vfio_bar_quirk_finalize(ptr noundef %2, i32 noundef %6) #26
+  tail call void @vfio_region_finalize(ptr noundef nonnull %5) #26
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %8 = load ptr, ptr %7, align 8
+  %.not20.i = icmp eq ptr %8, null
+  br i1 %.not20.i, label %15, label %9
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %11 = load i64, ptr %10, align 8
+  %.not21.i = icmp eq i64 %11, 0
+  br i1 %.not21.i, label %12, label %13
+
+12:                                               ; preds = %9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.11, i32 noundef 1827, ptr noundef nonnull @__PRETTY_FUNCTION__.vfio_bars_finalize) #27
   unreachable
 
-do.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %2 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %3 = load i32, ptr %devfn.i11.i, align 8
-  %call.i12.i = tail call zeroext i8 %2(ptr noundef %1, i32 noundef %3, i8 noundef zeroext 52) #11
-  br label %do.body.i
+13:                                               ; preds = %9
+  tail call void @object_unparent(ptr noundef nonnull %8) #26
+  %14 = load ptr, ptr %7, align 8
+  tail call void @g_free(ptr noundef %14) #26
+  store ptr null, ptr %7, align 8
+  br label %15
 
-do.body.i:                                        ; preds = %do.cond.i, %do.end
-  %addr.1.i = phi i8 [ %call.i12.i, %do.end ], [ %call.i18.i, %do.cond.i ]
-  %4 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %5 = load ptr, ptr %config_readb.i13.i, align 8
-  %6 = load i32, ptr %devfn.i11.i, align 8
-  %call.i15.i = tail call zeroext i8 %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext %addr.1.i) #11
-  %cmp.not.i = icmp eq i8 %call.i15.i, 17
-  br i1 %cmp.not.i, label %qpci_find_capability.exit, label %do.cond.i
+15:                                               ; preds = %13, %4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %16, label %4, !llvm.loop !26
 
-do.cond.i:                                        ; preds = %do.body.i
-  %add9.i = add i8 %addr.1.i, 1
-  %7 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %8 = load ptr, ptr %config_readb.i16.i, align 8
-  %9 = load i32, ptr %devfn.i11.i, align 8
-  %call.i18.i = tail call zeroext i8 %8(ptr noundef %7, i32 noundef %9, i8 noundef zeroext %add9.i) #11
-  %cmp18.not.i = icmp eq i8 %call.i18.i, 0
-  br i1 %cmp18.not.i, label %if.else4, label %do.body.i, !llvm.loop !9
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 3624
+  %18 = load ptr, ptr %17, align 8
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %vfio_bars_finalize.exit, label %19
 
-qpci_find_capability.exit:                        ; preds = %do.body.i
-  %cmp.not = icmp eq i8 %addr.1.i, 0
-  br i1 %cmp.not, label %if.else4, label %do.end8
+19:                                               ; preds = %16
+  tail call void @vfio_vga_quirk_finalize(ptr noundef nonnull %2) #26
+  br label %20
 
-if.else4:                                         ; preds = %do.cond.i, %qpci_find_capability.exit
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__func__.qpci_msix_disable, ptr noundef nonnull @.str.8, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #11
-  br label %do.end8
+20:                                               ; preds = %20, %19
+  %indvars.iv25.i = phi i64 [ 0, %19 ], [ %indvars.iv.next26.i, %20 ]
+  %21 = load ptr, ptr %17, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw [3 x %struct.VFIOVGARegion], ptr %22, i64 0, i64 %indvars.iv25.i
+  tail call void @object_unparent(ptr noundef nonnull %23) #26
+  %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
+  %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 3
+  br i1 %exitcond28.not.i, label %24, label %20, !llvm.loop !27
 
-do.end8:                                          ; preds = %if.else4, %qpci_find_capability.exit
-  %addr.221.i20 = phi i8 [ 0, %if.else4 ], [ %addr.1.i, %qpci_find_capability.exit ]
-  %add = add i8 %addr.221.i20, 2
-  %10 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %11 = load ptr, ptr %config_readw.i, align 8
-  %12 = load i32, ptr %devfn.i11.i, align 8
-  %call.i = tail call zeroext i16 %11(ptr noundef %10, i32 noundef %12, i8 noundef zeroext %add) #11
-  %13 = and i16 %call.i, 32767
-  %14 = load ptr, ptr %dev, align 8
-  %config_writew.i = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %15 = load ptr, ptr %config_writew.i, align 8
-  %16 = load i32, ptr %devfn.i11.i, align 8
-  tail call void %15(ptr noundef %14, i32 noundef %16, i8 noundef zeroext %add, i16 noundef zeroext %13) #11
-  store i8 0, ptr %msix_enabled, align 4
-  %msix_table_off = getelementptr inbounds nuw i8, ptr %dev, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msix_table_off, i8 0, i64 16, i1 false)
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %17, align 8
+  tail call void @g_free(ptr noundef %25) #26
+  br label %vfio_bars_finalize.exit
+
+vfio_bars_finalize.exit:                          ; preds = %16, %24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 3024
+  %27 = load ptr, ptr %26, align 16
+  tail call void @g_free(ptr noundef %27) #26
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 3056
+  %29 = load ptr, ptr %28, align 16
+  tail call void @g_free(ptr noundef %29) #26
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 2752
+  tail call void @vfio_detach_device(ptr noundef nonnull %30) #26
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 2824
+  %32 = load ptr, ptr %31, align 8
+  tail call void @g_free(ptr noundef %32) #26
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 3080
+  %34 = load ptr, ptr %33, align 8
+  tail call void @g_free(ptr noundef %34) #26
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_pci_dev_class_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+  %3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #26
+  %4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.69, i32 noundef 11, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #26
+  tail call void @device_class_set_legacy_reset(ptr noundef %3, ptr noundef nonnull @vfio_pci_reset) #26
+  tail call void @device_class_set_props_n(ptr noundef %3, ptr noundef nonnull @vfio_pci_dev_properties, i64 noundef 30) #26
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store ptr @.str.86, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %7 = load i64, ptr %6, align 8
+  %8 = or i64 %7, 128
+  store i64 %8, ptr %6, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  store ptr @vfio_realize, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 192
+  store ptr @vfio_exitfn, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  store ptr @vfio_pci_read_config, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  store ptr @vfio_pci_write_config, ptr %12, align 8
+  ret void
+}
+
+declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_device_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @vfio_pci_compute_needs_reset(ptr noundef captures(none) %0) #18 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 97
+  %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %13
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %15, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1001
+  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %9, %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 98
+  store i8 1, ptr %14, align 2
+  br label %15
+
+15:                                               ; preds = %13, %9, %5
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @vfio_pci_hot_reset_multi(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call ptr @object_get_class(ptr noundef %3) #26
+  %5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 104, ptr noundef nonnull @__func__.VFIO_IOMMU_GET_CLASS) #26
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(ptr noundef nonnull %0, i1 noundef zeroext false) #26
+  ret i32 %8
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_intx_eoi(ptr noundef %0) #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %4 = load i8, ptr %3, align 8, !range !6, !noundef !7
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %26
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 -2752
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i, label %trace_vfio_intx_eoi.exit, label %11, !prof !5
+
+11:                                               ; preds = %6
+  %12 = load i16, ptr @_TRACE_VFIO_INTX_EOI_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %12, 0
+  br i1 %.not2.i.i, label %trace_vfio_intx_eoi.exit, label %13
+
+13:                                               ; preds = %11
+  %14 = load i32, ptr @qemu_loglevel, align 4
+  %15 = and i32 %14, 32768
+  %.not3.i.i = icmp eq i32 %15, 0
+  br i1 %.not3.i.i, label %trace_vfio_intx_eoi.exit, label %16
+
+16:                                               ; preds = %13
+  %17 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %19, label %25
+
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %20 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %21 = tail call i32 @qemu_get_thread_id() #26
+  %22 = load i64, ptr %2, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = load i64, ptr %23, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %21, i64 noundef %22, i64 noundef %24, ptr noundef %9) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_intx_eoi.exit
+
+25:                                               ; preds = %16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, ptr noundef %9) #26
+  br label %trace_vfio_intx_eoi.exit
+
+trace_vfio_intx_eoi.exit:                         ; preds = %6, %11, %13, %19, %25
+  store i8 0, ptr %3, align 8
+  tail call void @pci_set_irq(ptr noundef nonnull %7, i32 noundef 0) #26
+  tail call void @vfio_unmask_single_irqindex(ptr noundef nonnull %0, i32 noundef 0) #26
+  br label %26
+
+26:                                               ; preds = %1, %trace_vfio_intx_eoi.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @qpci_iounmap(ptr noundef readnone captures(none) %dev, i64 %bar.coerce0, i8 %bar.coerce1) local_unnamed_addr #6 {
-entry:
+define internal nonnull ptr @vfio_pci_get_object(ptr noundef readnone captures(ret: address, provenance) %0) #19 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -2752
+  ret ptr %2
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @vfio_pci_save_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 -2752
+  %5 = tail call i32 @vmstate_save_state_with_err(ptr noundef %1, ptr noundef nonnull @vmstate_vfio_pci_config, ptr noundef nonnull %4, ptr noundef null, ptr noundef %2) #26
+  ret i32 %5
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca [6 x i64], align 16
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !4
+  %4 = getelementptr inbounds i8, ptr %0, i64 -2464
+  br label %5
+
+5:                                                ; preds = %2, %5
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %4, i64 0, i64 %indvars.iv
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds nuw [6 x i64], ptr %3, i64 0, i64 %indvars.iv
+  store i64 %7, ptr %8, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %9, label %5, !llvm.loop !28
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 -2752
+  %11 = tail call i32 @vmstate_load_state(ptr noundef %1, ptr noundef nonnull @vmstate_vfio_pci_config, ptr noundef nonnull %10, i32 noundef 1) #26
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %39
+
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %0, i64 -2592
+  %14 = load ptr, ptr %13, align 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.val = load i16, ptr %15, align 1
+  %16 = zext i16 %.val to i32
+  tail call void @vfio_pci_write_config(ptr noundef nonnull %10, i32 noundef 4, i32 noundef %16, i32 noundef 2)
+  %17 = getelementptr i8, ptr %0, i64 368
+  br label %18
+
+18:                                               ; preds = %12, %32
+  %indvars.iv39 = phi i64 [ 0, %12 ], [ %indvars.iv.next40, %32 ]
+  %19 = getelementptr inbounds nuw [6 x i64], ptr %3, i64 0, i64 %indvars.iv39
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %4, i64 0, i64 %indvars.iv39
+  %22 = load i64, ptr %21, align 8
+  %.not34 = icmp eq i64 %20, %22
+  br i1 %.not34, label %32, label %23
+
+23:                                               ; preds = %18
+  %.idx = mul nuw nsw i64 %indvars.iv39, 88
+  %24 = getelementptr i8, ptr %17, i64 %.idx
+  %25 = load i64, ptr %24, align 8
+  %.not35 = icmp eq i64 %25, 0
+  br i1 %.not35, label %32, label %26
+
+26:                                               ; preds = %23
+  %27 = tail call i32 @getpagesize() #28
+  %28 = sext i32 %27 to i64
+  %29 = icmp ult i64 %25, %28
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %26
+  %31 = trunc nuw nsw i64 %indvars.iv39 to i32
+  tail call fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef nonnull %10, i32 noundef %31)
+  br label %32
+
+32:                                               ; preds = %18, %23, %26, %30
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond42.not = icmp eq i64 %indvars.iv.next40, 6
+  br i1 %exitcond42.not, label %33, label %18, !llvm.loop !29
+
+33:                                               ; preds = %32
+  %34 = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %10) #26
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %33
+  tail call fastcc void @vfio_msi_enable(ptr noundef nonnull %10)
+  br label %39
+
+36:                                               ; preds = %33
+  %37 = tail call i32 @msix_enabled(ptr noundef nonnull %10) #26
+  %.not33 = icmp eq i32 %37, 0
+  br i1 %.not33, label %39, label %38
+
+38:                                               ; preds = %36
+  tail call fastcc void @vfio_msix_enable(ptr noundef nonnull %10)
+  br label %39
+
+39:                                               ; preds = %35, %38, %36, %9
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #26
+  ret i32 %11
+}
+
+declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare ptr @object_get_class(ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_unmask_single_irqindex(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @vmstate_save_state_with_err(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @vfio_msix_present(ptr noundef %0, i32 %1) #0 {
+  %3 = tail call i32 @msix_present(ptr noundef %0) #26
+  %4 = icmp ne i32 %3, 0
+  ret i1 %4
+}
+
+declare i32 @msix_present(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define internal zeroext i1 @vfio_display_migration_needed(ptr noundef readonly captures(none) %0) #20 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3764
+  %3 = load i32, ptr %2, align 4
+  switch i32 %3, label %.fold.split [
+    i32 1, label %8
+    i32 0, label %4
+  ]
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3761
+  %6 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %7 = trunc nuw i8 %6 to i1
+  br label %8
+
+.fold.split:                                      ; preds = %1
+  br label %8
+
+8:                                                ; preds = %1, %.fold.split, %4
+  %9 = phi i1 [ true, %1 ], [ %7, %4 ], [ false, %.fold.split ]
+  ret i1 %9
+}
+
+declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @vfio_display_finalize(ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_bar_quirk_finalize(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @vfio_region_finalize(ptr noundef) local_unnamed_addr #4
+
+declare void @object_unparent(ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_vga_quirk_finalize(ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_detach_device(ptr noundef) local_unnamed_addr #4
+
+declare void @device_class_set_legacy_reset(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_pci_reset(ptr noundef %0) #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = alloca %struct.timeval, align 8
+  %4 = alloca %struct.timeval, align 8
+  %5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2824
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %8, 0
+  br i1 %.not.i.i, label %trace_vfio_pci_reset.exit, label %9, !prof !5
+
+9:                                                ; preds = %1
+  %10 = load i16, ptr @_TRACE_VFIO_PCI_RESET_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %10, 0
+  br i1 %.not2.i.i, label %trace_vfio_pci_reset.exit, label %11
+
+11:                                               ; preds = %9
+  %12 = load i32, ptr @qemu_loglevel, align 4
+  %13 = and i32 %12, 32768
+  %.not3.i.i = icmp eq i32 %13, 0
+  br i1 %.not3.i.i, label %trace_vfio_pci_reset.exit, label %14
+
+14:                                               ; preds = %11
+  %15 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %23
+
+17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
+  %18 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %19 = tail call i32 @qemu_get_thread_id() #26
+  %20 = load i64, ptr %4, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = load i64, ptr %21, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %19, i64 noundef %20, i64 noundef %22, ptr noundef %7) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  br label %trace_vfio_pci_reset.exit
+
+23:                                               ; preds = %14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, ptr noundef %7) #26
+  br label %trace_vfio_pci_reset.exit
+
+trace_vfio_pci_reset.exit:                        ; preds = %1, %9, %11, %17, %23
+  tail call void @vfio_pci_pre_reset(ptr noundef nonnull %5)
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 3724
+  %25 = load i32, ptr %24, align 4
+  %.not = icmp eq i32 %25, 2
+  br i1 %.not, label %27, label %26
+
+26:                                               ; preds = %trace_vfio_pci_reset.exit
+  tail call void @vfio_display_reset(ptr noundef nonnull %5) #26
+  br label %27
+
+27:                                               ; preds = %26, %trace_vfio_pci_reset.exit
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 3696
+  %29 = load ptr, ptr %28, align 16
+  %.not19 = icmp eq ptr %29, null
+  br i1 %.not19, label %32, label %30
+
+30:                                               ; preds = %27
+  %31 = tail call i32 %29(ptr noundef nonnull %5) #26
+  %.not20 = icmp eq i32 %31, 0
+  br i1 %.not20, label %trace_vfio_pci_reset_flr.exit, label %32
+
+32:                                               ; preds = %30, %27
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 2849
+  %34 = load i8, ptr %33, align 1, !range !6, !noundef !7
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %66
+
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 3752
+  %38 = load i8, ptr %37, align 8, !range !6, !noundef !7
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %44, label %40
+
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 3753
+  %42 = load i8, ptr %41, align 1, !range !6, !noundef !7
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %66, label %44
+
+44:                                               ; preds = %40, %36
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 2840
+  %46 = load i32, ptr %45, align 8
+  %47 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %46, i64 noundef 15215) #26
+  %.not21 = icmp eq i32 %47, 0
+  br i1 %.not21, label %48, label %66
+
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i24 = icmp eq i32 %50, 0
+  br i1 %.not.i.i24, label %trace_vfio_pci_reset_flr.exit, label %51, !prof !5
+
+51:                                               ; preds = %48
+  %52 = load i16, ptr @_TRACE_VFIO_PCI_RESET_FLR_DSTATE, align 2
+  %.not2.i.i25 = icmp eq i16 %52, 0
+  br i1 %.not2.i.i25, label %trace_vfio_pci_reset_flr.exit, label %53
+
+53:                                               ; preds = %51
+  %54 = load i32, ptr @qemu_loglevel, align 4
+  %55 = and i32 %54, 32768
+  %.not3.i.i26 = icmp eq i32 %55, 0
+  br i1 %.not3.i.i26, label %trace_vfio_pci_reset_flr.exit, label %56
+
+56:                                               ; preds = %53
+  %57 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %65
+
+59:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %60 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %61 = tail call i32 @qemu_get_thread_id() #26
+  %62 = load i64, ptr %3, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %64 = load i64, ptr %63, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %61, i64 noundef %62, i64 noundef %64, ptr noundef %49) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %trace_vfio_pci_reset_flr.exit
+
+65:                                               ; preds = %56
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, ptr noundef %49) #26
+  br label %trace_vfio_pci_reset_flr.exit
+
+66:                                               ; preds = %44, %40, %32
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 2752
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 2808
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call ptr @object_get_class(ptr noundef %69) #26
+  %71 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %70, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 104, ptr noundef nonnull @__func__.VFIO_IOMMU_GET_CLASS) #26
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 160
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call i32 %73(ptr noundef nonnull %67, i1 noundef zeroext true) #26
+  %.not22 = icmp eq i32 %74, 0
+  br i1 %.not22, label %trace_vfio_pci_reset_flr.exit, label %75
+
+75:                                               ; preds = %66
+  %76 = load i8, ptr %33, align 1, !range !6, !noundef !7
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %78, label %trace_vfio_pci_reset_flr.exit
+
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 3753
+  %80 = load i8, ptr %79, align 1, !range !6, !noundef !7
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %trace_vfio_pci_reset_flr.exit
+
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 2840
+  %84 = load i32, ptr %83, align 8
+  %85 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %84, i64 noundef 15215) #26
+  %.not23 = icmp eq i32 %85, 0
+  br i1 %.not23, label %86, label %trace_vfio_pci_reset_flr.exit
+
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %6, align 8
+  %88 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i27 = icmp eq i32 %88, 0
+  br i1 %.not.i.i27, label %trace_vfio_pci_reset_flr.exit, label %89, !prof !5
+
+89:                                               ; preds = %86
+  %90 = load i16, ptr @_TRACE_VFIO_PCI_RESET_PM_DSTATE, align 2
+  %.not2.i.i28 = icmp eq i16 %90, 0
+  br i1 %.not2.i.i28, label %trace_vfio_pci_reset_flr.exit, label %91
+
+91:                                               ; preds = %89
+  %92 = load i32, ptr @qemu_loglevel, align 4
+  %93 = and i32 %92, 32768
+  %.not3.i.i29 = icmp eq i32 %93, 0
+  br i1 %.not3.i.i29, label %trace_vfio_pci_reset_flr.exit, label %94
+
+94:                                               ; preds = %91
+  %95 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %97, label %103
+
+97:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %98 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %99 = tail call i32 @qemu_get_thread_id() #26
+  %100 = load i64, ptr %2, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %102 = load i64, ptr %101, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %99, i64 noundef %100, i64 noundef %102, ptr noundef %87) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_pci_reset_flr.exit
+
+103:                                              ; preds = %94
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, ptr noundef %87) #26
+  br label %trace_vfio_pci_reset_flr.exit
+
+trace_vfio_pci_reset_flr.exit:                    ; preds = %103, %97, %91, %89, %86, %65, %59, %53, %51, %48, %75, %78, %82, %66, %30
+  tail call void @vfio_pci_post_reset(ptr noundef nonnull %5)
+  ret void
+}
+
+declare void @device_class_set_props_n(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_realize(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.vfio_irq_info, align 4
+  %6 = alloca %struct.timeval, align 8
+  %7 = alloca %struct.ErrorPropagator, align 8
+  %8 = alloca [37 x i8], align 16
+  %9 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %7, align 8
+  store ptr %1, ptr %10, align 8
+  %11 = icmp eq ptr %1, null
+  %12 = icmp eq ptr %1, @error_fatal
+  %or.cond = or i1 %11, %12
+  %spec.select = select i1 %or.cond, ptr %7, ptr %1
+  %13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2752
+  call void @llvm.lifetime.start.p0(i64 37, ptr nonnull %8) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %8, i8 0, i64 37, i1 false), !annotation !4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 2840
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %39
+
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 2816
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %21, label %39
+
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 3640
+  %23 = load i32, ptr %22, align 8
+  %.not194 = icmp eq i32 %23, -1
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 3644
+  %25 = load i32, ptr %24, align 4
+  %.not195 = icmp eq i32 %25, -1
+  %or.cond249 = select i1 %.not194, i1 %.not195, i1 false
+  br i1 %or.cond249, label %26, label %._crit_edge
+
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 3648
+  %28 = load i32, ptr %27, align 8
+  %.not196 = icmp eq i32 %28, -1
+  br i1 %.not196, label %29, label %._crit_edge
+
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 3652
+  %31 = load i32, ptr %30, align 4
+  %.not197 = icmp eq i32 %31, -1
+  br i1 %.not197, label %32, label %._crit_edge
+
+32:                                               ; preds = %29
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 2972, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.124) #26
+  call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.125) #26
+  br label %430
+
+._crit_edge:                                      ; preds = %21, %29, %26
+  %33 = phi i32 [ -1, %29 ], [ -1, %26 ], [ %25, %21 ]
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 3648
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 3652
+  %37 = load i32, ptr %36, align 4
+  %38 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.126, i32 noundef %23, i32 noundef %33, i32 noundef %35, i32 noundef %37) #26
+  store ptr %38, ptr %19, align 8
+  br label %39
+
+39:                                               ; preds = %._crit_edge, %18, %2
+  %40 = call zeroext i1 @vfio_device_get_name(ptr noundef nonnull %14, ptr noundef nonnull %spec.select) #26
+  br i1 %40, label %41, label %430
+
+41:                                               ; preds = %39
+  %42 = call zeroext i1 @vfio_device_is_mdev(ptr noundef nonnull %14) #26
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 2848
+  %44 = zext i1 %42 to i8
+  store i8 %44, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 2824
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %47, 0
+  br i1 %.not.i.i, label %trace_vfio_mdev.exit, label %48, !prof !5
+
+48:                                               ; preds = %41
+  %49 = load i16, ptr @_TRACE_VFIO_MDEV_DSTATE, align 2
+  %.not3.i.i = icmp eq i16 %49, 0
+  br i1 %.not3.i.i, label %trace_vfio_mdev.exit, label %50
+
+50:                                               ; preds = %48
+  %51 = load i32, ptr @qemu_loglevel, align 4
+  %52 = and i32 %51, 32768
+  %.not4.i.i = icmp eq i32 %52, 0
+  br i1 %.not4.i.i, label %trace_vfio_mdev.exit, label %53
+
+53:                                               ; preds = %50
+  %54 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %63
+
+56:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !4
+  %57 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #26
+  %58 = call i32 @qemu_get_thread_id() #26
+  %59 = load i64, ptr %6, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %61 = load i64, ptr %60, align 8
+  %62 = zext i1 %42 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.142, i32 noundef %58, i64 noundef %59, i64 noundef %61, ptr noundef %46, i32 noundef %62) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
+  br label %trace_vfio_mdev.exit
+
+63:                                               ; preds = %53
+  %64 = zext i1 %42 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.143, ptr noundef %46, i32 noundef %64) #26
+  br label %trace_vfio_mdev.exit
+
+trace_vfio_mdev.exit:                             ; preds = %41, %48, %50, %56, %63
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 2852
+  %66 = load i8, ptr %65, align 4, !range !6, !noundef !7
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %72
+
+68:                                               ; preds = %trace_vfio_mdev.exit
+  %69 = load i8, ptr %43, align 8, !range !6, !noundef !7
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %72, label %71
+
+71:                                               ; preds = %68
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3002, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.127) #26
+  br label %428
+
+72:                                               ; preds = %68, %trace_vfio_mdev.exit
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 3656
+  %74 = call i32 @qemu_uuid_is_null(ptr noundef nonnull %73) #26
+  %.not198 = icmp eq i32 %74, 0
+  br i1 %.not198, label %75, label %78
+
+75:                                               ; preds = %72
+  call void @qemu_uuid_unparse(ptr noundef nonnull %73, ptr noundef nonnull %8) #26
+  %76 = load ptr, ptr %45, align 8
+  %77 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.128, ptr noundef %76, ptr noundef nonnull %8) #26
+  br label %81
+
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %45, align 8
+  %80 = call noalias ptr @g_strdup(ptr noundef %79) #26
+  br label %81
+
+81:                                               ; preds = %78, %75
+  %storemerge = phi ptr [ %77, %75 ], [ %80, %78 ]
+  %82 = call ptr @pci_device_iommu_address_space(ptr noundef %0) #26
+  %83 = call zeroext i1 @vfio_attach_device(ptr noundef %storemerge, ptr noundef nonnull %14, ptr noundef %82, ptr noundef nonnull %spec.select) #26
+  br i1 %83, label %84, label %428
+
+84:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) @__const.vfio_populate_device.irq_info, i64 16, i1 false)
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 2880
+  %86 = load i32, ptr %85, align 8
+  %87 = and i32 %86, 2
+  %.not.i = icmp eq i32 %87, 0
+  br i1 %.not.i, label %88, label %89
+
+88:                                               ; preds = %84
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 2739, ptr noundef nonnull @__func__.vfio_populate_device, ptr noundef nonnull @.str.144) #26
+  br label %vfio_populate_device.exit.thread
+
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 2876
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp ult i32 %91, 8
+  br i1 %92, label %93, label %94
+
+93:                                               ; preds = %89
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 2745, ptr noundef nonnull @__func__.vfio_populate_device, ptr noundef nonnull @.str.145, i32 noundef %91) #26
+  br label %vfio_populate_device.exit.thread
+
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds nuw i8, ptr %13, i64 2872
+  %96 = load i32, ptr %95, align 8
+  %97 = icmp ult i32 %96, 3
+  br i1 %97, label %99, label %.preheader.i
+
+.preheader.i:                                     ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %13, i64 3096
+  br label %100
+
+99:                                               ; preds = %94
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 2750, ptr noundef nonnull @__func__.vfio_populate_device, ptr noundef nonnull @.str.146, i32 noundef %96) #26
+  br label %vfio_populate_device.exit.thread
+
+100:                                              ; preds = %108, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %108 ]
+  %101 = load ptr, ptr %45, align 8
+  %102 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %103 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.147, ptr noundef %101, i32 noundef %102) #26
+  %104 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %98, i64 0, i64 %indvars.iv.i
+  %105 = call i32 @vfio_region_setup(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %104, i32 noundef %102, ptr noundef %103) #26
+  call void @g_free(ptr noundef %103) #26
+  %.not53.i = icmp eq i32 %105, 0
+  br i1 %.not53.i, label %108, label %106
+
+106:                                              ; preds = %100
+  %107 = sub i32 0, %105
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 2762, ptr noundef nonnull @__func__.vfio_populate_device, i32 noundef %107, ptr noundef nonnull @.str.148, i32 noundef %102) #26
+  br label %vfio_populate_device.exit.thread
+
+108:                                              ; preds = %100
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 80
+  store ptr null, ptr %109, align 8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %110, label %100, !llvm.loop !30
+
+110:                                              ; preds = %108
+  %111 = call i32 @vfio_get_region_info(ptr noundef nonnull %14, i32 noundef 7, ptr noundef nonnull %4) #26
+  %.not50.i = icmp eq i32 %111, 0
+  br i1 %.not50.i, label %114, label %112
+
+112:                                              ; preds = %110
+  %113 = sub i32 0, %111
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 2772, ptr noundef nonnull @__func__.vfio_populate_device, i32 noundef %113, ptr noundef nonnull @.str.149) #26
+  br label %vfio_populate_device.exit.thread
+
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %45, align 8
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %122 = load i32, ptr %121, align 4
+  %123 = zext i32 %122 to i64
+  %124 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %124, 0
+  br i1 %.not.i.i.i, label %trace_vfio_populate_device_config.exit.i, label %125, !prof !5
+
+125:                                              ; preds = %114
+  %126 = load i16, ptr @_TRACE_VFIO_POPULATE_DEVICE_CONFIG_DSTATE, align 2
+  %.not7.i.i.i = icmp eq i16 %126, 0
+  br i1 %.not7.i.i.i, label %trace_vfio_populate_device_config.exit.i, label %127
+
+127:                                              ; preds = %125
+  %128 = load i32, ptr @qemu_loglevel, align 4
+  %129 = and i32 %128, 32768
+  %.not8.i.i.i = icmp eq i32 %129, 0
+  br i1 %.not8.i.i.i, label %trace_vfio_populate_device_config.exit.i, label %130
+
+130:                                              ; preds = %127
+  %131 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %132 = trunc nuw i8 %131 to i1
+  br i1 %132, label %133, label %139
+
+133:                                              ; preds = %130
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %134 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %135 = call i32 @qemu_get_thread_id() #26
+  %136 = load i64, ptr %3, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %138 = load i64, ptr %137, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef %135, i64 noundef %136, i64 noundef %138, ptr noundef %115, i64 noundef %118, i64 noundef %120, i64 noundef range(i64 0, 4294967296) %123) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %trace_vfio_populate_device_config.exit.i
+
+139:                                              ; preds = %130
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.153, ptr noundef %115, i64 noundef %118, i64 noundef %120, i64 noundef range(i64 0, 4294967296) %123) #26
+  br label %trace_vfio_populate_device_config.exit.i
+
+trace_vfio_populate_device_config.exit.i:         ; preds = %139, %133, %127, %125, %114
+  %140 = load ptr, ptr %4, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %142 = load i64, ptr %141, align 8
+  %143 = trunc i64 %142 to i32
+  %144 = getelementptr inbounds nuw i8, ptr %13, i64 3016
+  store i32 %143, ptr %144, align 8
+  %145 = icmp eq i32 %143, 256
+  br i1 %145, label %146, label %150
+
+146:                                              ; preds = %trace_vfio_populate_device_config.exit.i
+  %147 = getelementptr inbounds nuw i8, ptr %13, i64 1324
+  %148 = load i32, ptr %147, align 4
+  %149 = and i32 %148, -5
+  store i32 %149, ptr %147, align 4
+  br label %150
+
+150:                                              ; preds = %146, %trace_vfio_populate_device_config.exit.i
+  %151 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %152 = load i64, ptr %151, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 3032
+  store i64 %152, ptr %153, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %13, i64 3720
+  %155 = load i32, ptr %154, align 8
+  %156 = and i32 %155, 1
+  %.not51.i = icmp eq i32 %156, 0
+  br i1 %.not51.i, label %160, label %157
+
+157:                                              ; preds = %150
+  %158 = call zeroext i1 @vfio_populate_vga(ptr noundef nonnull %13, ptr noundef nonnull %spec.select)
+  br i1 %158, label %160, label %159
+
+159:                                              ; preds = %157
+  call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.150) #26
+  br label %vfio_populate_device.exit.thread
+
+160:                                              ; preds = %157, %150
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 3, ptr %161, align 4
+  %162 = load i32, ptr %15, align 8
+  %163 = call i32 (i32, i64, ...) @ioctl(i32 noundef %162, i64 noundef 15213, ptr noundef nonnull %5) #26
+  %.not52.i = icmp eq i32 %163, 0
+  br i1 %.not52.i, label %168, label %164
+
+164:                                              ; preds = %160
+  %165 = tail call ptr @__errno_location() #28
+  %166 = load i32, ptr %165, align 4
+  %167 = call ptr @strerror(i32 noundef %166) #26
+  call fastcc void @trace_vfio_populate_device_get_irq_info_failure(ptr noundef %167)
+  br label %176
+
+168:                                              ; preds = %160
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %170 = load i32, ptr %169, align 4
+  %171 = icmp eq i32 %170, 1
+  br i1 %171, label %172, label %174
+
+172:                                              ; preds = %168
+  %173 = getelementptr inbounds nuw i8, ptr %13, i64 3750
+  store i8 1, ptr %173, align 2
+  br label %176
+
+174:                                              ; preds = %168
+  %175 = load ptr, ptr %45, align 8
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.151, ptr noundef %175) #26
+  br label %176
+
+vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112, %159, %88
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  %.val.i234 = load ptr, ptr %4, align 8
+  call void @g_free(ptr noundef %.val.i234) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  br label %428
+
+176:                                              ; preds = %174, %172, %164
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  %.val.i = load ptr, ptr %4, align 8
+  call void @g_free(ptr noundef %.val.i) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  %177 = load i32, ptr %15, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %13, i64 160
+  %179 = load ptr, ptr %178, align 16
+  %180 = getelementptr i8, ptr %13, i64 1324
+  %.val219 = load i32, ptr %180, align 4
+  %181 = and i32 %.val219, 4
+  %.not.i225 = icmp eq i32 %181, 0
+  %182 = select i1 %.not.i225, i32 256, i32 4096
+  %183 = load i32, ptr %144, align 8
+  %184 = call i32 @llvm.umin.i32(i32 %182, i32 %183)
+  %185 = zext nneg i32 %184 to i64
+  %186 = load i64, ptr %153, align 8
+  %187 = call i64 @pread64(i32 noundef %177, ptr noundef %179, i64 noundef %185, i64 noundef %186) #26
+  %188 = trunc i64 %187 to i32
+  %.val220 = load i32, ptr %180, align 4
+  %189 = and i32 %.val220, 4
+  %.not.i226 = icmp eq i32 %189, 0
+  %190 = select i1 %.not.i226, i32 256, i32 4096
+  %191 = load i32, ptr %144, align 8
+  %192 = call i32 @llvm.umin.i32(i32 %190, i32 %191)
+  %193 = icmp sgt i32 %192, %188
+  br i1 %193, label %194, label %200
+
+194:                                              ; preds = %176
+  %195 = icmp slt i32 %188, 0
+  br i1 %195, label %196, label %199
+
+196:                                              ; preds = %194
+  %197 = tail call ptr @__errno_location() #28
+  %198 = load i32, ptr %197, align 4
+  br label %199
+
+199:                                              ; preds = %194, %196
+  %.neg = phi i32 [ %198, %196 ], [ 14, %194 ]
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3028, ptr noundef nonnull @__func__.vfio_realize, i32 noundef %.neg, ptr noundef nonnull @.str.129) #26
+  br label %428
+
+200:                                              ; preds = %176
+  %201 = zext i32 %191 to i64
+  %202 = call noalias ptr @g_malloc0(i64 noundef %201) #30
+  %203 = getelementptr inbounds nuw i8, ptr %13, i64 3024
+  store ptr %202, ptr %203, align 16
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 48
+  store i32 -1, ptr %204, align 1
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %205, i8 noundef -1, i64 noundef 24, i1 noundef false) #26
+  %206 = getelementptr inbounds nuw i8, ptr %13, i64 3704
+  %207 = load i32, ptr %206, align 8
+  %.not199 = icmp eq i32 %207, -1
+  br i1 %.not199, label %220, label %208
+
+208:                                              ; preds = %200
+  %209 = icmp ugt i32 %207, 65534
+  br i1 %209, label %210, label %211
+
+210:                                              ; preds = %208
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3047, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.130) #26
+  br label %428
+
+211:                                              ; preds = %208
+  %212 = trunc nuw i32 %207 to i16
+  %213 = load ptr, ptr %178, align 16
+  store i16 %212, ptr %213, align 1
+  %214 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %215 = load ptr, ptr %214, align 16
+  store i16 0, ptr %215, align 1
+  %216 = load ptr, ptr %203, align 16
+  store i16 -1, ptr %216, align 1
+  %217 = load ptr, ptr %45, align 8
+  %218 = load i32, ptr %206, align 8
+  %219 = trunc i32 %218 to i16
+  call fastcc void @trace_vfio_pci_emulated_vendor_id(ptr noundef %217, i16 noundef zeroext %219)
+  br label %224
+
+220:                                              ; preds = %200
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %222 = load ptr, ptr %221, align 16
+  %.val222 = load i16, ptr %222, align 1
+  %223 = zext i16 %.val222 to i32
+  store i32 %223, ptr %206, align 8
+  br label %224
+
+224:                                              ; preds = %220, %211
+  %225 = getelementptr inbounds nuw i8, ptr %13, i64 3708
+  %226 = load i32, ptr %225, align 4
+  %.not200 = icmp eq i32 %226, -1
+  br i1 %.not200, label %242, label %227
+
+227:                                              ; preds = %224
+  %228 = icmp ugt i32 %226, 65535
+  br i1 %228, label %229, label %230
+
+229:                                              ; preds = %227
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3058, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.131) #26
+  br label %428
+
+230:                                              ; preds = %227
+  %231 = trunc nuw i32 %226 to i16
+  %232 = load ptr, ptr %178, align 16
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 2
+  store i16 %231, ptr %233, align 1
+  %234 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %235 = load ptr, ptr %234, align 16
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 2
+  store i16 0, ptr %236, align 1
+  %237 = load ptr, ptr %203, align 16
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 2
+  store i16 -1, ptr %238, align 1
+  %239 = load ptr, ptr %45, align 8
+  %240 = load i32, ptr %225, align 4
+  %241 = trunc i32 %240 to i16
+  call fastcc void @trace_vfio_pci_emulated_device_id(ptr noundef %239, i16 noundef zeroext %241)
+  br label %247
+
+242:                                              ; preds = %224
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %244 = load ptr, ptr %243, align 16
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 2
+  %.val221 = load i16, ptr %245, align 1
+  %246 = zext i16 %.val221 to i32
+  store i32 %246, ptr %225, align 4
+  br label %247
+
+247:                                              ; preds = %242, %230
+  %248 = getelementptr inbounds nuw i8, ptr %13, i64 3712
+  %249 = load i32, ptr %248, align 16
+  %.not201 = icmp eq i32 %249, -1
+  br i1 %.not201, label %265, label %250
+
+250:                                              ; preds = %247
+  %251 = icmp ugt i32 %249, 65535
+  br i1 %251, label %252, label %253
+
+252:                                              ; preds = %250
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3069, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.132) #26
+  br label %428
+
+253:                                              ; preds = %250
+  %254 = trunc nuw i32 %249 to i16
+  %255 = load ptr, ptr %178, align 16
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 44
+  store i16 %254, ptr %256, align 1
+  %257 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %258 = load ptr, ptr %257, align 16
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 44
+  store i16 0, ptr %259, align 1
+  %260 = load ptr, ptr %203, align 16
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 44
+  store i16 -1, ptr %261, align 1
+  %262 = load ptr, ptr %45, align 8
+  %263 = load i32, ptr %248, align 16
+  %264 = trunc i32 %263 to i16
+  call fastcc void @trace_vfio_pci_emulated_sub_vendor_id(ptr noundef %262, i16 noundef zeroext %264)
+  br label %265
+
+265:                                              ; preds = %253, %247
+  %266 = getelementptr inbounds nuw i8, ptr %13, i64 3716
+  %267 = load i32, ptr %266, align 4
+  %.not202 = icmp eq i32 %267, -1
+  br i1 %.not202, label %283, label %268
+
+268:                                              ; preds = %265
+  %269 = icmp ugt i32 %267, 65535
+  br i1 %269, label %270, label %271
+
+270:                                              ; preds = %268
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3080, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.133) #26
+  br label %428
+
+271:                                              ; preds = %268
+  %272 = trunc nuw i32 %267 to i16
+  %273 = load ptr, ptr %178, align 16
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 46
+  store i16 %272, ptr %274, align 1
+  %275 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %276 = load ptr, ptr %275, align 16
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 46
+  store i16 0, ptr %277, align 1
+  %278 = load ptr, ptr %203, align 16
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 46
+  store i16 -1, ptr %279, align 1
+  %280 = load ptr, ptr %45, align 8
+  %281 = load i32, ptr %266, align 4
+  %282 = trunc i32 %281 to i16
+  call fastcc void @trace_vfio_pci_emulated_sub_device_id(ptr noundef %280, i16 noundef zeroext %282)
+  br label %283
+
+283:                                              ; preds = %271, %265
+  %284 = load ptr, ptr %203, align 16
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 14
+  store i8 -128, ptr %285, align 1
+  %286 = load i32, ptr %180, align 4
+  %287 = load ptr, ptr %178, align 16
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 14
+  %289 = load i8, ptr %288, align 1
+  %290 = and i8 %289, 127
+  %291 = trunc i32 %286 to i8
+  %292 = shl i8 %291, 4
+  %masksel = and i8 %292, -128
+  %.sink = or disjoint i8 %290, %masksel
+  store i8 %.sink, ptr %288, align 1
+  %293 = load ptr, ptr %178, align 16
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %294, i8 noundef 0, i64 noundef 24, i1 noundef false) #26
+  %295 = load ptr, ptr %178, align 16
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 48
+  store i32 0, ptr %296, align 1
+  call fastcc void @vfio_pci_size_rom(ptr noundef nonnull %13)
+  call fastcc void @vfio_bars_prepare(ptr noundef nonnull %13)
+  %297 = call fastcc zeroext i1 @vfio_msix_early_setup(ptr noundef nonnull %13, ptr noundef nonnull %spec.select)
+  br i1 %297, label %298, label %428
+
+298:                                              ; preds = %283
+  call fastcc void @vfio_bars_register(ptr noundef nonnull %13)
+  %299 = load i8, ptr %43, align 8, !range !6, !noundef !7
+  %300 = trunc nuw i8 %299 to i1
+  br i1 %300, label %306, label %301
+
+301:                                              ; preds = %298
+  %302 = getelementptr inbounds nuw i8, ptr %13, i64 2920
+  %303 = load ptr, ptr %302, align 8
+  %304 = call zeroext i1 @pci_device_set_iommu_device(ptr noundef %0, ptr noundef %303, ptr noundef nonnull %spec.select) #26
+  br i1 %304, label %306, label %305
+
+305:                                              ; preds = %301
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.134) #26
+  br label %427
+
+306:                                              ; preds = %301, %298
+  %307 = call fastcc zeroext i1 @vfio_add_capabilities(ptr noundef nonnull %13, ptr noundef nonnull %spec.select)
+  br i1 %307, label %308, label %423
+
+308:                                              ; preds = %306
+  %309 = getelementptr inbounds nuw i8, ptr %13, i64 3624
+  %310 = load ptr, ptr %309, align 8
+  %.not204 = icmp eq ptr %310, null
+  br i1 %.not204, label %.preheader, label %311
+
+311:                                              ; preds = %308
+  call void @vfio_vga_quirk_setup(ptr noundef nonnull %13) #26
+  br label %.preheader
+
+.preheader:                                       ; preds = %311, %308
+  br label %312
+
+312:                                              ; preds = %.preheader, %312
+  %.0182241 = phi i32 [ %313, %312 ], [ 0, %.preheader ]
+  call void @vfio_bar_quirk_setup(ptr noundef nonnull %13, i32 noundef %.0182241) #26
+  %313 = add nuw nsw i32 %.0182241, 1
+  %exitcond.not = icmp eq i32 %313, 6
+  br i1 %exitcond.not, label %314, label %312, !llvm.loop !31
+
+314:                                              ; preds = %312
+  %315 = getelementptr inbounds nuw i8, ptr %13, i64 3632
+  %316 = load ptr, ptr %315, align 16
+  %.not205 = icmp eq ptr %316, null
+  br i1 %.not205, label %317, label %332
+
+317:                                              ; preds = %314
+  %318 = load i32, ptr %154, align 8
+  %319 = and i32 %318, 4
+  %.not206 = icmp eq i32 %319, 0
+  br i1 %.not206, label %332, label %320
+
+320:                                              ; preds = %317
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
+  store ptr null, ptr %9, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %322 = load i32, ptr %321, align 8
+  %.not207 = icmp eq i32 %322, 0
+  br i1 %.not207, label %324, label %323
+
+323:                                              ; preds = %320
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3142, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.135) #26
+  br label %.thread
+
+324:                                              ; preds = %320
+  %325 = call i32 @vfio_get_dev_region_info(ptr noundef nonnull %14, i32 noundef -2147450746, i32 noundef 1, ptr noundef nonnull %9) #26
+  %.not208 = icmp eq i32 %325, 0
+  br i1 %.not208, label %328, label %326
+
+326:                                              ; preds = %324
+  %327 = sub i32 0, %325
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3151, ptr noundef nonnull @__func__.vfio_realize, i32 noundef %327, ptr noundef nonnull @.str.136) #26
+  br label %.thread
+
+328:                                              ; preds = %324
+  %329 = load ptr, ptr %9, align 8
+  %330 = call zeroext i1 @vfio_pci_igd_opregion_init(ptr noundef nonnull %13, ptr noundef %329, ptr noundef nonnull %spec.select) #26
+  br i1 %330, label %331, label %.thread
+
+.thread:                                          ; preds = %323, %326, %328
+  %.val218236 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %.val218236) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  br label %423
+
+331:                                              ; preds = %328
+  %.val218 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %.val218) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #26
+  br label %332
+
+332:                                              ; preds = %331, %317, %314
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 1324
+  %334 = load i32, ptr %333, align 4
+  %335 = and i32 %334, 2
+  %.not209 = icmp eq i32 %335, 0
+  br i1 %.not209, label %342, label %336
+
+336:                                              ; preds = %332
+  %337 = load ptr, ptr %203, align 16
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %339 = load i8, ptr %338, align 16
+  %340 = zext i8 %339 to i64
+  %341 = getelementptr inbounds nuw i8, ptr %337, i64 %340
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %341, i8 noundef -1, i64 noundef 12, i1 noundef false) #26
+  %.pre245 = load i32, ptr %333, align 4
+  br label %342
+
+342:                                              ; preds = %336, %332
+  %343 = phi i32 [ %.pre245, %336 ], [ %334, %332 ]
+  %344 = and i32 %343, 1
+  %.not210 = icmp eq i32 %344, 0
+  br i1 %.not210, label %354, label %345
+
+345:                                              ; preds = %342
+  %346 = load ptr, ptr %203, align 16
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %348 = load i8, ptr %347, align 16
+  %349 = zext i8 %348 to i64
+  %350 = getelementptr inbounds nuw i8, ptr %346, i64 %349
+  %351 = getelementptr inbounds nuw i8, ptr %13, i64 3064
+  %352 = load i32, ptr %351, align 8
+  %353 = sext i32 %352 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %350, i8 noundef -1, i64 noundef %353, i1 noundef false) #26
+  br label %354
+
+354:                                              ; preds = %345, %342
+  %355 = call i32 @vfio_pci_read_config(ptr noundef nonnull %13, i32 noundef 61, i32 noundef 1)
+  %.not211 = icmp eq i32 %355, 0
+  br i1 %.not211, label %361, label %356
+
+356:                                              ; preds = %354
+  %357 = call fastcc ptr @timer_new_ms(ptr noundef nonnull %13)
+  %358 = getelementptr inbounds nuw i8, ptr %13, i64 3008
+  store ptr %357, ptr %358, align 8
+  call void @pci_device_set_intx_routing_notifier(ptr noundef nonnull %13, ptr noundef nonnull @vfio_intx_routing_notifier) #26
+  %359 = getelementptr inbounds nuw i8, ptr %13, i64 3784
+  store ptr @vfio_irqchip_change, ptr %359, align 8
+  call void @kvm_irqchip_add_change_notifier(ptr noundef nonnull %359) #26
+  %360 = call fastcc zeroext i1 @vfio_intx_enable(ptr noundef nonnull %13, ptr noundef nonnull %spec.select)
+  br i1 %360, label %361, label %410
+
+361:                                              ; preds = %356, %354
+  %362 = getelementptr inbounds nuw i8, ptr %13, i64 3724
+  %363 = load i32, ptr %362, align 4
+  %.not212 = icmp eq i32 %363, 2
+  br i1 %.not212, label %366, label %364
+
+364:                                              ; preds = %361
+  %365 = call zeroext i1 @vfio_display_probe(ptr noundef nonnull %13, ptr noundef nonnull %spec.select) #26
+  br i1 %365, label %366, label %410
+
+366:                                              ; preds = %364, %361
+  %367 = getelementptr inbounds nuw i8, ptr %13, i64 3761
+  %368 = load i8, ptr %367, align 1, !range !6, !noundef !7
+  %369 = trunc nuw i8 %368 to i1
+  br i1 %369, label %370, label %375
+
+370:                                              ; preds = %366
+  %371 = getelementptr inbounds nuw i8, ptr %13, i64 3776
+  %372 = load ptr, ptr %371, align 16
+  %373 = icmp eq ptr %372, null
+  br i1 %373, label %374, label %375
+
+374:                                              ; preds = %370
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3189, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.137) #26
+  br label %410
+
+375:                                              ; preds = %370, %366
+  %376 = getelementptr inbounds nuw i8, ptr %13, i64 3728
+  %377 = load i32, ptr %376, align 16
+  %.not213 = icmp eq i32 %377, 0
+  br i1 %.not213, label %378, label %381
+
+378:                                              ; preds = %375
+  %379 = getelementptr inbounds nuw i8, ptr %13, i64 3732
+  %380 = load i32, ptr %379, align 4
+  %.not214 = icmp eq i32 %380, 0
+  br i1 %.not214, label %391, label %381
+
+381:                                              ; preds = %378, %375
+  %382 = getelementptr inbounds nuw i8, ptr %13, i64 3776
+  %383 = load ptr, ptr %382, align 16
+  %384 = icmp eq ptr %383, null
+  br i1 %384, label %385, label %386
+
+385:                                              ; preds = %381
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3194, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.138) #26
+  br label %410
+
+386:                                              ; preds = %381
+  %387 = getelementptr inbounds nuw i8, ptr %383, i64 24
+  %388 = load ptr, ptr %387, align 8
+  %389 = icmp eq ptr %388, null
+  br i1 %389, label %390, label %391
+
+390:                                              ; preds = %386
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3198, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.139) #26
+  br label %410
+
+391:                                              ; preds = %386, %378
+  %392 = getelementptr inbounds nuw i8, ptr %13, i64 3764
+  %393 = load i32, ptr %392, align 4
+  %394 = icmp ne i32 %393, 1
+  %brmerge = or i1 %394, %369
+  br i1 %brmerge, label %396, label %395
+
+395:                                              ; preds = %391
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.140) #26
+  store i32 2, ptr %392, align 4
+  br label %396
+
+396:                                              ; preds = %391, %395
+  %397 = phi i32 [ %393, %391 ], [ 2, %395 ]
+  %398 = getelementptr inbounds nuw i8, ptr %13, i64 2856
+  %399 = load i32, ptr %398, align 8
+  %400 = icmp eq i32 %399, 2
+  br i1 %400, label %401, label %404
+
+401:                                              ; preds = %396
+  switch i32 %397, label %404 [
+    i32 0, label %402
+    i32 1, label %403
+  ]
+
+402:                                              ; preds = %401
+  store i32 2, ptr %392, align 4
+  br label %404
+
+403:                                              ; preds = %401
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 3212, ptr noundef nonnull @__func__.vfio_realize, ptr noundef nonnull @.str.141) #26
+  br label %410
+
+404:                                              ; preds = %401, %402, %396
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 2728
+  %406 = load ptr, ptr %405, align 8
+  %.not215 = icmp eq ptr %406, null
+  br i1 %.not215, label %407, label %409
+
+407:                                              ; preds = %404
+  %408 = call zeroext i1 @vfio_migration_realize(ptr noundef nonnull %14, ptr noundef nonnull %spec.select) #26
+  br i1 %408, label %409, label %410
+
+409:                                              ; preds = %407, %404
+  call fastcc void @vfio_register_err_notifier(ptr noundef nonnull %13)
+  call fastcc void @vfio_register_req_notifier(ptr noundef nonnull %13)
+  call void @vfio_setup_resetfn_quirk(ptr noundef nonnull %13) #26
+  br label %430
+
+410:                                              ; preds = %407, %364, %356, %403, %390, %385, %374
+  %411 = getelementptr inbounds nuw i8, ptr %13, i64 3092
+  %412 = load i32, ptr %411, align 4
+  %413 = icmp eq i32 %412, 1
+  br i1 %413, label %414, label %415
+
+414:                                              ; preds = %410
+  call fastcc void @vfio_intx_disable(ptr noundef nonnull %13)
+  br label %415
+
+415:                                              ; preds = %414, %410
+  call void @pci_device_set_intx_routing_notifier(ptr noundef nonnull %13, ptr noundef null) #26
+  %416 = getelementptr inbounds nuw i8, ptr %13, i64 3784
+  %417 = load ptr, ptr %416, align 8
+  %.not216 = icmp eq ptr %417, null
+  br i1 %.not216, label %419, label %418
+
+418:                                              ; preds = %415
+  call void @kvm_irqchip_remove_change_notifier(ptr noundef nonnull %416) #26
+  br label %419
+
+419:                                              ; preds = %418, %415
+  %420 = getelementptr inbounds nuw i8, ptr %13, i64 3008
+  %421 = load ptr, ptr %420, align 8
+  %.not217 = icmp eq ptr %421, null
+  br i1 %.not217, label %423, label %422
+
+422:                                              ; preds = %419
+  call void @timer_del(ptr noundef nonnull %421) #26
+  call void @g_free(ptr noundef nonnull %421) #26
+  br label %423
+
+423:                                              ; preds = %.thread, %419, %422, %306
+  %424 = load i8, ptr %43, align 8, !range !6, !noundef !7
+  %425 = trunc nuw i8 %424 to i1
+  br i1 %425, label %427, label %426
+
+426:                                              ; preds = %423
+  call void @pci_device_unset_iommu_device(ptr noundef %0) #26
+  br label %427
+
+427:                                              ; preds = %423, %426, %305
+  call fastcc void @vfio_teardown_msi(ptr noundef nonnull %13)
+  call fastcc void @vfio_bars_exit(ptr noundef nonnull %13)
+  br label %428
+
+428:                                              ; preds = %vfio_populate_device.exit.thread, %283, %81, %427, %270, %252, %229, %210, %199, %71
+  %.1 = phi ptr [ %storemerge, %199 ], [ %storemerge, %427 ], [ %storemerge, %283 ], [ %storemerge, %270 ], [ %storemerge, %252 ], [ %storemerge, %229 ], [ %storemerge, %210 ], [ %storemerge, %81 ], [ null, %71 ], [ %storemerge, %vfio_populate_device.exit.thread ]
+  %429 = load ptr, ptr %45, align 8
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.7, ptr noundef %429) #26
+  br label %430
+
+430:                                              ; preds = %39, %428, %409, %32
+  %.0 = phi ptr [ null, %32 ], [ %.1, %428 ], [ %storemerge, %409 ], [ null, %39 ]
+  call void @g_free(ptr noundef %.0) #26
+  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %8) #26
+  %.val223 = load ptr, ptr %7, align 8
+  %.val224 = load ptr, ptr %10, align 8
+  call void @error_propagate(ptr noundef %.val224, ptr noundef %.val223) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qpci_msix_pending(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
-entry:
-  %value.addr.i = alloca i32, align 4
-  %val.i = alloca i32, align 4
-  %msix_enabled = getelementptr inbounds nuw i8, ptr %dev, i64 12
-  %0 = load i8, ptr %msix_enabled, align 4
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %do.end, label %if.else
+define internal void @vfio_exitfn(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2752
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  store ptr null, ptr %3, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 3751
+  %7 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %9, label %vfio_unregister_req_notifier.exit
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.qpci_msix_pending, ptr noundef nonnull @.str.10) #12
+9:                                                ; preds = %1
+  %10 = call zeroext i1 @vfio_set_irq_signaling(ptr noundef nonnull %5, i32 noundef 4, i32 noundef 0, i32 noundef 32, i32 noundef -1, ptr noundef nonnull %3) #26
+  br i1 %10, label %15, label %11
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2824
+  %14 = load ptr, ptr %13, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %12, ptr noundef nonnull @.str.7, ptr noundef %14) #26
+  br label %15
+
+15:                                               ; preds = %11, %9
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 3684
+  %17 = call i32 @event_notifier_get_fd(ptr noundef nonnull %16) #26
+  call void @qemu_set_fd_handler(i32 noundef %17, ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #26
+  call void @event_notifier_cleanup(ptr noundef nonnull %16) #26
+  store i8 0, ptr %6, align 1
+  br label %vfio_unregister_req_notifier.exit
+
+vfio_unregister_req_notifier.exit:                ; preds = %1, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  store ptr null, ptr %2, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 3750
+  %19 = load i8, ptr %18, align 2, !range !6, !noundef !7
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %21, label %vfio_unregister_err_notifier.exit
+
+21:                                               ; preds = %vfio_unregister_req_notifier.exit
+  %22 = call zeroext i1 @vfio_set_irq_signaling(ptr noundef nonnull %5, i32 noundef 3, i32 noundef 0, i32 noundef 32, i32 noundef -1, ptr noundef nonnull %2) #26
+  br i1 %22, label %27, label %23
+
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 2824
+  %26 = load ptr, ptr %25, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %24, ptr noundef nonnull @.str.7, ptr noundef %26) #26
+  br label %27
+
+27:                                               ; preds = %23, %21
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 3672
+  %29 = call i32 @event_notifier_get_fd(ptr noundef nonnull %28) #26
+  call void @qemu_set_fd_handler(i32 noundef %29, ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #26
+  call void @event_notifier_cleanup(ptr noundef nonnull %28) #26
+  br label %vfio_unregister_err_notifier.exit
+
+vfio_unregister_err_notifier.exit:                ; preds = %vfio_unregister_req_notifier.exit, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @pci_device_set_intx_routing_notifier(ptr noundef nonnull %4, ptr noundef null) #26
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 3784
+  %31 = load ptr, ptr %30, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %33, label %32
+
+32:                                               ; preds = %vfio_unregister_err_notifier.exit
+  call void @kvm_irqchip_remove_change_notifier(ptr noundef nonnull %30) #26
+  br label %33
+
+33:                                               ; preds = %32, %vfio_unregister_err_notifier.exit
+  call fastcc void @vfio_disable_interrupts(ptr noundef nonnull %4)
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 3008
+  %35 = load ptr, ptr %34, align 8
+  %.not16 = icmp eq ptr %35, null
+  br i1 %.not16, label %37, label %36
+
+36:                                               ; preds = %33
+  call void @timer_del(ptr noundef nonnull %35) #26
+  call void @g_free(ptr noundef nonnull %35) #26
+  br label %37
+
+37:                                               ; preds = %36, %33
+  call void @msi_uninit(ptr noundef nonnull %4) #26
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 3080
+  %39 = load ptr, ptr %38, align 8
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %vfio_teardown_msi.exit, label %40
+
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 3096
+  %42 = load i8, ptr %39, align 8
+  %43 = zext i8 %42 to i64
+  %.idx.i = mul nuw nsw i64 %43, 88
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i64
+  %.idx8.i = mul nuw nsw i64 %49, 88
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx8.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %52 = load ptr, ptr %51, align 8
+  call void @msix_uninit(ptr noundef nonnull %4, ptr noundef %46, ptr noundef %52) #26
+  %53 = load ptr, ptr %38, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  call void @g_free(ptr noundef %55) #26
+  br label %vfio_teardown_msi.exit
+
+vfio_teardown_msi.exit:                           ; preds = %37, %40
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 3769
+  %57 = load i8, ptr %56, align 1, !range !6, !noundef !7
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %vfio_pci_disable_rp_atomics.exit
+
+59:                                               ; preds = %vfio_teardown_msi.exit
+  %60 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %4, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %61 = call ptr @qdev_get_parent_bus(ptr noundef %60) #26
+  %62 = call ptr @object_dynamic_cast_assert(ptr noundef %61, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 2232
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 160
+  %66 = load ptr, ptr %65, align 16
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 2232
+  %68 = load i8, ptr %67, align 8
+  %69 = zext i8 %68 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 36
+  %.val.i.i = load i32, ptr %71, align 1
+  %72 = and i32 %.val.i.i, -897
+  store i32 %72, ptr %71, align 1
+  br label %vfio_pci_disable_rp_atomics.exit
+
+vfio_pci_disable_rp_atomics.exit:                 ; preds = %vfio_teardown_msi.exit, %59
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 3096
+  br label %74
+
+74:                                               ; preds = %84, %vfio_pci_disable_rp_atomics.exit
+  %indvars.iv.i = phi i64 [ 0, %vfio_pci_disable_rp_atomics.exit ], [ %indvars.iv.next.i, %84 ]
+  %75 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %73, i64 0, i64 %indvars.iv.i
+  %76 = trunc nuw nsw i64 %indvars.iv.i to i32
+  call void @vfio_bar_quirk_exit(ptr noundef nonnull %4, i32 noundef %76) #26
+  call void @vfio_region_exit(ptr noundef nonnull %75) #26
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %78 = load i64, ptr %77, align 8
+  %.not12.i = icmp eq i64 %78, 0
+  br i1 %.not12.i, label %84, label %79
+
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 56
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %83 = load ptr, ptr %82, align 8
+  call void @memory_region_del_subregion(ptr noundef %81, ptr noundef %83) #26
+  br label %84
+
+84:                                               ; preds = %79, %74
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %85, label %74, !llvm.loop !32
+
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 3624
+  %87 = load ptr, ptr %86, align 8
+  %.not.i17 = icmp eq ptr %87, null
+  br i1 %.not.i17, label %vfio_bars_exit.exit, label %88
+
+88:                                               ; preds = %85
+  call void @pci_unregister_vga(ptr noundef nonnull %4) #26
+  call void @vfio_vga_quirk_exit(ptr noundef nonnull %4) #26
+  br label %vfio_bars_exit.exit
+
+vfio_bars_exit.exit:                              ; preds = %85, %88
+  call void @vfio_migration_exit(ptr noundef nonnull %5) #26
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 2848
+  %90 = load i8, ptr %89, align 8, !range !6, !noundef !7
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %93, label %92
+
+92:                                               ; preds = %vfio_bars_exit.exit
+  call void @pci_device_unset_iommu_device(ptr noundef %0) #26
+  br label %93
+
+93:                                               ; preds = %92, %vfio_bars_exit.exit
+  ret void
+}
+
+declare void @vfio_display_reset(ptr noundef) local_unnamed_addr #4
+
+declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_device_get_name(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_device_is_mdev(ptr noundef) local_unnamed_addr #4
+
+declare i32 @qemu_uuid_is_null(ptr noundef) local_unnamed_addr #4
+
+declare void @qemu_uuid_unparse(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_attach_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare ptr @pci_device_iommu_address_space(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc void @trace_vfio_pci_emulated_vendor_id(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #21 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %_nocheck__trace_vfio_pci_emulated_vendor_id.exit, label %5, !prof !5
+
+5:                                                ; preds = %2
+  %6 = load i16, ptr @_TRACE_VFIO_PCI_EMULATED_VENDOR_ID_DSTATE, align 2
+  %.not3.i = icmp eq i16 %6, 0
+  br i1 %.not3.i, label %_nocheck__trace_vfio_pci_emulated_vendor_id.exit, label %7
+
+7:                                                ; preds = %5
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %9 = and i32 %8, 32768
+  %.not4.i = icmp eq i32 %9, 0
+  br i1 %.not4.i, label %_nocheck__trace_vfio_pci_emulated_vendor_id.exit, label %10
+
+10:                                               ; preds = %7
+  %11 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %20
+
+13:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %15 = tail call i32 @qemu_get_thread_id() #26
+  %16 = load i64, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.156, i32 noundef %15, i64 noundef %16, i64 noundef %18, ptr noundef %0, i32 noundef %19) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %_nocheck__trace_vfio_pci_emulated_vendor_id.exit
+
+20:                                               ; preds = %10
+  %21 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.157, ptr noundef %0, i32 noundef %21) #26
+  br label %_nocheck__trace_vfio_pci_emulated_vendor_id.exit
+
+_nocheck__trace_vfio_pci_emulated_vendor_id.exit: ; preds = %2, %5, %7, %13, %20
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc void @trace_vfio_pci_emulated_device_id(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #21 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %_nocheck__trace_vfio_pci_emulated_device_id.exit, label %5, !prof !5
+
+5:                                                ; preds = %2
+  %6 = load i16, ptr @_TRACE_VFIO_PCI_EMULATED_DEVICE_ID_DSTATE, align 2
+  %.not3.i = icmp eq i16 %6, 0
+  br i1 %.not3.i, label %_nocheck__trace_vfio_pci_emulated_device_id.exit, label %7
+
+7:                                                ; preds = %5
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %9 = and i32 %8, 32768
+  %.not4.i = icmp eq i32 %9, 0
+  br i1 %.not4.i, label %_nocheck__trace_vfio_pci_emulated_device_id.exit, label %10
+
+10:                                               ; preds = %7
+  %11 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %20
+
+13:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %15 = tail call i32 @qemu_get_thread_id() #26
+  %16 = load i64, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.158, i32 noundef %15, i64 noundef %16, i64 noundef %18, ptr noundef %0, i32 noundef %19) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %_nocheck__trace_vfio_pci_emulated_device_id.exit
+
+20:                                               ; preds = %10
+  %21 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, ptr noundef %0, i32 noundef %21) #26
+  br label %_nocheck__trace_vfio_pci_emulated_device_id.exit
+
+_nocheck__trace_vfio_pci_emulated_device_id.exit: ; preds = %2, %5, %7, %13, %20
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc void @trace_vfio_pci_emulated_sub_vendor_id(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #21 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %_nocheck__trace_vfio_pci_emulated_sub_vendor_id.exit, label %5, !prof !5
+
+5:                                                ; preds = %2
+  %6 = load i16, ptr @_TRACE_VFIO_PCI_EMULATED_SUB_VENDOR_ID_DSTATE, align 2
+  %.not3.i = icmp eq i16 %6, 0
+  br i1 %.not3.i, label %_nocheck__trace_vfio_pci_emulated_sub_vendor_id.exit, label %7
+
+7:                                                ; preds = %5
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %9 = and i32 %8, 32768
+  %.not4.i = icmp eq i32 %9, 0
+  br i1 %.not4.i, label %_nocheck__trace_vfio_pci_emulated_sub_vendor_id.exit, label %10
+
+10:                                               ; preds = %7
+  %11 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %20
+
+13:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %15 = tail call i32 @qemu_get_thread_id() #26
+  %16 = load i64, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.160, i32 noundef %15, i64 noundef %16, i64 noundef %18, ptr noundef %0, i32 noundef %19) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %_nocheck__trace_vfio_pci_emulated_sub_vendor_id.exit
+
+20:                                               ; preds = %10
+  %21 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.161, ptr noundef %0, i32 noundef %21) #26
+  br label %_nocheck__trace_vfio_pci_emulated_sub_vendor_id.exit
+
+_nocheck__trace_vfio_pci_emulated_sub_vendor_id.exit: ; preds = %2, %5, %7, %13, %20
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc void @trace_vfio_pci_emulated_sub_device_id(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #21 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %_nocheck__trace_vfio_pci_emulated_sub_device_id.exit, label %5, !prof !5
+
+5:                                                ; preds = %2
+  %6 = load i16, ptr @_TRACE_VFIO_PCI_EMULATED_SUB_DEVICE_ID_DSTATE, align 2
+  %.not3.i = icmp eq i16 %6, 0
+  br i1 %.not3.i, label %_nocheck__trace_vfio_pci_emulated_sub_device_id.exit, label %7
+
+7:                                                ; preds = %5
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %9 = and i32 %8, 32768
+  %.not4.i = icmp eq i32 %9, 0
+  br i1 %.not4.i, label %_nocheck__trace_vfio_pci_emulated_sub_device_id.exit, label %10
+
+10:                                               ; preds = %7
+  %11 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %20
+
+13:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %15 = tail call i32 @qemu_get_thread_id() #26
+  %16 = load i64, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.162, i32 noundef %15, i64 noundef %16, i64 noundef %18, ptr noundef %0, i32 noundef %19) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %_nocheck__trace_vfio_pci_emulated_sub_device_id.exit
+
+20:                                               ; preds = %10
+  %21 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.163, ptr noundef %0, i32 noundef %21) #26
+  br label %_nocheck__trace_vfio_pci_emulated_sub_device_id.exit
+
+_nocheck__trace_vfio_pci_emulated_sub_device_id.exit: ; preds = %2, %5, %7, %13, %20
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_pci_size_rom(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
+  store i32 -2048, ptr %3, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3032
+  %5 = load i64, ptr %4, align 8
+  %6 = add i64 %5, 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2320
+  %10 = load ptr, ptr %9, align 16
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %11, label %14
+
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2608
+  %13 = load i32, ptr %12, align 16
+  %.not29 = icmp eq i32 %13, 0
+  br i1 %.not29, label %14, label %22
+
+14:                                               ; preds = %11, %1
+  %15 = tail call zeroext i1 @vfio_opt_rom_in_denylist(ptr noundef nonnull %0) #26
+  br i1 %15, label %16, label %58
+
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %9, align 16
+  %.not35 = icmp eq ptr %17, null
+  br i1 %.not35, label %58, label %18
+
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %20 = load ptr, ptr %19, align 8
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.164, ptr noundef %20) #26
+  %21 = tail call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.165) #26
+  br label %58
+
+22:                                               ; preds = %11
+  store i32 0, ptr %2, align 4, !annotation !4
+  %23 = call i64 @pread64(i32 noundef %8, ptr noundef nonnull %2, i64 noundef 4, i64 noundef %6) #26
+  %.not30 = icmp eq i64 %23, 4
+  br i1 %.not30, label %24, label %30
+
+24:                                               ; preds = %22
+  %25 = call i64 @pwrite64(i32 noundef %8, ptr noundef nonnull %3, i64 noundef 4, i64 noundef %6) #26
+  %.not31 = icmp eq i64 %25, 4
+  br i1 %.not31, label %26, label %30
+
+26:                                               ; preds = %24
+  %27 = call i64 @pread64(i32 noundef %8, ptr noundef nonnull %3, i64 noundef 4, i64 noundef %6) #26
+  %.not32 = icmp eq i64 %27, 4
+  br i1 %.not32, label %28, label %30
+
+28:                                               ; preds = %26
+  %29 = call i64 @pwrite64(i32 noundef %8, ptr noundef nonnull %2, i64 noundef 4, i64 noundef %6) #26
+  %.not33 = icmp eq i64 %29, 4
+  br i1 %.not33, label %33, label %30
+
+30:                                               ; preds = %28, %26, %24, %22
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %32 = load ptr, ptr %31, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.166, ptr noundef nonnull @__func__.vfio_pci_size_rom, ptr noundef %32) #26
+  br label %58
+
+33:                                               ; preds = %28
+  %34 = load i32, ptr %3, align 4
+  %35 = and i32 %34, -2048
+  %36 = sub i32 0, %35
+  store i32 %36, ptr %3, align 4
+  %.not34 = icmp eq i32 %35, 0
+  br i1 %.not34, label %58, label %37
+
+37:                                               ; preds = %33
+  %38 = call zeroext i1 @vfio_opt_rom_in_denylist(ptr noundef nonnull %0) #26
+  br i1 %38, label %39, label %48
+
+39:                                               ; preds = %37
+  %40 = load i32, ptr %12, align 16
+  %41 = icmp sgt i32 %40, 0
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %43 = load ptr, ptr %42, align 8
+  br i1 %41, label %44, label %46
+
+44:                                               ; preds = %39
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.164, ptr noundef %43) #26
+  %45 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.167) #26
+  br label %48
+
+46:                                               ; preds = %39
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.168, ptr noundef %43) #26
+  %47 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.169) #26
+  br label %58
+
+48:                                               ; preds = %44, %37
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i32, ptr %3, align 4
+  call fastcc void @trace_vfio_pci_size_rom(ptr noundef %50, i32 noundef %51)
+  %52 = load ptr, ptr %49, align 8
+  %53 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.170, ptr noundef %52) #26
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2336
+  %55 = load i32, ptr %3, align 4
+  %56 = zext i32 %55 to i64
+  call void @memory_region_init_io(ptr noundef nonnull %54, ptr noundef nonnull %0, ptr noundef nonnull @vfio_rom_ops, ptr noundef nonnull %0, ptr noundef %53, i64 noundef %56) #26
+  call void @g_free(ptr noundef %53) #26
+  call void @pci_register_bar(ptr noundef nonnull %0, i32 noundef 6, i8 noundef zeroext 0, ptr noundef nonnull %54) #26
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 3754
+  store i8 0, ptr %57, align 2
+  br label %58
+
+58:                                               ; preds = %33, %14, %16, %18, %48, %46, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_bars_prepare(ptr noundef captures(none) %0) unnamed_addr #0 {
+  %2 = alloca i32, align 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3032
+  br label %6
+
+6:                                                ; preds = %1, %vfio_bar_prepare.exit
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %vfio_bar_prepare.exit ]
+  %7 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %3, i64 0, i64 %indvars.iv
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #26
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = load i64, ptr %8, align 8
+  %.not.i = icmp eq i64 %9, 0
+  br i1 %.not.i, label %vfio_bar_prepare.exit, label %10
+
+10:                                               ; preds = %6
+  store i32 0, ptr %2, align 4, !annotation !4
+  %11 = load i32, ptr %4, align 8
+  %12 = load i64, ptr %5, align 8
+  %13 = shl nuw nsw i64 %indvars.iv, 2
+  %14 = add nuw nsw i64 %13, 16
+  %15 = add i64 %12, %14
+  %16 = call i64 @pread64(i32 noundef %11, ptr noundef nonnull %2, i64 noundef 4, i64 noundef %15) #26
+  %sext.mask.i = and i64 %16, 4294967295
+  %.not14.i = icmp eq i64 %sext.mask.i, 4
+  br i1 %.not14.i, label %19, label %17
+
+17:                                               ; preds = %10
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.184, i32 noundef range(i32 -2147483648, 6) %18) #26
+  br label %vfio_bar_prepare.exit
+
+19:                                               ; preds = %10
+  %20 = load i32, ptr %2, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 73
+  %22 = trunc i32 %20 to i8
+  %23 = and i8 %22, 1
+  store i8 %23, ptr %21, align 1
+  %24 = and i32 %20, 5
+  %25 = icmp eq i32 %24, 4
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 74
+  %27 = zext i1 %25 to i8
+  store i8 %27, ptr %26, align 2
+  %28 = trunc i32 %20 to i1
+  %29 = select i1 %28, i8 3, i8 15
+  %30 = and i8 %29, %22
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store i8 %30, ptr %31, align 8
+  %32 = load i64, ptr %8, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  store i64 %32, ptr %33, align 8
+  br label %vfio_bar_prepare.exit
+
+vfio_bar_prepare.exit:                            ; preds = %6, %17, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %34, label %6, !llvm.loop !33
+
+34:                                               ; preds = %vfio_bar_prepare.exit
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc noundef zeroext i1 @vfio_msix_early_setup(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = alloca %struct.timeval, align 8
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.vfio_irq_info, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %10 = load i32, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) @__const.vfio_msix_early_setup.irq_info, i64 16, i1 false)
+  %11 = tail call zeroext i8 @pci_find_capability(ptr noundef %0, i8 noundef zeroext 17) #26
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %vfio_pci_relocate_msix.exit, label %12
+
+12:                                               ; preds = %2
+  store i16 0, ptr %5, align 2, !annotation !4
+  store i32 0, ptr %6, align 4, !annotation !4
+  store i32 0, ptr %7, align 4, !annotation !4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3032
+  %14 = load i64, ptr %13, align 8
+  %15 = zext i8 %11 to i64
+  %16 = add nuw nsw i64 %15, 2
+  %17 = add i64 %16, %14
+  %18 = call i64 @pread64(i32 noundef %10, ptr noundef nonnull %5, i64 noundef 2, i64 noundef %17) #26
+  %.not50 = icmp eq i64 %18, 2
+  br i1 %.not50, label %22, label %19
+
+19:                                               ; preds = %12
+  %20 = tail call ptr @__errno_location() #28
+  %21 = load i32, ptr %20, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1567, ptr noundef nonnull @__func__.vfio_msix_early_setup, i32 noundef %21, ptr noundef nonnull @.str.185) #26
+  br label %vfio_pci_relocate_msix.exit
+
+22:                                               ; preds = %12
+  %23 = load i64, ptr %13, align 8
+  %24 = add nuw nsw i64 %15, 4
+  %25 = add i64 %24, %23
+  %26 = call i64 @pread64(i32 noundef %10, ptr noundef nonnull %6, i64 noundef 4, i64 noundef %25) #26
+  %.not51 = icmp eq i64 %26, 4
+  br i1 %.not51, label %30, label %27
+
+27:                                               ; preds = %22
+  %28 = tail call ptr @__errno_location() #28
+  %29 = load i32, ptr %28, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1573, ptr noundef nonnull @__func__.vfio_msix_early_setup, i32 noundef %29, ptr noundef nonnull @.str.186) #26
+  br label %vfio_pci_relocate_msix.exit
+
+30:                                               ; preds = %22
+  %31 = load i64, ptr %13, align 8
+  %32 = add nuw nsw i64 %15, 8
+  %33 = add i64 %32, %31
+  %34 = call i64 @pread64(i32 noundef %10, ptr noundef nonnull %7, i64 noundef 4, i64 noundef %33) #26
+  %.not52 = icmp eq i64 %34, 4
+  br i1 %.not52, label %38, label %35
+
+35:                                               ; preds = %30
+  %36 = tail call ptr @__errno_location() #28
+  %37 = load i32, ptr %36, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1579, ptr noundef nonnull @__func__.vfio_msix_early_setup, i32 noundef %37, ptr noundef nonnull @.str.187) #26
+  br label %vfio_pci_relocate_msix.exit
+
+38:                                               ; preds = %30
+  %39 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #30
+  %40 = load i32, ptr %6, align 4
+  %41 = trunc i32 %40 to i8
+  %42 = and i8 %41, 7
+  store i8 %42, ptr %39, align 8
+  %43 = and i32 %40, -8
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 %43, ptr %44, align 4
+  %45 = load i32, ptr %7, align 4
+  %46 = trunc i32 %45 to i8
+  %47 = and i8 %46, 7
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store i8 %47, ptr %48, align 1
+  %49 = and i32 %45, -8
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i32 %49, ptr %50, align 8
+  %51 = load i16, ptr %5, align 2
+  %52 = and i16 %51, 2047
+  %narrow = add nuw nsw i16 %52, 1
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  store i16 %narrow, ptr %53, align 2
+  %54 = load i32, ptr %9, align 8
+  %55 = call i32 (i32, i64, ...) @ioctl(i32 noundef %54, i64 noundef 15213, ptr noundef nonnull %8) #26
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %38
+  %58 = sub i32 0, %55
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1596, ptr noundef nonnull @__func__.vfio_msix_early_setup, i32 noundef %58, ptr noundef nonnull @.str.188) #26
+  call void @g_free(ptr noundef nonnull %39) #26
+  br label %vfio_pci_relocate_msix.exit
+
+59:                                               ; preds = %38
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %63 = trunc i32 %61 to i8
+  %64 = lshr i8 %63, 3
+  %65 = and i8 %64, 1
+  store i8 %65, ptr %62, align 8
+  %66 = load i32, ptr %50, align 8
+  %67 = zext i32 %66 to i64
+  %68 = load i8, ptr %48, align 1
+  %69 = zext i8 %68 to i64
+  %.idx = mul nuw nsw i64 %69, 88
+  %70 = getelementptr i8, ptr %0, i64 3120
+  %71 = getelementptr i8, ptr %70, i64 %.idx
+  %72 = load i64, ptr %71, align 8
+  %.not53 = icmp ugt i64 %72, %67
+  br i1 %.not53, label %88, label %73
+
+73:                                               ; preds = %59
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 3704
+  %75 = load i32, ptr %74, align 8
+  switch i32 %75, label %vfio_pci_is.exit.thread [
+    i32 5157, label %76
+    i32 7458, label %vfio_pci_is.exit
+  ]
+
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 3708
+  %78 = load i32, ptr %77, align 4
+  %79 = and i32 %78, 65280
+  %80 = icmp eq i32 %79, 22528
+  br i1 %80, label %.sink.split, label %vfio_pci_is.exit.thread
+
+vfio_pci_is.exit:                                 ; preds = %73
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 3708
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %82, 13957
+  br i1 %83, label %.sink.split, label %vfio_pci_is.exit.thread
+
+vfio_pci_is.exit.thread:                          ; preds = %73, %76, %vfio_pci_is.exit
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 3744
+  %85 = load i32, ptr %84, align 16
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %88
+
+87:                                               ; preds = %vfio_pci_is.exit.thread
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1628, ptr noundef nonnull @__func__.vfio_msix_early_setup, ptr noundef nonnull @.str.189) #26
+  call void @g_free(ptr noundef nonnull %39) #26
+  br label %vfio_pci_relocate_msix.exit
+
+.sink.split:                                      ; preds = %vfio_pci_is.exit, %76
+  %.sink = phi i32 [ 4096, %76 ], [ 46080, %vfio_pci_is.exit ]
+  store i32 %.sink, ptr %50, align 8
+  br label %88
+
+88:                                               ; preds = %.sink.split, %vfio_pci_is.exit.thread, %59
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %90 = load ptr, ptr %89, align 8
+  %91 = zext i8 %11 to i32
+  %92 = load i8, ptr %39, align 8
+  %93 = zext i8 %92 to i32
+  %94 = load i32, ptr %44, align 4
+  %95 = zext i32 %94 to i64
+  %96 = load i16, ptr %53, align 2
+  %97 = zext i16 %96 to i32
+  %98 = zext nneg i8 %65 to i32
+  %99 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %99, 0
+  br i1 %.not.i.i, label %trace_vfio_msix_early_setup.exit, label %100, !prof !5
+
+100:                                              ; preds = %88
+  %101 = load i16, ptr @_TRACE_VFIO_MSIX_EARLY_SETUP_DSTATE, align 2
+  %.not11.i.i = icmp eq i16 %101, 0
+  br i1 %.not11.i.i, label %trace_vfio_msix_early_setup.exit, label %102
+
+102:                                              ; preds = %100
+  %103 = load i32, ptr @qemu_loglevel, align 4
+  %104 = and i32 %103, 32768
+  %.not12.i.i = icmp eq i32 %104, 0
+  br i1 %.not12.i.i, label %trace_vfio_msix_early_setup.exit, label %105
+
+105:                                              ; preds = %102
+  %106 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %108, label %114
+
+108:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
+  %109 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %110 = call i32 @qemu_get_thread_id() #26
+  %111 = load i64, ptr %4, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %113 = load i64, ptr %112, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %110, i64 noundef %111, i64 noundef %113, ptr noundef %90, i32 noundef range(i32 1, 256) %91, i32 noundef range(i32 0, 256) %93, i64 noundef range(i64 0, 4294967296) %95, i32 noundef range(i32 0, 65536) %97, i32 noundef %98) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  br label %trace_vfio_msix_early_setup.exit
+
+114:                                              ; preds = %105
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, ptr noundef %90, i32 noundef range(i32 1, 256) %91, i32 noundef range(i32 0, 256) %93, i64 noundef range(i64 0, 4294967296) %95, i32 noundef range(i32 0, 65536) %97, i32 noundef %98) #26
+  br label %trace_vfio_msix_early_setup.exit
+
+trace_vfio_msix_early_setup.exit:                 ; preds = %88, %100, %102, %108, %114
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  store ptr %39, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  %117 = load i8, ptr %39, align 8
+  %118 = zext i8 %117 to i64
+  %119 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %116, i64 0, i64 %118
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 48
+  %122 = load i8, ptr %121, align 8
+  %123 = zext i8 %122 to i32
+  %124 = call zeroext i1 @vfio_has_region_cap(ptr noundef nonnull %120, i32 noundef %123, i16 noundef zeroext 3) #26
+  br i1 %124, label %vfio_pci_fixup_msix_region.exit, label %125
+
+125:                                              ; preds = %trace_vfio_msix_early_setup.exit
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 36
+  %127 = load i32, ptr %126, align 4
+  %.not.i = icmp eq i32 %127, 1
+  br i1 %.not.i, label %128, label %vfio_pci_fixup_msix_region.exit
+
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %119, i64 40
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 280
+  %132 = load i64, ptr %131, align 8
+  %.not76.i = icmp eq i64 %132, 0
+  br i1 %.not76.i, label %133, label %vfio_pci_fixup_msix_region.exit
+
+133:                                              ; preds = %128
+  %134 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %135 = load i64, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 288
+  %137 = load i64, ptr %136, align 16
+  %.not77.i = icmp eq i64 %135, %137
+  br i1 %.not77.i, label %138, label %vfio_pci_fixup_msix_region.exit
+
+138:                                              ; preds = %133
+  %139 = load ptr, ptr %115, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %141 = load i32, ptr %140, align 4
+  %142 = zext i32 %141 to i64
+  %143 = tail call i32 @getpagesize() #28
+  %144 = sext i32 %143 to i64
+  %145 = sub nsw i64 0, %144
+  %146 = and i64 %145, %142
+  %147 = getelementptr inbounds nuw i8, ptr %139, i64 2
+  %148 = load i16, ptr %147, align 2
+  %149 = zext i16 %148 to i64
+  %150 = shl nuw nsw i64 %149, 4
+  %151 = add nsw i64 %142, -1
+  %152 = add nsw i64 %151, %144
+  %153 = add nsw i64 %152, %150
+  %154 = and i64 %153, %145
+  %.not78.i = icmp eq i64 %146, 0
+  %.not79.i = icmp ult i64 %154, %135
+  br i1 %.not78.i, label %155, label %176
+
+155:                                              ; preds = %138
+  br i1 %.not79.i, label %161, label %156
+
+156:                                              ; preds = %155
+  store i32 0, ptr %126, align 4
+  call void @g_free(ptr noundef nonnull %130) #26
+  store ptr null, ptr %129, align 8
+  %157 = load ptr, ptr %89, align 8
+  %158 = load ptr, ptr %115, align 8
+  %159 = load i8, ptr %158, align 8
+  %160 = zext i8 %159 to i32
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %157, i32 noundef %160, i64 noundef 0, i64 noundef 0)
+  br label %vfio_pci_fixup_msix_region.exit
+
+161:                                              ; preds = %155
+  store i64 %154, ptr %131, align 8
+  %162 = load i64, ptr %134, align 8
+  %163 = sub i64 %162, %154
+  %164 = load ptr, ptr %129, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 288
+  store i64 %163, ptr %165, align 16
+  %166 = load ptr, ptr %89, align 8
+  %167 = load ptr, ptr %115, align 8
+  %168 = load i8, ptr %167, align 8
+  %169 = zext i8 %168 to i32
+  %170 = load ptr, ptr %129, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 280
+  %172 = load i64, ptr %171, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 288
+  %174 = load i64, ptr %173, align 16
+  %175 = add i64 %174, %172
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %166, i32 noundef %169, i64 noundef %172, i64 noundef %175)
+  br label %vfio_pci_fixup_msix_region.exit
+
+176:                                              ; preds = %138
+  br i1 %.not79.i, label %188, label %177
+
+177:                                              ; preds = %176
+  store i64 %146, ptr %136, align 16
+  %178 = load ptr, ptr %89, align 8
+  %179 = load ptr, ptr %115, align 8
+  %180 = load i8, ptr %179, align 8
+  %181 = zext i8 %180 to i32
+  %182 = load ptr, ptr %129, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 280
+  %184 = load i64, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 288
+  %186 = load i64, ptr %185, align 16
+  %187 = add i64 %186, %184
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %178, i32 noundef %181, i64 noundef %184, i64 noundef %187)
+  br label %vfio_pci_fixup_msix_region.exit
+
+188:                                              ; preds = %176
+  store i32 2, ptr %126, align 4
+  %189 = call ptr @g_realloc(ptr noundef nonnull %130, i64 noundef 608) #26
+  store ptr %189, ptr %129, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 304
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(304) %190, ptr noundef nonnull align 1 dereferenceable(304) %189, i64 noundef 304, i1 noundef false) #26
+  %191 = load ptr, ptr %129, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 288
+  store i64 %146, ptr %192, align 16
+  %193 = load ptr, ptr %89, align 8
+  %194 = load ptr, ptr %115, align 8
+  %195 = load i8, ptr %194, align 8
+  %196 = zext i8 %195 to i32
+  %197 = load ptr, ptr %129, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 280
+  %199 = load i64, ptr %198, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 288
+  %201 = load i64, ptr %200, align 16
+  %202 = add i64 %201, %199
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %193, i32 noundef %196, i64 noundef %199, i64 noundef %202)
+  %203 = load ptr, ptr %129, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 584
+  store i64 %154, ptr %204, align 8
+  %205 = load i64, ptr %134, align 8
+  %206 = sub i64 %205, %154
+  %207 = load ptr, ptr %129, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 592
+  store i64 %206, ptr %208, align 16
+  %209 = load ptr, ptr %89, align 8
+  %210 = load ptr, ptr %115, align 8
+  %211 = load i8, ptr %210, align 8
+  %212 = zext i8 %211 to i32
+  %213 = load ptr, ptr %129, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 584
+  %215 = load i64, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 592
+  %217 = load i64, ptr %216, align 16
+  %218 = add i64 %217, %215
+  call fastcc void @trace_vfio_msix_fixup(ptr noundef %209, i32 noundef %212, i64 noundef %215, i64 noundef %218)
+  br label %vfio_pci_fixup_msix_region.exit
+
+vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_early_setup.exit, %125, %128, %133, %156, %161, %177, %188
+  %219 = load ptr, ptr %115, align 8
+  %.not.i54 = icmp eq ptr %219, null
+  br i1 %.not.i54, label %vfio_pci_relocate_msix.exit, label %220
+
+220:                                              ; preds = %vfio_pci_fixup_msix_region.exit
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 3744
+  %222 = load i32, ptr %221, align 16
+  %223 = icmp eq i32 %222, 0
+  br i1 %223, label %vfio_pci_relocate_msix.exit, label %224
+
+224:                                              ; preds = %220
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 2
+  %226 = load i16, ptr %225, align 2
+  %227 = zext i16 %226 to i32
+  %228 = shl nuw nsw i32 %227, 4
+  %229 = add nuw nsw i32 %227, 63
+  %230 = lshr i32 %229, 3
+  %231 = and i32 %230, 16376
+  %232 = add nuw nsw i32 %231, %228
+  %233 = zext nneg i32 %232 to i64
+  %234 = tail call i32 @getpagesize() #28
+  %235 = sext i32 %234 to i64
+  %236 = add nsw i64 %235, -1
+  %237 = add nsw i64 %236, %233
+  %238 = sub nsw i64 0, %235
+  %239 = and i64 %237, %238
+  %240 = add nsw i64 %239, -1
+  %241 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %240, i1 false)
+  %.not.i.i55 = icmp eq i64 %241, 0
+  %242 = add nuw nsw i64 %241, 4294967295
+  %243 = and i64 %242, 4294967295
+  %244 = lshr exact i64 -9223372036854775808, %243
+  %.not6.i.i = icmp eq i64 %239, 0
+  %245 = zext i1 %.not6.i.i to i64
+  %.0.i.i = select i1 %.not.i.i55, i64 %245, i64 %244
+  %246 = icmp eq i32 %222, 1
+  br i1 %246, label %247, label %252
+
+247:                                              ; preds = %224
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 3704
+  %249 = load i32, ptr %248, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 3708
+  %251 = load i32, ptr %250, align 4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1477, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.194, i32 noundef %249, i32 noundef %251) #26
+  br label %vfio_pci_relocate_msix.exit
+
+252:                                              ; preds = %224
+  %253 = add i32 %222, -2
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr inbounds [6 x %struct.VFIOBAR], ptr %116, i64 0, i64 %254
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 73
+  %257 = load i8, ptr %256, align 1, !range !6, !noundef !7
+  %258 = trunc nuw i8 %257 to i1
+  br i1 %258, label %259, label %260
+
+259:                                              ; preds = %252
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1487, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.195, i32 noundef %253) #26
+  br label %vfio_pci_relocate_msix.exit
+
+260:                                              ; preds = %252
+  %261 = getelementptr inbounds nuw i8, ptr %255, i64 64
+  %262 = load i64, ptr %261, align 8
+  %263 = icmp eq i64 %262, 0
+  %264 = icmp sgt i32 %253, 0
+  %or.cond.i = and i1 %264, %263
+  br i1 %or.cond.i, label %265, label %273
+
+265:                                              ; preds = %260
+  %266 = add i32 %222, -3
+  %267 = zext nneg i32 %266 to i64
+  %.idx.i = mul nuw nsw i64 %267, 88
+  %268 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx.i
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 74
+  %270 = load i8, ptr %269, align 2, !range !6, !noundef !7
+  %271 = trunc nuw i8 %270 to i1
+  br i1 %271, label %272, label %.thread76.i
+
+272:                                              ; preds = %265
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1495, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.196, i32 noundef %253, i32 noundef %266) #26
+  br label %vfio_pci_relocate_msix.exit
+
+273:                                              ; preds = %260
+  %274 = icmp ugt i64 %262, 1073741824
+  br i1 %274, label %275, label %280
+
+275:                                              ; preds = %273
+  %276 = getelementptr inbounds nuw i8, ptr %255, i64 74
+  %277 = load i8, ptr %276, align 2, !range !6, !noundef !7
+  %278 = trunc nuw i8 %277 to i1
+  br i1 %278, label %.thread77.i, label %279
+
+279:                                              ; preds = %275
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1503, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.197, i32 noundef %253) #26
+  br label %vfio_pci_relocate_msix.exit
+
+280:                                              ; preds = %273
+  br i1 %263, label %.thread76.i, label %.thread77.i
+
+.thread76.i:                                      ; preds = %280, %265
+  %281 = icmp slt i32 %253, 5
+  br i1 %281, label %282, label %291
+
+282:                                              ; preds = %.thread76.i
+  %283 = add nsw i32 %222, -1
+  %284 = sext i32 %283 to i64
+  %.idx74.i = mul nsw i64 %284, 88
+  %285 = getelementptr i8, ptr %116, i64 %.idx74.i
+  %286 = getelementptr i8, ptr %285, i64 64
+  %287 = load i64, ptr %286, align 8
+  %.not75.i = icmp eq i64 %287, 0
+  br i1 %.not75.i, label %288, label %291
+
+288:                                              ; preds = %282
+  %289 = getelementptr inbounds nuw i8, ptr %255, i64 74
+  store i8 1, ptr %289, align 2
+  %290 = getelementptr inbounds nuw i8, ptr %255, i64 72
+  store i8 4, ptr %290, align 8
+  br label %291
+
+291:                                              ; preds = %288, %282, %.thread76.i
+  %292 = getelementptr inbounds nuw i8, ptr %255, i64 72
+  %293 = load i8, ptr %292, align 8
+  %294 = or i8 %293, 8
+  store i8 %294, ptr %292, align 8
+  store i64 %.0.i.i, ptr %261, align 8
+  %295 = load ptr, ptr %115, align 8
+  br label %301
+
+.thread77.i:                                      ; preds = %280, %275
+  %296 = shl i64 %262, 1
+  %297 = shl i64 %.0.i.i, 1
+  %298 = call i64 @llvm.umax.i64(i64 %296, i64 %297)
+  store i64 %298, ptr %261, align 8
+  %299 = lshr exact i64 %298, 1
+  %300 = trunc i64 %299 to i32
+  br label %301
+
+301:                                              ; preds = %.thread77.i, %291
+  %.sink79.i = phi ptr [ %219, %.thread77.i ], [ %295, %291 ]
+  %.sink.i = phi i32 [ %300, %.thread77.i ], [ 0, %291 ]
+  %302 = getelementptr inbounds nuw i8, ptr %.sink79.i, i64 4
+  store i32 %.sink.i, ptr %302, align 4
+  %303 = trunc i32 %253 to i8
+  %304 = load ptr, ptr %115, align 8
+  store i8 %303, ptr %304, align 8
+  %305 = load ptr, ptr %115, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 1
+  store i8 %303, ptr %306, align 1
+  %307 = load ptr, ptr %115, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
+  %309 = load i32, ptr %308, align 4
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 2
+  %311 = load i16, ptr %310, align 2
+  %312 = zext i16 %311 to i32
+  %313 = shl nuw nsw i32 %312, 4
+  %314 = add i32 %313, %309
+  %315 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  store i32 %314, ptr %315, align 8
+  %316 = load ptr, ptr %89, align 8
+  %317 = load ptr, ptr %115, align 8
+  %318 = load i8, ptr %317, align 8
+  %319 = zext i8 %318 to i32
+  %320 = getelementptr inbounds nuw i8, ptr %317, i64 4
+  %321 = load i32, ptr %320, align 4
+  %322 = zext i32 %321 to i64
+  %323 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %323, 0
+  br i1 %.not.i.i.i, label %vfio_pci_relocate_msix.exit, label %324, !prof !5
+
+324:                                              ; preds = %301
+  %325 = load i16, ptr @_TRACE_VFIO_MSIX_RELO_DSTATE, align 2
+  %.not5.i.i.i = icmp eq i16 %325, 0
+  br i1 %.not5.i.i.i, label %vfio_pci_relocate_msix.exit, label %326
+
+326:                                              ; preds = %324
+  %327 = load i32, ptr @qemu_loglevel, align 4
+  %328 = and i32 %327, 32768
+  %.not6.i.i.i = icmp eq i32 %328, 0
+  br i1 %.not6.i.i.i, label %vfio_pci_relocate_msix.exit, label %329
+
+329:                                              ; preds = %326
+  %330 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %331 = trunc nuw i8 %330 to i1
+  br i1 %331, label %332, label %338
+
+332:                                              ; preds = %329
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %333 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %334 = call i32 @qemu_get_thread_id() #26
+  %335 = load i64, ptr %3, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %337 = load i64, ptr %336, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %334, i64 noundef %335, i64 noundef %337, ptr noundef %316, i32 noundef range(i32 0, 256) %319, i64 noundef range(i64 0, 4294967296) %322) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %vfio_pci_relocate_msix.exit
+
+338:                                              ; preds = %329
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, ptr noundef %316, i32 noundef range(i32 0, 256) %319, i64 noundef range(i64 0, 4294967296) %322) #26
+  br label %vfio_pci_relocate_msix.exit
+
+vfio_pci_relocate_msix.exit:                      ; preds = %338, %332, %326, %324, %301, %279, %272, %259, %247, %220, %vfio_pci_fixup_msix_region.exit, %2, %87, %57, %35, %27, %19
+  %.0 = phi i1 [ false, %19 ], [ false, %27 ], [ false, %35 ], [ false, %57 ], [ false, %87 ], [ true, %2 ], [ false, %247 ], [ false, %259 ], [ false, %272 ], [ false, %279 ], [ true, %220 ], [ true, %vfio_pci_fixup_msix_region.exit ], [ true, %301 ], [ true, %324 ], [ true, %326 ], [ true, %332 ], [ true, %338 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #26
+  ret i1 %.0
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_bars_register(ptr noundef %0) unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  br label %4
+
+4:                                                ; preds = %1, %vfio_bar_register.exit
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %vfio_bar_register.exit ]
+  %5 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %7 = load i64, ptr %6, align 8
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %vfio_bar_register.exit, label %8
+
+8:                                                ; preds = %4
+  %9 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0(i64 noundef 272) #30
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr %9, ptr %10, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.200, ptr noundef %11, i32 noundef range(i32 -2147483648, 6) %12) #26
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i64, ptr %6, align 8
+  tail call void @memory_region_init_io(ptr noundef %14, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef %13, i64 noundef %15) #26
+  tail call void @g_free(ptr noundef %13) #26
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %17 = load i64, ptr %16, align 8
+  %.not32.i = icmp eq i64 %17, 0
+  br i1 %.not32.i, label %25, label %18
+
+18:                                               ; preds = %8
+  %19 = load ptr, ptr %10, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %21 = load ptr, ptr %20, align 8
+  tail call void @memory_region_add_subregion(ptr noundef %19, i64 noundef 0, ptr noundef %21) #26
+  %22 = tail call i32 @vfio_region_mmap(ptr noundef nonnull %5) #26
+  %.not33.i = icmp eq i32 %22, 0
+  br i1 %.not33.i, label %25, label %23
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %3, align 8
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.201, ptr noundef %24, i32 noundef range(i32 -2147483648, 6) %12) #26
+  br label %25
+
+25:                                               ; preds = %23, %18, %8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %27 = load i8, ptr %26, align 8
+  %28 = load ptr, ptr %10, align 8
+  tail call void @pci_register_bar(ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 6) %12, i8 noundef zeroext %27, ptr noundef %28) #26
+  br label %vfio_bar_register.exit
+
+vfio_bar_register.exit:                           ; preds = %4, %25
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %29, label %4, !llvm.loop !34
+
+29:                                               ; preds = %vfio_bar_register.exit
+  ret void
+}
+
+declare zeroext i1 @pci_device_set_iommu_device(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc noundef zeroext i1 @vfio_add_capabilities(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %5 = load ptr, ptr %4, align 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %7 = load i8, ptr %6, align 1
+  %8 = and i8 %7, 16
+  %.not = icmp eq i8 %8, 0
+  br i1 %.not, label %vfio_add_ext_cap.exit, label %9
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  %11 = load i8, ptr %10, align 1
+  %.not9 = icmp eq i8 %11, 0
+  br i1 %.not9, label %vfio_add_ext_cap.exit, label %12
+
+12:                                               ; preds = %9
+  %13 = tail call fastcc zeroext i1 @vfio_add_std_cap(ptr noundef nonnull %0, i8 noundef zeroext %11, ptr noundef %1)
+  br i1 %13, label %14, label %vfio_add_ext_cap.exit
+
+14:                                               ; preds = %12
+  %15 = getelementptr i8, ptr %0, i64 1324
+  %.val43.i = load i32, ptr %15, align 4
+  %16 = and i32 %.val43.i, 4
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %vfio_add_ext_cap.exit, label %17
+
+17:                                               ; preds = %14
+  %18 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %19 = tail call ptr @qdev_get_parent_bus(ptr noundef %18) #26
+  %20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %19, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %21 = tail call zeroext i1 @pci_bus_is_express(ptr noundef %20) #26
+  br i1 %21, label %22, label %vfio_add_ext_cap.exit
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %4, align 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 256
+  %.val.i = load i32, ptr %24, align 1
+  %.not38.i = icmp eq i32 %.val.i, 0
+  br i1 %.not38.i, label %vfio_add_ext_cap.exit, label %25
+
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3016
+  %27 = load i32, ptr %26, align 8
+  %28 = tail call ptr @g_memdup(ptr noundef nonnull %23, i32 noundef %27) #32
+  %29 = load ptr, ptr %4, align 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 256
+  store i32 65535, ptr %30, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %32 = load ptr, ptr %31, align 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 256
+  store i32 0, ptr %33, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 3024
+  %35 = load ptr, ptr %34, align 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 256
+  store i32 -1, ptr %36, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %39
+
+39:                                               ; preds = %trace_vfio_add_ext_cap_dropped.exit.i, %25
+  %.050.i = phi i16 [ 256, %25 ], [ %120, %trace_vfio_add_ext_cap_dropped.exit.i ]
+  %40 = zext nneg i16 %.050.i to i64
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 %40
+  %.val41.i = load i32, ptr %41, align 1
+  %42 = lshr i32 %.val41.i, 16
+  br label %43
+
+43:                                               ; preds = %43, %39
+  %.012.i.i = phi i16 [ 4096, %39 ], [ %.1.i.i, %43 ]
+  %.0911.i.i = phi i16 [ 256, %39 ], [ %50, %43 ]
+  %44 = icmp samesign ugt i16 %.0911.i.i, %.050.i
+  %45 = tail call i16 @llvm.umin.i16(i16 %.0911.i.i, i16 %.012.i.i)
+  %.1.i.i = select i1 %44, i16 %45, i16 %.012.i.i
+  %46 = zext nneg i16 %.0911.i.i to i64
+  %47 = getelementptr inbounds nuw i8, ptr %28, i64 %46
+  %.val.i.i = load i32, ptr %47, align 1
+  %48 = lshr i32 %.val.i.i, 20
+  %49 = trunc nuw nsw i32 %48 to i16
+  %50 = and i16 %49, 4092
+  %.not.i.i = icmp eq i16 %50, 0
+  br i1 %.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %43, !llvm.loop !35
+
+vfio_ext_cap_max_size.exit.i:                     ; preds = %43
+  %51 = trunc i32 %42 to i8
+  %52 = trunc i32 %.val41.i to i16
+  %53 = and i8 %51, 15
+  %54 = sub nsw i16 %.1.i.i, %.050.i
+  %55 = load ptr, ptr %34, align 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %40
+  %.val.i45.i = load i32, ptr %56, align 1
+  %57 = or i32 %.val.i45.i, -4194304
+  store i32 %57, ptr %56, align 1
+  switch i16 %52, label %117 [
+    i16 0, label %58
+    i16 16, label %58
+    i16 14, label %58
+    i16 21, label %79
+  ]
+
+58:                                               ; preds = %vfio_ext_cap_max_size.exit.i, %vfio_ext_cap_max_size.exit.i, %vfio_ext_cap_max_size.exit.i
+  %59 = load ptr, ptr %37, align 8
+  %60 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %60, 0
+  br i1 %.not.i.i.i, label %trace_vfio_add_ext_cap_dropped.exit.i, label %61, !prof !5
+
+61:                                               ; preds = %58
+  %62 = load i16, ptr @_TRACE_VFIO_ADD_EXT_CAP_DROPPED_DSTATE, align 2
+  %.not5.i.i.i = icmp eq i16 %62, 0
+  br i1 %.not5.i.i.i, label %trace_vfio_add_ext_cap_dropped.exit.i, label %63
+
+63:                                               ; preds = %61
+  %64 = load i32, ptr @qemu_loglevel, align 4
+  %65 = and i32 %64, 32768
+  %.not6.i.i.i = icmp eq i32 %65, 0
+  br i1 %.not6.i.i.i, label %trace_vfio_add_ext_cap_dropped.exit.i, label %66
+
+66:                                               ; preds = %63
+  %67 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %76
+
+69:                                               ; preds = %66
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %70 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %71 = tail call i32 @qemu_get_thread_id() #26
+  %72 = load i64, ptr %3, align 8
+  %73 = load i64, ptr %38, align 8
+  %74 = and i32 %.val41.i, 65535
+  %75 = zext nneg i16 %.050.i to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.217, i32 noundef %71, i64 noundef %72, i64 noundef %73, ptr noundef %59, i32 noundef %74, i32 noundef %75) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %trace_vfio_add_ext_cap_dropped.exit.i
+
+76:                                               ; preds = %66
+  %77 = and i32 %.val41.i, 65535
+  %78 = zext nneg i16 %.050.i to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, ptr noundef %59, i32 noundef %77, i32 noundef %78) #26
+  br label %trace_vfio_add_ext_cap_dropped.exit.i
+
+79:                                               ; preds = %vfio_ext_cap_max_size.exit.i
+  %80 = load ptr, ptr %4, align 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %40
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %.val25.i.i = load i32, ptr %82, align 1
+  %83 = lshr i32 %.val25.i.i, 5
+  %84 = and i32 %83, 7
+  %.not.i46.i = icmp eq i32 %84, 0
+  br i1 %.not.i46.i, label %.loopexit.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %79
+  %85 = zext nneg i16 %.050.i to i32
+  %86 = add nuw nsw i32 %85, 4
+  %87 = add nuw nsw i32 %85, 8
+  %88 = zext nneg i32 %87 to i64
+  %89 = zext nneg i32 %86 to i64
+  %wide.trip.count.i.i = zext nneg i32 %84 to i64
+  br label %90
+
+90:                                               ; preds = %102, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %102 ]
+  %91 = load ptr, ptr %4, align 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %40
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = shl i64 %indvars.iv.i.i, 3
+  %95 = getelementptr inbounds i8, ptr %93, i64 %94
+  %.val.i47.i = load i32, ptr %95, align 1
+  %96 = lshr i32 %.val.i47.i, 8
+  %97 = and i32 %96, 31
+  %98 = icmp samesign ult i32 %97, 28
+  %99 = shl nuw i32 16, %97
+  %100 = select i1 %98, i32 %99, i32 0
+  %101 = and i32 %100, 16777200
+  %.not.not.i.i = icmp eq i32 %101, 0
+  br i1 %.not.not.i.i, label %trace_vfio_add_ext_cap_dropped.exit.i, label %102
+
+102:                                              ; preds = %90
+  %103 = and i32 %.val.i47.i, 8167
+  %104 = add nuw nsw i64 %94, %89
+  %105 = getelementptr inbounds i8, ptr %91, i64 %104
+  store i32 %100, ptr %105, align 1
+  %106 = load ptr, ptr %31, align 16
+  %107 = getelementptr inbounds i8, ptr %106, i64 %104
+  store i32 0, ptr %107, align 1
+  %108 = load ptr, ptr %34, align 16
+  %109 = getelementptr inbounds i8, ptr %108, i64 %104
+  store i32 -1, ptr %109, align 1
+  %110 = add nuw nsw i64 %94, %88
+  %111 = load ptr, ptr %4, align 16
+  %112 = getelementptr inbounds i8, ptr %111, i64 %110
+  store i32 %103, ptr %112, align 1
+  %113 = load ptr, ptr %31, align 16
+  %114 = getelementptr inbounds i8, ptr %113, i64 %110
+  store i32 0, ptr %114, align 1
+  %115 = load ptr, ptr %34, align 16
+  %116 = getelementptr inbounds i8, ptr %115, i64 %110
+  store i32 -1, ptr %116, align 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %90, !llvm.loop !36
+
+.loopexit.i:                                      ; preds = %102, %79
+  tail call void @pcie_add_capability(ptr noundef nonnull %0, i16 noundef zeroext 21, i8 noundef zeroext %53, i16 noundef zeroext %.050.i, i16 noundef zeroext %54) #26
+  br label %trace_vfio_add_ext_cap_dropped.exit.i
+
+117:                                              ; preds = %vfio_ext_cap_max_size.exit.i
+  tail call void @pcie_add_capability(ptr noundef nonnull %0, i16 noundef zeroext %52, i8 noundef zeroext %53, i16 noundef zeroext %.050.i, i16 noundef zeroext %54) #26
+  br label %trace_vfio_add_ext_cap_dropped.exit.i
+
+trace_vfio_add_ext_cap_dropped.exit.i:            ; preds = %90, %117, %.loopexit.i, %76, %69, %63, %61, %58
+  %.val42.i = load i32, ptr %41, align 1
+  %118 = lshr i32 %.val42.i, 20
+  %119 = trunc nuw nsw i32 %118 to i16
+  %120 = and i16 %119, 4092
+  %.not39.i = icmp eq i16 %120, 0
+  br i1 %.not39.i, label %121, label %39, !llvm.loop !37
+
+121:                                              ; preds = %trace_vfio_add_ext_cap_dropped.exit.i
+  %122 = load ptr, ptr %4, align 16
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 256
+  %.val44.i = load i16, ptr %123, align 1
+  %124 = icmp eq i16 %.val44.i, -1
+  br i1 %124, label %125, label %126
+
+125:                                              ; preds = %121
+  store i16 0, ptr %123, align 1
+  br label %126
+
+126:                                              ; preds = %125, %121
+  tail call void @g_free(ptr noundef nonnull %28) #26
+  br label %vfio_add_ext_cap.exit
+
+vfio_add_ext_cap.exit:                            ; preds = %126, %22, %17, %14, %12, %2, %9
+  %.0 = phi i1 [ true, %9 ], [ true, %2 ], [ false, %12 ], [ true, %14 ], [ true, %17 ], [ true, %22 ], [ true, %126 ]
+  ret i1 %.0
+}
+
+declare void @vfio_vga_quirk_setup(ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_bar_quirk_setup(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @vfio_get_dev_region_info(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_pci_igd_opregion_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc noundef ptr @timer_new_ms(ptr noundef %0) unnamed_addr #21 {
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #30
+  tail call void @timer_init_full(ptr noundef %2, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @vfio_intx_mmap_enable, ptr noundef %0) #26
+  ret ptr %2
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_intx_mmap_enable(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2968
+  %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %14
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3008
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #26
+  %9 = sdiv i64 %8, 1000000
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3004
+  %11 = load i32, ptr %10, align 4
+  %12 = zext i32 %11 to i64
+  %13 = add nsw i64 %9, %12
+  tail call void @timer_mod(ptr noundef %7, i64 noundef %13) #26
+  br label %vfio_mmap_set_enabled.exit
+
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  br label %16
+
+16:                                               ; preds = %16, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %16 ]
+  %17 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %15, i64 0, i64 %indvars.iv.i
+  tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %17, i1 noundef zeroext true) #26
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %vfio_mmap_set_enabled.exit, label %16, !llvm.loop !25
+
+vfio_mmap_set_enabled.exit:                       ; preds = %16, %5
+  ret void
+}
+
+declare void @pci_device_set_intx_routing_notifier(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_intx_routing_notifier(ptr noundef %0) #0 {
+  %2 = alloca %struct.PCIINTxRoute, align 8
+  %3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3092
+  %5 = load i32, ptr %4, align 4
+  %.not = icmp eq i32 %5, 1
+  br i1 %.not, label %6, label %14
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2970
+  %8 = load i8, ptr %7, align 2
+  %9 = zext i8 %8 to i32
+  %10 = tail call i64 @pci_device_route_intx_to_irq(ptr noundef nonnull %3, i32 noundef %9) #26
+  store i64 %10, ptr %2, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2996
+  %12 = call zeroext i1 @pci_intx_route_changed(ptr noundef nonnull %11, ptr noundef nonnull %2) #26
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %6
+  call fastcc void @vfio_intx_update(ptr noundef nonnull %3, ptr noundef nonnull %2)
+  br label %14
+
+14:                                               ; preds = %6, %13, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_irqchip_change(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 -3784
+  %4 = getelementptr inbounds i8, ptr %0, i64 -788
+  tail call fastcc void @vfio_intx_update(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  ret void
+}
+
+declare void @kvm_irqchip_add_change_notifier(ptr noundef) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_display_probe(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @warn_report(ptr noundef, ...) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_migration_realize(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_register_err_notifier(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3750
+  %4 = load i8, ptr %3, align 2, !range !6, !noundef !7
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %18
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3672
+  %8 = tail call i32 @event_notifier_init(ptr noundef nonnull %7, i32 noundef 0) #26
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %10, label %9
+
+9:                                                ; preds = %6
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.221) #26
+  br label %.sink.split
+
+10:                                               ; preds = %6
+  %11 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %7) #26
+  tail call void @qemu_set_fd_handler(i32 noundef %11, ptr noundef nonnull @vfio_err_notifier_handler, ptr noundef null, ptr noundef nonnull %0) #26
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  %13 = call zeroext i1 @vfio_set_irq_signaling(ptr noundef nonnull %12, i32 noundef 3, i32 noundef 0, i32 noundef 32, i32 noundef %11, ptr noundef nonnull %2) #26
+  br i1 %13, label %18, label %14
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %17 = load ptr, ptr %16, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %15, ptr noundef nonnull @.str.7, ptr noundef %17) #26
+  call void @qemu_set_fd_handler(i32 noundef %11, ptr noundef null, ptr noundef null, ptr noundef nonnull %0) #26
+  call void @event_notifier_cleanup(ptr noundef nonnull %7) #26
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %9, %14
+  store i8 0, ptr %3, align 2
+  br label %18
+
+18:                                               ; preds = %.sink.split, %10, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_register_req_notifier(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.vfio_irq_info, align 4
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) @__const.vfio_register_req_notifier.irq_info, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  store ptr null, ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3720
+  %5 = load i32, ptr %4, align 8
+  %6 = and i32 %5, 2
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %29, label %7
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %10 = load i32, ptr %9, align 8
+  %11 = call i32 (i32, i64, ...) @ioctl(i32 noundef %10, i64 noundef 15213, ptr noundef nonnull %2) #26
+  %12 = icmp slt i32 %11, 0
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 0
+  %or.cond = select i1 %12, i1 true, i1 %15
+  br i1 %or.cond, label %29, label %16
+
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 3684
+  %18 = call i32 @event_notifier_init(ptr noundef nonnull %17, i32 noundef 0) #26
+  %.not14 = icmp eq i32 %18, 0
+  br i1 %.not14, label %20, label %19
+
+19:                                               ; preds = %16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.223) #26
+  br label %29
+
+20:                                               ; preds = %16
+  %21 = call i32 @event_notifier_get_fd(ptr noundef nonnull %17) #26
+  call void @qemu_set_fd_handler(i32 noundef %21, ptr noundef nonnull @vfio_req_notifier_handler, ptr noundef null, ptr noundef nonnull %0) #26
+  %22 = call zeroext i1 @vfio_set_irq_signaling(ptr noundef nonnull %8, i32 noundef 4, i32 noundef 0, i32 noundef 32, i32 noundef %21, ptr noundef nonnull %3) #26
+  br i1 %22, label %27, label %23
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %26 = load ptr, ptr %25, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %24, ptr noundef nonnull @.str.7, ptr noundef %26) #26
+  call void @qemu_set_fd_handler(i32 noundef %21, ptr noundef null, ptr noundef null, ptr noundef nonnull %0) #26
+  call void @event_notifier_cleanup(ptr noundef nonnull %17) #26
+  br label %29
+
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3751
+  store i8 1, ptr %28, align 1
+  br label %29
+
+29:                                               ; preds = %23, %27, %7, %1, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  ret void
+}
+
+declare void @vfio_setup_resetfn_quirk(ptr noundef) local_unnamed_addr #4
+
+declare void @kvm_irqchip_remove_change_notifier(ptr noundef) local_unnamed_addr #4
+
+declare void @pci_device_unset_iommu_device(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_teardown_msi(ptr noundef %0) unnamed_addr #0 {
+  tail call void @msi_uninit(ptr noundef %0) #26
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %3 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %20, label %4
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  %6 = load i8, ptr %3, align 8
+  %7 = zext i8 %6 to i64
+  %.idx = mul nuw nsw i64 %7, 88
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i64
+  %.idx8 = mul nuw nsw i64 %13, 88
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8
+  tail call void @msix_uninit(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %16) #26
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  tail call void @g_free(ptr noundef %19) #26
+  br label %20
+
+20:                                               ; preds = %4, %1
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_bars_exit(ptr noundef %0) unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  br label %3
+
+3:                                                ; preds = %1, %13
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
+  %4 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %2, i64 0, i64 %indvars.iv
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @vfio_bar_quirk_exit(ptr noundef %0, i32 noundef %5) #26
+  tail call void @vfio_region_exit(ptr noundef nonnull %4) #26
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %7 = load i64, ptr %6, align 8
+  %.not12 = icmp eq i64 %7, 0
+  br i1 %.not12, label %13, label %8
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = load ptr, ptr %11, align 8
+  tail call void @memory_region_del_subregion(ptr noundef %10, ptr noundef %12) #26
+  br label %13
+
+13:                                               ; preds = %8, %3
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %14, label %3, !llvm.loop !32
+
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3624
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %18, label %17
+
+17:                                               ; preds = %14
+  tail call void @pci_unregister_vga(ptr noundef nonnull %0) #26
+  tail call void @vfio_vga_quirk_exit(ptr noundef nonnull %0) #26
+  br label %18
+
+18:                                               ; preds = %17, %14
+  ret void
+}
+
+declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @vfio_region_setup(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc void @trace_vfio_populate_device_get_irq_info_failure(ptr noundef %0) unnamed_addr #21 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %_nocheck__trace_vfio_populate_device_get_irq_info_failure.exit, label %4, !prof !5
+
+4:                                                ; preds = %1
+  %5 = load i16, ptr @_TRACE_VFIO_POPULATE_DEVICE_GET_IRQ_INFO_FAILURE_DSTATE, align 2
+  %.not2.i = icmp eq i16 %5, 0
+  br i1 %.not2.i, label %_nocheck__trace_vfio_populate_device_get_irq_info_failure.exit, label %6
+
+6:                                                ; preds = %4
+  %7 = load i32, ptr @qemu_loglevel, align 4
+  %8 = and i32 %7, 32768
+  %.not3.i = icmp eq i32 %8, 0
+  br i1 %.not3.i, label %_nocheck__trace_vfio_populate_device_get_irq_info_failure.exit, label %9
+
+9:                                                ; preds = %6
+  %10 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %12, label %18
+
+12:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %13 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %14 = tail call i32 @qemu_get_thread_id() #26
+  %15 = load i64, ptr %2, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load i64, ptr %16, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.154, i32 noundef %14, i64 noundef %15, i64 noundef %17, ptr noundef %0) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %_nocheck__trace_vfio_populate_device_get_irq_info_failure.exit
+
+18:                                               ; preds = %9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.155, ptr noundef %0) #26
+  br label %_nocheck__trace_vfio_populate_device_get_irq_info_failure.exit
+
+_nocheck__trace_vfio_populate_device_get_irq_info_failure.exit: ; preds = %1, %4, %6, %12, %18
+  ret void
+}
+
+; Function Attrs: nounwind
+declare ptr @strerror(i32 noundef) local_unnamed_addr #11
+
+declare zeroext i1 @vfio_opt_rom_in_denylist(ptr noundef) local_unnamed_addr #4
+
+declare i32 @error_printf(ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc void @trace_vfio_pci_size_rom(ptr noundef %0, i32 noundef %1) unnamed_addr #21 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %_nocheck__trace_vfio_pci_size_rom.exit, label %5, !prof !5
+
+5:                                                ; preds = %2
+  %6 = load i16, ptr @_TRACE_VFIO_PCI_SIZE_ROM_DSTATE, align 2
+  %.not3.i = icmp eq i16 %6, 0
+  br i1 %.not3.i, label %_nocheck__trace_vfio_pci_size_rom.exit, label %7
+
+7:                                                ; preds = %5
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %9 = and i32 %8, 32768
+  %.not4.i = icmp eq i32 %9, 0
+  br i1 %.not4.i, label %_nocheck__trace_vfio_pci_size_rom.exit, label %10
+
+10:                                               ; preds = %7
+  %11 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %19
+
+13:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %15 = tail call i32 @qemu_get_thread_id() #26
+  %16 = load i64, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = load i64, ptr %17, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.171, i32 noundef %15, i64 noundef %16, i64 noundef %18, ptr noundef %0, i32 noundef %1) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %_nocheck__trace_vfio_pci_size_rom.exit
+
+19:                                               ; preds = %10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.172, ptr noundef %0, i32 noundef %1) #26
+  br label %_nocheck__trace_vfio_pci_size_rom.exit
+
+_nocheck__trace_vfio_pci_size_rom.exit:           ; preds = %2, %5, %7, %13, %19
+  ret void
+}
+
+declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal range(i64 0, 4294967296) i64 @vfio_rom_read(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = alloca %union.anon.25, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3056
+  %7 = load ptr, ptr %6, align 16
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %.critedge
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3754
+  %10 = load i8, ptr %9, align 2, !range !6, !noundef !7
+  %11 = trunc nuw i8 %10 to i1
+  %12 = xor i1 %11, true
+  tail call void @llvm.assume(i1 %12)
+  tail call fastcc void @vfio_pci_load_rom(ptr noundef nonnull %0)
+  %.pre = load ptr, ptr %6, align 16
+  br label %.critedge
+
+.critedge:                                        ; preds = %3, %8
+  %13 = phi ptr [ %7, %3 ], [ %.pre, %8 ]
+  store i64 0, ptr %5, align 8, !annotation !4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3040
+  %16 = load i32, ptr %15, align 16
+  %17 = zext i32 %16 to i64
+  %18 = icmp ult i64 %1, %17
+  %19 = zext i32 %2 to i64
+  %20 = sub nuw nsw i64 %17, %1
+  %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 %19)
+  %22 = select i1 %18, i64 %21, i64 0
+  %23 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %14, i64 noundef range(i64 -4294967294, 4294967296) %22, i64 noundef 8) #26, !alias.scope !38
+  switch i32 %2, label %33 [
+    i32 1, label %24
+    i32 2, label %27
+    i32 4, label %30
+  ]
+
+24:                                               ; preds = %.critedge
+  %25 = load i8, ptr %5, align 8
+  %26 = zext i8 %25 to i64
+  br label %34
+
+27:                                               ; preds = %.critedge
+  %28 = load i16, ptr %5, align 8
+  %29 = zext i16 %28 to i64
+  br label %34
+
+30:                                               ; preds = %.critedge
+  %31 = load i32, ptr %5, align 8
+  %32 = zext i32 %31 to i64
+  br label %34
+
+33:                                               ; preds = %.critedge
+  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.174, i32 noundef %2) #27
   unreachable
 
-do.end:                                           ; preds = %entry
-  %1 = lshr i16 %entry1, 3
-  %2 = and i16 %1, 8188
-  %conv5 = zext nneg i16 %2 to i64
-  %3 = and i16 %entry1, 31
-  %conv2 = zext nneg i16 %3 to i32
-  %msix_pba_bar = getelementptr inbounds nuw i8, ptr %dev, i64 32
-  %msix_pba_off = getelementptr inbounds nuw i8, ptr %dev, i64 56
-  %4 = load i64, ptr %msix_pba_off, align 8
-  %add = add i64 %4, %conv5
-  %5 = load i64, ptr %msix_pba_bar, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %dev, i64 40
-  %7 = load i8, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
-  %8 = load ptr, ptr %dev, align 8
-  %tobool.i = trunc i8 %7 to i1
-  %add.i = add i64 %add, %5
-  %conv.i = trunc i64 %add.i to i32
-  br i1 %tobool.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %do.end
-  %pio_readl.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %9 = load ptr, ptr %pio_readl.i, align 8
-  %call.i = tail call i32 %9(ptr noundef %8, i32 noundef %conv.i) #11
-  br label %qpci_io_readl.exit
-
-if.else.i:                                        ; preds = %do.end
-  %memread.i = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %10 = load ptr, ptr %memread.i, align 8
-  call void %10(ptr noundef %8, i32 noundef %conv.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
-  %11 = load i32, ptr %val.i, align 4
-  br label %qpci_io_readl.exit
-
-qpci_io_readl.exit:                               ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %11, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
-  %12 = load i64, ptr %msix_pba_off, align 8
-  %add8 = add i64 %12, %conv5
-  %shl = shl nuw i32 1, %conv2
-  %not = xor i32 %shl, -1
-  %and = and i32 %retval.0.i, %not
-  %13 = load i64, ptr %msix_pba_bar, align 8
-  %14 = load i8, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
-  %15 = load ptr, ptr %dev, align 8
-  %tobool.i11 = trunc i8 %14 to i1
-  br i1 %tobool.i11, label %if.then.i13, label %if.else.i12
-
-if.then.i13:                                      ; preds = %qpci_io_readl.exit
-  %pio_writel.i = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %16 = load ptr, ptr %pio_writel.i, align 8
-  %add.i14 = add i64 %add8, %13
-  %conv.i15 = trunc i64 %add.i14 to i32
-  call void %16(ptr noundef %15, i32 noundef %conv.i15, i32 noundef %and) #11
-  br label %qpci_io_writel.exit
-
-if.else.i12:                                      ; preds = %qpci_io_readl.exit
-  store i32 %and, ptr %value.addr.i, align 4
-  %memwrite.i = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %17 = load ptr, ptr %memwrite.i, align 8
-  %add3.i = add i64 %add8, %13
-  %conv4.i = trunc i64 %add3.i to i32
-  call void %17(ptr noundef %15, i32 noundef %conv4.i, ptr noundef nonnull %value.addr.i, i64 noundef 4) #11
-  br label %qpci_io_writel.exit
-
-qpci_io_writel.exit:                              ; preds = %if.then.i13, %if.else.i12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
-  %and12 = and i32 %retval.0.i, %shl
-  %cmp = icmp ne i32 %and12, 0
-  ret i1 %cmp
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qpci_io_readl(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
-entry:
-  %val = alloca i32, align 4
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %pio_readl = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %pio_readl, align 8
-  %call = tail call i32 %1(ptr noundef %0, i32 noundef %conv) #11
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %2 = load ptr, ptr %memread, align 8
-  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %val, i64 noundef 4) #11
-  %3 = load i32, ptr %val, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %3, %if.else ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writel(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i32 noundef %value) local_unnamed_addr #0 {
-entry:
-  %value.addr = alloca i32, align 4
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %pio_writel = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1 = load ptr, ptr %pio_writel, align 8
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  tail call void %1(ptr noundef %0, i32 noundef %conv, i32 noundef %value) #11
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  store i32 %value, ptr %value.addr, align 4
-  %memwrite = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %2 = load ptr, ptr %memwrite, align 8
-  %add3 = add i64 %off, %token.coerce0
-  %conv4 = trunc i64 %add3 to i32
-  call void %2(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 4) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qpci_msix_masked(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
-entry:
-  %val.i = alloca i32, align 4
-  %msix_table_off = getelementptr inbounds nuw i8, ptr %dev, i64 48
-  %0 = load i64, ptr %msix_table_off, align 8
-  %conv = zext i16 %entry1 to i64
-  %mul = shl nuw nsw i64 %conv, 4
-  %msix_enabled = getelementptr inbounds nuw i8, ptr %dev, i64 12
-  %1 = load i8, ptr %msix_enabled, align 4
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %do.end, label %if.else
-
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.qpci_msix_masked, ptr noundef nonnull @.str.10) #12
-  unreachable
-
-do.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %3 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %4 = load i32, ptr %devfn.i11.i, align 8
-  %call.i12.i = tail call zeroext i8 %3(ptr noundef %2, i32 noundef %4, i8 noundef zeroext 52) #11
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.cond.i, %do.end
-  %addr.1.i = phi i8 [ %call.i12.i, %do.end ], [ %call.i18.i, %do.cond.i ]
-  %5 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %6 = load ptr, ptr %config_readb.i13.i, align 8
-  %7 = load i32, ptr %devfn.i11.i, align 8
-  %call.i15.i = tail call zeroext i8 %6(ptr noundef %5, i32 noundef %7, i8 noundef zeroext %addr.1.i) #11
-  %cmp.not.i = icmp eq i8 %call.i15.i, 17
-  br i1 %cmp.not.i, label %qpci_find_capability.exit, label %do.cond.i
-
-do.cond.i:                                        ; preds = %do.body.i
-  %add9.i = add i8 %addr.1.i, 1
-  %8 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %9 = load ptr, ptr %config_readb.i16.i, align 8
-  %10 = load i32, ptr %devfn.i11.i, align 8
-  %call.i18.i = tail call zeroext i8 %9(ptr noundef %8, i32 noundef %10, i8 noundef zeroext %add9.i) #11
-  %cmp18.not.i = icmp eq i8 %call.i18.i, 0
-  br i1 %cmp18.not.i, label %if.else7, label %do.body.i, !llvm.loop !9
-
-qpci_find_capability.exit:                        ; preds = %do.body.i
-  %cmp.not = icmp eq i8 %addr.1.i, 0
-  br i1 %cmp.not, label %if.else7, label %do.end11
-
-if.else7:                                         ; preds = %do.cond.i, %qpci_find_capability.exit
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__func__.qpci_msix_masked, ptr noundef nonnull @.str.8, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #11
-  br label %do.end11
-
-do.end11:                                         ; preds = %if.else7, %qpci_find_capability.exit
-  %addr.221.i12 = phi i8 [ 0, %if.else7 ], [ %addr.1.i, %qpci_find_capability.exit ]
-  %add13 = add i8 %addr.221.i12, 2
-  %11 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %12 = load ptr, ptr %config_readw.i, align 8
-  %13 = load i32, ptr %devfn.i11.i, align 8
-  %call.i = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext %add13) #11
-  %14 = and i16 %call.i, 16384
-  %tobool17.not = icmp eq i16 %14, 0
-  br i1 %tobool17.not, label %if.else19, label %return
-
-if.else19:                                        ; preds = %do.end11
-  %msix_table_bar = getelementptr inbounds nuw i8, ptr %dev, i64 16
-  %15 = load i64, ptr %msix_table_bar, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %dev, i64 24
-  %17 = load i8, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i)
-  %18 = load ptr, ptr %dev, align 8
-  %tobool.i = trunc i8 %17 to i1
-  %add = or disjoint i64 %mul, 12
-  %add20 = add i64 %add, %0
-  %add.i = add i64 %add20, %15
-  %conv.i = trunc i64 %add.i to i32
-  br i1 %tobool.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.else19
-  %pio_readl.i = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %19 = load ptr, ptr %pio_readl.i, align 8
-  %call.i9 = tail call i32 %19(ptr noundef %18, i32 noundef %conv.i) #11
-  br label %qpci_io_readl.exit
-
-if.else.i:                                        ; preds = %if.else19
-  %memread.i = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %20 = load ptr, ptr %memread.i, align 8
-  call void %20(ptr noundef %18, i32 noundef %conv.i, ptr noundef nonnull %val.i, i64 noundef 4) #11
-  %21 = load i32, ptr %val.i, align 4
-  br label %qpci_io_readl.exit
-
-qpci_io_readl.exit:                               ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i32 [ %call.i9, %if.then.i ], [ %21, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
-  %and22 = and i32 %retval.0.i, 1
-  %cmp23 = icmp ne i32 %and22, 0
-  br label %return
-
-return:                                           ; preds = %do.end11, %qpci_io_readl.exit
-  %retval.0 = phi i1 [ %cmp23, %qpci_io_readl.exit ], [ true, %do.end11 ]
-  ret i1 %retval.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 1, 2049) i16 @qpci_msix_table_size(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_readb.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1 = load ptr, ptr %config_readb.i10.i, align 8
-  %devfn.i11.i = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn.i11.i, align 8
-  %call.i12.i = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext 52) #11
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.cond.i, %entry
-  %addr.1.i = phi i8 [ %call.i12.i, %entry ], [ %call.i18.i, %do.cond.i ]
-  %3 = load ptr, ptr %dev, align 8
-  %config_readb.i13.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %4 = load ptr, ptr %config_readb.i13.i, align 8
-  %5 = load i32, ptr %devfn.i11.i, align 8
-  %call.i15.i = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext %addr.1.i) #11
-  %cmp.not.i = icmp eq i8 %call.i15.i, 17
-  br i1 %cmp.not.i, label %qpci_find_capability.exit, label %do.cond.i
-
-do.cond.i:                                        ; preds = %do.body.i
-  %add9.i = add i8 %addr.1.i, 1
-  %6 = load ptr, ptr %dev, align 8
-  %config_readb.i16.i = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %7 = load ptr, ptr %config_readb.i16.i, align 8
-  %8 = load i32, ptr %devfn.i11.i, align 8
-  %call.i18.i = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %add9.i) #11
-  %cmp18.not.i = icmp eq i8 %call.i18.i, 0
-  br i1 %cmp18.not.i, label %if.else, label %do.body.i, !llvm.loop !9
-
-qpci_find_capability.exit:                        ; preds = %do.body.i
-  %cmp.not = icmp eq i8 %addr.1.i, 0
-  br i1 %cmp.not, label %if.else, label %do.end
-
-if.else:                                          ; preds = %do.cond.i, %qpci_find_capability.exit
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.qpci_msix_table_size, ptr noundef nonnull @.str.8, x86_fp80 noundef 0xK00000000000000000000, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 120) #11
-  br label %do.end
-
-do.end:                                           ; preds = %if.else, %qpci_find_capability.exit
-  %addr.221.i7 = phi i8 [ 0, %if.else ], [ %addr.1.i, %qpci_find_capability.exit ]
-  %add = add i8 %addr.221.i7, 2
-  %9 = load ptr, ptr %dev, align 8
-  %config_readw.i = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %10 = load ptr, ptr %config_readw.i, align 8
-  %11 = load i32, ptr %devfn.i11.i, align 8
-  %call.i = tail call zeroext i16 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add) #11
-  %12 = and i16 %call.i, 2047
-  %narrow = add nuw nsw i16 %12, 1
-  ret i16 %narrow
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_config_writeb(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset, i8 noundef zeroext %value) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_writeb = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %1 = load ptr, ptr %config_writeb, align 8
-  %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn, align 8
-  tail call void %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset, i8 noundef zeroext %value) #11
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_config_writel(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset, i32 noundef %value) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %dev, align 8
-  %config_writel = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %1 = load ptr, ptr %config_writel, align 8
-  %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn, align 8
-  tail call void %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %offset, i32 noundef %value) #11
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @qpci_io_readb(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
-entry:
-  %val = alloca i8, align 1
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %0, align 8
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  %call = tail call zeroext i8 %1(ptr noundef nonnull %0, i32 noundef %conv) #11
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %2 = load ptr, ptr %memread, align 8
-  %add4 = add i64 %off, %token.coerce0
-  %conv5 = trunc i64 %add4 to i32
-  call void %2(ptr noundef %0, i32 noundef %conv5, ptr noundef nonnull %val, i64 noundef 1) #11
-  %3 = load i8, ptr %val, align 1
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i8 [ %call, %if.then ], [ %3, %if.else ]
-  ret i8 %retval.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @qpci_io_readw(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
-entry:
-  %val = alloca i16, align 2
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %pio_readw = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %pio_readw, align 8
-  %call = tail call zeroext i16 %1(ptr noundef %0, i32 noundef %conv) #11
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %2 = load ptr, ptr %memread, align 8
-  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %val, i64 noundef 2) #11
-  %3 = load i16, ptr %val, align 2
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i16 [ %call, %if.then ], [ %3, %if.else ]
-  ret i16 %retval.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qpci_io_readq(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
-entry:
-  %val = alloca i64, align 8
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %pio_readq = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1 = load ptr, ptr %pio_readq, align 8
-  %call = tail call i64 %1(ptr noundef %0, i32 noundef %conv) #11
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %memread = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %2 = load ptr, ptr %memread, align 8
-  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %val, i64 noundef 8) #11
-  %3 = load i64, ptr %val, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i64 [ %call, %if.then ], [ %3, %if.else ]
-  ret i64 %retval.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writeb(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i8 noundef zeroext %value) local_unnamed_addr #0 {
-entry:
-  %value.addr = alloca i8, align 1
-  store i8 %value, ptr %value.addr, align 1
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %pio_writeb = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load ptr, ptr %pio_writeb, align 8
-  tail call void %1(ptr noundef %0, i32 noundef %conv, i8 noundef zeroext %value) #11
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %memwrite = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %2 = load ptr, ptr %memwrite, align 8
-  call void %2(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull %value.addr, i64 noundef 1) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writew(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i16 noundef zeroext %value) local_unnamed_addr #0 {
-entry:
-  %value.addr = alloca i16, align 2
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %pio_writew = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1 = load ptr, ptr %pio_writew, align 8
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  tail call void %1(ptr noundef %0, i32 noundef %conv, i16 noundef zeroext %value) #11
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  store i16 %value, ptr %value.addr, align 2
-  %memwrite = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %2 = load ptr, ptr %memwrite, align 8
-  %add3 = add i64 %off, %token.coerce0
-  %conv4 = trunc i64 %add3 to i32
-  call void %2(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 2) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writeq(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i64 noundef %value) local_unnamed_addr #0 {
-entry:
-  %value.addr = alloca i64, align 8
-  %0 = load ptr, ptr %dev, align 8
-  %tobool = trunc i8 %token.coerce1 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %pio_writeq = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1 = load ptr, ptr %pio_writeq, align 8
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  tail call void %1(ptr noundef %0, i32 noundef %conv, i64 noundef %value) #11
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  store i64 %value, ptr %value.addr, align 8
-  %memwrite = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %2 = load ptr, ptr %memwrite, align 8
-  %add3 = add i64 %off, %token.coerce0
-  %conv4 = trunc i64 %add3 to i32
-  call void %2(ptr noundef %0, i32 noundef %conv4, ptr noundef nonnull %value.addr, i64 noundef 8) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_memread(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %tobool = trunc i8 %token.coerce1 to i1
-  br i1 %tobool, label %if.else, label %do.end
-
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 509, ptr noundef nonnull @__func__.qpci_memread, ptr noundef nonnull @.str.11) #12
-  unreachable
-
-do.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %dev, align 8
-  %memread = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1 = load ptr, ptr %memread, align 8
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  tail call void %1(ptr noundef %0, i32 noundef %conv, ptr noundef %buf, i64 noundef %len) #11
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_memwrite(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %tobool = trunc i8 %token.coerce1 to i1
-  br i1 %tobool, label %if.else, label %do.end
-
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 516, ptr noundef nonnull @__func__.qpci_memwrite, ptr noundef nonnull @.str.11) #12
-  unreachable
-
-do.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %dev, align 8
-  %memwrite = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1 = load ptr, ptr %memwrite, align 8
-  %add = add i64 %off, %token.coerce0
-  %conv = trunc i64 %add to i32
-  tail call void %1(ptr noundef %0, i32 noundef %conv, ptr noundef %buf, i64 noundef %len) #11
-  ret void
+34:                                               ; preds = %30, %27, %24
+  %.0 = phi i64 [ %32, %30 ], [ %29, %27 ], [ %26, %24 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %37, 0
+  br i1 %.not.i.i, label %trace_vfio_rom_read.exit, label %38, !prof !5
+
+38:                                               ; preds = %34
+  %39 = load i16, ptr @_TRACE_VFIO_ROM_READ_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %39, 0
+  br i1 %.not7.i.i, label %trace_vfio_rom_read.exit, label %40
+
+40:                                               ; preds = %38
+  %41 = load i32, ptr @qemu_loglevel, align 4
+  %42 = and i32 %41, 32768
+  %.not8.i.i = icmp eq i32 %42, 0
+  br i1 %.not8.i.i, label %trace_vfio_rom_read.exit, label %43
+
+43:                                               ; preds = %40
+  %44 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %46, label %52
+
+46:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
+  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %48 = call i32 @qemu_get_thread_id() #26
+  %49 = load i64, ptr %4, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %51 = load i64, ptr %50, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.182, i32 noundef %48, i64 noundef %49, i64 noundef %51, ptr noundef %36, i64 noundef %1, i32 noundef %2, i64 noundef range(i64 0, 4294967296) %.0) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  br label %trace_vfio_rom_read.exit
+
+52:                                               ; preds = %43
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.183, ptr noundef %36, i64 noundef %1, i32 noundef %2, i64 noundef range(i64 0, 4294967296) %.0) #26
+  br label %trace_vfio_rom_read.exit
+
+trace_vfio_rom_read.exit:                         ; preds = %34, %38, %40, %46, %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local { i64, i8 } @qpci_legacy_iomap(ptr noundef readnone captures(none) %dev, i16 noundef zeroext %addr) local_unnamed_addr #6 {
-entry:
-  %conv = zext i16 %addr to i64
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %conv, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 1, 1
-  ret { i64, i8 } %.fca.1.insert
+define internal void @vfio_rom_write(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #19 {
+  ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @add_qpci_address(ptr noundef writeonly captures(address_is_null) %opts, ptr noundef %addr) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %addr, null
-  br i1 %tobool.not, label %if.else, label %do.body1
+define internal fastcc void @vfio_pci_load_rom(ptr noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  store ptr null, ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  %5 = call i32 @vfio_get_region_info(ptr noundef nonnull %4, i32 noundef 6, ptr noundef nonnull %3) #26
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %7, label %6
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 593, ptr noundef nonnull @__func__.add_qpci_address, ptr noundef nonnull @.str.13) #12
-  unreachable
+6:                                                ; preds = %1
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.175) #26
+  br label %103
 
-do.body1:                                         ; preds = %entry
-  %tobool2.not = icmp eq ptr %opts, null
-  br i1 %tobool2.not, label %if.else4, label %do.end6
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = zext i32 %16 to i64
+  %18 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i, label %trace_vfio_pci_load_rom.exit, label %19, !prof !5
 
-if.else4:                                         ; preds = %do.body1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 594, ptr noundef nonnull @__func__.add_qpci_address, ptr noundef nonnull @.str.18) #12
-  unreachable
+19:                                               ; preds = %7
+  %20 = load i16, ptr @_TRACE_VFIO_PCI_LOAD_ROM_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %20, 0
+  br i1 %.not7.i.i, label %trace_vfio_pci_load_rom.exit, label %21
 
-do.end6:                                          ; preds = %do.body1
-  store ptr %addr, ptr %opts, align 8
-  %size_arg = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  store i32 8, ptr %size_arg, align 8
+21:                                               ; preds = %19
+  %22 = load i32, ptr @qemu_loglevel, align 4
+  %23 = and i32 %22, 32768
+  %.not8.i.i = icmp eq i32 %23, 0
+  br i1 %.not8.i.i, label %trace_vfio_pci_load_rom.exit, label %24
+
+24:                                               ; preds = %21
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %33
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #26
+  %29 = call i32 @qemu_get_thread_id() #26
+  %30 = load i64, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load i64, ptr %31, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.180, i32 noundef %29, i64 noundef %30, i64 noundef %32, ptr noundef %9, i64 noundef %12, i64 noundef %14, i64 noundef range(i64 0, 4294967296) %17) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
+  br label %trace_vfio_pci_load_rom.exit
+
+33:                                               ; preds = %24
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.181, ptr noundef %9, i64 noundef %12, i64 noundef %14, i64 noundef range(i64 0, 4294967296) %17) #26
+  br label %trace_vfio_pci_load_rom.exit
+
+trace_vfio_pci_load_rom.exit:                     ; preds = %7, %19, %21, %27, %33
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = trunc i64 %36 to i32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 3040
+  store i32 %37, ptr %38, align 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 3048
+  store i64 %40, ptr %41, align 8
+  %.not54 = icmp eq i32 %37, 0
+  br i1 %.not54, label %42, label %.lr.ph.lr.ph
+
+42:                                               ; preds = %trace_vfio_pci_load_rom.exit
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 3754
+  store i8 1, ptr %43, align 2
+  %44 = load ptr, ptr %8, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.176, ptr noundef %44) #26
+  %45 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.177) #26
+  br label %103
+
+.lr.ph.lr.ph:                                     ; preds = %trace_vfio_pci_load_rom.exit
+  %46 = call noalias ptr @g_malloc(i64 noundef %36) #30
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 3056
+  store ptr %46, ptr %47, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %46, i8 noundef -1, i64 noundef %36, i1 noundef false) #26
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  br label %.lr.ph.split
+
+.lr.ph.split:                                     ; preds = %.outer, %.lr.ph.lr.ph
+  %.0.ph73 = phi i64 [ %36, %.lr.ph.lr.ph ], [ %59, %.outer ]
+  %.051.ph72 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %58, %.outer ]
+  %49 = load i32, ptr %48, align 8
+  %50 = load ptr, ptr %47, align 16
+  %51 = getelementptr inbounds i8, ptr %50, i64 %.051.ph72
+  %52 = load i64, ptr %41, align 8
+  %53 = add i64 %52, %.051.ph72
+  %54 = call i64 @pread64(i32 noundef %49, ptr noundef %51, i64 noundef %.0.ph73, i64 noundef %53) #26
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %.loopexit, label %.lr.ph70
+
+.lr.ph70:                                         ; preds = %.lr.ph.split, %63
+  %56 = phi i64 [ %69, %63 ], [ %54, %.lr.ph.split ]
+  %57 = icmp sgt i64 %56, 0
+  br i1 %57, label %.outer, label %60
+
+.outer:                                           ; preds = %.lr.ph70
+  %58 = add i64 %56, %.051.ph72
+  %59 = sub i64 %.0.ph73, %56
+  %.not55 = icmp eq i64 %59, 0
+  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !42
+
+60:                                               ; preds = %.lr.ph70
+  %61 = tail call ptr @__errno_location() #28
+  %62 = load i32, ptr %61, align 4
+  switch i32 %62, label %.split69.us [
+    i32 4, label %63
+    i32 11, label %63
+  ]
+
+63:                                               ; preds = %60, %60
+  %64 = load i32, ptr %48, align 8
+  %65 = load ptr, ptr %47, align 16
+  %66 = getelementptr inbounds i8, ptr %65, i64 %.051.ph72
+  %67 = load i64, ptr %41, align 8
+  %68 = add i64 %67, %.051.ph72
+  %69 = call i64 @pread64(i32 noundef %64, ptr noundef %66, i64 noundef %.0.ph73, i64 noundef %68) #26
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %.loopexit, label %.lr.ph70
+
+.split69.us:                                      ; preds = %60
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.178) #26
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.outer, %.lr.ph.split, %63, %.split69.us
+  %71 = load ptr, ptr %47, align 16
+  %.val65 = load i16, ptr %71, align 1
+  %72 = icmp eq i16 %.val65, -21931
+  br i1 %72, label %73, label %103
+
+73:                                               ; preds = %.loopexit
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %.val64 = load i16, ptr %74, align 1
+  %75 = zext i16 %.val64 to i32
+  %76 = add nuw nsw i32 %75, 8
+  %77 = load i32, ptr %38, align 16
+  %78 = icmp ult i32 %76, %77
+  br i1 %78, label %79, label %103
+
+79:                                               ; preds = %73
+  %80 = zext i16 %.val64 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 %80
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %81, ptr noundef nonnull dereferenceable(4) @.str.179, i64 4)
+  %.not56 = icmp eq i32 %bcmp, 0
+  br i1 %.not56, label %82, label %103
+
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %.val61 = load i16, ptr %83, align 1
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 6
+  %85 = zext i16 %.val61 to i32
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 3704
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp eq i32 %87, %85
+  br i1 %88, label %89, label %103
+
+89:                                               ; preds = %82
+  %.val59 = load i16, ptr %84, align 1
+  %90 = zext i16 %.val59 to i32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 3708
+  %92 = load i32, ptr %91, align 4
+  %.not57 = icmp eq i32 %92, %90
+  br i1 %.not57, label %103, label %93
+
+93:                                               ; preds = %89
+  %94 = trunc i32 %92 to i16
+  store i16 %94, ptr %84, align 1
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 6
+  store i8 0, ptr %95, align 1
+  %96 = load i32, ptr %38, align 16
+  %.not78 = icmp eq i32 %96, 0
+  br i1 %.not78, label %._crit_edge, label %.lr.ph77
+
+.lr.ph77:                                         ; preds = %93, %.lr.ph77
+  %.04976 = phi i8 [ %100, %.lr.ph77 ], [ 0, %93 ]
+  %.05075 = phi i32 [ %101, %.lr.ph77 ], [ 0, %93 ]
+  %97 = sext i32 %.05075 to i64
+  %98 = getelementptr inbounds i8, ptr %71, i64 %97
+  %99 = load i8, ptr %98, align 1
+  %100 = add i8 %99, %.04976
+  %101 = add nuw i32 %.05075, 1
+  %exitcond.not = icmp eq i32 %101, %96
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !43
+
+._crit_edge:                                      ; preds = %.lr.ph77, %93
+  %.049.lcssa = phi i8 [ 0, %93 ], [ %100, %.lr.ph77 ]
+  %102 = sub i8 0, %.049.lcssa
+  store i8 %102, ptr %95, align 1
+  br label %103
+
+103:                                              ; preds = %.loopexit, %73, %79, %._crit_edge, %89, %82, %42, %6
+  %.val = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %.val) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
+  ret void
+}
+
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
+
+declare zeroext i8 @pci_find_capability(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+
+declare zeroext i1 @vfio_has_region_cap(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #4
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc void @trace_vfio_msix_fixup(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #21 {
+  %5 = alloca %struct.timeval, align 8
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %_nocheck__trace_vfio_msix_fixup.exit, label %7, !prof !5
+
+7:                                                ; preds = %4
+  %8 = load i16, ptr @_TRACE_VFIO_MSIX_FIXUP_DSTATE, align 2
+  %.not7.i = icmp eq i16 %8, 0
+  br i1 %.not7.i, label %_nocheck__trace_vfio_msix_fixup.exit, label %9
+
+9:                                                ; preds = %7
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %11 = and i32 %10, 32768
+  %.not8.i = icmp eq i32 %11, 0
+  br i1 %.not8.i, label %_nocheck__trace_vfio_msix_fixup.exit, label %12
+
+12:                                               ; preds = %9
+  %13 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %15, label %21
+
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !4
+  %16 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #26
+  %17 = tail call i32 @qemu_get_thread_id() #26
+  %18 = load i64, ptr %5, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %17, i64 noundef %18, i64 noundef %20, ptr noundef %0, i32 noundef range(i32 0, 256) %1, i64 noundef %2, i64 noundef %3) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  br label %_nocheck__trace_vfio_msix_fixup.exit
+
+21:                                               ; preds = %12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, ptr noundef %0, i32 noundef range(i32 0, 256) %1, i64 noundef %2, i64 noundef %3) #26
+  br label %_nocheck__trace_vfio_msix_fixup.exit
+
+_nocheck__trace_vfio_msix_fixup.exit:             ; preds = %4, %7, %9, %15, %21
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare i32 @vfio_region_mmap(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc noundef zeroext i1 @vfio_add_std_cap(ptr noundef %0, i8 noundef zeroext range(i8 1, 0) %1, ptr noundef %2) unnamed_addr #0 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = alloca %struct.timeval, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.timeval, align 8
+  %8 = alloca %struct.timeval, align 8
+  %9 = alloca i16, align 2
+  %10 = alloca ptr, align 8
+  %11 = alloca %struct.ErrorPropagator, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #26
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 0, ptr %11, align 8
+  store ptr %2, ptr %12, align 8
+  %13 = icmp eq ptr %2, null
+  %14 = icmp eq ptr %2, @error_fatal
+  %or.cond = or i1 %13, %14
+  %spec.select = select i1 %or.cond, ptr %11, ptr %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %16 = load ptr, ptr %15, align 16
+  %17 = zext i8 %1 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %1 to i32
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 52
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %.0101.i = load i8, ptr %23, align 1
+  %.not2.i = icmp eq i8 %.0101.i, 0
+  br i1 %.not2.i, label %vfio_std_cap_max_size.exit, label %.lr.ph.i
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+.lr.ph.i:                                         ; preds = %3, %.lr.ph.i
+  %.0104.i = phi i8 [ %.010.i, %.lr.ph.i ], [ %.0101.i, %3 ]
+  %.03.i = phi i16 [ %.1.i, %.lr.ph.i ], [ 256, %3 ]
+  %24 = zext i8 %.0104.i to i64
+  %25 = icmp ugt i8 %.0104.i, %1
+  %26 = zext i8 %.0104.i to i16
+  %27 = tail call i16 @llvm.umin.i16(i16 %.03.i, i16 %26)
+  %.1.i = select i1 %25, i16 %27, i16 %.03.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %24
+  %.010.i = load i8, ptr %gep.i, align 1
+  %.not.i = icmp eq i8 %.010.i, 0
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !44
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %28 = trunc i16 %.1.i to i8
+  br label %vfio_std_cap_max_size.exit
+
+vfio_std_cap_max_size.exit:                       ; preds = %3, %._crit_edge.loopexit.i
+  %.0.lcssa.i = phi i8 [ 0, %3 ], [ %28, %._crit_edge.loopexit.i ]
+  %29 = sub i8 %.0.lcssa.i, %1
+  %.not = icmp eq i8 %22, 0
+  br i1 %.not, label %32, label %30
+
+30:                                               ; preds = %vfio_std_cap_max_size.exit
+  %31 = call fastcc zeroext i1 @vfio_add_std_cap(ptr noundef %0, i8 noundef zeroext %22, ptr noundef %spec.select)
+  br i1 %31, label %41, label %vfio_setup_pcie_cap.exit.thread
+
+32:                                               ; preds = %vfio_std_cap_max_size.exit
+  store i8 0, ptr %23, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 3024
+  %34 = load ptr, ptr %33, align 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 52
+  store i8 -1, ptr %35, align 1
+  %36 = load ptr, ptr %33, align 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 6
+  %38 = load i8, ptr %37, align 1
+  %39 = or i8 %38, 16
+  store i8 %39, ptr %37, align 1
+  %40 = call zeroext i1 @vfio_add_virt_caps(ptr noundef %0, ptr noundef %spec.select) #26
+  br i1 %40, label %41, label %vfio_setup_pcie_cap.exit.thread
+
+41:                                               ; preds = %32, %30
+  %.val78 = load ptr, ptr %15, align 16
+  %42 = getelementptr inbounds nuw i8, ptr %.val78, i64 52
+  %invariant.gep.i81 = getelementptr inbounds nuw i8, ptr %.val78, i64 1
+  %.0101.i82 = load i8, ptr %42, align 1
+  %.not2.i83 = icmp eq i8 %.0101.i82, 0
+  br i1 %.not2.i83, label %vfio_std_cap_max_size.exit93, label %.lr.ph.i84
+
+.lr.ph.i84:                                       ; preds = %41, %.lr.ph.i84
+  %.0104.i85 = phi i8 [ %.010.i89, %.lr.ph.i84 ], [ %.0101.i82, %41 ]
+  %.03.i86 = phi i16 [ %.1.i87, %.lr.ph.i84 ], [ 256, %41 ]
+  %43 = zext i8 %.0104.i85 to i64
+  %44 = icmp ugt i8 %.0104.i85, %1
+  %45 = zext i8 %.0104.i85 to i16
+  %46 = call i16 @llvm.umin.i16(i16 %.03.i86, i16 %45)
+  %.1.i87 = select i1 %44, i16 %46, i16 %.03.i86
+  %gep.i88 = getelementptr inbounds nuw i8, ptr %invariant.gep.i81, i64 %43
+  %.010.i89 = load i8, ptr %gep.i88, align 1
+  %.not.i90 = icmp eq i8 %.010.i89, 0
+  br i1 %.not.i90, label %._crit_edge.loopexit.i91, label %.lr.ph.i84, !llvm.loop !44
+
+._crit_edge.loopexit.i91:                         ; preds = %.lr.ph.i84
+  %47 = trunc i16 %.1.i87 to i8
+  br label %vfio_std_cap_max_size.exit93
+
+vfio_std_cap_max_size.exit93:                     ; preds = %41, %._crit_edge.loopexit.i91
+  %.0.lcssa.i92 = phi i8 [ 0, %41 ], [ %47, %._crit_edge.loopexit.i91 ]
+  %48 = sub i8 %.0.lcssa.i92, %1
+  %49 = call i8 @llvm.umin.i8(i8 %29, i8 %48)
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 3024
+  %51 = load ptr, ptr %50, align 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %17
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store i8 -1, ptr %53, align 1
+  %54 = zext i8 %19 to i32
+  switch i8 %19, label %433 [
+    i8 5, label %55
+    i8 16, label %105
+    i8 17, label %319
+    i8 1, label %361
+    i8 19, label %389
+    i8 9, label %416
+  ]
+
+55:                                               ; preds = %vfio_std_cap_max_size.exit93
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #26
+  store i16 0, ptr %9, align 2, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
+  store ptr null, ptr %10, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %57 = load i32, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 3032
+  %59 = load i64, ptr %58, align 8
+  %narrow.i = add nuw nsw i32 %20, 2
+  %60 = zext nneg i32 %narrow.i to i64
+  %61 = add i64 %59, %60
+  %62 = call i64 @pread64(i32 noundef %57, ptr noundef nonnull %9, i64 noundef 2, i64 noundef %61) #26
+  %.not.i94 = icmp eq i64 %62, 2
+  br i1 %.not.i94, label %66, label %63
+
+63:                                               ; preds = %55
+  %64 = tail call ptr @__errno_location() #28
+  %65 = load i32, ptr %64, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1348, ptr noundef nonnull @__func__.vfio_msi_setup, i32 noundef %65, ptr noundef nonnull @.str.203) #26
+  br label %vfio_setup_pcie_cap.exit
+
+66:                                               ; preds = %55
+  %67 = load i16, ptr %9, align 2
+  %68 = zext i16 %67 to i32
+  %69 = and i32 %68, 128
+  %70 = icmp ne i32 %69, 0
+  %71 = and i32 %68, 256
+  %72 = icmp ne i32 %71, 0
+  %73 = lshr i32 %68, 1
+  %74 = and i32 %73, 7
+  %75 = shl nuw nsw i32 1, %74
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %78, 0
+  br i1 %.not.i.i.i, label %trace_vfio_msi_setup.exit.i, label %79, !prof !5
+
+79:                                               ; preds = %66
+  %80 = load i16, ptr @_TRACE_VFIO_MSI_SETUP_DSTATE, align 2
+  %.not3.i.i.i = icmp eq i16 %80, 0
+  br i1 %.not3.i.i.i, label %trace_vfio_msi_setup.exit.i, label %81
+
+81:                                               ; preds = %79
+  %82 = load i32, ptr @qemu_loglevel, align 4
+  %83 = and i32 %82, 32768
+  %.not4.i.i.i = icmp eq i32 %83, 0
+  br i1 %.not4.i.i.i, label %trace_vfio_msi_setup.exit.i, label %84
+
+84:                                               ; preds = %81
+  %85 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %86 = trunc nuw i8 %85 to i1
+  br i1 %86, label %87, label %93
+
+87:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !4
+  %88 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #26
+  %89 = call i32 @qemu_get_thread_id() #26
+  %90 = load i64, ptr %8, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %92 = load i64, ptr %91, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205, i32 noundef %89, i64 noundef %90, i64 noundef %92, ptr noundef %77, i32 noundef range(i32 1, 256) %20) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
+  br label %trace_vfio_msi_setup.exit.i
+
+93:                                               ; preds = %84
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, ptr noundef %77, i32 noundef range(i32 1, 256) %20) #26
+  br label %trace_vfio_msi_setup.exit.i
+
+trace_vfio_msi_setup.exit.i:                      ; preds = %93, %87, %81, %79, %66
+  %94 = call i32 @msi_init(ptr noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %75, i1 noundef zeroext %70, i1 noundef zeroext %72, ptr noundef nonnull %10) #26
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %96, label %100
+
+96:                                               ; preds = %trace_vfio_msi_setup.exit.i
+  %97 = icmp eq i32 %94, -95
+  br i1 %97, label %vfio_setup_pcie_cap.exit.thread119, label %98
+
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef %spec.select, ptr noundef %99, ptr noundef nonnull @.str.204) #26
+  br label %vfio_setup_pcie_cap.exit
+
+100:                                              ; preds = %trace_vfio_msi_setup.exit.i
+  %101 = select i1 %72, i32 20, i32 10
+  %102 = lshr exact i32 %69, 5
+  %103 = add nuw nsw i32 %101, %102
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 3064
+  store i32 %103, ptr %104, align 8
+  br label %vfio_setup_pcie_cap.exit.thread119
+
+105:                                              ; preds = %vfio_std_cap_max_size.exit93
+  %106 = load ptr, ptr %15, align 16
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %17
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %.val.i = load i32, ptr %108, align 1
+  %109 = and i32 %.val.i, 268435456
+  %.not.i95 = icmp eq i32 %109, 0
+  br i1 %.not.i95, label %vfio_check_pcie_flr.exit, label %110
+
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %112 = load ptr, ptr %111, align 8
+  %113 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i96 = icmp eq i32 %113, 0
+  br i1 %.not.i.i.i96, label %trace_vfio_check_pcie_flr.exit.i, label %114, !prof !5
+
+114:                                              ; preds = %110
+  %115 = load i16, ptr @_TRACE_VFIO_CHECK_PCIE_FLR_DSTATE, align 2
+  %.not2.i.i.i = icmp eq i16 %115, 0
+  br i1 %.not2.i.i.i, label %trace_vfio_check_pcie_flr.exit.i, label %116
+
+116:                                              ; preds = %114
+  %117 = load i32, ptr @qemu_loglevel, align 4
+  %118 = and i32 %117, 32768
+  %.not3.i.i.i97 = icmp eq i32 %118, 0
+  br i1 %.not3.i.i.i97, label %trace_vfio_check_pcie_flr.exit.i, label %119
+
+119:                                              ; preds = %116
+  %120 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %128
+
+122:                                              ; preds = %119
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !4
+  %123 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #26
+  %124 = call i32 @qemu_get_thread_id() #26
+  %125 = load i64, ptr %7, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %127 = load i64, ptr %126, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %124, i64 noundef %125, i64 noundef %127, ptr noundef %112) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
+  br label %trace_vfio_check_pcie_flr.exit.i
+
+128:                                              ; preds = %119
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.208, ptr noundef %112) #26
+  br label %trace_vfio_check_pcie_flr.exit.i
+
+trace_vfio_check_pcie_flr.exit.i:                 ; preds = %128, %122, %116, %114, %110
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3752
+  store i8 1, ptr %129, align 8
+  %.pre = load ptr, ptr %15, align 16
+  br label %vfio_check_pcie_flr.exit
+
+vfio_check_pcie_flr.exit:                         ; preds = %105, %trace_vfio_check_pcie_flr.exit.i
+  %130 = phi ptr [ %106, %105 ], [ %.pre, %trace_vfio_check_pcie_flr.exit.i ]
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
+  %.val.i98 = load i16, ptr %132, align 1
+  %133 = lshr i16 %.val.i98, 4
+  %134 = and i16 %133, 15
+  switch i16 %134, label %135 [
+    i16 9, label %137
+    i16 1, label %137
+    i16 0, label %137
+  ]
+
+135:                                              ; preds = %vfio_check_pcie_flr.exit
+  %136 = zext nneg i16 %134 to i32
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1991, ptr noundef nonnull @__func__.vfio_setup_pcie_cap, ptr noundef nonnull @.str.209, i32 noundef %136) #26
+  br label %vfio_setup_pcie_cap.exit.thread115
+
+137:                                              ; preds = %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit
+  %138 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %139 = call ptr @qdev_get_parent_bus(ptr noundef %138) #26
+  %140 = call ptr @object_dynamic_cast_assert(ptr noundef %139, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %141 = call zeroext i1 @pci_bus_is_express(ptr noundef %140) #26
+  %142 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %143 = call ptr @qdev_get_parent_bus(ptr noundef %142) #26
+  %144 = call ptr @object_dynamic_cast_assert(ptr noundef %143, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %145 = getelementptr i8, ptr %144, i64 120
+  %.val62.i = load i32, ptr %145, align 8
+  %146 = and i32 %.val62.i, 1
+  %.not78.i = icmp eq i32 %146, 0
+  br i1 %141, label %155, label %147
+
+147:                                              ; preds = %137
+  br i1 %.not78.i, label %.lr.ph.i100, label %._crit_edge.i
+
+.lr.ph.i100:                                      ; preds = %147, %.lr.ph.i100
+  %.081.i = phi ptr [ %151, %.lr.ph.i100 ], [ %144, %147 ]
+  %148 = call ptr @pci_bridge_get_device(ptr noundef nonnull %.081.i) #26
+  %149 = call ptr @object_dynamic_cast_assert(ptr noundef %148, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %150 = call ptr @qdev_get_parent_bus(ptr noundef %149) #26
+  %151 = call ptr @object_dynamic_cast_assert(ptr noundef %150, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %152 = getelementptr i8, ptr %151, i64 120
+  %.0.val.i = load i32, ptr %152, align 8
+  %153 = and i32 %.0.val.i, 1
+  %.not.i101 = icmp eq i32 %153, 0
+  br i1 %.not.i101, label %.lr.ph.i100, label %._crit_edge.i, !llvm.loop !45
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i100, %147
+  %.0.lcssa.i99 = phi ptr [ %144, %147 ], [ %151, %.lr.ph.i100 ]
+  %154 = call zeroext i1 @pci_bus_is_express(ptr noundef nonnull %.0.lcssa.i99) #26
+  br i1 %154, label %vfio_setup_pcie_cap.exit.thread, label %297
+
+155:                                              ; preds = %137
+  br i1 %.not78.i, label %222, label %156
+
+156:                                              ; preds = %155
+  switch i16 %134, label %297 [
+    i16 0, label %157
+    i16 1, label %vfio_setup_pcie_cap.exit.thread
+  ]
+
+157:                                              ; preds = %156
+  %158 = add nuw nsw i32 %20, 2
+  %159 = load ptr, ptr %15, align 16
+  %160 = zext nneg i32 %158 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 %160
+  %.val.i.i.i = load i16, ptr %161, align 1
+  %162 = and i16 %.val.i.i.i, -241
+  %163 = or disjoint i16 %162, 144
+  store i16 %163, ptr %161, align 1
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %165 = load ptr, ptr %164, align 16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 %160
+  store i16 -241, ptr %166, align 1
+  %167 = load ptr, ptr %50, align 16
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 %160
+  %.val.i12.i.i = load i16, ptr %168, align 1
+  %169 = or i16 %.val.i12.i.i, 240
+  store i16 %169, ptr %168, align 1
+  %170 = icmp ugt i8 %49, 16
+  br i1 %170, label %171, label %297
+
+171:                                              ; preds = %157
+  %172 = add nuw nsw i32 %20, 12
+  %173 = load ptr, ptr %15, align 16
+  %174 = zext nneg i32 %172 to i64
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 %174
+  store i32 0, ptr %175, align 1
+  %176 = load ptr, ptr %164, align 16
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %174
+  store i32 0, ptr %177, align 1
+  %178 = load ptr, ptr %50, align 16
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %174
+  store i32 -1, ptr %179, align 1
+  %180 = add nuw nsw i32 %20, 16
+  %181 = load ptr, ptr %15, align 16
+  %182 = zext nneg i32 %180 to i64
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 %182
+  store i16 0, ptr %183, align 1
+  %184 = load ptr, ptr %164, align 16
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 %182
+  store i16 0, ptr %185, align 1
+  %186 = load ptr, ptr %50, align 16
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %182
+  store i16 -1, ptr %187, align 1
+  %188 = add nuw nsw i32 %20, 18
+  %189 = load ptr, ptr %15, align 16
+  %190 = zext nneg i32 %188 to i64
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 %190
+  store i16 0, ptr %191, align 1
+  %192 = load ptr, ptr %164, align 16
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 %190
+  store i16 0, ptr %193, align 1
+  %194 = load ptr, ptr %50, align 16
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %190
+  store i16 -1, ptr %195, align 1
+  %196 = icmp ugt i8 %49, 44
+  br i1 %196, label %197, label %297
+
+197:                                              ; preds = %171
+  %198 = add nuw nsw i32 %20, 44
+  %199 = load ptr, ptr %15, align 16
+  %200 = zext nneg i32 %198 to i64
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 %200
+  store i32 0, ptr %201, align 1
+  %202 = load ptr, ptr %164, align 16
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 %200
+  store i32 0, ptr %203, align 1
+  %204 = load ptr, ptr %50, align 16
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 %200
+  store i32 -1, ptr %205, align 1
+  %206 = add nuw nsw i32 %20, 48
+  %207 = load ptr, ptr %15, align 16
+  %208 = zext nneg i32 %206 to i64
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 %208
+  store i16 0, ptr %209, align 1
+  %210 = load ptr, ptr %164, align 16
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 %208
+  store i16 0, ptr %211, align 1
+  %212 = load ptr, ptr %50, align 16
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 %208
+  store i16 -1, ptr %213, align 1
+  %214 = add nuw nsw i32 %20, 50
+  %215 = load ptr, ptr %15, align 16
+  %216 = zext nneg i32 %214 to i64
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 %216
+  store i16 0, ptr %217, align 1
+  %218 = load ptr, ptr %164, align 16
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 %216
+  store i16 0, ptr %219, align 1
+  %220 = load ptr, ptr %50, align 16
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %216
+  store i16 -1, ptr %221, align 1
+  br label %297
+
+222:                                              ; preds = %155
+  %223 = icmp eq i16 %134, 9
+  br i1 %223, label %224, label %252
+
+224:                                              ; preds = %222
+  %225 = add nuw nsw i32 %20, 2
+  %226 = load ptr, ptr %15, align 16
+  %227 = zext nneg i32 %225 to i64
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 %227
+  %.val.i.i71.i = load i16, ptr %228, align 1
+  %229 = and i16 %.val.i.i71.i, -241
+  store i16 %229, ptr %228, align 1
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %231 = load ptr, ptr %230, align 16
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %227
+  store i16 -241, ptr %232, align 1
+  %233 = load ptr, ptr %50, align 16
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 %227
+  %.val.i12.i72.i = load i16, ptr %234, align 1
+  %235 = or i16 %.val.i12.i72.i, 240
+  store i16 %235, ptr %234, align 1
+  %236 = add nuw nsw i32 %20, 12
+  %237 = load ptr, ptr %15, align 16
+  %238 = zext nneg i32 %236 to i64
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 %238
+  store i32 17, ptr %239, align 1
+  %240 = load ptr, ptr %230, align 16
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %238
+  store i32 0, ptr %241, align 1
+  %242 = load ptr, ptr %50, align 16
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 %238
+  store i32 -1, ptr %243, align 1
+  %244 = add nuw nsw i32 %20, 16
+  %245 = load ptr, ptr %15, align 16
+  %246 = zext nneg i32 %244 to i64
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 %246
+  store i16 0, ptr %247, align 1
+  %248 = load ptr, ptr %230, align 16
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 %246
+  store i16 0, ptr %249, align 1
+  %250 = load ptr, ptr %50, align 16
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 %246
+  store i16 -1, ptr %251, align 1
+  br label %252
+
+252:                                              ; preds = %224, %222
+  %253 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %254 = call ptr @qdev_get_parent_bus(ptr noundef %253) #26
+  %255 = call ptr @object_dynamic_cast_assert(ptr noundef %254, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 2232
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr i8, ptr %255, i64 120
+  %.val41.i.i = load i32, ptr %258, align 8
+  %259 = and i32 %.val41.i.i, 1
+  %260 = icmp ne i32 %259, 0
+  %261 = icmp eq ptr %257, null
+  %or.cond.not.i.i = select i1 %260, i1 true, i1 %261
+  br i1 %or.cond.not.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %262
+
+262:                                              ; preds = %252
+  %263 = getelementptr inbounds nuw i8, ptr %257, i64 2232
+  %264 = load i8, ptr %263, align 8
+  %.not.i.i = icmp eq i8 %264, 0
+  br i1 %.not.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %265
+
+265:                                              ; preds = %262
+  %266 = call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %257) #26
+  %.not29.i.i = icmp eq i8 %266, 4
+  br i1 %.not29.i.i, label %267, label %vfio_pci_enable_rp_atomics.exit.i
+
+267:                                              ; preds = %265
+  %268 = call zeroext i8 @pcie_cap_get_version(ptr noundef nonnull %257) #26
+  %.not30.i.i = icmp eq i8 %268, 2
+  br i1 %.not30.i.i, label %269, label %vfio_pci_enable_rp_atomics.exit.i
+
+269:                                              ; preds = %267
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %271 = load i32, ptr %270, align 8
+  %.not31.i.i = icmp eq i32 %271, 0
+  br i1 %.not31.i.i, label %272, label %vfio_pci_enable_rp_atomics.exit.i
+
+272:                                              ; preds = %269
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 1324
+  %274 = load i32, ptr %273, align 4
+  %275 = and i32 %274, 8
+  %.not32.i.i = icmp eq i32 %275, 0
+  br i1 %.not32.i.i, label %276, label %vfio_pci_enable_rp_atomics.exit.i
+
+276:                                              ; preds = %272
+  %277 = getelementptr inbounds nuw i8, ptr %257, i64 160
+  %278 = load ptr, ptr %277, align 16
+  %279 = load i8, ptr %263, align 8
+  %280 = zext i8 %279 to i64
+  %281 = getelementptr inbounds nuw i8, ptr %278, i64 %280
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 36
+  %.val40.i.i = load i32, ptr %282, align 1
+  %283 = and i32 %.val40.i.i, 896
+  %.not33.i.i = icmp eq i32 %283, 0
+  br i1 %.not33.i.i, label %284, label %vfio_pci_enable_rp_atomics.exit.i
+
+284:                                              ; preds = %276
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %286 = load i32, ptr %285, align 8
+  %287 = call ptr @vfio_get_device_info(i32 noundef %286) #26
+  %.not34.i.i = icmp eq ptr %287, null
+  br i1 %.not34.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %288
+
+288:                                              ; preds = %284
+  %289 = call ptr @vfio_get_device_info_cap(ptr noundef nonnull %287, i16 noundef zeroext 5) #26
+  %.not35.i.i = icmp eq ptr %289, null
+  br i1 %.not35.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %290
+
+290:                                              ; preds = %288
+  %291 = getelementptr inbounds nuw i8, ptr %289, i64 8
+  %292 = load i32, ptr %291, align 4
+  %293 = shl i32 %292, 7
+  %.2.i.i = and i32 %293, 896
+  %.not39.i.i = icmp eq i32 %.2.i.i, 0
+  br i1 %.not39.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %294
+
+294:                                              ; preds = %290
+  %.val.i.i75.i = load i32, ptr %282, align 1
+  %295 = or i32 %.val.i.i75.i, %.2.i.i
+  store i32 %295, ptr %282, align 1
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 3769
+  store i8 1, ptr %296, align 1
+  br label %vfio_pci_enable_rp_atomics.exit.i
+
+vfio_pci_enable_rp_atomics.exit.i:                ; preds = %294, %290, %288, %284, %276, %272, %269, %267, %265, %262, %252
+  %.0.i.i = phi ptr [ null, %252 ], [ null, %262 ], [ null, %284 ], [ %287, %288 ], [ %287, %290 ], [ %287, %294 ], [ null, %276 ], [ null, %272 ], [ null, %269 ], [ null, %267 ], [ null, %265 ]
+  call void @g_free(ptr noundef %.0.i.i) #26
+  br label %297
+
+297:                                              ; preds = %vfio_pci_enable_rp_atomics.exit.i, %197, %171, %157, %156, %._crit_edge.i
+  %298 = and i16 %.val.i98, 15
+  %299 = icmp eq i16 %298, 0
+  br i1 %299, label %300, label %313
+
+300:                                              ; preds = %297
+  %301 = add nuw nsw i32 %20, 2
+  %302 = load ptr, ptr %15, align 16
+  %303 = zext nneg i32 %301 to i64
+  %304 = getelementptr inbounds nuw i8, ptr %302, i64 %303
+  %.val.i.i76.i = load i16, ptr %304, align 1
+  %305 = and i16 %.val.i.i76.i, -16
+  %306 = or disjoint i16 %305, 1
+  store i16 %306, ptr %304, align 1
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %308 = load ptr, ptr %307, align 16
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 %303
+  store i16 -16, ptr %309, align 1
+  %310 = load ptr, ptr %50, align 16
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 %303
+  %.val.i12.i77.i = load i16, ptr %311, align 1
+  %312 = or i16 %.val.i12.i77.i, 15
+  store i16 %312, ptr %311, align 1
+  br label %313
+
+313:                                              ; preds = %300, %297
+  %314 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 16, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %315 = icmp slt i32 %314, 0
+  br i1 %315, label %vfio_setup_pcie_cap.exit.thread115, label %316
+
+316:                                              ; preds = %313
+  %317 = trunc i32 %314 to i8
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 2232
+  store i8 %317, ptr %318, align 8
+  br label %vfio_setup_pcie_cap.exit.thread
+
+319:                                              ; preds = %vfio_std_cap_max_size.exit93
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
+  store ptr null, ptr %6, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %321 = load ptr, ptr %320, align 8
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 2
+  %323 = load i16, ptr %322, align 2
+  %324 = zext i16 %323 to i64
+  %325 = add nuw nsw i64 %324, 63
+  %326 = lshr i64 %325, 6
+  %327 = call noalias ptr @g_malloc0_n(i64 noundef %326, i64 noundef 8) #29
+  %328 = load ptr, ptr %320, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
+  store ptr %327, ptr %329, align 8
+  %330 = load ptr, ptr %320, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 2
+  %332 = load i16, ptr %331, align 2
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  %334 = load i8, ptr %330, align 8
+  %335 = zext i8 %334 to i64
+  %.idx.i = mul nuw nsw i64 %335, 88
+  %336 = getelementptr inbounds nuw i8, ptr %333, i64 %.idx.i
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 56
+  %338 = load ptr, ptr %337, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %330, i64 4
+  %340 = load i32, ptr %339, align 4
+  %341 = getelementptr inbounds nuw i8, ptr %330, i64 1
+  %342 = load i8, ptr %341, align 1
+  %343 = zext i8 %342 to i64
+  %.idx32.i = mul nuw nsw i64 %343, 88
+  %344 = getelementptr inbounds nuw i8, ptr %333, i64 %.idx32.i
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 56
+  %346 = load ptr, ptr %345, align 8
+  %347 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  %348 = load i32, ptr %347, align 8
+  %349 = call i32 @msix_init(ptr noundef nonnull %0, i16 noundef zeroext %332, ptr noundef %338, i8 noundef zeroext %334, i32 noundef %340, ptr noundef %346, i8 noundef zeroext %342, i32 noundef %348, i8 noundef zeroext %1, ptr noundef nonnull %6) #26
+  %350 = icmp slt i32 %349, 0
+  br i1 %350, label %351, label %355
+
+351:                                              ; preds = %319
+  %352 = icmp eq i32 %349, -95
+  %353 = load ptr, ptr %6, align 8
+  br i1 %352, label %354, label %vfio_msix_setup.exit
+
+354:                                              ; preds = %351
+  call void @warn_report_err(ptr noundef %353) #26
+  br label %vfio_msix_setup.exit.thread
+
+355:                                              ; preds = %319
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 1936
+  call void @memory_region_set_enabled(ptr noundef nonnull %356, i1 noundef zeroext false) #26
+  %357 = call ptr @qdev_get_machine() #26
+  %358 = call zeroext i1 @object_property_get_bool(ptr noundef %357, ptr noundef nonnull @.str.212, ptr noundef null) #26
+  br i1 %358, label %359, label %vfio_msix_setup.exit.thread
+
+359:                                              ; preds = %355
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  call void @memory_region_set_enabled(ptr noundef nonnull %360, i1 noundef zeroext false) #26
+  br label %vfio_msix_setup.exit.thread
+
+vfio_msix_setup.exit.thread:                      ; preds = %354, %359, %355
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  br label %vfio_setup_pcie_cap.exit.thread
+
+vfio_msix_setup.exit:                             ; preds = %351
+  call void @error_propagate(ptr noundef %spec.select, ptr noundef %353) #26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
+  br label %vfio_setup_pcie_cap.exit.thread115
+
+361:                                              ; preds = %vfio_std_cap_max_size.exit93
+  %362 = load ptr, ptr %15, align 16
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 %17
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 4
+  %.val.i103 = load i16, ptr %364, align 1
+  %365 = and i16 %.val.i103, 8
+  %.not.i104 = icmp eq i16 %365, 0
+  br i1 %.not.i104, label %366, label %vfio_check_pm_reset.exit
+
+366:                                              ; preds = %361
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %368 = load ptr, ptr %367, align 8
+  %369 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i105 = icmp eq i32 %369, 0
+  br i1 %.not.i.i.i105, label %trace_vfio_check_pm_reset.exit.i, label %370, !prof !5
+
+370:                                              ; preds = %366
+  %371 = load i16, ptr @_TRACE_VFIO_CHECK_PM_RESET_DSTATE, align 2
+  %.not2.i.i.i106 = icmp eq i16 %371, 0
+  br i1 %.not2.i.i.i106, label %trace_vfio_check_pm_reset.exit.i, label %372
+
+372:                                              ; preds = %370
+  %373 = load i32, ptr @qemu_loglevel, align 4
+  %374 = and i32 %373, 32768
+  %.not3.i.i.i107 = icmp eq i32 %374, 0
+  br i1 %.not3.i.i.i107, label %trace_vfio_check_pm_reset.exit.i, label %375
+
+375:                                              ; preds = %372
+  %376 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %377 = trunc nuw i8 %376 to i1
+  br i1 %377, label %378, label %384
+
+378:                                              ; preds = %375
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !4
+  %379 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #26
+  %380 = call i32 @qemu_get_thread_id() #26
+  %381 = load i64, ptr %5, align 8
+  %382 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %383 = load i64, ptr %382, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.213, i32 noundef %380, i64 noundef %381, i64 noundef %383, ptr noundef %368) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
+  br label %trace_vfio_check_pm_reset.exit.i
+
+384:                                              ; preds = %375
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.214, ptr noundef %368) #26
+  br label %trace_vfio_check_pm_reset.exit.i
+
+trace_vfio_check_pm_reset.exit.i:                 ; preds = %384, %378, %372, %370, %366
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 3753
+  store i8 1, ptr %385, align 1
+  br label %vfio_check_pm_reset.exit
+
+vfio_check_pm_reset.exit:                         ; preds = %361, %trace_vfio_check_pm_reset.exit.i
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 3748
+  store i8 %1, ptr %386, align 4
+  %387 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 1, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %388 = icmp sgt i32 %387, -1
+  br i1 %388, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
+
+389:                                              ; preds = %vfio_std_cap_max_size.exit93
+  %390 = load ptr, ptr %15, align 16
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 %17
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 3
+  %.val.i108 = load i8, ptr %392, align 1
+  %393 = and i8 %.val.i108, 3
+  %or.cond.not.i = icmp eq i8 %393, 3
+  br i1 %or.cond.not.i, label %394, label %vfio_check_af_flr.exit
+
+394:                                              ; preds = %389
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %396 = load ptr, ptr %395, align 8
+  %397 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i109 = icmp eq i32 %397, 0
+  br i1 %.not.i.i.i109, label %trace_vfio_check_af_flr.exit.i, label %398, !prof !5
+
+398:                                              ; preds = %394
+  %399 = load i16, ptr @_TRACE_VFIO_CHECK_AF_FLR_DSTATE, align 2
+  %.not2.i.i.i110 = icmp eq i16 %399, 0
+  br i1 %.not2.i.i.i110, label %trace_vfio_check_af_flr.exit.i, label %400
+
+400:                                              ; preds = %398
+  %401 = load i32, ptr @qemu_loglevel, align 4
+  %402 = and i32 %401, 32768
+  %.not3.i.i.i111 = icmp eq i32 %402, 0
+  br i1 %.not3.i.i.i111, label %trace_vfio_check_af_flr.exit.i, label %403
+
+403:                                              ; preds = %400
+  %404 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %405 = trunc nuw i8 %404 to i1
+  br i1 %405, label %406, label %412
+
+406:                                              ; preds = %403
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
+  %407 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %408 = call i32 @qemu_get_thread_id() #26
+  %409 = load i64, ptr %4, align 8
+  %410 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %411 = load i64, ptr %410, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.215, i32 noundef %408, i64 noundef %409, i64 noundef %411, ptr noundef %396) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
+  br label %trace_vfio_check_af_flr.exit.i
+
+412:                                              ; preds = %403
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.216, ptr noundef %396) #26
+  br label %trace_vfio_check_af_flr.exit.i
+
+trace_vfio_check_af_flr.exit.i:                   ; preds = %412, %406, %400, %398, %394
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 3752
+  store i8 1, ptr %413, align 8
+  br label %vfio_check_af_flr.exit
+
+vfio_check_af_flr.exit:                           ; preds = %389, %trace_vfio_check_af_flr.exit.i
+  %414 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %415 = icmp sgt i32 %414, -1
+  br i1 %415, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
+
+416:                                              ; preds = %vfio_std_cap_max_size.exit93
+  %417 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 9, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %418 = icmp sgt i32 %417, -1
+  br i1 %418, label %419, label %vfio_setup_pcie_cap.exit.thread115
+
+419:                                              ; preds = %416
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 3770
+  %421 = load i8, ptr %420, align 2, !range !6, !noundef !7
+  %422 = trunc nuw i8 %421 to i1
+  %423 = icmp ugt i8 %49, 3
+  %or.cond.i = and i1 %423, %422
+  br i1 %or.cond.i, label %424, label %vfio_setup_pcie_cap.exit.thread
+
+424:                                              ; preds = %419
+  %425 = zext i8 %49 to i64
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %427 = load ptr, ptr %426, align 8
+  %428 = zext nneg i32 %417 to i64
+  %429 = getelementptr inbounds nuw i8, ptr %427, i64 %428
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 3
+  %431 = add nuw nsw i64 %425, 4294967293
+  %432 = and i64 %431, 4294967295
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %430, i8 noundef 0, i64 noundef %432, i1 noundef false) #26
+  br label %vfio_setup_pcie_cap.exit.thread
+
+433:                                              ; preds = %vfio_std_cap_max_size.exit93
+  %434 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext %19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %435 = icmp sgt i32 %434, -1
+  br i1 %435, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
+
+vfio_setup_pcie_cap.exit.thread119:               ; preds = %100, %96
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #26
+  br label %vfio_setup_pcie_cap.exit.thread
+
+vfio_setup_pcie_cap.exit:                         ; preds = %98, %63
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #26
+  br label %vfio_setup_pcie_cap.exit.thread115
+
+vfio_setup_pcie_cap.exit.thread115:               ; preds = %416, %313, %135, %vfio_msix_setup.exit, %vfio_setup_pcie_cap.exit, %vfio_check_pm_reset.exit, %vfio_check_af_flr.exit, %433
+  %436 = zext i8 %49 to i32
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef %spec.select, ptr noundef nonnull @.str.202, i32 noundef %54, i32 noundef %436, i32 noundef %20) #26
+  br label %vfio_setup_pcie_cap.exit.thread
+
+vfio_setup_pcie_cap.exit.thread:                  ; preds = %424, %419, %156, %._crit_edge.i, %316, %vfio_msix_setup.exit.thread, %vfio_setup_pcie_cap.exit.thread119, %vfio_check_pm_reset.exit, %vfio_check_af_flr.exit, %433, %vfio_setup_pcie_cap.exit.thread115, %32, %30
+  %.0 = phi i1 [ false, %30 ], [ false, %32 ], [ false, %vfio_setup_pcie_cap.exit.thread115 ], [ true, %433 ], [ true, %vfio_check_af_flr.exit ], [ true, %vfio_check_pm_reset.exit ], [ true, %vfio_setup_pcie_cap.exit.thread119 ], [ true, %vfio_msix_setup.exit.thread ], [ true, %424 ], [ true, %419 ], [ true, %156 ], [ true, %._crit_edge.i ], [ true, %316 ]
+  %.val79 = load ptr, ptr %11, align 8
+  %.val80 = load ptr, ptr %12, align 8
+  call void @error_propagate(ptr noundef %.val80, ptr noundef %.val79) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #26
+  ret i1 %.0
+}
+
+declare zeroext i1 @vfio_add_virt_caps(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+
+declare i32 @msi_init(ptr noundef, i8 noundef zeroext, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
+
+declare void @error_propagate_prepend(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+declare zeroext i1 @pci_bus_is_express(ptr noundef) local_unnamed_addr #4
+
+declare ptr @pci_bridge_get_device(ptr noundef) local_unnamed_addr #4
+
+declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #4
+
+declare zeroext i8 @pcie_cap_get_type(ptr noundef) local_unnamed_addr #4
+
+declare zeroext i8 @pcie_cap_get_version(ptr noundef) local_unnamed_addr #4
+
+declare ptr @vfio_get_device_info(i32 noundef) local_unnamed_addr #4
+
+declare ptr @vfio_get_device_info_cap(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+
+declare i32 @msix_init(ptr noundef, i16 noundef zeroext, ptr noundef, i8 noundef zeroext, i32 noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+
+declare void @warn_report_err(ptr noundef) local_unnamed_addr #4
+
+declare zeroext i1 @object_property_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare ptr @qdev_get_machine() local_unnamed_addr #4
+
+; Function Attrs: allocsize(1)
+declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #22
+
+declare void @pcie_add_capability(ptr noundef, i16 noundef zeroext, i8 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #4
+
+declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i64 @pci_device_route_intx_to_irq(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare zeroext i1 @pci_intx_route_changed(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @vfio_intx_update(ptr noundef initializes((2996, 3000)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2996
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3000
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i, label %trace_vfio_intx_update.exit, label %13, !prof !5
+
+13:                                               ; preds = %2
+  %14 = load i16, ptr @_TRACE_VFIO_INTX_UPDATE_DSTATE, align 2
+  %.not5.i.i = icmp eq i16 %14, 0
+  br i1 %.not5.i.i, label %trace_vfio_intx_update.exit, label %15
+
+15:                                               ; preds = %13
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %17 = and i32 %16, 32768
+  %.not6.i.i = icmp eq i32 %17, 0
+  br i1 %.not6.i.i, label %trace_vfio_intx_update.exit, label %18
+
+18:                                               ; preds = %15
+  %19 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %21, label %27
+
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
+  %22 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #26
+  %23 = tail call i32 @qemu_get_thread_id() #26
+  %24 = load i64, ptr %3, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %26 = load i64, ptr %25, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, i32 noundef %23, i64 noundef %24, i64 noundef %26, ptr noundef %6, i32 noundef %9, i32 noundef %11) #26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
+  br label %trace_vfio_intx_update.exit
+
+27:                                               ; preds = %18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, ptr noundef %6, i32 noundef %9, i32 noundef %11) #26
+  br label %trace_vfio_intx_update.exit
+
+trace_vfio_intx_update.exit:                      ; preds = %2, %13, %15, %21, %27
+  %28 = load i64, ptr %1, align 4
+  store i64 %28, ptr %7, align 4
+  %29 = load i32, ptr %1, align 4
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %30, label %31
+
+30:                                               ; preds = %trace_vfio_intx_update.exit
+  tail call void @vfio_intx_eoi(ptr noundef nonnull %4)
+  br label %31
+
+31:                                               ; preds = %trace_vfio_intx_update.exit, %30
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_err_notifier_handler(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3672
+  %3 = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %2) #26
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %8, label %4
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %6 = load ptr, ptr %5, align 8
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.222, ptr noundef nonnull @__func__.vfio_err_notifier_handler, ptr noundef %6) #26
+  %7 = tail call i32 @vm_stop(i32 noundef 2) #26
+  br label %8
+
+8:                                                ; preds = %1, %4
+  ret void
+}
+
+declare i32 @vm_stop(i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_req_notifier_handler(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3684
+  %4 = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %3) #26
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %11, label %5
+
+5:                                                ; preds = %1
+  %6 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  call void @qdev_unplug(ptr noundef %6, ptr noundef nonnull %2) #26
+  %7 = load ptr, ptr %2, align 8
+  %.not4 = icmp eq ptr %7, null
+  br i1 %.not4, label %11, label %8
+
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %10 = load ptr, ptr %9, align 8
+  call void (ptr, ptr, ...) @warn_reportf_err(ptr noundef nonnull %7, ptr noundef nonnull @.str.7, ptr noundef %10) #26
+  br label %11
+
+11:                                               ; preds = %5, %8, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  ret void
+}
+
+declare void @qdev_unplug(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @msi_uninit(ptr noundef) local_unnamed_addr #4
+
+declare void @msix_uninit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_bar_quirk_exit(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @vfio_region_exit(ptr noundef) local_unnamed_addr #4
+
+declare void @pci_unregister_vga(ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_vga_quirk_exit(ptr noundef) local_unnamed_addr #4
+
+declare void @vfio_migration_exit(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vfio_pci_nohotplug_dev_class_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+  %3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #26
+  tail call void @device_class_set_props_n(ptr noundef %3, ptr noundef nonnull @vfio_pci_dev_nohotplug_properties, i64 noundef 2) #26
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 131
+  store i8 0, ptr %4, align 1
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #23
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #23
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #23
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { nofree nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #12 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #14 = { nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #21 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #22 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #26 = { nounwind }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(none) }
+attributes #29 = { nounwind allocsize(0,1) }
+attributes #30 = { nounwind allocsize(0) }
+attributes #31 = { nounwind willreturn memory(read) }
+attributes #32 = { nounwind allocsize(1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!"auto-init"}
+!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = !{ptr @msi_get_message, ptr @msix_get_message}
+!21 = !{ptr @msi_notify, ptr @msix_notify}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}
+!26 = distinct !{!26, !13}
+!27 = distinct !{!27, !13}
+!28 = distinct !{!28, !13}
+!29 = distinct !{!29, !13}
+!30 = distinct !{!30, !13}
+!31 = distinct !{!31, !13}
+!32 = distinct !{!32, !13}
+!33 = distinct !{!33, !13}
+!34 = distinct !{!34, !13}
+!35 = distinct !{!35, !13}
+!36 = distinct !{!36, !13}
+!37 = distinct !{!37, !13}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"memcpy.inline: argument 0"}
+!40 = distinct !{!40, !"memcpy.inline"}
+!41 = distinct !{!41, !40, !"memcpy.inline: argument 1"}
+!42 = distinct !{!42, !13}
+!43 = distinct !{!43, !13}
+!44 = distinct !{!44, !13}
+!45 = distinct !{!45, !13}

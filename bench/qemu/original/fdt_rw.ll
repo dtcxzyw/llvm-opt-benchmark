@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.fdt_reserve_entry = type { i64, i64 }
 %struct.fdt_header = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
@@ -7,2328 +7,2711 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.fdt_node_header = type { i32, [0 x i8] }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_add_mem_rsv(ptr noundef %fdt, i64 noundef %address, i64 noundef %size) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %address.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %re = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i64 %address, ptr %address.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @fdt_add_mem_rsv(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr null, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  %12 = load ptr, ptr %5, align 8
+  %13 = call i32 @fdt_rw_probe_(ptr noundef %12)
+  store i32 %13, ptr %10, align 4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %17
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %3
+  %16 = load i32, ptr %10, align 4
+  store i32 %16, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %18
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load ptr, ptr %fdt.addr, align 8
-  %call1 = call i32 @fdt_num_mem_rsv(ptr noundef %3)
-  %call2 = call ptr @fdt_mem_rsv_w_(ptr noundef %2, i32 noundef %call1)
-  store ptr %call2, ptr %re, align 8
-  %4 = load ptr, ptr %fdt.addr, align 8
-  %5 = load ptr, ptr %re, align 8
-  %call3 = call i32 @fdt_splice_mem_rsv_(ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 1)
-  store i32 %call3, ptr %err, align 4
-  %6 = load i32, ptr %err, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %if.then4, label %if.end5
+17:                                               ; preds = %3
+  store i32 0, ptr %11, align 4
+  br label %18
 
-if.then4:                                         ; preds = %if.end
-  %7 = load i32, ptr %err, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %17, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  %19 = load i32, ptr %11, align 4
+  switch i32 %19, label %41 [
+    i32 0, label %20
+  ]
 
-if.end5:                                          ; preds = %if.end
-  %8 = load i64, ptr %address.addr, align 8
-  %call6 = call i64 @cpu_to_fdt64(i64 noundef %8)
-  %9 = load ptr, ptr %re, align 8
-  %address7 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %9, i32 0, i32 0
-  store i64 %call6, ptr %address7, align 8
-  %10 = load i64, ptr %size.addr, align 8
-  %call8 = call i64 @cpu_to_fdt64(i64 noundef %10)
-  %11 = load ptr, ptr %re, align 8
-  %size9 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %11, i32 0, i32 1
-  store i64 %call8, ptr %size9, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %18
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %5, align 8
+  %23 = call i32 @fdt_num_mem_rsv(ptr noundef %22)
+  %24 = call ptr @fdt_mem_rsv_w_(ptr noundef %21, i32 noundef %23)
+  store ptr %24, ptr %8, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = call i32 @fdt_splice_mem_rsv_(ptr noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef 1)
+  store i32 %27, ptr %9, align 4
+  %28 = load i32, ptr %9, align 4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %32
 
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+30:                                               ; preds = %20
+  %31 = load i32, ptr %9, align 4
+  store i32 %31, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
+
+32:                                               ; preds = %20
+  %33 = load i64, ptr %6, align 8
+  %34 = call i64 @cpu_to_fdt64(i64 noundef %33)
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %35, i32 0, i32 0
+  store i64 %34, ptr %36, align 8
+  %37 = load i64, ptr %7, align 8
+  %38 = call i64 @cpu_to_fdt64(i64 noundef %37)
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %39, i32 0, i32 1
+  store i64 %38, ptr %40, align 8
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
+
+41:                                               ; preds = %32, %30, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %42 = load i32, ptr %4, align 4
+  ret i32 %42
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @fdt_rw_probe_(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  %6 = call zeroext i1 @can_assume_(i32 noundef 1)
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %43
+
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 0, ptr %4, align 4, !annotation !4
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i32 @fdt_ro_probe_(ptr noundef %9)
+  store i32 %10, ptr %4, align 4
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %8
+  %13 = load i32, ptr %4, align 4
+  store i32 %13, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %15
+
+14:                                               ; preds = %8
+  store i32 0, ptr %5, align 4
+  br label %15
+
+15:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  %16 = load i32, ptr %5, align 4
+  switch i32 %16, label %45 [
+    i32 0, label %17
+    i32 1, label %43
+  ]
+
+17:                                               ; preds = %15
+  %18 = call zeroext i1 @can_assume_(i32 noundef 4)
+  br i1 %18, label %25, label %19
+
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.fdt_header, ptr %20, i32 0, i32 5
+  %22 = call i32 @fdt32_ld(ptr noundef %21)
+  %23 = icmp ult i32 %22, 17
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %19
+  store i32 -10, ptr %2, align 4
+  br label %43
+
+25:                                               ; preds = %19, %17
+  %26 = load ptr, ptr %3, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.fdt_header, ptr %27, i32 0, i32 9
+  %29 = call i32 @fdt32_ld(ptr noundef %28)
+  %30 = call i32 @fdt_blocks_misordered_(ptr noundef %26, i32 noundef 16, i32 noundef %29)
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %25
+  store i32 -12, ptr %2, align 4
+  br label %43
+
+33:                                               ; preds = %25
+  %34 = call zeroext i1 @can_assume_(i32 noundef 4)
+  br i1 %34, label %42, label %35
+
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw %struct.fdt_header, ptr %36, i32 0, i32 5
+  %38 = call i32 @fdt32_ld(ptr noundef %37)
+  %39 = icmp ugt i32 %38, 17
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %3, align 8
+  call void @fdt_set_version(ptr noundef %41, i32 noundef 17)
+  br label %42
+
+42:                                               ; preds = %40, %35, %33
+  store i32 0, ptr %2, align 4
+  br label %43
+
+43:                                               ; preds = %42, %32, %24, %15, %7
+  %44 = load i32, ptr %2, align 4
+  ret i32 %44
+
+45:                                               ; preds = %15
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @fdt_mem_rsv_w_(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = call ptr @fdt_mem_rsv_(ptr noundef %5, i32 noundef %6)
+  %8 = ptrtoint ptr %7 to i64
+  %9 = inttoptr i64 %8 to ptr
+  ret ptr %9
+}
+
+declare i32 @fdt_num_mem_rsv(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal i32 @fdt_splice_mem_rsv_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  %13 = load i32, ptr %9, align 4
+  %14 = load i32, ptr %8, align 4
+  %15 = sub i32 %13, %14
+  %16 = sext i32 %15 to i64
+  %17 = mul i64 %16, 16
+  %18 = trunc i64 %17 to i32
+  store i32 %18, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  %19 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = sext i32 %21 to i64
+  %23 = mul i64 %22, 16
+  %24 = trunc i64 %23 to i32
+  %25 = load i32, ptr %9, align 4
+  %26 = sext i32 %25 to i64
+  %27 = mul i64 %26, 16
+  %28 = trunc i64 %27 to i32
+  %29 = call i32 @fdt_splice_(ptr noundef %19, ptr noundef %20, i32 noundef %24, i32 noundef %28)
+  store i32 %29, ptr %11, align 4
+  %30 = load i32, ptr %11, align 4
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %4
+  %33 = load i32, ptr %11, align 4
+  store i32 %33, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %47
+
+34:                                               ; preds = %4
+  %35 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds nuw %struct.fdt_header, ptr %36, i32 0, i32 2
+  %38 = call i32 @fdt32_ld(ptr noundef %37)
+  %39 = load i32, ptr %10, align 4
+  %40 = add i32 %38, %39
+  call void @fdt_set_off_dt_struct(ptr noundef %35, i32 noundef %40)
+  %41 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.fdt_header, ptr %42, i32 0, i32 3
+  %44 = call i32 @fdt32_ld(ptr noundef %43)
+  %45 = load i32, ptr %10, align 4
+  %46 = add i32 %44, %45
+  call void @fdt_set_off_dt_strings(ptr noundef %41, i32 noundef %46)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %47
+
+47:                                               ; preds = %34, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  %48 = load i32, ptr %5, align 4
+  ret i32 %48
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @cpu_to_fdt64(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 0
+  %4 = load i8, ptr %3, align 8
+  %5 = zext i8 %4 to i64
+  %6 = shl i64 %5, 56
+  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i64
+  %10 = shl i64 %9, 48
+  %11 = or i64 %6, %10
+  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %13 = load i8, ptr %12, align 2
+  %14 = zext i8 %13 to i64
+  %15 = shl i64 %14, 40
+  %16 = or i64 %11, %15
+  %17 = getelementptr inbounds i8, ptr %2, i64 3
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i64
+  %20 = shl i64 %19, 32
+  %21 = or i64 %16, %20
+  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %23 = load i8, ptr %22, align 4
+  %24 = zext i8 %23 to i64
+  %25 = shl i64 %24, 24
+  %26 = or i64 %21, %25
+  %27 = getelementptr inbounds i8, ptr %2, i64 5
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i64
+  %30 = shl i64 %29, 16
+  %31 = or i64 %26, %30
+  %32 = getelementptr inbounds i8, ptr %2, i64 6
+  %33 = load i8, ptr %32, align 2
+  %34 = zext i8 %33 to i64
+  %35 = shl i64 %34, 8
+  %36 = or i64 %31, %35
+  %37 = getelementptr inbounds i8, ptr %2, i64 7
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i64
+  %40 = or i64 %36, %39
+  ret i64 %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fdt_rw_probe_(ptr noundef %fdt) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %totalsize_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  %call = call zeroext i1 @can_assume_(i32 noundef 1)
-  br i1 %call, label %if.then, label %if.end
+define dso_local i32 @fdt_del_mem_rsv(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = call ptr @fdt_mem_rsv_w_(ptr noundef %9, i32 noundef %10)
+  store ptr %11, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  store i32 0, ptr %7, align 4, !annotation !4
+  %12 = load ptr, ptr %4, align 8
+  %13 = call i32 @fdt_rw_probe_(ptr noundef %12)
+  store i32 %13, ptr %7, align 4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %17
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %2
+  %16 = load i32, ptr %7, align 4
+  store i32 %16, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %18
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call1 = call i32 @fdt_ro_probe_(ptr noundef %0)
-  store i32 %call1, ptr %totalsize_, align 4
-  %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %if.then2, label %if.end3
+17:                                               ; preds = %2
+  store i32 0, ptr %8, align 4
+  br label %18
 
-if.then2:                                         ; preds = %if.end
-  %1 = load i32, ptr %totalsize_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %17, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  %19 = load i32, ptr %8, align 4
+  switch i32 %19, label %30 [
+    i32 0, label %20
+  ]
 
-if.end3:                                          ; preds = %if.end
-  %call4 = call zeroext i1 @can_assume_(i32 noundef 4)
-  br i1 %call4, label %if.end8, label %land.lhs.true
+20:                                               ; preds = %18
+  %21 = load i32, ptr %5, align 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = call i32 @fdt_num_mem_rsv(ptr noundef %22)
+  %24 = icmp sge i32 %21, %23
+  br i1 %24, label %25, label %26
 
-land.lhs.true:                                    ; preds = %if.end3
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %version = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 5
-  %call5 = call i32 @fdt32_ld(ptr noundef %version)
-  %cmp6 = icmp ult i32 %call5, 17
-  br i1 %cmp6, label %if.then7, label %if.end8
+25:                                               ; preds = %20
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %30
 
-if.then7:                                         ; preds = %land.lhs.true
-  store i32 -10, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = call i32 @fdt_splice_mem_rsv_(ptr noundef %27, ptr noundef %28, i32 noundef 1, i32 noundef 0)
+  store i32 %29, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %30
 
-if.end8:                                          ; preds = %land.lhs.true, %if.end3
-  %3 = load ptr, ptr %fdt.addr, align 8
-  %4 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %4, i32 0, i32 9
-  %call9 = call i32 @fdt32_ld(ptr noundef %size_dt_struct)
-  %call10 = call i32 @fdt_blocks_misordered_(ptr noundef %3, i32 noundef 16, i32 noundef %call9)
-  %tobool = icmp ne i32 %call10, 0
-  br i1 %tobool, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %if.end8
-  store i32 -12, ptr %retval, align 4
-  br label %return
-
-if.end12:                                         ; preds = %if.end8
-  %call13 = call zeroext i1 @can_assume_(i32 noundef 4)
-  br i1 %call13, label %if.end19, label %land.lhs.true14
-
-land.lhs.true14:                                  ; preds = %if.end12
-  %5 = load ptr, ptr %fdt.addr, align 8
-  %version15 = getelementptr inbounds %struct.fdt_header, ptr %5, i32 0, i32 5
-  %call16 = call i32 @fdt32_ld(ptr noundef %version15)
-  %cmp17 = icmp ugt i32 %call16, 17
-  br i1 %cmp17, label %if.then18, label %if.end19
-
-if.then18:                                        ; preds = %land.lhs.true14
-  %6 = load ptr, ptr %fdt.addr, align 8
-  call void @fdt_set_version(ptr noundef %6, i32 noundef 17)
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.then18, %land.lhs.true14, %if.end12
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end19, %if.then11, %if.then7, %if.then2, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+30:                                               ; preds = %26, %25, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %31 = load i32, ptr %3, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @fdt_mem_rsv_w_(ptr noundef %fdt, i32 noundef %n) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %call = call ptr @fdt_mem_rsv_(ptr noundef %0, i32 noundef %1)
-  %2 = ptrtoint ptr %call to i64
-  %3 = inttoptr i64 %2 to ptr
-  ret ptr %3
+define dso_local i32 @fdt_set_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr null, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
+  %14 = load ptr, ptr %5, align 8
+  %15 = call i32 @fdt_rw_probe_(ptr noundef %14)
+  store i32 %15, ptr %12, align 4
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %3
+  %18 = load i32, ptr %12, align 4
+  store i32 %18, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %20
+
+19:                                               ; preds = %3
+  store i32 0, ptr %13, align 4
+  br label %20
+
+20:                                               ; preds = %19, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  %21 = load i32, ptr %13, align 4
+  switch i32 %21, label %63 [
+    i32 0, label %22
+  ]
+
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = call ptr @fdt_get_name(ptr noundef %23, i32 noundef %24, ptr noundef %9)
+  %26 = ptrtoint ptr %25 to i64
+  %27 = inttoptr i64 %26 to ptr
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %32, label %30
+
+30:                                               ; preds = %22
+  %31 = load i32, ptr %9, align 4
+  store i32 %31, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %63
+
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %7, align 8
+  %34 = call i64 @strlen(ptr noundef %33) #8
+  %35 = trunc i64 %34 to i32
+  store i32 %35, ptr %10, align 4
+  %36 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load i32, ptr %9, align 4
+  %39 = add i32 %38, 1
+  %40 = sext i32 %39 to i64
+  %41 = add i64 %40, 4
+  %42 = sub i64 %41, 1
+  %43 = and i64 %42, -4
+  %44 = trunc i64 %43 to i32
+  %45 = load i32, ptr %10, align 4
+  %46 = add i32 %45, 1
+  %47 = sext i32 %46 to i64
+  %48 = add i64 %47, 4
+  %49 = sub i64 %48, 1
+  %50 = and i64 %49, -4
+  %51 = trunc i64 %50 to i32
+  %52 = call i32 @fdt_splice_struct_(ptr noundef %36, ptr noundef %37, i32 noundef %44, i32 noundef %51)
+  store i32 %52, ptr %11, align 4
+  %53 = load i32, ptr %11, align 4
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %32
+  %56 = load i32, ptr %11, align 4
+  store i32 %56, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %63
+
+57:                                               ; preds = %32
+  %58 = load ptr, ptr %8, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %10, align 4
+  %61 = add i32 %60, 1
+  %62 = sext i32 %61 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %59, i64 %62, i1 false)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %63
+
+63:                                               ; preds = %57, %55, %30, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %64 = load i32, ptr %4, align 4
+  ret i32 %64
 }
 
-declare i32 @fdt_num_mem_rsv(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @fdt_splice_mem_rsv_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldn, i32 noundef %newn) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %oldn.addr = alloca i32, align 4
-  %newn.addr = alloca i32, align 4
-  %delta = alloca i32, align 4
-  %err = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %oldn, ptr %oldn.addr, align 4
-  store i32 %newn, ptr %newn.addr, align 4
-  %0 = load i32, ptr %newn.addr, align 4
-  %1 = load i32, ptr %oldn.addr, align 4
-  %sub = sub i32 %0, %1
-  %conv = sext i32 %sub to i64
-  %mul = mul i64 %conv, 16
-  %conv1 = trunc i64 %mul to i32
-  store i32 %conv1, ptr %delta, align 4
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %4 = load i32, ptr %oldn.addr, align 4
-  %conv2 = sext i32 %4 to i64
-  %mul3 = mul i64 %conv2, 16
-  %conv4 = trunc i64 %mul3 to i32
-  %5 = load i32, ptr %newn.addr, align 4
-  %conv5 = sext i32 %5 to i64
-  %mul6 = mul i64 %conv5, 16
-  %conv7 = trunc i64 %mul6 to i32
-  %call = call i32 @fdt_splice_(ptr noundef %2, ptr noundef %3, i32 noundef %conv4, i32 noundef %conv7)
-  store i32 %call, ptr %err, align 4
-  %6 = load i32, ptr %err, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %7 = load i32, ptr %err, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %9 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %9, i32 0, i32 2
-  %call8 = call i32 @fdt32_ld(ptr noundef %off_dt_struct)
-  %10 = load i32, ptr %delta, align 4
-  %add = add i32 %call8, %10
-  call void @fdt_set_off_dt_struct(ptr noundef %8, i32 noundef %add)
-  %11 = load ptr, ptr %fdt.addr, align 8
-  %12 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %12, i32 0, i32 3
-  %call9 = call i32 @fdt32_ld(ptr noundef %off_dt_strings)
-  %13 = load i32, ptr %delta, align 4
-  %add10 = add i32 %call9, %13
-  call void @fdt_set_off_dt_strings(ptr noundef %11, i32 noundef %add10)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @cpu_to_fdt64(i64 noundef %x) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %arrayidx = getelementptr i8, ptr %x.addr, i64 0
-  %0 = load i8, ptr %arrayidx, align 8
-  %conv = zext i8 %0 to i64
-  %shl = shl i64 %conv, 56
-  %arrayidx1 = getelementptr i8, ptr %x.addr, i64 1
-  %1 = load i8, ptr %arrayidx1, align 1
-  %conv2 = zext i8 %1 to i64
-  %shl3 = shl i64 %conv2, 48
-  %or = or i64 %shl, %shl3
-  %arrayidx4 = getelementptr i8, ptr %x.addr, i64 2
-  %2 = load i8, ptr %arrayidx4, align 2
-  %conv5 = zext i8 %2 to i64
-  %shl6 = shl i64 %conv5, 40
-  %or7 = or i64 %or, %shl6
-  %arrayidx8 = getelementptr i8, ptr %x.addr, i64 3
-  %3 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %3 to i64
-  %shl10 = shl i64 %conv9, 32
-  %or11 = or i64 %or7, %shl10
-  %arrayidx12 = getelementptr i8, ptr %x.addr, i64 4
-  %4 = load i8, ptr %arrayidx12, align 4
-  %conv13 = zext i8 %4 to i64
-  %shl14 = shl i64 %conv13, 24
-  %or15 = or i64 %or11, %shl14
-  %arrayidx16 = getelementptr i8, ptr %x.addr, i64 5
-  %5 = load i8, ptr %arrayidx16, align 1
-  %conv17 = zext i8 %5 to i64
-  %shl18 = shl i64 %conv17, 16
-  %or19 = or i64 %or15, %shl18
-  %arrayidx20 = getelementptr i8, ptr %x.addr, i64 6
-  %6 = load i8, ptr %arrayidx20, align 2
-  %conv21 = zext i8 %6 to i64
-  %shl22 = shl i64 %conv21, 8
-  %or23 = or i64 %or19, %shl22
-  %arrayidx24 = getelementptr i8, ptr %x.addr, i64 7
-  %7 = load i8, ptr %arrayidx24, align 1
-  %conv25 = zext i8 %7 to i64
-  %or26 = or i64 %or23, %conv25
-  ret i64 %or26
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_del_mem_rsv(ptr noundef %fdt, i32 noundef %n) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %re = alloca ptr, align 8
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %call = call ptr @fdt_mem_rsv_w_(ptr noundef %0, i32 noundef %1)
-  store ptr %call, ptr %re, align 8
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %call1 = call i32 @fdt_rw_probe_(ptr noundef %2)
-  store i32 %call1, ptr %err_, align 4
-  %cmp = icmp ne i32 %call1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %err_, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %n.addr, align 4
-  %5 = load ptr, ptr %fdt.addr, align 8
-  %call2 = call i32 @fdt_num_mem_rsv(ptr noundef %5)
-  %cmp3 = icmp sge i32 %4, %call2
-  br i1 %cmp3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  %6 = load ptr, ptr %fdt.addr, align 8
-  %7 = load ptr, ptr %re, align 8
-  %call6 = call i32 @fdt_splice_mem_rsv_(ptr noundef %6, ptr noundef %7, i32 noundef 1, i32 noundef 0)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_set_name(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %namep = alloca ptr, align 8
-  %oldlen = alloca i32, align 4
-  %newlen = alloca i32, align 4
-  %err = alloca i32, align 4
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load i32, ptr %nodeoffset.addr, align 4
-  %call1 = call ptr @fdt_get_name(ptr noundef %2, i32 noundef %3, ptr noundef %oldlen)
-  %4 = ptrtoint ptr %call1 to i64
-  %5 = inttoptr i64 %4 to ptr
-  store ptr %5, ptr %namep, align 8
-  %6 = load ptr, ptr %namep, align 8
-  %tobool = icmp ne ptr %6, null
-  br i1 %tobool, label %if.end3, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  %7 = load i32, ptr %oldlen, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %8 = load ptr, ptr %name.addr, align 8
-  %call4 = call i64 @strlen(ptr noundef %8) #5
-  %conv = trunc i64 %call4 to i32
-  store i32 %conv, ptr %newlen, align 4
-  %9 = load ptr, ptr %fdt.addr, align 8
-  %10 = load ptr, ptr %namep, align 8
-  %11 = load i32, ptr %oldlen, align 4
-  %add = add i32 %11, 1
-  %conv5 = sext i32 %add to i64
-  %add6 = add i64 %conv5, 4
-  %sub = sub i64 %add6, 1
-  %and = and i64 %sub, -4
-  %conv7 = trunc i64 %and to i32
-  %12 = load i32, ptr %newlen, align 4
-  %add8 = add i32 %12, 1
-  %conv9 = sext i32 %add8 to i64
-  %add10 = add i64 %conv9, 4
-  %sub11 = sub i64 %add10, 1
-  %and12 = and i64 %sub11, -4
-  %conv13 = trunc i64 %and12 to i32
-  %call14 = call i32 @fdt_splice_struct_(ptr noundef %9, ptr noundef %10, i32 noundef %conv7, i32 noundef %conv13)
-  store i32 %call14, ptr %err, align 4
-  %13 = load i32, ptr %err, align 4
-  %tobool15 = icmp ne i32 %13, 0
-  br i1 %tobool15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %if.end3
-  %14 = load i32, ptr %err, align 4
-  store i32 %14, ptr %retval, align 4
-  br label %return
-
-if.end17:                                         ; preds = %if.end3
-  %15 = load ptr, ptr %namep, align 8
-  %16 = load ptr, ptr %name.addr, align 8
-  %17 = load i32, ptr %newlen, align 4
-  %add18 = add i32 %17, 1
-  %conv19 = sext i32 %add18 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %16, i64 %conv19, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end17, %if.then16, %if.then2, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
-}
-
-declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldlen, i32 noundef %newlen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %oldlen.addr = alloca i32, align 4
-  %newlen.addr = alloca i32, align 4
-  %delta = alloca i32, align 4
-  %err = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i32 %oldlen, ptr %oldlen.addr, align 4
-  store i32 %newlen, ptr %newlen.addr, align 4
-  %0 = load i32, ptr %newlen.addr, align 4
-  %1 = load i32, ptr %oldlen.addr, align 4
-  %sub = sub i32 %0, %1
-  store i32 %sub, ptr %delta, align 4
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %4 = load i32, ptr %oldlen.addr, align 4
-  %5 = load i32, ptr %newlen.addr, align 4
-  %call = call i32 @fdt_splice_(ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store i32 %call, ptr %err, align 4
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @fdt_splice_struct_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  %13 = load i32, ptr %9, align 4
+  %14 = load i32, ptr %8, align 4
+  %15 = sub i32 %13, %14
+  store i32 %15, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  %16 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr %9, align 4
+  %20 = call i32 @fdt_splice_(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19)
+  store i32 %20, ptr %11, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %24
 
-if.then:                                          ; preds = %entry
-  %6 = load i32, ptr %err, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %4
+  %23 = load i32, ptr %11, align 4
+  store i32 %23, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %37
 
-if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %8, i32 0, i32 9
-  %call1 = call i32 @fdt32_ld(ptr noundef %size_dt_struct)
-  %9 = load i32, ptr %delta, align 4
-  %add = add i32 %call1, %9
-  call void @fdt_set_size_dt_struct(ptr noundef %7, i32 noundef %add)
-  %10 = load ptr, ptr %fdt.addr, align 8
-  %11 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %11, i32 0, i32 3
-  %call2 = call i32 @fdt32_ld(ptr noundef %off_dt_strings)
-  %12 = load i32, ptr %delta, align 4
-  %add3 = add i32 %call2, %12
-  call void @fdt_set_off_dt_strings(ptr noundef %10, i32 noundef %add3)
-  store i32 0, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct.fdt_header, ptr %26, i32 0, i32 9
+  %28 = call i32 @fdt32_ld(ptr noundef %27)
+  %29 = load i32, ptr %10, align 4
+  %30 = add i32 %28, %29
+  call void @fdt_set_size_dt_struct(ptr noundef %25, i32 noundef %30)
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds nuw %struct.fdt_header, ptr %32, i32 0, i32 3
+  %34 = call i32 @fdt32_ld(ptr noundef %33)
+  %35 = load i32, ptr %10, align 4
+  %36 = add i32 %34, %35
+  call void @fdt_set_off_dt_strings(ptr noundef %31, i32 noundef %36)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %37
 
-return:                                           ; preds = %if.end, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+37:                                               ; preds = %24, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  %38 = load i32, ptr %5, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_setprop_placeholder(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef %prop_data) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %prop_data.addr = alloca ptr, align 8
-  %prop = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  store ptr %prop_data, ptr %prop_data.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @fdt_setprop_placeholder(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  store i32 0, ptr %14, align 4, !annotation !4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 @fdt_rw_probe_(ptr noundef %16)
+  store i32 %17, ptr %14, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %21
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %5
+  %20 = load i32, ptr %14, align 4
+  store i32 %20, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load i32, ptr %nodeoffset.addr, align 4
-  %4 = load ptr, ptr %name.addr, align 8
-  %5 = load i32, ptr %len.addr, align 4
-  %call1 = call i32 @fdt_resize_property_(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %prop)
-  store i32 %call1, ptr %err, align 4
-  %6 = load i32, ptr %err, align 4
-  %cmp2 = icmp eq i32 %6, -1
-  br i1 %cmp2, label %if.then3, label %if.end5
+21:                                               ; preds = %5
+  store i32 0, ptr %15, align 4
+  br label %22
 
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %8 = load i32, ptr %nodeoffset.addr, align 4
-  %9 = load ptr, ptr %name.addr, align 8
-  %10 = load i32, ptr %len.addr, align 4
-  %call4 = call i32 @fdt_add_property_(ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %prop)
-  store i32 %call4, ptr %err, align 4
-  br label %if.end5
+22:                                               ; preds = %21, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  %23 = load i32, ptr %15, align 4
+  switch i32 %23, label %48 [
+    i32 0, label %24
+  ]
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  %11 = load i32, ptr %err, align 4
-  %tobool = icmp ne i32 %11, 0
-  br i1 %tobool, label %if.then6, label %if.end7
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = call i32 @fdt_resize_property_(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %12)
+  store i32 %29, ptr %13, align 4
+  %30 = load i32, ptr %13, align 4
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %38
 
-if.then6:                                         ; preds = %if.end5
-  %12 = load i32, ptr %err, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = call i32 @fdt_add_property_(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %12)
+  store i32 %37, ptr %13, align 4
+  br label %38
 
-if.end7:                                          ; preds = %if.end5
-  %13 = load ptr, ptr %prop, align 8
-  %data = getelementptr inbounds %struct.fdt_property, ptr %13, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 0
-  %14 = load ptr, ptr %prop_data.addr, align 8
-  store ptr %arraydecay, ptr %14, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %32, %24
+  %39 = load i32, ptr %13, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %43
 
-return:                                           ; preds = %if.end7, %if.then6, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+41:                                               ; preds = %38
+  %42 = load i32, ptr %13, align 4
+  store i32 %42, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %48
+
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %12, align 8
+  %45 = getelementptr inbounds nuw %struct.fdt_property, ptr %44, i32 0, i32 3
+  %46 = getelementptr inbounds [0 x i8], ptr %45, i64 0, i64 0
+  %47 = load ptr, ptr %11, align 8
+  store ptr %46, ptr %47, align 8
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %48
+
+48:                                               ; preds = %43, %41, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %49 = load i32, ptr %6, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fdt_resize_property_(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef %prop) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %prop.addr = alloca ptr, align 8
-  %oldlen = alloca i32, align 4
-  %err = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  store ptr %prop, ptr %prop.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %nodeoffset.addr, align 4
-  %2 = load ptr, ptr %name.addr, align 8
-  %call = call ptr @fdt_get_property_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %oldlen)
-  %3 = load ptr, ptr %prop.addr, align 8
-  store ptr %call, ptr %3, align 8
-  %4 = load ptr, ptr %prop.addr, align 8
-  %5 = load ptr, ptr %4, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %6 = load i32, ptr %oldlen, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %8 = load ptr, ptr %prop.addr, align 8
-  %9 = load ptr, ptr %8, align 8
-  %data = getelementptr inbounds %struct.fdt_property, ptr %9, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 0
-  %10 = load i32, ptr %oldlen, align 4
-  %conv = sext i32 %10 to i64
-  %add = add i64 %conv, 4
-  %sub = sub i64 %add, 1
-  %and = and i64 %sub, -4
-  %conv1 = trunc i64 %and to i32
-  %11 = load i32, ptr %len.addr, align 4
-  %conv2 = sext i32 %11 to i64
-  %add3 = add i64 %conv2, 4
-  %sub4 = sub i64 %add3, 1
-  %and5 = and i64 %sub4, -4
-  %conv6 = trunc i64 %and5 to i32
-  %call7 = call i32 @fdt_splice_struct_(ptr noundef %7, ptr noundef %arraydecay, i32 noundef %conv1, i32 noundef %conv6)
-  store i32 %call7, ptr %err, align 4
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end
-  %12 = load i32, ptr %err, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
-
-if.end10:                                         ; preds = %if.end
-  %13 = load i32, ptr %len.addr, align 4
-  %call11 = call i32 @cpu_to_fdt32(i32 noundef %13)
-  %14 = load ptr, ptr %prop.addr, align 8
-  %15 = load ptr, ptr %14, align 8
-  %len12 = getelementptr inbounds %struct.fdt_property, ptr %15, i32 0, i32 1
-  store i32 %call11, ptr %len12, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @fdt_add_property_(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef %prop) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %prop.addr = alloca ptr, align 8
-  %proplen = alloca i32, align 4
-  %nextoffset = alloca i32, align 4
-  %namestroff = alloca i32, align 4
-  %err = alloca i32, align 4
-  %allocated = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  store ptr %prop, ptr %prop.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %nodeoffset.addr, align 4
-  %call = call i32 @fdt_check_node_offset_(ptr noundef %0, i32 noundef %1)
-  store i32 %call, ptr %nextoffset, align 4
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %nextoffset, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %fdt.addr, align 8
-  %4 = load ptr, ptr %name.addr, align 8
-  %call1 = call i32 @fdt_find_add_string_(ptr noundef %3, ptr noundef %4, ptr noundef %allocated)
-  store i32 %call1, ptr %namestroff, align 4
-  %5 = load i32, ptr %namestroff, align 4
-  %cmp2 = icmp slt i32 %5, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %6 = load i32, ptr %namestroff, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %8 = load i32, ptr %nextoffset, align 4
-  %call5 = call ptr @fdt_offset_ptr_w_(ptr noundef %7, i32 noundef %8)
-  %9 = load ptr, ptr %prop.addr, align 8
-  store ptr %call5, ptr %9, align 8
-  %10 = load i32, ptr %len.addr, align 4
-  %conv = sext i32 %10 to i64
-  %add = add i64 %conv, 4
-  %sub = sub i64 %add, 1
-  %and = and i64 %sub, -4
-  %add6 = add i64 12, %and
-  %conv7 = trunc i64 %add6 to i32
-  store i32 %conv7, ptr %proplen, align 4
-  %11 = load ptr, ptr %fdt.addr, align 8
-  %12 = load ptr, ptr %prop.addr, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %proplen, align 4
-  %call8 = call i32 @fdt_splice_struct_(ptr noundef %11, ptr noundef %13, i32 noundef 0, i32 noundef %14)
-  store i32 %call8, ptr %err, align 4
-  %15 = load i32, ptr %err, align 4
-  %tobool = icmp ne i32 %15, 0
-  br i1 %tobool, label %if.then9, label %if.end14
-
-if.then9:                                         ; preds = %if.end4
-  %call10 = call zeroext i1 @can_assume_(i32 noundef 8)
-  br i1 %call10, label %if.end13, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.then9
-  %16 = load i32, ptr %allocated, align 4
-  %tobool11 = icmp ne i32 %16, 0
-  br i1 %tobool11, label %if.then12, label %if.end13
-
-if.then12:                                        ; preds = %land.lhs.true
-  %17 = load ptr, ptr %fdt.addr, align 8
-  %18 = load ptr, ptr %name.addr, align 8
-  call void @fdt_del_last_string_(ptr noundef %17, ptr noundef %18)
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then12, %land.lhs.true, %if.then9
-  %19 = load i32, ptr %err, align 4
-  store i32 %19, ptr %retval, align 4
-  br label %return
-
-if.end14:                                         ; preds = %if.end4
-  %call15 = call i32 @cpu_to_fdt32(i32 noundef 3)
-  %20 = load ptr, ptr %prop.addr, align 8
+define internal i32 @fdt_resize_property_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = call ptr @fdt_get_property_w(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %12)
+  %19 = load ptr, ptr %11, align 8
+  store ptr %18, ptr %19, align 8
+  %20 = load ptr, ptr %11, align 8
   %21 = load ptr, ptr %20, align 8
-  %tag = getelementptr inbounds %struct.fdt_property, ptr %21, i32 0, i32 0
-  store i32 %call15, ptr %tag, align 4
-  %22 = load i32, ptr %namestroff, align 4
-  %call16 = call i32 @cpu_to_fdt32(i32 noundef %22)
-  %23 = load ptr, ptr %prop.addr, align 8
-  %24 = load ptr, ptr %23, align 8
-  %nameoff = getelementptr inbounds %struct.fdt_property, ptr %24, i32 0, i32 2
-  store i32 %call16, ptr %nameoff, align 4
-  %25 = load i32, ptr %len.addr, align 4
-  %call17 = call i32 @cpu_to_fdt32(i32 noundef %25)
-  %26 = load ptr, ptr %prop.addr, align 8
-  %27 = load ptr, ptr %26, align 8
-  %len18 = getelementptr inbounds %struct.fdt_property, ptr %27, i32 0, i32 1
-  store i32 %call17, ptr %len18, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %25, label %23
 
-return:                                           ; preds = %if.end14, %if.end13, %if.then3, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+23:                                               ; preds = %5
+  %24 = load i32, ptr %12, align 4
+  store i32 %24, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %53
+
+25:                                               ; preds = %5
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.fdt_property, ptr %28, i32 0, i32 3
+  %30 = getelementptr inbounds [0 x i8], ptr %29, i64 0, i64 0
+  %31 = load i32, ptr %12, align 4
+  %32 = sext i32 %31 to i64
+  %33 = add i64 %32, 4
+  %34 = sub i64 %33, 1
+  %35 = and i64 %34, -4
+  %36 = trunc i64 %35 to i32
+  %37 = load i32, ptr %10, align 4
+  %38 = sext i32 %37 to i64
+  %39 = add i64 %38, 4
+  %40 = sub i64 %39, 1
+  %41 = and i64 %40, -4
+  %42 = trunc i64 %41 to i32
+  %43 = call i32 @fdt_splice_struct_(ptr noundef %26, ptr noundef %30, i32 noundef %36, i32 noundef %42)
+  store i32 %43, ptr %13, align 4
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %47
+
+45:                                               ; preds = %25
+  %46 = load i32, ptr %13, align 4
+  store i32 %46, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %53
+
+47:                                               ; preds = %25
+  %48 = load i32, ptr %10, align 4
+  %49 = call i32 @cpu_to_fdt32(i32 noundef %48)
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw %struct.fdt_property, ptr %51, i32 0, i32 1
+  store i32 %49, ptr %52, align 4
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %53
+
+53:                                               ; preds = %47, %45, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  %54 = load i32, ptr %6, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_setprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr noundef %val, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %prop_data = alloca ptr, align 8
-  %err = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %nodeoffset.addr, align 4
-  %2 = load ptr, ptr %name.addr, align 8
-  %3 = load i32, ptr %len.addr, align 4
-  %call = call i32 @fdt_setprop_placeholder(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %prop_data)
-  store i32 %call, ptr %err, align 4
-  %4 = load i32, ptr %err, align 4
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @fdt_add_property_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  store i32 0, ptr %14, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  store i32 0, ptr %16, align 4, !annotation !4
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = call i32 @fdt_check_node_offset_(ptr noundef %18, i32 noundef %19)
+  store i32 %20, ptr %13, align 4
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %24
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %err, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %5
+  %23 = load i32, ptr %13, align 4
+  store i32 %23, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %76
 
-if.end:                                           ; preds = %entry
-  %6 = load i32, ptr %len.addr, align 4
-  %tobool1 = icmp ne i32 %6, 0
-  br i1 %tobool1, label %if.then2, label %if.end3
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %9, align 8
+  %27 = call i32 @fdt_find_add_string_(ptr noundef %25, ptr noundef %26, ptr noundef %16)
+  store i32 %27, ptr %14, align 4
+  %28 = load i32, ptr %14, align 4
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %32
 
-if.then2:                                         ; preds = %if.end
-  %7 = load ptr, ptr %prop_data, align 8
-  %8 = load ptr, ptr %val.addr, align 8
-  %9 = load i32, ptr %len.addr, align 4
-  %conv = sext i32 %9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %conv, i1 false)
-  br label %if.end3
+30:                                               ; preds = %24
+  %31 = load i32, ptr %14, align 4
+  store i32 %31, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %76
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %13, align 4
+  %35 = call ptr @fdt_offset_ptr_w_(ptr noundef %33, i32 noundef %34)
+  %36 = load ptr, ptr %11, align 8
+  store ptr %35, ptr %36, align 8
+  %37 = load i32, ptr %10, align 4
+  %38 = sext i32 %37 to i64
+  %39 = add i64 %38, 4
+  %40 = sub i64 %39, 1
+  %41 = and i64 %40, -4
+  %42 = add i64 12, %41
+  %43 = trunc i64 %42 to i32
+  store i32 %43, ptr %12, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %12, align 4
+  %48 = call i32 @fdt_splice_struct_(ptr noundef %44, ptr noundef %46, i32 noundef 0, i32 noundef %47)
+  store i32 %48, ptr %15, align 4
+  %49 = load i32, ptr %15, align 4
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %61
 
-return:                                           ; preds = %if.end3, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+51:                                               ; preds = %32
+  %52 = call zeroext i1 @can_assume_(i32 noundef 8)
+  br i1 %52, label %59, label %53
+
+53:                                               ; preds = %51
+  %54 = load i32, ptr %16, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %7, align 8
+  %58 = load ptr, ptr %9, align 8
+  call void @fdt_del_last_string_(ptr noundef %57, ptr noundef %58)
+  br label %59
+
+59:                                               ; preds = %56, %53, %51
+  %60 = load i32, ptr %15, align 4
+  store i32 %60, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %76
+
+61:                                               ; preds = %32
+  %62 = call i32 @cpu_to_fdt32(i32 noundef 3)
+  %63 = load ptr, ptr %11, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw %struct.fdt_property, ptr %64, i32 0, i32 0
+  store i32 %62, ptr %65, align 4
+  %66 = load i32, ptr %14, align 4
+  %67 = call i32 @cpu_to_fdt32(i32 noundef %66)
+  %68 = load ptr, ptr %11, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw %struct.fdt_property, ptr %69, i32 0, i32 2
+  store i32 %67, ptr %70, align 4
+  %71 = load i32, ptr %10, align 4
+  %72 = call i32 @cpu_to_fdt32(i32 noundef %71)
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw %struct.fdt_property, ptr %74, i32 0, i32 1
+  store i32 %72, ptr %75, align 4
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %76
+
+76:                                               ; preds = %61, %59, %30, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  %77 = load i32, ptr %6, align 4
+  ret i32 %77
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_appendprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr noundef %val, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %prop = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %oldlen = alloca i32, align 4
-  %newlen = alloca i32, align 4
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @fdt_setprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i32, ptr %11, align 4
+  %19 = call i32 @fdt_setprop_placeholder(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef %12)
+  store i32 %19, ptr %13, align 4
+  %20 = load i32, ptr %13, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %24
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %5
+  %23 = load i32, ptr %13, align 4
+  store i32 %23, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %33
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load i32, ptr %nodeoffset.addr, align 4
-  %4 = load ptr, ptr %name.addr, align 8
-  %call1 = call ptr @fdt_get_property_w(ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %oldlen)
-  store ptr %call1, ptr %prop, align 8
-  %5 = load ptr, ptr %prop, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.then2, label %if.else
+24:                                               ; preds = %5
+  %25 = load i32, ptr %11, align 4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %32
 
-if.then2:                                         ; preds = %if.end
-  %6 = load i32, ptr %len.addr, align 4
-  %7 = load i32, ptr %oldlen, align 4
-  %add = add i32 %6, %7
-  store i32 %add, ptr %newlen, align 4
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %9 = load ptr, ptr %prop, align 8
-  %data = getelementptr inbounds %struct.fdt_property, ptr %9, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 0
-  %10 = load i32, ptr %oldlen, align 4
-  %conv = sext i32 %10 to i64
-  %add3 = add i64 %conv, 4
-  %sub = sub i64 %add3, 1
-  %and = and i64 %sub, -4
-  %conv4 = trunc i64 %and to i32
-  %11 = load i32, ptr %newlen, align 4
-  %conv5 = sext i32 %11 to i64
-  %add6 = add i64 %conv5, 4
-  %sub7 = sub i64 %add6, 1
-  %and8 = and i64 %sub7, -4
-  %conv9 = trunc i64 %and8 to i32
-  %call10 = call i32 @fdt_splice_struct_(ptr noundef %8, ptr noundef %arraydecay, i32 noundef %conv4, i32 noundef %conv9)
-  store i32 %call10, ptr %err, align 4
-  %12 = load i32, ptr %err, align 4
-  %tobool11 = icmp ne i32 %12, 0
-  br i1 %tobool11, label %if.then12, label %if.end13
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %12, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i32, ptr %11, align 4
+  %31 = sext i32 %30 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %29, i64 %31, i1 false)
+  br label %32
 
-if.then12:                                        ; preds = %if.then2
-  %13 = load i32, ptr %err, align 4
-  store i32 %13, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %27, %24
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %33
 
-if.end13:                                         ; preds = %if.then2
-  %14 = load i32, ptr %newlen, align 4
-  %call14 = call i32 @cpu_to_fdt32(i32 noundef %14)
-  %15 = load ptr, ptr %prop, align 8
-  %len15 = getelementptr inbounds %struct.fdt_property, ptr %15, i32 0, i32 1
-  store i32 %call14, ptr %len15, align 4
-  %16 = load ptr, ptr %prop, align 8
-  %data16 = getelementptr inbounds %struct.fdt_property, ptr %16, i32 0, i32 3
-  %arraydecay17 = getelementptr inbounds [0 x i8], ptr %data16, i64 0, i64 0
-  %17 = load i32, ptr %oldlen, align 4
-  %idx.ext = sext i32 %17 to i64
-  %add.ptr = getelementptr i8, ptr %arraydecay17, i64 %idx.ext
-  %18 = load ptr, ptr %val.addr, align 8
-  %19 = load i32, ptr %len.addr, align 4
-  %conv18 = sext i32 %19 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %18, i64 %conv18, i1 false)
-  br label %if.end26
-
-if.else:                                          ; preds = %if.end
-  %20 = load ptr, ptr %fdt.addr, align 8
-  %21 = load i32, ptr %nodeoffset.addr, align 4
-  %22 = load ptr, ptr %name.addr, align 8
-  %23 = load i32, ptr %len.addr, align 4
-  %call19 = call i32 @fdt_add_property_(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, ptr noundef %prop)
-  store i32 %call19, ptr %err, align 4
-  %24 = load i32, ptr %err, align 4
-  %tobool20 = icmp ne i32 %24, 0
-  br i1 %tobool20, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %if.else
-  %25 = load i32, ptr %err, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
-
-if.end22:                                         ; preds = %if.else
-  %26 = load ptr, ptr %prop, align 8
-  %data23 = getelementptr inbounds %struct.fdt_property, ptr %26, i32 0, i32 3
-  %arraydecay24 = getelementptr inbounds [0 x i8], ptr %data23, i64 0, i64 0
-  %27 = load ptr, ptr %val.addr, align 8
-  %28 = load i32, ptr %len.addr, align 4
-  %conv25 = sext i32 %28 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay24, ptr align 1 %27, i64 %conv25, i1 false)
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end22, %if.end13
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end26, %if.then21, %if.then12, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+33:                                               ; preds = %32, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %34 = load i32, ptr %6, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @fdt_get_property_w(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr noundef %lenp) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %lenp.addr = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store ptr %lenp, ptr %lenp.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %nodeoffset.addr, align 4
-  %2 = load ptr, ptr %name.addr, align 8
-  %3 = load ptr, ptr %lenp.addr, align 8
-  %call = call ptr @fdt_get_property(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  %4 = ptrtoint ptr %call to i64
-  %5 = inttoptr i64 %4 to ptr
-  ret ptr %5
+define dso_local i32 @fdt_appendprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  store i32 0, ptr %14, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  store i32 0, ptr %16, align 4, !annotation !4
+  %18 = load ptr, ptr %7, align 8
+  %19 = call i32 @fdt_rw_probe_(ptr noundef %18)
+  store i32 %19, ptr %16, align 4
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %5
+  %22 = load i32, ptr %16, align 4
+  store i32 %22, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %24
+
+23:                                               ; preds = %5
+  store i32 0, ptr %17, align 4
+  br label %24
+
+24:                                               ; preds = %23, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  %25 = load i32, ptr %17, align 4
+  switch i32 %25, label %90 [
+    i32 0, label %26
+  ]
+
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = load ptr, ptr %9, align 8
+  %30 = call ptr @fdt_get_property_w(ptr noundef %27, i32 noundef %28, ptr noundef %29, ptr noundef %14)
+  store ptr %30, ptr %12, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %72
+
+33:                                               ; preds = %26
+  %34 = load i32, ptr %11, align 4
+  %35 = load i32, ptr %14, align 4
+  %36 = add i32 %34, %35
+  store i32 %36, ptr %15, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = getelementptr inbounds nuw %struct.fdt_property, ptr %38, i32 0, i32 3
+  %40 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 0
+  %41 = load i32, ptr %14, align 4
+  %42 = sext i32 %41 to i64
+  %43 = add i64 %42, 4
+  %44 = sub i64 %43, 1
+  %45 = and i64 %44, -4
+  %46 = trunc i64 %45 to i32
+  %47 = load i32, ptr %15, align 4
+  %48 = sext i32 %47 to i64
+  %49 = add i64 %48, 4
+  %50 = sub i64 %49, 1
+  %51 = and i64 %50, -4
+  %52 = trunc i64 %51 to i32
+  %53 = call i32 @fdt_splice_struct_(ptr noundef %37, ptr noundef %40, i32 noundef %46, i32 noundef %52)
+  store i32 %53, ptr %13, align 4
+  %54 = load i32, ptr %13, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %58
+
+56:                                               ; preds = %33
+  %57 = load i32, ptr %13, align 4
+  store i32 %57, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %90
+
+58:                                               ; preds = %33
+  %59 = load i32, ptr %15, align 4
+  %60 = call i32 @cpu_to_fdt32(i32 noundef %59)
+  %61 = load ptr, ptr %12, align 8
+  %62 = getelementptr inbounds nuw %struct.fdt_property, ptr %61, i32 0, i32 1
+  store i32 %60, ptr %62, align 4
+  %63 = load ptr, ptr %12, align 8
+  %64 = getelementptr inbounds nuw %struct.fdt_property, ptr %63, i32 0, i32 3
+  %65 = getelementptr inbounds [0 x i8], ptr %64, i64 0, i64 0
+  %66 = load i32, ptr %14, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %65, i64 %67
+  %69 = load ptr, ptr %10, align 8
+  %70 = load i32, ptr %11, align 4
+  %71 = sext i32 %70 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %69, i64 %71, i1 false)
+  br label %89
+
+72:                                               ; preds = %26
+  %73 = load ptr, ptr %7, align 8
+  %74 = load i32, ptr %8, align 4
+  %75 = load ptr, ptr %9, align 8
+  %76 = load i32, ptr %11, align 4
+  %77 = call i32 @fdt_add_property_(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, ptr noundef %12)
+  store i32 %77, ptr %13, align 4
+  %78 = load i32, ptr %13, align 4
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %72
+  %81 = load i32, ptr %13, align 4
+  store i32 %81, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %90
+
+82:                                               ; preds = %72
+  %83 = load ptr, ptr %12, align 8
+  %84 = getelementptr inbounds nuw %struct.fdt_property, ptr %83, i32 0, i32 3
+  %85 = getelementptr inbounds [0 x i8], ptr %84, i64 0, i64 0
+  %86 = load ptr, ptr %10, align 8
+  %87 = load i32, ptr %11, align 4
+  %88 = sext i32 %87 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr align 1 %86, i64 %88, i1 false)
+  br label %89
+
+89:                                               ; preds = %82, %58
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %90
+
+90:                                               ; preds = %89, %80, %56, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %91 = load i32, ptr %6, align 4
+  ret i32 %91
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @fdt_get_property_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = call ptr @fdt_get_property(ptr noundef %9, i32 noundef %10, ptr noundef %11, ptr noundef %12)
+  %14 = ptrtoint ptr %13 to i64
+  %15 = inttoptr i64 %14 to ptr
+  ret ptr %15
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @cpu_to_fdt32(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %2, i64 0
+  %4 = load i8, ptr %3, align 4
+  %5 = zext i8 %4 to i64
+  %6 = shl i64 %5, 24
+  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i64
+  %10 = shl i64 %9, 16
+  %11 = or i64 %6, %10
+  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %13 = load i8, ptr %12, align 2
+  %14 = zext i8 %13 to i64
+  %15 = shl i64 %14, 8
+  %16 = or i64 %11, %15
+  %17 = getelementptr inbounds i8, ptr %2, i64 3
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i64
+  %20 = or i64 %16, %19
+  %21 = trunc i64 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cpu_to_fdt32(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %arrayidx = getelementptr i8, ptr %x.addr, i64 0
-  %0 = load i8, ptr %arrayidx, align 4
-  %conv = zext i8 %0 to i64
-  %shl = shl i64 %conv, 24
-  %arrayidx1 = getelementptr i8, ptr %x.addr, i64 1
-  %1 = load i8, ptr %arrayidx1, align 1
-  %conv2 = zext i8 %1 to i64
-  %shl3 = shl i64 %conv2, 16
-  %or = or i64 %shl, %shl3
-  %arrayidx4 = getelementptr i8, ptr %x.addr, i64 2
-  %2 = load i8, ptr %arrayidx4, align 2
-  %conv5 = zext i8 %2 to i64
-  %shl6 = shl i64 %conv5, 8
-  %or7 = or i64 %or, %shl6
-  %arrayidx8 = getelementptr i8, ptr %x.addr, i64 3
-  %3 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %3 to i64
-  %or10 = or i64 %or7, %conv9
-  %conv11 = trunc i64 %or10 to i32
-  ret i32 %conv11
+define dso_local i32 @fdt_delprop(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store ptr null, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 @fdt_rw_probe_(ptr noundef %13)
+  store i32 %14, ptr %11, align 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %3
+  %17 = load i32, ptr %11, align 4
+  store i32 %17, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %19
+
+18:                                               ; preds = %3
+  store i32 0, ptr %12, align 4
+  br label %19
+
+19:                                               ; preds = %18, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  %20 = load i32, ptr %12, align 4
+  switch i32 %20, label %42 [
+    i32 0, label %21
+  ]
+
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = load ptr, ptr %7, align 8
+  %25 = call ptr @fdt_get_property_w(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %9)
+  store ptr %25, ptr %8, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %30, label %28
+
+28:                                               ; preds = %21
+  %29 = load i32, ptr %9, align 4
+  store i32 %29, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %42
+
+30:                                               ; preds = %21
+  %31 = load i32, ptr %9, align 4
+  %32 = sext i32 %31 to i64
+  %33 = add i64 %32, 4
+  %34 = sub i64 %33, 1
+  %35 = and i64 %34, -4
+  %36 = add i64 12, %35
+  %37 = trunc i64 %36 to i32
+  store i32 %37, ptr %10, align 4
+  %38 = load ptr, ptr %5, align 8
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = call i32 @fdt_splice_struct_(ptr noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 0)
+  store i32 %41, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %42
+
+42:                                               ; preds = %30, %28, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %43 = load i32, ptr %4, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_delprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %prop = alloca ptr, align 8
-  %len = alloca i32, align 4
-  %proplen = alloca i32, align 4
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @fdt_add_subnode_namelen(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store ptr null, ptr %10, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  store i32 0, ptr %14, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  store ptr null, ptr %16, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  store i32 0, ptr %17, align 4, !annotation !4
+  %19 = load ptr, ptr %6, align 8
+  %20 = call i32 @fdt_rw_probe_(ptr noundef %19)
+  store i32 %20, ptr %17, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %24
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %4
+  %23 = load i32, ptr %17, align 4
+  store i32 %23, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load i32, ptr %nodeoffset.addr, align 4
-  %4 = load ptr, ptr %name.addr, align 8
-  %call1 = call ptr @fdt_get_property_w(ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %len)
-  store ptr %call1, ptr %prop, align 8
-  %5 = load ptr, ptr %prop, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.end3, label %if.then2
+24:                                               ; preds = %4
+  store i32 0, ptr %18, align 4
+  br label %25
 
-if.then2:                                         ; preds = %if.end
-  %6 = load i32, ptr %len, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %24, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  %26 = load i32, ptr %18, align 4
+  switch i32 %26, label %113 [
+    i32 0, label %27
+  ]
 
-if.end3:                                          ; preds = %if.end
-  %7 = load i32, ptr %len, align 4
-  %conv = sext i32 %7 to i64
-  %add = add i64 %conv, 4
-  %sub = sub i64 %add, 1
-  %and = and i64 %sub, -4
-  %add4 = add i64 12, %and
-  %conv5 = trunc i64 %add4 to i32
-  store i32 %conv5, ptr %proplen, align 4
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %9 = load ptr, ptr %prop, align 8
-  %10 = load i32, ptr %proplen, align 4
-  %call6 = call i32 @fdt_splice_struct_(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 0)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = call i32 @fdt_subnode_offset_namelen(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31)
+  store i32 %32, ptr %11, align 4
+  %33 = load i32, ptr %11, align 4
+  %34 = icmp sge i32 %33, 0
+  br i1 %34, label %35, label %36
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+35:                                               ; preds = %27
+  store i32 -2, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %113
+
+36:                                               ; preds = %27
+  %37 = load i32, ptr %11, align 4
+  %38 = icmp ne i32 %37, -1
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %36
+  %40 = load i32, ptr %11, align 4
+  store i32 %40, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %113
+
+41:                                               ; preds = %36
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = call i32 @fdt_next_tag(ptr noundef %43, i32 noundef %44, ptr noundef %12)
+  store i32 %45, ptr %15, align 4
+  %46 = call zeroext i1 @can_assume_(i32 noundef 32)
+  br i1 %46, label %51, label %47
+
+47:                                               ; preds = %42
+  %48 = load i32, ptr %15, align 4
+  %49 = icmp ne i32 %48, 1
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %47
+  store i32 -13, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %113
+
+51:                                               ; preds = %47, %42
+  br label %52
+
+52:                                               ; preds = %63, %51
+  %53 = load i32, ptr %12, align 4
+  store i32 %53, ptr %11, align 4
+  %54 = load ptr, ptr %6, align 8
+  %55 = load i32, ptr %11, align 4
+  %56 = call i32 @fdt_next_tag(ptr noundef %54, i32 noundef %55, ptr noundef %12)
+  store i32 %56, ptr %15, align 4
+  br label %57
+
+57:                                               ; preds = %52
+  %58 = load i32, ptr %15, align 4
+  %59 = icmp eq i32 %58, 3
+  br i1 %59, label %63, label %60
+
+60:                                               ; preds = %57
+  %61 = load i32, ptr %15, align 4
+  %62 = icmp eq i32 %61, 4
+  br label %63
+
+63:                                               ; preds = %60, %57
+  %64 = phi i1 [ true, %57 ], [ %62, %60 ]
+  br i1 %64, label %52, label %65, !llvm.loop !5
+
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %6, align 8
+  %67 = load i32, ptr %11, align 4
+  %68 = call ptr @fdt_offset_ptr_w_(ptr noundef %66, i32 noundef %67)
+  store ptr %68, ptr %10, align 8
+  %69 = load i32, ptr %9, align 4
+  %70 = add i32 %69, 1
+  %71 = sext i32 %70 to i64
+  %72 = add i64 %71, 4
+  %73 = sub i64 %72, 1
+  %74 = and i64 %73, -4
+  %75 = add i64 4, %74
+  %76 = add i64 %75, 4
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %13, align 4
+  %78 = load ptr, ptr %6, align 8
+  %79 = load ptr, ptr %10, align 8
+  %80 = load i32, ptr %13, align 4
+  %81 = call i32 @fdt_splice_struct_(ptr noundef %78, ptr noundef %79, i32 noundef 0, i32 noundef %80)
+  store i32 %81, ptr %14, align 4
+  %82 = load i32, ptr %14, align 4
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %86
+
+84:                                               ; preds = %65
+  %85 = load i32, ptr %14, align 4
+  store i32 %85, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %113
+
+86:                                               ; preds = %65
+  %87 = call i32 @cpu_to_fdt32(i32 noundef 1)
+  %88 = load ptr, ptr %10, align 8
+  %89 = getelementptr inbounds nuw %struct.fdt_node_header, ptr %88, i32 0, i32 0
+  store i32 %87, ptr %89, align 4
+  %90 = load ptr, ptr %10, align 8
+  %91 = getelementptr inbounds nuw %struct.fdt_node_header, ptr %90, i32 0, i32 1
+  %92 = getelementptr inbounds [0 x i8], ptr %91, i64 0, i64 0
+  %93 = load i32, ptr %9, align 4
+  %94 = add i32 %93, 1
+  %95 = sext i32 %94 to i64
+  %96 = add i64 %95, 4
+  %97 = sub i64 %96, 1
+  %98 = and i64 %97, -4
+  call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %98, i1 false)
+  %99 = load ptr, ptr %10, align 8
+  %100 = getelementptr inbounds nuw %struct.fdt_node_header, ptr %99, i32 0, i32 1
+  %101 = getelementptr inbounds [0 x i8], ptr %100, i64 0, i64 0
+  %102 = load ptr, ptr %8, align 8
+  %103 = load i32, ptr %9, align 4
+  %104 = sext i32 %103 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %101, ptr align 1 %102, i64 %104, i1 false)
+  %105 = load ptr, ptr %10, align 8
+  %106 = load i32, ptr %13, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr %105, i64 %107
+  %109 = getelementptr inbounds i8, ptr %108, i64 -4
+  store ptr %109, ptr %16, align 8
+  %110 = call i32 @cpu_to_fdt32(i32 noundef 2)
+  %111 = load ptr, ptr %16, align 8
+  store i32 %110, ptr %111, align 4
+  %112 = load i32, ptr %11, align 4
+  store i32 %112, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %113
+
+113:                                              ; preds = %86, %84, %50, %39, %35, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %114 = load i32, ptr %5, align 4
+  ret i32 %114
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_add_subnode_namelen(ptr noundef %fdt, i32 noundef %parentoffset, ptr noundef %name, i32 noundef %namelen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %parentoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %namelen.addr = alloca i32, align 4
-  %nh = alloca ptr, align 8
-  %offset = alloca i32, align 4
-  %nextoffset = alloca i32, align 4
-  %nodelen = alloca i32, align 4
-  %err = alloca i32, align 4
-  %tag = alloca i32, align 4
-  %endtag = alloca ptr, align 8
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %parentoffset, ptr %parentoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store i32 %namelen, ptr %namelen.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) #3
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load i32, ptr %parentoffset.addr, align 4
-  %4 = load ptr, ptr %name.addr, align 8
-  %5 = load i32, ptr %namelen.addr, align 4
-  %call1 = call i32 @fdt_subnode_offset_namelen(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
-  store i32 %call1, ptr %offset, align 4
-  %6 = load i32, ptr %offset, align 4
-  %cmp2 = icmp sge i32 %6, 0
-  br i1 %cmp2, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.end
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %if.end
-  %7 = load i32, ptr %offset, align 4
-  %cmp4 = icmp ne i32 %7, -1
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %if.else
-  %8 = load i32, ptr %offset, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %if.else
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.end6
-  %9 = load ptr, ptr %fdt.addr, align 8
-  %10 = load i32, ptr %parentoffset.addr, align 4
-  %call8 = call i32 @fdt_next_tag(ptr noundef %9, i32 noundef %10, ptr noundef %nextoffset)
-  store i32 %call8, ptr %tag, align 4
-  %call9 = call zeroext i1 @can_assume_(i32 noundef 32)
-  br i1 %call9, label %if.end12, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end7
-  %11 = load i32, ptr %tag, align 4
-  %cmp10 = icmp ne i32 %11, 1
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %land.lhs.true
-  store i32 -13, ptr %retval, align 4
-  br label %return
-
-if.end12:                                         ; preds = %land.lhs.true, %if.end7
-  br label %do.body
-
-do.body:                                          ; preds = %lor.end, %if.end12
-  %12 = load i32, ptr %nextoffset, align 4
-  store i32 %12, ptr %offset, align 4
-  %13 = load ptr, ptr %fdt.addr, align 8
-  %14 = load i32, ptr %offset, align 4
-  %call13 = call i32 @fdt_next_tag(ptr noundef %13, i32 noundef %14, ptr noundef %nextoffset)
-  store i32 %call13, ptr %tag, align 4
-  br label %do.cond
-
-do.cond:                                          ; preds = %do.body
-  %15 = load i32, ptr %tag, align 4
-  %cmp14 = icmp eq i32 %15, 3
-  br i1 %cmp14, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %do.cond
-  %16 = load i32, ptr %tag, align 4
-  %cmp15 = icmp eq i32 %16, 4
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %do.cond
-  %17 = phi i1 [ true, %do.cond ], [ %cmp15, %lor.rhs ]
-  br i1 %17, label %do.body, label %do.end, !llvm.loop !5
-
-do.end:                                           ; preds = %lor.end
-  %18 = load ptr, ptr %fdt.addr, align 8
-  %19 = load i32, ptr %offset, align 4
-  %call16 = call ptr @fdt_offset_ptr_w_(ptr noundef %18, i32 noundef %19)
-  store ptr %call16, ptr %nh, align 8
-  %20 = load i32, ptr %namelen.addr, align 4
-  %add = add i32 %20, 1
-  %conv = sext i32 %add to i64
-  %add17 = add i64 %conv, 4
-  %sub = sub i64 %add17, 1
-  %and = and i64 %sub, -4
-  %add18 = add i64 4, %and
-  %add19 = add i64 %add18, 4
-  %conv20 = trunc i64 %add19 to i32
-  store i32 %conv20, ptr %nodelen, align 4
-  %21 = load ptr, ptr %fdt.addr, align 8
-  %22 = load ptr, ptr %nh, align 8
-  %23 = load i32, ptr %nodelen, align 4
-  %call21 = call i32 @fdt_splice_struct_(ptr noundef %21, ptr noundef %22, i32 noundef 0, i32 noundef %23)
-  store i32 %call21, ptr %err, align 4
-  %24 = load i32, ptr %err, align 4
-  %tobool = icmp ne i32 %24, 0
-  br i1 %tobool, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %do.end
-  %25 = load i32, ptr %err, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
-
-if.end23:                                         ; preds = %do.end
-  %call24 = call i32 @cpu_to_fdt32(i32 noundef 1)
-  %26 = load ptr, ptr %nh, align 8
-  %tag25 = getelementptr inbounds %struct.fdt_node_header, ptr %26, i32 0, i32 0
-  store i32 %call24, ptr %tag25, align 4
-  %27 = load ptr, ptr %nh, align 8
-  %name26 = getelementptr inbounds %struct.fdt_node_header, ptr %27, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [0 x i8], ptr %name26, i64 0, i64 0
-  %28 = load i32, ptr %namelen.addr, align 4
-  %add27 = add i32 %28, 1
-  %conv28 = sext i32 %add27 to i64
-  %add29 = add i64 %conv28, 4
-  %sub30 = sub i64 %add29, 1
-  %and31 = and i64 %sub30, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %arraydecay, i8 0, i64 %and31, i1 false)
-  %29 = load ptr, ptr %nh, align 8
-  %name32 = getelementptr inbounds %struct.fdt_node_header, ptr %29, i32 0, i32 1
-  %arraydecay33 = getelementptr inbounds [0 x i8], ptr %name32, i64 0, i64 0
-  %30 = load ptr, ptr %name.addr, align 8
-  %31 = load i32, ptr %namelen.addr, align 4
-  %conv34 = sext i32 %31 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay33, ptr align 1 %30, i64 %conv34, i1 false)
-  %32 = load ptr, ptr %nh, align 8
-  %33 = load i32, ptr %nodelen, align 4
-  %idx.ext = sext i32 %33 to i64
-  %add.ptr = getelementptr i8, ptr %32, i64 %idx.ext
-  %add.ptr35 = getelementptr i8, ptr %add.ptr, i64 -4
-  store ptr %add.ptr35, ptr %endtag, align 8
-  %call36 = call i32 @cpu_to_fdt32(i32 noundef 2)
-  %34 = load ptr, ptr %endtag, align 8
-  store i32 %call36, ptr %34, align 4
-  %35 = load i32, ptr %offset, align 4
-  store i32 %35, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end23, %if.then22, %if.then11, %if.then5, %if.then3, %if.then
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @can_assume_(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4
+  %4 = and i32 0, %3
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
-
-declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @can_assume_(i32 noundef %mask) #0 {
-entry:
-  %mask.addr = alloca i32, align 4
-  store i32 %mask, ptr %mask.addr, align 4
-  %0 = load i32, ptr %mask.addr, align 4
-  %and = and i32 0, %0
-  %tobool = icmp ne i32 %and, 0
-  ret i1 %tobool
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @fdt_offset_ptr_w_(ptr noundef %fdt, i32 noundef %offset) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %offset.addr = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %offset, ptr %offset.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %offset.addr, align 4
-  %call = call ptr @fdt_offset_ptr_(ptr noundef %0, i32 noundef %1)
-  %2 = ptrtoint ptr %call to i64
-  %3 = inttoptr i64 %2 to ptr
-  ret ptr %3
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @fdt_offset_ptr_w_(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = call ptr @fdt_offset_ptr_(ptr noundef %5, i32 noundef %6)
+  %8 = ptrtoint ptr %7 to i64
+  %9 = inttoptr i64 %8 to ptr
+  ret ptr %9
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_add_subnode(ptr noundef %fdt, i32 noundef %parentoffset, ptr noundef %name) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %parentoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %parentoffset, ptr %parentoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %parentoffset.addr, align 4
-  %2 = load ptr, ptr %name.addr, align 8
-  %3 = load ptr, ptr %name.addr, align 8
-  %call = call i64 @strlen(ptr noundef %3) #5
-  %conv = trunc i64 %call to i32
-  %call1 = call i32 @fdt_add_subnode_namelen(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %conv)
-  ret i32 %call1
+define dso_local i32 @fdt_add_subnode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call i64 @strlen(ptr noundef %10) #8
+  %12 = trunc i64 %11 to i32
+  %13 = call i32 @fdt_add_subnode_namelen(ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %12)
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_del_node(ptr noundef %fdt, i32 noundef %nodeoffset) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %endoffset = alloca i32, align 4
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @fdt_del_node(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 0, ptr %6, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  store i32 0, ptr %7, align 4, !annotation !4
+  %9 = load ptr, ptr %4, align 8
+  %10 = call i32 @fdt_rw_probe_(ptr noundef %9)
+  store i32 %10, ptr %7, align 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %2
+  %13 = load i32, ptr %7, align 4
+  store i32 %13, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %3 = load i32, ptr %nodeoffset.addr, align 4
-  %call1 = call i32 @fdt_node_end_offset_(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %endoffset, align 4
-  %4 = load i32, ptr %endoffset, align 4
-  %cmp2 = icmp slt i32 %4, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+14:                                               ; preds = %2
+  store i32 0, ptr %8, align 4
+  br label %15
 
-if.then3:                                         ; preds = %if.end
-  %5 = load i32, ptr %endoffset, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  %16 = load i32, ptr %8, align 4
+  switch i32 %16, label %34 [
+    i32 0, label %17
+  ]
 
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %fdt.addr, align 8
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %8 = load i32, ptr %nodeoffset.addr, align 4
-  %call5 = call ptr @fdt_offset_ptr_w_(ptr noundef %7, i32 noundef %8)
-  %9 = load i32, ptr %endoffset, align 4
-  %10 = load i32, ptr %nodeoffset.addr, align 4
-  %sub = sub i32 %9, %10
-  %call6 = call i32 @fdt_splice_struct_(ptr noundef %6, ptr noundef %call5, i32 noundef %sub, i32 noundef 0)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %4, align 8
+  %19 = load i32, ptr %5, align 4
+  %20 = call i32 @fdt_node_end_offset_(ptr noundef %18, i32 noundef %19)
+  store i32 %20, ptr %6, align 4
+  %21 = load i32, ptr %6, align 4
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %25
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+23:                                               ; preds = %17
+  %24 = load i32, ptr %6, align 4
+  store i32 %24, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %34
+
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = load i32, ptr %5, align 4
+  %29 = call ptr @fdt_offset_ptr_w_(ptr noundef %27, i32 noundef %28)
+  %30 = load i32, ptr %6, align 4
+  %31 = load i32, ptr %5, align 4
+  %32 = sub i32 %30, %31
+  %33 = call i32 @fdt_splice_struct_(ptr noundef %26, ptr noundef %29, i32 noundef %32, i32 noundef 0)
+  store i32 %33, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %34
+
+34:                                               ; preds = %25, %23, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  %35 = load i32, ptr %3, align 4
+  ret i32 %35
 }
 
-declare i32 @fdt_node_end_offset_(ptr noundef, i32 noundef) #1
+declare i32 @fdt_node_end_offset_(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_open_into(ptr noundef %fdt, ptr noundef %buf, i32 noundef %bufsize) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %bufsize.addr = alloca i32, align 4
-  %err = alloca i32, align 4
-  %mem_rsv_size = alloca i32, align 4
-  %struct_size = alloca i32, align 4
-  %newsize = alloca i32, align 4
-  %fdtstart = alloca ptr, align 8
-  %fdtend = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %totalsize_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i32 %bufsize, ptr %bufsize.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdtstart, align 8
-  %1 = load ptr, ptr %fdtstart, align 8
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 1
-  %call = call i32 @fdt32_ld(ptr noundef %totalsize)
-  %idx.ext = zext i32 %call to i64
-  %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
-  store ptr %add.ptr, ptr %fdtend, align 8
-  %3 = load ptr, ptr %fdt.addr, align 8
-  %call1 = call i32 @fdt_ro_probe_(ptr noundef %3)
-  store i32 %call1, ptr %totalsize_, align 4
-  %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  store i32 0, ptr %8, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %17 = load ptr, ptr %5, align 8
+  store ptr %17, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %18 = load ptr, ptr %12, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.fdt_header, ptr %19, i32 0, i32 1
+  %21 = call i32 @fdt32_ld(ptr noundef %20)
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %22
+  store ptr %23, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !annotation !4
+  %24 = load ptr, ptr %5, align 8
+  %25 = call i32 @fdt_ro_probe_(ptr noundef %24)
+  store i32 %25, ptr %15, align 4
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %29
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %totalsize_, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %3
+  %28 = load i32, ptr %15, align 4
+  store i32 %28, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %30
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %fdt.addr, align 8
-  %call2 = call i32 @fdt_num_mem_rsv(ptr noundef %5)
-  %add = add i32 %call2, 1
-  %conv = sext i32 %add to i64
-  %mul = mul i64 %conv, 16
-  %conv3 = trunc i64 %mul to i32
-  store i32 %conv3, ptr %mem_rsv_size, align 4
-  %call4 = call zeroext i1 @can_assume_(i32 noundef 4)
-  br i1 %call4, label %if.then9, label %lor.lhs.false
+29:                                               ; preds = %3
+  store i32 0, ptr %16, align 4
+  br label %30
 
-lor.lhs.false:                                    ; preds = %if.end
-  %6 = load ptr, ptr %fdt.addr, align 8
-  %version = getelementptr inbounds %struct.fdt_header, ptr %6, i32 0, i32 5
-  %call6 = call i32 @fdt32_ld(ptr noundef %version)
-  %cmp7 = icmp uge i32 %call6, 17
-  br i1 %cmp7, label %if.then9, label %if.else
+30:                                               ; preds = %29, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  %31 = load i32, ptr %16, align 4
+  switch i32 %31, label %157 [
+    i32 0, label %32
+  ]
 
-if.then9:                                         ; preds = %lor.lhs.false, %if.end
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %7, i32 0, i32 9
-  %call10 = call i32 @fdt32_ld(ptr noundef %size_dt_struct)
-  store i32 %call10, ptr %struct_size, align 4
-  br label %if.end25
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %5, align 8
+  %34 = call i32 @fdt_num_mem_rsv(ptr noundef %33)
+  %35 = add i32 %34, 1
+  %36 = sext i32 %35 to i64
+  %37 = mul i64 %36, 16
+  %38 = trunc i64 %37 to i32
+  store i32 %38, ptr %9, align 4
+  %39 = call zeroext i1 @can_assume_(i32 noundef 4)
+  br i1 %39, label %45, label %40
 
-if.else:                                          ; preds = %lor.lhs.false
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %version11 = getelementptr inbounds %struct.fdt_header, ptr %8, i32 0, i32 5
-  %call12 = call i32 @fdt32_ld(ptr noundef %version11)
-  %cmp13 = icmp eq i32 %call12, 16
-  br i1 %cmp13, label %if.then15, label %if.else23
+40:                                               ; preds = %32
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds nuw %struct.fdt_header, ptr %41, i32 0, i32 5
+  %43 = call i32 @fdt32_ld(ptr noundef %42)
+  %44 = icmp uge i32 %43, 17
+  br i1 %44, label %45, label %49
 
-if.then15:                                        ; preds = %if.else
-  store i32 0, ptr %struct_size, align 4
-  br label %while.cond
+45:                                               ; preds = %40, %32
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.fdt_header, ptr %46, i32 0, i32 9
+  %48 = call i32 @fdt32_ld(ptr noundef %47)
+  store i32 %48, ptr %10, align 4
+  br label %69
 
-while.cond:                                       ; preds = %while.body, %if.then15
-  %9 = load ptr, ptr %fdt.addr, align 8
-  %10 = load i32, ptr %struct_size, align 4
-  %call16 = call i32 @fdt_next_tag(ptr noundef %9, i32 noundef %10, ptr noundef %struct_size)
-  %cmp17 = icmp ne i32 %call16, 9
-  br i1 %cmp17, label %while.body, label %while.end
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.fdt_header, ptr %50, i32 0, i32 5
+  %52 = call i32 @fdt32_ld(ptr noundef %51)
+  %53 = icmp eq i32 %52, 16
+  br i1 %53, label %54, label %67
 
-while.body:                                       ; preds = %while.cond
-  br label %while.cond, !llvm.loop !7
+54:                                               ; preds = %49
+  store i32 0, ptr %10, align 4
+  br label %55
 
-while.end:                                        ; preds = %while.cond
-  %11 = load i32, ptr %struct_size, align 4
-  %cmp19 = icmp slt i32 %11, 0
-  br i1 %cmp19, label %if.then21, label %if.end22
+55:                                               ; preds = %60, %54
+  %56 = load ptr, ptr %5, align 8
+  %57 = load i32, ptr %10, align 4
+  %58 = call i32 @fdt_next_tag(ptr noundef %56, i32 noundef %57, ptr noundef %10)
+  %59 = icmp ne i32 %58, 9
+  br i1 %59, label %60, label %61
 
-if.then21:                                        ; preds = %while.end
-  %12 = load i32, ptr %struct_size, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %55
+  br label %55, !llvm.loop !7
 
-if.end22:                                         ; preds = %while.end
-  br label %if.end24
+61:                                               ; preds = %55
+  %62 = load i32, ptr %10, align 4
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %66
 
-if.else23:                                        ; preds = %if.else
-  store i32 -10, ptr %retval, align 4
-  br label %return
+64:                                               ; preds = %61
+  %65 = load i32, ptr %10, align 4
+  store i32 %65, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %157
 
-if.end24:                                         ; preds = %if.end22
-  br label %if.end25
+66:                                               ; preds = %61
+  br label %68
 
-if.end25:                                         ; preds = %if.end24, %if.then9
-  %call26 = call zeroext i1 @can_assume_(i32 noundef 16)
-  br i1 %call26, label %if.then30, label %lor.lhs.false28
+67:                                               ; preds = %49
+  store i32 -10, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %157
 
-lor.lhs.false28:                                  ; preds = %if.end25
-  %13 = load ptr, ptr %fdt.addr, align 8
-  %14 = load i32, ptr %mem_rsv_size, align 4
-  %15 = load i32, ptr %struct_size, align 4
-  %call29 = call i32 @fdt_blocks_misordered_(ptr noundef %13, i32 noundef %14, i32 noundef %15)
-  %tobool = icmp ne i32 %call29, 0
-  br i1 %tobool, label %if.end35, label %if.then30
+68:                                               ; preds = %66
+  br label %69
 
-if.then30:                                        ; preds = %lor.lhs.false28, %if.end25
-  %16 = load ptr, ptr %fdt.addr, align 8
-  %17 = load ptr, ptr %buf.addr, align 8
-  %18 = load i32, ptr %bufsize.addr, align 4
-  %call31 = call i32 @fdt_move(ptr noundef %16, ptr noundef %17, i32 noundef %18)
-  store i32 %call31, ptr %err, align 4
-  %19 = load i32, ptr %err, align 4
-  %tobool32 = icmp ne i32 %19, 0
-  br i1 %tobool32, label %if.then33, label %if.end34
+69:                                               ; preds = %68, %45
+  %70 = call zeroext i1 @can_assume_(i32 noundef 16)
+  br i1 %70, label %77, label %71
 
-if.then33:                                        ; preds = %if.then30
-  %20 = load i32, ptr %err, align 4
-  store i32 %20, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %5, align 8
+  %73 = load i32, ptr %9, align 4
+  %74 = load i32, ptr %10, align 4
+  %75 = call i32 @fdt_blocks_misordered_(ptr noundef %72, i32 noundef %73, i32 noundef %74)
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %92, label %77
 
-if.end34:                                         ; preds = %if.then30
-  %21 = load ptr, ptr %buf.addr, align 8
-  call void @fdt_set_version(ptr noundef %21, i32 noundef 17)
-  %22 = load ptr, ptr %buf.addr, align 8
-  %23 = load i32, ptr %struct_size, align 4
-  call void @fdt_set_size_dt_struct(ptr noundef %22, i32 noundef %23)
-  %24 = load ptr, ptr %buf.addr, align 8
-  %25 = load i32, ptr %bufsize.addr, align 4
-  call void @fdt_set_totalsize(ptr noundef %24, i32 noundef %25)
-  store i32 0, ptr %retval, align 4
-  br label %return
+77:                                               ; preds = %71, %69
+  %78 = load ptr, ptr %5, align 8
+  %79 = load ptr, ptr %6, align 8
+  %80 = load i32, ptr %7, align 4
+  %81 = call i32 @fdt_move(ptr noundef %78, ptr noundef %79, i32 noundef %80)
+  store i32 %81, ptr %8, align 4
+  %82 = load i32, ptr %8, align 4
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %86
 
-if.end35:                                         ; preds = %lor.lhs.false28
-  %26 = load i32, ptr %mem_rsv_size, align 4
-  %conv36 = sext i32 %26 to i64
-  %add37 = add i64 40, %conv36
-  %27 = load i32, ptr %struct_size, align 4
-  %conv38 = sext i32 %27 to i64
-  %add39 = add i64 %add37, %conv38
-  %28 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %28, i32 0, i32 8
-  %call40 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  %conv41 = zext i32 %call40 to i64
-  %add42 = add i64 %add39, %conv41
-  %conv43 = trunc i64 %add42 to i32
-  store i32 %conv43, ptr %newsize, align 4
-  %29 = load i32, ptr %bufsize.addr, align 4
-  %30 = load i32, ptr %newsize, align 4
-  %cmp44 = icmp slt i32 %29, %30
-  br i1 %cmp44, label %if.then46, label %if.end47
+84:                                               ; preds = %77
+  %85 = load i32, ptr %8, align 4
+  store i32 %85, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %157
 
-if.then46:                                        ; preds = %if.end35
-  store i32 -3, ptr %retval, align 4
-  br label %return
+86:                                               ; preds = %77
+  %87 = load ptr, ptr %6, align 8
+  call void @fdt_set_version(ptr noundef %87, i32 noundef 17)
+  %88 = load ptr, ptr %6, align 8
+  %89 = load i32, ptr %10, align 4
+  call void @fdt_set_size_dt_struct(ptr noundef %88, i32 noundef %89)
+  %90 = load ptr, ptr %6, align 8
+  %91 = load i32, ptr %7, align 4
+  call void @fdt_set_totalsize(ptr noundef %90, i32 noundef %91)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %157
 
-if.end47:                                         ; preds = %if.end35
-  %31 = load ptr, ptr %buf.addr, align 8
-  store ptr %31, ptr %tmp, align 8
-  %32 = load ptr, ptr %tmp, align 8
-  %33 = load i32, ptr %newsize, align 4
-  %idx.ext48 = sext i32 %33 to i64
-  %add.ptr49 = getelementptr i8, ptr %32, i64 %idx.ext48
-  %34 = load ptr, ptr %fdtstart, align 8
-  %cmp50 = icmp ugt ptr %add.ptr49, %34
-  br i1 %cmp50, label %land.lhs.true, label %if.end63
+92:                                               ; preds = %71
+  %93 = load i32, ptr %9, align 4
+  %94 = sext i32 %93 to i64
+  %95 = add i64 40, %94
+  %96 = load i32, ptr %10, align 4
+  %97 = sext i32 %96 to i64
+  %98 = add i64 %95, %97
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds nuw %struct.fdt_header, ptr %99, i32 0, i32 8
+  %101 = call i32 @fdt32_ld(ptr noundef %100)
+  %102 = zext i32 %101 to i64
+  %103 = add i64 %98, %102
+  %104 = trunc i64 %103 to i32
+  store i32 %104, ptr %11, align 4
+  %105 = load i32, ptr %7, align 4
+  %106 = load i32, ptr %11, align 4
+  %107 = icmp slt i32 %105, %106
+  br i1 %107, label %108, label %109
 
-land.lhs.true:                                    ; preds = %if.end47
-  %35 = load ptr, ptr %tmp, align 8
-  %36 = load ptr, ptr %fdtend, align 8
-  %cmp52 = icmp ult ptr %35, %36
-  br i1 %cmp52, label %if.then54, label %if.end63
+108:                                              ; preds = %92
+  store i32 -3, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %157
 
-if.then54:                                        ; preds = %land.lhs.true
-  %37 = load ptr, ptr %fdtend, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %39 = inttoptr i64 %38 to ptr
-  store ptr %39, ptr %tmp, align 8
-  %40 = load ptr, ptr %tmp, align 8
-  %41 = load i32, ptr %newsize, align 4
-  %idx.ext55 = sext i32 %41 to i64
-  %add.ptr56 = getelementptr i8, ptr %40, i64 %idx.ext55
-  %42 = load ptr, ptr %buf.addr, align 8
-  %43 = load i32, ptr %bufsize.addr, align 4
-  %idx.ext57 = sext i32 %43 to i64
-  %add.ptr58 = getelementptr i8, ptr %42, i64 %idx.ext57
-  %cmp59 = icmp ugt ptr %add.ptr56, %add.ptr58
-  br i1 %cmp59, label %if.then61, label %if.end62
+109:                                              ; preds = %92
+  %110 = load ptr, ptr %6, align 8
+  store ptr %110, ptr %14, align 8
+  %111 = load ptr, ptr %14, align 8
+  %112 = load i32, ptr %11, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %111, i64 %113
+  %115 = load ptr, ptr %12, align 8
+  %116 = icmp ugt ptr %114, %115
+  br i1 %116, label %117, label %136
 
-if.then61:                                        ; preds = %if.then54
-  store i32 -3, ptr %retval, align 4
-  br label %return
+117:                                              ; preds = %109
+  %118 = load ptr, ptr %14, align 8
+  %119 = load ptr, ptr %13, align 8
+  %120 = icmp ult ptr %118, %119
+  br i1 %120, label %121, label %136
 
-if.end62:                                         ; preds = %if.then54
-  br label %if.end63
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %13, align 8
+  %123 = ptrtoint ptr %122 to i64
+  %124 = inttoptr i64 %123 to ptr
+  store ptr %124, ptr %14, align 8
+  %125 = load ptr, ptr %14, align 8
+  %126 = load i32, ptr %11, align 4
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %125, i64 %127
+  %129 = load ptr, ptr %6, align 8
+  %130 = load i32, ptr %7, align 4
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr %129, i64 %131
+  %133 = icmp ugt ptr %128, %132
+  br i1 %133, label %134, label %135
 
-if.end63:                                         ; preds = %if.end62, %land.lhs.true, %if.end47
-  %44 = load ptr, ptr %fdt.addr, align 8
-  %45 = load ptr, ptr %tmp, align 8
-  %46 = load i32, ptr %mem_rsv_size, align 4
-  %47 = load i32, ptr %struct_size, align 4
-  %48 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings64 = getelementptr inbounds %struct.fdt_header, ptr %48, i32 0, i32 8
-  %call65 = call i32 @fdt32_ld(ptr noundef %size_dt_strings64)
-  call void @fdt_packblocks_(ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %call65)
-  %49 = load ptr, ptr %buf.addr, align 8
-  %50 = load ptr, ptr %tmp, align 8
-  %51 = load i32, ptr %newsize, align 4
-  %conv66 = sext i32 %51 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %49, ptr align 1 %50, i64 %conv66, i1 false)
-  %52 = load ptr, ptr %buf.addr, align 8
-  call void @fdt_set_magic(ptr noundef %52, i32 noundef -804389139)
-  %53 = load ptr, ptr %buf.addr, align 8
-  %54 = load i32, ptr %bufsize.addr, align 4
-  call void @fdt_set_totalsize(ptr noundef %53, i32 noundef %54)
-  %55 = load ptr, ptr %buf.addr, align 8
-  call void @fdt_set_version(ptr noundef %55, i32 noundef 17)
-  %56 = load ptr, ptr %buf.addr, align 8
-  call void @fdt_set_last_comp_version(ptr noundef %56, i32 noundef 16)
-  %57 = load ptr, ptr %buf.addr, align 8
-  %58 = load ptr, ptr %fdt.addr, align 8
-  %boot_cpuid_phys = getelementptr inbounds %struct.fdt_header, ptr %58, i32 0, i32 7
-  %call67 = call i32 @fdt32_ld(ptr noundef %boot_cpuid_phys)
-  call void @fdt_set_boot_cpuid_phys(ptr noundef %57, i32 noundef %call67)
-  store i32 0, ptr %retval, align 4
-  br label %return
+134:                                              ; preds = %121
+  store i32 -3, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %157
 
-return:                                           ; preds = %if.end63, %if.then61, %if.then46, %if.end34, %if.then33, %if.else23, %if.then21, %if.then
-  %59 = load i32, ptr %retval, align 4
-  ret i32 %59
+135:                                              ; preds = %121
+  br label %136
+
+136:                                              ; preds = %135, %117, %109
+  %137 = load ptr, ptr %5, align 8
+  %138 = load ptr, ptr %14, align 8
+  %139 = load i32, ptr %9, align 4
+  %140 = load i32, ptr %10, align 4
+  %141 = load ptr, ptr %5, align 8
+  %142 = getelementptr inbounds nuw %struct.fdt_header, ptr %141, i32 0, i32 8
+  %143 = call i32 @fdt32_ld(ptr noundef %142)
+  call void @fdt_packblocks_(ptr noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef %140, i32 noundef %143)
+  %144 = load ptr, ptr %6, align 8
+  %145 = load ptr, ptr %14, align 8
+  %146 = load i32, ptr %11, align 4
+  %147 = sext i32 %146 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %144, ptr align 1 %145, i64 %147, i1 false)
+  %148 = load ptr, ptr %6, align 8
+  call void @fdt_set_magic(ptr noundef %148, i32 noundef -804389139)
+  %149 = load ptr, ptr %6, align 8
+  %150 = load i32, ptr %7, align 4
+  call void @fdt_set_totalsize(ptr noundef %149, i32 noundef %150)
+  %151 = load ptr, ptr %6, align 8
+  call void @fdt_set_version(ptr noundef %151, i32 noundef 17)
+  %152 = load ptr, ptr %6, align 8
+  call void @fdt_set_last_comp_version(ptr noundef %152, i32 noundef 16)
+  %153 = load ptr, ptr %6, align 8
+  %154 = load ptr, ptr %5, align 8
+  %155 = getelementptr inbounds nuw %struct.fdt_header, ptr %154, i32 0, i32 7
+  %156 = call i32 @fdt32_ld(ptr noundef %155)
+  call void @fdt_set_boot_cpuid_phys(ptr noundef %153, i32 noundef %156)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %157
+
+157:                                              ; preds = %136, %134, %108, %86, %84, %67, %64, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %158 = load i32, ptr %4, align 4
+  ret i32 %158
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @fdt32_ld(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %bp = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %bp, align 8
-  %1 = load ptr, ptr %bp, align 8
-  %arrayidx = getelementptr i8, ptr %1, i64 0
-  %2 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %2 to i32
-  %shl = shl i32 %conv, 24
-  %3 = load ptr, ptr %bp, align 8
-  %arrayidx1 = getelementptr i8, ptr %3, i64 1
-  %4 = load i8, ptr %arrayidx1, align 1
-  %conv2 = zext i8 %4 to i32
-  %shl3 = shl i32 %conv2, 16
-  %or = or i32 %shl, %shl3
-  %5 = load ptr, ptr %bp, align 8
-  %arrayidx4 = getelementptr i8, ptr %5, i64 2
-  %6 = load i8, ptr %arrayidx4, align 1
-  %conv5 = zext i8 %6 to i32
-  %shl6 = shl i32 %conv5, 8
-  %or7 = or i32 %or, %shl6
-  %7 = load ptr, ptr %bp, align 8
-  %arrayidx8 = getelementptr i8, ptr %7, i64 3
-  %8 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %8 to i32
-  %or10 = or i32 %or7, %conv9
-  ret i32 %or10
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @fdt32_ld(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = shl i32 %8, 24
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = shl i32 %13, 16
+  %15 = or i32 %9, %14
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 2
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i32
+  %20 = shl i32 %19, 8
+  %21 = or i32 %15, %20
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 3
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = or i32 %21, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret i32 %26
 }
 
-declare i32 @fdt_ro_probe_(ptr noundef) #1
+declare i32 @fdt_ro_probe_(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fdt_blocks_misordered_(ptr noundef %fdt, i32 noundef %mem_rsv_size, i32 noundef %struct_size) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %mem_rsv_size.addr = alloca i32, align 4
-  %struct_size.addr = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %mem_rsv_size, ptr %mem_rsv_size.addr, align 4
-  store i32 %struct_size, ptr %struct_size.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %off_mem_rsvmap = getelementptr inbounds %struct.fdt_header, ptr %0, i32 0, i32 4
-  %call = call i32 @fdt32_ld(ptr noundef %off_mem_rsvmap)
-  %conv = zext i32 %call to i64
-  %cmp = icmp ult i64 %conv, 40
-  br i1 %cmp, label %lor.end, label %lor.lhs.false
+define internal i32 @fdt_blocks_misordered_(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.fdt_header, ptr %7, i32 0, i32 4
+  %9 = call i32 @fdt32_ld(ptr noundef %8)
+  %10 = zext i32 %9 to i64
+  %11 = icmp ult i64 %10, 40
+  br i1 %11, label %44, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %1, i32 0, i32 2
-  %call2 = call i32 @fdt32_ld(ptr noundef %off_dt_struct)
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %off_mem_rsvmap3 = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 4
-  %call4 = call i32 @fdt32_ld(ptr noundef %off_mem_rsvmap3)
-  %3 = load i32, ptr %mem_rsv_size.addr, align 4
-  %add = add i32 %call4, %3
-  %cmp5 = icmp ult i32 %call2, %add
-  br i1 %cmp5, label %lor.end, label %lor.lhs.false7
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.fdt_header, ptr %13, i32 0, i32 2
+  %15 = call i32 @fdt32_ld(ptr noundef %14)
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.fdt_header, ptr %16, i32 0, i32 4
+  %18 = call i32 @fdt32_ld(ptr noundef %17)
+  %19 = load i32, ptr %5, align 4
+  %20 = add i32 %18, %19
+  %21 = icmp ult i32 %15, %20
+  br i1 %21, label %44, label %22
 
-lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %4, i32 0, i32 3
-  %call8 = call i32 @fdt32_ld(ptr noundef %off_dt_strings)
-  %5 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_struct9 = getelementptr inbounds %struct.fdt_header, ptr %5, i32 0, i32 2
-  %call10 = call i32 @fdt32_ld(ptr noundef %off_dt_struct9)
-  %6 = load i32, ptr %struct_size.addr, align 4
-  %add11 = add i32 %call10, %6
-  %cmp12 = icmp ult i32 %call8, %add11
-  br i1 %cmp12, label %lor.end, label %lor.rhs
+22:                                               ; preds = %12
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds nuw %struct.fdt_header, ptr %23, i32 0, i32 3
+  %25 = call i32 @fdt32_ld(ptr noundef %24)
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.fdt_header, ptr %26, i32 0, i32 2
+  %28 = call i32 @fdt32_ld(ptr noundef %27)
+  %29 = load i32, ptr %6, align 4
+  %30 = add i32 %28, %29
+  %31 = icmp ult i32 %25, %30
+  br i1 %31, label %44, label %32
 
-lor.rhs:                                          ; preds = %lor.lhs.false7
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %7, i32 0, i32 1
-  %call14 = call i32 @fdt32_ld(ptr noundef %totalsize)
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_strings15 = getelementptr inbounds %struct.fdt_header, ptr %8, i32 0, i32 3
-  %call16 = call i32 @fdt32_ld(ptr noundef %off_dt_strings15)
-  %9 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %9, i32 0, i32 8
-  %call17 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  %add18 = add i32 %call16, %call17
-  %cmp19 = icmp ult i32 %call14, %add18
-  br label %lor.end
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.fdt_header, ptr %33, i32 0, i32 1
+  %35 = call i32 @fdt32_ld(ptr noundef %34)
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.fdt_header, ptr %36, i32 0, i32 3
+  %38 = call i32 @fdt32_ld(ptr noundef %37)
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.fdt_header, ptr %39, i32 0, i32 8
+  %41 = call i32 @fdt32_ld(ptr noundef %40)
+  %42 = add i32 %38, %41
+  %43 = icmp ult i32 %35, %42
+  br label %44
 
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false7, %lor.lhs.false, %entry
-  %10 = phi i1 [ true, %lor.lhs.false7 ], [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp19, %lor.rhs ]
-  %lor.ext = zext i1 %10 to i32
-  ret i32 %lor.ext
+44:                                               ; preds = %32, %22, %12, %3
+  %45 = phi i1 [ true, %22 ], [ true, %12 ], [ true, %3 ], [ %43, %32 ]
+  %46 = zext i1 %45 to i32
+  ret i32 %46
 }
 
-declare i32 @fdt_move(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @fdt_move(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_version(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %version = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 5
-  store i32 %call, ptr %version, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_version(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 5
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_size_dt_struct(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 9
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_totalsize(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 1
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fdt_set_size_dt_struct(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %size_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 9
-  store i32 %call, ptr %size_dt_struct, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_totalsize(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 1
-  store i32 %call, ptr %totalsize, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @fdt_packblocks_(ptr noundef %old, ptr noundef %new, i32 noundef %mem_rsv_size, i32 noundef %struct_size, i32 noundef %strings_size) #0 {
-entry:
-  %old.addr = alloca ptr, align 8
-  %new.addr = alloca ptr, align 8
-  %mem_rsv_size.addr = alloca i32, align 4
-  %struct_size.addr = alloca i32, align 4
-  %strings_size.addr = alloca i32, align 4
-  %mem_rsv_off = alloca i32, align 4
-  %struct_off = alloca i32, align 4
-  %strings_off = alloca i32, align 4
-  store ptr %old, ptr %old.addr, align 8
-  store ptr %new, ptr %new.addr, align 8
-  store i32 %mem_rsv_size, ptr %mem_rsv_size.addr, align 4
-  store i32 %struct_size, ptr %struct_size.addr, align 4
-  store i32 %strings_size, ptr %strings_size.addr, align 4
-  store i32 40, ptr %mem_rsv_off, align 4
-  %0 = load i32, ptr %mem_rsv_off, align 4
-  %1 = load i32, ptr %mem_rsv_size.addr, align 4
-  %add = add i32 %0, %1
-  store i32 %add, ptr %struct_off, align 4
-  %2 = load i32, ptr %struct_off, align 4
-  %3 = load i32, ptr %struct_size.addr, align 4
-  %add1 = add i32 %2, %3
-  store i32 %add1, ptr %strings_off, align 4
-  %4 = load ptr, ptr %new.addr, align 8
-  %5 = load i32, ptr %mem_rsv_off, align 4
-  %idx.ext = sext i32 %5 to i64
-  %add.ptr = getelementptr i8, ptr %4, i64 %idx.ext
-  %6 = load ptr, ptr %old.addr, align 8
-  %7 = load ptr, ptr %old.addr, align 8
-  %off_mem_rsvmap = getelementptr inbounds %struct.fdt_header, ptr %7, i32 0, i32 4
-  %call = call i32 @fdt32_ld(ptr noundef %off_mem_rsvmap)
-  %idx.ext2 = zext i32 %call to i64
-  %add.ptr3 = getelementptr i8, ptr %6, i64 %idx.ext2
-  %8 = load i32, ptr %mem_rsv_size.addr, align 4
-  %conv = sext i32 %8 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr3, i64 %conv, i1 false)
-  %9 = load ptr, ptr %new.addr, align 8
-  %10 = load i32, ptr %mem_rsv_off, align 4
-  call void @fdt_set_off_mem_rsvmap(ptr noundef %9, i32 noundef %10)
-  %11 = load ptr, ptr %new.addr, align 8
-  %12 = load i32, ptr %struct_off, align 4
-  %idx.ext4 = sext i32 %12 to i64
-  %add.ptr5 = getelementptr i8, ptr %11, i64 %idx.ext4
-  %13 = load ptr, ptr %old.addr, align 8
-  %14 = load ptr, ptr %old.addr, align 8
-  %off_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %14, i32 0, i32 2
-  %call6 = call i32 @fdt32_ld(ptr noundef %off_dt_struct)
-  %idx.ext7 = zext i32 %call6 to i64
-  %add.ptr8 = getelementptr i8, ptr %13, i64 %idx.ext7
-  %15 = load i32, ptr %struct_size.addr, align 4
-  %conv9 = sext i32 %15 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr5, ptr align 1 %add.ptr8, i64 %conv9, i1 false)
-  %16 = load ptr, ptr %new.addr, align 8
-  %17 = load i32, ptr %struct_off, align 4
-  call void @fdt_set_off_dt_struct(ptr noundef %16, i32 noundef %17)
-  %18 = load ptr, ptr %new.addr, align 8
-  %19 = load i32, ptr %struct_size.addr, align 4
-  call void @fdt_set_size_dt_struct(ptr noundef %18, i32 noundef %19)
-  %20 = load ptr, ptr %new.addr, align 8
-  %21 = load i32, ptr %strings_off, align 4
-  %idx.ext10 = sext i32 %21 to i64
-  %add.ptr11 = getelementptr i8, ptr %20, i64 %idx.ext10
-  %22 = load ptr, ptr %old.addr, align 8
-  %23 = load ptr, ptr %old.addr, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %23, i32 0, i32 3
-  %call12 = call i32 @fdt32_ld(ptr noundef %off_dt_strings)
-  %idx.ext13 = zext i32 %call12 to i64
-  %add.ptr14 = getelementptr i8, ptr %22, i64 %idx.ext13
-  %24 = load i32, ptr %strings_size.addr, align 4
-  %conv15 = sext i32 %24 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11, ptr align 1 %add.ptr14, i64 %conv15, i1 false)
-  %25 = load ptr, ptr %new.addr, align 8
-  %26 = load i32, ptr %strings_off, align 4
-  call void @fdt_set_off_dt_strings(ptr noundef %25, i32 noundef %26)
-  %27 = load ptr, ptr %new.addr, align 8
-  %28 = load ptr, ptr %old.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %28, i32 0, i32 8
-  %call16 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  call void @fdt_set_size_dt_strings(ptr noundef %27, i32 noundef %call16)
+define internal void @fdt_packblocks_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
+  store i32 40, ptr %11, align 4
+  %14 = load i32, ptr %11, align 4
+  %15 = load i32, ptr %8, align 4
+  %16 = add i32 %14, %15
+  store i32 %16, ptr %12, align 4
+  %17 = load i32, ptr %12, align 4
+  %18 = load i32, ptr %9, align 4
+  %19 = add i32 %17, %18
+  store i32 %19, ptr %13, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %11, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr %20, i64 %22
+  %24 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds nuw %struct.fdt_header, ptr %25, i32 0, i32 4
+  %27 = call i32 @fdt32_ld(ptr noundef %26)
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
+  %30 = load i32, ptr %8, align 4
+  %31 = sext i32 %30 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr align 1 %29, i64 %31, i1 false)
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr %11, align 4
+  call void @fdt_set_off_mem_rsvmap(ptr noundef %32, i32 noundef %33)
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %12, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %34, i64 %36
+  %38 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds nuw %struct.fdt_header, ptr %39, i32 0, i32 2
+  %41 = call i32 @fdt32_ld(ptr noundef %40)
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
+  %44 = load i32, ptr %9, align 4
+  %45 = sext i32 %44 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %37, ptr align 1 %43, i64 %45, i1 false)
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %12, align 4
+  call void @fdt_set_off_dt_struct(ptr noundef %46, i32 noundef %47)
+  %48 = load ptr, ptr %7, align 8
+  %49 = load i32, ptr %9, align 4
+  call void @fdt_set_size_dt_struct(ptr noundef %48, i32 noundef %49)
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %13, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %50, i64 %52
+  %54 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %6, align 8
+  %56 = getelementptr inbounds nuw %struct.fdt_header, ptr %55, i32 0, i32 3
+  %57 = call i32 @fdt32_ld(ptr noundef %56)
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 %58
+  %60 = load i32, ptr %10, align 4
+  %61 = sext i32 %60 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %53, ptr align 1 %59, i64 %61, i1 false)
+  %62 = load ptr, ptr %7, align 8
+  %63 = load i32, ptr %13, align 4
+  call void @fdt_set_off_dt_strings(ptr noundef %62, i32 noundef %63)
+  %64 = load ptr, ptr %7, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = getelementptr inbounds nuw %struct.fdt_header, ptr %65, i32 0, i32 8
+  %67 = call i32 @fdt32_ld(ptr noundef %66)
+  call void @fdt_set_size_dt_strings(ptr noundef %64, i32 noundef %67)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_magic(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %magic = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 0
-  store i32 %call, ptr %magic, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_magic(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 0
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_last_comp_version(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 6
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_boot_cpuid_phys(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 7
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fdt_set_last_comp_version(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %last_comp_version = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 6
-  store i32 %call, ptr %last_comp_version, align 4
+define dso_local i32 @fdt_pack(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 0, ptr %4, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  store i32 0, ptr %5, align 4, !annotation !4
+  %7 = load ptr, ptr %3, align 8
+  %8 = call i32 @fdt_rw_probe_(ptr noundef %7)
+  store i32 %8, ptr %5, align 4
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %1
+  %11 = load i32, ptr %5, align 4
+  store i32 %11, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %13
+
+12:                                               ; preds = %1
+  store i32 0, ptr %6, align 4
+  br label %13
+
+13:                                               ; preds = %12, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  %14 = load i32, ptr %6, align 4
+  switch i32 %14, label %34 [
+    i32 0, label %15
+  ]
+
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %3, align 8
+  %17 = call i32 @fdt_num_mem_rsv(ptr noundef %16)
+  %18 = add i32 %17, 1
+  %19 = sext i32 %18 to i64
+  %20 = mul i64 %19, 16
+  %21 = trunc i64 %20 to i32
+  store i32 %21, ptr %4, align 4
+  %22 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds nuw %struct.fdt_header, ptr %25, i32 0, i32 9
+  %27 = call i32 @fdt32_ld(ptr noundef %26)
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.fdt_header, ptr %28, i32 0, i32 8
+  %30 = call i32 @fdt32_ld(ptr noundef %29)
+  call void @fdt_packblocks_(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %27, i32 noundef %30)
+  %31 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %3, align 8
+  %33 = call i32 @fdt_data_size_(ptr noundef %32)
+  call void @fdt_set_totalsize(ptr noundef %31, i32 noundef %33)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %34
+
+34:                                               ; preds = %15, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  %35 = load i32, ptr %2, align 4
+  ret i32 %35
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @fdt_data_size_(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.fdt_header, ptr %3, i32 0, i32 3
+  %5 = call i32 @fdt32_ld(ptr noundef %4)
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.fdt_header, ptr %6, i32 0, i32 8
+  %8 = call i32 @fdt32_ld(ptr noundef %7)
+  %9 = add i32 %5, %8
+  ret i32 %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @fdt_mem_rsv_(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.fdt_header, ptr %7, i32 0, i32 4
+  %9 = call i32 @fdt32_ld(ptr noundef %8)
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %10
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %12, i64 %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %15
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @fdt_splice_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %15 = load ptr, ptr %6, align 8
+  %16 = call i32 @fdt_data_size_(ptr noundef %15)
+  store i32 %16, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = ptrtoint ptr %17 to i64
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %19, %20
+  store i64 %21, ptr %12, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %39, label %24
+
+24:                                               ; preds = %4
+  %25 = load i64, ptr %12, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = sext i32 %26 to i64
+  %28 = add i64 %25, %27
+  %29 = load i64, ptr %12, align 8
+  %30 = icmp ult i64 %28, %29
+  br i1 %30, label %39, label %31
+
+31:                                               ; preds = %24
+  %32 = load i64, ptr %12, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = sext i32 %33 to i64
+  %35 = add i64 %32, %34
+  %36 = load i32, ptr %11, align 4
+  %37 = zext i32 %36 to i64
+  %38 = icmp ugt i64 %35, %37
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %31, %24, %4
+  store i32 -4, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %82
+
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %10, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = icmp ult ptr %41, %42
+  br i1 %43, label %50, label %44
+
+44:                                               ; preds = %40
+  %45 = load i32, ptr %11, align 4
+  %46 = load i32, ptr %9, align 4
+  %47 = add i32 %45, %46
+  %48 = load i32, ptr %8, align 4
+  %49 = icmp ult i32 %47, %48
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %44, %40
+  store i32 -4, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %82
+
+51:                                               ; preds = %44
+  %52 = load i32, ptr %11, align 4
+  %53 = load i32, ptr %8, align 4
+  %54 = sub i32 %52, %53
+  %55 = load i32, ptr %9, align 4
+  %56 = add i32 %54, %55
+  %57 = load ptr, ptr %6, align 8
+  %58 = getelementptr inbounds nuw %struct.fdt_header, ptr %57, i32 0, i32 1
+  %59 = call i32 @fdt32_ld(ptr noundef %58)
+  %60 = icmp ugt i32 %56, %59
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %51
+  store i32 -3, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %82
+
+62:                                               ; preds = %51
+  %63 = load ptr, ptr %10, align 8
+  %64 = load i32, ptr %9, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %63, i64 %65
+  %67 = load ptr, ptr %10, align 8
+  %68 = load i32, ptr %8, align 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i8, ptr %67, i64 %69
+  %71 = load ptr, ptr %6, align 8
+  %72 = load i32, ptr %11, align 4
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %73
+  %75 = load ptr, ptr %10, align 8
+  %76 = load i32, ptr %8, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %75, i64 %77
+  %79 = ptrtoint ptr %74 to i64
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %66, ptr align 1 %70, i64 %81, i1 false)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %82
+
+82:                                               ; preds = %62, %61, %50, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %83 = load i32, ptr %5, align 4
+  ret i32 %83
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_off_dt_struct(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 2
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_boot_cpuid_phys(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %boot_cpuid_phys = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 7
-  store i32 %call, ptr %boot_cpuid_phys, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_off_dt_strings(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 3
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
+declare i32 @fdt_check_node_offset_(ptr noundef, i32 noundef) #3
+
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_pack(ptr noundef %fdt) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %mem_rsv_size = alloca i32, align 4
-  %err_ = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_rw_probe_(ptr noundef %0)
-  store i32 %call, ptr %err_, align 4
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @fdt_find_add_string_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.fdt_header, ptr %15, i32 0, i32 3
+  %17 = call i32 @fdt32_ld(ptr noundef %16)
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 %18
+  store ptr %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  store ptr null, ptr %9, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store ptr null, ptr %10, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %20 = load ptr, ptr %6, align 8
+  %21 = call i64 @strlen(ptr noundef %20) #8
+  %22 = add i64 %21, 1
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
+  %24 = call zeroext i1 @can_assume_(i32 noundef 8)
+  br i1 %24, label %27, label %25
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %err_, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %7, align 8
+  store i32 0, ptr %26, align 4
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %call1 = call i32 @fdt_num_mem_rsv(ptr noundef %2)
-  %add = add i32 %call1, 1
-  %conv = sext i32 %add to i64
-  %mul = mul i64 %conv, 16
-  %conv2 = trunc i64 %mul to i32
-  store i32 %conv2, ptr %mem_rsv_size, align 4
-  %3 = load ptr, ptr %fdt.addr, align 8
-  %4 = load ptr, ptr %fdt.addr, align 8
-  %5 = load i32, ptr %mem_rsv_size, align 4
-  %6 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %6, i32 0, i32 9
-  %call3 = call i32 @fdt32_ld(ptr noundef %size_dt_struct)
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %7, i32 0, i32 8
-  %call4 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  call void @fdt_packblocks_(ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %call3, i32 noundef %call4)
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %9 = load ptr, ptr %fdt.addr, align 8
-  %call5 = call i32 @fdt_data_size_(ptr noundef %9)
-  call void @fdt_set_totalsize(ptr noundef %8, i32 noundef %call5)
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %25, %3
+  %28 = load ptr, ptr %8, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds nuw %struct.fdt_header, ptr %29, i32 0, i32 8
+  %31 = call i32 @fdt32_ld(ptr noundef %30)
+  %32 = load ptr, ptr %6, align 8
+  %33 = call ptr @fdt_find_string_(ptr noundef %28, i32 noundef %31, ptr noundef %32)
+  store ptr %33, ptr %9, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %43
 
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = ptrtoint ptr %37 to i64
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %42 = trunc i64 %41 to i32
+  store i32 %42, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %72
+
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %8, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw %struct.fdt_header, ptr %45, i32 0, i32 8
+  %47 = call i32 @fdt32_ld(ptr noundef %46)
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
+  store ptr %49, ptr %10, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = call i32 @fdt_splice_string_(ptr noundef %50, i32 noundef %51)
+  store i32 %52, ptr %12, align 4
+  %53 = load i32, ptr %12, align 4
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %43
+  %56 = load i32, ptr %12, align 4
+  store i32 %56, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %72
+
+57:                                               ; preds = %43
+  %58 = call zeroext i1 @can_assume_(i32 noundef 8)
+  br i1 %58, label %61, label %59
+
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %7, align 8
+  store i32 1, ptr %60, align 4
+  br label %61
+
+61:                                               ; preds = %59, %57
+  %62 = load ptr, ptr %10, align 8
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i32, ptr %11, align 4
+  %65 = sext i32 %64 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %63, i64 %65, i1 false)
+  %66 = load ptr, ptr %10, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = trunc i64 %70 to i32
+  store i32 %71, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %72
+
+72:                                               ; preds = %61, %55, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %73 = load i32, ptr %4, align 4
+  ret i32 %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fdt_data_size_(ptr noundef %fdt) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %0, i32 0, i32 3
-  %call = call i32 @fdt32_ld(ptr noundef %off_dt_strings)
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %1, i32 0, i32 8
-  %call1 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  %add = add i32 %call, %call1
-  ret i32 %add
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @fdt_mem_rsv_(ptr noundef %fdt, i32 noundef %n) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %rsv_table = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %off_mem_rsvmap = getelementptr inbounds %struct.fdt_header, ptr %1, i32 0, i32 4
-  %call = call i32 @fdt32_ld(ptr noundef %off_mem_rsvmap)
-  %idx.ext = zext i32 %call to i64
-  %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
-  store ptr %add.ptr, ptr %rsv_table, align 8
-  %2 = load ptr, ptr %rsv_table, align 8
-  %3 = load i32, ptr %n.addr, align 4
-  %idx.ext1 = sext i32 %3 to i64
-  %add.ptr2 = getelementptr %struct.fdt_reserve_entry, ptr %2, i64 %idx.ext1
-  ret ptr %add.ptr2
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @fdt_splice_(ptr noundef %fdt, ptr noundef %splicepoint, i32 noundef %oldlen, i32 noundef %newlen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %splicepoint.addr = alloca ptr, align 8
-  %oldlen.addr = alloca i32, align 4
-  %newlen.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %dsize = alloca i32, align 4
-  %soff = alloca i64, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store ptr %splicepoint, ptr %splicepoint.addr, align 8
-  store i32 %oldlen, ptr %oldlen.addr, align 4
-  store i32 %newlen, ptr %newlen.addr, align 4
-  %0 = load ptr, ptr %splicepoint.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %call = call i32 @fdt_data_size_(ptr noundef %1)
-  store i32 %call, ptr %dsize, align 4
-  %2 = load ptr, ptr %p, align 8
-  %3 = load ptr, ptr %fdt.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %soff, align 8
-  %4 = load i32, ptr %oldlen.addr, align 4
-  %cmp = icmp slt i32 %4, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %5 = load i64, ptr %soff, align 8
-  %6 = load i32, ptr %oldlen.addr, align 4
-  %conv = sext i32 %6 to i64
-  %add = add i64 %5, %conv
-  %7 = load i64, ptr %soff, align 8
-  %cmp1 = icmp ult i64 %add, %7
-  br i1 %cmp1, label %if.then, label %lor.lhs.false3
-
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %8 = load i64, ptr %soff, align 8
-  %9 = load i32, ptr %oldlen.addr, align 4
-  %conv4 = sext i32 %9 to i64
-  %add5 = add i64 %8, %conv4
-  %10 = load i32, ptr %dsize, align 4
-  %conv6 = zext i32 %10 to i64
-  %cmp7 = icmp ugt i64 %add5, %conv6
-  br i1 %cmp7, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false3, %lor.lhs.false, %entry
-  store i32 -4, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false3
-  %11 = load ptr, ptr %p, align 8
-  %12 = load ptr, ptr %fdt.addr, align 8
-  %cmp9 = icmp ult ptr %11, %12
-  br i1 %cmp9, label %if.then15, label %lor.lhs.false11
-
-lor.lhs.false11:                                  ; preds = %if.end
-  %13 = load i32, ptr %dsize, align 4
-  %14 = load i32, ptr %newlen.addr, align 4
-  %add12 = add i32 %13, %14
-  %15 = load i32, ptr %oldlen.addr, align 4
-  %cmp13 = icmp ult i32 %add12, %15
-  br i1 %cmp13, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %lor.lhs.false11, %if.end
-  store i32 -4, ptr %retval, align 4
-  br label %return
-
-if.end16:                                         ; preds = %lor.lhs.false11
-  %16 = load i32, ptr %dsize, align 4
-  %17 = load i32, ptr %oldlen.addr, align 4
-  %sub = sub i32 %16, %17
-  %18 = load i32, ptr %newlen.addr, align 4
-  %add17 = add i32 %sub, %18
-  %19 = load ptr, ptr %fdt.addr, align 8
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %19, i32 0, i32 1
-  %call18 = call i32 @fdt32_ld(ptr noundef %totalsize)
-  %cmp19 = icmp ugt i32 %add17, %call18
-  br i1 %cmp19, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %if.end16
-  store i32 -3, ptr %retval, align 4
-  br label %return
-
-if.end22:                                         ; preds = %if.end16
-  %20 = load ptr, ptr %p, align 8
-  %21 = load i32, ptr %newlen.addr, align 4
-  %idx.ext = sext i32 %21 to i64
-  %add.ptr = getelementptr i8, ptr %20, i64 %idx.ext
-  %22 = load ptr, ptr %p, align 8
-  %23 = load i32, ptr %oldlen.addr, align 4
-  %idx.ext23 = sext i32 %23 to i64
-  %add.ptr24 = getelementptr i8, ptr %22, i64 %idx.ext23
-  %24 = load ptr, ptr %fdt.addr, align 8
-  %25 = load i32, ptr %dsize, align 4
-  %idx.ext25 = zext i32 %25 to i64
-  %add.ptr26 = getelementptr i8, ptr %24, i64 %idx.ext25
-  %26 = load ptr, ptr %p, align 8
-  %27 = load i32, ptr %oldlen.addr, align 4
-  %idx.ext27 = sext i32 %27 to i64
-  %add.ptr28 = getelementptr i8, ptr %26, i64 %idx.ext27
-  %sub.ptr.lhs.cast29 = ptrtoint ptr %add.ptr26 to i64
-  %sub.ptr.rhs.cast30 = ptrtoint ptr %add.ptr28 to i64
-  %sub.ptr.sub31 = sub i64 %sub.ptr.lhs.cast29, %sub.ptr.rhs.cast30
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr24, i64 %sub.ptr.sub31, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end22, %if.then21, %if.then15, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_off_dt_struct(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %off_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 2
-  store i32 %call, ptr %off_dt_struct, align 4
+define internal void @fdt_del_last_string_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = load ptr, ptr %4, align 8
+  %7 = call i64 @strlen(ptr noundef %6) #8
+  %8 = add i64 %7, 1
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %5, align 4
+  %10 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.fdt_header, ptr %11, i32 0, i32 8
+  %13 = call i32 @fdt32_ld(ptr noundef %12)
+  %14 = load i32, ptr %5, align 4
+  %15 = sub i32 %13, %14
+  call void @fdt_set_size_dt_strings(ptr noundef %10, i32 noundef %15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_off_dt_strings(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 3
-  store i32 %call, ptr %off_dt_strings, align 4
-  ret void
-}
-
-declare i32 @fdt_check_node_offset_(ptr noundef, i32 noundef) #1
+declare ptr @fdt_find_string_(ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fdt_find_add_string_(ptr noundef %fdt, ptr noundef %s, ptr noundef %allocated) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %allocated.addr = alloca ptr, align 8
-  %strtab = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %new = alloca ptr, align 8
-  %len = alloca i32, align 4
-  %err = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %allocated, ptr %allocated.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %1, i32 0, i32 3
-  %call = call i32 @fdt32_ld(ptr noundef %off_dt_strings)
-  %idx.ext = zext i32 %call to i64
-  %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
-  store ptr %add.ptr, ptr %strtab, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  %call1 = call i64 @strlen(ptr noundef %2) #5
-  %add = add i64 %call1, 1
-  %conv = trunc i64 %add to i32
-  store i32 %conv, ptr %len, align 4
-  %call2 = call zeroext i1 @can_assume_(i32 noundef 8)
-  br i1 %call2, label %if.end, label %if.then
+define internal i32 @fdt_splice_string_(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.fdt_header, ptr %10, i32 0, i32 3
+  %12 = call i32 @fdt32_ld(ptr noundef %11)
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.fdt_header, ptr %15, i32 0, i32 8
+  %17 = call i32 @fdt32_ld(ptr noundef %16)
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 %18
+  store ptr %19, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  store i32 0, ptr %7, align 4, !annotation !4
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %5, align 4
+  %23 = call i32 @fdt_splice_(ptr noundef %20, ptr noundef %21, i32 noundef 0, i32 noundef %22)
+  store i32 %23, ptr %7, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %27
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %allocated.addr, align 8
+25:                                               ; preds = %2
+  %26 = load i32, ptr %7, align 4
+  store i32 %26, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %34
+
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct.fdt_header, ptr %29, i32 0, i32 8
+  %31 = call i32 @fdt32_ld(ptr noundef %30)
+  %32 = load i32, ptr %5, align 4
+  %33 = add i32 %31, %32
+  call void @fdt_set_size_dt_strings(ptr noundef %28, i32 noundef %33)
   store i32 0, ptr %3, align 4
-  br label %if.end
+  store i32 1, ptr %8, align 4
+  br label %34
 
-if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %strtab, align 8
-  %5 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %5, i32 0, i32 8
-  %call3 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  %6 = load ptr, ptr %s.addr, align 8
-  %call4 = call ptr @fdt_find_string_(ptr noundef %4, i32 noundef %call3, ptr noundef %6)
-  store ptr %call4, ptr %p, align 8
-  %7 = load ptr, ptr %p, align 8
-  %tobool = icmp ne ptr %7, null
-  br i1 %tobool, label %if.then5, label %if.end7
-
-if.then5:                                         ; preds = %if.end
-  %8 = load ptr, ptr %p, align 8
-  %9 = load ptr, ptr %strtab, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv6 = trunc i64 %sub.ptr.sub to i32
-  store i32 %conv6, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %if.end
-  %10 = load ptr, ptr %strtab, align 8
-  %11 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings8 = getelementptr inbounds %struct.fdt_header, ptr %11, i32 0, i32 8
-  %call9 = call i32 @fdt32_ld(ptr noundef %size_dt_strings8)
-  %idx.ext10 = zext i32 %call9 to i64
-  %add.ptr11 = getelementptr i8, ptr %10, i64 %idx.ext10
-  store ptr %add.ptr11, ptr %new, align 8
-  %12 = load ptr, ptr %fdt.addr, align 8
-  %13 = load i32, ptr %len, align 4
-  %call12 = call i32 @fdt_splice_string_(ptr noundef %12, i32 noundef %13)
-  store i32 %call12, ptr %err, align 4
-  %14 = load i32, ptr %err, align 4
-  %tobool13 = icmp ne i32 %14, 0
-  br i1 %tobool13, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %if.end7
-  %15 = load i32, ptr %err, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
-
-if.end15:                                         ; preds = %if.end7
-  %call16 = call zeroext i1 @can_assume_(i32 noundef 8)
-  br i1 %call16, label %if.end18, label %if.then17
-
-if.then17:                                        ; preds = %if.end15
-  %16 = load ptr, ptr %allocated.addr, align 8
-  store i32 1, ptr %16, align 4
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then17, %if.end15
-  %17 = load ptr, ptr %new, align 8
-  %18 = load ptr, ptr %s.addr, align 8
-  %19 = load i32, ptr %len, align 4
-  %conv19 = sext i32 %19 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %18, i64 %conv19, i1 false)
-  %20 = load ptr, ptr %new, align 8
-  %21 = load ptr, ptr %strtab, align 8
-  %sub.ptr.lhs.cast20 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast21 = ptrtoint ptr %21 to i64
-  %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
-  %conv23 = trunc i64 %sub.ptr.sub22 to i32
-  store i32 %conv23, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end18, %if.then14, %if.then5
-  %22 = load i32, ptr %retval, align 4
-  ret i32 %22
+34:                                               ; preds = %27, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %35 = load i32, ptr %3, align 4
+  ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @fdt_del_last_string_(ptr noundef %fdt, ptr noundef %s) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %newlen = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #5
-  %add = add i64 %call, 1
-  %conv = trunc i64 %add to i32
-  store i32 %conv, ptr %newlen, align 4
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 8
-  %call1 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  %3 = load i32, ptr %newlen, align 4
-  %sub = sub i32 %call1, %3
-  call void @fdt_set_size_dt_strings(ptr noundef %1, i32 noundef %sub)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_size_dt_strings(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 8
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
-declare ptr @fdt_find_string_(ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @fdt_get_property(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @fdt_splice_string_(ptr noundef %fdt, i32 noundef %newlen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %newlen.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %err = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %newlen, ptr %newlen.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %1, i32 0, i32 3
-  %call = call i32 @fdt32_ld(ptr noundef %off_dt_strings)
-  %idx.ext = zext i32 %call to i64
-  %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
-  %2 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 8
-  %call1 = call i32 @fdt32_ld(ptr noundef %size_dt_strings)
-  %idx.ext2 = zext i32 %call1 to i64
-  %add.ptr3 = getelementptr i8, ptr %add.ptr, i64 %idx.ext2
-  store ptr %add.ptr3, ptr %p, align 8
-  %3 = load ptr, ptr %fdt.addr, align 8
-  %4 = load ptr, ptr %p, align 8
-  %5 = load i32, ptr %newlen.addr, align 4
-  %call4 = call i32 @fdt_splice_(ptr noundef %3, ptr noundef %4, i32 noundef 0, i32 noundef %5)
-  store i32 %call4, ptr %err, align 4
-  %tobool = icmp ne i32 %call4, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %6 = load i32, ptr %err, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %fdt.addr, align 8
-  %8 = load ptr, ptr %fdt.addr, align 8
-  %size_dt_strings5 = getelementptr inbounds %struct.fdt_header, ptr %8, i32 0, i32 8
-  %call6 = call i32 @fdt32_ld(ptr noundef %size_dt_strings5)
-  %9 = load i32, ptr %newlen.addr, align 4
-  %add = add i32 %call6, %9
-  call void @fdt_set_size_dt_strings(ptr noundef %7, i32 noundef %add)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @fdt_offset_ptr_(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.fdt_header, ptr %6, i32 0, i32 2
+  %8 = call i32 @fdt32_ld(ptr noundef %7)
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
+  %11 = load i32, ptr %4, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %10, i64 %12
+  ret ptr %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_size_dt_strings(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 8
-  store i32 %call, ptr %size_dt_strings, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt_set_off_mem_rsvmap(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = call i32 @cpu_to_fdt32(i32 noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.fdt_header, ptr %9, i32 0, i32 4
+  store i32 %8, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
-declare ptr @fdt_get_property(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @fdt_offset_ptr_(ptr noundef %fdt, i32 noundef %offset) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %offset.addr = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %offset, ptr %offset.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load ptr, ptr %fdt.addr, align 8
-  %off_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %1, i32 0, i32 2
-  %call = call i32 @fdt32_ld(ptr noundef %off_dt_struct)
-  %idx.ext = zext i32 %call to i64
-  %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
-  %2 = load i32, ptr %offset.addr, align 4
-  %idx.ext1 = sext i32 %2 to i64
-  %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 %idx.ext1
-  ret ptr %add.ptr2
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @fdt_set_off_mem_rsvmap(ptr noundef %fdt, i32 noundef %val) #0 {
-entry:
-  %fdt.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  %fdth = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  store ptr %0, ptr %fdth, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  %call = call i32 @cpu_to_fdt32(i32 noundef %1)
-  %2 = load ptr, ptr %fdth, align 8
-  %off_mem_rsvmap = getelementptr inbounds %struct.fdt_header, ptr %2, i32 0, i32 4
-  store i32 %call, ptr %off_mem_rsvmap, align 4
-  ret void
-}
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}

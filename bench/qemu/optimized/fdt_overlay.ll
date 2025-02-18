@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/qemu/original/fdt_overlay.ll'
 source_filename = "bench/qemu/original/fdt_overlay.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [8 x i8] c"phandle\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"linux,phandle\00", align 1
@@ -17,993 +17,1053 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_overlay_apply(ptr noundef %fdt, ptr noundef %fdto) local_unnamed_addr #0 {
-entry:
-  %phandle_prop.i.i.i = alloca i32, align 4
-  %prop_len.i.i.i = alloca i32, align 4
-  %label.i.i = alloca ptr, align 8
-  %len.i.i = alloca i32, align 4
-  %endptr.i.i = alloca ptr, align 8
-  %delta = alloca i32, align 4
-  %call = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #8
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %return, label %if.end
+define dso_local i32 @fdt_overlay_apply(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  %9 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #8
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %11, label %109
 
-if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @fdt_ro_probe_(ptr noundef %fdto) #8
-  %cmp3 = icmp slt i32 %call2, 0
-  br i1 %cmp3, label %return, label %if.end5
+11:                                               ; preds = %2
+  %12 = tail call i32 @fdt_ro_probe_(ptr noundef %1) #8
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %109
 
-if.end5:                                          ; preds = %if.end
-  %call6 = call i32 @fdt_find_max_phandle(ptr noundef %fdt, ptr noundef nonnull %delta) #8
-  %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %if.end8, label %err
+14:                                               ; preds = %11
+  store i32 0, ptr %8, align 4, !annotation !4
+  %15 = call i32 @fdt_find_max_phandle(ptr noundef %0, ptr noundef nonnull %8) #8
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %16, label %overlay_update_local_references.exit.thread43
 
-if.end8:                                          ; preds = %if.end5
-  %0 = load i32, ptr %delta, align 4
-  %call.i = call fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef 0, i32 noundef %0)
-  %tobool10.not = icmp eq i32 %call.i, 0
-  br i1 %tobool10.not, label %if.end12, label %err
+16:                                               ; preds = %14
+  %17 = load i32, ptr %8, align 4
+  %18 = call fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %1, i32 noundef 0, i32 noundef %17)
+  %.not36 = icmp eq i32 %18, 0
+  br i1 %.not36, label %19, label %overlay_update_local_references.exit.thread43
 
-if.end12:                                         ; preds = %if.end8
-  %1 = load i32, ptr %delta, align 4
-  %call.i19 = call i32 @fdt_path_offset(ptr noundef %fdto, ptr noundef nonnull @.str.2) #8
-  %cmp.i = icmp slt i32 %call.i19, 0
-  br i1 %cmp.i, label %if.then.i, label %overlay_update_local_references.exit
+19:                                               ; preds = %16
+  %20 = load i32, ptr %8, align 4
+  %21 = call i32 @fdt_path_offset(ptr noundef %1, ptr noundef nonnull @.str.2) #8
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %overlay_update_local_references.exit
 
-if.then.i:                                        ; preds = %if.end12
-  %cmp1.i = icmp eq i32 %call.i19, -1
-  br i1 %cmp1.i, label %if.end16, label %err
+23:                                               ; preds = %19
+  %24 = icmp eq i32 %21, -1
+  br i1 %24, label %overlay_update_local_references.exit.thread, label %overlay_update_local_references.exit.thread43
 
-overlay_update_local_references.exit:             ; preds = %if.end12
-  %call4.i = call fastcc i32 @overlay_update_local_node_references(ptr noundef %fdto, i32 noundef 0, i32 noundef %call.i19, i32 noundef %1)
-  %tobool14.not = icmp eq i32 %call4.i, 0
-  br i1 %tobool14.not, label %if.end16, label %err
+overlay_update_local_references.exit:             ; preds = %19
+  %25 = call fastcc i32 @overlay_update_local_node_references(ptr noundef %1, i32 noundef 0, i32 noundef %21, i32 noundef %20)
+  %.not37 = icmp eq i32 %25, 0
+  br i1 %.not37, label %overlay_update_local_references.exit.thread, label %overlay_update_local_references.exit.thread43
 
-if.end16:                                         ; preds = %if.then.i, %overlay_update_local_references.exit
-  %call.i20 = call i32 @fdt_path_offset(ptr noundef %fdto, ptr noundef nonnull @.str.3) #8
-  %cmp.i21 = icmp eq i32 %call.i20, -1
-  br i1 %cmp.i21, label %if.end20, label %if.end.i
+overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update_local_references.exit
+  %26 = call i32 @fdt_path_offset(ptr noundef %1, ptr noundef nonnull @.str.3) #8
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %overlay_fixup_phandles.exit, label %28
 
-if.end.i:                                         ; preds = %if.end16
-  %cmp1.i22 = icmp slt i32 %call.i20, 0
-  br i1 %cmp1.i22, label %err, label %if.end3.i23
+28:                                               ; preds = %overlay_update_local_references.exit.thread
+  %29 = icmp slt i32 %26, 0
+  br i1 %29, label %overlay_update_local_references.exit.thread43, label %30
 
-if.end3.i23:                                      ; preds = %if.end.i
-  %call4.i24 = call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef nonnull @.str.4) #8
-  %or.cond.i = icmp slt i32 %call4.i24, -1
-  br i1 %or.cond.i, label %err, label %if.end8.i
+30:                                               ; preds = %28
+  %31 = call i32 @fdt_path_offset(ptr noundef %0, ptr noundef nonnull @.str.4) #8
+  %or.cond.i = icmp slt i32 %31, -1
+  br i1 %or.cond.i, label %overlay_update_local_references.exit.thread43, label %32
 
-if.end8.i:                                        ; preds = %if.end3.i23
-  %call9.i = call i32 @fdt_first_property_offset(ptr noundef %fdto, i32 noundef %call.i20) #8
-  %cmp1020.i = icmp sgt i32 %call9.i, -1
-  br i1 %cmp1020.i, label %for.body.lr.ph.i, label %if.end20
+32:                                               ; preds = %30
+  %33 = call i32 @fdt_first_property_offset(ptr noundef %1, i32 noundef %26) #8
+  %34 = icmp sgt i32 %33, -1
+  br i1 %34, label %.lr.ph.i, label %overlay_fixup_phandles.exit
 
-for.body.lr.ph.i:                                 ; preds = %if.end8.i
-  %cmp.i.i.i = icmp slt i32 %call4.i24, 0
-  br label %for.body.i
+.lr.ph.i:                                         ; preds = %32
+  %35 = icmp slt i32 %31, 0
+  br label %36
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %property.021.i = phi i32 [ %call9.i, %for.body.lr.ph.i ], [ %call14.i, %for.inc.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %label.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i)
-  %call.i.i = call ptr @fdt_getprop_by_offset(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %property.021.i, ptr noundef nonnull %label.i.i, ptr noundef nonnull %len.i.i) #8
-  %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  %2 = load i32, ptr %len.i.i, align 4
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %do.body.i.i
+36:                                               ; preds = %103, %.lr.ph.i
+  %.02136.i = phi i32 [ %33, %.lr.ph.i ], [ %104, %103 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  store ptr null, ptr %5, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  store i32 0, ptr %6, align 4, !annotation !4
+  %37 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %.02136.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %.not.i.i = icmp eq ptr %37, null
+  %38 = load i32, ptr %6, align 4
+  br i1 %.not.i.i, label %39, label %.preheader.i.i
 
-if.then.i.i:                                      ; preds = %for.body.i
-  %cmp.i.i = icmp eq i32 %2, -1
-  br i1 %cmp.i.i, label %overlay_fixup_phandle.exit.thread.i, label %overlay_fixup_phandle.exit.i
+39:                                               ; preds = %36
+  %40 = icmp eq i32 %38, -1
+  br i1 %40, label %overlay_fixup_phandle.exit.thread.i, label %overlay_fixup_phandle.exit.i
 
-do.body.i.i:                                      ; preds = %for.body.i, %do.cond.i.i
-  %3 = phi i32 [ %10, %do.cond.i.i ], [ %2, %for.body.i ]
-  %value.0.i.i = phi ptr [ %add.ptr.i.i, %do.cond.i.i ], [ %call.i.i, %for.body.i ]
-  %conv.i.i = sext i32 %3 to i64
-  %call3.i.i = call ptr @memchr(ptr noundef %value.0.i.i, i32 noundef 0, i64 noundef %conv.i.i) #9
-  %tobool4.not.i.i = icmp eq ptr %call3.i.i, null
-  br i1 %tobool4.not.i.i, label %overlay_fixup_phandle.exit.thread.i, label %if.end6.i.i
+.preheader.i.i:                                   ; preds = %36, %100
+  %41 = phi i32 [ %101, %100 ], [ %38, %36 ]
+  %.044.i.i = phi ptr [ %52, %100 ], [ %37, %36 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  store ptr null, ptr %7, align 8, !annotation !4
+  %42 = sext i32 %41 to i64
+  %43 = call ptr @memchr(ptr noundef %.044.i.i, i32 noundef 0, i64 noundef %42) #9
+  %.not54.i.i = icmp eq ptr %43, null
+  br i1 %.not54.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %44
 
-if.end6.i.i:                                      ; preds = %do.body.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call3.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %value.0.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %conv7.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %add.i.i = add i32 %conv7.i.i, 1
-  %sub.i.i = sub i32 %3, %add.i.i
-  store i32 %sub.i.i, ptr %len.i.i, align 4
-  %idx.ext.i.i = zext i32 %add.i.i to i64
-  %add.ptr.i.i = getelementptr i8, ptr %value.0.i.i, i64 %idx.ext.i.i
-  %conv9.i.i = and i64 %sub.ptr.sub.i.i, 4294967295
-  %call10.i.i = call ptr @memchr(ptr noundef %value.0.i.i, i32 noundef 58, i64 noundef %conv9.i.i) #9
-  %tobool11.not.i.i = icmp eq ptr %call10.i.i, null
-  br i1 %tobool11.not.i.i, label %overlay_fixup_phandle.exit.thread.i, label %lor.lhs.false.i.i
+44:                                               ; preds = %.preheader.i.i
+  %45 = ptrtoint ptr %43 to i64
+  %46 = ptrtoint ptr %.044.i.i to i64
+  %47 = sub i64 %45, %46
+  %48 = trunc i64 %47 to i32
+  %49 = add i32 %48, 1
+  %50 = sub i32 %41, %49
+  store i32 %50, ptr %6, align 4
+  %51 = zext i32 %49 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 %51
+  %53 = and i64 %47, 4294967295
+  %54 = call ptr @memchr(ptr noundef %.044.i.i, i32 noundef 58, i64 noundef %53) #9
+  %.not55.i.i = icmp eq ptr %54, null
+  br i1 %.not55.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %55
 
-lor.lhs.false.i.i:                                ; preds = %if.end6.i.i
-  %4 = load i8, ptr %call10.i.i, align 1
-  %cmp13.not.i.i = icmp eq i8 %4, 58
-  br i1 %cmp13.not.i.i, label %if.end16.i.i, label %overlay_fixup_phandle.exit.thread.i
+55:                                               ; preds = %44
+  %56 = load i8, ptr %54, align 1
+  %.not56.i.i = icmp eq i8 %56, 58
+  br i1 %.not56.i.i, label %57, label %overlay_fixup_phandle.exit.thread.sink.split.i
 
-if.end16.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %sub.ptr.lhs.cast17.i.i = ptrtoint ptr %call10.i.i to i64
-  %sub.ptr.sub19.i.i = sub i64 %sub.ptr.lhs.cast17.i.i, %sub.ptr.rhs.cast.i.i
-  %conv20.i.i = trunc i64 %sub.ptr.sub19.i.i to i32
-  %sub21.i.i = add i32 %conv7.i.i, -1
-  %cmp22.i.i = icmp eq i32 %sub21.i.i, %conv20.i.i
-  br i1 %cmp22.i.i, label %overlay_fixup_phandle.exit.thread.i, label %if.end25.i.i
+57:                                               ; preds = %55
+  %58 = ptrtoint ptr %54 to i64
+  %59 = sub i64 %58, %46
+  %60 = trunc i64 %59 to i32
+  %61 = add i32 %48, -1
+  %62 = icmp eq i32 %61, %60
+  br i1 %62, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %63
 
-if.end25.i.i:                                     ; preds = %if.end16.i.i
-  %add26.neg.i.i = xor i64 %sub.ptr.sub19.i.i, -1
-  %sub27.i.i = add i64 %sub.ptr.sub.i.i, %add26.neg.i.i
-  %add.ptr28.i.i = getelementptr i8, ptr %call10.i.i, i64 1
-  %conv29.i.i = and i64 %sub27.i.i, 4294967295
-  %call30.i.i = call ptr @memchr(ptr noundef %add.ptr28.i.i, i32 noundef 58, i64 noundef %conv29.i.i) #9
-  %tobool31.not.i.i = icmp eq ptr %call30.i.i, null
-  br i1 %tobool31.not.i.i, label %overlay_fixup_phandle.exit.thread.i, label %lor.lhs.false32.i.i
+63:                                               ; preds = %57
+  %.neg.i.i = xor i64 %59, -1
+  %64 = add i64 %47, %.neg.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %66 = and i64 %64, 4294967295
+  %67 = call ptr @memchr(ptr noundef nonnull %65, i32 noundef 58, i64 noundef %66) #9
+  %.not57.i.i = icmp eq ptr %67, null
+  br i1 %.not57.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %68
 
-lor.lhs.false32.i.i:                              ; preds = %if.end25.i.i
-  %5 = load i8, ptr %call30.i.i, align 1
-  %cmp34.not.i.i = icmp eq i8 %5, 58
-  br i1 %cmp34.not.i.i, label %if.end37.i.i, label %overlay_fixup_phandle.exit.thread.i
+68:                                               ; preds = %63
+  %69 = load i8, ptr %67, align 1
+  %.not58.i.i = icmp eq i8 %69, 58
+  br i1 %.not58.i.i, label %70, label %overlay_fixup_phandle.exit.thread.sink.split.i
 
-if.end37.i.i:                                     ; preds = %lor.lhs.false32.i.i
-  %sub.ptr.lhs.cast38.i.i = ptrtoint ptr %call30.i.i to i64
-  %sub.ptr.rhs.cast39.i.i = ptrtoint ptr %add.ptr28.i.i to i64
-  %sub.ptr.sub40.i.i = sub i64 %sub.ptr.lhs.cast38.i.i, %sub.ptr.rhs.cast39.i.i
-  %conv41.i.i = trunc i64 %sub.ptr.sub40.i.i to i32
-  %tobool42.not.i.i = icmp eq i32 %conv41.i.i, 0
-  br i1 %tobool42.not.i.i, label %overlay_fixup_phandle.exit.thread.i, label %if.end44.i.i
+70:                                               ; preds = %68
+  %71 = ptrtoint ptr %67 to i64
+  %72 = ptrtoint ptr %65 to i64
+  %73 = sub i64 %71, %72
+  %74 = trunc i64 %73 to i32
+  %.not59.i.i = icmp eq i32 %74, 0
+  br i1 %.not59.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %75
 
-if.end44.i.i:                                     ; preds = %if.end37.i.i
-  %add.ptr45.i.i = getelementptr i8, ptr %call30.i.i, i64 1
-  %call46.i.i = call i64 @strtoul(ptr noundef %add.ptr45.i.i, ptr noundef nonnull %endptr.i.i, i32 noundef 10) #8
-  %conv47.i.i = trunc i64 %call46.i.i to i32
-  %6 = load ptr, ptr %endptr.i.i, align 8
-  %7 = load i8, ptr %6, align 1
-  %cmp49.not.i.i = icmp eq i8 %7, 0
-  %cmp53.not.i.i = icmp ugt ptr %6, %add.ptr45.i.i
-  %or.cond.i.i = and i1 %cmp53.not.i.i, %cmp49.not.i.i
-  br i1 %or.cond.i.i, label %if.end56.i.i, label %overlay_fixup_phandle.exit.thread.i
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %77 = call i64 @strtoul(ptr noundef nonnull %76, ptr noundef nonnull %7, i32 noundef 10) #8
+  %78 = trunc i64 %77 to i32
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i8, ptr %79, align 1
+  %.not60.i.i = icmp eq i8 %80, 0
+  %.not61.i.i = icmp ugt ptr %79, %76
+  %or.cond.i.i = and i1 %.not61.i.i, %.not60.i.i
+  br i1 %or.cond.i.i, label %81, label %overlay_fixup_phandle.exit.thread.sink.split.i
 
-if.end56.i.i:                                     ; preds = %if.end44.i.i
-  %8 = load ptr, ptr %label.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %phandle_prop.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %prop_len.i.i.i)
-  br i1 %cmp.i.i.i, label %overlay_fixup_one_phandle.exit.thread.i.i, label %if.end.i.i.i
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  br i1 %35, label %.thread68.i.i, label %83
 
-if.end.i.i.i:                                     ; preds = %if.end56.i.i
-  %call.i.i.i = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %call4.i24, ptr noundef %8, ptr noundef nonnull %prop_len.i.i.i) #8
-  %tobool.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %if.then1.i.i.i, label %if.end2.i.i.i
+83:                                               ; preds = %81
+  store i32 0, ptr %4, align 4, !annotation !4
+  %84 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %31, ptr noundef %82, ptr noundef nonnull %4) #8
+  %.not.i.i.i = icmp eq ptr %84, null
+  br i1 %.not.i.i.i, label %85, label %87
 
-if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
-  %9 = load i32, ptr %prop_len.i.i.i, align 4
-  br label %overlay_fixup_one_phandle.exit.i.i
+85:                                               ; preds = %83
+  %86 = load i32, ptr %4, align 4
+  br label %99
 
-if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call3.i.i.i = call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef nonnull %call.i.i.i) #8
-  %cmp4.i.i.i = icmp slt i32 %call3.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %overlay_fixup_one_phandle.exit.thread.i.i, label %if.end6.i.i.i
+87:                                               ; preds = %83
+  %88 = call i32 @fdt_path_offset(ptr noundef %0, ptr noundef nonnull %84) #8
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %.thread68.i.i, label %90
 
-if.end6.i.i.i:                                    ; preds = %if.end2.i.i.i
-  %call7.i.i.i = call i32 @fdt_get_phandle(ptr noundef %fdt, i32 noundef %call3.i.i.i) #8
-  %tobool8.not.i.i.i = icmp eq i32 %call7.i.i.i, 0
-  br i1 %tobool8.not.i.i.i, label %overlay_fixup_one_phandle.exit.thread.i.i, label %if.end10.i.i.i
+90:                                               ; preds = %87
+  %91 = call i32 @fdt_get_phandle(ptr noundef %0, i32 noundef %88) #8
+  %.not31.i.i.i = icmp eq i32 %91, 0
+  br i1 %.not31.i.i.i, label %.thread68.i.i, label %92
 
-if.end10.i.i.i:                                   ; preds = %if.end6.i.i.i
-  %call11.i.i.i = call i32 @fdt_path_offset_namelen(ptr noundef %fdto, ptr noundef %value.0.i.i, i32 noundef %conv20.i.i) #8
-  %cmp12.i.i.i = icmp eq i32 %call11.i.i.i, -1
-  br i1 %cmp12.i.i.i, label %overlay_fixup_one_phandle.exit.thread.i.i, label %if.end14.i.i.i
+92:                                               ; preds = %90
+  %93 = call i32 @fdt_path_offset_namelen(ptr noundef %1, ptr noundef nonnull %.044.i.i, i32 noundef %60) #8
+  %94 = icmp eq i32 %93, -1
+  br i1 %94, label %.thread68.i.i, label %95
 
-if.end14.i.i.i:                                   ; preds = %if.end10.i.i.i
-  %cmp15.i.i.i = icmp slt i32 %call11.i.i.i, 0
-  br i1 %cmp15.i.i.i, label %overlay_fixup_one_phandle.exit.thread.i.i, label %if.end17.i.i.i
+95:                                               ; preds = %92
+  %96 = icmp slt i32 %93, 0
+  br i1 %96, label %.thread68.i.i, label %97
 
-if.end17.i.i.i:                                   ; preds = %if.end14.i.i.i
-  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %call7.i.i.i)
-  store i32 %rev.i.i.i.i, ptr %phandle_prop.i.i.i, align 4
-  %call19.i.i.i = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %fdto, i32 noundef %call11.i.i.i, ptr noundef %add.ptr28.i.i, i32 noundef range(i32 1, 0) %conv41.i.i, i32 noundef %conv47.i.i, ptr noundef nonnull %phandle_prop.i.i.i, i32 noundef 4) #8
-  br label %overlay_fixup_one_phandle.exit.i.i
+97:                                               ; preds = %95
+  %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %91)
+  store i32 %rev.i.i.i.i, ptr %3, align 4
+  %98 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %1, i32 noundef %93, ptr noundef nonnull %65, i32 noundef range(i32 1, 0) %74, i32 noundef %78, ptr noundef nonnull %3, i32 noundef 4) #8
+  br label %99
 
-overlay_fixup_one_phandle.exit.thread.i.i:        ; preds = %if.end14.i.i.i, %if.end10.i.i.i, %if.end6.i.i.i, %if.end2.i.i.i, %if.end56.i.i
-  %retval.0.i.ph.i.i = phi i32 [ %call11.i.i.i, %if.end14.i.i.i ], [ -16, %if.end10.i.i.i ], [ -1, %if.end6.i.i.i ], [ %call3.i.i.i, %if.end2.i.i.i ], [ %call4.i24, %if.end56.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %phandle_prop.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %prop_len.i.i.i)
+.thread68.i.i:                                    ; preds = %95, %92, %90, %87, %81
+  %.0.i.ph.i.i = phi i32 [ %93, %95 ], [ -16, %92 ], [ -1, %90 ], [ %88, %87 ], [ %31, %81 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  br label %overlay_fixup_phandle.exit.thread.sink.split.i
+
+99:                                               ; preds = %97, %85
+  %.0.i.i.i = phi i32 [ %98, %97 ], [ %86, %85 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  %.not62.i.i = icmp eq i32 %.0.i.i.i, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  br i1 %.not62.i.i, label %100, label %overlay_fixup_phandle.exit.thread.i
+
+100:                                              ; preds = %99
+  %101 = load i32, ptr %6, align 4
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %.preheader.i.i, label %overlay_fixup_phandle.exit.thread29.i, !llvm.loop !5
+
+overlay_fixup_phandle.exit.thread29.i:            ; preds = %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %103
+
+overlay_fixup_phandle.exit.thread.sink.split.i:   ; preds = %75, %70, %68, %63, %57, %55, %44, %.preheader.i.i, %.thread68.i.i
+  %.0.i.ph.ph.i = phi i32 [ %.0.i.ph.i.i, %.thread68.i.i ], [ -16, %.preheader.i.i ], [ -16, %44 ], [ -16, %55 ], [ -16, %57 ], [ -16, %63 ], [ -16, %68 ], [ -16, %70 ], [ -16, %75 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %overlay_fixup_phandle.exit.thread.i
 
-overlay_fixup_one_phandle.exit.i.i:               ; preds = %if.end17.i.i.i, %if.then1.i.i.i
-  %retval.0.i.i.i = phi i32 [ %call19.i.i.i, %if.end17.i.i.i ], [ %9, %if.then1.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %phandle_prop.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %prop_len.i.i.i)
-  %tobool58.not.i.i = icmp eq i32 %retval.0.i.i.i, 0
-  br i1 %tobool58.not.i.i, label %do.cond.i.i, label %overlay_fixup_phandle.exit.thread.i
+overlay_fixup_phandle.exit.thread.i:              ; preds = %39, %99, %overlay_fixup_phandle.exit.thread.sink.split.i
+  %.0.i.ph.i = phi i32 [ %.0.i.ph.ph.i, %overlay_fixup_phandle.exit.thread.sink.split.i ], [ %.0.i.i.i, %99 ], [ -13, %39 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %overlay_update_local_references.exit.thread43
 
-do.cond.i.i:                                      ; preds = %overlay_fixup_one_phandle.exit.i.i
-  %10 = load i32, ptr %len.i.i, align 4
-  %cmp61.i.i = icmp sgt i32 %10, 0
-  br i1 %cmp61.i.i, label %do.body.i.i, label %overlay_fixup_phandle.exit.thread16.i, !llvm.loop !5
+overlay_fixup_phandle.exit.i:                     ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  %.not.i = icmp eq i32 %38, 0
+  br i1 %.not.i, label %103, label %overlay_update_local_references.exit.thread43
 
-overlay_fixup_phandle.exit.thread16.i:            ; preds = %do.cond.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %label.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
-  br label %for.inc.i
+103:                                              ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread29.i
+  %104 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.02136.i) #8
+  %105 = icmp sgt i32 %104, -1
+  br i1 %105, label %36, label %overlay_fixup_phandles.exit, !llvm.loop !7
 
-overlay_fixup_phandle.exit.thread.i:              ; preds = %if.then.i.i, %overlay_fixup_one_phandle.exit.i.i, %if.end44.i.i, %if.end37.i.i, %lor.lhs.false32.i.i, %if.end25.i.i, %if.end16.i.i, %lor.lhs.false.i.i, %if.end6.i.i, %do.body.i.i, %overlay_fixup_one_phandle.exit.thread.i.i
-  %retval.0.i.ph.i = phi i32 [ %retval.0.i.ph.i.i, %overlay_fixup_one_phandle.exit.thread.i.i ], [ -16, %do.body.i.i ], [ -16, %lor.lhs.false.i.i ], [ -16, %if.end6.i.i ], [ -16, %if.end16.i.i ], [ -16, %lor.lhs.false32.i.i ], [ -16, %if.end25.i.i ], [ -16, %if.end37.i.i ], [ -16, %if.end44.i.i ], [ %retval.0.i.i.i, %overlay_fixup_one_phandle.exit.i.i ], [ -13, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %label.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
-  br label %err
+overlay_fixup_phandles.exit:                      ; preds = %103, %32, %overlay_update_local_references.exit.thread
+  %106 = call fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1)
+  %.not39 = icmp eq i32 %106, 0
+  br i1 %.not39, label %107, label %overlay_update_local_references.exit.thread43
 
-overlay_fixup_phandle.exit.i:                     ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %label.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
-  %tobool.not.i = icmp eq i32 %2, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %err
+107:                                              ; preds = %overlay_fixup_phandles.exit
+  %108 = call fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1)
+  %.not40 = icmp eq i32 %108, 0
+  br i1 %.not40, label %.sink.split, label %overlay_update_local_references.exit.thread43
 
-for.inc.i:                                        ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread16.i
-  %call14.i = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %property.021.i) #8
-  %cmp10.i = icmp sgt i32 %call14.i, -1
-  br i1 %cmp10.i, label %for.body.i, label %if.end20, !llvm.loop !7
+overlay_update_local_references.exit.thread43:    ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %30, %28, %23, %107, %overlay_fixup_phandles.exit, %overlay_update_local_references.exit, %16, %14
+  %.026 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %106, %overlay_fixup_phandles.exit ], [ %108, %107 ], [ %21, %23 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %31, %30 ], [ %26, %28 ], [ %38, %overlay_fixup_phandle.exit.i ]
+  store i32 -1, ptr %1, align 4
+  br label %.sink.split
 
-if.end20:                                         ; preds = %for.inc.i, %if.end8.i, %if.end16
-  %call21 = call fastcc i32 @overlay_merge(ptr noundef %fdt, ptr noundef %fdto)
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %if.end24, label %err
+.sink.split:                                      ; preds = %107, %overlay_update_local_references.exit.thread43
+  %.sink = phi ptr [ %0, %overlay_update_local_references.exit.thread43 ], [ %1, %107 ]
+  %.128.ph = phi i32 [ %.026, %overlay_update_local_references.exit.thread43 ], [ 0, %107 ]
+  store i32 -1, ptr %.sink, align 4
+  br label %109
 
-if.end24:                                         ; preds = %if.end20
-  %call25 = call fastcc i32 @overlay_symbol_update(ptr noundef %fdt, ptr noundef %fdto)
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %return.sink.split, label %err
-
-err:                                              ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %if.end3.i23, %if.end.i, %if.then.i, %if.end24, %if.end20, %overlay_update_local_references.exit, %if.end8, %if.end5
-  %ret.0 = phi i32 [ %call6, %if.end5 ], [ %call.i, %if.end8 ], [ %call4.i, %overlay_update_local_references.exit ], [ %call21, %if.end20 ], [ %call25, %if.end24 ], [ %call.i19, %if.then.i ], [ %retval.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %call4.i24, %if.end3.i23 ], [ %call.i20, %if.end.i ], [ %2, %overlay_fixup_phandle.exit.i ]
-  store i32 -1, ptr %fdto, align 4
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end24, %err
-  %fdt.sink = phi ptr [ %fdt, %err ], [ %fdto, %if.end24 ]
-  %retval.0.ph = phi i32 [ %ret.0, %err ], [ 0, %if.end24 ]
-  store i32 -1, ptr %fdt.sink, align 4
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %if.end, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ %call2, %if.end ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+109:                                              ; preds = %.sink.split, %11, %2
+  %.128 = phi i32 [ %12, %11 ], [ %9, %2 ], [ %.128.ph, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  ret i32 %.128
 }
 
-declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @fdt_find_max_phandle(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @fdt_find_max_phandle(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_merge(ptr noundef %fdt, ptr noundef %fdto) unnamed_addr #0 {
-entry:
-  %call = tail call i32 @fdt_first_subnode(ptr noundef %fdto, i32 noundef 0) #8
-  %cmp15 = icmp sgt i32 %call, -1
-  br i1 %cmp15, label %for.body, label %return
+define internal fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call i32 @fdt_first_subnode(ptr noundef %1, i32 noundef 0) #8
+  %4 = icmp sgt i32 %3, -1
+  br i1 %4, label %.lr.ph, label %.thread
 
-for.body:                                         ; preds = %entry, %for.inc
-  %fragment.016 = phi i32 [ %call13, %for.inc ], [ %call, %entry ]
-  %call1 = tail call i32 @fdt_subnode_offset(ptr noundef %fdto, i32 noundef %fragment.016, ptr noundef nonnull @.str.5) #8
-  %cmp2 = icmp eq i32 %call1, -1
-  br i1 %cmp2, label %for.inc, label %if.end
+.lr.ph:                                           ; preds = %2, %select.unfold
+  %.02129 = phi i32 [ %14, %select.unfold ], [ %3, %2 ]
+  %5 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %.02129, ptr noundef nonnull @.str.5) #8
+  %6 = icmp eq i32 %5, -1
+  br i1 %6, label %select.unfold, label %7
 
-if.end:                                           ; preds = %for.body
-  %cmp3 = icmp slt i32 %call1, 0
-  br i1 %cmp3, label %return, label %if.end5
+7:                                                ; preds = %.lr.ph
+  %8 = icmp slt i32 %5, 0
+  br i1 %8, label %.thread, label %9
 
-if.end5:                                          ; preds = %if.end
-  %call6 = tail call fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef %fragment.016, ptr noundef null)
-  %cmp7 = icmp slt i32 %call6, 0
-  br i1 %cmp7, label %return, label %if.end9
+9:                                                ; preds = %7
+  %10 = tail call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %.02129, ptr noundef null)
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %.thread, label %12
 
-if.end9:                                          ; preds = %if.end5
-  %call10 = tail call fastcc i32 @overlay_apply_node(ptr noundef %fdt, i32 noundef %call6, ptr noundef %fdto, i32 noundef %call1)
-  %tobool.not = icmp eq i32 %call10, 0
-  br i1 %tobool.not, label %for.inc, label %return
+12:                                               ; preds = %9
+  %13 = tail call fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %5)
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %select.unfold, label %.thread
 
-for.inc:                                          ; preds = %if.end9, %for.body
-  %call13 = tail call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %fragment.016) #8
-  %cmp = icmp sgt i32 %call13, -1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !8
+select.unfold:                                    ; preds = %12, %.lr.ph
+  %14 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02129) #8
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !8
 
-return:                                           ; preds = %if.end, %if.end5, %if.end9, %for.inc, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.inc ], [ %call10, %if.end9 ], [ %call6, %if.end5 ], [ %call1, %if.end ]
-  ret i32 %retval.0
+.thread:                                          ; preds = %select.unfold, %7, %9, %12, %2
+  %.2 = phi i32 [ 0, %2 ], [ %13, %12 ], [ %10, %9 ], [ %5, %7 ], [ 0, %select.unfold ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_symbol_update(ptr noundef %fdt, ptr noundef %fdto) unnamed_addr #0 {
-entry:
-  %namelen.i = alloca i32, align 4
-  %path_len = alloca i32, align 4
-  %name = alloca ptr, align 8
-  %target_path = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %call = tail call i32 @fdt_subnode_offset(ptr noundef %fdto, i32 noundef 0, ptr noundef nonnull @.str.8) #8
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %return, label %if.end
+define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  %8 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @.str.8) #8
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %.loopexit, label %10
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @fdt_subnode_offset(ptr noundef %fdt, i32 noundef 0, ptr noundef nonnull @.str.8) #8
-  %cmp2 = icmp eq i32 %call1, -1
-  br i1 %cmp2, label %if.then3, label %if.end5
+10:                                               ; preds = %2
+  %11 = tail call i32 @fdt_subnode_offset(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.8) #8
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %15
 
-if.then3:                                         ; preds = %if.end
-  %call4 = tail call i32 @fdt_add_subnode(ptr noundef %fdt, i32 noundef 0, ptr noundef nonnull @.str.8) #8
-  br label %if.end5
+13:                                               ; preds = %10
+  %14 = tail call i32 @fdt_add_subnode(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.8) #8
+  br label %15
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  %root_sym.0 = phi i32 [ %call4, %if.then3 ], [ %call1, %if.end ]
-  %cmp6 = icmp slt i32 %root_sym.0, 0
-  br i1 %cmp6, label %return, label %if.end8
+15:                                               ; preds = %13, %10
+  %.093 = phi i32 [ %14, %13 ], [ %11, %10 ]
+  %16 = icmp slt i32 %.093, 0
+  br i1 %16, label %.loopexit, label %17
 
-if.end8:                                          ; preds = %if.end5
-  %call9 = tail call i32 @fdt_first_property_offset(ptr noundef %fdto, i32 noundef %call) #8
-  %cmp1084 = icmp sgt i32 %call9, -1
-  br i1 %cmp1084, label %for.body, label %return
+17:                                               ; preds = %15
+  %18 = tail call i32 @fdt_first_property_offset(ptr noundef %1, i32 noundef %8) #8
+  %19 = icmp sgt i32 %18, -1
+  br i1 %19, label %.lr.ph.preheader, label %.loopexit
 
-for.body:                                         ; preds = %if.end8, %for.inc
-  %prop.085 = phi i32 [ %call137, %for.inc ], [ %call9, %if.end8 ]
-  %call11 = call ptr @fdt_getprop_by_offset(ptr noundef %fdto, i32 noundef %prop.085, ptr noundef nonnull %name, ptr noundef nonnull %path_len) #8
-  %tobool.not = icmp eq ptr %call11, null
-  %0 = load i32, ptr %path_len, align 4
-  br i1 %tobool.not, label %return, label %if.end13
+.lr.ph.preheader:                                 ; preds = %17
+  store i32 0, ptr %4, align 4, !annotation !4
+  store ptr null, ptr %5, align 8, !annotation !4
+  store ptr null, ptr %6, align 8, !annotation !4
+  store ptr null, ptr %7, align 8, !annotation !4
+  br label %.lr.ph
 
-if.end13:                                         ; preds = %for.body
-  %cmp14 = icmp slt i32 %0, 1
-  br i1 %cmp14, label %return, label %lor.lhs.false
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
+  %.092125 = phi i32 [ %119, %.thread ], [ %18, %.lr.ph.preheader ]
+  %20 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef %.092125, ptr noundef nonnull %5, ptr noundef nonnull %4) #8
+  %.not = icmp eq ptr %20, null
+  %21 = load i32, ptr %4, align 4
+  br i1 %.not, label %.loopexit, label %22
 
-lor.lhs.false:                                    ; preds = %if.end13
-  %conv = zext nneg i32 %0 to i64
-  %call15 = call ptr @memchr(ptr noundef nonnull %call11, i32 noundef 0, i64 noundef %conv) #9
-  %1 = getelementptr i8, ptr %call11, i64 %conv
-  %arrayidx = getelementptr i8, ptr %1, i64 -1
-  %cmp16.not = icmp eq ptr %call15, %arrayidx
-  br i1 %cmp16.not, label %if.end19, label %return
+22:                                               ; preds = %.lr.ph
+  %23 = icmp slt i32 %21, 1
+  br i1 %23, label %.loopexit, label %24
 
-if.end19:                                         ; preds = %lor.lhs.false
-  %2 = load i8, ptr %call11, align 1
-  %cmp21.not = icmp eq i8 %2, 47
-  br i1 %cmp21.not, label %if.end24, label %return
+24:                                               ; preds = %22
+  %25 = zext nneg i32 %21 to i64
+  %26 = call ptr @memchr(ptr noundef nonnull %20, i32 noundef 0, i64 noundef %25) #9
+  %27 = getelementptr i8, ptr %20, i64 %25
+  %28 = getelementptr i8, ptr %27, i64 -1
+  %.not111 = icmp eq ptr %26, %28
+  br i1 %.not111, label %29, label %.loopexit
 
-if.end24:                                         ; preds = %if.end19
-  %add.ptr25 = getelementptr i8, ptr %call11, i64 1
-  %call26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr25, i32 noundef 47) #9
-  %tobool27.not = icmp eq ptr %call26, null
-  br i1 %tobool27.not, label %for.inc, label %if.end29
+29:                                               ; preds = %24
+  %30 = load i8, ptr %20, align 1
+  %.not112 = icmp eq i8 %30, 47
+  br i1 %.not112, label %31, label %.loopexit
 
-if.end29:                                         ; preds = %if.end24
-  %sub.ptr.lhs.cast = ptrtoint ptr %call26 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %call11 to i64
-  %3 = xor i64 %sub.ptr.rhs.cast, -1
-  %sub31 = add i64 %sub.ptr.lhs.cast, %3
-  %conv32 = trunc i64 %sub31 to i32
-  %sub.ptr.lhs.cast33 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.lhs.cast
-  %cmp37 = icmp sgt i64 %sub.ptr.sub35, 13
-  br i1 %cmp37, label %land.lhs.true, label %if.else
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  %33 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 47) #9
+  %.not113 = icmp eq ptr %33, null
+  br i1 %.not113, label %.thread, label %34
 
-land.lhs.true:                                    ; preds = %if.end29
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %call26, ptr noundef nonnull dereferenceable(13) @.str.9, i64 13)
-  %cmp41 = icmp eq i32 %bcmp, 0
-  br i1 %cmp41, label %if.then43, label %for.inc
+34:                                               ; preds = %31
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %20 to i64
+  %37 = xor i64 %36, -1
+  %38 = add i64 %35, %37
+  %39 = trunc i64 %38 to i32
+  %40 = ptrtoint ptr %27 to i64
+  %41 = sub i64 %40, %35
+  %42 = icmp sgt i64 %41, 13
+  br i1 %42, label %43, label %51
 
-if.then43:                                        ; preds = %land.lhs.true
-  %add.ptr45 = getelementptr i8, ptr %call26, i64 13
-  %sub.ptr.rhs.cast47 = ptrtoint ptr %add.ptr45 to i64
-  %4 = xor i64 %sub.ptr.rhs.cast47, -1
-  %sub49 = add i64 %4, %sub.ptr.lhs.cast33
-  %conv50 = trunc i64 %sub49 to i32
-  br label %if.end66
+43:                                               ; preds = %34
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %33, ptr noundef nonnull dereferenceable(13) @.str.9, i64 13)
+  %44 = icmp eq i32 %bcmp, 0
+  br i1 %44, label %45, label %.thread
 
-if.else:                                          ; preds = %if.end29
-  %cmp55 = icmp eq i64 %sub.ptr.sub35, 13
-  br i1 %cmp55, label %land.lhs.true57, label %for.inc
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 13
+  %47 = ptrtoint ptr %46 to i64
+  %48 = xor i64 %47, -1
+  %49 = add i64 %48, %40
+  %50 = trunc i64 %49 to i32
+  br label %55
 
-land.lhs.true57:                                  ; preds = %if.else
-  %bcmp75 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %call26, ptr noundef nonnull dereferenceable(12) @.str.10, i64 12)
-  %cmp61 = icmp eq i32 %bcmp75, 0
-  br i1 %cmp61, label %if.end66, label %for.inc
+51:                                               ; preds = %34
+  %52 = icmp eq i64 %41, 13
+  br i1 %52, label %53, label %.thread
 
-if.end66:                                         ; preds = %land.lhs.true57, %if.then43
-  %rel_path_len.0 = phi i32 [ %conv50, %if.then43 ], [ 0, %land.lhs.true57 ]
-  %rel_path.0 = phi ptr [ %add.ptr45, %if.then43 ], [ @.str.11, %land.lhs.true57 ]
-  %call67 = call i32 @fdt_subnode_offset_namelen(ptr noundef %fdto, i32 noundef 0, ptr noundef nonnull %add.ptr25, i32 noundef %conv32) #8
-  %cmp68 = icmp slt i32 %call67, 0
-  br i1 %cmp68, label %return, label %if.end71
+53:                                               ; preds = %51
+  %bcmp114 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %33, ptr noundef nonnull dereferenceable(12) @.str.10, i64 12)
+  %54 = icmp eq i32 %bcmp114, 0
+  br i1 %54, label %55, label %.thread
 
-if.end71:                                         ; preds = %if.end66
-  %call72 = call i32 @fdt_subnode_offset(ptr noundef %fdto, i32 noundef %call67, ptr noundef nonnull @.str.5) #8
-  %cmp73 = icmp slt i32 %call72, 0
-  br i1 %cmp73, label %return, label %if.end76
+55:                                               ; preds = %53, %45
+  %.089 = phi i32 [ %50, %45 ], [ 0, %53 ]
+  %.0 = phi ptr [ %46, %45 ], [ @.str.11, %53 ]
+  %56 = call i32 @fdt_subnode_offset_namelen(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %32, i32 noundef %39) #8
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %.loopexit, label %58
 
-if.end76:                                         ; preds = %if.end71
-  %call77 = call fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef %call67, ptr noundef nonnull %target_path)
-  %cmp78 = icmp slt i32 %call77, 0
-  br i1 %cmp78, label %return, label %if.end81
+58:                                               ; preds = %55
+  %59 = call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %56, ptr noundef nonnull @.str.5) #8
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %.loopexit, label %61
 
-if.end81:                                         ; preds = %if.end76
-  %5 = load ptr, ptr %target_path, align 8
-  %tobool82.not = icmp eq ptr %5, null
-  br i1 %tobool82.not, label %if.then83, label %if.else89
+61:                                               ; preds = %58
+  %62 = call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %56, ptr noundef nonnull %6)
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %.loopexit, label %64
 
-if.then83:                                        ; preds = %if.end81
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %namelen.i)
-  %call.i = call i32 @fdt_ro_probe_(ptr noundef %fdt) #8
-  %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %get_path_len.exit.thread, label %for.cond.preheader.i
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %6, align 8
+  %.not115 = icmp eq ptr %65, null
+  br i1 %.not115, label %66, label %83
 
-for.cond.preheader.i:                             ; preds = %if.then83
-  %call111.i = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef range(i32 0, -2147483648) %call77, ptr noundef nonnull %namelen.i) #8
-  %tobool.not12.i = icmp eq ptr %call111.i, null
-  br i1 %tobool.not12.i, label %if.then2.i, label %if.end3.i
+66:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  %67 = call i32 @fdt_ro_probe_(ptr noundef %0) #8
+  %68 = icmp sgt i32 %67, -1
+  br i1 %68, label %.preheader.i, label %get_path_len.exit.thread
 
-if.then2.i:                                       ; preds = %if.end10.i, %for.cond.preheader.i
-  %6 = load i32, ptr %namelen.i, align 4
+.preheader.i:                                     ; preds = %66
+  store i32 0, ptr %3, align 4, !annotation !4
+  %69 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %62, ptr noundef nonnull %3) #8
+  %.not22.i = icmp eq ptr %69, null
+  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
+
+._crit_edge.i:                                    ; preds = %76, %.preheader.i
+  %70 = load i32, ptr %3, align 4
   br label %get_path_len.exit
 
-if.end3.i:                                        ; preds = %for.cond.preheader.i, %if.end10.i
-  %nodeoffset.addr.014.i = phi i32 [ %call7.i, %if.end10.i ], [ %call77, %for.cond.preheader.i ]
-  %len.013.i = phi i32 [ %add11.i, %if.end10.i ], [ 0, %for.cond.preheader.i ]
-  %7 = load i32, ptr %namelen.i, align 4
-  %cmp4.i = icmp eq i32 %7, 0
-  br i1 %cmp4.i, label %for.end.i, label %if.end6.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %76
+  %.01424.i = phi i32 [ %79, %76 ], [ 0, %.preheader.i ]
+  %.01523.i = phi i32 [ %74, %76 ], [ %62, %.preheader.i ]
+  %71 = load i32, ptr %3, align 4
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %81, label %73
 
-if.end6.i:                                        ; preds = %if.end3.i
-  %call7.i = call i32 @fdt_parent_offset(ptr noundef %fdt, i32 noundef %nodeoffset.addr.014.i) #8
-  %cmp8.i = icmp slt i32 %call7.i, 0
-  br i1 %cmp8.i, label %get_path_len.exit.thread, label %if.end10.i
+73:                                               ; preds = %.lr.ph.i
+  %74 = call i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %.01523.i) #8
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %get_path_len.exit.thread, label %76
 
-if.end10.i:                                       ; preds = %if.end6.i
-  %8 = load i32, ptr %namelen.i, align 4
-  %add.i = add i32 %len.013.i, 1
-  %add11.i = add i32 %add.i, %8
-  %call1.i = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %call7.i, ptr noundef nonnull %namelen.i) #8
-  %tobool.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i, label %if.then2.i, label %if.end3.i
+76:                                               ; preds = %73
+  %77 = load i32, ptr %3, align 4
+  %78 = add i32 %.01424.i, 1
+  %79 = add i32 %78, %77
+  %80 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %74, ptr noundef nonnull %3) #8
+  %.not.i = icmp eq ptr %80, null
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-for.end.i:                                        ; preds = %if.end3.i
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %len.013.i, i32 1)
+81:                                               ; preds = %.lr.ph.i
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %.01424.i, i32 1)
   br label %get_path_len.exit
 
-get_path_len.exit.thread:                         ; preds = %if.then83, %if.end6.i
-  %retval.0.i.ph = phi i32 [ %call7.i, %if.end6.i ], [ %call.i, %if.then83 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %namelen.i)
-  br label %return
+get_path_len.exit.thread:                         ; preds = %66, %73
+  %.117.i.ph = phi i32 [ %74, %73 ], [ %67, %66 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  br label %.loopexit
 
-get_path_len.exit:                                ; preds = %if.then2.i, %for.end.i
-  %retval.0.i = phi i32 [ %spec.select.i, %for.end.i ], [ %6, %if.then2.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %namelen.i)
-  %cmp85 = icmp slt i32 %retval.0.i, 0
-  br i1 %cmp85, label %return, label %if.end92
+get_path_len.exit:                                ; preds = %._crit_edge.i, %81
+  %.117.i = phi i32 [ %spec.select.i, %81 ], [ %70, %._crit_edge.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  %82 = icmp slt i32 %.117.i, 0
+  br i1 %82, label %.loopexit, label %86
 
-if.else89:                                        ; preds = %if.end81
-  %call90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
-  %conv91 = trunc i64 %call90 to i32
-  br label %if.end92
+83:                                               ; preds = %64
+  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #9
+  %85 = trunc i64 %84 to i32
+  br label %86
 
-if.end92:                                         ; preds = %get_path_len.exit, %if.else89
-  %len.0 = phi i32 [ %conv91, %if.else89 ], [ %retval.0.i, %get_path_len.exit ]
-  %9 = load ptr, ptr %name, align 8
-  %cmp93 = icmp sgt i32 %len.0, 1
-  %conv94 = zext i1 %cmp93 to i32
-  %add = add i32 %rel_path_len.0, 1
-  %add95 = add i32 %add, %len.0
-  %add96 = add i32 %add95, %conv94
-  %call97 = call i32 @fdt_setprop_placeholder(ptr noundef %fdt, i32 noundef %root_sym.0, ptr noundef %9, i32 noundef %add96, ptr noundef nonnull %p) #8
-  %cmp98 = icmp slt i32 %call97, 0
-  br i1 %cmp98, label %return, label %if.end101
+86:                                               ; preds = %get_path_len.exit, %83
+  %.090 = phi i32 [ %85, %83 ], [ %.117.i, %get_path_len.exit ]
+  %87 = load ptr, ptr %5, align 8
+  %88 = icmp sgt i32 %.090, 1
+  %89 = zext i1 %88 to i32
+  %90 = add i32 %.089, 1
+  %91 = add i32 %90, %.090
+  %92 = add i32 %91, %89
+  %93 = call i32 @fdt_setprop_placeholder(ptr noundef %0, i32 noundef %.093, ptr noundef %87, i32 noundef %92, ptr noundef nonnull %7) #8
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %.loopexit, label %95
 
-if.end101:                                        ; preds = %if.end92
-  %10 = load ptr, ptr %target_path, align 8
-  %tobool102.not = icmp eq ptr %10, null
-  br i1 %tobool102.not, label %if.then103, label %if.end109
+95:                                               ; preds = %86
+  %96 = load ptr, ptr %6, align 8
+  %.not116 = icmp eq ptr %96, null
+  br i1 %.not116, label %97, label %100
 
-if.then103:                                       ; preds = %if.end101
-  %call104 = call fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef %call67, ptr noundef nonnull %target_path)
-  %cmp105 = icmp slt i32 %call104, 0
-  br i1 %cmp105, label %return, label %if.end109
+97:                                               ; preds = %95
+  %98 = call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %56, ptr noundef nonnull %6)
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %.loopexit, label %100
 
-if.end109:                                        ; preds = %if.then103, %if.end101
-  %target.0 = phi i32 [ %call77, %if.end101 ], [ %call104, %if.then103 ]
-  %11 = load ptr, ptr %p, align 8
-  br i1 %cmp93, label %if.then112, label %if.else125
+100:                                              ; preds = %97, %95
+  %.091 = phi i32 [ %62, %95 ], [ %98, %97 ]
+  %101 = load ptr, ptr %7, align 8
+  br i1 %88, label %102, label %110
 
-if.then112:                                       ; preds = %if.end109
-  %12 = load ptr, ptr %target_path, align 8
-  %tobool113.not = icmp eq ptr %12, null
-  %add115 = add nuw i32 %len.0, 1
-  br i1 %tobool113.not, label %if.then114, label %if.else121
+102:                                              ; preds = %100
+  %103 = load ptr, ptr %6, align 8
+  %.not117 = icmp eq ptr %103, null
+  %104 = add nuw i32 %.090, 1
+  br i1 %.not117, label %105, label %108
 
-if.then114:                                       ; preds = %if.then112
-  %call116 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %target.0, ptr noundef %11, i32 noundef %add115) #8
-  %cmp117 = icmp slt i32 %call116, 0
-  br i1 %cmp117, label %return, label %if.end126
+105:                                              ; preds = %102
+  %106 = call i32 @fdt_get_path(ptr noundef %0, i32 noundef %.091, ptr noundef %101, i32 noundef %104) #8
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %.loopexit, label %112
 
-if.else121:                                       ; preds = %if.then112
-  %conv123 = sext i32 %add115 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, i64 %conv123, i1 false)
-  br label %if.end126
+108:                                              ; preds = %102
+  %109 = sext i32 %104 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %101, ptr noundef nonnull align 1 dereferenceable(1) %103, i64 %109, i1 false)
+  br label %112
 
-if.else125:                                       ; preds = %if.end109
-  %dec = add i32 %len.0, -1
-  %.pre = add i32 %rel_path_len.0, %len.0
-  br label %if.end126
+110:                                              ; preds = %100
+  %111 = add i32 %.090, -1
+  %.pre = add i32 %.089, %.090
+  br label %112
 
-if.end126:                                        ; preds = %if.else121, %if.then114, %if.else125
-  %add134.pre-phi = phi i32 [ %add95, %if.else121 ], [ %add95, %if.then114 ], [ %.pre, %if.else125 ]
-  %len.1 = phi i32 [ %len.0, %if.else121 ], [ %len.0, %if.then114 ], [ %dec, %if.else125 ]
-  %idxprom127 = sext i32 %len.1 to i64
-  %arrayidx128 = getelementptr i8, ptr %11, i64 %idxprom127
-  store i8 47, ptr %arrayidx128, align 1
-  %add.ptr131 = getelementptr i8, ptr %arrayidx128, i64 1
-  %conv132 = sext i32 %rel_path_len.0 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr131, ptr align 1 %rel_path.0, i64 %conv132, i1 false)
-  %idxprom135 = sext i32 %add134.pre-phi to i64
-  %arrayidx136 = getelementptr i8, ptr %11, i64 %idxprom135
-  store i8 0, ptr %arrayidx136, align 1
-  br label %for.inc
+112:                                              ; preds = %108, %105, %110
+  %.pre-phi = phi i32 [ %91, %108 ], [ %91, %105 ], [ %.pre, %110 ]
+  %.1 = phi i32 [ %.090, %108 ], [ %.090, %105 ], [ %111, %110 ]
+  %113 = sext i32 %.1 to i64
+  %114 = getelementptr inbounds i8, ptr %101, i64 %113
+  store i8 47, ptr %114, align 1
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1
+  %116 = sext i32 %.089 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull align 1 %.0, i64 %116, i1 false)
+  %117 = sext i32 %.pre-phi to i64
+  %118 = getelementptr inbounds i8, ptr %101, i64 %117
+  store i8 0, ptr %118, align 1
+  br label %.thread
 
-for.inc:                                          ; preds = %land.lhs.true, %if.else, %land.lhs.true57, %if.end24, %if.end126
-  %call137 = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %prop.085) #8
-  %cmp10 = icmp sgt i32 %call137, -1
-  br i1 %cmp10, label %for.body, label %return, !llvm.loop !9
+.thread:                                          ; preds = %43, %51, %53, %31, %112
+  %119 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.092125) #8
+  %120 = icmp sgt i32 %119, -1
+  br i1 %120, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
-return:                                           ; preds = %lor.lhs.false, %if.end13, %if.end19, %if.end66, %if.end71, %if.end76, %get_path_len.exit, %if.end92, %if.then103, %if.then114, %for.inc, %for.body, %if.end8, %get_path_len.exit.thread, %if.end5, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %root_sym.0, %if.end5 ], [ %retval.0.i.ph, %get_path_len.exit.thread ], [ 0, %if.end8 ], [ %0, %for.body ], [ -15, %lor.lhs.false ], [ -15, %if.end13 ], [ -15, %if.end19 ], [ -16, %if.end66 ], [ -16, %if.end71 ], [ %call77, %if.end76 ], [ %retval.0.i, %get_path_len.exit ], [ %call97, %if.end92 ], [ %call104, %if.then103 ], [ %call116, %if.then114 ], [ 0, %for.inc ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %24, %22, %29, %55, %58, %61, %get_path_len.exit, %86, %97, %105, %.thread, %.lr.ph, %17, %get_path_len.exit.thread, %15, %2
+  %.094 = phi i32 [ 0, %2 ], [ %.093, %15 ], [ %.117.i.ph, %get_path_len.exit.thread ], [ 0, %17 ], [ %21, %.lr.ph ], [ -15, %24 ], [ -15, %22 ], [ -15, %29 ], [ -16, %55 ], [ -16, %58 ], [ %62, %61 ], [ %.117.i, %get_path_len.exit ], [ %93, %86 ], [ %98, %97 ], [ %106, %105 ], [ 0, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  ret i32 %.094
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node, i32 noundef %delta) unnamed_addr #0 {
-entry:
-  %tmp.i.i19 = alloca i32, align 4
-  %len.i20 = alloca i32, align 4
-  %tmp.i.i = alloca i32, align 4
-  %len.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
-  %call.i = call ptr @fdt_getprop(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node, ptr noundef nonnull @.str, ptr noundef nonnull %len.i) #8
-  %tobool.not.i = icmp eq ptr %call.i, null
-  %0 = load i32, ptr %len.i, align 4
-  br i1 %tobool.not.i, label %overlay_phandle_add_offset.exit, label %if.end.i
+define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2) unnamed_addr #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  store i32 0, ptr %7, align 4, !annotation !4
+  %8 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str, ptr noundef nonnull %7) #8
+  %.not.i = icmp eq ptr %8, null
+  %9 = load i32, ptr %7, align 4
+  br i1 %.not.i, label %overlay_phandle_add_offset.exit, label %10
 
-if.end.i:                                         ; preds = %entry
-  %cmp.not.i = icmp eq i32 %0, 4
-  br i1 %cmp.not.i, label %if.end3.i, label %overlay_phandle_add_offset.exit.thread
+10:                                               ; preds = %3
+  %.not17.i = icmp eq i32 %9, 4
+  br i1 %.not17.i, label %11, label %overlay_phandle_add_offset.exit.thread
 
-if.end3.i:                                        ; preds = %if.end.i
-  %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
-  %add.i = add i32 %rev.i.i, %delta
-  %cmp5.i = icmp ult i32 %add.i, %rev.i.i
-  %cmp10.i = icmp eq i32 %add.i, -1
-  %or.cond.i = or i1 %cmp5.i, %cmp10.i
-  br i1 %or.cond.i, label %overlay_phandle_add_offset.exit.thread, label %if.end13.i
+11:                                               ; preds = %10
+  %12 = load i32, ptr %8, align 4
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %12)
+  %13 = add i32 %rev.i.i, %2
+  %14 = icmp ult i32 %13, %rev.i.i
+  %15 = icmp eq i32 %13, -1
+  %or.cond.i = or i1 %14, %15
+  br i1 %or.cond.i, label %overlay_phandle_add_offset.exit.thread, label %16
 
-if.end13.i:                                       ; preds = %if.end3.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
-  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %add.i)
-  store i32 %rev.i.i.i, ptr %tmp.i.i, align 4
-  %call1.i.i = call i32 @fdt_setprop_inplace(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node, ptr noundef nonnull @.str, ptr noundef nonnull %tmp.i.i, i32 noundef 4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %13)
+  store i32 %rev.i.i.i, ptr %6, align 4
+  %17 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str, ptr noundef nonnull %6, i32 noundef 4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   br label %overlay_phandle_add_offset.exit
 
-overlay_phandle_add_offset.exit.thread:           ; preds = %if.end.i, %if.end3.i
-  %retval.0.i.ph = phi i32 [ -17, %if.end3.i ], [ -6, %if.end.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  br label %return
+overlay_phandle_add_offset.exit.thread:           ; preds = %10, %11
+  %.0.i.ph = phi i32 [ -17, %11 ], [ -6, %10 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  br label %.loopexit
 
-overlay_phandle_add_offset.exit:                  ; preds = %entry, %if.end13.i
-  %retval.0.i = phi i32 [ %call1.i.i, %if.end13.i ], [ %0, %entry ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  %2 = add i32 %retval.0.i, -1
-  %or.cond = icmp ult i32 %2, -2
-  br i1 %or.cond, label %return, label %if.end
+overlay_phandle_add_offset.exit:                  ; preds = %3, %16
+  %.0.i = phi i32 [ %17, %16 ], [ %9, %3 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  %18 = add i32 %.0.i, -1
+  %or.cond = icmp ult i32 %18, -2
+  br i1 %or.cond, label %.loopexit, label %19
 
-if.end:                                           ; preds = %overlay_phandle_add_offset.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i20)
-  %call.i21 = call ptr @fdt_getprop(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node, ptr noundef nonnull @.str.1, ptr noundef nonnull %len.i20) #8
-  %tobool.not.i22 = icmp eq ptr %call.i21, null
-  %3 = load i32, ptr %len.i20, align 4
-  br i1 %tobool.not.i22, label %overlay_phandle_add_offset.exit35, label %if.end.i23
+19:                                               ; preds = %overlay_phandle_add_offset.exit
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  store i32 0, ptr %5, align 4, !annotation !4
+  %20 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #8
+  %.not.i29 = icmp eq ptr %20, null
+  %21 = load i32, ptr %5, align 4
+  br i1 %.not.i29, label %overlay_phandle_add_offset.exit35, label %22
 
-if.end.i23:                                       ; preds = %if.end
-  %cmp.not.i24 = icmp eq i32 %3, 4
-  br i1 %cmp.not.i24, label %if.end3.i26, label %overlay_phandle_add_offset.exit35.thread
+22:                                               ; preds = %19
+  %.not17.i30 = icmp eq i32 %21, 4
+  br i1 %.not17.i30, label %23, label %overlay_phandle_add_offset.exit35.thread
 
-if.end3.i26:                                      ; preds = %if.end.i23
-  %4 = load i32, ptr %call.i21, align 4
-  %rev.i.i27 = call noundef i32 @llvm.bswap.i32(i32 %4)
-  %add.i28 = add i32 %rev.i.i27, %delta
-  %cmp5.i29 = icmp ult i32 %add.i28, %rev.i.i27
-  %cmp10.i30 = icmp eq i32 %add.i28, -1
-  %or.cond.i31 = or i1 %cmp5.i29, %cmp10.i30
-  br i1 %or.cond.i31, label %overlay_phandle_add_offset.exit35.thread, label %if.end13.i32
+23:                                               ; preds = %22
+  %24 = load i32, ptr %20, align 4
+  %rev.i.i32 = call noundef i32 @llvm.bswap.i32(i32 %24)
+  %25 = add i32 %rev.i.i32, %2
+  %26 = icmp ult i32 %25, %rev.i.i32
+  %27 = icmp eq i32 %25, -1
+  %or.cond.i33 = or i1 %26, %27
+  br i1 %or.cond.i33, label %overlay_phandle_add_offset.exit35.thread, label %28
 
-if.end13.i32:                                     ; preds = %if.end3.i26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i19)
-  %rev.i.i.i33 = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %add.i28)
-  store i32 %rev.i.i.i33, ptr %tmp.i.i19, align 4
-  %call1.i.i34 = call i32 @fdt_setprop_inplace(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node, ptr noundef nonnull @.str.1, ptr noundef nonnull %tmp.i.i19, i32 noundef 4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i19)
+28:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  %rev.i.i.i34 = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %25)
+  store i32 %rev.i.i.i34, ptr %4, align 4
+  %29 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, i32 noundef 4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   br label %overlay_phandle_add_offset.exit35
 
-overlay_phandle_add_offset.exit35.thread:         ; preds = %if.end.i23, %if.end3.i26
-  %retval.0.i25.ph = phi i32 [ -17, %if.end3.i26 ], [ -6, %if.end.i23 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i20)
-  br label %return
+overlay_phandle_add_offset.exit35.thread:         ; preds = %22, %23
+  %.0.i31.ph = phi i32 [ -17, %23 ], [ -6, %22 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  br label %.loopexit
 
-overlay_phandle_add_offset.exit35:                ; preds = %if.end, %if.end13.i32
-  %retval.0.i25 = phi i32 [ %call1.i.i34, %if.end13.i32 ], [ %3, %if.end ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i20)
-  %5 = add i32 %retval.0.i25, -1
-  %or.cond1 = icmp ult i32 %5, -2
-  br i1 %or.cond1, label %return, label %if.end6
+overlay_phandle_add_offset.exit35:                ; preds = %19, %28
+  %.0.i31 = phi i32 [ %29, %28 ], [ %21, %19 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  %30 = add i32 %.0.i31, -1
+  %or.cond3 = icmp ult i32 %30, -2
+  br i1 %or.cond3, label %.loopexit, label %31
 
-if.end6:                                          ; preds = %overlay_phandle_add_offset.exit35
-  %call7 = call i32 @fdt_first_subnode(ptr noundef %fdto, i32 noundef %node) #8
-  %cmp840 = icmp sgt i32 %call7, -1
-  br i1 %cmp840, label %for.body, label %return
+31:                                               ; preds = %overlay_phandle_add_offset.exit35
+  %32 = call i32 @fdt_first_subnode(ptr noundef %0, i32 noundef %1) #8
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %.lr.ph, label %.loopexit
 
-for.body:                                         ; preds = %if.end6, %for.inc
-  %child.041 = phi i32 [ %call13, %for.inc ], [ %call7, %if.end6 ]
-  %call9 = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef %child.041, i32 noundef %delta)
-  %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %for.inc, label %return
+.lr.ph:                                           ; preds = %31, %35
+  %.040 = phi i32 [ %36, %35 ], [ %32, %31 ]
+  %34 = call fastcc i32 @overlay_adjust_node_phandles(ptr noundef %0, i32 noundef %.040, i32 noundef %2)
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %35, label %.loopexit
 
-for.inc:                                          ; preds = %for.body
-  %call13 = call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %child.041) #8
-  %cmp8 = icmp sgt i32 %call13, -1
-  br i1 %cmp8, label %for.body, label %return, !llvm.loop !10
+35:                                               ; preds = %.lr.ph
+  %36 = call i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %.040) #8
+  %37 = icmp sgt i32 %36, -1
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
-return:                                           ; preds = %for.body, %for.inc, %if.end6, %overlay_phandle_add_offset.exit35.thread, %overlay_phandle_add_offset.exit.thread, %overlay_phandle_add_offset.exit35, %overlay_phandle_add_offset.exit
-  %retval.0 = phi i32 [ %retval.0.i, %overlay_phandle_add_offset.exit ], [ %retval.0.i25, %overlay_phandle_add_offset.exit35 ], [ %retval.0.i.ph, %overlay_phandle_add_offset.exit.thread ], [ %retval.0.i25.ph, %overlay_phandle_add_offset.exit35.thread ], [ 0, %if.end6 ], [ %call9, %for.body ], [ 0, %for.inc ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.lr.ph, %35, %31, %overlay_phandle_add_offset.exit35.thread, %overlay_phandle_add_offset.exit.thread, %overlay_phandle_add_offset.exit35, %overlay_phandle_add_offset.exit
+  %.025 = phi i32 [ %.0.i, %overlay_phandle_add_offset.exit ], [ %.0.i31, %overlay_phandle_add_offset.exit35 ], [ %.0.i.ph, %overlay_phandle_add_offset.exit.thread ], [ %.0.i31.ph, %overlay_phandle_add_offset.exit35.thread ], [ 0, %31 ], [ %34, %.lr.ph ], [ 0, %35 ]
+  ret i32 %.025
 }
 
-declare i32 @fdt_first_subnode(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_first_subnode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_next_subnode(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_next_subnode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @fdt_setprop_inplace(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop_inplace(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_path_offset(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_path_offset(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %tree_node, i32 noundef range(i32 0, -2147483648) %fixup_node, i32 noundef %delta) unnamed_addr #0 {
-entry:
-  %name = alloca ptr, align 8
-  %fixup_len = alloca i32, align 4
-  %tree_len = alloca i32, align 4
-  %adj_val = alloca i32, align 4
-  %call = tail call i32 @fdt_first_property_offset(ptr noundef %fdto, i32 noundef %fixup_node) #8
-  %cmp39 = icmp sgt i32 %call, -1
-  br i1 %cmp39, label %for.body, label %for.end34
+define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef %3) unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = tail call i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %2) #8
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %.lr.ph81, label %._crit_edge82
 
-for.body:                                         ; preds = %entry, %for.inc32
-  %fixup_prop.040 = phi i32 [ %call33, %for.inc32 ], [ %call, %entry ]
-  %call1 = call ptr @fdt_getprop_by_offset(ptr noundef %fdto, i32 noundef %fixup_prop.040, ptr noundef nonnull %name, ptr noundef nonnull %fixup_len) #8
-  %tobool.not = icmp eq ptr %call1, null
-  %0 = load i32, ptr %fixup_len, align 4
-  br i1 %tobool.not, label %return, label %if.end
+.lr.ph81:                                         ; preds = %4, %._crit_edge
+  %.04879 = phi i32 [ %38, %._crit_edge ], [ %9, %4 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  store ptr null, ptr %5, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  store i32 0, ptr %6, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  store i32 0, ptr %7, align 4, !annotation !4
+  %11 = call ptr @fdt_getprop_by_offset(ptr noundef %0, i32 noundef %.04879, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %.not60 = icmp eq ptr %11, null
+  %12 = load i32, ptr %6, align 4
+  br i1 %.not60, label %.thread70, label %13
 
-if.end:                                           ; preds = %for.body
-  %1 = and i32 %0, 3
-  %tobool2.not = icmp eq i32 %1, 0
-  br i1 %tobool2.not, label %if.end4, label %return
+13:                                               ; preds = %.lr.ph81
+  %14 = and i32 %12, 3
+  %.not61 = icmp eq i32 %14, 0
+  br i1 %.not61, label %15, label %.thread70
 
-if.end4:                                          ; preds = %if.end
-  %conv6 = ashr exact i32 %0, 2
-  store i32 %conv6, ptr %fixup_len, align 4
-  %2 = load ptr, ptr %name, align 8
-  %call7 = call ptr @fdt_getprop(ptr noundef %fdto, i32 noundef %tree_node, ptr noundef %2, ptr noundef nonnull %tree_len) #8
-  %tobool8.not = icmp eq ptr %call7, null
-  br i1 %tobool8.not, label %if.then9, label %for.cond15.preheader
+15:                                               ; preds = %13
+  %16 = ashr exact i32 %12, 2
+  store i32 %16, ptr %6, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef %17, ptr noundef nonnull %7) #8
+  %.not62 = icmp eq ptr %18, null
+  br i1 %.not62, label %21, label %.preheader
 
-for.cond15.preheader:                             ; preds = %if.end4
-  %3 = load i32, ptr %fixup_len, align 4
-  %cmp1637 = icmp sgt i32 %3, 0
-  br i1 %cmp1637, label %for.body18, label %for.inc32
+.preheader:                                       ; preds = %15
+  %19 = load i32, ptr %6, align 4
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
-if.then9:                                         ; preds = %if.end4
-  %4 = load i32, ptr %tree_len, align 4
-  %cmp10 = icmp eq i32 %4, -1
-  %. = select i1 %cmp10, i32 -16, i32 %4
-  br label %return
+21:                                               ; preds = %15
+  %22 = load i32, ptr %7, align 4
+  %23 = icmp eq i32 %22, -1
+  %. = select i1 %23, i32 -16, i32 %22
+  br label %.thread70
 
-for.body18:                                       ; preds = %for.cond15.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond15.preheader ]
-  %arrayidx = getelementptr i32, ptr %call1, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx, align 4
-  %rev.i = call noundef i32 @llvm.bswap.i32(i32 %5)
-  %idx.ext = zext i32 %rev.i to i64
-  %add.ptr = getelementptr i8, ptr %call7, i64 %idx.ext
-  %6 = load i32, ptr %add.ptr, align 1
-  %rev.i32 = call noundef i32 @llvm.bswap.i32(i32 %6)
-  %add = add i32 %rev.i32, %delta
-  %rev.i33 = call noundef i32 @llvm.bswap.i32(i32 %add)
-  store i32 %rev.i33, ptr %adj_val, align 4
-  %7 = load ptr, ptr %name, align 8
-  %call22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
-  %conv23 = trunc i64 %call22 to i32
-  %call24 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %fdto, i32 noundef %tree_node, ptr noundef nonnull %7, i32 noundef %conv23, i32 noundef %rev.i, ptr noundef nonnull %adj_val, i32 noundef 4) #8
-  switch i32 %call24, label %return [
-    i32 -3, label %return.loopexit60
-    i32 0, label %for.inc
+.lr.ph:                                           ; preds = %.preheader, %34
+  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  store i32 0, ptr %8, align 4, !annotation !4
+  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4
+  %rev.i = call noundef i32 @llvm.bswap.i32(i32 %25)
+  %26 = zext i32 %rev.i to i64
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %26
+  %28 = load i32, ptr %27, align 1
+  %rev.i65 = call noundef i32 @llvm.bswap.i32(i32 %28)
+  %29 = add i32 %rev.i65, %3
+  %rev.i66 = call noundef i32 @llvm.bswap.i32(i32 %29)
+  store i32 %rev.i66, ptr %8, align 4
+  %30 = load ptr, ptr %5, align 8
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #9
+  %32 = trunc i64 %31 to i32
+  %33 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %30, i32 noundef %32, i32 noundef %rev.i, ptr noundef nonnull %8, i32 noundef 4) #8
+  switch i32 %33, label %.thread [
+    i32 -3, label %.thread.loopexit
+    i32 0, label %34
   ]
 
-for.inc:                                          ; preds = %for.body18
+.thread.loopexit:                                 ; preds = %.lr.ph
+  br label %.thread
+
+.thread:                                          ; preds = %.lr.ph, %.thread.loopexit
+  %.3.ph = phi i32 [ -16, %.thread.loopexit ], [ %33, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  br label %.thread70
+
+34:                                               ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %fixup_len, align 4
-  %9 = sext i32 %8 to i64
-  %cmp16 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp16, label %for.body18, label %for.inc32, !llvm.loop !11
+  %35 = load i32, ptr %6, align 4
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-for.inc32:                                        ; preds = %for.inc, %for.cond15.preheader
-  %call33 = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %fixup_prop.040) #8
-  %cmp = icmp sgt i32 %call33, -1
-  br i1 %cmp, label %for.body, label %for.end34, !llvm.loop !12
+.thread70:                                        ; preds = %13, %.lr.ph81, %21, %.thread
+  %.1.ph = phi i32 [ %.3.ph, %.thread ], [ %., %21 ], [ %12, %.lr.ph81 ], [ -16, %13 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %.thread74
 
-for.end34:                                        ; preds = %for.inc32, %entry
-  %call35 = call i32 @fdt_first_subnode(ptr noundef %fdto, i32 noundef %fixup_node) #8
-  %cmp3741 = icmp sgt i32 %call35, -1
-  br i1 %cmp3741, label %for.body39, label %return
+._crit_edge:                                      ; preds = %34, %.preheader
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  %38 = call i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %.04879) #8
+  %39 = icmp sgt i32 %38, -1
+  br i1 %39, label %.lr.ph81, label %._crit_edge82, !llvm.loop !12
 
-for.body39:                                       ; preds = %for.end34, %for.inc54
-  %fixup_child.042 = phi i32 [ %call55, %for.inc54 ], [ %call35, %for.end34 ]
-  %call40 = call ptr @fdt_get_name(ptr noundef %fdto, i32 noundef %fixup_child.042, ptr noundef null) #8
-  %call41 = call i32 @fdt_subnode_offset(ptr noundef %fdto, i32 noundef %tree_node, ptr noundef %call40) #8
-  %cmp42 = icmp eq i32 %call41, -1
-  br i1 %cmp42, label %return, label %if.end45
+._crit_edge82:                                    ; preds = %._crit_edge, %4
+  %40 = call i32 @fdt_first_subnode(ptr noundef %0, i32 noundef %2) #8
+  %41 = icmp sgt i32 %40, -1
+  br i1 %41, label %.lr.ph85, label %.thread74
 
-if.end45:                                         ; preds = %for.body39
-  %cmp46 = icmp slt i32 %call41, 0
-  br i1 %cmp46, label %return, label %if.end49
+.lr.ph85:                                         ; preds = %._crit_edge82, %49
+  %.05383 = phi i32 [ %50, %49 ], [ %40, %._crit_edge82 ]
+  %42 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %.05383, ptr noundef null) #8
+  %43 = call i32 @fdt_subnode_offset(ptr noundef %0, i32 noundef %1, ptr noundef %42) #8
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %.thread74, label %45
 
-if.end49:                                         ; preds = %if.end45
-  %call50 = call fastcc i32 @overlay_update_local_node_references(ptr noundef %fdto, i32 noundef %call41, i32 noundef %fixup_child.042, i32 noundef %delta)
-  %tobool51.not = icmp eq i32 %call50, 0
-  br i1 %tobool51.not, label %for.inc54, label %return
+45:                                               ; preds = %.lr.ph85
+  %46 = icmp slt i32 %43, 0
+  br i1 %46, label %.thread74, label %47
 
-for.inc54:                                        ; preds = %if.end49
-  %call55 = call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %fixup_child.042) #8
-  %cmp37 = icmp sgt i32 %call55, -1
-  br i1 %cmp37, label %for.body39, label %return, !llvm.loop !13
+47:                                               ; preds = %45
+  %48 = call fastcc i32 @overlay_update_local_node_references(ptr noundef %0, i32 noundef %43, i32 noundef %.05383, i32 noundef %3)
+  %.not = icmp eq i32 %48, 0
+  br i1 %.not, label %49, label %.thread74
 
-return.loopexit60:                                ; preds = %for.body18
-  br label %return
+49:                                               ; preds = %47
+  %50 = call i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %.05383) #8
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %.lr.ph85, label %.thread74, !llvm.loop !13
 
-return:                                           ; preds = %if.end, %for.body, %for.body39, %if.end45, %if.end49, %for.inc54, %for.body18, %return.loopexit60, %for.end34, %if.then9
-  %retval.0 = phi i32 [ %., %if.then9 ], [ 0, %for.end34 ], [ -16, %return.loopexit60 ], [ %call24, %for.body18 ], [ -16, %for.body39 ], [ %call41, %if.end45 ], [ %call50, %if.end49 ], [ 0, %for.inc54 ], [ %0, %for.body ], [ -16, %if.end ]
-  ret i32 %retval.0
+.thread74:                                        ; preds = %47, %49, %.lr.ph85, %45, %._crit_edge82, %.thread70
+  %.4 = phi i32 [ %.1.ph, %.thread70 ], [ 0, %._crit_edge82 ], [ %48, %47 ], [ 0, %49 ], [ -16, %.lr.ph85 ], [ %43, %45 ]
+  ret i32 %.4
 }
 
-declare i32 @fdt_first_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_first_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @fdt_setprop_inplace_namelen_partial(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
-
-declare i32 @fdt_next_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @fdt_subnode_offset(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop_inplace_namelen_partial(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+
+declare i32 @fdt_next_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @fdt_subnode_offset(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_path_offset_namelen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_path_offset_namelen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %fragment, ptr noundef writeonly captures(address_is_null) %pathp) unnamed_addr #0 {
-entry:
-  %len.i = alloca i32, align 4
-  %path_len = alloca i32, align 4
-  store i32 0, ptr %path_len, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
-  %call.i = call ptr @fdt_getprop(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %fragment, ptr noundef nonnull @.str.7, ptr noundef nonnull %len.i) #8
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %overlay_get_target_phandle.exit.thread15, label %if.end.i
+define internal fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  store i32 0, ptr %5, align 4, !annotation !4
+  %7 = call ptr @fdt_getprop(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #8
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %overlay_get_target_phandle.exit.thread29, label %8
 
-overlay_get_target_phandle.exit.thread15:         ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  br label %if.then1
+overlay_get_target_phandle.exit.thread29:         ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  br label %11
 
-if.end.i:                                         ; preds = %entry
-  %0 = load i32, ptr %len.i, align 4
-  %cmp.not.i = icmp eq i32 %0, 4
-  br i1 %cmp.not.i, label %overlay_get_target_phandle.exit, label %overlay_get_target_phandle.exit.thread
+8:                                                ; preds = %4
+  %9 = load i32, ptr %5, align 4
+  %.not6.i = icmp eq i32 %9, 4
+  br i1 %.not6.i, label %overlay_get_target_phandle.exit, label %overlay_get_target_phandle.exit.thread
 
-overlay_get_target_phandle.exit.thread:           ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  br label %return
+overlay_get_target_phandle.exit.thread:           ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  br label %25
 
-overlay_get_target_phandle.exit:                  ; preds = %if.end.i
-  %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  switch i32 %rev.i.i, label %if.else7 [
-    i32 -1, label %return
-    i32 0, label %if.then1
+overlay_get_target_phandle.exit:                  ; preds = %8
+  %10 = load i32, ptr %7, align 4
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  switch i32 %rev.i.i, label %17 [
+    i32 -1, label %25
+    i32 0, label %11
   ]
 
-if.then1:                                         ; preds = %overlay_get_target_phandle.exit.thread15, %overlay_get_target_phandle.exit
-  %call2 = call ptr @fdt_getprop(ptr noundef %fdto, i32 noundef %fragment, ptr noundef nonnull @.str.6, ptr noundef nonnull %path_len) #8
-  %tobool3.not = icmp eq ptr %call2, null
-  br i1 %tobool3.not, label %if.else, label %if.then4
+11:                                               ; preds = %overlay_get_target_phandle.exit.thread29, %overlay_get_target_phandle.exit
+  %12 = call ptr @fdt_getprop(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #8
+  %.not25 = icmp eq ptr %12, null
+  br i1 %.not25, label %15, label %13
 
-if.then4:                                         ; preds = %if.then1
-  %call5 = call i32 @fdt_path_offset(ptr noundef %fdt, ptr noundef nonnull %call2) #8
-  %.pre = load i32, ptr %path_len, align 4
-  br label %if.end9
+13:                                               ; preds = %11
+  %14 = call i32 @fdt_path_offset(ptr noundef %0, ptr noundef nonnull %12) #8
+  %.pre = load i32, ptr %6, align 4
+  br label %19
 
-if.else:                                          ; preds = %if.then1
-  %2 = load i32, ptr %path_len, align 4
-  br label %if.end9
+15:                                               ; preds = %11
+  %16 = load i32, ptr %6, align 4
+  br label %19
 
-if.else7:                                         ; preds = %overlay_get_target_phandle.exit
-  %call8 = call i32 @fdt_node_offset_by_phandle(ptr noundef %fdt, i32 noundef %rev.i.i) #8
-  br label %if.end9
+17:                                               ; preds = %overlay_get_target_phandle.exit
+  %18 = call i32 @fdt_node_offset_by_phandle(ptr noundef %0, i32 noundef %rev.i.i) #8
+  br label %19
 
-if.end9:                                          ; preds = %if.then4, %if.else, %if.else7
-  %3 = phi i32 [ 0, %if.else7 ], [ %.pre, %if.then4 ], [ %2, %if.else ]
-  %path.0 = phi ptr [ null, %if.else7 ], [ %call2, %if.then4 ], [ null, %if.else ]
-  %ret.0 = phi i32 [ %call8, %if.else7 ], [ %call5, %if.then4 ], [ %2, %if.else ]
-  %cmp10 = icmp slt i32 %ret.0, 0
-  %cmp11 = icmp eq i32 %3, -1
-  %or.cond = select i1 %cmp10, i1 %cmp11, i1 false
-  %spec.store.select = select i1 %or.cond, i32 -16, i32 %ret.0
-  %cmp14 = icmp slt i32 %spec.store.select, 0
-  %tobool17.not = icmp eq ptr %pathp, null
-  %or.cond13 = or i1 %tobool17.not, %cmp14
-  br i1 %or.cond13, label %return, label %if.then18
+19:                                               ; preds = %13, %15, %17
+  %20 = phi i32 [ 0, %17 ], [ %.pre, %13 ], [ %16, %15 ]
+  %.020 = phi ptr [ null, %17 ], [ %12, %13 ], [ null, %15 ]
+  %.0 = phi i32 [ %18, %17 ], [ %14, %13 ], [ %16, %15 ]
+  %21 = icmp slt i32 %.0, 0
+  %22 = icmp eq i32 %20, -1
+  %or.cond = select i1 %21, i1 %22, i1 false
+  %spec.store.select = select i1 %or.cond, i32 -16, i32 %.0
+  %23 = icmp slt i32 %spec.store.select, 0
+  %.not26 = icmp eq ptr %3, null
+  %or.cond27 = or i1 %.not26, %23
+  br i1 %or.cond27, label %25, label %24
 
-if.then18:                                        ; preds = %if.end9
-  store ptr %path.0, ptr %pathp, align 8
-  br label %return
+24:                                               ; preds = %19
+  store ptr %.020, ptr %3, align 8
+  br label %25
 
-return:                                           ; preds = %overlay_get_target_phandle.exit.thread, %if.then18, %if.end9, %overlay_get_target_phandle.exit
-  %retval.0 = phi i32 [ -6, %overlay_get_target_phandle.exit ], [ %spec.store.select, %if.end9 ], [ %ret.0, %if.then18 ], [ -6, %overlay_get_target_phandle.exit.thread ]
-  ret i32 %retval.0
+25:                                               ; preds = %overlay_get_target_phandle.exit.thread, %24, %19, %overlay_get_target_phandle.exit
+  %.021 = phi i32 [ -6, %overlay_get_target_phandle.exit ], [ %spec.store.select, %19 ], [ %.0, %24 ], [ -6, %overlay_get_target_phandle.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_apply_node(ptr noundef %fdt, i32 noundef range(i32 0, -2147483648) %target, ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node) unnamed_addr #0 {
-entry:
-  %name = alloca ptr, align 8
-  %prop_len = alloca i32, align 4
-  %call = tail call i32 @fdt_first_property_offset(ptr noundef %fdto, i32 noundef %node) #8
-  %cmp27 = icmp sgt i32 %call, -1
-  br i1 %cmp27, label %for.body, label %for.end
+define internal fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = tail call i32 @fdt_first_property_offset(ptr noundef %2, i32 noundef %3) #8
+  %8 = icmp sgt i32 %7, -1
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
-for.body:                                         ; preds = %entry, %for.inc
-  %property.028 = phi i32 [ %call9, %for.inc ], [ %call, %entry ]
-  %call1 = call ptr @fdt_getprop_by_offset(ptr noundef %fdto, i32 noundef %property.028, ptr noundef nonnull %name, ptr noundef nonnull %prop_len) #8
-  %0 = load i32, ptr %prop_len, align 4
-  %cmp2 = icmp eq i32 %0, -1
-  br i1 %cmp2, label %return, label %if.end
+.lr.ph:                                           ; preds = %4, %17
+  %.04257 = phi i32 [ %18, %17 ], [ %7, %4 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  store ptr null, ptr %5, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  store i32 0, ptr %6, align 4, !annotation !4
+  %9 = call ptr @fdt_getprop_by_offset(ptr noundef %2, i32 noundef %.04257, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %10 = load i32, ptr %6, align 4
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %.thread, label %12
 
-if.end:                                           ; preds = %for.body
-  %cmp3 = icmp slt i32 %0, 0
-  br i1 %cmp3, label %return, label %if.end5
+12:                                               ; preds = %.lr.ph
+  %13 = icmp slt i32 %10, 0
+  br i1 %13, label %.thread, label %14
 
-if.end5:                                          ; preds = %if.end
-  %1 = load ptr, ptr %name, align 8
-  %call6 = call i32 @fdt_setprop(ptr noundef %fdt, i32 noundef %target, ptr noundef %1, ptr noundef %call1, i32 noundef %0) #8
-  %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %for.inc, label %return
+.thread:                                          ; preds = %.lr.ph, %12
+  %.1.ph = phi i32 [ %10, %12 ], [ -13, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %.thread53
 
-for.inc:                                          ; preds = %if.end5
-  %call9 = call i32 @fdt_next_property_offset(ptr noundef %fdto, i32 noundef %property.028) #8
-  %cmp = icmp sgt i32 %call9, -1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+14:                                               ; preds = %12
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @fdt_setprop(ptr noundef %0, i32 noundef %1, ptr noundef %15, ptr noundef %9, i32 noundef %10) #8
+  %.not48 = icmp eq i32 %16, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br i1 %.not48, label %17, label %.thread53
 
-for.end:                                          ; preds = %for.inc, %entry
-  %call10 = call i32 @fdt_first_subnode(ptr noundef %fdto, i32 noundef %node) #8
-  %cmp1229 = icmp sgt i32 %call10, -1
-  br i1 %cmp1229, label %for.body13, label %return
+17:                                               ; preds = %14
+  %18 = call i32 @fdt_next_property_offset(ptr noundef %2, i32 noundef %.04257) #8
+  %19 = icmp sgt i32 %18, -1
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-for.body13:                                       ; preds = %for.end, %for.inc32
-  %subnode.030 = phi i32 [ %call33, %for.inc32 ], [ %call10, %for.end ]
-  %call15 = call ptr @fdt_get_name(ptr noundef %fdto, i32 noundef %subnode.030, ptr noundef null) #8
-  %call17 = call i32 @fdt_add_subnode(ptr noundef %fdt, i32 noundef %target, ptr noundef %call15) #8
-  %cmp18 = icmp eq i32 %call17, -2
-  br i1 %cmp18, label %if.then19, label %if.end24
+._crit_edge:                                      ; preds = %17, %4
+  %20 = call i32 @fdt_first_subnode(ptr noundef %2, i32 noundef %3) #8
+  %21 = icmp sgt i32 %20, -1
+  br i1 %21, label %.lr.ph60, label %.thread53
 
-if.then19:                                        ; preds = %for.body13
-  %call20 = call i32 @fdt_subnode_offset(ptr noundef %fdt, i32 noundef %target, ptr noundef %call15) #8
-  %cmp21 = icmp eq i32 %call20, -1
-  br i1 %cmp21, label %return, label %if.end24
+.lr.ph60:                                         ; preds = %._crit_edge, %32
+  %.04158 = phi i32 [ %33, %32 ], [ %20, %._crit_edge ]
+  %22 = call ptr @fdt_get_name(ptr noundef %2, i32 noundef %.04158, ptr noundef null) #8
+  %23 = call i32 @fdt_add_subnode(ptr noundef %0, i32 noundef %1, ptr noundef %22) #8
+  %24 = icmp eq i32 %23, -2
+  br i1 %24, label %25, label %28
 
-if.end24:                                         ; preds = %if.then19, %for.body13
-  %nnode.0 = phi i32 [ %call20, %if.then19 ], [ %call17, %for.body13 ]
-  %cmp25 = icmp slt i32 %nnode.0, 0
-  br i1 %cmp25, label %return, label %if.end27
+25:                                               ; preds = %.lr.ph60
+  %26 = call i32 @fdt_subnode_offset(ptr noundef %0, i32 noundef %1, ptr noundef %22) #8
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %.thread53, label %28
 
-if.end27:                                         ; preds = %if.end24
-  %call28 = call fastcc i32 @overlay_apply_node(ptr noundef %fdt, i32 noundef %nnode.0, ptr noundef %fdto, i32 noundef %subnode.030)
-  %tobool29.not = icmp eq i32 %call28, 0
-  br i1 %tobool29.not, label %for.inc32, label %return
+28:                                               ; preds = %25, %.lr.ph60
+  %.0 = phi i32 [ %26, %25 ], [ %23, %.lr.ph60 ]
+  %29 = icmp slt i32 %.0, 0
+  br i1 %29, label %.thread53, label %30
 
-for.inc32:                                        ; preds = %if.end27
-  %call33 = call i32 @fdt_next_subnode(ptr noundef %fdto, i32 noundef %subnode.030) #8
-  %cmp12 = icmp sgt i32 %call33, -1
-  br i1 %cmp12, label %for.body13, label %return, !llvm.loop !15
+30:                                               ; preds = %28
+  %31 = call fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef %.0, ptr noundef %2, i32 noundef %.04158)
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %32, label %.thread53
 
-return:                                           ; preds = %if.end5, %if.end, %for.body, %if.then19, %if.end24, %if.end27, %for.inc32, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ -13, %if.then19 ], [ %nnode.0, %if.end24 ], [ %call28, %if.end27 ], [ 0, %for.inc32 ], [ %call6, %if.end5 ], [ %0, %if.end ], [ -13, %for.body ]
-  ret i32 %retval.0
+32:                                               ; preds = %30
+  %33 = call i32 @fdt_next_subnode(ptr noundef %2, i32 noundef %.04158) #8
+  %34 = icmp sgt i32 %33, -1
+  br i1 %34, label %.lr.ph60, label %.thread53, !llvm.loop !15
+
+.thread53:                                        ; preds = %14, %30, %32, %25, %28, %._crit_edge, %.thread
+  %.2 = phi i32 [ %.1.ph, %.thread ], [ 0, %._crit_edge ], [ %31, %30 ], [ 0, %32 ], [ -13, %25 ], [ %.0, %28 ], [ %16, %14 ]
+  ret i32 %.2
 }
 
-declare i32 @fdt_node_offset_by_phandle(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_node_offset_by_phandle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_setprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_add_subnode(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_add_subnode(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_setprop_placeholder(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop_placeholder(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @fdt_get_path(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_get_path(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_parent_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_parent_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}

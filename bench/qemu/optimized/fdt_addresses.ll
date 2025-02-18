@@ -1,313 +1,321 @@
 ; ModuleID = 'bench/qemu/original/fdt_addresses.ll'
 source_filename = "bench/qemu/original/fdt_addresses.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [15 x i8] c"#address-cells\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"#size-cells\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, -1) i32 @fdt_address_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
-entry:
-  %len.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
-  %call.i = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef nonnull @.str, ptr noundef nonnull %len.i) #4
-  %tobool.not.i = icmp eq ptr %call.i, null
-  %0 = load i32, ptr %len.i, align 4
-  br i1 %tobool.not.i, label %fdt_cells.exit, label %if.end.i
+define dso_local range(i32 1, -1) i32 @fdt_address_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  store i32 0, ptr %3, align 4, !annotation !4
+  %4 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %3) #5
+  %.not.i = icmp eq ptr %4, null
+  %5 = load i32, ptr %3, align 4
+  br i1 %.not.i, label %fdt_cells.exit, label %6
 
-if.end.i:                                         ; preds = %entry
-  %cmp.not.i = icmp eq i32 %0, 4
-  br i1 %cmp.not.i, label %if.end3.i, label %fdt_cells.exit.thread
+6:                                                ; preds = %2
+  %.not9.i = icmp eq i32 %5, 4
+  br i1 %.not9.i, label %7, label %fdt_cells.exit.thread
 
-if.end3.i:                                        ; preds = %if.end.i
-  %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
-  %cmp5.i = icmp ugt i32 %rev.i.i, 4
-  br i1 %cmp5.i, label %fdt_cells.exit.thread, label %fdt_cells.exit
+7:                                                ; preds = %6
+  %8 = load i32, ptr %4, align 4
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %8)
+  %9 = icmp ugt i32 %rev.i.i, 4
+  br i1 %9, label %fdt_cells.exit.thread, label %fdt_cells.exit
 
-fdt_cells.exit.thread:                            ; preds = %if.end.i, %if.end3.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  br label %return
+fdt_cells.exit.thread:                            ; preds = %6, %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  br label %12
 
-fdt_cells.exit:                                   ; preds = %if.end3.i, %entry
-  %retval.0.i = phi i32 [ %rev.i.i, %if.end3.i ], [ %0, %entry ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  switch i32 %retval.0.i, label %if.end3 [
-    i32 0, label %return
-    i32 -1, label %if.then2
+fdt_cells.exit:                                   ; preds = %7, %2
+  %.0.i = phi i32 [ %rev.i.i, %7 ], [ %5, %2 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  switch i32 %.0.i, label %11 [
+    i32 0, label %12
+    i32 -1, label %10
   ]
 
-if.then2:                                         ; preds = %fdt_cells.exit
-  br label %return
+10:                                               ; preds = %fdt_cells.exit
+  br label %12
 
-if.end3:                                          ; preds = %fdt_cells.exit
-  br label %return
+11:                                               ; preds = %fdt_cells.exit
+  br label %12
 
-return:                                           ; preds = %fdt_cells.exit.thread, %fdt_cells.exit, %if.end3, %if.then2
-  %retval.0 = phi i32 [ 2, %if.then2 ], [ -14, %fdt_cells.exit ], [ -14, %fdt_cells.exit.thread ], [ %retval.0.i, %if.end3 ]
-  ret i32 %retval.0
+12:                                               ; preds = %fdt_cells.exit.thread, %fdt_cells.exit, %11, %10
+  %.0 = phi i32 [ 2, %10 ], [ -14, %fdt_cells.exit ], [ -14, %fdt_cells.exit.thread ], [ %.0.i, %11 ]
+  ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -1) i32 @fdt_size_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
-entry:
-  %len.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
-  %call.i = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef nonnull @.str.1, ptr noundef nonnull %len.i) #4
-  %tobool.not.i = icmp eq ptr %call.i, null
-  %0 = load i32, ptr %len.i, align 4
-  %.fr = freeze i32 %0
-  br i1 %tobool.not.i, label %fdt_cells.exit, label %if.end.i
+define dso_local range(i32 0, -1) i32 @fdt_size_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  store i32 0, ptr %3, align 4, !annotation !4
+  %4 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %3) #5
+  %.not.i = icmp eq ptr %4, null
+  %5 = load i32, ptr %3, align 4
+  %.fr = freeze i32 %5
+  br i1 %.not.i, label %fdt_cells.exit, label %6
 
-if.end.i:                                         ; preds = %entry
-  %cmp.not.i = icmp eq i32 %.fr, 4
-  br i1 %cmp.not.i, label %if.end3.i, label %fdt_cells.exit.thread
+6:                                                ; preds = %2
+  %.not9.i = icmp eq i32 %.fr, 4
+  br i1 %.not9.i, label %7, label %fdt_cells.exit.thread
 
-if.end3.i:                                        ; preds = %if.end.i
-  %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
-  %cmp5.i = icmp ugt i32 %rev.i.i, 4
-  %spec.select = select i1 %cmp5.i, i32 -14, i32 %rev.i.i
+7:                                                ; preds = %6
+  %8 = load i32, ptr %4, align 4
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %8)
+  %9 = icmp ugt i32 %rev.i.i, 4
+  %spec.select = select i1 %9, i32 -14, i32 %rev.i.i
   br label %fdt_cells.exit.thread
 
-fdt_cells.exit.thread:                            ; preds = %if.end3.i, %if.end.i
-  %retval.0.i.ph = phi i32 [ -14, %if.end.i ], [ %spec.select, %if.end3.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  br label %2
+fdt_cells.exit.thread:                            ; preds = %7, %6
+  %.0.i.ph = phi i32 [ -14, %6 ], [ %spec.select, %7 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  br label %11
 
-fdt_cells.exit:                                   ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  %cmp = icmp eq i32 %.fr, -1
-  %spec.select5 = select i1 %cmp, i32 1, i32 %.fr
-  br label %2
+fdt_cells.exit:                                   ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  %10 = icmp eq i32 %.fr, -1
+  %spec.select7 = select i1 %10, i32 1, i32 %.fr
+  br label %11
 
-2:                                                ; preds = %fdt_cells.exit, %fdt_cells.exit.thread
-  %3 = phi i32 [ %retval.0.i.ph, %fdt_cells.exit.thread ], [ %spec.select5, %fdt_cells.exit ]
-  ret i32 %3
+11:                                               ; preds = %fdt_cells.exit, %fdt_cells.exit.thread
+  %12 = phi i32 [ %.0.i.ph, %fdt_cells.exit.thread ], [ %spec.select7, %fdt_cells.exit ]
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_appendprop_addrrange(ptr noundef %fdt, i32 noundef %parent, i32 noundef %nodeoffset, ptr noundef %name, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %len.i.i24 = alloca i32, align 4
-  %len.i.i = alloca i32, align 4
-  %data = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
-  %call.i.i = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %parent, ptr noundef nonnull @.str, ptr noundef nonnull %len.i.i) #4
-  %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  %0 = load i32, ptr %len.i.i, align 4
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 7
-  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %data, i64 3
-  %.sink87.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 6
-  %.sink87.sroa.gep93 = getelementptr inbounds nuw i8, ptr %data, i64 2
-  %.sink88.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 5
-  %.sink88.sroa.gep94 = getelementptr inbounds nuw i8, ptr %data, i64 1
-  br i1 %tobool.not.i.i, label %fdt_cells.exit.i, label %if.end.i.i
+define dso_local i32 @fdt_appendprop_addrrange(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca [16 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  store i32 0, ptr %8, align 4, !annotation !4
+  %10 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %8) #5
+  %.not.i.i = icmp eq ptr %10, null
+  %11 = load i32, ptr %8, align 4
+  %.sink49.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 7
+  %.sink49.sroa.gep64 = getelementptr inbounds nuw i8, ptr %9, i64 3
+  %.sink51.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %.sink51.sroa.gep65 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %.sink54.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 5
+  %.sink54.sroa.gep66 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  br i1 %.not.i.i, label %fdt_cells.exit.i, label %12
 
-if.end.i.i:                                       ; preds = %entry
-  %cmp.not.i.i = icmp eq i32 %0, 4
-  br i1 %cmp.not.i.i, label %if.end3.i.i, label %fdt_cells.exit.thread.i
+12:                                               ; preds = %6
+  %.not9.i.i = icmp eq i32 %11, 4
+  br i1 %.not9.i.i, label %13, label %fdt_cells.exit.thread.i
 
-if.end3.i.i:                                      ; preds = %if.end.i.i
-  %1 = load i32, ptr %call.i.i, align 4
-  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
-  %cmp5.i.i = icmp ugt i32 %rev.i.i.i, 4
-  br i1 %cmp5.i.i, label %fdt_cells.exit.thread.i, label %fdt_cells.exit.i
+13:                                               ; preds = %12
+  %14 = load i32, ptr %10, align 4
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %14)
+  %15 = icmp ugt i32 %rev.i.i.i, 4
+  br i1 %15, label %fdt_cells.exit.thread.i, label %fdt_cells.exit.i
 
-fdt_cells.exit.thread.i:                          ; preds = %if.end3.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  br label %return
+fdt_cells.exit.thread.i:                          ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  br label %fdt_address_cells.exit.thread
 
-fdt_cells.exit.i:                                 ; preds = %if.end3.i.i, %entry
-  %retval.0.i.i = phi i32 [ %rev.i.i.i, %if.end3.i.i ], [ %0, %entry ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  switch i32 %retval.0.i.i, label %fdt_address_cells.exit [
-    i32 0, label %return
-    i32 -1, label %if.end
+fdt_cells.exit.i:                                 ; preds = %13, %6
+  %.0.i.i = phi i32 [ %rev.i.i.i, %13 ], [ %11, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  switch i32 %.0.i.i, label %fdt_address_cells.exit [
+    i32 0, label %fdt_address_cells.exit.thread
+    i32 -1, label %fdt_address_cells.exit.thread45
   ]
 
 fdt_address_cells.exit:                           ; preds = %fdt_cells.exit.i
-  %cmp = icmp slt i32 %retval.0.i.i, 0
-  br i1 %cmp, label %return, label %if.end
+  %16 = icmp slt i32 %.0.i.i, 0
+  br i1 %16, label %fdt_address_cells.exit.thread, label %fdt_address_cells.exit.thread45
 
-if.end:                                           ; preds = %fdt_cells.exit.i, %fdt_address_cells.exit
-  %retval.0.i79 = phi i32 [ %retval.0.i.i, %fdt_address_cells.exit ], [ 2, %fdt_cells.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i24)
-  %call.i.i25 = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %parent, ptr noundef nonnull @.str.1, ptr noundef nonnull %len.i.i24) #4
-  %tobool.not.i.i26 = icmp eq ptr %call.i.i25, null
-  %2 = load i32, ptr %len.i.i24, align 4
-  %.fr.i = freeze i32 %2
-  br i1 %tobool.not.i.i26, label %fdt_cells.exit.i33, label %if.end.i.i27
+fdt_address_cells.exit.thread45:                  ; preds = %fdt_cells.exit.i, %fdt_address_cells.exit
+  %.0.i47 = phi i32 [ %.0.i.i, %fdt_address_cells.exit ], [ 2, %fdt_cells.exit.i ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  store i32 0, ptr %7, align 4, !annotation !4
+  %17 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #5
+  %.not.i.i39 = icmp eq ptr %17, null
+  %18 = load i32, ptr %7, align 4
+  %.fr.i = freeze i32 %18
+  br i1 %.not.i.i39, label %fdt_cells.exit.i43, label %19
 
-if.end.i.i27:                                     ; preds = %if.end
-  %cmp.not.i.i28 = icmp eq i32 %.fr.i, 4
-  br i1 %cmp.not.i.i28, label %if.end3.i.i30, label %fdt_cells.exit.thread.i29
+19:                                               ; preds = %fdt_address_cells.exit.thread45
+  %.not9.i.i40 = icmp eq i32 %.fr.i, 4
+  br i1 %.not9.i.i40, label %20, label %fdt_cells.exit.thread.i41
 
-if.end3.i.i30:                                    ; preds = %if.end.i.i27
-  %3 = load i32, ptr %call.i.i25, align 4
-  %rev.i.i.i31 = call noundef i32 @llvm.bswap.i32(i32 %3)
-  %cmp5.i.i32 = icmp ugt i32 %rev.i.i.i31, 4
-  %spec.select.i = select i1 %cmp5.i.i32, i32 -14, i32 %rev.i.i.i31
-  br label %fdt_cells.exit.thread.i29
+20:                                               ; preds = %19
+  %21 = load i32, ptr %17, align 4
+  %rev.i.i.i42 = call noundef i32 @llvm.bswap.i32(i32 %21)
+  %22 = icmp ugt i32 %rev.i.i.i42, 4
+  %spec.select.i = select i1 %22, i32 -14, i32 %rev.i.i.i42
+  br label %fdt_cells.exit.thread.i41
 
-fdt_cells.exit.thread.i29:                        ; preds = %if.end3.i.i30, %if.end.i.i27
-  %retval.0.i.ph.i = phi i32 [ -14, %if.end.i.i27 ], [ %spec.select.i, %if.end3.i.i30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i24)
+fdt_cells.exit.thread.i41:                        ; preds = %20, %19
+  %.0.i.ph.i = phi i32 [ -14, %19 ], [ %spec.select.i, %20 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   br label %fdt_size_cells.exit
 
-fdt_cells.exit.i33:                               ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i24)
-  %cmp.i = icmp eq i32 %.fr.i, -1
-  br i1 %cmp.i, label %if.end4, label %fdt_size_cells.exit
+fdt_cells.exit.i43:                               ; preds = %fdt_address_cells.exit.thread45
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  %23 = icmp eq i32 %.fr.i, -1
+  br i1 %23, label %fdt_size_cells.exit.thread, label %fdt_size_cells.exit
 
-fdt_size_cells.exit:                              ; preds = %fdt_cells.exit.i33, %fdt_cells.exit.thread.i29
-  %4 = phi i32 [ %retval.0.i.ph.i, %fdt_cells.exit.thread.i29 ], [ %.fr.i, %fdt_cells.exit.i33 ]
-  %cmp2 = icmp slt i32 %4, 0
-  br i1 %cmp2, label %return, label %if.end4
+fdt_size_cells.exit:                              ; preds = %fdt_cells.exit.i43, %fdt_cells.exit.thread.i41
+  %24 = phi i32 [ %.0.i.ph.i, %fdt_cells.exit.thread.i41 ], [ %.fr.i, %fdt_cells.exit.i43 ]
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %fdt_address_cells.exit.thread, label %fdt_size_cells.exit.thread
 
-if.end4:                                          ; preds = %fdt_cells.exit.i33, %fdt_size_cells.exit
-  %5 = phi i32 [ %4, %fdt_size_cells.exit ], [ 1, %fdt_cells.exit.i33 ]
-  switch i32 %retval.0.i79, label %return [
-    i32 1, label %if.then6
-    i32 2, label %if.then13
+fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43, %fdt_size_cells.exit
+  %26 = phi i32 [ %24, %fdt_size_cells.exit ], [ 1, %fdt_cells.exit.i43 ]
+  switch i32 %.0.i47, label %fdt_address_cells.exit.thread [
+    i32 1, label %27
+    i32 2, label %34
   ]
 
-if.then6:                                         ; preds = %if.end4
-  %cmp7 = icmp ugt i64 %addr, 4294967295
-  %sub = sub nsw i64 0, %addr
-  %cmp8 = icmp ugt i64 %size, %sub
-  %or.cond = select i1 %cmp7, i1 true, i1 %cmp8
-  br i1 %or.cond, label %return, label %if.end10
+27:                                               ; preds = %fdt_size_cells.exit.thread
+  %28 = icmp ugt i64 %4, 4294967295
+  %29 = sub nsw i64 0, %4
+  %30 = icmp ugt i64 %5, %29
+  %or.cond = select i1 %28, i1 true, i1 %30
+  br i1 %or.cond, label %fdt_address_cells.exit.thread, label %31
 
-if.end10:                                         ; preds = %if.then6
-  %shr.i81 = lshr i64 %addr, 24
-  %conv.i = trunc nuw i64 %shr.i81 to i8
-  store i8 %conv.i, ptr %data, align 16
-  br label %if.end16
+31:                                               ; preds = %27
+  %32 = lshr i64 %4, 24
+  %33 = trunc nuw i64 %32 to i8
+  store i8 %33, ptr %9, align 16
+  br label %49
 
-if.then13:                                        ; preds = %if.end4
-  %shr.i34 = lshr i64 %addr, 56
-  %conv.i35 = trunc nuw i64 %shr.i34 to i8
-  store i8 %conv.i35, ptr %data, align 16
-  %shr1.i36 = lshr i64 %addr, 48
-  %conv2.i37 = trunc i64 %shr1.i36 to i8
-  %arrayidx3.i38 = getelementptr inbounds nuw i8, ptr %data, i64 1
-  store i8 %conv2.i37, ptr %arrayidx3.i38, align 1
-  %shr4.i39 = lshr i64 %addr, 40
-  %conv6.i40 = trunc i64 %shr4.i39 to i8
-  %arrayidx7.i41 = getelementptr inbounds nuw i8, ptr %data, i64 2
-  store i8 %conv6.i40, ptr %arrayidx7.i41, align 2
-  %shr8.i = lshr i64 %addr, 32
-  %conv10.i = trunc i64 %shr8.i to i8
-  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %data, i64 3
-  store i8 %conv10.i, ptr %arrayidx11.i, align 1
-  %shr12.i = lshr i64 %addr, 24
-  %conv14.i = trunc i64 %shr12.i to i8
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %data, i64 4
-  store i8 %conv14.i, ptr %arrayidx15.i, align 4
-  br label %if.end16
+34:                                               ; preds = %fdt_size_cells.exit.thread
+  %35 = lshr i64 %4, 56
+  %36 = trunc nuw i64 %35 to i8
+  store i8 %36, ptr %9, align 16
+  %37 = lshr i64 %4, 48
+  %38 = trunc i64 %37 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 %38, ptr %39, align 1
+  %40 = lshr i64 %4, 40
+  %41 = trunc i64 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i8 %41, ptr %42, align 2
+  %43 = lshr i64 %4, 32
+  %44 = trunc i64 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 3
+  store i8 %44, ptr %45, align 1
+  %46 = lshr i64 %4, 24
+  %47 = trunc i64 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i8 %47, ptr %48, align 4
+  br label %49
 
-if.end16:                                         ; preds = %if.then13, %if.end10
-  %.sink88.sroa.phi = phi ptr [ %.sink88.sroa.gep, %if.then13 ], [ %.sink88.sroa.gep94, %if.end10 ]
-  %.sink87.sroa.phi = phi ptr [ %.sink87.sroa.gep, %if.then13 ], [ %.sink87.sroa.gep93, %if.end10 ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then13 ], [ %.sink.sroa.gep92, %if.end10 ]
-  %shr16.i = lshr i64 %addr, 16
-  %conv18.i = trunc i64 %shr16.i to i8
-  store i8 %conv18.i, ptr %.sink88.sroa.phi, align 1
-  %shr20.i = lshr i64 %addr, 8
-  %conv22.i = trunc i64 %shr20.i to i8
-  store i8 %conv22.i, ptr %.sink87.sroa.phi, align 2
-  %conv25.i = trunc i64 %addr to i8
-  store i8 %conv25.i, ptr %.sink.sroa.phi, align 1
-  %conv17 = zext nneg i32 %retval.0.i79 to i64
-  %mul = shl nuw nsw i64 %conv17, 2
-  %add.ptr = getelementptr i8, ptr %data, i64 %mul
-  switch i32 %5, label %return [
-    i32 1, label %if.then20
-    i32 2, label %if.then29
+49:                                               ; preds = %34, %31
+  %.sink54.sroa.phi = phi ptr [ %.sink54.sroa.gep, %34 ], [ %.sink54.sroa.gep66, %31 ]
+  %.sink51.sroa.phi = phi ptr [ %.sink51.sroa.gep, %34 ], [ %.sink51.sroa.gep65, %31 ]
+  %.sink49.sroa.phi = phi ptr [ %.sink49.sroa.gep, %34 ], [ %.sink49.sroa.gep64, %31 ]
+  %50 = lshr i64 %4, 16
+  %51 = trunc i64 %50 to i8
+  store i8 %51, ptr %.sink54.sroa.phi, align 1
+  %52 = lshr i64 %4, 8
+  %53 = trunc i64 %52 to i8
+  store i8 %53, ptr %.sink51.sroa.phi, align 2
+  %54 = trunc i64 %4 to i8
+  store i8 %54, ptr %.sink49.sroa.phi, align 1
+  %55 = zext nneg i32 %.0.i47 to i64
+  %56 = shl nuw nsw i64 %55, 2
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 %56
+  switch i32 %26, label %fdt_address_cells.exit.thread [
+    i32 1, label %58
+    i32 2, label %63
   ]
 
-if.then20:                                        ; preds = %if.end16
-  %cmp21 = icmp ugt i64 %size, 4294967295
-  br i1 %cmp21, label %return, label %if.end24
+58:                                               ; preds = %49
+  %59 = icmp ugt i64 %5, 4294967295
+  br i1 %59, label %fdt_address_cells.exit.thread, label %60
 
-if.end24:                                         ; preds = %if.then20
-  %shr.i4284 = lshr i64 %size, 24
-  %conv.i43 = trunc nuw i64 %shr.i4284 to i8
-  store i8 %conv.i43, ptr %add.ptr, align 4
-  br label %if.end32
+60:                                               ; preds = %58
+  %61 = lshr i64 %5, 24
+  %62 = trunc nuw i64 %61 to i8
+  store i8 %62, ptr %57, align 4
+  br label %78
 
-if.then29:                                        ; preds = %if.end16
-  %shr.i52 = lshr i64 %size, 56
-  %conv.i53 = trunc nuw i64 %shr.i52 to i8
-  store i8 %conv.i53, ptr %add.ptr, align 4
-  %shr1.i54 = lshr i64 %size, 48
-  %conv2.i55 = trunc i64 %shr1.i54 to i8
-  %arrayidx3.i56 = getelementptr i8, ptr %add.ptr, i64 1
-  store i8 %conv2.i55, ptr %arrayidx3.i56, align 1
-  %shr4.i57 = lshr i64 %size, 40
-  %conv6.i58 = trunc i64 %shr4.i57 to i8
-  %arrayidx7.i59 = getelementptr i8, ptr %add.ptr, i64 2
-  store i8 %conv6.i58, ptr %arrayidx7.i59, align 2
-  %shr8.i60 = lshr i64 %size, 32
-  %conv10.i61 = trunc i64 %shr8.i60 to i8
-  %arrayidx11.i62 = getelementptr i8, ptr %add.ptr, i64 3
-  store i8 %conv10.i61, ptr %arrayidx11.i62, align 1
-  %shr12.i63 = lshr i64 %size, 24
-  %conv14.i64 = trunc i64 %shr12.i63 to i8
-  %arrayidx15.i65 = getelementptr i8, ptr %add.ptr, i64 4
-  store i8 %conv14.i64, ptr %arrayidx15.i65, align 4
-  br label %if.end32
+63:                                               ; preds = %49
+  %64 = lshr i64 %5, 56
+  %65 = trunc nuw i64 %64 to i8
+  store i8 %65, ptr %57, align 4
+  %66 = lshr i64 %5, 48
+  %67 = trunc i64 %66 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  store i8 %67, ptr %68, align 1
+  %69 = lshr i64 %5, 40
+  %70 = trunc i64 %69 to i8
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 2
+  store i8 %70, ptr %71, align 2
+  %72 = lshr i64 %5, 32
+  %73 = trunc i64 %72 to i8
+  %74 = getelementptr inbounds nuw i8, ptr %57, i64 3
+  store i8 %73, ptr %74, align 1
+  %75 = lshr i64 %5, 24
+  %76 = trunc i64 %75 to i8
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i8 %76, ptr %77, align 4
+  br label %78
 
-if.end32:                                         ; preds = %if.then29, %if.end24
-  %.sink91 = phi i64 [ 5, %if.then29 ], [ 1, %if.end24 ]
-  %.sink90 = phi i64 [ 6, %if.then29 ], [ 2, %if.end24 ]
-  %.sink89 = phi i64 [ 7, %if.then29 ], [ 3, %if.end24 ]
-  %shr16.i66 = lshr i64 %size, 16
-  %conv18.i67 = trunc i64 %shr16.i66 to i8
-  %arrayidx19.i68 = getelementptr i8, ptr %add.ptr, i64 %.sink91
-  store i8 %conv18.i67, ptr %arrayidx19.i68, align 1
-  %shr20.i69 = lshr i64 %size, 8
-  %conv22.i70 = trunc i64 %shr20.i69 to i8
-  %arrayidx23.i71 = getelementptr i8, ptr %add.ptr, i64 %.sink90
-  store i8 %conv22.i70, ptr %arrayidx23.i71, align 2
-  %conv25.i72 = trunc i64 %size to i8
-  %arrayidx26.i73 = getelementptr i8, ptr %add.ptr, i64 %.sink89
-  store i8 %conv25.i72, ptr %arrayidx26.i73, align 1
-  %add = add nuw nsw i32 %5, %retval.0.i79
-  %mul35 = shl nuw nsw i32 %add, 2
-  %call37 = call i32 @fdt_appendprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr noundef nonnull %data, i32 noundef %mul35) #4
-  br label %return
+78:                                               ; preds = %63, %60
+  %.sink62 = phi i64 [ 5, %63 ], [ 1, %60 ]
+  %.sink59 = phi i64 [ 6, %63 ], [ 2, %60 ]
+  %.sink57 = phi i64 [ 7, %63 ], [ 3, %60 ]
+  %79 = lshr i64 %5, 16
+  %80 = trunc i64 %79 to i8
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 %.sink62
+  store i8 %80, ptr %81, align 1
+  %82 = lshr i64 %5, 8
+  %83 = trunc i64 %82 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 %.sink59
+  store i8 %83, ptr %84, align 2
+  %85 = trunc i64 %5 to i8
+  %86 = getelementptr inbounds nuw i8, ptr %57, i64 %.sink57
+  store i8 %85, ptr %86, align 1
+  %87 = add nuw nsw i32 %26, %.0.i47
+  %88 = shl nuw nsw i32 %87, 2
+  %89 = call i32 @fdt_appendprop(ptr noundef %0, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %9, i32 noundef %88) #5
+  br label %fdt_address_cells.exit.thread
 
-return:                                           ; preds = %fdt_cells.exit.thread.i, %fdt_cells.exit.i, %if.end16, %if.then20, %if.end4, %if.then6, %fdt_size_cells.exit, %fdt_address_cells.exit, %if.end32
-  %retval.0 = phi i32 [ %call37, %if.end32 ], [ %retval.0.i.i, %fdt_address_cells.exit ], [ %4, %fdt_size_cells.exit ], [ -15, %if.then6 ], [ -14, %if.end4 ], [ -15, %if.then20 ], [ -14, %if.end16 ], [ -14, %fdt_cells.exit.i ], [ -14, %fdt_cells.exit.thread.i ]
-  ret i32 %retval.0
+fdt_address_cells.exit.thread:                    ; preds = %fdt_cells.exit.thread.i, %fdt_cells.exit.i, %49, %58, %fdt_size_cells.exit.thread, %27, %fdt_size_cells.exit, %fdt_address_cells.exit, %78
+  %.0 = phi i32 [ %89, %78 ], [ %.0.i.i, %fdt_address_cells.exit ], [ %24, %fdt_size_cells.exit ], [ -15, %27 ], [ -14, %fdt_size_cells.exit.thread ], [ -15, %58 ], [ -14, %49 ], [ -14, %fdt_cells.exit.i ], [ -14, %fdt_cells.exit.thread.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
+  ret i32 %.0
 }
 
-declare i32 @fdt_appendprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_appendprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #2
+declare i32 @llvm.bswap.i32(i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}

@@ -1,7 +1,9 @@
 ; ModuleID = 'bench/qemu/original/blockdev-nbd.ll'
 source_filename = "bench/qemu/original/blockdev-nbd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.AioWait = type { i32 }
 
 @qemu_nbd_connections = internal unnamed_addr global i32 -1, align 4
 @nbd_server = internal unnamed_addr global ptr null, align 8
@@ -9,6 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.nbd_server_start = private unnamed_addr constant [17 x i8] c"nbd_server_start\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"NBD server already running\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"nbd-listener\00", align 1
+@error_abort = external global ptr, align 8
 @__func__.qmp_nbd_server_remove = private unnamed_addr constant [22 x i8] c"qmp_nbd_server_remove\00", align 1
 @.str.3 = private unnamed_addr constant [39 x i8] c"Block export '%s' is not an NBD export\00", align 1
 @__func__.qmp_nbd_server_stop = private unnamed_addr constant [20 x i8] c"qmp_nbd_server_stop\00", align 1
@@ -17,170 +20,159 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [32 x i8] c"No TLS credentials with id '%s'\00", align 1
 @.str.6 = private unnamed_addr constant [10 x i8] c"tls-creds\00", align 1
 @.str.7 = private unnamed_addr constant [43 x i8] c"Object with id '%s' is not TLS credentials\00", align 1
-@.str.8 = private unnamed_addr constant [11 x i8] c"nbd-server\00", align 1
-@.str.9 = private unnamed_addr constant [12 x i8] c"qio-channel\00", align 1
-@.str.10 = private unnamed_addr constant [99 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/io/channel.h\00", align 1
+@.str.8 = private unnamed_addr constant [36 x i8] c"qemu_in_main_thread() && nbd_server\00", align 1
+@__PRETTY_FUNCTION__.nbd_accept = private unnamed_addr constant [64 x i8] c"void nbd_accept(QIONetListener *, QIOChannelSocket *, gpointer)\00", align 1
+@.str.9 = private unnamed_addr constant [11 x i8] c"nbd-server\00", align 1
+@.str.10 = private unnamed_addr constant [12 x i8] c"qio-channel\00", align 1
+@.str.11 = private unnamed_addr constant [99 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/io/channel.h\00", align 1
 @__func__.QIO_CHANNEL = private unnamed_addr constant [12 x i8] c"QIO_CHANNEL\00", align 1
-@.str.11 = private unnamed_addr constant [28 x i8] c"nbd_server->connections > 0\00", align 1
 @__PRETTY_FUNCTION__.nbd_blockdev_client_closed = private unnamed_addr constant [52 x i8] c"void nbd_blockdev_client_closed(NBDClient *, _Bool)\00", align 1
+@.str.12 = private unnamed_addr constant [28 x i8] c"nbd_server->connections > 0\00", align 1
+@global_aio_wait = external global %struct.AioWait, align 4
+@.str.13 = private unnamed_addr constant [57 x i8] c"qemu_get_current_aio_context() == qemu_get_aio_context()\00", align 1
+@__PRETTY_FUNCTION__.nbd_server_free = private unnamed_addr constant [38 x i8] c"void nbd_server_free(NBDServerData *)\00", align 1
+@.str.14 = private unnamed_addr constant [16 x i8] c"no_coroutine_fn\00", section "llvm.metadata"
+@.str.15 = private unnamed_addr constant [98 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/block/aio.h\00", section "llvm.metadata"
+@llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @aio_poll, ptr @.str.14, ptr @.str.15, i32 454, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @nbd_server_is_qemu_nbd(i32 noundef %max_connections) local_unnamed_addr #0 {
-entry:
-  store i32 %max_connections, ptr @qemu_nbd_connections, align 4
+define dso_local void @nbd_server_is_qemu_nbd(i32 noundef %0) local_unnamed_addr #0 {
+  store i32 %0, ptr @qemu_nbd_connections, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @nbd_server_is_running() local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr @nbd_server, align 8
-  %tobool = icmp ne ptr %0, null
-  %1 = load i32, ptr @qemu_nbd_connections, align 4
-  %cmp = icmp sgt i32 %1, -1
-  %2 = select i1 %tobool, i1 true, i1 %cmp
-  ret i1 %2
+  %1 = load ptr, ptr @nbd_server, align 8
+  %2 = icmp ne ptr %1, null
+  %3 = load i32, ptr @qemu_nbd_connections, align 4
+  %4 = icmp sgt i32 %3, -1
+  %5 = select i1 %2, i1 true, i1 %4
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @nbd_server_max_connections() local_unnamed_addr #2 {
-entry:
-  %0 = load ptr, ptr @nbd_server, align 8
-  %tobool.not = icmp eq ptr %0, null
-  %max_connections = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %cond.in = select i1 %tobool.not, ptr @qemu_nbd_connections, ptr %max_connections
-  %cond = load i32, ptr %cond.in, align 4
-  ret i32 %cond
+  %1 = load ptr, ptr @nbd_server, align 8
+  %.not = icmp eq ptr %1, null
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.in = select i1 %.not, ptr @qemu_nbd_connections, ptr %2
+  %3 = load i32, ptr %.in, align 4
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nbd_server_start(ptr noundef %addr, ptr noundef %tls_creds, ptr noundef %tls_authz, i32 noundef %max_connections, ptr noundef %errp) local_unnamed_addr #3 {
-entry:
-  %0 = load ptr, ptr @nbd_server, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
+define dso_local void @nbd_server_start(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+  %7 = load ptr, ptr @nbd_server, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %9, label %8
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 131, ptr noundef nonnull @__func__.nbd_server_start, ptr noundef nonnull @.str.1) #9
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #10
-  store ptr %call, ptr @nbd_server, align 8
-  %max_connections1 = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store i32 %max_connections, ptr %max_connections1, align 8
-  %call2 = tail call ptr @qio_net_listener_new() #9
-  %1 = load ptr, ptr @nbd_server, align 8
-  store ptr %call2, ptr %1, align 8
-  tail call void @qio_net_listener_set_name(ptr noundef %call2, ptr noundef nonnull @.str.2) #9
-  %2 = load ptr, ptr @nbd_server, align 8
-  %3 = load ptr, ptr %2, align 8
-  %call5 = tail call i32 @qio_net_listener_open_sync(ptr noundef %3, ptr noundef %addr, i32 noundef 4096, ptr noundef %errp) #9
-  %cmp = icmp slt i32 %call5, 0
-  br i1 %cmp, label %error, label %if.end7
-
-if.end7:                                          ; preds = %if.end
-  %tobool8.not = icmp eq ptr %tls_creds, null
-  br i1 %tobool8.not, label %if.end15, label %if.then9
-
-if.then9:                                         ; preds = %if.end7
-  %call.i = tail call ptr @object_get_objects_root() #9
-  %call1.i = tail call ptr @object_resolve_path_component(ptr noundef %call.i, ptr noundef nonnull %tls_creds) #9
-  %tobool.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then9
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 105, ptr noundef nonnull @__func__.nbd_get_tls_creds, ptr noundef nonnull @.str.5, ptr noundef nonnull %tls_creds) #9
-  br label %error.thread
-
-if.end.i:                                         ; preds = %if.then9
-  %call2.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.6) #9
-  %tobool3.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool3.not.i, label %if.then4.i, label %if.end5.i
-
-if.then4.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 112, ptr noundef nonnull @__func__.nbd_get_tls_creds, ptr noundef nonnull @.str.7, ptr noundef nonnull %tls_creds) #9
-  br label %error.thread
-
-if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef nonnull %call2.i, i32 noundef 1, ptr noundef %errp) #9
-  br i1 %call6.i, label %nbd_get_tls_creds.exit, label %error.thread
-
-error.thread:                                     ; preds = %if.end5.i, %if.then.i, %if.then4.i
-  %4 = load ptr, ptr @nbd_server, align 8
-  %tlscreds10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %tlscreds10, align 8
-  br label %if.end.i7
-
-nbd_get_tls_creds.exit:                           ; preds = %if.end5.i
-  %call9.i = tail call ptr @object_ref(ptr noundef nonnull %call1.i) #9
-  %5 = load ptr, ptr @nbd_server, align 8
-  %tlscreds = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %call2.i, ptr %tlscreds, align 8
-  br label %if.end15
-
-if.end15:                                         ; preds = %nbd_get_tls_creds.exit, %if.end7
-  %call16 = tail call noalias ptr @g_strdup(ptr noundef %tls_authz) #9
-  %6 = load ptr, ptr @nbd_server, align 8
-  %tlsauthz = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %call16, ptr %tlsauthz, align 8
-  %max_connections.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %7 = load i32, ptr %max_connections.i, align 8
-  %tobool.not.i4 = icmp eq i32 %7, 0
-  br i1 %tobool.not.i4, label %nbd_update_server_watch.exit, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end15
-  %connections.i = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %connections.i, align 4
-  %cmp.i = icmp ult i32 %8, %7
-  %spec.select.i = select i1 %cmp.i, ptr @nbd_accept, ptr null
+8:                                                ; preds = %6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @__func__.nbd_server_start, ptr noundef nonnull @.str.1) #9
   br label %nbd_update_server_watch.exit
 
-nbd_update_server_watch.exit:                     ; preds = %if.end15, %lor.lhs.false.i
-  %.sink5.i = phi ptr [ @nbd_accept, %if.end15 ], [ %spec.select.i, %lor.lhs.false.i ]
-  %9 = load ptr, ptr %6, align 8
-  tail call void @qio_net_listener_set_client_func(ptr noundef %9, ptr noundef %.sink5.i, ptr noundef null, ptr noundef null) #9
-  br label %return
+9:                                                ; preds = %6
+  %10 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #10
+  store ptr %10, ptr @nbd_server, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i32 %4, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 %1, ptr %12, align 8
+  %13 = tail call ptr @qio_net_listener_new() #9
+  %14 = load ptr, ptr @nbd_server, align 8
+  store ptr %13, ptr %14, align 8
+  tail call void @qio_net_listener_set_name(ptr noundef %13, ptr noundef nonnull @.str.2) #9
+  %15 = load ptr, ptr @nbd_server, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @qio_net_listener_open_sync(ptr noundef %16, ptr noundef %0, i32 noundef 4096, ptr noundef %5) #9
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %._crit_edge, label %19
 
-error:                                            ; preds = %if.end
-  %.pr = load ptr, ptr @nbd_server, align 8
-  %tobool.not.i6 = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i6, label %nbd_server_free.exit, label %if.end.i7
+._crit_edge:                                      ; preds = %9
+  %.pre = load ptr, ptr @nbd_server, align 8
+  br label %46
 
-if.end.i7:                                        ; preds = %error.thread, %error
-  %10 = phi ptr [ %4, %error.thread ], [ %.pr, %error ]
-  %11 = load ptr, ptr %10, align 8
-  tail call void @qio_net_listener_disconnect(ptr noundef %11) #9
-  %12 = load ptr, ptr %10, align 8
-  tail call void @object_unref(ptr noundef %12) #9
-  %tlscreds.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load ptr, ptr %tlscreds.i, align 8
-  %tobool2.not.i = icmp eq ptr %13, null
-  br i1 %tobool2.not.i, label %if.end5.i8, label %if.then3.i
+19:                                               ; preds = %9
+  %.not21 = icmp eq ptr %2, null
+  br i1 %.not21, label %34, label %20
 
-if.then3.i:                                       ; preds = %if.end.i7
-  tail call void @object_unref(ptr noundef nonnull %13) #9
-  br label %if.end5.i8
+20:                                               ; preds = %19
+  %21 = tail call ptr @object_get_objects_root() #9
+  %22 = tail call ptr @object_resolve_path_component(ptr noundef %21, ptr noundef nonnull %2) #9
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %23, label %24
 
-if.end5.i8:                                       ; preds = %if.then3.i, %if.end.i7
-  %tlsauthz.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %14 = load ptr, ptr %tlsauthz.i, align 8
-  tail call void @g_free(ptr noundef %14) #9
-  tail call void @g_free(ptr noundef nonnull %10) #9
-  br label %nbd_server_free.exit
+23:                                               ; preds = %20
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 144, ptr noundef nonnull @__func__.nbd_get_tls_creds, ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #9
+  br label %nbd_get_tls_creds.exit.thread
 
-nbd_server_free.exit:                             ; preds = %error, %if.end5.i8
+24:                                               ; preds = %20
+  %25 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %22, ptr noundef nonnull @.str.6) #9
+  %.not15.i = icmp eq ptr %25, null
+  br i1 %.not15.i, label %26, label %27
+
+26:                                               ; preds = %24
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.nbd_get_tls_creds, ptr noundef nonnull @.str.7, ptr noundef nonnull %2) #9
+  br label %nbd_get_tls_creds.exit.thread
+
+27:                                               ; preds = %24
+  %28 = tail call zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef nonnull %25, i32 noundef 1, ptr noundef %5) #9
+  br i1 %28, label %nbd_get_tls_creds.exit, label %nbd_get_tls_creds.exit.thread
+
+nbd_get_tls_creds.exit.thread:                    ; preds = %26, %23, %27
+  %29 = load ptr, ptr @nbd_server, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr null, ptr %30, align 8
+  br label %46
+
+nbd_get_tls_creds.exit:                           ; preds = %27
+  %31 = tail call ptr @object_ref(ptr noundef nonnull %22) #9
+  %32 = load ptr, ptr @nbd_server, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %25, ptr %33, align 8
+  br label %34
+
+34:                                               ; preds = %nbd_get_tls_creds.exit, %19
+  %35 = tail call noalias ptr @g_strdup(ptr noundef %3) #9
+  %36 = load ptr, ptr @nbd_server, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store ptr %35, ptr %37, align 8
+  %38 = load ptr, ptr %36, align 8
+  %.not.i23 = icmp eq ptr %38, null
+  br i1 %.not.i23, label %nbd_update_server_watch.exit, label %39
+
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %41 = load i32, ptr %40, align 8
+  %.not7.i = icmp eq i32 %41, 0
+  br i1 %.not7.i, label %.sink.split.i, label %42
+
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 36
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp ult i32 %44, %41
+  %spec.select.i = select i1 %45, ptr @nbd_accept, ptr null
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %42, %39
+  %nbd_accept.sink.i = phi ptr [ @nbd_accept, %39 ], [ %spec.select.i, %42 ]
+  tail call void @qio_net_listener_set_client_func(ptr noundef nonnull %38, ptr noundef %nbd_accept.sink.i, ptr noundef null, ptr noundef null) #9
+  br label %nbd_update_server_watch.exit
+
+46:                                               ; preds = %._crit_edge, %nbd_get_tls_creds.exit.thread
+  %47 = phi ptr [ %.pre, %._crit_edge ], [ %29, %nbd_get_tls_creds.exit.thread ]
+  tail call fastcc void @nbd_server_free(ptr noundef %47)
   store ptr null, ptr @nbd_server, align 8
-  br label %return
+  br label %nbd_update_server_watch.exit
 
-return:                                           ; preds = %nbd_server_free.exit, %nbd_update_server_watch.exit, %if.then
+nbd_update_server_watch.exit:                     ; preds = %.sink.split.i, %34, %46, %8
   ret void
 }
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
 declare ptr @qio_net_listener_new() local_unnamed_addr #4
 
@@ -191,25 +183,125 @@ declare i32 @qio_net_listener_open_sync(ptr noundef, ptr noundef, i32 noundef, p
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nbd_server_start_options(ptr noundef readonly captures(none) %arg, ptr noundef %errp) local_unnamed_addr #3 {
-entry:
-  %0 = load ptr, ptr %arg, align 8
-  %tls_creds = getelementptr inbounds nuw i8, ptr %arg, i64 8
-  %1 = load ptr, ptr %tls_creds, align 8
-  %tls_authz = getelementptr inbounds nuw i8, ptr %arg, i64 16
-  %2 = load ptr, ptr %tls_authz, align 8
-  %max_connections = getelementptr inbounds nuw i8, ptr %arg, i64 28
-  %3 = load i32, ptr %max_connections, align 4
-  tail call void @nbd_server_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %errp)
+define internal fastcc void @nbd_server_free(ptr noundef %0) unnamed_addr #3 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %29, label %2
+
+2:                                                ; preds = %1
+  %3 = load ptr, ptr %0, align 8
+  tail call void @qio_net_listener_disconnect(ptr noundef %3) #9
+  %4 = load ptr, ptr %0, align 8
+  tail call void @object_unref(ptr noundef %4) #9
+  store ptr null, ptr %0, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = load ptr, ptr %5, align 8
+  %.not2528 = icmp eq ptr %6, null
+  br i1 %.not2528, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.029 = phi ptr [ %8, %.lr.ph ], [ %6, %2 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.029, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %.029, align 8
+  %10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  %11 = tail call i32 @qio_channel_shutdown(ptr noundef %10, i32 noundef 3, ptr noundef null) #9
+  %.not25 = icmp eq ptr %8, null
+  br i1 %.not25, label %.critedge, label %.lr.ph, !llvm.loop !4
+
+.critedge:                                        ; preds = %.lr.ph, %2
+  %12 = atomicrmw add ptr @global_aio_wait, i32 1 seq_cst, align 4
+  fence syncscope("singlethread") seq_cst
+  %13 = tail call ptr @qemu_get_current_aio_context() #9
+  %14 = tail call ptr @qemu_get_aio_context() #9
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %.preheader, label %18
+
+.preheader:                                       ; preds = %.critedge
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %17 = load i32, ptr %16, align 4
+  %.not2630 = icmp eq i32 %17, 0
+  br i1 %.not2630, label %._crit_edge, label %.lr.ph31
+
+18:                                               ; preds = %.critedge
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 125, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_server_free) #11
+  unreachable
+
+.lr.ph31:                                         ; preds = %.preheader, %.lr.ph31
+  %19 = tail call ptr @qemu_get_aio_context() #9
+  %20 = tail call zeroext i1 @aio_poll(ptr noundef %19, i1 noundef zeroext true) #9
+  %21 = load i32, ptr %16, align 4
+  %.not26 = icmp eq i32 %21, 0
+  br i1 %.not26, label %._crit_edge, label %.lr.ph31, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %.lr.ph31, %.preheader
+  %22 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %.not27 = icmp eq ptr %24, null
+  br i1 %.not27, label %26, label %25
+
+25:                                               ; preds = %._crit_edge
+  tail call void @object_unref(ptr noundef nonnull %24) #9
+  br label %26
+
+26:                                               ; preds = %25, %._crit_edge
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load ptr, ptr %27, align 8
+  tail call void @g_free(ptr noundef %28) #9
+  tail call void @g_free(ptr noundef nonnull %0) #9
+  br label %29
+
+29:                                               ; preds = %1, %26
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_nbd_server_start(ptr noundef %addr, ptr noundef %tls_creds, ptr noundef %tls_authz, i1 noundef zeroext %has_max_connections, i32 noundef %max_connections, ptr noundef %errp) local_unnamed_addr #3 {
-entry:
-  %call = tail call ptr @socket_address_flatten(ptr noundef %addr) #9
-  tail call void @nbd_server_start(ptr noundef %call, ptr noundef %tls_creds, ptr noundef %tls_authz, i32 noundef %max_connections, ptr noundef %errp)
-  tail call void @qapi_free_SocketAddress(ptr noundef %call) #9
+define dso_local void @nbd_server_start_options(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %8, label %6
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 100, ptr %7, align 4
+  br label %8
+
+8:                                                ; preds = %6, %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i8, ptr %9, align 8, !range !7, !noundef !8
+  %11 = trunc nuw i8 %10 to i1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br i1 %11, label %._crit_edge, label %12
+
+._crit_edge:                                      ; preds = %8
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  br label %13
+
+12:                                               ; preds = %8
+  store i32 10, ptr %.phi.trans.insert, align 4
+  br label %13
+
+13:                                               ; preds = %._crit_edge, %12
+  %14 = phi i32 [ %.pre, %._crit_edge ], [ 10, %12 ]
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %21 = load i32, ptr %20, align 4
+  tail call void @nbd_server_start(ptr noundef %15, i32 noundef %14, ptr noundef %17, ptr noundef %19, i32 noundef %21, ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @qmp_nbd_server_start(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+  %9 = tail call ptr @socket_address_flatten(ptr noundef %0) #9
+  %spec.select = select i1 %5, i32 %6, i32 100
+  %.0 = select i1 %1, i32 %2, i32 10
+  tail call void @nbd_server_start(ptr noundef %9, i32 noundef %.0, ptr noundef %3, ptr noundef %4, i32 noundef %spec.select, ptr noundef %7)
+  tail call void @qapi_free_SocketAddress(ptr noundef %9) #9
   ret void
 }
 
@@ -218,125 +310,131 @@ declare ptr @socket_address_flatten(ptr noundef) local_unnamed_addr #4
 declare void @qapi_free_SocketAddress(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_nbd_server_add(ptr noundef %arg, ptr noundef %errp) local_unnamed_addr #3 {
-entry:
-  %device = getelementptr inbounds nuw i8, ptr %arg, i64 16
-  %0 = load ptr, ptr %device, align 8
-  %call = tail call ptr @bdrv_lookup_bs(ptr noundef %0, ptr noundef %0, ptr noundef %errp) #9
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+define dso_local void @qmp_nbd_server_add(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call ptr @bdrv_lookup_bs(ptr noundef %4, ptr noundef %4, ptr noundef %1) #9
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %45, label %6
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %arg, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %if.then3, label %if.end7
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %0, align 8
+  %.not70 = icmp eq ptr %7, null
+  br i1 %.not70, label %8, label %11
 
-if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr %device, align 8
-  %call5 = tail call noalias ptr @g_strdup(ptr noundef %2) #9
-  store ptr %call5, ptr %arg, align 8
-  br label %if.end7
+8:                                                ; preds = %6
+  %9 = load ptr, ptr %3, align 8
+  %10 = tail call noalias ptr @g_strdup(ptr noundef %9) #9
+  store ptr %10, ptr %0, align 8
+  br label %11
 
-if.end7:                                          ; preds = %if.then3, %if.end
-  %call8 = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #10
-  %3 = load ptr, ptr %arg, align 8
-  %call10 = tail call noalias ptr @g_strdup(ptr noundef %3) #9
-  %call11 = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %call) #9
-  %call12 = tail call noalias ptr @g_strdup(ptr noundef %call11) #9
-  %has_writable13 = getelementptr inbounds nuw i8, ptr %arg, i64 24
-  %4 = load i8, ptr %has_writable13, align 8
-  %frombool = and i8 %4, 1
-  %writable15 = getelementptr inbounds nuw i8, ptr %arg, i64 25
-  %5 = load i8, ptr %writable15, align 1
-  %frombool17 = and i8 %5, 1
-  store i32 0, ptr %call8, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call8, i64 4
-  store i32 0, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 4
-  %.compoundliteral.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call8, i64 8
-  store ptr %call10, ptr %.compoundliteral.sroa.35.0..sroa_idx, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
-  %.compoundliteral.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call8, i64 32
-  store ptr %call12, ptr %.compoundliteral.sroa.46.0..sroa_idx, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call8, i64 40
-  store i8 %frombool, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call8, i64 41
-  store i8 %frombool17, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 1
-  %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call8, i64 42
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(46) %.compoundliteral.sroa.7.0..sroa_idx, i8 0, i64 46, i1 false)
-  %u = getelementptr inbounds nuw i8, ptr %call8, i64 48
-  tail call void @qapi_clone_members(ptr noundef nonnull %u, ptr noundef nonnull %arg, i64 noundef 16, ptr noundef nonnull @visit_type_BlockExportOptionsNbdBase_members) #9
-  %bitmap = getelementptr inbounds nuw i8, ptr %arg, i64 32
-  %6 = load ptr, ptr %bitmap, align 8
-  %tobool19.not = icmp eq ptr %6, null
-  br i1 %tobool19.not, label %if.end32, label %if.then20
+11:                                               ; preds = %8, %6
+  %12 = tail call noalias dereferenceable_or_null(88) ptr @g_malloc(i64 noundef 88) #10
+  %13 = load ptr, ptr %0, align 8
+  %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #9
+  %15 = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %5) #9
+  %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #9
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load i8, ptr %17, align 8, !range !7, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %20 = load i8, ptr %19, align 1, !range !7, !noundef !8
+  store i32 0, ptr %12, align 8
+  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 0, ptr %.sroa.319.0..sroa_idx, align 4
+  %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %14, ptr %.sroa.320.0..sroa_idx, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.421.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %16, ptr %.sroa.422.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i8 %18, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 41
+  store i8 %20, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 42
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(46) %.sroa.7.0..sroa_idx, i8 0, i64 46, i1 false)
+  %21 = tail call ptr @qapi_clone_members_visitor_new() #9
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+  %23 = tail call zeroext i1 @visit_type_BlockExportOptionsNbdBase_members(ptr noundef %21, ptr noundef nonnull %22, ptr noundef nonnull @error_abort) #9
+  tail call void @visit_free(ptr noundef %21) #9
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %.not71 = icmp eq ptr %25, null
+  br i1 %.not71, label %35, label %26
 
-if.then20:                                        ; preds = %if.end7
-  %call21 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
-  %7 = load ptr, ptr %bitmap, align 8
-  %call26 = tail call noalias ptr @g_strdup(ptr noundef %7) #9
-  store i32 3, ptr %call21, align 8
-  %.compoundliteral22.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call21, i64 8
-  store ptr %call26, ptr %.compoundliteral22.sroa.23.0..sroa_idx, align 8
-  %has_bitmaps = getelementptr inbounds nuw i8, ptr %call8, i64 64
-  store i8 1, ptr %has_bitmaps, align 8
-  %call28 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
-  %value = getelementptr inbounds nuw i8, ptr %call28, i64 8
-  store ptr %call21, ptr %value, align 8
-  %bitmaps = getelementptr inbounds nuw i8, ptr %call8, i64 72
-  %8 = load ptr, ptr %bitmaps, align 8
-  store ptr %8, ptr %call28, align 8
-  store ptr %call28, ptr %bitmaps, align 8
-  br label %if.end32
+26:                                               ; preds = %11
+  %27 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #10
+  %28 = load ptr, ptr %24, align 8
+  %29 = tail call noalias ptr @g_strdup(ptr noundef %28) #9
+  store i32 3, ptr %27, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %29, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  store i8 1, ptr %30, align 8
+  %31 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #10
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %27, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %31, align 8
+  store ptr %31, ptr %33, align 8
+  br label %35
 
-if.end32:                                         ; preds = %if.then20, %if.end7
-  %call33 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %call) #9
-  br i1 %call33, label %if.then34, label %if.end37
+35:                                               ; preds = %26, %11
+  %36 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %5) #9
+  br i1 %36, label %37, label %38
 
-if.then34:                                        ; preds = %if.end32
-  store i8 1, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
-  store i8 0, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 1
-  br label %if.end37
+37:                                               ; preds = %35
+  store i8 1, ptr %.sroa.5.0..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.0..sroa_idx, align 1
+  br label %38
 
-if.end37:                                         ; preds = %if.then34, %if.end32
-  %call38 = tail call ptr @blk_exp_add(ptr noundef nonnull %call8, ptr noundef %errp) #9
-  %tobool39.not = icmp eq ptr %call38, null
-  br i1 %tobool39.not, label %fail, label %if.end41
+38:                                               ; preds = %37, %35
+  %39 = tail call ptr @blk_exp_add(ptr noundef nonnull %12, ptr noundef %1) #9
+  %.not72 = icmp eq ptr %39, null
+  br i1 %.not72, label %44, label %40
 
-if.end41:                                         ; preds = %if.end37
-  %9 = load ptr, ptr %device, align 8
-  %call43 = tail call ptr @blk_by_name(ptr noundef %9) #9
-  %tobool44.not = icmp eq ptr %call43, null
-  br i1 %tobool44.not, label %fail, label %if.then45
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %3, align 8
+  %42 = tail call ptr @blk_by_name(ptr noundef %41) #9
+  %.not73 = icmp eq ptr %42, null
+  br i1 %.not73, label %44, label %43
 
-if.then45:                                        ; preds = %if.end41
-  tail call void @nbd_export_set_on_eject_blk(ptr noundef nonnull %call38, ptr noundef nonnull %call43) #9
-  br label %fail
+43:                                               ; preds = %40
+  tail call void @nbd_export_set_on_eject_blk(ptr noundef nonnull %39, ptr noundef nonnull %42) #9
+  br label %44
 
-fail:                                             ; preds = %if.end41, %if.then45, %if.end37
-  tail call void @qapi_free_BlockExportOptions(ptr noundef nonnull %call8) #9
-  br label %return
+44:                                               ; preds = %40, %43, %38
+  tail call void @qapi_free_BlockExportOptions(ptr noundef nonnull %12) #9
+  br label %45
 
-return:                                           ; preds = %entry, %fail
+45:                                               ; preds = %2, %44
   ret void
 }
 
 declare ptr @bdrv_lookup_bs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @bdrv_get_node_name(ptr noundef) local_unnamed_addr #4
 
-declare void @qapi_clone_members(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare zeroext i1 @visit_type_BlockExportOptionsNbdBase_members(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @qapi_clone_members_visitor_new() local_unnamed_addr #4
 
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
+declare zeroext i1 @visit_type_BlockExportOptionsNbdBase_members(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @visit_free(ptr noundef) local_unnamed_addr #4
 
 declare zeroext i1 @bdrv_is_read_only(ptr noundef) local_unnamed_addr #4
 
@@ -349,27 +447,26 @@ declare void @nbd_export_set_on_eject_blk(ptr noundef, ptr noundef) local_unname
 declare void @qapi_free_BlockExportOptions(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_nbd_server_remove(ptr noundef %name, i1 noundef zeroext %has_mode, i32 noundef %mode, ptr noundef %errp) local_unnamed_addr #3 {
-entry:
-  %call = tail call ptr @blk_exp_find(ptr noundef %name) #9
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+define dso_local void @qmp_nbd_server_remove(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+  %5 = tail call ptr @blk_exp_find(ptr noundef %0) #9
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %10, label %6
 
-land.lhs.true:                                    ; preds = %entry
-  %0 = load ptr, ptr %call, align 8
-  %1 = load i32, ptr %0, align 8
-  %cmp.not = icmp eq i32 %1, 0
-  br i1 %cmp.not, label %if.end, label %if.then
+6:                                                ; preds = %4
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i32, ptr %7, align 8
+  %.not8 = icmp eq i32 %8, 0
+  br i1 %.not8, label %10, label %9
 
-if.then:                                          ; preds = %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.qmp_nbd_server_remove, ptr noundef nonnull @.str.3, ptr noundef %name) #9
-  br label %return
+9:                                                ; preds = %6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 321, ptr noundef nonnull @__func__.qmp_nbd_server_remove, ptr noundef nonnull @.str.3, ptr noundef %0) #9
+  br label %11
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  tail call void @qmp_block_export_del(ptr noundef %name, i1 noundef zeroext %has_mode, i32 noundef %mode, ptr noundef %errp) #9
-  br label %return
+10:                                               ; preds = %6, %4
+  tail call void @qmp_block_export_del(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3) #9
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
+11:                                               ; preds = %10, %9
   ret void
 }
 
@@ -378,48 +475,23 @@ declare ptr @blk_exp_find(ptr noundef) local_unnamed_addr #4
 declare void @qmp_block_export_del(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_nbd_server_stop(ptr noundef %errp) local_unnamed_addr #3 {
-entry:
-  %0 = load ptr, ptr @nbd_server, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define dso_local void @qmp_nbd_server_stop(ptr noundef %0) local_unnamed_addr #3 {
+  %2 = load ptr, ptr @nbd_server, align 8
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %3, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__func__.qmp_nbd_server_stop, ptr noundef nonnull @.str.4) #9
-  br label %return
+3:                                                ; preds = %1
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 331, ptr noundef nonnull @__func__.qmp_nbd_server_stop, ptr noundef nonnull @.str.4) #9
+  br label %6
 
-if.end:                                           ; preds = %entry
+4:                                                ; preds = %1
   tail call void @blk_exp_close_all_type(i32 noundef 0) #9
-  %1 = load ptr, ptr @nbd_server, align 8
-  %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %nbd_server_free.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %if.end
-  %2 = load ptr, ptr %1, align 8
-  tail call void @qio_net_listener_disconnect(ptr noundef %2) #9
-  %3 = load ptr, ptr %1, align 8
-  tail call void @object_unref(ptr noundef %3) #9
-  %tlscreds.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %tlscreds.i, align 8
-  %tobool2.not.i = icmp eq ptr %4, null
-  br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  tail call void @object_unref(ptr noundef nonnull %4) #9
-  br label %if.end5.i
-
-if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %tlsauthz.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load ptr, ptr %tlsauthz.i, align 8
-  tail call void @g_free(ptr noundef %5) #9
-  tail call void @g_free(ptr noundef nonnull %1) #9
-  br label %nbd_server_free.exit
-
-nbd_server_free.exit:                             ; preds = %if.end, %if.end5.i
+  %5 = load ptr, ptr @nbd_server, align 8
+  tail call fastcc void @nbd_server_free(ptr noundef %5)
   store ptr null, ptr @nbd_server, align 8
-  br label %return
+  br label %6
 
-return:                                           ; preds = %nbd_server_free.exit, %if.then
+6:                                                ; preds = %4, %3
   ret void
 }
 
@@ -438,94 +510,193 @@ declare ptr @object_ref(ptr noundef) local_unnamed_addr #4
 declare void @qio_net_listener_set_client_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nbd_accept(ptr readnone captures(none) %listener, ptr noundef %cioc, ptr readnone captures(none) %opaque) #3 {
-entry:
-  %0 = load ptr, ptr @nbd_server, align 8
-  %connections = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1 = load i32, ptr %connections, align 4
-  %.fr = freeze i32 %1
-  %inc = add i32 %.fr, 1
-  store i32 %inc, ptr %connections, align 4
-  %max_connections.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %2 = load i32, ptr %max_connections.i, align 8
-  %3 = add i32 %2, -1
-  %.not = icmp ult i32 %3, %inc
-  %.sink5.i = select i1 %.not, ptr null, ptr @nbd_accept
-  %4 = load ptr, ptr %0, align 8
-  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef %.sink5.i, ptr noundef null, ptr noundef null) #9
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i, ptr noundef nonnull @.str.8) #9
-  %5 = load ptr, ptr @nbd_server, align 8
-  %tlscreds = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %6 = load ptr, ptr %tlscreds, align 8
-  %tlsauthz = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %tlsauthz, align 8
-  tail call void @nbd_client_new(ptr noundef %cioc, ptr noundef %6, ptr noundef %7, ptr noundef nonnull @nbd_blockdev_client_closed) #9
+define internal void @nbd_accept(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #3 {
+  %4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #10
+  %5 = tail call zeroext i1 @qemu_in_main_thread() #9
+  %6 = load ptr, ptr @nbd_server, align 8
+  %7 = icmp ne ptr %6, null
+  %or.cond = select i1 %5, i1 %7, i1 false
+  br i1 %or.cond, label %9, label %8
+
+8:                                                ; preds = %3
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_accept) #11
+  unreachable
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %11 = load i32, ptr %10, align 4
+  %12 = add i32 %11, 1
+  store i32 %12, ptr %10, align 4
+  %13 = tail call ptr @object_ref(ptr noundef %1) #9
+  store ptr %1, ptr %4, align 8
+  %14 = load ptr, ptr @nbd_server, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %16, ptr %17, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %20, label %18
+
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr %17, ptr %19, align 8
+  br label %20
+
+20:                                               ; preds = %18, %9
+  store ptr %4, ptr %15, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %15, ptr %21, align 8
+  %22 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %nbd_update_server_watch.exit, label %23
+
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %25 = load i32, ptr %24, align 8
+  %.not7.i = icmp eq i32 %25, 0
+  br i1 %.not7.i, label %.sink.split.i, label %26
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp ult i32 %28, %25
+  %spec.select.i = select i1 %29, ptr @nbd_accept, ptr null
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %26, %23
+  %nbd_accept.sink.i = phi ptr [ @nbd_accept, %23 ], [ %spec.select.i, %26 ]
+  tail call void @qio_net_listener_set_client_func(ptr noundef nonnull %22, ptr noundef %nbd_accept.sink.i, ptr noundef null, ptr noundef null) #9
+  br label %nbd_update_server_watch.exit
+
+nbd_update_server_watch.exit:                     ; preds = %20, %.sink.split.i
+  %30 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  tail call void @qio_channel_set_name(ptr noundef %30, ptr noundef nonnull @.str.9) #9
+  %31 = load ptr, ptr @nbd_server, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %37 = load ptr, ptr %36, align 8
+  tail call void @nbd_client_new(ptr noundef %1, i32 noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef nonnull @nbd_blockdev_client_closed, ptr noundef nonnull %4) #9
   ret void
 }
 
+declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #4
+
+; Function Attrs: noreturn nounwind
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+
 declare void @qio_channel_set_name(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @nbd_client_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @nbd_client_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nbd_blockdev_client_closed(ptr noundef %client, i1 zeroext %ignored) #3 {
-entry:
-  tail call void @nbd_client_put(ptr noundef %client) #9
-  %0 = load ptr, ptr @nbd_server, align 8
-  %connections = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1 = load i32, ptr %connections, align 4
-  %cmp.not = icmp eq i32 %1, 0
-  br i1 %cmp.not, label %if.else, label %if.end
+define internal void @nbd_blockdev_client_closed(ptr noundef %0, i1 zeroext %1) #3 {
+  %3 = tail call ptr @nbd_client_owner(ptr noundef %0) #9
+  %4 = tail call zeroext i1 @qemu_in_main_thread() #9
+  %5 = load ptr, ptr @nbd_server, align 8
+  %6 = icmp ne ptr %5, null
+  %or.cond = select i1 %4, i1 %6, i1 false
+  br i1 %or.cond, label %8, label %7
 
-if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_blockdev_client_closed) #12
+7:                                                ; preds = %2
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_blockdev_client_closed) #11
   unreachable
 
-if.end:                                           ; preds = %entry
-  %dec = add i32 %1, -1
-  store i32 %dec, ptr %connections, align 4
-  %max_connections.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %2 = load i32, ptr %max_connections.i, align 8
-  %3 = add i32 %2, -1
-  %.not = icmp ult i32 %3, %dec
-  %.sink5.i = select i1 %.not, ptr null, ptr @nbd_accept
-  %4 = load ptr, ptr %0, align 8
-  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef %.sink5.i, ptr noundef null, ptr noundef null) #9
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8
+  tail call void @object_unref(ptr noundef %9) #9
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %11, null
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.pre15 = load ptr, ptr %.phi.trans.insert, align 8
+  br i1 %.not, label %._crit_edge, label %12
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %.pre15, ptr %13, align 8
+  %.pre = load ptr, ptr %10, align 8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %8, %12
+  %14 = phi ptr [ %.pre, %12 ], [ null, %8 ]
+  store ptr %14, ptr %.pre15, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @g_free(ptr noundef nonnull %3) #9
+  tail call void @nbd_client_put(ptr noundef %0) #9
+  %15 = load ptr, ptr @nbd_server, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %17 = load i32, ptr %16, align 4
+  %.not13 = icmp eq i32 %17, 0
+  br i1 %.not13, label %18, label %19
+
+18:                                               ; preds = %._crit_edge
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_blockdev_client_closed) #11
+  unreachable
+
+19:                                               ; preds = %._crit_edge
+  %20 = add i32 %17, -1
+  store i32 %20, ptr %16, align 4
+  %21 = load ptr, ptr %15, align 8
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %nbd_update_server_watch.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %23 = load i32, ptr %22, align 8
+  %24 = add i32 %23, -1
+  %.not14 = icmp ult i32 %24, %20
+  %nbd_accept.sink.i = select i1 %.not14, ptr null, ptr @nbd_accept
+  tail call void @qio_net_listener_set_client_func(ptr noundef nonnull %21, ptr noundef %nbd_accept.sink.i, ptr noundef null, ptr noundef null) #9
+  br label %nbd_update_server_watch.exit
+
+nbd_update_server_watch.exit:                     ; preds = %19, %.sink.split.i
   ret void
 }
 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @nbd_client_put(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
-
-declare void @qio_net_listener_disconnect(ptr noundef) local_unnamed_addr #4
+declare ptr @nbd_client_owner(ptr noundef) local_unnamed_addr #4
 
 declare void @object_unref(ptr noundef) local_unnamed_addr #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0,1) }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { noreturn nounwind }
+declare void @nbd_client_put(ptr noundef) local_unnamed_addr #4
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+declare void @qio_net_listener_disconnect(ptr noundef) local_unnamed_addr #4
+
+declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare zeroext i1 @aio_poll(ptr noundef, i1 noundef zeroext) #4
+
+declare ptr @qemu_get_current_aio_context() local_unnamed_addr #4
+
+declare ptr @qemu_get_aio_context() local_unnamed_addr #4
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}

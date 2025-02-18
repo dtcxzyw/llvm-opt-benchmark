@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
 %struct.MemBlock = type { %union.anon, i64, i64 }
@@ -41,1901 +41,2409 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [13 x i8] c"list && node\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @alloc_destroy(ptr noundef %allocator) #0 {
-entry:
-  %allocator.addr = alloca ptr, align 8
-  %node = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %mask = alloca i32, align 4
-  store ptr %allocator, ptr %allocator.addr, align 8
-  %0 = load ptr, ptr %allocator.addr, align 8
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %0, i32 0, i32 4
-  %1 = load ptr, ptr %used, align 8
-  %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %node, align 8
-  br label %for.cond
+define dso_local void @alloc_destroy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  store ptr null, ptr %3, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  store ptr null, ptr %4, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  store i32 0, ptr %5, align 4, !annotation !4
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %6, i32 0, i32 4
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %3, align 8
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %land.rhs, label %land.end
+10:                                               ; preds = %46, %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
 
-land.rhs:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %MLIST_ENTNAME, align 8
-  store ptr %5, ptr %tmp, align 8
-  br label %land.end
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.MemBlock, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %4, align 8
+  br label %17
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %6 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
-  br i1 %6, label %for.body, label %for.end
+17:                                               ; preds = %13, %10
+  %18 = phi i1 [ false, %10 ], [ true, %13 ]
+  br i1 %18, label %19, label %48
 
-for.body:                                         ; preds = %land.end
-  %7 = load ptr, ptr %allocator.addr, align 8
-  %opts = getelementptr inbounds %struct.QGuestAllocator, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %opts, align 8
-  %and = and i32 %8, 3
-  %tobool1 = icmp ne i32 %and, 0
-  br i1 %tobool1, label %if.then, label %if.end
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8
+  %23 = and i32 %22, 3
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %34
 
-if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = load ptr, ptr %node, align 8
-  %addr = getelementptr inbounds %struct.MemBlock, ptr %10, i32 0, i32 2
-  %11 = load i64, ptr %addr, align 8
-  %12 = load ptr, ptr %node, align 8
-  %size = getelementptr inbounds %struct.MemBlock, ptr %12, i32 0, i32 1
-  %13 = load i64, ptr %size, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str, i64 noundef %11, i64 noundef %13)
-  br label %if.end
+25:                                               ; preds = %19
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.MemBlock, ptr %27, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.MemBlock, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  %33 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %26, i32 noundef 1, ptr noundef @.str, i64 noundef %29, i64 noundef %32)
+  br label %34
 
-if.end:                                           ; preds = %if.then, %for.body
-  %14 = load ptr, ptr %allocator.addr, align 8
-  %opts2 = getelementptr inbounds %struct.QGuestAllocator, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %opts2, align 8
-  %and3 = and i32 %15, 2
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
+34:                                               ; preds = %25, %19
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %35, i32 0, i32 0
+  %37 = load i32, ptr %36, align 8
+  %38 = and i32 %37, 2
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %44
 
-if.then5:                                         ; preds = %if.end
-  br label %do.body
+40:                                               ; preds = %34
+  br label %41
 
-do.body:                                          ; preds = %if.then5
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 229, ptr noundef @__func__.alloc_destroy, ptr noundef null) #4
+41:                                               ; preds = %40
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 229, ptr noundef @__func__.alloc_destroy, ptr noundef null) #10
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %if.end6
+42:                                               ; No predecessors!
+  br label %43
 
-if.end6:                                          ; preds = %do.end, %if.end
-  %16 = load ptr, ptr %node, align 8
-  call void @g_free(ptr noundef %16)
-  br label %for.inc
+43:                                               ; preds = %42
+  br label %44
 
-for.inc:                                          ; preds = %if.end6
-  %17 = load ptr, ptr %tmp, align 8
-  store ptr %17, ptr %node, align 8
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %land.end
-  store i32 6, ptr %mask, align 4
-  %18 = load ptr, ptr %allocator.addr, align 8
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %18, i32 0, i32 5
-  %19 = load ptr, ptr %free, align 8
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %node, align 8
-  br label %for.cond7
-
-for.cond7:                                        ; preds = %for.inc27, %for.end
-  %21 = load ptr, ptr %node, align 8
-  %tobool8 = icmp ne ptr %21, null
-  br i1 %tobool8, label %land.rhs9, label %land.end11
-
-land.rhs9:                                        ; preds = %for.cond7
-  %22 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME10 = getelementptr inbounds %struct.MemBlock, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %MLIST_ENTNAME10, align 8
-  store ptr %23, ptr %tmp, align 8
-  br label %land.end11
-
-land.end11:                                       ; preds = %land.rhs9, %for.cond7
-  %24 = phi i1 [ false, %for.cond7 ], [ true, %land.rhs9 ]
-  br i1 %24, label %for.body12, label %for.end28
-
-for.body12:                                       ; preds = %land.end11
-  %25 = load ptr, ptr %allocator.addr, align 8
-  %opts13 = getelementptr inbounds %struct.QGuestAllocator, ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %opts13, align 8
-  %27 = load i32, ptr %mask, align 4
-  %and14 = and i32 %26, %27
-  %28 = load i32, ptr %mask, align 4
-  %cmp = icmp eq i32 %and14, %28
-  br i1 %cmp, label %if.then15, label %if.end26
-
-if.then15:                                        ; preds = %for.body12
-  %29 = load ptr, ptr %node, align 8
-  %addr16 = getelementptr inbounds %struct.MemBlock, ptr %29, i32 0, i32 2
-  %30 = load i64, ptr %addr16, align 8
-  %31 = load ptr, ptr %allocator.addr, align 8
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %31, i32 0, i32 1
-  %32 = load i64, ptr %start, align 8
-  %cmp17 = icmp ne i64 %30, %32
-  br i1 %cmp17, label %if.then21, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then15
-  %33 = load ptr, ptr %node, align 8
-  %size18 = getelementptr inbounds %struct.MemBlock, ptr %33, i32 0, i32 1
-  %34 = load i64, ptr %size18, align 8
-  %35 = load ptr, ptr %allocator.addr, align 8
-  %end = getelementptr inbounds %struct.QGuestAllocator, ptr %35, i32 0, i32 2
-  %36 = load i64, ptr %end, align 8
-  %37 = load ptr, ptr %allocator.addr, align 8
-  %start19 = getelementptr inbounds %struct.QGuestAllocator, ptr %37, i32 0, i32 1
-  %38 = load i64, ptr %start19, align 8
-  %sub = sub i64 %36, %38
-  %cmp20 = icmp ne i64 %34, %sub
-  br i1 %cmp20, label %if.then21, label %if.end25
-
-if.then21:                                        ; preds = %lor.lhs.false, %if.then15
-  %39 = load ptr, ptr @stderr, align 8
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.2)
-  br label %do.body23
-
-do.body23:                                        ; preds = %if.then21
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 242, ptr noundef @__func__.alloc_destroy, ptr noundef null) #4
-  unreachable
-
-do.end24:                                         ; No predecessors!
-  br label %if.end25
-
-if.end25:                                         ; preds = %do.end24, %lor.lhs.false
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end25, %for.body12
-  %40 = load ptr, ptr %node, align 8
-  call void @g_free(ptr noundef %40)
-  br label %for.inc27
-
-for.inc27:                                        ; preds = %if.end26
-  %41 = load ptr, ptr %tmp, align 8
-  store ptr %41, ptr %node, align 8
-  br label %for.cond7, !llvm.loop !7
-
-for.end28:                                        ; preds = %land.end11
-  %42 = load ptr, ptr %allocator.addr, align 8
-  %used29 = getelementptr inbounds %struct.QGuestAllocator, ptr %42, i32 0, i32 4
-  %43 = load ptr, ptr %used29, align 8
-  call void @g_free(ptr noundef %43)
-  %44 = load ptr, ptr %allocator.addr, align 8
-  %free30 = getelementptr inbounds %struct.QGuestAllocator, ptr %44, i32 0, i32 5
-  %45 = load ptr, ptr %free30, align 8
+44:                                               ; preds = %43, %34
+  %45 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %45)
+  br label %46
+
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %4, align 8
+  store ptr %47, ptr %3, align 8
+  br label %10, !llvm.loop !5
+
+48:                                               ; preds = %17
+  store i32 6, ptr %5, align 4
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %49, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %3, align 8
+  br label %53
+
+53:                                               ; preds = %99, %48
+  %54 = load ptr, ptr %3, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %60
+
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.MemBlock, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %4, align 8
+  br label %60
+
+60:                                               ; preds = %56, %53
+  %61 = phi i1 [ false, %53 ], [ true, %56 ]
+  br i1 %61, label %62, label %101
+
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %2, align 8
+  %64 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 8
+  %66 = load i32, ptr %5, align 4
+  %67 = and i32 %65, %66
+  %68 = load i32, ptr %5, align 4
+  %69 = icmp eq i32 %67, %68
+  br i1 %69, label %70, label %97
+
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw %struct.MemBlock, ptr %71, i32 0, i32 2
+  %73 = load i64, ptr %72, align 8
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %74, i32 0, i32 1
+  %76 = load i64, ptr %75, align 8
+  %77 = icmp ne i64 %73, %76
+  br i1 %77, label %90, label %78
+
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds nuw %struct.MemBlock, ptr %79, i32 0, i32 1
+  %81 = load i64, ptr %80, align 8
+  %82 = load ptr, ptr %2, align 8
+  %83 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %82, i32 0, i32 2
+  %84 = load i64, ptr %83, align 8
+  %85 = load ptr, ptr %2, align 8
+  %86 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %85, i32 0, i32 1
+  %87 = load i64, ptr %86, align 8
+  %88 = sub i64 %84, %87
+  %89 = icmp ne i64 %81, %88
+  br i1 %89, label %90, label %96
+
+90:                                               ; preds = %78, %70
+  %91 = load ptr, ptr @stderr, align 8
+  %92 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %91, i32 noundef 1, ptr noundef @.str.2)
+  br label %93
+
+93:                                               ; preds = %90
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 242, ptr noundef @__func__.alloc_destroy, ptr noundef null) #10
+  unreachable
+
+94:                                               ; No predecessors!
+  br label %95
+
+95:                                               ; preds = %94
+  br label %96
+
+96:                                               ; preds = %95, %78
+  br label %97
+
+97:                                               ; preds = %96, %62
+  %98 = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %98)
+  br label %99
+
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %4, align 8
+  store ptr %100, ptr %3, align 8
+  br label %53, !llvm.loop !7
+
+101:                                              ; preds = %60
+  %102 = load ptr, ptr %2, align 8
+  %103 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %102, i32 0, i32 4
+  %104 = load ptr, ptr %103, align 8
+  call void @g_free(ptr noundef %104)
+  %105 = load ptr, ptr %2, align 8
+  %106 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %105, i32 0, i32 5
+  %107 = load ptr, ptr %106, align 8
+  call void @g_free(ptr noundef %107)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
   ret void
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
-declare void @g_free(ptr noundef) #1
+declare void @g_free(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @guest_alloc(ptr noundef %allocator, i64 noundef %size) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %allocator.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %rsize = alloca i64, align 8
-  %naddr = alloca i64, align 8
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n111 = alloca i64, align 8
-  %__n212 = alloca i64, align 8
-  store ptr %allocator, ptr %allocator.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  store i64 %0, ptr %rsize, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %tobool = icmp ne i64 %1, 0
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local i64 @guest_alloc(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %13 = load i64, ptr %5, align 8
+  store i64 %13, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  store i64 0, ptr %7, align 8, !annotation !4
+  %14 = load i64, ptr %5, align 8
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %17, label %16
 
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %2
+  store i64 0, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %80
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %allocator.addr, align 8
-  %page_size = getelementptr inbounds %struct.QGuestAllocator, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %page_size, align 8
-  %sub = sub i32 %3, 1
-  %conv = zext i32 %sub to i64
-  %4 = load i64, ptr %rsize, align 8
-  %add = add i64 %4, %conv
-  store i64 %add, ptr %rsize, align 8
-  %5 = load ptr, ptr %allocator.addr, align 8
-  %page_size1 = getelementptr inbounds %struct.QGuestAllocator, ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %page_size1, align 8
-  %sub2 = sub i32 0, %6
-  %conv3 = zext i32 %sub2 to i64
-  %7 = load i64, ptr %rsize, align 8
-  %and = and i64 %7, %conv3
-  store i64 %and, ptr %rsize, align 8
-  br label %do.body
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 8
+  %21 = sub i32 %20, 1
+  %22 = zext i32 %21 to i64
+  %23 = load i64, ptr %6, align 8
+  %24 = add i64 %23, %22
+  store i64 %24, ptr %6, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 8
+  %28 = sub i32 0, %27
+  %29 = zext i32 %28 to i64
+  %30 = load i64, ptr %6, align 8
+  %31 = and i64 %30, %29
+  store i64 %31, ptr %6, align 8
+  br label %32
 
-do.body:                                          ; preds = %if.end
-  %8 = load ptr, ptr %allocator.addr, align 8
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %start, align 8
-  %10 = load i64, ptr %rsize, align 8
-  %add4 = add i64 %9, %10
-  store i64 %add4, ptr %__n1, align 8
-  %11 = load ptr, ptr %allocator.addr, align 8
-  %end = getelementptr inbounds %struct.QGuestAllocator, ptr %11, i32 0, i32 2
-  %12 = load i64, ptr %end, align 8
-  store i64 %12, ptr %__n2, align 8
-  %13 = load i64, ptr %__n1, align 8
-  %14 = load i64, ptr %__n2, align 8
-  %cmp = icmp sle i64 %13, %14
-  br i1 %cmp, label %if.then6, label %if.else
+32:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %33, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load i64, ptr %6, align 8
+  %37 = add i64 %35, %36
+  store i64 %37, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %38, i32 0, i32 2
+  %40 = load i64, ptr %39, align 8
+  store i64 %40, ptr %10, align 8
+  %41 = load i64, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = icmp sle i64 %41, %42
+  br i1 %43, label %44, label %45
 
-if.then6:                                         ; preds = %do.body
-  br label %if.end9
+44:                                               ; preds = %32
+  br label %50
 
-if.else:                                          ; preds = %do.body
-  %15 = load i64, ptr %__n1, align 8
-  %conv7 = sitofp i64 %15 to x86_fp80
-  %16 = load i64, ptr %__n2, align 8
-  %conv8 = sitofp i64 %16 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 264, ptr noundef @__func__.guest_alloc, ptr noundef @.str.3, x86_fp80 noundef %conv7, ptr noundef @.str.4, x86_fp80 noundef %conv8, i8 noundef signext 105)
-  br label %if.end9
+45:                                               ; preds = %32
+  %46 = load i64, ptr %9, align 8
+  %47 = sitofp i64 %46 to x86_fp80
+  %48 = load i64, ptr %10, align 8
+  %49 = sitofp i64 %48 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 264, ptr noundef @__func__.guest_alloc, ptr noundef @.str.3, x86_fp80 noundef %47, ptr noundef @.str.4, x86_fp80 noundef %49, i8 noundef signext 105)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then6
-  br label %do.end
+50:                                               ; preds = %45, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  br label %51
 
-do.end:                                           ; preds = %if.end9
-  br label %do.body10
+51:                                               ; preds = %50
+  br label %52
 
-do.body10:                                        ; preds = %do.end
-  %17 = load i64, ptr %rsize, align 8
-  store i64 %17, ptr %__n111, align 8
-  %18 = load i64, ptr %size.addr, align 8
-  store i64 %18, ptr %__n212, align 8
-  %19 = load i64, ptr %__n111, align 8
-  %20 = load i64, ptr %__n212, align 8
-  %cmp13 = icmp sge i64 %19, %20
-  br i1 %cmp13, label %if.then15, label %if.else16
+52:                                               ; preds = %51
+  br label %53
 
-if.then15:                                        ; preds = %do.body10
-  br label %if.end19
+53:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %54 = load i64, ptr %6, align 8
+  store i64 %54, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %55 = load i64, ptr %5, align 8
+  store i64 %55, ptr %12, align 8
+  %56 = load i64, ptr %11, align 8
+  %57 = load i64, ptr %12, align 8
+  %58 = icmp sge i64 %56, %57
+  br i1 %58, label %59, label %60
 
-if.else16:                                        ; preds = %do.body10
-  %21 = load i64, ptr %__n111, align 8
-  %conv17 = sitofp i64 %21 to x86_fp80
-  %22 = load i64, ptr %__n212, align 8
-  %conv18 = sitofp i64 %22 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 265, ptr noundef @__func__.guest_alloc, ptr noundef @.str.5, x86_fp80 noundef %conv17, ptr noundef @.str.6, x86_fp80 noundef %conv18, i8 noundef signext 105)
-  br label %if.end19
+59:                                               ; preds = %53
+  br label %65
 
-if.end19:                                         ; preds = %if.else16, %if.then15
-  br label %do.end20
+60:                                               ; preds = %53
+  %61 = load i64, ptr %11, align 8
+  %62 = sitofp i64 %61 to x86_fp80
+  %63 = load i64, ptr %12, align 8
+  %64 = sitofp i64 %63 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 265, ptr noundef @__func__.guest_alloc, ptr noundef @.str.5, x86_fp80 noundef %62, ptr noundef @.str.6, x86_fp80 noundef %64, i8 noundef signext 105)
+  br label %65
 
-do.end20:                                         ; preds = %if.end19
-  %23 = load ptr, ptr %allocator.addr, align 8
-  %24 = load i64, ptr %rsize, align 8
-  %call = call i64 @mlist_alloc(ptr noundef %23, i64 noundef %24)
-  store i64 %call, ptr %naddr, align 8
-  %25 = load ptr, ptr %allocator.addr, align 8
-  %opts = getelementptr inbounds %struct.QGuestAllocator, ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %opts, align 8
-  %and21 = and i32 %26, 4
-  %tobool22 = icmp ne i32 %and21, 0
-  br i1 %tobool22, label %if.then23, label %if.end24
+65:                                               ; preds = %60, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  br label %66
 
-if.then23:                                        ; preds = %do.end20
-  %27 = load ptr, ptr %allocator.addr, align 8
-  call void @mlist_check(ptr noundef %27)
-  br label %if.end24
+66:                                               ; preds = %65
+  br label %67
 
-if.end24:                                         ; preds = %if.then23, %do.end20
-  %28 = load i64, ptr %naddr, align 8
-  store i64 %28, ptr %retval, align 8
-  br label %return
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %4, align 8
+  %69 = load i64, ptr %6, align 8
+  %70 = call i64 @mlist_alloc(ptr noundef %68, i64 noundef %69)
+  store i64 %70, ptr %7, align 8
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %71, i32 0, i32 0
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, 4
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %78
 
-return:                                           ; preds = %if.end24, %if.then
-  %29 = load i64, ptr %retval, align 8
-  ret i64 %29
+76:                                               ; preds = %67
+  %77 = load ptr, ptr %4, align 8
+  call void @mlist_check(ptr noundef %77)
+  br label %78
+
+78:                                               ; preds = %76, %67
+  %79 = load i64, ptr %7, align 8
+  store i64 %79, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %80
+
+80:                                               ; preds = %78, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %81 = load i64, ptr %3, align 8
+  ret i64 %81
 }
 
-declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) #1
+declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mlist_alloc(ptr noundef %s, i64 noundef %size) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %node = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %0, i32 0, i32 5
-  %1 = load ptr, ptr %free, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call = call ptr @mlist_find_space(ptr noundef %1, i64 noundef %2)
-  store ptr %call, ptr %node, align 8
-  %3 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.10)
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 184, ptr noundef @__func__.mlist_alloc, ptr noundef null) #4
-  unreachable
-
-do.end:                                           ; No predecessors!
-  br label %if.end
-
-if.end:                                           ; preds = %do.end, %entry
-  %5 = load ptr, ptr %s.addr, align 8
-  %6 = load ptr, ptr %node, align 8
-  %7 = load i64, ptr %size.addr, align 8
-  %call2 = call i64 @mlist_fulfill(ptr noundef %5, ptr noundef %6, i64 noundef %7)
-  ret i64 %call2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @mlist_check(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %node = alloca ptr, align 8
-  %addr = alloca i64, align 8
-  %next = alloca i64, align 8
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n17 = alloca i64, align 8
-  %__n29 = alloca i64, align 8
-  %__n134 = alloca i64, align 8
-  %__n236 = alloca i64, align 8
-  %__n146 = alloca i64, align 8
-  %__n248 = alloca i64, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %start, align 8
-  %cmp = icmp ugt i64 %1, 0
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %s.addr, align 8
-  %start1 = getelementptr inbounds %struct.QGuestAllocator, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %start1, align 8
-  %sub = sub i64 %3, 1
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub, %cond.true ], [ 0, %cond.false ]
-  store i64 %cond, ptr %addr, align 8
-  %4 = load ptr, ptr %s.addr, align 8
-  %start2 = getelementptr inbounds %struct.QGuestAllocator, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %start2, align 8
-  store i64 %5, ptr %next, align 8
-  %6 = load ptr, ptr %s.addr, align 8
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %free, align 8
+define internal i64 @mlist_alloc(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  store ptr null, ptr %5, align 8, !annotation !4
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %6, i32 0, i32 5
   %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %node, align 8
-  br label %for.cond
+  %9 = load i64, ptr %4, align 8
+  %10 = call ptr @mlist_find_space(ptr noundef %8, i64 noundef %9)
+  store ptr %10, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %19, label %13
 
-for.cond:                                         ; preds = %for.inc, %cond.end
-  %9 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %9, null
-  br i1 %tobool, label %for.body, label %for.end
+13:                                               ; preds = %2
+  %14 = load ptr, ptr @stderr, align 8
+  %15 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %14, i32 noundef 1, ptr noundef @.str.10)
+  br label %16
 
-for.body:                                         ; preds = %for.cond
-  br label %do.body
-
-do.body:                                          ; preds = %for.body
-  %10 = load ptr, ptr %node, align 8
-  %addr3 = getelementptr inbounds %struct.MemBlock, ptr %10, i32 0, i32 2
-  %11 = load i64, ptr %addr3, align 8
-  store i64 %11, ptr %__n1, align 8
-  %12 = load i64, ptr %addr, align 8
-  store i64 %12, ptr %__n2, align 8
-  %13 = load i64, ptr %__n1, align 8
-  %14 = load i64, ptr %__n2, align 8
-  %cmp4 = icmp sgt i64 %13, %14
-  br i1 %cmp4, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %15 = load i64, ptr %__n1, align 8
-  %conv = sitofp i64 %15 to x86_fp80
-  %16 = load i64, ptr %__n2, align 8
-  %conv5 = sitofp i64 %16 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 161, ptr noundef @__func__.mlist_check, ptr noundef @.str.14, x86_fp80 noundef %conv, ptr noundef @.str.15, x86_fp80 noundef %conv5, i8 noundef signext 105)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body6
-
-do.body6:                                         ; preds = %do.end
-  %17 = load ptr, ptr %node, align 8
-  %addr8 = getelementptr inbounds %struct.MemBlock, ptr %17, i32 0, i32 2
-  %18 = load i64, ptr %addr8, align 8
-  store i64 %18, ptr %__n17, align 8
-  %19 = load i64, ptr %next, align 8
-  store i64 %19, ptr %__n29, align 8
-  %20 = load i64, ptr %__n17, align 8
-  %21 = load i64, ptr %__n29, align 8
-  %cmp10 = icmp sge i64 %20, %21
-  br i1 %cmp10, label %if.then12, label %if.else13
-
-if.then12:                                        ; preds = %do.body6
-  br label %if.end16
-
-if.else13:                                        ; preds = %do.body6
-  %22 = load i64, ptr %__n17, align 8
-  %conv14 = sitofp i64 %22 to x86_fp80
-  %23 = load i64, ptr %__n29, align 8
-  %conv15 = sitofp i64 %23 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 162, ptr noundef @__func__.mlist_check, ptr noundef @.str.16, x86_fp80 noundef %conv14, ptr noundef @.str.6, x86_fp80 noundef %conv15, i8 noundef signext 105)
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.else13, %if.then12
-  br label %do.end17
-
-do.end17:                                         ; preds = %if.end16
-  %24 = load ptr, ptr %node, align 8
-  %addr18 = getelementptr inbounds %struct.MemBlock, ptr %24, i32 0, i32 2
-  %25 = load i64, ptr %addr18, align 8
-  store i64 %25, ptr %addr, align 8
-  %26 = load ptr, ptr %node, align 8
-  %addr19 = getelementptr inbounds %struct.MemBlock, ptr %26, i32 0, i32 2
-  %27 = load i64, ptr %addr19, align 8
-  %28 = load ptr, ptr %node, align 8
-  %size = getelementptr inbounds %struct.MemBlock, ptr %28, i32 0, i32 1
-  %29 = load i64, ptr %size, align 8
-  %add = add i64 %27, %29
-  store i64 %add, ptr %next, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %do.end17
-  %30 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %MLIST_ENTNAME, align 8
-  store ptr %31, ptr %node, align 8
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %for.cond
-  %32 = load ptr, ptr %s.addr, align 8
-  %start20 = getelementptr inbounds %struct.QGuestAllocator, ptr %32, i32 0, i32 1
-  %33 = load i64, ptr %start20, align 8
-  %cmp21 = icmp ugt i64 %33, 0
-  br i1 %cmp21, label %cond.true23, label %cond.false26
-
-cond.true23:                                      ; preds = %for.end
-  %34 = load ptr, ptr %s.addr, align 8
-  %start24 = getelementptr inbounds %struct.QGuestAllocator, ptr %34, i32 0, i32 1
-  %35 = load i64, ptr %start24, align 8
-  %sub25 = sub i64 %35, 1
-  br label %cond.end27
-
-cond.false26:                                     ; preds = %for.end
-  br label %cond.end27
-
-cond.end27:                                       ; preds = %cond.false26, %cond.true23
-  %cond28 = phi i64 [ %sub25, %cond.true23 ], [ 0, %cond.false26 ]
-  store i64 %cond28, ptr %addr, align 8
-  %36 = load ptr, ptr %s.addr, align 8
-  %start29 = getelementptr inbounds %struct.QGuestAllocator, ptr %36, i32 0, i32 1
-  %37 = load i64, ptr %start29, align 8
-  store i64 %37, ptr %next, align 8
-  %38 = load ptr, ptr %s.addr, align 8
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %38, i32 0, i32 4
-  %39 = load ptr, ptr %used, align 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %node, align 8
-  br label %for.cond30
-
-for.cond30:                                       ; preds = %for.inc61, %cond.end27
-  %41 = load ptr, ptr %node, align 8
-  %tobool31 = icmp ne ptr %41, null
-  br i1 %tobool31, label %for.body32, label %for.end63
-
-for.body32:                                       ; preds = %for.cond30
-  br label %do.body33
-
-do.body33:                                        ; preds = %for.body32
-  %42 = load ptr, ptr %node, align 8
-  %addr35 = getelementptr inbounds %struct.MemBlock, ptr %42, i32 0, i32 2
-  %43 = load i64, ptr %addr35, align 8
-  store i64 %43, ptr %__n134, align 8
-  %44 = load i64, ptr %addr, align 8
-  store i64 %44, ptr %__n236, align 8
-  %45 = load i64, ptr %__n134, align 8
-  %46 = load i64, ptr %__n236, align 8
-  %cmp37 = icmp sgt i64 %45, %46
-  br i1 %cmp37, label %if.then39, label %if.else40
-
-if.then39:                                        ; preds = %do.body33
-  br label %if.end43
-
-if.else40:                                        ; preds = %do.body33
-  %47 = load i64, ptr %__n134, align 8
-  %conv41 = sitofp i64 %47 to x86_fp80
-  %48 = load i64, ptr %__n236, align 8
-  %conv42 = sitofp i64 %48 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 170, ptr noundef @__func__.mlist_check, ptr noundef @.str.14, x86_fp80 noundef %conv41, ptr noundef @.str.15, x86_fp80 noundef %conv42, i8 noundef signext 105)
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.else40, %if.then39
-  br label %do.end44
-
-do.end44:                                         ; preds = %if.end43
-  br label %do.body45
-
-do.body45:                                        ; preds = %do.end44
-  %49 = load ptr, ptr %node, align 8
-  %addr47 = getelementptr inbounds %struct.MemBlock, ptr %49, i32 0, i32 2
-  %50 = load i64, ptr %addr47, align 8
-  store i64 %50, ptr %__n146, align 8
-  %51 = load i64, ptr %next, align 8
-  store i64 %51, ptr %__n248, align 8
-  %52 = load i64, ptr %__n146, align 8
-  %53 = load i64, ptr %__n248, align 8
-  %cmp49 = icmp sge i64 %52, %53
-  br i1 %cmp49, label %if.then51, label %if.else52
-
-if.then51:                                        ; preds = %do.body45
-  br label %if.end55
-
-if.else52:                                        ; preds = %do.body45
-  %54 = load i64, ptr %__n146, align 8
-  %conv53 = sitofp i64 %54 to x86_fp80
-  %55 = load i64, ptr %__n248, align 8
-  %conv54 = sitofp i64 %55 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 171, ptr noundef @__func__.mlist_check, ptr noundef @.str.16, x86_fp80 noundef %conv53, ptr noundef @.str.6, x86_fp80 noundef %conv54, i8 noundef signext 105)
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.else52, %if.then51
-  br label %do.end56
-
-do.end56:                                         ; preds = %if.end55
-  %56 = load ptr, ptr %node, align 8
-  %addr57 = getelementptr inbounds %struct.MemBlock, ptr %56, i32 0, i32 2
-  %57 = load i64, ptr %addr57, align 8
-  store i64 %57, ptr %addr, align 8
-  %58 = load ptr, ptr %node, align 8
-  %addr58 = getelementptr inbounds %struct.MemBlock, ptr %58, i32 0, i32 2
-  %59 = load i64, ptr %addr58, align 8
-  %60 = load ptr, ptr %node, align 8
-  %size59 = getelementptr inbounds %struct.MemBlock, ptr %60, i32 0, i32 1
-  %61 = load i64, ptr %size59, align 8
-  %add60 = add i64 %59, %61
-  store i64 %add60, ptr %next, align 8
-  br label %for.inc61
-
-for.inc61:                                        ; preds = %do.end56
-  %62 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME62 = getelementptr inbounds %struct.MemBlock, ptr %62, i32 0, i32 0
-  %63 = load ptr, ptr %MLIST_ENTNAME62, align 8
-  store ptr %63, ptr %node, align 8
-  br label %for.cond30, !llvm.loop !9
-
-for.end63:                                        ; preds = %for.cond30
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @guest_free(ptr noundef %allocator, i64 noundef %addr) #0 {
-entry:
-  %allocator.addr = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  store ptr %allocator, ptr %allocator.addr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  %0 = load i64, ptr %addr.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %if.end3
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %allocator.addr, align 8
-  %2 = load i64, ptr %addr.addr, align 8
-  call void @mlist_free(ptr noundef %1, i64 noundef %2)
-  %3 = load ptr, ptr %allocator.addr, align 8
-  %opts = getelementptr inbounds %struct.QGuestAllocator, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %opts, align 8
-  %and = and i32 %4, 4
-  %tobool1 = icmp ne i32 %and, 0
-  br i1 %tobool1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  %5 = load ptr, ptr %allocator.addr, align 8
-  call void @mlist_check(ptr noundef %5)
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.then2, %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @mlist_free(ptr noundef %s, i64 noundef %addr) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  %node = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  %0 = load i64, ptr %addr.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %s.addr, align 8
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %used, align 8
-  %3 = load i64, ptr %addr.addr, align 8
-  %call = call ptr @mlist_find_key(ptr noundef %2, i64 noundef %3)
-  store ptr %call, ptr %node, align 8
-  %4 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %if.end3, label %if.then1
-
-if.then1:                                         ; preds = %if.end
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load i64, ptr %addr.addr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.17, i64 noundef %6)
-  br label %do.body
-
-do.body:                                          ; preds = %if.then1
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 202, ptr noundef @__func__.mlist_free, ptr noundef null) #4
+16:                                               ; preds = %13
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 184, ptr noundef @__func__.mlist_alloc, ptr noundef null) #10
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %if.end3
+17:                                               ; No predecessors!
+  br label %18
 
-if.end3:                                          ; preds = %do.end, %if.end
-  br label %do.body4
+18:                                               ; preds = %17
+  br label %19
 
-do.body4:                                         ; preds = %if.end3
-  %7 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %MLIST_ENTNAME, align 8
-  %cmp5 = icmp ne ptr %8, null
-  br i1 %cmp5, label %if.then6, label %if.else
+19:                                               ; preds = %18, %2
+  %20 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i64, ptr %4, align 8
+  %23 = call i64 @mlist_fulfill(ptr noundef %20, ptr noundef %21, i64 noundef %22)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i64 %23
+}
 
-if.then6:                                         ; preds = %do.body4
-  %9 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME7 = getelementptr inbounds %struct.MemBlock, ptr %9, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME7, i32 0, i32 1
-  %10 = load ptr, ptr %tql_prev, align 8
-  %11 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME8 = getelementptr inbounds %struct.MemBlock, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %MLIST_ENTNAME8, align 8
-  %MLIST_ENTNAME9 = getelementptr inbounds %struct.MemBlock, ptr %12, i32 0, i32 0
-  %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME9, i32 0, i32 1
-  store ptr %10, ptr %tql_prev10, align 8
-  br label %if.end15
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @mlist_check(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  store ptr null, ptr %3, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp ugt i64 %16, 0
+  br i1 %17, label %18, label %23
 
-if.else:                                          ; preds = %do.body4
-  %13 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME11 = getelementptr inbounds %struct.MemBlock, ptr %13, i32 0, i32 0
-  %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME11, i32 0, i32 1
-  %14 = load ptr, ptr %tql_prev12, align 8
-  %15 = load ptr, ptr %s.addr, align 8
-  %used13 = getelementptr inbounds %struct.QGuestAllocator, ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %used13, align 8
-  %tql_prev14 = getelementptr inbounds %struct.QTailQLink, ptr %16, i32 0, i32 1
-  store ptr %14, ptr %tql_prev14, align 8
-  br label %if.end15
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = sub i64 %21, 1
+  br label %24
 
-if.end15:                                         ; preds = %if.else, %if.then6
-  %17 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME16 = getelementptr inbounds %struct.MemBlock, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %MLIST_ENTNAME16, align 8
-  %19 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME17 = getelementptr inbounds %struct.MemBlock, ptr %19, i32 0, i32 0
-  %tql_prev18 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME17, i32 0, i32 1
-  %20 = load ptr, ptr %tql_prev18, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
-  store ptr %18, ptr %tql_next, align 8
-  %21 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME19 = getelementptr inbounds %struct.MemBlock, ptr %21, i32 0, i32 0
-  %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME19, i32 0, i32 1
-  store ptr null, ptr %tql_prev20, align 8
-  %22 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME21 = getelementptr inbounds %struct.MemBlock, ptr %22, i32 0, i32 0
-  %tql_next22 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME21, i32 0, i32 0
-  store ptr null, ptr %tql_next22, align 8
-  %23 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME23 = getelementptr inbounds %struct.MemBlock, ptr %23, i32 0, i32 0
-  store ptr null, ptr %MLIST_ENTNAME23, align 8
-  br label %do.end24
+23:                                               ; preds = %1
+  br label %24
 
-do.end24:                                         ; preds = %if.end15
-  %24 = load ptr, ptr %s.addr, align 8
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %24, i32 0, i32 5
-  %25 = load ptr, ptr %free, align 8
-  %26 = load ptr, ptr %node, align 8
-  %call25 = call ptr @mlist_sort_insert(ptr noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %s.addr, align 8
-  %free26 = getelementptr inbounds %struct.QGuestAllocator, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %free26, align 8
-  %29 = load ptr, ptr %node, align 8
-  call void @mlist_coalesce(ptr noundef %28, ptr noundef %29)
-  br label %return
+24:                                               ; preds = %23, %18
+  %25 = phi i64 [ %22, %18 ], [ 0, %23 ]
+  store i64 %25, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %26, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  store i64 %28, ptr %5, align 8
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %29, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %3, align 8
+  br label %33
 
-return:                                           ; preds = %do.end24, %if.then
+33:                                               ; preds = %81, %24
+  %34 = load ptr, ptr %3, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %85
+
+36:                                               ; preds = %33
+  br label %37
+
+37:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.MemBlock, ptr %38, i32 0, i32 2
+  %40 = load i64, ptr %39, align 8
+  store i64 %40, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %41 = load i64, ptr %4, align 8
+  store i64 %41, ptr %7, align 8
+  %42 = load i64, ptr %6, align 8
+  %43 = load i64, ptr %7, align 8
+  %44 = icmp sgt i64 %42, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %37
+  br label %51
+
+46:                                               ; preds = %37
+  %47 = load i64, ptr %6, align 8
+  %48 = sitofp i64 %47 to x86_fp80
+  %49 = load i64, ptr %7, align 8
+  %50 = sitofp i64 %49 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 161, ptr noundef @__func__.mlist_check, ptr noundef @.str.14, x86_fp80 noundef %48, ptr noundef @.str.15, x86_fp80 noundef %50, i8 noundef signext 105)
+  br label %51
+
+51:                                               ; preds = %46, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %52
+
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  br label %54
+
+54:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds nuw %struct.MemBlock, ptr %55, i32 0, i32 2
+  %57 = load i64, ptr %56, align 8
+  store i64 %57, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %58 = load i64, ptr %5, align 8
+  store i64 %58, ptr %9, align 8
+  %59 = load i64, ptr %8, align 8
+  %60 = load i64, ptr %9, align 8
+  %61 = icmp sge i64 %59, %60
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %54
+  br label %68
+
+63:                                               ; preds = %54
+  %64 = load i64, ptr %8, align 8
+  %65 = sitofp i64 %64 to x86_fp80
+  %66 = load i64, ptr %9, align 8
+  %67 = sitofp i64 %66 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 162, ptr noundef @__func__.mlist_check, ptr noundef @.str.16, x86_fp80 noundef %65, ptr noundef @.str.6, x86_fp80 noundef %67, i8 noundef signext 105)
+  br label %68
+
+68:                                               ; preds = %63, %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  br label %69
+
+69:                                               ; preds = %68
+  br label %70
+
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw %struct.MemBlock, ptr %71, i32 0, i32 2
+  %73 = load i64, ptr %72, align 8
+  store i64 %73, ptr %4, align 8
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds nuw %struct.MemBlock, ptr %74, i32 0, i32 2
+  %76 = load i64, ptr %75, align 8
+  %77 = load ptr, ptr %3, align 8
+  %78 = getelementptr inbounds nuw %struct.MemBlock, ptr %77, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  %80 = add i64 %76, %79
+  store i64 %80, ptr %5, align 8
+  br label %81
+
+81:                                               ; preds = %70
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds nuw %struct.MemBlock, ptr %82, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  store ptr %84, ptr %3, align 8
+  br label %33, !llvm.loop !8
+
+85:                                               ; preds = %33
+  %86 = load ptr, ptr %2, align 8
+  %87 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %86, i32 0, i32 1
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp ugt i64 %88, 0
+  br i1 %89, label %90, label %95
+
+90:                                               ; preds = %85
+  %91 = load ptr, ptr %2, align 8
+  %92 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %91, i32 0, i32 1
+  %93 = load i64, ptr %92, align 8
+  %94 = sub i64 %93, 1
+  br label %96
+
+95:                                               ; preds = %85
+  br label %96
+
+96:                                               ; preds = %95, %90
+  %97 = phi i64 [ %94, %90 ], [ 0, %95 ]
+  store i64 %97, ptr %4, align 8
+  %98 = load ptr, ptr %2, align 8
+  %99 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %98, i32 0, i32 1
+  %100 = load i64, ptr %99, align 8
+  store i64 %100, ptr %5, align 8
+  %101 = load ptr, ptr %2, align 8
+  %102 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %101, i32 0, i32 4
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr %3, align 8
+  br label %105
+
+105:                                              ; preds = %153, %96
+  %106 = load ptr, ptr %3, align 8
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %108, label %157
+
+108:                                              ; preds = %105
+  br label %109
+
+109:                                              ; preds = %108
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds nuw %struct.MemBlock, ptr %110, i32 0, i32 2
+  %112 = load i64, ptr %111, align 8
+  store i64 %112, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %113 = load i64, ptr %4, align 8
+  store i64 %113, ptr %11, align 8
+  %114 = load i64, ptr %10, align 8
+  %115 = load i64, ptr %11, align 8
+  %116 = icmp sgt i64 %114, %115
+  br i1 %116, label %117, label %118
+
+117:                                              ; preds = %109
+  br label %123
+
+118:                                              ; preds = %109
+  %119 = load i64, ptr %10, align 8
+  %120 = sitofp i64 %119 to x86_fp80
+  %121 = load i64, ptr %11, align 8
+  %122 = sitofp i64 %121 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 170, ptr noundef @__func__.mlist_check, ptr noundef @.str.14, x86_fp80 noundef %120, ptr noundef @.str.15, x86_fp80 noundef %122, i8 noundef signext 105)
+  br label %123
+
+123:                                              ; preds = %118, %117
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  br label %124
+
+124:                                              ; preds = %123
+  br label %125
+
+125:                                              ; preds = %124
+  br label %126
+
+126:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %127 = load ptr, ptr %3, align 8
+  %128 = getelementptr inbounds nuw %struct.MemBlock, ptr %127, i32 0, i32 2
+  %129 = load i64, ptr %128, align 8
+  store i64 %129, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  %130 = load i64, ptr %5, align 8
+  store i64 %130, ptr %13, align 8
+  %131 = load i64, ptr %12, align 8
+  %132 = load i64, ptr %13, align 8
+  %133 = icmp sge i64 %131, %132
+  br i1 %133, label %134, label %135
+
+134:                                              ; preds = %126
+  br label %140
+
+135:                                              ; preds = %126
+  %136 = load i64, ptr %12, align 8
+  %137 = sitofp i64 %136 to x86_fp80
+  %138 = load i64, ptr %13, align 8
+  %139 = sitofp i64 %138 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 171, ptr noundef @__func__.mlist_check, ptr noundef @.str.16, x86_fp80 noundef %137, ptr noundef @.str.6, x86_fp80 noundef %139, i8 noundef signext 105)
+  br label %140
+
+140:                                              ; preds = %135, %134
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  br label %141
+
+141:                                              ; preds = %140
+  br label %142
+
+142:                                              ; preds = %141
+  %143 = load ptr, ptr %3, align 8
+  %144 = getelementptr inbounds nuw %struct.MemBlock, ptr %143, i32 0, i32 2
+  %145 = load i64, ptr %144, align 8
+  store i64 %145, ptr %4, align 8
+  %146 = load ptr, ptr %3, align 8
+  %147 = getelementptr inbounds nuw %struct.MemBlock, ptr %146, i32 0, i32 2
+  %148 = load i64, ptr %147, align 8
+  %149 = load ptr, ptr %3, align 8
+  %150 = getelementptr inbounds nuw %struct.MemBlock, ptr %149, i32 0, i32 1
+  %151 = load i64, ptr %150, align 8
+  %152 = add i64 %148, %151
+  store i64 %152, ptr %5, align 8
+  br label %153
+
+153:                                              ; preds = %142
+  %154 = load ptr, ptr %3, align 8
+  %155 = getelementptr inbounds nuw %struct.MemBlock, ptr %154, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8
+  store ptr %156, ptr %3, align 8
+  br label %105, !llvm.loop !9
+
+157:                                              ; preds = %105
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @alloc_init(ptr noundef %s, i32 noundef %opts, i64 noundef %start, i64 noundef %end, i64 noundef %page_size) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %opts.addr = alloca i32, align 4
-  %start.addr = alloca i64, align 8
-  %end.addr = alloca i64, align 8
-  %page_size.addr = alloca i64, align 8
-  %node = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store i32 %opts, ptr %opts.addr, align 4
-  store i64 %start, ptr %start.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  store i64 %page_size, ptr %page_size.addr, align 8
-  %0 = load i32, ptr %opts.addr, align 4
-  %1 = load ptr, ptr %s.addr, align 8
-  %opts1 = getelementptr inbounds %struct.QGuestAllocator, ptr %1, i32 0, i32 0
-  store i32 %0, ptr %opts1, align 8
-  %2 = load i64, ptr %start.addr, align 8
-  %3 = load ptr, ptr %s.addr, align 8
-  %start2 = getelementptr inbounds %struct.QGuestAllocator, ptr %3, i32 0, i32 1
-  store i64 %2, ptr %start2, align 8
-  %4 = load i64, ptr %end.addr, align 8
-  %5 = load ptr, ptr %s.addr, align 8
-  %end3 = getelementptr inbounds %struct.QGuestAllocator, ptr %5, i32 0, i32 2
-  store i64 %4, ptr %end3, align 8
-  %call = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #5
-  %6 = load ptr, ptr %s.addr, align 8
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %6, i32 0, i32 4
-  store ptr %call, ptr %used, align 8
-  %call4 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #5
-  %7 = load ptr, ptr %s.addr, align 8
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %7, i32 0, i32 5
-  store ptr %call4, ptr %free, align 8
-  br label %do.body
+define dso_local void @guest_free(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %8, label %7
 
-do.body:                                          ; preds = %entry
-  %8 = load ptr, ptr %s.addr, align 8
-  %used5 = getelementptr inbounds %struct.QGuestAllocator, ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %used5, align 8
-  store ptr null, ptr %9, align 8
-  %10 = load ptr, ptr %s.addr, align 8
-  %used6 = getelementptr inbounds %struct.QGuestAllocator, ptr %10, i32 0, i32 4
-  %11 = load ptr, ptr %used6, align 8
-  %12 = load ptr, ptr %s.addr, align 8
-  %used7 = getelementptr inbounds %struct.QGuestAllocator, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %used7, align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 1
-  store ptr %11, ptr %tql_prev, align 8
-  br label %do.end
+7:                                                ; preds = %2
+  br label %18
 
-do.end:                                           ; preds = %do.body
-  br label %do.body8
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8
+  %10 = load i64, ptr %4, align 8
+  call void @mlist_free(ptr noundef %9, i64 noundef %10)
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %12, align 8
+  %14 = and i32 %13, 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
 
-do.body8:                                         ; preds = %do.end
-  %14 = load ptr, ptr %s.addr, align 8
-  %free9 = getelementptr inbounds %struct.QGuestAllocator, ptr %14, i32 0, i32 5
-  %15 = load ptr, ptr %free9, align 8
-  store ptr null, ptr %15, align 8
-  %16 = load ptr, ptr %s.addr, align 8
-  %free10 = getelementptr inbounds %struct.QGuestAllocator, ptr %16, i32 0, i32 5
-  %17 = load ptr, ptr %free10, align 8
-  %18 = load ptr, ptr %s.addr, align 8
-  %free11 = getelementptr inbounds %struct.QGuestAllocator, ptr %18, i32 0, i32 5
-  %19 = load ptr, ptr %free11, align 8
-  %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %19, i32 0, i32 1
-  store ptr %17, ptr %tql_prev12, align 8
-  br label %do.end13
+16:                                               ; preds = %8
+  %17 = load ptr, ptr %3, align 8
+  call void @mlist_check(ptr noundef %17)
+  br label %18
 
-do.end13:                                         ; preds = %do.body8
-  %20 = load ptr, ptr %s.addr, align 8
-  %start14 = getelementptr inbounds %struct.QGuestAllocator, ptr %20, i32 0, i32 1
-  %21 = load i64, ptr %start14, align 8
-  %22 = load ptr, ptr %s.addr, align 8
-  %end15 = getelementptr inbounds %struct.QGuestAllocator, ptr %22, i32 0, i32 2
-  %23 = load i64, ptr %end15, align 8
-  %24 = load ptr, ptr %s.addr, align 8
-  %start16 = getelementptr inbounds %struct.QGuestAllocator, ptr %24, i32 0, i32 1
-  %25 = load i64, ptr %start16, align 8
-  %sub = sub i64 %23, %25
-  %call17 = call ptr @mlist_new(i64 noundef %21, i64 noundef %sub)
-  store ptr %call17, ptr %node, align 8
-  br label %do.body18
+18:                                               ; preds = %7, %16, %8
+  ret void
+}
 
-do.body18:                                        ; preds = %do.end13
-  %26 = load ptr, ptr %s.addr, align 8
-  %free19 = getelementptr inbounds %struct.QGuestAllocator, ptr %26, i32 0, i32 5
-  %27 = load ptr, ptr %free19, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %29, i32 0, i32 0
-  store ptr %28, ptr %MLIST_ENTNAME, align 8
-  %cmp = icmp ne ptr %28, null
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @mlist_free(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  store ptr null, ptr %5, align 8, !annotation !4
+  %7 = load i64, ptr %4, align 8
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %do.body18
-  %30 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME20 = getelementptr inbounds %struct.MemBlock, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %s.addr, align 8
-  %free21 = getelementptr inbounds %struct.QGuestAllocator, ptr %31, i32 0, i32 5
-  %32 = load ptr, ptr %free21, align 8
+9:                                                ; preds = %2
+  store i32 1, ptr %6, align 4
+  br label %78
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %11, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i64, ptr %4, align 8
+  %15 = call ptr @mlist_find_key(ptr noundef %13, i64 noundef %14)
+  store ptr %15, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %25, label %18
+
+18:                                               ; preds = %10
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = load i64, ptr %4, align 8
+  %21 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %19, i32 noundef 1, ptr noundef @.str.17, i64 noundef %20)
+  br label %22
+
+22:                                               ; preds = %18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 202, ptr noundef @__func__.mlist_free, ptr noundef null) #10
+  unreachable
+
+23:                                               ; No predecessors!
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %10
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.MemBlock, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %41
+
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw %struct.MemBlock, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.QTailQLink, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.MemBlock, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %struct.MemBlock, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.QTailQLink, ptr %39, i32 0, i32 1
+  store ptr %35, ptr %40, align 8
+  br label %50
+
+41:                                               ; preds = %26
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.MemBlock, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.QTailQLink, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %46, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw %struct.QTailQLink, ptr %48, i32 0, i32 1
+  store ptr %45, ptr %49, align 8
+  br label %50
+
+50:                                               ; preds = %41, %31
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.MemBlock, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds nuw %struct.MemBlock, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct.QTailQLink, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw %struct.QTailQLink, ptr %57, i32 0, i32 0
+  store ptr %53, ptr %58, align 8
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds nuw %struct.MemBlock, ptr %59, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.QTailQLink, ptr %60, i32 0, i32 1
+  store ptr null, ptr %61, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds nuw %struct.MemBlock, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %struct.QTailQLink, ptr %63, i32 0, i32 0
+  store ptr null, ptr %64, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds nuw %struct.MemBlock, ptr %65, i32 0, i32 0
+  store ptr null, ptr %66, align 8
+  br label %67
+
+67:                                               ; preds = %50
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %69, i32 0, i32 5
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = call ptr @mlist_sort_insert(ptr noundef %71, ptr noundef %72)
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %74, i32 0, i32 5
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %5, align 8
+  call void @mlist_coalesce(ptr noundef %76, ptr noundef %77)
+  store i32 0, ptr %6, align 4
+  br label %78
+
+78:                                               ; preds = %68, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  %79 = load i32, ptr %6, align 4
+  switch i32 %79, label %81 [
+    i32 0, label %80
+    i32 1, label %80
+  ]
+
+80:                                               ; preds = %78, %78
+  ret void
+
+81:                                               ; preds = %78
+  unreachable
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @alloc_init(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i64 %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  store i64 %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  store ptr null, ptr %11, align 8, !annotation !4
+  %20 = load i32, ptr %7, align 4
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %21, i32 0, i32 0
+  store i32 %20, ptr %22, align 8
+  %23 = load i64, ptr %8, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %24, i32 0, i32 1
+  store i64 %23, ptr %25, align 8
+  %26 = load i64, ptr %9, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %27, i32 0, i32 2
+  store i64 %26, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  store i64 1, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  store i64 16, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  store ptr null, ptr %14, align 8, !annotation !4
+  %29 = load i64, ptr %13, align 8
+  %30 = icmp eq i64 %29, 1
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %5
+  %32 = load i64, ptr %12, align 8
+  %33 = call noalias ptr @g_malloc(i64 noundef %32) #11
+  store ptr %33, ptr %14, align 8
+  br label %55
+
+34:                                               ; preds = %5
+  %35 = load i64, ptr %12, align 8
+  %36 = call i1 @llvm.is.constant.i64(i64 %35)
+  br i1 %36, label %37, label %50
+
+37:                                               ; preds = %34
+  %38 = load i64, ptr %13, align 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %45, label %40
+
+40:                                               ; preds = %37
+  %41 = load i64, ptr %12, align 8
+  %42 = load i64, ptr %13, align 8
+  %43 = udiv i64 -1, %42
+  %44 = icmp ule i64 %41, %43
+  br i1 %44, label %45, label %50
+
+45:                                               ; preds = %40, %37
+  %46 = load i64, ptr %12, align 8
+  %47 = load i64, ptr %13, align 8
+  %48 = mul i64 %46, %47
+  %49 = call noalias ptr @g_malloc(i64 noundef %48) #11
+  store ptr %49, ptr %14, align 8
+  br label %54
+
+50:                                               ; preds = %40, %34
+  %51 = load i64, ptr %12, align 8
+  %52 = load i64, ptr %13, align 8
+  %53 = call noalias ptr @g_malloc_n(i64 noundef %51, i64 noundef %52) #12
+  store ptr %53, ptr %14, align 8
+  br label %54
+
+54:                                               ; preds = %50, %45
+  br label %55
+
+55:                                               ; preds = %54, %31
+  %56 = load ptr, ptr %14, align 8
+  store ptr %56, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  %57 = load ptr, ptr %15, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %58, i32 0, i32 4
+  store ptr %57, ptr %59, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  store i64 1, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  store i64 16, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #9
+  store ptr null, ptr %18, align 8, !annotation !4
+  %60 = load i64, ptr %17, align 8
+  %61 = icmp eq i64 %60, 1
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %55
+  %63 = load i64, ptr %16, align 8
+  %64 = call noalias ptr @g_malloc(i64 noundef %63) #11
+  store ptr %64, ptr %18, align 8
+  br label %86
+
+65:                                               ; preds = %55
+  %66 = load i64, ptr %16, align 8
+  %67 = call i1 @llvm.is.constant.i64(i64 %66)
+  br i1 %67, label %68, label %81
+
+68:                                               ; preds = %65
+  %69 = load i64, ptr %17, align 8
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %76, label %71
+
+71:                                               ; preds = %68
+  %72 = load i64, ptr %16, align 8
+  %73 = load i64, ptr %17, align 8
+  %74 = udiv i64 -1, %73
+  %75 = icmp ule i64 %72, %74
+  br i1 %75, label %76, label %81
+
+76:                                               ; preds = %71, %68
+  %77 = load i64, ptr %16, align 8
+  %78 = load i64, ptr %17, align 8
+  %79 = mul i64 %77, %78
+  %80 = call noalias ptr @g_malloc(i64 noundef %79) #11
+  store ptr %80, ptr %18, align 8
+  br label %85
+
+81:                                               ; preds = %71, %65
+  %82 = load i64, ptr %16, align 8
+  %83 = load i64, ptr %17, align 8
+  %84 = call noalias ptr @g_malloc_n(i64 noundef %82, i64 noundef %83) #12
+  store ptr %84, ptr %18, align 8
+  br label %85
+
+85:                                               ; preds = %81, %76
+  br label %86
+
+86:                                               ; preds = %85, %62
+  %87 = load ptr, ptr %18, align 8
+  store ptr %87, ptr %19, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  %88 = load ptr, ptr %19, align 8
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %89, i32 0, i32 5
+  store ptr %88, ptr %90, align 8
+  br label %91
+
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %6, align 8
+  %93 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %92, i32 0, i32 4
+  %94 = load ptr, ptr %93, align 8
+  store ptr null, ptr %94, align 8
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %95, i32 0, i32 4
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %98, i32 0, i32 4
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw %struct.QTailQLink, ptr %100, i32 0, i32 1
+  store ptr %97, ptr %101, align 8
+  br label %102
+
+102:                                              ; preds = %91
+  br label %103
+
+103:                                              ; preds = %102
+  br label %104
+
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %105, i32 0, i32 5
+  %107 = load ptr, ptr %106, align 8
+  store ptr null, ptr %107, align 8
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %108, i32 0, i32 5
+  %110 = load ptr, ptr %109, align 8
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %111, i32 0, i32 5
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw %struct.QTailQLink, ptr %113, i32 0, i32 1
+  store ptr %110, ptr %114, align 8
+  br label %115
+
+115:                                              ; preds = %104
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %117, i32 0, i32 1
+  %119 = load i64, ptr %118, align 8
+  %120 = load ptr, ptr %6, align 8
+  %121 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %120, i32 0, i32 2
+  %122 = load i64, ptr %121, align 8
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %123, i32 0, i32 1
+  %125 = load i64, ptr %124, align 8
+  %126 = sub i64 %122, %125
+  %127 = call ptr @mlist_new(i64 noundef %119, i64 noundef %126)
+  store ptr %127, ptr %11, align 8
+  br label %128
+
+128:                                              ; preds = %116
+  %129 = load ptr, ptr %6, align 8
+  %130 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %129, i32 0, i32 5
+  %131 = load ptr, ptr %130, align 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %11, align 8
+  %134 = getelementptr inbounds nuw %struct.MemBlock, ptr %133, i32 0, i32 0
+  store ptr %132, ptr %134, align 8
+  %135 = icmp ne ptr %132, null
+  br i1 %135, label %136, label %145
+
+136:                                              ; preds = %128
+  %137 = load ptr, ptr %11, align 8
+  %138 = getelementptr inbounds nuw %struct.MemBlock, ptr %137, i32 0, i32 0
+  %139 = load ptr, ptr %6, align 8
+  %140 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %139, i32 0, i32 5
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw %struct.MemBlock, ptr %142, i32 0, i32 0
+  %144 = getelementptr inbounds nuw %struct.QTailQLink, ptr %143, i32 0, i32 1
+  store ptr %138, ptr %144, align 8
+  br label %152
+
+145:                                              ; preds = %128
+  %146 = load ptr, ptr %11, align 8
+  %147 = getelementptr inbounds nuw %struct.MemBlock, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %6, align 8
+  %149 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %148, i32 0, i32 5
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds nuw %struct.QTailQLink, ptr %150, i32 0, i32 1
+  store ptr %147, ptr %151, align 8
+  br label %152
+
+152:                                              ; preds = %145, %136
+  %153 = load ptr, ptr %11, align 8
+  %154 = load ptr, ptr %6, align 8
+  %155 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %154, i32 0, i32 5
+  %156 = load ptr, ptr %155, align 8
+  store ptr %153, ptr %156, align 8
+  %157 = load ptr, ptr %6, align 8
+  %158 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %157, i32 0, i32 5
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %11, align 8
+  %161 = getelementptr inbounds nuw %struct.MemBlock, ptr %160, i32 0, i32 0
+  %162 = getelementptr inbounds nuw %struct.QTailQLink, ptr %161, i32 0, i32 1
+  store ptr %159, ptr %162, align 8
+  br label %163
+
+163:                                              ; preds = %152
+  br label %164
+
+164:                                              ; preds = %163
+  %165 = load i64, ptr %10, align 8
+  %166 = trunc i64 %165 to i32
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %167, i32 0, i32 3
+  store i32 %166, ptr %168, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  ret void
+}
+
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) #4
+
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i64(i64) #5
+
+; Function Attrs: allocsize(0,1)
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #6
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @mlist_new(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store i64 %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store ptr null, ptr %6, align 8, !annotation !4
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %52
+
+15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  store i64 1, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  store i64 32, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  store ptr null, ptr %10, align 8, !annotation !4
+  %16 = load i64, ptr %9, align 8
+  %17 = icmp eq i64 %16, 1
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %15
+  %19 = load i64, ptr %8, align 8
+  %20 = call noalias ptr @g_malloc0(i64 noundef %19) #11
+  store ptr %20, ptr %10, align 8
+  br label %42
+
+21:                                               ; preds = %15
+  %22 = load i64, ptr %8, align 8
+  %23 = call i1 @llvm.is.constant.i64(i64 %22)
+  br i1 %23, label %24, label %37
+
+24:                                               ; preds = %21
+  %25 = load i64, ptr %9, align 8
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %32, label %27
+
+27:                                               ; preds = %24
+  %28 = load i64, ptr %8, align 8
+  %29 = load i64, ptr %9, align 8
+  %30 = udiv i64 -1, %29
+  %31 = icmp ule i64 %28, %30
+  br i1 %31, label %32, label %37
+
+32:                                               ; preds = %27, %24
+  %33 = load i64, ptr %8, align 8
+  %34 = load i64, ptr %9, align 8
+  %35 = mul i64 %33, %34
+  %36 = call noalias ptr @g_malloc0(i64 noundef %35) #11
+  store ptr %36, ptr %10, align 8
+  br label %41
+
+37:                                               ; preds = %27, %21
+  %38 = load i64, ptr %8, align 8
+  %39 = load i64, ptr %9, align 8
+  %40 = call noalias ptr @g_malloc0_n(i64 noundef %38, i64 noundef %39) #12
+  store ptr %40, ptr %10, align 8
+  br label %41
+
+41:                                               ; preds = %37, %32
+  br label %42
+
+42:                                               ; preds = %41, %18
+  %43 = load ptr, ptr %10, align 8
+  store ptr %43, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  %44 = load ptr, ptr %11, align 8
+  store ptr %44, ptr %6, align 8
+  %45 = load i64, ptr %4, align 8
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds nuw %struct.MemBlock, ptr %46, i32 0, i32 2
+  store i64 %45, ptr %47, align 8
+  %48 = load i64, ptr %5, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds nuw %struct.MemBlock, ptr %49, i32 0, i32 1
+  store i64 %48, ptr %50, align 8
+  %51 = load ptr, ptr %6, align 8
+  store ptr %51, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %52
+
+52:                                               ; preds = %42, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %53 = load ptr, ptr %3, align 8
+  ret ptr %53
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @alloc_set_flags(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8
+  %9 = or i32 %8, %5
+  store i32 %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @migrate_allocator(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  store ptr null, ptr %5, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store ptr null, ptr %6, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  store ptr null, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  store ptr null, ptr %8, align 8, !annotation !4
+  br label %13
+
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  store i64 %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %10, align 8
+  %20 = load i64, ptr %9, align 8
+  %21 = load i64, ptr %10, align 8
+  %22 = icmp eq i64 %20, %21
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %13
+  br label %29
+
+24:                                               ; preds = %13
+  %25 = load i64, ptr %9, align 8
+  %26 = uitofp i64 %25 to x86_fp80
+  %27 = load i64, ptr %10, align 8
+  %28 = uitofp i64 %27 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 320, ptr noundef @__func__.migrate_allocator, ptr noundef @.str.7, x86_fp80 noundef %26, ptr noundef @.str.8, x86_fp80 noundef %28, i8 noundef signext 120)
+  br label %29
+
+29:                                               ; preds = %24, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  br label %30
+
+30:                                               ; preds = %29
+  br label %31
+
+31:                                               ; preds = %30
+  br label %32
+
+32:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %33, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
+  store i64 %35, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %36, i32 0, i32 2
+  %38 = load i64, ptr %37, align 8
+  store i64 %38, ptr %12, align 8
+  %39 = load i64, ptr %11, align 8
+  %40 = load i64, ptr %12, align 8
+  %41 = icmp eq i64 %39, %40
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %32
+  br label %48
+
+43:                                               ; preds = %32
+  %44 = load i64, ptr %11, align 8
+  %45 = uitofp i64 %44 to x86_fp80
+  %46 = load i64, ptr %12, align 8
+  %47 = uitofp i64 %46 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 321, ptr noundef @__func__.migrate_allocator, ptr noundef @.str.9, x86_fp80 noundef %45, ptr noundef @.str.8, x86_fp80 noundef %47, i8 noundef signext 120)
+  br label %48
+
+48:                                               ; preds = %43, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  br label %49
+
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %51, i32 0, i32 4
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %5, align 8
+  br label %55
+
+55:                                               ; preds = %66, %50
+  %56 = load ptr, ptr %5, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %62
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds nuw %struct.MemBlock, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %6, align 8
+  br label %62
+
+62:                                               ; preds = %58, %55
+  %63 = phi i1 [ false, %55 ], [ true, %58 ]
+  br i1 %63, label %64, label %68
+
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %65)
+  br label %66
+
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %6, align 8
+  store ptr %67, ptr %5, align 8
+  br label %55, !llvm.loop !10
+
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %69, i32 0, i32 5
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %71, align 8
+  store ptr %72, ptr %5, align 8
+  br label %73
+
+73:                                               ; preds = %84, %68
+  %74 = load ptr, ptr %5, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %80
+
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds nuw %struct.MemBlock, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  store ptr %79, ptr %6, align 8
+  br label %80
+
+80:                                               ; preds = %76, %73
+  %81 = phi i1 [ false, %73 ], [ true, %76 ]
+  br i1 %81, label %82, label %86
+
+82:                                               ; preds = %80
+  %83 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %83)
+  br label %84
+
+84:                                               ; preds = %82
+  %85 = load ptr, ptr %6, align 8
+  store ptr %85, ptr %5, align 8
+  br label %73, !llvm.loop !11
+
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %87, i32 0, i32 4
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %7, align 8
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %90, i32 0, i32 5
+  %92 = load ptr, ptr %91, align 8
+  store ptr %92, ptr %8, align 8
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %93, i32 0, i32 4
+  %95 = load ptr, ptr %94, align 8
+  %96 = load ptr, ptr %4, align 8
+  %97 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %96, i32 0, i32 4
+  store ptr %95, ptr %97, align 8
+  %98 = load ptr, ptr %3, align 8
+  %99 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %98, i32 0, i32 5
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %4, align 8
+  %102 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %101, i32 0, i32 5
+  store ptr %100, ptr %102, align 8
+  %103 = load ptr, ptr %7, align 8
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %104, i32 0, i32 4
+  store ptr %103, ptr %105, align 8
+  %106 = load ptr, ptr %8, align 8
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %107, i32 0, i32 5
+  store ptr %106, ptr %108, align 8
+  br label %109
+
+109:                                              ; preds = %86
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %110, i32 0, i32 4
+  %112 = load ptr, ptr %111, align 8
+  store ptr null, ptr %112, align 8
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %113, i32 0, i32 4
+  %115 = load ptr, ptr %114, align 8
+  %116 = load ptr, ptr %3, align 8
+  %117 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %116, i32 0, i32 4
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw %struct.QTailQLink, ptr %118, i32 0, i32 1
+  store ptr %115, ptr %119, align 8
+  br label %120
+
+120:                                              ; preds = %109
+  br label %121
+
+121:                                              ; preds = %120
+  br label %122
+
+122:                                              ; preds = %121
+  %123 = load ptr, ptr %3, align 8
+  %124 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %123, i32 0, i32 5
+  %125 = load ptr, ptr %124, align 8
+  store ptr null, ptr %125, align 8
+  %126 = load ptr, ptr %3, align 8
+  %127 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %126, i32 0, i32 5
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %129, i32 0, i32 5
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw %struct.QTailQLink, ptr %131, i32 0, i32 1
+  store ptr %128, ptr %132, align 8
+  br label %133
+
+133:                                              ; preds = %122
+  br label %134
+
+134:                                              ; preds = %133
+  %135 = load ptr, ptr %3, align 8
+  %136 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %135, i32 0, i32 1
+  %137 = load i64, ptr %136, align 8
+  %138 = load ptr, ptr %3, align 8
+  %139 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %138, i32 0, i32 2
+  %140 = load i64, ptr %139, align 8
+  %141 = load ptr, ptr %3, align 8
+  %142 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %141, i32 0, i32 1
+  %143 = load i64, ptr %142, align 8
+  %144 = sub i64 %140, %143
+  %145 = call ptr @mlist_new(i64 noundef %137, i64 noundef %144)
+  store ptr %145, ptr %5, align 8
+  br label %146
+
+146:                                              ; preds = %134
+  %147 = load ptr, ptr %3, align 8
+  %148 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %147, i32 0, i32 5
+  %149 = load ptr, ptr %148, align 8
+  %150 = load ptr, ptr %149, align 8
+  %151 = load ptr, ptr %5, align 8
+  %152 = getelementptr inbounds nuw %struct.MemBlock, ptr %151, i32 0, i32 0
+  store ptr %150, ptr %152, align 8
+  %153 = icmp ne ptr %150, null
+  br i1 %153, label %154, label %163
+
+154:                                              ; preds = %146
+  %155 = load ptr, ptr %5, align 8
+  %156 = getelementptr inbounds nuw %struct.MemBlock, ptr %155, i32 0, i32 0
+  %157 = load ptr, ptr %3, align 8
+  %158 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %157, i32 0, i32 5
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw %struct.MemBlock, ptr %160, i32 0, i32 0
+  %162 = getelementptr inbounds nuw %struct.QTailQLink, ptr %161, i32 0, i32 1
+  store ptr %156, ptr %162, align 8
+  br label %170
+
+163:                                              ; preds = %146
+  %164 = load ptr, ptr %5, align 8
+  %165 = getelementptr inbounds nuw %struct.MemBlock, ptr %164, i32 0, i32 0
+  %166 = load ptr, ptr %3, align 8
+  %167 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %166, i32 0, i32 5
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw %struct.QTailQLink, ptr %168, i32 0, i32 1
+  store ptr %165, ptr %169, align 8
+  br label %170
+
+170:                                              ; preds = %163, %154
+  %171 = load ptr, ptr %5, align 8
+  %172 = load ptr, ptr %3, align 8
+  %173 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %172, i32 0, i32 5
+  %174 = load ptr, ptr %173, align 8
+  store ptr %171, ptr %174, align 8
+  %175 = load ptr, ptr %3, align 8
+  %176 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %175, i32 0, i32 5
+  %177 = load ptr, ptr %176, align 8
+  %178 = load ptr, ptr %5, align 8
+  %179 = getelementptr inbounds nuw %struct.MemBlock, ptr %178, i32 0, i32 0
+  %180 = getelementptr inbounds nuw %struct.QTailQLink, ptr %179, i32 0, i32 1
+  store ptr %177, ptr %180, align 8
+  br label %181
+
+181:                                              ; preds = %170
+  br label %182
+
+182:                                              ; preds = %181
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @mlist_find_space(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store ptr null, ptr %6, align 8, !annotation !4
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %22, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %26
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw %struct.MemBlock, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = load i64, ptr %5, align 8
+  %18 = icmp uge i64 %16, %17
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %27
+
+21:                                               ; preds = %13
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds nuw %struct.MemBlock, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %6, align 8
+  br label %10, !llvm.loop !12
+
+26:                                               ; preds = %10
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %27
+
+27:                                               ; preds = %26, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %28 = load ptr, ptr %3, align 8
+  ret ptr %28
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @mlist_fulfill(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  store i64 0, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  store ptr null, ptr %8, align 8, !annotation !4
+  br label %13
+
+13:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  store i32 0, ptr %9, align 4, !annotation !4
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %13
+  store i32 1, ptr %9, align 4
+  br label %18
+
+17:                                               ; preds = %13
+  store i32 0, ptr %9, align 4
+  br label %18
+
+18:                                               ; preds = %17, %16
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  %20 = load i32, ptr %10, align 4
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 1)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %18
+  br label %26
+
+25:                                               ; preds = %18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 133, ptr noundef @__func__.mlist_fulfill, ptr noundef @.str.11) #10
+  unreachable
+
+26:                                               ; preds = %24
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.MemBlock, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  store i64 %32, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %33 = load i64, ptr %6, align 8
+  store i64 %33, ptr %12, align 8
+  %34 = load i64, ptr %11, align 8
+  %35 = load i64, ptr %12, align 8
+  %36 = icmp sge i64 %34, %35
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %29
+  br label %43
+
+38:                                               ; preds = %29
+  %39 = load i64, ptr %11, align 8
+  %40 = sitofp i64 %39 to x86_fp80
+  %41 = load i64, ptr %12, align 8
+  %42 = sitofp i64 %41 to x86_fp80
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 134, ptr noundef @__func__.mlist_fulfill, ptr noundef @.str.12, x86_fp80 noundef %40, ptr noundef @.str.6, x86_fp80 noundef %42, i8 noundef signext 105)
+  br label %43
+
+43:                                               ; preds = %38, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  br label %44
+
+44:                                               ; preds = %43
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.MemBlock, ptr %46, i32 0, i32 2
+  %48 = load i64, ptr %47, align 8
+  store i64 %48, ptr %7, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.MemBlock, ptr %49, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8
+  %52 = load i64, ptr %6, align 8
+  %53 = icmp eq i64 %51, %52
+  br i1 %53, label %54, label %99
+
+54:                                               ; preds = %45
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds nuw %struct.MemBlock, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %70
+
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw %struct.MemBlock, ptr %61, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %struct.QTailQLink, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds nuw %struct.MemBlock, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw %struct.MemBlock, ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.QTailQLink, ptr %68, i32 0, i32 1
+  store ptr %64, ptr %69, align 8
+  br label %79
+
+70:                                               ; preds = %55
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds nuw %struct.MemBlock, ptr %71, i32 0, i32 0
+  %73 = getelementptr inbounds nuw %struct.QTailQLink, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %75, i32 0, i32 5
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw %struct.QTailQLink, ptr %77, i32 0, i32 1
+  store ptr %74, ptr %78, align 8
+  br label %79
+
+79:                                               ; preds = %70, %60
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds nuw %struct.MemBlock, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds nuw %struct.MemBlock, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct.QTailQLink, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw %struct.QTailQLink, ptr %86, i32 0, i32 0
+  store ptr %82, ptr %87, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr inbounds nuw %struct.MemBlock, ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %struct.QTailQLink, ptr %89, i32 0, i32 1
+  store ptr null, ptr %90, align 8
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds nuw %struct.MemBlock, ptr %91, i32 0, i32 0
+  %93 = getelementptr inbounds nuw %struct.QTailQLink, ptr %92, i32 0, i32 0
+  store ptr null, ptr %93, align 8
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds nuw %struct.MemBlock, ptr %94, i32 0, i32 0
+  store ptr null, ptr %95, align 8
+  br label %96
+
+96:                                               ; preds = %79
+  br label %97
+
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %5, align 8
+  store ptr %98, ptr %8, align 8
+  br label %113
+
+99:                                               ; preds = %45
+  %100 = load i64, ptr %6, align 8
+  %101 = load ptr, ptr %5, align 8
+  %102 = getelementptr inbounds nuw %struct.MemBlock, ptr %101, i32 0, i32 2
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %103, %100
+  store i64 %104, ptr %102, align 8
+  %105 = load i64, ptr %6, align 8
+  %106 = load ptr, ptr %5, align 8
+  %107 = getelementptr inbounds nuw %struct.MemBlock, ptr %106, i32 0, i32 1
+  %108 = load i64, ptr %107, align 8
+  %109 = sub i64 %108, %105
+  store i64 %109, ptr %107, align 8
+  %110 = load i64, ptr %7, align 8
+  %111 = load i64, ptr %6, align 8
+  %112 = call ptr @mlist_new(i64 noundef %110, i64 noundef %111)
+  store ptr %112, ptr %8, align 8
+  br label %113
+
+113:                                              ; preds = %99, %97
+  %114 = load ptr, ptr %4, align 8
+  %115 = getelementptr inbounds nuw %struct.QGuestAllocator, ptr %114, i32 0, i32 4
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %8, align 8
+  %118 = call ptr @mlist_sort_insert(ptr noundef %116, ptr noundef %117)
+  %119 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  ret i64 %119
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #7
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @mlist_sort_insert(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store ptr null, ptr %6, align 8, !annotation !4
+  br label %10
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 0, ptr %7, align 4, !annotation !4
+  %11 = load ptr, ptr %4, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %13
+  store i32 1, ptr %7, align 4
+  br label %18
+
+17:                                               ; preds = %13, %10
+  store i32 0, ptr %7, align 4
+  br label %18
+
+18:                                               ; preds = %17, %16
+  %19 = load i32, ptr %7, align 4
+  store i32 %19, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  %20 = load i32, ptr %8, align 4
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 1)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %18
+  br label %26
+
+25:                                               ; preds = %18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 58, ptr noundef @__func__.mlist_sort_insert, ptr noundef @.str.13) #10
+  unreachable
+
+26:                                               ; preds = %24
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %6, align 8
+  br label %31
+
+31:                                               ; preds = %69, %28
+  %32 = load ptr, ptr %6, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %73
+
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds nuw %struct.MemBlock, ptr %35, i32 0, i32 2
+  %37 = load i64, ptr %36, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds nuw %struct.MemBlock, ptr %38, i32 0, i32 2
+  %40 = load i64, ptr %39, align 8
+  %41 = icmp ult i64 %37, %40
+  br i1 %41, label %42, label %68
+
+42:                                               ; preds = %34
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds nuw %struct.MemBlock, ptr %44, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.QTailQLink, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct.MemBlock, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.QTailQLink, ptr %49, i32 0, i32 1
+  store ptr %47, ptr %50, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds nuw %struct.MemBlock, ptr %52, i32 0, i32 0
+  store ptr %51, ptr %53, align 8
+  %54 = load ptr, ptr %5, align 8
+  %55 = load ptr, ptr %6, align 8
+  %56 = getelementptr inbounds nuw %struct.MemBlock, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %struct.QTailQLink, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw %struct.QTailQLink, ptr %58, i32 0, i32 0
+  store ptr %54, ptr %59, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw %struct.MemBlock, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds nuw %struct.MemBlock, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %struct.QTailQLink, ptr %63, i32 0, i32 1
+  store ptr %61, ptr %64, align 8
+  br label %65
+
+65:                                               ; preds = %43
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %5, align 8
+  store ptr %67, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %95
+
+68:                                               ; preds = %34
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %6, align 8
+  %71 = getelementptr inbounds nuw %struct.MemBlock, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  store ptr %72, ptr %6, align 8
+  br label %31, !llvm.loop !13
+
+73:                                               ; preds = %31
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds nuw %struct.MemBlock, ptr %75, i32 0, i32 0
+  store ptr null, ptr %76, align 8
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds nuw %struct.QTailQLink, ptr %77, i32 0, i32 1
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds nuw %struct.MemBlock, ptr %80, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct.QTailQLink, ptr %81, i32 0, i32 1
+  store ptr %79, ptr %82, align 8
+  %83 = load ptr, ptr %5, align 8
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds nuw %struct.QTailQLink, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw %struct.QTailQLink, ptr %86, i32 0, i32 0
+  store ptr %83, ptr %87, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr inbounds nuw %struct.MemBlock, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds nuw %struct.QTailQLink, ptr %90, i32 0, i32 1
+  store ptr %89, ptr %91, align 8
+  br label %92
+
+92:                                               ; preds = %74
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load ptr, ptr %5, align 8
+  store ptr %94, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %95
+
+95:                                               ; preds = %93, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %96 = load ptr, ptr %3, align 8
+  ret ptr %96
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @mlist_find_key(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store ptr null, ptr %6, align 8, !annotation !4
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %22, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %26
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw %struct.MemBlock, ptr %14, i32 0, i32 2
+  %16 = load i64, ptr %15, align 8
+  %17 = load i64, ptr %5, align 8
+  %18 = icmp eq i64 %16, %17
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %27
+
+21:                                               ; preds = %13
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds nuw %struct.MemBlock, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %6, align 8
+  br label %10, !llvm.loop !14
+
+26:                                               ; preds = %10
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %27
+
+27:                                               ; preds = %26, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %28 = load ptr, ptr %3, align 8
+  ret ptr %28
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @mlist_coalesce(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  br label %10
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  store i32 0, ptr %5, align 4, !annotation !4
+  %11 = load ptr, ptr %4, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %10
+  store i32 1, ptr %5, align 4
+  br label %15
+
+14:                                               ; preds = %10
+  store i32 0, ptr %5, align 4
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i32, ptr %5, align 4
+  store i32 %16, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %17 = load i32, ptr %6, align 4
+  %18 = sext i32 %17 to i64
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 1)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %15
+  br label %23
+
+22:                                               ; preds = %15
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 87, ptr noundef @__func__.mlist_coalesce, ptr noundef @.str.18) #10
+  unreachable
+
+23:                                               ; preds = %21
+  br label %24
+
+24:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  store ptr null, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  store ptr null, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #9
+  store i8 0, ptr %9, align 1, !annotation !4
+  br label %25
+
+25:                                               ; preds = %67, %24
+  store i8 0, ptr %9, align 1
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.MemBlock, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.QTailQLink, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.QTailQLink, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.QTailQLink, ptr %31, i32 0, i32 0
   %33 = load ptr, ptr %32, align 8
-  %MLIST_ENTNAME22 = getelementptr inbounds %struct.MemBlock, ptr %33, i32 0, i32 0
-  %tql_prev23 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME22, i32 0, i32 1
-  store ptr %MLIST_ENTNAME20, ptr %tql_prev23, align 8
-  br label %if.end
+  store ptr %33, ptr %7, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.MemBlock, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %8, align 8
+  %37 = load ptr, ptr %7, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %51
 
-if.else:                                          ; preds = %do.body18
-  %34 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME24 = getelementptr inbounds %struct.MemBlock, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %s.addr, align 8
-  %free25 = getelementptr inbounds %struct.QGuestAllocator, ptr %35, i32 0, i32 5
-  %36 = load ptr, ptr %free25, align 8
-  %tql_prev26 = getelementptr inbounds %struct.QTailQLink, ptr %36, i32 0, i32 1
-  store ptr %MLIST_ENTNAME24, ptr %tql_prev26, align 8
-  br label %if.end
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %7, align 8
+  %41 = call i64 @mlist_boundary(ptr noundef %40)
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.MemBlock, ptr %42, i32 0, i32 2
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp eq i64 %41, %44
+  br i1 %45, label %46, label %51
 
-if.end:                                           ; preds = %if.else, %if.then
-  %37 = load ptr, ptr %node, align 8
-  %38 = load ptr, ptr %s.addr, align 8
-  %free27 = getelementptr inbounds %struct.QGuestAllocator, ptr %38, i32 0, i32 5
-  %39 = load ptr, ptr %free27, align 8
-  store ptr %37, ptr %39, align 8
-  %40 = load ptr, ptr %s.addr, align 8
-  %free28 = getelementptr inbounds %struct.QGuestAllocator, ptr %40, i32 0, i32 5
-  %41 = load ptr, ptr %free28, align 8
-  %42 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME29 = getelementptr inbounds %struct.MemBlock, ptr %42, i32 0, i32 0
-  %tql_prev30 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME29, i32 0, i32 1
-  store ptr %41, ptr %tql_prev30, align 8
-  br label %do.end31
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %3, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = call ptr @mlist_join(ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store ptr %50, ptr %4, align 8
+  store i8 1, ptr %9, align 1
+  br label %51
 
-do.end31:                                         ; preds = %if.end
-  %43 = load i64, ptr %page_size.addr, align 8
-  %conv = trunc i64 %43 to i32
-  %44 = load ptr, ptr %s.addr, align 8
-  %page_size32 = getelementptr inbounds %struct.QGuestAllocator, ptr %44, i32 0, i32 3
-  store i32 %conv, ptr %page_size32, align 8
+51:                                               ; preds = %46, %39, %25
+  %52 = load ptr, ptr %8, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %66
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %4, align 8
+  %56 = call i64 @mlist_boundary(ptr noundef %55)
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds nuw %struct.MemBlock, ptr %57, i32 0, i32 2
+  %59 = load i64, ptr %58, align 8
+  %60 = icmp eq i64 %56, %59
+  br i1 %60, label %61, label %66
+
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %3, align 8
+  %63 = load ptr, ptr %4, align 8
+  %64 = load ptr, ptr %8, align 8
+  %65 = call ptr @mlist_join(ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %4, align 8
+  store i8 1, ptr %9, align 1
+  br label %66
+
+66:                                               ; preds = %61, %54, %51
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load i8, ptr %9, align 1
+  %69 = icmp ne i8 %68, 0
+  br i1 %69, label %25, label %70, !llvm.loop !15
+
+70:                                               ; preds = %67
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
   ret void
 }
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #3
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @mlist_new(i64 noundef %addr, i64 noundef %size) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %block = alloca ptr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #5
-  store ptr %call, ptr %block, align 8
-  %1 = load i64, ptr %addr.addr, align 8
-  %2 = load ptr, ptr %block, align 8
-  %addr1 = getelementptr inbounds %struct.MemBlock, ptr %2, i32 0, i32 2
-  store i64 %1, ptr %addr1, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %4 = load ptr, ptr %block, align 8
-  %size2 = getelementptr inbounds %struct.MemBlock, ptr %4, i32 0, i32 1
-  store i64 %3, ptr %size2, align 8
-  %5 = load ptr, ptr %block, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @alloc_set_flags(ptr noundef %allocator, i32 noundef %opts) #0 {
-entry:
-  %allocator.addr = alloca ptr, align 8
-  %opts.addr = alloca i32, align 4
-  store ptr %allocator, ptr %allocator.addr, align 8
-  store i32 %opts, ptr %opts.addr, align 4
-  %0 = load i32, ptr %opts.addr, align 4
-  %1 = load ptr, ptr %allocator.addr, align 8
-  %opts1 = getelementptr inbounds %struct.QGuestAllocator, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %opts1, align 8
-  %or = or i32 %2, %0
-  store i32 %or, ptr %opts1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @migrate_allocator(ptr noundef %src, ptr noundef %dst) #0 {
-entry:
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  %node = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %tmpused = alloca ptr, align 8
-  %tmpfree = alloca ptr, align 8
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n14 = alloca i64, align 8
-  %__n25 = alloca i64, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %src.addr, align 8
-  %start = getelementptr inbounds %struct.QGuestAllocator, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %start, align 8
-  store i64 %1, ptr %__n1, align 8
-  %2 = load ptr, ptr %dst.addr, align 8
-  %start1 = getelementptr inbounds %struct.QGuestAllocator, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %start1, align 8
-  store i64 %3, ptr %__n2, align 8
-  %4 = load i64, ptr %__n1, align 8
-  %5 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %4, %5
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %6 = load i64, ptr %__n1, align 8
-  %conv = uitofp i64 %6 to x86_fp80
-  %7 = load i64, ptr %__n2, align 8
-  %conv2 = uitofp i64 %7 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 320, ptr noundef @__func__.migrate_allocator, ptr noundef @.str.7, x86_fp80 noundef %conv, ptr noundef @.str.8, x86_fp80 noundef %conv2, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end
-  %8 = load ptr, ptr %src.addr, align 8
-  %end = getelementptr inbounds %struct.QGuestAllocator, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %end, align 8
-  store i64 %9, ptr %__n14, align 8
-  %10 = load ptr, ptr %dst.addr, align 8
-  %end6 = getelementptr inbounds %struct.QGuestAllocator, ptr %10, i32 0, i32 2
-  %11 = load i64, ptr %end6, align 8
-  store i64 %11, ptr %__n25, align 8
-  %12 = load i64, ptr %__n14, align 8
-  %13 = load i64, ptr %__n25, align 8
-  %cmp7 = icmp eq i64 %12, %13
-  br i1 %cmp7, label %if.then9, label %if.else10
-
-if.then9:                                         ; preds = %do.body3
-  br label %if.end13
-
-if.else10:                                        ; preds = %do.body3
-  %14 = load i64, ptr %__n14, align 8
-  %conv11 = uitofp i64 %14 to x86_fp80
-  %15 = load i64, ptr %__n25, align 8
-  %conv12 = uitofp i64 %15 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 321, ptr noundef @__func__.migrate_allocator, ptr noundef @.str.9, x86_fp80 noundef %conv11, ptr noundef @.str.8, x86_fp80 noundef %conv12, i8 noundef signext 120)
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.else10, %if.then9
-  br label %do.end14
-
-do.end14:                                         ; preds = %if.end13
-  %16 = load ptr, ptr %dst.addr, align 8
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %16, i32 0, i32 4
-  %17 = load ptr, ptr %used, align 8
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %node, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %do.end14
-  %19 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %19, null
-  br i1 %tobool, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond
-  %20 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %MLIST_ENTNAME, align 8
-  store ptr %21, ptr %tmp, align 8
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %22 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
-  br i1 %22, label %for.body, label %for.end
-
-for.body:                                         ; preds = %land.end
-  %23 = load ptr, ptr %node, align 8
-  call void @g_free(ptr noundef %23)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %24 = load ptr, ptr %tmp, align 8
-  store ptr %24, ptr %node, align 8
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %land.end
-  %25 = load ptr, ptr %dst.addr, align 8
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %25, i32 0, i32 5
-  %26 = load ptr, ptr %free, align 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %node, align 8
-  br label %for.cond15
-
-for.cond15:                                       ; preds = %for.inc21, %for.end
-  %28 = load ptr, ptr %node, align 8
-  %tobool16 = icmp ne ptr %28, null
-  br i1 %tobool16, label %land.rhs17, label %land.end19
-
-land.rhs17:                                       ; preds = %for.cond15
-  %29 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME18 = getelementptr inbounds %struct.MemBlock, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %MLIST_ENTNAME18, align 8
-  store ptr %30, ptr %tmp, align 8
-  br label %land.end19
-
-land.end19:                                       ; preds = %land.rhs17, %for.cond15
-  %31 = phi i1 [ false, %for.cond15 ], [ true, %land.rhs17 ]
-  br i1 %31, label %for.body20, label %for.end22
-
-for.body20:                                       ; preds = %land.end19
-  %32 = load ptr, ptr %node, align 8
-  call void @g_free(ptr noundef %32)
-  br label %for.inc21
-
-for.inc21:                                        ; preds = %for.body20
-  %33 = load ptr, ptr %tmp, align 8
-  store ptr %33, ptr %node, align 8
-  br label %for.cond15, !llvm.loop !11
-
-for.end22:                                        ; preds = %land.end19
-  %34 = load ptr, ptr %dst.addr, align 8
-  %used23 = getelementptr inbounds %struct.QGuestAllocator, ptr %34, i32 0, i32 4
-  %35 = load ptr, ptr %used23, align 8
-  store ptr %35, ptr %tmpused, align 8
-  %36 = load ptr, ptr %dst.addr, align 8
-  %free24 = getelementptr inbounds %struct.QGuestAllocator, ptr %36, i32 0, i32 5
-  %37 = load ptr, ptr %free24, align 8
-  store ptr %37, ptr %tmpfree, align 8
-  %38 = load ptr, ptr %src.addr, align 8
-  %used25 = getelementptr inbounds %struct.QGuestAllocator, ptr %38, i32 0, i32 4
-  %39 = load ptr, ptr %used25, align 8
-  %40 = load ptr, ptr %dst.addr, align 8
-  %used26 = getelementptr inbounds %struct.QGuestAllocator, ptr %40, i32 0, i32 4
-  store ptr %39, ptr %used26, align 8
-  %41 = load ptr, ptr %src.addr, align 8
-  %free27 = getelementptr inbounds %struct.QGuestAllocator, ptr %41, i32 0, i32 5
-  %42 = load ptr, ptr %free27, align 8
-  %43 = load ptr, ptr %dst.addr, align 8
-  %free28 = getelementptr inbounds %struct.QGuestAllocator, ptr %43, i32 0, i32 5
-  store ptr %42, ptr %free28, align 8
-  %44 = load ptr, ptr %tmpused, align 8
-  %45 = load ptr, ptr %src.addr, align 8
-  %used29 = getelementptr inbounds %struct.QGuestAllocator, ptr %45, i32 0, i32 4
-  store ptr %44, ptr %used29, align 8
-  %46 = load ptr, ptr %tmpfree, align 8
-  %47 = load ptr, ptr %src.addr, align 8
-  %free30 = getelementptr inbounds %struct.QGuestAllocator, ptr %47, i32 0, i32 5
-  store ptr %46, ptr %free30, align 8
-  br label %do.body31
-
-do.body31:                                        ; preds = %for.end22
-  %48 = load ptr, ptr %src.addr, align 8
-  %used32 = getelementptr inbounds %struct.QGuestAllocator, ptr %48, i32 0, i32 4
-  %49 = load ptr, ptr %used32, align 8
-  store ptr null, ptr %49, align 8
-  %50 = load ptr, ptr %src.addr, align 8
-  %used33 = getelementptr inbounds %struct.QGuestAllocator, ptr %50, i32 0, i32 4
-  %51 = load ptr, ptr %used33, align 8
-  %52 = load ptr, ptr %src.addr, align 8
-  %used34 = getelementptr inbounds %struct.QGuestAllocator, ptr %52, i32 0, i32 4
-  %53 = load ptr, ptr %used34, align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %53, i32 0, i32 1
-  store ptr %51, ptr %tql_prev, align 8
-  br label %do.end35
-
-do.end35:                                         ; preds = %do.body31
-  br label %do.body36
-
-do.body36:                                        ; preds = %do.end35
-  %54 = load ptr, ptr %src.addr, align 8
-  %free37 = getelementptr inbounds %struct.QGuestAllocator, ptr %54, i32 0, i32 5
-  %55 = load ptr, ptr %free37, align 8
-  store ptr null, ptr %55, align 8
-  %56 = load ptr, ptr %src.addr, align 8
-  %free38 = getelementptr inbounds %struct.QGuestAllocator, ptr %56, i32 0, i32 5
-  %57 = load ptr, ptr %free38, align 8
-  %58 = load ptr, ptr %src.addr, align 8
-  %free39 = getelementptr inbounds %struct.QGuestAllocator, ptr %58, i32 0, i32 5
-  %59 = load ptr, ptr %free39, align 8
-  %tql_prev40 = getelementptr inbounds %struct.QTailQLink, ptr %59, i32 0, i32 1
-  store ptr %57, ptr %tql_prev40, align 8
-  br label %do.end41
-
-do.end41:                                         ; preds = %do.body36
-  %60 = load ptr, ptr %src.addr, align 8
-  %start42 = getelementptr inbounds %struct.QGuestAllocator, ptr %60, i32 0, i32 1
-  %61 = load i64, ptr %start42, align 8
-  %62 = load ptr, ptr %src.addr, align 8
-  %end43 = getelementptr inbounds %struct.QGuestAllocator, ptr %62, i32 0, i32 2
-  %63 = load i64, ptr %end43, align 8
-  %64 = load ptr, ptr %src.addr, align 8
-  %start44 = getelementptr inbounds %struct.QGuestAllocator, ptr %64, i32 0, i32 1
-  %65 = load i64, ptr %start44, align 8
-  %sub = sub i64 %63, %65
-  %call = call ptr @mlist_new(i64 noundef %61, i64 noundef %sub)
-  store ptr %call, ptr %node, align 8
-  br label %do.body45
-
-do.body45:                                        ; preds = %do.end41
-  %66 = load ptr, ptr %src.addr, align 8
-  %free46 = getelementptr inbounds %struct.QGuestAllocator, ptr %66, i32 0, i32 5
-  %67 = load ptr, ptr %free46, align 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME47 = getelementptr inbounds %struct.MemBlock, ptr %69, i32 0, i32 0
-  store ptr %68, ptr %MLIST_ENTNAME47, align 8
-  %cmp48 = icmp ne ptr %68, null
-  br i1 %cmp48, label %if.then50, label %if.else55
-
-if.then50:                                        ; preds = %do.body45
-  %70 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME51 = getelementptr inbounds %struct.MemBlock, ptr %70, i32 0, i32 0
-  %71 = load ptr, ptr %src.addr, align 8
-  %free52 = getelementptr inbounds %struct.QGuestAllocator, ptr %71, i32 0, i32 5
-  %72 = load ptr, ptr %free52, align 8
-  %73 = load ptr, ptr %72, align 8
-  %MLIST_ENTNAME53 = getelementptr inbounds %struct.MemBlock, ptr %73, i32 0, i32 0
-  %tql_prev54 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME53, i32 0, i32 1
-  store ptr %MLIST_ENTNAME51, ptr %tql_prev54, align 8
-  br label %if.end59
-
-if.else55:                                        ; preds = %do.body45
-  %74 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME56 = getelementptr inbounds %struct.MemBlock, ptr %74, i32 0, i32 0
-  %75 = load ptr, ptr %src.addr, align 8
-  %free57 = getelementptr inbounds %struct.QGuestAllocator, ptr %75, i32 0, i32 5
-  %76 = load ptr, ptr %free57, align 8
-  %tql_prev58 = getelementptr inbounds %struct.QTailQLink, ptr %76, i32 0, i32 1
-  store ptr %MLIST_ENTNAME56, ptr %tql_prev58, align 8
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.else55, %if.then50
-  %77 = load ptr, ptr %node, align 8
-  %78 = load ptr, ptr %src.addr, align 8
-  %free60 = getelementptr inbounds %struct.QGuestAllocator, ptr %78, i32 0, i32 5
-  %79 = load ptr, ptr %free60, align 8
-  store ptr %77, ptr %79, align 8
-  %80 = load ptr, ptr %src.addr, align 8
-  %free61 = getelementptr inbounds %struct.QGuestAllocator, ptr %80, i32 0, i32 5
-  %81 = load ptr, ptr %free61, align 8
-  %82 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME62 = getelementptr inbounds %struct.MemBlock, ptr %82, i32 0, i32 0
-  %tql_prev63 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME62, i32 0, i32 1
-  store ptr %81, ptr %tql_prev63, align 8
-  br label %do.end64
-
-do.end64:                                         ; preds = %if.end59
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @mlist_find_space(ptr noundef %head, i64 noundef %size) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %head.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %node = alloca ptr, align 8
-  store ptr %head, ptr %head.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %head.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %node, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %node, align 8
-  %size1 = getelementptr inbounds %struct.MemBlock, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %size1, align 8
-  %5 = load i64, ptr %size.addr, align 8
-  %cmp = icmp uge i64 %4, %5
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %node, align 8
-  store ptr %6, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %7 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %MLIST_ENTNAME, align 8
-  store ptr %8, ptr %node, align 8
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mlist_fulfill(ptr noundef %s, ptr noundef %freenode, i64 noundef %size) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %freenode.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %addr = alloca i64, align 8
-  %usednode = alloca ptr, align 8
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %freenode, ptr %freenode.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %freenode.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 133, ptr noundef @__func__.mlist_fulfill, ptr noundef @.str.11) #4
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  %1 = load ptr, ptr %freenode.addr, align 8
-  %size2 = getelementptr inbounds %struct.MemBlock, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %size2, align 8
-  store i64 %2, ptr %__n1, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  store i64 %3, ptr %__n2, align 8
-  %4 = load i64, ptr %__n1, align 8
-  %5 = load i64, ptr %__n2, align 8
-  %cmp = icmp sge i64 %4, %5
-  br i1 %cmp, label %if.then3, label %if.else4
-
-if.then3:                                         ; preds = %do.body1
-  br label %if.end6
-
-if.else4:                                         ; preds = %do.body1
-  %6 = load i64, ptr %__n1, align 8
-  %conv = sitofp i64 %6 to x86_fp80
-  %7 = load i64, ptr %__n2, align 8
-  %conv5 = sitofp i64 %7 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str.1, i32 noundef 134, ptr noundef @__func__.mlist_fulfill, ptr noundef @.str.12, x86_fp80 noundef %conv, ptr noundef @.str.6, x86_fp80 noundef %conv5, i8 noundef signext 105)
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.else4, %if.then3
-  br label %do.end7
-
-do.end7:                                          ; preds = %if.end6
-  %8 = load ptr, ptr %freenode.addr, align 8
-  %addr8 = getelementptr inbounds %struct.MemBlock, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %addr8, align 8
-  store i64 %9, ptr %addr, align 8
-  %10 = load ptr, ptr %freenode.addr, align 8
-  %size9 = getelementptr inbounds %struct.MemBlock, ptr %10, i32 0, i32 1
-  %11 = load i64, ptr %size9, align 8
-  %12 = load i64, ptr %size.addr, align 8
-  %cmp10 = icmp eq i64 %11, %12
-  br i1 %cmp10, label %if.then12, label %if.else35
-
-if.then12:                                        ; preds = %do.end7
-  br label %do.body13
-
-do.body13:                                        ; preds = %if.then12
-  %13 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %MLIST_ENTNAME, align 8
-  %cmp14 = icmp ne ptr %14, null
-  br i1 %cmp14, label %if.then16, label %if.else21
-
-if.then16:                                        ; preds = %do.body13
-  %15 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME17 = getelementptr inbounds %struct.MemBlock, ptr %15, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME17, i32 0, i32 1
-  %16 = load ptr, ptr %tql_prev, align 8
-  %17 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME18 = getelementptr inbounds %struct.MemBlock, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %MLIST_ENTNAME18, align 8
-  %MLIST_ENTNAME19 = getelementptr inbounds %struct.MemBlock, ptr %18, i32 0, i32 0
-  %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME19, i32 0, i32 1
-  store ptr %16, ptr %tql_prev20, align 8
-  br label %if.end25
-
-if.else21:                                        ; preds = %do.body13
-  %19 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME22 = getelementptr inbounds %struct.MemBlock, ptr %19, i32 0, i32 0
-  %tql_prev23 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME22, i32 0, i32 1
-  %20 = load ptr, ptr %tql_prev23, align 8
-  %21 = load ptr, ptr %s.addr, align 8
-  %free = getelementptr inbounds %struct.QGuestAllocator, ptr %21, i32 0, i32 5
-  %22 = load ptr, ptr %free, align 8
-  %tql_prev24 = getelementptr inbounds %struct.QTailQLink, ptr %22, i32 0, i32 1
-  store ptr %20, ptr %tql_prev24, align 8
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.else21, %if.then16
-  %23 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME26 = getelementptr inbounds %struct.MemBlock, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %MLIST_ENTNAME26, align 8
-  %25 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME27 = getelementptr inbounds %struct.MemBlock, ptr %25, i32 0, i32 0
-  %tql_prev28 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME27, i32 0, i32 1
-  %26 = load ptr, ptr %tql_prev28, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %26, i32 0, i32 0
-  store ptr %24, ptr %tql_next, align 8
-  %27 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME29 = getelementptr inbounds %struct.MemBlock, ptr %27, i32 0, i32 0
-  %tql_prev30 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME29, i32 0, i32 1
-  store ptr null, ptr %tql_prev30, align 8
-  %28 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME31 = getelementptr inbounds %struct.MemBlock, ptr %28, i32 0, i32 0
-  %tql_next32 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME31, i32 0, i32 0
-  store ptr null, ptr %tql_next32, align 8
-  %29 = load ptr, ptr %freenode.addr, align 8
-  %MLIST_ENTNAME33 = getelementptr inbounds %struct.MemBlock, ptr %29, i32 0, i32 0
-  store ptr null, ptr %MLIST_ENTNAME33, align 8
-  br label %do.end34
-
-do.end34:                                         ; preds = %if.end25
-  %30 = load ptr, ptr %freenode.addr, align 8
-  store ptr %30, ptr %usednode, align 8
-  br label %if.end38
-
-if.else35:                                        ; preds = %do.end7
-  %31 = load i64, ptr %size.addr, align 8
-  %32 = load ptr, ptr %freenode.addr, align 8
-  %addr36 = getelementptr inbounds %struct.MemBlock, ptr %32, i32 0, i32 2
-  %33 = load i64, ptr %addr36, align 8
-  %add = add i64 %33, %31
-  store i64 %add, ptr %addr36, align 8
-  %34 = load i64, ptr %size.addr, align 8
-  %35 = load ptr, ptr %freenode.addr, align 8
-  %size37 = getelementptr inbounds %struct.MemBlock, ptr %35, i32 0, i32 1
-  %36 = load i64, ptr %size37, align 8
-  %sub = sub i64 %36, %34
-  store i64 %sub, ptr %size37, align 8
-  %37 = load i64, ptr %addr, align 8
-  %38 = load i64, ptr %size.addr, align 8
-  %call = call ptr @mlist_new(i64 noundef %37, i64 noundef %38)
-  store ptr %call, ptr %usednode, align 8
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else35, %do.end34
-  %39 = load ptr, ptr %s.addr, align 8
-  %used = getelementptr inbounds %struct.QGuestAllocator, ptr %39, i32 0, i32 4
-  %40 = load ptr, ptr %used, align 8
-  %41 = load ptr, ptr %usednode, align 8
-  %call39 = call ptr @mlist_sort_insert(ptr noundef %40, ptr noundef %41)
-  %42 = load i64, ptr %addr, align 8
-  ret i64 %42
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @mlist_sort_insert(ptr noundef %head, ptr noundef %insr) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %head.addr = alloca ptr, align 8
-  %insr.addr = alloca ptr, align 8
-  %node = alloca ptr, align 8
-  store ptr %head, ptr %head.addr, align 8
-  store ptr %insr, ptr %insr.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %head.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %do.body
-  %1 = load ptr, ptr %insr.addr, align 8
-  %tobool1 = icmp ne ptr %1, null
-  br i1 %tobool1, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  br label %if.end
-
-if.else:                                          ; preds = %land.lhs.true, %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 58, ptr noundef @__func__.mlist_sort_insert, ptr noundef @.str.13) #4
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %2 = load ptr, ptr %head.addr, align 8
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i64 @mlist_boundary(ptr noundef %0) #8 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr %node, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %do.end
-  %4 = load ptr, ptr %node, align 8
-  %tobool2 = icmp ne ptr %4, null
-  br i1 %tobool2, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %insr.addr, align 8
-  %addr = getelementptr inbounds %struct.MemBlock, ptr %5, i32 0, i32 2
-  %6 = load i64, ptr %addr, align 8
-  %7 = load ptr, ptr %node, align 8
-  %addr3 = getelementptr inbounds %struct.MemBlock, ptr %7, i32 0, i32 2
-  %8 = load i64, ptr %addr3, align 8
-  %cmp = icmp ult i64 %6, %8
-  br i1 %cmp, label %if.then4, label %if.end15
-
-if.then4:                                         ; preds = %for.body
-  br label %do.body5
-
-do.body5:                                         ; preds = %if.then4
-  %9 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %9, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME, i32 0, i32 1
-  %10 = load ptr, ptr %tql_prev, align 8
-  %11 = load ptr, ptr %insr.addr, align 8
-  %MLIST_ENTNAME6 = getelementptr inbounds %struct.MemBlock, ptr %11, i32 0, i32 0
-  %tql_prev7 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME6, i32 0, i32 1
-  store ptr %10, ptr %tql_prev7, align 8
-  %12 = load ptr, ptr %node, align 8
-  %13 = load ptr, ptr %insr.addr, align 8
-  %MLIST_ENTNAME8 = getelementptr inbounds %struct.MemBlock, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %MLIST_ENTNAME8, align 8
-  %14 = load ptr, ptr %insr.addr, align 8
-  %15 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME9 = getelementptr inbounds %struct.MemBlock, ptr %15, i32 0, i32 0
-  %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME9, i32 0, i32 1
-  %16 = load ptr, ptr %tql_prev10, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %16, i32 0, i32 0
-  store ptr %14, ptr %tql_next, align 8
-  %17 = load ptr, ptr %insr.addr, align 8
-  %MLIST_ENTNAME11 = getelementptr inbounds %struct.MemBlock, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME12 = getelementptr inbounds %struct.MemBlock, ptr %18, i32 0, i32 0
-  %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME12, i32 0, i32 1
-  store ptr %MLIST_ENTNAME11, ptr %tql_prev13, align 8
-  br label %do.end14
-
-do.end14:                                         ; preds = %do.body5
-  %19 = load ptr, ptr %insr.addr, align 8
-  store ptr %19, ptr %retval, align 8
-  br label %return
-
-if.end15:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end15
-  %20 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME16 = getelementptr inbounds %struct.MemBlock, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %MLIST_ENTNAME16, align 8
-  store ptr %21, ptr %node, align 8
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %for.cond
-  br label %do.body17
-
-do.body17:                                        ; preds = %for.end
-  %22 = load ptr, ptr %insr.addr, align 8
-  %MLIST_ENTNAME18 = getelementptr inbounds %struct.MemBlock, ptr %22, i32 0, i32 0
-  store ptr null, ptr %MLIST_ENTNAME18, align 8
-  %23 = load ptr, ptr %head.addr, align 8
-  %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %23, i32 0, i32 1
-  %24 = load ptr, ptr %tql_prev19, align 8
-  %25 = load ptr, ptr %insr.addr, align 8
-  %MLIST_ENTNAME20 = getelementptr inbounds %struct.MemBlock, ptr %25, i32 0, i32 0
-  %tql_prev21 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME20, i32 0, i32 1
-  store ptr %24, ptr %tql_prev21, align 8
-  %26 = load ptr, ptr %insr.addr, align 8
-  %27 = load ptr, ptr %head.addr, align 8
-  %tql_prev22 = getelementptr inbounds %struct.QTailQLink, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %tql_prev22, align 8
-  %tql_next23 = getelementptr inbounds %struct.QTailQLink, ptr %28, i32 0, i32 0
-  store ptr %26, ptr %tql_next23, align 8
-  %29 = load ptr, ptr %insr.addr, align 8
-  %MLIST_ENTNAME24 = getelementptr inbounds %struct.MemBlock, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %head.addr, align 8
-  %tql_prev25 = getelementptr inbounds %struct.QTailQLink, ptr %30, i32 0, i32 1
-  store ptr %MLIST_ENTNAME24, ptr %tql_prev25, align 8
-  br label %do.end26
-
-do.end26:                                         ; preds = %do.body17
-  %31 = load ptr, ptr %insr.addr, align 8
-  store ptr %31, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %do.end26, %do.end14
-  %32 = load ptr, ptr %retval, align 8
-  ret ptr %32
+  %4 = getelementptr inbounds nuw %struct.MemBlock, ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.MemBlock, ptr %6, i32 0, i32 2
+  %8 = load i64, ptr %7, align 8
+  %9 = add i64 %5, %8
+  ret i64 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @mlist_find_key(ptr noundef %head, i64 noundef %addr) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %head.addr = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  %node = alloca ptr, align 8
-  store ptr %head, ptr %head.addr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  %0 = load ptr, ptr %head.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %node, align 8
-  br label %for.cond
+define internal ptr @mlist_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %node, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %for.body, label %for.end
+9:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 0, ptr %7, align 4, !annotation !4
+  %10 = load ptr, ptr %4, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %19
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %node, align 8
-  %addr1 = getelementptr inbounds %struct.MemBlock, ptr %3, i32 0, i32 2
-  %4 = load i64, ptr %addr1, align 8
-  %5 = load i64, ptr %addr.addr, align 8
-  %cmp = icmp eq i64 %4, %5
-  br i1 %cmp, label %if.then, label %if.end
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %5, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %19
 
-if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %node, align 8
-  store ptr %6, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %6, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %19
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+18:                                               ; preds = %15
+  store i32 1, ptr %7, align 4
+  br label %20
 
-for.inc:                                          ; preds = %if.end
-  %7 = load ptr, ptr %node, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %MLIST_ENTNAME, align 8
-  store ptr %8, ptr %node, align 8
-  br label %for.cond, !llvm.loop !14
+19:                                               ; preds = %15, %12, %9
+  store i32 0, ptr %7, align 4
+  br label %20
 
-for.end:                                          ; preds = %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
+20:                                               ; preds = %19, %18
+  %21 = load i32, ptr %7, align 4
+  store i32 %21, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  %22 = load i32, ptr %8, align 4
+  %23 = sext i32 %22 to i64
+  %24 = call i64 @llvm.expect.i64(i64 %23, i64 1)
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %27
 
-return:                                           ; preds = %for.end, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
-}
+26:                                               ; preds = %20
+  br label %28
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @mlist_coalesce(ptr noundef %head, ptr noundef %node) #0 {
-entry:
-  %head.addr = alloca ptr, align 8
-  %node.addr = alloca ptr, align 8
-  %left = alloca ptr, align 8
-  %right = alloca ptr, align 8
-  %merge = alloca i8, align 1
-  store ptr %head, ptr %head.addr, align 8
-  store ptr %node, ptr %node.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %node.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 87, ptr noundef @__func__.mlist_coalesce, ptr noundef @.str.18) #4
+27:                                               ; preds = %20
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 78, ptr noundef @__func__.mlist_join, ptr noundef @.str.19) #10
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %do.end
+28:                                               ; preds = %26
+  br label %29
 
-do.end:                                           ; preds = %if.end
-  br label %do.body1
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds nuw %struct.MemBlock, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.MemBlock, ptr %33, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = add i64 %35, %32
+  store i64 %36, ptr %34, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = load ptr, ptr %6, align 8
+  call void @mlist_delete(ptr noundef %37, ptr noundef %38)
+  %39 = load ptr, ptr %5, align 8
+  ret ptr %39
+}
 
-do.body1:                                         ; preds = %do.cond, %do.end
-  store i8 0, ptr %merge, align 1
-  %1 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %1, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME, i32 0, i32 1
-  %2 = load ptr, ptr %tql_prev, align 8
-  %tql_prev2 = getelementptr inbounds %struct.QTailQLink, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %tql_prev2, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %tql_next, align 8
-  store ptr %4, ptr %left, align 8
-  %5 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME3 = getelementptr inbounds %struct.MemBlock, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %MLIST_ENTNAME3, align 8
-  store ptr %6, ptr %right, align 8
-  %7 = load ptr, ptr %left, align 8
-  %tobool4 = icmp ne ptr %7, null
-  br i1 %tobool4, label %land.lhs.true, label %if.end7
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @mlist_delete(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  br label %7
 
-land.lhs.true:                                    ; preds = %do.body1
-  %8 = load ptr, ptr %left, align 8
-  %call = call i64 @mlist_boundary(ptr noundef %8)
-  %9 = load ptr, ptr %node.addr, align 8
-  %addr = getelementptr inbounds %struct.MemBlock, ptr %9, i32 0, i32 2
-  %10 = load i64, ptr %addr, align 8
-  %cmp = icmp eq i64 %call, %10
-  br i1 %cmp, label %if.then5, label %if.end7
+7:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  store i32 0, ptr %5, align 4, !annotation !4
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-if.then5:                                         ; preds = %land.lhs.true
-  %11 = load ptr, ptr %head.addr, align 8
-  %12 = load ptr, ptr %left, align 8
-  %13 = load ptr, ptr %node.addr, align 8
-  %call6 = call ptr @mlist_join(ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  store ptr %call6, ptr %node.addr, align 8
-  store i8 1, ptr %merge, align 1
-  br label %if.end7
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.end7:                                          ; preds = %if.then5, %land.lhs.true, %do.body1
-  %14 = load ptr, ptr %right, align 8
-  %tobool8 = icmp ne ptr %14, null
-  br i1 %tobool8, label %land.lhs.true9, label %if.end15
+13:                                               ; preds = %10
+  store i32 1, ptr %5, align 4
+  br label %15
 
-land.lhs.true9:                                   ; preds = %if.end7
-  %15 = load ptr, ptr %node.addr, align 8
-  %call10 = call i64 @mlist_boundary(ptr noundef %15)
-  %16 = load ptr, ptr %right, align 8
-  %addr11 = getelementptr inbounds %struct.MemBlock, ptr %16, i32 0, i32 2
-  %17 = load i64, ptr %addr11, align 8
-  %cmp12 = icmp eq i64 %call10, %17
-  br i1 %cmp12, label %if.then13, label %if.end15
+14:                                               ; preds = %10, %7
+  store i32 0, ptr %5, align 4
+  br label %15
 
-if.then13:                                        ; preds = %land.lhs.true9
-  %18 = load ptr, ptr %head.addr, align 8
-  %19 = load ptr, ptr %node.addr, align 8
-  %20 = load ptr, ptr %right, align 8
-  %call14 = call ptr @mlist_join(ptr noundef %18, ptr noundef %19, ptr noundef %20)
-  store ptr %call14, ptr %node.addr, align 8
-  store i8 1, ptr %merge, align 1
-  br label %if.end15
+15:                                               ; preds = %14, %13
+  %16 = load i32, ptr %5, align 4
+  store i32 %16, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %17 = load i32, ptr %6, align 4
+  %18 = sext i32 %17 to i64
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 1)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %22
 
-if.end15:                                         ; preds = %if.then13, %land.lhs.true9, %if.end7
-  br label %do.cond
+21:                                               ; preds = %15
+  br label %23
 
-do.cond:                                          ; preds = %if.end15
-  %21 = load i8, ptr %merge, align 1
-  %tobool16 = icmp ne i8 %21, 0
-  br i1 %tobool16, label %do.body1, label %do.end17, !llvm.loop !15
+22:                                               ; preds = %15
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 27, ptr noundef @__func__.mlist_delete, ptr noundef @.str.20) #10
+  unreachable
 
-do.end17:                                         ; preds = %do.cond
+23:                                               ; preds = %21
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.MemBlock, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %40
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.MemBlock, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.QTailQLink, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.MemBlock, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct.MemBlock, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %struct.QTailQLink, ptr %38, i32 0, i32 1
+  store ptr %34, ptr %39, align 8
+  br label %47
+
+40:                                               ; preds = %25
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw %struct.MemBlock, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.QTailQLink, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.QTailQLink, ptr %45, i32 0, i32 1
+  store ptr %44, ptr %46, align 8
+  br label %47
+
+47:                                               ; preds = %40, %30
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw %struct.MemBlock, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.MemBlock, ptr %51, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.QTailQLink, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw %struct.QTailQLink, ptr %54, i32 0, i32 0
+  store ptr %50, ptr %55, align 8
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds nuw %struct.MemBlock, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %struct.QTailQLink, ptr %57, i32 0, i32 1
+  store ptr null, ptr %58, align 8
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %struct.MemBlock, ptr %59, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.QTailQLink, ptr %60, i32 0, i32 0
+  store ptr null, ptr %61, align 8
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds nuw %struct.MemBlock, ptr %62, i32 0, i32 0
+  store ptr null, ptr %63, align 8
+  br label %64
+
+64:                                               ; preds = %47
+  %65 = load ptr, ptr %4, align 8
+  call void @g_free(ptr noundef %65)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mlist_boundary(ptr noundef %node) #0 {
-entry:
-  %node.addr = alloca ptr, align 8
-  store ptr %node, ptr %node.addr, align 8
-  %0 = load ptr, ptr %node.addr, align 8
-  %size = getelementptr inbounds %struct.MemBlock, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %size, align 8
-  %2 = load ptr, ptr %node.addr, align 8
-  %addr = getelementptr inbounds %struct.MemBlock, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %addr, align 8
-  %add = add i64 %1, %3
-  ret i64 %add
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @mlist_join(ptr noundef %head, ptr noundef %left, ptr noundef %right) #0 {
-entry:
-  %head.addr = alloca ptr, align 8
-  %left.addr = alloca ptr, align 8
-  %right.addr = alloca ptr, align 8
-  store ptr %head, ptr %head.addr, align 8
-  store ptr %left, ptr %left.addr, align 8
-  store ptr %right, ptr %right.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %head.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %do.body
-  %1 = load ptr, ptr %left.addr, align 8
-  %tobool1 = icmp ne ptr %1, null
-  br i1 %tobool1, label %land.lhs.true2, label %if.else
-
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %2 = load ptr, ptr %right.addr, align 8
-  %tobool3 = icmp ne ptr %2, null
-  br i1 %tobool3, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true2
-  br label %if.end
-
-if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 78, ptr noundef @__func__.mlist_join, ptr noundef @.str.19) #4
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %3 = load ptr, ptr %right.addr, align 8
-  %size = getelementptr inbounds %struct.MemBlock, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %size, align 8
-  %5 = load ptr, ptr %left.addr, align 8
-  %size4 = getelementptr inbounds %struct.MemBlock, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %size4, align 8
-  %add = add i64 %6, %4
-  store i64 %add, ptr %size4, align 8
-  %7 = load ptr, ptr %head.addr, align 8
-  %8 = load ptr, ptr %right.addr, align 8
-  call void @mlist_delete(ptr noundef %7, ptr noundef %8)
-  %9 = load ptr, ptr %left.addr, align 8
-  ret ptr %9
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @mlist_delete(ptr noundef %list, ptr noundef %node) #0 {
-entry:
-  %list.addr = alloca ptr, align 8
-  %node.addr = alloca ptr, align 8
-  store ptr %list, ptr %list.addr, align 8
-  store ptr %node, ptr %node.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %list.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %do.body
-  %1 = load ptr, ptr %node.addr, align 8
-  %tobool1 = icmp ne ptr %1, null
-  br i1 %tobool1, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  br label %if.end
-
-if.else:                                          ; preds = %land.lhs.true, %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.1, i32 noundef 27, ptr noundef @__func__.mlist_delete, ptr noundef @.str.20) #4
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %2 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME = getelementptr inbounds %struct.MemBlock, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %MLIST_ENTNAME, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %if.then3, label %if.else8
-
-if.then3:                                         ; preds = %do.body2
-  %4 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME4 = getelementptr inbounds %struct.MemBlock, ptr %4, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME4, i32 0, i32 1
-  %5 = load ptr, ptr %tql_prev, align 8
-  %6 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME5 = getelementptr inbounds %struct.MemBlock, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %MLIST_ENTNAME5, align 8
-  %MLIST_ENTNAME6 = getelementptr inbounds %struct.MemBlock, ptr %7, i32 0, i32 0
-  %tql_prev7 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME6, i32 0, i32 1
-  store ptr %5, ptr %tql_prev7, align 8
-  br label %if.end12
-
-if.else8:                                         ; preds = %do.body2
-  %8 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME9 = getelementptr inbounds %struct.MemBlock, ptr %8, i32 0, i32 0
-  %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME9, i32 0, i32 1
-  %9 = load ptr, ptr %tql_prev10, align 8
-  %10 = load ptr, ptr %list.addr, align 8
-  %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 1
-  store ptr %9, ptr %tql_prev11, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.else8, %if.then3
-  %11 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME13 = getelementptr inbounds %struct.MemBlock, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %MLIST_ENTNAME13, align 8
-  %13 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME14 = getelementptr inbounds %struct.MemBlock, ptr %13, i32 0, i32 0
-  %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME14, i32 0, i32 1
-  %14 = load ptr, ptr %tql_prev15, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
-  store ptr %12, ptr %tql_next, align 8
-  %15 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME16 = getelementptr inbounds %struct.MemBlock, ptr %15, i32 0, i32 0
-  %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME16, i32 0, i32 1
-  store ptr null, ptr %tql_prev17, align 8
-  %16 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME18 = getelementptr inbounds %struct.MemBlock, ptr %16, i32 0, i32 0
-  %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %MLIST_ENTNAME18, i32 0, i32 0
-  store ptr null, ptr %tql_next19, align 8
-  %17 = load ptr, ptr %node.addr, align 8
-  %MLIST_ENTNAME20 = getelementptr inbounds %struct.MemBlock, ptr %17, i32 0, i32 0
-  store ptr null, ptr %MLIST_ENTNAME20, align 8
-  br label %do.end21
-
-do.end21:                                         ; preds = %if.end12
-  %18 = load ptr, ptr %node.addr, align 8
-  call void @g_free(ptr noundef %18)
-  ret void
-}
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) #4
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #3
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #6
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn }
-attributes #5 = { allocsize(0,1) }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { allocsize(0) }
+attributes #12 = { allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}

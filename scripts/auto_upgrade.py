@@ -50,6 +50,7 @@ supported_project = [
     "php",
     "portaudio",
     "postgres",
+    "qemu",
 ]
 
 modify_only = [
@@ -64,6 +65,7 @@ modify_only = [
     "openblas",
     "php",
     "postgres",
+    "qemu",
 ]
 
 

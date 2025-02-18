@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/qemu/original/tcg-op-vec.ll'
 source_filename = "bench/qemu/original/tcg-op-vec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @cpuinfo = external local_unnamed_addr global i32, align 4
 @tcg_ctx = external thread_local local_unnamed_addr global ptr, align 8
@@ -9,3477 +9,3497 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.do_shifts = private unnamed_addr constant [10 x i8] c"do_shifts\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @tcg_can_emit_vecop_list(ptr noundef readonly captures(address_is_null) %list, i32 noundef %type, i32 noundef %vece) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %list, null
-  br i1 %cmp, label %return, label %for.cond.preheader
+define dso_local noundef zeroext i1 @tcg_can_emit_vecop_list(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %.loopexit, label %.preheader
 
-for.cond.preheader:                               ; preds = %entry
-  %0 = load i32, ptr %list, align 4
-  %tobool.not25 = icmp eq i32 %0, 0
-  br i1 %tobool.not25, label %return, label %for.body
+.preheader:                                       ; preds = %3
+  %5 = load i32, ptr %0, align 4
+  %.not45 = icmp eq i32 %5, 0
+  br i1 %.not45, label %.loopexit, label %.lr.ph
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %1 = phi i32 [ %2, %for.inc ], [ %0, %for.cond.preheader ]
-  %list.addr.026 = phi ptr [ %incdec.ptr, %for.inc ], [ %list, %for.cond.preheader ]
-  %call = tail call i32 @tcg_can_emit_vec_op(i32 noundef %1, i32 noundef %type, i32 noundef %vece) #5
-  %tobool1.not = icmp eq i32 %call, 0
-  br i1 %tobool1.not, label %if.end3, label %for.inc
+.lr.ph:                                           ; preds = %.preheader, %31
+  %6 = phi i32 [ %33, %31 ], [ %5, %.preheader ]
+  %.03046 = phi ptr [ %32, %31 ], [ %0, %.preheader ]
+  %7 = tail call i32 @tcg_can_emit_vec_op(i32 noundef %6, i32 noundef %1, i32 noundef %2) #5
+  %.not33 = icmp eq i32 %7, 0
+  br i1 %.not33, label %8, label %31
 
-if.end3:                                          ; preds = %for.body
-  switch i32 %1, label %return [
-    i32 158, label %sw.bb
-    i32 159, label %sw.bb8
-    i32 161, label %sw.bb20
-    i32 163, label %sw.bb28
-    i32 192, label %sw.bb36
-    i32 164, label %sw.bb36
-    i32 166, label %sw.bb36
-    i32 165, label %sw.bb36
-    i32 167, label %sw.bb36
+8:                                                ; preds = %.lr.ph
+  switch i32 %6, label %.loopexit [
+    i32 158, label %9
+    i32 159, label %11
+    i32 161, label %21
+    i32 163, label %25
+    i32 192, label %29
+    i32 164, label %29
+    i32 166, label %29
+    i32 165, label %29
+    i32 167, label %29
   ]
 
-sw.bb:                                            ; preds = %if.end3
-  %call4 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %type, i32 noundef %vece) #5
-  %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %return, label %for.inc
+9:                                                ; preds = %8
+  %10 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %1, i32 noundef %2) #5
+  %.not41 = icmp eq i32 %10, 0
+  br i1 %.not41, label %.loopexit, label %31
 
-sw.bb8:                                           ; preds = %if.end3
-  %call9 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %type, i32 noundef %vece) #5
-  %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %return, label %land.lhs.true
+11:                                               ; preds = %8
+  %12 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %1, i32 noundef %2) #5
+  %.not39 = icmp eq i32 %12, 0
+  br i1 %.not39, label %.loopexit, label %13
 
-land.lhs.true:                                    ; preds = %sw.bb8
-  %call11 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 166, i32 noundef %type, i32 noundef %vece) #5
-  %cmp12 = icmp sgt i32 %call11, 0
-  br i1 %cmp12, label %for.inc, label %lor.lhs.false
+13:                                               ; preds = %11
+  %14 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 166, i32 noundef %1, i32 noundef %2) #5
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %31, label %16
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %call13 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 179, i32 noundef %type, i32 noundef %vece) #5
-  %cmp14 = icmp sgt i32 %call13, 0
-  br i1 %cmp14, label %for.inc, label %lor.lhs.false15
+16:                                               ; preds = %13
+  %17 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 179, i32 noundef %1, i32 noundef %2) #5
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %31, label %19
 
-lor.lhs.false15:                                  ; preds = %lor.lhs.false
-  %call16 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %type, i32 noundef %vece) #5
-  %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %return, label %for.inc
+19:                                               ; preds = %16
+  %20 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %1, i32 noundef %2) #5
+  %.not40 = icmp eq i32 %20, 0
+  br i1 %.not40, label %.loopexit, label %31
 
-sw.bb20:                                          ; preds = %if.end3
-  %call21 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 165, i32 noundef %type, i32 noundef %vece) #5
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %lor.lhs.false23, label %for.inc
+21:                                               ; preds = %8
+  %22 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 165, i32 noundef %1, i32 noundef %2) #5
+  %.not37 = icmp eq i32 %22, 0
+  br i1 %.not37, label %23, label %31
 
-lor.lhs.false23:                                  ; preds = %sw.bb20
-  %call24 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %type, i32 noundef %vece) #5
-  %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %return, label %for.inc
+23:                                               ; preds = %21
+  %24 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %1, i32 noundef %2) #5
+  %.not38 = icmp eq i32 %24, 0
+  br i1 %.not38, label %.loopexit, label %31
 
-sw.bb28:                                          ; preds = %if.end3
-  %call29 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 167, i32 noundef %type, i32 noundef %vece) #5
-  %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %lor.lhs.false31, label %for.inc
+25:                                               ; preds = %8
+  %26 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 167, i32 noundef %1, i32 noundef %2) #5
+  %.not35 = icmp eq i32 %26, 0
+  br i1 %.not35, label %27, label %31
 
-lor.lhs.false31:                                  ; preds = %sw.bb28
-  %call32 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %type, i32 noundef %vece) #5
-  %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %return, label %for.inc
+27:                                               ; preds = %25
+  %28 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %1, i32 noundef %2) #5
+  %.not36 = icmp eq i32 %28, 0
+  br i1 %.not36, label %.loopexit, label %31
 
-sw.bb36:                                          ; preds = %if.end3, %if.end3, %if.end3, %if.end3, %if.end3
-  %call37 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %type, i32 noundef %vece) #5
-  %tobool38.not = icmp eq i32 %call37, 0
-  br i1 %tobool38.not, label %return, label %for.inc
+29:                                               ; preds = %8, %8, %8, %8, %8
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %1, i32 noundef %2) #5
+  %.not34 = icmp eq i32 %30, 0
+  br i1 %.not34, label %.loopexit, label %31
 
-for.inc:                                          ; preds = %sw.bb36, %sw.bb28, %lor.lhs.false31, %sw.bb20, %lor.lhs.false23, %land.lhs.true, %lor.lhs.false, %lor.lhs.false15, %sw.bb, %for.body
-  %incdec.ptr = getelementptr i8, ptr %list.addr.026, i64 4
-  %2 = load i32, ptr %incdec.ptr, align 4
-  %tobool.not = icmp eq i32 %2, 0
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
+31:                                               ; preds = %.lr.ph, %9, %19, %16, %13, %23, %21, %27, %25, %29
+  %32 = getelementptr inbounds nuw i8, ptr %.03046, i64 4
+  %33 = load i32, ptr %32, align 4
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-return:                                           ; preds = %if.end3, %sw.bb36, %lor.lhs.false31, %lor.lhs.false23, %sw.bb8, %lor.lhs.false15, %sw.bb, %for.inc, %for.cond.preheader, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.cond.preheader ], [ false, %if.end3 ], [ false, %sw.bb36 ], [ false, %lor.lhs.false31 ], [ false, %lor.lhs.false23 ], [ false, %sw.bb8 ], [ false, %lor.lhs.false15 ], [ false, %sw.bb ], [ true, %for.inc ]
-  ret i1 %retval.0
+.loopexit:                                        ; preds = %31, %9, %19, %11, %23, %27, %29, %8, %.preheader, %3
+  %.029 = phi i1 [ true, %3 ], [ true, %.preheader ], [ true, %31 ], [ false, %9 ], [ false, %19 ], [ false, %11 ], [ false, %23 ], [ false, %27 ], [ false, %29 ], [ false, %8 ]
+  ret i1 %.029
 }
 
 declare i32 @tcg_can_emit_vec_op(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vec_gen_2(i32 noundef %opc, i32 noundef %type, i32 noundef %vece, i64 noundef %r, i64 noundef %a) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 2) #5
-  %bf.load = load i32, ptr %call, align 8
-  %sub = shl i32 %type, 16
-  %bf.value = add i32 %sub, 16580608
-  %bf.clear = and i32 %bf.load, 65535
-  %bf.value2 = shl i32 %vece, 24
-  %bf.value.masked = and i32 %bf.value, 16711680
-  %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
-  %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
-  store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
-  store i64 %r, ptr %args, align 8
-  %arrayidx7 = getelementptr i8, ptr %call, i64 40
-  store i64 %a, ptr %arrayidx7, align 8
+define dso_local void @vec_gen_2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+  %6 = tail call ptr @tcg_emit_op(i32 noundef %0, i32 noundef 2) #5
+  %7 = load i32, ptr %6, align 8
+  %8 = shl i32 %1, 16
+  %9 = and i32 %7, 65535
+  %10 = shl i32 %2, 24
+  %.masked = and i32 %8, 16711680
+  %11 = or disjoint i32 %.masked, %9
+  %12 = or disjoint i32 %11, %10
+  store i32 %12, ptr %6, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %3, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i64 %4, ptr %14, align 8
   ret void
 }
 
 declare ptr @tcg_emit_op(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vec_gen_3(i32 noundef %opc, i32 noundef %type, i32 noundef %vece, i64 noundef %r, i64 noundef %a, i64 noundef %b) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 3) #5
-  %bf.load = load i32, ptr %call, align 8
-  %sub = shl i32 %type, 16
-  %bf.value = add i32 %sub, 16580608
-  %bf.clear = and i32 %bf.load, 65535
-  %bf.value2 = shl i32 %vece, 24
-  %bf.value.masked = and i32 %bf.value, 16711680
-  %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
-  %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
-  store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
-  store i64 %r, ptr %args, align 8
-  %arrayidx7 = getelementptr i8, ptr %call, i64 40
-  store i64 %a, ptr %arrayidx7, align 8
-  %arrayidx9 = getelementptr i8, ptr %call, i64 48
-  store i64 %b, ptr %arrayidx9, align 8
+define dso_local void @vec_gen_3(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+  %7 = tail call ptr @tcg_emit_op(i32 noundef %0, i32 noundef 3) #5
+  %8 = load i32, ptr %7, align 8
+  %9 = shl i32 %1, 16
+  %10 = and i32 %8, 65535
+  %11 = shl i32 %2, 24
+  %.masked = and i32 %9, 16711680
+  %12 = or disjoint i32 %.masked, %10
+  %13 = or disjoint i32 %12, %11
+  store i32 %13, ptr %7, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i64 %3, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store i64 %4, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store i64 %5, ptr %16, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vec_gen_4(i32 noundef %opc, i32 noundef %type, i32 noundef %vece, i64 noundef %r, i64 noundef %a, i64 noundef %b, i64 noundef %c) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 4) #5
-  %bf.load = load i32, ptr %call, align 8
-  %sub = shl i32 %type, 16
-  %bf.value = add i32 %sub, 16580608
-  %bf.clear = and i32 %bf.load, 65535
-  %bf.value2 = shl i32 %vece, 24
-  %bf.value.masked = and i32 %bf.value, 16711680
-  %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
-  %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
-  store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
-  store i64 %r, ptr %args, align 8
-  %arrayidx7 = getelementptr i8, ptr %call, i64 40
-  store i64 %a, ptr %arrayidx7, align 8
-  %arrayidx9 = getelementptr i8, ptr %call, i64 48
-  store i64 %b, ptr %arrayidx9, align 8
-  %arrayidx11 = getelementptr i8, ptr %call, i64 56
-  store i64 %c, ptr %arrayidx11, align 8
+define dso_local void @vec_gen_4(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+  %8 = tail call ptr @tcg_emit_op(i32 noundef %0, i32 noundef 4) #5
+  %9 = load i32, ptr %8, align 8
+  %10 = shl i32 %1, 16
+  %11 = and i32 %9, 65535
+  %12 = shl i32 %2, 24
+  %.masked = and i32 %10, 16711680
+  %13 = or disjoint i32 %.masked, %11
+  %14 = or disjoint i32 %13, %12
+  store i32 %14, ptr %8, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i64 %3, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i64 %4, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i64 %5, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i64 %6, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_mov_vec(ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  %cmp.not = icmp eq ptr %r, %a
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i4.i = getelementptr i8, ptr %1, i64 %3
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %4 = trunc i64 %bf.load.i to i32
-  %5 = lshr i32 %4, 16
-  %bf.cast.i = and i32 %5, 255
-  %bf.load2.i = load i64, ptr %add.ptr.i.i4.i, align 8
-  %6 = trunc i64 %bf.load2.i to i32
-  %7 = lshr i32 %6, 16
-  %bf.cast5.i = and i32 %7, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast5.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %8 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %9 = ptrtoint ptr %add.ptr.i.i4.i to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %8, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %9, ptr %arrayidx7.i.i, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+define dso_local void @vec_gen_6(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #0 {
+  %10 = tail call ptr @tcg_emit_op(i32 noundef %0, i32 noundef 6) #5
+  %11 = load i32, ptr %10, align 8
+  %12 = shl i32 %1, 16
+  %13 = and i32 %11, 65535
+  %14 = shl i32 %2, 24
+  %.masked = and i32 %12, 16711680
+  %15 = or disjoint i32 %.masked, %13
+  %16 = or disjoint i32 %15, %14
+  store i32 %16, ptr %10, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i64 %3, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i64 %4, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i64 %5, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i64 %6, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i64 %7, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store i64 %8, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_dupi_vec(i32 noundef %vece, ptr noundef %r, i64 noundef %a) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %2
-  %bf.load = load i64, ptr %add.ptr.i.i, align 8
-  %3 = trunc i64 %bf.load to i32
-  %4 = lshr i32 %3, 16
-  %bf.cast = and i32 %4, 255
-  %call1 = tail call ptr @tcg_constant_vec(i32 noundef %bf.cast, i32 noundef %vece, i64 noundef %a) #5
-  %cmp.not.i = icmp eq ptr %r, %call1
-  br i1 %cmp.not.i, label %tcg_gen_mov_vec.exit, label %if.then.i
+define dso_local void @tcg_gen_mov_vec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, %1
+  br i1 %.not, label %28, label %3
 
-if.then.i:                                        ; preds = %entry
-  %5 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %2
-  %6 = ptrtoint ptr %call1 to i64
-  %add.ptr.i.i4.i.i = getelementptr i8, ptr %5, i64 %6
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %7 = trunc i64 %bf.load.i.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast.i.i = and i32 %8, 255
-  %bf.load2.i.i = load i64, ptr %add.ptr.i.i4.i.i, align 8
-  %9 = trunc i64 %bf.load2.i.i to i32
+3:                                                ; preds = %2
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %0 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %8 = ptrtoint ptr %1 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
+  %10 = load i64, ptr %7, align 8
+  %11 = trunc i64 %10 to i32
+  %12 = lshr i32 %11, 16
+  %13 = and i32 %12, 255
+  %14 = load i64, ptr %9, align 8
+  %15 = trunc i64 %14 to i32
+  %16 = lshr i32 %15, 16
+  %17 = and i32 %16, 255
+  %18 = icmp samesign uge i32 %17, %13
+  tail call void @llvm.assume(i1 %18)
+  %19 = ptrtoint ptr %7 to i64
+  %20 = ptrtoint ptr %9 to i64
+  %21 = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
+  %22 = load i32, ptr %21, align 8
+  %23 = shl nuw nsw i32 %13, 16
+  %24 = and i32 %22, 65535
+  %25 = or disjoint i32 %24, %23
+  store i32 %25, ptr %21, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i64 %19, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store i64 %20, ptr %27, align 8
+  br label %28
+
+28:                                               ; preds = %3, %2
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_dupi_vec(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %1 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %8 = load i64, ptr %7, align 8
+  %9 = trunc i64 %8 to i32
   %10 = lshr i32 %9, 16
-  %bf.cast5.i.i = and i32 %10, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast5.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %11, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %12, ptr %arrayidx7.i.i.i, align 8
+  %11 = and i32 %10, 255
+  %12 = tail call ptr @tcg_constant_vec(i32 noundef %11, i32 noundef %0, i64 noundef %2) #5
+  %.not.i = icmp eq ptr %1, %12
+  br i1 %.not.i, label %tcg_gen_mov_vec.exit, label %13
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %6
+  %16 = ptrtoint ptr %12 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
+  %18 = load i64, ptr %15, align 8
+  %19 = trunc i64 %18 to i32
+  %20 = lshr i32 %19, 16
+  %21 = and i32 %20, 255
+  %22 = load i64, ptr %17, align 8
+  %23 = trunc i64 %22 to i32
+  %24 = lshr i32 %23, 16
+  %25 = and i32 %24, 255
+  %26 = icmp samesign uge i32 %25, %21
+  tail call void @llvm.assume(i1 %26)
+  %27 = ptrtoint ptr %15 to i64
+  %28 = ptrtoint ptr %17 to i64
+  %29 = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
+  %30 = load i32, ptr %29, align 8
+  %31 = shl nuw nsw i32 %21, 16
+  %32 = and i32 %30, 65535
+  %33 = or disjoint i32 %32, %31
+  store i32 %33, ptr %29, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store i64 %27, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  store i64 %28, ptr %35, align 8
   br label %tcg_gen_mov_vec.exit
 
-tcg_gen_mov_vec.exit:                             ; preds = %entry, %if.then.i
+tcg_gen_mov_vec.exit:                             ; preds = %3, %13
   ret void
 }
 
 declare ptr @tcg_constant_vec(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_dup_i64_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %4 = trunc i64 %bf.load to i32
-  %5 = ptrtoint ptr %a to i64
-  %add.ptr.i.i.i2 = getelementptr i8, ptr %1, i64 %5
-  %6 = ptrtoint ptr %add.ptr.i.i.i2 to i64
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef 150, i32 noundef 2) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %bf.value.i = add i32 %4, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value2.i = shl i32 %vece, 24
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
-  %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
-  store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %6, ptr %arrayidx7.i, align 8
+define dso_local void @tcg_gen_dup_i64_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %1 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %8 = ptrtoint ptr %7 to i64
+  %9 = load i64, ptr %7, align 8
+  %10 = trunc i64 %9 to i32
+  %11 = and i32 %10, 16711680
+  %12 = ptrtoint ptr %2 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
+  %14 = ptrtoint ptr %13 to i64
+  %15 = tail call ptr @tcg_emit_op(i32 noundef 150, i32 noundef 2) #5
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 65535
+  %18 = shl i32 %0, 24
+  %19 = or disjoint i32 %11, %17
+  %20 = or disjoint i32 %19, %18
+  store i32 %20, ptr %15, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i64 %8, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i64 %14, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_dup_i32_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %4 = ptrtoint ptr %a to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i to i64
-  %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef 150, i32 noundef 2) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %bf.value.i = add i32 %6, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value2.i = shl i32 %vece, 24
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
-  %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
-  store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %5, ptr %arrayidx7.i, align 8
+define dso_local void @tcg_gen_dup_i32_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %1 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %8 = ptrtoint ptr %7 to i64
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
+  %11 = ptrtoint ptr %10 to i64
+  %12 = load i64, ptr %7, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = and i32 %13, 16711680
+  %15 = tail call ptr @tcg_emit_op(i32 noundef 150, i32 noundef 2) #5
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 65535
+  %18 = shl i32 %0, 24
+  %19 = or disjoint i32 %14, %17
+  %20 = or disjoint i32 %19, %18
+  store i32 %20, ptr %15, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i64 %8, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i64 %11, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_dup_mem_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %b, i64 noundef %ofs) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i2 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i2 to i64
-  %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef 154, i32 noundef 3) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %bf.value.i = add i32 %6, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value2.i = shl i32 %vece, 24
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
-  %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
-  store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %5, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
-  store i64 %ofs, ptr %arrayidx9.i, align 8
+define dso_local void @tcg_gen_dup_mem_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %8 to i64
+  %10 = ptrtoint ptr %2 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %10
+  %12 = ptrtoint ptr %11 to i64
+  %13 = load i64, ptr %8, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = and i32 %14, 16711680
+  %16 = tail call ptr @tcg_emit_op(i32 noundef 154, i32 noundef 3) #5
+  %17 = load i32, ptr %16, align 8
+  %18 = and i32 %17, 65535
+  %19 = shl i32 %0, 24
+  %20 = or disjoint i32 %15, %18
+  %21 = or disjoint i32 %20, %19
+  store i32 %21, ptr %16, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i64 %9, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store i64 %12, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store i64 %3, ptr %24, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_ld_vec(ptr noundef %r, ptr noundef %b, i64 noundef %o) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %6 = trunc i64 %bf.load.i to i32
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 152, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %bf.value.i.i = add i32 %6, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %3, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %5, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %o, ptr %arrayidx9.i.i, align 8
+define dso_local void @tcg_gen_ld_vec(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %0 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %8 = ptrtoint ptr %7 to i64
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
+  %11 = ptrtoint ptr %10 to i64
+  %12 = load i64, ptr %7, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = and i32 %13, 16711680
+  %15 = tail call ptr @tcg_emit_op(i32 noundef 152, i32 noundef 3) #5
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 65535
+  %18 = or disjoint i32 %17, %14
+  store i32 %18, ptr %15, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i64 %8, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i64 %11, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i64 %2, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_st_vec(ptr noundef %r, ptr noundef %b, i64 noundef %o) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %6 = trunc i64 %bf.load.i to i32
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 153, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %bf.value.i.i = add i32 %6, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %3, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %5, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %o, ptr %arrayidx9.i.i, align 8
+define dso_local void @tcg_gen_st_vec(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %0 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %8 = ptrtoint ptr %7 to i64
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
+  %11 = ptrtoint ptr %10 to i64
+  %12 = load i64, ptr %7, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = and i32 %13, 16711680
+  %15 = tail call ptr @tcg_emit_op(i32 noundef 153, i32 noundef 3) #5
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 65535
+  %18 = or disjoint i32 %17, %14
+  store i32 %18, ptr %15, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i64 %8, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i64 %11, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i64 %2, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_stl_vec(ptr noundef %r, ptr noundef %b, i64 noundef %o, i32 noundef %low_type) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i4 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i4 to i64
-  %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
-  %7 = lshr i32 %6, 16
-  %bf.cast = and i32 %7, 255
-  %cmp = icmp ugt i32 %low_type, 2
-  tail call void @llvm.assume(i1 %cmp)
-  %cmp4 = icmp ule i32 %low_type, %bf.cast
-  tail call void @llvm.assume(i1 %cmp4)
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef 153, i32 noundef 3) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %sub.i = shl i32 %low_type, 16
-  %bf.value.i = add i32 %sub.i, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
-  store i32 %bf.clear4.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %3, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %5, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
-  store i64 %o, ptr %arrayidx9.i, align 8
+define dso_local void @tcg_gen_stl_vec(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %0 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %8 to i64
+  %10 = ptrtoint ptr %1 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %10
+  %12 = ptrtoint ptr %11 to i64
+  %13 = load i64, ptr %8, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = lshr i32 %14, 16
+  %16 = and i32 %15, 255
+  %17 = icmp ugt i32 %3, 2
+  tail call void @llvm.assume(i1 %17)
+  %18 = icmp ule i32 %3, %16
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call ptr @tcg_emit_op(i32 noundef 153, i32 noundef 3) #5
+  %20 = load i32, ptr %19, align 8
+  %21 = shl i32 %3, 16
+  %22 = and i32 %20, 65535
+  %.masked.i = and i32 %21, 16711680
+  %23 = or disjoint i32 %22, %.masked.i
+  store i32 %23, ptr %19, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i64 %9, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i64 %12, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store i64 %2, ptr %26, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_and_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %1, i64 %4
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %5 = trunc i64 %bf.load.i to i32
-  %6 = lshr i32 %5, 16
-  %bf.cast.i = and i32 %6, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %7 = trunc i64 %bf.load3.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %9 = trunc i64 %bf.load8.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+define dso_local void @tcg_gen_and_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = load i64, ptr %8, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = lshr i32 %14, 16
+  %16 = and i32 %15, 255
+  %17 = load i64, ptr %10, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i32 %18, 16
+  %20 = and i32 %19, 255
+  %21 = icmp samesign uge i32 %20, %16
+  tail call void @llvm.assume(i1 %21)
+  %22 = load i64, ptr %12, align 8
+  %23 = trunc i64 %22 to i32
+  %24 = lshr i32 %23, 16
+  %25 = and i32 %24, 255
+  %26 = icmp samesign uge i32 %25, %16
+  tail call void @llvm.assume(i1 %26)
+  %27 = ptrtoint ptr %8 to i64
+  %28 = ptrtoint ptr %10 to i64
+  %29 = ptrtoint ptr %12 to i64
+  %30 = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
+  %31 = load i32, ptr %30, align 8
+  %32 = shl nuw nsw i32 %16, 16
+  %33 = and i32 %31, 65535
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %30, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i64 %27, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store i64 %28, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store i64 %29, ptr %37, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_or_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %1, i64 %4
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %5 = trunc i64 %bf.load.i to i32
-  %6 = lshr i32 %5, 16
-  %bf.cast.i = and i32 %6, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %7 = trunc i64 %bf.load3.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %9 = trunc i64 %bf.load8.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+define dso_local void @tcg_gen_or_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = load i64, ptr %8, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = lshr i32 %14, 16
+  %16 = and i32 %15, 255
+  %17 = load i64, ptr %10, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i32 %18, 16
+  %20 = and i32 %19, 255
+  %21 = icmp samesign uge i32 %20, %16
+  tail call void @llvm.assume(i1 %21)
+  %22 = load i64, ptr %12, align 8
+  %23 = trunc i64 %22 to i32
+  %24 = lshr i32 %23, 16
+  %25 = and i32 %24, 255
+  %26 = icmp samesign uge i32 %25, %16
+  tail call void @llvm.assume(i1 %26)
+  %27 = ptrtoint ptr %8 to i64
+  %28 = ptrtoint ptr %10 to i64
+  %29 = ptrtoint ptr %12 to i64
+  %30 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
+  %31 = load i32, ptr %30, align 8
+  %32 = shl nuw nsw i32 %16, 16
+  %33 = and i32 %31, 65535
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %30, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i64 %27, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store i64 %28, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store i64 %29, ptr %37, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_xor_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %1, i64 %4
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %5 = trunc i64 %bf.load.i to i32
-  %6 = lshr i32 %5, 16
-  %bf.cast.i = and i32 %6, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %7 = trunc i64 %bf.load3.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %9 = trunc i64 %bf.load8.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+define dso_local void @tcg_gen_xor_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = load i64, ptr %8, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = lshr i32 %14, 16
+  %16 = and i32 %15, 255
+  %17 = load i64, ptr %10, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i32 %18, 16
+  %20 = and i32 %19, 255
+  %21 = icmp samesign uge i32 %20, %16
+  tail call void @llvm.assume(i1 %21)
+  %22 = load i64, ptr %12, align 8
+  %23 = trunc i64 %22 to i32
+  %24 = lshr i32 %23, 16
+  %25 = and i32 %24, 255
+  %26 = icmp samesign uge i32 %25, %16
+  tail call void @llvm.assume(i1 %26)
+  %27 = ptrtoint ptr %8 to i64
+  %28 = ptrtoint ptr %10 to i64
+  %29 = ptrtoint ptr %12 to i64
+  %30 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %31 = load i32, ptr %30, align 8
+  %32 = shl nuw nsw i32 %16, 16
+  %33 = and i32 %31, 65535
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %30, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i64 %27, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store i64 %28, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store i64 %29, ptr %37, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_andc_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %1, i64 %4
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %5 = trunc i64 %bf.load.i to i32
-  %6 = lshr i32 %5, 16
-  %bf.cast.i = and i32 %6, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %7 = trunc i64 %bf.load3.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast6.i = and i32 %8, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %9 = trunc i64 %bf.load8.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast11.i = and i32 %10, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 171, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %11, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %12, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+define dso_local void @tcg_gen_andc_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = load i64, ptr %8, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = lshr i32 %14, 16
+  %16 = and i32 %15, 255
+  %17 = load i64, ptr %10, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i32 %18, 16
+  %20 = and i32 %19, 255
+  %21 = icmp samesign uge i32 %20, %16
+  tail call void @llvm.assume(i1 %21)
+  %22 = load i64, ptr %12, align 8
+  %23 = trunc i64 %22 to i32
+  %24 = lshr i32 %23, 16
+  %25 = and i32 %24, 255
+  %26 = icmp samesign uge i32 %25, %16
+  tail call void @llvm.assume(i1 %26)
+  %27 = ptrtoint ptr %8 to i64
+  %28 = ptrtoint ptr %10 to i64
+  %29 = ptrtoint ptr %12 to i64
+  %30 = tail call ptr @tcg_emit_op(i32 noundef 171, i32 noundef 3) #5
+  %31 = load i32, ptr %30, align 8
+  %32 = shl nuw nsw i32 %16, 16
+  %33 = and i32 %31, 65535
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %30, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i64 %27, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store i64 %28, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store i64 %29, ptr %37, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_orc_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @cpuinfo, align 4
-  %1 = and i32 %0, 6144
-  %or.cond.not = icmp eq i32 %1, 6144
-  br i1 %or.cond.not, label %if.then, label %if.else
+define dso_local void @tcg_gen_orc_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = load i32, ptr @cpuinfo, align 4
+  %6 = and i32 %5, 6144
+  %or.cond.not = icmp eq i32 %6, 6144
+  br i1 %or.cond.not, label %7, label %41
 
-if.then:                                          ; preds = %entry
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %4 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 %4
-  %5 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %3, i64 %5
-  %6 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %3, i64 %6
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %7 = trunc i64 %bf.load.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast.i = and i32 %8, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %9 = trunc i64 %bf.load3.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %11 = trunc i64 %bf.load8.i to i32
-  %12 = lshr i32 %11, 16
-  %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 172, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %15, ptr %arrayidx9.i.i, align 8
-  br label %if.end
+7:                                                ; preds = %4
+  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %1 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %12 = ptrtoint ptr %2 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  %14 = ptrtoint ptr %3 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
+  %16 = load i64, ptr %11, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %13, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %15, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = ptrtoint ptr %11 to i64
+  %31 = ptrtoint ptr %13 to i64
+  %32 = ptrtoint ptr %15 to i64
+  %33 = tail call ptr @tcg_emit_op(i32 noundef 172, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = or disjoint i32 %36, %35
+  store i32 %37, ptr %33, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %30, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %31, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %32, ptr %40, align 8
+  br label %136
 
-if.else:                                          ; preds = %entry
-  %call = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %r) #5
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
-  br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
+41:                                               ; preds = %4
+  %42 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #5
+  %43 = load i32, ptr @cpuinfo, align 4
+  %44 = and i32 %43, 6144
+  %or.cond.not.i = icmp eq i32 %44, 6144
+  br i1 %or.cond.not.i, label %45, label %70
 
-if.then.i:                                        ; preds = %if.else
-  %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %call to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %19, i64 %20
-  %21 = ptrtoint ptr %b to i64
-  %add.ptr.i.i4.i.i = getelementptr i8, ptr %19, i64 %21
-  %bf.load.i.i7 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %22 = trunc i64 %bf.load.i.i7 to i32
-  %23 = lshr i32 %22, 16
-  %bf.cast.i.i = and i32 %23, 255
-  %bf.load2.i.i = load i64, ptr %add.ptr.i.i4.i.i, align 8
-  %24 = trunc i64 %bf.load2.i.i to i32
-  %25 = lshr i32 %24, 16
-  %bf.cast5.i.i = and i32 %25, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast5.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %26 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %27 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %26, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %27, ptr %arrayidx7.i.i.i, align 8
+45:                                               ; preds = %41
+  %46 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %47 = load ptr, ptr %46, align 8
+  %48 = ptrtoint ptr %42 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
+  %50 = ptrtoint ptr %3 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %50
+  %52 = load i64, ptr %49, align 8
+  %53 = trunc i64 %52 to i32
+  %54 = lshr i32 %53, 16
+  %55 = and i32 %54, 255
+  %56 = load i64, ptr %51, align 8
+  %57 = trunc i64 %56 to i32
+  %58 = lshr i32 %57, 16
+  %59 = and i32 %58, 255
+  %60 = icmp samesign uge i32 %59, %55
+  tail call void @llvm.assume(i1 %60)
+  %61 = ptrtoint ptr %49 to i64
+  %62 = ptrtoint ptr %51 to i64
+  %63 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
+  %64 = load i32, ptr %63, align 8
+  %65 = shl nuw nsw i32 %55, 16
+  %66 = and i32 %64, 65535
+  %67 = or disjoint i32 %66, %65
+  store i32 %67, ptr %63, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  store i64 %61, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  store i64 %62, ptr %69, align 8
   br label %tcg_gen_not_vec.exit
 
-if.else.i:                                        ; preds = %if.else
-  %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %call, i32 noundef 0, i64 noundef -1) #5
-  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %call to i64
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %29, i64 %30
-  %31 = ptrtoint ptr %b to i64
-  %add.ptr.i.i6.i.i.i = getelementptr i8, ptr %29, i64 %31
-  %32 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %29, i64 %32
-  %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %33 = trunc i64 %bf.load.i.i4.i to i32
-  %34 = lshr i32 %33, 16
-  %bf.cast.i.i.i = and i32 %34, 255
-  %bf.load3.i.i.i = load i64, ptr %add.ptr.i.i6.i.i.i, align 8
-  %35 = trunc i64 %bf.load3.i.i.i to i32
-  %36 = lshr i32 %35, 16
-  %bf.cast6.i.i.i = and i32 %36, 255
-  %cmp.i.i.i = icmp samesign uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %37 = trunc i64 %bf.load8.i.i.i to i32
-  %38 = lshr i32 %37, 16
-  %bf.cast11.i.i.i = and i32 %38, 255
-  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %39 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %40 = ptrtoint ptr %add.ptr.i.i6.i.i.i to i64
-  %41 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
-  store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %39, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %40, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %41, ptr %arrayidx9.i.i.i.i, align 8
+70:                                               ; preds = %41
+  %71 = tail call ptr @tcg_constant_vec_matching(ptr noundef %42, i32 noundef 0, i64 noundef -1) #5
+  %72 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %73 = load ptr, ptr %72, align 8
+  %74 = ptrtoint ptr %42 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
+  %76 = ptrtoint ptr %3 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 %76
+  %78 = ptrtoint ptr %71 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %78
+  %80 = load i64, ptr %75, align 8
+  %81 = trunc i64 %80 to i32
+  %82 = lshr i32 %81, 16
+  %83 = and i32 %82, 255
+  %84 = load i64, ptr %77, align 8
+  %85 = trunc i64 %84 to i32
+  %86 = lshr i32 %85, 16
+  %87 = and i32 %86, 255
+  %88 = icmp samesign uge i32 %87, %83
+  tail call void @llvm.assume(i1 %88)
+  %89 = load i64, ptr %79, align 8
+  %90 = trunc i64 %89 to i32
+  %91 = lshr i32 %90, 16
+  %92 = and i32 %91, 255
+  %93 = icmp samesign uge i32 %92, %83
+  tail call void @llvm.assume(i1 %93)
+  %94 = ptrtoint ptr %75 to i64
+  %95 = ptrtoint ptr %77 to i64
+  %96 = ptrtoint ptr %79 to i64
+  %97 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %98 = load i32, ptr %97, align 8
+  %99 = shl nuw nsw i32 %83, 16
+  %100 = and i32 %98, 65535
+  %101 = or disjoint i32 %100, %99
+  store i32 %101, ptr %97, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 32
+  store i64 %94, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 40
+  store i64 %95, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %97, i64 48
+  store i64 %96, ptr %104, align 8
   br label %tcg_gen_not_vec.exit
 
-tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else.i
-  %.pre-phi21 = phi ptr [ %18, %if.then.i ], [ %28, %if.else.i ]
-  %.pre-phi = phi i64 [ %20, %if.then.i ], [ %30, %if.else.i ]
-  %42 = load ptr, ptr %.pre-phi21, align 8
-  %43 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i8 = getelementptr i8, ptr %42, i64 %43
-  %44 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i.i = getelementptr i8, ptr %42, i64 %44
-  %add.ptr.i.i7.i.i = getelementptr i8, ptr %42, i64 %.pre-phi
-  %bf.load.i.i9 = load i64, ptr %add.ptr.i.i.i.i8, align 8
-  %45 = trunc i64 %bf.load.i.i9 to i32
-  %46 = lshr i32 %45, 16
-  %bf.cast.i.i10 = and i32 %46, 255
-  %bf.load3.i.i = load i64, ptr %add.ptr.i.i6.i.i, align 8
-  %47 = trunc i64 %bf.load3.i.i to i32
-  %48 = lshr i32 %47, 16
-  %bf.cast6.i.i = and i32 %48, 255
-  %cmp.i.i11 = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i10
-  tail call void @llvm.assume(i1 %cmp.i.i11)
-  %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
-  %49 = trunc i64 %bf.load8.i.i to i32
-  %50 = lshr i32 %49, 16
-  %bf.cast11.i.i = and i32 %50, 255
-  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i10
-  tail call void @llvm.assume(i1 %cmp12.i.i)
-  %51 = ptrtoint ptr %add.ptr.i.i.i.i8 to i64
-  %52 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %53 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
-  %call.i.i.i12 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
-  %bf.load.i.i.i13 = load i32, ptr %call.i.i.i12, align 8
-  %sub.i.i.i14 = shl nuw nsw i32 %bf.cast.i.i10, 16
-  %bf.value.i.i.i15 = add nuw nsw i32 %sub.i.i.i14, 16580608
-  %bf.clear.i.i.i16 = and i32 %bf.load.i.i.i13, 65535
-  %bf.value.masked.i.i.i17 = and i32 %bf.value.i.i.i15, 16711680
-  %bf.clear4.i.i.i18 = or disjoint i32 %bf.clear.i.i.i16, %bf.value.masked.i.i.i17
-  store i32 %bf.clear4.i.i.i18, ptr %call.i.i.i12, align 8
-  %args.i.i.i19 = getelementptr inbounds nuw i8, ptr %call.i.i.i12, i64 32
-  store i64 %51, ptr %args.i.i.i19, align 8
-  %arrayidx7.i.i.i20 = getelementptr i8, ptr %call.i.i.i12, i64 40
-  store i64 %52, ptr %arrayidx7.i.i.i20, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i12, i64 48
-  store i64 %53, ptr %arrayidx9.i.i.i, align 8
-  tail call void @tcg_temp_free_vec(ptr noundef %call) #5
-  br label %if.end
+tcg_gen_not_vec.exit:                             ; preds = %45, %70
+  %.pre-phi11 = phi ptr [ %46, %45 ], [ %72, %70 ]
+  %.pre-phi = phi i64 [ %48, %45 ], [ %74, %70 ]
+  %105 = load ptr, ptr %.pre-phi11, align 8
+  %106 = ptrtoint ptr %1 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 %106
+  %108 = ptrtoint ptr %2 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 %.pre-phi
+  %111 = load i64, ptr %107, align 8
+  %112 = trunc i64 %111 to i32
+  %113 = lshr i32 %112, 16
+  %114 = and i32 %113, 255
+  %115 = load i64, ptr %109, align 8
+  %116 = trunc i64 %115 to i32
+  %117 = lshr i32 %116, 16
+  %118 = and i32 %117, 255
+  %119 = icmp samesign uge i32 %118, %114
+  tail call void @llvm.assume(i1 %119)
+  %120 = load i64, ptr %110, align 8
+  %121 = trunc i64 %120 to i32
+  %122 = lshr i32 %121, 16
+  %123 = and i32 %122, 255
+  %124 = icmp samesign uge i32 %123, %114
+  tail call void @llvm.assume(i1 %124)
+  %125 = ptrtoint ptr %107 to i64
+  %126 = ptrtoint ptr %109 to i64
+  %127 = ptrtoint ptr %110 to i64
+  %128 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
+  %129 = load i32, ptr %128, align 8
+  %130 = shl nuw nsw i32 %114, 16
+  %131 = and i32 %129, 65535
+  %132 = or disjoint i32 %131, %130
+  store i32 %132, ptr %128, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store i64 %125, ptr %133, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 40
+  store i64 %126, ptr %134, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  store i64 %127, ptr %135, align 8
+  tail call void @tcg_temp_free_vec(ptr noundef %42) #5
+  br label %136
 
-if.end:                                           ; preds = %tcg_gen_not_vec.exit, %if.then
+136:                                              ; preds = %tcg_gen_not_vec.exit, %7
   ret void
 }
 
 declare ptr @tcg_temp_new_vec_matching(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_not_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @cpuinfo, align 4
-  %1 = and i32 %0, 6144
-  %or.cond.not = icmp eq i32 %1, 6144
-  br i1 %or.cond.not, label %if.then, label %if.else
+define dso_local void @tcg_gen_not_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = load i32, ptr @cpuinfo, align 4
+  %5 = and i32 %4, 6144
+  %or.cond.not = icmp eq i32 %5, 6144
+  br i1 %or.cond.not, label %6, label %31
 
-if.then:                                          ; preds = %entry
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %4 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 %4
-  %5 = ptrtoint ptr %a to i64
-  %add.ptr.i.i4.i = getelementptr i8, ptr %3, i64 %5
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load.i to i32
-  %7 = lshr i32 %6, 16
-  %bf.cast.i = and i32 %7, 255
-  %bf.load2.i = load i64, ptr %add.ptr.i.i4.i, align 8
-  %8 = trunc i64 %bf.load2.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast5.i = and i32 %9, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast5.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %10 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %11 = ptrtoint ptr %add.ptr.i.i4.i to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %10, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %11, ptr %arrayidx7.i.i, align 8
-  br label %if.end
+6:                                                ; preds = %3
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %8 = load ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = ptrtoint ptr %2 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
+  %13 = load i64, ptr %10, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = lshr i32 %14, 16
+  %16 = and i32 %15, 255
+  %17 = load i64, ptr %12, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i32 %18, 16
+  %20 = and i32 %19, 255
+  %21 = icmp samesign uge i32 %20, %16
+  tail call void @llvm.assume(i1 %21)
+  %22 = ptrtoint ptr %10 to i64
+  %23 = ptrtoint ptr %12 to i64
+  %24 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
+  %25 = load i32, ptr %24, align 8
+  %26 = shl nuw nsw i32 %16, 16
+  %27 = and i32 %25, 65535
+  %28 = or disjoint i32 %27, %26
+  store i32 %28, ptr %24, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i64 %22, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store i64 %23, ptr %30, align 8
+  br label %66
 
-if.else:                                          ; preds = %entry
-  %call = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 %14
-  %15 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i.i = getelementptr i8, ptr %13, i64 %15
-  %16 = ptrtoint ptr %call to i64
-  %add.ptr.i.i7.i.i = getelementptr i8, ptr %13, i64 %16
-  %bf.load.i.i4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %17 = trunc i64 %bf.load.i.i4 to i32
-  %18 = lshr i32 %17, 16
-  %bf.cast.i.i = and i32 %18, 255
-  %bf.load3.i.i = load i64, ptr %add.ptr.i.i6.i.i, align 8
-  %19 = trunc i64 %bf.load3.i.i to i32
-  %20 = lshr i32 %19, 16
-  %bf.cast6.i.i = and i32 %20, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
-  %21 = trunc i64 %bf.load8.i.i to i32
-  %22 = lshr i32 %21, 16
-  %bf.cast11.i.i = and i32 %22, 255
-  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i)
-  %23 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %24 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %25 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %23, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %24, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %25, ptr %arrayidx9.i.i.i, align 8
-  br label %if.end
+31:                                               ; preds = %3
+  %32 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef 0, i64 noundef -1) #5
+  %33 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %34 = load ptr, ptr %33, align 8
+  %35 = ptrtoint ptr %1 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
+  %37 = ptrtoint ptr %2 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %37
+  %39 = ptrtoint ptr %32 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 %39
+  %41 = load i64, ptr %36, align 8
+  %42 = trunc i64 %41 to i32
+  %43 = lshr i32 %42, 16
+  %44 = and i32 %43, 255
+  %45 = load i64, ptr %38, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = lshr i32 %46, 16
+  %48 = and i32 %47, 255
+  %49 = icmp samesign uge i32 %48, %44
+  tail call void @llvm.assume(i1 %49)
+  %50 = load i64, ptr %40, align 8
+  %51 = trunc i64 %50 to i32
+  %52 = lshr i32 %51, 16
+  %53 = and i32 %52, 255
+  %54 = icmp samesign uge i32 %53, %44
+  tail call void @llvm.assume(i1 %54)
+  %55 = ptrtoint ptr %36 to i64
+  %56 = ptrtoint ptr %38 to i64
+  %57 = ptrtoint ptr %40 to i64
+  %58 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %59 = load i32, ptr %58, align 8
+  %60 = shl nuw nsw i32 %44, 16
+  %61 = and i32 %59, 65535
+  %62 = or disjoint i32 %61, %60
+  store i32 %62, ptr %58, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i64 %55, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  store i64 %56, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  store i64 %57, ptr %65, align 8
+  br label %66
 
-if.end:                                           ; preds = %if.else, %if.then
+66:                                               ; preds = %31, %6
   ret void
 }
 
 declare void @tcg_temp_free_vec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_nand_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @cpuinfo, align 4
-  %1 = and i32 %0, 6144
-  %or.cond.not = icmp eq i32 %1, 6144
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %4 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 %4
-  %5 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %3, i64 %5
-  %6 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %3, i64 %6
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %7 = trunc i64 %bf.load.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast.i = and i32 %8, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %9 = trunc i64 %bf.load3.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %11 = trunc i64 %bf.load8.i to i32
-  %12 = lshr i32 %11, 16
-  %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  br i1 %or.cond.not, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 173, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %15, ptr %arrayidx9.i.i, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %13, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %14, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %15, ptr %arrayidx9.i.i.i, align 8
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
-  br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.else
-  %18 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %18, i64 %4
-  %bf.load.i.i8 = load i64, ptr %add.ptr.i.i.i.i7, align 8
-  %19 = trunc i64 %bf.load.i.i8 to i32
-  %20 = ptrtoint ptr %add.ptr.i.i.i.i7 to i64
-  %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
-  %bf.load.i.i.i12 = load i32, ptr %call.i.i.i11, align 8
-  %bf.value.i.i.i14 = add i32 %19, 16580608
-  %bf.clear.i.i.i15 = and i32 %bf.load.i.i.i12, 65535
-  %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
-  %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
-  store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
-  store i64 %20, ptr %args.i.i.i18, align 8
-  %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
-  store i64 %20, ptr %arrayidx7.i.i.i19, align 8
-  br label %if.end
-
-if.else.i:                                        ; preds = %if.else
-  %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %21 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %21, i64 %4
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %21, i64 %22
-  %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %23 = trunc i64 %bf.load.i.i4.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast.i.i.i = and i32 %24, 255
-  %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %25 = trunc i64 %bf.load8.i.i.i to i32
+define dso_local void @tcg_gen_nand_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = load i32, ptr @cpuinfo, align 4
+  %6 = and i32 %5, 6144
+  %or.cond.not = icmp eq i32 %6, 6144
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %8 = load ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = ptrtoint ptr %2 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
+  %13 = ptrtoint ptr %3 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
+  %15 = load i64, ptr %10, align 8
+  %16 = trunc i64 %15 to i32
+  %17 = lshr i32 %16, 16
+  %18 = and i32 %17, 255
+  %19 = load i64, ptr %12, align 8
+  %20 = trunc i64 %19 to i32
+  %21 = lshr i32 %20, 16
+  %22 = and i32 %21, 255
+  %23 = icmp samesign uge i32 %22, %18
+  tail call void @llvm.assume(i1 %23)
+  %24 = load i64, ptr %14, align 8
+  %25 = trunc i64 %24 to i32
   %26 = lshr i32 %25, 16
-  %bf.cast11.i.i.i = and i32 %26, 255
-  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
-  store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %27, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
-  br label %if.end
+  %27 = and i32 %26, 255
+  %28 = icmp samesign uge i32 %27, %18
+  tail call void @llvm.assume(i1 %28)
+  %29 = ptrtoint ptr %10 to i64
+  %30 = ptrtoint ptr %12 to i64
+  %31 = ptrtoint ptr %14 to i64
+  %32 = shl nuw nsw i32 %18, 16
+  br i1 %or.cond.not, label %33, label %41
 
-if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
+33:                                               ; preds = %4
+  %34 = tail call ptr @tcg_emit_op(i32 noundef 173, i32 noundef 3) #5
+  %35 = load i32, ptr %34, align 8
+  %36 = and i32 %35, 65535
+  %37 = or disjoint i32 %36, %32
+  store i32 %37, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store i64 %29, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i64 %30, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  store i64 %31, ptr %40, align 8
+  br label %tcg_gen_not_vec.exit
+
+41:                                               ; preds = %4
+  %42 = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
+  %43 = load i32, ptr %42, align 8
+  %44 = and i32 %43, 65535
+  %45 = or disjoint i32 %44, %32
+  store i32 %45, ptr %42, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store i64 %29, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store i64 %30, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store i64 %31, ptr %48, align 8
+  %49 = load i32, ptr @cpuinfo, align 4
+  %50 = and i32 %49, 6144
+  %or.cond.not.i = icmp eq i32 %50, 6144
+  br i1 %or.cond.not.i, label %51, label %64
+
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %9
+  %54 = load i64, ptr %53, align 8
+  %55 = trunc i64 %54 to i32
+  %56 = and i32 %55, 16711680
+  %57 = ptrtoint ptr %53 to i64
+  %58 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
+  %59 = load i32, ptr %58, align 8
+  %60 = and i32 %59, 65535
+  %61 = or disjoint i32 %60, %56
+  store i32 %61, ptr %58, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i64 %57, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  store i64 %57, ptr %63, align 8
+  br label %tcg_gen_not_vec.exit
+
+64:                                               ; preds = %41
+  %65 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef 0, i64 noundef -1) #5
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %9
+  %68 = ptrtoint ptr %65 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %68
+  %70 = load i64, ptr %67, align 8
+  %71 = trunc i64 %70 to i32
+  %72 = lshr i32 %71, 16
+  %73 = and i32 %72, 255
+  %74 = load i64, ptr %69, align 8
+  %75 = trunc i64 %74 to i32
+  %76 = lshr i32 %75, 16
+  %77 = and i32 %76, 255
+  %78 = icmp samesign uge i32 %77, %73
+  tail call void @llvm.assume(i1 %78)
+  %79 = ptrtoint ptr %67 to i64
+  %80 = ptrtoint ptr %69 to i64
+  %81 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %82 = load i32, ptr %81, align 8
+  %83 = shl nuw nsw i32 %73, 16
+  %84 = and i32 %82, 65535
+  %85 = or disjoint i32 %84, %83
+  store i32 %85, ptr %81, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  store i64 %79, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  store i64 %79, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  store i64 %80, ptr %88, align 8
+  br label %tcg_gen_not_vec.exit
+
+tcg_gen_not_vec.exit:                             ; preds = %64, %51, %33
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_nor_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @cpuinfo, align 4
-  %1 = and i32 %0, 6144
-  %or.cond.not = icmp eq i32 %1, 6144
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %4 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 %4
-  %5 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %3, i64 %5
-  %6 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %3, i64 %6
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %7 = trunc i64 %bf.load.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast.i = and i32 %8, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %9 = trunc i64 %bf.load3.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %11 = trunc i64 %bf.load8.i to i32
-  %12 = lshr i32 %11, 16
-  %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  br i1 %or.cond.not, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 174, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %15, ptr %arrayidx9.i.i, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %13, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %14, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %15, ptr %arrayidx9.i.i.i, align 8
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
-  br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.else
-  %18 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %18, i64 %4
-  %bf.load.i.i8 = load i64, ptr %add.ptr.i.i.i.i7, align 8
-  %19 = trunc i64 %bf.load.i.i8 to i32
-  %20 = ptrtoint ptr %add.ptr.i.i.i.i7 to i64
-  %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
-  %bf.load.i.i.i12 = load i32, ptr %call.i.i.i11, align 8
-  %bf.value.i.i.i14 = add i32 %19, 16580608
-  %bf.clear.i.i.i15 = and i32 %bf.load.i.i.i12, 65535
-  %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
-  %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
-  store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
-  store i64 %20, ptr %args.i.i.i18, align 8
-  %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
-  store i64 %20, ptr %arrayidx7.i.i.i19, align 8
-  br label %if.end
-
-if.else.i:                                        ; preds = %if.else
-  %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %21 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %21, i64 %4
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %21, i64 %22
-  %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %23 = trunc i64 %bf.load.i.i4.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast.i.i.i = and i32 %24, 255
-  %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %25 = trunc i64 %bf.load8.i.i.i to i32
+define dso_local void @tcg_gen_nor_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = load i32, ptr @cpuinfo, align 4
+  %6 = and i32 %5, 6144
+  %or.cond.not = icmp eq i32 %6, 6144
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %8 = load ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = ptrtoint ptr %2 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
+  %13 = ptrtoint ptr %3 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
+  %15 = load i64, ptr %10, align 8
+  %16 = trunc i64 %15 to i32
+  %17 = lshr i32 %16, 16
+  %18 = and i32 %17, 255
+  %19 = load i64, ptr %12, align 8
+  %20 = trunc i64 %19 to i32
+  %21 = lshr i32 %20, 16
+  %22 = and i32 %21, 255
+  %23 = icmp samesign uge i32 %22, %18
+  tail call void @llvm.assume(i1 %23)
+  %24 = load i64, ptr %14, align 8
+  %25 = trunc i64 %24 to i32
   %26 = lshr i32 %25, 16
-  %bf.cast11.i.i.i = and i32 %26, 255
-  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
-  store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %27, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
-  br label %if.end
+  %27 = and i32 %26, 255
+  %28 = icmp samesign uge i32 %27, %18
+  tail call void @llvm.assume(i1 %28)
+  %29 = ptrtoint ptr %10 to i64
+  %30 = ptrtoint ptr %12 to i64
+  %31 = ptrtoint ptr %14 to i64
+  %32 = shl nuw nsw i32 %18, 16
+  br i1 %or.cond.not, label %33, label %41
 
-if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
+33:                                               ; preds = %4
+  %34 = tail call ptr @tcg_emit_op(i32 noundef 174, i32 noundef 3) #5
+  %35 = load i32, ptr %34, align 8
+  %36 = and i32 %35, 65535
+  %37 = or disjoint i32 %36, %32
+  store i32 %37, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store i64 %29, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i64 %30, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  store i64 %31, ptr %40, align 8
+  br label %tcg_gen_not_vec.exit
+
+41:                                               ; preds = %4
+  %42 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
+  %43 = load i32, ptr %42, align 8
+  %44 = and i32 %43, 65535
+  %45 = or disjoint i32 %44, %32
+  store i32 %45, ptr %42, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store i64 %29, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store i64 %30, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store i64 %31, ptr %48, align 8
+  %49 = load i32, ptr @cpuinfo, align 4
+  %50 = and i32 %49, 6144
+  %or.cond.not.i = icmp eq i32 %50, 6144
+  br i1 %or.cond.not.i, label %51, label %64
+
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %9
+  %54 = load i64, ptr %53, align 8
+  %55 = trunc i64 %54 to i32
+  %56 = and i32 %55, 16711680
+  %57 = ptrtoint ptr %53 to i64
+  %58 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
+  %59 = load i32, ptr %58, align 8
+  %60 = and i32 %59, 65535
+  %61 = or disjoint i32 %60, %56
+  store i32 %61, ptr %58, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i64 %57, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  store i64 %57, ptr %63, align 8
+  br label %tcg_gen_not_vec.exit
+
+64:                                               ; preds = %41
+  %65 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef 0, i64 noundef -1) #5
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %9
+  %68 = ptrtoint ptr %65 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %68
+  %70 = load i64, ptr %67, align 8
+  %71 = trunc i64 %70 to i32
+  %72 = lshr i32 %71, 16
+  %73 = and i32 %72, 255
+  %74 = load i64, ptr %69, align 8
+  %75 = trunc i64 %74 to i32
+  %76 = lshr i32 %75, 16
+  %77 = and i32 %76, 255
+  %78 = icmp samesign uge i32 %77, %73
+  tail call void @llvm.assume(i1 %78)
+  %79 = ptrtoint ptr %67 to i64
+  %80 = ptrtoint ptr %69 to i64
+  %81 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %82 = load i32, ptr %81, align 8
+  %83 = shl nuw nsw i32 %73, 16
+  %84 = and i32 %82, 65535
+  %85 = or disjoint i32 %84, %83
+  store i32 %85, ptr %81, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  store i64 %79, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  store i64 %79, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  store i64 %80, ptr %88, align 8
+  br label %tcg_gen_not_vec.exit
+
+tcg_gen_not_vec.exit:                             ; preds = %64, %51, %33
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_eqv_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr @cpuinfo, align 4
-  %1 = and i32 %0, 6144
-  %or.cond.not = icmp eq i32 %1, 6144
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %4 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 %4
-  %5 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i = getelementptr i8, ptr %3, i64 %5
-  %6 = ptrtoint ptr %b to i64
-  %add.ptr.i.i7.i = getelementptr i8, ptr %3, i64 %6
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %7 = trunc i64 %bf.load.i to i32
-  %8 = lshr i32 %7, 16
-  %bf.cast.i = and i32 %8, 255
-  %bf.load3.i = load i64, ptr %add.ptr.i.i6.i, align 8
-  %9 = trunc i64 %bf.load3.i to i32
-  %10 = lshr i32 %9, 16
-  %bf.cast6.i = and i32 %10, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast6.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load8.i = load i64, ptr %add.ptr.i.i7.i, align 8
-  %11 = trunc i64 %bf.load8.i to i32
-  %12 = lshr i32 %11, 16
-  %bf.cast11.i = and i32 %12, 255
-  %cmp12.i = icmp samesign uge i32 %bf.cast11.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  br i1 %or.cond.not, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 175, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %13, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %14, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %15, ptr %arrayidx9.i.i, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %13, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %14, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %15, ptr %arrayidx9.i.i.i, align 8
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
-  br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.else
-  %18 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %18, i64 %4
-  %bf.load.i.i8 = load i64, ptr %add.ptr.i.i.i.i7, align 8
-  %19 = trunc i64 %bf.load.i.i8 to i32
-  %20 = ptrtoint ptr %add.ptr.i.i.i.i7 to i64
-  %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
-  %bf.load.i.i.i12 = load i32, ptr %call.i.i.i11, align 8
-  %bf.value.i.i.i14 = add i32 %19, 16580608
-  %bf.clear.i.i.i15 = and i32 %bf.load.i.i.i12, 65535
-  %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
-  %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
-  store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
-  store i64 %20, ptr %args.i.i.i18, align 8
-  %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
-  store i64 %20, ptr %arrayidx7.i.i.i19, align 8
-  br label %if.end
-
-if.else.i:                                        ; preds = %if.else
-  %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %21 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %21, i64 %4
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %21, i64 %22
-  %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %23 = trunc i64 %bf.load.i.i4.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast.i.i.i = and i32 %24, 255
-  %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %25 = trunc i64 %bf.load8.i.i.i to i32
+define dso_local void @tcg_gen_eqv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = load i32, ptr @cpuinfo, align 4
+  %6 = and i32 %5, 6144
+  %or.cond.not = icmp eq i32 %6, 6144
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %8 = load ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = ptrtoint ptr %2 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
+  %13 = ptrtoint ptr %3 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
+  %15 = load i64, ptr %10, align 8
+  %16 = trunc i64 %15 to i32
+  %17 = lshr i32 %16, 16
+  %18 = and i32 %17, 255
+  %19 = load i64, ptr %12, align 8
+  %20 = trunc i64 %19 to i32
+  %21 = lshr i32 %20, 16
+  %22 = and i32 %21, 255
+  %23 = icmp samesign uge i32 %22, %18
+  tail call void @llvm.assume(i1 %23)
+  %24 = load i64, ptr %14, align 8
+  %25 = trunc i64 %24 to i32
   %26 = lshr i32 %25, 16
-  %bf.cast11.i.i.i = and i32 %26, 255
-  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
-  store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %27, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
-  br label %if.end
+  %27 = and i32 %26, 255
+  %28 = icmp samesign uge i32 %27, %18
+  tail call void @llvm.assume(i1 %28)
+  %29 = ptrtoint ptr %10 to i64
+  %30 = ptrtoint ptr %12 to i64
+  %31 = ptrtoint ptr %14 to i64
+  %32 = shl nuw nsw i32 %18, 16
+  br i1 %or.cond.not, label %33, label %41
 
-if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
+33:                                               ; preds = %4
+  %34 = tail call ptr @tcg_emit_op(i32 noundef 175, i32 noundef 3) #5
+  %35 = load i32, ptr %34, align 8
+  %36 = and i32 %35, 65535
+  %37 = or disjoint i32 %36, %32
+  store i32 %37, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store i64 %29, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i64 %30, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  store i64 %31, ptr %40, align 8
+  br label %tcg_gen_not_vec.exit
+
+41:                                               ; preds = %4
+  %42 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %43 = load i32, ptr %42, align 8
+  %44 = and i32 %43, 65535
+  %45 = or disjoint i32 %44, %32
+  store i32 %45, ptr %42, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store i64 %29, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store i64 %30, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store i64 %31, ptr %48, align 8
+  %49 = load i32, ptr @cpuinfo, align 4
+  %50 = and i32 %49, 6144
+  %or.cond.not.i = icmp eq i32 %50, 6144
+  br i1 %or.cond.not.i, label %51, label %64
+
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %9
+  %54 = load i64, ptr %53, align 8
+  %55 = trunc i64 %54 to i32
+  %56 = and i32 %55, 16711680
+  %57 = ptrtoint ptr %53 to i64
+  %58 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
+  %59 = load i32, ptr %58, align 8
+  %60 = and i32 %59, 65535
+  %61 = or disjoint i32 %60, %56
+  store i32 %61, ptr %58, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i64 %57, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  store i64 %57, ptr %63, align 8
+  br label %tcg_gen_not_vec.exit
+
+64:                                               ; preds = %41
+  %65 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef 0, i64 noundef -1) #5
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %9
+  %68 = ptrtoint ptr %65 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %68
+  %70 = load i64, ptr %67, align 8
+  %71 = trunc i64 %70 to i32
+  %72 = lshr i32 %71, 16
+  %73 = and i32 %72, 255
+  %74 = load i64, ptr %69, align 8
+  %75 = trunc i64 %74 to i32
+  %76 = lshr i32 %75, 16
+  %77 = and i32 %76, 255
+  %78 = icmp samesign uge i32 %77, %73
+  tail call void @llvm.assume(i1 %78)
+  %79 = ptrtoint ptr %67 to i64
+  %80 = ptrtoint ptr %69 to i64
+  %81 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %82 = load i32, ptr %81, align 8
+  %83 = shl nuw nsw i32 %73, 16
+  %84 = and i32 %82, 65535
+  %85 = or disjoint i32 %84, %83
+  store i32 %85, ptr %81, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  store i64 %79, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  store i64 %79, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  store i64 %80, ptr %88, align 8
+  br label %tcg_gen_not_vec.exit
+
+tcg_gen_not_vec.exit:                             ; preds = %64, %51, %33
   ret void
 }
 
 declare ptr @tcg_constant_vec_matching(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_neg_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  %call1 = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef %vece, i64 noundef 0) #5
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %call1 to i64
-  %add.ptr.i.i17.i.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %a to i64
-  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
-  %bf.load.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i.i = and i32 %9, 255
-  %bf.load6.i.i.i = load i64, ptr %add.ptr.i.i17.i.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i.i = and i32 %11, 255
-  %cmp.i.i.i = icmp samesign uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i.i = and i32 %13, 255
-  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
-  %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
-  br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
-
-if.then21.i.i.i:                                  ; preds = %entry
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
-  %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
-  %bf.value2.i.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
-  %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
-  store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i.i, align 8
-  br label %tcg_gen_sub_vec.exit
-
-if.else.i.i.i:                                    ; preds = %entry
-  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %tcg_gen_sub_vec.exit
-
-tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_sub_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_abs_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i14.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %5 = ptrtoint ptr %add.ptr.i.i14.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load.i to i32
-  %7 = lshr i32 %6, 16
-  %bf.cast.i = and i32 %7, 255
-  %bf.load4.i = load i64, ptr %add.ptr.i.i14.i, align 8
-  %8 = trunc i64 %bf.load4.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast7.i = and i32 %9, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast7.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %call8.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 159, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp9.i = icmp sgt i32 %call8.i, 0
-  br i1 %cmp9.i, label %if.then10.i, label %if.else.i
-
-if.then10.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 159, i32 noundef 2) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %4, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %5, ptr %arrayidx7.i.i, align 8
-  br label %if.end15
-
-if.else.i:                                        ; preds = %entry
-  %cmp11.i = icmp slt i32 %call8.i, 0
-  br i1 %cmp11.i, label %if.then12.i, label %if.then
-
-if.then12.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 159, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %4, i64 noundef %5) #5
-  br label %if.end15
-
-if.then:                                          ; preds = %if.else.i
-  %10 = load ptr, ptr %0, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %10, i64 %2
-  %bf.load = load i64, ptr %add.ptr.i.i, align 8
-  %11 = trunc i64 %bf.load to i32
-  %12 = lshr i32 %11, 16
-  %bf.cast = and i32 %12, 255
-  %call3 = tail call ptr @tcg_temp_new_vec(i32 noundef %bf.cast) #5
-  %call4 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast, i32 noundef %vece) #5
-  %tobool = icmp ne i32 %call4, 0
-  tail call void @llvm.assume(i1 %tobool)
-  %call6 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 166, i32 noundef %bf.cast, i32 noundef %vece) #5
-  %cmp = icmp sgt i32 %call6, 0
-  br i1 %cmp, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %if.then
-  %call1.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %call3, i32 noundef %vece, i64 noundef 0) #5
-  %13 = load ptr, ptr %0, align 8
-  %14 = ptrtoint ptr %call3 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %13, i64 %14
-  %15 = ptrtoint ptr %call1.i to i64
-  %add.ptr.i.i17.i.i.i.i = getelementptr i8, ptr %13, i64 %15
-  %add.ptr.i.i18.i.i.i.i = getelementptr i8, ptr %13, i64 %3
-  %16 = ptrtoint ptr %add.ptr.i.i.i.i.i.i to i64
-  %17 = ptrtoint ptr %add.ptr.i.i17.i.i.i.i to i64
-  %18 = ptrtoint ptr %add.ptr.i.i18.i.i.i.i to i64
-  %bf.load.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %19 = trunc i64 %bf.load.i.i.i.i to i32
-  %20 = lshr i32 %19, 16
-  %bf.cast.i.i.i.i = and i32 %20, 255
-  %bf.load6.i.i.i.i = load i64, ptr %add.ptr.i.i17.i.i.i.i, align 8
-  %21 = trunc i64 %bf.load6.i.i.i.i to i32
+define dso_local void @tcg_gen_neg_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @tcg_constant_vec_matching(ptr noundef %1, i32 noundef %0, i64 noundef 0) #5
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %4 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %2 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
   %22 = lshr i32 %21, 16
-  %bf.cast9.i.i.i.i = and i32 %22, 255
-  %cmp.i.i.i.i = icmp samesign uge i32 %bf.cast9.i.i.i.i, %bf.cast.i.i.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
-  %bf.load11.i.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i.i, align 8
-  %23 = trunc i64 %bf.load11.i.i.i.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast14.i.i.i.i = and i32 %24, 255
-  %cmp15.i.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i.i, %bf.cast.i.i.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i.i.i)
-  %call19.i.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece) #5
-  %cmp20.i.i.i.i = icmp sgt i32 %call19.i.i.i.i, 0
-  br i1 %cmp20.i.i.i.i, label %if.then21.i.i.i.i, label %if.else.i.i.i.i
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
 
-if.then21.i.i.i.i:                                ; preds = %if.then7
-  %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
-  %bf.load.i.i.i.i.i = load i32, ptr %call.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i.i, 16
-  %bf.value.i.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 65535
-  %bf.value2.i.i.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i.i.i = and i32 %bf.value.i.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i.i, %bf.clear.i.i.i.i.i
-  %bf.set5.i.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i.i, %bf.value2.i.i.i.i.i
-  store i32 %bf.set5.i.i.i.i.i, ptr %call.i.i.i.i.i, align 8
-  %args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
-  store i64 %16, ptr %args.i.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
-  store i64 %17, ptr %arrayidx7.i.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 48
-  store i64 %18, ptr %arrayidx9.i.i.i.i.i, align 8
+32:                                               ; preds = %3
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %tcg_gen_sub_vec.exit
+
+43:                                               ; preds = %3
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %tcg_gen_sub_vec.exit
+
+tcg_gen_sub_vec.exit:                             ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_sub_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_abs_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %1 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  %8 = ptrtoint ptr %2 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
+  %10 = ptrtoint ptr %7 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = load i64, ptr %7, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = lshr i32 %13, 16
+  %15 = and i32 %14, 255
+  %16 = load i64, ptr %9, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = icmp samesign uge i32 %19, %15
+  tail call void @llvm.assume(i1 %20)
+  %21 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 159, i32 noundef %15, i32 noundef %0) #5
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %23, label %33
+
+23:                                               ; preds = %3
+  %24 = tail call ptr @tcg_emit_op(i32 noundef 159, i32 noundef 2) #5
+  %25 = load i32, ptr %24, align 8
+  %26 = shl nuw nsw i32 %15, 16
+  %27 = and i32 %25, 65535
+  %28 = shl i32 %0, 24
+  %29 = or disjoint i32 %27, %26
+  %30 = or disjoint i32 %29, %28
+  store i32 %30, ptr %24, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i64 %10, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store i64 %11, ptr %32, align 8
+  br label %do_op2.exit.thread
+
+33:                                               ; preds = %3
+  %34 = icmp slt i32 %21, 0
+  br i1 %34, label %35, label %do_op2.exit
+
+35:                                               ; preds = %33
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 159, i32 noundef %15, i32 noundef %0, i64 noundef %10, i64 noundef %11) #5
+  br label %do_op2.exit.thread
+
+do_op2.exit:                                      ; preds = %33
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %6
+  %38 = load i64, ptr %37, align 8
+  %39 = trunc i64 %38 to i32
+  %40 = lshr i32 %39, 16
+  %41 = and i32 %40, 255
+  %42 = tail call ptr @tcg_temp_new_vec(i32 noundef %41) #5
+  %43 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %41, i32 noundef %0) #5
+  %44 = icmp ne i32 %43, 0
+  tail call void @llvm.assume(i1 %44)
+  %45 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 166, i32 noundef %41, i32 noundef %0) #5
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %87
+
+47:                                               ; preds = %do_op2.exit
+  %48 = tail call ptr @tcg_constant_vec_matching(ptr noundef %42, i32 noundef %0, i64 noundef 0) #5
+  %49 = load ptr, ptr %4, align 8
+  %50 = ptrtoint ptr %42 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
+  %52 = ptrtoint ptr %48 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %8
+  %55 = ptrtoint ptr %51 to i64
+  %56 = ptrtoint ptr %53 to i64
+  %57 = ptrtoint ptr %54 to i64
+  %58 = load i64, ptr %51, align 8
+  %59 = trunc i64 %58 to i32
+  %60 = lshr i32 %59, 16
+  %61 = and i32 %60, 255
+  %62 = load i64, ptr %53, align 8
+  %63 = trunc i64 %62 to i32
+  %64 = lshr i32 %63, 16
+  %65 = and i32 %64, 255
+  %66 = icmp samesign uge i32 %65, %61
+  tail call void @llvm.assume(i1 %66)
+  %67 = load i64, ptr %54, align 8
+  %68 = trunc i64 %67 to i32
+  %69 = lshr i32 %68, 16
+  %70 = and i32 %69, 255
+  %71 = icmp samesign uge i32 %70, %61
+  tail call void @llvm.assume(i1 %71)
+  %72 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %61, i32 noundef %0) #5
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %74, label %85
+
+74:                                               ; preds = %47
+  %75 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
+  %76 = load i32, ptr %75, align 8
+  %77 = shl nuw nsw i32 %61, 16
+  %78 = and i32 %76, 65535
+  %79 = shl i32 %0, 24
+  %80 = or disjoint i32 %78, %77
+  %81 = or disjoint i32 %80, %79
+  store i32 %81, ptr %75, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  store i64 %55, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  store i64 %56, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 48
+  store i64 %57, ptr %84, align 8
   br label %tcg_gen_neg_vec.exit
 
-if.else.i.i.i.i:                                  ; preds = %if.then7
-  %cmp22.i.i.i.i = icmp ne i32 %call19.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
+85:                                               ; preds = %47
+  %86 = icmp ne i32 %72, 0
+  tail call void @llvm.assume(i1 %86)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %61, i32 noundef %0, i64 noundef %55, i64 noundef %56, i64 noundef %57) #5
   br label %tcg_gen_neg_vec.exit
 
-tcg_gen_neg_vec.exit:                             ; preds = %if.then21.i.i.i.i, %if.else.i.i.i.i
-  tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %call3, i32 noundef 166, i32 noundef 11)
-  br label %if.end14
+tcg_gen_neg_vec.exit:                             ; preds = %74, %85
+  tail call void @tcg_gen_smax_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %42)
+  br label %tcg_gen_sub_vec.exit
 
-if.else:                                          ; preds = %if.then
-  %call8 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 179, i32 noundef %bf.cast, i32 noundef %vece) #5
-  %cmp9 = icmp sgt i32 %call8, 0
-  br i1 %cmp9, label %if.then10, label %if.else11
+87:                                               ; preds = %do_op2.exit
+  %88 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 179, i32 noundef %41, i32 noundef %0) #5
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %90, label %94
 
-if.then10:                                        ; preds = %if.else
-  %shl = shl i32 8, %vece
-  %sub = add i32 %shl, -1
-  %conv = sext i32 %sub to i64
-  tail call fastcc void @do_shifti(i32 noundef 179, i32 noundef %vece, ptr noundef %call3, ptr noundef %a, i64 noundef %conv)
-  %.pre = ptrtoint ptr %call3 to i64
-  br label %if.end13
+90:                                               ; preds = %87
+  %91 = shl i32 8, %0
+  %92 = add i32 %91, -1
+  %93 = sext i32 %92 to i64
+  tail call fastcc void @do_shifti(i32 noundef 179, i32 noundef %0, ptr noundef %42, ptr noundef %2, i64 noundef %93)
+  %.pre = ptrtoint ptr %42 to i64
+  br label %tcg_gen_cmp_vec.exit
 
-if.else11:                                        ; preds = %if.else
-  %call12 = tail call ptr @tcg_constant_vec(i32 noundef %bf.cast, i32 noundef %vece, i64 noundef 0) #5
-  %25 = load ptr, ptr %0, align 8
-  %26 = ptrtoint ptr %call3 to i64
-  %add.ptr.i.i.i32 = getelementptr i8, ptr %25, i64 %26
-  %add.ptr.i.i15.i = getelementptr i8, ptr %25, i64 %3
-  %27 = ptrtoint ptr %call12 to i64
-  %add.ptr.i.i16.i = getelementptr i8, ptr %25, i64 %27
-  %28 = ptrtoint ptr %add.ptr.i.i.i32 to i64
-  %29 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %30 = ptrtoint ptr %add.ptr.i.i16.i to i64
-  %bf.load.i33 = load i64, ptr %add.ptr.i.i.i32, align 8
-  %31 = trunc i64 %bf.load.i33 to i32
-  %32 = lshr i32 %31, 16
-  %bf.cast.i34 = and i32 %32, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %33 = trunc i64 %bf.load6.i to i32
-  %34 = lshr i32 %33, 16
-  %bf.cast9.i = and i32 %34, 255
-  %cmp.i35 = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i34
-  tail call void @llvm.assume(i1 %cmp.i35)
-  %bf.load11.i = load i64, ptr %add.ptr.i.i16.i, align 8
-  %35 = trunc i64 %bf.load11.i to i32
-  %36 = lshr i32 %35, 16
-  %bf.cast14.i = and i32 %36, 255
-  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i34
-  tail call void @llvm.assume(i1 %cmp15.i)
-  %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast.i34, i32 noundef %vece) #5
-  %cmp20.i = icmp sgt i32 %call19.i, 0
-  br i1 %cmp20.i, label %if.then21.i, label %if.else.i36
+94:                                               ; preds = %87
+  %95 = tail call ptr @tcg_constant_vec(i32 noundef %41, i32 noundef %0, i64 noundef 0) #5
+  %96 = load ptr, ptr %4, align 8
+  %97 = ptrtoint ptr %42 to i64
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %8
+  %100 = ptrtoint ptr %95 to i64
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 %100
+  %102 = ptrtoint ptr %98 to i64
+  %103 = ptrtoint ptr %99 to i64
+  %104 = ptrtoint ptr %101 to i64
+  %105 = load i64, ptr %98, align 8
+  %106 = trunc i64 %105 to i32
+  %107 = lshr i32 %106, 16
+  %108 = and i32 %107, 255
+  %109 = load i64, ptr %99, align 8
+  %110 = trunc i64 %109 to i32
+  %111 = lshr i32 %110, 16
+  %112 = and i32 %111, 255
+  %113 = icmp samesign uge i32 %112, %108
+  tail call void @llvm.assume(i1 %113)
+  %114 = load i64, ptr %101, align 8
+  %115 = trunc i64 %114 to i32
+  %116 = lshr i32 %115, 16
+  %117 = and i32 %116, 255
+  %118 = icmp samesign uge i32 %117, %108
+  tail call void @llvm.assume(i1 %118)
+  %119 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %108, i32 noundef %0) #5
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %121, label %133
 
-if.then21.i:                                      ; preds = %if.else11
-  %call.i.i37 = tail call ptr @tcg_emit_op(i32 noundef 190, i32 noundef 4) #5
-  %bf.load.i.i38 = load i32, ptr %call.i.i37, align 8
-  %sub.i.i39 = shl nuw nsw i32 %bf.cast.i34, 16
-  %bf.value.i.i40 = add nuw nsw i32 %sub.i.i39, 16580608
-  %bf.clear.i.i41 = and i32 %bf.load.i.i38, 65535
-  %bf.value2.i.i42 = shl i32 %vece, 24
-  %bf.value.masked.i.i43 = and i32 %bf.value.i.i40, 16711680
-  %bf.clear4.i.i44 = or disjoint i32 %bf.value.masked.i.i43, %bf.clear.i.i41
-  %bf.set5.i.i45 = or disjoint i32 %bf.clear4.i.i44, %bf.value2.i.i42
-  store i32 %bf.set5.i.i45, ptr %call.i.i37, align 8
-  %args.i.i46 = getelementptr inbounds nuw i8, ptr %call.i.i37, i64 32
-  store i64 %28, ptr %args.i.i46, align 8
-  %arrayidx7.i.i47 = getelementptr i8, ptr %call.i.i37, i64 40
-  store i64 %29, ptr %arrayidx7.i.i47, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i37, i64 48
-  store i64 %30, ptr %arrayidx9.i.i, align 8
-  %arrayidx11.i.i = getelementptr i8, ptr %call.i.i37, i64 56
-  store i64 2, ptr %arrayidx11.i.i, align 8
-  br label %if.end13
+121:                                              ; preds = %94
+  %122 = tail call ptr @tcg_emit_op(i32 noundef 190, i32 noundef 4) #5
+  %123 = load i32, ptr %122, align 8
+  %124 = shl nuw nsw i32 %108, 16
+  %125 = and i32 %123, 65535
+  %126 = shl i32 %0, 24
+  %127 = or disjoint i32 %125, %124
+  %128 = or disjoint i32 %127, %126
+  store i32 %128, ptr %122, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  store i64 %102, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  store i64 %103, ptr %130, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 48
+  store i64 %104, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  store i64 2, ptr %132, align 8
+  br label %tcg_gen_cmp_vec.exit
 
-if.else.i36:                                      ; preds = %if.else11
-  %cmp24.i = icmp ne i32 %call19.i, 0
-  tail call void @llvm.assume(i1 %cmp24.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast.i34, i32 noundef %vece, i64 noundef %28, i64 noundef %29, i64 noundef %30, i32 noundef 2) #5
-  br label %if.end13
+133:                                              ; preds = %94
+  %134 = icmp ne i32 %119, 0
+  tail call void @llvm.assume(i1 %134)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %108, i32 noundef %0, i64 noundef %102, i64 noundef %103, i64 noundef %104, i32 noundef 2) #5
+  br label %tcg_gen_cmp_vec.exit
 
-if.end13:                                         ; preds = %if.else.i36, %if.then21.i, %if.then10
-  %.pre-phi = phi i64 [ %26, %if.else.i36 ], [ %26, %if.then21.i ], [ %.pre, %if.then10 ]
-  %37 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %37, i64 %2
-  %add.ptr.i.i6.i.i = getelementptr i8, ptr %37, i64 %3
-  %add.ptr.i.i7.i.i = getelementptr i8, ptr %37, i64 %.pre-phi
-  %bf.load.i.i48 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %38 = trunc i64 %bf.load.i.i48 to i32
-  %39 = lshr i32 %38, 16
-  %bf.cast.i.i = and i32 %39, 255
-  %bf.load3.i.i = load i64, ptr %add.ptr.i.i6.i.i, align 8
-  %40 = trunc i64 %bf.load3.i.i to i32
-  %41 = lshr i32 %40, 16
-  %bf.cast6.i.i = and i32 %41, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
-  %42 = trunc i64 %bf.load8.i.i to i32
-  %43 = lshr i32 %42, 16
-  %bf.cast11.i.i = and i32 %43, 255
-  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i)
-  %44 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %45 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %46 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %44, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %45, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %46, ptr %arrayidx9.i.i.i, align 8
-  %47 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %47, i64 %2
-  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %47, i64 %.pre-phi
-  %48 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %49 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
-  %bf.load.i.i.i49 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %50 = trunc i64 %bf.load.i.i.i49 to i32
-  %51 = lshr i32 %50, 16
-  %bf.cast.i.i.i = and i32 %51, 255
-  %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
-  %52 = trunc i64 %bf.load11.i.i.i to i32
-  %53 = lshr i32 %52, 16
-  %bf.cast14.i.i.i = and i32 %53, 255
-  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
-  %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
-  br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
+tcg_gen_cmp_vec.exit:                             ; preds = %133, %121, %90
+  %.pre-phi = phi i64 [ %97, %133 ], [ %97, %121 ], [ %.pre, %90 ]
+  %135 = load ptr, ptr %4, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %6
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %8
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 %.pre-phi
+  %139 = load i64, ptr %136, align 8
+  %140 = trunc i64 %139 to i32
+  %141 = lshr i32 %140, 16
+  %142 = and i32 %141, 255
+  %143 = load i64, ptr %137, align 8
+  %144 = trunc i64 %143 to i32
+  %145 = lshr i32 %144, 16
+  %146 = and i32 %145, 255
+  %147 = icmp samesign uge i32 %146, %142
+  tail call void @llvm.assume(i1 %147)
+  %148 = load i64, ptr %138, align 8
+  %149 = trunc i64 %148 to i32
+  %150 = lshr i32 %149, 16
+  %151 = and i32 %150, 255
+  %152 = icmp samesign uge i32 %151, %142
+  tail call void @llvm.assume(i1 %152)
+  %153 = ptrtoint ptr %136 to i64
+  %154 = ptrtoint ptr %137 to i64
+  %155 = ptrtoint ptr %138 to i64
+  %156 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %157 = load i32, ptr %156, align 8
+  %158 = shl nuw nsw i32 %142, 16
+  %159 = and i32 %157, 65535
+  %160 = or disjoint i32 %159, %158
+  store i32 %160, ptr %156, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %156, i64 32
+  store i64 %153, ptr %161, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %156, i64 40
+  store i64 %154, ptr %162, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %156, i64 48
+  store i64 %155, ptr %163, align 8
+  %164 = load ptr, ptr %4, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %6
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 %.pre-phi
+  %167 = ptrtoint ptr %165 to i64
+  %168 = ptrtoint ptr %166 to i64
+  %169 = load i64, ptr %165, align 8
+  %170 = trunc i64 %169 to i32
+  %171 = lshr i32 %170, 16
+  %172 = and i32 %171, 255
+  %173 = load i64, ptr %166, align 8
+  %174 = trunc i64 %173 to i32
+  %175 = lshr i32 %174, 16
+  %176 = and i32 %175, 255
+  %177 = icmp samesign uge i32 %176, %172
+  tail call void @llvm.assume(i1 %177)
+  %178 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %172, i32 noundef %0) #5
+  %179 = icmp sgt i32 %178, 0
+  br i1 %179, label %180, label %191
 
-if.then21.i.i.i:                                  ; preds = %if.end13
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
-  %bf.load.i.i.i.i50 = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i50, 65535
-  %bf.value2.i.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
-  %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
-  store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %48, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %48, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %49, ptr %arrayidx9.i.i.i.i, align 8
-  br label %if.end14
+180:                                              ; preds = %tcg_gen_cmp_vec.exit
+  %181 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
+  %182 = load i32, ptr %181, align 8
+  %183 = shl nuw nsw i32 %172, 16
+  %184 = and i32 %182, 65535
+  %185 = shl i32 %0, 24
+  %186 = or disjoint i32 %184, %183
+  %187 = or disjoint i32 %186, %185
+  store i32 %187, ptr %181, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 32
+  store i64 %167, ptr %188, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %181, i64 40
+  store i64 %167, ptr %189, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %181, i64 48
+  store i64 %168, ptr %190, align 8
+  br label %tcg_gen_sub_vec.exit
 
-if.else.i.i.i:                                    ; preds = %if.end13
-  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %48, i64 noundef %48, i64 noundef %49) #5
-  br label %if.end14
+191:                                              ; preds = %tcg_gen_cmp_vec.exit
+  %192 = icmp ne i32 %178, 0
+  tail call void @llvm.assume(i1 %192)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %172, i32 noundef %0, i64 noundef %167, i64 noundef %167, i64 noundef %168) #5
+  br label %tcg_gen_sub_vec.exit
 
-if.end14:                                         ; preds = %if.else.i.i.i, %if.then21.i.i.i, %tcg_gen_neg_vec.exit
-  tail call void @tcg_temp_free_vec(ptr noundef %call3) #5
-  br label %if.end15
+tcg_gen_sub_vec.exit:                             ; preds = %191, %180, %tcg_gen_neg_vec.exit
+  tail call void @tcg_temp_free_vec(ptr noundef %42) #5
+  br label %do_op2.exit.thread
 
-if.end15:                                         ; preds = %if.then10.i, %if.then12.i, %if.end14
+do_op2.exit.thread:                               ; preds = %23, %35, %tcg_gen_sub_vec.exit
   ret void
 }
 
 declare ptr @tcg_temp_new_vec(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_smax_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef 166, i32 noundef 11)
+define dso_local void @tcg_gen_smax_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 166, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 166, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_minmax.exit
+
+43:                                               ; preds = %4
+  %44 = icmp slt i32 %30, 0
+  br i1 %44, label %45, label %do_op3.exit.i
+
+45:                                               ; preds = %43
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 166, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_minmax.exit
+
+do_op3.exit.i:                                    ; preds = %43
+  tail call void @tcg_gen_cmpsel_vec(i32 noundef 6, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %2, ptr noundef %3)
+  br label %do_minmax.exit
+
+do_minmax.exit:                                   ; preds = %32, %45, %do_op3.exit.i
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_sari_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_shifti(i32 noundef 179, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i)
+define dso_local void @tcg_gen_sari_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  tail call fastcc void @do_shifti(i32 noundef 179, i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_cmp_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i15 = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i16 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i15 to i64
-  %7 = ptrtoint ptr %add.ptr.i.i16 to i64
-  %bf.load = load i64, ptr %add.ptr.i.i, align 8
-  %8 = trunc i64 %bf.load to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast = and i32 %9, 255
-  %bf.load6 = load i64, ptr %add.ptr.i.i15, align 8
-  %10 = trunc i64 %bf.load6 to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9 = and i32 %11, 255
-  %cmp = icmp samesign uge i32 %bf.cast9, %bf.cast
-  tail call void @llvm.assume(i1 %cmp)
-  %bf.load11 = load i64, ptr %add.ptr.i.i16, align 8
-  %12 = trunc i64 %bf.load11 to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14 = and i32 %13, 255
-  %cmp15 = icmp samesign uge i32 %bf.cast14, %bf.cast
-  tail call void @llvm.assume(i1 %cmp15)
-  %call19 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast, i32 noundef %vece) #5
-  %cmp20 = icmp sgt i32 %call19, 0
-  br i1 %cmp20, label %if.then21, label %if.else
+define dso_local void @tcg_gen_cmp_vec(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %2 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
+  %10 = ptrtoint ptr %3 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
+  %12 = ptrtoint ptr %4 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
+  %14 = ptrtoint ptr %9 to i64
+  %15 = ptrtoint ptr %11 to i64
+  %16 = ptrtoint ptr %13 to i64
+  %17 = load i64, ptr %9, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i32 %18, 16
+  %20 = and i32 %19, 255
+  %21 = load i64, ptr %11, align 8
+  %22 = trunc i64 %21 to i32
+  %23 = lshr i32 %22, 16
+  %24 = and i32 %23, 255
+  %25 = icmp samesign uge i32 %24, %20
+  tail call void @llvm.assume(i1 %25)
+  %26 = load i64, ptr %13, align 8
+  %27 = trunc i64 %26 to i32
+  %28 = lshr i32 %27, 16
+  %29 = and i32 %28, 255
+  %30 = icmp samesign uge i32 %29, %20
+  tail call void @llvm.assume(i1 %30)
+  %31 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %20, i32 noundef %1) #5
+  %32 = load i32, ptr @cpuinfo, align 4
+  %33 = and i32 %32, 14336
+  %or.cond48 = icmp ne i32 %33, 14336
+  %34 = and i32 %0, -2
+  %35 = icmp eq i32 %34, 12
+  %or.cond51 = and i1 %35, %or.cond48
+  br i1 %or.cond51, label %36, label %50
 
-if.then21:                                        ; preds = %entry
-  %conv = zext i32 %cond to i64
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef 190, i32 noundef 4) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %sub.i = shl nuw nsw i32 %bf.cast, 16
-  %bf.value.i = add nuw nsw i32 %sub.i, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value2.i = shl i32 %vece, 24
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
-  %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
-  store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %5, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %6, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
-  store i64 %7, ptr %arrayidx9.i, align 8
-  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 56
-  store i64 %conv, ptr %arrayidx11.i, align 8
-  br label %if.end30
+36:                                               ; preds = %5
+  %37 = tail call ptr @tcg_temp_new_internal(i32 noundef %20, i32 noundef 0) #5
+  %38 = ptrtoint ptr %37 to i64
+  %39 = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
+  %40 = load i32, ptr %39, align 8
+  %41 = shl nuw nsw i32 %20, 16
+  %42 = and i32 %40, 65535
+  %43 = or disjoint i32 %42, %41
+  store i32 %43, ptr %39, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  store i64 %38, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store i64 %15, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 48
+  store i64 %16, ptr %46, align 8
+  %47 = tail call ptr @tcg_constant_internal(i32 noundef %20, i64 noundef 0) #5
+  %48 = ptrtoint ptr %47 to i64
+  %49 = add nsw i32 %0, -4
+  br label %50
 
-if.else:                                          ; preds = %entry
-  %cmp24 = icmp ne i32 %call19, 0
-  tail call void @llvm.assume(i1 %cmp24)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7, i32 noundef %cond) #5
-  br label %if.end30
+50:                                               ; preds = %5, %36
+  %.043 = phi ptr [ %37, %36 ], [ null, %5 ]
+  %.042 = phi i64 [ %38, %36 ], [ %15, %5 ]
+  %.041 = phi i64 [ %48, %36 ], [ %16, %5 ]
+  %.0 = phi i32 [ %49, %36 ], [ %0, %5 ]
+  %51 = icmp sgt i32 %31, 0
+  br i1 %51, label %52, label %65
 
-if.end30:                                         ; preds = %if.else, %if.then21
+52:                                               ; preds = %50
+  %53 = zext i32 %.0 to i64
+  %54 = tail call ptr @tcg_emit_op(i32 noundef 190, i32 noundef 4) #5
+  %55 = load i32, ptr %54, align 8
+  %56 = shl nuw nsw i32 %20, 16
+  %57 = and i32 %55, 65535
+  %58 = shl i32 %1, 24
+  %59 = or disjoint i32 %57, %56
+  %60 = or disjoint i32 %59, %58
+  store i32 %60, ptr %54, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  store i64 %14, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  store i64 %.042, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  store i64 %.041, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  store i64 %53, ptr %64, align 8
+  br label %67
+
+65:                                               ; preds = %50
+  %66 = icmp ne i32 %31, 0
+  tail call void @llvm.assume(i1 %66)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %20, i32 noundef %1, i64 noundef %14, i64 noundef %.042, i64 noundef %.041, i32 noundef %.0) #5
+  br label %67
+
+67:                                               ; preds = %65, %52
+  %.not47 = icmp eq ptr %.043, null
+  br i1 %.not47, label %69, label %68
+
+68:                                               ; preds = %67
+  tail call void @tcg_temp_free_internal(ptr noundef nonnull %.043) #5
+  br label %69
+
+69:                                               ; preds = %68, %67
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_shli_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_shifti(i32 noundef 177, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i)
+define dso_local void @tcg_gen_shli_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  tail call fastcc void @do_shifti(i32 noundef 177, i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_shifti(i32 noundef range(i32 177, 181) %opc, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i21 = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %add.ptr.i.i to i64
-  %5 = ptrtoint ptr %add.ptr.i.i21 to i64
-  %bf.load = load i64, ptr %add.ptr.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
-  %7 = lshr i32 %6, 16
-  %bf.cast = and i32 %7, 255
-  %bf.load4 = load i64, ptr %add.ptr.i.i21, align 8
-  %8 = trunc i64 %bf.load4 to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast7 = and i32 %9, 255
-  %cmp = icmp eq i32 %bf.cast7, %bf.cast
-  tail call void @llvm.assume(i1 %cmp)
-  %cmp9 = icmp sgt i64 %i, -1
-  tail call void @llvm.assume(i1 %cmp9)
-  %shl = shl i32 8, %vece
-  %conv = sext i32 %shl to i64
-  %cmp10 = icmp slt i64 %i, %conv
-  tail call void @llvm.assume(i1 %cmp10)
-  %cmp15 = icmp eq i64 %i, 0
-  br i1 %cmp15, label %if.then17, label %if.end18
+define internal fastcc void @do_shifti(i32 noundef range(i32 177, 181) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %2 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
+  %10 = ptrtoint ptr %3 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
+  %12 = ptrtoint ptr %9 to i64
+  %13 = ptrtoint ptr %11 to i64
+  %14 = load i64, ptr %9, align 8
+  %15 = trunc i64 %14 to i32
+  %16 = lshr i32 %15, 16
+  %17 = and i32 %16, 255
+  %18 = load i64, ptr %11, align 8
+  %19 = trunc i64 %18 to i32
+  %20 = lshr i32 %19, 16
+  %21 = and i32 %20, 255
+  %22 = icmp eq i32 %21, %17
+  tail call void @llvm.assume(i1 %22)
+  %23 = icmp sgt i64 %4, -1
+  tail call void @llvm.assume(i1 %23)
+  %24 = shl i32 8, %1
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %4, %25
+  tail call void @llvm.assume(i1 %26)
+  %27 = icmp eq i64 %4, 0
+  br i1 %27, label %28, label %37
 
-if.then17:                                        ; preds = %entry
-  %cmp.not.i = icmp eq ptr %r, %a
-  br i1 %cmp.not.i, label %if.end31, label %if.then.i
+28:                                               ; preds = %5
+  %.not.i = icmp eq ptr %2, %3
+  br i1 %.not.i, label %tcg_gen_mov_vec.exit, label %29
 
-if.then.i:                                        ; preds = %if.then17
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %4, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %5, ptr %arrayidx7.i.i.i, align 8
-  br label %if.end31
+29:                                               ; preds = %28
+  %30 = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
+  %31 = load i32, ptr %30, align 8
+  %32 = shl nuw nsw i32 %17, 16
+  %33 = and i32 %31, 65535
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %30, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i64 %12, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store i64 %13, ptr %36, align 8
+  br label %tcg_gen_mov_vec.exit
 
-if.end18:                                         ; preds = %entry
-  %call19 = tail call i32 @tcg_can_emit_vec_op(i32 noundef %opc, i32 noundef %bf.cast, i32 noundef %vece) #5
-  %cmp20 = icmp sgt i32 %call19, 0
-  br i1 %cmp20, label %if.then22, label %if.else
+37:                                               ; preds = %5
+  %38 = tail call i32 @tcg_can_emit_vec_op(i32 noundef %0, i32 noundef %17, i32 noundef %1) #5
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %40, label %51
 
-if.then22:                                        ; preds = %if.end18
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 3) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %sub.i = shl nuw nsw i32 %bf.cast, 16
-  %bf.value.i = add nuw nsw i32 %sub.i, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value2.i = shl i32 %vece, 24
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
-  %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
-  store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %4, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %5, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
-  store i64 %i, ptr %arrayidx9.i, align 8
-  br label %if.end31
+40:                                               ; preds = %37
+  %41 = tail call ptr @tcg_emit_op(i32 noundef %0, i32 noundef 3) #5
+  %42 = load i32, ptr %41, align 8
+  %43 = shl nuw nsw i32 %17, 16
+  %44 = and i32 %42, 65535
+  %45 = shl i32 %1, 24
+  %46 = or disjoint i32 %44, %43
+  %47 = or disjoint i32 %46, %45
+  store i32 %47, ptr %41, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store i64 %12, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store i64 %13, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  store i64 %4, ptr %50, align 8
+  br label %tcg_gen_mov_vec.exit
 
-if.else:                                          ; preds = %if.end18
-  %cmp25 = icmp ne i32 %call19, 0
-  tail call void @llvm.assume(i1 %cmp25)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef %opc, i32 noundef %bf.cast, i32 noundef %vece, i64 noundef %4, i64 noundef %5, i64 noundef %i) #5
-  br label %if.end31
+51:                                               ; preds = %37
+  %52 = icmp ne i32 %38, 0
+  tail call void @llvm.assume(i1 %52)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef %0, i32 noundef %17, i32 noundef %1, i64 noundef %12, i64 noundef %13, i64 noundef %4) #5
+  br label %tcg_gen_mov_vec.exit
 
-if.end31:                                         ; preds = %if.then.i, %if.then17, %if.else, %if.then22
+tcg_gen_mov_vec.exit:                             ; preds = %29, %28, %40, %51
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_shri_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_shifti(i32 noundef 178, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i)
+define dso_local void @tcg_gen_shri_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  tail call fastcc void @do_shifti(i32 noundef 178, i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_rotli_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_shifti(i32 noundef 180, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i)
+define dso_local void @tcg_gen_rotli_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  tail call fastcc void @do_shifti(i32 noundef 180, i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_rotri_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) local_unnamed_addr #0 {
-entry:
-  %shl = shl i32 8, %vece
-  %cmp = icmp sgt i64 %i, -1
-  tail call void @llvm.assume(i1 %cmp)
-  %conv = sext i32 %shl to i64
-  %cmp1 = icmp slt i64 %i, %conv
-  tail call void @llvm.assume(i1 %cmp1)
-  %sub = sub nsw i64 0, %i
-  %sub3 = add i32 %shl, -1
-  %conv4 = sext i32 %sub3 to i64
-  %and = and i64 %sub, %conv4
-  tail call fastcc void @do_shifti(i32 noundef 180, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %and)
+define dso_local void @tcg_gen_rotri_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = shl i32 8, %0
+  %6 = icmp sgt i64 %3, -1
+  tail call void @llvm.assume(i1 %6)
+  %7 = sext i32 %5 to i64
+  %8 = icmp slt i64 %3, %7
+  tail call void @llvm.assume(i1 %8)
+  %9 = sub nsw i64 0, %3
+  %10 = add i32 %5, -1
+  %11 = sext i32 %10 to i64
+  %12 = and i64 %9, %11
+  tail call fastcc void @do_shifti(i32 noundef 180, i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %12)
   ret void
 }
+
+declare ptr @tcg_temp_new_internal(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @tcg_constant_internal(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @tcg_expand_vec_op(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_add_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 155, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
+declare void @tcg_temp_free_internal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_mul_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 157, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 157, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 157, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_ssadd_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 160, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 160, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 160, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_usadd_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i = and i32 %9, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i17.i, align 8
-  %10 = trunc i64 %bf.load6.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load11.i = load i64, ptr %add.ptr.i.i18.i, align 8
-  %12 = trunc i64 %bf.load11.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i = and i32 %13, 255
-  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp15.i)
-  %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 161, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp20.i = icmp sgt i32 %call19.i, 0
-  br i1 %cmp20.i, label %if.then21.i, label %if.else.i
-
-if.then21.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 161, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i, align 8
-  br label %if.end
-
-if.else.i:                                        ; preds = %entry
-  %cmp22.i = icmp slt i32 %call19.i, 0
-  br i1 %cmp22.i, label %if.then23.i, label %if.then
-
-if.then23.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 161, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %if.end
-
-if.then:                                          ; preds = %if.else.i
-  %call2 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %r) #5
-  %14 = load i32, ptr @cpuinfo, align 4
-  %15 = and i32 %14, 6144
-  %or.cond.not.i = icmp eq i32 %15, 6144
-  br i1 %or.cond.not.i, label %if.then.i, label %if.else.i13
-
-if.then.i:                                        ; preds = %if.then
-  %16 = load ptr, ptr %0, align 8
-  %17 = ptrtoint ptr %call2 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %16, i64 %17
-  %add.ptr.i.i4.i.i = getelementptr i8, ptr %16, i64 %4
-  %bf.load.i.i14 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %18 = trunc i64 %bf.load.i.i14 to i32
-  %19 = lshr i32 %18, 16
-  %bf.cast.i.i = and i32 %19, 255
-  %bf.load2.i.i = load i64, ptr %add.ptr.i.i4.i.i, align 8
-  %20 = trunc i64 %bf.load2.i.i to i32
-  %21 = lshr i32 %20, 16
-  %bf.cast5.i.i = and i32 %21, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast5.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %22 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %23 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %22, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %23, ptr %arrayidx7.i.i.i, align 8
-  br label %tcg_gen_not_vec.exit
-
-if.else.i13:                                      ; preds = %if.then
-  %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %call2, i32 noundef 0, i64 noundef -1) #5
-  %24 = load ptr, ptr %0, align 8
-  %25 = ptrtoint ptr %call2 to i64
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %24, i64 %25
-  %add.ptr.i.i6.i.i.i = getelementptr i8, ptr %24, i64 %4
-  %26 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %24, i64 %26
-  %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %27 = trunc i64 %bf.load.i.i4.i to i32
-  %28 = lshr i32 %27, 16
-  %bf.cast.i.i.i = and i32 %28, 255
-  %bf.load3.i.i.i = load i64, ptr %add.ptr.i.i6.i.i.i, align 8
-  %29 = trunc i64 %bf.load3.i.i.i to i32
-  %30 = lshr i32 %29, 16
-  %bf.cast6.i.i.i = and i32 %30, 255
-  %cmp.i.i.i = icmp samesign uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %31 = trunc i64 %bf.load8.i.i.i to i32
-  %32 = lshr i32 %31, 16
-  %bf.cast11.i.i.i = and i32 %32, 255
-  %cmp12.i.i.i = icmp samesign uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %33 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %34 = ptrtoint ptr %add.ptr.i.i6.i.i.i to i64
-  %35 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
-  store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %33, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %34, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %35, ptr %arrayidx9.i.i.i.i, align 8
-  br label %tcg_gen_not_vec.exit
-
-tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else.i13
-  %.pre-phi = phi i64 [ %17, %if.then.i ], [ %25, %if.else.i13 ]
-  tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %call2, ptr noundef %call2, ptr noundef %a, i32 noundef 165, i32 noundef 4)
-  %36 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i.i15 = getelementptr i8, ptr %36, i64 %2
-  %add.ptr.i.i17.i.i.i = getelementptr i8, ptr %36, i64 %.pre-phi
-  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %36, i64 %4
-  %37 = ptrtoint ptr %add.ptr.i.i.i.i.i15 to i64
-  %38 = ptrtoint ptr %add.ptr.i.i17.i.i.i to i64
-  %39 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
-  %bf.load.i.i.i16 = load i64, ptr %add.ptr.i.i.i.i.i15, align 8
-  %40 = trunc i64 %bf.load.i.i.i16 to i32
-  %41 = lshr i32 %40, 16
-  %bf.cast.i.i.i17 = and i32 %41, 255
-  %bf.load6.i.i.i = load i64, ptr %add.ptr.i.i17.i.i.i, align 8
-  %42 = trunc i64 %bf.load6.i.i.i to i32
-  %43 = lshr i32 %42, 16
-  %bf.cast9.i.i.i = and i32 %43, 255
-  %cmp.i.i.i18 = icmp samesign uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i17
-  tail call void @llvm.assume(i1 %cmp.i.i.i18)
-  %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
-  %44 = trunc i64 %bf.load11.i.i.i to i32
-  %45 = lshr i32 %44, 16
-  %bf.cast14.i.i.i = and i32 %45, 255
-  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i17
-  tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece) #5
-  %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
-  br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
-
-if.then21.i.i.i:                                  ; preds = %tcg_gen_not_vec.exit
-  %call.i.i.i.i19 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 155, i32 noundef 3) #5
-  %bf.load.i.i.i.i20 = load i32, ptr %call.i.i.i.i19, align 8
-  %sub.i.i.i.i21 = shl nuw nsw i32 %bf.cast.i.i.i17, 16
-  %bf.value.i.i.i.i22 = add nuw nsw i32 %sub.i.i.i.i21, 16580608
-  %bf.clear.i.i.i.i23 = and i32 %bf.load.i.i.i.i20, 65535
-  %bf.value2.i.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i.i24 = and i32 %bf.value.i.i.i.i22, 16711680
-  %bf.clear4.i.i.i.i25 = or disjoint i32 %bf.value.masked.i.i.i.i24, %bf.clear.i.i.i.i23
-  %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i25, %bf.value2.i.i.i.i
-  store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i19, align 8
-  %args.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i19, i64 32
-  store i64 %37, ptr %args.i.i.i.i26, align 8
-  %arrayidx7.i.i.i.i27 = getelementptr i8, ptr %call.i.i.i.i19, i64 40
-  store i64 %38, ptr %arrayidx7.i.i.i.i27, align 8
-  %arrayidx9.i.i.i.i28 = getelementptr i8, ptr %call.i.i.i.i19, i64 48
-  store i64 %39, ptr %arrayidx9.i.i.i.i28, align 8
-  br label %tcg_gen_add_vec.exit
-
-if.else.i.i.i:                                    ; preds = %tcg_gen_not_vec.exit
-  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece, i64 noundef %37, i64 noundef %38, i64 noundef %39) #5
-  br label %tcg_gen_add_vec.exit
-
-tcg_gen_add_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
-  tail call void @tcg_temp_free_vec(ptr noundef %call2) #5
-  br label %if.end
-
-if.end:                                           ; preds = %if.then21.i, %if.then23.i, %tcg_gen_add_vec.exit
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_umin_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef 165, i32 noundef 4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_sssub_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 162, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 162, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 162, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_ussub_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i = and i32 %9, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i17.i, align 8
-  %10 = trunc i64 %bf.load6.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load11.i = load i64, ptr %add.ptr.i.i18.i, align 8
-  %12 = trunc i64 %bf.load11.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i = and i32 %13, 255
-  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp15.i)
-  %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 163, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp20.i = icmp sgt i32 %call19.i, 0
-  br i1 %cmp20.i, label %if.then21.i, label %if.else.i
-
-if.then21.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 163, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i, align 8
-  br label %if.end
-
-if.else.i:                                        ; preds = %entry
-  %cmp22.i = icmp slt i32 %call19.i, 0
-  br i1 %cmp22.i, label %if.then23.i, label %if.then
-
-if.then23.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 163, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %if.end
-
-if.then:                                          ; preds = %if.else.i
-  %call2 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %r) #5
-  tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %call2, ptr noundef %a, ptr noundef %b, i32 noundef 167, i32 noundef 13)
-  %14 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %14, i64 %2
-  %15 = ptrtoint ptr %call2 to i64
-  %add.ptr.i.i17.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %14, i64 %4
-  %16 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %17 = ptrtoint ptr %add.ptr.i.i17.i.i.i to i64
-  %18 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
-  %bf.load.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %19 = trunc i64 %bf.load.i.i.i to i32
-  %20 = lshr i32 %19, 16
-  %bf.cast.i.i.i = and i32 %20, 255
-  %bf.load6.i.i.i = load i64, ptr %add.ptr.i.i17.i.i.i, align 8
-  %21 = trunc i64 %bf.load6.i.i.i to i32
+define dso_local void @tcg_gen_add_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
   %22 = lshr i32 %21, 16
-  %bf.cast9.i.i.i = and i32 %22, 255
-  %cmp.i.i.i = icmp samesign uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
-  %23 = trunc i64 %bf.load11.i.i.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast14.i.i.i = and i32 %24, 255
-  %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
-  %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
-  br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
-
-if.then21.i.i.i:                                  ; preds = %if.then
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
-  %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
-  %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
-  %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
-  %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
-  %bf.value2.i.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
-  %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
-  %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
-  store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  store i64 %16, ptr %args.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
-  store i64 %17, ptr %arrayidx7.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 48
-  store i64 %18, ptr %arrayidx9.i.i.i.i, align 8
-  br label %tcg_gen_sub_vec.exit
-
-if.else.i.i.i:                                    ; preds = %if.then
-  %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
-  br label %tcg_gen_sub_vec.exit
-
-tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
-  tail call void @tcg_temp_free_vec(ptr noundef %call2) #5
-  br label %if.end
-
-if.end:                                           ; preds = %if.then21.i, %if.then23.i, %tcg_gen_sub_vec.exit
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_umax_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef 167, i32 noundef 13)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_smin_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef 164, i32 noundef 2)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef range(i32 164, 168) %opc, i32 noundef range(i32 2, 14) %cond) unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i = and i32 %9, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i17.i, align 8
-  %10 = trunc i64 %bf.load6.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load11.i = load i64, ptr %add.ptr.i.i18.i, align 8
-  %12 = trunc i64 %bf.load11.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i = and i32 %13, 255
-  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp15.i)
-  %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) %opc, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp20.i = icmp sgt i32 %call19.i, 0
-  br i1 %cmp20.i, label %if.then21.i, label %if.else.i
-
-if.then21.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) %opc, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i, align 8
-  br label %if.end
-
-if.else.i:                                        ; preds = %entry
-  %cmp22.i = icmp slt i32 %call19.i, 0
-  br i1 %cmp22.i, label %if.then23.i, label %if.then
-
-if.then23.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) %opc, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %if.end
-
-if.then:                                          ; preds = %if.else.i
-  tail call void @tcg_gen_cmpsel_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %a, ptr noundef %b)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then21.i, %if.then23.i, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_shlv_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 185, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 185, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 185, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_shrv_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 186, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 186, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 186, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_sarv_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 187, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 187, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 187, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_rotlv_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 188, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 188, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 188, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_rotrv_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i17.i.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i18.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i17.i.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i18.i.i to i64
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i.i = and i32 %9, 255
-  %bf.load6.i.i = load i64, ptr %add.ptr.i.i17.i.i, align 8
-  %10 = trunc i64 %bf.load6.i.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i.i = and i32 %11, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast9.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load11.i.i = load i64, ptr %add.ptr.i.i18.i.i, align 8
-  %12 = trunc i64 %bf.load11.i.i to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14.i.i = and i32 %13, 255
-  %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 189, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
-  %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
-
-if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 189, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value2.i.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
-  %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
-  store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %5, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
-  br label %do_op3_nofail.exit
-
-if.else.i.i:                                      ; preds = %entry
-  %cmp22.i.i = icmp ne i32 %call19.i.i, 0
-  tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 189, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_op3_nofail.exit
-
-do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_shls_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i15.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i = and i32 %9, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %10 = trunc i64 %bf.load6.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 181, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp11.i = icmp sgt i32 %call10.i, 0
-  br i1 %cmp11.i, label %if.then12.i, label %if.else.i
-
-if.then12.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 181, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i, align 8
-  br label %do_shifts.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp13.i = icmp slt i32 %call10.i, 0
-  br i1 %cmp13.i, label %if.then14.i, label %do.body18.i
-
-if.then14.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 181, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_shifts.exit
-
-do.body18.i:                                      ; preds = %if.else.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 699, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
-  unreachable
-
-do_shifts.exit:                                   ; preds = %if.then12.i, %if.then14.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_shrs_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i15.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i = and i32 %9, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %10 = trunc i64 %bf.load6.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 182, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp11.i = icmp sgt i32 %call10.i, 0
-  br i1 %cmp11.i, label %if.then12.i, label %if.else.i
-
-if.then12.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 182, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i, align 8
-  br label %do_shifts.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp13.i = icmp slt i32 %call10.i, 0
-  br i1 %cmp13.i, label %if.then14.i, label %do.body18.i
-
-if.then14.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 182, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_shifts.exit
-
-do.body18.i:                                      ; preds = %if.else.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 699, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
-  unreachable
-
-do_shifts.exit:                                   ; preds = %if.then12.i, %if.then14.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_sars_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i15.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i = and i32 %9, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %10 = trunc i64 %bf.load6.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 183, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp11.i = icmp sgt i32 %call10.i, 0
-  br i1 %cmp11.i, label %if.then12.i, label %if.else.i
-
-if.then12.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 183, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i, align 8
-  br label %do_shifts.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp13.i = icmp slt i32 %call10.i, 0
-  br i1 %cmp13.i, label %if.then14.i, label %do.body18.i
-
-if.then14.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 183, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_shifts.exit
-
-do.body18.i:                                      ; preds = %if.else.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 699, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
-  unreachable
-
-do_shifts.exit:                                   ; preds = %if.then12.i, %if.then14.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_rotls_vec(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %s) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i15.i = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %s to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %7 = ptrtoint ptr %add.ptr.i.i to i64
-  %bf.load.i = load i64, ptr %add.ptr.i.i.i, align 8
-  %8 = trunc i64 %bf.load.i to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast.i = and i32 %9, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %10 = trunc i64 %bf.load6.i to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9.i = and i32 %11, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %call10.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 184, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp11.i = icmp sgt i32 %call10.i, 0
-  br i1 %cmp11.i, label %if.then12.i, label %if.else.i
-
-if.then12.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 184, i32 noundef 3) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %5, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %6, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %7, ptr %arrayidx9.i.i, align 8
-  br label %do_shifts.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp13.i = icmp slt i32 %call10.i, 0
-  br i1 %cmp13.i, label %if.then14.i, label %do.body18.i
-
-if.then14.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 184, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
-  br label %do_shifts.exit
-
-do.body18.i:                                      ; preds = %if.else.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 699, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
-  unreachable
-
-do_shifts.exit:                                   ; preds = %if.then12.i, %if.then14.i
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_bitsel_vec(i32 %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %c) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i18 = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i19 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %c to i64
-  %add.ptr.i.i20 = getelementptr i8, ptr %1, i64 %5
-  %bf.load = load i64, ptr %add.ptr.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
-  %7 = lshr i32 %6, 16
-  %bf.cast = and i32 %7, 255
-  %bf.load4 = load i64, ptr %add.ptr.i.i18, align 8
-  %8 = trunc i64 %bf.load4 to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast7 = and i32 %9, 255
-  %cmp = icmp samesign uge i32 %bf.cast7, %bf.cast
-  tail call void @llvm.assume(i1 %cmp)
-  %bf.load9 = load i64, ptr %add.ptr.i.i19, align 8
-  %10 = trunc i64 %bf.load9 to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast12 = and i32 %11, 255
-  %cmp13 = icmp samesign uge i32 %bf.cast12, %bf.cast
-  tail call void @llvm.assume(i1 %cmp13)
-  %bf.load18 = load i64, ptr %add.ptr.i.i20, align 8
-  %12 = trunc i64 %bf.load18 to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast21 = and i32 %13, 255
-  %cmp22 = icmp samesign uge i32 %bf.cast21, %bf.cast
-  tail call void @llvm.assume(i1 %cmp22)
-  %14 = load i32, ptr @cpuinfo, align 4
-  %15 = and i32 %14, 6144
-  %or.cond.not = icmp eq i32 %15, 6144
-  br i1 %or.cond.not, label %if.then28, label %if.else
-
-if.then28:                                        ; preds = %entry
-  %16 = ptrtoint ptr %add.ptr.i.i to i64
-  %17 = ptrtoint ptr %add.ptr.i.i18 to i64
-  %18 = ptrtoint ptr %add.ptr.i.i19 to i64
-  %19 = ptrtoint ptr %add.ptr.i.i20 to i64
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef 191, i32 noundef 4) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %sub.i = shl nuw nsw i32 %bf.cast, 16
-  %bf.value.i = add nuw nsw i32 %sub.i, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
-  store i32 %bf.clear4.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %16, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %17, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
-  store i64 %18, ptr %arrayidx9.i, align 8
-  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 56
-  store i64 %19, ptr %arrayidx11.i, align 8
-  br label %if.end34
-
-if.else:                                          ; preds = %entry
-  %call33 = tail call ptr @tcg_temp_new_vec(i32 noundef %bf.cast) #5
-  %20 = load ptr, ptr %0, align 8
-  %21 = ptrtoint ptr %call33 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %add.ptr.i.i6.i.i = getelementptr i8, ptr %20, i64 %3
-  %add.ptr.i.i7.i.i = getelementptr i8, ptr %20, i64 %4
-  %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %22 = trunc i64 %bf.load.i.i to i32
-  %23 = lshr i32 %22, 16
-  %bf.cast.i.i = and i32 %23, 255
-  %bf.load3.i.i = load i64, ptr %add.ptr.i.i6.i.i, align 8
-  %24 = trunc i64 %bf.load3.i.i to i32
-  %25 = lshr i32 %24, 16
-  %bf.cast6.i.i = and i32 %25, 255
-  %cmp.i.i = icmp samesign uge i32 %bf.cast6.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp.i.i)
-  %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
-  %26 = trunc i64 %bf.load8.i.i to i32
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
   %27 = lshr i32 %26, 16
-  %bf.cast11.i.i = and i32 %27, 255
-  %cmp12.i.i = icmp samesign uge i32 %bf.cast11.i.i, %bf.cast.i.i
-  tail call void @llvm.assume(i1 %cmp12.i.i)
-  %28 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %29 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %30 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
-  %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
-  %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
-  %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
-  %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
-  %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
-  store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
-  store i64 %28, ptr %args.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
-  store i64 %29, ptr %arrayidx7.i.i.i, align 8
-  %arrayidx9.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
-  store i64 %30, ptr %arrayidx9.i.i.i, align 8
-  %31 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i21 = getelementptr i8, ptr %31, i64 %2
-  %add.ptr.i.i6.i.i22 = getelementptr i8, ptr %31, i64 %5
-  %add.ptr.i.i7.i.i23 = getelementptr i8, ptr %31, i64 %3
-  %bf.load.i.i24 = load i64, ptr %add.ptr.i.i.i.i21, align 8
-  %32 = trunc i64 %bf.load.i.i24 to i32
-  %33 = lshr i32 %32, 16
-  %bf.cast.i.i25 = and i32 %33, 255
-  %bf.load3.i.i26 = load i64, ptr %add.ptr.i.i6.i.i22, align 8
-  %34 = trunc i64 %bf.load3.i.i26 to i32
-  %35 = lshr i32 %34, 16
-  %bf.cast6.i.i27 = and i32 %35, 255
-  %cmp.i.i28 = icmp samesign uge i32 %bf.cast6.i.i27, %bf.cast.i.i25
-  tail call void @llvm.assume(i1 %cmp.i.i28)
-  %bf.load8.i.i29 = load i64, ptr %add.ptr.i.i7.i.i23, align 8
-  %36 = trunc i64 %bf.load8.i.i29 to i32
-  %37 = lshr i32 %36, 16
-  %bf.cast11.i.i30 = and i32 %37, 255
-  %cmp12.i.i31 = icmp samesign uge i32 %bf.cast11.i.i30, %bf.cast.i.i25
-  tail call void @llvm.assume(i1 %cmp12.i.i31)
-  %38 = ptrtoint ptr %add.ptr.i.i.i.i21 to i64
-  %39 = ptrtoint ptr %add.ptr.i.i6.i.i22 to i64
-  %40 = ptrtoint ptr %add.ptr.i.i7.i.i23 to i64
-  %call.i.i.i32 = tail call ptr @tcg_emit_op(i32 noundef 171, i32 noundef 3) #5
-  %bf.load.i.i.i33 = load i32, ptr %call.i.i.i32, align 8
-  %sub.i.i.i34 = shl nuw nsw i32 %bf.cast.i.i25, 16
-  %bf.value.i.i.i35 = add nuw nsw i32 %sub.i.i.i34, 16580608
-  %bf.clear.i.i.i36 = and i32 %bf.load.i.i.i33, 65535
-  %bf.value.masked.i.i.i37 = and i32 %bf.value.i.i.i35, 16711680
-  %bf.clear4.i.i.i38 = or disjoint i32 %bf.clear.i.i.i36, %bf.value.masked.i.i.i37
-  store i32 %bf.clear4.i.i.i38, ptr %call.i.i.i32, align 8
-  %args.i.i.i39 = getelementptr inbounds nuw i8, ptr %call.i.i.i32, i64 32
-  store i64 %38, ptr %args.i.i.i39, align 8
-  %arrayidx7.i.i.i40 = getelementptr i8, ptr %call.i.i.i32, i64 40
-  store i64 %39, ptr %arrayidx7.i.i.i40, align 8
-  %arrayidx9.i.i.i41 = getelementptr i8, ptr %call.i.i.i32, i64 48
-  store i64 %40, ptr %arrayidx9.i.i.i41, align 8
-  %41 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i42 = getelementptr i8, ptr %41, i64 %2
-  %add.ptr.i.i7.i.i44 = getelementptr i8, ptr %41, i64 %21
-  %bf.load.i.i45 = load i64, ptr %add.ptr.i.i.i.i42, align 8
-  %42 = trunc i64 %bf.load.i.i45 to i32
-  %43 = lshr i32 %42, 16
-  %bf.cast.i.i46 = and i32 %43, 255
-  %bf.load8.i.i50 = load i64, ptr %add.ptr.i.i7.i.i44, align 8
-  %44 = trunc i64 %bf.load8.i.i50 to i32
-  %45 = lshr i32 %44, 16
-  %bf.cast11.i.i51 = and i32 %45, 255
-  %cmp12.i.i52 = icmp samesign uge i32 %bf.cast11.i.i51, %bf.cast.i.i46
-  tail call void @llvm.assume(i1 %cmp12.i.i52)
-  %46 = ptrtoint ptr %add.ptr.i.i.i.i42 to i64
-  %47 = ptrtoint ptr %add.ptr.i.i7.i.i44 to i64
-  %call.i.i.i53 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
-  %bf.load.i.i.i54 = load i32, ptr %call.i.i.i53, align 8
-  %sub.i.i.i55 = shl nuw nsw i32 %bf.cast.i.i46, 16
-  %bf.value.i.i.i56 = add nuw nsw i32 %sub.i.i.i55, 16580608
-  %bf.clear.i.i.i57 = and i32 %bf.load.i.i.i54, 65535
-  %bf.value.masked.i.i.i58 = and i32 %bf.value.i.i.i56, 16711680
-  %bf.clear4.i.i.i59 = or disjoint i32 %bf.value.masked.i.i.i58, %bf.clear.i.i.i57
-  store i32 %bf.clear4.i.i.i59, ptr %call.i.i.i53, align 8
-  %args.i.i.i60 = getelementptr inbounds nuw i8, ptr %call.i.i.i53, i64 32
-  store i64 %46, ptr %args.i.i.i60, align 8
-  %arrayidx7.i.i.i61 = getelementptr i8, ptr %call.i.i.i53, i64 40
-  store i64 %46, ptr %arrayidx7.i.i.i61, align 8
-  %arrayidx9.i.i.i62 = getelementptr i8, ptr %call.i.i.i53, i64 48
-  store i64 %47, ptr %arrayidx9.i.i.i62, align 8
-  tail call void @tcg_temp_free_vec(ptr noundef %call33) #5
-  br label %if.end34
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
 
-if.end34:                                         ; preds = %if.else, %if.then28
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 155, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_cmpsel_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %d) local_unnamed_addr #0 {
-entry:
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = ptrtoint ptr %r to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %a to i64
-  %add.ptr.i.i32 = getelementptr i8, ptr %1, i64 %3
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i33 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %c to i64
-  %add.ptr.i.i34 = getelementptr i8, ptr %1, i64 %5
-  %6 = ptrtoint ptr %d to i64
-  %add.ptr.i.i35 = getelementptr i8, ptr %1, i64 %6
-  %7 = ptrtoint ptr %add.ptr.i.i to i64
-  %8 = ptrtoint ptr %add.ptr.i.i32 to i64
-  %9 = ptrtoint ptr %add.ptr.i.i33 to i64
-  %10 = ptrtoint ptr %add.ptr.i.i34 to i64
-  %11 = ptrtoint ptr %add.ptr.i.i35 to i64
-  %bf.load = load i64, ptr %add.ptr.i.i, align 8
-  %12 = trunc i64 %bf.load to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast = and i32 %13, 255
-  %bf.load10 = load i64, ptr %add.ptr.i.i32, align 8
-  %14 = trunc i64 %bf.load10 to i32
-  %15 = lshr i32 %14, 16
-  %bf.cast13 = and i32 %15, 255
-  %cmp = icmp samesign uge i32 %bf.cast13, %bf.cast
-  tail call void @llvm.assume(i1 %cmp)
-  %bf.load15 = load i64, ptr %add.ptr.i.i33, align 8
-  %16 = trunc i64 %bf.load15 to i32
-  %17 = lshr i32 %16, 16
-  %bf.cast18 = and i32 %17, 255
-  %cmp19 = icmp samesign uge i32 %bf.cast18, %bf.cast
-  tail call void @llvm.assume(i1 %cmp19)
-  %bf.load24 = load i64, ptr %add.ptr.i.i34, align 8
-  %18 = trunc i64 %bf.load24 to i32
-  %19 = lshr i32 %18, 16
-  %bf.cast27 = and i32 %19, 255
-  %cmp28 = icmp samesign uge i32 %bf.cast27, %bf.cast
-  tail call void @llvm.assume(i1 %cmp28)
-  %bf.load33 = load i64, ptr %add.ptr.i.i35, align 8
-  %20 = trunc i64 %bf.load33 to i32
-  %21 = lshr i32 %20, 16
-  %bf.cast36 = and i32 %21, 255
-  %cmp37 = icmp samesign uge i32 %bf.cast36, %bf.cast
-  tail call void @llvm.assume(i1 %cmp37)
-  %call42 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 192, i32 noundef %bf.cast, i32 noundef %vece) #5
-  %cmp43 = icmp sgt i32 %call42, 0
-  br i1 %cmp43, label %if.then44, label %if.else
+define dso_local void @tcg_gen_mul_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 157, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
 
-if.then44:                                        ; preds = %entry
-  %conv = zext i32 %cond to i64
-  %call.i = tail call ptr @tcg_emit_op(i32 noundef 192, i32 noundef 6) #5
-  %bf.load.i = load i32, ptr %call.i, align 8
-  %sub.i = shl nuw nsw i32 %bf.cast, 16
-  %bf.value.i = add nuw nsw i32 %sub.i, 16580608
-  %bf.clear.i = and i32 %bf.load.i, 65535
-  %bf.value2.i = shl i32 %vece, 24
-  %bf.value.masked.i = and i32 %bf.value.i, 16711680
-  %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
-  %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
-  store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store i64 %7, ptr %args.i, align 8
-  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
-  store i64 %8, ptr %arrayidx7.i, align 8
-  %arrayidx9.i = getelementptr i8, ptr %call.i, i64 48
-  store i64 %9, ptr %arrayidx9.i, align 8
-  %arrayidx11.i = getelementptr i8, ptr %call.i, i64 56
-  store i64 %10, ptr %arrayidx11.i, align 8
-  %arrayidx13.i = getelementptr i8, ptr %call.i, i64 64
-  store i64 %11, ptr %arrayidx13.i, align 8
-  %arrayidx15.i = getelementptr i8, ptr %call.i, i64 72
-  store i64 %conv, ptr %arrayidx15.i, align 8
-  br label %if.end51
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 157, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
 
-if.else:                                          ; preds = %entry
-  %cmp45 = icmp slt i32 %call42, 0
-  br i1 %cmp45, label %if.then47, label %if.else48
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 157, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
 
-if.then47:                                        ; preds = %if.else
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 192, i32 noundef %bf.cast, i32 noundef %vece, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, i32 noundef %cond) #5
-  br label %if.end51
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
 
-if.else48:                                        ; preds = %if.else
-  %call49 = tail call ptr @tcg_temp_new_vec(i32 noundef %bf.cast) #5
-  %22 = load ptr, ptr %0, align 8
-  %23 = ptrtoint ptr %call49 to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %22, i64 %23
-  %add.ptr.i.i15.i = getelementptr i8, ptr %22, i64 %3
-  %add.ptr.i.i16.i = getelementptr i8, ptr %22, i64 %4
-  %24 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %25 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %26 = ptrtoint ptr %add.ptr.i.i16.i to i64
-  %bf.load.i36 = load i64, ptr %add.ptr.i.i.i, align 8
-  %27 = trunc i64 %bf.load.i36 to i32
-  %28 = lshr i32 %27, 16
-  %bf.cast.i = and i32 %28, 255
-  %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %29 = trunc i64 %bf.load6.i to i32
-  %30 = lshr i32 %29, 16
-  %bf.cast9.i = and i32 %30, 255
-  %cmp.i = icmp samesign uge i32 %bf.cast9.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp.i)
-  %bf.load11.i = load i64, ptr %add.ptr.i.i16.i, align 8
-  %31 = trunc i64 %bf.load11.i to i32
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_ssadd_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 160, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 160, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 160, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_usadd_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 161, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef 161, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3.exit.thread
+
+43:                                               ; preds = %4
+  %44 = icmp slt i32 %30, 0
+  br i1 %44, label %45, label %do_op3.exit
+
+45:                                               ; preds = %43
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 161, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3.exit.thread
+
+do_op3.exit:                                      ; preds = %43
+  %46 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #5
+  %47 = load i32, ptr @cpuinfo, align 4
+  %48 = and i32 %47, 6144
+  %or.cond.not.i = icmp eq i32 %48, 6144
+  br i1 %or.cond.not.i, label %49, label %72
+
+49:                                               ; preds = %do_op3.exit
+  %50 = load ptr, ptr %5, align 8
+  %51 = ptrtoint ptr %46 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %11
+  %54 = load i64, ptr %52, align 8
+  %55 = trunc i64 %54 to i32
+  %56 = lshr i32 %55, 16
+  %57 = and i32 %56, 255
+  %58 = load i64, ptr %53, align 8
+  %59 = trunc i64 %58 to i32
+  %60 = lshr i32 %59, 16
+  %61 = and i32 %60, 255
+  %62 = icmp samesign uge i32 %61, %57
+  tail call void @llvm.assume(i1 %62)
+  %63 = ptrtoint ptr %52 to i64
+  %64 = ptrtoint ptr %53 to i64
+  %65 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
+  %66 = load i32, ptr %65, align 8
+  %67 = shl nuw nsw i32 %57, 16
+  %68 = and i32 %66, 65535
+  %69 = or disjoint i32 %68, %67
+  store i32 %69, ptr %65, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  store i64 %63, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  store i64 %64, ptr %71, align 8
+  br label %tcg_gen_not_vec.exit
+
+72:                                               ; preds = %do_op3.exit
+  %73 = tail call ptr @tcg_constant_vec_matching(ptr noundef %46, i32 noundef 0, i64 noundef -1) #5
+  %74 = load ptr, ptr %5, align 8
+  %75 = ptrtoint ptr %46 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %11
+  %78 = ptrtoint ptr %73 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 %78
+  %80 = load i64, ptr %76, align 8
+  %81 = trunc i64 %80 to i32
+  %82 = lshr i32 %81, 16
+  %83 = and i32 %82, 255
+  %84 = load i64, ptr %77, align 8
+  %85 = trunc i64 %84 to i32
+  %86 = lshr i32 %85, 16
+  %87 = and i32 %86, 255
+  %88 = icmp samesign uge i32 %87, %83
+  tail call void @llvm.assume(i1 %88)
+  %89 = load i64, ptr %79, align 8
+  %90 = trunc i64 %89 to i32
+  %91 = lshr i32 %90, 16
+  %92 = and i32 %91, 255
+  %93 = icmp samesign uge i32 %92, %83
+  tail call void @llvm.assume(i1 %93)
+  %94 = ptrtoint ptr %76 to i64
+  %95 = ptrtoint ptr %77 to i64
+  %96 = ptrtoint ptr %79 to i64
+  %97 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %98 = load i32, ptr %97, align 8
+  %99 = shl nuw nsw i32 %83, 16
+  %100 = and i32 %98, 65535
+  %101 = or disjoint i32 %100, %99
+  store i32 %101, ptr %97, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 32
+  store i64 %94, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 40
+  store i64 %95, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %97, i64 48
+  store i64 %96, ptr %104, align 8
+  br label %tcg_gen_not_vec.exit
+
+tcg_gen_not_vec.exit:                             ; preds = %49, %72
+  %.pre-phi = phi i64 [ %51, %49 ], [ %75, %72 ]
+  tail call void @tcg_gen_umin_vec(i32 noundef %0, ptr noundef %46, ptr noundef %46, ptr noundef %2)
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %7
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 %.pre-phi
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %11
+  %109 = ptrtoint ptr %106 to i64
+  %110 = ptrtoint ptr %107 to i64
+  %111 = ptrtoint ptr %108 to i64
+  %112 = load i64, ptr %106, align 8
+  %113 = trunc i64 %112 to i32
+  %114 = lshr i32 %113, 16
+  %115 = and i32 %114, 255
+  %116 = load i64, ptr %107, align 8
+  %117 = trunc i64 %116 to i32
+  %118 = lshr i32 %117, 16
+  %119 = and i32 %118, 255
+  %120 = icmp samesign uge i32 %119, %115
+  tail call void @llvm.assume(i1 %120)
+  %121 = load i64, ptr %108, align 8
+  %122 = trunc i64 %121 to i32
+  %123 = lshr i32 %122, 16
+  %124 = and i32 %123, 255
+  %125 = icmp samesign uge i32 %124, %115
+  tail call void @llvm.assume(i1 %125)
+  %126 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %115, i32 noundef %0) #5
+  %127 = icmp sgt i32 %126, 0
+  br i1 %127, label %128, label %139
+
+128:                                              ; preds = %tcg_gen_not_vec.exit
+  %129 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 155, i32 noundef 3) #5
+  %130 = load i32, ptr %129, align 8
+  %131 = shl nuw nsw i32 %115, 16
+  %132 = and i32 %130, 65535
+  %133 = shl i32 %0, 24
+  %134 = or disjoint i32 %132, %131
+  %135 = or disjoint i32 %134, %133
+  store i32 %135, ptr %129, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %129, i64 32
+  store i64 %109, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %129, i64 40
+  store i64 %110, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %129, i64 48
+  store i64 %111, ptr %138, align 8
+  br label %tcg_gen_add_vec.exit
+
+139:                                              ; preds = %tcg_gen_not_vec.exit
+  %140 = icmp ne i32 %126, 0
+  tail call void @llvm.assume(i1 %140)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %115, i32 noundef %0, i64 noundef %109, i64 noundef %110, i64 noundef %111) #5
+  br label %tcg_gen_add_vec.exit
+
+tcg_gen_add_vec.exit:                             ; preds = %128, %139
+  tail call void @tcg_temp_free_vec(ptr noundef %46) #5
+  br label %do_op3.exit.thread
+
+do_op3.exit.thread:                               ; preds = %32, %45, %tcg_gen_add_vec.exit
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_umin_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 165, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 165, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_minmax.exit
+
+43:                                               ; preds = %4
+  %44 = icmp slt i32 %30, 0
+  br i1 %44, label %45, label %do_op3.exit.i
+
+45:                                               ; preds = %43
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 165, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_minmax.exit
+
+do_op3.exit.i:                                    ; preds = %43
+  tail call void @tcg_gen_cmpsel_vec(i32 noundef 10, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %2, ptr noundef %3)
+  br label %do_minmax.exit
+
+do_minmax.exit:                                   ; preds = %32, %45, %do_op3.exit.i
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_sssub_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 162, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 162, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 162, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_ussub_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 163, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef 163, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3.exit.thread
+
+43:                                               ; preds = %4
+  %44 = icmp slt i32 %30, 0
+  br i1 %44, label %45, label %do_op3.exit
+
+45:                                               ; preds = %43
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 163, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3.exit.thread
+
+do_op3.exit:                                      ; preds = %43
+  %46 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #5
+  tail call void @tcg_gen_umax_vec(i32 noundef %0, ptr noundef %46, ptr noundef %2, ptr noundef %3)
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %7
+  %49 = ptrtoint ptr %46 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %11
+  %52 = ptrtoint ptr %48 to i64
+  %53 = ptrtoint ptr %50 to i64
+  %54 = ptrtoint ptr %51 to i64
+  %55 = load i64, ptr %48, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = lshr i32 %56, 16
+  %58 = and i32 %57, 255
+  %59 = load i64, ptr %50, align 8
+  %60 = trunc i64 %59 to i32
+  %61 = lshr i32 %60, 16
+  %62 = and i32 %61, 255
+  %63 = icmp samesign uge i32 %62, %58
+  tail call void @llvm.assume(i1 %63)
+  %64 = load i64, ptr %51, align 8
+  %65 = trunc i64 %64 to i32
+  %66 = lshr i32 %65, 16
+  %67 = and i32 %66, 255
+  %68 = icmp samesign uge i32 %67, %58
+  tail call void @llvm.assume(i1 %68)
+  %69 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %58, i32 noundef %0) #5
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %82
+
+71:                                               ; preds = %do_op3.exit
+  %72 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
+  %73 = load i32, ptr %72, align 8
+  %74 = shl nuw nsw i32 %58, 16
+  %75 = and i32 %73, 65535
+  %76 = shl i32 %0, 24
+  %77 = or disjoint i32 %75, %74
+  %78 = or disjoint i32 %77, %76
+  store i32 %78, ptr %72, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  store i64 %52, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  store i64 %53, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 48
+  store i64 %54, ptr %81, align 8
+  br label %tcg_gen_sub_vec.exit
+
+82:                                               ; preds = %do_op3.exit
+  %83 = icmp ne i32 %69, 0
+  tail call void @llvm.assume(i1 %83)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %58, i32 noundef %0, i64 noundef %52, i64 noundef %53, i64 noundef %54) #5
+  br label %tcg_gen_sub_vec.exit
+
+tcg_gen_sub_vec.exit:                             ; preds = %71, %82
+  tail call void @tcg_temp_free_vec(ptr noundef %46) #5
+  br label %do_op3.exit.thread
+
+do_op3.exit.thread:                               ; preds = %32, %45, %tcg_gen_sub_vec.exit
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_umax_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 167, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 167, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_minmax.exit
+
+43:                                               ; preds = %4
+  %44 = icmp slt i32 %30, 0
+  br i1 %44, label %45, label %do_op3.exit.i
+
+45:                                               ; preds = %43
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 167, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_minmax.exit
+
+do_op3.exit.i:                                    ; preds = %43
+  tail call void @tcg_gen_cmpsel_vec(i32 noundef 14, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %2, ptr noundef %3)
+  br label %do_minmax.exit
+
+do_minmax.exit:                                   ; preds = %32, %45, %do_op3.exit.i
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_smin_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 164, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 164, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_minmax.exit
+
+43:                                               ; preds = %4
+  %44 = icmp slt i32 %30, 0
+  br i1 %44, label %45, label %do_op3.exit.i
+
+45:                                               ; preds = %43
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 164, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_minmax.exit
+
+do_op3.exit.i:                                    ; preds = %43
+  tail call void @tcg_gen_cmpsel_vec(i32 noundef 2, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %2, ptr noundef %3)
+  br label %do_minmax.exit
+
+do_minmax.exit:                                   ; preds = %32, %45, %do_op3.exit.i
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_shlv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 185, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 185, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 185, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_shrv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 186, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 186, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 186, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_sarv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 187, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 187, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 187, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_rotlv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 188, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 188, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 188, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_rotrv_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %12, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 189, i32 noundef %19, i32 noundef %0) #5
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %4
+  %33 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 189, i32 noundef 3) #5
+  %34 = load i32, ptr %33, align 8
+  %35 = shl nuw nsw i32 %19, 16
+  %36 = and i32 %34, 65535
+  %37 = shl i32 %0, 24
+  %38 = or disjoint i32 %36, %35
+  %39 = or disjoint i32 %38, %37
+  store i32 %39, ptr %33, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store i64 %13, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %14, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store i64 %15, ptr %42, align 8
+  br label %do_op3_nofail.exit
+
+43:                                               ; preds = %4
+  %44 = icmp ne i32 %30, 0
+  tail call void @llvm.assume(i1 %44)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 189, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_op3_nofail.exit
+
+do_op3_nofail.exit:                               ; preds = %32, %43
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_shls_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 181, i32 noundef %19, i32 noundef %0) #5
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %4
+  %28 = tail call ptr @tcg_emit_op(i32 noundef 181, i32 noundef 3) #5
+  %29 = load i32, ptr %28, align 8
+  %30 = shl nuw nsw i32 %19, 16
+  %31 = and i32 %29, 65535
+  %32 = shl i32 %0, 24
+  %33 = or disjoint i32 %31, %30
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %28, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store i64 %13, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store i64 %14, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store i64 %15, ptr %37, align 8
+  br label %do_shifts.exit
+
+38:                                               ; preds = %4
+  %39 = icmp slt i32 %25, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %38
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 181, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_shifts.exit
+
+41:                                               ; preds = %38
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 718, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
+  unreachable
+
+do_shifts.exit:                                   ; preds = %27, %40
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_shrs_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 182, i32 noundef %19, i32 noundef %0) #5
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %4
+  %28 = tail call ptr @tcg_emit_op(i32 noundef 182, i32 noundef 3) #5
+  %29 = load i32, ptr %28, align 8
+  %30 = shl nuw nsw i32 %19, 16
+  %31 = and i32 %29, 65535
+  %32 = shl i32 %0, 24
+  %33 = or disjoint i32 %31, %30
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %28, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store i64 %13, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store i64 %14, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store i64 %15, ptr %37, align 8
+  br label %do_shifts.exit
+
+38:                                               ; preds = %4
+  %39 = icmp slt i32 %25, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %38
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 182, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_shifts.exit
+
+41:                                               ; preds = %38
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 718, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
+  unreachable
+
+do_shifts.exit:                                   ; preds = %27, %40
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_sars_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 183, i32 noundef %19, i32 noundef %0) #5
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %4
+  %28 = tail call ptr @tcg_emit_op(i32 noundef 183, i32 noundef 3) #5
+  %29 = load i32, ptr %28, align 8
+  %30 = shl nuw nsw i32 %19, 16
+  %31 = and i32 %29, 65535
+  %32 = shl i32 %0, 24
+  %33 = or disjoint i32 %31, %30
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %28, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store i64 %13, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store i64 %14, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store i64 %15, ptr %37, align 8
+  br label %do_shifts.exit
+
+38:                                               ; preds = %4
+  %39 = icmp slt i32 %25, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %38
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 183, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_shifts.exit
+
+41:                                               ; preds = %38
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 718, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
+  unreachable
+
+do_shifts.exit:                                   ; preds = %27, %40
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_rotls_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %1 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = ptrtoint ptr %2 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = ptrtoint ptr %3 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = ptrtoint ptr %8 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = ptrtoint ptr %12 to i64
+  %16 = load i64, ptr %8, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %10, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 184, i32 noundef %19, i32 noundef %0) #5
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %4
+  %28 = tail call ptr @tcg_emit_op(i32 noundef 184, i32 noundef 3) #5
+  %29 = load i32, ptr %28, align 8
+  %30 = shl nuw nsw i32 %19, 16
+  %31 = and i32 %29, 65535
+  %32 = shl i32 %0, 24
+  %33 = or disjoint i32 %31, %30
+  %34 = or disjoint i32 %33, %32
+  store i32 %34, ptr %28, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store i64 %13, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store i64 %14, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store i64 %15, ptr %37, align 8
+  br label %do_shifts.exit
+
+38:                                               ; preds = %4
+  %39 = icmp slt i32 %25, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %38
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 184, i32 noundef %19, i32 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15) #5
+  br label %do_shifts.exit
+
+41:                                               ; preds = %38
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 718, ptr noundef nonnull @__func__.do_shifts, ptr noundef null) #6
+  unreachable
+
+do_shifts.exit:                                   ; preds = %27, %40
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_bitsel_vec(i32 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %1 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
+  %10 = ptrtoint ptr %2 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
+  %12 = ptrtoint ptr %3 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
+  %14 = ptrtoint ptr %4 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
+  %16 = load i64, ptr %9, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = lshr i32 %17, 16
+  %19 = and i32 %18, 255
+  %20 = load i64, ptr %11, align 8
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 16
+  %23 = and i32 %22, 255
+  %24 = icmp samesign uge i32 %23, %19
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i64, ptr %13, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = icmp samesign uge i32 %28, %19
+  tail call void @llvm.assume(i1 %29)
+  %30 = load i64, ptr %15, align 8
+  %31 = trunc i64 %30 to i32
   %32 = lshr i32 %31, 16
-  %bf.cast14.i = and i32 %32, 255
-  %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
-  tail call void @llvm.assume(i1 %cmp15.i)
-  %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast.i, i32 noundef %vece) #5
-  %cmp20.i = icmp sgt i32 %call19.i, 0
-  br i1 %cmp20.i, label %if.then21.i, label %if.else.i
+  %33 = and i32 %32, 255
+  %34 = icmp samesign uge i32 %33, %19
+  tail call void @llvm.assume(i1 %34)
+  %35 = load i32, ptr @cpuinfo, align 4
+  %36 = and i32 %35, 6144
+  %or.cond.not = icmp eq i32 %36, 6144
+  br i1 %or.cond.not, label %37, label %51
 
-if.then21.i:                                      ; preds = %if.else48
-  %conv.i = zext i32 %cond to i64
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 190, i32 noundef 4) #5
-  %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
-  %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
-  %bf.clear.i.i = and i32 %bf.load.i.i, 65535
-  %bf.value2.i.i = shl i32 %vece, 24
-  %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
-  %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
-  %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
-  store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  store i64 %24, ptr %args.i.i, align 8
-  %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
-  store i64 %25, ptr %arrayidx7.i.i, align 8
-  %arrayidx9.i.i = getelementptr i8, ptr %call.i.i, i64 48
-  store i64 %26, ptr %arrayidx9.i.i, align 8
-  %arrayidx11.i.i = getelementptr i8, ptr %call.i.i, i64 56
-  store i64 %conv.i, ptr %arrayidx11.i.i, align 8
-  br label %tcg_gen_cmp_vec.exit
+37:                                               ; preds = %5
+  %38 = ptrtoint ptr %9 to i64
+  %39 = ptrtoint ptr %11 to i64
+  %40 = ptrtoint ptr %13 to i64
+  %41 = ptrtoint ptr %15 to i64
+  %42 = tail call ptr @tcg_emit_op(i32 noundef 191, i32 noundef 4) #5
+  %43 = load i32, ptr %42, align 8
+  %44 = shl nuw nsw i32 %19, 16
+  %45 = and i32 %43, 65535
+  %46 = or disjoint i32 %45, %44
+  store i32 %46, ptr %42, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store i64 %38, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store i64 %39, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store i64 %40, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 56
+  store i64 %41, ptr %50, align 8
+  br label %134
 
-if.else.i:                                        ; preds = %if.else48
-  %cmp24.i = icmp ne i32 %call19.i, 0
-  tail call void @llvm.assume(i1 %cmp24.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %24, i64 noundef %25, i64 noundef %26, i32 noundef %cond) #5
-  br label %tcg_gen_cmp_vec.exit
+51:                                               ; preds = %5
+  %52 = tail call ptr @tcg_temp_new_vec(i32 noundef %19) #5
+  %53 = load ptr, ptr %6, align 8
+  %54 = ptrtoint ptr %52 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %10
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %12
+  %58 = load i64, ptr %55, align 8
+  %59 = trunc i64 %58 to i32
+  %60 = lshr i32 %59, 16
+  %61 = and i32 %60, 255
+  %62 = load i64, ptr %56, align 8
+  %63 = trunc i64 %62 to i32
+  %64 = lshr i32 %63, 16
+  %65 = and i32 %64, 255
+  %66 = icmp samesign uge i32 %65, %61
+  tail call void @llvm.assume(i1 %66)
+  %67 = load i64, ptr %57, align 8
+  %68 = trunc i64 %67 to i32
+  %69 = lshr i32 %68, 16
+  %70 = and i32 %69, 255
+  %71 = icmp samesign uge i32 %70, %61
+  tail call void @llvm.assume(i1 %71)
+  %72 = ptrtoint ptr %55 to i64
+  %73 = ptrtoint ptr %56 to i64
+  %74 = ptrtoint ptr %57 to i64
+  %75 = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
+  %76 = load i32, ptr %75, align 8
+  %77 = shl nuw nsw i32 %61, 16
+  %78 = and i32 %76, 65535
+  %79 = or disjoint i32 %78, %77
+  store i32 %79, ptr %75, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  store i64 %72, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  store i64 %73, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 48
+  store i64 %74, ptr %82, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %8
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %14
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 %10
+  %87 = load i64, ptr %84, align 8
+  %88 = trunc i64 %87 to i32
+  %89 = lshr i32 %88, 16
+  %90 = and i32 %89, 255
+  %91 = load i64, ptr %85, align 8
+  %92 = trunc i64 %91 to i32
+  %93 = lshr i32 %92, 16
+  %94 = and i32 %93, 255
+  %95 = icmp samesign uge i32 %94, %90
+  tail call void @llvm.assume(i1 %95)
+  %96 = load i64, ptr %86, align 8
+  %97 = trunc i64 %96 to i32
+  %98 = lshr i32 %97, 16
+  %99 = and i32 %98, 255
+  %100 = icmp samesign uge i32 %99, %90
+  tail call void @llvm.assume(i1 %100)
+  %101 = ptrtoint ptr %84 to i64
+  %102 = ptrtoint ptr %85 to i64
+  %103 = ptrtoint ptr %86 to i64
+  %104 = tail call ptr @tcg_emit_op(i32 noundef 171, i32 noundef 3) #5
+  %105 = load i32, ptr %104, align 8
+  %106 = shl nuw nsw i32 %90, 16
+  %107 = and i32 %105, 65535
+  %108 = or disjoint i32 %107, %106
+  store i32 %108, ptr %104, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  store i64 %101, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  store i64 %102, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  store i64 %103, ptr %111, align 8
+  %112 = load ptr, ptr %6, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 %54
+  %115 = load i64, ptr %113, align 8
+  %116 = trunc i64 %115 to i32
+  %117 = lshr i32 %116, 16
+  %118 = and i32 %117, 255
+  %119 = load i64, ptr %114, align 8
+  %120 = trunc i64 %119 to i32
+  %121 = lshr i32 %120, 16
+  %122 = and i32 %121, 255
+  %123 = icmp samesign uge i32 %122, %118
+  tail call void @llvm.assume(i1 %123)
+  %124 = ptrtoint ptr %113 to i64
+  %125 = ptrtoint ptr %114 to i64
+  %126 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
+  %127 = load i32, ptr %126, align 8
+  %128 = shl nuw nsw i32 %118, 16
+  %129 = and i32 %127, 65535
+  %130 = or disjoint i32 %129, %128
+  store i32 %130, ptr %126, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 32
+  store i64 %124, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  store i64 %124, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %126, i64 48
+  store i64 %125, ptr %133, align 8
+  tail call void @tcg_temp_free_vec(ptr noundef %52) #5
+  br label %134
 
-tcg_gen_cmp_vec.exit:                             ; preds = %if.then21.i, %if.else.i
-  tail call void @tcg_gen_bitsel_vec(i32 poison, ptr noundef %r, ptr noundef %call49, ptr noundef %c, ptr noundef %d)
-  tail call void @tcg_temp_free_vec(ptr noundef %call49) #5
-  br label %if.end51
+134:                                              ; preds = %51, %37
+  ret void
+}
 
-if.end51:                                         ; preds = %if.then47, %tcg_gen_cmp_vec.exit, %if.then44
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_cmpsel_vec(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %2 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %12 = ptrtoint ptr %3 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  %14 = ptrtoint ptr %4 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
+  %16 = ptrtoint ptr %5 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %16
+  %18 = ptrtoint ptr %6 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %18
+  %20 = ptrtoint ptr %11 to i64
+  %21 = ptrtoint ptr %13 to i64
+  %22 = ptrtoint ptr %15 to i64
+  %23 = ptrtoint ptr %17 to i64
+  %24 = ptrtoint ptr %19 to i64
+  %25 = load i64, ptr %11, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 16
+  %28 = and i32 %27, 255
+  %29 = load i64, ptr %13, align 8
+  %30 = trunc i64 %29 to i32
+  %31 = lshr i32 %30, 16
+  %32 = and i32 %31, 255
+  %33 = icmp samesign uge i32 %32, %28
+  tail call void @llvm.assume(i1 %33)
+  %34 = load i64, ptr %15, align 8
+  %35 = trunc i64 %34 to i32
+  %36 = lshr i32 %35, 16
+  %37 = and i32 %36, 255
+  %38 = icmp samesign uge i32 %37, %28
+  tail call void @llvm.assume(i1 %38)
+  %39 = load i64, ptr %17, align 8
+  %40 = trunc i64 %39 to i32
+  %41 = lshr i32 %40, 16
+  %42 = and i32 %41, 255
+  %43 = icmp samesign uge i32 %42, %28
+  tail call void @llvm.assume(i1 %43)
+  %44 = load i64, ptr %19, align 8
+  %45 = trunc i64 %44 to i32
+  %46 = lshr i32 %45, 16
+  %47 = and i32 %46, 255
+  %48 = icmp samesign uge i32 %47, %28
+  tail call void @llvm.assume(i1 %48)
+  %49 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 192, i32 noundef %28, i32 noundef %1) #5
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %7
+  %52 = zext i32 %0 to i64
+  %53 = tail call ptr @tcg_emit_op(i32 noundef 192, i32 noundef 6) #5
+  %54 = load i32, ptr %53, align 8
+  %55 = shl nuw nsw i32 %28, 16
+  %56 = and i32 %54, 65535
+  %57 = shl i32 %1, 24
+  %58 = or disjoint i32 %56, %55
+  %59 = or disjoint i32 %58, %57
+  store i32 %59, ptr %53, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  store i64 %20, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  store i64 %21, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  store i64 %22, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  store i64 %23, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  store i64 %24, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  store i64 %52, ptr %65, align 8
+  br label %71
+
+66:                                               ; preds = %7
+  %67 = icmp slt i32 %49, 0
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %66
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 192, i32 noundef %28, i32 noundef %1, i64 noundef %20, i64 noundef %21, i64 noundef %22, i64 noundef %23, i64 noundef %24, i32 noundef %0) #5
+  br label %71
+
+69:                                               ; preds = %66
+  %70 = tail call ptr @tcg_temp_new_vec(i32 noundef %28) #5
+  tail call void @tcg_gen_cmp_vec(i32 noundef %0, i32 noundef %1, ptr noundef %70, ptr noundef %3, ptr noundef %4)
+  tail call void @tcg_gen_bitsel_vec(i32 poison, ptr noundef %2, ptr noundef %70, ptr noundef %5, ptr noundef %6)
+  tail call void @tcg_temp_free_vec(ptr noundef %70) #5
+  br label %71
+
+71:                                               ; preds = %68, %69, %51
   ret void
 }
 
@@ -3492,20 +3512,19 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

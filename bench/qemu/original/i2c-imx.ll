@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.IMXI2C = type { %struct.QOSGraphObject, %struct.I2CAdapter, i64 }
 %struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
@@ -21,922 +21,1497 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_imx_i2c_register_nodes, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @imx_i2c_init(ptr noundef %s, ptr noundef %qts, i64 noundef %addr) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %qts.addr = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %qts, ptr %qts.addr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  %0 = load i64, ptr %addr.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %addr1 = getelementptr inbounds %struct.IMXI2C, ptr %1, i32 0, i32 2
-  store i64 %0, ptr %addr1, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  %obj = getelementptr inbounds %struct.IMXI2C, ptr %2, i32 0, i32 0
-  %get_driver = getelementptr inbounds %struct.QOSGraphObject, ptr %obj, i32 0, i32 0
-  store ptr @imx_i2c_get_driver, ptr %get_driver, align 8
-  %3 = load ptr, ptr %s.addr, align 8
-  %parent = getelementptr inbounds %struct.IMXI2C, ptr %3, i32 0, i32 1
-  %send = getelementptr inbounds %struct.I2CAdapter, ptr %parent, i32 0, i32 0
-  store ptr @imx_i2c_send, ptr %send, align 8
-  %4 = load ptr, ptr %s.addr, align 8
-  %parent2 = getelementptr inbounds %struct.IMXI2C, ptr %4, i32 0, i32 1
-  %recv = getelementptr inbounds %struct.I2CAdapter, ptr %parent2, i32 0, i32 1
-  store ptr @imx_i2c_recv, ptr %recv, align 8
-  %5 = load ptr, ptr %qts.addr, align 8
-  %6 = load ptr, ptr %s.addr, align 8
-  %parent3 = getelementptr inbounds %struct.IMXI2C, ptr %6, i32 0, i32 1
-  %qts4 = getelementptr inbounds %struct.I2CAdapter, ptr %parent3, i32 0, i32 2
-  store ptr %5, ptr %qts4, align 8
+define dso_local void @imx_i2c_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.IMXI2C, ptr %8, i32 0, i32 2
+  store i64 %7, ptr %9, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.IMXI2C, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.QOSGraphObject, ptr %11, i32 0, i32 0
+  store ptr @imx_i2c_get_driver, ptr %12, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.IMXI2C, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %14, i32 0, i32 0
+  store ptr @imx_i2c_send, ptr %15, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.IMXI2C, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %17, i32 0, i32 1
+  store ptr @imx_i2c_recv, ptr %18, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.IMXI2C, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %21, i32 0, i32 2
+  store ptr %19, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @imx_i2c_get_driver(ptr noundef %obj, ptr noundef %interface) #0 {
-entry:
-  %obj.addr = alloca ptr, align 8
-  %interface.addr = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  store ptr %interface, ptr %interface.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  store ptr %0, ptr %s, align 8
-  %1 = load ptr, ptr %interface.addr, align 8
-  %call = call i32 @g_strcmp0(ptr noundef %1, ptr noundef @.str)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal ptr @imx_i2c_get_driver(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call i32 @g_strcmp0(ptr noundef %9, ptr noundef @.str)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %15, label %12
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %s, align 8
-  %parent = getelementptr inbounds %struct.IMXI2C, ptr %2, i32 0, i32 1
-  br label %do.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %struct.IMXI2C, ptr %13, i32 0, i32 1
+  store ptr %14, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %interface.addr, align 8
-  %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.1, ptr noundef %4)
-  br label %do.body
+15:                                               ; preds = %2
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %16, i32 noundef 1, ptr noundef @.str.1, ptr noundef %17)
+  br label %19
 
-do.body:                                          ; preds = %if.end
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 196, ptr noundef @__func__.imx_i2c_get_driver, ptr noundef null) #3
+19:                                               ; preds = %15
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 196, ptr noundef @__func__.imx_i2c_get_driver, ptr noundef null) #6
   unreachable
 
-do.end:                                           ; preds = %if.then
-  ret ptr %parent
+20:                                               ; No predecessors!
+  br label %21
+
+21:                                               ; preds = %20
+  store i32 0, ptr %7, align 4
+  br label %22
+
+22:                                               ; preds = %21, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %23 = load i32, ptr %7, align 4
+  switch i32 %23, label %26 [
+    i32 0, label %24
+    i32 1, label %24
+  ]
+
+24:                                               ; preds = %22, %22
+  %25 = load ptr, ptr %3, align 8
+  ret ptr %25
+
+26:                                               ; preds = %22
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @imx_i2c_send(ptr noundef %i2c, i8 noundef zeroext %addr, ptr noundef %buf, i16 noundef zeroext %len) #0 {
-entry:
-  %i2c.addr = alloca ptr, align 8
-  %addr.addr = alloca i8, align 1
-  %buf.addr = alloca ptr, align 8
-  %len.addr = alloca i16, align 2
-  %s = alloca ptr, align 8
-  %__mptr = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %data = alloca i8, align 1
-  %status = alloca i8, align 1
-  %size = alloca i16, align 2
-  store ptr %i2c, ptr %i2c.addr, align 8
-  store i8 %addr, ptr %addr.addr, align 1
-  store ptr %buf, ptr %buf.addr, align 8
-  store i16 %len, ptr %len.addr, align 2
-  %0 = load ptr, ptr %i2c.addr, align 8
-  store ptr %0, ptr %__mptr, align 8
-  %1 = load ptr, ptr %__mptr, align 8
-  %add.ptr = getelementptr i8, ptr %1, i64 -40
-  store ptr %add.ptr, ptr %tmp, align 8
-  %2 = load ptr, ptr %tmp, align 8
-  store ptr %2, ptr %s, align 8
-  store i16 0, ptr %size, align 2
-  %3 = load i16, ptr %len.addr, align 2
-  %tobool = icmp ne i16 %3, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal void @imx_i2c_send(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i16, align 2
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i16, align 2
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i8 %1, ptr %6, align 1
+  store ptr %2, ptr %7, align 8
+  store i16 %3, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %34 = load ptr, ptr %5, align 8
+  store ptr %34, ptr %10, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 -40
+  store ptr %36, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %37 = load ptr, ptr %11, align 8
+  store ptr %37, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #5
+  store i8 0, ptr %12, align 1, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #5
+  store i8 0, ptr %13, align 1, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
+  store i16 0, ptr %14, align 2
+  %38 = load i16, ptr %8, align 2
+  %39 = icmp ne i16 %38, 0
+  br i1 %39, label %41, label %40
 
-if.then:                                          ; preds = %entry
-  br label %do.end122
+40:                                               ; preds = %4
+  store i32 1, ptr %15, align 4
+  br label %318
 
-if.end:                                           ; preds = %entry
-  store i8 -8, ptr %data, align 1
-  %4 = load ptr, ptr %i2c.addr, align 8
-  %qts = getelementptr inbounds %struct.I2CAdapter, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %qts, align 8
-  %6 = load ptr, ptr %s, align 8
-  %addr1 = getelementptr inbounds %struct.IMXI2C, ptr %6, i32 0, i32 2
-  %7 = load i64, ptr %addr1, align 8
-  %add = add i64 %7, 8
-  %8 = load i8, ptr %data, align 1
-  call void @qtest_writeb(ptr noundef %5, i64 noundef %add, i8 noundef zeroext %8)
-  %9 = load ptr, ptr %i2c.addr, align 8
-  %qts2 = getelementptr inbounds %struct.I2CAdapter, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %qts2, align 8
-  %11 = load ptr, ptr %s, align 8
-  %addr3 = getelementptr inbounds %struct.IMXI2C, ptr %11, i32 0, i32 2
-  %12 = load i64, ptr %addr3, align 8
-  %add4 = add i64 %12, 12
-  %call = call zeroext i8 @qtest_readb(ptr noundef %10, i64 noundef %add4)
-  store i8 %call, ptr %status, align 1
-  br label %do.body
+41:                                               ; preds = %4
+  store i8 -8, ptr %12, align 1
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds nuw %struct.IMXI2C, ptr %45, i32 0, i32 2
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, 8
+  %49 = load i8, ptr %12, align 1
+  call void @qtest_writeb(ptr noundef %44, i64 noundef %48, i8 noundef zeroext %49)
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds nuw %struct.IMXI2C, ptr %53, i32 0, i32 2
+  %55 = load i64, ptr %54, align 8
+  %56 = add i64 %55, 12
+  %57 = call zeroext i8 @qtest_readb(ptr noundef %52, i64 noundef %56)
+  store i8 %57, ptr %13, align 1
+  br label %58
 
-do.body:                                          ; preds = %if.end
-  %13 = load i8, ptr %status, align 1
-  %conv = zext i8 %13 to i32
-  %and = and i32 %conv, 32
-  %cmp = icmp ne i32 %and, 0
-  br i1 %cmp, label %if.then6, label %if.else
+58:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  store i32 0, ptr %16, align 4, !annotation !4
+  %59 = load i8, ptr %13, align 1
+  %60 = zext i8 %59 to i32
+  %61 = and i32 %60, 32
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %64
 
-if.then6:                                         ; preds = %do.body
-  br label %if.end7
+63:                                               ; preds = %58
+  store i32 1, ptr %16, align 4
+  br label %65
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 61, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.3) #3
+64:                                               ; preds = %58
+  store i32 0, ptr %16, align 4
+  br label %65
+
+65:                                               ; preds = %64, %63
+  %66 = load i32, ptr %16, align 4
+  store i32 %66, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  %67 = load i32, ptr %17, align 4
+  %68 = sext i32 %67 to i64
+  %69 = call i64 @llvm.expect.i64(i64 %68, i64 1)
+  %70 = icmp ne i64 %69, 0
+  br i1 %70, label %71, label %72
+
+71:                                               ; preds = %65
+  br label %73
+
+72:                                               ; preds = %65
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 61, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.3) #6
   unreachable
 
-if.end7:                                          ; preds = %if.then6
-  br label %do.end
+73:                                               ; preds = %71
+  br label %74
 
-do.end:                                           ; preds = %if.end7
-  %14 = load ptr, ptr %s, align 8
-  %15 = load i8, ptr %addr.addr, align 1
-  call void @imx_i2c_set_slave_addr(ptr noundef %14, i8 noundef zeroext %15, i32 noundef 1)
-  %16 = load ptr, ptr %i2c.addr, align 8
-  %qts8 = getelementptr inbounds %struct.I2CAdapter, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %qts8, align 8
-  %18 = load ptr, ptr %s, align 8
-  %addr9 = getelementptr inbounds %struct.IMXI2C, ptr %18, i32 0, i32 2
-  %19 = load i64, ptr %addr9, align 8
-  %add10 = add i64 %19, 12
-  %call11 = call zeroext i8 @qtest_readb(ptr noundef %17, i64 noundef %add10)
-  store i8 %call11, ptr %status, align 1
-  br label %do.body12
+74:                                               ; preds = %73
+  br label %75
 
-do.body12:                                        ; preds = %do.end
-  %20 = load i8, ptr %status, align 1
-  %conv13 = zext i8 %20 to i32
-  %and14 = and i32 %conv13, 2
-  %cmp15 = icmp ne i32 %and14, 0
-  br i1 %cmp15, label %if.then17, label %if.else18
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %9, align 8
+  %77 = load i8, ptr %6, align 1
+  call void @imx_i2c_set_slave_addr(ptr noundef %76, i8 noundef zeroext %77, i32 noundef 1)
+  %78 = load ptr, ptr %5, align 8
+  %79 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds nuw %struct.IMXI2C, ptr %81, i32 0, i32 2
+  %83 = load i64, ptr %82, align 8
+  %84 = add i64 %83, 12
+  %85 = call zeroext i8 @qtest_readb(ptr noundef %80, i64 noundef %84)
+  store i8 %85, ptr %13, align 1
+  br label %86
 
-if.then17:                                        ; preds = %do.body12
-  br label %if.end19
+86:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  store i32 0, ptr %18, align 4, !annotation !4
+  %87 = load i8, ptr %13, align 1
+  %88 = zext i8 %87 to i32
+  %89 = and i32 %88, 2
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %92
 
-if.else18:                                        ; preds = %do.body12
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 66, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.4) #3
+91:                                               ; preds = %86
+  store i32 1, ptr %18, align 4
+  br label %93
+
+92:                                               ; preds = %86
+  store i32 0, ptr %18, align 4
+  br label %93
+
+93:                                               ; preds = %92, %91
+  %94 = load i32, ptr %18, align 4
+  store i32 %94, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  %95 = load i32, ptr %19, align 4
+  %96 = sext i32 %95 to i64
+  %97 = call i64 @llvm.expect.i64(i64 %96, i64 1)
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %99, label %100
+
+99:                                               ; preds = %93
+  br label %101
+
+100:                                              ; preds = %93
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 66, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.4) #6
   unreachable
 
-if.end19:                                         ; preds = %if.then17
-  br label %do.end20
+101:                                              ; preds = %99
+  br label %102
 
-do.end20:                                         ; preds = %if.end19
-  br label %do.body21
+102:                                              ; preds = %101
+  br label %103
 
-do.body21:                                        ; preds = %do.end20
-  %21 = load i8, ptr %status, align 1
-  %conv22 = zext i8 %21 to i32
-  %and23 = and i32 %conv22, 1
-  %cmp24 = icmp eq i32 %and23, 0
-  br i1 %cmp24, label %if.then26, label %if.else27
+103:                                              ; preds = %102
+  br label %104
 
-if.then26:                                        ; preds = %do.body21
-  br label %if.end28
+104:                                              ; preds = %103
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  store i32 0, ptr %20, align 4, !annotation !4
+  %105 = load i8, ptr %13, align 1
+  %106 = zext i8 %105 to i32
+  %107 = and i32 %106, 1
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %110
 
-if.else27:                                        ; preds = %do.body21
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 67, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.5) #3
+109:                                              ; preds = %104
+  store i32 1, ptr %20, align 4
+  br label %111
+
+110:                                              ; preds = %104
+  store i32 0, ptr %20, align 4
+  br label %111
+
+111:                                              ; preds = %110, %109
+  %112 = load i32, ptr %20, align 4
+  store i32 %112, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  %113 = load i32, ptr %21, align 4
+  %114 = sext i32 %113 to i64
+  %115 = call i64 @llvm.expect.i64(i64 %114, i64 1)
+  %116 = icmp ne i64 %115, 0
+  br i1 %116, label %117, label %118
+
+117:                                              ; preds = %111
+  br label %119
+
+118:                                              ; preds = %111
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 67, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.5) #6
   unreachable
 
-if.end28:                                         ; preds = %if.then26
-  br label %do.end29
+119:                                              ; preds = %117
+  br label %120
 
-do.end29:                                         ; preds = %if.end28
-  %22 = load ptr, ptr %i2c.addr, align 8
-  %qts30 = getelementptr inbounds %struct.I2CAdapter, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %qts30, align 8
-  %24 = load ptr, ptr %s, align 8
-  %addr31 = getelementptr inbounds %struct.IMXI2C, ptr %24, i32 0, i32 2
-  %25 = load i64, ptr %addr31, align 8
-  %add32 = add i64 %25, 12
-  call void @qtest_writeb(ptr noundef %23, i64 noundef %add32, i8 noundef zeroext 0)
-  %26 = load ptr, ptr %i2c.addr, align 8
-  %qts33 = getelementptr inbounds %struct.I2CAdapter, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %qts33, align 8
-  %28 = load ptr, ptr %s, align 8
-  %addr34 = getelementptr inbounds %struct.IMXI2C, ptr %28, i32 0, i32 2
-  %29 = load i64, ptr %addr34, align 8
-  %add35 = add i64 %29, 12
-  %call36 = call zeroext i8 @qtest_readb(ptr noundef %27, i64 noundef %add35)
-  store i8 %call36, ptr %status, align 1
-  br label %do.body37
+120:                                              ; preds = %119
+  br label %121
 
-do.body37:                                        ; preds = %do.end29
-  %30 = load i8, ptr %status, align 1
-  %conv38 = zext i8 %30 to i32
-  %and39 = and i32 %conv38, 2
-  %cmp40 = icmp eq i32 %and39, 0
-  br i1 %cmp40, label %if.then42, label %if.else43
+121:                                              ; preds = %120
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %122, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8
+  %125 = load ptr, ptr %9, align 8
+  %126 = getelementptr inbounds nuw %struct.IMXI2C, ptr %125, i32 0, i32 2
+  %127 = load i64, ptr %126, align 8
+  %128 = add i64 %127, 12
+  call void @qtest_writeb(ptr noundef %124, i64 noundef %128, i8 noundef zeroext 0)
+  %129 = load ptr, ptr %5, align 8
+  %130 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %129, i32 0, i32 2
+  %131 = load ptr, ptr %130, align 8
+  %132 = load ptr, ptr %9, align 8
+  %133 = getelementptr inbounds nuw %struct.IMXI2C, ptr %132, i32 0, i32 2
+  %134 = load i64, ptr %133, align 8
+  %135 = add i64 %134, 12
+  %136 = call zeroext i8 @qtest_readb(ptr noundef %131, i64 noundef %135)
+  store i8 %136, ptr %13, align 1
+  br label %137
 
-if.then42:                                        ; preds = %do.body37
-  br label %if.end44
+137:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  store i32 0, ptr %22, align 4, !annotation !4
+  %138 = load i8, ptr %13, align 1
+  %139 = zext i8 %138 to i32
+  %140 = and i32 %139, 2
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %143
 
-if.else43:                                        ; preds = %do.body37
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 72, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.6) #3
+142:                                              ; preds = %137
+  store i32 1, ptr %22, align 4
+  br label %144
+
+143:                                              ; preds = %137
+  store i32 0, ptr %22, align 4
+  br label %144
+
+144:                                              ; preds = %143, %142
+  %145 = load i32, ptr %22, align 4
+  store i32 %145, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  %146 = load i32, ptr %23, align 4
+  %147 = sext i32 %146 to i64
+  %148 = call i64 @llvm.expect.i64(i64 %147, i64 1)
+  %149 = icmp ne i64 %148, 0
+  br i1 %149, label %150, label %151
+
+150:                                              ; preds = %144
+  br label %152
+
+151:                                              ; preds = %144
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 72, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.6) #6
   unreachable
 
-if.end44:                                         ; preds = %if.then42
-  br label %do.end45
+152:                                              ; preds = %150
+  br label %153
 
-do.end45:                                         ; preds = %if.end44
-  br label %while.cond
+153:                                              ; preds = %152
+  br label %154
 
-while.cond:                                       ; preds = %do.end103, %do.end45
-  %31 = load i16, ptr %size, align 2
-  %conv46 = zext i16 %31 to i32
-  %32 = load i16, ptr %len.addr, align 2
-  %conv47 = zext i16 %32 to i32
-  %cmp48 = icmp slt i32 %conv46, %conv47
-  br i1 %cmp48, label %while.body, label %while.end
+154:                                              ; preds = %153
+  br label %155
 
-while.body:                                       ; preds = %while.cond
-  %33 = load ptr, ptr %i2c.addr, align 8
-  %qts50 = getelementptr inbounds %struct.I2CAdapter, ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %qts50, align 8
-  %35 = load ptr, ptr %s, align 8
-  %addr51 = getelementptr inbounds %struct.IMXI2C, ptr %35, i32 0, i32 2
-  %36 = load i64, ptr %addr51, align 8
-  %add52 = add i64 %36, 12
-  %call53 = call zeroext i8 @qtest_readb(ptr noundef %34, i64 noundef %add52)
-  store i8 %call53, ptr %status, align 1
-  br label %do.body54
+155:                                              ; preds = %276, %154
+  %156 = load i16, ptr %14, align 2
+  %157 = zext i16 %156 to i32
+  %158 = load i16, ptr %8, align 2
+  %159 = zext i16 %158 to i32
+  %160 = icmp slt i32 %157, %159
+  br i1 %160, label %161, label %279
 
-do.body54:                                        ; preds = %while.body
-  %37 = load i8, ptr %status, align 1
-  %conv55 = zext i8 %37 to i32
-  %and56 = and i32 %conv55, 32
-  %cmp57 = icmp ne i32 %and56, 0
-  br i1 %cmp57, label %if.then59, label %if.else60
+161:                                              ; preds = %155
+  %162 = load ptr, ptr %5, align 8
+  %163 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %162, i32 0, i32 2
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %9, align 8
+  %166 = getelementptr inbounds nuw %struct.IMXI2C, ptr %165, i32 0, i32 2
+  %167 = load i64, ptr %166, align 8
+  %168 = add i64 %167, 12
+  %169 = call zeroext i8 @qtest_readb(ptr noundef %164, i64 noundef %168)
+  store i8 %169, ptr %13, align 1
+  br label %170
 
-if.then59:                                        ; preds = %do.body54
-  br label %if.end61
+170:                                              ; preds = %161
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #5
+  store i32 0, ptr %24, align 4, !annotation !4
+  %171 = load i8, ptr %13, align 1
+  %172 = zext i8 %171 to i32
+  %173 = and i32 %172, 32
+  %174 = icmp ne i32 %173, 0
+  br i1 %174, label %175, label %176
 
-if.else60:                                        ; preds = %do.body54
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 77, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.3) #3
+175:                                              ; preds = %170
+  store i32 1, ptr %24, align 4
+  br label %177
+
+176:                                              ; preds = %170
+  store i32 0, ptr %24, align 4
+  br label %177
+
+177:                                              ; preds = %176, %175
+  %178 = load i32, ptr %24, align 4
+  store i32 %178, ptr %25, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #5
+  %179 = load i32, ptr %25, align 4
+  %180 = sext i32 %179 to i64
+  %181 = call i64 @llvm.expect.i64(i64 %180, i64 1)
+  %182 = icmp ne i64 %181, 0
+  br i1 %182, label %183, label %184
+
+183:                                              ; preds = %177
+  br label %185
+
+184:                                              ; preds = %177
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 77, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.3) #6
   unreachable
 
-if.end61:                                         ; preds = %if.then59
-  br label %do.end62
+185:                                              ; preds = %183
+  br label %186
 
-do.end62:                                         ; preds = %if.end61
-  %38 = load ptr, ptr %i2c.addr, align 8
-  %qts63 = getelementptr inbounds %struct.I2CAdapter, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %qts63, align 8
-  %40 = load ptr, ptr %s, align 8
-  %addr64 = getelementptr inbounds %struct.IMXI2C, ptr %40, i32 0, i32 2
-  %41 = load i64, ptr %addr64, align 8
-  %add65 = add i64 %41, 16
-  %42 = load ptr, ptr %buf.addr, align 8
-  %43 = load i16, ptr %size, align 2
-  %idxprom = zext i16 %43 to i64
-  %arrayidx = getelementptr i8, ptr %42, i64 %idxprom
-  %44 = load i8, ptr %arrayidx, align 1
-  call void @qtest_writeb(ptr noundef %39, i64 noundef %add65, i8 noundef zeroext %44)
-  %45 = load ptr, ptr %i2c.addr, align 8
-  %qts66 = getelementptr inbounds %struct.I2CAdapter, ptr %45, i32 0, i32 2
-  %46 = load ptr, ptr %qts66, align 8
-  %47 = load ptr, ptr %s, align 8
-  %addr67 = getelementptr inbounds %struct.IMXI2C, ptr %47, i32 0, i32 2
-  %48 = load i64, ptr %addr67, align 8
-  %add68 = add i64 %48, 12
-  %call69 = call zeroext i8 @qtest_readb(ptr noundef %46, i64 noundef %add68)
-  store i8 %call69, ptr %status, align 1
-  br label %do.body70
+186:                                              ; preds = %185
+  br label %187
 
-do.body70:                                        ; preds = %do.end62
-  %49 = load i8, ptr %status, align 1
-  %conv71 = zext i8 %49 to i32
-  %and72 = and i32 %conv71, 2
-  %cmp73 = icmp ne i32 %and72, 0
-  br i1 %cmp73, label %if.then75, label %if.else76
+187:                                              ; preds = %186
+  %188 = load ptr, ptr %5, align 8
+  %189 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %188, i32 0, i32 2
+  %190 = load ptr, ptr %189, align 8
+  %191 = load ptr, ptr %9, align 8
+  %192 = getelementptr inbounds nuw %struct.IMXI2C, ptr %191, i32 0, i32 2
+  %193 = load i64, ptr %192, align 8
+  %194 = add i64 %193, 16
+  %195 = load ptr, ptr %7, align 8
+  %196 = load i16, ptr %14, align 2
+  %197 = zext i16 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 %197
+  %199 = load i8, ptr %198, align 1
+  call void @qtest_writeb(ptr noundef %190, i64 noundef %194, i8 noundef zeroext %199)
+  %200 = load ptr, ptr %5, align 8
+  %201 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %200, i32 0, i32 2
+  %202 = load ptr, ptr %201, align 8
+  %203 = load ptr, ptr %9, align 8
+  %204 = getelementptr inbounds nuw %struct.IMXI2C, ptr %203, i32 0, i32 2
+  %205 = load i64, ptr %204, align 8
+  %206 = add i64 %205, 12
+  %207 = call zeroext i8 @qtest_readb(ptr noundef %202, i64 noundef %206)
+  store i8 %207, ptr %13, align 1
+  br label %208
 
-if.then75:                                        ; preds = %do.body70
-  br label %if.end77
+208:                                              ; preds = %187
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #5
+  store i32 0, ptr %26, align 4, !annotation !4
+  %209 = load i8, ptr %13, align 1
+  %210 = zext i8 %209 to i32
+  %211 = and i32 %210, 2
+  %212 = icmp ne i32 %211, 0
+  br i1 %212, label %213, label %214
 
-if.else76:                                        ; preds = %do.body70
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 82, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.4) #3
+213:                                              ; preds = %208
+  store i32 1, ptr %26, align 4
+  br label %215
+
+214:                                              ; preds = %208
+  store i32 0, ptr %26, align 4
+  br label %215
+
+215:                                              ; preds = %214, %213
+  %216 = load i32, ptr %26, align 4
+  store i32 %216, ptr %27, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #5
+  %217 = load i32, ptr %27, align 4
+  %218 = sext i32 %217 to i64
+  %219 = call i64 @llvm.expect.i64(i64 %218, i64 1)
+  %220 = icmp ne i64 %219, 0
+  br i1 %220, label %221, label %222
+
+221:                                              ; preds = %215
+  br label %223
+
+222:                                              ; preds = %215
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 82, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.4) #6
   unreachable
 
-if.end77:                                         ; preds = %if.then75
-  br label %do.end78
+223:                                              ; preds = %221
+  br label %224
 
-do.end78:                                         ; preds = %if.end77
-  br label %do.body79
+224:                                              ; preds = %223
+  br label %225
 
-do.body79:                                        ; preds = %do.end78
-  %50 = load i8, ptr %status, align 1
-  %conv80 = zext i8 %50 to i32
-  %and81 = and i32 %conv80, 1
-  %cmp82 = icmp eq i32 %and81, 0
-  br i1 %cmp82, label %if.then84, label %if.else85
+225:                                              ; preds = %224
+  br label %226
 
-if.then84:                                        ; preds = %do.body79
-  br label %if.end86
+226:                                              ; preds = %225
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #5
+  store i32 0, ptr %28, align 4, !annotation !4
+  %227 = load i8, ptr %13, align 1
+  %228 = zext i8 %227 to i32
+  %229 = and i32 %228, 1
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %231, label %232
 
-if.else85:                                        ; preds = %do.body79
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 83, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.5) #3
+231:                                              ; preds = %226
+  store i32 1, ptr %28, align 4
+  br label %233
+
+232:                                              ; preds = %226
+  store i32 0, ptr %28, align 4
+  br label %233
+
+233:                                              ; preds = %232, %231
+  %234 = load i32, ptr %28, align 4
+  store i32 %234, ptr %29, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #5
+  %235 = load i32, ptr %29, align 4
+  %236 = sext i32 %235 to i64
+  %237 = call i64 @llvm.expect.i64(i64 %236, i64 1)
+  %238 = icmp ne i64 %237, 0
+  br i1 %238, label %239, label %240
+
+239:                                              ; preds = %233
+  br label %241
+
+240:                                              ; preds = %233
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 83, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.5) #6
   unreachable
 
-if.end86:                                         ; preds = %if.then84
-  br label %do.end87
+241:                                              ; preds = %239
+  br label %242
 
-do.end87:                                         ; preds = %if.end86
-  %51 = load ptr, ptr %i2c.addr, align 8
-  %qts88 = getelementptr inbounds %struct.I2CAdapter, ptr %51, i32 0, i32 2
-  %52 = load ptr, ptr %qts88, align 8
-  %53 = load ptr, ptr %s, align 8
-  %addr89 = getelementptr inbounds %struct.IMXI2C, ptr %53, i32 0, i32 2
-  %54 = load i64, ptr %addr89, align 8
-  %add90 = add i64 %54, 12
-  call void @qtest_writeb(ptr noundef %52, i64 noundef %add90, i8 noundef zeroext 0)
-  %55 = load ptr, ptr %i2c.addr, align 8
-  %qts91 = getelementptr inbounds %struct.I2CAdapter, ptr %55, i32 0, i32 2
-  %56 = load ptr, ptr %qts91, align 8
-  %57 = load ptr, ptr %s, align 8
-  %addr92 = getelementptr inbounds %struct.IMXI2C, ptr %57, i32 0, i32 2
-  %58 = load i64, ptr %addr92, align 8
-  %add93 = add i64 %58, 12
-  %call94 = call zeroext i8 @qtest_readb(ptr noundef %56, i64 noundef %add93)
-  store i8 %call94, ptr %status, align 1
-  br label %do.body95
+242:                                              ; preds = %241
+  br label %243
 
-do.body95:                                        ; preds = %do.end87
-  %59 = load i8, ptr %status, align 1
-  %conv96 = zext i8 %59 to i32
-  %and97 = and i32 %conv96, 2
-  %cmp98 = icmp eq i32 %and97, 0
-  br i1 %cmp98, label %if.then100, label %if.else101
+243:                                              ; preds = %242
+  %244 = load ptr, ptr %5, align 8
+  %245 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %244, i32 0, i32 2
+  %246 = load ptr, ptr %245, align 8
+  %247 = load ptr, ptr %9, align 8
+  %248 = getelementptr inbounds nuw %struct.IMXI2C, ptr %247, i32 0, i32 2
+  %249 = load i64, ptr %248, align 8
+  %250 = add i64 %249, 12
+  call void @qtest_writeb(ptr noundef %246, i64 noundef %250, i8 noundef zeroext 0)
+  %251 = load ptr, ptr %5, align 8
+  %252 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %251, i32 0, i32 2
+  %253 = load ptr, ptr %252, align 8
+  %254 = load ptr, ptr %9, align 8
+  %255 = getelementptr inbounds nuw %struct.IMXI2C, ptr %254, i32 0, i32 2
+  %256 = load i64, ptr %255, align 8
+  %257 = add i64 %256, 12
+  %258 = call zeroext i8 @qtest_readb(ptr noundef %253, i64 noundef %257)
+  store i8 %258, ptr %13, align 1
+  br label %259
 
-if.then100:                                       ; preds = %do.body95
-  br label %if.end102
+259:                                              ; preds = %243
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #5
+  store i32 0, ptr %30, align 4, !annotation !4
+  %260 = load i8, ptr %13, align 1
+  %261 = zext i8 %260 to i32
+  %262 = and i32 %261, 2
+  %263 = icmp eq i32 %262, 0
+  br i1 %263, label %264, label %265
 
-if.else101:                                       ; preds = %do.body95
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 88, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.6) #3
+264:                                              ; preds = %259
+  store i32 1, ptr %30, align 4
+  br label %266
+
+265:                                              ; preds = %259
+  store i32 0, ptr %30, align 4
+  br label %266
+
+266:                                              ; preds = %265, %264
+  %267 = load i32, ptr %30, align 4
+  store i32 %267, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #5
+  %268 = load i32, ptr %31, align 4
+  %269 = sext i32 %268 to i64
+  %270 = call i64 @llvm.expect.i64(i64 %269, i64 1)
+  %271 = icmp ne i64 %270, 0
+  br i1 %271, label %272, label %273
+
+272:                                              ; preds = %266
+  br label %274
+
+273:                                              ; preds = %266
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 88, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.6) #6
   unreachable
 
-if.end102:                                        ; preds = %if.then100
-  br label %do.end103
+274:                                              ; preds = %272
+  br label %275
 
-do.end103:                                        ; preds = %if.end102
-  %60 = load i16, ptr %size, align 2
-  %inc = add i16 %60, 1
-  store i16 %inc, ptr %size, align 2
-  br label %while.cond, !llvm.loop !5
+275:                                              ; preds = %274
+  br label %276
 
-while.end:                                        ; preds = %while.cond
-  %61 = load i8, ptr %data, align 1
-  %conv104 = zext i8 %61 to i32
-  %and105 = and i32 %conv104, -49
-  %conv106 = trunc i32 %and105 to i8
-  store i8 %conv106, ptr %data, align 1
-  %62 = load ptr, ptr %i2c.addr, align 8
-  %qts107 = getelementptr inbounds %struct.I2CAdapter, ptr %62, i32 0, i32 2
-  %63 = load ptr, ptr %qts107, align 8
-  %64 = load ptr, ptr %s, align 8
-  %addr108 = getelementptr inbounds %struct.IMXI2C, ptr %64, i32 0, i32 2
-  %65 = load i64, ptr %addr108, align 8
-  %add109 = add i64 %65, 8
-  %66 = load i8, ptr %data, align 1
-  call void @qtest_writeb(ptr noundef %63, i64 noundef %add109, i8 noundef zeroext %66)
-  %67 = load ptr, ptr %i2c.addr, align 8
-  %qts110 = getelementptr inbounds %struct.I2CAdapter, ptr %67, i32 0, i32 2
-  %68 = load ptr, ptr %qts110, align 8
-  %69 = load ptr, ptr %s, align 8
-  %addr111 = getelementptr inbounds %struct.IMXI2C, ptr %69, i32 0, i32 2
-  %70 = load i64, ptr %addr111, align 8
-  %add112 = add i64 %70, 12
-  %call113 = call zeroext i8 @qtest_readb(ptr noundef %68, i64 noundef %add112)
-  store i8 %call113, ptr %status, align 1
-  br label %do.body114
+276:                                              ; preds = %275
+  %277 = load i16, ptr %14, align 2
+  %278 = add i16 %277, 1
+  store i16 %278, ptr %14, align 2
+  br label %155, !llvm.loop !5
 
-do.body114:                                       ; preds = %while.end
-  %71 = load i8, ptr %status, align 1
-  %conv115 = zext i8 %71 to i32
-  %and116 = and i32 %conv115, 32
-  %cmp117 = icmp eq i32 %and116, 0
-  br i1 %cmp117, label %if.then119, label %if.else120
+279:                                              ; preds = %155
+  %280 = load i8, ptr %12, align 1
+  %281 = zext i8 %280 to i32
+  %282 = and i32 %281, -49
+  %283 = trunc i32 %282 to i8
+  store i8 %283, ptr %12, align 1
+  %284 = load ptr, ptr %5, align 8
+  %285 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %284, i32 0, i32 2
+  %286 = load ptr, ptr %285, align 8
+  %287 = load ptr, ptr %9, align 8
+  %288 = getelementptr inbounds nuw %struct.IMXI2C, ptr %287, i32 0, i32 2
+  %289 = load i64, ptr %288, align 8
+  %290 = add i64 %289, 8
+  %291 = load i8, ptr %12, align 1
+  call void @qtest_writeb(ptr noundef %286, i64 noundef %290, i8 noundef zeroext %291)
+  %292 = load ptr, ptr %5, align 8
+  %293 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %292, i32 0, i32 2
+  %294 = load ptr, ptr %293, align 8
+  %295 = load ptr, ptr %9, align 8
+  %296 = getelementptr inbounds nuw %struct.IMXI2C, ptr %295, i32 0, i32 2
+  %297 = load i64, ptr %296, align 8
+  %298 = add i64 %297, 12
+  %299 = call zeroext i8 @qtest_readb(ptr noundef %294, i64 noundef %298)
+  store i8 %299, ptr %13, align 1
+  br label %300
 
-if.then119:                                       ; preds = %do.body114
-  br label %if.end121
+300:                                              ; preds = %279
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #5
+  store i32 0, ptr %32, align 4, !annotation !4
+  %301 = load i8, ptr %13, align 1
+  %302 = zext i8 %301 to i32
+  %303 = and i32 %302, 32
+  %304 = icmp eq i32 %303, 0
+  br i1 %304, label %305, label %306
 
-if.else120:                                       ; preds = %do.body114
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 97, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.7) #3
+305:                                              ; preds = %300
+  store i32 1, ptr %32, align 4
+  br label %307
+
+306:                                              ; preds = %300
+  store i32 0, ptr %32, align 4
+  br label %307
+
+307:                                              ; preds = %306, %305
+  %308 = load i32, ptr %32, align 4
+  store i32 %308, ptr %33, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #5
+  %309 = load i32, ptr %33, align 4
+  %310 = sext i32 %309 to i64
+  %311 = call i64 @llvm.expect.i64(i64 %310, i64 1)
+  %312 = icmp ne i64 %311, 0
+  br i1 %312, label %313, label %314
+
+313:                                              ; preds = %307
+  br label %315
+
+314:                                              ; preds = %307
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 97, ptr noundef @__func__.imx_i2c_send, ptr noundef @.str.7) #6
   unreachable
 
-if.end121:                                        ; preds = %if.then119
-  br label %do.end122
+315:                                              ; preds = %313
+  br label %316
 
-do.end122:                                        ; preds = %if.end121, %if.then
+316:                                              ; preds = %315
+  br label %317
+
+317:                                              ; preds = %316
+  store i32 0, ptr %15, align 4
+  br label %318
+
+318:                                              ; preds = %317, %40
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %319 = load i32, ptr %15, align 4
+  switch i32 %319, label %321 [
+    i32 0, label %320
+    i32 1, label %320
+  ]
+
+320:                                              ; preds = %318, %318
   ret void
+
+321:                                              ; preds = %318
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @imx_i2c_recv(ptr noundef %i2c, i8 noundef zeroext %addr, ptr noundef %buf, i16 noundef zeroext %len) #0 {
-entry:
-  %i2c.addr = alloca ptr, align 8
-  %addr.addr = alloca i8, align 1
-  %buf.addr = alloca ptr, align 8
-  %len.addr = alloca i16, align 2
-  %s = alloca ptr, align 8
-  %__mptr = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %data = alloca i8, align 1
-  %status = alloca i8, align 1
-  %size = alloca i16, align 2
-  store ptr %i2c, ptr %i2c.addr, align 8
-  store i8 %addr, ptr %addr.addr, align 1
-  store ptr %buf, ptr %buf.addr, align 8
-  store i16 %len, ptr %len.addr, align 2
-  %0 = load ptr, ptr %i2c.addr, align 8
-  store ptr %0, ptr %__mptr, align 8
-  %1 = load ptr, ptr %__mptr, align 8
-  %add.ptr = getelementptr i8, ptr %1, i64 -40
-  store ptr %add.ptr, ptr %tmp, align 8
-  %2 = load ptr, ptr %tmp, align 8
-  store ptr %2, ptr %s, align 8
-  store i16 0, ptr %size, align 2
-  %3 = load i16, ptr %len.addr, align 2
-  %tobool = icmp ne i16 %3, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal void @imx_i2c_recv(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i16, align 2
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i16, align 2
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca i32, align 4
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i8 %1, ptr %6, align 1
+  store ptr %2, ptr %7, align 8
+  store i16 %3, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %38 = load ptr, ptr %5, align 8
+  store ptr %38, ptr %10, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 -40
+  store ptr %40, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %41 = load ptr, ptr %11, align 8
+  store ptr %41, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #5
+  store i8 0, ptr %12, align 1, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #5
+  store i8 0, ptr %13, align 1, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
+  store i16 0, ptr %14, align 2
+  %42 = load i16, ptr %8, align 2
+  %43 = icmp ne i16 %42, 0
+  br i1 %43, label %45, label %44
 
-if.then:                                          ; preds = %entry
-  br label %do.end190
+44:                                               ; preds = %4
+  store i32 1, ptr %15, align 4
+  br label %439
 
-if.end:                                           ; preds = %entry
-  store i8 -8, ptr %data, align 1
-  %4 = load ptr, ptr %i2c.addr, align 8
-  %qts = getelementptr inbounds %struct.I2CAdapter, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %qts, align 8
-  %6 = load ptr, ptr %s, align 8
-  %addr1 = getelementptr inbounds %struct.IMXI2C, ptr %6, i32 0, i32 2
-  %7 = load i64, ptr %addr1, align 8
-  %add = add i64 %7, 8
-  %8 = load i8, ptr %data, align 1
-  call void @qtest_writeb(ptr noundef %5, i64 noundef %add, i8 noundef zeroext %8)
-  %9 = load ptr, ptr %i2c.addr, align 8
-  %qts2 = getelementptr inbounds %struct.I2CAdapter, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %qts2, align 8
-  %11 = load ptr, ptr %s, align 8
-  %addr3 = getelementptr inbounds %struct.IMXI2C, ptr %11, i32 0, i32 2
-  %12 = load i64, ptr %addr3, align 8
-  %add4 = add i64 %12, 12
-  %call = call zeroext i8 @qtest_readb(ptr noundef %10, i64 noundef %add4)
-  store i8 %call, ptr %status, align 1
-  br label %do.body
+45:                                               ; preds = %4
+  store i8 -8, ptr %12, align 1
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.IMXI2C, ptr %49, i32 0, i32 2
+  %51 = load i64, ptr %50, align 8
+  %52 = add i64 %51, 8
+  %53 = load i8, ptr %12, align 1
+  call void @qtest_writeb(ptr noundef %48, i64 noundef %52, i8 noundef zeroext %53)
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds nuw %struct.IMXI2C, ptr %57, i32 0, i32 2
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, 12
+  %61 = call zeroext i8 @qtest_readb(ptr noundef %56, i64 noundef %60)
+  store i8 %61, ptr %13, align 1
+  br label %62
 
-do.body:                                          ; preds = %if.end
-  %13 = load i8, ptr %status, align 1
-  %conv = zext i8 %13 to i32
-  %and = and i32 %conv, 32
-  %cmp = icmp ne i32 %and, 0
-  br i1 %cmp, label %if.then6, label %if.else
+62:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  store i32 0, ptr %16, align 4, !annotation !4
+  %63 = load i8, ptr %13, align 1
+  %64 = zext i8 %63 to i32
+  %65 = and i32 %64, 32
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %68
 
-if.then6:                                         ; preds = %do.body
-  br label %if.end7
+67:                                               ; preds = %62
+  store i32 1, ptr %16, align 4
+  br label %69
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 121, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.3) #3
+68:                                               ; preds = %62
+  store i32 0, ptr %16, align 4
+  br label %69
+
+69:                                               ; preds = %68, %67
+  %70 = load i32, ptr %16, align 4
+  store i32 %70, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  %71 = load i32, ptr %17, align 4
+  %72 = sext i32 %71 to i64
+  %73 = call i64 @llvm.expect.i64(i64 %72, i64 1)
+  %74 = icmp ne i64 %73, 0
+  br i1 %74, label %75, label %76
+
+75:                                               ; preds = %69
+  br label %77
+
+76:                                               ; preds = %69
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 121, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.3) #6
   unreachable
 
-if.end7:                                          ; preds = %if.then6
-  br label %do.end
+77:                                               ; preds = %75
+  br label %78
 
-do.end:                                           ; preds = %if.end7
-  %14 = load ptr, ptr %s, align 8
-  %15 = load i8, ptr %addr.addr, align 1
-  call void @imx_i2c_set_slave_addr(ptr noundef %14, i8 noundef zeroext %15, i32 noundef 0)
-  %16 = load ptr, ptr %i2c.addr, align 8
-  %qts8 = getelementptr inbounds %struct.I2CAdapter, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %qts8, align 8
-  %18 = load ptr, ptr %s, align 8
-  %addr9 = getelementptr inbounds %struct.IMXI2C, ptr %18, i32 0, i32 2
-  %19 = load i64, ptr %addr9, align 8
-  %add10 = add i64 %19, 12
-  %call11 = call zeroext i8 @qtest_readb(ptr noundef %17, i64 noundef %add10)
-  store i8 %call11, ptr %status, align 1
-  br label %do.body12
+78:                                               ; preds = %77
+  br label %79
 
-do.body12:                                        ; preds = %do.end
-  %20 = load i8, ptr %status, align 1
-  %conv13 = zext i8 %20 to i32
-  %and14 = and i32 %conv13, 2
-  %cmp15 = icmp ne i32 %and14, 0
-  br i1 %cmp15, label %if.then17, label %if.else18
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %9, align 8
+  %81 = load i8, ptr %6, align 1
+  call void @imx_i2c_set_slave_addr(ptr noundef %80, i8 noundef zeroext %81, i32 noundef 0)
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %9, align 8
+  %86 = getelementptr inbounds nuw %struct.IMXI2C, ptr %85, i32 0, i32 2
+  %87 = load i64, ptr %86, align 8
+  %88 = add i64 %87, 12
+  %89 = call zeroext i8 @qtest_readb(ptr noundef %84, i64 noundef %88)
+  store i8 %89, ptr %13, align 1
+  br label %90
 
-if.then17:                                        ; preds = %do.body12
-  br label %if.end19
+90:                                               ; preds = %79
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  store i32 0, ptr %18, align 4, !annotation !4
+  %91 = load i8, ptr %13, align 1
+  %92 = zext i8 %91 to i32
+  %93 = and i32 %92, 2
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %95, label %96
 
-if.else18:                                        ; preds = %do.body12
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 126, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.4) #3
+95:                                               ; preds = %90
+  store i32 1, ptr %18, align 4
+  br label %97
+
+96:                                               ; preds = %90
+  store i32 0, ptr %18, align 4
+  br label %97
+
+97:                                               ; preds = %96, %95
+  %98 = load i32, ptr %18, align 4
+  store i32 %98, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  %99 = load i32, ptr %19, align 4
+  %100 = sext i32 %99 to i64
+  %101 = call i64 @llvm.expect.i64(i64 %100, i64 1)
+  %102 = icmp ne i64 %101, 0
+  br i1 %102, label %103, label %104
+
+103:                                              ; preds = %97
+  br label %105
+
+104:                                              ; preds = %97
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 126, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.4) #6
   unreachable
 
-if.end19:                                         ; preds = %if.then17
-  br label %do.end20
+105:                                              ; preds = %103
+  br label %106
 
-do.end20:                                         ; preds = %if.end19
-  br label %do.body21
+106:                                              ; preds = %105
+  br label %107
 
-do.body21:                                        ; preds = %do.end20
-  %21 = load i8, ptr %status, align 1
-  %conv22 = zext i8 %21 to i32
-  %and23 = and i32 %conv22, 1
-  %cmp24 = icmp eq i32 %and23, 0
-  br i1 %cmp24, label %if.then26, label %if.else27
+107:                                              ; preds = %106
+  br label %108
 
-if.then26:                                        ; preds = %do.body21
-  br label %if.end28
+108:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  store i32 0, ptr %20, align 4, !annotation !4
+  %109 = load i8, ptr %13, align 1
+  %110 = zext i8 %109 to i32
+  %111 = and i32 %110, 1
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %114
 
-if.else27:                                        ; preds = %do.body21
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 127, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.5) #3
+113:                                              ; preds = %108
+  store i32 1, ptr %20, align 4
+  br label %115
+
+114:                                              ; preds = %108
+  store i32 0, ptr %20, align 4
+  br label %115
+
+115:                                              ; preds = %114, %113
+  %116 = load i32, ptr %20, align 4
+  store i32 %116, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  %117 = load i32, ptr %21, align 4
+  %118 = sext i32 %117 to i64
+  %119 = call i64 @llvm.expect.i64(i64 %118, i64 1)
+  %120 = icmp ne i64 %119, 0
+  br i1 %120, label %121, label %122
+
+121:                                              ; preds = %115
+  br label %123
+
+122:                                              ; preds = %115
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 127, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.5) #6
   unreachable
 
-if.end28:                                         ; preds = %if.then26
-  br label %do.end29
+123:                                              ; preds = %121
+  br label %124
 
-do.end29:                                         ; preds = %if.end28
-  %22 = load ptr, ptr %i2c.addr, align 8
-  %qts30 = getelementptr inbounds %struct.I2CAdapter, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %qts30, align 8
-  %24 = load ptr, ptr %s, align 8
-  %addr31 = getelementptr inbounds %struct.IMXI2C, ptr %24, i32 0, i32 2
-  %25 = load i64, ptr %addr31, align 8
-  %add32 = add i64 %25, 12
-  call void @qtest_writeb(ptr noundef %23, i64 noundef %add32, i8 noundef zeroext 0)
-  %26 = load ptr, ptr %i2c.addr, align 8
-  %qts33 = getelementptr inbounds %struct.I2CAdapter, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %qts33, align 8
-  %28 = load ptr, ptr %s, align 8
-  %addr34 = getelementptr inbounds %struct.IMXI2C, ptr %28, i32 0, i32 2
-  %29 = load i64, ptr %addr34, align 8
-  %add35 = add i64 %29, 12
-  %call36 = call zeroext i8 @qtest_readb(ptr noundef %27, i64 noundef %add35)
-  store i8 %call36, ptr %status, align 1
-  br label %do.body37
+124:                                              ; preds = %123
+  br label %125
 
-do.body37:                                        ; preds = %do.end29
-  %30 = load i8, ptr %status, align 1
-  %conv38 = zext i8 %30 to i32
-  %and39 = and i32 %conv38, 2
-  %cmp40 = icmp eq i32 %and39, 0
-  br i1 %cmp40, label %if.then42, label %if.else43
+125:                                              ; preds = %124
+  %126 = load ptr, ptr %5, align 8
+  %127 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %126, i32 0, i32 2
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %9, align 8
+  %130 = getelementptr inbounds nuw %struct.IMXI2C, ptr %129, i32 0, i32 2
+  %131 = load i64, ptr %130, align 8
+  %132 = add i64 %131, 12
+  call void @qtest_writeb(ptr noundef %128, i64 noundef %132, i8 noundef zeroext 0)
+  %133 = load ptr, ptr %5, align 8
+  %134 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %133, i32 0, i32 2
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %9, align 8
+  %137 = getelementptr inbounds nuw %struct.IMXI2C, ptr %136, i32 0, i32 2
+  %138 = load i64, ptr %137, align 8
+  %139 = add i64 %138, 12
+  %140 = call zeroext i8 @qtest_readb(ptr noundef %135, i64 noundef %139)
+  store i8 %140, ptr %13, align 1
+  br label %141
 
-if.then42:                                        ; preds = %do.body37
-  br label %if.end44
+141:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  store i32 0, ptr %22, align 4, !annotation !4
+  %142 = load i8, ptr %13, align 1
+  %143 = zext i8 %142 to i32
+  %144 = and i32 %143, 2
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %146, label %147
 
-if.else43:                                        ; preds = %do.body37
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 132, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.6) #3
+146:                                              ; preds = %141
+  store i32 1, ptr %22, align 4
+  br label %148
+
+147:                                              ; preds = %141
+  store i32 0, ptr %22, align 4
+  br label %148
+
+148:                                              ; preds = %147, %146
+  %149 = load i32, ptr %22, align 4
+  store i32 %149, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  %150 = load i32, ptr %23, align 4
+  %151 = sext i32 %150 to i64
+  %152 = call i64 @llvm.expect.i64(i64 %151, i64 1)
+  %153 = icmp ne i64 %152, 0
+  br i1 %153, label %154, label %155
+
+154:                                              ; preds = %148
+  br label %156
+
+155:                                              ; preds = %148
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 132, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.6) #6
   unreachable
 
-if.end44:                                         ; preds = %if.then42
-  br label %do.end45
+156:                                              ; preds = %154
+  br label %157
 
-do.end45:                                         ; preds = %if.end44
-  %31 = load i8, ptr %data, align 1
-  %conv46 = zext i8 %31 to i32
-  %and47 = and i32 %conv46, -17
-  %conv48 = trunc i32 %and47 to i8
-  store i8 %conv48, ptr %data, align 1
-  %32 = load i16, ptr %len.addr, align 2
-  %conv49 = zext i16 %32 to i32
-  %cmp50 = icmp ne i32 %conv49, 1
-  br i1 %cmp50, label %if.then52, label %if.end56
+157:                                              ; preds = %156
+  br label %158
 
-if.then52:                                        ; preds = %do.end45
-  %33 = load i8, ptr %data, align 1
-  %conv53 = zext i8 %33 to i32
-  %and54 = and i32 %conv53, -9
-  %conv55 = trunc i32 %and54 to i8
-  store i8 %conv55, ptr %data, align 1
-  br label %if.end56
+158:                                              ; preds = %157
+  %159 = load i8, ptr %12, align 1
+  %160 = zext i8 %159 to i32
+  %161 = and i32 %160, -17
+  %162 = trunc i32 %161 to i8
+  store i8 %162, ptr %12, align 1
+  %163 = load i16, ptr %8, align 2
+  %164 = zext i16 %163 to i32
+  %165 = icmp ne i32 %164, 1
+  br i1 %165, label %166, label %171
 
-if.end56:                                         ; preds = %if.then52, %do.end45
-  %34 = load ptr, ptr %i2c.addr, align 8
-  %qts57 = getelementptr inbounds %struct.I2CAdapter, ptr %34, i32 0, i32 2
-  %35 = load ptr, ptr %qts57, align 8
-  %36 = load ptr, ptr %s, align 8
-  %addr58 = getelementptr inbounds %struct.IMXI2C, ptr %36, i32 0, i32 2
-  %37 = load i64, ptr %addr58, align 8
-  %add59 = add i64 %37, 8
-  %38 = load i8, ptr %data, align 1
-  call void @qtest_writeb(ptr noundef %35, i64 noundef %add59, i8 noundef zeroext %38)
-  %39 = load ptr, ptr %i2c.addr, align 8
-  %qts60 = getelementptr inbounds %struct.I2CAdapter, ptr %39, i32 0, i32 2
-  %40 = load ptr, ptr %qts60, align 8
-  %41 = load ptr, ptr %s, align 8
-  %addr61 = getelementptr inbounds %struct.IMXI2C, ptr %41, i32 0, i32 2
-  %42 = load i64, ptr %addr61, align 8
-  %add62 = add i64 %42, 12
-  %call63 = call zeroext i8 @qtest_readb(ptr noundef %40, i64 noundef %add62)
-  store i8 %call63, ptr %status, align 1
-  br label %do.body64
+166:                                              ; preds = %158
+  %167 = load i8, ptr %12, align 1
+  %168 = zext i8 %167 to i32
+  %169 = and i32 %168, -9
+  %170 = trunc i32 %169 to i8
+  store i8 %170, ptr %12, align 1
+  br label %171
 
-do.body64:                                        ; preds = %if.end56
-  %43 = load i8, ptr %status, align 1
-  %conv65 = zext i8 %43 to i32
-  %and66 = and i32 %conv65, 32
-  %cmp67 = icmp ne i32 %and66, 0
-  br i1 %cmp67, label %if.then69, label %if.else70
+171:                                              ; preds = %166, %158
+  %172 = load ptr, ptr %5, align 8
+  %173 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %172, i32 0, i32 2
+  %174 = load ptr, ptr %173, align 8
+  %175 = load ptr, ptr %9, align 8
+  %176 = getelementptr inbounds nuw %struct.IMXI2C, ptr %175, i32 0, i32 2
+  %177 = load i64, ptr %176, align 8
+  %178 = add i64 %177, 8
+  %179 = load i8, ptr %12, align 1
+  call void @qtest_writeb(ptr noundef %174, i64 noundef %178, i8 noundef zeroext %179)
+  %180 = load ptr, ptr %5, align 8
+  %181 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %180, i32 0, i32 2
+  %182 = load ptr, ptr %181, align 8
+  %183 = load ptr, ptr %9, align 8
+  %184 = getelementptr inbounds nuw %struct.IMXI2C, ptr %183, i32 0, i32 2
+  %185 = load i64, ptr %184, align 8
+  %186 = add i64 %185, 12
+  %187 = call zeroext i8 @qtest_readb(ptr noundef %182, i64 noundef %186)
+  store i8 %187, ptr %13, align 1
+  br label %188
 
-if.then69:                                        ; preds = %do.body64
-  br label %if.end71
+188:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #5
+  store i32 0, ptr %24, align 4, !annotation !4
+  %189 = load i8, ptr %13, align 1
+  %190 = zext i8 %189 to i32
+  %191 = and i32 %190, 32
+  %192 = icmp ne i32 %191, 0
+  br i1 %192, label %193, label %194
 
-if.else70:                                        ; preds = %do.body64
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 142, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.3) #3
+193:                                              ; preds = %188
+  store i32 1, ptr %24, align 4
+  br label %195
+
+194:                                              ; preds = %188
+  store i32 0, ptr %24, align 4
+  br label %195
+
+195:                                              ; preds = %194, %193
+  %196 = load i32, ptr %24, align 4
+  store i32 %196, ptr %25, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #5
+  %197 = load i32, ptr %25, align 4
+  %198 = sext i32 %197 to i64
+  %199 = call i64 @llvm.expect.i64(i64 %198, i64 1)
+  %200 = icmp ne i64 %199, 0
+  br i1 %200, label %201, label %202
+
+201:                                              ; preds = %195
+  br label %203
+
+202:                                              ; preds = %195
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 142, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.3) #6
   unreachable
 
-if.end71:                                         ; preds = %if.then69
-  br label %do.end72
+203:                                              ; preds = %201
+  br label %204
 
-do.end72:                                         ; preds = %if.end71
-  %44 = load ptr, ptr %i2c.addr, align 8
-  %qts73 = getelementptr inbounds %struct.I2CAdapter, ptr %44, i32 0, i32 2
-  %45 = load ptr, ptr %qts73, align 8
-  %46 = load ptr, ptr %s, align 8
-  %addr74 = getelementptr inbounds %struct.IMXI2C, ptr %46, i32 0, i32 2
-  %47 = load i64, ptr %addr74, align 8
-  %add75 = add i64 %47, 16
-  %call76 = call zeroext i8 @qtest_readb(ptr noundef %45, i64 noundef %add75)
-  %48 = load ptr, ptr %i2c.addr, align 8
-  %qts77 = getelementptr inbounds %struct.I2CAdapter, ptr %48, i32 0, i32 2
-  %49 = load ptr, ptr %qts77, align 8
-  %50 = load ptr, ptr %s, align 8
-  %addr78 = getelementptr inbounds %struct.IMXI2C, ptr %50, i32 0, i32 2
-  %51 = load i64, ptr %addr78, align 8
-  %add79 = add i64 %51, 12
-  %call80 = call zeroext i8 @qtest_readb(ptr noundef %49, i64 noundef %add79)
-  store i8 %call80, ptr %status, align 1
-  br label %do.body81
+204:                                              ; preds = %203
+  br label %205
 
-do.body81:                                        ; preds = %do.end72
-  %52 = load i8, ptr %status, align 1
-  %conv82 = zext i8 %52 to i32
-  %and83 = and i32 %conv82, 2
-  %cmp84 = icmp ne i32 %and83, 0
-  br i1 %cmp84, label %if.then86, label %if.else87
+205:                                              ; preds = %204
+  %206 = load ptr, ptr %5, align 8
+  %207 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %206, i32 0, i32 2
+  %208 = load ptr, ptr %207, align 8
+  %209 = load ptr, ptr %9, align 8
+  %210 = getelementptr inbounds nuw %struct.IMXI2C, ptr %209, i32 0, i32 2
+  %211 = load i64, ptr %210, align 8
+  %212 = add i64 %211, 16
+  %213 = call zeroext i8 @qtest_readb(ptr noundef %208, i64 noundef %212)
+  %214 = load ptr, ptr %5, align 8
+  %215 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %214, i32 0, i32 2
+  %216 = load ptr, ptr %215, align 8
+  %217 = load ptr, ptr %9, align 8
+  %218 = getelementptr inbounds nuw %struct.IMXI2C, ptr %217, i32 0, i32 2
+  %219 = load i64, ptr %218, align 8
+  %220 = add i64 %219, 12
+  %221 = call zeroext i8 @qtest_readb(ptr noundef %216, i64 noundef %220)
+  store i8 %221, ptr %13, align 1
+  br label %222
 
-if.then86:                                        ; preds = %do.body81
-  br label %if.end88
+222:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #5
+  store i32 0, ptr %26, align 4, !annotation !4
+  %223 = load i8, ptr %13, align 1
+  %224 = zext i8 %223 to i32
+  %225 = and i32 %224, 2
+  %226 = icmp ne i32 %225, 0
+  br i1 %226, label %227, label %228
 
-if.else87:                                        ; preds = %do.body81
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 147, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.4) #3
+227:                                              ; preds = %222
+  store i32 1, ptr %26, align 4
+  br label %229
+
+228:                                              ; preds = %222
+  store i32 0, ptr %26, align 4
+  br label %229
+
+229:                                              ; preds = %228, %227
+  %230 = load i32, ptr %26, align 4
+  store i32 %230, ptr %27, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #5
+  %231 = load i32, ptr %27, align 4
+  %232 = sext i32 %231 to i64
+  %233 = call i64 @llvm.expect.i64(i64 %232, i64 1)
+  %234 = icmp ne i64 %233, 0
+  br i1 %234, label %235, label %236
+
+235:                                              ; preds = %229
+  br label %237
+
+236:                                              ; preds = %229
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 147, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.4) #6
   unreachable
 
-if.end88:                                         ; preds = %if.then86
-  br label %do.end89
+237:                                              ; preds = %235
+  br label %238
 
-do.end89:                                         ; preds = %if.end88
-  %53 = load ptr, ptr %i2c.addr, align 8
-  %qts90 = getelementptr inbounds %struct.I2CAdapter, ptr %53, i32 0, i32 2
-  %54 = load ptr, ptr %qts90, align 8
-  %55 = load ptr, ptr %s, align 8
-  %addr91 = getelementptr inbounds %struct.IMXI2C, ptr %55, i32 0, i32 2
-  %56 = load i64, ptr %addr91, align 8
-  %add92 = add i64 %56, 12
-  call void @qtest_writeb(ptr noundef %54, i64 noundef %add92, i8 noundef zeroext 0)
-  %57 = load ptr, ptr %i2c.addr, align 8
-  %qts93 = getelementptr inbounds %struct.I2CAdapter, ptr %57, i32 0, i32 2
-  %58 = load ptr, ptr %qts93, align 8
-  %59 = load ptr, ptr %s, align 8
-  %addr94 = getelementptr inbounds %struct.IMXI2C, ptr %59, i32 0, i32 2
-  %60 = load i64, ptr %addr94, align 8
-  %add95 = add i64 %60, 12
-  %call96 = call zeroext i8 @qtest_readb(ptr noundef %58, i64 noundef %add95)
-  store i8 %call96, ptr %status, align 1
-  br label %do.body97
+238:                                              ; preds = %237
+  br label %239
 
-do.body97:                                        ; preds = %do.end89
-  %61 = load i8, ptr %status, align 1
-  %conv98 = zext i8 %61 to i32
-  %and99 = and i32 %conv98, 2
-  %cmp100 = icmp eq i32 %and99, 0
-  br i1 %cmp100, label %if.then102, label %if.else103
+239:                                              ; preds = %238
+  %240 = load ptr, ptr %5, align 8
+  %241 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %240, i32 0, i32 2
+  %242 = load ptr, ptr %241, align 8
+  %243 = load ptr, ptr %9, align 8
+  %244 = getelementptr inbounds nuw %struct.IMXI2C, ptr %243, i32 0, i32 2
+  %245 = load i64, ptr %244, align 8
+  %246 = add i64 %245, 12
+  call void @qtest_writeb(ptr noundef %242, i64 noundef %246, i8 noundef zeroext 0)
+  %247 = load ptr, ptr %5, align 8
+  %248 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %247, i32 0, i32 2
+  %249 = load ptr, ptr %248, align 8
+  %250 = load ptr, ptr %9, align 8
+  %251 = getelementptr inbounds nuw %struct.IMXI2C, ptr %250, i32 0, i32 2
+  %252 = load i64, ptr %251, align 8
+  %253 = add i64 %252, 12
+  %254 = call zeroext i8 @qtest_readb(ptr noundef %249, i64 noundef %253)
+  store i8 %254, ptr %13, align 1
+  br label %255
 
-if.then102:                                       ; preds = %do.body97
-  br label %if.end104
+255:                                              ; preds = %239
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #5
+  store i32 0, ptr %28, align 4, !annotation !4
+  %256 = load i8, ptr %13, align 1
+  %257 = zext i8 %256 to i32
+  %258 = and i32 %257, 2
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %261
 
-if.else103:                                       ; preds = %do.body97
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 152, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.6) #3
+260:                                              ; preds = %255
+  store i32 1, ptr %28, align 4
+  br label %262
+
+261:                                              ; preds = %255
+  store i32 0, ptr %28, align 4
+  br label %262
+
+262:                                              ; preds = %261, %260
+  %263 = load i32, ptr %28, align 4
+  store i32 %263, ptr %29, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #5
+  %264 = load i32, ptr %29, align 4
+  %265 = sext i32 %264 to i64
+  %266 = call i64 @llvm.expect.i64(i64 %265, i64 1)
+  %267 = icmp ne i64 %266, 0
+  br i1 %267, label %268, label %269
+
+268:                                              ; preds = %262
+  br label %270
+
+269:                                              ; preds = %262
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 152, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.6) #6
   unreachable
 
-if.end104:                                        ; preds = %if.then102
-  br label %do.end105
+270:                                              ; preds = %268
+  br label %271
 
-do.end105:                                        ; preds = %if.end104
-  br label %while.cond
+271:                                              ; preds = %270
+  br label %272
 
-while.cond:                                       ; preds = %do.end177, %do.end105
-  %62 = load i16, ptr %size, align 2
-  %conv106 = zext i16 %62 to i32
-  %63 = load i16, ptr %len.addr, align 2
-  %conv107 = zext i16 %63 to i32
-  %cmp108 = icmp slt i32 %conv106, %conv107
-  br i1 %cmp108, label %while.body, label %while.end
+272:                                              ; preds = %271
+  br label %273
 
-while.body:                                       ; preds = %while.cond
-  %64 = load ptr, ptr %i2c.addr, align 8
-  %qts110 = getelementptr inbounds %struct.I2CAdapter, ptr %64, i32 0, i32 2
-  %65 = load ptr, ptr %qts110, align 8
-  %66 = load ptr, ptr %s, align 8
-  %addr111 = getelementptr inbounds %struct.IMXI2C, ptr %66, i32 0, i32 2
-  %67 = load i64, ptr %addr111, align 8
-  %add112 = add i64 %67, 12
-  %call113 = call zeroext i8 @qtest_readb(ptr noundef %65, i64 noundef %add112)
-  store i8 %call113, ptr %status, align 1
-  br label %do.body114
+273:                                              ; preds = %409, %272
+  %274 = load i16, ptr %14, align 2
+  %275 = zext i16 %274 to i32
+  %276 = load i16, ptr %8, align 2
+  %277 = zext i16 %276 to i32
+  %278 = icmp slt i32 %275, %277
+  br i1 %278, label %279, label %412
 
-do.body114:                                       ; preds = %while.body
-  %68 = load i8, ptr %status, align 1
-  %conv115 = zext i8 %68 to i32
-  %and116 = and i32 %conv115, 32
-  %cmp117 = icmp ne i32 %and116, 0
-  br i1 %cmp117, label %if.then119, label %if.else120
+279:                                              ; preds = %273
+  %280 = load ptr, ptr %5, align 8
+  %281 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %280, i32 0, i32 2
+  %282 = load ptr, ptr %281, align 8
+  %283 = load ptr, ptr %9, align 8
+  %284 = getelementptr inbounds nuw %struct.IMXI2C, ptr %283, i32 0, i32 2
+  %285 = load i64, ptr %284, align 8
+  %286 = add i64 %285, 12
+  %287 = call zeroext i8 @qtest_readb(ptr noundef %282, i64 noundef %286)
+  store i8 %287, ptr %13, align 1
+  br label %288
 
-if.then119:                                       ; preds = %do.body114
-  br label %if.end121
+288:                                              ; preds = %279
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #5
+  store i32 0, ptr %30, align 4, !annotation !4
+  %289 = load i8, ptr %13, align 1
+  %290 = zext i8 %289 to i32
+  %291 = and i32 %290, 32
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %294
 
-if.else120:                                       ; preds = %do.body114
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 157, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.3) #3
+293:                                              ; preds = %288
+  store i32 1, ptr %30, align 4
+  br label %295
+
+294:                                              ; preds = %288
+  store i32 0, ptr %30, align 4
+  br label %295
+
+295:                                              ; preds = %294, %293
+  %296 = load i32, ptr %30, align 4
+  store i32 %296, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #5
+  %297 = load i32, ptr %31, align 4
+  %298 = sext i32 %297 to i64
+  %299 = call i64 @llvm.expect.i64(i64 %298, i64 1)
+  %300 = icmp ne i64 %299, 0
+  br i1 %300, label %301, label %302
+
+301:                                              ; preds = %295
+  br label %303
+
+302:                                              ; preds = %295
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 157, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.3) #6
   unreachable
 
-if.end121:                                        ; preds = %if.then119
-  br label %do.end122
+303:                                              ; preds = %301
+  br label %304
 
-do.end122:                                        ; preds = %if.end121
-  %69 = load i16, ptr %size, align 2
-  %conv123 = zext i16 %69 to i32
-  %70 = load i16, ptr %len.addr, align 2
-  %conv124 = zext i16 %70 to i32
-  %sub = sub i32 %conv124, 1
-  %cmp125 = icmp eq i32 %conv123, %sub
-  br i1 %cmp125, label %if.then127, label %if.else131
+304:                                              ; preds = %303
+  br label %305
 
-if.then127:                                       ; preds = %do.end122
-  %71 = load i8, ptr %data, align 1
-  %conv128 = zext i8 %71 to i32
-  %and129 = and i32 %conv128, -49
-  %conv130 = trunc i32 %and129 to i8
-  store i8 %conv130, ptr %data, align 1
-  br label %if.end134
+305:                                              ; preds = %304
+  %306 = load i16, ptr %14, align 2
+  %307 = zext i16 %306 to i32
+  %308 = load i16, ptr %8, align 2
+  %309 = zext i16 %308 to i32
+  %310 = sub i32 %309, 1
+  %311 = icmp eq i32 %307, %310
+  br i1 %311, label %312, label %317
 
-if.else131:                                       ; preds = %do.end122
-  %72 = load i8, ptr %data, align 1
-  %conv132 = zext i8 %72 to i32
-  %or = or i32 %conv132, 8
-  %conv133 = trunc i32 %or to i8
-  store i8 %conv133, ptr %data, align 1
-  br label %if.end134
+312:                                              ; preds = %305
+  %313 = load i8, ptr %12, align 1
+  %314 = zext i8 %313 to i32
+  %315 = and i32 %314, -49
+  %316 = trunc i32 %315 to i8
+  store i8 %316, ptr %12, align 1
+  br label %322
 
-if.end134:                                        ; preds = %if.else131, %if.then127
-  %73 = load ptr, ptr %i2c.addr, align 8
-  %qts135 = getelementptr inbounds %struct.I2CAdapter, ptr %73, i32 0, i32 2
-  %74 = load ptr, ptr %qts135, align 8
-  %75 = load ptr, ptr %s, align 8
-  %addr136 = getelementptr inbounds %struct.IMXI2C, ptr %75, i32 0, i32 2
-  %76 = load i64, ptr %addr136, align 8
-  %add137 = add i64 %76, 8
-  %77 = load i8, ptr %data, align 1
-  call void @qtest_writeb(ptr noundef %74, i64 noundef %add137, i8 noundef zeroext %77)
-  %78 = load ptr, ptr %i2c.addr, align 8
-  %qts138 = getelementptr inbounds %struct.I2CAdapter, ptr %78, i32 0, i32 2
-  %79 = load ptr, ptr %qts138, align 8
-  %80 = load ptr, ptr %s, align 8
-  %addr139 = getelementptr inbounds %struct.IMXI2C, ptr %80, i32 0, i32 2
-  %81 = load i64, ptr %addr139, align 8
-  %add140 = add i64 %81, 16
-  %call141 = call zeroext i8 @qtest_readb(ptr noundef %79, i64 noundef %add140)
-  %82 = load ptr, ptr %buf.addr, align 8
-  %83 = load i16, ptr %size, align 2
-  %idxprom = zext i16 %83 to i64
-  %arrayidx = getelementptr i8, ptr %82, i64 %idxprom
-  store i8 %call141, ptr %arrayidx, align 1
-  %84 = load i16, ptr %size, align 2
-  %conv142 = zext i16 %84 to i32
-  %85 = load i16, ptr %len.addr, align 2
-  %conv143 = zext i16 %85 to i32
-  %sub144 = sub i32 %conv143, 1
-  %cmp145 = icmp ne i32 %conv142, %sub144
-  br i1 %cmp145, label %if.then147, label %if.end164
+317:                                              ; preds = %305
+  %318 = load i8, ptr %12, align 1
+  %319 = zext i8 %318 to i32
+  %320 = or i32 %319, 8
+  %321 = trunc i32 %320 to i8
+  store i8 %321, ptr %12, align 1
+  br label %322
 
-if.then147:                                       ; preds = %if.end134
-  %86 = load ptr, ptr %i2c.addr, align 8
-  %qts148 = getelementptr inbounds %struct.I2CAdapter, ptr %86, i32 0, i32 2
-  %87 = load ptr, ptr %qts148, align 8
-  %88 = load ptr, ptr %s, align 8
-  %addr149 = getelementptr inbounds %struct.IMXI2C, ptr %88, i32 0, i32 2
-  %89 = load i64, ptr %addr149, align 8
-  %add150 = add i64 %89, 12
-  %call151 = call zeroext i8 @qtest_readb(ptr noundef %87, i64 noundef %add150)
-  store i8 %call151, ptr %status, align 1
-  br label %do.body152
+322:                                              ; preds = %317, %312
+  %323 = load ptr, ptr %5, align 8
+  %324 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %323, i32 0, i32 2
+  %325 = load ptr, ptr %324, align 8
+  %326 = load ptr, ptr %9, align 8
+  %327 = getelementptr inbounds nuw %struct.IMXI2C, ptr %326, i32 0, i32 2
+  %328 = load i64, ptr %327, align 8
+  %329 = add i64 %328, 8
+  %330 = load i8, ptr %12, align 1
+  call void @qtest_writeb(ptr noundef %325, i64 noundef %329, i8 noundef zeroext %330)
+  %331 = load ptr, ptr %5, align 8
+  %332 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %331, i32 0, i32 2
+  %333 = load ptr, ptr %332, align 8
+  %334 = load ptr, ptr %9, align 8
+  %335 = getelementptr inbounds nuw %struct.IMXI2C, ptr %334, i32 0, i32 2
+  %336 = load i64, ptr %335, align 8
+  %337 = add i64 %336, 16
+  %338 = call zeroext i8 @qtest_readb(ptr noundef %333, i64 noundef %337)
+  %339 = load ptr, ptr %7, align 8
+  %340 = load i16, ptr %14, align 2
+  %341 = zext i16 %340 to i64
+  %342 = getelementptr inbounds nuw i8, ptr %339, i64 %341
+  store i8 %338, ptr %342, align 1
+  %343 = load i16, ptr %14, align 2
+  %344 = zext i16 %343 to i32
+  %345 = load i16, ptr %8, align 2
+  %346 = zext i16 %345 to i32
+  %347 = sub i32 %346, 1
+  %348 = icmp ne i32 %344, %347
+  br i1 %348, label %349, label %383
 
-do.body152:                                       ; preds = %if.then147
-  %90 = load i8, ptr %status, align 1
-  %conv153 = zext i8 %90 to i32
-  %and154 = and i32 %conv153, 2
-  %cmp155 = icmp ne i32 %and154, 0
-  br i1 %cmp155, label %if.then157, label %if.else158
+349:                                              ; preds = %322
+  %350 = load ptr, ptr %5, align 8
+  %351 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %350, i32 0, i32 2
+  %352 = load ptr, ptr %351, align 8
+  %353 = load ptr, ptr %9, align 8
+  %354 = getelementptr inbounds nuw %struct.IMXI2C, ptr %353, i32 0, i32 2
+  %355 = load i64, ptr %354, align 8
+  %356 = add i64 %355, 12
+  %357 = call zeroext i8 @qtest_readb(ptr noundef %352, i64 noundef %356)
+  store i8 %357, ptr %13, align 1
+  br label %358
 
-if.then157:                                       ; preds = %do.body152
-  br label %if.end159
+358:                                              ; preds = %349
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #5
+  store i32 0, ptr %32, align 4, !annotation !4
+  %359 = load i8, ptr %13, align 1
+  %360 = zext i8 %359 to i32
+  %361 = and i32 %360, 2
+  %362 = icmp ne i32 %361, 0
+  br i1 %362, label %363, label %364
 
-if.else158:                                       ; preds = %do.body152
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 173, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.4) #3
+363:                                              ; preds = %358
+  store i32 1, ptr %32, align 4
+  br label %365
+
+364:                                              ; preds = %358
+  store i32 0, ptr %32, align 4
+  br label %365
+
+365:                                              ; preds = %364, %363
+  %366 = load i32, ptr %32, align 4
+  store i32 %366, ptr %33, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #5
+  %367 = load i32, ptr %33, align 4
+  %368 = sext i32 %367 to i64
+  %369 = call i64 @llvm.expect.i64(i64 %368, i64 1)
+  %370 = icmp ne i64 %369, 0
+  br i1 %370, label %371, label %372
+
+371:                                              ; preds = %365
+  br label %373
+
+372:                                              ; preds = %365
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 173, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.4) #6
   unreachable
 
-if.end159:                                        ; preds = %if.then157
-  br label %do.end160
+373:                                              ; preds = %371
+  br label %374
 
-do.end160:                                        ; preds = %if.end159
-  %91 = load ptr, ptr %i2c.addr, align 8
-  %qts161 = getelementptr inbounds %struct.I2CAdapter, ptr %91, i32 0, i32 2
-  %92 = load ptr, ptr %qts161, align 8
-  %93 = load ptr, ptr %s, align 8
-  %addr162 = getelementptr inbounds %struct.IMXI2C, ptr %93, i32 0, i32 2
-  %94 = load i64, ptr %addr162, align 8
-  %add163 = add i64 %94, 12
-  call void @qtest_writeb(ptr noundef %92, i64 noundef %add163, i8 noundef zeroext 0)
-  br label %if.end164
+374:                                              ; preds = %373
+  br label %375
 
-if.end164:                                        ; preds = %do.end160, %if.end134
-  %95 = load ptr, ptr %i2c.addr, align 8
-  %qts165 = getelementptr inbounds %struct.I2CAdapter, ptr %95, i32 0, i32 2
-  %96 = load ptr, ptr %qts165, align 8
-  %97 = load ptr, ptr %s, align 8
-  %addr166 = getelementptr inbounds %struct.IMXI2C, ptr %97, i32 0, i32 2
-  %98 = load i64, ptr %addr166, align 8
-  %add167 = add i64 %98, 12
-  %call168 = call zeroext i8 @qtest_readb(ptr noundef %96, i64 noundef %add167)
-  store i8 %call168, ptr %status, align 1
-  br label %do.body169
+375:                                              ; preds = %374
+  %376 = load ptr, ptr %5, align 8
+  %377 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %376, i32 0, i32 2
+  %378 = load ptr, ptr %377, align 8
+  %379 = load ptr, ptr %9, align 8
+  %380 = getelementptr inbounds nuw %struct.IMXI2C, ptr %379, i32 0, i32 2
+  %381 = load i64, ptr %380, align 8
+  %382 = add i64 %381, 12
+  call void @qtest_writeb(ptr noundef %378, i64 noundef %382, i8 noundef zeroext 0)
+  br label %383
 
-do.body169:                                       ; preds = %if.end164
-  %99 = load i8, ptr %status, align 1
-  %conv170 = zext i8 %99 to i32
-  %and171 = and i32 %conv170, 2
-  %cmp172 = icmp eq i32 %and171, 0
-  br i1 %cmp172, label %if.then174, label %if.else175
+383:                                              ; preds = %375, %322
+  %384 = load ptr, ptr %5, align 8
+  %385 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %384, i32 0, i32 2
+  %386 = load ptr, ptr %385, align 8
+  %387 = load ptr, ptr %9, align 8
+  %388 = getelementptr inbounds nuw %struct.IMXI2C, ptr %387, i32 0, i32 2
+  %389 = load i64, ptr %388, align 8
+  %390 = add i64 %389, 12
+  %391 = call zeroext i8 @qtest_readb(ptr noundef %386, i64 noundef %390)
+  store i8 %391, ptr %13, align 1
+  br label %392
 
-if.then174:                                       ; preds = %do.body169
-  br label %if.end176
+392:                                              ; preds = %383
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #5
+  store i32 0, ptr %34, align 4, !annotation !4
+  %393 = load i8, ptr %13, align 1
+  %394 = zext i8 %393 to i32
+  %395 = and i32 %394, 2
+  %396 = icmp eq i32 %395, 0
+  br i1 %396, label %397, label %398
 
-if.else175:                                       ; preds = %do.body169
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 180, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.6) #3
+397:                                              ; preds = %392
+  store i32 1, ptr %34, align 4
+  br label %399
+
+398:                                              ; preds = %392
+  store i32 0, ptr %34, align 4
+  br label %399
+
+399:                                              ; preds = %398, %397
+  %400 = load i32, ptr %34, align 4
+  store i32 %400, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #5
+  %401 = load i32, ptr %35, align 4
+  %402 = sext i32 %401 to i64
+  %403 = call i64 @llvm.expect.i64(i64 %402, i64 1)
+  %404 = icmp ne i64 %403, 0
+  br i1 %404, label %405, label %406
+
+405:                                              ; preds = %399
+  br label %407
+
+406:                                              ; preds = %399
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 180, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.6) #6
   unreachable
 
-if.end176:                                        ; preds = %if.then174
-  br label %do.end177
+407:                                              ; preds = %405
+  br label %408
 
-do.end177:                                        ; preds = %if.end176
-  %100 = load i16, ptr %size, align 2
-  %inc = add i16 %100, 1
-  store i16 %inc, ptr %size, align 2
-  br label %while.cond, !llvm.loop !7
+408:                                              ; preds = %407
+  br label %409
 
-while.end:                                        ; preds = %while.cond
-  %101 = load ptr, ptr %i2c.addr, align 8
-  %qts178 = getelementptr inbounds %struct.I2CAdapter, ptr %101, i32 0, i32 2
-  %102 = load ptr, ptr %qts178, align 8
-  %103 = load ptr, ptr %s, align 8
-  %addr179 = getelementptr inbounds %struct.IMXI2C, ptr %103, i32 0, i32 2
-  %104 = load i64, ptr %addr179, align 8
-  %add180 = add i64 %104, 12
-  %call181 = call zeroext i8 @qtest_readb(ptr noundef %102, i64 noundef %add180)
-  store i8 %call181, ptr %status, align 1
-  br label %do.body182
+409:                                              ; preds = %408
+  %410 = load i16, ptr %14, align 2
+  %411 = add i16 %410, 1
+  store i16 %411, ptr %14, align 2
+  br label %273, !llvm.loop !7
 
-do.body182:                                       ; preds = %while.end
-  %105 = load i8, ptr %status, align 1
-  %conv183 = zext i8 %105 to i32
-  %and184 = and i32 %conv183, 32
-  %cmp185 = icmp eq i32 %and184, 0
-  br i1 %cmp185, label %if.then187, label %if.else188
+412:                                              ; preds = %273
+  %413 = load ptr, ptr %5, align 8
+  %414 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %413, i32 0, i32 2
+  %415 = load ptr, ptr %414, align 8
+  %416 = load ptr, ptr %9, align 8
+  %417 = getelementptr inbounds nuw %struct.IMXI2C, ptr %416, i32 0, i32 2
+  %418 = load i64, ptr %417, align 8
+  %419 = add i64 %418, 12
+  %420 = call zeroext i8 @qtest_readb(ptr noundef %415, i64 noundef %419)
+  store i8 %420, ptr %13, align 1
+  br label %421
 
-if.then187:                                       ; preds = %do.body182
-  br label %if.end189
+421:                                              ; preds = %412
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #5
+  store i32 0, ptr %36, align 4, !annotation !4
+  %422 = load i8, ptr %13, align 1
+  %423 = zext i8 %422 to i32
+  %424 = and i32 %423, 32
+  %425 = icmp eq i32 %424, 0
+  br i1 %425, label %426, label %427
 
-if.else188:                                       ; preds = %do.body182
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 186, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.7) #3
+426:                                              ; preds = %421
+  store i32 1, ptr %36, align 4
+  br label %428
+
+427:                                              ; preds = %421
+  store i32 0, ptr %36, align 4
+  br label %428
+
+428:                                              ; preds = %427, %426
+  %429 = load i32, ptr %36, align 4
+  store i32 %429, ptr %37, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #5
+  %430 = load i32, ptr %37, align 4
+  %431 = sext i32 %430 to i64
+  %432 = call i64 @llvm.expect.i64(i64 %431, i64 1)
+  %433 = icmp ne i64 %432, 0
+  br i1 %433, label %434, label %435
+
+434:                                              ; preds = %428
+  br label %436
+
+435:                                              ; preds = %428
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.2, i32 noundef 186, ptr noundef @__func__.imx_i2c_recv, ptr noundef @.str.7) #6
   unreachable
 
-if.end189:                                        ; preds = %if.then187
-  br label %do.end190
+436:                                              ; preds = %434
+  br label %437
 
-do.end190:                                        ; preds = %if.end189, %if.then
+437:                                              ; preds = %436
+  br label %438
+
+438:                                              ; preds = %437
+  store i32 0, ptr %15, align 4
+  br label %439
+
+439:                                              ; preds = %438, %44
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %440 = load i32, ptr %15, align 4
+  switch i32 %440, label %442 [
+    i32 0, label %441
+    i32 1, label %441
+  ]
+
+441:                                              ; preds = %439, %439
   ret void
+
+442:                                              ; preds = %439
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_imx_i2c_register_nodes() #0 {
-entry:
   call void @register_module_init(ptr noundef @imx_i2c_register_nodes, i32 noundef 6)
   ret void
 }
@@ -945,49 +1520,56 @@ declare void @register_module_init(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @imx_i2c_register_nodes() #0 {
-entry:
   call void @qos_node_create_driver(ptr noundef @.str.8, ptr noundef null)
   call void @qos_node_produces(ptr noundef @.str.8, ptr noundef @.str)
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) #1
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @qtest_writeb(ptr noundef, i64 noundef, i8 noundef zeroext) #1
 
 declare zeroext i8 @qtest_readb(ptr noundef, i64 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #4
+
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @imx_i2c_set_slave_addr(ptr noundef %s, i8 noundef zeroext %addr, i32 noundef %direction) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %addr.addr = alloca i8, align 1
-  %direction.addr = alloca i32, align 4
-  store ptr %s, ptr %s.addr, align 8
-  store i8 %addr, ptr %addr.addr, align 1
-  store i32 %direction, ptr %direction.addr, align 4
-  %0 = load ptr, ptr %s.addr, align 8
-  %parent = getelementptr inbounds %struct.IMXI2C, ptr %0, i32 0, i32 1
-  %qts = getelementptr inbounds %struct.I2CAdapter, ptr %parent, i32 0, i32 2
-  %1 = load ptr, ptr %qts, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  %addr1 = getelementptr inbounds %struct.IMXI2C, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %addr1, align 8
-  %add = add i64 %3, 16
-  %4 = load i8, ptr %addr.addr, align 1
-  %conv = zext i8 %4 to i32
-  %shl = shl i32 %conv, 1
-  %5 = load i32, ptr %direction.addr, align 4
-  %cmp = icmp eq i32 %5, 0
-  %cond = select i1 %cmp, i32 1, i32 0
-  %or = or i32 %shl, %cond
-  %conv3 = trunc i32 %or to i8
-  call void @qtest_writeb(ptr noundef %1, i64 noundef %add, i8 noundef zeroext %conv3)
+define internal void @imx_i2c_set_slave_addr(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i8 %1, ptr %5, align 1
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.IMXI2C, ptr %7, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.I2CAdapter, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.IMXI2C, ptr %11, i32 0, i32 2
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, 16
+  %15 = load i8, ptr %5, align 1
+  %16 = zext i8 %15 to i32
+  %17 = shl i32 %16, 1
+  %18 = load i32, ptr %6, align 4
+  %19 = icmp eq i32 %18, 0
+  %20 = select i1 %19, i32 1, i32 0
+  %21 = or i32 %17, %20
+  %22 = trunc i32 %21 to i8
+  call void @qtest_writeb(ptr noundef %10, i64 noundef %14, i8 noundef zeroext %22)
   ret void
 }
 
@@ -995,18 +1577,21 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) #1
 
 declare void @qos_node_produces(ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}

@@ -1,14 +1,14 @@
 ; ModuleID = 'bench/qemu/original/howvec.ll'
 source_filename = "bench/qemu/original/howvec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.ClassSelector = type { ptr, ptr, i32 }
-%struct.InsnClassExecCount = type { ptr, ptr, i32, i32, i32, i64 }
+%struct.qemu_plugin_u64 = type { ptr, i64 }
 %union._GMutex = type { ptr }
+%struct.ClassSelector = type { ptr, ptr, i32 }
+%struct.InsnClassExecCount = type { ptr, ptr, i32, i32, i32, %struct.qemu_plugin_u64 }
 
-@qemu_plugin_version = local_unnamed_addr global i32 1, align 4
-@class_tables = internal unnamed_addr constant [4 x %struct.ClassSelector] [%struct.ClassSelector { ptr @.str.6, ptr @aarch64_insn_classes, i32 42 }, %struct.ClassSelector { ptr @.str.7, ptr @sparc32_insn_classes, i32 8 }, %struct.ClassSelector { ptr @.str.8, ptr @sparc64_insn_classes, i32 5 }, %struct.ClassSelector { ptr null, ptr @default_insn_classes, i32 1 }], align 16
+@qemu_plugin_version = local_unnamed_addr global i32 4, align 4
 @class_table = internal unnamed_addr global ptr null, align 8
 @class_table_sz = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [2 x i8] c"=\00", align 1
@@ -21,259 +21,300 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [6 x i8] c"count\00", align 1
 @.str.5 = private unnamed_addr constant [27 x i8] c"option parsing failed: %s\0A\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"aarch64\00", align 1
-@aarch64_insn_classes = internal global [42 x %struct.InsnClassExecCount] [%struct.InsnClassExecCount { ptr @.str.9, ptr @.str.10, i32 -65536, i32 0, i32 2, i64 0 }, %struct.InsnClassExecCount { ptr @.str.11, ptr @.str.12, i32 503316480, i32 67108864, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.13, ptr @.str.14, i32 503316480, i32 0, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.15, ptr @.str.16, i32 520093696, i32 268435456, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.17, ptr @.str.18, i32 528482304, i32 293601280, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.19, ptr @.str.20, i32 520093696, i32 285212672, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.21, ptr @.str.22, i32 528482304, i32 301989888, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.23, ptr @.str.24, i32 528482304, i32 310378496, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.25, ptr @.str.26, i32 528482304, i32 318767104, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.27, ptr @.str.28, i32 528482304, i32 327155712, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.29, ptr @.str.30, i32 469762048, i32 268435456, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.31, ptr @.str.32, i32 -33554432, i32 1409286144, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.33, ptr @.str.34, i32 -16777216, i32 -738197504, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.35, ptr @.str.36, i32 -1, i32 -721215457, i32 2, i64 0 }, %struct.InsnClassExecCount { ptr @.str.37, ptr @.str.38, i32 -4096, i32 -721215488, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.39, ptr @.str.40, i32 -4096, i32 -721211392, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.41, ptr @.str.42, i32 -462848, i32 -721403904, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.43, ptr @.str.44, i32 -2621440, i32 -720896000, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.45, ptr @.str.46, i32 -3145728, i32 -720371712, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.47, ptr @.str.48, i32 -33554432, i32 -704643072, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.49, ptr @.str.50, i32 2080374784, i32 335544320, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.51, ptr @.str.52, i32 2113929216, i32 872415232, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.53, ptr @.str.54, i32 2113929216, i32 905969664, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.55, ptr @.str.56, i32 469762048, i32 335544320, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.57, ptr @.str.58, i32 -1078001664, i32 201326592, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.59, ptr @.str.60, i32 -1078984704, i32 209715200, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.61, ptr @.str.62, i32 -1080098816, i32 218103808, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.63, ptr @.str.64, i32 -1082130432, i32 226492416, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.65, ptr @.str.66, i32 1056964608, i32 134217728, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.67, ptr @.str.68, i32 -16777216, i32 -671088640, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.69, ptr @.str.70, i32 452984832, i32 402653184, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.71, ptr @.str.72, i32 998244352, i32 671088640, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.73, ptr @.str.74, i32 939524096, i32 671088640, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.75, ptr @.str.76, i32 991952896, i32 939524096, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.77, ptr @.str.78, i32 991955968, i32 941621248, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.79, ptr @.str.80, i32 991955712, i32 941623296, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.81, ptr @.str.82, i32 991953408, i32 941623296, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.83, ptr @.str.84, i32 989855744, i32 956301312, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.85, ptr @.str.86, i32 167772160, i32 134217728, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.87, ptr @.str.88, i32 234881024, i32 167772160, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.89, ptr @.str.90, i32 234881024, i32 234881024, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.91, ptr @.str.92, i32 0, i32 0, i32 0, i64 0 }], align 16
 @.str.7 = private unnamed_addr constant [6 x i8] c"sparc\00", align 1
-@sparc32_insn_classes = internal global [8 x %struct.InsnClassExecCount] [%struct.InsnClassExecCount { ptr @.str.93, ptr @.str.94, i32 -1073741824, i32 1073741824, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.95, ptr @.str.96, i32 -1044381696, i32 8388608, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.97, ptr @.str.98, i32 -1044381696, i32 25165824, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.99, ptr @.str.100, i32 -1044381696, i32 16777216, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.101, ptr @.str.102, i32 -1041235968, i32 -2120220672, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.103, ptr @.str.104, i32 -1073741824, i32 -2147483648, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.105, ptr @.str.86, i32 -1073741824, i32 -1073741824, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.91, ptr @.str.92, i32 0, i32 0, i32 1, i64 0 }], align 16
 @.str.8 = private unnamed_addr constant [8 x i8] c"sparc64\00", align 1
-@sparc64_insn_classes = internal global [5 x %struct.InsnClassExecCount] [%struct.InsnClassExecCount { ptr @.str.106, ptr @.str.107, i32 -1073741824, i32 0, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.93, ptr @.str.108, i32 -1073741824, i32 1073741824, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.109, ptr @.str.110, i32 -1073741824, i32 -2147483648, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.109, ptr @.str.111, i32 -1073741824, i32 -1073741824, i32 0, i64 0 }, %struct.InsnClassExecCount { ptr @.str.91, ptr @.str.92, i32 0, i32 0, i32 1, i64 0 }], align 16
-@default_insn_classes = internal global [1 x %struct.InsnClassExecCount] [%struct.InsnClassExecCount { ptr @.str.91, ptr @.str.92, i32 0, i32 0, i32 1, i64 0 }], align 16
-@.str.9 = private unnamed_addr constant [7 x i8] c"  UDEF\00", align 1
-@.str.10 = private unnamed_addr constant [5 x i8] c"udef\00", align 1
-@.str.11 = private unnamed_addr constant [6 x i8] c"  SVE\00", align 1
-@.str.12 = private unnamed_addr constant [4 x i8] c"sve\00", align 1
-@.str.13 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.14 = private unnamed_addr constant [4 x i8] c"res\00", align 1
-@.str.15 = private unnamed_addr constant [13 x i8] c"  PCrel addr\00", align 1
-@.str.16 = private unnamed_addr constant [6 x i8] c"pcrel\00", align 1
-@.str.17 = private unnamed_addr constant [21 x i8] c"  Add/Sub (imm,tags)\00", align 1
-@.str.18 = private unnamed_addr constant [5 x i8] c"asit\00", align 1
-@.str.19 = private unnamed_addr constant [16 x i8] c"  Add/Sub (imm)\00", align 1
-@.str.20 = private unnamed_addr constant [4 x i8] c"asi\00", align 1
-@.str.21 = private unnamed_addr constant [16 x i8] c"  Logical (imm)\00", align 1
-@.str.22 = private unnamed_addr constant [5 x i8] c"logi\00", align 1
-@.str.23 = private unnamed_addr constant [18 x i8] c"  Move Wide (imm)\00", align 1
-@.str.24 = private unnamed_addr constant [6 x i8] c"movwi\00", align 1
-@.str.25 = private unnamed_addr constant [11 x i8] c"  Bitfield\00", align 1
-@.str.26 = private unnamed_addr constant [5 x i8] c"bitf\00", align 1
-@.str.27 = private unnamed_addr constant [10 x i8] c"  Extract\00", align 1
-@.str.28 = private unnamed_addr constant [5 x i8] c"extr\00", align 1
-@.str.29 = private unnamed_addr constant [14 x i8] c"Data Proc Imm\00", align 1
-@.str.30 = private unnamed_addr constant [5 x i8] c"dpri\00", align 1
-@.str.31 = private unnamed_addr constant [20 x i8] c"  Cond Branch (imm)\00", align 1
-@.str.32 = private unnamed_addr constant [5 x i8] c"cndb\00", align 1
-@.str.33 = private unnamed_addr constant [16 x i8] c"  Exception Gen\00", align 1
-@.str.34 = private unnamed_addr constant [5 x i8] c"excp\00", align 1
-@.str.35 = private unnamed_addr constant [8 x i8] c"    NOP\00", align 1
-@.str.36 = private unnamed_addr constant [4 x i8] c"nop\00", align 1
-@.str.37 = private unnamed_addr constant [8 x i8] c"  Hints\00", align 1
-@.str.38 = private unnamed_addr constant [5 x i8] c"hint\00", align 1
-@.str.39 = private unnamed_addr constant [11 x i8] c"  Barriers\00", align 1
-@.str.40 = private unnamed_addr constant [5 x i8] c"barr\00", align 1
-@.str.41 = private unnamed_addr constant [9 x i8] c"  PSTATE\00", align 1
-@.str.42 = private unnamed_addr constant [5 x i8] c"psta\00", align 1
-@.str.43 = private unnamed_addr constant [14 x i8] c"  System Insn\00", align 1
-@.str.44 = private unnamed_addr constant [5 x i8] c"sins\00", align 1
-@.str.45 = private unnamed_addr constant [13 x i8] c"  System Reg\00", align 1
-@.str.46 = private unnamed_addr constant [5 x i8] c"sreg\00", align 1
-@.str.47 = private unnamed_addr constant [15 x i8] c"  Branch (reg)\00", align 1
-@.str.48 = private unnamed_addr constant [5 x i8] c"breg\00", align 1
-@.str.49 = private unnamed_addr constant [15 x i8] c"  Branch (imm)\00", align 1
-@.str.50 = private unnamed_addr constant [5 x i8] c"bimm\00", align 1
-@.str.51 = private unnamed_addr constant [15 x i8] c"  Cmp & Branch\00", align 1
-@.str.52 = private unnamed_addr constant [5 x i8] c"cmpb\00", align 1
-@.str.53 = private unnamed_addr constant [15 x i8] c"  Tst & Branch\00", align 1
-@.str.54 = private unnamed_addr constant [5 x i8] c"tstb\00", align 1
-@.str.55 = private unnamed_addr constant [9 x i8] c"Branches\00", align 1
-@.str.56 = private unnamed_addr constant [7 x i8] c"branch\00", align 1
-@.str.57 = private unnamed_addr constant [19 x i8] c"  AdvSimd ldstmult\00", align 1
-@.str.58 = private unnamed_addr constant [7 x i8] c"advlsm\00", align 1
-@.str.59 = private unnamed_addr constant [21 x i8] c"  AdvSimd ldstmult++\00", align 1
-@.str.60 = private unnamed_addr constant [8 x i8] c"advlsmp\00", align 1
-@.str.61 = private unnamed_addr constant [15 x i8] c"  AdvSimd ldst\00", align 1
-@.str.62 = private unnamed_addr constant [7 x i8] c"advlss\00", align 1
-@.str.63 = private unnamed_addr constant [17 x i8] c"  AdvSimd ldst++\00", align 1
-@.str.64 = private unnamed_addr constant [8 x i8] c"advlssp\00", align 1
-@.str.65 = private unnamed_addr constant [12 x i8] c"  ldst excl\00", align 1
-@.str.66 = private unnamed_addr constant [6 x i8] c"ldstx\00", align 1
-@.str.67 = private unnamed_addr constant [13 x i8] c"    Prefetch\00", align 1
-@.str.68 = private unnamed_addr constant [5 x i8] c"prfm\00", align 1
-@.str.69 = private unnamed_addr constant [17 x i8] c"  Load Reg (lit)\00", align 1
-@.str.70 = private unnamed_addr constant [6 x i8] c"ldlit\00", align 1
-@.str.71 = private unnamed_addr constant [20 x i8] c"  ldst noalloc pair\00", align 1
-@.str.72 = private unnamed_addr constant [8 x i8] c"ldstnap\00", align 1
-@.str.73 = private unnamed_addr constant [12 x i8] c"  ldst pair\00", align 1
-@.str.74 = private unnamed_addr constant [6 x i8] c"ldstp\00", align 1
-@.str.75 = private unnamed_addr constant [11 x i8] c"  ldst reg\00", align 1
-@.str.76 = private unnamed_addr constant [6 x i8] c"ldstr\00", align 1
-@.str.77 = private unnamed_addr constant [14 x i8] c"  Atomic ldst\00", align 1
-@.str.78 = private unnamed_addr constant [7 x i8] c"atomic\00", align 1
-@.str.79 = private unnamed_addr constant [21 x i8] c"  ldst reg (reg off)\00", align 1
-@.str.80 = private unnamed_addr constant [7 x i8] c"ldstro\00", align 1
-@.str.81 = private unnamed_addr constant [17 x i8] c"  ldst reg (pac)\00", align 1
-@.str.82 = private unnamed_addr constant [7 x i8] c"ldstpa\00", align 1
-@.str.83 = private unnamed_addr constant [17 x i8] c"  ldst reg (imm)\00", align 1
-@.str.84 = private unnamed_addr constant [6 x i8] c"ldsti\00", align 1
-@.str.85 = private unnamed_addr constant [15 x i8] c"Loads & Stores\00", align 1
-@.str.86 = private unnamed_addr constant [5 x i8] c"ldst\00", align 1
-@.str.87 = private unnamed_addr constant [14 x i8] c"Data Proc Reg\00", align 1
-@.str.88 = private unnamed_addr constant [5 x i8] c"dprr\00", align 1
-@.str.89 = private unnamed_addr constant [11 x i8] c"Scalar FP \00", align 1
-@.str.90 = private unnamed_addr constant [7 x i8] c"fpsimd\00", align 1
-@.str.91 = private unnamed_addr constant [13 x i8] c"Unclassified\00", align 1
-@.str.92 = private unnamed_addr constant [7 x i8] c"unclas\00", align 1
-@.str.93 = private unnamed_addr constant [5 x i8] c"Call\00", align 1
-@.str.94 = private unnamed_addr constant [5 x i8] c"call\00", align 1
-@.str.95 = private unnamed_addr constant [13 x i8] c"Branch ICond\00", align 1
-@.str.96 = private unnamed_addr constant [4 x i8] c"bcc\00", align 1
-@.str.97 = private unnamed_addr constant [13 x i8] c"Branch Fcond\00", align 1
-@.str.98 = private unnamed_addr constant [5 x i8] c"fbcc\00", align 1
-@.str.99 = private unnamed_addr constant [6 x i8] c"SetHi\00", align 1
-@.str.100 = private unnamed_addr constant [6 x i8] c"sethi\00", align 1
-@.str.101 = private unnamed_addr constant [8 x i8] c"FPU ALU\00", align 1
-@.str.102 = private unnamed_addr constant [4 x i8] c"fpu\00", align 1
-@.str.103 = private unnamed_addr constant [4 x i8] c"ALU\00", align 1
-@.str.104 = private unnamed_addr constant [4 x i8] c"alu\00", align 1
-@.str.105 = private unnamed_addr constant [11 x i8] c"Load/Store\00", align 1
-@.str.106 = private unnamed_addr constant [17 x i8] c"SetHi & Branches\00", align 1
-@.str.107 = private unnamed_addr constant [4 x i8] c"op0\00", align 1
-@.str.108 = private unnamed_addr constant [4 x i8] c"op1\00", align 1
-@.str.109 = private unnamed_addr constant [19 x i8] c"Arith/Logical/Move\00", align 1
-@.str.110 = private unnamed_addr constant [4 x i8] c"op2\00", align 1
-@.str.111 = private unnamed_addr constant [4 x i8] c"op3\00", align 1
+@class_tables = internal unnamed_addr constant [4 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.6, ptr @aarch64_insn_classes, i32 42, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.7, ptr @sparc32_insn_classes, i32 8, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.8, ptr @sparc64_insn_classes, i32 5, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr null, ptr @default_insn_classes, i32 1, [4 x i8] zeroinitializer }], align 16
+@.str.10 = private unnamed_addr constant [7 x i8] c"  UDEF\00", align 1
+@.str.11 = private unnamed_addr constant [5 x i8] c"udef\00", align 1
+@.str.12 = private unnamed_addr constant [6 x i8] c"  SVE\00", align 1
+@.str.13 = private unnamed_addr constant [4 x i8] c"sve\00", align 1
+@.str.14 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@.str.15 = private unnamed_addr constant [4 x i8] c"res\00", align 1
+@.str.16 = private unnamed_addr constant [13 x i8] c"  PCrel addr\00", align 1
+@.str.17 = private unnamed_addr constant [6 x i8] c"pcrel\00", align 1
+@.str.18 = private unnamed_addr constant [21 x i8] c"  Add/Sub (imm,tags)\00", align 1
+@.str.19 = private unnamed_addr constant [5 x i8] c"asit\00", align 1
+@.str.20 = private unnamed_addr constant [16 x i8] c"  Add/Sub (imm)\00", align 1
+@.str.21 = private unnamed_addr constant [4 x i8] c"asi\00", align 1
+@.str.22 = private unnamed_addr constant [16 x i8] c"  Logical (imm)\00", align 1
+@.str.23 = private unnamed_addr constant [5 x i8] c"logi\00", align 1
+@.str.24 = private unnamed_addr constant [18 x i8] c"  Move Wide (imm)\00", align 1
+@.str.25 = private unnamed_addr constant [6 x i8] c"movwi\00", align 1
+@.str.26 = private unnamed_addr constant [11 x i8] c"  Bitfield\00", align 1
+@.str.27 = private unnamed_addr constant [5 x i8] c"bitf\00", align 1
+@.str.28 = private unnamed_addr constant [10 x i8] c"  Extract\00", align 1
+@.str.29 = private unnamed_addr constant [5 x i8] c"extr\00", align 1
+@.str.30 = private unnamed_addr constant [14 x i8] c"Data Proc Imm\00", align 1
+@.str.31 = private unnamed_addr constant [5 x i8] c"dpri\00", align 1
+@.str.32 = private unnamed_addr constant [20 x i8] c"  Cond Branch (imm)\00", align 1
+@.str.33 = private unnamed_addr constant [5 x i8] c"cndb\00", align 1
+@.str.34 = private unnamed_addr constant [16 x i8] c"  Exception Gen\00", align 1
+@.str.35 = private unnamed_addr constant [5 x i8] c"excp\00", align 1
+@.str.36 = private unnamed_addr constant [8 x i8] c"    NOP\00", align 1
+@.str.37 = private unnamed_addr constant [4 x i8] c"nop\00", align 1
+@.str.38 = private unnamed_addr constant [8 x i8] c"  Hints\00", align 1
+@.str.39 = private unnamed_addr constant [5 x i8] c"hint\00", align 1
+@.str.40 = private unnamed_addr constant [11 x i8] c"  Barriers\00", align 1
+@.str.41 = private unnamed_addr constant [5 x i8] c"barr\00", align 1
+@.str.42 = private unnamed_addr constant [9 x i8] c"  PSTATE\00", align 1
+@.str.43 = private unnamed_addr constant [5 x i8] c"psta\00", align 1
+@.str.44 = private unnamed_addr constant [14 x i8] c"  System Insn\00", align 1
+@.str.45 = private unnamed_addr constant [5 x i8] c"sins\00", align 1
+@.str.46 = private unnamed_addr constant [13 x i8] c"  System Reg\00", align 1
+@.str.47 = private unnamed_addr constant [5 x i8] c"sreg\00", align 1
+@.str.48 = private unnamed_addr constant [15 x i8] c"  Branch (reg)\00", align 1
+@.str.49 = private unnamed_addr constant [5 x i8] c"breg\00", align 1
+@.str.50 = private unnamed_addr constant [15 x i8] c"  Branch (imm)\00", align 1
+@.str.51 = private unnamed_addr constant [5 x i8] c"bimm\00", align 1
+@.str.52 = private unnamed_addr constant [15 x i8] c"  Cmp & Branch\00", align 1
+@.str.53 = private unnamed_addr constant [5 x i8] c"cmpb\00", align 1
+@.str.54 = private unnamed_addr constant [15 x i8] c"  Tst & Branch\00", align 1
+@.str.55 = private unnamed_addr constant [5 x i8] c"tstb\00", align 1
+@.str.56 = private unnamed_addr constant [9 x i8] c"Branches\00", align 1
+@.str.57 = private unnamed_addr constant [7 x i8] c"branch\00", align 1
+@.str.58 = private unnamed_addr constant [19 x i8] c"  AdvSimd ldstmult\00", align 1
+@.str.59 = private unnamed_addr constant [7 x i8] c"advlsm\00", align 1
+@.str.60 = private unnamed_addr constant [21 x i8] c"  AdvSimd ldstmult++\00", align 1
+@.str.61 = private unnamed_addr constant [8 x i8] c"advlsmp\00", align 1
+@.str.62 = private unnamed_addr constant [15 x i8] c"  AdvSimd ldst\00", align 1
+@.str.63 = private unnamed_addr constant [7 x i8] c"advlss\00", align 1
+@.str.64 = private unnamed_addr constant [17 x i8] c"  AdvSimd ldst++\00", align 1
+@.str.65 = private unnamed_addr constant [8 x i8] c"advlssp\00", align 1
+@.str.66 = private unnamed_addr constant [12 x i8] c"  ldst excl\00", align 1
+@.str.67 = private unnamed_addr constant [6 x i8] c"ldstx\00", align 1
+@.str.68 = private unnamed_addr constant [13 x i8] c"    Prefetch\00", align 1
+@.str.69 = private unnamed_addr constant [5 x i8] c"prfm\00", align 1
+@.str.70 = private unnamed_addr constant [17 x i8] c"  Load Reg (lit)\00", align 1
+@.str.71 = private unnamed_addr constant [6 x i8] c"ldlit\00", align 1
+@.str.72 = private unnamed_addr constant [20 x i8] c"  ldst noalloc pair\00", align 1
+@.str.73 = private unnamed_addr constant [8 x i8] c"ldstnap\00", align 1
+@.str.74 = private unnamed_addr constant [12 x i8] c"  ldst pair\00", align 1
+@.str.75 = private unnamed_addr constant [6 x i8] c"ldstp\00", align 1
+@.str.76 = private unnamed_addr constant [11 x i8] c"  ldst reg\00", align 1
+@.str.77 = private unnamed_addr constant [6 x i8] c"ldstr\00", align 1
+@.str.78 = private unnamed_addr constant [14 x i8] c"  Atomic ldst\00", align 1
+@.str.79 = private unnamed_addr constant [7 x i8] c"atomic\00", align 1
+@.str.80 = private unnamed_addr constant [21 x i8] c"  ldst reg (reg off)\00", align 1
+@.str.81 = private unnamed_addr constant [7 x i8] c"ldstro\00", align 1
+@.str.82 = private unnamed_addr constant [17 x i8] c"  ldst reg (pac)\00", align 1
+@.str.83 = private unnamed_addr constant [7 x i8] c"ldstpa\00", align 1
+@.str.84 = private unnamed_addr constant [17 x i8] c"  ldst reg (imm)\00", align 1
+@.str.85 = private unnamed_addr constant [6 x i8] c"ldsti\00", align 1
+@.str.86 = private unnamed_addr constant [15 x i8] c"Loads & Stores\00", align 1
+@.str.87 = private unnamed_addr constant [5 x i8] c"ldst\00", align 1
+@.str.88 = private unnamed_addr constant [14 x i8] c"Data Proc Reg\00", align 1
+@.str.89 = private unnamed_addr constant [5 x i8] c"dprr\00", align 1
+@.str.90 = private unnamed_addr constant [11 x i8] c"Scalar FP \00", align 1
+@.str.91 = private unnamed_addr constant [7 x i8] c"fpsimd\00", align 1
+@.str.92 = private unnamed_addr constant [13 x i8] c"Unclassified\00", align 1
+@.str.93 = private unnamed_addr constant [7 x i8] c"unclas\00", align 1
+@aarch64_insn_classes = internal global [42 x { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 }] [{ ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.10, ptr @.str.11, i32 -65536, i32 0, i32 2, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.12, ptr @.str.13, i32 503316480, i32 67108864, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.14, ptr @.str.15, i32 503316480, i32 0, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.16, ptr @.str.17, i32 520093696, i32 268435456, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.18, ptr @.str.19, i32 528482304, i32 293601280, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.20, ptr @.str.21, i32 520093696, i32 285212672, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.22, ptr @.str.23, i32 528482304, i32 301989888, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.24, ptr @.str.25, i32 528482304, i32 310378496, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.26, ptr @.str.27, i32 528482304, i32 318767104, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.28, ptr @.str.29, i32 528482304, i32 327155712, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.30, ptr @.str.31, i32 469762048, i32 268435456, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.32, ptr @.str.33, i32 -33554432, i32 1409286144, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.34, ptr @.str.35, i32 -16777216, i32 -738197504, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.36, ptr @.str.37, i32 -1, i32 -721215457, i32 2, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.38, ptr @.str.39, i32 -4096, i32 -721215488, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.40, ptr @.str.41, i32 -4096, i32 -721211392, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.42, ptr @.str.43, i32 -462848, i32 -721403904, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.44, ptr @.str.45, i32 -2621440, i32 -720896000, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.46, ptr @.str.47, i32 -3145728, i32 -720371712, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.48, ptr @.str.49, i32 -33554432, i32 -704643072, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.50, ptr @.str.51, i32 2080374784, i32 335544320, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.52, ptr @.str.53, i32 2113929216, i32 872415232, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.54, ptr @.str.55, i32 2113929216, i32 905969664, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.56, ptr @.str.57, i32 469762048, i32 335544320, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.58, ptr @.str.59, i32 -1078001664, i32 201326592, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.60, ptr @.str.61, i32 -1078984704, i32 209715200, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.62, ptr @.str.63, i32 -1080098816, i32 218103808, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.64, ptr @.str.65, i32 -1082130432, i32 226492416, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.66, ptr @.str.67, i32 1056964608, i32 134217728, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.68, ptr @.str.69, i32 -16777216, i32 -671088640, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.70, ptr @.str.71, i32 452984832, i32 402653184, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.72, ptr @.str.73, i32 998244352, i32 671088640, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.74, ptr @.str.75, i32 939524096, i32 671088640, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.76, ptr @.str.77, i32 991952896, i32 939524096, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.78, ptr @.str.79, i32 991955968, i32 941621248, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.80, ptr @.str.81, i32 991955712, i32 941623296, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.82, ptr @.str.83, i32 991953408, i32 941623296, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.84, ptr @.str.85, i32 989855744, i32 956301312, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.86, ptr @.str.87, i32 167772160, i32 134217728, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.88, ptr @.str.89, i32 234881024, i32 167772160, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.90, ptr @.str.91, i32 234881024, i32 234881024, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.92, ptr @.str.93, i32 0, i32 0, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }], align 16
+@.str.95 = private unnamed_addr constant [5 x i8] c"Call\00", align 1
+@.str.96 = private unnamed_addr constant [5 x i8] c"call\00", align 1
+@.str.97 = private unnamed_addr constant [13 x i8] c"Branch ICond\00", align 1
+@.str.98 = private unnamed_addr constant [4 x i8] c"bcc\00", align 1
+@.str.99 = private unnamed_addr constant [13 x i8] c"Branch Fcond\00", align 1
+@.str.100 = private unnamed_addr constant [5 x i8] c"fbcc\00", align 1
+@.str.101 = private unnamed_addr constant [6 x i8] c"SetHi\00", align 1
+@.str.102 = private unnamed_addr constant [6 x i8] c"sethi\00", align 1
+@.str.103 = private unnamed_addr constant [8 x i8] c"FPU ALU\00", align 1
+@.str.104 = private unnamed_addr constant [4 x i8] c"fpu\00", align 1
+@.str.105 = private unnamed_addr constant [4 x i8] c"ALU\00", align 1
+@.str.106 = private unnamed_addr constant [4 x i8] c"alu\00", align 1
+@.str.107 = private unnamed_addr constant [11 x i8] c"Load/Store\00", align 1
+@sparc32_insn_classes = internal global [8 x { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 }] [{ ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.95, ptr @.str.96, i32 -1073741824, i32 1073741824, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.97, ptr @.str.98, i32 -1044381696, i32 8388608, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.99, ptr @.str.100, i32 -1044381696, i32 25165824, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.101, ptr @.str.102, i32 -1044381696, i32 16777216, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.103, ptr @.str.104, i32 -1041235968, i32 -2120220672, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.105, ptr @.str.106, i32 -1073741824, i32 -2147483648, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.107, ptr @.str.87, i32 -1073741824, i32 -1073741824, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.92, ptr @.str.93, i32 0, i32 0, i32 1, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }], align 16
+@.str.109 = private unnamed_addr constant [17 x i8] c"SetHi & Branches\00", align 1
+@.str.110 = private unnamed_addr constant [4 x i8] c"op0\00", align 1
+@.str.111 = private unnamed_addr constant [4 x i8] c"op1\00", align 1
+@.str.112 = private unnamed_addr constant [19 x i8] c"Arith/Logical/Move\00", align 1
+@.str.113 = private unnamed_addr constant [4 x i8] c"op2\00", align 1
+@.str.114 = private unnamed_addr constant [4 x i8] c"op3\00", align 1
+@sparc64_insn_classes = internal global [5 x { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 }] [{ ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.109, ptr @.str.110, i32 -1073741824, i32 0, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.95, ptr @.str.111, i32 -1073741824, i32 1073741824, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.112, ptr @.str.113, i32 -1073741824, i32 -2147483648, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.112, ptr @.str.114, i32 -1073741824, i32 -1073741824, i32 0, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }, { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.92, ptr @.str.93, i32 0, i32 0, i32 1, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }], align 16
+@default_insn_classes = internal global [1 x { ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 }] [{ ptr, ptr, i32, i32, i32, [4 x i8], %struct.qemu_plugin_u64 } { ptr @.str.92, ptr @.str.93, i32 0, i32 0, i32 1, [4 x i8] zeroinitializer, %struct.qemu_plugin_u64 zeroinitializer }], align 16
 @insns = internal unnamed_addr global ptr null, align 8
-@.str.112 = private unnamed_addr constant [103 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/contrib/plugins/howvec.c\00", align 1
+@.str.117 = private unnamed_addr constant [33 x i8] c"../qemu/contrib/plugins/howvec.c\00", align 1
 @__func__.find_counter = private unnamed_addr constant [13 x i8] c"find_counter\00", align 1
-@.str.113 = private unnamed_addr constant [6 x i8] c"class\00", align 1
+@.str.118 = private unnamed_addr constant [6 x i8] c"class\00", align 1
 @lock = internal global %union._GMutex zeroinitializer, align 8
-@.str.114 = private unnamed_addr constant [22 x i8] c"Instruction Classes:\0A\00", align 1
-@.str.115 = private unnamed_addr constant [25 x i8] c"Class: %-24s\09(%ld hits)\0A\00", align 1
-@.str.116 = private unnamed_addr constant [35 x i8] c"Class: %-24s\09counted individually\0A\00", align 1
-@.str.117 = private unnamed_addr constant [26 x i8] c"Class: %-24s\09not counted\0A\00", align 1
-@.str.118 = private unnamed_addr constant [26 x i8] c"Individual Instructions:\0A\00", align 1
-@.str.119 = private unnamed_addr constant [40 x i8] c"Instr: %-24s\09(%ld hits)\09(op=0x%08x/%s)\0A\00", align 1
-@.str.120 = private unnamed_addr constant [15 x i8] c"un-categorised\00", align 1
+@.str.119 = private unnamed_addr constant [22 x i8] c"Instruction Classes:\0A\00", align 1
+@.str.120 = private unnamed_addr constant [25 x i8] c"Class: %-24s\09(%ld hits)\0A\00", align 1
+@.str.121 = private unnamed_addr constant [35 x i8] c"Class: %-24s\09counted individually\0A\00", align 1
+@.str.122 = private unnamed_addr constant [26 x i8] c"Class: %-24s\09not counted\0A\00", align 1
+@.str.123 = private unnamed_addr constant [26 x i8] c"Individual Instructions:\0A\00", align 1
+@.str.124 = private unnamed_addr constant [40 x i8] c"Instr: %-24s\09(%ld hits)\09(op=0x%08x/%s)\0A\00", align 1
+@.str.125 = private unnamed_addr constant [15 x i8] c"un-categorised\00", align 1
 
-; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr noundef readonly captures(none) %info, i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr %info, align 8
-  br label %lor.lhs.false
+; Function Attrs: nounwind sspstrong uwtable
+define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+  br label %.preheader59
 
-for.body:                                         ; preds = %lor.lhs.false
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %for.end, label %lor.lhs.false
+.preheader59:                                     ; preds = %4, %._crit_edge
+  %indvars.iv89 = phi i64 [ 0, %4 ], [ %indvars.iv.next90, %._crit_edge ]
+  %5 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv89
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
-lor.lhs.false:                                    ; preds = %entry, %for.body
-  %indvars.iv70 = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv70
-  %1 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %0) #9
-  %cmp4 = icmp eq i32 %call, 0
-  br i1 %cmp4, label %for.end, label %for.body
+.lr.ph:                                           ; preds = %.preheader59
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %wide.trip.count = zext nneg i32 %7 to i64
+  br label %11
 
-for.end:                                          ; preds = %for.body, %lor.lhs.false
-  %arrayidx.lcssa = phi ptr [ %arrayidx, %lor.lhs.false ], [ getelementptr inbounds nuw (i8, ptr @class_tables, i64 72), %for.body ]
-  %table = getelementptr inbounds nuw i8, ptr %arrayidx.lcssa, i64 8
-  %2 = load ptr, ptr %table, align 8
-  store ptr %2, ptr @class_table, align 8
-  %table_sz = getelementptr inbounds nuw i8, ptr %arrayidx.lcssa, i64 16
-  %3 = load i32, ptr %table_sz, align 8
-  store i32 %3, ptr @class_table_sz, align 4
-  %cmp733 = icmp sgt i32 %argc, 0
-  br i1 %cmp733, label %for.body9.preheader, label %for.end70
+._crit_edge:                                      ; preds = %11, %.preheader59
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 4
+  br i1 %exitcond92.not, label %.preheader.preheader.preheader, label %.preheader59, !llvm.loop !3
 
-for.body9.preheader:                              ; preds = %for.end
-  %wide.trip.count52 = zext nneg i32 %argc to i64
-  br label %for.body9
+.preheader.preheader.preheader:                   ; preds = %._crit_edge
+  %10 = load ptr, ptr %1, align 8
+  br label %.preheader.preheader
 
-for.body9:                                        ; preds = %for.body9.preheader, %for.inc68
-  %indvars.iv49 = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next50, %for.inc68 ]
-  %arrayidx11 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv49
-  %4 = load ptr, ptr %arrayidx11, align 8
-  %call12 = tail call ptr @g_strsplit(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef -1) #10
-  %5 = load ptr, ptr %call12, align 8
-  %call14 = tail call i32 @g_strcmp0(ptr noundef %5, ptr noundef nonnull @.str.1) #10
-  %cmp15 = icmp eq i32 %call14, 0
-  %6 = load ptr, ptr %call12, align 8
-  br i1 %cmp15, label %if.then17, label %if.else
+11:                                               ; preds = %.lr.ph, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+  %12 = tail call ptr @qemu_plugin_scoreboard_new(i64 noundef 8) #8
+  %13 = load ptr, ptr %9, align 8
+  %14 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %13, i64 %indvars.iv, i32 5
+  store ptr %12, ptr %14, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !5
 
-if.then17:                                        ; preds = %for.body9
-  %arrayidx19 = getelementptr inbounds nuw i8, ptr %call12, i64 8
-  %7 = load ptr, ptr %arrayidx19, align 8
-  %call20 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %6, ptr noundef %7, ptr noundef nonnull @do_inline) #10
-  br i1 %call20, label %for.inc68, label %glib_auto_cleanup_GStrv.exit
+.preheader:                                       ; preds = %.preheader.preheader
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93125, 1
+  %exitcond96 = icmp eq i64 %indvars.iv.next94, 3
+  br i1 %exitcond96, label %.loopexit, label %.preheader.preheader
 
-if.else:                                          ; preds = %for.body9
-  %call25 = tail call i32 @g_strcmp0(ptr noundef %6, ptr noundef nonnull @.str.3) #10
-  %cmp26 = icmp eq i32 %call25, 0
-  %8 = load ptr, ptr %call12, align 8
-  br i1 %cmp26, label %if.then28, label %if.else35
+.preheader.preheader:                             ; preds = %.preheader.preheader.preheader, %.preheader
+  %indvars.iv93125 = phi i64 [ %indvars.iv.next94, %.preheader ], [ 0, %.preheader.preheader.preheader ]
+  %15 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv93125
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %10) #9
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %.loopexit, label %.preheader
 
-if.then28:                                        ; preds = %if.else
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %call12, i64 8
-  %9 = load ptr, ptr %arrayidx30, align 8
-  %call31 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @verbose) #10
-  br i1 %call31, label %for.inc68, label %glib_auto_cleanup_GStrv.exit
+.loopexit:                                        ; preds = %.preheader.preheader, %.preheader
+  %.lcssa86 = phi ptr [ getelementptr inbounds nuw (i8, ptr @class_tables, i64 72), %.preheader ], [ %15, %.preheader.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa86, i64 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr @class_table, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %.lcssa86, i64 16
+  %22 = load i32, ptr %21, align 8
+  store i32 %22, ptr @class_table_sz, align 4
+  %23 = icmp sgt i32 %2, 0
+  br i1 %23, label %.lr.ph75.preheader, label %._crit_edge76
 
-if.else35:                                        ; preds = %if.else
-  %call37 = tail call i32 @g_strcmp0(ptr noundef %8, ptr noundef nonnull @.str.4) #10
-  %cmp38 = icmp eq i32 %call37, 0
-  br i1 %cmp38, label %if.then40, label %glib_auto_cleanup_GStrv.exit
+.lr.ph75.preheader:                               ; preds = %.loopexit
+  %wide.trip.count105 = zext nneg i32 %2 to i64
+  br label %.lr.ph75
 
-if.then40:                                        ; preds = %if.else35
-  %arrayidx41 = getelementptr inbounds nuw i8, ptr %call12, i64 8
-  %10 = load ptr, ptr %arrayidx41, align 8
-  %11 = load i8, ptr %10, align 1
-  %cmp43 = icmp eq i8 %11, 33
-  %spec.select.idx = zext i1 %cmp43 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %10, i64 %spec.select.idx
-  %spec.select18 = select i1 %cmp43, i32 2, i32 1
-  %12 = load i32, ptr @class_table_sz, align 4
-  %cmp4831 = icmp sgt i32 %12, 0
-  br i1 %cmp4831, label %for.body50.lr.ph, label %for.inc68
+.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %glib_auto_cleanup_GStrv.exit
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next103, %glib_auto_cleanup_GStrv.exit ]
+  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv102
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call ptr @g_strsplit(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef -1) #8
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call i32 @g_strcmp0(ptr noundef %27, ptr noundef nonnull @.str.1) #8
+  %29 = icmp eq i32 %28, 0
+  %30 = load ptr, ptr %26, align 8
+  br i1 %29, label %31, label %35
 
-for.body50.lr.ph:                                 ; preds = %if.then40
-  %13 = load ptr, ptr @class_table, align 8
-  %wide.trip.count = zext nneg i32 %12 to i64
-  br label %for.body50
+31:                                               ; preds = %.lr.ph75
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %30, ptr noundef %33, ptr noundef nonnull @do_inline) #8
+  br i1 %34, label %glib_auto_cleanup_GStrv.exit, label %glib_auto_cleanup_GStrv.exit52
 
-for.cond47:                                       ; preds = %for.body50
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
-  br i1 %exitcond48.not, label %for.inc68, label %for.body50, !llvm.loop !4
+35:                                               ; preds = %.lr.ph75
+  %36 = tail call i32 @g_strcmp0(ptr noundef %30, ptr noundef nonnull @.str.3) #8
+  %37 = icmp eq i32 %36, 0
+  %38 = load ptr, ptr %26, align 8
+  br i1 %37, label %39, label %43
 
-for.body50:                                       ; preds = %for.body50.lr.ph, %for.cond47
-  %indvars.iv45 = phi i64 [ 0, %for.body50.lr.ph ], [ %indvars.iv.next46, %for.cond47 ]
-  %arrayidx52 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %13, i64 %indvars.iv45
-  %opt = getelementptr inbounds nuw i8, ptr %arrayidx52, i64 8
-  %14 = load ptr, ptr %opt, align 8
-  %call53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %14) #9
-  %cmp54 = icmp eq i32 %call53, 0
-  br i1 %cmp54, label %if.then56, label %for.cond47
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %38, ptr noundef %41, ptr noundef nonnull @verbose) #8
+  br i1 %42, label %glib_auto_cleanup_GStrv.exit, label %glib_auto_cleanup_GStrv.exit52
 
-if.then56:                                        ; preds = %for.body50
-  %what = getelementptr inbounds nuw i8, ptr %arrayidx52, i64 24
-  store i32 %spec.select18, ptr %what, align 8
-  br label %for.inc68
+43:                                               ; preds = %35
+  %44 = tail call i32 @g_strcmp0(ptr noundef %38, ptr noundef nonnull @.str.4) #8
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %glib_auto_cleanup_GStrv.exit52
 
-glib_auto_cleanup_GStrv.exit:                     ; preds = %if.else35, %if.then28, %if.then17
-  %.str.5.sink = phi ptr [ @.str.2, %if.then17 ], [ @.str.2, %if.then28 ], [ @.str.5, %if.else35 ]
-  %15 = load ptr, ptr @stderr, align 8
-  %call64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull %.str.5.sink, ptr noundef %4) #11
-  tail call void @g_strfreev(ptr noundef nonnull %call12) #10
-  br label %return
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp eq i8 %49, 33
+  %spec.select.idx = zext i1 %50 to i64
+  %spec.select = getelementptr inbounds nuw i8, ptr %48, i64 %spec.select.idx
+  %spec.select49 = select i1 %50, i32 2, i32 1
+  %51 = load i32, ptr @class_table_sz, align 4
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %.lr.ph72, label %glib_auto_cleanup_GStrv.exit
 
-for.inc68:                                        ; preds = %for.cond47, %if.then40, %if.then28, %if.then56, %if.then17
-  tail call void @g_strfreev(ptr noundef nonnull %call12) #10
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %for.end70, label %for.body9, !llvm.loop !6
+.lr.ph72:                                         ; preds = %46
+  %53 = load ptr, ptr @class_table, align 8
+  %wide.trip.count100 = zext nneg i32 %51 to i64
+  br label %55
 
-for.end70:                                        ; preds = %for.inc68, %for.end
-  %call.i = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_record) #10
-  store ptr %call.i, ptr @insns, align 8
-  tail call void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef %id, ptr noundef nonnull @vcpu_tb_trans) #10
-  tail call void @qemu_plugin_register_atexit_cb(i64 noundef %id, ptr noundef nonnull @plugin_exit, ptr noundef null) #10
-  br label %return
+54:                                               ; preds = %55
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
+  br i1 %exitcond101.not, label %glib_auto_cleanup_GStrv.exit, label %55, !llvm.loop !6
 
-return:                                           ; preds = %glib_auto_cleanup_GStrv.exit, %for.end70
-  %retval.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit ], [ 0, %for.end70 ]
-  ret i32 %retval.2
+55:                                               ; preds = %.lr.ph72, %54
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next98, %54 ]
+  %56 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %53, i64 %indvars.iv97
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %58) #9
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %54
+
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store i32 %spec.select49, ptr %62, align 8
+  br label %glib_auto_cleanup_GStrv.exit
+
+glib_auto_cleanup_GStrv.exit:                     ; preds = %54, %46, %31, %39, %61
+  tail call void @g_strfreev(ptr noundef nonnull %26) #8
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
+  br i1 %exitcond106.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !7
+
+._crit_edge76:                                    ; preds = %glib_auto_cleanup_GStrv.exit, %.loopexit
+  %63 = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_record) #8
+  store ptr %63, ptr @insns, align 8
+  tail call void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef %0, ptr noundef nonnull @vcpu_tb_trans) #8
+  tail call void @qemu_plugin_register_atexit_cb(i64 noundef %0, ptr noundef nonnull @plugin_exit, ptr noundef null) #8
+  br label %66
+
+glib_auto_cleanup_GStrv.exit52:                   ; preds = %43, %39, %31
+  %.str.5.sink = phi ptr [ @.str.2, %31 ], [ @.str.2, %39 ], [ @.str.5, %43 ]
+  %64 = load ptr, ptr @stderr, align 8
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull %.str.5.sink, ptr noundef %25) #10
+  tail call void @g_strfreev(ptr noundef nonnull %26) #8
+  br label %66
+
+66:                                               ; preds = %glib_auto_cleanup_GStrv.exit52, %._crit_edge76
+  %.2 = phi i32 [ 0, %._crit_edge76 ], [ -1, %glib_auto_cleanup_GStrv.exit52 ]
+  ret i32 %.2
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @qemu_plugin_scoreboard_new(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -282,245 +323,303 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @qemu_plugin_bool_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal void @vcpu_tb_trans(i64 %id, ptr noundef %tb) #0 {
-entry:
-  %call = tail call i64 @qemu_plugin_tb_n_insns(ptr noundef %tb) #10
-  %cmp12.not = icmp eq i64 %call, 0
-  br i1 %cmp12.not, label %for.end, label %for.body
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = tail call i64 @qemu_plugin_tb_n_insns(ptr noundef %1) #8
+  %.not16 = icmp eq i64 %4, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %call1 = tail call ptr @qemu_plugin_tb_get_insn(ptr noundef %tb, i64 noundef %i.013) #10
-  %call.i = tail call ptr @qemu_plugin_insn_data(ptr noundef %call1) #10
-  %0 = load i32, ptr %call.i, align 4
-  %1 = load i32, ptr @class_table_sz, align 4
-  %cmp21.i = icmp sgt i32 %1, 0
-  br i1 %cmp21.i, label %for.body.lr.ph.i, label %if.else.i
+.lr.ph:                                           ; preds = %2, %54
+  %.015 = phi i64 [ %55, %54 ], [ 0, %2 ]
+  %5 = call ptr @qemu_plugin_tb_get_insn(ptr noundef %1, i64 noundef %.015) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  store i32 0, ptr %3, align 4
+  %6 = call i64 @qemu_plugin_insn_data(ptr noundef %5, ptr noundef nonnull %3, i64 noundef 4) #8
+  %7 = load i32, ptr @class_table_sz, align 4
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %.lr.ph.i, label %._crit_edge.thread.i
 
-for.body.lr.ph.i:                                 ; preds = %for.body
-  %2 = load ptr, ptr @class_table, align 8
-  %3 = add nsw i32 %1, -1
-  %4 = zext nneg i32 %3 to i64
-  %5 = mul nuw nsw i64 %4, 40
-  %scevgep.i = getelementptr i8, ptr %2, i64 %5
-  %wide.trip.count.i = zext nneg i32 %1 to i64
-  br label %for.body.i
+.lr.ph.i:                                         ; preds = %.lr.ph
+  %9 = load ptr, ptr @class_table, align 8
+  %10 = load i32, ptr %3, align 4
+  %11 = add nsw i32 %7, -1
+  %12 = zext nneg i32 %11 to i64
+  %13 = mul nuw nsw i64 %12, 48
+  %scevgep.i = getelementptr i8, ptr %9, i64 %13
+  %wide.trip.count.i = zext nneg i32 %7 to i64
+  br label %15
 
-for.cond.i:                                       ; preds = %for.body.i
+14:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %do.body.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !8
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %2, i64 %indvars.iv.i
-  %mask.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
-  %6 = load i32, ptr %mask.i, align 8
-  %and.i = and i32 %6, %0
-  %pattern.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
-  %7 = load i32, ptr %pattern.i, align 4
-  %cmp1.i = icmp eq i32 %and.i, %7
-  br i1 %cmp1.i, label %do.end.i, label %for.cond.i
+15:                                               ; preds = %14, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
+  %16 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %9, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, %10
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %19, %21
+  br i1 %22, label %.thread.i, label %14
 
-do.body.i:                                        ; preds = %for.cond.i
-  %tobool2.not.i = icmp eq ptr %scevgep.i, null
-  br i1 %tobool2.not.i, label %if.else.i, label %do.end.i
+._crit_edge.i:                                    ; preds = %14
+  %.not.i = icmp eq ptr %scevgep.i, null
+  br i1 %.not.i, label %._crit_edge.thread.i, label %.thread.i, !prof !9
 
-if.else.i:                                        ; preds = %do.body.i, %for.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 262, ptr noundef nonnull @__func__.find_counter, ptr noundef nonnull @.str.113) #12
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.lr.ph
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.117, i32 noundef 276, ptr noundef nonnull @__func__.find_counter, ptr noundef nonnull @.str.118) #11
   unreachable
 
-do.end.i:                                         ; preds = %for.body.i, %do.body.i
-  %class.119.i = phi ptr [ %scevgep.i, %do.body.i ], [ %arrayidx.i, %for.body.i ]
-  %what.i = getelementptr inbounds nuw i8, ptr %class.119.i, i64 24
-  %8 = load i32, ptr %what.i, align 8
-  switch i32 %8, label %do.body19.i [
-    i32 2, label %for.inc
-    i32 0, label %sw.bb5.i
-    i32 1, label %sw.bb6.i
+.thread.i:                                        ; preds = %15, %._crit_edge.i
+  %.147.i = phi ptr [ %scevgep.i, %._crit_edge.i ], [ %16, %15 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.147.i, i64 24
+  %24 = load i32, ptr %23, align 8
+  switch i32 %24, label %48 [
+    i32 2, label %find_counter.exit.thread
+    i32 0, label %25
+    i32 1, label %27
   ]
 
-sw.bb5.i:                                         ; preds = %do.end.i
-  %count.i = getelementptr inbounds nuw i8, ptr %class.119.i, i64 32
-  br label %if.then
+find_counter.exit.thread:                         ; preds = %.thread.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  br label %54
 
-sw.bb6.i:                                         ; preds = %do.end.i
-  tail call void @g_mutex_lock(ptr noundef nonnull @lock) #10
-  %9 = load ptr, ptr @insns, align 8
-  %conv.i = zext i32 %0 to i64
-  %10 = inttoptr i64 %conv.i to ptr
-  %call7.i = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %10) #10
-  %tobool8.not.i = icmp eq ptr %call7.i, null
-  br i1 %tobool8.not.i, label %if.then9.i, label %if.end17.i
+25:                                               ; preds = %.thread.i
+  %26 = getelementptr inbounds nuw i8, ptr %.147.i, i64 32
+  br label %find_counter.exit
 
-if.then9.i:                                       ; preds = %sw.bb6.i
-  %call10.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #13
-  %opcode11.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 8
-  store i32 %0, ptr %opcode11.i, align 8
-  %call12.i = tail call ptr @qemu_plugin_insn_disas(ptr noundef %call1) #10
-  store ptr %call12.i, ptr %call10.i, align 8
-  %class14.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 24
-  store ptr %class.119.i, ptr %class14.i, align 8
-  %11 = load ptr, ptr @insns, align 8
-  %call16.i = tail call i32 @g_hash_table_insert(ptr noundef %11, ptr noundef %10, ptr noundef nonnull %call10.i) #10
-  br label %if.end17.i
+27:                                               ; preds = %.thread.i
+  call void @g_mutex_lock(ptr noundef nonnull @lock) #8
+  %28 = load ptr, ptr @insns, align 8
+  %29 = load i32, ptr %3, align 4
+  %30 = zext i32 %29 to i64
+  %31 = inttoptr i64 %30 to ptr
+  %32 = call ptr @g_hash_table_lookup(ptr noundef %28, ptr noundef %31) #8
+  %.not44.i = icmp eq ptr %32, null
+  br i1 %.not44.i, label %33, label %46
 
-if.end17.i:                                       ; preds = %if.then9.i, %sw.bb6.i
-  %icount.0.i = phi ptr [ %call7.i, %sw.bb6.i ], [ %call10.i, %if.then9.i ]
-  tail call void @g_mutex_unlock(ptr noundef nonnull @lock) #10
-  %count18.i = getelementptr inbounds nuw i8, ptr %icount.0.i, i64 16
-  br label %if.then
+33:                                               ; preds = %27
+  %34 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #12
+  %35 = load i32, ptr %3, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i32 %35, ptr %36, align 8
+  %37 = call ptr @qemu_plugin_insn_disas(ptr noundef %5) #8
+  store ptr %37, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store ptr %.147.i, ptr %38, align 8
+  %39 = call ptr @qemu_plugin_scoreboard_new(i64 noundef 8) #8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %39, ptr %40, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 24
+  store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %41 = load ptr, ptr @insns, align 8
+  %42 = load i32, ptr %3, align 4
+  %43 = zext i32 %42 to i64
+  %44 = inttoptr i64 %43 to ptr
+  %45 = call i32 @g_hash_table_insert(ptr noundef %41, ptr noundef %44, ptr noundef nonnull %34) #8
+  br label %46
 
-do.body19.i:                                      ; preds = %do.end.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 291, ptr noundef nonnull @__func__.find_counter, ptr noundef null) #12
+46:                                               ; preds = %33, %27
+  %.041.i = phi ptr [ %32, %27 ], [ %34, %33 ]
+  call void @g_mutex_unlock(ptr noundef nonnull @lock) #8
+  %47 = getelementptr inbounds nuw i8, ptr %.041.i, i64 16
+  br label %find_counter.exit
+
+48:                                               ; preds = %.thread.i
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.117, i32 noundef 307, ptr noundef nonnull @__func__.find_counter, ptr noundef null) #11
   unreachable
 
-if.then:                                          ; preds = %if.end17.i, %sw.bb5.i
-  %retval.0.i.ph = phi ptr [ %count.i, %sw.bb5.i ], [ %count18.i, %if.end17.i ]
-  %12 = load i8, ptr @do_inline, align 1
-  %tobool3 = trunc i8 %12 to i1
-  br i1 %tobool3, label %if.then4, label %if.else
+find_counter.exit:                                ; preds = %25, %46
+  %.0.i.in = phi ptr [ %47, %46 ], [ %26, %25 ]
+  %.0.i = load ptr, ptr %.0.i.in, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  %.not = icmp eq ptr %.0.i, null
+  br i1 %.not, label %54, label %49
 
-if.then4:                                         ; preds = %if.then
-  tail call void @qemu_plugin_register_vcpu_insn_exec_inline(ptr noundef %call1, i32 noundef 0, ptr noundef nonnull %retval.0.i.ph, i64 noundef 1) #10
-  br label %for.inc
+49:                                               ; preds = %find_counter.exit
+  %50 = load i8, ptr @do_inline, align 1, !range !10, !noundef !11
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %52, label %53
 
-if.else:                                          ; preds = %if.then
-  tail call void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef %call1, ptr noundef nonnull @vcpu_insn_exec_before, i32 noundef 0, ptr noundef nonnull %retval.0.i.ph) #10
-  br label %for.inc
+52:                                               ; preds = %49
+  call void @qemu_plugin_register_vcpu_insn_exec_inline_per_vcpu(ptr noundef %5, i32 noundef 0, ptr nonnull %.0.i, i64 0, i64 noundef 1) #8
+  br label %54
 
-for.inc:                                          ; preds = %do.end.i, %if.else, %if.then4
-  %inc = add nuw i64 %i.013, 1
-  %exitcond.not = icmp eq i64 %inc, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+53:                                               ; preds = %49
+  call void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef %5, ptr noundef nonnull @vcpu_insn_exec_before, i32 noundef 0, ptr noundef nonnull %.0.i) #8
+  br label %54
 
-for.end:                                          ; preds = %for.inc, %entry
+54:                                               ; preds = %find_counter.exit.thread, %52, %53, %find_counter.exit
+  %55 = add nuw i64 %.015, 1
+  %exitcond.not = icmp eq i64 %55, %4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %54, %2
   ret void
 }
 
 declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal void @plugin_exit(i64 %id, ptr readnone captures(none) %p) #0 {
-entry:
-  %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.114) #10
-  %0 = load i32, ptr @class_table_sz, align 4
-  %cmp28 = icmp sgt i32 %0, 0
-  br i1 %cmp28, label %for.body, label %for.end
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
+  %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.119) #8
+  %4 = load i32, ptr @class_table_sz, align 4
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %1 = load ptr, ptr @class_table, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %1, i64 %indvars.iv
-  %what = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
-  %2 = load i32, ptr %what, align 8
-  switch i32 %2, label %for.inc [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb4
-    i32 2, label %sw.bb6
+.lr.ph:                                           ; preds = %2, %25
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %2 ]
+  %6 = load ptr, ptr @class_table, align 8
+  %7 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = load i32, ptr %8, align 8
+  switch i32 %9, label %25 [
+    i32 0, label %10
+    i32 1, label %21
+    i32 2, label %23
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %count = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
-  %3 = load i64, ptr %count, align 8
-  %tobool.not = icmp eq i64 %3, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %14 = load i64, ptr %13, align 8
+  %15 = tail call i64 @qemu_plugin_u64_sum(ptr %12, i64 %14) #8
+  %.not43 = icmp eq i64 %15, 0
+  br i1 %.not43, label %16, label %19
 
-lor.lhs.false:                                    ; preds = %sw.bb
-  %4 = load i8, ptr @verbose, align 1
-  %tobool1 = trunc i8 %4 to i1
-  br i1 %tobool1, label %if.then, label %for.inc
+16:                                               ; preds = %10
+  %17 = load i8, ptr @verbose, align 1, !range !10, !noundef !11
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %19, label %25
 
-if.then:                                          ; preds = %lor.lhs.false, %sw.bb
-  %5 = load ptr, ptr %arrayidx, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.115, ptr noundef %5, i64 noundef %3) #10
-  br label %for.inc
+19:                                               ; preds = %16, %10
+  %20 = load ptr, ptr %7, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.120, ptr noundef %20, i64 noundef %15) #8
+  br label %25
 
-sw.bb4:                                           ; preds = %for.body
-  %6 = load ptr, ptr %arrayidx, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.116, ptr noundef %6) #10
-  br label %for.inc
+21:                                               ; preds = %.lr.ph
+  %22 = load ptr, ptr %7, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.121, ptr noundef %22) #8
+  br label %25
 
-sw.bb6:                                           ; preds = %for.body
-  %7 = load ptr, ptr %arrayidx, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.117, ptr noundef %7) #10
-  br label %for.inc
+23:                                               ; preds = %.lr.ph
+  %24 = load ptr, ptr %7, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.122, ptr noundef %24) #8
+  br label %25
 
-for.inc:                                          ; preds = %sw.bb4, %sw.bb6, %if.then, %lor.lhs.false, %for.body
+25:                                               ; preds = %21, %23, %19, %16, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr @class_table_sz, align 4
-  %9 = sext i32 %8 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  %26 = load i32, ptr @class_table_sz, align 4
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-for.end:                                          ; preds = %for.inc, %entry
-  %10 = load ptr, ptr @insns, align 8
-  %call8 = tail call ptr @g_hash_table_get_values(ptr noundef %10) #10
-  %tobool9.not = icmp eq ptr %call8, null
-  br i1 %tobool9.not, label %glib_autoptr_cleanup_GString.exit, label %cond.true
+._crit_edge:                                      ; preds = %25, %2
+  %29 = load ptr, ptr @insns, align 8
+  %30 = tail call ptr @g_hash_table_get_values(ptr noundef %29) #8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %58, label %31
 
-cond.true:                                        ; preds = %for.end
-  %next = getelementptr inbounds nuw i8, ptr %call8, i64 8
-  %11 = load ptr, ptr %next, align 8
-  %tobool11.not = icmp eq ptr %11, null
-  br i1 %tobool11.not, label %glib_autoptr_cleanup_GString.exit, label %if.then12
+31:                                               ; preds = %._crit_edge
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.not39 = icmp eq ptr %33, null
+  br i1 %.not39, label %58, label %34
 
-if.then12:                                        ; preds = %cond.true
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.118) #10
-  %call13 = tail call ptr @g_list_sort(ptr noundef nonnull %call8, ptr noundef nonnull @cmp_exec_count) #10
-  %tobool16.not30 = icmp eq ptr %call13, null
-  br i1 %tobool16.not30, label %for.end39, label %cond.true17
+34:                                               ; preds = %31
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.123) #8
+  %35 = tail call ptr @g_list_sort(ptr noundef nonnull %30, ptr noundef nonnull @cmp_exec_count) #8
+  %.not4051 = icmp eq ptr %35, null
+  br i1 %.not4051, label %.critedge, label %.lr.ph55
 
-cond.true17:                                      ; preds = %if.then12, %cond.end29
-  %i.132 = phi i32 [ %inc32, %cond.end29 ], [ 0, %if.then12 ]
-  %counts.031 = phi ptr [ %20, %cond.end29 ], [ %call13, %if.then12 ]
-  %next18 = getelementptr inbounds nuw i8, ptr %counts.031, i64 8
-  %12 = load ptr, ptr %next18, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %for.end39, label %for.body21
+.lr.ph55:                                         ; preds = %34, %53
+  %.153 = phi i32 [ %55, %53 ], [ 0, %34 ]
+  %.03552 = phi ptr [ %56, %53 ], [ %35, %34 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.03552, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %.critedge, label %39
 
-for.body21:                                       ; preds = %cond.true17
-  %14 = load ptr, ptr %counts.031, align 8
-  %15 = load ptr, ptr %14, align 8
-  %count22 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i64, ptr %count22, align 8
-  %opcode = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %opcode, align 8
-  %class23 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %18 = load ptr, ptr %class23, align 8
-  %tobool24.not = icmp eq ptr %18, null
-  br i1 %tobool24.not, label %cond.end29, label %cond.true25
+39:                                               ; preds = %.lr.ph55
+  %40 = load ptr, ptr %.03552, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %45 = load i64, ptr %44, align 8
+  %46 = tail call i64 @qemu_plugin_u64_sum(ptr %43, i64 %45) #8
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %50 = load ptr, ptr %49, align 8
+  %.not42 = icmp eq ptr %50, null
+  br i1 %.not42, label %53, label %51
 
-cond.true25:                                      ; preds = %for.body21
-  %19 = load ptr, ptr %18, align 8
-  br label %cond.end29
+51:                                               ; preds = %39
+  %52 = load ptr, ptr %50, align 8
+  br label %53
 
-cond.end29:                                       ; preds = %for.body21, %cond.true25
-  %cond30 = phi ptr [ %19, %cond.true25 ], [ @.str.120, %for.body21 ]
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.119, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %cond30) #10
-  %inc32 = add nuw nsw i32 %i.132, 1
-  %20 = load ptr, ptr %next18, align 8
-  %cmp15 = icmp samesign ugt i32 %i.132, 48
-  %tobool16.not = icmp eq ptr %20, null
-  %or.cond = select i1 %cmp15, i1 true, i1 %tobool16.not
-  br i1 %or.cond, label %for.end39, label %cond.true17, !llvm.loop !10
+53:                                               ; preds = %39, %51
+  %54 = phi ptr [ %52, %51 ], [ @.str.125, %39 ]
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.124, ptr noundef %41, i64 noundef %46, i32 noundef %48, ptr noundef %54) #8
+  %55 = add nuw nsw i32 %.153, 1
+  %56 = load ptr, ptr %36, align 8
+  %57 = icmp samesign ugt i32 %.153, 48
+  %.not40 = icmp eq ptr %56, null
+  %or.cond = select i1 %57, i1 true, i1 %.not40
+  br i1 %or.cond, label %.critedge, label %.lr.ph55, !llvm.loop !14
 
-for.end39:                                        ; preds = %cond.true17, %cond.end29, %if.then12
-  %counts.0.lcssa = phi ptr [ null, %if.then12 ], [ %20, %cond.end29 ], [ %counts.031, %cond.true17 ]
-  tail call void @g_list_free(ptr noundef %counts.0.lcssa) #10
-  br label %glib_autoptr_cleanup_GString.exit
+.critedge:                                        ; preds = %.lr.ph55, %53, %34
+  %.035.lcssa = phi ptr [ null, %34 ], [ %56, %53 ], [ %.03552, %.lr.ph55 ]
+  tail call void @g_list_free(ptr noundef %.035.lcssa) #8
+  br label %58
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %for.end39, %cond.true, %for.end
-  %21 = load ptr, ptr @insns, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %21) #10
-  %22 = load ptr, ptr %call, align 8
-  tail call void @qemu_plugin_outs(ptr noundef %22) #10
-  %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #10
+58:                                               ; preds = %.critedge, %31, %._crit_edge
+  %59 = load ptr, ptr @insns, align 8
+  tail call void @g_hash_table_destroy(ptr noundef %59) #8
+  br label %.preheader
+
+.preheader:                                       ; preds = %58, %._crit_edge60
+  %indvars.iv66 = phi i64 [ 0, %58 ], [ %indvars.iv.next67, %._crit_edge60 ]
+  %60 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv66
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %.lr.ph59, label %._crit_edge60
+
+.lr.ph59:                                         ; preds = %.preheader
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %wide.trip.count = zext nneg i32 %62 to i64
+  br label %66
+
+._crit_edge60:                                    ; preds = %66, %.preheader
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
+  br i1 %exitcond69.not, label %glib_autoptr_cleanup_GString.exit, label %.preheader, !llvm.loop !15
+
+66:                                               ; preds = %.lr.ph59, %66
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next64, %66 ]
+  %67 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %65, i64 %indvars.iv63, i32 5
+  %68 = load ptr, ptr %67, align 8
+  tail call void @qemu_plugin_scoreboard_free(ptr noundef %68) #8
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge60, label %66, !llvm.loop !16
+
+glib_autoptr_cleanup_GString.exit:                ; preds = %._crit_edge60
+  %69 = load ptr, ptr %3, align 8
+  tail call void @qemu_plugin_outs(ptr noundef %69) #8
+  %70 = tail call ptr @g_string_free(ptr noundef nonnull %3, i32 noundef 1) #8
   ret void
 }
 
@@ -529,16 +628,20 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #4
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal void @free_record(ptr noundef %data) #0 {
-entry:
-  %0 = load ptr, ptr %data, align 8
-  tail call void @g_free(ptr noundef %0) #10
-  tail call void @g_free(ptr noundef nonnull %data) #10
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @free_record(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  tail call void @qemu_plugin_scoreboard_free(ptr noundef %3) #8
+  %4 = load ptr, ptr %0, align 8
+  tail call void @g_free(ptr noundef %4) #8
+  tail call void @g_free(ptr noundef nonnull %0) #8
   ret void
 }
+
+declare void @qemu_plugin_scoreboard_free(ptr noundef) local_unnamed_addr #2
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -546,20 +649,17 @@ declare i64 @qemu_plugin_tb_n_insns(ptr noundef) local_unnamed_addr #2
 
 declare ptr @qemu_plugin_tb_get_insn(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @qemu_plugin_register_vcpu_insn_exec_inline(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @qemu_plugin_register_vcpu_insn_exec_inline_per_vcpu(ptr noundef, i32 noundef, ptr, i64, i64 noundef) local_unnamed_addr #2
 
 declare void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @vcpu_insn_exec_before(i32 %cpu_index, ptr noundef captures(none) %udata) #5 {
-entry:
-  %0 = load i64, ptr %udata, align 8
-  %inc = add i64 %0, 1
-  store i64 %inc, ptr %udata, align 8
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @vcpu_insn_exec_before(i32 noundef %0, ptr noundef %1) #0 {
+  tail call void @qemu_plugin_u64_add(ptr %1, i64 0, i32 noundef %0, i64 noundef 1) #8
   ret void
 }
 
-declare ptr @qemu_plugin_insn_data(ptr noundef) local_unnamed_addr #2
+declare i64 @qemu_plugin_insn_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -568,8 +668,8 @@ declare void @g_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #7
 
 declare ptr @qemu_plugin_insn_disas(ptr noundef) local_unnamed_addr #2
 
@@ -577,7 +677,11 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 
 declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
+declare void @qemu_plugin_u64_add(ptr, i64, i32 noundef, i64 noundef) local_unnamed_addr #2
+
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
+
+declare i64 @qemu_plugin_u64_sum(ptr, i64) local_unnamed_addr #2
 
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -585,16 +689,21 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #2
 
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #8 {
-entry:
-  %count = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %0 = load i64, ptr %count, align 8
-  %count1 = getelementptr inbounds nuw i8, ptr %b, i64 16
-  %1 = load i64, ptr %count1, align 8
-  %cmp = icmp ugt i64 %0, %1
-  %cond = select i1 %cmp, i32 -1, i32 1
-  ret i32 %cond
+; Function Attrs: nounwind sspstrong uwtable
+define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load i64, ptr %5, align 8
+  %7 = tail call i64 @qemu_plugin_u64_sum(ptr %4, i64 %6) #8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = load i64, ptr %10, align 8
+  %12 = tail call i64 @qemu_plugin_u64_sum(ptr %9, i64 %11) #8
+  %13 = icmp ugt i64 %7, %12
+  %14 = select i1 %13, i32 -1, i32 1
+  ret i32 %14
 }
 
 declare void @g_list_free(ptr noundef) local_unnamed_addr #2
@@ -605,31 +714,36 @@ declare void @qemu_plugin_outs(ptr noundef) local_unnamed_addr #2
 
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
-attributes #11 = { cold }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
+attributes #10 = { cold nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

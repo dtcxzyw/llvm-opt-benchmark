@@ -1,310 +1,2985 @@
 ; ModuleID = 'bench/qemu/original/fw_cfg.ll'
 source_filename = "bench/qemu/original/fw_cfg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.anon.4 = type { i32, i32, i8 }
+%struct.VMStateInfo = type { ptr, ptr, ptr }
+%struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
+%union.anon.6 = type { i64 }
+%struct.QemuUUID = type { %union.anon.7 }
+%union.anon.7 = type { %struct.anon.8 }
+%struct.anon.8 = type { i32, i16, i16, i8, i8, [6 x i8] }
+%struct.timeval = type { i64, i64 }
+%struct.FWCfgEntry = type { i32, i8, ptr, ptr, ptr, ptr }
+%struct.anon.5 = type { ptr, i32 }
+%struct.fw_cfg_file = type { i32, i16, i16, [56 x i8] }
+%struct.ErrorPropagator = type { ptr, ptr }
+%struct.fw_cfg_dma_access = type { i32, i32, i64 }
+
+@.str = private unnamed_addr constant [30 x i8] c"s->fw_cfg_order_override == 0\00", align 1
+@.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/hw/nvram/fw_cfg.c\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_set_order_override = private unnamed_addr constant [50 x i8] c"void fw_cfg_set_order_override(FWCfgState *, int)\00", align 1
+@.str.2 = private unnamed_addr constant [30 x i8] c"s->fw_cfg_order_override != 0\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_reset_order_override = private unnamed_addr constant [47 x i8] c"void fw_cfg_reset_order_override(FWCfgState *)\00", align 1
+@.str.3 = private unnamed_addr constant [29 x i8] c"count < fw_cfg_file_slots(s)\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_add_file_callback = private unnamed_addr constant [124 x i8] c"void fw_cfg_add_file_callback(FWCfgState *, const char *, FWCfgCallback, FWCfgWriteCallback, void *, void *, size_t, _Bool)\00", align 1
+@.str.4 = private unnamed_addr constant [31 x i8] c"duplicate fw_cfg file name: %s\00", align 1
+@.str.5 = private unnamed_addr constant [9 x i8] c"s->files\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_modify_file = private unnamed_addr constant [69 x i8] c"void *fw_cfg_modify_file(FWCfgState *, const char *, void *, size_t)\00", align 1
+@.str.6 = private unnamed_addr constant [29 x i8] c"index < fw_cfg_file_slots(s)\00", align 1
+@error_fatal = external global ptr, align 8
+@__func__.fw_cfg_add_file_from_generator = private unnamed_addr constant [31 x i8] c"fw_cfg_add_file_from_generator\00", align 1
+@.str.7 = private unnamed_addr constant [27 x i8] c"Cannot find object ID '%s'\00", align 1
+@.str.8 = private unnamed_addr constant [22 x i8] c"fw_cfg-data-generator\00", align 1
+@.str.9 = private unnamed_addr constant [38 x i8] c"Object ID '%s' is not a '%s' subclass\00", align 1
+@.str.10 = private unnamed_addr constant [10 x i8] c"fw_cfg_io\00", align 1
+@.str.11 = private unnamed_addr constant [12 x i8] c"dma_enabled\00", align 1
+@.str.12 = private unnamed_addr constant [7 x i8] c"fw_cfg\00", align 1
+@.str.13 = private unnamed_addr constant [11 x i8] c"fw_cfg_mem\00", align 1
+@.str.14 = private unnamed_addr constant [11 x i8] c"data_width\00", align 1
+@.str.15 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.16 = private unnamed_addr constant [20 x i8] c"failed to load \22%s\22\00", align 1
+@trace_events_enabled_count = external local_unnamed_addr global i32, align 4
+@_TRACE_FW_CFG_ADD_BYTES_DSTATE = external local_unnamed_addr global i16, align 2
+@message_with_timestamp = external local_unnamed_addr global i8, align 1
+@.str.17 = private unnamed_addr constant [58 x i8] c"%d@%zu.%06zu:fw_cfg_add_bytes key 0x%04x '%s', %zu bytes\0A\00", align 1
+@.str.18 = private unnamed_addr constant [45 x i8] c"fw_cfg_add_bytes key 0x%04x '%s', %zu bytes\0A\00", align 1
+@qemu_loglevel = external local_unnamed_addr global i32, align 4
+@.str.19 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@key_name.fw_cfg_wellknown_keys = internal unnamed_addr constant [32 x ptr] [ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null], align 16
+@.str.20 = private unnamed_addr constant [10 x i8] c"signature\00", align 1
+@.str.21 = private unnamed_addr constant [3 x i8] c"id\00", align 1
+@.str.22 = private unnamed_addr constant [5 x i8] c"uuid\00", align 1
+@.str.23 = private unnamed_addr constant [9 x i8] c"ram_size\00", align 1
+@.str.24 = private unnamed_addr constant [10 x i8] c"nographic\00", align 1
+@.str.25 = private unnamed_addr constant [8 x i8] c"nb_cpus\00", align 1
+@.str.26 = private unnamed_addr constant [11 x i8] c"machine_id\00", align 1
+@.str.27 = private unnamed_addr constant [12 x i8] c"kernel_addr\00", align 1
+@.str.28 = private unnamed_addr constant [12 x i8] c"kernel_size\00", align 1
+@.str.29 = private unnamed_addr constant [15 x i8] c"kernel_cmdline\00", align 1
+@.str.30 = private unnamed_addr constant [12 x i8] c"initrd_addr\00", align 1
+@.str.31 = private unnamed_addr constant [12 x i8] c"initdr_size\00", align 1
+@.str.32 = private unnamed_addr constant [12 x i8] c"boot_device\00", align 1
+@.str.33 = private unnamed_addr constant [5 x i8] c"numa\00", align 1
+@.str.34 = private unnamed_addr constant [10 x i8] c"boot_menu\00", align 1
+@.str.35 = private unnamed_addr constant [9 x i8] c"max_cpus\00", align 1
+@.str.36 = private unnamed_addr constant [13 x i8] c"kernel_entry\00", align 1
+@.str.37 = private unnamed_addr constant [12 x i8] c"kernel_data\00", align 1
+@.str.38 = private unnamed_addr constant [12 x i8] c"initrd_data\00", align 1
+@.str.39 = private unnamed_addr constant [13 x i8] c"cmdline_addr\00", align 1
+@.str.40 = private unnamed_addr constant [13 x i8] c"cmdline_size\00", align 1
+@.str.41 = private unnamed_addr constant [13 x i8] c"cmdline_data\00", align 1
+@.str.42 = private unnamed_addr constant [11 x i8] c"setup_addr\00", align 1
+@.str.43 = private unnamed_addr constant [11 x i8] c"setup_size\00", align 1
+@.str.44 = private unnamed_addr constant [11 x i8] c"setup_data\00", align 1
+@.str.45 = private unnamed_addr constant [9 x i8] c"file_dir\00", align 1
+@.str.46 = private unnamed_addr constant [46 x i8] c"key < fw_cfg_max_entry(s) && len < UINT32_MAX\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback = private unnamed_addr constant [121 x i8] c"void fw_cfg_add_bytes_callback(FWCfgState *, uint16_t, FWCfgCallback, FWCfgWriteCallback, void *, void *, size_t, _Bool)\00", align 1
+@.str.47 = private unnamed_addr constant [35 x i8] c"s->entries[arch][key].data == NULL\00", align 1
+@_TRACE_FW_CFG_ADD_STRING_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.48 = private unnamed_addr constant [60 x i8] c"%d@%zu.%06zu:fw_cfg_add_string key 0x%04x '%s', value '%s'\0A\00", align 1
+@.str.49 = private unnamed_addr constant [47 x i8] c"fw_cfg_add_string key 0x%04x '%s', value '%s'\0A\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read = private unnamed_addr constant [71 x i8] c"void *fw_cfg_modify_bytes_read(FWCfgState *, uint16_t, void *, size_t)\00", align 1
+@_TRACE_FW_CFG_ADD_I16_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.50 = private unnamed_addr constant [57 x i8] c"%d@%zu.%06zu:fw_cfg_add_i16 key 0x%04x '%s', value 0x%x\0A\00", align 1
+@.str.51 = private unnamed_addr constant [44 x i8] c"fw_cfg_add_i16 key 0x%04x '%s', value 0x%x\0A\00", align 1
+@_TRACE_FW_CFG_ADD_I32_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.52 = private unnamed_addr constant [57 x i8] c"%d@%zu.%06zu:fw_cfg_add_i32 key 0x%04x '%s', value 0x%x\0A\00", align 1
+@.str.53 = private unnamed_addr constant [44 x i8] c"fw_cfg_add_i32 key 0x%04x '%s', value 0x%x\0A\00", align 1
+@_TRACE_FW_CFG_ADD_I64_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.54 = private unnamed_addr constant [58 x i8] c"%d@%zu.%06zu:fw_cfg_add_i64 key 0x%04x '%s', value 0x%lx\0A\00", align 1
+@.str.55 = private unnamed_addr constant [45 x i8] c"fw_cfg_add_i64 key 0x%04x '%s', value 0x%lx\0A\00", align 1
+@.str.56 = private unnamed_addr constant [8 x i8] c"machine\00", align 1
+@.str.57 = private unnamed_addr constant [98 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/boards.h\00", align 1
+@__func__.MACHINE_GET_CLASS = private unnamed_addr constant [18 x i8] c"MACHINE_GET_CLASS\00", align 1
+@.str.58 = private unnamed_addr constant [41 x i8] c"Unknown firmware file in legacy mode: %s\00", align 1
+@.str.59 = private unnamed_addr constant [19 x i8] c"etc/boot-menu-wait\00", align 1
+@.str.60 = private unnamed_addr constant [15 x i8] c"bootsplash.jpg\00", align 1
+@.str.61 = private unnamed_addr constant [15 x i8] c"bootsplash.bmp\00", align 1
+@.str.62 = private unnamed_addr constant [19 x i8] c"etc/boot-fail-wait\00", align 1
+@.str.63 = private unnamed_addr constant [25 x i8] c"etc/smbios/smbios-tables\00", align 1
+@.str.64 = private unnamed_addr constant [25 x i8] c"etc/smbios/smbios-anchor\00", align 1
+@.str.65 = private unnamed_addr constant [9 x i8] c"etc/e820\00", align 1
+@.str.66 = private unnamed_addr constant [24 x i8] c"etc/reserved-memory-end\00", align 1
+@.str.67 = private unnamed_addr constant [21 x i8] c"genroms/kvmvapic.bin\00", align 1
+@.str.68 = private unnamed_addr constant [22 x i8] c"genroms/linuxboot.bin\00", align 1
+@.str.69 = private unnamed_addr constant [18 x i8] c"etc/system-states\00", align 1
+@.str.70 = private unnamed_addr constant [20 x i8] c"etc/extra-pci-roots\00", align 1
+@.str.71 = private unnamed_addr constant [16 x i8] c"etc/acpi/tables\00", align 1
+@.str.72 = private unnamed_addr constant [17 x i8] c"etc/table-loader\00", align 1
+@.str.73 = private unnamed_addr constant [12 x i8] c"etc/tpm/log\00", align 1
+@.str.74 = private unnamed_addr constant [14 x i8] c"etc/acpi/rsdp\00", align 1
+@.str.75 = private unnamed_addr constant [10 x i8] c"bootorder\00", align 1
+@.str.76 = private unnamed_addr constant [24 x i8] c"etc/msr_feature_control\00", align 1
+@fw_cfg_order = internal unnamed_addr constant [22 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @.str.59, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.60, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.61, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.62, i32 15, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.63, i32 20, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.64, i32 30, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.65, i32 40, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.66, i32 50, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.67, i32 55, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.68, i32 60, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } zeroinitializer, { ptr, i32, [4 x i8] } zeroinitializer, { ptr, i32, [4 x i8] } { ptr @.str.69, i32 90, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } zeroinitializer, { ptr, i32, [4 x i8] } zeroinitializer, { ptr, i32, [4 x i8] } { ptr @.str.70, i32 120, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.71, i32 130, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.72, i32 140, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.73, i32 150, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.74, i32 160, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.75, i32 170, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.76, i32 180, [4 x i8] zeroinitializer }], align 16
+@_TRACE_FW_CFG_ADD_FILE_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.78 = private unnamed_addr constant [53 x i8] c"%d@%zu.%06zu:fw_cfg_add_file %p #%d: %s (%zd bytes)\0A\00", align 1
+@.str.79 = private unnamed_addr constant [40 x i8] c"fw_cfg_add_file %p #%d: %s (%zd bytes)\0A\00", align 1
+@.str.80 = private unnamed_addr constant [104 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/nvram/fw_cfg.h\00", align 1
+@__func__.FW_CFG_DATA_GENERATOR_GET_CLASS = private unnamed_addr constant [32 x i8] c"FW_CFG_DATA_GENERATOR_GET_CLASS\00", align 1
+@.str.81 = private unnamed_addr constant [15 x i8] c"sys-bus-device\00", align 1
+@.str.82 = private unnamed_addr constant [98 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/sysbus.h\00", align 1
+@__func__.SYS_BUS_DEVICE = private unnamed_addr constant [15 x i8] c"SYS_BUS_DEVICE\00", align 1
+@__func__.FW_CFG_IO = private unnamed_addr constant [10 x i8] c"FW_CFG_IO\00", align 1
+@__func__.FW_CFG = private unnamed_addr constant [7 x i8] c"FW_CFG\00", align 1
+@fw_cfg_data_mem_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], { i32, i32, i8, [7 x i8], ptr }, %struct.anon.4, [4 x i8] } { ptr @fw_cfg_data_read, ptr @fw_cfg_data_mem_write, ptr null, ptr null, i32 1, [4 x i8] zeroinitializer, { i32, i32, i8, [7 x i8], ptr } { i32 1, i32 1, i8 0, [7 x i8] zeroinitializer, ptr @fw_cfg_data_mem_valid }, %struct.anon.4 zeroinitializer, [4 x i8] zeroinitializer }, align 8
+@.str.84 = private unnamed_addr constant [34 x i8] c"size > 0 && size <= sizeof(value)\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_data_read = private unnamed_addr constant [56 x i8] c"uint64_t fw_cfg_data_read(void *, hwaddr, unsigned int)\00", align 1
+@_TRACE_FW_CFG_READ_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.85 = private unnamed_addr constant [37 x i8] c"%d@%zu.%06zu:fw_cfg_read %p = 0x%lx\0A\00", align 1
+@.str.86 = private unnamed_addr constant [24 x i8] c"fw_cfg_read %p = 0x%lx\0A\00", align 1
+@fw_cfg_info = internal constant { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.12, ptr @.str.81, i64 1216, i64 0, ptr null, ptr null, ptr null, i8 1, [7 x i8] zeroinitializer, i64 0, ptr @fw_cfg_class_init, ptr null, ptr null, ptr null }, align 8
+@.str.88 = private unnamed_addr constant [7 x i8] c"device\00", align 1
+@.str.89 = private unnamed_addr constant [101 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/qdev-core.h\00", align 1
+@__func__.DEVICE_CLASS = private unnamed_addr constant [13 x i8] c"DEVICE_CLASS\00", align 1
+@_TRACE_FW_CFG_SELECT_DSTATE = external local_unnamed_addr global i16, align 2
+@.str.90 = private unnamed_addr constant [56 x i8] c"%d@%zu.%06zu:fw_cfg_select %p key 0x%04x '%s', ret: %d\0A\00", align 1
+@.str.91 = private unnamed_addr constant [43 x i8] c"fw_cfg_select %p key 0x%04x '%s', ret: %d\0A\00", align 1
+@.str.92 = private unnamed_addr constant [10 x i8] c"cur_entry\00", align 1
+@vmstate_info_uint16 = external constant %struct.VMStateInfo, align 8
+@.str.93 = private unnamed_addr constant [11 x i8] c"cur_offset\00", align 1
+@vmstate_hack_uint32_as_uint16 = internal constant %struct.VMStateInfo { ptr @.str.96, ptr @get_uint32_as_uint16, ptr @put_unused }, align 8
+@vmstate_info_uint32 = external constant %struct.VMStateInfo, align 8
+@.compoundliteral = internal constant [4 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.92, ptr null, i64 848, i64 2, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint16, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.93, ptr null, i64 852, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_hack_uint32_as_uint16, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr @is_version_1 }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.93, ptr null, i64 852, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 2, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@.compoundliteral.94 = internal constant [3 x ptr] [ptr @vmstate_fw_cfg_dma, ptr @vmstate_fw_cfg_acpi_mr, ptr null], align 8
+@vmstate_fw_cfg = internal constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str.12, i8 0, i8 0, [2 x i8] zeroinitializer, i32 2, i32 1, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.compoundliteral, ptr @.compoundliteral.94 }, align 8
+@.str.96 = private unnamed_addr constant [16 x i8] c"int32_as_uint16\00", align 1
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.97 = private unnamed_addr constant [59 x i8] c"uint32_as_uint16 is only used for backward compatibility.\0A\00", align 1
+@.str.98 = private unnamed_addr constant [37 x i8] c"This functions shouldn't be called.\0A\00", align 1
+@.str.99 = private unnamed_addr constant [11 x i8] c"fw_cfg/dma\00", align 1
+@.str.100 = private unnamed_addr constant [9 x i8] c"dma_addr\00", align 1
+@vmstate_info_uint64 = external constant %struct.VMStateInfo, align 8
+@.compoundliteral.101 = internal constant [2 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.100, ptr null, i64 888, i64 8, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint64, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@vmstate_fw_cfg_dma = internal constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str.99, i8 0, i8 0, [2 x i8] zeroinitializer, i32 0, i32 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr @fw_cfg_dma_enabled, ptr null, ptr @.compoundliteral.101, ptr null }, align 8
+@.str.103 = private unnamed_addr constant [15 x i8] c"fw_cfg/acpi_mr\00", align 1
+@.str.104 = private unnamed_addr constant [14 x i8] c"table_mr_size\00", align 1
+@.str.105 = private unnamed_addr constant [15 x i8] c"linker_mr_size\00", align 1
+@.str.106 = private unnamed_addr constant [13 x i8] c"rsdp_mr_size\00", align 1
+@.compoundliteral.107 = internal constant [4 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.104, ptr null, i64 1192, i64 8, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint64, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.105, ptr null, i64 1200, i64 8, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint64, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.106, ptr null, i64 1208, i64 8, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint64, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@vmstate_fw_cfg_acpi_mr = internal constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str.103, i8 0, i8 0, [2 x i8] zeroinitializer, i32 1, i32 1, i32 0, ptr null, ptr @fw_cfg_acpi_mr_restore_post_load, ptr null, ptr null, ptr @fw_cfg_acpi_mr_restore, ptr null, ptr @.compoundliteral.107, ptr null }, align 8
+@__PRETTY_FUNCTION__.fw_cfg_acpi_mr_restore_post_load = private unnamed_addr constant [50 x i8] c"int fw_cfg_acpi_mr_restore_post_load(void *, int)\00", align 1
+@.str.109 = private unnamed_addr constant [26 x i8] c"key < fw_cfg_max_entry(s)\00", align 1
+@__PRETTY_FUNCTION__.fw_cfg_update_mr = private unnamed_addr constant [54 x i8] c"void fw_cfg_update_mr(FWCfgState *, uint16_t, size_t)\00", align 1
+@error_abort = external global ptr, align 8
+@.str.110 = private unnamed_addr constant [16 x i8] c"acpi-mr-restore\00", align 1
+@qdev_prop_bool = external constant %struct.PropertyInfo, align 8
+@fw_cfg_properties = internal constant [1 x { ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] }] [{ ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.110, ptr @qdev_prop_bool, i64 1184, ptr null, i64 0, %union.anon.6 { i64 1 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }], align 16
+@fw_cfg_io_info = internal constant { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.10, ptr @.str.12, i64 1488, i64 0, ptr null, ptr null, ptr null, i8 0, [7 x i8] zeroinitializer, i64 0, ptr @fw_cfg_io_class_init, ptr null, ptr null, ptr null }, align 8
+@.str.113 = private unnamed_addr constant [6 x i8] c"fwcfg\00", align 1
+@.str.114 = private unnamed_addr constant [10 x i8] c"fwcfg.dma\00", align 1
+@__func__.fw_cfg_file_slots_allocate = private unnamed_addr constant [27 x i8] c"fw_cfg_file_slots_allocate\00", align 1
+@.str.115 = private unnamed_addr constant [35 x i8] c"\22file_slots\22 must be at least 0x%x\00", align 1
+@.str.116 = private unnamed_addr constant [34 x i8] c"\22file_slots\22 must not exceed 0x%x\00", align 1
+@fw_cfg_comb_mem_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], { i32, i32, i8, [7 x i8], ptr }, %struct.anon.4, [4 x i8] } { ptr @fw_cfg_data_read, ptr @fw_cfg_comb_write, ptr null, ptr null, i32 2, [4 x i8] zeroinitializer, { i32, i32, i8, [7 x i8], ptr } { i32 0, i32 0, i8 0, [7 x i8] zeroinitializer, ptr @fw_cfg_comb_valid }, %struct.anon.4 zeroinitializer, [4 x i8] zeroinitializer }, align 8
+@fw_cfg_dma_mem_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], { i32, i32, i8, [7 x i8], ptr }, { i32, i32, i8, [3 x i8] }, [4 x i8] } { ptr @fw_cfg_dma_mem_read, ptr @fw_cfg_dma_mem_write, ptr null, ptr null, i32 1, [4 x i8] zeroinitializer, { i32, i32, i8, [7 x i8], ptr } { i32 0, i32 8, i8 0, [7 x i8] zeroinitializer, ptr @fw_cfg_dma_mem_valid }, { i32, i32, i8, [3 x i8] } { i32 0, i32 8, i8 0, [3 x i8] zeroinitializer }, [4 x i8] zeroinitializer }, align 8
+@.str.119 = private unnamed_addr constant [49 x i8] c"start >= 0 && length > 0 && length <= 64 - start\00", align 1
+@.str.120 = private unnamed_addr constant [100 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/qemu/bitops.h\00", align 1
+@__PRETTY_FUNCTION__.extract64 = private unnamed_addr constant [39 x i8] c"uint64_t extract64(uint64_t, int, int)\00", align 1
+@__func__.fw_cfg_common_realize = private unnamed_addr constant [22 x i8] c"fw_cfg_common_realize\00", align 1
+@.str.121 = private unnamed_addr constant [35 x i8] c"at most one %s device is permitted\00", align 1
+@.str.122 = private unnamed_addr constant [5 x i8] c"QEMU\00", align 1
+@qemu_uuid = external global %struct.QemuUUID, align 4
+@__func__.MACHINE = private unnamed_addr constant [8 x i8] c"MACHINE\00", align 1
+@current_machine = external local_unnamed_addr global ptr, align 8
+@.str.123 = private unnamed_addr constant [64 x i8] c"splash-time is invalid,it should be a value between 0 and 65535\00", align 1
+@.str.124 = private unnamed_addr constant [25 x i8] c"failed to find file '%s'\00", align 1
+@boot_splash_filedata = external local_unnamed_addr global ptr, align 8
+@.str.125 = private unnamed_addr constant [36 x i8] c"failed to read splash file '%s': %s\00", align 1
+@.str.126 = private unnamed_addr constant [67 x i8] c"splash file '%s' format not recognized; must be JPEG or 24 bit BMP\00", align 1
+@.str.127 = private unnamed_addr constant [68 x i8] c"reboot timeout is invalid,it should be a value between -1 and 65535\00", align 1
+@.str.128 = private unnamed_addr constant [14 x i8] c"bios-geometry\00", align 1
+@.str.129 = private unnamed_addr constant [13 x i8] c"x-file-slots\00", align 1
+@qdev_prop_uint16 = external constant %struct.PropertyInfo, align 8
+@fw_cfg_io_properties = internal constant [2 x { ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] }] [{ ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.11, ptr @qdev_prop_bool, i64 884, ptr null, i64 0, %union.anon.6 { i64 1 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.129, ptr @qdev_prop_uint16, i64 808, ptr null, i64 0, %union.anon.6 { i64 32 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }], align 16
+@fw_cfg_mem_info = internal constant { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.13, ptr @.str.12, i64 1856, i64 0, ptr null, ptr null, ptr null, i8 0, [7 x i8] zeroinitializer, i64 0, ptr @fw_cfg_mem_class_init, ptr null, ptr null, ptr null }, align 8
+@.str.132 = private unnamed_addr constant [10 x i8] c"fwcfg.ctl\00", align 1
+@.str.133 = private unnamed_addr constant [11 x i8] c"fwcfg.data\00", align 1
+@__func__.FW_CFG_MEM = private unnamed_addr constant [11 x i8] c"FW_CFG_MEM\00", align 1
+@fw_cfg_ctl_mem_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], { i32, i32, i8, [7 x i8], ptr }, %struct.anon.4, [4 x i8] } { ptr @fw_cfg_ctl_mem_read, ptr @fw_cfg_ctl_mem_write, ptr null, ptr null, i32 1, [4 x i8] zeroinitializer, { i32, i32, i8, [7 x i8], ptr } { i32 0, i32 0, i8 0, [7 x i8] zeroinitializer, ptr @fw_cfg_ctl_mem_valid }, %struct.anon.4 zeroinitializer, [4 x i8] zeroinitializer }, align 8
+@qdev_prop_uint32 = external constant %struct.PropertyInfo, align 8
+@fw_cfg_mem_properties = internal constant [3 x { ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] }] [{ ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.14, ptr @qdev_prop_uint32, i64 1760, ptr null, i64 0, %union.anon.6 { i64 4294967295 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.11, ptr @qdev_prop_bool, i64 884, ptr null, i64 0, %union.anon.6 { i64 1 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }, { ptr, ptr, i64, ptr, i64, %union.anon.6, ptr, i32, i32, i8, i8, [6 x i8] } { ptr @.str.129, ptr @qdev_prop_uint16, i64 808, ptr null, i64 0, %union.anon.6 { i64 32 }, ptr null, i32 0, i32 0, i8 0, i8 1, [6 x i8] zeroinitializer }], align 16
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_fw_cfg_register_types, ptr null }]
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define dso_local zeroext i1 @fw_cfg_dma_enabled(ptr noundef readonly captures(none) %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 884
+  %3 = load i8, ptr %2, align 4, !range !4, !noundef !5
+  %4 = trunc nuw i8 %3 to i1
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qfw_cfg_select(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
-entry:
-  %select = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
-  %0 = load ptr, ptr %select, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
+define dso_local void @fw_cfg_add_bytes(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+  %5 = alloca %struct.timeval, align 8
+  %.not.i.i = icmp sgt i16 %1, -1
+  br i1 %.not.i.i, label %8, label %6
+
+6:                                                ; preds = %4
+  %7 = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %1) #18
+  br label %trace_key_name.exit
+
+8:                                                ; preds = %4
+  %9 = icmp samesign ult i16 %1, 32
+  br i1 %9, label %10, label %trace_key_name.exit
+
+10:                                               ; preds = %8
+  %11 = zext nneg i16 %1 to i64
+  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  br label %trace_key_name.exit
+
+trace_key_name.exit:                              ; preds = %6, %8, %10
+  %.0.i.i = phi ptr [ %7, %6 ], [ %13, %10 ], [ null, %8 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  %14 = select i1 %.not.i, ptr @.str.19, ptr %.0.i.i
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i6 = icmp eq i32 %15, 0
+  br i1 %.not.i.i6, label %trace_fw_cfg_add_bytes.exit, label %16, !prof !6
+
+16:                                               ; preds = %trace_key_name.exit
+  %17 = load i16, ptr @_TRACE_FW_CFG_ADD_BYTES_DSTATE, align 2
+  %.not5.i.i = icmp eq i16 %17, 0
+  br i1 %.not5.i.i, label %trace_fw_cfg_add_bytes.exit, label %18
+
+18:                                               ; preds = %16
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %20 = and i32 %19, 32768
+  %.not6.i.i = icmp eq i32 %20, 0
+  br i1 %.not6.i.i, label %trace_fw_cfg_add_bytes.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %31
+
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !7
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #18
+  %26 = tail call i32 @qemu_get_thread_id() #18
+  %27 = load i64, ptr %5, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef %30, ptr noundef nonnull %14, i64 noundef %3) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
+  br label %trace_fw_cfg_add_bytes.exit
+
+31:                                               ; preds = %21
+  %32 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %32, ptr noundef nonnull %14, i64 noundef %3) #18
+  br label %trace_fw_cfg_add_bytes.exit
+
+trace_fw_cfg_add_bytes.exit:                      ; preds = %trace_key_name.exit, %16, %18, %24, %31
+  %33 = and i16 %1, 16383
+  %34 = zext nneg i16 %33 to i32
+  %35 = getelementptr i8, ptr %0, i64 808
+  %.val.i = load i16, ptr %35, align 8
+  %36 = zext i16 %.val.i to i32
+  %37 = add nuw nsw i32 %36, 32
+  %38 = icmp samesign ugt i32 %37, %34
+  %39 = icmp ult i64 %3, 4294967295
+  %or.cond.i = and i1 %39, %38
+  br i1 %or.cond.i, label %41, label %40
+
+40:                                               ; preds = %trace_fw_cfg_add_bytes.exit
+  tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #19
+  unreachable
+
+41:                                               ; preds = %trace_fw_cfg_add_bytes.exit
+  %.lobit.i = lshr i16 %1, 15
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %43 = zext nneg i16 %.lobit.i to i64
+  %44 = getelementptr inbounds nuw [2 x ptr], ptr %42, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = zext nneg i16 %33 to i64
+  %47 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %45, i64 %46, i32 2
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %fw_cfg_add_bytes_callback.exit, label %50
+
+50:                                               ; preds = %41
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #19
+  unreachable
+
+fw_cfg_add_bytes_callback.exit:                   ; preds = %41
+  store ptr %2, ptr %47, align 8
+  %51 = trunc nuw i64 %3 to i32
+  %52 = load ptr, ptr %44, align 8
+  %53 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %52, i64 %46
+  store i32 %51, ptr %53, align 8
+  %54 = load ptr, ptr %44, align 8
+  %55 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %54, i64 %46, i32 4
+  store ptr null, ptr %55, align 8
+  %56 = load ptr, ptr %44, align 8
+  %57 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %56, i64 %46, i32 5
+  store ptr null, ptr %57, align 8
+  %58 = load ptr, ptr %44, align 8
+  %59 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %58, i64 %46, i32 3
+  store ptr null, ptr %59, align 8
+  %60 = load ptr, ptr %44, align 8
+  %61 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %60, i64 %46, i32 1
+  store i8 0, ptr %61, align 4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qfw_cfg_read_data(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %read = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
-  %0 = load ptr, ptr %read, align 8
-  tail call void %0(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #6
+define dso_local void @fw_cfg_add_string(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
+  %.not.i.i = icmp sgt i16 %1, -1
+  br i1 %.not.i.i, label %8, label %6
+
+6:                                                ; preds = %3
+  %7 = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %1) #18
+  br label %trace_key_name.exit
+
+8:                                                ; preds = %3
+  %9 = icmp samesign ult i16 %1, 32
+  br i1 %9, label %10, label %trace_key_name.exit
+
+10:                                               ; preds = %8
+  %11 = zext nneg i16 %1 to i64
+  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  br label %trace_key_name.exit
+
+trace_key_name.exit:                              ; preds = %6, %8, %10
+  %.0.i.i = phi ptr [ %7, %6 ], [ %13, %10 ], [ null, %8 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  %14 = select i1 %.not.i, ptr @.str.19, ptr %.0.i.i
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i8 = icmp eq i32 %15, 0
+  br i1 %.not.i.i8, label %trace_fw_cfg_add_string.exit, label %16, !prof !6
+
+16:                                               ; preds = %trace_key_name.exit
+  %17 = load i16, ptr @_TRACE_FW_CFG_ADD_STRING_DSTATE, align 2
+  %.not5.i.i = icmp eq i16 %17, 0
+  br i1 %.not5.i.i, label %trace_fw_cfg_add_string.exit, label %18
+
+18:                                               ; preds = %16
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %20 = and i32 %19, 32768
+  %.not6.i.i = icmp eq i32 %20, 0
+  br i1 %.not6.i.i, label %trace_fw_cfg_add_string.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %31
+
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #18
+  %26 = tail call i32 @qemu_get_thread_id() #18
+  %27 = load i64, ptr %4, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef %30, ptr noundef nonnull %14, ptr noundef nonnull %2) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  br label %trace_fw_cfg_add_string.exit
+
+31:                                               ; preds = %21
+  %32 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %32, ptr noundef nonnull %14, ptr noundef nonnull %2) #18
+  br label %trace_fw_cfg_add_string.exit
+
+trace_fw_cfg_add_string.exit:                     ; preds = %trace_key_name.exit, %16, %18, %24, %31
+  %33 = add i64 %5, 1
+  %34 = trunc i64 %33 to i32
+  %35 = tail call ptr @g_memdup(ptr noundef nonnull %2, i32 noundef %34) #21
+  tail call void @fw_cfg_add_bytes(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %35, i64 noundef %33)
   ret void
 }
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qfw_cfg_get(ptr noundef %fw_cfg, i16 noundef zeroext %key, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %select.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
-  %0 = load ptr, ptr %select.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
-  %read.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
-  %1 = load ptr, ptr %read.i, align 8
-  tail call void %1(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #6
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @qfw_cfg_get_u16(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
-entry:
-  %value = alloca i16, align 2
-  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
-  %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
-  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
-  %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 2) #6
-  %2 = load i16, ptr %value, align 2
-  ret i16 %2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qfw_cfg_get_u32(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
-entry:
-  %value = alloca i32, align 4
-  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
-  %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
-  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
-  %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 4) #6
-  %2 = load i32, ptr %value, align 4
-  ret i32 %2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qfw_cfg_get_u64(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
-entry:
-  %value = alloca i64, align 8
-  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
-  %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #6
-  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
-  %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 8) #6
-  %2 = load i64, ptr %value, align 8
-  ret i64 %2
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, 4294967296) i64 @qfw_cfg_get_file(ptr noundef %fw_cfg, ptr noundef readonly captures(none) %filename, ptr noundef %data, i64 noundef %buflen) local_unnamed_addr #0 {
-entry:
-  %count = alloca i32, align 4
-  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
-  %0 = load ptr, ptr %select.i.i, align 8
-  tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext 25) #6
-  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
-  %1 = load ptr, ptr %read.i.i, align 8
-  call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %count, i64 noundef 4) #6
-  %2 = load i32, ptr %count, align 4
-  %3 = call noundef i32 @llvm.bswap.i32(i32 %2)
-  store i32 %3, ptr %count, align 4
-  %conv = zext i32 %3 to i64
-  %mul = shl nuw nsw i64 %conv, 6
-  %add = or disjoint i64 %mul, 4
-  %call1 = call noalias ptr @g_malloc(i64 noundef %add) #7
-  %4 = load ptr, ptr %select.i.i, align 8
-  call void %4(ptr noundef %fw_cfg, i16 noundef zeroext 25) #6
-  %5 = load ptr, ptr %read.i.i, align 8
-  call void %5(ptr noundef %fw_cfg, ptr noundef %call1, i64 noundef %add) #6
-  %6 = load i32, ptr %count, align 4
-  %cmp19.not = icmp eq i32 %6, 0
-  br i1 %cmp19.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %entry
-  %add.ptr = getelementptr i8, ptr %call1, i64 4
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.021 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %pdir_entry.020 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %for.body.preheader ]
-  %name = getelementptr inbounds nuw i8, ptr %pdir_entry.020, i64 8
-  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %filename) #8
-  %tobool.not = icmp eq i32 %call3, 0
-  br i1 %tobool.not, label %if.then, label %for.inc
-
-if.then:                                          ; preds = %for.body
-  %7 = load i32, ptr %pdir_entry.020, align 4
-  %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
-  %select = getelementptr inbounds nuw i8, ptr %pdir_entry.020, i64 4
-  %9 = load i16, ptr %select, align 4
-  %10 = call noundef i16 @llvm.bswap.i16(i16 %9)
-  %conv6 = zext i32 %8 to i64
-  %spec.select17 = call i64 @llvm.umin.i64(i64 %buflen, i64 %conv6)
-  %11 = load ptr, ptr %select.i.i, align 8
-  call void %11(ptr noundef %fw_cfg, i16 noundef zeroext %10) #6
-  %12 = load ptr, ptr %read.i.i, align 8
-  call void %12(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %spec.select17) #6
-  br label %for.end
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw i32 %i.021, 1
-  %incdec.ptr = getelementptr i8, ptr %pdir_entry.020, i64 64
-  %exitcond.not = icmp eq i32 %inc, %6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
-
-for.end:                                          ; preds = %for.inc, %entry, %if.then
-  %filesize.0 = phi i64 [ %conv6, %if.then ], [ 0, %entry ], [ 0, %for.inc ]
-  call void @g_free(ptr noundef %call1) #6
-  ret i64 %filesize.0
-}
-
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @g_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: allocsize(1)
+declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @mm_fw_cfg_init(ptr noundef %qts, i64 noundef %base) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #7
-  store i64 %base, ptr %call, align 8
-  %qts2 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %qts, ptr %qts2, align 8
-  %select = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr @mm_fw_cfg_select, ptr %select, align 8
-  %read = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store ptr @mm_fw_cfg_read, ptr %read, align 8
-  ret ptr %call
+define dso_local void @fw_cfg_modify_string(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 {
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
+  %5 = add i64 %4, 1
+  %6 = trunc i64 %5 to i32
+  %7 = tail call ptr @g_memdup(ptr noundef nonnull %2, i32 noundef %6) #21
+  %8 = and i16 %1, 16383
+  %9 = zext nneg i16 %8 to i32
+  %10 = getelementptr i8, ptr %0, i64 808
+  %.val.i = load i16, ptr %10, align 8
+  %11 = zext i16 %.val.i to i32
+  %12 = add nuw nsw i32 %11, 32
+  %13 = icmp samesign ugt i32 %12, %9
+  %14 = icmp ult i64 %5, 4294967295
+  %or.cond.i = and i1 %14, %13
+  br i1 %or.cond.i, label %fw_cfg_modify_bytes_read.exit, label %15
+
+15:                                               ; preds = %3
+  tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #19
+  unreachable
+
+fw_cfg_modify_bytes_read.exit:                    ; preds = %3
+  %.lobit.i = lshr i16 %1, 15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %17 = zext nneg i16 %.lobit.i to i64
+  %18 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = zext nneg i16 %8 to i64
+  %21 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %19, i64 %20, i32 2
+  %22 = load ptr, ptr %21, align 8
+  store ptr %7, ptr %21, align 8
+  %23 = load ptr, ptr %18, align 8
+  %24 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %23, i64 %20
+  store i32 %6, ptr %24, align 8
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %25, i64 %20, i32 1
+  store i8 0, ptr %26, align 4
+  tail call void @g_free(ptr noundef %22) #18
+  ret void
+}
+
+declare void @g_free(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @fw_cfg_add_i16(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = tail call noalias dereferenceable_or_null(2) ptr @g_malloc(i64 noundef 2) #22
+  store i16 %2, ptr %5, align 2
+  %.not.i.i = icmp sgt i16 %1, -1
+  br i1 %.not.i.i, label %8, label %6
+
+6:                                                ; preds = %3
+  %7 = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %1) #18
+  br label %trace_key_name.exit
+
+8:                                                ; preds = %3
+  %9 = icmp samesign ult i16 %1, 32
+  br i1 %9, label %10, label %trace_key_name.exit
+
+10:                                               ; preds = %8
+  %11 = zext nneg i16 %1 to i64
+  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  br label %trace_key_name.exit
+
+trace_key_name.exit:                              ; preds = %6, %8, %10
+  %.0.i.i = phi ptr [ %7, %6 ], [ %13, %10 ], [ null, %8 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  %14 = select i1 %.not.i, ptr @.str.19, ptr %.0.i.i
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i7 = icmp eq i32 %15, 0
+  br i1 %.not.i.i7, label %trace_fw_cfg_add_i16.exit, label %16, !prof !6
+
+16:                                               ; preds = %trace_key_name.exit
+  %17 = load i16, ptr @_TRACE_FW_CFG_ADD_I16_DSTATE, align 2
+  %.not5.i.i = icmp eq i16 %17, 0
+  br i1 %.not5.i.i, label %trace_fw_cfg_add_i16.exit, label %18
+
+18:                                               ; preds = %16
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %20 = and i32 %19, 32768
+  %.not6.i.i = icmp eq i32 %20, 0
+  br i1 %.not6.i.i, label %trace_fw_cfg_add_i16.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %32
+
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #18
+  %26 = tail call i32 @qemu_get_thread_id() #18
+  %27 = load i64, ptr %4, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = zext i16 %1 to i32
+  %31 = zext i16 %2 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef %30, ptr noundef nonnull %14, i32 noundef %31) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  br label %trace_fw_cfg_add_i16.exit
+
+32:                                               ; preds = %21
+  %33 = zext i16 %1 to i32
+  %34 = zext i16 %2 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %33, ptr noundef nonnull %14, i32 noundef %34) #18
+  br label %trace_fw_cfg_add_i16.exit
+
+trace_fw_cfg_add_i16.exit:                        ; preds = %trace_key_name.exit, %16, %18, %24, %32
+  tail call void @fw_cfg_add_bytes(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %5, i64 noundef 2)
+  ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mm_fw_cfg_select(ptr noundef readonly captures(none) %fw_cfg, i16 noundef zeroext %key) #0 {
-entry:
-  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
-  %0 = load ptr, ptr %qts, align 8
-  %1 = load i64, ptr %fw_cfg, align 8
-  tail call void @qtest_writew(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %key) #6
+define dso_local void @fw_cfg_modify_i16(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
+  %4 = tail call noalias dereferenceable_or_null(2) ptr @g_malloc(i64 noundef 2) #22
+  store i16 %2, ptr %4, align 2
+  %5 = and i16 %1, 16383
+  %6 = zext nneg i16 %5 to i32
+  %7 = getelementptr i8, ptr %0, i64 808
+  %.val.i = load i16, ptr %7, align 8
+  %8 = zext i16 %.val.i to i32
+  %9 = add nuw nsw i32 %8, 32
+  %10 = icmp samesign ugt i32 %9, %6
+  br i1 %10, label %fw_cfg_modify_bytes_read.exit, label %11
+
+11:                                               ; preds = %3
+  tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #19
+  unreachable
+
+fw_cfg_modify_bytes_read.exit:                    ; preds = %3
+  %.lobit.i = lshr i16 %1, 15
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %13 = zext nneg i16 %.lobit.i to i64
+  %14 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = zext nneg i16 %5 to i64
+  %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16, i32 2
+  %18 = load ptr, ptr %17, align 8
+  store ptr %4, ptr %17, align 8
+  %19 = load ptr, ptr %14, align 8
+  %20 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %19, i64 %16
+  store i32 2, ptr %20, align 8
+  %21 = load ptr, ptr %14, align 8
+  %22 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %21, i64 %16, i32 1
+  store i8 0, ptr %22, align 4
+  tail call void @g_free(ptr noundef %18) #18
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mm_fw_cfg_read(ptr noundef readonly captures(none) %fw_cfg, ptr noundef writeonly captures(none) %data, i64 noundef %len) #0 {
-entry:
-  %cmp4.not = icmp eq i64 %len, 0
-  br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
+define dso_local void @fw_cfg_add_i32(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
+  store i32 %2, ptr %5, align 4
+  %.not.i.i = icmp sgt i16 %1, -1
+  br i1 %.not.i.i, label %8, label %6
 
-for.body.lr.ph:                                   ; preds = %entry
-  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
-  br label %for.body
+6:                                                ; preds = %3
+  %7 = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %1) #18
+  br label %trace_key_name.exit
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %conv6 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.body ]
-  %i.05 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %0 = load ptr, ptr %qts, align 8
-  %1 = load i64, ptr %fw_cfg, align 8
-  %add = add i64 %1, 2
-  %call = tail call zeroext i8 @qtest_readb(ptr noundef %0, i64 noundef %add) #6
-  %arrayidx = getelementptr i8, ptr %data, i64 %conv6
-  store i8 %call, ptr %arrayidx, align 1
-  %inc = add i32 %i.05, 1
-  %conv = sext i32 %inc to i64
-  %cmp = icmp ugt i64 %len, %conv
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+8:                                                ; preds = %3
+  %9 = icmp samesign ult i16 %1, 32
+  br i1 %9, label %10, label %trace_key_name.exit
 
-for.end:                                          ; preds = %for.body, %entry
+10:                                               ; preds = %8
+  %11 = zext nneg i16 %1 to i64
+  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  br label %trace_key_name.exit
+
+trace_key_name.exit:                              ; preds = %6, %8, %10
+  %.0.i.i = phi ptr [ %7, %6 ], [ %13, %10 ], [ null, %8 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  %14 = select i1 %.not.i, ptr @.str.19, ptr %.0.i.i
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i7 = icmp eq i32 %15, 0
+  br i1 %.not.i.i7, label %trace_fw_cfg_add_i32.exit, label %16, !prof !6
+
+16:                                               ; preds = %trace_key_name.exit
+  %17 = load i16, ptr @_TRACE_FW_CFG_ADD_I32_DSTATE, align 2
+  %.not5.i.i = icmp eq i16 %17, 0
+  br i1 %.not5.i.i, label %trace_fw_cfg_add_i32.exit, label %18
+
+18:                                               ; preds = %16
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %20 = and i32 %19, 32768
+  %.not6.i.i = icmp eq i32 %20, 0
+  br i1 %.not6.i.i, label %trace_fw_cfg_add_i32.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %31
+
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #18
+  %26 = tail call i32 @qemu_get_thread_id() #18
+  %27 = load i64, ptr %4, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef %30, ptr noundef nonnull %14, i32 noundef %2) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  br label %trace_fw_cfg_add_i32.exit
+
+31:                                               ; preds = %21
+  %32 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %32, ptr noundef nonnull %14, i32 noundef %2) #18
+  br label %trace_fw_cfg_add_i32.exit
+
+trace_fw_cfg_add_i32.exit:                        ; preds = %trace_key_name.exit, %16, %18, %24, %31
+  tail call void @fw_cfg_add_bytes(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %5, i64 noundef 4)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @mm_fw_cfg_uninit(ptr noundef %fw_cfg) local_unnamed_addr #0 {
-entry:
-  tail call void @g_free(ptr noundef %fw_cfg) #6
+define dso_local void @fw_cfg_modify_i32(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
+  store i32 %2, ptr %4, align 4
+  %5 = and i16 %1, 16383
+  %6 = zext nneg i16 %5 to i32
+  %7 = getelementptr i8, ptr %0, i64 808
+  %.val.i = load i16, ptr %7, align 8
+  %8 = zext i16 %.val.i to i32
+  %9 = add nuw nsw i32 %8, 32
+  %10 = icmp samesign ugt i32 %9, %6
+  br i1 %10, label %fw_cfg_modify_bytes_read.exit, label %11
+
+11:                                               ; preds = %3
+  tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #19
+  unreachable
+
+fw_cfg_modify_bytes_read.exit:                    ; preds = %3
+  %.lobit.i = lshr i16 %1, 15
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %13 = zext nneg i16 %.lobit.i to i64
+  %14 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = zext nneg i16 %5 to i64
+  %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16, i32 2
+  %18 = load ptr, ptr %17, align 8
+  store ptr %4, ptr %17, align 8
+  %19 = load ptr, ptr %14, align 8
+  %20 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %19, i64 %16
+  store i32 4, ptr %20, align 8
+  %21 = load ptr, ptr %14, align 8
+  %22 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %21, i64 %16, i32 1
+  store i8 0, ptr %22, align 4
+  tail call void @g_free(ptr noundef %18) #18
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @io_fw_cfg_init(ptr noundef %qts, i16 noundef zeroext %base) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #7
-  %conv = zext i16 %base to i64
-  store i64 %conv, ptr %call, align 8
-  %qts2 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %qts, ptr %qts2, align 8
-  %select = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr @io_fw_cfg_select, ptr %select, align 8
-  %read = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store ptr @io_fw_cfg_read, ptr %read, align 8
-  ret ptr %call
-}
+define dso_local void @fw_cfg_add_i64(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #2 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #22
+  store i64 %2, ptr %5, align 8
+  %.not.i.i = icmp sgt i16 %1, -1
+  br i1 %.not.i.i, label %8, label %6
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @io_fw_cfg_select(ptr noundef readonly captures(none) %fw_cfg, i16 noundef zeroext %key) #0 {
-entry:
-  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
-  %0 = load ptr, ptr %qts, align 8
-  %1 = load i64, ptr %fw_cfg, align 8
-  %conv = trunc i64 %1 to i16
-  tail call void @qtest_outw(ptr noundef %0, i16 noundef zeroext %conv, i16 noundef zeroext %key) #6
+6:                                                ; preds = %3
+  %7 = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %1) #18
+  br label %trace_key_name.exit
+
+8:                                                ; preds = %3
+  %9 = icmp samesign ult i16 %1, 32
+  br i1 %9, label %10, label %trace_key_name.exit
+
+10:                                               ; preds = %8
+  %11 = zext nneg i16 %1 to i64
+  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  br label %trace_key_name.exit
+
+trace_key_name.exit:                              ; preds = %6, %8, %10
+  %.0.i.i = phi ptr [ %7, %6 ], [ %13, %10 ], [ null, %8 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  %14 = select i1 %.not.i, ptr @.str.19, ptr %.0.i.i
+  %15 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i7 = icmp eq i32 %15, 0
+  br i1 %.not.i.i7, label %trace_fw_cfg_add_i64.exit, label %16, !prof !6
+
+16:                                               ; preds = %trace_key_name.exit
+  %17 = load i16, ptr @_TRACE_FW_CFG_ADD_I64_DSTATE, align 2
+  %.not5.i.i = icmp eq i16 %17, 0
+  br i1 %.not5.i.i, label %trace_fw_cfg_add_i64.exit, label %18
+
+18:                                               ; preds = %16
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %20 = and i32 %19, 32768
+  %.not6.i.i = icmp eq i32 %20, 0
+  br i1 %.not6.i.i, label %trace_fw_cfg_add_i64.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %31
+
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #18
+  %26 = tail call i32 @qemu_get_thread_id() #18
+  %27 = load i64, ptr %4, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef %30, ptr noundef nonnull %14, i64 noundef %2) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  br label %trace_fw_cfg_add_i64.exit
+
+31:                                               ; preds = %21
+  %32 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %32, ptr noundef nonnull %14, i64 noundef %2) #18
+  br label %trace_fw_cfg_add_i64.exit
+
+trace_fw_cfg_add_i64.exit:                        ; preds = %trace_key_name.exit, %16, %18, %24, %31
+  tail call void @fw_cfg_add_bytes(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %5, i64 noundef 8)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @io_fw_cfg_read(ptr noundef readonly captures(none) %fw_cfg, ptr noundef writeonly captures(none) %data, i64 noundef %len) #0 {
-entry:
-  %cmp4.not = icmp eq i64 %len, 0
-  br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
+define dso_local void @fw_cfg_modify_i64(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #2 {
+  %4 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #22
+  store i64 %2, ptr %4, align 8
+  %5 = and i16 %1, 16383
+  %6 = zext nneg i16 %5 to i32
+  %7 = getelementptr i8, ptr %0, i64 808
+  %.val.i = load i16, ptr %7, align 8
+  %8 = zext i16 %.val.i to i32
+  %9 = add nuw nsw i32 %8, 32
+  %10 = icmp samesign ugt i32 %9, %6
+  br i1 %10, label %fw_cfg_modify_bytes_read.exit, label %11
 
-for.body.lr.ph:                                   ; preds = %entry
-  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
-  br label %for.body
+11:                                               ; preds = %3
+  tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #19
+  unreachable
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %conv6 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.body ]
-  %i.05 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %0 = load ptr, ptr %qts, align 8
-  %1 = load i64, ptr %fw_cfg, align 8
-  %2 = trunc i64 %1 to i16
-  %conv2 = add i16 %2, 1
-  %call = tail call zeroext i8 @qtest_inb(ptr noundef %0, i16 noundef zeroext %conv2) #6
-  %arrayidx = getelementptr i8, ptr %data, i64 %conv6
-  store i8 %call, ptr %arrayidx, align 1
-  %inc = add i32 %i.05, 1
-  %conv = sext i32 %inc to i64
-  %cmp = icmp ugt i64 %len, %conv
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
-
-for.end:                                          ; preds = %for.body, %entry
+fw_cfg_modify_bytes_read.exit:                    ; preds = %3
+  %.lobit.i = lshr i16 %1, 15
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %13 = zext nneg i16 %.lobit.i to i64
+  %14 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = zext nneg i16 %5 to i64
+  %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16, i32 2
+  %18 = load ptr, ptr %17, align 8
+  store ptr %4, ptr %17, align 8
+  %19 = load ptr, ptr %14, align 8
+  %20 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %19, i64 %16
+  store i32 8, ptr %20, align 8
+  %21 = load ptr, ptr %14, align 8
+  %22 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %21, i64 %16, i32 1
+  store i8 0, ptr %22, align 4
+  tail call void @g_free(ptr noundef %18) #18
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @io_fw_cfg_uninit(ptr noundef %fw_cfg) local_unnamed_addr #0 {
-entry:
-  tail call void @g_free(ptr noundef %fw_cfg) #6
+define dso_local void @fw_cfg_set_order_override(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %4 = load i32, ptr %3, align 16
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %7, label %6
+
+6:                                                ; preds = %2
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 822, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_set_order_override) #19
+  unreachable
+
+7:                                                ; preds = %2
+  store i32 %1, ptr %3, align 16
   ret void
 }
+
+; Function Attrs: noreturn nounwind
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @fw_cfg_reset_order_override(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %3 = load i32, ptr %2, align 16
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %5
+
+4:                                                ; preds = %1
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 828, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_reset_order_override) #19
+  unreachable
+
+5:                                                ; preds = %1
+  store i32 0, ptr %2, align 16
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #2 {
+  %9 = alloca %struct.timeval, align 8
+  %10 = tail call ptr @qdev_get_machine() #18
+  %11 = tail call ptr @object_get_class(ptr noundef %10) #18
+  %12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %11, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 24, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #18
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %14 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %15, label %21
+
+15:                                               ; preds = %8
+  %16 = getelementptr i8, ptr %0, i64 808
+  %.val = load i16, ptr %16, align 8
+  %17 = zext i16 %.val to i64
+  %18 = shl nuw nsw i64 %17, 6
+  %19 = or disjoint i64 %18, 4
+  %20 = tail call noalias ptr @g_malloc0(i64 noundef %19) #22
+  store ptr %20, ptr %13, align 8
+  tail call void @fw_cfg_add_bytes(ptr noundef nonnull %0, i16 noundef zeroext 25, ptr noundef %20, i64 noundef %19)
+  %.pre = load ptr, ptr %13, align 8
+  br label %21
+
+21:                                               ; preds = %15, %8
+  %22 = phi ptr [ %.pre, %15 ], [ %14, %8 ]
+  %23 = load i32, ptr %22, align 4
+  %24 = tail call noundef i32 @llvm.bswap.i32(i32 %23)
+  %25 = getelementptr i8, ptr %0, i64 808
+  %.val106 = load i16, ptr %25, align 8
+  %26 = zext i16 %.val106 to i32
+  %27 = icmp slt i32 %24, %26
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 934, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_file_callback) #19
+  unreachable
+
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 196
+  %31 = load i8, ptr %30, align 4
+  %32 = and i8 %31, 32
+  %.not95 = icmp eq i8 %32, 0
+  br i1 %.not95, label %.preheader, label %35
+
+.preheader:                                       ; preds = %29
+  %33 = getelementptr i8, ptr %22, i64 12
+  %34 = zext i32 %24 to i64
+  %smin = tail call i32 @llvm.smin.i32(i32 %24, i32 0)
+  br label %59
+
+35:                                               ; preds = %29
+  %36 = getelementptr i8, ptr %0, i64 880
+  %.val107 = load i32, ptr %36, align 16
+  %37 = icmp sgt i32 %.val107, 0
+  br i1 %37, label %get_fw_cfg_order.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %35, %47
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %35 ]
+  %38 = getelementptr inbounds nuw [22 x %struct.anon.5], ptr @fw_cfg_order, i64 0, i64 %indvars.iv.i
+  %39 = load ptr, ptr %38, align 16
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %47, label %41
+
+41:                                               ; preds = %.preheader.i
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %39) #20
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %46 = load i32, ptr %45, align 8
+  br label %get_fw_cfg_order.exit
+
+47:                                               ; preds = %41, %.preheader.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 22
+  br i1 %exitcond.not.i, label %48, label %.preheader.i, !llvm.loop !8
+
+48:                                               ; preds = %47
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.58, ptr noundef %1) #18
+  br label %get_fw_cfg_order.exit
+
+get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
+  %.09.i = phi i32 [ %46, %44 ], [ 200, %48 ], [ %.val107, %35 ]
+  %49 = icmp sgt i32 %24, 0
+  br i1 %49, label %.lr.ph, label %.critedge.._crit_edge_crit_edge
+
+.lr.ph:                                           ; preds = %get_fw_cfg_order.exit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %51 = load ptr, ptr %50, align 16
+  %invariant.gep = getelementptr i8, ptr %51, i64 -4
+  br label %52
+
+52:                                               ; preds = %.lr.ph, %56
+  %.091111 = phi i32 [ %24, %.lr.ph ], [ %57, %56 ]
+  %53 = zext nneg i32 %.091111 to i64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %53
+  %54 = load i32, ptr %gep, align 4
+  %55 = icmp slt i32 %.09.i, %54
+  br i1 %55, label %56, label %.critedge
+
+56:                                               ; preds = %52
+  %57 = add nsw i32 %.091111, -1
+  %58 = icmp sgt i32 %.091111, 1
+  br i1 %58, label %52, label %.critedge, !llvm.loop !10
+
+59:                                               ; preds = %.preheader, %62
+  %indvars.iv = phi i64 [ %34, %.preheader ], [ %63, %62 ]
+  %60 = trunc nuw i64 %indvars.iv to i32
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %.critedge
+
+62:                                               ; preds = %59
+  %63 = add nsw i64 %indvars.iv, -1
+  %.idx = shl nuw nsw i64 %63, 6
+  %64 = getelementptr i8, ptr %33, i64 %.idx
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %64) #20
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %59, label %.critedge, !llvm.loop !11
+
+.critedge:                                        ; preds = %56, %52, %62, %59
+  %.192 = phi i32 [ %60, %62 ], [ %smin, %59 ], [ 0, %56 ], [ %.091111, %52 ]
+  %.0 = phi i32 [ 0, %59 ], [ 0, %62 ], [ %.09.i, %52 ], [ %.09.i, %56 ]
+  %67 = icmp sgt i32 %24, %.192
+  br i1 %67, label %.lr.ph115, label %.critedge.._crit_edge_crit_edge
+
+.critedge.._crit_edge_crit_edge:                  ; preds = %get_fw_cfg_order.exit, %.critedge
+  %.0137 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ]
+  %.192135 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ]
+  %.pre131 = sext i32 %.192135 to i64
+  br label %._crit_edge
+
+.lr.ph115:                                        ; preds = %.critedge
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %70 = sext i32 %24 to i64
+  %71 = sext i32 %.192 to i64
+  br label %72
+
+72:                                               ; preds = %.lr.ph115, %72
+  %indvars.iv125 = phi i64 [ %70, %.lr.ph115 ], [ %indvars.iv.next126, %72 ]
+  %73 = load ptr, ptr %13, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %75 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %74, i64 0, i64 %indvars.iv125
+  %indvars.iv.next126 = add nsw i64 %indvars.iv125, -1
+  %76 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %74, i64 0, i64 %indvars.iv.next126
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %75, ptr noundef nonnull align 4 dereferenceable(64) %76, i64 64, i1 false)
+  %77 = add nsw i64 %indvars.iv125, 32
+  %78 = trunc i64 %77 to i16
+  %79 = tail call noundef i16 @llvm.bswap.i16(i16 %78)
+  %80 = load ptr, ptr %13, align 8
+  %.idx104 = shl nsw i64 %indvars.iv125, 6
+  %81 = getelementptr i8, ptr %80, i64 8
+  %82 = getelementptr i8, ptr %81, i64 %.idx104
+  store i16 %79, ptr %82, align 4
+  %83 = load ptr, ptr %68, align 16
+  %84 = getelementptr inbounds %struct.FWCfgEntry, ptr %83, i64 %77
+  %85 = getelementptr %struct.FWCfgEntry, ptr %83, i64 %indvars.iv125
+  %86 = getelementptr i8, ptr %85, i64 1240
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(40) %86, i64 40, i1 false)
+  %87 = load ptr, ptr %69, align 16
+  %88 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv.next126
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv125
+  store i32 %89, ptr %90, align 4
+  %91 = icmp sgt i64 %indvars.iv.next126, %71
+  br i1 %91, label %72, label %._crit_edge, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %72, %.critedge.._crit_edge_crit_edge
+  %.0136 = phi i32 [ %.0137, %.critedge.._crit_edge_crit_edge ], [ %.0, %72 ]
+  %.192134 = phi i32 [ %.192135, %.critedge.._crit_edge_crit_edge ], [ %.192, %72 ]
+  %.pre-phi = phi i64 [ %.pre131, %.critedge.._crit_edge_crit_edge ], [ %71, %72 ]
+  %92 = load ptr, ptr %13, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %93, i64 0, i64 %.pre-phi
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %94, i8 noundef 0, i64 noundef 64, i1 noundef false) #18
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %96 = load ptr, ptr %95, align 16
+  %97 = add nsw i32 %.192134, 32
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds %struct.FWCfgEntry, ptr %96, i64 %98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %99, i8 noundef 0, i64 noundef 40, i1 noundef false) #18
+  %100 = load ptr, ptr %13, align 8
+  %.idx96 = shl nsw i64 %.pre-phi, 6
+  %101 = getelementptr i8, ptr %100, i64 12
+  %102 = getelementptr i8, ptr %101, i64 %.idx96
+  tail call void @pstrcpy(ptr noundef %102, i32 noundef 56, ptr noundef %1) #18
+  %.not97116 = icmp slt i32 %24, 0
+  br i1 %.not97116, label %._crit_edge120, label %.lr.ph119
+
+.lr.ph119:                                        ; preds = %._crit_edge
+  %.offs = or disjoint i64 %.idx96, 8
+  %103 = zext i32 %.192134 to i64
+  %104 = add nuw i32 %24, 1
+  %wide.trip.count = zext i32 %104 to i64
+  br label %105
+
+105:                                              ; preds = %.lr.ph119, %114
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next129, %114 ]
+  %.not100 = icmp eq i64 %indvars.iv128, %103
+  br i1 %.not100, label %114, label %106
+
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %13, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %109 = getelementptr inbounds i8, ptr %108, i64 %.offs
+  %.idx102 = shl nuw nsw i64 %indvars.iv128, 6
+  %.offs103 = or disjoint i64 %.idx102, 8
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %.offs103
+  %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) %110) #20
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %114
+
+113:                                              ; preds = %106
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull %109) #18
+  tail call void @exit(i32 noundef 1) #23
+  unreachable
+
+114:                                              ; preds = %105, %106
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge120, label %105, !llvm.loop !13
+
+._crit_edge120:                                   ; preds = %114, %._crit_edge
+  %115 = trunc i32 %97 to i16
+  %116 = and i32 %97, 16383
+  %.val.i = load i16, ptr %25, align 8
+  %117 = zext i16 %.val.i to i32
+  %118 = add nuw nsw i32 %117, 32
+  %119 = icmp samesign ugt i32 %118, %116
+  %120 = icmp ult i64 %6, 4294967295
+  %or.cond.i = and i1 %120, %119
+  br i1 %or.cond.i, label %122, label %121
+
+121:                                              ; preds = %._crit_edge120
+  tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #19
+  unreachable
+
+122:                                              ; preds = %._crit_edge120
+  %123 = and i16 %115, 16383
+  %.lobit.i = lshr i16 %115, 15
+  %124 = zext nneg i16 %.lobit.i to i64
+  %125 = getelementptr inbounds nuw [2 x ptr], ptr %95, i64 0, i64 %124
+  %126 = load ptr, ptr %125, align 8
+  %127 = zext nneg i16 %123 to i64
+  %128 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %126, i64 %127, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %fw_cfg_add_bytes_callback.exit, label %131
+
+131:                                              ; preds = %122
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #19
+  unreachable
+
+fw_cfg_add_bytes_callback.exit:                   ; preds = %122
+  store ptr %5, ptr %128, align 8
+  %132 = trunc nuw i64 %6 to i32
+  %133 = load ptr, ptr %125, align 8
+  %134 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %133, i64 %127
+  store i32 %132, ptr %134, align 8
+  %135 = load ptr, ptr %125, align 8
+  %136 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %135, i64 %127, i32 4
+  store ptr %2, ptr %136, align 8
+  %137 = load ptr, ptr %125, align 8
+  %138 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %137, i64 %127, i32 5
+  store ptr %3, ptr %138, align 8
+  %139 = load ptr, ptr %125, align 8
+  %140 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %139, i64 %127, i32 3
+  store ptr %4, ptr %140, align 8
+  %141 = xor i1 %7, true
+  %142 = load ptr, ptr %125, align 8
+  %143 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %142, i64 %127, i32 1
+  %144 = zext i1 %141 to i8
+  store i8 %144, ptr %143, align 4
+  %145 = tail call noundef i32 @llvm.bswap.i32(i32 %132)
+  %146 = load ptr, ptr %13, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %148 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %147, i64 0, i64 %.pre-phi
+  store i32 %145, ptr %148, align 4
+  %149 = tail call noundef i16 @llvm.bswap.i16(i16 %115)
+  %150 = load ptr, ptr %13, align 8
+  %151 = getelementptr i8, ptr %150, i64 8
+  %152 = getelementptr i8, ptr %151, i64 %.idx96
+  store i16 %149, ptr %152, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %154 = load ptr, ptr %153, align 16
+  %155 = getelementptr inbounds i32, ptr %154, i64 %.pre-phi
+  store i32 %.0136, ptr %155, align 4
+  %156 = load ptr, ptr %13, align 8
+  %157 = getelementptr i8, ptr %156, i64 12
+  %158 = getelementptr i8, ptr %157, i64 %.idx96
+  %159 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %159, 0
+  br i1 %.not.i.i, label %trace_fw_cfg_add_file.exit, label %160, !prof !6
+
+160:                                              ; preds = %fw_cfg_add_bytes_callback.exit
+  %161 = load i16, ptr @_TRACE_FW_CFG_ADD_FILE_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %161, 0
+  br i1 %.not7.i.i, label %trace_fw_cfg_add_file.exit, label %162
+
+162:                                              ; preds = %160
+  %163 = load i32, ptr @qemu_loglevel, align 4
+  %164 = and i32 %163, 32768
+  %.not8.i.i = icmp eq i32 %164, 0
+  br i1 %.not8.i.i, label %trace_fw_cfg_add_file.exit, label %165
+
+165:                                              ; preds = %162
+  %166 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %167 = trunc nuw i8 %166 to i1
+  br i1 %167, label %168, label %174
+
+168:                                              ; preds = %165
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !7
+  %169 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #18
+  %170 = tail call i32 @qemu_get_thread_id() #18
+  %171 = load i64, ptr %9, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %173 = load i64, ptr %172, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %170, i64 noundef %171, i64 noundef %173, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192134, ptr noundef %158, i64 noundef %6) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
+  br label %trace_fw_cfg_add_file.exit
+
+174:                                              ; preds = %165
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192134, ptr noundef %158, i64 noundef %6) #18
+  br label %trace_fw_cfg_add_file.exit
+
+trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %160, %162, %168, %174
+  %175 = add nsw i32 %24, 1
+  %176 = tail call noundef i32 @llvm.bswap.i32(i32 %175)
+  %177 = load ptr, ptr %13, align 8
+  store i32 %176, ptr %177, align 4
+  %178 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.71) #20
+  %.not.i = icmp eq i32 %178, 0
+  br i1 %.not.i, label %179, label %181
+
+179:                                              ; preds = %trace_fw_cfg_add_file.exit
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  store i64 %6, ptr %180, align 8
+  br label %fw_cfg_acpi_mr_save.exit
+
+181:                                              ; preds = %trace_fw_cfg_add_file.exit
+  %182 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.72) #20
+  %.not8.i = icmp eq i32 %182, 0
+  br i1 %.not8.i, label %183, label %185
+
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  store i64 %6, ptr %184, align 16
+  br label %fw_cfg_acpi_mr_save.exit
+
+185:                                              ; preds = %181
+  %186 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.74) #20
+  %.not9.i = icmp eq i32 %186, 0
+  br i1 %.not9.i, label %187, label %fw_cfg_acpi_mr_save.exit
+
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  store i64 %6, ptr %188, align 8
+  br label %fw_cfg_acpi_mr_save.exit
+
+fw_cfg_acpi_mr_save.exit:                         ; preds = %179, %183, %185, %187
+  ret void
+}
+
+declare ptr @qdev_get_machine() local_unnamed_addr #5
+
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+
+declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+
+declare void @error_report(ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #9
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @fw_cfg_add_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+  tail call void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local ptr @fw_cfg_modify_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %6 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %8
+
+7:                                                ; preds = %4
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1007, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_file) #19
+  unreachable
+
+8:                                                ; preds = %4
+  %9 = load i32, ptr %6, align 4
+  %10 = tail call noundef i32 @llvm.bswap.i32(i32 %9)
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %8
+  %12 = getelementptr i8, ptr %6, i64 12
+  %wide.trip.count = zext nneg i32 %10 to i64
+  br label %13
+
+13:                                               ; preds = %.lr.ph, %55
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
+  %.idx = shl nuw nsw i64 %indvars.iv, 6
+  %14 = getelementptr i8, ptr %12, i64 %.idx
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %14) #20
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %55
+
+17:                                               ; preds = %13
+  %18 = trunc i64 %indvars.iv to i16
+  %19 = add i16 %18, 32
+  %20 = and i16 %19, 16383
+  %21 = zext nneg i16 %20 to i32
+  %22 = getelementptr i8, ptr %0, i64 808
+  %.val.i = load i16, ptr %22, align 8
+  %23 = zext i16 %.val.i to i32
+  %24 = add nuw nsw i32 %23, 32
+  %25 = icmp samesign ugt i32 %24, %21
+  %26 = icmp ult i64 %3, 4294967295
+  %or.cond.i = and i1 %26, %25
+  br i1 %or.cond.i, label %fw_cfg_modify_bytes_read.exit, label %27
+
+27:                                               ; preds = %17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #19
+  unreachable
+
+fw_cfg_modify_bytes_read.exit:                    ; preds = %17
+  %.lobit.i = lshr i16 %19, 15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %29 = zext nneg i16 %.lobit.i to i64
+  %30 = getelementptr inbounds nuw [2 x ptr], ptr %28, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %32 = zext nneg i16 %20 to i64
+  %33 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %31, i64 %32, i32 2
+  %34 = load ptr, ptr %33, align 8
+  store ptr %2, ptr %33, align 8
+  %35 = trunc nuw i64 %3 to i32
+  %36 = load ptr, ptr %30, align 8
+  %37 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %36, i64 %32
+  store i32 %35, ptr %37, align 8
+  %38 = load ptr, ptr %30, align 8
+  %39 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %38, i64 %32, i32 1
+  store i8 0, ptr %39, align 4
+  %40 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw [0 x %struct.fw_cfg_file], ptr %42, i64 0, i64 %indvars.iv
+  store i32 %40, ptr %43, align 4
+  %44 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.71) #20
+  %.not.i = icmp eq i32 %44, 0
+  br i1 %.not.i, label %45, label %47
+
+45:                                               ; preds = %fw_cfg_modify_bytes_read.exit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  store i64 %3, ptr %46, align 8
+  br label %fw_cfg_acpi_mr_save.exit
+
+47:                                               ; preds = %fw_cfg_modify_bytes_read.exit
+  %48 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.72) #20
+  %.not8.i = icmp eq i32 %48, 0
+  br i1 %.not8.i, label %49, label %51
+
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  store i64 %3, ptr %50, align 16
+  br label %fw_cfg_acpi_mr_save.exit
+
+51:                                               ; preds = %47
+  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.74) #20
+  %.not9.i = icmp eq i32 %52, 0
+  br i1 %.not9.i, label %53, label %fw_cfg_acpi_mr_save.exit
+
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  store i64 %3, ptr %54, align 8
+  br label %fw_cfg_acpi_mr_save.exit
+
+55:                                               ; preds = %13
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !14
+
+._crit_edge:                                      ; preds = %55, %8
+  %56 = getelementptr i8, ptr %0, i64 808
+  %.val = load i16, ptr %56, align 8
+  %57 = zext i16 %.val to i32
+  %58 = icmp slt i32 %10, %57
+  br i1 %58, label %60, label %59
+
+59:                                               ; preds = %._crit_edge
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1021, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_file) #19
+  unreachable
+
+60:                                               ; preds = %._crit_edge
+  tail call void @fw_cfg_add_file_callback(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true)
+  br label %fw_cfg_acpi_mr_save.exit
+
+fw_cfg_acpi_mr_save.exit:                         ; preds = %53, %51, %49, %45, %60
+  %.025 = phi ptr [ null, %60 ], [ %34, %45 ], [ %34, %49 ], [ %34, %51 ], [ %34, %53 ]
+  ret ptr %.025
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local noundef zeroext i1 @fw_cfg_add_file_from_generator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+  %6 = alloca %struct.ErrorPropagator, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %6, align 8
+  store ptr %4, ptr %7, align 8
+  %8 = icmp eq ptr %4, null
+  %9 = icmp eq ptr %4, @error_fatal
+  %or.cond = or i1 %8, %9
+  %spec.select = select i1 %or.cond, ptr %6, ptr %4
+  %10 = tail call ptr @object_resolve_path_component(ptr noundef %1, ptr noundef %2) #18
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %11, label %12
+
+11:                                               ; preds = %5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1040, ptr noundef nonnull @__func__.fw_cfg_add_file_from_generator, ptr noundef nonnull @.str.7, ptr noundef %2) #18
+  br label %29
+
+12:                                               ; preds = %5
+  %13 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %10, ptr noundef nonnull @.str.8) #18
+  %.not29 = icmp eq ptr %13, null
+  br i1 %.not29, label %14, label %15
+
+14:                                               ; preds = %12
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1045, ptr noundef nonnull @__func__.fw_cfg_add_file_from_generator, ptr noundef nonnull @.str.9, ptr noundef %2, ptr noundef nonnull @.str.8) #18
+  br label %29
+
+15:                                               ; preds = %12
+  %16 = tail call ptr @object_get_class(ptr noundef nonnull %10) #18
+  %17 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %16, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.80, i32 noundef 21, ptr noundef nonnull @__func__.FW_CFG_DATA_GENERATOR_GET_CLASS) #18
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr %19(ptr noundef nonnull %10, ptr noundef nonnull %spec.select) #18
+  %21 = load ptr, ptr %spec.select, align 8
+  %22 = icmp eq ptr %21, null
+  %23 = icmp ne ptr %20, null
+  %or.cond3 = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond3, label %24, label %29
+
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  %28 = call ptr @g_byte_array_free(ptr noundef nonnull %20, i32 noundef 0) #18
+  call void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %28, i64 noundef %27, i1 noundef zeroext true)
+  br label %29
+
+29:                                               ; preds = %15, %24, %14, %11
+  %.025 = phi i1 [ true, %24 ], [ false, %14 ], [ false, %11 ], [ false, %15 ]
+  %.val = load ptr, ptr %6, align 8
+  %.val30 = load ptr, ptr %7, align 8
+  call void @error_propagate(ptr noundef %.val30, ptr noundef %.val) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  ret i1 %.025
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+declare ptr @object_resolve_path_component(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+
+declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local ptr @fw_cfg_init_io_dma(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+  %4 = tail call ptr @get_system_io() #18
+  %5 = icmp ne i32 %1, 0
+  %6 = icmp ne ptr %2, null
+  %7 = and i1 %5, %6
+  %8 = tail call ptr @qdev_new(ptr noundef nonnull @.str.10) #18
+  br i1 %7, label %10, label %9
+
+9:                                                ; preds = %3
+  tail call void @qdev_prop_set_bit(ptr noundef %8, ptr noundef nonnull @.str.11, i1 noundef zeroext false) #18
+  br label %10
+
+10:                                               ; preds = %9, %3
+  %11 = tail call ptr @qdev_get_machine() #18
+  %12 = tail call ptr @object_property_add_child(ptr noundef %11, ptr noundef nonnull @.str.12, ptr noundef %8) #18
+  %13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #18
+  %14 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %13, ptr noundef nonnull @error_fatal) #18
+  %15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.80, i32 noundef 16, ptr noundef nonnull @__func__.FW_CFG_IO) #18
+  %16 = zext i32 %0 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 1216
+  tail call void @memory_region_add_subregion(ptr noundef %4, i64 noundef %16, ptr noundef nonnull %17) #18
+  %18 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 884
+  %20 = load i8, ptr %19, align 4, !range !4, !noundef !5
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %27
+
+22:                                               ; preds = %10
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 896
+  store ptr %2, ptr %23, align 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 888
+  store i64 0, ptr %24, align 8
+  %25 = zext i32 %1 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 912
+  tail call void @memory_region_add_subregion(ptr noundef %4, i64 noundef %25, ptr noundef nonnull %26) #18
+  br label %27
+
+27:                                               ; preds = %22, %10
+  ret ptr %18
+}
+
+declare ptr @get_system_io() local_unnamed_addr #5
+
+declare ptr @qdev_new(ptr noundef) local_unnamed_addr #5
+
+declare void @qdev_prop_set_bit(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+
+declare ptr @object_property_add_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+
+declare zeroext i1 @sysbus_realize_and_unref(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local ptr @fw_cfg_init_mem_wide(i64 noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+  %6 = icmp ne i64 %3, 0
+  %7 = icmp ne ptr %4, null
+  %8 = and i1 %6, %7
+  %9 = tail call ptr @qdev_new(ptr noundef nonnull @.str.13) #18
+  tail call void @qdev_prop_set_uint32(ptr noundef %9, ptr noundef nonnull @.str.14, i32 noundef %2) #18
+  br i1 %8, label %11, label %10
+
+10:                                               ; preds = %5
+  tail call void @qdev_prop_set_bit(ptr noundef %9, ptr noundef nonnull @.str.11, i1 noundef zeroext false) #18
+  br label %11
+
+11:                                               ; preds = %10, %5
+  %12 = tail call ptr @qdev_get_machine() #18
+  %13 = tail call ptr @object_property_add_child(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef %9) #18
+  %14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #18
+  %15 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %14, ptr noundef nonnull @error_fatal) #18
+  tail call void @sysbus_mmio_map(ptr noundef %14, i32 noundef 0, i64 noundef %0) #18
+  tail call void @sysbus_mmio_map(ptr noundef %14, i32 noundef 1, i64 noundef %1) #18
+  %16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 884
+  %18 = load i8, ptr %17, align 4, !range !4, !noundef !5
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 896
+  store ptr %4, ptr %21, align 16
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 888
+  store i64 0, ptr %22, align 8
+  tail call void @sysbus_mmio_map(ptr noundef %14, i32 noundef 2, i64 noundef %3) #18
+  br label %23
+
+23:                                               ; preds = %20, %11
+  ret ptr %16
+}
+
+declare void @qdev_prop_set_uint32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+
+declare void @sysbus_mmio_map(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local ptr @fw_cfg_init_mem(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+  %3 = tail call ptr @fw_cfg_init_mem_wide(i64 noundef %0, i64 noundef %1, i32 noundef 1, i64 noundef 0, ptr noundef null)
+  ret ptr %3
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local ptr @fw_cfg_find() local_unnamed_addr #2 {
+  %1 = tail call ptr @object_resolve_path_type(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.12, ptr noundef null) #18
+  %2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  ret ptr %2
+}
+
+declare ptr @object_resolve_path_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @load_image_to_fw_cfg(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  %9 = icmp eq ptr %3, null
+  br i1 %9, label %22, label %10
+
+10:                                               ; preds = %5
+  store ptr null, ptr %6, align 8, !annotation !7
+  br i1 %4, label %11, label %.thread
+
+11:                                               ; preds = %10
+  %12 = call i64 @load_image_gzipped_buffer(ptr noundef nonnull %3, i64 noundef 268435456, ptr noundef nonnull %6) #18
+  %13 = icmp eq i64 %12, -1
+  br i1 %13, label %.thread, label %19
+
+.thread:                                          ; preds = %10, %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
+  store ptr null, ptr %7, align 8, !annotation !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  store i64 0, ptr %8, align 8, !annotation !7
+  %14 = call i32 @g_file_get_contents(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #18
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %16
+
+15:                                               ; preds = %.thread
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #18
+  call void @exit(i32 noundef 1) #23
+  unreachable
+
+16:                                               ; preds = %.thread
+  %17 = load i64, ptr %8, align 8
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  br label %19
+
+19:                                               ; preds = %16, %11
+  %.1 = phi i64 [ %17, %16 ], [ %12, %11 ]
+  %20 = trunc i64 %.1 to i32
+  call void @fw_cfg_add_i32(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %20)
+  %21 = load ptr, ptr %6, align 8
+  call void @fw_cfg_add_bytes(ptr noundef %0, i16 noundef zeroext %2, ptr noundef %21, i64 noundef %.1)
+  br label %22
+
+22:                                               ; preds = %5, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  ret void
+}
+
+declare i64 @load_image_gzipped_buffer(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+
+declare i32 @g_file_get_contents(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @do_qemu_init_fw_cfg_register_types() #2 {
+  tail call void @register_module_init(ptr noundef nonnull @fw_cfg_register_types, i32 noundef 3) #18
+  ret void
+}
+
+declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_register_types() #2 {
+  %1 = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_info) #18
+  %2 = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_io_info) #18
+  %3 = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_mem_info) #18
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
+
+declare i32 @qemu_get_thread_id() local_unnamed_addr #5
+
+declare ptr @fw_cfg_arch_key_name(i16 noundef zeroext) local_unnamed_addr #5
+
+declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+
+declare ptr @object_get_class(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #4
+declare i32 @llvm.bswap.i32(i32) #12
+
+declare void @warn_report(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #4
+declare i16 @llvm.bswap.i16(i16) #12
 
-declare void @qtest_writew(ptr noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #3
+declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare zeroext i8 @qtest_readb(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @qtest_outw(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @fw_cfg_data_read(ptr noundef %0, i64 %1, i32 noundef %2) #2 {
+  %4 = alloca %struct.timeval, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %6 = load i16, ptr %5, align 16
+  %7 = icmp eq i16 %6, -1
+  br i1 %7, label %8, label %.thread
 
-declare zeroext i8 @qtest_inb(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+8:                                                ; preds = %3
+  %9 = add i32 %2, -1
+  %or.cond = icmp ult i32 %9, 8
+  br i1 %or.cond, label %43, label %18
+
+.thread:                                          ; preds = %3
+  %.lobit = lshr i16 %6, 15
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %11 = zext nneg i16 %.lobit to i64
+  %12 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  %14 = and i16 %6, 16383
+  %15 = zext nneg i16 %14 to i64
+  %16 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %13, i64 %15
+  %17 = add i32 %2, -1
+  %or.cond30 = icmp ult i32 %17, 8
+  br i1 %or.cond30, label %19, label %18
+
+18:                                               ; preds = %.thread, %8
+  tail call void @__assert_fail(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_data_read) #19
+  unreachable
+
+19:                                               ; preds = %.thread
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %.not28 = icmp eq ptr %21, null
+  br i1 %.not28, label %43, label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 852
+  %24 = load i32, ptr %23, align 4
+  %25 = load i32, ptr %16, align 8
+  %26 = icmp ult i32 %24, %25
+  br i1 %26, label %.preheader, label %43
+
+.preheader:                                       ; preds = %22, %37
+  %27 = phi i32 [ %30, %37 ], [ %24, %22 ]
+  %.024 = phi i32 [ %36, %37 ], [ %2, %22 ]
+  %.1 = phi i64 [ %35, %37 ], [ 0, %22 ]
+  %28 = shl i64 %.1, 8
+  %29 = load ptr, ptr %20, align 8
+  %30 = add nuw i32 %27, 1
+  store i32 %30, ptr %23, align 4
+  %31 = zext i32 %27 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i64
+  %35 = or disjoint i64 %28, %34
+  %36 = add i32 %.024, -1
+  %.not29 = icmp eq i32 %36, 0
+  br i1 %.not29, label %.critedge, label %37
+
+37:                                               ; preds = %.preheader
+  %38 = load i32, ptr %16, align 8
+  %39 = icmp ult i32 %30, %38
+  br i1 %39, label %.preheader, label %.critedge, !llvm.loop !15
+
+.critedge:                                        ; preds = %.preheader, %37
+  %40 = shl i32 %36, 3
+  %41 = zext nneg i32 %40 to i64
+  %42 = shl i64 %35, %41
+  br label %43
+
+43:                                               ; preds = %8, %.critedge, %22, %19
+  %.0 = phi i64 [ %42, %.critedge ], [ 0, %22 ], [ 0, %19 ], [ 0, %8 ]
+  %44 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %44, 0
+  br i1 %.not.i.i, label %trace_fw_cfg_read.exit, label %45, !prof !6
+
+45:                                               ; preds = %43
+  %46 = load i16, ptr @_TRACE_FW_CFG_READ_DSTATE, align 2
+  %.not3.i.i = icmp eq i16 %46, 0
+  br i1 %.not3.i.i, label %trace_fw_cfg_read.exit, label %47
+
+47:                                               ; preds = %45
+  %48 = load i32, ptr @qemu_loglevel, align 4
+  %49 = and i32 %48, 32768
+  %.not4.i.i = icmp eq i32 %49, 0
+  br i1 %.not4.i.i, label %trace_fw_cfg_read.exit, label %50
+
+50:                                               ; preds = %47
+  %51 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %53, label %59
+
+53:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
+  %54 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #18
+  %55 = tail call i32 @qemu_get_thread_id() #18
+  %56 = load i64, ptr %4, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %58 = load i64, ptr %57, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %55, i64 noundef %56, i64 noundef %58, ptr noundef %0, i64 noundef %.0) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
+  br label %trace_fw_cfg_read.exit
+
+59:                                               ; preds = %50
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, ptr noundef %0, i64 noundef %.0) #18
+  br label %trace_fw_cfg_read.exit
+
+trace_fw_cfg_read.exit:                           ; preds = %43, %45, %47, %53, %59
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal void @fw_cfg_data_mem_write(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #13 {
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal noundef zeroext i1 @fw_cfg_data_mem_valid(ptr readnone captures(none) %0, i64 noundef %1, i32 %2, i1 zeroext %3, i64 %4) #13 {
+  %6 = icmp eq i64 %1, 0
+  ret i1 %6
+}
+
+declare ptr @type_register_static(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_class_init(ptr noundef %0, ptr readnone captures(none) %1) #2 {
+  %3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #18
+  tail call void @device_class_set_legacy_reset(ptr noundef %3, ptr noundef nonnull @fw_cfg_reset) #18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  store ptr @vmstate_fw_cfg, ptr %4, align 8
+  tail call void @device_class_set_props_n(ptr noundef %3, ptr noundef nonnull @fw_cfg_properties, i64 noundef 1) #18
+  ret void
+}
+
+declare void @device_class_set_legacy_reset(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_reset(ptr noundef %0) #2 {
+  %2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  tail call fastcc void @fw_cfg_select(ptr noundef %2, i16 noundef zeroext 0)
+  ret void
+}
+
+declare void @device_class_set_props_n(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @fw_cfg_select(ptr noundef initializes((848, 850), (852, 856)) %0, i16 noundef zeroext %1) unnamed_addr #2 {
+  %3 = alloca %struct.timeval, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 852
+  store i32 0, ptr %4, align 4
+  %5 = and i16 %1, 16383
+  %6 = zext nneg i16 %5 to i32
+  %7 = getelementptr i8, ptr %0, i64 808
+  %.val = load i16, ptr %7, align 8
+  %8 = zext i16 %.val to i32
+  %9 = add nuw nsw i32 %8, 32
+  %.not = icmp samesign ugt i32 %9, %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  br i1 %.not, label %12, label %11
+
+11:                                               ; preds = %2
+  store i16 -1, ptr %10, align 16
+  br label %24
+
+12:                                               ; preds = %2
+  store i16 %1, ptr %10, align 16
+  %.lobit = lshr i16 %1, 15
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %14 = zext nneg i16 %.lobit to i64
+  %15 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %17 = zext nneg i16 %5 to i64
+  %18 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %.not19 = icmp eq ptr %20, null
+  br i1 %.not19, label %24, label %21
+
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %23 = load ptr, ptr %22, align 8
+  tail call void %20(ptr noundef %23) #18
+  br label %24
+
+24:                                               ; preds = %12, %21, %11
+  %.0 = phi i32 [ 0, %11 ], [ 1, %21 ], [ 1, %12 ]
+  %.not.i.i = icmp sgt i16 %1, -1
+  br i1 %.not.i.i, label %27, label %25
+
+25:                                               ; preds = %24
+  %26 = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %1) #18
+  br label %trace_key_name.exit
+
+27:                                               ; preds = %24
+  %28 = icmp samesign ult i16 %1, 32
+  br i1 %28, label %29, label %trace_key_name.exit
+
+29:                                               ; preds = %27
+  %30 = zext nneg i16 %1 to i64
+  %31 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  br label %trace_key_name.exit
+
+trace_key_name.exit:                              ; preds = %25, %27, %29
+  %.0.i.i = phi ptr [ %26, %25 ], [ %32, %29 ], [ null, %27 ]
+  %.not.i = icmp eq ptr %.0.i.i, null
+  %33 = select i1 %.not.i, ptr @.str.19, ptr %.0.i.i
+  %34 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i20 = icmp eq i32 %34, 0
+  br i1 %.not.i.i20, label %trace_fw_cfg_select.exit, label %35, !prof !6
+
+35:                                               ; preds = %trace_key_name.exit
+  %36 = load i16, ptr @_TRACE_FW_CFG_SELECT_DSTATE, align 2
+  %.not7.i.i = icmp eq i16 %36, 0
+  br i1 %.not7.i.i, label %trace_fw_cfg_select.exit, label %37
+
+37:                                               ; preds = %35
+  %38 = load i32, ptr @qemu_loglevel, align 4
+  %39 = and i32 %38, 32768
+  %.not8.i.i = icmp eq i32 %39, 0
+  br i1 %.not8.i.i, label %trace_fw_cfg_select.exit, label %40
+
+40:                                               ; preds = %37
+  %41 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %50
+
+43:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
+  %44 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #18
+  %45 = tail call i32 @qemu_get_thread_id() #18
+  %46 = load i64, ptr %3, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %48 = load i64, ptr %47, align 8
+  %49 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %45, i64 noundef %46, i64 noundef %48, ptr noundef nonnull %0, i32 noundef %49, ptr noundef nonnull %33, i32 noundef range(i32 0, 2) %.0) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  br label %trace_fw_cfg_select.exit
+
+50:                                               ; preds = %40
+  %51 = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %33, i32 noundef range(i32 0, 2) %.0) #18
+  br label %trace_fw_cfg_select.exit
+
+trace_fw_cfg_select.exit:                         ; preds = %trace_key_name.exit, %35, %37, %43, %50
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal noundef zeroext i1 @is_version_1(ptr readnone captures(none) %0, i32 noundef %1) #13 {
+  %3 = icmp eq i32 %1, 1
+  ret i1 %3
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal noundef i32 @get_uint32_as_uint16(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, i64 %2, ptr readnone captures(none) %3) #2 {
+  %5 = tail call i32 @qemu_get_be16(ptr noundef %0) #18
+  store i32 %5, ptr %1, align 4
+  ret i32 0
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal noundef i32 @put_unused(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.97) #18
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str.98) #18
+  ret i32 0
+}
+
+declare i32 @qemu_get_be16(ptr noundef) local_unnamed_addr #5
+
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal noundef i32 @fw_cfg_acpi_mr_restore_post_load(ptr noundef readonly captures(none) %0, i32 %1) #2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %7 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %9
+
+8:                                                ; preds = %2
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 639, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_acpi_mr_restore_post_load) #19
+  unreachable
+
+9:                                                ; preds = %2
+  %10 = load i32, ptr %7, align 4
+  %11 = tail call noundef i32 @llvm.bswap.i32(i32 %10)
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %14 = getelementptr i8, ptr %0, i64 808
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %wide.trip.count = zext nneg i32 %11 to i64
+  br label %18
+
+18:                                               ; preds = %.lr.ph, %78
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %19 = load ptr, ptr %6, align 8
+  %.idx = shl nuw nsw i64 %indvars.iv, 6
+  %20 = getelementptr i8, ptr %19, i64 12
+  %21 = getelementptr i8, ptr %20, i64 %.idx
+  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(16) @.str.71) #20
+  %.not21 = icmp eq i32 %22, 0
+  br i1 %.not21, label %23, label %40
+
+23:                                               ; preds = %18
+  %24 = trunc i64 %indvars.iv to i16
+  %25 = add i16 %24, 32
+  %26 = load i64, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  %27 = and i16 %25, 16383
+  %28 = zext nneg i16 %27 to i32
+  %.val.i = load i16, ptr %14, align 8
+  %29 = zext i16 %.val.i to i32
+  %30 = add nuw nsw i32 %29, 32
+  %31 = icmp samesign ugt i32 %30, %28
+  br i1 %31, label %fw_cfg_update_mr.exit, label %32
+
+32:                                               ; preds = %23
+  call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #19
+  unreachable
+
+fw_cfg_update_mr.exit:                            ; preds = %23
+  store i64 0, ptr %5, align 8, !annotation !7
+  %.lobit.i = lshr i16 %25, 15
+  %33 = zext nneg i16 %.lobit.i to i64
+  %34 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = zext nneg i16 %27 to i64
+  %37 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %35, i64 %36, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr @memory_region_from_host(ptr noundef %38, ptr noundef nonnull %5) #18
+  call void @memory_region_ram_resize(ptr noundef %39, i64 noundef %26, ptr noundef nonnull @error_abort) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  br label %78
+
+40:                                               ; preds = %18
+  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(17) @.str.72) #20
+  %.not22 = icmp eq i32 %41, 0
+  br i1 %.not22, label %42, label %59
+
+42:                                               ; preds = %40
+  %43 = trunc i64 %indvars.iv to i16
+  %44 = add i16 %43, 32
+  %45 = load i64, ptr %16, align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  %46 = and i16 %44, 16383
+  %47 = zext nneg i16 %46 to i32
+  %.val.i24 = load i16, ptr %14, align 8
+  %48 = zext i16 %.val.i24 to i32
+  %49 = add nuw nsw i32 %48, 32
+  %50 = icmp samesign ugt i32 %49, %47
+  br i1 %50, label %fw_cfg_update_mr.exit26, label %51
+
+51:                                               ; preds = %42
+  call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #19
+  unreachable
+
+fw_cfg_update_mr.exit26:                          ; preds = %42
+  store i64 0, ptr %4, align 8, !annotation !7
+  %.lobit.i25 = lshr i16 %44, 15
+  %52 = zext nneg i16 %.lobit.i25 to i64
+  %53 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = zext nneg i16 %46 to i64
+  %56 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %54, i64 %55, i32 2
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @memory_region_from_host(ptr noundef %57, ptr noundef nonnull %4) #18
+  call void @memory_region_ram_resize(ptr noundef %58, i64 noundef %45, ptr noundef nonnull @error_abort) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  br label %78
+
+59:                                               ; preds = %40
+  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(14) @.str.74) #20
+  %.not23 = icmp eq i32 %60, 0
+  br i1 %.not23, label %61, label %78
+
+61:                                               ; preds = %59
+  %62 = trunc i64 %indvars.iv to i16
+  %63 = add i16 %62, 32
+  %64 = load i64, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  %65 = and i16 %63, 16383
+  %66 = zext nneg i16 %65 to i32
+  %.val.i27 = load i16, ptr %14, align 8
+  %67 = zext i16 %.val.i27 to i32
+  %68 = add nuw nsw i32 %67, 32
+  %69 = icmp samesign ugt i32 %68, %66
+  br i1 %69, label %fw_cfg_update_mr.exit29, label %70
+
+70:                                               ; preds = %61
+  call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #19
+  unreachable
+
+fw_cfg_update_mr.exit29:                          ; preds = %61
+  store i64 0, ptr %3, align 8, !annotation !7
+  %.lobit.i28 = lshr i16 %63, 15
+  %71 = zext nneg i16 %.lobit.i28 to i64
+  %72 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = zext nneg i16 %65 to i64
+  %75 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %73, i64 %74, i32 2
+  %76 = load ptr, ptr %75, align 8
+  %77 = call ptr @memory_region_from_host(ptr noundef %76, ptr noundef nonnull %3) #18
+  call void @memory_region_ram_resize(ptr noundef %77, i64 noundef %64, ptr noundef nonnull @error_abort) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  br label %78
+
+78:                                               ; preds = %fw_cfg_update_mr.exit, %59, %fw_cfg_update_mr.exit29, %fw_cfg_update_mr.exit26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !16
+
+._crit_edge:                                      ; preds = %78, %9
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
+define internal zeroext i1 @fw_cfg_acpi_mr_restore(ptr noundef readonly captures(none) %0) #14 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %3 = load i64, ptr %2, align 8
+  %4 = tail call i32 @getpagesize() #24
+  %5 = sext i32 %4 to i64
+  %6 = urem i64 %3, %5
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %8, label %18
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  %10 = load i64, ptr %9, align 16
+  %11 = urem i64 %10, %5
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %18
+
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %15 = load i64, ptr %14, align 8
+  %16 = urem i64 %15, %5
+  %17 = icmp ne i64 %16, 0
+  br label %18
+
+18:                                               ; preds = %13, %8, %1
+  %19 = phi i1 [ true, %8 ], [ true, %1 ], [ %17, %13 ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1184
+  %21 = load i8, ptr %20, align 16, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
+  %23 = select i1 %22, i1 %19, i1 false
+  ret i1 %23
+}
+
+declare ptr @memory_region_from_host(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+declare void @memory_region_ram_resize(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i32 @getpagesize() local_unnamed_addr #15
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_io_class_init(ptr noundef %0, ptr readnone captures(none) %1) #2 {
+  %3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  store ptr @fw_cfg_io_realize, ptr %4, align 8
+  tail call void @device_class_set_props_n(ptr noundef %3, ptr noundef nonnull @fw_cfg_io_properties, i64 noundef 2) #18
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_io_realize(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca %struct.ErrorPropagator, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = icmp eq ptr %1, null
+  %6 = icmp eq ptr %1, @error_fatal
+  %or.cond = or i1 %5, %6
+  %spec.select = select i1 %or.cond, ptr %3, ptr %1
+  %7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.80, i32 noundef 16, ptr noundef nonnull @__func__.FW_CFG_IO) #18
+  %8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  call fastcc void @fw_cfg_file_slots_allocate(ptr noundef %8, ptr noundef %spec.select)
+  %9 = load ptr, ptr %spec.select, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %22
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1216
+  %12 = call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  call void @memory_region_init_io(ptr noundef nonnull %11, ptr noundef %7, ptr noundef nonnull @fw_cfg_comb_mem_ops, ptr noundef %12, ptr noundef nonnull @.str.113, i64 noundef 2) #18
+  %13 = call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 884
+  %15 = load i8, ptr %14, align 4, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %10
+  %18 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 912
+  %20 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  call void @memory_region_init_io(ptr noundef nonnull %19, ptr noundef nonnull %7, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %20, ptr noundef nonnull @.str.114, i64 noundef 8) #18
+  br label %21
+
+21:                                               ; preds = %17, %10
+  call fastcc void @fw_cfg_common_realize(ptr noundef %0, ptr noundef nonnull %spec.select)
+  br label %22
+
+22:                                               ; preds = %2, %21
+  %.val = load ptr, ptr %3, align 8
+  %.val18 = load ptr, ptr %4, align 8
+  call void @error_propagate(ptr noundef %.val18, ptr noundef %.val) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @fw_cfg_file_slots_allocate(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+  %3 = getelementptr i8, ptr %0, i64 808
+  %.val49 = load i16, ptr %3, align 8
+  %4 = icmp ult i16 %.val49, 16
+  br i1 %4, label %5, label %6
+
+5:                                                ; preds = %2
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1255, ptr noundef nonnull @__func__.fw_cfg_file_slots_allocate, ptr noundef nonnull @.str.115, i32 noundef 16) #18
+  br label %21
+
+6:                                                ; preds = %2
+  %7 = icmp ugt i16 %.val49, 16352
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1265, ptr noundef nonnull @__func__.fw_cfg_file_slots_allocate, ptr noundef nonnull @.str.116, i32 noundef 16352) #18
+  br label %21
+
+9:                                                ; preds = %6
+  %narrow = add nuw nsw i16 %.val49, 32
+  %10 = zext nneg i16 %narrow to i64
+  %11 = tail call noalias ptr @g_malloc0_n(i64 noundef %10, i64 noundef 40) #25
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  store ptr %11, ptr %12, align 16
+  %.val51 = load i16, ptr %3, align 8
+  %13 = zext i16 %.val51 to i64
+  %14 = add nuw nsw i64 %13, 32
+  %15 = tail call noalias ptr @g_malloc0_n(i64 noundef %14, i64 noundef 40) #25
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  store ptr %15, ptr %16, align 8
+  %.val50 = load i16, ptr %3, align 8
+  %17 = zext i16 %.val50 to i64
+  %18 = add nuw nsw i64 %17, 32
+  %19 = tail call noalias ptr @g_malloc0_n(i64 noundef %18, i64 noundef 4) #25
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  store ptr %19, ptr %20, align 16
+  br label %21
+
+21:                                               ; preds = %9, %8, %5
+  ret void
+}
+
+declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @fw_cfg_common_realize(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i16, align 2
+  %8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %9 = tail call ptr @qdev_get_machine() #18
+  %10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 24, ptr noundef nonnull @__func__.MACHINE) #18
+  %11 = tail call ptr @object_resolve_path_type(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.12, ptr noundef null) #18
+  %12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %14
+
+13:                                               ; preds = %2
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1095, ptr noundef nonnull @__func__.fw_cfg_common_realize, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.12) #18
+  br label %81
+
+14:                                               ; preds = %2
+  tail call void @fw_cfg_add_bytes(ptr noundef %8, i16 noundef zeroext 0, ptr noundef nonnull @.str.122, i64 noundef 4)
+  tail call void @fw_cfg_add_bytes(ptr noundef %8, i16 noundef zeroext 2, ptr noundef nonnull @qemu_uuid, i64 noundef 16)
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 98
+  %16 = load i8, ptr %15, align 2, !range !4, !noundef !5
+  %17 = xor i8 %16, 1
+  %18 = zext nneg i8 %17 to i16
+  tail call void @fw_cfg_add_i16(ptr noundef %8, i16 noundef zeroext 4, i16 noundef zeroext %18)
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  %20 = load i8, ptr %19, align 8, !range !4, !noundef !5
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 193
+  %24 = load i8, ptr %23, align 1, !range !4, !noundef !5
+  %25 = zext nneg i8 %24 to i16
+  br label %26
+
+26:                                               ; preds = %22, %14
+  %27 = phi i16 [ 0, %14 ], [ %25, %22 ]
+  tail call void @fw_cfg_add_i16(ptr noundef %8, i16 noundef zeroext 14, i16 noundef zeroext %27)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  store i64 0, ptr %6, align 8, !annotation !7
+  %28 = load ptr, ptr @current_machine, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 208
+  %30 = load i8, ptr %29, align 8, !range !4, !noundef !5
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 216
+  %34 = load i64, ptr %33, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #18
+  %or.cond.i = icmp ugt i64 %34, 65535
+  br i1 %or.cond.i, label %35, label %36
+
+35:                                               ; preds = %32
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.123) #18
+  tail call void @exit(i32 noundef 1) #23
+  unreachable
+
+36:                                               ; preds = %32
+  %37 = trunc nuw i64 %34 to i16
+  store i16 %37, ptr %7, align 2
+  %38 = call dereferenceable_or_null(2) ptr @g_memdup(ptr noundef nonnull %7, i32 noundef 2) #21
+  call void @fw_cfg_add_file_callback(ptr noundef %8, ptr noundef nonnull @.str.59, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %38, i64 noundef 2, i1 noundef zeroext true)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #18
+  %.pre.i = load ptr, ptr @current_machine, align 8
+  br label %39
+
+39:                                               ; preds = %36, %26
+  %40 = phi ptr [ %.pre.i, %36 ], [ %28, %26 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 200
+  %42 = load ptr, ptr %41, align 8
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %fw_cfg_bootsplash.exit, label %43
+
+43:                                               ; preds = %39
+  %44 = call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %42) #18
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %43
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.124, ptr noundef nonnull %42) #18
+  br label %fw_cfg_bootsplash.exit
+
+47:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  store ptr null, ptr %5, align 8, !annotation !7
+  %48 = call i32 @g_file_get_contents(ptr noundef nonnull %44, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #18
+  %.not.i.i = icmp eq i32 %48, 0
+  br i1 %.not.i.i, label %49, label %54
+
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.125, ptr noundef nonnull %44, ptr noundef %52) #18
+  %53 = load ptr, ptr %4, align 8
+  call void @g_error_free(ptr noundef %53) #18
+  br label %63
+
+54:                                               ; preds = %47
+  %55 = load i64, ptr %6, align 8
+  %56 = icmp ult i64 %55, 30
+  br i1 %56, label %61, label %57
+
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %5, align 8
+  %.val.i.i = load i16, ptr %58, align 1
+  switch i16 %.val.i.i, label %61 [
+    i16 -9985, label %.critedge22.i
+    i16 19778, label %59
+  ]
+
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  %.val15.i.i = load i16, ptr %60, align 1
+  %.not14.i.i = icmp eq i16 %.val15.i.i, 24
+  br i1 %.not14.i.i, label %.critedge22.i, label %61
+
+61:                                               ; preds = %59, %57, %54
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.126, ptr noundef nonnull %44) #18
+  %62 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %62) #18
+  br label %63
+
+63:                                               ; preds = %61, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @g_free(ptr noundef nonnull %44) #18
+  br label %fw_cfg_bootsplash.exit
+
+.critedge22.i:                                    ; preds = %59, %57
+  %.str.61.sink.i = phi ptr [ @.str.60, %57 ], [ @.str.61, %59 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  %64 = load ptr, ptr @boot_splash_filedata, align 8
+  call void @g_free(ptr noundef %64) #18
+  store ptr %58, ptr @boot_splash_filedata, align 8
+  %65 = load i64, ptr %6, align 8
+  call void @fw_cfg_add_file_callback(ptr noundef %8, ptr noundef nonnull %.str.61.sink.i, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, i64 noundef %65, i1 noundef zeroext true)
+  call void @g_free(ptr noundef nonnull %44) #18
+  br label %fw_cfg_bootsplash.exit
+
+fw_cfg_bootsplash.exit:                           ; preds = %39, %46, %63, %.critedge22.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  %66 = load ptr, ptr @current_machine, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 224
+  %68 = load i8, ptr %67, align 8, !range !4, !noundef !5
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %fw_cfg_reboot.exit
+
+70:                                               ; preds = %fw_cfg_bootsplash.exit
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 232
+  %72 = load i64, ptr %71, align 8
+  %73 = add i64 %72, -65536
+  %or.cond.i17 = icmp ult i64 %73, -65537
+  br i1 %or.cond.i17, label %74, label %fw_cfg_reboot.exit
+
+74:                                               ; preds = %70
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.127) #18
+  call void @exit(i32 noundef 1) #23
+  unreachable
+
+fw_cfg_reboot.exit:                               ; preds = %fw_cfg_bootsplash.exit, %70
+  %.0.i = phi i64 [ %72, %70 ], [ -1, %fw_cfg_bootsplash.exit ]
+  %75 = trunc i64 %.0.i to i32
+  store i32 %75, ptr %3, align 4
+  %76 = call dereferenceable_or_null(4) ptr @g_memdup(ptr noundef nonnull %3, i32 noundef 4) #21
+  call void @fw_cfg_add_file_callback(ptr noundef %8, ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %76, i64 noundef 4, i1 noundef zeroext true)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 884
+  %78 = load i8, ptr %77, align 4, !range !4, !noundef !5
+  %79 = trunc nuw i8 %78 to i1
+  %. = select i1 %79, i32 3, i32 1
+  call void @fw_cfg_add_i32(ptr noundef nonnull %8, i16 noundef zeroext 1, i32 noundef %.)
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 856
+  store ptr @fw_cfg_machine_ready, ptr %80, align 8
+  call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %80) #18
+  br label %81
+
+81:                                               ; preds = %fw_cfg_reboot.exit, %13
+  ret void
+}
+
+; Function Attrs: allocsize(0,1)
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #16
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_comb_write(ptr noundef %0, i64 %1, i64 noundef %2, i32 noundef %3) #2 {
+  %cond = icmp eq i32 %3, 2
+  br i1 %cond, label %5, label %7
+
+5:                                                ; preds = %4
+  %6 = trunc i64 %2 to i16
+  tail call fastcc void @fw_cfg_select(ptr noundef %0, i16 noundef zeroext %6)
+  br label %7
+
+7:                                                ; preds = %4, %5
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal noundef zeroext i1 @fw_cfg_comb_valid(ptr readnone captures(none) %0, i64 %1, i32 noundef %2, i1 noundef zeroext %3, i64 %4) #13 {
+  %6 = icmp eq i32 %2, 1
+  br i1 %6, label %10, label %7
+
+7:                                                ; preds = %5
+  %8 = icmp eq i32 %2, 2
+  %9 = and i1 %3, %8
+  br label %10
+
+10:                                               ; preds = %7, %5
+  %11 = phi i1 [ true, %5 ], [ %9, %7 ]
+  ret i1 %11
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal range(i64 0, 5856171918474036808) i64 @fw_cfg_dma_mem_read(ptr readnone captures(none) %0, i64 noundef %1, i32 noundef %2) #2 {
+  %4 = trunc i64 %1 to i32
+  %.tr = add i32 %2, %4
+  %5 = shl i32 %.tr, 3
+  %6 = sub i32 64, %5
+  %7 = shl i32 %2, 3
+  %8 = icmp slt i32 %6, 0
+  %9 = icmp slt i32 %7, 1
+  %or.cond.not12.i = or i1 %9, %8
+  %.not.i = icmp sgt i32 %7, %5
+  %or.cond9.i = or i1 %.not.i, %or.cond.not12.i
+  br i1 %or.cond9.i, label %10, label %extract64.exit
+
+10:                                               ; preds = %3
+  tail call void @__assert_fail(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120, i32 noundef 574, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #19
+  unreachable
+
+extract64.exit:                                   ; preds = %3
+  %11 = zext nneg i32 %6 to i64
+  %12 = lshr i64 5856171918474036807, %11
+  %13 = sub nuw nsw i32 64, %7
+  %14 = zext nneg i32 %13 to i64
+  %15 = lshr i64 -1, %14
+  %16 = and i64 %12, %15
+  ret i64 %16
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_dma_mem_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #2 {
+  %5 = icmp eq i32 %3, 4
+  br i1 %5, label %6, label %14
+
+6:                                                ; preds = %4
+  switch i64 %1, label %19 [
+    i64 0, label %7
+    i64 4, label %10
+  ]
+
+7:                                                ; preds = %6
+  %8 = shl i64 %2, 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 %8, ptr %9, align 8
+  br label %19
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %12 = load i64, ptr %11, align 8
+  %13 = or i64 %12, %2
+  store i64 %13, ptr %11, align 8
+  tail call fastcc void @fw_cfg_dma_transfer(ptr noundef %0)
+  br label %19
+
+14:                                               ; preds = %4
+  %15 = icmp eq i32 %3, 8
+  %16 = icmp eq i64 %1, 0
+  %or.cond = and i1 %16, %15
+  br i1 %or.cond, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 %2, ptr %18, align 8
+  tail call fastcc void @fw_cfg_dma_transfer(ptr noundef %0)
+  br label %19
+
+19:                                               ; preds = %6, %14, %17, %7, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal noundef zeroext i1 @fw_cfg_dma_mem_valid(ptr readnone captures(none) %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i64 %4) #13 {
+  br i1 %3, label %6, label %13
+
+6:                                                ; preds = %5
+  %7 = icmp eq i32 %2, 4
+  %8 = and i64 %1, -5
+  %or.cond = icmp eq i64 %8, 0
+  %or.cond7 = and i1 %7, %or.cond
+  br i1 %or.cond7, label %13, label %9
+
+9:                                                ; preds = %6
+  %10 = icmp eq i32 %2, 8
+  %11 = icmp eq i64 %1, 0
+  %12 = and i1 %11, %10
+  br label %13
+
+13:                                               ; preds = %6, %9, %5
+  %14 = phi i1 [ true, %5 ], [ %12, %9 ], [ true, %6 ]
+  ret i1 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2 {
+  %2 = alloca %struct.timeval, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.fw_cfg_dma_access, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %7 = load i64, ptr %6, align 8
+  store i64 0, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %9 = load ptr, ptr %8, align 16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  fence seq_cst
+  %10 = call i32 @address_space_rw(ptr noundef %9, i64 noundef %7, i64 4294967296, ptr noundef nonnull %5, i64 noundef range(i64 0, 4294967296) 16, i1 noundef zeroext false) #18
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %14, label %11
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %8, align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  store i32 16777216, ptr %4, align 4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  fence seq_cst
+  %13 = call i32 @address_space_rw(ptr noundef %12, i64 noundef %7, i64 4294967296, ptr noundef nonnull %4, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %trace_fw_cfg_read.exit
+
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = call noundef i64 @llvm.bswap.i64(i64 %16)
+  store i64 %17, ptr %15, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = call noundef i32 @llvm.bswap.i32(i32 %19)
+  store i32 %20, ptr %18, align 4
+  %21 = load i32, ptr %5, align 8
+  %22 = call noundef i32 @llvm.bswap.i32(i32 %21)
+  store i32 %22, ptr %5, align 8
+  %23 = and i32 %22, 8
+  %.not111 = icmp eq i32 %23, 0
+  br i1 %.not111, label %27, label %24
+
+24:                                               ; preds = %14
+  %25 = lshr i32 %22, 16
+  %26 = trunc nuw i32 %25 to i16
+  call fastcc void @fw_cfg_select(ptr noundef nonnull %0, i16 noundef zeroext %26)
+  br label %27
+
+27:                                               ; preds = %24, %14
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %29 = load i16, ptr %28, align 16
+  %30 = icmp eq i16 %29, -1
+  br i1 %30, label %39, label %31
+
+31:                                               ; preds = %27
+  %.lobit = lshr i16 %29, 15
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %33 = zext nneg i16 %.lobit to i64
+  %34 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = and i16 %29, 16383
+  %37 = zext nneg i16 %36 to i64
+  %38 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %35, i64 %37
+  br label %39
+
+39:                                               ; preds = %27, %31
+  %40 = phi ptr [ %38, %31 ], [ null, %27 ]
+  %41 = load i32, ptr %5, align 8
+  %42 = and i32 %41, 2
+  %.not112 = icmp eq i32 %42, 0
+  br i1 %.not112, label %43, label %47
+
+43:                                               ; preds = %39
+  %44 = and i32 %41, 16
+  %.not113 = icmp eq i32 %44, 0
+  br i1 %.not113, label %45, label %47
+
+45:                                               ; preds = %43
+  %46 = and i32 %41, 4
+  %.not114 = icmp eq i32 %46, 0
+  br i1 %.not114, label %.thread, label %47
+
+.thread:                                          ; preds = %45
+  store i32 0, ptr %18, align 4
+  store i32 0, ptr %5, align 8
+  br label %._crit_edge
+
+47:                                               ; preds = %45, %43, %39
+  %.not121.ph = phi i1 [ true, %45 ], [ false, %43 ], [ true, %39 ]
+  %.pr = load i32, ptr %18, align 4
+  store i32 0, ptr %5, align 8
+  %.not129 = icmp eq i32 %.pr, 0
+  br i1 %.not129, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %47
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 852
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  br label %53
+
+53:                                               ; preds = %.lr.ph, %109
+  %.pre131132 = phi i32 [ 0, %.lr.ph ], [ %.pre131133, %109 ]
+  %54 = phi i32 [ %.pr, %.lr.ph ], [ %114, %109 ]
+  %55 = load i16, ptr %28, align 16
+  %56 = icmp eq i16 %55, -1
+  br i1 %56, label %62, label %57
+
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %48, align 8
+  %.not116 = icmp eq ptr %58, null
+  br i1 %.not116, label %62, label %59
+
+59:                                               ; preds = %57
+  %60 = load i32, ptr %49, align 4
+  %61 = load i32, ptr %40, align 8
+  %.not117 = icmp ult i32 %60, %61
+  br i1 %.not117, label %73, label %62
+
+62:                                               ; preds = %59, %57, %53
+  %63 = zext i32 %54 to i64
+  br i1 %.not112, label %70, label %64
+
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %8, align 16
+  %66 = load i64, ptr %15, align 8
+  %67 = call i32 @dma_memory_set(ptr noundef %65, i64 noundef %66, i8 noundef zeroext 0, i64 noundef %63, i64 4294967296) #18
+  %.not126 = icmp eq i32 %67, 0
+  %.pre131.pre = load i32, ptr %5, align 8
+  br i1 %.not126, label %70, label %68
+
+68:                                               ; preds = %64
+  %69 = or i32 %.pre131.pre, 1
+  store i32 %69, ptr %5, align 8
+  br label %70
+
+70:                                               ; preds = %64, %68, %62
+  %.pre131 = phi i32 [ %.pre131.pre, %64 ], [ %69, %68 ], [ %.pre131132, %62 ]
+  br i1 %.not121.ph, label %109, label %71
+
+71:                                               ; preds = %70
+  %72 = or i32 %.pre131, 1
+  store i32 %72, ptr %5, align 8
+  br label %109
+
+73:                                               ; preds = %59
+  %74 = sub nuw i32 %61, %60
+  %. = call i32 @llvm.umin.i32(i32 %54, i32 %74)
+  %.1 = zext i32 %. to i64
+  br i1 %.not112, label %84, label %75
+
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %8, align 16
+  %77 = load i64, ptr %15, align 8
+  %78 = zext i32 %60 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %58, i64 %78
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  fence seq_cst
+  %80 = call i32 @address_space_rw(ptr noundef %76, i64 noundef %77, i64 4294967296, ptr noundef nonnull %79, i64 noundef range(i64 0, 4294967296) %.1, i1 noundef zeroext true) #18
+  %.not120 = icmp eq i32 %80, 0
+  br i1 %.not120, label %84, label %81
+
+81:                                               ; preds = %75
+  %82 = load i32, ptr %5, align 8
+  %83 = or i32 %82, 1
+  store i32 %83, ptr %5, align 8
+  br label %84
+
+84:                                               ; preds = %75, %81, %73
+  br i1 %.not121.ph, label %106, label %85
+
+85:                                               ; preds = %84
+  %86 = load i8, ptr %50, align 4, !range !4, !noundef !5
+  %87 = trunc nuw i8 %86 to i1
+  %88 = load i32, ptr %18, align 4
+  %.not122 = icmp eq i32 %., %88
+  %or.cond = select i1 %87, i1 %.not122, i1 false
+  br i1 %or.cond, label %89, label %97
+
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %8, align 16
+  %91 = load i64, ptr %15, align 8
+  %92 = load ptr, ptr %48, align 8
+  %93 = load i32, ptr %49, align 4
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  fence seq_cst
+  %96 = call i32 @address_space_rw(ptr noundef %90, i64 noundef %91, i64 4294967296, ptr noundef %95, i64 noundef range(i64 0, 4294967296) %.1, i1 noundef zeroext false) #18
+  %.not123 = icmp eq i32 %96, 0
+  br i1 %.not123, label %100, label %97
+
+97:                                               ; preds = %89, %85
+  %98 = load i32, ptr %5, align 8
+  %99 = or i32 %98, 1
+  store i32 %99, ptr %5, align 8
+  br label %106
+
+100:                                              ; preds = %89
+  %101 = load ptr, ptr %51, align 8
+  %.not124 = icmp eq ptr %101, null
+  br i1 %.not124, label %106, label %102
+
+102:                                              ; preds = %100
+  %103 = load ptr, ptr %52, align 8
+  %104 = load i32, ptr %49, align 4
+  %105 = zext i32 %104 to i64
+  call void %101(ptr noundef %103, i64 noundef %105, i64 noundef %.1) #18
+  br label %106
+
+106:                                              ; preds = %97, %102, %100, %84
+  %107 = load i32, ptr %49, align 4
+  %108 = add i32 %107, %.
+  store i32 %108, ptr %49, align 4
+  %.pre = load i32, ptr %5, align 8
+  br label %109
+
+109:                                              ; preds = %70, %71, %106
+  %.pre131133 = phi i32 [ %72, %71 ], [ %.pre131, %70 ], [ %.pre, %106 ]
+  %.0 = phi i64 [ %63, %71 ], [ %63, %70 ], [ %.1, %106 ]
+  %110 = load i64, ptr %15, align 8
+  %111 = add i64 %110, %.0
+  store i64 %111, ptr %15, align 8
+  %112 = load i32, ptr %18, align 4
+  %113 = trunc nuw i64 %.0 to i32
+  %114 = sub i32 %112, %113
+  store i32 %114, ptr %18, align 4
+  %115 = icmp ne i32 %114, 0
+  %116 = and i32 %.pre131133, 1
+  %.not115 = icmp eq i32 %116, 0
+  %117 = select i1 %115, i1 %.not115, i1 false
+  br i1 %117, label %53, label %._crit_edge, !llvm.loop !18
+
+._crit_edge:                                      ; preds = %109, %.thread, %47
+  %.lcssa = phi i32 [ 0, %47 ], [ 0, %.thread ], [ %.pre131133, %109 ]
+  %118 = load ptr, ptr %8, align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  %119 = call noundef i32 @llvm.bswap.i32(i32 %.lcssa)
+  store i32 %119, ptr %3, align 4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  fence seq_cst
+  %120 = call i32 @address_space_rw(ptr noundef %118, i64 noundef %7, i64 4294967296, ptr noundef nonnull %3, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  %121 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %121, 0
+  br i1 %.not.i.i, label %trace_fw_cfg_read.exit, label %122, !prof !6
+
+122:                                              ; preds = %._crit_edge
+  %123 = load i16, ptr @_TRACE_FW_CFG_READ_DSTATE, align 2
+  %.not3.i.i = icmp eq i16 %123, 0
+  br i1 %.not3.i.i, label %trace_fw_cfg_read.exit, label %124
+
+124:                                              ; preds = %122
+  %125 = load i32, ptr @qemu_loglevel, align 4
+  %126 = and i32 %125, 32768
+  %.not4.i.i = icmp eq i32 %126, 0
+  br i1 %.not4.i.i, label %trace_fw_cfg_read.exit, label %127
+
+127:                                              ; preds = %124
+  %128 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %130, label %136
+
+130:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !7
+  %131 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #18
+  %132 = call i32 @qemu_get_thread_id() #18
+  %133 = load i64, ptr %2, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %135 = load i64, ptr %134, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %132, i64 noundef %133, i64 noundef %135, ptr noundef nonnull %0, i64 noundef 0) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  br label %trace_fw_cfg_read.exit
+
+136:                                              ; preds = %127
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, ptr noundef nonnull %0, i64 noundef 0) #18
+  br label %trace_fw_cfg_read.exit
+
+trace_fw_cfg_read.exit:                           ; preds = %136, %130, %124, %122, %._crit_edge, %11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
+  ret void
+}
+
+declare i32 @dma_memory_set(ptr noundef, i64 noundef, i8 noundef zeroext, i64 noundef, i64) local_unnamed_addr #5
+
+declare i32 @address_space_rw(ptr noundef, i64 noundef, i64, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.bswap.i64(i64) #12
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_machine_ready(ptr noundef %0, ptr readnone captures(none) %1) #2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 -856
+  tail call void @qemu_register_reset(ptr noundef nonnull @fw_cfg_machine_reset, ptr noundef nonnull %3) #18
+  ret void
+}
+
+declare void @qemu_add_machine_init_done_notifier(ptr noundef) local_unnamed_addr #5
+
+declare ptr @qemu_find_file(i32 noundef, ptr noundef) local_unnamed_addr #5
+
+declare void @g_error_free(ptr noundef) local_unnamed_addr #5
+
+declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_machine_reset(ptr noundef %0) #2 {
+  %2 = alloca i64, align 8
+  %3 = tail call ptr @qdev_get_machine() #18
+  %4 = tail call ptr @object_get_class(ptr noundef %3) #18
+  %5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 24, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
+  store i64 0, ptr %2, align 8, !annotation !7
+  %6 = call ptr @get_boot_devices_list(ptr noundef nonnull %2) #18
+  %7 = load i64, ptr %2, align 8
+  %8 = call ptr @fw_cfg_modify_file(ptr noundef %0, ptr noundef nonnull @.str.75, ptr noundef %6, i64 noundef %7)
+  call void @g_free(ptr noundef %8) #18
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 196
+  %10 = load i8, ptr %9, align 4
+  %11 = and i8 %10, 32
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %12, label %16
+
+12:                                               ; preds = %1
+  %13 = call ptr @get_boot_devices_lchs_list(ptr noundef nonnull %2) #18
+  %14 = load i64, ptr %2, align 8
+  %15 = call ptr @fw_cfg_modify_file(ptr noundef %0, ptr noundef nonnull @.str.128, ptr noundef %13, i64 noundef %14)
+  call void @g_free(ptr noundef %15) #18
+  br label %16
+
+16:                                               ; preds = %12, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  ret void
+}
+
+declare ptr @get_boot_devices_list(ptr noundef) local_unnamed_addr #5
+
+declare ptr @get_boot_devices_lchs_list(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_mem_class_init(ptr noundef %0, ptr readnone captures(none) %1) #2 {
+  %3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  store ptr @fw_cfg_mem_realize, ptr %4, align 8
+  tail call void @device_class_set_props_n(ptr noundef %3, ptr noundef nonnull @fw_cfg_mem_properties, i64 noundef 3) #18
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_mem_realize(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca %struct.ErrorPropagator, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = icmp eq ptr %1, null
+  %6 = icmp eq ptr %1, @error_fatal
+  %or.cond = or i1 %5, %6
+  %spec.select = select i1 %or.cond, ptr %3, ptr %1
+  %7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.80, i32 noundef 17, ptr noundef nonnull @__func__.FW_CFG_MEM) #18
+  %8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #18
+  %9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  call fastcc void @fw_cfg_file_slots_allocate(ptr noundef %9, ptr noundef %spec.select)
+  %10 = load ptr, ptr %spec.select, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %11, label %38
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1216
+  %13 = call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  call void @memory_region_init_io(ptr noundef nonnull %12, ptr noundef %7, ptr noundef nonnull @fw_cfg_ctl_mem_ops, ptr noundef %13, ptr noundef nonnull @.str.132, i64 noundef 2) #18
+  call void @sysbus_init_mmio(ptr noundef %8, ptr noundef nonnull %12) #18
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1760
+  %15 = load i32, ptr %14, align 16
+  %16 = icmp ugt i32 %15, 1
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 1768
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(80) @fw_cfg_data_mem_ops, i64 80, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 1812
+  store i32 %15, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 1836
+  store i32 %15, ptr %20, align 4
+  br label %21
+
+21:                                               ; preds = %17, %11
+  %.0 = phi ptr [ %18, %17 ], [ @fw_cfg_data_mem_ops, %11 ]
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 1488
+  %23 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 44
+  %25 = load i32, ptr %24, align 4
+  %26 = zext i32 %25 to i64
+  call void @memory_region_init_io(ptr noundef nonnull %22, ptr noundef nonnull %7, ptr noundef nonnull %.0, ptr noundef %23, ptr noundef nonnull @.str.133, i64 noundef %26) #18
+  call void @sysbus_init_mmio(ptr noundef %8, ptr noundef nonnull %22) #18
+  %27 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 884
+  %29 = load i8, ptr %28, align 4, !range !4, !noundef !5
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %37
+
+31:                                               ; preds = %21
+  %32 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 912
+  %34 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  call void @memory_region_init_io(ptr noundef nonnull %33, ptr noundef nonnull %7, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %34, ptr noundef nonnull @.str.114, i64 noundef 8) #18
+  %35 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.80, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #18
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 912
+  call void @sysbus_init_mmio(ptr noundef %8, ptr noundef nonnull %36) #18
+  br label %37
+
+37:                                               ; preds = %31, %21
+  call fastcc void @fw_cfg_common_realize(ptr noundef %0, ptr noundef nonnull %spec.select)
+  br label %38
+
+38:                                               ; preds = %2, %37
+  %.val = load ptr, ptr %3, align 8
+  %.val40 = load ptr, ptr %4, align 8
+  call void @error_propagate(ptr noundef %.val40, ptr noundef %.val) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
+  ret void
+}
+
+declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal noundef i64 @fw_cfg_ctl_mem_read(ptr readnone captures(none) %0, i64 %1, i32 %2) #13 {
+  ret i64 0
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @fw_cfg_ctl_mem_write(ptr noundef initializes((848, 850), (852, 856)) %0, i64 %1, i64 noundef %2, i32 %3) #2 {
+  %5 = trunc i64 %2 to i16
+  tail call fastcc void @fw_cfg_select(ptr noundef %0, i16 noundef zeroext %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal noundef zeroext i1 @fw_cfg_ctl_mem_valid(ptr readnone captures(none) %0, i64 %1, i32 noundef %2, i1 noundef zeroext %3, i64 %4) #13 {
+  %6 = icmp eq i32 %2, 2
+  %7 = and i1 %3, %6
+  ret i1 %7
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
+declare i32 @llvm.smin.i32(i32, i32) #17
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #17
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #14 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #16 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind allocsize(1) }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(none) }
+attributes #25 = { nounwind allocsize(0,1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = !{!"auto-init"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = !{i64 2152193830}
+!18 = distinct !{!18, !9}

@@ -1,12 +1,12 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.TCGHelperInfo = type { ptr, ptr, i64, i64, [14 x %struct.TCGCallArgumentLoc] }
 %struct.TCGCallArgumentLoc = type { i32 }
-%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon, %union.anon, %struct.anon.0, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
+%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon, %union.anon, %struct.anon.0, ptr, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
 %struct.anon = type { ptr, ptr }
 %struct.TCGTempSet = type { [8 x i64] }
-%struct.TCGTemp = type { i48, i64, ptr, i64, ptr, i64, ptr }
+%struct.TCGTemp = type { i64, i64, ptr, i64, ptr, i64, ptr }
 %union.anon = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.anon.0 = type { ptr, ptr }
@@ -42,11 +42,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.tcg_gen_qemu_ld_i32_int = private unnamed_addr constant [24 x i8] c"tcg_gen_qemu_ld_i32_int\00", align 1
 @__func__.tcg_canonicalize_memop = private unnamed_addr constant [23 x i8] c"tcg_canonicalize_memop\00", align 1
 @tcg_use_softmmu = external global i8, align 1
+@tcg_env = external global ptr, align 8
 @__func__.tcg_gen_qemu_st_i32_int = private unnamed_addr constant [24 x i8] c"tcg_gen_qemu_st_i32_int\00", align 1
 @__func__.tcg_gen_qemu_ld_i64_int = private unnamed_addr constant [24 x i8] c"tcg_gen_qemu_ld_i64_int\00", align 1
 @__func__.tcg_gen_qemu_st_i64_int = private unnamed_addr constant [24 x i8] c"tcg_gen_qemu_st_i64_int\00", align 1
 @cpuinfo = external global i32, align 4
-@tcg_env = external global ptr, align 8
 @__func__.use_two_i64_for_i128 = private unnamed_addr constant [21 x i8] c"use_two_i64_for_i128\00", align 1
 @__func__.canonicalize_memop_i128_as_i64 = private unnamed_addr constant [31 x i8] c"canonicalize_memop_i128_as_i64\00", align 1
 @helper_info_ld_i128 = external global %struct.TCGHelperInfo, align 8
@@ -183,56 +183,55 @@ target triple = "x86_64-unknown-linux-gnu"
 @helper_info_atomic_xchgq_be = external global %struct.TCGHelperInfo, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_qemu_ld_i32_chk(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_qemu_ld_i32_chk(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+11:                                               ; preds = %5
+  %12 = load i32, ptr %10, align 4
+  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.TCGContext, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %12, %16
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %do.body
+18:                                               ; preds = %11
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+19:                                               ; preds = %11
+  br label %20
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+20:                                               ; preds = %19
+  br label %21
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+21:                                               ; preds = %20
+  %22 = load i32, ptr %9, align 4
+  %23 = and i32 %22, 7
+  %24 = icmp ule i32 %23, 2
+  br i1 %24, label %26, label %25
 
-if.then4:                                         ; preds = %do.body2
+25:                                               ; preds = %21
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+26:                                               ; preds = %21
+  br label %27
 
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %val.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load i64, ptr %idx.addr, align 8
-  %8 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_ld_i32_int(ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8)
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i64, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  call void @tcg_gen_qemu_ld_i32_int(ptr noundef %28, ptr noundef %29, i64 noundef %30, i32 noundef %31)
   ret void
 }
 
@@ -240,1551 +239,1684 @@ do.end6:                                          ; preds = %if.end5
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_qemu_ld_i32_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %orig_memop = alloca i32, align 4
-  %orig_oi = alloca i32, align 4
-  %oi = alloca i32, align 4
-  %copy_addr = alloca ptr, align 8
-  %opc = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
+define internal void @tcg_gen_qemu_ld_i32_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
   call void @tcg_gen_req_mo(i32 noundef 3)
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
-  store i32 %call, ptr %memop.addr, align 4
-  store i32 %call, ptr %orig_memop, align 4
-  %1 = load i32, ptr %memop.addr, align 4
-  %2 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %2 to i32
-  %call1 = call i32 @make_memop_idx(i32 noundef %1, i32 noundef %conv)
-  store i32 %call1, ptr %oi, align 4
-  store i32 %call1, ptr %orig_oi, align 4
-  %3 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %3, 16
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end10
+  %14 = load i32, ptr %8, align 4
+  %15 = call i32 @tcg_canonicalize_memop(i32 noundef %14, i1 noundef zeroext false, i1 noundef zeroext false)
+  store i32 %15, ptr %8, align 4
+  store i32 %15, ptr %9, align 4
+  %16 = load i32, ptr %8, align 4
+  %17 = load i64, ptr %7, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = call i32 @make_memop_idx(i32 noundef %16, i32 noundef %18)
+  store i32 %19, ptr %11, align 4
+  store i32 %19, ptr %10, align 4
+  %20 = load i32, ptr %8, align 4
+  %21 = and i32 %20, 16
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %40
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr %memop.addr, align 4
-  %call2 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %4)
-  br i1 %call2, label %if.end10, label %if.then
+23:                                               ; preds = %4
+  %24 = load i32, ptr %8, align 4
+  %25 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %24)
+  br i1 %25, label %40, label %26
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load i32, ptr %memop.addr, align 4
-  %and3 = and i32 %5, -17
-  store i32 %and3, ptr %memop.addr, align 4
-  %6 = load i32, ptr %memop.addr, align 4
-  %and4 = and i32 %6, 15
-  %cmp = icmp eq i32 %and4, 9
-  br i1 %cmp, label %if.then6, label %if.end
+26:                                               ; preds = %23
+  %27 = load i32, ptr %8, align 4
+  %28 = and i32 %27, -17
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4
+  %30 = and i32 %29, 15
+  %31 = icmp eq i32 %30, 9
+  br i1 %31, label %32, label %35
 
-if.then6:                                         ; preds = %if.then
-  %7 = load i32, ptr %memop.addr, align 4
-  %and7 = and i32 %7, -9
-  store i32 %and7, ptr %memop.addr, align 4
-  br label %if.end
+32:                                               ; preds = %26
+  %33 = load i32, ptr %8, align 4
+  %34 = and i32 %33, -9
+  store i32 %34, ptr %8, align 4
+  br label %35
 
-if.end:                                           ; preds = %if.then6, %if.then
-  %8 = load i32, ptr %memop.addr, align 4
-  %9 = load i64, ptr %idx.addr, align 8
-  %conv8 = trunc i64 %9 to i32
-  %call9 = call i32 @make_memop_idx(i32 noundef %8, i32 noundef %conv8)
-  store i32 %call9, ptr %oi, align 4
-  br label %if.end10
+35:                                               ; preds = %32, %26
+  %36 = load i32, ptr %8, align 4
+  %37 = load i64, ptr %7, align 8
+  %38 = trunc i64 %37 to i32
+  %39 = call i32 @make_memop_idx(i32 noundef %36, i32 noundef %38)
+  store i32 %39, ptr %11, align 4
+  br label %40
 
-if.end10:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %10 = load ptr, ptr %addr.addr, align 8
-  %call11 = call ptr @plugin_maybe_preserve_addr(ptr noundef %10)
-  store ptr %call11, ptr %copy_addr, align 8
-  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %12 = load ptr, ptr %11, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %12, i32 0, i32 10
-  %13 = load i32, ptr %addr_type, align 4
-  %cmp12 = icmp eq i32 %13, 0
-  br i1 %cmp12, label %if.then14, label %if.else
+40:                                               ; preds = %35, %23, %4
+  %41 = load ptr, ptr %6, align 8
+  %42 = call ptr @plugin_maybe_preserve_addr(ptr noundef %41)
+  store ptr %42, ptr %12, align 8
+  %43 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw %struct.TCGContext, ptr %44, i32 0, i32 10
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then14:                                        ; preds = %if.end10
-  store i32 135, ptr %opc, align 4
-  br label %if.end15
+48:                                               ; preds = %40
+  store i32 135, ptr %13, align 4
+  br label %50
 
-if.else:                                          ; preds = %if.end10
-  store i32 139, ptr %opc, align 4
-  br label %if.end15
+49:                                               ; preds = %40
+  store i32 139, ptr %13, align 4
+  br label %50
 
-if.end15:                                         ; preds = %if.else, %if.then14
-  %14 = load i32, ptr %opc, align 4
-  %15 = load ptr, ptr %val.addr, align 8
-  %call16 = call ptr @tcgv_i32_temp(ptr noundef %15)
-  %16 = load ptr, ptr %addr.addr, align 8
-  %17 = load i32, ptr %oi, align 4
-  call void @gen_ldst(i32 noundef %14, ptr noundef %call16, ptr noundef null, ptr noundef %16, i32 noundef %17)
-  %18 = load ptr, ptr %copy_addr, align 8
-  %19 = load ptr, ptr %addr.addr, align 8
-  %20 = load i32, ptr %orig_oi, align 4
-  call void @plugin_gen_mem_callbacks(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 1)
-  %21 = load i32, ptr %orig_memop, align 4
-  %22 = load i32, ptr %memop.addr, align 4
-  %xor = xor i32 %21, %22
-  %and17 = and i32 %xor, 16
-  %tobool18 = icmp ne i32 %and17, 0
-  br i1 %tobool18, label %if.then19, label %if.end24
+50:                                               ; preds = %49, %48
+  %51 = load i32, ptr %13, align 4
+  %52 = load ptr, ptr %5, align 8
+  %53 = call ptr @tcgv_i32_temp(ptr noundef %52)
+  %54 = load ptr, ptr %6, align 8
+  %55 = load i32, ptr %11, align 4
+  call void @gen_ldst(i32 noundef %51, i32 noundef 0, ptr noundef %53, ptr noundef null, ptr noundef %54, i32 noundef %55)
+  %56 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i32, ptr %10, align 4
+  call void @plugin_gen_mem_callbacks_i32(ptr noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 1)
+  %60 = load i32, ptr %9, align 4
+  %61 = load i32, ptr %8, align 4
+  %62 = xor i32 %60, %61
+  %63 = and i32 %62, 16
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %83
 
-if.then19:                                        ; preds = %if.end15
-  %23 = load i32, ptr %orig_memop, align 4
-  %and20 = and i32 %23, 7
-  switch i32 %and20, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb23
+65:                                               ; preds = %50
+  %66 = load i32, ptr %9, align 4
+  %67 = and i32 %66, 7
+  switch i32 %67, label %78 [
+    i32 1, label %68
+    i32 2, label %75
   ]
 
-sw.bb:                                            ; preds = %if.then19
-  %24 = load ptr, ptr %val.addr, align 8
-  %25 = load ptr, ptr %val.addr, align 8
-  %26 = load i32, ptr %orig_memop, align 4
-  %and21 = and i32 %26, 8
-  %tobool22 = icmp ne i32 %and21, 0
-  %cond = select i1 %tobool22, i32 5, i32 3
-  call void @tcg_gen_bswap16_i32(ptr noundef %24, ptr noundef %25, i32 noundef %cond)
-  br label %sw.epilog
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %5, align 8
+  %70 = load ptr, ptr %5, align 8
+  %71 = load i32, ptr %9, align 4
+  %72 = and i32 %71, 8
+  %73 = icmp ne i32 %72, 0
+  %74 = select i1 %73, i32 5, i32 3
+  call void @tcg_gen_bswap16_i32(ptr noundef %69, ptr noundef %70, i32 noundef %74)
+  br label %82
 
-sw.bb23:                                          ; preds = %if.then19
-  %27 = load ptr, ptr %val.addr, align 8
-  %28 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_bswap32_i32(ptr noundef %27, ptr noundef %28)
-  br label %sw.epilog
+75:                                               ; preds = %65
+  %76 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %5, align 8
+  call void @tcg_gen_bswap32_i32(ptr noundef %76, ptr noundef %77)
+  br label %82
 
-sw.default:                                       ; preds = %if.then19
-  br label %do.body
+78:                                               ; preds = %65
+  br label %79
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 219, ptr noundef @__func__.tcg_gen_qemu_ld_i32_int, ptr noundef null) #4
+79:                                               ; preds = %78
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 271, ptr noundef @__func__.tcg_gen_qemu_ld_i32_int, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+80:                                               ; No predecessors!
+  br label %81
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb23, %sw.bb
-  br label %if.end24
+81:                                               ; preds = %80
+  br label %82
 
-if.end24:                                         ; preds = %sw.epilog, %if.end15
+82:                                               ; preds = %81, %75, %68
+  br label %83
+
+83:                                               ; preds = %82, %50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_qemu_st_i32_chk(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_qemu_st_i32_chk(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+11:                                               ; preds = %5
+  %12 = load i32, ptr %10, align 4
+  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.TCGContext, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %12, %16
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %do.body
+18:                                               ; preds = %11
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+19:                                               ; preds = %11
+  br label %20
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+20:                                               ; preds = %19
+  br label %21
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+21:                                               ; preds = %20
+  %22 = load i32, ptr %9, align 4
+  %23 = and i32 %22, 7
+  %24 = icmp ule i32 %23, 2
+  br i1 %24, label %26, label %25
 
-if.then4:                                         ; preds = %do.body2
+25:                                               ; preds = %21
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+26:                                               ; preds = %21
+  br label %27
 
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %val.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load i64, ptr %idx.addr, align 8
-  %8 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i32_int(ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8)
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i64, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  call void @tcg_gen_qemu_st_i32_int(ptr noundef %28, ptr noundef %29, i64 noundef %30, i32 noundef %31)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_qemu_st_i32_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %swap = alloca ptr, align 8
-  %orig_oi = alloca i32, align 4
-  %oi = alloca i32, align 4
-  %opc = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store ptr null, ptr %swap, align 8
+define internal void @tcg_gen_qemu_st_i32_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
   call void @tcg_gen_req_mo(i32 noundef 12)
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext false, i1 noundef zeroext true)
-  store i32 %call, ptr %memop.addr, align 4
-  %1 = load i32, ptr %memop.addr, align 4
-  %2 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %2 to i32
-  %call1 = call i32 @make_memop_idx(i32 noundef %1, i32 noundef %conv)
-  store i32 %call1, ptr %oi, align 4
-  store i32 %call1, ptr %orig_oi, align 4
-  %3 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %3, 16
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+  %13 = load i32, ptr %8, align 4
+  %14 = call i32 @tcg_canonicalize_memop(i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext true)
+  store i32 %14, ptr %8, align 4
+  %15 = load i32, ptr %8, align 4
+  %16 = load i64, ptr %7, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = call i32 @make_memop_idx(i32 noundef %15, i32 noundef %17)
+  store i32 %18, ptr %11, align 4
+  store i32 %18, ptr %10, align 4
+  %19 = load i32, ptr %8, align 4
+  %20 = and i32 %19, 16
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %47
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr %memop.addr, align 4
-  %call2 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %4)
-  br i1 %call2, label %if.end, label %if.then
+22:                                               ; preds = %4
+  %23 = load i32, ptr %8, align 4
+  %24 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %23)
+  br i1 %24, label %47, label %25
 
-if.then:                                          ; preds = %land.lhs.true
-  %call3 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call3, ptr %swap, align 8
-  %5 = load i32, ptr %memop.addr, align 4
-  %and4 = and i32 %5, 7
-  switch i32 %and4, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb5
+25:                                               ; preds = %22
+  %26 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %26, ptr %9, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = and i32 %27, 7
+  switch i32 %28, label %35 [
+    i32 1, label %29
+    i32 2, label %32
   ]
 
-sw.bb:                                            ; preds = %if.then
-  %6 = load ptr, ptr %swap, align 8
-  %7 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_bswap16_i32(ptr noundef %6, ptr noundef %7, i32 noundef 0)
-  br label %sw.epilog
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %5, align 8
+  call void @tcg_gen_bswap16_i32(ptr noundef %30, ptr noundef %31, i32 noundef 0)
+  br label %39
 
-sw.bb5:                                           ; preds = %if.then
-  %8 = load ptr, ptr %swap, align 8
-  %9 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_bswap32_i32(ptr noundef %8, ptr noundef %9)
-  br label %sw.epilog
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %5, align 8
+  call void @tcg_gen_bswap32_i32(ptr noundef %33, ptr noundef %34)
+  br label %39
 
-sw.default:                                       ; preds = %if.then
-  br label %do.body
+35:                                               ; preds = %25
+  br label %36
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 253, ptr noundef @__func__.tcg_gen_qemu_st_i32_int, ptr noundef null) #4
+36:                                               ; preds = %35
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 305, ptr noundef @__func__.tcg_gen_qemu_st_i32_int, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+37:                                               ; No predecessors!
+  br label %38
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb5, %sw.bb
-  %10 = load ptr, ptr %swap, align 8
-  store ptr %10, ptr %val.addr, align 8
-  %11 = load i32, ptr %memop.addr, align 4
-  %and6 = and i32 %11, -17
-  store i32 %and6, ptr %memop.addr, align 4
-  %12 = load i32, ptr %memop.addr, align 4
-  %13 = load i64, ptr %idx.addr, align 8
-  %conv7 = trunc i64 %13 to i32
-  %call8 = call i32 @make_memop_idx(i32 noundef %12, i32 noundef %conv7)
-  store i32 %call8, ptr %oi, align 4
-  br label %if.end
+38:                                               ; preds = %37
+  br label %39
 
-if.end:                                           ; preds = %sw.epilog, %land.lhs.true, %entry
-  %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %15 = load ptr, ptr %14, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %15, i32 0, i32 10
-  %16 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %16, 0
-  br i1 %cmp, label %if.then10, label %if.else
+39:                                               ; preds = %38, %32, %29
+  %40 = load ptr, ptr %9, align 8
+  store ptr %40, ptr %5, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = and i32 %41, -17
+  store i32 %42, ptr %8, align 4
+  %43 = load i32, ptr %8, align 4
+  %44 = load i64, ptr %7, align 8
+  %45 = trunc i64 %44 to i32
+  %46 = call i32 @make_memop_idx(i32 noundef %43, i32 noundef %45)
+  store i32 %46, ptr %11, align 4
+  br label %47
 
-if.then10:                                        ; preds = %if.end
-  store i32 136, ptr %opc, align 4
-  br label %if.end11
+47:                                               ; preds = %39, %22, %4
+  %48 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %struct.TCGContext, ptr %49, i32 0, i32 10
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
 
-if.else:                                          ; preds = %if.end
-  store i32 140, ptr %opc, align 4
-  br label %if.end11
+53:                                               ; preds = %47
+  store i32 136, ptr %12, align 4
+  br label %55
 
-if.end11:                                         ; preds = %if.else, %if.then10
-  %17 = load i32, ptr %opc, align 4
-  %18 = load ptr, ptr %val.addr, align 8
-  %call12 = call ptr @tcgv_i32_temp(ptr noundef %18)
-  %19 = load ptr, ptr %addr.addr, align 8
-  %20 = load i32, ptr %oi, align 4
-  call void @gen_ldst(i32 noundef %17, ptr noundef %call12, ptr noundef null, ptr noundef %19, i32 noundef %20)
-  %21 = load ptr, ptr %addr.addr, align 8
-  %22 = load i32, ptr %orig_oi, align 4
-  call void @plugin_gen_mem_callbacks(ptr noundef null, ptr noundef %21, i32 noundef %22, i32 noundef 2)
-  %23 = load ptr, ptr %swap, align 8
-  %tobool13 = icmp ne ptr %23, null
-  br i1 %tobool13, label %if.then14, label %if.end15
+54:                                               ; preds = %47
+  store i32 140, ptr %12, align 4
+  br label %55
 
-if.then14:                                        ; preds = %if.end11
-  %24 = load ptr, ptr %swap, align 8
-  call void @tcg_temp_free_i32(ptr noundef %24)
-  br label %if.end15
+55:                                               ; preds = %54, %53
+  %56 = load i32, ptr %12, align 4
+  %57 = load ptr, ptr %5, align 8
+  %58 = call ptr @tcgv_i32_temp(ptr noundef %57)
+  %59 = load ptr, ptr %6, align 8
+  %60 = load i32, ptr %11, align 4
+  call void @gen_ldst(i32 noundef %56, i32 noundef 0, ptr noundef %58, ptr noundef null, ptr noundef %59, i32 noundef %60)
+  %61 = load ptr, ptr %5, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = load i32, ptr %10, align 4
+  call void @plugin_gen_mem_callbacks_i32(ptr noundef %61, ptr noundef null, ptr noundef %62, i32 noundef %63, i32 noundef 2)
+  %64 = load ptr, ptr %9, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %68
 
-if.end15:                                         ; preds = %if.then14, %if.end11
+66:                                               ; preds = %55
+  %67 = load ptr, ptr %9, align 8
+  call void @tcg_temp_free_i32(ptr noundef %67)
+  br label %68
+
+68:                                               ; preds = %66, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_qemu_ld_i64_chk(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_qemu_ld_i64_chk(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+11:                                               ; preds = %5
+  %12 = load i32, ptr %10, align 4
+  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.TCGContext, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %12, %16
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %do.body
+18:                                               ; preds = %11
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+19:                                               ; preds = %11
+  br label %20
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+20:                                               ; preds = %19
+  br label %21
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+21:                                               ; preds = %20
+  %22 = load i32, ptr %9, align 4
+  %23 = and i32 %22, 7
+  %24 = icmp ule i32 %23, 3
+  br i1 %24, label %26, label %25
 
-if.then4:                                         ; preds = %do.body2
+25:                                               ; preds = %21
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+26:                                               ; preds = %21
+  br label %27
 
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %val.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load i64, ptr %idx.addr, align 8
-  %8 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_ld_i64_int(ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8)
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i64, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  call void @tcg_gen_qemu_ld_i64_int(ptr noundef %28, ptr noundef %29, i64 noundef %30, i32 noundef %31)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_qemu_ld_i64_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %orig_memop = alloca i32, align 4
-  %orig_oi = alloca i32, align 4
-  %oi = alloca i32, align 4
-  %copy_addr = alloca ptr, align 8
-  %opc = alloca i32, align 4
-  %flags = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
+define internal void @tcg_gen_qemu_ld_i64_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4, !annotation !4
   call void @tcg_gen_req_mo(i32 noundef 3)
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
-  store i32 %call, ptr %memop.addr, align 4
-  store i32 %call, ptr %orig_memop, align 4
-  %1 = load i32, ptr %memop.addr, align 4
-  %2 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %2 to i32
-  %call1 = call i32 @make_memop_idx(i32 noundef %1, i32 noundef %conv)
-  store i32 %call1, ptr %oi, align 4
-  store i32 %call1, ptr %orig_oi, align 4
-  %3 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %3, 16
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end13
+  %15 = load i32, ptr %8, align 4
+  %16 = call i32 @tcg_canonicalize_memop(i32 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false)
+  store i32 %16, ptr %8, align 4
+  store i32 %16, ptr %9, align 4
+  %17 = load i32, ptr %8, align 4
+  %18 = load i64, ptr %7, align 8
+  %19 = trunc i64 %18 to i32
+  %20 = call i32 @make_memop_idx(i32 noundef %17, i32 noundef %19)
+  store i32 %20, ptr %11, align 4
+  store i32 %20, ptr %10, align 4
+  %21 = load i32, ptr %8, align 4
+  %22 = and i32 %21, 16
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %45
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr %memop.addr, align 4
-  %call2 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %4)
-  br i1 %call2, label %if.end13, label %if.then
+24:                                               ; preds = %4
+  %25 = load i32, ptr %8, align 4
+  %26 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %25)
+  br i1 %26, label %45, label %27
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load i32, ptr %memop.addr, align 4
-  %and3 = and i32 %5, -17
-  store i32 %and3, ptr %memop.addr, align 4
-  %6 = load i32, ptr %memop.addr, align 4
-  %and4 = and i32 %6, 8
-  %tobool5 = icmp ne i32 %and4, 0
-  br i1 %tobool5, label %land.lhs.true6, label %if.end
+27:                                               ; preds = %24
+  %28 = load i32, ptr %8, align 4
+  %29 = and i32 %28, -17
+  store i32 %29, ptr %8, align 4
+  %30 = load i32, ptr %8, align 4
+  %31 = and i32 %30, 8
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %40
 
-land.lhs.true6:                                   ; preds = %if.then
-  %7 = load i32, ptr %memop.addr, align 4
-  %and7 = and i32 %7, 7
-  %cmp = icmp ult i32 %and7, 3
-  br i1 %cmp, label %if.then9, label %if.end
+33:                                               ; preds = %27
+  %34 = load i32, ptr %8, align 4
+  %35 = and i32 %34, 7
+  %36 = icmp ult i32 %35, 3
+  br i1 %36, label %37, label %40
 
-if.then9:                                         ; preds = %land.lhs.true6
-  %8 = load i32, ptr %memop.addr, align 4
-  %and10 = and i32 %8, -9
-  store i32 %and10, ptr %memop.addr, align 4
-  br label %if.end
+37:                                               ; preds = %33
+  %38 = load i32, ptr %8, align 4
+  %39 = and i32 %38, -9
+  store i32 %39, ptr %8, align 4
+  br label %40
 
-if.end:                                           ; preds = %if.then9, %land.lhs.true6, %if.then
-  %9 = load i32, ptr %memop.addr, align 4
-  %10 = load i64, ptr %idx.addr, align 8
-  %conv11 = trunc i64 %10 to i32
-  %call12 = call i32 @make_memop_idx(i32 noundef %9, i32 noundef %conv11)
-  store i32 %call12, ptr %oi, align 4
-  br label %if.end13
+40:                                               ; preds = %37, %33, %27
+  %41 = load i32, ptr %8, align 4
+  %42 = load i64, ptr %7, align 8
+  %43 = trunc i64 %42 to i32
+  %44 = call i32 @make_memop_idx(i32 noundef %41, i32 noundef %43)
+  store i32 %44, ptr %11, align 4
+  br label %45
 
-if.end13:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %11 = load ptr, ptr %addr.addr, align 8
-  %call14 = call ptr @plugin_maybe_preserve_addr(ptr noundef %11)
-  store ptr %call14, ptr %copy_addr, align 8
-  %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %13 = load ptr, ptr %12, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %13, i32 0, i32 10
-  %14 = load i32, ptr %addr_type, align 4
-  %cmp15 = icmp eq i32 %14, 0
-  br i1 %cmp15, label %if.then17, label %if.else
+45:                                               ; preds = %40, %24, %4
+  %46 = load ptr, ptr %6, align 8
+  %47 = call ptr @plugin_maybe_preserve_addr(ptr noundef %46)
+  store ptr %47, ptr %12, align 8
+  %48 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %struct.TCGContext, ptr %49, i32 0, i32 10
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
 
-if.then17:                                        ; preds = %if.end13
-  store i32 137, ptr %opc, align 4
-  br label %if.end18
+53:                                               ; preds = %45
+  store i32 137, ptr %13, align 4
+  br label %55
 
-if.else:                                          ; preds = %if.end13
-  store i32 141, ptr %opc, align 4
-  br label %if.end18
+54:                                               ; preds = %45
+  store i32 141, ptr %13, align 4
+  br label %55
 
-if.end18:                                         ; preds = %if.else, %if.then17
-  %15 = load i32, ptr %opc, align 4
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load ptr, ptr %addr.addr, align 8
-  %18 = load i32, ptr %oi, align 4
-  call void @gen_ldst_i64(i32 noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %18)
-  %19 = load ptr, ptr %copy_addr, align 8
-  %20 = load ptr, ptr %addr.addr, align 8
-  %21 = load i32, ptr %orig_oi, align 4
-  call void @plugin_gen_mem_callbacks(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 1)
-  %22 = load i32, ptr %orig_memop, align 4
-  %23 = load i32, ptr %memop.addr, align 4
-  %xor = xor i32 %22, %23
-  %and19 = and i32 %xor, 16
-  %tobool20 = icmp ne i32 %and19, 0
-  br i1 %tobool20, label %if.then21, label %if.end27
+55:                                               ; preds = %54, %53
+  %56 = load i32, ptr %13, align 4
+  %57 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i32, ptr %11, align 4
+  call void @gen_ldst_i64(i32 noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59)
+  %60 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = load i32, ptr %10, align 4
+  call void @plugin_gen_mem_callbacks_i64(ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 1)
+  %64 = load i32, ptr %9, align 4
+  %65 = load i32, ptr %8, align 4
+  %66 = xor i32 %64, %65
+  %67 = and i32 %66, 16
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %92
 
-if.then21:                                        ; preds = %if.end18
-  %24 = load i32, ptr %orig_memop, align 4
-  %and22 = and i32 %24, 8
-  %tobool23 = icmp ne i32 %and22, 0
-  %cond = select i1 %tobool23, i32 5, i32 3
-  store i32 %cond, ptr %flags, align 4
-  %25 = load i32, ptr %orig_memop, align 4
-  %and24 = and i32 %25, 7
-  switch i32 %and24, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb25
-    i32 3, label %sw.bb26
+69:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %70 = load i32, ptr %9, align 4
+  %71 = and i32 %70, 8
+  %72 = icmp ne i32 %71, 0
+  %73 = select i1 %72, i32 5, i32 3
+  store i32 %73, ptr %14, align 4
+  %74 = load i32, ptr %9, align 4
+  %75 = and i32 %74, 7
+  switch i32 %75, label %87 [
+    i32 1, label %76
+    i32 2, label %80
+    i32 3, label %84
   ]
 
-sw.bb:                                            ; preds = %if.then21
-  %26 = load ptr, ptr %val.addr, align 8
-  %27 = load ptr, ptr %val.addr, align 8
-  %28 = load i32, ptr %flags, align 4
-  call void @tcg_gen_bswap16_i64(ptr noundef %26, ptr noundef %27, i32 noundef %28)
-  br label %sw.epilog
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %5, align 8
+  %79 = load i32, ptr %14, align 4
+  call void @tcg_gen_bswap16_i64(ptr noundef %77, ptr noundef %78, i32 noundef %79)
+  br label %91
 
-sw.bb25:                                          ; preds = %if.then21
-  %29 = load ptr, ptr %val.addr, align 8
-  %30 = load ptr, ptr %val.addr, align 8
-  %31 = load i32, ptr %flags, align 4
-  call void @tcg_gen_bswap32_i64(ptr noundef %29, ptr noundef %30, i32 noundef %31)
-  br label %sw.epilog
+80:                                               ; preds = %69
+  %81 = load ptr, ptr %5, align 8
+  %82 = load ptr, ptr %5, align 8
+  %83 = load i32, ptr %14, align 4
+  call void @tcg_gen_bswap32_i64(ptr noundef %81, ptr noundef %82, i32 noundef %83)
+  br label %91
 
-sw.bb26:                                          ; preds = %if.then21
-  %32 = load ptr, ptr %val.addr, align 8
-  %33 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %32, ptr noundef %33)
-  br label %sw.epilog
+84:                                               ; preds = %69
+  %85 = load ptr, ptr %5, align 8
+  %86 = load ptr, ptr %5, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %85, ptr noundef %86)
+  br label %91
 
-sw.default:                                       ; preds = %if.then21
-  br label %do.body
+87:                                               ; preds = %69
+  br label %88
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 344, ptr noundef @__func__.tcg_gen_qemu_ld_i64_int, ptr noundef null) #4
+88:                                               ; preds = %87
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 397, ptr noundef @__func__.tcg_gen_qemu_ld_i64_int, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+89:                                               ; No predecessors!
+  br label %90
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb26, %sw.bb25, %sw.bb
-  br label %if.end27
+90:                                               ; preds = %89
+  br label %91
 
-if.end27:                                         ; preds = %sw.epilog, %if.end18
+91:                                               ; preds = %90, %84, %80, %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  br label %92
+
+92:                                               ; preds = %91, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_qemu_st_i64_chk(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_qemu_st_i64_chk(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+11:                                               ; preds = %5
+  %12 = load i32, ptr %10, align 4
+  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.TCGContext, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %12, %16
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %do.body
+18:                                               ; preds = %11
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+19:                                               ; preds = %11
+  br label %20
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+20:                                               ; preds = %19
+  br label %21
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+21:                                               ; preds = %20
+  %22 = load i32, ptr %9, align 4
+  %23 = and i32 %22, 7
+  %24 = icmp ule i32 %23, 3
+  br i1 %24, label %26, label %25
 
-if.then4:                                         ; preds = %do.body2
+25:                                               ; preds = %21
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+26:                                               ; preds = %21
+  br label %27
 
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %val.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load i64, ptr %idx.addr, align 8
-  %8 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i64_int(ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8)
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i64, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  call void @tcg_gen_qemu_st_i64_int(ptr noundef %28, ptr noundef %29, i64 noundef %30, i32 noundef %31)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_qemu_st_i64_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %swap = alloca ptr, align 8
-  %orig_oi = alloca i32, align 4
-  %oi = alloca i32, align 4
-  %opc = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store ptr null, ptr %swap, align 8
+define internal void @tcg_gen_qemu_st_i64_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  store i32 0, ptr %10, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  store i32 0, ptr %12, align 4, !annotation !4
   call void @tcg_gen_req_mo(i32 noundef 12)
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext true)
-  store i32 %call, ptr %memop.addr, align 4
-  %1 = load i32, ptr %memop.addr, align 4
-  %2 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %2 to i32
-  %call1 = call i32 @make_memop_idx(i32 noundef %1, i32 noundef %conv)
-  store i32 %call1, ptr %oi, align 4
-  store i32 %call1, ptr %orig_oi, align 4
-  %3 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %3, 16
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+  %13 = load i32, ptr %8, align 4
+  %14 = call i32 @tcg_canonicalize_memop(i32 noundef %13, i1 noundef zeroext true, i1 noundef zeroext true)
+  store i32 %14, ptr %8, align 4
+  %15 = load i32, ptr %8, align 4
+  %16 = load i64, ptr %7, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = call i32 @make_memop_idx(i32 noundef %15, i32 noundef %17)
+  store i32 %18, ptr %11, align 4
+  store i32 %18, ptr %10, align 4
+  %19 = load i32, ptr %8, align 4
+  %20 = and i32 %19, 16
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %50
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr %memop.addr, align 4
-  %call2 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %4)
-  br i1 %call2, label %if.end, label %if.then
+22:                                               ; preds = %4
+  %23 = load i32, ptr %8, align 4
+  %24 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %23)
+  br i1 %24, label %50, label %25
 
-if.then:                                          ; preds = %land.lhs.true
-  %call3 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call3, ptr %swap, align 8
-  %5 = load i32, ptr %memop.addr, align 4
-  %and4 = and i32 %5, 7
-  switch i32 %and4, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb6
+25:                                               ; preds = %22
+  %26 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %26, ptr %9, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = and i32 %27, 7
+  switch i32 %28, label %38 [
+    i32 1, label %29
+    i32 2, label %32
+    i32 3, label %35
   ]
 
-sw.bb:                                            ; preds = %if.then
-  %6 = load ptr, ptr %swap, align 8
-  %7 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_bswap16_i64(ptr noundef %6, ptr noundef %7, i32 noundef 0)
-  br label %sw.epilog
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %5, align 8
+  call void @tcg_gen_bswap16_i64(ptr noundef %30, ptr noundef %31, i32 noundef 0)
+  br label %42
 
-sw.bb5:                                           ; preds = %if.then
-  %8 = load ptr, ptr %swap, align 8
-  %9 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_bswap32_i64(ptr noundef %8, ptr noundef %9, i32 noundef 0)
-  br label %sw.epilog
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %5, align 8
+  call void @tcg_gen_bswap32_i64(ptr noundef %33, ptr noundef %34, i32 noundef 0)
+  br label %42
 
-sw.bb6:                                           ; preds = %if.then
-  %10 = load ptr, ptr %swap, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %10, ptr noundef %11)
-  br label %sw.epilog
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %5, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %36, ptr noundef %37)
+  br label %42
 
-sw.default:                                       ; preds = %if.then
-  br label %do.body
+38:                                               ; preds = %25
+  br label %39
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 386, ptr noundef @__func__.tcg_gen_qemu_st_i64_int, ptr noundef null) #4
+39:                                               ; preds = %38
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 439, ptr noundef @__func__.tcg_gen_qemu_st_i64_int, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+40:                                               ; No predecessors!
+  br label %41
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb6, %sw.bb5, %sw.bb
-  %12 = load ptr, ptr %swap, align 8
-  store ptr %12, ptr %val.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  %and7 = and i32 %13, -17
-  store i32 %and7, ptr %memop.addr, align 4
-  %14 = load i32, ptr %memop.addr, align 4
-  %15 = load i64, ptr %idx.addr, align 8
-  %conv8 = trunc i64 %15 to i32
-  %call9 = call i32 @make_memop_idx(i32 noundef %14, i32 noundef %conv8)
-  store i32 %call9, ptr %oi, align 4
-  br label %if.end
+41:                                               ; preds = %40
+  br label %42
 
-if.end:                                           ; preds = %sw.epilog, %land.lhs.true, %entry
-  %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %17 = load ptr, ptr %16, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %17, i32 0, i32 10
-  %18 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %18, 0
-  br i1 %cmp, label %if.then11, label %if.else
+42:                                               ; preds = %41, %35, %32, %29
+  %43 = load ptr, ptr %9, align 8
+  store ptr %43, ptr %5, align 8
+  %44 = load i32, ptr %8, align 4
+  %45 = and i32 %44, -17
+  store i32 %45, ptr %8, align 4
+  %46 = load i32, ptr %8, align 4
+  %47 = load i64, ptr %7, align 8
+  %48 = trunc i64 %47 to i32
+  %49 = call i32 @make_memop_idx(i32 noundef %46, i32 noundef %48)
+  store i32 %49, ptr %11, align 4
+  br label %50
 
-if.then11:                                        ; preds = %if.end
-  store i32 138, ptr %opc, align 4
-  br label %if.end12
+50:                                               ; preds = %42, %22, %4
+  %51 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw %struct.TCGContext, ptr %52, i32 0, i32 10
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %57
 
-if.else:                                          ; preds = %if.end
-  store i32 142, ptr %opc, align 4
-  br label %if.end12
+56:                                               ; preds = %50
+  store i32 138, ptr %12, align 4
+  br label %58
 
-if.end12:                                         ; preds = %if.else, %if.then11
-  %19 = load i32, ptr %opc, align 4
-  %20 = load ptr, ptr %val.addr, align 8
-  %21 = load ptr, ptr %addr.addr, align 8
-  %22 = load i32, ptr %oi, align 4
-  call void @gen_ldst_i64(i32 noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22)
-  %23 = load ptr, ptr %addr.addr, align 8
-  %24 = load i32, ptr %orig_oi, align 4
-  call void @plugin_gen_mem_callbacks(ptr noundef null, ptr noundef %23, i32 noundef %24, i32 noundef 2)
-  %25 = load ptr, ptr %swap, align 8
-  %tobool13 = icmp ne ptr %25, null
-  br i1 %tobool13, label %if.then14, label %if.end15
+57:                                               ; preds = %50
+  store i32 142, ptr %12, align 4
+  br label %58
 
-if.then14:                                        ; preds = %if.end12
-  %26 = load ptr, ptr %swap, align 8
-  call void @tcg_temp_free_i64(ptr noundef %26)
-  br label %if.end15
+58:                                               ; preds = %57, %56
+  %59 = load i32, ptr %12, align 4
+  %60 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = load i32, ptr %11, align 4
+  call void @gen_ldst_i64(i32 noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62)
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load i32, ptr %10, align 4
+  call void @plugin_gen_mem_callbacks_i64(ptr noundef %63, ptr noundef null, ptr noundef %64, i32 noundef %65, i32 noundef 2)
+  %66 = load ptr, ptr %9, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %70
 
-if.end15:                                         ; preds = %if.then14, %if.end12
+68:                                               ; preds = %58
+  %69 = load ptr, ptr %9, align 8
+  call void @tcg_temp_free_i64(ptr noundef %69)
+  br label %70
+
+70:                                               ; preds = %68, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_qemu_ld_i128_chk(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_qemu_ld_i128_chk(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+11:                                               ; preds = %5
+  %12 = load i32, ptr %10, align 4
+  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.TCGContext, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %12, %16
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %do.body
+18:                                               ; preds = %11
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+19:                                               ; preds = %11
+  br label %20
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+20:                                               ; preds = %19
+  br label %21
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp eq i32 %and, 4
-  br i1 %cmp3, label %if.end5, label %if.then4
+21:                                               ; preds = %20
+  %22 = load i32, ptr %9, align 4
+  %23 = and i32 %22, 7
+  %24 = icmp eq i32 %23, 4
+  br i1 %24, label %26, label %25
 
-if.then4:                                         ; preds = %do.body2
+25:                                               ; preds = %21
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+26:                                               ; preds = %21
+  br label %27
 
-do.end6:                                          ; preds = %if.end5
-  br label %do.body7
+27:                                               ; preds = %26
+  br label %28
 
-do.body7:                                         ; preds = %do.end6
-  %5 = load i32, ptr %memop.addr, align 4
-  %and8 = and i32 %5, 8
-  %cmp9 = icmp eq i32 %and8, 0
-  br i1 %cmp9, label %if.end11, label %if.then10
+28:                                               ; preds = %27
+  %29 = load i32, ptr %9, align 4
+  %30 = and i32 %29, 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %33, label %32
 
-if.then10:                                        ; preds = %do.body7
+32:                                               ; preds = %28
   unreachable
 
-if.end11:                                         ; preds = %do.body7
-  br label %do.end12
+33:                                               ; preds = %28
+  br label %34
 
-do.end12:                                         ; preds = %if.end11
-  %6 = load ptr, ptr %val.addr, align 8
-  %7 = load ptr, ptr %addr.addr, align 8
-  %8 = load i64, ptr %idx.addr, align 8
-  %9 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_ld_i128_int(ptr noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9)
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i64, ptr %8, align 8
+  %38 = load i32, ptr %9, align 4
+  call void @tcg_gen_qemu_ld_i128_int(ptr noundef %35, ptr noundef %36, i64 noundef %37, i32 noundef %38)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_qemu_ld_i128_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %orig_oi = alloca i32, align 4
-  %ext_addr = alloca ptr, align 8
-  %opc = alloca i32, align 4
-  %lo = alloca ptr, align 8
-  %hi = alloca ptr, align 8
-  %need_bswap = alloca i8, align 1
-  %oi = alloca i32, align 4
-  %mop = alloca [2 x i32], align 4
-  %addr_p8 = alloca ptr, align 8
-  %x = alloca ptr, align 8
-  %y = alloca ptr, align 8
-  %need_bswap30 = alloca i8, align 1
-  %t = alloca ptr, align 8
-  %t63 = alloca ptr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store ptr null, ptr %ext_addr, align 8
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @get_alignment_bits(i32 noundef %0)
-  call void @check_max_alignment(i32 noundef %call)
+define internal void @tcg_gen_qemu_ld_i128_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca i32, align 4
+  %16 = alloca [2 x i32], align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i8, align 1
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  %23 = load i32, ptr %8, align 4
+  %24 = call i32 @memop_alignment_bits(i32 noundef %23)
+  call void @check_max_alignment(i32 noundef %24)
   call void @tcg_gen_req_mo(i32 noundef 3)
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 21
-  %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %3, i32 0, i32 3
-  %4 = load i32, ptr %cflags, align 4
-  %and = and i32 %4, 32768
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
+  %25 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %struct.TCGContext, ptr %26, i32 0, i32 21
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %28, i32 0, i32 3
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 32768
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %38, label %33
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %memop.addr, align 4
-  %and1 = and i32 %5, -1793
-  store i32 %and1, ptr %memop.addr, align 4
-  %6 = load i32, ptr %memop.addr, align 4
-  %or = or i32 %6, 1280
-  store i32 %or, ptr %memop.addr, align 4
-  br label %if.end
+33:                                               ; preds = %4
+  %34 = load i32, ptr %8, align 4
+  %35 = and i32 %34, -1793
+  store i32 %35, ptr %8, align 4
+  %36 = load i32, ptr %8, align 4
+  %37 = or i32 %36, 1280
+  store i32 %37, ptr %8, align 4
+  br label %38
 
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load i32, ptr %memop.addr, align 4
-  %8 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %8 to i32
-  %call2 = call i32 @make_memop_idx(i32 noundef %7, i32 noundef %conv)
-  store i32 %call2, ptr %orig_oi, align 4
-  %9 = load i32, ptr @cpuinfo, align 4
-  %and3 = and i32 %9, 65536
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.then5, label %if.else27
+38:                                               ; preds = %33, %4
+  %39 = load i32, ptr %8, align 4
+  %40 = load i64, ptr %7, align 8
+  %41 = trunc i64 %40 to i32
+  %42 = call i32 @make_memop_idx(i32 noundef %39, i32 noundef %41)
+  store i32 %42, ptr %9, align 4
+  %43 = load i32, ptr @cpuinfo, align 4
+  %44 = and i32 %43, 65536
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %93
 
-if.then5:                                         ; preds = %if.end
-  store i8 0, ptr %need_bswap, align 1
-  %10 = load i32, ptr %orig_oi, align 4
-  store i32 %10, ptr %oi, align 4
-  %11 = load i32, ptr %memop.addr, align 4
-  %and6 = and i32 %11, 16
-  %tobool7 = icmp ne i32 %and6, 0
-  br i1 %tobool7, label %land.lhs.true, label %if.else
+46:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
+  store i8 0, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  %47 = load i32, ptr %9, align 4
+  store i32 %47, ptr %15, align 4
+  %48 = load i32, ptr %8, align 4
+  %49 = and i32 %48, 16
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %64
 
-land.lhs.true:                                    ; preds = %if.then5
-  %12 = load i32, ptr %memop.addr, align 4
-  %call8 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %12)
-  br i1 %call8, label %if.else, label %if.then9
+51:                                               ; preds = %46
+  %52 = load i32, ptr %8, align 4
+  %53 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %52)
+  br i1 %53, label %64, label %54
 
-if.then9:                                         ; preds = %land.lhs.true
-  %13 = load ptr, ptr %val.addr, align 8
-  %call10 = call ptr @TCGV128_HIGH(ptr noundef %13)
-  store ptr %call10, ptr %lo, align 8
-  %14 = load ptr, ptr %val.addr, align 8
-  %call11 = call ptr @TCGV128_LOW(ptr noundef %14)
-  store ptr %call11, ptr %hi, align 8
-  %15 = load i32, ptr %memop.addr, align 4
-  %and12 = and i32 %15, -17
-  %16 = load i64, ptr %idx.addr, align 8
-  %conv13 = trunc i64 %16 to i32
-  %call14 = call i32 @make_memop_idx(i32 noundef %and12, i32 noundef %conv13)
-  store i32 %call14, ptr %oi, align 4
-  store i8 1, ptr %need_bswap, align 1
-  br label %if.end17
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %5, align 8
+  %56 = call ptr @TCGV128_HIGH(ptr noundef %55)
+  store ptr %56, ptr %12, align 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = call ptr @TCGV128_LOW(ptr noundef %57)
+  store ptr %58, ptr %13, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = and i32 %59, -17
+  %61 = load i64, ptr %7, align 8
+  %62 = trunc i64 %61 to i32
+  %63 = call i32 @make_memop_idx(i32 noundef %60, i32 noundef %62)
+  store i32 %63, ptr %15, align 4
+  store i8 1, ptr %14, align 1
+  br label %69
 
-if.else:                                          ; preds = %land.lhs.true, %if.then5
-  %17 = load ptr, ptr %val.addr, align 8
-  %call15 = call ptr @TCGV128_LOW(ptr noundef %17)
-  store ptr %call15, ptr %lo, align 8
-  %18 = load ptr, ptr %val.addr, align 8
-  %call16 = call ptr @TCGV128_HIGH(ptr noundef %18)
-  store ptr %call16, ptr %hi, align 8
-  br label %if.end17
+64:                                               ; preds = %51, %46
+  %65 = load ptr, ptr %5, align 8
+  %66 = call ptr @TCGV128_LOW(ptr noundef %65)
+  store ptr %66, ptr %12, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = call ptr @TCGV128_HIGH(ptr noundef %67)
+  store ptr %68, ptr %13, align 8
+  br label %69
 
-if.end17:                                         ; preds = %if.else, %if.then9
-  %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %20, i32 0, i32 10
-  %21 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %21, 0
-  br i1 %cmp, label %if.then19, label %if.else20
-
-if.then19:                                        ; preds = %if.end17
-  store i32 145, ptr %opc, align 4
-  br label %if.end21
-
-if.else20:                                        ; preds = %if.end17
-  store i32 146, ptr %opc, align 4
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.else20, %if.then19
-  %22 = load i32, ptr %opc, align 4
-  %23 = load ptr, ptr %lo, align 8
-  %call22 = call ptr @tcgv_i64_temp(ptr noundef %23)
-  %24 = load ptr, ptr %hi, align 8
-  %call23 = call ptr @tcgv_i64_temp(ptr noundef %24)
-  %25 = load ptr, ptr %addr.addr, align 8
-  %26 = load i32, ptr %oi, align 4
-  call void @gen_ldst(i32 noundef %22, ptr noundef %call22, ptr noundef %call23, ptr noundef %25, i32 noundef %26)
-  %27 = load i8, ptr %need_bswap, align 1
-  %tobool24 = trunc i8 %27 to i1
-  br i1 %tobool24, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %if.end21
-  %28 = load ptr, ptr %lo, align 8
-  %29 = load ptr, ptr %lo, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %28, ptr noundef %29)
-  %30 = load ptr, ptr %hi, align 8
-  %31 = load ptr, ptr %hi, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %30, ptr noundef %31)
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.then25, %if.end21
-  br label %if.end86
-
-if.else27:                                        ; preds = %if.end
-  %32 = load i32, ptr %memop.addr, align 4
-  %call28 = call zeroext i1 @use_two_i64_for_i128(i32 noundef %32)
-  br i1 %call28, label %if.then29, label %if.else74
-
-if.then29:                                        ; preds = %if.else27
-  %arraydecay = getelementptr inbounds [2 x i32], ptr %mop, i64 0, i64 0
-  %33 = load i32, ptr %memop.addr, align 4
-  call void @canonicalize_memop_i128_as_i64(ptr noundef %arraydecay, i32 noundef %33)
-  %arrayidx = getelementptr [2 x i32], ptr %mop, i64 0, i64 0
-  %34 = load i32, ptr %arrayidx, align 4
-  %35 = load i32, ptr %memop.addr, align 4
-  %xor = xor i32 %34, %35
-  %and31 = and i32 %xor, 16
-  %tobool32 = icmp ne i32 %and31, 0
-  %frombool = zext i1 %tobool32 to i8
-  store i8 %frombool, ptr %need_bswap30, align 1
-  %36 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %37 = load ptr, ptr %36, align 8
-  %addr_type33 = getelementptr inbounds %struct.TCGContext, ptr %37, i32 0, i32 10
-  %38 = load i32, ptr %addr_type33, align 4
-  %cmp34 = icmp eq i32 %38, 0
-  br i1 %cmp34, label %if.then36, label %if.else37
-
-if.then36:                                        ; preds = %if.then29
-  store i32 137, ptr %opc, align 4
-  br label %if.end38
-
-if.else37:                                        ; preds = %if.then29
-  store i32 141, ptr %opc, align 4
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else37, %if.then36
-  %39 = load i32, ptr %memop.addr, align 4
-  %and39 = and i32 %39, 16
-  %cmp40 = icmp eq i32 %and39, 0
-  br i1 %cmp40, label %if.then42, label %if.else45
-
-if.then42:                                        ; preds = %if.end38
-  %40 = load ptr, ptr %val.addr, align 8
-  %call43 = call ptr @TCGV128_LOW(ptr noundef %40)
-  store ptr %call43, ptr %x, align 8
-  %41 = load ptr, ptr %val.addr, align 8
-  %call44 = call ptr @TCGV128_HIGH(ptr noundef %41)
-  store ptr %call44, ptr %y, align 8
-  br label %if.end48
-
-if.else45:                                        ; preds = %if.end38
-  %42 = load ptr, ptr %val.addr, align 8
-  %call46 = call ptr @TCGV128_HIGH(ptr noundef %42)
-  store ptr %call46, ptr %x, align 8
-  %43 = load ptr, ptr %val.addr, align 8
-  %call47 = call ptr @TCGV128_LOW(ptr noundef %43)
-  store ptr %call47, ptr %y, align 8
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.else45, %if.then42
-  %44 = load i32, ptr %opc, align 4
-  %45 = load ptr, ptr %x, align 8
-  %46 = load ptr, ptr %addr.addr, align 8
-  %arrayidx49 = getelementptr [2 x i32], ptr %mop, i64 0, i64 0
-  %47 = load i32, ptr %arrayidx49, align 4
-  %48 = load i64, ptr %idx.addr, align 8
-  %conv50 = trunc i64 %48 to i32
-  %call51 = call i32 @make_memop_idx(i32 noundef %47, i32 noundef %conv50)
-  call void @gen_ldst_i64(i32 noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %call51)
-  %49 = load i8, ptr %need_bswap30, align 1
-  %tobool52 = trunc i8 %49 to i1
-  br i1 %tobool52, label %if.then53, label %if.end54
-
-if.then53:                                        ; preds = %if.end48
-  %50 = load ptr, ptr %x, align 8
-  %51 = load ptr, ptr %x, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %50, ptr noundef %51)
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.then53, %if.end48
-  %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %53 = load ptr, ptr %52, align 8
-  %addr_type55 = getelementptr inbounds %struct.TCGContext, ptr %53, i32 0, i32 10
-  %54 = load i32, ptr %addr_type55, align 4
-  %cmp56 = icmp eq i32 %54, 0
-  br i1 %cmp56, label %if.then58, label %if.else62
-
-if.then58:                                        ; preds = %if.end54
-  %call59 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call59, ptr %t, align 8
-  %55 = load ptr, ptr %t, align 8
-  %56 = load ptr, ptr %addr.addr, align 8
-  %call60 = call ptr @temp_tcgv_i32(ptr noundef %56)
-  call void @tcg_gen_addi_i32(ptr noundef %55, ptr noundef %call60, i32 noundef 8)
-  %57 = load ptr, ptr %t, align 8
-  %call61 = call ptr @tcgv_i32_temp(ptr noundef %57)
-  store ptr %call61, ptr %addr_p8, align 8
-  br label %if.end67
-
-if.else62:                                        ; preds = %if.end54
-  %call64 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call64, ptr %t63, align 8
-  %58 = load ptr, ptr %t63, align 8
-  %59 = load ptr, ptr %addr.addr, align 8
-  %call65 = call ptr @temp_tcgv_i64(ptr noundef %59)
-  call void @tcg_gen_addi_i64(ptr noundef %58, ptr noundef %call65, i64 noundef 8)
-  %60 = load ptr, ptr %t63, align 8
-  %call66 = call ptr @tcgv_i64_temp(ptr noundef %60)
-  store ptr %call66, ptr %addr_p8, align 8
-  br label %if.end67
-
-if.end67:                                         ; preds = %if.else62, %if.then58
-  %61 = load i32, ptr %opc, align 4
-  %62 = load ptr, ptr %y, align 8
-  %63 = load ptr, ptr %addr_p8, align 8
-  %arrayidx68 = getelementptr [2 x i32], ptr %mop, i64 0, i64 1
-  %64 = load i32, ptr %arrayidx68, align 4
-  %65 = load i64, ptr %idx.addr, align 8
-  %conv69 = trunc i64 %65 to i32
-  %call70 = call i32 @make_memop_idx(i32 noundef %64, i32 noundef %conv69)
-  call void @gen_ldst_i64(i32 noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %call70)
-  %66 = load ptr, ptr %addr_p8, align 8
-  call void @tcg_temp_free_internal(ptr noundef %66)
-  %67 = load i8, ptr %need_bswap30, align 1
-  %tobool71 = trunc i8 %67 to i1
-  br i1 %tobool71, label %if.then72, label %if.end73
-
-if.then72:                                        ; preds = %if.end67
-  %68 = load ptr, ptr %y, align 8
-  %69 = load ptr, ptr %y, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %68, ptr noundef %69)
-  br label %if.end73
-
-if.end73:                                         ; preds = %if.then72, %if.end67
-  br label %if.end85
-
-if.else74:                                        ; preds = %if.else27
+69:                                               ; preds = %64, %54
   %70 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %71 = load ptr, ptr %70, align 8
-  %addr_type75 = getelementptr inbounds %struct.TCGContext, ptr %71, i32 0, i32 10
-  %72 = load i32, ptr %addr_type75, align 4
-  %cmp76 = icmp eq i32 %72, 0
-  br i1 %cmp76, label %if.then78, label %if.end82
+  %72 = getelementptr inbounds nuw %struct.TCGContext, ptr %71, i32 0, i32 10
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %76
 
-if.then78:                                        ; preds = %if.else74
-  %call79 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call79, ptr %ext_addr, align 8
-  %73 = load ptr, ptr %ext_addr, align 8
-  %74 = load ptr, ptr %addr.addr, align 8
-  %call80 = call ptr @temp_tcgv_i32(ptr noundef %74)
-  call void @tcg_gen_extu_i32_i64(ptr noundef %73, ptr noundef %call80)
-  %75 = load ptr, ptr %ext_addr, align 8
-  %call81 = call ptr @tcgv_i64_temp(ptr noundef %75)
-  store ptr %call81, ptr %addr.addr, align 8
-  br label %if.end82
+75:                                               ; preds = %69
+  store i32 145, ptr %11, align 4
+  br label %77
 
-if.end82:                                         ; preds = %if.then78, %if.else74
-  %76 = load ptr, ptr %val.addr, align 8
-  %77 = load ptr, ptr @tcg_env, align 8
-  %78 = load ptr, ptr %addr.addr, align 8
-  %call83 = call ptr @temp_tcgv_i64(ptr noundef %78)
-  %79 = load i32, ptr %orig_oi, align 4
-  %call84 = call ptr @tcg_constant_i32(i32 noundef %79)
-  call void @gen_helper_ld_i128(ptr noundef %76, ptr noundef %77, ptr noundef %call83, ptr noundef %call84)
-  br label %if.end85
+76:                                               ; preds = %69
+  store i32 146, ptr %11, align 4
+  br label %77
 
-if.end85:                                         ; preds = %if.end82, %if.end73
-  br label %if.end86
+77:                                               ; preds = %76, %75
+  %78 = load i32, ptr %11, align 4
+  %79 = load ptr, ptr %12, align 8
+  %80 = call ptr @tcgv_i64_temp(ptr noundef %79)
+  %81 = load ptr, ptr %13, align 8
+  %82 = call ptr @tcgv_i64_temp(ptr noundef %81)
+  %83 = load ptr, ptr %6, align 8
+  %84 = load i32, ptr %15, align 4
+  call void @gen_ldst(i32 noundef %78, i32 noundef 2, ptr noundef %80, ptr noundef %82, ptr noundef %83, i32 noundef %84)
+  %85 = load i8, ptr %14, align 1, !range !5, !noundef !6
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %92
 
-if.end86:                                         ; preds = %if.end85, %if.end26
-  %80 = load ptr, ptr %ext_addr, align 8
-  %81 = load ptr, ptr %addr.addr, align 8
-  %82 = load i32, ptr %orig_oi, align 4
-  call void @plugin_gen_mem_callbacks(ptr noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 1)
+87:                                               ; preds = %77
+  %88 = load ptr, ptr %12, align 8
+  %89 = load ptr, ptr %12, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %88, ptr noundef %89)
+  %90 = load ptr, ptr %13, align 8
+  %91 = load ptr, ptr %13, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %90, ptr noundef %91)
+  br label %92
+
+92:                                               ; preds = %87, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %198
+
+93:                                               ; preds = %38
+  %94 = load i32, ptr %8, align 4
+  %95 = call zeroext i1 @use_two_i64_for_i128(i32 noundef %94)
+  br i1 %95, label %96, label %177
+
+96:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 8, i1 false), !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  store ptr null, ptr %17, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  store ptr null, ptr %18, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  store ptr null, ptr %19, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #7
+  store i8 0, ptr %20, align 1, !annotation !4
+  %97 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
+  %98 = load i32, ptr %8, align 4
+  call void @canonicalize_memop_i128_as_i64(ptr noundef %97, i32 noundef %98)
+  %99 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
+  %100 = load i32, ptr %99, align 4
+  %101 = load i32, ptr %8, align 4
+  %102 = xor i32 %100, %101
+  %103 = and i32 %102, 16
+  %104 = icmp ne i32 %103, 0
+  %105 = zext i1 %104 to i8
+  store i8 %105, ptr %20, align 1
+  %106 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw %struct.TCGContext, ptr %107, i32 0, i32 10
+  %109 = load i32, ptr %108, align 4
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %112
+
+111:                                              ; preds = %96
+  store i32 137, ptr %11, align 4
+  br label %113
+
+112:                                              ; preds = %96
+  store i32 141, ptr %11, align 4
+  br label %113
+
+113:                                              ; preds = %112, %111
+  %114 = load i32, ptr %8, align 4
+  %115 = and i32 %114, 16
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %122
+
+117:                                              ; preds = %113
+  %118 = load ptr, ptr %5, align 8
+  %119 = call ptr @TCGV128_LOW(ptr noundef %118)
+  store ptr %119, ptr %18, align 8
+  %120 = load ptr, ptr %5, align 8
+  %121 = call ptr @TCGV128_HIGH(ptr noundef %120)
+  store ptr %121, ptr %19, align 8
+  br label %127
+
+122:                                              ; preds = %113
+  %123 = load ptr, ptr %5, align 8
+  %124 = call ptr @TCGV128_HIGH(ptr noundef %123)
+  store ptr %124, ptr %18, align 8
+  %125 = load ptr, ptr %5, align 8
+  %126 = call ptr @TCGV128_LOW(ptr noundef %125)
+  store ptr %126, ptr %19, align 8
+  br label %127
+
+127:                                              ; preds = %122, %117
+  %128 = load i32, ptr %11, align 4
+  %129 = load ptr, ptr %18, align 8
+  %130 = load ptr, ptr %6, align 8
+  %131 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
+  %132 = load i32, ptr %131, align 4
+  %133 = load i64, ptr %7, align 8
+  %134 = trunc i64 %133 to i32
+  %135 = call i32 @make_memop_idx(i32 noundef %132, i32 noundef %134)
+  call void @gen_ldst_i64(i32 noundef %128, ptr noundef %129, ptr noundef %130, i32 noundef %135)
+  %136 = load i8, ptr %20, align 1, !range !5, !noundef !6
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %141
+
+138:                                              ; preds = %127
+  %139 = load ptr, ptr %18, align 8
+  %140 = load ptr, ptr %18, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %139, ptr noundef %140)
+  br label %141
+
+141:                                              ; preds = %138, %127
+  %142 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw %struct.TCGContext, ptr %143, i32 0, i32 10
+  %145 = load i32, ptr %144, align 4
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %154
+
+147:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  %148 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %148, ptr %21, align 8
+  %149 = load ptr, ptr %21, align 8
+  %150 = load ptr, ptr %6, align 8
+  %151 = call ptr @temp_tcgv_i32(ptr noundef %150)
+  call void @tcg_gen_addi_i32(ptr noundef %149, ptr noundef %151, i32 noundef 8)
+  %152 = load ptr, ptr %21, align 8
+  %153 = call ptr @tcgv_i32_temp(ptr noundef %152)
+  store ptr %153, ptr %17, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  br label %161
+
+154:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %155 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %155, ptr %22, align 8
+  %156 = load ptr, ptr %22, align 8
+  %157 = load ptr, ptr %6, align 8
+  %158 = call ptr @temp_tcgv_i64(ptr noundef %157)
+  call void @tcg_gen_addi_i64(ptr noundef %156, ptr noundef %158, i64 noundef 8)
+  %159 = load ptr, ptr %22, align 8
+  %160 = call ptr @tcgv_i64_temp(ptr noundef %159)
+  store ptr %160, ptr %17, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %161
+
+161:                                              ; preds = %154, %147
+  %162 = load i32, ptr %11, align 4
+  %163 = load ptr, ptr %19, align 8
+  %164 = load ptr, ptr %17, align 8
+  %165 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
+  %166 = load i32, ptr %165, align 4
+  %167 = load i64, ptr %7, align 8
+  %168 = trunc i64 %167 to i32
+  %169 = call i32 @make_memop_idx(i32 noundef %166, i32 noundef %168)
+  call void @gen_ldst_i64(i32 noundef %162, ptr noundef %163, ptr noundef %164, i32 noundef %169)
+  %170 = load ptr, ptr %17, align 8
+  call void @tcg_temp_free_internal(ptr noundef %170)
+  %171 = load i8, ptr %20, align 1, !range !5, !noundef !6
+  %172 = trunc i8 %171 to i1
+  br i1 %172, label %173, label %176
+
+173:                                              ; preds = %161
+  %174 = load ptr, ptr %19, align 8
+  %175 = load ptr, ptr %19, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %174, ptr noundef %175)
+  br label %176
+
+176:                                              ; preds = %173, %161
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %197
+
+177:                                              ; preds = %93
+  %178 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds nuw %struct.TCGContext, ptr %179, i32 0, i32 10
+  %181 = load i32, ptr %180, align 4
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %183, label %190
+
+183:                                              ; preds = %177
+  %184 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %184, ptr %10, align 8
+  %185 = load ptr, ptr %10, align 8
+  %186 = load ptr, ptr %6, align 8
+  %187 = call ptr @temp_tcgv_i32(ptr noundef %186)
+  call void @tcg_gen_extu_i32_i64(ptr noundef %185, ptr noundef %187)
+  %188 = load ptr, ptr %10, align 8
+  %189 = call ptr @tcgv_i64_temp(ptr noundef %188)
+  store ptr %189, ptr %6, align 8
+  br label %190
+
+190:                                              ; preds = %183, %177
+  %191 = load ptr, ptr %5, align 8
+  %192 = load ptr, ptr @tcg_env, align 8
+  %193 = load ptr, ptr %6, align 8
+  %194 = call ptr @temp_tcgv_i64(ptr noundef %193)
+  %195 = load i32, ptr %9, align 4
+  %196 = call ptr @tcg_constant_i32(i32 noundef %195)
+  call void @gen_helper_ld_i128(ptr noundef %191, ptr noundef %192, ptr noundef %194, ptr noundef %196)
+  br label %197
+
+197:                                              ; preds = %190, %176
+  br label %198
+
+198:                                              ; preds = %197, %92
+  %199 = load ptr, ptr %5, align 8
+  %200 = load ptr, ptr %10, align 8
+  %201 = load ptr, ptr %6, align 8
+  %202 = load i32, ptr %9, align 4
+  call void @plugin_gen_mem_callbacks_i128(ptr noundef %199, ptr noundef %200, ptr noundef %201, i32 noundef %202, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_qemu_st_i128_chk(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_qemu_st_i128_chk(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+11:                                               ; preds = %5
+  %12 = load i32, ptr %10, align 4
+  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.TCGContext, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %12, %16
+  br i1 %17, label %19, label %18
 
-if.then:                                          ; preds = %do.body
+18:                                               ; preds = %11
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+19:                                               ; preds = %11
+  br label %20
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+20:                                               ; preds = %19
+  br label %21
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp eq i32 %and, 4
-  br i1 %cmp3, label %if.end5, label %if.then4
+21:                                               ; preds = %20
+  %22 = load i32, ptr %9, align 4
+  %23 = and i32 %22, 7
+  %24 = icmp eq i32 %23, 4
+  br i1 %24, label %26, label %25
 
-if.then4:                                         ; preds = %do.body2
+25:                                               ; preds = %21
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+26:                                               ; preds = %21
+  br label %27
 
-do.end6:                                          ; preds = %if.end5
-  br label %do.body7
+27:                                               ; preds = %26
+  br label %28
 
-do.body7:                                         ; preds = %do.end6
-  %5 = load i32, ptr %memop.addr, align 4
-  %and8 = and i32 %5, 8
-  %cmp9 = icmp eq i32 %and8, 0
-  br i1 %cmp9, label %if.end11, label %if.then10
+28:                                               ; preds = %27
+  %29 = load i32, ptr %9, align 4
+  %30 = and i32 %29, 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %33, label %32
 
-if.then10:                                        ; preds = %do.body7
+32:                                               ; preds = %28
   unreachable
 
-if.end11:                                         ; preds = %do.body7
-  br label %do.end12
+33:                                               ; preds = %28
+  br label %34
 
-do.end12:                                         ; preds = %if.end11
-  %6 = load ptr, ptr %val.addr, align 8
-  %7 = load ptr, ptr %addr.addr, align 8
-  %8 = load i64, ptr %idx.addr, align 8
-  %9 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i128_int(ptr noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9)
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i64, ptr %8, align 8
+  %38 = load i32, ptr %9, align 4
+  call void @tcg_gen_qemu_st_i128_int(ptr noundef %35, ptr noundef %36, i64 noundef %37, i32 noundef %38)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_qemu_st_i128_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %orig_oi = alloca i32, align 4
-  %ext_addr = alloca ptr, align 8
-  %opc = alloca i32, align 4
-  %lo = alloca ptr, align 8
-  %hi = alloca ptr, align 8
-  %oi = alloca i32, align 4
-  %need_bswap = alloca i8, align 1
-  %mop = alloca [2 x i32], align 4
-  %addr_p8 = alloca ptr, align 8
-  %x = alloca ptr, align 8
-  %y = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  %t = alloca ptr, align 8
-  %t64 = alloca ptr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store ptr null, ptr %ext_addr, align 8
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @get_alignment_bits(i32 noundef %0)
-  call void @check_max_alignment(i32 noundef %call)
+define internal void @tcg_gen_qemu_st_i128_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca [2 x i32], align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  store i32 0, ptr %11, align 4, !annotation !4
+  %23 = load i32, ptr %8, align 4
+  %24 = call i32 @memop_alignment_bits(i32 noundef %23)
+  call void @check_max_alignment(i32 noundef %24)
   call void @tcg_gen_req_mo(i32 noundef 10)
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 21
-  %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %3, i32 0, i32 3
-  %4 = load i32, ptr %cflags, align 4
-  %and = and i32 %4, 32768
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
+  %25 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %struct.TCGContext, ptr %26, i32 0, i32 21
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %28, i32 0, i32 3
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 32768
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %38, label %33
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %memop.addr, align 4
-  %and1 = and i32 %5, -1793
-  store i32 %and1, ptr %memop.addr, align 4
-  %6 = load i32, ptr %memop.addr, align 4
-  %or = or i32 %6, 1280
-  store i32 %or, ptr %memop.addr, align 4
-  br label %if.end
+33:                                               ; preds = %4
+  %34 = load i32, ptr %8, align 4
+  %35 = and i32 %34, -1793
+  store i32 %35, ptr %8, align 4
+  %36 = load i32, ptr %8, align 4
+  %37 = or i32 %36, 1280
+  store i32 %37, ptr %8, align 4
+  br label %38
 
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load i32, ptr %memop.addr, align 4
-  %8 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %8 to i32
-  %call2 = call i32 @make_memop_idx(i32 noundef %7, i32 noundef %conv)
-  store i32 %call2, ptr %orig_oi, align 4
-  %9 = load i32, ptr @cpuinfo, align 4
-  %and3 = and i32 %9, 65536
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.then5, label %if.else29
+38:                                               ; preds = %33, %4
+  %39 = load i32, ptr %8, align 4
+  %40 = load i64, ptr %7, align 8
+  %41 = trunc i64 %40 to i32
+  %42 = call i32 @make_memop_idx(i32 noundef %39, i32 noundef %41)
+  store i32 %42, ptr %9, align 4
+  %43 = load i32, ptr @cpuinfo, align 4
+  %44 = and i32 %43, 65536
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %95
 
-if.then5:                                         ; preds = %if.end
-  %10 = load i32, ptr %orig_oi, align 4
-  store i32 %10, ptr %oi, align 4
-  store i8 0, ptr %need_bswap, align 1
-  %11 = load i32, ptr %memop.addr, align 4
-  %and6 = and i32 %11, 16
-  %tobool7 = icmp ne i32 %and6, 0
-  br i1 %tobool7, label %land.lhs.true, label %if.else
+46:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store ptr null, ptr %12, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %47 = load i32, ptr %9, align 4
+  store i32 %47, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  store i8 0, ptr %15, align 1
+  %48 = load i32, ptr %8, align 4
+  %49 = and i32 %48, 16
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %68
 
-land.lhs.true:                                    ; preds = %if.then5
-  %12 = load i32, ptr %memop.addr, align 4
-  %call8 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %12)
-  br i1 %call8, label %if.else, label %if.then9
+51:                                               ; preds = %46
+  %52 = load i32, ptr %8, align 4
+  %53 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %52)
+  br i1 %53, label %68, label %54
 
-if.then9:                                         ; preds = %land.lhs.true
-  %call10 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call10, ptr %lo, align 8
-  %call11 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call11, ptr %hi, align 8
-  %13 = load ptr, ptr %lo, align 8
-  %14 = load ptr, ptr %val.addr, align 8
-  %call12 = call ptr @TCGV128_HIGH(ptr noundef %14)
-  call void @tcg_gen_bswap64_i64(ptr noundef %13, ptr noundef %call12)
-  %15 = load ptr, ptr %hi, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %call13 = call ptr @TCGV128_LOW(ptr noundef %16)
-  call void @tcg_gen_bswap64_i64(ptr noundef %15, ptr noundef %call13)
-  %17 = load i32, ptr %memop.addr, align 4
-  %and14 = and i32 %17, -17
-  %18 = load i64, ptr %idx.addr, align 8
-  %conv15 = trunc i64 %18 to i32
-  %call16 = call i32 @make_memop_idx(i32 noundef %and14, i32 noundef %conv15)
-  store i32 %call16, ptr %oi, align 4
-  store i8 1, ptr %need_bswap, align 1
-  br label %if.end19
+54:                                               ; preds = %51
+  %55 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %55, ptr %12, align 8
+  %56 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %56, ptr %13, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = call ptr @TCGV128_HIGH(ptr noundef %58)
+  call void @tcg_gen_bswap64_i64(ptr noundef %57, ptr noundef %59)
+  %60 = load ptr, ptr %13, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = call ptr @TCGV128_LOW(ptr noundef %61)
+  call void @tcg_gen_bswap64_i64(ptr noundef %60, ptr noundef %62)
+  %63 = load i32, ptr %8, align 4
+  %64 = and i32 %63, -17
+  %65 = load i64, ptr %7, align 8
+  %66 = trunc i64 %65 to i32
+  %67 = call i32 @make_memop_idx(i32 noundef %64, i32 noundef %66)
+  store i32 %67, ptr %14, align 4
+  store i8 1, ptr %15, align 1
+  br label %73
 
-if.else:                                          ; preds = %land.lhs.true, %if.then5
-  %19 = load ptr, ptr %val.addr, align 8
-  %call17 = call ptr @TCGV128_LOW(ptr noundef %19)
-  store ptr %call17, ptr %lo, align 8
-  %20 = load ptr, ptr %val.addr, align 8
-  %call18 = call ptr @TCGV128_HIGH(ptr noundef %20)
-  store ptr %call18, ptr %hi, align 8
-  br label %if.end19
+68:                                               ; preds = %51, %46
+  %69 = load ptr, ptr %5, align 8
+  %70 = call ptr @TCGV128_LOW(ptr noundef %69)
+  store ptr %70, ptr %12, align 8
+  %71 = load ptr, ptr %5, align 8
+  %72 = call ptr @TCGV128_HIGH(ptr noundef %71)
+  store ptr %72, ptr %13, align 8
+  br label %73
 
-if.end19:                                         ; preds = %if.else, %if.then9
-  %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %22 = load ptr, ptr %21, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %22, i32 0, i32 10
-  %23 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %23, 0
-  br i1 %cmp, label %if.then21, label %if.else22
+73:                                               ; preds = %68, %54
+  %74 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw %struct.TCGContext, ptr %75, i32 0, i32 10
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %80
 
-if.then21:                                        ; preds = %if.end19
-  store i32 147, ptr %opc, align 4
-  br label %if.end23
+79:                                               ; preds = %73
+  store i32 147, ptr %11, align 4
+  br label %81
 
-if.else22:                                        ; preds = %if.end19
-  store i32 148, ptr %opc, align 4
-  br label %if.end23
+80:                                               ; preds = %73
+  store i32 148, ptr %11, align 4
+  br label %81
 
-if.end23:                                         ; preds = %if.else22, %if.then21
-  %24 = load i32, ptr %opc, align 4
-  %25 = load ptr, ptr %lo, align 8
-  %call24 = call ptr @tcgv_i64_temp(ptr noundef %25)
-  %26 = load ptr, ptr %hi, align 8
-  %call25 = call ptr @tcgv_i64_temp(ptr noundef %26)
-  %27 = load ptr, ptr %addr.addr, align 8
-  %28 = load i32, ptr %oi, align 4
-  call void @gen_ldst(i32 noundef %24, ptr noundef %call24, ptr noundef %call25, ptr noundef %27, i32 noundef %28)
-  %29 = load i8, ptr %need_bswap, align 1
-  %tobool26 = trunc i8 %29 to i1
-  br i1 %tobool26, label %if.then27, label %if.end28
+81:                                               ; preds = %80, %79
+  %82 = load i32, ptr %11, align 4
+  %83 = load ptr, ptr %12, align 8
+  %84 = call ptr @tcgv_i64_temp(ptr noundef %83)
+  %85 = load ptr, ptr %13, align 8
+  %86 = call ptr @tcgv_i64_temp(ptr noundef %85)
+  %87 = load ptr, ptr %6, align 8
+  %88 = load i32, ptr %14, align 4
+  call void @gen_ldst(i32 noundef %82, i32 noundef 2, ptr noundef %84, ptr noundef %86, ptr noundef %87, i32 noundef %88)
+  %89 = load i8, ptr %15, align 1, !range !5, !noundef !6
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %94
 
-if.then27:                                        ; preds = %if.end23
-  %30 = load ptr, ptr %lo, align 8
-  call void @tcg_temp_free_i64(ptr noundef %30)
-  %31 = load ptr, ptr %hi, align 8
-  call void @tcg_temp_free_i64(ptr noundef %31)
-  br label %if.end28
+91:                                               ; preds = %81
+  %92 = load ptr, ptr %12, align 8
+  call void @tcg_temp_free_i64(ptr noundef %92)
+  %93 = load ptr, ptr %13, align 8
+  call void @tcg_temp_free_i64(ptr noundef %93)
+  br label %94
 
-if.end28:                                         ; preds = %if.then27, %if.end23
-  br label %if.end91
+94:                                               ; preds = %91, %81
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %209
 
-if.else29:                                        ; preds = %if.end
-  %32 = load i32, ptr %memop.addr, align 4
-  %call30 = call zeroext i1 @use_two_i64_for_i128(i32 noundef %32)
-  br i1 %call30, label %if.then31, label %if.else79
+95:                                               ; preds = %38
+  %96 = load i32, ptr %8, align 4
+  %97 = call zeroext i1 @use_two_i64_for_i128(i32 noundef %96)
+  br i1 %97, label %98, label %188
 
-if.then31:                                        ; preds = %if.else29
-  store ptr null, ptr %b, align 8
-  %arraydecay = getelementptr inbounds [2 x i32], ptr %mop, i64 0, i64 0
-  %33 = load i32, ptr %memop.addr, align 4
-  call void @canonicalize_memop_i128_as_i64(ptr noundef %arraydecay, i32 noundef %33)
-  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %35 = load ptr, ptr %34, align 8
-  %addr_type32 = getelementptr inbounds %struct.TCGContext, ptr %35, i32 0, i32 10
-  %36 = load i32, ptr %addr_type32, align 4
-  %cmp33 = icmp eq i32 %36, 0
-  br i1 %cmp33, label %if.then35, label %if.else36
+98:                                               ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 8, i1 false), !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  store ptr null, ptr %17, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  store ptr null, ptr %18, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  store ptr null, ptr %19, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  store ptr null, ptr %20, align 8
+  %99 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
+  %100 = load i32, ptr %8, align 4
+  call void @canonicalize_memop_i128_as_i64(ptr noundef %99, i32 noundef %100)
+  %101 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw %struct.TCGContext, ptr %102, i32 0, i32 10
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %107
 
-if.then35:                                        ; preds = %if.then31
-  store i32 138, ptr %opc, align 4
-  br label %if.end37
+106:                                              ; preds = %98
+  store i32 138, ptr %11, align 4
+  br label %108
 
-if.else36:                                        ; preds = %if.then31
-  store i32 142, ptr %opc, align 4
-  br label %if.end37
+107:                                              ; preds = %98
+  store i32 142, ptr %11, align 4
+  br label %108
 
-if.end37:                                         ; preds = %if.else36, %if.then35
-  %37 = load i32, ptr %memop.addr, align 4
-  %and38 = and i32 %37, 16
-  %cmp39 = icmp eq i32 %and38, 0
-  br i1 %cmp39, label %if.then41, label %if.else44
+108:                                              ; preds = %107, %106
+  %109 = load i32, ptr %8, align 4
+  %110 = and i32 %109, 16
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %117
 
-if.then41:                                        ; preds = %if.end37
-  %38 = load ptr, ptr %val.addr, align 8
-  %call42 = call ptr @TCGV128_LOW(ptr noundef %38)
-  store ptr %call42, ptr %x, align 8
-  %39 = load ptr, ptr %val.addr, align 8
-  %call43 = call ptr @TCGV128_HIGH(ptr noundef %39)
-  store ptr %call43, ptr %y, align 8
-  br label %if.end47
+112:                                              ; preds = %108
+  %113 = load ptr, ptr %5, align 8
+  %114 = call ptr @TCGV128_LOW(ptr noundef %113)
+  store ptr %114, ptr %18, align 8
+  %115 = load ptr, ptr %5, align 8
+  %116 = call ptr @TCGV128_HIGH(ptr noundef %115)
+  store ptr %116, ptr %19, align 8
+  br label %122
 
-if.else44:                                        ; preds = %if.end37
-  %40 = load ptr, ptr %val.addr, align 8
-  %call45 = call ptr @TCGV128_HIGH(ptr noundef %40)
-  store ptr %call45, ptr %x, align 8
-  %41 = load ptr, ptr %val.addr, align 8
-  %call46 = call ptr @TCGV128_LOW(ptr noundef %41)
-  store ptr %call46, ptr %y, align 8
-  br label %if.end47
+117:                                              ; preds = %108
+  %118 = load ptr, ptr %5, align 8
+  %119 = call ptr @TCGV128_HIGH(ptr noundef %118)
+  store ptr %119, ptr %18, align 8
+  %120 = load ptr, ptr %5, align 8
+  %121 = call ptr @TCGV128_LOW(ptr noundef %120)
+  store ptr %121, ptr %19, align 8
+  br label %122
 
-if.end47:                                         ; preds = %if.else44, %if.then41
-  %arrayidx = getelementptr [2 x i32], ptr %mop, i64 0, i64 0
-  %42 = load i32, ptr %arrayidx, align 4
-  %43 = load i32, ptr %memop.addr, align 4
-  %xor = xor i32 %42, %43
-  %and48 = and i32 %xor, 16
-  %tobool49 = icmp ne i32 %and48, 0
-  br i1 %tobool49, label %if.then50, label %if.end52
+122:                                              ; preds = %117, %112
+  %123 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
+  %124 = load i32, ptr %123, align 4
+  %125 = load i32, ptr %8, align 4
+  %126 = xor i32 %124, %125
+  %127 = and i32 %126, 16
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %134
 
-if.then50:                                        ; preds = %if.end47
-  %call51 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call51, ptr %b, align 8
-  %44 = load ptr, ptr %b, align 8
-  %45 = load ptr, ptr %x, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %44, ptr noundef %45)
-  %46 = load ptr, ptr %b, align 8
-  store ptr %46, ptr %x, align 8
-  br label %if.end52
+129:                                              ; preds = %122
+  %130 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %130, ptr %20, align 8
+  %131 = load ptr, ptr %20, align 8
+  %132 = load ptr, ptr %18, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %131, ptr noundef %132)
+  %133 = load ptr, ptr %20, align 8
+  store ptr %133, ptr %18, align 8
+  br label %134
 
-if.end52:                                         ; preds = %if.then50, %if.end47
-  %47 = load i32, ptr %opc, align 4
-  %48 = load ptr, ptr %x, align 8
-  %49 = load ptr, ptr %addr.addr, align 8
-  %arrayidx53 = getelementptr [2 x i32], ptr %mop, i64 0, i64 0
-  %50 = load i32, ptr %arrayidx53, align 4
-  %51 = load i64, ptr %idx.addr, align 8
-  %conv54 = trunc i64 %51 to i32
-  %call55 = call i32 @make_memop_idx(i32 noundef %50, i32 noundef %conv54)
-  call void @gen_ldst_i64(i32 noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %call55)
-  %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %53 = load ptr, ptr %52, align 8
-  %addr_type56 = getelementptr inbounds %struct.TCGContext, ptr %53, i32 0, i32 10
-  %54 = load i32, ptr %addr_type56, align 4
-  %cmp57 = icmp eq i32 %54, 0
-  br i1 %cmp57, label %if.then59, label %if.else63
+134:                                              ; preds = %129, %122
+  %135 = load i32, ptr %11, align 4
+  %136 = load ptr, ptr %18, align 8
+  %137 = load ptr, ptr %6, align 8
+  %138 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
+  %139 = load i32, ptr %138, align 4
+  %140 = load i64, ptr %7, align 8
+  %141 = trunc i64 %140 to i32
+  %142 = call i32 @make_memop_idx(i32 noundef %139, i32 noundef %141)
+  call void @gen_ldst_i64(i32 noundef %135, ptr noundef %136, ptr noundef %137, i32 noundef %142)
+  %143 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw %struct.TCGContext, ptr %144, i32 0, i32 10
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %148, label %155
 
-if.then59:                                        ; preds = %if.end52
-  %call60 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call60, ptr %t, align 8
-  %55 = load ptr, ptr %t, align 8
-  %56 = load ptr, ptr %addr.addr, align 8
-  %call61 = call ptr @temp_tcgv_i32(ptr noundef %56)
-  call void @tcg_gen_addi_i32(ptr noundef %55, ptr noundef %call61, i32 noundef 8)
-  %57 = load ptr, ptr %t, align 8
-  %call62 = call ptr @tcgv_i32_temp(ptr noundef %57)
-  store ptr %call62, ptr %addr_p8, align 8
-  br label %if.end68
+148:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  %149 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %149, ptr %21, align 8
+  %150 = load ptr, ptr %21, align 8
+  %151 = load ptr, ptr %6, align 8
+  %152 = call ptr @temp_tcgv_i32(ptr noundef %151)
+  call void @tcg_gen_addi_i32(ptr noundef %150, ptr noundef %152, i32 noundef 8)
+  %153 = load ptr, ptr %21, align 8
+  %154 = call ptr @tcgv_i32_temp(ptr noundef %153)
+  store ptr %154, ptr %17, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  br label %162
 
-if.else63:                                        ; preds = %if.end52
-  %call65 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call65, ptr %t64, align 8
-  %58 = load ptr, ptr %t64, align 8
-  %59 = load ptr, ptr %addr.addr, align 8
-  %call66 = call ptr @temp_tcgv_i64(ptr noundef %59)
-  call void @tcg_gen_addi_i64(ptr noundef %58, ptr noundef %call66, i64 noundef 8)
-  %60 = load ptr, ptr %t64, align 8
-  %call67 = call ptr @tcgv_i64_temp(ptr noundef %60)
-  store ptr %call67, ptr %addr_p8, align 8
-  br label %if.end68
+155:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %156 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %156, ptr %22, align 8
+  %157 = load ptr, ptr %22, align 8
+  %158 = load ptr, ptr %6, align 8
+  %159 = call ptr @temp_tcgv_i64(ptr noundef %158)
+  call void @tcg_gen_addi_i64(ptr noundef %157, ptr noundef %159, i64 noundef 8)
+  %160 = load ptr, ptr %22, align 8
+  %161 = call ptr @tcgv_i64_temp(ptr noundef %160)
+  store ptr %161, ptr %17, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %162
 
-if.end68:                                         ; preds = %if.else63, %if.then59
-  %61 = load ptr, ptr %b, align 8
-  %tobool69 = icmp ne ptr %61, null
-  br i1 %tobool69, label %if.then70, label %if.else74
+162:                                              ; preds = %155, %148
+  %163 = load ptr, ptr %20, align 8
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %165, label %177
 
-if.then70:                                        ; preds = %if.end68
-  %62 = load ptr, ptr %b, align 8
-  %63 = load ptr, ptr %y, align 8
-  call void @tcg_gen_bswap64_i64(ptr noundef %62, ptr noundef %63)
-  %64 = load i32, ptr %opc, align 4
-  %65 = load ptr, ptr %b, align 8
-  %66 = load ptr, ptr %addr_p8, align 8
-  %arrayidx71 = getelementptr [2 x i32], ptr %mop, i64 0, i64 1
-  %67 = load i32, ptr %arrayidx71, align 4
-  %68 = load i64, ptr %idx.addr, align 8
-  %conv72 = trunc i64 %68 to i32
-  %call73 = call i32 @make_memop_idx(i32 noundef %67, i32 noundef %conv72)
-  call void @gen_ldst_i64(i32 noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %call73)
-  %69 = load ptr, ptr %b, align 8
-  call void @tcg_temp_free_i64(ptr noundef %69)
-  br label %if.end78
+165:                                              ; preds = %162
+  %166 = load ptr, ptr %20, align 8
+  %167 = load ptr, ptr %19, align 8
+  call void @tcg_gen_bswap64_i64(ptr noundef %166, ptr noundef %167)
+  %168 = load i32, ptr %11, align 4
+  %169 = load ptr, ptr %20, align 8
+  %170 = load ptr, ptr %17, align 8
+  %171 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
+  %172 = load i32, ptr %171, align 4
+  %173 = load i64, ptr %7, align 8
+  %174 = trunc i64 %173 to i32
+  %175 = call i32 @make_memop_idx(i32 noundef %172, i32 noundef %174)
+  call void @gen_ldst_i64(i32 noundef %168, ptr noundef %169, ptr noundef %170, i32 noundef %175)
+  %176 = load ptr, ptr %20, align 8
+  call void @tcg_temp_free_i64(ptr noundef %176)
+  br label %186
 
-if.else74:                                        ; preds = %if.end68
-  %70 = load i32, ptr %opc, align 4
-  %71 = load ptr, ptr %y, align 8
-  %72 = load ptr, ptr %addr_p8, align 8
-  %arrayidx75 = getelementptr [2 x i32], ptr %mop, i64 0, i64 1
-  %73 = load i32, ptr %arrayidx75, align 4
-  %74 = load i64, ptr %idx.addr, align 8
-  %conv76 = trunc i64 %74 to i32
-  %call77 = call i32 @make_memop_idx(i32 noundef %73, i32 noundef %conv76)
-  call void @gen_ldst_i64(i32 noundef %70, ptr noundef %71, ptr noundef %72, i32 noundef %call77)
-  br label %if.end78
+177:                                              ; preds = %162
+  %178 = load i32, ptr %11, align 4
+  %179 = load ptr, ptr %19, align 8
+  %180 = load ptr, ptr %17, align 8
+  %181 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
+  %182 = load i32, ptr %181, align 4
+  %183 = load i64, ptr %7, align 8
+  %184 = trunc i64 %183 to i32
+  %185 = call i32 @make_memop_idx(i32 noundef %182, i32 noundef %184)
+  call void @gen_ldst_i64(i32 noundef %178, ptr noundef %179, ptr noundef %180, i32 noundef %185)
+  br label %186
 
-if.end78:                                         ; preds = %if.else74, %if.then70
-  %75 = load ptr, ptr %addr_p8, align 8
-  call void @tcg_temp_free_internal(ptr noundef %75)
-  br label %if.end90
+186:                                              ; preds = %177, %165
+  %187 = load ptr, ptr %17, align 8
+  call void @tcg_temp_free_internal(ptr noundef %187)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %208
 
-if.else79:                                        ; preds = %if.else29
-  %76 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %77 = load ptr, ptr %76, align 8
-  %addr_type80 = getelementptr inbounds %struct.TCGContext, ptr %77, i32 0, i32 10
-  %78 = load i32, ptr %addr_type80, align 4
-  %cmp81 = icmp eq i32 %78, 0
-  br i1 %cmp81, label %if.then83, label %if.end87
+188:                                              ; preds = %95
+  %189 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw %struct.TCGContext, ptr %190, i32 0, i32 10
+  %192 = load i32, ptr %191, align 4
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %201
 
-if.then83:                                        ; preds = %if.else79
-  %call84 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call84, ptr %ext_addr, align 8
-  %79 = load ptr, ptr %ext_addr, align 8
-  %80 = load ptr, ptr %addr.addr, align 8
-  %call85 = call ptr @temp_tcgv_i32(ptr noundef %80)
-  call void @tcg_gen_extu_i32_i64(ptr noundef %79, ptr noundef %call85)
-  %81 = load ptr, ptr %ext_addr, align 8
-  %call86 = call ptr @tcgv_i64_temp(ptr noundef %81)
-  store ptr %call86, ptr %addr.addr, align 8
-  br label %if.end87
+194:                                              ; preds = %188
+  %195 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %195, ptr %10, align 8
+  %196 = load ptr, ptr %10, align 8
+  %197 = load ptr, ptr %6, align 8
+  %198 = call ptr @temp_tcgv_i32(ptr noundef %197)
+  call void @tcg_gen_extu_i32_i64(ptr noundef %196, ptr noundef %198)
+  %199 = load ptr, ptr %10, align 8
+  %200 = call ptr @tcgv_i64_temp(ptr noundef %199)
+  store ptr %200, ptr %6, align 8
+  br label %201
 
-if.end87:                                         ; preds = %if.then83, %if.else79
-  %82 = load ptr, ptr @tcg_env, align 8
-  %83 = load ptr, ptr %addr.addr, align 8
-  %call88 = call ptr @temp_tcgv_i64(ptr noundef %83)
-  %84 = load ptr, ptr %val.addr, align 8
-  %85 = load i32, ptr %orig_oi, align 4
-  %call89 = call ptr @tcg_constant_i32(i32 noundef %85)
-  call void @gen_helper_st_i128(ptr noundef %82, ptr noundef %call88, ptr noundef %84, ptr noundef %call89)
-  br label %if.end90
+201:                                              ; preds = %194, %188
+  %202 = load ptr, ptr @tcg_env, align 8
+  %203 = load ptr, ptr %6, align 8
+  %204 = call ptr @temp_tcgv_i64(ptr noundef %203)
+  %205 = load ptr, ptr %5, align 8
+  %206 = load i32, ptr %9, align 4
+  %207 = call ptr @tcg_constant_i32(i32 noundef %206)
+  call void @gen_helper_st_i128(ptr noundef %202, ptr noundef %204, ptr noundef %205, ptr noundef %207)
+  br label %208
 
-if.end90:                                         ; preds = %if.end87, %if.end78
-  br label %if.end91
+208:                                              ; preds = %201, %186
+  br label %209
 
-if.end91:                                         ; preds = %if.end90, %if.end28
-  %86 = load ptr, ptr %ext_addr, align 8
-  %87 = load ptr, ptr %addr.addr, align 8
-  %88 = load i32, ptr %orig_oi, align 4
-  call void @plugin_gen_mem_callbacks(ptr noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 2)
+209:                                              ; preds = %208, %94
+  %210 = load ptr, ptr %5, align 8
+  %211 = load ptr, ptr %10, align 8
+  %212 = load ptr, ptr %6, align 8
+  %213 = load i32, ptr %9, align 4
+  call void @plugin_gen_mem_callbacks_i128(ptr noundef %210, ptr noundef %211, ptr noundef %212, i32 noundef %213, i32 noundef 2)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_ext_i32(ptr noundef %ret, ptr noundef %val, i32 noundef %opc) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %opc.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i32 %opc, ptr %opc.addr, align 4
-  %0 = load i32, ptr %opc.addr, align 4
-  %and = and i32 %0, 15
-  switch i32 %and, label %sw.default [
-    i32 8, label %sw.bb
-    i32 0, label %sw.bb1
-    i32 9, label %sw.bb2
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb4
-    i32 10, label %sw.bb4
+define dso_local void @tcg_gen_ext_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4
+  %8 = and i32 %7, 15
+  switch i32 %8, label %24 [
+    i32 8, label %9
+    i32 0, label %12
+    i32 9, label %15
+    i32 1, label %18
+    i32 2, label %21
+    i32 10, label %21
   ]
 
-sw.bb:                                            ; preds = %entry
-  %1 = load ptr, ptr %ret.addr, align 8
-  %2 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext8s_i32(ptr noundef %1, ptr noundef %2)
-  br label %sw.epilog
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext8s_i32(ptr noundef %10, ptr noundef %11)
+  br label %27
 
-sw.bb1:                                           ; preds = %entry
-  %3 = load ptr, ptr %ret.addr, align 8
-  %4 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext8u_i32(ptr noundef %3, ptr noundef %4)
-  br label %sw.epilog
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext8u_i32(ptr noundef %13, ptr noundef %14)
+  br label %27
 
-sw.bb2:                                           ; preds = %entry
-  %5 = load ptr, ptr %ret.addr, align 8
-  %6 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext16s_i32(ptr noundef %5, ptr noundef %6)
-  br label %sw.epilog
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext16s_i32(ptr noundef %16, ptr noundef %17)
+  br label %27
 
-sw.bb3:                                           ; preds = %entry
-  %7 = load ptr, ptr %ret.addr, align 8
-  %8 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext16u_i32(ptr noundef %7, ptr noundef %8)
-  br label %sw.epilog
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext16u_i32(ptr noundef %19, ptr noundef %20)
+  br label %27
 
-sw.bb4:                                           ; preds = %entry, %entry
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_mov_i32(ptr noundef %9, ptr noundef %10)
-  br label %sw.epilog
+21:                                               ; preds = %3, %3
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %5, align 8
+  call void @tcg_gen_mov_i32(ptr noundef %22, ptr noundef %23)
+  br label %27
 
-sw.default:                                       ; preds = %entry
-  br label %do.body
+24:                                               ; preds = %3
+  br label %25
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 757, ptr noundef @__func__.tcg_gen_ext_i32, ptr noundef null) #4
+25:                                               ; preds = %24
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 814, ptr noundef @__func__.tcg_gen_ext_i32, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+26:                                               ; No predecessors!
+  br label %27
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
+27:                                               ; preds = %26, %21, %18, %15, %12, %9
   ret void
 }
 
@@ -1802,80 +1934,79 @@ declare void @tcg_gen_mov_i32(ptr noundef, ptr noundef) #2
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_ext_i64(ptr noundef %ret, ptr noundef %val, i32 noundef %opc) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %opc.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i32 %opc, ptr %opc.addr, align 4
-  %0 = load i32, ptr %opc.addr, align 4
-  %and = and i32 %0, 15
-  switch i32 %and, label %sw.default [
-    i32 8, label %sw.bb
-    i32 0, label %sw.bb1
-    i32 9, label %sw.bb2
-    i32 1, label %sw.bb3
-    i32 10, label %sw.bb4
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb6
-    i32 11, label %sw.bb6
+define dso_local void @tcg_gen_ext_i64(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4
+  %8 = and i32 %7, 15
+  switch i32 %8, label %30 [
+    i32 8, label %9
+    i32 0, label %12
+    i32 9, label %15
+    i32 1, label %18
+    i32 10, label %21
+    i32 2, label %24
+    i32 3, label %27
+    i32 11, label %27
   ]
 
-sw.bb:                                            ; preds = %entry
-  %1 = load ptr, ptr %ret.addr, align 8
-  %2 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext8s_i64(ptr noundef %1, ptr noundef %2)
-  br label %sw.epilog
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext8s_i64(ptr noundef %10, ptr noundef %11)
+  br label %33
 
-sw.bb1:                                           ; preds = %entry
-  %3 = load ptr, ptr %ret.addr, align 8
-  %4 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext8u_i64(ptr noundef %3, ptr noundef %4)
-  br label %sw.epilog
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext8u_i64(ptr noundef %13, ptr noundef %14)
+  br label %33
 
-sw.bb2:                                           ; preds = %entry
-  %5 = load ptr, ptr %ret.addr, align 8
-  %6 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext16s_i64(ptr noundef %5, ptr noundef %6)
-  br label %sw.epilog
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext16s_i64(ptr noundef %16, ptr noundef %17)
+  br label %33
 
-sw.bb3:                                           ; preds = %entry
-  %7 = load ptr, ptr %ret.addr, align 8
-  %8 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext16u_i64(ptr noundef %7, ptr noundef %8)
-  br label %sw.epilog
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext16u_i64(ptr noundef %19, ptr noundef %20)
+  br label %33
 
-sw.bb4:                                           ; preds = %entry
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext32s_i64(ptr noundef %9, ptr noundef %10)
-  br label %sw.epilog
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext32s_i64(ptr noundef %22, ptr noundef %23)
+  br label %33
 
-sw.bb5:                                           ; preds = %entry
-  %11 = load ptr, ptr %ret.addr, align 8
-  %12 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_ext32u_i64(ptr noundef %11, ptr noundef %12)
-  br label %sw.epilog
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %5, align 8
+  call void @tcg_gen_ext32u_i64(ptr noundef %25, ptr noundef %26)
+  br label %33
 
-sw.bb6:                                           ; preds = %entry, %entry
-  %13 = load ptr, ptr %ret.addr, align 8
-  %14 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_mov_i64(ptr noundef %13, ptr noundef %14)
-  br label %sw.epilog
+27:                                               ; preds = %3, %3
+  %28 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %5, align 8
+  call void @tcg_gen_mov_i64(ptr noundef %28, ptr noundef %29)
+  br label %33
 
-sw.default:                                       ; preds = %entry
-  br label %do.body
+30:                                               ; preds = %3
+  br label %31
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 787, ptr noundef @__func__.tcg_gen_ext_i64, ptr noundef null) #4
+31:                                               ; preds = %30
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 844, ptr noundef @__func__.tcg_gen_ext_i64, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+32:                                               ; No predecessors!
+  br label %33
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
+33:                                               ; preds = %32, %27, %24, %21, %18, %15, %12, %9
   ret void
 }
 
@@ -1894,4379 +2025,4420 @@ declare void @tcg_gen_ext32u_i64(ptr noundef, ptr noundef) #2
 declare void @tcg_gen_mov_i64(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_nonatomic_cmpxchg_i32_chk(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_nonatomic_cmpxchg_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i64 %4, ptr %12, align 8
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  br label %15
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+15:                                               ; preds = %7
+  %16 = load i32, ptr %14, align 4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %16, %20
+  br i1 %21, label %23, label %22
 
-if.then:                                          ; preds = %do.body
+22:                                               ; preds = %15
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+23:                                               ; preds = %15
+  br label %24
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+24:                                               ; preds = %23
+  br label %25
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+25:                                               ; preds = %24
+  %26 = load i32, ptr %13, align 4
+  %27 = and i32 %26, 7
+  %28 = icmp ule i32 %27, 2
+  br i1 %28, label %30, label %29
 
-if.then4:                                         ; preds = %do.body2
+29:                                               ; preds = %25
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+30:                                               ; preds = %25
+  br label %31
 
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %retv.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load ptr, ptr %cmpv.addr, align 8
-  %8 = load ptr, ptr %newv.addr, align 8
-  %9 = load i64, ptr %idx.addr, align 8
-  %10 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10)
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i64, ptr %12, align 8
+  %37 = load i32, ptr %13, align 4
+  call void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %t1 = alloca ptr, align 8
-  %t2 = alloca ptr, align 8
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %call = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call, ptr %t1, align 8
-  %call1 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call1, ptr %t2, align 8
-  %0 = load ptr, ptr %t2, align 8
-  %1 = load ptr, ptr %cmpv.addr, align 8
-  %2 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %2, 7
-  call void @tcg_gen_ext_i32(ptr noundef %0, ptr noundef %1, i32 noundef %and)
-  %3 = load ptr, ptr %t1, align 8
-  %4 = load ptr, ptr %addr.addr, align 8
-  %5 = load i64, ptr %idx.addr, align 8
-  %6 = load i32, ptr %memop.addr, align 4
-  %and2 = and i32 %6, -9
-  call void @tcg_gen_qemu_ld_i32_int(ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %and2)
-  %7 = load ptr, ptr %t2, align 8
-  %8 = load ptr, ptr %t1, align 8
-  %9 = load ptr, ptr %t2, align 8
-  %10 = load ptr, ptr %newv.addr, align 8
-  %11 = load ptr, ptr %t1, align 8
-  call void @tcg_gen_movcond_i32(i32 noundef 8, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %12 = load ptr, ptr %t2, align 8
-  %13 = load ptr, ptr %addr.addr, align 8
-  %14 = load i64, ptr %idx.addr, align 8
-  %15 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i32_int(ptr noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %t2, align 8
-  call void @tcg_temp_free_i32(ptr noundef %16)
-  %17 = load i32, ptr %memop.addr, align 4
-  %and3 = and i32 %17, 8
-  %tobool = icmp ne i32 %and3, 0
-  br i1 %tobool, label %if.then, label %if.else
+define internal void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %15 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %15, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %16 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %16, ptr %14, align 8
+  %17 = load ptr, ptr %14, align 8
+  %18 = load ptr, ptr %9, align 8
+  %19 = load i32, ptr %12, align 4
+  %20 = and i32 %19, 7
+  call void @tcg_gen_ext_i32(ptr noundef %17, ptr noundef %18, i32 noundef %20)
+  %21 = load ptr, ptr %13, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i64, ptr %11, align 8
+  %24 = load i32, ptr %12, align 4
+  %25 = and i32 %24, -9
+  call void @tcg_gen_qemu_ld_i32_int(ptr noundef %21, ptr noundef %22, i64 noundef %23, i32 noundef %25)
+  %26 = load ptr, ptr %14, align 8
+  %27 = load ptr, ptr %13, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %13, align 8
+  call void @tcg_gen_movcond_i32(i32 noundef 8, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
+  %31 = load ptr, ptr %14, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load i64, ptr %11, align 8
+  %34 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_st_i32_int(ptr noundef %31, ptr noundef %32, i64 noundef %33, i32 noundef %34)
+  %35 = load ptr, ptr %14, align 8
+  call void @tcg_temp_free_i32(ptr noundef %35)
+  %36 = load i32, ptr %12, align 4
+  %37 = and i32 %36, 8
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %43
 
-if.then:                                          ; preds = %entry
-  %18 = load ptr, ptr %retv.addr, align 8
-  %19 = load ptr, ptr %t1, align 8
-  %20 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i32(ptr noundef %18, ptr noundef %19, i32 noundef %20)
-  br label %if.end
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %7, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load i32, ptr %12, align 4
+  call void @tcg_gen_ext_i32(ptr noundef %40, ptr noundef %41, i32 noundef %42)
+  br label %46
 
-if.else:                                          ; preds = %entry
-  %21 = load ptr, ptr %retv.addr, align 8
-  %22 = load ptr, ptr %t1, align 8
-  call void @tcg_gen_mov_i32(ptr noundef %21, ptr noundef %22)
-  br label %if.end
+43:                                               ; preds = %6
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %13, align 8
+  call void @tcg_gen_mov_i32(ptr noundef %44, ptr noundef %45)
+  br label %46
 
-if.end:                                           ; preds = %if.else, %if.then
-  %23 = load ptr, ptr %t1, align 8
-  call void @tcg_temp_free_i32(ptr noundef %23)
+46:                                               ; preds = %43, %39
+  %47 = load ptr, ptr %13, align 8
+  call void @tcg_temp_free_i32(ptr noundef %47)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_cmpxchg_i32_chk(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_cmpxchg_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i64 %4, ptr %12, align 8
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  br label %15
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+15:                                               ; preds = %7
+  %16 = load i32, ptr %14, align 4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %16, %20
+  br i1 %21, label %23, label %22
 
-if.then:                                          ; preds = %do.body
+22:                                               ; preds = %15
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+23:                                               ; preds = %15
+  br label %24
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+24:                                               ; preds = %23
+  br label %25
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+25:                                               ; preds = %24
+  %26 = load i32, ptr %13, align 4
+  %27 = and i32 %26, 7
+  %28 = icmp ule i32 %27, 2
+  br i1 %28, label %30, label %29
 
-if.then4:                                         ; preds = %do.body2
+29:                                               ; preds = %25
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+30:                                               ; preds = %25
+  br label %31
 
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %retv.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load ptr, ptr %cmpv.addr, align 8
-  %8 = load ptr, ptr %newv.addr, align 8
-  %9 = load i64, ptr %idx.addr, align 8
-  %10 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10)
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i64, ptr %12, align 8
+  %37 = load i32, ptr %13, align 4
+  call void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %gen = alloca ptr, align 8
-  %a64 = alloca ptr, align 8
-  %oi = alloca i32, align 4
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 21
-  %2 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %cflags, align 4
-  %and = and i32 %3, 32768
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !annotation !4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 21
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %22, 32768
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %32, label %25
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %retv.addr, align 8
-  %5 = load ptr, ptr %addr.addr, align 8
-  %6 = load ptr, ptr %cmpv.addr, align 8
-  %7 = load ptr, ptr %newv.addr, align 8
-  %8 = load i64, ptr %idx.addr, align 8
-  %9 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9)
-  br label %if.end11
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i64, ptr %11, align 8
+  %31 = load i32, ptr %12, align 4
+  call void @tcg_gen_nonatomic_cmpxchg_i32_int(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i64 noundef %30, i32 noundef %31)
+  store i32 1, ptr %16, align 4
+  br label %71
 
-if.end:                                           ; preds = %entry
-  %10 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %10, i1 noundef zeroext false, i1 noundef zeroext false)
-  store i32 %call, ptr %memop.addr, align 4
-  %11 = load i32, ptr %memop.addr, align 4
-  %and1 = and i32 %11, 23
-  %idxprom = zext i32 %and1 to i64
-  %arrayidx = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx, align 8
-  store ptr %12, ptr %gen, align 8
-  br label %do.body
+32:                                               ; preds = %6
+  %33 = load i32, ptr %12, align 4
+  %34 = call i32 @tcg_canonicalize_memop(i32 noundef %33, i1 noundef zeroext false, i1 noundef zeroext false)
+  store i32 %34, ptr %12, align 4
+  %35 = load i32, ptr %12, align 4
+  %36 = and i32 %35, 23
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %13, align 8
+  br label %40
 
-do.body:                                          ; preds = %if.end
-  %13 = load ptr, ptr %gen, align 8
-  %cmp = icmp ne ptr %13, null
-  br i1 %cmp, label %if.end3, label %if.then2
+40:                                               ; preds = %32
+  %41 = load ptr, ptr %13, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %44, label %43
 
-if.then2:                                         ; preds = %do.body
+43:                                               ; preds = %40
   unreachable
 
-if.end3:                                          ; preds = %do.body
-  br label %do.end
+44:                                               ; preds = %40
+  br label %45
 
-do.end:                                           ; preds = %if.end3
-  %14 = load i32, ptr %memop.addr, align 4
-  %and4 = and i32 %14, -9
-  %15 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %15 to i32
-  %call5 = call i32 @make_memop_idx(i32 noundef %and4, i32 noundef %conv)
-  store i32 %call5, ptr %oi, align 4
-  %16 = load ptr, ptr %addr.addr, align 8
-  %call6 = call ptr @maybe_extend_addr64(ptr noundef %16)
-  store ptr %call6, ptr %a64, align 8
-  %17 = load ptr, ptr %gen, align 8
-  %18 = load ptr, ptr %retv.addr, align 8
-  %19 = load ptr, ptr @tcg_env, align 8
-  %20 = load ptr, ptr %a64, align 8
-  %21 = load ptr, ptr %cmpv.addr, align 8
-  %22 = load ptr, ptr %newv.addr, align 8
-  %23 = load i32, ptr %oi, align 4
-  %call7 = call ptr @tcg_constant_i32(i32 noundef %23)
-  call void %17(ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %call7)
-  %24 = load ptr, ptr %a64, align 8
-  call void @maybe_free_addr64(ptr noundef %24)
-  %25 = load i32, ptr %memop.addr, align 4
-  %and8 = and i32 %25, 8
-  %tobool9 = icmp ne i32 %and8, 0
-  br i1 %tobool9, label %if.then10, label %if.end11
+45:                                               ; preds = %44
+  br label %46
 
-if.then10:                                        ; preds = %do.end
-  %26 = load ptr, ptr %retv.addr, align 8
-  %27 = load ptr, ptr %retv.addr, align 8
-  %28 = load i32, ptr %memop.addr, align 4
+46:                                               ; preds = %45
+  %47 = load i32, ptr %12, align 4
+  %48 = and i32 %47, -9
+  %49 = load i64, ptr %11, align 8
+  %50 = trunc i64 %49 to i32
+  %51 = call i32 @make_memop_idx(i32 noundef %48, i32 noundef %50)
+  store i32 %51, ptr %15, align 4
+  %52 = load ptr, ptr %8, align 8
+  %53 = call ptr @maybe_extend_addr64(ptr noundef %52)
+  store ptr %53, ptr %14, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = load ptr, ptr @tcg_env, align 8
+  %57 = load ptr, ptr %14, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = load i32, ptr %15, align 4
+  %61 = call ptr @tcg_constant_i32(i32 noundef %60)
+  call void %54(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %61)
+  %62 = load ptr, ptr %14, align 8
+  call void @maybe_free_addr64(ptr noundef %62)
+  %63 = load i32, ptr %12, align 4
+  %64 = and i32 %63, 8
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %70
+
+66:                                               ; preds = %46
+  %67 = load ptr, ptr %7, align 8
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %12, align 4
+  call void @tcg_gen_ext_i32(ptr noundef %67, ptr noundef %68, i32 noundef %69)
+  br label %70
+
+70:                                               ; preds = %66, %46
+  store i32 0, ptr %16, align 4
+  br label %71
+
+71:                                               ; preds = %70, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  %72 = load i32, ptr %16, align 4
+  switch i32 %72, label %74 [
+    i32 0, label %73
+    i32 1, label %73
+  ]
+
+73:                                               ; preds = %71, %71
+  ret void
+
+74:                                               ; preds = %71
+  unreachable
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_nonatomic_cmpxchg_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i64 %4, ptr %12, align 8
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  br label %15
+
+15:                                               ; preds = %7
+  %16 = load i32, ptr %14, align 4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %16, %20
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %15
+  unreachable
+
+23:                                               ; preds = %15
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr %13, align 4
+  %27 = and i32 %26, 7
+  %28 = icmp ule i32 %27, 3
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %25
+  unreachable
+
+30:                                               ; preds = %25
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i64, ptr %12, align 8
+  %37 = load i32, ptr %13, align 4
+  call void @tcg_gen_nonatomic_cmpxchg_i64_int(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @tcg_gen_nonatomic_cmpxchg_i64_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !annotation !4
+  %15 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %15, ptr %13, align 8
+  %16 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %16, ptr %14, align 8
+  %17 = load ptr, ptr %14, align 8
+  %18 = load ptr, ptr %9, align 8
+  %19 = load i32, ptr %12, align 4
+  %20 = and i32 %19, 7
+  call void @tcg_gen_ext_i64(ptr noundef %17, ptr noundef %18, i32 noundef %20)
+  %21 = load ptr, ptr %13, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i64, ptr %11, align 8
+  %24 = load i32, ptr %12, align 4
+  %25 = and i32 %24, -9
+  call void @tcg_gen_qemu_ld_i64_int(ptr noundef %21, ptr noundef %22, i64 noundef %23, i32 noundef %25)
+  %26 = load ptr, ptr %14, align 8
+  %27 = load ptr, ptr %13, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %13, align 8
+  call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
+  %31 = load ptr, ptr %14, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load i64, ptr %11, align 8
+  %34 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_st_i64_int(ptr noundef %31, ptr noundef %32, i64 noundef %33, i32 noundef %34)
+  %35 = load ptr, ptr %14, align 8
+  call void @tcg_temp_free_i64(ptr noundef %35)
+  %36 = load i32, ptr %12, align 4
+  %37 = and i32 %36, 8
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %43
+
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %7, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load i32, ptr %12, align 4
+  call void @tcg_gen_ext_i64(ptr noundef %40, ptr noundef %41, i32 noundef %42)
+  br label %46
+
+43:                                               ; preds = %6
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %13, align 8
+  call void @tcg_gen_mov_i64(ptr noundef %44, ptr noundef %45)
+  br label %46
+
+46:                                               ; preds = %43, %39
+  %47 = load ptr, ptr %13, align 8
+  call void @tcg_temp_free_i64(ptr noundef %47)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_atomic_cmpxchg_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i64 %4, ptr %12, align 8
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  br label %15
+
+15:                                               ; preds = %7
+  %16 = load i32, ptr %14, align 4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %16, %20
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %15
+  unreachable
+
+23:                                               ; preds = %15
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr %13, align 4
+  %27 = and i32 %26, 7
+  %28 = icmp ule i32 %27, 3
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %25
+  unreachable
+
+30:                                               ; preds = %25
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i64, ptr %12, align 8
+  %37 = load i32, ptr %13, align 4
+  call void @tcg_gen_atomic_cmpxchg_i64_int(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @tcg_gen_atomic_cmpxchg_i64_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %struct.TCGContext, ptr %21, i32 0, i32 21
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, 32768
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %35, label %28
+
+28:                                               ; preds = %6
+  %29 = load ptr, ptr %7, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i64, ptr %11, align 8
+  %34 = load i32, ptr %12, align 4
+  call void @tcg_gen_nonatomic_cmpxchg_i64_int(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, i64 noundef %33, i32 noundef %34)
+  br label %97
+
+35:                                               ; preds = %6
+  %36 = load i32, ptr %12, align 4
+  %37 = and i32 %36, 7
+  %38 = icmp eq i32 %37, 3
+  br i1 %38, label %39, label %69
+
+39:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !annotation !4
+  %40 = load i32, ptr %12, align 4
+  %41 = call i32 @tcg_canonicalize_memop(i32 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false)
+  store i32 %41, ptr %12, align 4
+  %42 = load i32, ptr %12, align 4
+  %43 = and i32 %42, 23
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %13, align 8
+  %47 = load ptr, ptr %13, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %65
+
+49:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %50 = load i32, ptr %12, align 4
+  %51 = load i64, ptr %11, align 8
+  %52 = trunc i64 %51 to i32
+  %53 = call i32 @make_memop_idx(i32 noundef %50, i32 noundef %52)
+  store i32 %53, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %54 = load ptr, ptr %8, align 8
+  %55 = call ptr @maybe_extend_addr64(ptr noundef %54)
+  store ptr %55, ptr %15, align 8
+  %56 = load ptr, ptr %13, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = load ptr, ptr @tcg_env, align 8
+  %59 = load ptr, ptr %15, align 8
+  %60 = load ptr, ptr %9, align 8
+  %61 = load ptr, ptr %10, align 8
+  %62 = load i32, ptr %14, align 4
+  %63 = call ptr @tcg_constant_i32(i32 noundef %62)
+  call void %56(ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %63)
+  %64 = load ptr, ptr %15, align 8
+  call void @maybe_free_addr64(ptr noundef %64)
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  br label %68
+
+65:                                               ; preds = %39
+  %66 = load ptr, ptr @tcg_env, align 8
+  call void @gen_helper_exit_atomic(ptr noundef %66)
+  %67 = load ptr, ptr %7, align 8
+  call void @tcg_gen_movi_i64(ptr noundef %67, i64 noundef 0)
+  store i32 1, ptr %16, align 4
+  br label %68
+
+68:                                               ; preds = %65, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %97
+
+69:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %70 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %70, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %71 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %71, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %72 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %72, ptr %19, align 8
+  %73 = load ptr, ptr %17, align 8
+  %74 = load ptr, ptr %9, align 8
+  call void @tcg_gen_extrl_i64_i32(ptr noundef %73, ptr noundef %74)
+  %75 = load ptr, ptr %18, align 8
+  %76 = load ptr, ptr %10, align 8
+  call void @tcg_gen_extrl_i64_i32(ptr noundef %75, ptr noundef %76)
+  %77 = load ptr, ptr %19, align 8
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %17, align 8
+  %80 = load ptr, ptr %18, align 8
+  %81 = load i64, ptr %11, align 8
+  %82 = load i32, ptr %12, align 4
+  %83 = and i32 %82, -9
+  call void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %80, i64 noundef %81, i32 noundef %83)
+  %84 = load ptr, ptr %17, align 8
+  call void @tcg_temp_free_i32(ptr noundef %84)
+  %85 = load ptr, ptr %18, align 8
+  call void @tcg_temp_free_i32(ptr noundef %85)
+  %86 = load ptr, ptr %7, align 8
+  %87 = load ptr, ptr %19, align 8
+  call void @tcg_gen_extu_i32_i64(ptr noundef %86, ptr noundef %87)
+  %88 = load ptr, ptr %19, align 8
+  call void @tcg_temp_free_i32(ptr noundef %88)
+  %89 = load i32, ptr %12, align 4
+  %90 = and i32 %89, 8
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %96
+
+92:                                               ; preds = %69
+  %93 = load ptr, ptr %7, align 8
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %12, align 4
+  call void @tcg_gen_ext_i64(ptr noundef %93, ptr noundef %94, i32 noundef %95)
+  br label %96
+
+96:                                               ; preds = %92, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %97
+
+97:                                               ; preds = %96, %68, %28
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_nonatomic_cmpxchg_i128_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i64 %4, ptr %12, align 8
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  br label %15
+
+15:                                               ; preds = %7
+  %16 = load i32, ptr %14, align 4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %16, %20
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %15
+  unreachable
+
+23:                                               ; preds = %15
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr %13, align 4
+  %27 = and i32 %26, 15
+  %28 = icmp eq i32 %27, 4
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %25
+  unreachable
+
+30:                                               ; preds = %25
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i64, ptr %12, align 8
+  %37 = load i32, ptr %13, align 4
+  call void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %18 = call ptr @tcg_temp_ebb_new_i128()
+  store ptr %18, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %19 = call ptr @tcg_temp_ebb_new_i128()
+  store ptr %19, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %20 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %20, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %21 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %21, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %22 = call ptr @tcg_constant_i64(i64 noundef 0)
+  store ptr %22, ptr %17, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load ptr, ptr %8, align 8
+  %25 = load i64, ptr %11, align 8
+  %26 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_ld_i128_int(ptr noundef %23, ptr noundef %24, i64 noundef %25, i32 noundef %26)
+  %27 = load ptr, ptr %15, align 8
+  %28 = load ptr, ptr %13, align 8
+  %29 = call ptr @TCGV128_LOW(ptr noundef %28)
+  %30 = load ptr, ptr %9, align 8
+  %31 = call ptr @TCGV128_LOW(ptr noundef %30)
+  call void @tcg_gen_xor_i64(ptr noundef %27, ptr noundef %29, ptr noundef %31)
+  %32 = load ptr, ptr %16, align 8
+  %33 = load ptr, ptr %13, align 8
+  %34 = call ptr @TCGV128_HIGH(ptr noundef %33)
+  %35 = load ptr, ptr %9, align 8
+  %36 = call ptr @TCGV128_HIGH(ptr noundef %35)
+  call void @tcg_gen_xor_i64(ptr noundef %32, ptr noundef %34, ptr noundef %36)
+  %37 = load ptr, ptr %15, align 8
+  %38 = load ptr, ptr %15, align 8
+  %39 = load ptr, ptr %16, align 8
+  call void @tcg_gen_or_i64(ptr noundef %37, ptr noundef %38, ptr noundef %39)
+  %40 = load ptr, ptr %14, align 8
+  %41 = call ptr @TCGV128_LOW(ptr noundef %40)
+  %42 = load ptr, ptr %15, align 8
+  %43 = load ptr, ptr %17, align 8
+  %44 = load ptr, ptr %10, align 8
+  %45 = call ptr @TCGV128_LOW(ptr noundef %44)
+  %46 = load ptr, ptr %13, align 8
+  %47 = call ptr @TCGV128_LOW(ptr noundef %46)
+  call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %45, ptr noundef %47)
+  %48 = load ptr, ptr %14, align 8
+  %49 = call ptr @TCGV128_HIGH(ptr noundef %48)
+  %50 = load ptr, ptr %15, align 8
+  %51 = load ptr, ptr %17, align 8
+  %52 = load ptr, ptr %10, align 8
+  %53 = call ptr @TCGV128_HIGH(ptr noundef %52)
+  %54 = load ptr, ptr %13, align 8
+  %55 = call ptr @TCGV128_HIGH(ptr noundef %54)
+  call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %53, ptr noundef %55)
+  %56 = load ptr, ptr %14, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = load i64, ptr %11, align 8
+  %59 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_st_i128_int(ptr noundef %56, ptr noundef %57, i64 noundef %58, i32 noundef %59)
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %13, align 8
+  call void @tcg_gen_mov_i128(ptr noundef %60, ptr noundef %61)
+  %62 = load ptr, ptr %15, align 8
+  call void @tcg_temp_free_i64(ptr noundef %62)
+  %63 = load ptr, ptr %16, align 8
+  call void @tcg_temp_free_i64(ptr noundef %63)
+  %64 = load ptr, ptr %14, align 8
+  call void @tcg_temp_free_i128(ptr noundef %64)
+  %65 = load ptr, ptr %13, align 8
+  call void @tcg_temp_free_i128(ptr noundef %65)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_atomic_cmpxchg_i128_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i64 %4, ptr %12, align 8
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  br label %15
+
+15:                                               ; preds = %7
+  %16 = load i32, ptr %14, align 4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %16, %20
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %15
+  unreachable
+
+23:                                               ; preds = %15
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr %13, align 4
+  %27 = and i32 %26, 15
+  %28 = icmp eq i32 %27, 4
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %25
+  unreachable
+
+30:                                               ; preds = %25
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i64, ptr %12, align 8
+  %37 = load i32, ptr %13, align 4
+  call void @tcg_gen_atomic_cmpxchg_i128_int(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @tcg_gen_atomic_cmpxchg_i128_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !annotation !4
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.TCGContext, ptr %18, i32 0, i32 21
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %22, 32768
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %32, label %25
+
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i64, ptr %11, align 8
+  %31 = load i32, ptr %12, align 4
+  call void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i64 noundef %30, i32 noundef %31)
+  store i32 1, ptr %14, align 4
+  br label %62
+
+32:                                               ; preds = %6
+  %33 = load i32, ptr %12, align 4
+  %34 = and i32 %33, 23
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %35
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %13, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %56
+
+40:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  %41 = load i32, ptr %12, align 4
+  %42 = load i64, ptr %11, align 8
+  %43 = trunc i64 %42 to i32
+  %44 = call i32 @make_memop_idx(i32 noundef %41, i32 noundef %43)
+  store i32 %44, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %45 = load ptr, ptr %8, align 8
+  %46 = call ptr @maybe_extend_addr64(ptr noundef %45)
+  store ptr %46, ptr %16, align 8
+  %47 = load ptr, ptr %13, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr @tcg_env, align 8
+  %50 = load ptr, ptr %16, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = load ptr, ptr %10, align 8
+  %53 = load i32, ptr %15, align 4
+  %54 = call ptr @tcg_constant_i32(i32 noundef %53)
+  call void %47(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %54)
+  %55 = load ptr, ptr %16, align 8
+  call void @maybe_free_addr64(ptr noundef %55)
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  br label %62
+
+56:                                               ; preds = %32
+  %57 = load ptr, ptr @tcg_env, align 8
+  call void @gen_helper_exit_atomic(ptr noundef %57)
+  %58 = load ptr, ptr %7, align 8
+  %59 = call ptr @TCGV128_LOW(ptr noundef %58)
+  call void @tcg_gen_movi_i64(ptr noundef %59, i64 noundef 0)
+  %60 = load ptr, ptr %7, align 8
+  %61 = call ptr @TCGV128_HIGH(ptr noundef %60)
+  call void @tcg_gen_movi_i64(ptr noundef %61, i64 noundef 0)
+  store i32 0, ptr %14, align 4
+  br label %62
+
+62:                                               ; preds = %56, %40, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  %63 = load i32, ptr %14, align 4
+  switch i32 %63, label %65 [
+    i32 0, label %64
+    i32 1, label %64
+  ]
+
+64:                                               ; preds = %62, %62
+  ret void
+
+65:                                               ; preds = %62
+  unreachable
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_gen_atomic_fetch_add_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
+
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %13
+  unreachable
+
+21:                                               ; preds = %13
+  br label %22
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %23
+  unreachable
+
+28:                                               ; preds = %23
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
+
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_add)
+  br label %50
+
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_add_i32)
+  br label %50
+
+50:                                               ; preds = %44, %38
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @do_atomic_op_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store ptr null, ptr %13, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  store i32 0, ptr %15, align 4, !annotation !4
+  %16 = load i32, ptr %11, align 4
+  %17 = call i32 @tcg_canonicalize_memop(i32 noundef %16, i1 noundef zeroext false, i1 noundef zeroext false)
+  store i32 %17, ptr %11, align 4
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr %11, align 4
+  %20 = and i32 %19, 23
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %13, align 8
+  br label %24
+
+24:                                               ; preds = %6
+  %25 = load ptr, ptr %13, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %24
+  unreachable
+
+28:                                               ; preds = %24
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load i32, ptr %11, align 4
+  %32 = and i32 %31, -9
+  %33 = load i64, ptr %10, align 8
+  %34 = trunc i64 %33 to i32
+  %35 = call i32 @make_memop_idx(i32 noundef %32, i32 noundef %34)
+  store i32 %35, ptr %15, align 4
+  %36 = load ptr, ptr %8, align 8
+  %37 = call ptr @maybe_extend_addr64(ptr noundef %36)
+  store ptr %37, ptr %14, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr @tcg_env, align 8
+  %41 = load ptr, ptr %14, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr %15, align 4
+  %44 = call ptr @tcg_constant_i32(i32 noundef %43)
+  call void %38(ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %44)
+  %45 = load ptr, ptr %14, align 8
+  call void @maybe_free_addr64(ptr noundef %45)
+  %46 = load i32, ptr %11, align 4
+  %47 = and i32 %46, 8
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %53
+
+49:                                               ; preds = %30
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %11, align 4
+  call void @tcg_gen_ext_i32(ptr noundef %50, ptr noundef %51, i32 noundef %52)
+  br label %53
+
+53:                                               ; preds = %49, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @do_nonatomic_op_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i64 %3, ptr %11, align 8
+  store i32 %4, ptr %12, align 4
+  %17 = zext i1 %5 to i8
+  store i8 %17, ptr %13, align 1
+  store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %18 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %18, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %19 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %19, ptr %16, align 8
+  %20 = load i32, ptr %12, align 4
+  %21 = call i32 @tcg_canonicalize_memop(i32 noundef %20, i1 noundef zeroext false, i1 noundef zeroext false)
+  store i32 %21, ptr %12, align 4
+  %22 = load ptr, ptr %15, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i64, ptr %11, align 8
+  %25 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_ld_i32_int(ptr noundef %22, ptr noundef %23, i64 noundef %24, i32 noundef %25)
+  %26 = load ptr, ptr %16, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr %12, align 4
   call void @tcg_gen_ext_i32(ptr noundef %26, ptr noundef %27, i32 noundef %28)
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then10, %do.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_nonatomic_cmpxchg_i64_chk(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %do.body
-  unreachable
-
-if.end:                                           ; preds = %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %do.body2
-  unreachable
-
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
-
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %retv.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load ptr, ptr %cmpv.addr, align 8
-  %8 = load ptr, ptr %newv.addr, align 8
-  %9 = load i64, ptr %idx.addr, align 8
-  %10 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_nonatomic_cmpxchg_i64_int(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_nonatomic_cmpxchg_i64_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %t1 = alloca ptr, align 8
-  %t2 = alloca ptr, align 8
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %call = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call, ptr %t1, align 8
-  %call1 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call1, ptr %t2, align 8
-  %0 = load ptr, ptr %t2, align 8
-  %1 = load ptr, ptr %cmpv.addr, align 8
-  %2 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %2, 7
-  call void @tcg_gen_ext_i64(ptr noundef %0, ptr noundef %1, i32 noundef %and)
-  %3 = load ptr, ptr %t1, align 8
-  %4 = load ptr, ptr %addr.addr, align 8
-  %5 = load i64, ptr %idx.addr, align 8
-  %6 = load i32, ptr %memop.addr, align 4
-  %and2 = and i32 %6, -9
-  call void @tcg_gen_qemu_ld_i64_int(ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %and2)
-  %7 = load ptr, ptr %t2, align 8
-  %8 = load ptr, ptr %t1, align 8
-  %9 = load ptr, ptr %t2, align 8
-  %10 = load ptr, ptr %newv.addr, align 8
-  %11 = load ptr, ptr %t1, align 8
-  call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %12 = load ptr, ptr %t2, align 8
-  %13 = load ptr, ptr %addr.addr, align 8
-  %14 = load i64, ptr %idx.addr, align 8
-  %15 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i64_int(ptr noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %t2, align 8
-  call void @tcg_temp_free_i64(ptr noundef %16)
-  %17 = load i32, ptr %memop.addr, align 4
-  %and3 = and i32 %17, 8
-  %tobool = icmp ne i32 %and3, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %18 = load ptr, ptr %retv.addr, align 8
-  %19 = load ptr, ptr %t1, align 8
-  %20 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i64(ptr noundef %18, ptr noundef %19, i32 noundef %20)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %21 = load ptr, ptr %retv.addr, align 8
-  %22 = load ptr, ptr %t1, align 8
-  call void @tcg_gen_mov_i64(ptr noundef %21, ptr noundef %22)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %23 = load ptr, ptr %t1, align 8
-  call void @tcg_temp_free_i64(ptr noundef %23)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_cmpxchg_i64_chk(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %do.body
-  unreachable
-
-if.end:                                           ; preds = %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %do.body2
-  unreachable
-
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
-
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %retv.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load ptr, ptr %cmpv.addr, align 8
-  %8 = load ptr, ptr %newv.addr, align 8
-  %9 = load i64, ptr %idx.addr, align 8
-  %10 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_atomic_cmpxchg_i64_int(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_atomic_cmpxchg_i64_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %gen = alloca ptr, align 8
-  %oi = alloca i32, align 4
-  %a64 = alloca ptr, align 8
-  %c32 = alloca ptr, align 8
-  %n32 = alloca ptr, align 8
-  %r32 = alloca ptr, align 8
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 21
-  %2 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %cflags, align 4
-  %and = and i32 %3, 32768
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %retv.addr, align 8
-  %5 = load ptr, ptr %addr.addr, align 8
-  %6 = load ptr, ptr %cmpv.addr, align 8
-  %7 = load ptr, ptr %newv.addr, align 8
-  %8 = load i64, ptr %idx.addr, align 8
-  %9 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_nonatomic_cmpxchg_i64_int(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9)
-  br label %if.end18
-
-if.end:                                           ; preds = %entry
-  %10 = load i32, ptr %memop.addr, align 4
-  %and1 = and i32 %10, 7
-  %cmp = icmp eq i32 %and1, 3
-  br i1 %cmp, label %if.then2, label %if.end10
-
-if.then2:                                         ; preds = %if.end
-  %11 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %11, i1 noundef zeroext true, i1 noundef zeroext false)
-  store i32 %call, ptr %memop.addr, align 4
-  %12 = load i32, ptr %memop.addr, align 4
-  %and3 = and i32 %12, 23
-  %idxprom = zext i32 %and3 to i64
-  %arrayidx = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom
-  %13 = load ptr, ptr %arrayidx, align 8
-  store ptr %13, ptr %gen, align 8
-  %14 = load ptr, ptr %gen, align 8
-  %tobool4 = icmp ne ptr %14, null
-  br i1 %tobool4, label %if.then5, label %if.end9
-
-if.then5:                                         ; preds = %if.then2
-  %15 = load i32, ptr %memop.addr, align 4
-  %16 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %16 to i32
-  %call6 = call i32 @make_memop_idx(i32 noundef %15, i32 noundef %conv)
-  store i32 %call6, ptr %oi, align 4
-  %17 = load ptr, ptr %addr.addr, align 8
-  %call7 = call ptr @maybe_extend_addr64(ptr noundef %17)
-  store ptr %call7, ptr %a64, align 8
-  %18 = load ptr, ptr %gen, align 8
-  %19 = load ptr, ptr %retv.addr, align 8
-  %20 = load ptr, ptr @tcg_env, align 8
-  %21 = load ptr, ptr %a64, align 8
-  %22 = load ptr, ptr %cmpv.addr, align 8
-  %23 = load ptr, ptr %newv.addr, align 8
-  %24 = load i32, ptr %oi, align 4
-  %call8 = call ptr @tcg_constant_i32(i32 noundef %24)
-  call void %18(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %call8)
-  %25 = load ptr, ptr %a64, align 8
-  call void @maybe_free_addr64(ptr noundef %25)
-  br label %if.end18
-
-if.end9:                                          ; preds = %if.then2
-  %26 = load ptr, ptr @tcg_env, align 8
-  call void @gen_helper_exit_atomic(ptr noundef %26)
-  %27 = load ptr, ptr %retv.addr, align 8
-  call void @tcg_gen_movi_i64(ptr noundef %27, i64 noundef 0)
-  br label %if.end18
-
-if.end10:                                         ; preds = %if.end
-  %call11 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call11, ptr %c32, align 8
-  %call12 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call12, ptr %n32, align 8
-  %call13 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call13, ptr %r32, align 8
-  %28 = load ptr, ptr %c32, align 8
-  %29 = load ptr, ptr %cmpv.addr, align 8
-  call void @tcg_gen_extrl_i64_i32(ptr noundef %28, ptr noundef %29)
-  %30 = load ptr, ptr %n32, align 8
-  %31 = load ptr, ptr %newv.addr, align 8
-  call void @tcg_gen_extrl_i64_i32(ptr noundef %30, ptr noundef %31)
-  %32 = load ptr, ptr %r32, align 8
-  %33 = load ptr, ptr %addr.addr, align 8
-  %34 = load ptr, ptr %c32, align 8
-  %35 = load ptr, ptr %n32, align 8
-  %36 = load i64, ptr %idx.addr, align 8
-  %37 = load i32, ptr %memop.addr, align 4
-  %and14 = and i32 %37, -9
-  call void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %and14)
-  %38 = load ptr, ptr %c32, align 8
-  call void @tcg_temp_free_i32(ptr noundef %38)
-  %39 = load ptr, ptr %n32, align 8
-  call void @tcg_temp_free_i32(ptr noundef %39)
-  %40 = load ptr, ptr %retv.addr, align 8
-  %41 = load ptr, ptr %r32, align 8
-  call void @tcg_gen_extu_i32_i64(ptr noundef %40, ptr noundef %41)
-  %42 = load ptr, ptr %r32, align 8
-  call void @tcg_temp_free_i32(ptr noundef %42)
-  %43 = load i32, ptr %memop.addr, align 4
-  %and15 = and i32 %43, 8
-  %tobool16 = icmp ne i32 %and15, 0
-  br i1 %tobool16, label %if.then17, label %if.end18
-
-if.then17:                                        ; preds = %if.end10
-  %44 = load ptr, ptr %retv.addr, align 8
-  %45 = load ptr, ptr %retv.addr, align 8
-  %46 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i64(ptr noundef %44, ptr noundef %45, i32 noundef %46)
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then17, %if.end10, %if.end9, %if.then5, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_nonatomic_cmpxchg_i128_chk(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %do.body
-  unreachable
-
-if.end:                                           ; preds = %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 15
-  %cmp3 = icmp eq i32 %and, 4
-  br i1 %cmp3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %do.body2
-  unreachable
-
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
-
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %retv.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load ptr, ptr %cmpv.addr, align 8
-  %8 = load ptr, ptr %newv.addr, align 8
-  %9 = load i64, ptr %idx.addr, align 8
-  %10 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %oldv = alloca ptr, align 8
-  %tmpv = alloca ptr, align 8
-  %t0 = alloca ptr, align 8
-  %t1 = alloca ptr, align 8
-  %z = alloca ptr, align 8
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %call = call ptr @tcg_temp_ebb_new_i128()
-  store ptr %call, ptr %oldv, align 8
-  %call1 = call ptr @tcg_temp_ebb_new_i128()
-  store ptr %call1, ptr %tmpv, align 8
-  %call2 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call2, ptr %t0, align 8
-  %call3 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call3, ptr %t1, align 8
-  %call4 = call ptr @tcg_constant_i64(i64 noundef 0)
-  store ptr %call4, ptr %z, align 8
-  %0 = load ptr, ptr %oldv, align 8
-  %1 = load ptr, ptr %addr.addr, align 8
-  %2 = load i64, ptr %idx.addr, align 8
-  %3 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_ld_i128_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3)
-  %4 = load ptr, ptr %t0, align 8
-  %5 = load ptr, ptr %oldv, align 8
-  %call5 = call ptr @TCGV128_LOW(ptr noundef %5)
-  %6 = load ptr, ptr %cmpv.addr, align 8
-  %call6 = call ptr @TCGV128_LOW(ptr noundef %6)
-  call void @tcg_gen_xor_i64(ptr noundef %4, ptr noundef %call5, ptr noundef %call6)
-  %7 = load ptr, ptr %t1, align 8
-  %8 = load ptr, ptr %oldv, align 8
-  %call7 = call ptr @TCGV128_HIGH(ptr noundef %8)
-  %9 = load ptr, ptr %cmpv.addr, align 8
-  %call8 = call ptr @TCGV128_HIGH(ptr noundef %9)
-  call void @tcg_gen_xor_i64(ptr noundef %7, ptr noundef %call7, ptr noundef %call8)
-  %10 = load ptr, ptr %t0, align 8
-  %11 = load ptr, ptr %t0, align 8
-  %12 = load ptr, ptr %t1, align 8
-  call void @tcg_gen_or_i64(ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %13 = load ptr, ptr %tmpv, align 8
-  %call9 = call ptr @TCGV128_LOW(ptr noundef %13)
-  %14 = load ptr, ptr %t0, align 8
-  %15 = load ptr, ptr %z, align 8
-  %16 = load ptr, ptr %newv.addr, align 8
-  %call10 = call ptr @TCGV128_LOW(ptr noundef %16)
-  %17 = load ptr, ptr %oldv, align 8
-  %call11 = call ptr @TCGV128_LOW(ptr noundef %17)
-  call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %call9, ptr noundef %14, ptr noundef %15, ptr noundef %call10, ptr noundef %call11)
-  %18 = load ptr, ptr %tmpv, align 8
-  %call12 = call ptr @TCGV128_HIGH(ptr noundef %18)
-  %19 = load ptr, ptr %t0, align 8
-  %20 = load ptr, ptr %z, align 8
-  %21 = load ptr, ptr %newv.addr, align 8
-  %call13 = call ptr @TCGV128_HIGH(ptr noundef %21)
-  %22 = load ptr, ptr %oldv, align 8
-  %call14 = call ptr @TCGV128_HIGH(ptr noundef %22)
-  call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %call12, ptr noundef %19, ptr noundef %20, ptr noundef %call13, ptr noundef %call14)
-  %23 = load ptr, ptr %tmpv, align 8
-  %24 = load ptr, ptr %addr.addr, align 8
-  %25 = load i64, ptr %idx.addr, align 8
-  %26 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i128_int(ptr noundef %23, ptr noundef %24, i64 noundef %25, i32 noundef %26)
-  %27 = load ptr, ptr %retv.addr, align 8
-  %28 = load ptr, ptr %oldv, align 8
-  call void @tcg_gen_mov_i128(ptr noundef %27, ptr noundef %28)
-  %29 = load ptr, ptr %t0, align 8
-  call void @tcg_temp_free_i64(ptr noundef %29)
-  %30 = load ptr, ptr %t1, align 8
-  call void @tcg_temp_free_i64(ptr noundef %30)
-  %31 = load ptr, ptr %tmpv, align 8
-  call void @tcg_temp_free_i128(ptr noundef %31)
-  %32 = load ptr, ptr %oldv, align 8
-  call void @tcg_temp_free_i128(ptr noundef %32)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_cmpxchg_i128_chk(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %do.body
-  unreachable
-
-if.end:                                           ; preds = %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 15
-  %cmp3 = icmp eq i32 %and, 4
-  br i1 %cmp3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %do.body2
-  unreachable
-
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
-
-do.end6:                                          ; preds = %if.end5
-  %5 = load ptr, ptr %retv.addr, align 8
-  %6 = load ptr, ptr %addr.addr, align 8
-  %7 = load ptr, ptr %cmpv.addr, align 8
-  %8 = load ptr, ptr %newv.addr, align 8
-  %9 = load i64, ptr %idx.addr, align 8
-  %10 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_atomic_cmpxchg_i128_int(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_atomic_cmpxchg_i128_int(ptr noundef %retv, ptr noundef %addr, ptr noundef %cmpv, ptr noundef %newv, i64 noundef %idx, i32 noundef %memop) #0 {
-entry:
-  %retv.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %cmpv.addr = alloca ptr, align 8
-  %newv.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %gen = alloca ptr, align 8
-  %oi = alloca i32, align 4
-  %a64 = alloca ptr, align 8
-  store ptr %retv, ptr %retv.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %cmpv, ptr %cmpv.addr, align 8
-  store ptr %newv, ptr %newv.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 21
-  %2 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %cflags, align 4
-  %and = and i32 %3, 32768
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %retv.addr, align 8
-  %5 = load ptr, ptr %addr.addr, align 8
-  %6 = load ptr, ptr %cmpv.addr, align 8
-  %7 = load ptr, ptr %newv.addr, align 8
-  %8 = load i64, ptr %idx.addr, align 8
-  %9 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %10 = load i32, ptr %memop.addr, align 4
-  %and1 = and i32 %10, 23
-  %idxprom = zext i32 %and1 to i64
-  %arrayidx = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  store ptr %11, ptr %gen, align 8
-  %12 = load ptr, ptr %gen, align 8
-  %tobool2 = icmp ne ptr %12, null
-  br i1 %tobool2, label %if.then3, label %if.end6
-
-if.then3:                                         ; preds = %if.end
-  %13 = load i32, ptr %memop.addr, align 4
-  %14 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %14 to i32
-  %call = call i32 @make_memop_idx(i32 noundef %13, i32 noundef %conv)
-  store i32 %call, ptr %oi, align 4
-  %15 = load ptr, ptr %addr.addr, align 8
-  %call4 = call ptr @maybe_extend_addr64(ptr noundef %15)
-  store ptr %call4, ptr %a64, align 8
-  %16 = load ptr, ptr %gen, align 8
-  %17 = load ptr, ptr %retv.addr, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
-  %19 = load ptr, ptr %a64, align 8
-  %20 = load ptr, ptr %cmpv.addr, align 8
-  %21 = load ptr, ptr %newv.addr, align 8
-  %22 = load i32, ptr %oi, align 4
-  %call5 = call ptr @tcg_constant_i32(i32 noundef %22)
-  call void %16(ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %call5)
-  %23 = load ptr, ptr %a64, align 8
-  call void @maybe_free_addr64(ptr noundef %23)
-  br label %return
-
-if.end6:                                          ; preds = %if.end
-  %24 = load ptr, ptr @tcg_env, align 8
-  call void @gen_helper_exit_atomic(ptr noundef %24)
-  %25 = load ptr, ptr %retv.addr, align 8
-  %call7 = call ptr @TCGV128_LOW(ptr noundef %25)
-  call void @tcg_gen_movi_i64(ptr noundef %call7, i64 noundef 0)
-  %26 = load ptr, ptr %retv.addr, align 8
-  %call8 = call ptr @TCGV128_HIGH(ptr noundef %26)
-  call void @tcg_gen_movi_i64(ptr noundef %call8, i64 noundef 0)
-  br label %return
-
-return:                                           ; preds = %if.end6, %if.then3, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_add_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %do.body
-  unreachable
-
-if.end:                                           ; preds = %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %do.body2
-  unreachable
-
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
-
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
-
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_add)
-  br label %if.end9
-
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_add_i32)
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.else, %if.then8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_atomic_op_i32(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr noundef %table) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %table.addr = alloca ptr, align 8
-  %gen = alloca ptr, align 8
-  %a64 = alloca ptr, align 8
-  %oi = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store ptr %table, ptr %table.addr, align 8
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
-  store i32 %call, ptr %memop.addr, align 4
-  %1 = load ptr, ptr %table.addr, align 8
-  %2 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %2, 23
-  %idxprom = zext i32 %and to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  store ptr %3, ptr %gen, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %4 = load ptr, ptr %gen, align 8
-  %cmp = icmp ne ptr %4, null
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %do.body
-  unreachable
-
-if.end:                                           ; preds = %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %5 = load i32, ptr %memop.addr, align 4
-  %and1 = and i32 %5, -9
-  %6 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %6 to i32
-  %call2 = call i32 @make_memop_idx(i32 noundef %and1, i32 noundef %conv)
-  store i32 %call2, ptr %oi, align 4
-  %7 = load ptr, ptr %addr.addr, align 8
-  %call3 = call ptr @maybe_extend_addr64(ptr noundef %7)
-  store ptr %call3, ptr %a64, align 8
-  %8 = load ptr, ptr %gen, align 8
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr @tcg_env, align 8
-  %11 = load ptr, ptr %a64, align 8
-  %12 = load ptr, ptr %val.addr, align 8
-  %13 = load i32, ptr %oi, align 4
-  %call4 = call ptr @tcg_constant_i32(i32 noundef %13)
-  call void %8(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %call4)
-  %14 = load ptr, ptr %a64, align 8
-  call void @maybe_free_addr64(ptr noundef %14)
-  %15 = load i32, ptr %memop.addr, align 4
-  %and5 = and i32 %15, 8
-  %tobool = icmp ne i32 %and5, 0
-  br i1 %tobool, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %do.end
-  %16 = load ptr, ptr %ret.addr, align 8
-  %17 = load ptr, ptr %ret.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i32(ptr noundef %16, ptr noundef %17, i32 noundef %18)
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then6, %do.end
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_nonatomic_op_i32(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i1 noundef zeroext %new_val, ptr noundef %gen) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %new_val.addr = alloca i8, align 1
-  %gen.addr = alloca ptr, align 8
-  %t1 = alloca ptr, align 8
-  %t2 = alloca ptr, align 8
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %frombool = zext i1 %new_val to i8
-  store i8 %frombool, ptr %new_val.addr, align 1
-  store ptr %gen, ptr %gen.addr, align 8
-  %call = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call, ptr %t1, align 8
-  %call1 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call1, ptr %t2, align 8
-  %0 = load i32, ptr %memop.addr, align 4
-  %call2 = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
-  store i32 %call2, ptr %memop.addr, align 4
-  %1 = load ptr, ptr %t1, align 8
-  %2 = load ptr, ptr %addr.addr, align 8
-  %3 = load i64, ptr %idx.addr, align 8
-  %4 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_ld_i32_int(ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4)
-  %5 = load ptr, ptr %t2, align 8
-  %6 = load ptr, ptr %val.addr, align 8
-  %7 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i32(ptr noundef %5, ptr noundef %6, i32 noundef %7)
-  %8 = load ptr, ptr %gen.addr, align 8
-  %9 = load ptr, ptr %t2, align 8
-  %10 = load ptr, ptr %t1, align 8
-  %11 = load ptr, ptr %t2, align 8
-  call void %8(ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %12 = load ptr, ptr %t2, align 8
-  %13 = load ptr, ptr %addr.addr, align 8
-  %14 = load i64, ptr %idx.addr, align 8
-  %15 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i32_int(ptr noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %ret.addr, align 8
-  %17 = load i8, ptr %new_val.addr, align 1
-  %tobool = trunc i8 %17 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %18 = load ptr, ptr %t2, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %19 = load ptr, ptr %t1, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %18, %cond.true ], [ %19, %cond.false ]
-  %20 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i32(ptr noundef %16, ptr noundef %cond, i32 noundef %20)
-  %21 = load ptr, ptr %t1, align 8
-  call void @tcg_temp_free_i32(ptr noundef %21)
-  %22 = load ptr, ptr %t2, align 8
-  call void @tcg_temp_free_i32(ptr noundef %22)
+  %29 = load ptr, ptr %14, align 8
+  %30 = load ptr, ptr %16, align 8
+  %31 = load ptr, ptr %15, align 8
+  %32 = load ptr, ptr %16, align 8
+  call void %29(ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  %33 = load ptr, ptr %16, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i64, ptr %11, align 8
+  %36 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_st_i32_int(ptr noundef %33, ptr noundef %34, i64 noundef %35, i32 noundef %36)
+  %37 = load ptr, ptr %8, align 8
+  %38 = load i8, ptr %13, align 1, !range !5, !noundef !6
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %7
+  %41 = load ptr, ptr %16, align 8
+  br label %44
+
+42:                                               ; preds = %7
+  %43 = load ptr, ptr %15, align 8
+  br label %44
+
+44:                                               ; preds = %42, %40
+  %45 = phi ptr [ %41, %40 ], [ %43, %42 ]
+  %46 = load i32, ptr %12, align 4
+  call void @tcg_gen_ext_i32(ptr noundef %37, ptr noundef %45, i32 noundef %46)
+  %47 = load ptr, ptr %15, align 8
+  call void @tcg_temp_free_i32(ptr noundef %47)
+  %48 = load ptr, ptr %16, align 8
+  call void @tcg_temp_free_i32(ptr noundef %48)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
   ret void
 }
 
 declare void @tcg_gen_add_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_add_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_add_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_add)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_add)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_add_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_add_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_atomic_op_i64(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr noundef %table) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %table.addr = alloca ptr, align 8
-  %gen = alloca ptr, align 8
-  %oi = alloca i32, align 4
-  %a64 = alloca ptr, align 8
-  %v32 = alloca ptr, align 8
-  %r32 = alloca ptr, align 8
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store ptr %table, ptr %table.addr, align 8
-  %0 = load i32, ptr %memop.addr, align 4
-  %call = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
-  store i32 %call, ptr %memop.addr, align 4
-  %1 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %1, 7
-  %cmp = icmp eq i32 %and, 3
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @do_atomic_op_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store ptr %5, ptr %12, align 8
+  %19 = load i32, ptr %11, align 4
+  %20 = call i32 @tcg_canonicalize_memop(i32 noundef %19, i1 noundef zeroext true, i1 noundef zeroext false)
+  store i32 %20, ptr %11, align 4
+  %21 = load i32, ptr %11, align 4
+  %22 = and i32 %21, 7
+  %23 = icmp eq i32 %22, 3
+  br i1 %23, label %24, label %55
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %table.addr, align 8
-  %3 = load i32, ptr %memop.addr, align 4
-  %and1 = and i32 %3, 23
-  %idxprom = zext i32 %and1 to i64
-  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  store ptr %4, ptr %gen, align 8
-  %5 = load ptr, ptr %gen, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.then2, label %if.end
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = and i32 %26, 23
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %13, align 8
+  %31 = load ptr, ptr %13, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %49
 
-if.then2:                                         ; preds = %if.then
-  %6 = load i32, ptr %memop.addr, align 4
-  %and3 = and i32 %6, -9
-  %7 = load i64, ptr %idx.addr, align 8
-  %conv = trunc i64 %7 to i32
-  %call4 = call i32 @make_memop_idx(i32 noundef %and3, i32 noundef %conv)
-  store i32 %call4, ptr %oi, align 4
-  %8 = load ptr, ptr %addr.addr, align 8
-  %call5 = call ptr @maybe_extend_addr64(ptr noundef %8)
-  store ptr %call5, ptr %a64, align 8
-  %9 = load ptr, ptr %gen, align 8
-  %10 = load ptr, ptr %ret.addr, align 8
-  %11 = load ptr, ptr @tcg_env, align 8
-  %12 = load ptr, ptr %a64, align 8
-  %13 = load ptr, ptr %val.addr, align 8
-  %14 = load i32, ptr %oi, align 4
-  %call6 = call ptr @tcg_constant_i32(i32 noundef %14)
-  call void %9(ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %call6)
-  %15 = load ptr, ptr %a64, align 8
-  call void @maybe_free_addr64(ptr noundef %15)
-  br label %if.end14
+33:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %34 = load i32, ptr %11, align 4
+  %35 = and i32 %34, -9
+  %36 = load i64, ptr %10, align 8
+  %37 = trunc i64 %36 to i32
+  %38 = call i32 @make_memop_idx(i32 noundef %35, i32 noundef %37)
+  store i32 %38, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %39 = load ptr, ptr %8, align 8
+  %40 = call ptr @maybe_extend_addr64(ptr noundef %39)
+  store ptr %40, ptr %15, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = load ptr, ptr @tcg_env, align 8
+  %44 = load ptr, ptr %15, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = load i32, ptr %14, align 4
+  %47 = call ptr @tcg_constant_i32(i32 noundef %46)
+  call void %41(ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %47)
+  %48 = load ptr, ptr %15, align 8
+  call void @maybe_free_addr64(ptr noundef %48)
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  br label %52
 
-if.end:                                           ; preds = %if.then
-  %16 = load ptr, ptr @tcg_env, align 8
-  call void @gen_helper_exit_atomic(ptr noundef %16)
-  %17 = load ptr, ptr %ret.addr, align 8
-  call void @tcg_gen_movi_i64(ptr noundef %17, i64 noundef 0)
-  br label %if.end14
+49:                                               ; preds = %24
+  %50 = load ptr, ptr @tcg_env, align 8
+  call void @gen_helper_exit_atomic(ptr noundef %50)
+  %51 = load ptr, ptr %7, align 8
+  call void @tcg_gen_movi_i64(ptr noundef %51, i64 noundef 0)
+  store i32 0, ptr %16, align 4
+  br label %52
 
-if.else:                                          ; preds = %entry
-  %call7 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call7, ptr %v32, align 8
-  %call8 = call ptr @tcg_temp_ebb_new_i32()
-  store ptr %call8, ptr %r32, align 8
-  %18 = load ptr, ptr %v32, align 8
-  %19 = load ptr, ptr %val.addr, align 8
-  call void @tcg_gen_extrl_i64_i32(ptr noundef %18, ptr noundef %19)
-  %20 = load ptr, ptr %r32, align 8
-  %21 = load ptr, ptr %addr.addr, align 8
-  %22 = load ptr, ptr %v32, align 8
-  %23 = load i64, ptr %idx.addr, align 8
-  %24 = load i32, ptr %memop.addr, align 4
-  %and9 = and i32 %24, -9
-  %25 = load ptr, ptr %table.addr, align 8
-  call void @do_atomic_op_i32(ptr noundef %20, ptr noundef %21, ptr noundef %22, i64 noundef %23, i32 noundef %and9, ptr noundef %25)
-  %26 = load ptr, ptr %v32, align 8
-  call void @tcg_temp_free_i32(ptr noundef %26)
-  %27 = load ptr, ptr %ret.addr, align 8
-  %28 = load ptr, ptr %r32, align 8
-  call void @tcg_gen_extu_i32_i64(ptr noundef %27, ptr noundef %28)
-  %29 = load ptr, ptr %r32, align 8
-  call void @tcg_temp_free_i32(ptr noundef %29)
-  %30 = load i32, ptr %memop.addr, align 4
-  %and10 = and i32 %30, 8
-  %tobool11 = icmp ne i32 %and10, 0
-  br i1 %tobool11, label %if.then12, label %if.end13
+52:                                               ; preds = %49, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  %53 = load i32, ptr %16, align 4
+  switch i32 %53, label %80 [
+    i32 0, label %54
+    i32 1, label %79
+  ]
 
-if.then12:                                        ; preds = %if.else
-  %31 = load ptr, ptr %ret.addr, align 8
-  %32 = load ptr, ptr %ret.addr, align 8
-  %33 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i64(ptr noundef %31, ptr noundef %32, i32 noundef %33)
-  br label %if.end13
+54:                                               ; preds = %52
+  br label %79
 
-if.end13:                                         ; preds = %if.then12, %if.else
-  br label %if.end14
+55:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %56 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %56, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %57 = call ptr @tcg_temp_ebb_new_i32()
+  store ptr %57, ptr %18, align 8
+  %58 = load ptr, ptr %17, align 8
+  %59 = load ptr, ptr %9, align 8
+  call void @tcg_gen_extrl_i64_i32(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %18, align 8
+  %61 = load ptr, ptr %8, align 8
+  %62 = load ptr, ptr %17, align 8
+  %63 = load i64, ptr %10, align 8
+  %64 = load i32, ptr %11, align 4
+  %65 = and i32 %64, -9
+  %66 = load ptr, ptr %12, align 8
+  call void @do_atomic_op_i32(ptr noundef %60, ptr noundef %61, ptr noundef %62, i64 noundef %63, i32 noundef %65, ptr noundef %66)
+  %67 = load ptr, ptr %17, align 8
+  call void @tcg_temp_free_i32(ptr noundef %67)
+  %68 = load ptr, ptr %7, align 8
+  %69 = load ptr, ptr %18, align 8
+  call void @tcg_gen_extu_i32_i64(ptr noundef %68, ptr noundef %69)
+  %70 = load ptr, ptr %18, align 8
+  call void @tcg_temp_free_i32(ptr noundef %70)
+  %71 = load i32, ptr %11, align 4
+  %72 = and i32 %71, 8
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %78
 
-if.end14:                                         ; preds = %if.end13, %if.end, %if.then2
+74:                                               ; preds = %55
+  %75 = load ptr, ptr %7, align 8
+  %76 = load ptr, ptr %7, align 8
+  %77 = load i32, ptr %11, align 4
+  call void @tcg_gen_ext_i64(ptr noundef %75, ptr noundef %76, i32 noundef %77)
+  br label %78
+
+78:                                               ; preds = %74, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %79
+
+79:                                               ; preds = %52, %78, %54
   ret void
+
+80:                                               ; preds = %52
+  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_nonatomic_op_i64(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i1 noundef zeroext %new_val, ptr noundef %gen) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %new_val.addr = alloca i8, align 1
-  %gen.addr = alloca ptr, align 8
-  %t1 = alloca ptr, align 8
-  %t2 = alloca ptr, align 8
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  %frombool = zext i1 %new_val to i8
-  store i8 %frombool, ptr %new_val.addr, align 1
-  store ptr %gen, ptr %gen.addr, align 8
-  %call = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call, ptr %t1, align 8
-  %call1 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call1, ptr %t2, align 8
-  %0 = load i32, ptr %memop.addr, align 4
-  %call2 = call i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
-  store i32 %call2, ptr %memop.addr, align 4
-  %1 = load ptr, ptr %t1, align 8
-  %2 = load ptr, ptr %addr.addr, align 8
-  %3 = load i64, ptr %idx.addr, align 8
-  %4 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_ld_i64_int(ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4)
-  %5 = load ptr, ptr %t2, align 8
-  %6 = load ptr, ptr %val.addr, align 8
-  %7 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i64(ptr noundef %5, ptr noundef %6, i32 noundef %7)
-  %8 = load ptr, ptr %gen.addr, align 8
-  %9 = load ptr, ptr %t2, align 8
-  %10 = load ptr, ptr %t1, align 8
-  %11 = load ptr, ptr %t2, align 8
-  call void %8(ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %12 = load ptr, ptr %t2, align 8
-  %13 = load ptr, ptr %addr.addr, align 8
-  %14 = load i64, ptr %idx.addr, align 8
-  %15 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_qemu_st_i64_int(ptr noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %ret.addr, align 8
-  %17 = load i8, ptr %new_val.addr, align 1
-  %tobool = trunc i8 %17 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+define internal void @do_nonatomic_op_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i64 %3, ptr %11, align 8
+  store i32 %4, ptr %12, align 4
+  %17 = zext i1 %5 to i8
+  store i8 %17, ptr %13, align 1
+  store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %18 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %18, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %19 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %19, ptr %16, align 8
+  %20 = load i32, ptr %12, align 4
+  %21 = call i32 @tcg_canonicalize_memop(i32 noundef %20, i1 noundef zeroext true, i1 noundef zeroext false)
+  store i32 %21, ptr %12, align 4
+  %22 = load ptr, ptr %15, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i64, ptr %11, align 8
+  %25 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_ld_i64_int(ptr noundef %22, ptr noundef %23, i64 noundef %24, i32 noundef %25)
+  %26 = load ptr, ptr %16, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr %12, align 4
+  call void @tcg_gen_ext_i64(ptr noundef %26, ptr noundef %27, i32 noundef %28)
+  %29 = load ptr, ptr %14, align 8
+  %30 = load ptr, ptr %16, align 8
+  %31 = load ptr, ptr %15, align 8
+  %32 = load ptr, ptr %16, align 8
+  call void %29(ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  %33 = load ptr, ptr %16, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i64, ptr %11, align 8
+  %36 = load i32, ptr %12, align 4
+  call void @tcg_gen_qemu_st_i64_int(ptr noundef %33, ptr noundef %34, i64 noundef %35, i32 noundef %36)
+  %37 = load ptr, ptr %8, align 8
+  %38 = load i8, ptr %13, align 1, !range !5, !noundef !6
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %42
 
-cond.true:                                        ; preds = %entry
-  %18 = load ptr, ptr %t2, align 8
-  br label %cond.end
+40:                                               ; preds = %7
+  %41 = load ptr, ptr %16, align 8
+  br label %44
 
-cond.false:                                       ; preds = %entry
-  %19 = load ptr, ptr %t1, align 8
-  br label %cond.end
+42:                                               ; preds = %7
+  %43 = load ptr, ptr %15, align 8
+  br label %44
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %18, %cond.true ], [ %19, %cond.false ]
-  %20 = load i32, ptr %memop.addr, align 4
-  call void @tcg_gen_ext_i64(ptr noundef %16, ptr noundef %cond, i32 noundef %20)
-  %21 = load ptr, ptr %t1, align 8
-  call void @tcg_temp_free_i64(ptr noundef %21)
-  %22 = load ptr, ptr %t2, align 8
-  call void @tcg_temp_free_i64(ptr noundef %22)
+44:                                               ; preds = %42, %40
+  %45 = phi ptr [ %41, %40 ], [ %43, %42 ]
+  %46 = load i32, ptr %12, align 4
+  call void @tcg_gen_ext_i64(ptr noundef %37, ptr noundef %45, i32 noundef %46)
+  %47 = load ptr, ptr %15, align 8
+  call void @tcg_temp_free_i64(ptr noundef %47)
+  %48 = load ptr, ptr %16, align 8
+  call void @tcg_temp_free_i64(ptr noundef %48)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
   ret void
 }
 
 declare void @tcg_gen_add_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_and_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_and_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_and)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_and)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_and_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_and_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_and_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_and_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_and_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_and)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_and)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_and_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_and_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_and_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_or_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_or_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_or)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_or)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_or_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_or_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_or_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_or_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_or_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_or)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_or)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_or_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_or_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_or_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_xor_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_xor_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_xor)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_xor)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_xor_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_xor_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_xor_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_xor_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_xor_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_xor)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_xor)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_xor_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_xor_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_xor_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_smin_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_smin_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_smin)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_smin)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_smin_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_smin_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_smin_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_smin_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_smin_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_smin)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_smin)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_smin_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_smin_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_smin_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_umin_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_umin_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_umin)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_umin)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_umin_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_umin_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_umin_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_umin_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_umin_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_umin)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_umin)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_umin_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_umin_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_umin_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_smax_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_smax_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_smax)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_smax)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_smax_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_smax_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_smax_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_smax_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_smax_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_smax)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_smax)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_smax_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_smax_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_smax_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_umax_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_umax_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_umax)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_umax)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_umax_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_umax_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_umax_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_fetch_umax_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_fetch_umax_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_fetch_umax)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_fetch_umax)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_umax_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_umax_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 declare void @tcg_gen_umax_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_add_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_add_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_add_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_add_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_add_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_add_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_add_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_add_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_add_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_add_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_add_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_add_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_and_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_and_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_and_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_and_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_and_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_and_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_and_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_and_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_and_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_and_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_and_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_and_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_or_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_or_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_or_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_or_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_or_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_or_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_or_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_or_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_or_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_or_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_or_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_or_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_xor_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_xor_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_xor_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_xor_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_xor_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_xor_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_xor_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_xor_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_xor_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_xor_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_xor_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_xor_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_smin_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_smin_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_smin_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_smin_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_smin_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_smin_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_smin_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_smin_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_smin_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_smin_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_smin_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_smin_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_umin_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_umin_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_umin_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_umin_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_umin_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_umin_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_umin_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_umin_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_umin_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_umin_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_umin_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_umin_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_smax_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_smax_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_smax_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_smax_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_smax_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_smax_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_smax_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_smax_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_smax_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_smax_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_smax_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_smax_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_umax_fetch_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_umax_fetch_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_umax_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_umax_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_umax_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_umax_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_umax_fetch_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_umax_fetch_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_umax_fetch)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_umax_fetch)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext true, ptr noundef @tcg_gen_umax_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext true, ptr noundef @tcg_gen_umax_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_xchg_i32_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_xchg_i32_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 2
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 2
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i32(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_xchg)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i32(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_xchg)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i32(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_mov2_i32)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i32(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_mov2_i32)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_mov2_i32(ptr noundef %r, ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %r.addr, align 8
-  %1 = load ptr, ptr %b.addr, align 8
-  call void @tcg_gen_mov_i32(ptr noundef %0, ptr noundef %1)
+define internal void @tcg_gen_mov2_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @tcg_gen_mov_i32(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_atomic_xchg_i64_chk(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, i32 noundef %addr_type) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %idx.addr = alloca i64, align 8
-  %memop.addr = alloca i32, align 4
-  %addr_type.addr = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store i64 %idx, ptr %idx.addr, align 8
-  store i32 %memop, ptr %memop.addr, align 4
-  store i32 %addr_type, ptr %addr_type.addr, align 4
-  br label %do.body
+define dso_local void @tcg_gen_atomic_xchg_i64_chk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %addr_type.addr, align 4
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %addr_type1 = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 10
-  %3 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %0, %3
-  br i1 %cmp, label %if.end, label %if.then
+13:                                               ; preds = %6
+  %14 = load i32, ptr %12, align 4
+  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.TCGContext, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %14, %18
+  br i1 %19, label %21, label %20
 
-if.then:                                          ; preds = %do.body
+20:                                               ; preds = %13
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+21:                                               ; preds = %13
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.body2
+22:                                               ; preds = %21
+  br label %23
 
-do.body2:                                         ; preds = %do.end
-  %4 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %4, 7
-  %cmp3 = icmp ule i32 %and, 3
-  br i1 %cmp3, label %if.end5, label %if.then4
+23:                                               ; preds = %22
+  %24 = load i32, ptr %11, align 4
+  %25 = and i32 %24, 7
+  %26 = icmp ule i32 %25, 3
+  br i1 %26, label %28, label %27
 
-if.then4:                                         ; preds = %do.body2
+27:                                               ; preds = %23
   unreachable
 
-if.end5:                                          ; preds = %do.body2
-  br label %do.end6
+28:                                               ; preds = %23
+  br label %29
 
-do.end6:                                          ; preds = %if.end5
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 21
-  %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %cflags, align 4
-  %and7 = and i32 %8, 32768
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.else
+29:                                               ; preds = %28
+  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.TCGContext, ptr %31, i32 0, i32 21
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 32768
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then8:                                         ; preds = %do.end6
-  %9 = load ptr, ptr %ret.addr, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load ptr, ptr %val.addr, align 8
-  %12 = load i64, ptr %idx.addr, align 8
-  %13 = load i32, ptr %memop.addr, align 4
-  call void @do_atomic_op_i64(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, ptr noundef @table_xchg)
-  br label %if.end9
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  call void @do_atomic_op_i64(ptr noundef %39, ptr noundef %40, ptr noundef %41, i64 noundef %42, i32 noundef %43, ptr noundef @table_xchg)
+  br label %50
 
-if.else:                                          ; preds = %do.end6
-  %14 = load ptr, ptr %ret.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load ptr, ptr %val.addr, align 8
-  %17 = load i64, ptr %idx.addr, align 8
-  %18 = load i32, ptr %memop.addr, align 4
-  call void @do_nonatomic_op_i64(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef %18, i1 noundef zeroext false, ptr noundef @tcg_gen_mov2_i64)
-  br label %if.end9
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  call void @do_nonatomic_op_i64(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i32 noundef %49, i1 noundef zeroext false, ptr noundef @tcg_gen_mov2_i64)
+  br label %50
 
-if.end9:                                          ; preds = %if.else, %if.then8
+50:                                               ; preds = %44, %38
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_mov2_i64(ptr noundef %r, ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %r.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %r.addr, align 8
-  %1 = load ptr, ptr %b.addr, align 8
-  call void @tcg_gen_mov_i64(ptr noundef %0, ptr noundef %1)
+define internal void @tcg_gen_mov2_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @tcg_gen_mov_i64(ptr noundef %7, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @tcg_gen_req_mo(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %struct.TCGContext, ptr %4, i32 0, i32 15
+  %6 = load i32, ptr %5, align 8
+  %7 = load i32, ptr %2, align 4
+  %8 = and i32 %7, %6
+  store i32 %8, ptr %2, align 4
+  %9 = load i32, ptr %2, align 4
+  %10 = and i32 %9, -14
+  store i32 %10, ptr %2, align 4
+  %11 = load i32, ptr %2, align 4
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %1
+  %14 = load i32, ptr %2, align 4
+  %15 = or i32 %14, 48
+  call void @tcg_gen_mb(i32 noundef %15)
+  br label %16
+
+16:                                               ; preds = %13, %1
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_req_mo(i32 noundef %type) #0 {
-entry:
-  %type.addr = alloca i32, align 4
-  store i32 %type, ptr %type.addr, align 4
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %guest_mo = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 15
-  %2 = load i32, ptr %guest_mo, align 8
-  %3 = load i32, ptr %type.addr, align 4
-  %and = and i32 %3, %2
-  store i32 %and, ptr %type.addr, align 4
-  %4 = load i32, ptr %type.addr, align 4
-  %and1 = and i32 %4, -14
-  store i32 %and1, ptr %type.addr, align 4
-  %5 = load i32, ptr %type.addr, align 4
-  %tobool = icmp ne i32 %5, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @tcg_canonicalize_memop(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4
+  %8 = zext i1 %1 to i8
+  store i8 %8, ptr %5, align 1
+  %9 = zext i1 %2 to i8
+  store i8 %9, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %10 = load i32, ptr %4, align 4
+  %11 = call i32 @memop_alignment_bits(i32 noundef %10)
+  store i32 %11, ptr %7, align 4
+  %12 = load i32, ptr %7, align 4
+  call void @check_max_alignment(i32 noundef %12)
+  %13 = load i32, ptr %7, align 4
+  %14 = load i32, ptr %4, align 4
+  %15 = and i32 %14, 7
+  %16 = icmp eq i32 %13, %15
+  br i1 %16, label %17, label %21
 
-if.then:                                          ; preds = %entry
-  %6 = load i32, ptr %type.addr, align 4
-  %or = or i32 %6, 48
-  call void @tcg_gen_mb(i32 noundef %or)
-  br label %if.end
+17:                                               ; preds = %3
+  %18 = load i32, ptr %4, align 4
+  %19 = and i32 %18, -225
+  %20 = or i32 %19, 224
+  store i32 %20, ptr %4, align 4
+  br label %21
 
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @tcg_canonicalize_memop(i32 noundef %op, i1 noundef zeroext %is64, i1 noundef zeroext %st) #0 {
-entry:
-  %op.addr = alloca i32, align 4
-  %is64.addr = alloca i8, align 1
-  %st.addr = alloca i8, align 1
-  %a_bits = alloca i32, align 4
-  store i32 %op, ptr %op.addr, align 4
-  %frombool = zext i1 %is64 to i8
-  store i8 %frombool, ptr %is64.addr, align 1
-  %frombool1 = zext i1 %st to i8
-  store i8 %frombool1, ptr %st.addr, align 1
-  %0 = load i32, ptr %op.addr, align 4
-  %call = call i32 @get_alignment_bits(i32 noundef %0)
-  store i32 %call, ptr %a_bits, align 4
-  %1 = load i32, ptr %a_bits, align 4
-  call void @check_max_alignment(i32 noundef %1)
-  %2 = load i32, ptr %a_bits, align 4
-  %3 = load i32, ptr %op.addr, align 4
-  %and = and i32 %3, 7
-  %cmp = icmp eq i32 %2, %and
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %op.addr, align 4
-  %and2 = and i32 %4, -225
-  %or = or i32 %and2, 224
-  store i32 %or, ptr %op.addr, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load i32, ptr %op.addr, align 4
-  %and3 = and i32 %5, 7
-  switch i32 %and3, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb5
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb10
+21:                                               ; preds = %17, %3
+  %22 = load i32, ptr %4, align 4
+  %23 = and i32 %22, 7
+  switch i32 %23, label %41 [
+    i32 0, label %24
+    i32 1, label %45
+    i32 2, label %27
+    i32 3, label %34
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %6 = load i32, ptr %op.addr, align 4
-  %and4 = and i32 %6, -17
-  store i32 %and4, ptr %op.addr, align 4
-  br label %sw.epilog
+24:                                               ; preds = %21
+  %25 = load i32, ptr %4, align 4
+  %26 = and i32 %25, -17
+  store i32 %26, ptr %4, align 4
+  br label %45
 
-sw.bb5:                                           ; preds = %if.end
-  br label %sw.epilog
+27:                                               ; preds = %21
+  %28 = load i8, ptr %5, align 1, !range !5, !noundef !6
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %33, label %30
 
-sw.bb6:                                           ; preds = %if.end
-  %7 = load i8, ptr %is64.addr, align 1
-  %tobool = trunc i8 %7 to i1
-  br i1 %tobool, label %if.end9, label %if.then7
+30:                                               ; preds = %27
+  %31 = load i32, ptr %4, align 4
+  %32 = and i32 %31, -9
+  store i32 %32, ptr %4, align 4
+  br label %33
 
-if.then7:                                         ; preds = %sw.bb6
-  %8 = load i32, ptr %op.addr, align 4
-  %and8 = and i32 %8, -9
-  store i32 %and8, ptr %op.addr, align 4
-  br label %if.end9
+33:                                               ; preds = %30, %27
+  br label %45
 
-if.end9:                                          ; preds = %if.then7, %sw.bb6
-  br label %sw.epilog
+34:                                               ; preds = %21
+  %35 = load i8, ptr %5, align 1, !range !5, !noundef !6
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
-sw.bb10:                                          ; preds = %if.end
-  %9 = load i8, ptr %is64.addr, align 1
-  %tobool11 = trunc i8 %9 to i1
-  br i1 %tobool11, label %if.then12, label %if.end14
+37:                                               ; preds = %34
+  %38 = load i32, ptr %4, align 4
+  %39 = and i32 %38, -9
+  store i32 %39, ptr %4, align 4
+  br label %45
 
-if.then12:                                        ; preds = %sw.bb10
-  %10 = load i32, ptr %op.addr, align 4
-  %and13 = and i32 %10, -9
-  store i32 %and13, ptr %op.addr, align 4
-  br label %sw.epilog
+40:                                               ; preds = %34
+  br label %41
 
-if.end14:                                         ; preds = %sw.bb10
-  br label %sw.default
+41:                                               ; preds = %21, %40
+  br label %42
 
-sw.default:                                       ; preds = %if.end14, %if.end
-  br label %do.body
-
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 75, ptr noundef @__func__.tcg_canonicalize_memop, ptr noundef null) #4
+42:                                               ; preds = %41
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 76, ptr noundef @__func__.tcg_canonicalize_memop, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+43:                                               ; No predecessors!
+  br label %44
 
-sw.epilog:                                        ; preds = %do.end, %if.then12, %if.end9, %sw.bb5, %sw.bb
-  %11 = load i8, ptr %st.addr, align 1
-  %tobool15 = trunc i8 %11 to i1
-  br i1 %tobool15, label %if.then16, label %if.end18
+44:                                               ; preds = %43
+  br label %45
 
-if.then16:                                        ; preds = %sw.epilog
-  %12 = load i32, ptr %op.addr, align 4
-  %and17 = and i32 %12, -9
-  store i32 %and17, ptr %op.addr, align 4
-  br label %if.end18
+45:                                               ; preds = %44, %37, %33, %21, %24
+  %46 = load i8, ptr %6, align 1, !range !5, !noundef !6
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %51
 
-if.end18:                                         ; preds = %if.then16, %sw.epilog
-  %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %14 = load ptr, ptr %13, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %14, i32 0, i32 21
-  %15 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds %struct.TranslationBlock, ptr %15, i32 0, i32 3
-  %16 = load i32, ptr %cflags, align 4
-  %and19 = and i32 %16, 32768
-  %tobool20 = icmp ne i32 %and19, 0
-  br i1 %tobool20, label %if.end24, label %if.then21
+48:                                               ; preds = %45
+  %49 = load i32, ptr %4, align 4
+  %50 = and i32 %49, -9
+  store i32 %50, ptr %4, align 4
+  br label %51
 
-if.then21:                                        ; preds = %if.end18
-  %17 = load i32, ptr %op.addr, align 4
-  %and22 = and i32 %17, -1793
-  store i32 %and22, ptr %op.addr, align 4
-  %18 = load i32, ptr %op.addr, align 4
-  %or23 = or i32 %18, 1280
-  store i32 %or23, ptr %op.addr, align 4
-  br label %if.end24
+51:                                               ; preds = %48, %45
+  %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw %struct.TCGContext, ptr %53, i32 0, i32 21
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %55, i32 0, i32 3
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %57, 32768
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %65, label %60
 
-if.end24:                                         ; preds = %if.then21, %if.end18
-  %19 = load i32, ptr %op.addr, align 4
-  ret i32 %19
+60:                                               ; preds = %51
+  %61 = load i32, ptr %4, align 4
+  %62 = and i32 %61, -1793
+  store i32 %62, ptr %4, align 4
+  %63 = load i32, ptr %4, align 4
+  %64 = or i32 %63, 1280
+  store i32 %64, ptr %4, align 4
+  br label %65
+
+65:                                               ; preds = %60, %51
+  %66 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  ret i32 %66
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @make_memop_idx(i32 noundef %op, i32 noundef %idx) #0 {
-entry:
-  %op.addr = alloca i32, align 4
-  %idx.addr = alloca i32, align 4
-  store i32 %op, ptr %op.addr, align 4
-  store i32 %idx, ptr %idx.addr, align 4
-  %0 = load i32, ptr %op.addr, align 4
-  %shl = shl i32 %0, 4
-  %1 = load i32, ptr %idx.addr, align 4
-  %or = or i32 %shl, %1
-  ret i32 %or
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @make_memop_idx(i32 noundef %0, i32 noundef %1) #5 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %3, align 4
+  %6 = shl i32 %5, 4
+  %7 = load i32, ptr %4, align 4
+  %8 = or i32 %6, %7
+  ret i32 %8
 }
 
 declare zeroext i1 @tcg_target_has_memory_bswap(i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @plugin_maybe_preserve_addr(ptr noundef %addr) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %temp = alloca ptr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %plugin_insn = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 34
-  %2 = load ptr, ptr %plugin_insn, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end5
+define internal ptr @plugin_maybe_preserve_addr(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %struct.TCGContext, ptr %6, i32 0, i32 35
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %27
 
-if.then:                                          ; preds = %entry
-  %call = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call, ptr %temp, align 8
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %4 = load ptr, ptr %3, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %4, i32 0, i32 10
-  %5 = load i32, ptr %addr_type, align 4
-  %cmp1 = icmp eq i32 %5, 0
-  br i1 %cmp1, label %if.then2, label %if.else
+10:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %11 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %11, ptr %4, align 8
+  %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %struct.TCGContext, ptr %13, i32 0, i32 10
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %21
 
-if.then2:                                         ; preds = %if.then
-  %6 = load ptr, ptr %temp, align 8
-  %7 = load ptr, ptr %addr.addr, align 8
-  %call3 = call ptr @temp_tcgv_i32(ptr noundef %7)
-  call void @tcg_gen_extu_i32_i64(ptr noundef %6, ptr noundef %call3)
-  br label %if.end
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = call ptr @temp_tcgv_i32(ptr noundef %19)
+  call void @tcg_gen_extu_i32_i64(ptr noundef %18, ptr noundef %20)
+  br label %25
 
-if.else:                                          ; preds = %if.then
-  %8 = load ptr, ptr %temp, align 8
-  %9 = load ptr, ptr %addr.addr, align 8
-  %call4 = call ptr @temp_tcgv_i64(ptr noundef %9)
-  call void @tcg_gen_mov_i64(ptr noundef %8, ptr noundef %call4)
-  br label %if.end
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = call ptr @temp_tcgv_i64(ptr noundef %23)
+  call void @tcg_gen_mov_i64(ptr noundef %22, ptr noundef %24)
+  br label %25
 
-if.end:                                           ; preds = %if.else, %if.then2
-  %10 = load ptr, ptr %temp, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %21, %17
+  %26 = load ptr, ptr %4, align 8
+  store ptr %26, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %28
 
-if.end5:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %28
 
-return:                                           ; preds = %if.end5, %if.end
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+28:                                               ; preds = %27, %25
+  %29 = load ptr, ptr %2, align 8
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_ldst(i32 noundef %opc, ptr noundef %vl, ptr noundef %vh, ptr noundef %addr, i32 noundef %oi) #0 {
-entry:
-  %opc.addr = alloca i32, align 4
-  %vl.addr = alloca ptr, align 8
-  %vh.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %oi.addr = alloca i32, align 4
-  store i32 %opc, ptr %opc.addr, align 4
-  store ptr %vl, ptr %vl.addr, align 8
-  store ptr %vh, ptr %vh.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i32 %oi, ptr %oi.addr, align 4
-  %0 = load ptr, ptr %vh.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
+define internal void @gen_ldst(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store i32 %0, ptr %7, align 4
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  %13 = load ptr, ptr %10, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %27
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %opc.addr, align 4
-  %2 = load ptr, ptr %vl.addr, align 8
-  %call = call i64 @temp_arg(ptr noundef %2)
-  %3 = load ptr, ptr %vh.addr, align 8
-  %call1 = call i64 @temp_arg(ptr noundef %3)
-  %4 = load ptr, ptr %addr.addr, align 8
-  %call2 = call i64 @temp_arg(ptr noundef %4)
-  %5 = load i32, ptr %oi.addr, align 4
-  %conv = zext i32 %5 to i64
-  call void @tcg_gen_op4(i32 noundef %1, i64 noundef %call, i64 noundef %call1, i64 noundef %call2, i64 noundef %conv)
-  br label %if.end
+15:                                               ; preds = %6
+  %16 = load i32, ptr %7, align 4
+  %17 = load i32, ptr %8, align 4
+  %18 = load ptr, ptr %9, align 8
+  %19 = call i64 @temp_arg(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call i64 @temp_arg(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call i64 @temp_arg(ptr noundef %22)
+  %24 = load i32, ptr %12, align 4
+  %25 = zext i32 %24 to i64
+  %26 = call ptr @tcg_gen_op4(i32 noundef %16, i32 noundef %17, i64 noundef %19, i64 noundef %21, i64 noundef %23, i64 noundef %25)
+  br label %37
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %opc.addr, align 4
-  %7 = load ptr, ptr %vl.addr, align 8
-  %call3 = call i64 @temp_arg(ptr noundef %7)
-  %8 = load ptr, ptr %addr.addr, align 8
-  %call4 = call i64 @temp_arg(ptr noundef %8)
-  %9 = load i32, ptr %oi.addr, align 4
-  %conv5 = zext i32 %9 to i64
-  call void @tcg_gen_op3(i32 noundef %6, i64 noundef %call3, i64 noundef %call4, i64 noundef %conv5)
-  br label %if.end
+27:                                               ; preds = %6
+  %28 = load i32, ptr %7, align 4
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = call i64 @temp_arg(ptr noundef %30)
+  %32 = load ptr, ptr %11, align 8
+  %33 = call i64 @temp_arg(ptr noundef %32)
+  %34 = load i32, ptr %12, align 4
+  %35 = zext i32 %34 to i64
+  %36 = call ptr @tcg_gen_op3(i32 noundef %28, i32 noundef %29, i64 noundef %31, i64 noundef %33, i64 noundef %35)
+  br label %37
 
-if.end:                                           ; preds = %if.else, %if.then
+37:                                               ; preds = %27, %15
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @tcgv_i32_temp(ptr noundef %v) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %v.addr, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %add.ptr = getelementptr i8, ptr %1, i64 %3
-  ret ptr %add.ptr
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @tcgv_i32_temp(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @plugin_gen_mem_callbacks(ptr noundef %copy_addr, ptr noundef %orig_addr, i32 noundef %oi, i32 noundef %rw) #0 {
-entry:
-  %copy_addr.addr = alloca ptr, align 8
-  %orig_addr.addr = alloca ptr, align 8
-  %oi.addr = alloca i32, align 4
-  %rw.addr = alloca i32, align 4
-  %info = alloca i32, align 4
-  store ptr %copy_addr, ptr %copy_addr.addr, align 8
-  store ptr %orig_addr, ptr %orig_addr.addr, align 8
-  store i32 %oi, ptr %oi.addr, align 4
-  store i32 %rw, ptr %rw.addr, align 4
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %plugin_insn = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 34
-  %2 = load ptr, ptr %plugin_insn, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end12
+define internal void @plugin_gen_mem_callbacks_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %struct.TCGContext, ptr %12, i32 0, i32 35
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %23
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %oi.addr, align 4
-  %4 = load i32, ptr %rw.addr, align 4
-  %call = call i32 @make_plugin_meminfo(i32 noundef %3, i32 noundef %4)
-  store i32 %call, ptr %info, align 4
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %6 = load ptr, ptr %5, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 10
-  %7 = load i32, ptr %addr_type, align 4
-  %cmp1 = icmp eq i32 %7, 0
-  br i1 %cmp1, label %if.then2, label %if.else
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr @tcg_env, align 8
+  call void @tcg_gen_st_i32(ptr noundef %17, ptr noundef %18, i64 noundef -24)
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @plugin_gen_mem_callbacks(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22)
+  br label %23
 
-if.then2:                                         ; preds = %if.then
-  %8 = load ptr, ptr %copy_addr.addr, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.end, label %if.then3
-
-if.then3:                                         ; preds = %if.then2
-  %call4 = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call4, ptr %copy_addr.addr, align 8
-  %9 = load ptr, ptr %copy_addr.addr, align 8
-  %10 = load ptr, ptr %orig_addr.addr, align 8
-  %call5 = call ptr @temp_tcgv_i32(ptr noundef %10)
-  call void @tcg_gen_extu_i32_i64(ptr noundef %9, ptr noundef %call5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then3, %if.then2
-  %11 = load ptr, ptr %copy_addr.addr, align 8
-  %12 = load i32, ptr %info, align 4
-  call void @plugin_gen_empty_mem_callback(ptr noundef %11, i32 noundef %12)
-  %13 = load ptr, ptr %copy_addr.addr, align 8
-  call void @tcg_temp_free_i64(ptr noundef %13)
-  br label %if.end11
-
-if.else:                                          ; preds = %if.then
-  %14 = load ptr, ptr %copy_addr.addr, align 8
-  %tobool6 = icmp ne ptr %14, null
-  br i1 %tobool6, label %if.then7, label %if.else8
-
-if.then7:                                         ; preds = %if.else
-  %15 = load ptr, ptr %copy_addr.addr, align 8
-  %16 = load i32, ptr %info, align 4
-  call void @plugin_gen_empty_mem_callback(ptr noundef %15, i32 noundef %16)
-  %17 = load ptr, ptr %copy_addr.addr, align 8
-  call void @tcg_temp_free_i64(ptr noundef %17)
-  br label %if.end10
-
-if.else8:                                         ; preds = %if.else
-  %18 = load ptr, ptr %orig_addr.addr, align 8
-  %call9 = call ptr @temp_tcgv_i64(ptr noundef %18)
-  %19 = load i32, ptr %info, align 4
-  call void @plugin_gen_empty_mem_callback(ptr noundef %call9, i32 noundef %19)
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.else8, %if.then7
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %if.end
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end11, %entry
+23:                                               ; preds = %16, %5
   ret void
 }
 
@@ -6274,83 +6446,86 @@ declare void @tcg_gen_bswap16_i32(ptr noundef, ptr noundef, i32 noundef) #2
 
 declare void @tcg_gen_bswap32_i32(ptr noundef, ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 declare void @tcg_gen_mb(i32 noundef) #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_alignment_bits(i32 noundef %memop) #0 {
-entry:
-  %memop.addr = alloca i32, align 4
-  %a = alloca i32, align 4
-  store i32 %memop, ptr %memop.addr, align 4
-  %0 = load i32, ptr %memop.addr, align 4
-  %and = and i32 %0, 224
-  store i32 %and, ptr %a, align 4
-  %1 = load i32, ptr %a, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @memop_alignment_bits(i32 noundef %0) #5 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = load i32, ptr %2, align 4
+  %5 = and i32 %4, 224
+  store i32 %5, ptr %3, align 4
+  %6 = load i32, ptr %3, align 4
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %a, align 4
-  br label %if.end5
+8:                                                ; preds = %1
+  store i32 0, ptr %3, align 4
+  br label %19
 
-if.else:                                          ; preds = %entry
-  %2 = load i32, ptr %a, align 4
-  %cmp1 = icmp eq i32 %2, 224
-  br i1 %cmp1, label %if.then2, label %if.else4
+9:                                                ; preds = %1
+  %10 = load i32, ptr %3, align 4
+  %11 = icmp eq i32 %10, 224
+  br i1 %11, label %12, label %15
 
-if.then2:                                         ; preds = %if.else
-  %3 = load i32, ptr %memop.addr, align 4
-  %and3 = and i32 %3, 7
-  store i32 %and3, ptr %a, align 4
-  br label %if.end
+12:                                               ; preds = %9
+  %13 = load i32, ptr %2, align 4
+  %14 = and i32 %13, 7
+  store i32 %14, ptr %3, align 4
+  br label %18
 
-if.else4:                                         ; preds = %if.else
-  %4 = load i32, ptr %a, align 4
-  %shr = lshr i32 %4, 5
-  store i32 %shr, ptr %a, align 4
-  br label %if.end
+15:                                               ; preds = %9
+  %16 = load i32, ptr %3, align 4
+  %17 = lshr i32 %16, 5
+  store i32 %17, ptr %3, align 4
+  br label %18
 
-if.end:                                           ; preds = %if.else4, %if.then2
-  br label %if.end5
+18:                                               ; preds = %15, %12
+  br label %19
 
-if.end5:                                          ; preds = %if.end, %if.then
-  %5 = load i32, ptr %a, align 4
-  ret i32 %5
+19:                                               ; preds = %18, %8
+  %20 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @check_max_alignment(i32 noundef %a_bits) #0 {
-entry:
-  %a_bits.addr = alloca i32, align 4
-  store i32 %a_bits, ptr %a_bits.addr, align 4
-  %0 = load i8, ptr @tcg_use_softmmu, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end3
+define internal void @check_max_alignment(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i8, ptr @tcg_use_softmmu, align 1, !range !5, !noundef !6
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %18
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+5:                                                ; preds = %1
+  br label %6
 
-do.body:                                          ; preds = %if.then
-  %1 = load i32, ptr %a_bits.addr, align 4
-  %add = add i32 %1, 5
-  %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %page_bits = getelementptr inbounds %struct.TCGContext, ptr %3, i32 0, i32 12
-  %4 = load i8, ptr %page_bits, align 4
-  %conv = zext i8 %4 to i32
-  %cmp = icmp ule i32 %add, %conv
-  br i1 %cmp, label %if.end, label %if.then2
+6:                                                ; preds = %5
+  %7 = load i32, ptr %2, align 4
+  %8 = add i32 %7, 5
+  %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %struct.TCGContext, ptr %10, i32 0, i32 12
+  %12 = load i8, ptr %11, align 4
+  %13 = zext i8 %12 to i32
+  %14 = icmp ule i32 %8, %13
+  br i1 %14, label %16, label %15
 
-if.then2:                                         ; preds = %do.body
+15:                                               ; preds = %6
   unreachable
 
-if.end:                                           ; preds = %do.body
-  br label %do.end
+16:                                               ; preds = %6
+  br label %17
 
-do.end:                                           ; preds = %if.end
-  br label %if.end3
+17:                                               ; preds = %16
+  br label %18
 
-if.end3:                                          ; preds = %do.end, %entry
+18:                                               ; preds = %17, %1
   ret void
 }
 
@@ -6358,79 +6533,160 @@ declare ptr @tcg_temp_ebb_new_i64() #2
 
 declare void @tcg_gen_extu_i32_i64(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @temp_tcgv_i32(ptr noundef %t) #0 {
-entry:
-  %t.addr = alloca ptr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %0 = load ptr, ptr %t.addr, align 8
-  %call = call i64 @temp_idx(ptr noundef %0)
-  %1 = load ptr, ptr %t.addr, align 8
-  %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @temp_tcgv_i32(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %4 = inttoptr i64 %sub.ptr.sub to ptr
+  %4 = call i64 @temp_idx(ptr noundef %3)
+  %5 = load ptr, ptr %2, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = inttoptr i64 %10 to ptr
+  ret ptr %11
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @temp_tcgv_i64(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @temp_tcgv_i32(ptr noundef %3)
   ret ptr %4
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @temp_tcgv_i64(ptr noundef %t) #0 {
-entry:
-  %t.addr = alloca ptr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %0 = load ptr, ptr %t.addr, align 8
-  %call = call ptr @temp_tcgv_i32(ptr noundef %0)
-  ret ptr %call
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i64 @temp_idx(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %struct.TCGContext, ptr %5, i32 0, i32 38
+  %7 = getelementptr inbounds [512 x %struct.TCGTemp], ptr %6, i64 0, i64 0
+  %8 = ptrtoint ptr %3 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = sdiv exact i64 %10, 56
+  ret i64 %11
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @temp_idx(ptr noundef %ts) #0 {
-entry:
-  %ts.addr = alloca ptr, align 8
-  store ptr %ts, ptr %ts.addr, align 8
-  %0 = load ptr, ptr %ts.addr, align 8
-  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %2 = load ptr, ptr %1, align 8
-  %temps = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 37
-  %arraydecay = getelementptr inbounds [512 x %struct.TCGTemp], ptr %temps, i64 0, i64 0
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %arraydecay to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 56
-  ret i64 %sub.ptr.div
+declare ptr @tcg_gen_op4(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i64 @temp_arg(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  ret i64 %4
 }
 
-declare void @tcg_gen_op4(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #2
+declare ptr @tcg_gen_op3(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #2
+
+declare void @tcg_gen_st_i32(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @temp_arg(ptr noundef %ts) #0 {
-entry:
-  %ts.addr = alloca ptr, align 8
-  store ptr %ts, ptr %ts.addr, align 8
-  %0 = load ptr, ptr %ts.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  ret i64 %1
+define internal void @plugin_gen_mem_callbacks(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  store i32 %3, ptr %8, align 4
+  %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %struct.TCGContext, ptr %11, i32 0, i32 35
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %49
+
+15:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %16 = load i32, ptr %7, align 4
+  %17 = load i32, ptr %8, align 4
+  %18 = call i32 @make_plugin_meminfo(i32 noundef %16, i32 noundef %17)
+  store i32 %18, ptr %9, align 4
+  %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.TCGContext, ptr %20, i32 0, i32 10
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %36
+
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %5, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %32, label %27
+
+27:                                               ; preds = %24
+  %28 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %28, ptr %5, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %6, align 8
+  %31 = call ptr @temp_tcgv_i32(ptr noundef %30)
+  call void @tcg_gen_extu_i32_i64(ptr noundef %29, ptr noundef %31)
+  br label %32
+
+32:                                               ; preds = %27, %24
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %9, align 4
+  call void @tcg_gen_plugin_mem_cb(ptr noundef %33, i32 noundef %34)
+  %35 = load ptr, ptr %5, align 8
+  call void @tcg_temp_free_i64(ptr noundef %35)
+  br label %48
+
+36:                                               ; preds = %15
+  %37 = load ptr, ptr %5, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %43
+
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %5, align 8
+  %41 = load i32, ptr %9, align 4
+  call void @tcg_gen_plugin_mem_cb(ptr noundef %40, i32 noundef %41)
+  %42 = load ptr, ptr %5, align 8
+  call void @tcg_temp_free_i64(ptr noundef %42)
+  br label %47
+
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %6, align 8
+  %45 = call ptr @temp_tcgv_i64(ptr noundef %44)
+  %46 = load i32, ptr %9, align 4
+  call void @tcg_gen_plugin_mem_cb(ptr noundef %45, i32 noundef %46)
+  br label %47
+
+47:                                               ; preds = %43, %39
+  br label %48
+
+48:                                               ; preds = %47, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  br label %49
+
+49:                                               ; preds = %48, %4
+  ret void
 }
 
-declare void @tcg_gen_op3(i32 noundef, i64 noundef, i64 noundef, i64 noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @make_plugin_meminfo(i32 noundef %oi, i32 noundef %rw) #0 {
-entry:
-  %oi.addr = alloca i32, align 4
-  %rw.addr = alloca i32, align 4
-  store i32 %oi, ptr %oi.addr, align 4
-  store i32 %rw, ptr %rw.addr, align 4
-  %0 = load i32, ptr %oi.addr, align 4
-  %1 = load i32, ptr %rw.addr, align 4
-  %shl = shl i32 %1, 16
-  %or = or i32 %0, %shl
-  ret i32 %or
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @make_plugin_meminfo(i32 noundef %0, i32 noundef %1) #5 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %3, align 4
+  %6 = load i32, ptr %4, align 4
+  %7 = shl i32 %6, 16
+  %8 = or i32 %5, %7
+  ret i32 %8
 }
 
-declare void @plugin_gen_empty_mem_callback(ptr noundef, i32 noundef) #2
+declare void @tcg_gen_plugin_mem_cb(ptr noundef, i32 noundef) #2
 
 declare void @tcg_temp_free_i64(ptr noundef) #2
 
@@ -6439,22 +6695,55 @@ declare ptr @tcg_temp_ebb_new_i32() #2
 declare void @tcg_temp_free_i32(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_ldst_i64(i32 noundef %opc, ptr noundef %v, ptr noundef %addr, i32 noundef %oi) #0 {
-entry:
-  %opc.addr = alloca i32, align 4
-  %v.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %oi.addr = alloca i32, align 4
-  store i32 %opc, ptr %opc.addr, align 4
-  store ptr %v, ptr %v.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i32 %oi, ptr %oi.addr, align 4
-  %0 = load i32, ptr %opc.addr, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %1)
-  %2 = load ptr, ptr %addr.addr, align 8
-  %3 = load i32, ptr %oi.addr, align 4
-  call void @gen_ldst(i32 noundef %0, ptr noundef %call, ptr noundef null, ptr noundef %2, i32 noundef %3)
+define internal void @gen_ldst_i64(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %5, align 4
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %9 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %6, align 8
+  %11 = call ptr @tcgv_i64_temp(ptr noundef %10)
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %8, align 4
+  call void @gen_ldst(i32 noundef %9, i32 noundef 1, ptr noundef %11, ptr noundef null, ptr noundef %12, i32 noundef %13)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @plugin_gen_mem_callbacks_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %struct.TCGContext, ptr %12, i32 0, i32 35
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %23
+
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr @tcg_env, align 8
+  call void @tcg_gen_st_i64(ptr noundef %17, ptr noundef %18, i64 noundef -24)
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @plugin_gen_mem_callbacks(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22)
+  br label %23
+
+23:                                               ; preds = %16, %5
   ret void
 }
 
@@ -6464,194 +6753,206 @@ declare void @tcg_gen_bswap32_i64(ptr noundef, ptr noundef, i32 noundef) #2
 
 declare void @tcg_gen_bswap64_i64(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @tcgv_i64_temp(ptr noundef %v) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  ret ptr %call
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @tcgv_i64_temp(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @tcgv_i32_temp(ptr noundef %3)
+  ret ptr %4
+}
+
+declare void @tcg_gen_st_i64(ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @TCGV128_HIGH(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  store i32 1, ptr %3, align 4
+  %4 = load ptr, ptr %2, align 8
+  %5 = call ptr @tcgv_i128_temp(ptr noundef %4)
+  %6 = load i32, ptr %3, align 4
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr inbounds %struct.TCGTemp, ptr %5, i64 %7
+  %9 = call ptr @temp_tcgv_i64(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret ptr %9
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @TCGV128_LOW(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  store i32 0, ptr %3, align 4
+  %4 = load ptr, ptr %2, align 8
+  %5 = call ptr @tcgv_i128_temp(ptr noundef %4)
+  %6 = load i32, ptr %3, align 4
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr inbounds %struct.TCGTemp, ptr %5, i64 %7
+  %9 = call ptr @temp_tcgv_i64(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @TCGV128_HIGH(ptr noundef %t) #0 {
-entry:
-  %t.addr = alloca ptr, align 8
-  %o = alloca i32, align 4
-  store ptr %t, ptr %t.addr, align 8
-  store i32 1, ptr %o, align 4
-  %0 = load ptr, ptr %t.addr, align 8
-  %call = call ptr @tcgv_i128_temp(ptr noundef %0)
-  %1 = load i32, ptr %o, align 4
-  %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr %struct.TCGTemp, ptr %call, i64 %idx.ext
-  %call1 = call ptr @temp_tcgv_i64(ptr noundef %add.ptr)
-  ret ptr %call1
-}
+define internal zeroext i1 @use_two_i64_for_i128(i32 noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  %4 = load i8, ptr @tcg_use_softmmu, align 1, !range !5, !noundef !6
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %6, label %7
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @TCGV128_LOW(ptr noundef %t) #0 {
-entry:
-  %t.addr = alloca ptr, align 8
-  %o = alloca i32, align 4
-  store ptr %t, ptr %t.addr, align 8
-  store i32 0, ptr %o, align 4
-  %0 = load ptr, ptr %t.addr, align 8
-  %call = call ptr @tcgv_i128_temp(ptr noundef %0)
-  %1 = load i32, ptr %o, align 4
-  %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr %struct.TCGTemp, ptr %call, i64 %idx.ext
-  %call1 = call ptr @temp_tcgv_i64(ptr noundef %add.ptr)
-  ret ptr %call1
-}
+6:                                                ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @use_two_i64_for_i128(i32 noundef %mop) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %mop.addr = alloca i32, align 4
-  store i32 %mop, ptr %mop.addr, align 4
-  %0 = load i8, ptr @tcg_use_softmmu, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %sw.epilog
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %mop.addr, align 4
-  %and = and i32 %1, 1792
-  switch i32 %and, label %sw.default [
-    i32 1280, label %sw.bb
-    i32 256, label %sw.bb
-    i32 0, label %sw.bb1
-    i32 1024, label %sw.bb1
-    i32 512, label %sw.bb1
-    i32 768, label %sw.bb1
+7:                                                ; preds = %1
+  %8 = load i32, ptr %3, align 4
+  %9 = and i32 %8, 1792
+  switch i32 %9, label %12 [
+    i32 1280, label %10
+    i32 256, label %10
+    i32 0, label %11
+    i32 1024, label %11
+    i32 512, label %11
+    i32 768, label %11
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end
-  store i1 true, ptr %retval, align 1
-  br label %sw.epilog
+10:                                               ; preds = %7, %7
+  store i1 true, ptr %2, align 1
+  br label %15
 
-sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end
-  store i1 false, ptr %retval, align 1
-  br label %sw.epilog
+11:                                               ; preds = %7, %7, %7, %7
+  store i1 false, ptr %2, align 1
+  br label %15
 
-sw.default:                                       ; preds = %if.end
-  br label %do.body
+12:                                               ; preds = %7
+  br label %13
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 440, ptr noundef @__func__.use_two_i64_for_i128, ptr noundef null) #4
+13:                                               ; preds = %12
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 493, ptr noundef @__func__.use_two_i64_for_i128, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+14:                                               ; No predecessors!
+  br label %15
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb1, %sw.bb, %if.then
-  %2 = load i1, ptr %retval, align 1
-  ret i1 %2
+15:                                               ; preds = %6, %10, %11, %14
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
 }
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @canonicalize_memop_i128_as_i64(ptr noundef %ret, i32 noundef %orig) #0 {
-entry:
-  %ret.addr = alloca ptr, align 8
-  %orig.addr = alloca i32, align 4
-  %mop_1 = alloca i32, align 4
-  %mop_2 = alloca i32, align 4
-  store ptr %ret, ptr %ret.addr, align 8
-  store i32 %orig, ptr %orig.addr, align 4
-  %0 = load i32, ptr %orig.addr, align 4
-  store i32 %0, ptr %mop_1, align 4
-  %1 = load i32, ptr %mop_1, align 4
-  %and = and i32 %1, -8
-  %or = or i32 %and, 3
-  store i32 %or, ptr %mop_1, align 4
-  %2 = load i32, ptr %orig.addr, align 4
-  %and1 = and i32 %2, 224
-  switch i32 %and1, label %sw.default [
-    i32 0, label %sw.bb
-    i32 32, label %sw.bb
-    i32 64, label %sw.bb
-    i32 96, label %sw.bb2
-    i32 224, label %sw.bb5
-    i32 128, label %sw.bb8
-    i32 160, label %sw.bb8
-    i32 192, label %sw.bb8
+define internal void @canonicalize_memop_i128_as_i64(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %7 = load i32, ptr %4, align 4
+  store i32 %7, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 0, ptr %6, align 4, !annotation !4
+  %8 = load i32, ptr %5, align 4
+  %9 = and i32 %8, -8
+  %10 = or i32 %9, 3
+  store i32 %10, ptr %5, align 4
+  %11 = load i32, ptr %4, align 4
+  %12 = and i32 %11, 224
+  switch i32 %12, label %29 [
+    i32 0, label %13
+    i32 32, label %13
+    i32 64, label %13
+    i32 96, label %15
+    i32 224, label %20
+    i32 128, label %25
+    i32 160, label %25
+    i32 192, label %25
   ]
 
-sw.bb:                                            ; preds = %entry, %entry, %entry
-  %3 = load i32, ptr %mop_1, align 4
-  store i32 %3, ptr %mop_2, align 4
-  br label %sw.epilog
+13:                                               ; preds = %2, %2, %2
+  %14 = load i32, ptr %5, align 4
+  store i32 %14, ptr %6, align 4
+  br label %33
 
-sw.bb2:                                           ; preds = %entry
-  %4 = load i32, ptr %mop_1, align 4
-  %and3 = and i32 %4, -225
-  %or4 = or i32 %and3, 224
-  store i32 %or4, ptr %mop_1, align 4
-  %5 = load i32, ptr %mop_1, align 4
-  store i32 %5, ptr %mop_2, align 4
-  br label %sw.epilog
+15:                                               ; preds = %2
+  %16 = load i32, ptr %5, align 4
+  %17 = and i32 %16, -225
+  %18 = or i32 %17, 224
+  store i32 %18, ptr %5, align 4
+  %19 = load i32, ptr %5, align 4
+  store i32 %19, ptr %6, align 4
+  br label %33
 
-sw.bb5:                                           ; preds = %entry
-  %6 = load i32, ptr %mop_1, align 4
-  store i32 %6, ptr %mop_2, align 4
-  %7 = load i32, ptr %mop_1, align 4
-  %and6 = and i32 %7, -225
-  %or7 = or i32 %and6, 128
-  store i32 %or7, ptr %mop_1, align 4
-  br label %sw.epilog
+20:                                               ; preds = %2
+  %21 = load i32, ptr %5, align 4
+  store i32 %21, ptr %6, align 4
+  %22 = load i32, ptr %5, align 4
+  %23 = and i32 %22, -225
+  %24 = or i32 %23, 128
+  store i32 %24, ptr %5, align 4
+  br label %33
 
-sw.bb8:                                           ; preds = %entry, %entry, %entry
-  %8 = load i32, ptr %mop_1, align 4
-  %and9 = and i32 %8, -225
-  %or10 = or i32 %and9, 224
-  store i32 %or10, ptr %mop_2, align 4
-  br label %sw.epilog
+25:                                               ; preds = %2, %2, %2
+  %26 = load i32, ptr %5, align 4
+  %27 = and i32 %26, -225
+  %28 = or i32 %27, 224
+  store i32 %28, ptr %6, align 4
+  br label %33
 
-sw.default:                                       ; preds = %entry
-  br label %do.body
+29:                                               ; preds = %2
+  br label %30
 
-do.body:                                          ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 475, ptr noundef @__func__.canonicalize_memop_i128_as_i64, ptr noundef null) #4
+30:                                               ; preds = %29
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 528, ptr noundef @__func__.canonicalize_memop_i128_as_i64, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %sw.epilog
+31:                                               ; No predecessors!
+  br label %32
 
-sw.epilog:                                        ; preds = %do.end, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
-  %9 = load i32, ptr %orig.addr, align 4
-  %and11 = and i32 %9, 16
-  %tobool = icmp ne i32 %and11, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+32:                                               ; preds = %31
+  br label %33
 
-land.lhs.true:                                    ; preds = %sw.epilog
-  %10 = load i32, ptr %mop_1, align 4
-  %call = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %10)
-  br i1 %call, label %if.end, label %if.then
+33:                                               ; preds = %32, %25, %20, %15, %13
+  %34 = load i32, ptr %4, align 4
+  %35 = and i32 %34, 16
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %45
 
-if.then:                                          ; preds = %land.lhs.true
-  %11 = load i32, ptr %mop_1, align 4
-  %and12 = and i32 %11, -17
-  store i32 %and12, ptr %mop_1, align 4
-  %12 = load i32, ptr %mop_2, align 4
-  %and13 = and i32 %12, -17
-  store i32 %and13, ptr %mop_2, align 4
-  br label %if.end
+37:                                               ; preds = %33
+  %38 = load i32, ptr %5, align 4
+  %39 = call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %38)
+  br i1 %39, label %45, label %40
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %sw.epilog
-  %13 = load i32, ptr %mop_1, align 4
-  %14 = load ptr, ptr %ret.addr, align 8
-  %arrayidx = getelementptr i32, ptr %14, i64 0
-  store i32 %13, ptr %arrayidx, align 4
-  %15 = load i32, ptr %mop_2, align 4
-  %16 = load ptr, ptr %ret.addr, align 8
-  %arrayidx14 = getelementptr i32, ptr %16, i64 1
-  store i32 %15, ptr %arrayidx14, align 4
+40:                                               ; preds = %37
+  %41 = load i32, ptr %5, align 4
+  %42 = and i32 %41, -17
+  store i32 %42, ptr %5, align 4
+  %43 = load i32, ptr %6, align 4
+  %44 = and i32 %43, -17
+  store i32 %44, ptr %6, align 4
+  br label %45
+
+45:                                               ; preds = %40, %37, %33
+  %46 = load i32, ptr %5, align 4
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds i32, ptr %47, i64 0
+  store i32 %46, ptr %48, align 4
+  %49 = load i32, ptr %6, align 4
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds i32, ptr %50, i64 1
+  store i32 %49, ptr %51, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
   ret void
 }
 
@@ -6661,428 +6962,465 @@ declare void @tcg_gen_addi_i64(ptr noundef, ptr noundef, i64 noundef) #2
 
 declare void @tcg_temp_free_internal(ptr noundef) #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_ld_i128(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i128_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  call void @tcg_gen_call3(ptr noundef @helper_info_ld_i128, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_ld_i128(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr @helper_info_ld_i128, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call ptr @tcgv_i128_temp(ptr noundef %10)
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_ptr_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i64_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i32_temp(ptr noundef %16)
+  call void @tcg_gen_call3(ptr noundef %9, ptr noundef @helper_info_ld_i128, ptr noundef %11, ptr noundef %13, ptr noundef %15, ptr noundef %17)
   ret void
 }
 
 declare ptr @tcg_constant_i32(i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @tcgv_i128_temp(ptr noundef %v) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  ret ptr %call
-}
+define internal void @plugin_gen_mem_callbacks_i128(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %struct.TCGContext, ptr %12, i32 0, i32 35
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %27
 
-declare void @tcg_gen_call3(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %6, align 8
+  %18 = call ptr @TCGV128_LOW(ptr noundef %17)
+  %19 = load ptr, ptr @tcg_env, align 8
+  call void @tcg_gen_st_i64(ptr noundef %18, ptr noundef %19, i64 noundef -24)
+  %20 = load ptr, ptr %6, align 8
+  %21 = call ptr @TCGV128_HIGH(ptr noundef %20)
+  %22 = load ptr, ptr @tcg_env, align 8
+  call void @tcg_gen_st_i64(ptr noundef %21, ptr noundef %22, i64 noundef -16)
+  %23 = load ptr, ptr %7, align 8
+  %24 = load ptr, ptr %8, align 8
+  %25 = load i32, ptr %9, align 4
+  %26 = load i32, ptr %10, align 4
+  call void @plugin_gen_mem_callbacks(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26)
+  br label %27
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @tcgv_ptr_temp(ptr noundef %v) #0 {
-entry:
-  %v.addr = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_st_i128(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %arg1.addr, align 8
-  %call = call ptr @tcgv_ptr_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg2.addr, align 8
-  %call1 = call ptr @tcgv_i64_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg3.addr, align 8
-  %call2 = call ptr @tcgv_i128_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg4.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  call void @tcg_gen_call4(ptr noundef @helper_info_st_i128, ptr noundef null, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3)
+27:                                               ; preds = %16, %5
   ret void
 }
 
-declare void @tcg_gen_call4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @tcgv_i128_temp(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @tcgv_i32_temp(ptr noundef %3)
+  ret ptr %4
+}
+
+declare void @tcg_gen_call3(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @tcgv_ptr_temp(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @tcgv_i32_temp(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_st_i128(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr @helper_info_st_i128, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call ptr @tcgv_ptr_temp(ptr noundef %10)
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i128_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i32_temp(ptr noundef %16)
+  call void @tcg_gen_call4(ptr noundef %9, ptr noundef @helper_info_st_i128, ptr noundef null, ptr noundef %11, ptr noundef %13, ptr noundef %15, ptr noundef %17)
+  ret void
+}
+
+declare void @tcg_gen_call4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 declare void @tcg_gen_movcond_i32(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @maybe_extend_addr64(ptr noundef %addr) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %a64 = alloca ptr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 10
-  %2 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal ptr @maybe_extend_addr64(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %struct.TCGContext, ptr %6, i32 0, i32 10
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %16
 
-if.then:                                          ; preds = %entry
-  %call = call ptr @tcg_temp_ebb_new_i64()
-  store ptr %call, ptr %a64, align 8
-  %3 = load ptr, ptr %a64, align 8
-  %4 = load ptr, ptr %addr.addr, align 8
-  %call1 = call ptr @temp_tcgv_i32(ptr noundef %4)
-  call void @tcg_gen_extu_i32_i64(ptr noundef %3, ptr noundef %call1)
-  %5 = load ptr, ptr %a64, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+10:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %11 = call ptr @tcg_temp_ebb_new_i64()
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @temp_tcgv_i32(ptr noundef %13)
+  call void @tcg_gen_extu_i32_i64(ptr noundef %12, ptr noundef %14)
+  %15 = load ptr, ptr %4, align 8
+  store ptr %15, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %19
 
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %addr.addr, align 8
-  %call2 = call ptr @temp_tcgv_i64(ptr noundef %6)
-  store ptr %call2, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = call ptr @temp_tcgv_i64(ptr noundef %17)
+  store ptr %18, ptr %2, align 8
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+19:                                               ; preds = %16, %10
+  %20 = load ptr, ptr %2, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @maybe_free_addr64(ptr noundef %a64) #0 {
-entry:
-  %a64.addr = alloca ptr, align 8
-  store ptr %a64, ptr %a64.addr, align 8
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %1 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 10
-  %2 = load i32, ptr %addr_type, align 4
-  %cmp = icmp eq i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @maybe_free_addr64(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %struct.TCGContext, ptr %4, i32 0, i32 10
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %a64.addr, align 8
-  call void @tcg_temp_free_i64(ptr noundef %3)
-  br label %if.end
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8
+  call void @tcg_temp_free_i64(ptr noundef %9)
+  br label %10
 
-if.end:                                           ; preds = %if.then, %entry
+10:                                               ; preds = %8, %1
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgb, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i32_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i32_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgb, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgw_le, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i32_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i32_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgw_le, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgl_le, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i32_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i32_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgl_le, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i64_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgq_le, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i64_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i64_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i64_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgq_le, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgo_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i128_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i128_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i128_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgo_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgo_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgo_le, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i128_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i128_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i128_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgo_le, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgw_be, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i32_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i32_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgw_be, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgl_be, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i32_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i32_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgl_be, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i64_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgq_be, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i64_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i64_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i64_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgq_be, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_cmpxchgo_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  %arg5.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  store ptr %arg5, ptr %arg5.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i128_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i128_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i128_temp(ptr noundef %4)
-  %5 = load ptr, ptr %arg5.addr, align 8
-  %call5 = call ptr @tcgv_i32_temp(ptr noundef %5)
-  call void @tcg_gen_call5(ptr noundef @helper_info_atomic_cmpxchgo_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_cmpxchgo_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr @helper_info_atomic_cmpxchgo_be, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_i128_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_ptr_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i128_temp(ptr noundef %20)
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @tcgv_i128_temp(ptr noundef %22)
+  %24 = load ptr, ptr %12, align 8
+  %25 = call ptr @tcgv_i32_temp(ptr noundef %24)
+  call void @tcg_gen_call5(ptr noundef %13, ptr noundef @helper_info_atomic_cmpxchgo_be, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25)
   ret void
 }
 
-declare void @tcg_gen_call5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @tcg_gen_call5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 declare void @tcg_gen_movcond_i64(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_exit_atomic(ptr noundef %arg1) #0 {
-entry:
-  %arg1.addr = alloca ptr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  %0 = load ptr, ptr %arg1.addr, align 8
-  %call = call ptr @tcgv_ptr_temp(ptr noundef %0)
-  call void @tcg_gen_call1(ptr noundef @helper_info_exit_atomic, ptr noundef null, ptr noundef %call)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_exit_atomic(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr @helper_info_exit_atomic, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call ptr @tcgv_ptr_temp(ptr noundef %4)
+  call void @tcg_gen_call1(ptr noundef %3, ptr noundef @helper_info_exit_atomic, ptr noundef null, ptr noundef %5)
   ret void
 }
 
@@ -7090,7 +7428,7 @@ declare void @tcg_gen_movi_i64(ptr noundef, i64 noundef) #2
 
 declare void @tcg_gen_extrl_i64_i32(ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_call1(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @tcg_gen_call1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 declare ptr @tcg_temp_ebb_new_i128() #2
 
@@ -7100,3229 +7438,3235 @@ declare void @tcg_gen_mov_i128(ptr noundef, ptr noundef) #2
 
 declare void @tcg_temp_free_i128(ptr noundef) #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_addb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_addb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_addw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_addw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_addl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_addl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_addq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_addq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_addw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_addw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_addl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_addl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_addq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_addq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_andb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_andb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_andw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_andw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_andl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_andl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_andq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_andq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_andw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_andw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_andl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_andl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_andq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_andq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_orb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_orb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_orw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_orw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_orl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_orl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_orq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_orq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_orw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_orw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_orl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_orl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_orq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_orq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_xorb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_xorb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_xorw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_xorw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_xorl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_xorl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_xorq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_xorq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_xorw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_xorw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_xorl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_xorl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_xorq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_xorq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_sminb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_sminb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_sminw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_sminw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_sminl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_sminl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_sminq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_sminq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_sminw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_sminw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_sminl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_sminl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_sminq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_sminq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_uminb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_uminb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_uminw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_uminw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_uminl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_uminl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_uminq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_uminq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_uminw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_uminw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_uminl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_uminl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_uminq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_uminq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_smaxb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_smaxb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_smaxw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_smaxw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_smaxl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_smaxl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_smaxq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_smaxq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_smaxw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_smaxw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_smaxl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_smaxl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_smaxq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_smaxq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_umaxb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_umaxb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_umaxw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_umaxw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_umaxl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_umaxl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_umaxq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_umaxq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_umaxw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_umaxw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_umaxl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_umaxl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_fetch_umaxq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_fetch_umaxq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_add_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_add_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_add_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_add_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_add_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_add_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_add_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_add_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_add_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_add_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_add_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_add_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_add_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_add_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_and_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_and_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_and_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_and_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_and_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_and_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_and_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_and_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_and_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_and_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_and_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_and_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_and_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_and_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_or_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_or_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_or_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_or_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_or_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_or_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_or_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_or_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_or_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_or_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_or_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_or_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_or_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_or_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xor_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xor_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xor_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xor_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xor_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xor_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xor_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xor_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xor_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xor_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xor_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xor_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xor_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xor_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smin_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smin_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smin_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smin_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smin_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smin_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smin_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smin_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smin_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smin_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smin_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smin_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smin_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smin_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umin_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umin_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umin_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umin_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umin_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umin_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umin_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umin_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umin_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umin_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umin_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umin_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umin_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umin_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smax_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smax_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smax_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smax_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smax_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smax_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smax_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smax_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smax_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smax_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smax_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smax_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_smax_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_smax_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umax_fetchb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umax_fetchb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umax_fetchw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umax_fetchw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umax_fetchl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umax_fetchl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umax_fetchq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umax_fetchq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umax_fetchw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umax_fetchw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umax_fetchl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umax_fetchl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_umax_fetchq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_umax_fetchq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xchgb(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xchgb, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xchgw_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xchgw_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xchgl_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xchgl_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xchgq_le(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xchgq_le, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xchgw_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xchgw_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xchgl_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i32_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i32_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xchgl_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_atomic_xchgq_be(ptr noundef %retval, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #0 {
-entry:
-  %retval.addr = alloca ptr, align 8
-  %arg1.addr = alloca ptr, align 8
-  %arg2.addr = alloca ptr, align 8
-  %arg3.addr = alloca ptr, align 8
-  %arg4.addr = alloca ptr, align 8
-  store ptr %retval, ptr %retval.addr, align 8
-  store ptr %arg1, ptr %arg1.addr, align 8
-  store ptr %arg2, ptr %arg2.addr, align 8
-  store ptr %arg3, ptr %arg3.addr, align 8
-  store ptr %arg4, ptr %arg4.addr, align 8
-  %0 = load ptr, ptr %retval.addr, align 8
-  %call = call ptr @tcgv_i64_temp(ptr noundef %0)
-  %1 = load ptr, ptr %arg1.addr, align 8
-  %call1 = call ptr @tcgv_ptr_temp(ptr noundef %1)
-  %2 = load ptr, ptr %arg2.addr, align 8
-  %call2 = call ptr @tcgv_i64_temp(ptr noundef %2)
-  %3 = load ptr, ptr %arg3.addr, align 8
-  %call3 = call ptr @tcgv_i64_temp(ptr noundef %3)
-  %4 = load ptr, ptr %arg4.addr, align 8
-  %call4 = call ptr @tcgv_i32_temp(ptr noundef %4)
-  call void @tcg_gen_call4(ptr noundef @helper_info_atomic_xchgq_be, ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef %call3, ptr noundef %call4)
-  ret void
-}
-
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_addb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_addb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_addb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_addw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_addw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_addw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_addl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_addl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_addl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_addq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_addq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_addq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_addw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_addw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_addw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_addl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_addl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_addl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_addq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_addq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_addq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_andb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_andb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_andb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_andw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_andw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_andw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_andl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_andl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_andl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_andq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_andq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_andq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_andw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_andw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_andw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_andl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_andl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_andl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_andq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_andq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_andq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_orb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_orb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_orb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_orw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_orw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_orw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_orl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_orl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_orl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_orq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_orq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_orq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_orw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_orw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_orw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_orl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_orl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_orl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_orq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_orq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_orq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_xorb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_xorb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_xorb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_xorw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_xorw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_xorw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_xorl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_xorl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_xorl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_xorq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_xorq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_xorq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_xorw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_xorw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_xorw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_xorl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_xorl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_xorl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_xorq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_xorq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_xorq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_sminb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_sminb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_sminb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_sminw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_sminw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_sminw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_sminl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_sminl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_sminl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_sminq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_sminq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_sminq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_sminw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_sminw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_sminw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_sminl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_sminl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_sminl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_sminq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_sminq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_sminq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_uminb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_uminb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_uminb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_uminw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_uminw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_uminw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_uminl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_uminl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_uminl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_uminq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_uminq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_uminq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_uminw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_uminw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_uminw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_uminl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_uminl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_uminl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_uminq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_uminq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_uminq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_smaxb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_smaxb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_smaxb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_smaxw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_smaxw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_smaxw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_smaxl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_smaxl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_smaxl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_smaxq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_smaxq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_smaxq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_smaxw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_smaxw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_smaxw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_smaxl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_smaxl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_smaxl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_smaxq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_smaxq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_smaxq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_umaxb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_umaxb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_umaxb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_umaxw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_umaxw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_umaxw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_umaxl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_umaxl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_umaxl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_umaxq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_umaxq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_umaxq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_umaxw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_umaxw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_umaxw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_umaxl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_umaxl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_umaxl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_fetch_umaxq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_fetch_umaxq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_fetch_umaxq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_add_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_add_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_add_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_add_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_add_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_add_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_add_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_add_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_add_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_add_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_add_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_add_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_add_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_add_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_add_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_add_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_add_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_add_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_add_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_add_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_add_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_and_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_and_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_and_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_and_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_and_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_and_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_and_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_and_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_and_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_and_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_and_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_and_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_and_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_and_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_and_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_and_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_and_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_and_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_and_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_and_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_and_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_or_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_or_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_or_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_or_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_or_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_or_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_or_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_or_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_or_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_or_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_or_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_or_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_or_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_or_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_or_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_or_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_or_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_or_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_or_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_or_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_or_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xor_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xor_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xor_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xor_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xor_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xor_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xor_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xor_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xor_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xor_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xor_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xor_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xor_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xor_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xor_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xor_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xor_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xor_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xor_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xor_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xor_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smin_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smin_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smin_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smin_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smin_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smin_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smin_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smin_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smin_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smin_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smin_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smin_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smin_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smin_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smin_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smin_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smin_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smin_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smin_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smin_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smin_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umin_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umin_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umin_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umin_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umin_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umin_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umin_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umin_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umin_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umin_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umin_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umin_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umin_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umin_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umin_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umin_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umin_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umin_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umin_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umin_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umin_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smax_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smax_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smax_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smax_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smax_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smax_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smax_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smax_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smax_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smax_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smax_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smax_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smax_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smax_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smax_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smax_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smax_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smax_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_smax_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_smax_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_smax_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umax_fetchb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umax_fetchb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umax_fetchb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umax_fetchw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umax_fetchw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umax_fetchw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umax_fetchl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umax_fetchl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umax_fetchl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umax_fetchq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umax_fetchq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umax_fetchq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umax_fetchw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umax_fetchw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umax_fetchw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umax_fetchl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umax_fetchl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umax_fetchl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_umax_fetchq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_umax_fetchq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_umax_fetchq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xchgb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xchgb, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xchgb, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xchgw_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xchgw_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xchgw_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xchgl_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xchgl_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xchgl_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xchgq_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xchgq_le, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xchgq_le, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xchgw_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xchgw_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xchgw_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xchgl_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xchgl_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i32_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i32_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xchgl_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @gen_helper_atomic_xchgq_be(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr @helper_info_atomic_xchgq_be, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call ptr @tcgv_i64_temp(ptr noundef %12)
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @tcgv_ptr_temp(ptr noundef %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @tcgv_i64_temp(ptr noundef %16)
+  %18 = load ptr, ptr %9, align 8
+  %19 = call ptr @tcgv_i64_temp(ptr noundef %18)
+  %20 = load ptr, ptr %10, align 8
+  %21 = call ptr @tcgv_i32_temp(ptr noundef %20)
+  call void @tcg_gen_call4(ptr noundef %11, ptr noundef @helper_info_atomic_xchgq_be, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21)
+  ret void
+}
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}
+!5 = !{i8 0, i8 2}
+!6 = !{}

@@ -1,157 +1,173 @@
 ; ModuleID = 'bench/qemu/original/fdt_check.ll'
 source_filename = "bench/qemu/original/fdt_check.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_check_full(ptr noundef %fdt, i64 noundef %bufsize) local_unnamed_addr #0 {
-entry:
-  %err = alloca i32, align 4
-  %nextoffset = alloca i32, align 4
-  %propname = alloca ptr, align 8
-  %len = alloca i32, align 4
-  store i32 0, ptr %nextoffset, align 4
-  %cmp = icmp ult i64 %bufsize, 28
-  br i1 %cmp, label %return, label %if.end
+define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  store i32 0, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  %7 = icmp ult i64 %1, 28
+  br i1 %7, label %.loopexit, label %8
 
-if.end:                                           ; preds = %entry
-  %call = tail call i64 @fdt_header_size(ptr noundef %fdt) #2
-  %cmp1 = icmp ult i64 %bufsize, %call
-  br i1 %cmp1, label %return, label %if.end3
+8:                                                ; preds = %2
+  %9 = tail call i64 @fdt_header_size(ptr noundef %0) #3
+  %10 = icmp ult i64 %1, %9
+  br i1 %10, label %.loopexit, label %11
 
-if.end3:                                          ; preds = %if.end
-  %call4 = tail call i32 @fdt_check_header(ptr noundef %fdt) #2
-  store i32 %call4, ptr %err, align 4
-  %cmp5.not = icmp eq i32 %call4, 0
-  br i1 %cmp5.not, label %if.end7, label %return
+11:                                               ; preds = %8
+  %12 = tail call i32 @fdt_check_header(ptr noundef %0) #3
+  store i32 %12, ptr %3, align 4
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %.loopexit
 
-if.end7:                                          ; preds = %if.end3
-  %totalsize = getelementptr inbounds nuw i8, ptr %fdt, i64 4
-  %0 = load i8, ptr %totalsize, align 1
-  %conv.i = zext i8 %0 to i64
-  %shl.i = shl nuw nsw i64 %conv.i, 24
-  %arrayidx1.i = getelementptr i8, ptr %fdt, i64 5
-  %1 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %1 to i64
-  %shl3.i = shl nuw nsw i64 %conv2.i, 16
-  %or.i = or disjoint i64 %shl3.i, %shl.i
-  %arrayidx4.i = getelementptr i8, ptr %fdt, i64 6
-  %2 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %2 to i64
-  %shl6.i = shl nuw nsw i64 %conv5.i, 8
-  %or7.i = or disjoint i64 %or.i, %shl6.i
-  %arrayidx8.i = getelementptr i8, ptr %fdt, i64 7
-  %3 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %3 to i64
-  %or10.i = or disjoint i64 %or7.i, %conv9.i
-  %cmp9 = icmp ult i64 %bufsize, %or10.i
-  br i1 %cmp9, label %return, label %if.end12
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i64
+  %17 = shl nuw nsw i64 %16, 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i64
+  %21 = shl nuw nsw i64 %20, 16
+  %22 = or disjoint i64 %21, %17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i64
+  %26 = shl nuw nsw i64 %25, 8
+  %27 = or disjoint i64 %22, %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i64
+  %31 = or disjoint i64 %27, %30
+  %32 = icmp ult i64 %1, %31
+  br i1 %32, label %.loopexit, label %33
 
-if.end12:                                         ; preds = %if.end7
-  %call13 = tail call i32 @fdt_num_mem_rsv(ptr noundef nonnull %fdt) #2
-  %cmp14 = icmp slt i32 %call13, 0
-  br i1 %cmp14, label %return, label %while.body.preheader
+33:                                               ; preds = %13
+  %34 = tail call i32 @fdt_num_mem_rsv(ptr noundef nonnull %0) #3
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %.loopexit, label %.preheader
 
-while.body.preheader:                             ; preds = %if.end12
-  %call1823 = call i32 @fdt_next_tag(ptr noundef nonnull %fdt, i32 noundef 0, ptr noundef nonnull %nextoffset) #2
-  %4 = load i32, ptr %nextoffset, align 4
-  %cmp1924 = icmp slt i32 %4, 0
-  br i1 %cmp1924, label %return, label %if.end22
+.preheader:                                       ; preds = %33
+  store ptr null, ptr %5, align 8, !annotation !4
+  %36 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %4) #3
+  %37 = load i32, ptr %4, align 4
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %.loopexit, label %.lr.ph
 
-if.end22:                                         ; preds = %while.body.preheader, %sw.epilog
-  %call1827 = phi i32 [ %call18, %sw.epilog ], [ %call1823, %while.body.preheader ]
-  %5 = phi i32 [ %9, %sw.epilog ], [ 0, %while.body.preheader ]
-  %expect_end.026 = phi i1 [ %expect_end.1, %sw.epilog ], [ false, %while.body.preheader ]
-  %depth.025 = phi i32 [ %depth.1, %sw.epilog ], [ 0, %while.body.preheader ]
-  %cmp24 = icmp ne i32 %call1827, 9
-  %or.cond = select i1 %expect_end.026, i1 %cmp24, i1 false
-  br i1 %or.cond, label %return, label %if.end27
+.lr.ph:                                           ; preds = %.preheader, %64
+  %39 = phi i32 [ %66, %64 ], [ %36, %.preheader ]
+  %40 = phi i32 [ %65, %64 ], [ 0, %.preheader ]
+  %.03251 = phi i1 [ %.133, %64 ], [ false, %.preheader ]
+  %.03450 = phi i32 [ %.135, %64 ], [ 0, %.preheader ]
+  %41 = icmp ne i32 %39, 9
+  %or.cond = select i1 %.03251, i1 %41, i1 false
+  br i1 %or.cond, label %.loopexit, label %42
 
-if.end27:                                         ; preds = %if.end22
-  switch i32 %call1827, label %return [
-    i32 4, label %sw.epilog
-    i32 9, label %sw.bb28
-    i32 1, label %sw.bb33
-    i32 2, label %sw.bb48
-    i32 3, label %sw.bb57
+42:                                               ; preds = %.lr.ph
+  switch i32 %39, label %.loopexit [
+    i32 4, label %64
+    i32 9, label %43
+    i32 1, label %44
+    i32 2, label %55
+    i32 3, label %60
   ]
 
-sw.bb28:                                          ; preds = %if.end27
-  %cmp29.not = icmp eq i32 %depth.025, 0
-  %. = select i1 %cmp29.not, i32 0, i32 -11
-  br label %return
+43:                                               ; preds = %42
+  %.not46 = icmp eq i32 %.03450, 0
+  %. = select i1 %.not46, i32 0, i32 -11
+  br label %.loopexit
 
-sw.bb33:                                          ; preds = %if.end27
-  %inc = add i32 %depth.025, 1
-  %cmp34 = icmp slt i32 %inc, 0
-  br i1 %cmp34, label %return, label %if.end37
+44:                                               ; preds = %42
+  %45 = add i32 %.03450, 1
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %.loopexit, label %47
 
-if.end37:                                         ; preds = %sw.bb33
-  %cmp38 = icmp eq i32 %depth.025, 0
-  br i1 %cmp38, label %if.then40, label %sw.epilog
+47:                                               ; preds = %44
+  %48 = icmp eq i32 %.03450, 0
+  br i1 %48, label %49, label %64
 
-if.then40:                                        ; preds = %if.end37
-  %call41 = call ptr @fdt_get_name(ptr noundef nonnull %fdt, i32 noundef %5, ptr noundef nonnull %len) #2
-  %6 = load i8, ptr %call41, align 1
-  %tobool43 = icmp ne i8 %6, 0
-  %7 = load i32, ptr %len, align 4
-  %tobool44 = icmp ne i32 %7, 0
-  %or.cond1 = select i1 %tobool43, i1 true, i1 %tobool44
-  br i1 %or.cond1, label %return, label %sw.epilog
+49:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  store i32 0, ptr %6, align 4, !annotation !4
+  %50 = call ptr @fdt_get_name(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %6) #3
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 0
+  %53 = load i32, ptr %6, align 4
+  %54 = icmp eq i32 %53, 0
+  %or.cond3.not = select i1 %52, i1 %54, i1 false
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  br i1 %or.cond3.not, label %64, label %.loopexit
 
-sw.bb48:                                          ; preds = %if.end27
-  %cmp49 = icmp eq i32 %depth.025, 0
-  br i1 %cmp49, label %return, label %if.end52
+55:                                               ; preds = %42
+  %56 = icmp eq i32 %.03450, 0
+  br i1 %56, label %.loopexit, label %57
 
-if.end52:                                         ; preds = %sw.bb48
-  %dec = add i32 %depth.025, -1
-  %cmp53 = icmp eq i32 %dec, 0
-  %spec.select20 = or i1 %cmp53, %expect_end.026
-  br label %sw.epilog
+57:                                               ; preds = %55
+  %58 = add i32 %.03450, -1
+  %59 = icmp eq i32 %58, 0
+  %spec.select47 = or i1 %59, %.03251
+  br label %64
 
-sw.bb57:                                          ; preds = %if.end27
-  %call58 = call ptr @fdt_getprop_by_offset(ptr noundef nonnull %fdt, i32 noundef %5, ptr noundef nonnull %propname, ptr noundef nonnull %err) #2
-  %tobool59.not = icmp eq ptr %call58, null
-  br i1 %tobool59.not, label %if.then60, label %sw.epilog
+60:                                               ; preds = %42
+  %61 = call ptr @fdt_getprop_by_offset(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %5, ptr noundef nonnull %3) #3
+  %.not43 = icmp eq ptr %61, null
+  br i1 %.not43, label %62, label %64
 
-if.then60:                                        ; preds = %sw.bb57
-  %8 = load i32, ptr %err, align 4
-  br label %return
+62:                                               ; preds = %60
+  %63 = load i32, ptr %3, align 4
+  br label %.loopexit
 
-sw.epilog:                                        ; preds = %if.end52, %sw.bb57, %if.end37, %if.then40, %if.end27
-  %depth.1 = phi i32 [ %depth.025, %sw.bb57 ], [ 1, %if.then40 ], [ %inc, %if.end37 ], [ %depth.025, %if.end27 ], [ %dec, %if.end52 ]
-  %expect_end.1 = phi i1 [ %expect_end.026, %sw.bb57 ], [ %expect_end.026, %if.then40 ], [ %expect_end.026, %if.end37 ], [ %expect_end.026, %if.end27 ], [ %spec.select20, %if.end52 ]
-  %9 = load i32, ptr %nextoffset, align 4
-  %call18 = call i32 @fdt_next_tag(ptr noundef nonnull %fdt, i32 noundef %9, ptr noundef nonnull %nextoffset) #2
-  %10 = load i32, ptr %nextoffset, align 4
-  %cmp19 = icmp slt i32 %10, 0
-  br i1 %cmp19, label %return, label %if.end22
+64:                                               ; preds = %57, %60, %47, %49, %42
+  %.135 = phi i32 [ %.03450, %60 ], [ 1, %49 ], [ %45, %47 ], [ %.03450, %42 ], [ %58, %57 ]
+  %.133 = phi i1 [ %.03251, %60 ], [ %.03251, %49 ], [ %.03251, %47 ], [ %.03251, %42 ], [ %spec.select47, %57 ]
+  %65 = load i32, ptr %4, align 4
+  %66 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %4) #3
+  %67 = load i32, ptr %4, align 4
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %.loopexit, label %.lr.ph
 
-return:                                           ; preds = %sw.epilog, %if.end22, %sw.bb33, %if.then40, %sw.bb48, %if.end27, %while.body.preheader, %sw.bb28, %if.end12, %if.end7, %if.end3, %if.end, %entry, %if.then60
-  %retval.0 = phi i32 [ %8, %if.then60 ], [ -8, %entry ], [ -8, %if.end ], [ %call4, %if.end3 ], [ -8, %if.end7 ], [ %call13, %if.end12 ], [ %., %sw.bb28 ], [ %4, %while.body.preheader ], [ %10, %sw.epilog ], [ -11, %if.end22 ], [ -11, %sw.bb33 ], [ -11, %if.then40 ], [ -11, %sw.bb48 ], [ -13, %if.end27 ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %49, %64, %.lr.ph, %44, %55, %42, %.preheader, %43, %33, %13, %11, %8, %2, %62
+  %.0 = phi i32 [ %63, %62 ], [ -8, %2 ], [ -8, %8 ], [ %12, %11 ], [ -8, %13 ], [ %34, %33 ], [ %., %43 ], [ %37, %.preheader ], [ -11, %49 ], [ %67, %64 ], [ -11, %.lr.ph ], [ -11, %44 ], [ -11, %55 ], [ -13, %42 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  ret i32 %.0
 }
 
-declare i64 @fdt_header_size(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @fdt_check_header(ptr noundef) local_unnamed_addr #1
+declare i64 @fdt_header_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @fdt_num_mem_rsv(ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_check_header(ptr noundef) local_unnamed_addr #2
 
-declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_num_mem_rsv(ptr noundef) local_unnamed_addr #2
 
-declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}

@@ -1,6357 +1,11936 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.AHCICommandProp = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i32 }
-%struct.AHCIOpts = type { i64, i32, i8, i32, i64, i64, i8, i8, i8, ptr, ptr, ptr, ptr }
-%struct.AHCIQState = type { ptr, ptr, %struct.QPCIBar, i64, i32, i32, i32, [32 x %struct.AHCIPortQState], i8 }
-%struct.QPCIBar = type { i64, i8 }
-%struct.AHCIPortQState = type { i64, i64, [32 x i64], [32 x i16], i8 }
-%struct.QOSState = type { ptr, %struct.QGuestAllocator, ptr, ptr }
-%struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
-%struct.QPCIDevice = type { ptr, i32, i8, %struct.QPCIBar, %struct.QPCIBar, i64, i64 }
-%struct.AHCICommandHeader = type { i16, i16, i32, i64, [4 x i32] }
-%struct.AHCICommand = type { i8, i8, i8, i8, i32, i64, i32, i32, i64, ptr, %struct.AHCICommandHeader, %struct.RegH2DFIS, ptr }
-%struct.RegH2DFIS = type { i8, i8, i8, i8, [3 x i8], i8, [3 x i8], i8, i16, i8, i8, [4 x i8] }
-%struct.RegD2HFIS = type { i8, i8, i8, i8, [3 x i8], i8, [3 x i8], i8, i16, i16, i32 }
-%struct.PIOSetupFIS = type { i8, i8, i8, i8, [3 x i8], i8, [3 x i8], i8, i16, i8, i8, i16, i16 }
-%struct.PRD = type { i64, i32, i32 }
-%struct.NCQFIS = type { i8, i8, i8, i8, [3 x i8], i8, [3 x i8], i8, i8, i8, i8, i8, [4 x i8] }
+%struct.IDEDMAOps = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.VMStateInfo = type { ptr, ptr, ptr }
+%struct.anon = type { i32, i32, i8, ptr }
+%struct.anon.2 = type { i32, i32, i8 }
+%struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.AHCIState = type { ptr, %struct.AHCIControlRegs, %struct.MemoryRegion, %struct.MemoryRegion, i32, i32, i32, ptr, ptr }
+%struct.AHCIControlRegs = type { i32, i32, i32, i32, i32 }
+%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
+%struct.Object = type { ptr, ptr, ptr, i32, ptr }
+%union.anon = type { %struct.QTailQLink }
+%struct.QTailQLink = type { ptr, ptr }
+%union.anon.0 = type { %struct.QTailQLink }
+%union.anon.1 = type { %struct.QTailQLink }
+%struct.AHCIDevice = type { %struct.IDEDMA, %struct.IDEBus, i32, i32, i32, %struct.AHCIPortRegs, ptr, ptr, ptr, ptr, i8, i32, i8, ptr, [32 x %struct.NCQTransferState], %struct.MemReentrancyGuard }
+%struct.IDEDMA = type { ptr, %struct.QEMUIOVector, ptr }
+%struct.QEMUIOVector = type { ptr, i32, %union.anon.3 }
+%union.anon.3 = type { %struct.anon.4 }
+%struct.anon.4 = type { i32, %struct.iovec }
+%struct.iovec = type { ptr, i64 }
+%struct.IDEBus = type { %struct.BusState, ptr, ptr, [2 x %struct.IDEState], ptr, i32, i32, ptr, i8, i8, ptr, i32, i8, i64, i32, %struct.PortioList, %struct.PortioList, ptr }
+%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
+%union.BusChildHead = type { %struct.QTailQLink }
+%struct.BusStateEntry = type { ptr, ptr }
+%struct.ResettableState = type { i32, i8, i8 }
+%struct.IDEState = type { ptr, i8, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, [512 x i8], i32, [21 x i8], [41 x i8], i8, i64, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, [9 x i8], %struct.unreported_events, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, %struct.BlockAcctCookie, ptr, %struct.QEMUIOVector, %struct.anon.6, i64, i32, %struct.QEMUSGList, i32, ptr, ptr, ptr, ptr, i32, i32, i32, i8, ptr, i32, i8, i32, ptr, i32, i32, i8, i8, i32, i8, ptr, i32 }
+%struct.unreported_events = type { i8, i8 }
+%struct.BlockAcctCookie = type { i64, i64, i32 }
+%struct.anon.6 = type { ptr }
+%struct.QEMUSGList = type { ptr, i32, i32, i64, ptr, ptr }
+%struct.PortioList = type { ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i8 }
+%struct.AHCIPortRegs = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
+%struct.NCQTransferState = type { ptr, ptr, ptr, %struct.QEMUSGList, %struct.BlockAcctCookie, i32, i64, i8, i8, i8, i8, i8 }
+%struct.MemReentrancyGuard = type { i8 }
+%struct.timeval = type { i64, i64 }
+%struct.MemTxAttrs = type { i32, i8, i8, i16 }
+%struct.AHCICmdHdr = type { i16, i16, i32, i64, [4 x i32] }
+%struct._GString = type { ptr, i64, i64 }
+%struct.NCQFrame = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
+%struct.AHCI_SG = type { i64, i32, i32 }
+%struct.SDBFIS = type { i8, i8, i8, i8, i32 }
 
-@ahci_command_properties = dso_local global [16 x %struct.AHCICommandProp] [%struct.AHCICommandProp { i8 32, i8 1, i8 1, i8 0, i8 1, i8 0, i8 1, i8 0, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 48, i8 1, i8 1, i8 0, i8 1, i8 0, i8 0, i8 1, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 36, i8 1, i8 1, i8 0, i8 0, i8 1, i8 1, i8 0, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 52, i8 1, i8 1, i8 0, i8 0, i8 1, i8 0, i8 1, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 -56, i8 1, i8 0, i8 1, i8 1, i8 0, i8 1, i8 0, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 -54, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 37, i8 1, i8 0, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 53, i8 1, i8 0, i8 1, i8 0, i8 1, i8 0, i8 1, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 -20, i8 1, i8 1, i8 0, i8 0, i8 0, i8 1, i8 0, i8 0, i8 0, i64 512, i32 0 }, %struct.AHCICommandProp { i8 96, i8 1, i8 0, i8 1, i8 0, i8 1, i8 1, i8 0, i8 0, i8 1, i64 0, i32 0 }, %struct.AHCICommandProp { i8 97, i8 1, i8 0, i8 1, i8 0, i8 1, i8 0, i8 1, i8 0, i8 1, i64 0, i32 0 }, %struct.AHCICommandProp { i8 -8, i8 0, i8 0, i8 0, i8 1, i8 0, i8 0, i8 0, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 39, i8 0, i8 0, i8 0, i8 0, i8 1, i8 0, i8 0, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 -25, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i64 0, i32 0 }, %struct.AHCICommandProp { i8 -96, i8 1, i8 1, i8 0, i8 0, i8 0, i8 0, i8 0, i8 1, i8 0, i64 16, i32 0 }, %struct.AHCICommandProp { i8 -95, i8 1, i8 1, i8 0, i8 0, i8 0, i8 1, i8 0, i8 0, i8 0, i64 512, i32 0 }], align 16
-@.str = private unnamed_addr constant [34 x i8] c"../qemu/tests/qtest/libqos/ahci.c\00", align 1
-@__func__.ahci_alloc = private unnamed_addr constant [11 x i8] c"ahci_alloc\00", align 1
-@.str.1 = private unnamed_addr constant [5 x i8] c"ahci\00", align 1
-@.str.2 = private unnamed_addr constant [13 x i8] c"ahci->parent\00", align 1
-@__func__.ahci_free = private unnamed_addr constant [10 x i8] c"ahci_free\00", align 1
-@__func__.get_ahci_device = private unnamed_addr constant [16 x i8] c"get_ahci_device\00", align 1
-@.str.3 = private unnamed_addr constant [13 x i8] c"ahci != NULL\00", align 1
-@__func__.ahci_pci_enable = private unnamed_addr constant [16 x i8] c"ahci_pci_enable\00", align 1
-@.str.4 = private unnamed_addr constant [56 x i8] c"(qpci_config_readb(ahci->dev, 0x92)) & (0x3F) == (0x3F)\00", align 1
-@.str.5 = private unnamed_addr constant [3 x i8] c"==\00", align 1
-@__func__.ahci_hba_enable = private unnamed_addr constant [16 x i8] c"ahci_hba_enable\00", align 1
-@.str.6 = private unnamed_addr constant [41 x i8] c"(reg) & ((0x80000000)) == ((0x80000000))\00", align 1
-@.str.7 = private unnamed_addr constant [28 x i8] c"Number of Command Slots: %u\00", align 1
-@.str.8 = private unnamed_addr constant [21 x i8] c"Initializing port %u\00", align 1
-@.str.9 = private unnamed_addr constant [13 x i8] c"port is idle\00", align 1
-@.str.10 = private unnamed_addr constant [23 x i8] c"port needs to be idled\00", align 1
-@.str.11 = private unnamed_addr constant [24 x i8] c"(reg) & ((0x8000)) == 0\00", align 1
-@.str.12 = private unnamed_addr constant [24 x i8] c"(reg) & ((0x4000)) == 0\00", align 1
-@.str.13 = private unnamed_addr constant [17 x i8] c"port is now idle\00", align 1
-@.str.14 = private unnamed_addr constant [13 x i8] c"CLB: 0x%08lx\00", align 1
-@.str.15 = private unnamed_addr constant [56 x i8] c"ahci->port[i].clb == ahci_px_rreg(ahci, i, AHCI_PX_CLB)\00", align 1
-@.str.16 = private unnamed_addr constant [12 x i8] c"FB: 0x%08lx\00", align 1
-@.str.17 = private unnamed_addr constant [54 x i8] c"ahci->port[i].fb == ahci_px_rreg(ahci, i, AHCI_PX_FB)\00", align 1
-@.str.18 = private unnamed_addr constant [9 x i8] c"reg == 0\00", align 1
-@.str.19 = private unnamed_addr constant [24 x i8] c"(reg) & ((1 << i)) == 0\00", align 1
-@.str.20 = private unnamed_addr constant [40 x i8] c"reg == ~((uint32_t)AHCI_PX_IE_RESERVED)\00", align 1
-@.str.21 = private unnamed_addr constant [33 x i8] c"(reg) & ((0x4000)) == ((0x4000))\00", align 1
-@.str.22 = private unnamed_addr constant [56 x i8] c"(ahci_px_rreg(ahci, i, (6))) & ((0x8000)) == ((0x8000))\00", align 1
-@.str.23 = private unnamed_addr constant [18 x i8] c"Started Device %u\00", align 1
-@.str.24 = private unnamed_addr constant [29 x i8] c"(reg) & ((0x02)) == ((0x02))\00", align 1
-@__func__.ahci_port_select = private unnamed_addr constant [17 x i8] c"ahci_port_select\00", align 1
-@.str.25 = private unnamed_addr constant [7 x i8] c"i < 32\00", align 1
-@__func__.ahci_port_clear = private unnamed_addr constant [16 x i8] c"ahci_port_clear\00", align 1
-@.str.26 = private unnamed_addr constant [42 x i8] c"ahci_px_rreg(ahci, port, AHCI_PX_IS) == 0\00", align 1
-@__func__.ahci_port_check_error = private unnamed_addr constant [22 x i8] c"ahci_port_check_error\00", align 1
-@.str.27 = private unnamed_addr constant [41 x i8] c"(reg) & ((0x40000000)) == ((0x40000000))\00", align 1
-@.str.28 = private unnamed_addr constant [31 x i8] c"(reg) & ((0x80) | (0x08)) == 0\00", align 1
-@.str.29 = private unnamed_addr constant [22 x i8] c"(reg) & ((0x01)) == 0\00", align 1
-@.str.30 = private unnamed_addr constant [29 x i8] c"(reg) & ((0x01)) == ((0x01))\00", align 1
-@.str.31 = private unnamed_addr constant [46 x i8] c"(reg) & ((0xFF00) & (~cmd->errors << 8)) == 0\00", align 1
-@.str.32 = private unnamed_addr constant [75 x i8] c"(reg) & ((0xFF00) & (cmd->errors << 8)) == ((0xFF00) & (cmd->errors << 8))\00", align 1
-@__func__.ahci_port_check_interrupts = private unnamed_addr constant [27 x i8] c"ahci_port_check_interrupts\00", align 1
-@.str.33 = private unnamed_addr constant [47 x i8] c"(reg) & (cmd->interrupts) == (cmd->interrupts)\00", align 1
-@__func__.ahci_port_check_nonbusy = private unnamed_addr constant [24 x i8] c"ahci_port_check_nonbusy\00", align 1
-@.str.34 = private unnamed_addr constant [39 x i8] c"(reg) & ((1 << slot)) == ((1 << slot))\00", align 1
-@.str.35 = private unnamed_addr constant [27 x i8] c"(reg) & ((1 << slot)) == 0\00", align 1
-@.str.36 = private unnamed_addr constant [22 x i8] c"(reg) & ((0x80)) == 0\00", align 1
-@.str.37 = private unnamed_addr constant [22 x i8] c"(reg) & ((0x08)) == 0\00", align 1
-@__func__.ahci_port_check_d2h_sanity = private unnamed_addr constant [27 x i8] c"ahci_port_check_d2h_sanity\00", align 1
-@.str.38 = private unnamed_addr constant [22 x i8] c"d2h->fis_type == 0x34\00", align 1
-@.str.39 = private unnamed_addr constant [43 x i8] c"(reg & AHCI_PX_TFD_ERR) >> 8 == d2h->error\00", align 1
-@.str.40 = private unnamed_addr constant [39 x i8] c"(reg & AHCI_PX_TFD_STS) == d2h->status\00", align 1
-@__func__.ahci_port_check_pio_sanity = private unnamed_addr constant [27 x i8] c"ahci_port_check_pio_sanity\00", align 1
-@.str.41 = private unnamed_addr constant [22 x i8] c"pio->fis_type == 0x5f\00", align 1
-@.str.42 = private unnamed_addr constant [69 x i8] c"le16_to_cpu(pio->tx_count) == 12 || le16_to_cpu(pio->tx_count) == 16\00", align 1
-@.str.43 = private unnamed_addr constant [38 x i8] c"le16_to_cpu(pio->tx_count) == pio_len\00", align 1
-@__func__.ahci_port_check_cmd_sanity = private unnamed_addr constant [27 x i8] c"ahci_port_check_cmd_sanity\00", align 1
-@.str.44 = private unnamed_addr constant [26 x i8] c"cmd->xbytes == cmdh.prdbc\00", align 1
-@.str.45 = private unnamed_addr constant [29 x i8] c"All command slots were busy.\00", align 1
-@__func__.ahci_pick_cmd = private unnamed_addr constant [14 x i8] c"ahci_pick_cmd\00", align 1
-@__func__.size_to_prdtl = private unnamed_addr constant [14 x i8] c"size_to_prdtl\00", align 1
-@.str.46 = private unnamed_addr constant [29 x i8] c"bytes_per_prd <= 4096 * 1024\00", align 1
-@.str.47 = private unnamed_addr constant [3 x i8] c"<=\00", align 1
-@.str.48 = private unnamed_addr constant [29 x i8] c"bytes_per_prd & 0x01 == 0x00\00", align 1
-@default_opts = dso_local constant %struct.AHCIOpts zeroinitializer, align 8
-@__func__.ahci_exec = private unnamed_addr constant [10 x i8] c"ahci_exec\00", align 1
-@.str.49 = private unnamed_addr constant [13 x i8] c"opts->buffer\00", align 1
-@.str.50 = private unnamed_addr constant [8 x i8] c"rc == 0\00", align 1
-@.str.51 = private unnamed_addr constant [5 x i8] c"STOP\00", align 1
-@.str.52 = private unnamed_addr constant [20 x i8] c"{'execute':'cont' }\00", align 1
-@.str.53 = private unnamed_addr constant [7 x i8] c"RESUME\00", align 1
-@__func__.ahci_io = private unnamed_addr constant [8 x i8] c"ahci_io\00", align 1
-@.str.54 = private unnamed_addr constant [6 x i8] c"props\00", align 1
-@.str.55 = private unnamed_addr constant [16 x i8] c"!bufsize || ptr\00", align 1
-@__func__.ahci_command_enable_atapi_dma = private unnamed_addr constant [30 x i8] c"ahci_command_enable_atapi_dma\00", align 1
-@.str.56 = private unnamed_addr constant [18 x i8] c"cmd->props->atapi\00", align 1
-@.str.57 = private unnamed_addr constant [16 x i8] c"cmd->props->pio\00", align 1
-@__func__.ahci_command_create = private unnamed_addr constant [20 x i8] c"ahci_command_create\00", align 1
-@.str.58 = private unnamed_addr constant [44 x i8] c"!(props->dma && props->pio) || props->atapi\00", align 1
-@.str.59 = private unnamed_addr constant [32 x i8] c"!(props->lba28 && props->lba48)\00", align 1
-@.str.60 = private unnamed_addr constant [31 x i8] c"!(props->read && props->write)\00", align 1
-@.str.61 = private unnamed_addr constant [28 x i8] c"!props->size || props->data\00", align 1
-@.str.62 = private unnamed_addr constant [28 x i8] c"!props->ncq || props->lba48\00", align 1
-@__const.ahci_atapi_get_sense.opts = private unnamed_addr constant %struct.AHCIOpts { i64 18, i32 0, i8 0, i32 0, i64 0, i64 0, i8 1, i8 0, i8 0, ptr null, ptr null, ptr @copy_buffer, ptr null }, align 8
-@__func__.ahci_command_set_offset = private unnamed_addr constant [24 x i8] c"ahci_command_set_offset\00", align 1
-@.str.63 = private unnamed_addr constant [22 x i8] c"lba_sect <= 0xFFFFFFF\00", align 1
-@.str.64 = private unnamed_addr constant [27 x i8] c"lba_sect <= 0xFFFFFFFFFFFF\00", align 1
-@__func__.ahci_command_set_sizes = private unnamed_addr constant [23 x i8] c"ahci_command_set_sizes\00", align 1
-@.str.65 = private unnamed_addr constant [24 x i8] c"prd_size <= 4096 * 1024\00", align 1
-@.str.66 = private unnamed_addr constant [24 x i8] c"prd_size & 0x01 == 0x00\00", align 1
-@__func__.ahci_command_commit = private unnamed_addr constant [20 x i8] c"ahci_command_commit\00", align 1
-@.str.67 = private unnamed_addr constant [10 x i8] c"table_ptr\00", align 1
-@.str.68 = private unnamed_addr constant [27 x i8] c"(table_ptr & 0x7F) == 0x00\00", align 1
-@.str.69 = private unnamed_addr constant [27 x i8] c"prdtl == cmd->header.prdtl\00", align 1
-@__func__.ahci_atapi_command_set_offset = private unnamed_addr constant [30 x i8] c"ahci_atapi_command_set_offset\00", align 1
-@.str.70 = private unnamed_addr constant [4 x i8] c"cbd\00", align 1
-@.str.71 = private unnamed_addr constant [18 x i8] c"lba <= UINT32_MAX\00", align 1
-@.str.72 = private unnamed_addr constant [12 x i8] c"lba == 0x00\00", align 1
-@stderr = external global ptr, align 8
-@.str.73 = private unnamed_addr constant [112 x i8] c"The Libqos AHCI driver does not support the set_offset operation for ATAPI command 0x%02x, please add support.\0A\00", align 1
-@__func__.ahci_atapi_set_size = private unnamed_addr constant [20 x i8] c"ahci_atapi_set_size\00", align 1
-@.str.74 = private unnamed_addr constant [23 x i8] c"nsectors <= UINT16_MAX\00", align 1
-@.str.75 = private unnamed_addr constant [22 x i8] c"nsectors < 1ULL << 24\00", align 1
-@.str.76 = private unnamed_addr constant [2 x i8] c"<\00", align 1
-@.str.77 = private unnamed_addr constant [20 x i8] c"xbytes <= UINT8_MAX\00", align 1
-@.str.78 = private unnamed_addr constant [12 x i8] c"xbytes == 0\00", align 1
-@.str.79 = private unnamed_addr constant [110 x i8] c"The Libqos AHCI driver does not support the set_size operation for ATAPI command 0x%02x, please add support.\0A\00", align 1
+@.str = private unnamed_addr constant [5 x i8] c"ahci\00", align 1
+@.str.1 = private unnamed_addr constant [9 x i8] c"ahci-idp\00", align 1
+@.str.2 = private unnamed_addr constant [13 x i8] c"s->ports > 0\00", align 1
+@.str.3 = private unnamed_addr constant [22 x i8] c"../qemu/hw/ide/ahci.c\00", align 1
+@__PRETTY_FUNCTION__.ahci_realize = private unnamed_addr constant [62 x i8] c"void ahci_realize(AHCIState *, DeviceState *, AddressSpace *)\00", align 1
+@ahci_dma_ops = internal constant %struct.IDEDMAOps { ptr @ahci_start_dma, ptr @ahci_pio_transfer, ptr @ahci_dma_prepare_buf, ptr @ahci_commit_buf, ptr @ahci_dma_rw_buf, ptr @ahci_restart, ptr @ahci_restart_dma, ptr null, ptr @ahci_cmd_done, ptr null }, align 8
+@.str.4 = private unnamed_addr constant [4 x i8] c"dev\00", align 1
+@.str.5 = private unnamed_addr constant [17 x i8] c"control_regs.cap\00", align 1
+@vmstate_info_uint32 = external constant %struct.VMStateInfo, align 8
+@.str.6 = private unnamed_addr constant [17 x i8] c"control_regs.ghc\00", align 1
+@.str.7 = private unnamed_addr constant [23 x i8] c"control_regs.irqstatus\00", align 1
+@.str.8 = private unnamed_addr constant [18 x i8] c"control_regs.impl\00", align 1
+@.str.9 = private unnamed_addr constant [21 x i8] c"control_regs.version\00", align 1
+@.str.10 = private unnamed_addr constant [10 x i8] c"idp_index\00", align 1
+@.str.11 = private unnamed_addr constant [6 x i8] c"ports\00", align 1
+@vmstate_info_uint32_equal = external constant %struct.VMStateInfo, align 8
+@.compoundliteral = internal constant [9 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.4, ptr null, i64 0, i64 6088, i64 0, i32 0, [4 x i8] zeroinitializer, i64 584, i64 0, ptr null, i32 26, [4 x i8] zeroinitializer, ptr @vmstate_ahci_device, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.5, ptr null, i64 8, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.6, ptr null, i64 12, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.7, ptr null, i64 16, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.8, ptr null, i64 20, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.9, ptr null, i64 24, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.10, ptr null, i64 580, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.11, ptr null, i64 584, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32_equal, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@vmstate_ahci = dso_local constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str, i8 0, i8 0, [2 x i8] zeroinitializer, i32 1, i32 0, i32 0, ptr null, ptr @ahci_state_post_load, ptr null, ptr null, ptr null, ptr null, ptr @.compoundliteral, ptr null }, align 8
+@ahci_mem_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.2, [4 x i8] } { ptr @ahci_mem_read, ptr @ahci_mem_write, ptr null, ptr null, i32 2, [4 x i8] zeroinitializer, %struct.anon zeroinitializer, %struct.anon.2 zeroinitializer, [4 x i8] zeroinitializer }, align 8
+@__func__.ahci_mem_read = private unnamed_addr constant [14 x i8] c"ahci_mem_read\00", align 1
+@.str.13 = private unnamed_addr constant [9 x i8] c"size > 1\00", align 1
+@.str.14 = private unnamed_addr constant [30 x i8] c"regnum < AHCI_HOST_REG__COUNT\00", align 1
+@__PRETTY_FUNCTION__.ahci_mem_read_32 = private unnamed_addr constant [42 x i8] c"uint64_t ahci_mem_read_32(void *, hwaddr)\00", align 1
+@AHCIHostReg_lookup = internal global [11 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27], align 16
+@trace_events_enabled_count = external global i32, align 4
+@_TRACE_AHCI_MEM_READ_32_HOST_DEFAULT_DSTATE = external global i16, align 2
+@message_with_timestamp = external global i8, align 1
+@.str.15 = private unnamed_addr constant [94 x i8] c"%d@%zu.%06zu:ahci_mem_read_32_host_default ahci(%p): unimplemented mem read [reg:%s] @ 0x%lx\0A\00", align 1
+@.str.16 = private unnamed_addr constant [81 x i8] c"ahci_mem_read_32_host_default ahci(%p): unimplemented mem read [reg:%s] @ 0x%lx\0A\00", align 1
+@qemu_loglevel = external global i32, align 4
+@.str.17 = private unnamed_addr constant [4 x i8] c"CAP\00", align 1
+@.str.18 = private unnamed_addr constant [4 x i8] c"GHC\00", align 1
+@.str.19 = private unnamed_addr constant [3 x i8] c"IS\00", align 1
+@.str.20 = private unnamed_addr constant [3 x i8] c"PI\00", align 1
+@.str.21 = private unnamed_addr constant [3 x i8] c"VS\00", align 1
+@.str.22 = private unnamed_addr constant [8 x i8] c"CCC_CTL\00", align 1
+@.str.23 = private unnamed_addr constant [10 x i8] c"CCC_PORTS\00", align 1
+@.str.24 = private unnamed_addr constant [7 x i8] c"EM_LOC\00", align 1
+@.str.25 = private unnamed_addr constant [7 x i8] c"EM_CTL\00", align 1
+@.str.26 = private unnamed_addr constant [5 x i8] c"CAP2\00", align 1
+@.str.27 = private unnamed_addr constant [5 x i8] c"BOHC\00", align 1
+@_TRACE_AHCI_MEM_READ_32_HOST_DSTATE = external global i16, align 2
+@.str.28 = private unnamed_addr constant [80 x i8] c"%d@%zu.%06zu:ahci_mem_read_32_host ahci(%p): mem read [reg:%s] @ 0x%lx: 0x%08x\0A\00", align 1
+@.str.29 = private unnamed_addr constant [67 x i8] c"ahci_mem_read_32_host ahci(%p): mem read [reg:%s] @ 0x%lx: 0x%08x\0A\00", align 1
+@.str.30 = private unnamed_addr constant [56 x i8] c"regnum < (AHCI_PORT_ADDR_OFFSET_LEN / sizeof(uint32_t))\00", align 1
+@__PRETTY_FUNCTION__.ahci_port_read = private unnamed_addr constant [47 x i8] c"uint32_t ahci_port_read(AHCIState *, int, int)\00", align 1
+@AHCIPortReg_lookup = internal global [32 x ptr] [ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.40, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.51], align 16
+@_TRACE_AHCI_PORT_READ_DEFAULT_DSTATE = external global i16, align 2
+@.str.31 = private unnamed_addr constant [91 x i8] c"%d@%zu.%06zu:ahci_port_read_default ahci(%p)[%d]: unimplemented port read [reg:%s] @ 0x%x\0A\00", align 1
+@.str.32 = private unnamed_addr constant [78 x i8] c"ahci_port_read_default ahci(%p)[%d]: unimplemented port read [reg:%s] @ 0x%x\0A\00", align 1
+@.str.33 = private unnamed_addr constant [6 x i8] c"PxCLB\00", align 1
+@.str.34 = private unnamed_addr constant [7 x i8] c"PxCLBU\00", align 1
+@.str.35 = private unnamed_addr constant [5 x i8] c"PxFB\00", align 1
+@.str.36 = private unnamed_addr constant [6 x i8] c"PxFBU\00", align 1
+@.str.37 = private unnamed_addr constant [5 x i8] c"PxIS\00", align 1
+@.str.38 = private unnamed_addr constant [5 x i8] c"PXIE\00", align 1
+@.str.39 = private unnamed_addr constant [6 x i8] c"PxCMD\00", align 1
+@.str.40 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@.str.41 = private unnamed_addr constant [6 x i8] c"PxTFD\00", align 1
+@.str.42 = private unnamed_addr constant [6 x i8] c"PxSIG\00", align 1
+@.str.43 = private unnamed_addr constant [7 x i8] c"PxSSTS\00", align 1
+@.str.44 = private unnamed_addr constant [7 x i8] c"PxSCTL\00", align 1
+@.str.45 = private unnamed_addr constant [7 x i8] c"PxSERR\00", align 1
+@.str.46 = private unnamed_addr constant [7 x i8] c"PxSACT\00", align 1
+@.str.47 = private unnamed_addr constant [5 x i8] c"PxCI\00", align 1
+@.str.48 = private unnamed_addr constant [7 x i8] c"PxSNTF\00", align 1
+@.str.49 = private unnamed_addr constant [6 x i8] c"PxFBS\00", align 1
+@.str.50 = private unnamed_addr constant [9 x i8] c"PxDEVSLP\00", align 1
+@.str.51 = private unnamed_addr constant [5 x i8] c"PxVS\00", align 1
+@_TRACE_AHCI_PORT_READ_DSTATE = external global i16, align 2
+@.str.52 = private unnamed_addr constant [77 x i8] c"%d@%zu.%06zu:ahci_port_read ahci(%p)[%d]: port read [reg:%s] @ 0x%x: 0x%08x\0A\00", align 1
+@.str.53 = private unnamed_addr constant [64 x i8] c"ahci_port_read ahci(%p)[%d]: port read [reg:%s] @ 0x%x: 0x%08x\0A\00", align 1
+@_TRACE_AHCI_MEM_READ_32_DEFAULT_DSTATE = external global i16, align 2
+@.str.54 = private unnamed_addr constant [74 x i8] c"%d@%zu.%06zu:ahci_mem_read_32_default ahci(%p): mem read @ 0x%lx: 0x%08x\0A\00", align 1
+@.str.55 = private unnamed_addr constant [61 x i8] c"ahci_mem_read_32_default ahci(%p): mem read @ 0x%lx: 0x%08x\0A\00", align 1
+@_TRACE_AHCI_MEM_READ_32_DSTATE = external global i16, align 2
+@.str.56 = private unnamed_addr constant [66 x i8] c"%d@%zu.%06zu:ahci_mem_read_32 ahci(%p): mem read @ 0x%lx: 0x%08x\0A\00", align 1
+@.str.57 = private unnamed_addr constant [53 x i8] c"ahci_mem_read_32 ahci(%p): mem read @ 0x%lx: 0x%08x\0A\00", align 1
+@_TRACE_AHCI_MEM_READ_DSTATE = external global i16, align 2
+@.str.58 = private unnamed_addr constant [63 x i8] c"%d@%zu.%06zu:ahci_mem_read ahci(%p): read%u @ 0x%lx: 0x%016lx\0A\00", align 1
+@.str.59 = private unnamed_addr constant [50 x i8] c"ahci_mem_read ahci(%p): read%u @ 0x%lx: 0x%016lx\0A\00", align 1
+@.str.60 = private unnamed_addr constant [41 x i8] c"ahci: Mis-aligned write to addr 0x%03lX\0A\00", align 1
+@__PRETTY_FUNCTION__.ahci_mem_write = private unnamed_addr constant [60 x i8] c"void ahci_mem_write(void *, hwaddr, uint64_t, unsigned int)\00", align 1
+@.str.61 = private unnamed_addr constant [86 x i8] c"Attempted write to unimplemented register: AHCI host register %s, offset 0x%lx: 0x%lx\00", align 1
+@.str.62 = private unnamed_addr constant [87 x i8] c"Attempted write to unimplemented register: AHCI global register at offset 0x%lx: 0x%lx\00", align 1
+@_TRACE_AHCI_MEM_WRITE_DSTATE = external global i16, align 2
+@.str.63 = private unnamed_addr constant [65 x i8] c"%d@%zu.%06zu:ahci_mem_write ahci(%p): write%u @ 0x%lx: 0x%016lx\0A\00", align 1
+@.str.64 = private unnamed_addr constant [52 x i8] c"ahci_mem_write ahci(%p): write%u @ 0x%lx: 0x%016lx\0A\00", align 1
+@_TRACE_AHCI_CHECK_IRQ_DSTATE = external global i16, align 2
+@.str.65 = private unnamed_addr constant [67 x i8] c"%d@%zu.%06zu:ahci_check_irq ahci(%p): check irq 0x%08x --> 0x%08x\0A\00", align 1
+@.str.66 = private unnamed_addr constant [54 x i8] c"ahci_check_irq ahci(%p): check irq 0x%08x --> 0x%08x\0A\00", align 1
+@_TRACE_AHCI_IRQ_RAISE_DSTATE = external global i16, align 2
+@.str.67 = private unnamed_addr constant [49 x i8] c"%d@%zu.%06zu:ahci_irq_raise ahci(%p): raise irq\0A\00", align 1
+@.str.68 = private unnamed_addr constant [36 x i8] c"ahci_irq_raise ahci(%p): raise irq\0A\00", align 1
+@_TRACE_AHCI_IRQ_LOWER_DSTATE = external global i16, align 2
+@.str.69 = private unnamed_addr constant [49 x i8] c"%d@%zu.%06zu:ahci_irq_lower ahci(%p): lower irq\0A\00", align 1
+@.str.70 = private unnamed_addr constant [36 x i8] c"ahci_irq_lower ahci(%p): lower irq\0A\00", align 1
+@_TRACE_AHCI_MEM_WRITE_HOST_UNIMPL_DSTATE = external global i16, align 2
+@.str.71 = private unnamed_addr constant [89 x i8] c"%d@%zu.%06zu:ahci_mem_write_host_unimpl ahci(%p) unimplemented write%u [reg:%s] @ 0x%lx\0A\00", align 1
+@.str.72 = private unnamed_addr constant [76 x i8] c"ahci_mem_write_host_unimpl ahci(%p) unimplemented write%u [reg:%s] @ 0x%lx\0A\00", align 1
+@_TRACE_AHCI_MEM_WRITE_HOST_DSTATE = external global i16, align 2
+@.str.73 = private unnamed_addr constant [78 x i8] c"%d@%zu.%06zu:ahci_mem_write_host ahci(%p) write%u [reg:%s] @ 0x%lx: 0x%016lx\0A\00", align 1
+@.str.74 = private unnamed_addr constant [65 x i8] c"ahci_mem_write_host ahci(%p) write%u [reg:%s] @ 0x%lx: 0x%016lx\0A\00", align 1
+@__PRETTY_FUNCTION__.ahci_port_write = private unnamed_addr constant [54 x i8] c"void ahci_port_write(AHCIState *, int, int, uint32_t)\00", align 1
+@.str.75 = private unnamed_addr constant [87 x i8] c"Attempted write to unimplemented register: AHCI port %d register %s, offset 0x%x: 0x%x\00", align 1
+@_TRACE_AHCI_PORT_WRITE_DSTATE = external global i16, align 2
+@.str.76 = private unnamed_addr constant [79 x i8] c"%d@%zu.%06zu:ahci_port_write ahci(%p)[%d]: port write [reg:%s] @ 0x%x: 0x%08x\0A\00", align 1
+@.str.77 = private unnamed_addr constant [66 x i8] c"ahci_port_write ahci(%p)[%d]: port write [reg:%s] @ 0x%x: 0x%08x\0A\00", align 1
+@.str.78 = private unnamed_addr constant [66 x i8] c"AHCI: Failed to start DMA engine: bad command list buffer address\00", align 1
+@.str.79 = private unnamed_addr constant [73 x i8] c"AHCI: Failed to start FIS receive engine: bad FIS receive buffer address\00", align 1
+@_TRACE_AHCI_UNMAP_CLB_ADDRESS_NULL_DSTATE = external global i16, align 2
+@.str.80 = private unnamed_addr constant [90 x i8] c"%d@%zu.%06zu:ahci_unmap_clb_address_null ahci(%p)[%d]: Attempt to unmap NULL CLB address\0A\00", align 1
+@.str.81 = private unnamed_addr constant [77 x i8] c"ahci_unmap_clb_address_null ahci(%p)[%d]: Attempt to unmap NULL CLB address\0A\00", align 1
+@_TRACE_AHCI_UNMAP_FIS_ADDRESS_NULL_DSTATE = external global i16, align 2
+@.str.82 = private unnamed_addr constant [90 x i8] c"%d@%zu.%06zu:ahci_unmap_fis_address_null ahci(%p)[%d]: Attempt to unmap NULL FIS address\0A\00", align 1
+@.str.83 = private unnamed_addr constant [77 x i8] c"ahci_unmap_fis_address_null ahci(%p)[%d]: Attempt to unmap NULL FIS address\0A\00", align 1
+@__func__.ahci_trigger_irq = private unnamed_addr constant [17 x i8] c"ahci_trigger_irq\00", align 1
+@.str.84 = private unnamed_addr constant [22 x i8] c"(unsigned)irqbit < 32\00", align 1
+@AHCIPortIRQ_lookup = internal global [32 x ptr] [ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.95, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104], align 16
+@_TRACE_AHCI_TRIGGER_IRQ_DSTATE = external global i16, align 2
+@.str.85 = private unnamed_addr constant [117 x i8] c"%d@%zu.%06zu:ahci_trigger_irq ahci(%p)[%d]: trigger irq +%s (0x%08x); irqstat: 0x%08x --> 0x%08x; effective: 0x%08x\0A\00", align 1
+@.str.86 = private unnamed_addr constant [104 x i8] c"ahci_trigger_irq ahci(%p)[%d]: trigger irq +%s (0x%08x); irqstat: 0x%08x --> 0x%08x; effective: 0x%08x\0A\00", align 1
+@.str.87 = private unnamed_addr constant [5 x i8] c"DHRS\00", align 1
+@.str.88 = private unnamed_addr constant [4 x i8] c"PSS\00", align 1
+@.str.89 = private unnamed_addr constant [4 x i8] c"DSS\00", align 1
+@.str.90 = private unnamed_addr constant [5 x i8] c"SDBS\00", align 1
+@.str.91 = private unnamed_addr constant [4 x i8] c"UFS\00", align 1
+@.str.92 = private unnamed_addr constant [4 x i8] c"DPS\00", align 1
+@.str.93 = private unnamed_addr constant [4 x i8] c"PCS\00", align 1
+@.str.94 = private unnamed_addr constant [5 x i8] c"DMPS\00", align 1
+@.str.95 = private unnamed_addr constant [9 x i8] c"RESERVED\00", align 1
+@.str.96 = private unnamed_addr constant [5 x i8] c"PRCS\00", align 1
+@.str.97 = private unnamed_addr constant [5 x i8] c"IPMS\00", align 1
+@.str.98 = private unnamed_addr constant [4 x i8] c"OFS\00", align 1
+@.str.99 = private unnamed_addr constant [5 x i8] c"INFS\00", align 1
+@.str.100 = private unnamed_addr constant [4 x i8] c"IFS\00", align 1
+@.str.101 = private unnamed_addr constant [5 x i8] c"HBDS\00", align 1
+@.str.102 = private unnamed_addr constant [5 x i8] c"HBFS\00", align 1
+@.str.103 = private unnamed_addr constant [5 x i8] c"TFES\00", align 1
+@.str.104 = private unnamed_addr constant [5 x i8] c"CPDS\00", align 1
+@_TRACE_HANDLE_CMD_FIS_DUMP_DSTATE = external global i16, align 2
+@_TRACE_HANDLE_CMD_BUSY_DSTATE = external global i16, align 2
+@.str.105 = private unnamed_addr constant [56 x i8] c"%d@%zu.%06zu:handle_cmd_busy ahci(%p)[%d]: engine busy\0A\00", align 1
+@.str.106 = private unnamed_addr constant [43 x i8] c"handle_cmd_busy ahci(%p)[%d]: engine busy\0A\00", align 1
+@_TRACE_HANDLE_CMD_NOLIST_DSTATE = external global i16, align 2
+@.str.107 = private unnamed_addr constant [89 x i8] c"%d@%zu.%06zu:handle_cmd_nolist ahci(%p)[%d]: handle_cmd called without s->dev[port].lst\0A\00", align 1
+@.str.108 = private unnamed_addr constant [76 x i8] c"handle_cmd_nolist ahci(%p)[%d]: handle_cmd called without s->dev[port].lst\0A\00", align 1
+@_TRACE_HANDLE_CMD_BADPORT_DSTATE = external global i16, align 2
+@.str.109 = private unnamed_addr constant [74 x i8] c"%d@%zu.%06zu:handle_cmd_badport ahci(%p)[%d]: guest accessed unused port\0A\00", align 1
+@.str.110 = private unnamed_addr constant [61 x i8] c"handle_cmd_badport ahci(%p)[%d]: guest accessed unused port\0A\00", align 1
+@_TRACE_HANDLE_CMD_BADFIS_DSTATE = external global i16, align 2
+@.str.111 = private unnamed_addr constant [80 x i8] c"%d@%zu.%06zu:handle_cmd_badfis ahci(%p)[%d]: guest provided an invalid cmd FIS\0A\00", align 1
+@.str.112 = private unnamed_addr constant [67 x i8] c"handle_cmd_badfis ahci(%p)[%d]: guest provided an invalid cmd FIS\0A\00", align 1
+@_TRACE_HANDLE_CMD_BADMAP_DSTATE = external global i16, align 2
+@.str.113 = private unnamed_addr constant [85 x i8] c"%d@%zu.%06zu:handle_cmd_badmap ahci(%p)[%d]: dma_memory_map failed, 0x%02lx != 0x80\0A\00", align 1
+@.str.114 = private unnamed_addr constant [72 x i8] c"handle_cmd_badmap ahci(%p)[%d]: dma_memory_map failed, 0x%02lx != 0x80\0A\00", align 1
+@.str.115 = private unnamed_addr constant [5 x i8] c"FIS:\00", align 1
+@.str.116 = private unnamed_addr constant [10 x i8] c"\0A0x%02x: \00", align 1
+@.str.117 = private unnamed_addr constant [6 x i8] c"%02x \00", align 1
+@.str.118 = private unnamed_addr constant [51 x i8] c"%d@%zu.%06zu:handle_cmd_fis_dump ahci(%p)[%d]: %s\0A\00", align 1
+@.str.119 = private unnamed_addr constant [38 x i8] c"handle_cmd_fis_dump ahci(%p)[%d]: %s\0A\00", align 1
+@_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE = external global i16, align 2
+@_TRACE_HANDLE_REG_H2D_FIS_PMP_DSTATE = external global i16, align 2
+@.str.120 = private unnamed_addr constant [104 x i8] c"%d@%zu.%06zu:handle_reg_h2d_fis_pmp ahci(%p)[%d]: Port Multiplier not supported, FIS: 0x%02x-%02x-%02x\0A\00", align 1
+@.str.121 = private unnamed_addr constant [91 x i8] c"handle_reg_h2d_fis_pmp ahci(%p)[%d]: Port Multiplier not supported, FIS: 0x%02x-%02x-%02x\0A\00", align 1
+@_TRACE_HANDLE_REG_H2D_FIS_RES_DSTATE = external global i16, align 2
+@.str.122 = private unnamed_addr constant [113 x i8] c"%d@%zu.%06zu:handle_reg_h2d_fis_res ahci(%p)[%d]: Reserved flags set in H2D Register FIS, FIS: 0x%02x-%02x-%02x\0A\00", align 1
+@.str.123 = private unnamed_addr constant [100 x i8] c"handle_reg_h2d_fis_res ahci(%p)[%d]: Reserved flags set in H2D Register FIS, FIS: 0x%02x-%02x-%02x\0A\00", align 1
+@__func__.process_ncq_command = private unnamed_addr constant [20 x i8] c"process_ncq_command\00", align 1
+@.str.124 = private unnamed_addr constant [25 x i8] c"is_ncq(ncq_fis->command)\00", align 1
+@.str.125 = private unnamed_addr constant [25 x i8] c"%s: tag %d already used\0A\00", align 1
+@.str.126 = private unnamed_addr constant [85 x i8] c"ahci: PRDT length for NCQ command (0x%lx) is smaller than the requested size (0x%zx)\00", align 1
+@_TRACE_PROCESS_NCQ_COMMAND_MISMATCH_DSTATE = external global i16, align 2
+@.str.127 = private unnamed_addr constant [116 x i8] c"%d@%zu.%06zu:process_ncq_command_mismatch ahci(%p)[%d][tag:%d]: Warning: NCQ slot (%d) did not match the given tag\0A\00", align 1
+@.str.128 = private unnamed_addr constant [103 x i8] c"process_ncq_command_mismatch ahci(%p)[%d][tag:%d]: Warning: NCQ slot (%d) did not match the given tag\0A\00", align 1
+@_TRACE_PROCESS_NCQ_COMMAND_AUX_DSTATE = external global i16, align 2
+@.str.129 = private unnamed_addr constant [102 x i8] c"%d@%zu.%06zu:process_ncq_command_aux ahci(%p)[%d][tag:%d]: Warn: Attempt to use NCQ auxiliary fields\0A\00", align 1
+@.str.130 = private unnamed_addr constant [89 x i8] c"process_ncq_command_aux ahci(%p)[%d][tag:%d]: Warn: Attempt to use NCQ auxiliary fields\0A\00", align 1
+@_TRACE_PROCESS_NCQ_COMMAND_PRIOICC_DSTATE = external global i16, align 2
+@.str.131 = private unnamed_addr constant [113 x i8] c"%d@%zu.%06zu:process_ncq_command_prioicc ahci(%p)[%d][tag:%d]: Warn: Unsupported attempt to use PRIO/ICC fields\0A\00", align 1
+@.str.132 = private unnamed_addr constant [100 x i8] c"process_ncq_command_prioicc ahci(%p)[%d][tag:%d]: Warn: Unsupported attempt to use PRIO/ICC fields\0A\00", align 1
+@_TRACE_PROCESS_NCQ_COMMAND_FUA_DSTATE = external global i16, align 2
+@.str.133 = private unnamed_addr constant [111 x i8] c"%d@%zu.%06zu:process_ncq_command_fua ahci(%p)[%d][tag:%d]: Warn: Unsupported attempt to use Force Unit Access\0A\00", align 1
+@.str.134 = private unnamed_addr constant [98 x i8] c"process_ncq_command_fua ahci(%p)[%d][tag:%d]: Warn: Unsupported attempt to use Force Unit Access\0A\00", align 1
+@_TRACE_PROCESS_NCQ_COMMAND_RARC_DSTATE = external global i16, align 2
+@.str.135 = private unnamed_addr constant [109 x i8] c"%d@%zu.%06zu:process_ncq_command_rarc ahci(%p)[%d][tag:%d]: Warn: Unsupported attempt to use Rebuild Assist\0A\00", align 1
+@.str.136 = private unnamed_addr constant [96 x i8] c"process_ncq_command_rarc ahci(%p)[%d][tag:%d]: Warn: Unsupported attempt to use Rebuild Assist\0A\00", align 1
+@.str.137 = private unnamed_addr constant [4 x i8] c"bus\00", align 1
+@.str.138 = private unnamed_addr constant [101 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/qdev-core.h\00", align 1
+@__func__.BUS = private unnamed_addr constant [4 x i8] c"BUS\00", align 1
+@_TRACE_AHCI_POPULATE_SGLIST_DSTATE = external global i16, align 2
+@.str.139 = private unnamed_addr constant [48 x i8] c"%d@%zu.%06zu:ahci_populate_sglist ahci(%p)[%d]\0A\00", align 1
+@.str.140 = private unnamed_addr constant [35 x i8] c"ahci_populate_sglist ahci(%p)[%d]\0A\00", align 1
+@_TRACE_AHCI_POPULATE_SGLIST_NO_PRDTL_DSTATE = external global i16, align 2
+@.str.141 = private unnamed_addr constant [92 x i8] c"%d@%zu.%06zu:ahci_populate_sglist_no_prdtl ahci(%p)[%d]: no sg list given by guest: 0x%04x\0A\00", align 1
+@.str.142 = private unnamed_addr constant [79 x i8] c"ahci_populate_sglist_no_prdtl ahci(%p)[%d]: no sg list given by guest: 0x%04x\0A\00", align 1
+@_TRACE_AHCI_POPULATE_SGLIST_NO_MAP_DSTATE = external global i16, align 2
+@.str.143 = private unnamed_addr constant [75 x i8] c"%d@%zu.%06zu:ahci_populate_sglist_no_map ahci(%p)[%d]: DMA mapping failed\0A\00", align 1
+@.str.144 = private unnamed_addr constant [62 x i8] c"ahci_populate_sglist_no_map ahci(%p)[%d]: DMA mapping failed\0A\00", align 1
+@_TRACE_AHCI_POPULATE_SGLIST_SHORT_MAP_DSTATE = external global i16, align 2
+@.str.145 = private unnamed_addr constant [85 x i8] c"%d@%zu.%06zu:ahci_populate_sglist_short_map ahci(%p)[%d]: mapped less than expected\0A\00", align 1
+@.str.146 = private unnamed_addr constant [72 x i8] c"ahci_populate_sglist_short_map ahci(%p)[%d]: mapped less than expected\0A\00", align 1
+@_TRACE_AHCI_POPULATE_SGLIST_BAD_OFFSET_DSTATE = external global i16, align 2
+@.str.147 = private unnamed_addr constant [104 x i8] c"%d@%zu.%06zu:ahci_populate_sglist_bad_offset ahci(%p)[%d]: Incorrect offset! off_idx: %d, off_pos: %ld\0A\00", align 1
+@.str.148 = private unnamed_addr constant [91 x i8] c"ahci_populate_sglist_bad_offset ahci(%p)[%d]: Incorrect offset! off_idx: %d, off_pos: %ld\0A\00", align 1
+@_TRACE_PROCESS_NCQ_COMMAND_LARGE_DSTATE = external global i16, align 2
+@.str.149 = private unnamed_addr constant [120 x i8] c"%d@%zu.%06zu:process_ncq_command_large ahci(%p)[%d][tag:%d]: Warn: PRDTL (0x%zx) does not match requested size (0x%zx)\0A\00", align 1
+@.str.150 = private unnamed_addr constant [107 x i8] c"process_ncq_command_large ahci(%p)[%d][tag:%d]: Warn: PRDTL (0x%zx) does not match requested size (0x%zx)\0A\00", align 1
+@_TRACE_PROCESS_NCQ_COMMAND_DSTATE = external global i16, align 2
+@.str.151 = private unnamed_addr constant [91 x i8] c"%d@%zu.%06zu:process_ncq_command ahci(%p)[%d][tag:%d]: NCQ op 0x%02x on sectors [%ld,%ld]\0A\00", align 1
+@.str.152 = private unnamed_addr constant [78 x i8] c"process_ncq_command ahci(%p)[%d][tag:%d]: NCQ op 0x%02x on sectors [%ld,%ld]\0A\00", align 1
+@__func__.execute_ncq_command = private unnamed_addr constant [20 x i8] c"execute_ncq_command\00", align 1
+@.str.153 = private unnamed_addr constant [21 x i8] c"is_ncq(ncq_tfs->cmd)\00", align 1
+@_TRACE_EXECUTE_NCQ_COMMAND_READ_DSTATE = external global i16, align 2
+@.str.154 = private unnamed_addr constant [97 x i8] c"%d@%zu.%06zu:execute_ncq_command_read ahci(%p)[%d][tag:%d]: NCQ reading %d sectors from LBA %ld\0A\00", align 1
+@.str.155 = private unnamed_addr constant [84 x i8] c"execute_ncq_command_read ahci(%p)[%d][tag:%d]: NCQ reading %d sectors from LBA %ld\0A\00", align 1
+@_TRACE_NCQ_FINISH_DSTATE = external global i16, align 2
+@.str.156 = private unnamed_addr constant [69 x i8] c"%d@%zu.%06zu:ncq_finish ahci(%p)[%d][tag:%d]: NCQ transfer finished\0A\00", align 1
+@.str.157 = private unnamed_addr constant [56 x i8] c"ncq_finish ahci(%p)[%d][tag:%d]: NCQ transfer finished\0A\00", align 1
+@_TRACE_EXECUTE_NCQ_COMMAND_WRITE_DSTATE = external global i16, align 2
+@.str.158 = private unnamed_addr constant [96 x i8] c"%d@%zu.%06zu:execute_ncq_command_write ahci(%p)[%d][tag:%d]: NCQ writing %d sectors to LBA %ld\0A\00", align 1
+@.str.159 = private unnamed_addr constant [83 x i8] c"execute_ncq_command_write ahci(%p)[%d][tag:%d]: NCQ writing %d sectors to LBA %ld\0A\00", align 1
+@_TRACE_EXECUTE_NCQ_COMMAND_UNSUP_DSTATE = external global i16, align 2
+@.str.160 = private unnamed_addr constant [111 x i8] c"%d@%zu.%06zu:execute_ncq_command_unsup ahci(%p)[%d][tag:%d]: error: unsupported NCQ command (0x%02x) received\0A\00", align 1
+@.str.161 = private unnamed_addr constant [98 x i8] c"execute_ncq_command_unsup ahci(%p)[%d][tag:%d]: error: unsupported NCQ command (0x%02x) received\0A\00", align 1
+@.str.162 = private unnamed_addr constant [55 x i8] c"%d@%zu.%06zu:handle_reg_h2d_fis_dump ahci(%p)[%d]: %s\0A\00", align 1
+@.str.163 = private unnamed_addr constant [42 x i8] c"handle_reg_h2d_fis_dump ahci(%p)[%d]: %s\0A\00", align 1
+@_TRACE_HANDLE_CMD_UNHANDLED_FIS_DSTATE = external global i16, align 2
+@.str.164 = private unnamed_addr constant [99 x i8] c"%d@%zu.%06zu:handle_cmd_unhandled_fis ahci(%p)[%d]: unhandled FIS type. cmd_fis: 0x%02x-%02x-%02x\0A\00", align 1
+@.str.165 = private unnamed_addr constant [86 x i8] c"handle_cmd_unhandled_fis ahci(%p)[%d]: unhandled FIS type. cmd_fis: 0x%02x-%02x-%02x\0A\00", align 1
+@_TRACE_AHCI_PORT_WRITE_UNIMPL_DSTATE = external global i16, align 2
+@.str.166 = private unnamed_addr constant [100 x i8] c"%d@%zu.%06zu:ahci_port_write_unimpl ahci(%p)[%d]: unimplemented port write [reg:%s] @ 0x%x: 0x%08x\0A\00", align 1
+@.str.167 = private unnamed_addr constant [87 x i8] c"ahci_port_write_unimpl ahci(%p)[%d]: unimplemented port write [reg:%s] @ 0x%x: 0x%08x\0A\00", align 1
+@_TRACE_AHCI_MEM_WRITE_UNIMPL_DSTATE = external global i16, align 2
+@.str.168 = private unnamed_addr constant [90 x i8] c"%d@%zu.%06zu:ahci_mem_write_unimpl ahci(%p): write%u to unknown register 0x%lx: 0x%016lx\0A\00", align 1
+@.str.169 = private unnamed_addr constant [77 x i8] c"ahci_mem_write_unimpl ahci(%p): write%u to unknown register 0x%lx: 0x%016lx\0A\00", align 1
+@ahci_idp_ops = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.2, [4 x i8] } { ptr @ahci_idp_read, ptr @ahci_idp_write, ptr null, ptr null, i32 2, [4 x i8] zeroinitializer, %struct.anon zeroinitializer, %struct.anon.2 zeroinitializer, [4 x i8] zeroinitializer }, align 8
+@.str.171 = private unnamed_addr constant [23 x i8] c"ahci: IRQ#%d level:%d\0A\00", align 1
+@_TRACE_AHCI_START_DMA_DSTATE = external global i16, align 2
+@.str.172 = private unnamed_addr constant [53 x i8] c"%d@%zu.%06zu:ahci_start_dma ahci(%p)[%d]: start dma\0A\00", align 1
+@.str.173 = private unnamed_addr constant [40 x i8] c"ahci_start_dma ahci(%p)[%d]: start dma\0A\00", align 1
+@.str.174 = private unnamed_addr constant [5 x i8] c"writ\00", align 1
+@.str.175 = private unnamed_addr constant [5 x i8] c"read\00", align 1
+@.str.176 = private unnamed_addr constant [6 x i8] c"atapi\00", align 1
+@.str.177 = private unnamed_addr constant [4 x i8] c"ata\00", align 1
+@.str.178 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.179 = private unnamed_addr constant [2 x i8] c"o\00", align 1
+@__const.ahci_pio_transfer.attrs = private unnamed_addr constant { i8, i8, i8, i8, i8, i8, i16 } { i8 0, i8 0, i8 0, i8 0, i8 1, i8 0, i16 0 }, align 4
+@_TRACE_AHCI_PIO_TRANSFER_DSTATE = external global i16, align 2
+@.str.180 = private unnamed_addr constant [79 x i8] c"%d@%zu.%06zu:ahci_pio_transfer ahci(%p)[%d]: %sing %d bytes on %s w/%s sglist\0A\00", align 1
+@.str.181 = private unnamed_addr constant [66 x i8] c"ahci_pio_transfer ahci(%p)[%d]: %sing %d bytes on %s w/%s sglist\0A\00", align 1
+@_TRACE_AHCI_DMA_PREPARE_BUF_FAIL_DSTATE = external global i16, align 2
+@.str.182 = private unnamed_addr constant [79 x i8] c"%d@%zu.%06zu:ahci_dma_prepare_buf_fail ahci(%p)[%d]: sglist population failed\0A\00", align 1
+@.str.183 = private unnamed_addr constant [66 x i8] c"ahci_dma_prepare_buf_fail ahci(%p)[%d]: sglist population failed\0A\00", align 1
+@_TRACE_AHCI_DMA_PREPARE_BUF_DSTATE = external global i16, align 2
+@.str.184 = private unnamed_addr constant [82 x i8] c"%d@%zu.%06zu:ahci_dma_prepare_buf ahci(%p)[%d]: prepare buf limit=%d prepared=%d\0A\00", align 1
+@.str.185 = private unnamed_addr constant [69 x i8] c"ahci_dma_prepare_buf ahci(%p)[%d]: prepare buf limit=%d prepared=%d\0A\00", align 1
+@_TRACE_AHCI_DMA_RW_BUF_DSTATE = external global i16, align 2
+@.str.186 = private unnamed_addr constant [52 x i8] c"%d@%zu.%06zu:ahci_dma_rw_buf ahci(%p)[%d] len=0x%x\0A\00", align 1
+@.str.187 = private unnamed_addr constant [39 x i8] c"ahci_dma_rw_buf ahci(%p)[%d] len=0x%x\0A\00", align 1
+@.str.188 = private unnamed_addr constant [18 x i8] c"ahci_check_cmd_bh\00", align 1
+@_TRACE_AHCI_CMD_DONE_DSTATE = external global i16, align 2
+@.str.189 = private unnamed_addr constant [51 x i8] c"%d@%zu.%06zu:ahci_cmd_done ahci(%p)[%d]: cmd done\0A\00", align 1
+@.str.190 = private unnamed_addr constant [38 x i8] c"ahci_cmd_done ahci(%p)[%d]: cmd done\0A\00", align 1
+@_TRACE_AHCI_RESET_DSTATE = external global i16, align 2
+@.str.191 = private unnamed_addr constant [45 x i8] c"%d@%zu.%06zu:ahci_reset ahci(%p): HBA reset\0A\00", align 1
+@.str.192 = private unnamed_addr constant [32 x i8] c"ahci_reset ahci(%p): HBA reset\0A\00", align 1
+@_TRACE_AHCI_RESET_PORT_DSTATE = external global i16, align 2
+@.str.193 = private unnamed_addr constant [55 x i8] c"%d@%zu.%06zu:ahci_reset_port ahci(%p)[%d]: reset port\0A\00", align 1
+@.str.194 = private unnamed_addr constant [42 x i8] c"ahci_reset_port ahci(%p)[%d]: reset port\0A\00", align 1
+@_TRACE_AHCI_SET_SIGNATURE_DSTATE = external global i16, align 2
+@.str.195 = private unnamed_addr constant [137 x i8] c"%d@%zu.%06zu:ahci_set_signature ahci(%p)[%d]: set signature sector:0x%02x nsector:0x%02x lcyl:0x%02x hcyl:0x%02x (cumulatively: 0x%08x)\0A\00", align 1
+@.str.196 = private unnamed_addr constant [124 x i8] c"ahci_set_signature ahci(%p)[%d]: set signature sector:0x%02x nsector:0x%02x lcyl:0x%02x hcyl:0x%02x (cumulatively: 0x%08x)\0A\00", align 1
+@.str.197 = private unnamed_addr constant [78 x i8] c"AHCI: DMA engine should be off, but status bit indicates it is still running.\00", align 1
+@.str.198 = private unnamed_addr constant [81 x i8] c"AHCI: FIS RX engine should be off, but status bit indicates it is still running.\00", align 1
+@.str.199 = private unnamed_addr constant [10 x i8] c"ahci port\00", align 1
+@.str.200 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+@vmstate_ide_bus = external constant %struct.VMStateDescription, align 8
+@.str.201 = private unnamed_addr constant [12 x i8] c"port.ifs[0]\00", align 1
+@vmstate_ide_drive = external constant %struct.VMStateDescription, align 8
+@.str.202 = private unnamed_addr constant [11 x i8] c"port_state\00", align 1
+@.str.203 = private unnamed_addr constant [9 x i8] c"finished\00", align 1
+@.str.204 = private unnamed_addr constant [19 x i8] c"port_regs.lst_addr\00", align 1
+@.str.205 = private unnamed_addr constant [22 x i8] c"port_regs.lst_addr_hi\00", align 1
+@.str.206 = private unnamed_addr constant [19 x i8] c"port_regs.fis_addr\00", align 1
+@.str.207 = private unnamed_addr constant [22 x i8] c"port_regs.fis_addr_hi\00", align 1
+@.str.208 = private unnamed_addr constant [19 x i8] c"port_regs.irq_stat\00", align 1
+@.str.209 = private unnamed_addr constant [19 x i8] c"port_regs.irq_mask\00", align 1
+@.str.210 = private unnamed_addr constant [14 x i8] c"port_regs.cmd\00", align 1
+@.str.211 = private unnamed_addr constant [17 x i8] c"port_regs.tfdata\00", align 1
+@.str.212 = private unnamed_addr constant [14 x i8] c"port_regs.sig\00", align 1
+@.str.213 = private unnamed_addr constant [19 x i8] c"port_regs.scr_stat\00", align 1
+@.str.214 = private unnamed_addr constant [18 x i8] c"port_regs.scr_ctl\00", align 1
+@.str.215 = private unnamed_addr constant [18 x i8] c"port_regs.scr_err\00", align 1
+@.str.216 = private unnamed_addr constant [18 x i8] c"port_regs.scr_act\00", align 1
+@.str.217 = private unnamed_addr constant [20 x i8] c"port_regs.cmd_issue\00", align 1
+@.str.218 = private unnamed_addr constant [15 x i8] c"done_first_drq\00", align 1
+@vmstate_info_bool = external constant %struct.VMStateInfo, align 8
+@.str.219 = private unnamed_addr constant [10 x i8] c"busy_slot\00", align 1
+@vmstate_info_int32 = external constant %struct.VMStateInfo, align 8
+@.str.220 = private unnamed_addr constant [14 x i8] c"init_d2h_sent\00", align 1
+@.str.221 = private unnamed_addr constant [8 x i8] c"ncq_tfs\00", align 1
+@.compoundliteral.222 = internal constant [23 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.200, ptr null, i64 56, i64 2304, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 8, [4 x i8] zeroinitializer, ptr @vmstate_ide_bus, i32 1, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.201, ptr null, i64 192, i64 984, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 8, [4 x i8] zeroinitializer, ptr @vmstate_ide_drive, i32 1, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.202, ptr null, i64 2364, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.203, ptr null, i64 2368, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.204, ptr null, i64 2372, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.205, ptr null, i64 2376, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.206, ptr null, i64 2380, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.207, ptr null, i64 2384, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.208, ptr null, i64 2388, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.209, ptr null, i64 2392, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.210, ptr null, i64 2396, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.211, ptr null, i64 2404, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.212, ptr null, i64 2408, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.213, ptr null, i64 2412, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.214, ptr null, i64 2416, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.215, ptr null, i64 2420, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.216, ptr null, i64 2424, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.217, ptr null, i64 2428, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.218, ptr null, i64 2472, i64 1, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_bool, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.219, ptr null, i64 2476, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_int32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.220, ptr null, i64 2480, i64 1, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_bool, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.221, ptr null, i64 2496, i64 112, i64 0, i32 32, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 12, [4 x i8] zeroinitializer, ptr @vmstate_ncq_tfs, i32 1, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@vmstate_ahci_device = internal constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str.199, i8 0, i8 0, [2 x i8] zeroinitializer, i32 1, i32 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.compoundliteral.222, ptr null }, align 8
+@.str.224 = private unnamed_addr constant [10 x i8] c"ncq state\00", align 1
+@.str.225 = private unnamed_addr constant [13 x i8] c"sector_count\00", align 1
+@.str.226 = private unnamed_addr constant [4 x i8] c"lba\00", align 1
+@vmstate_info_uint64 = external constant %struct.VMStateInfo, align 8
+@.str.227 = private unnamed_addr constant [4 x i8] c"tag\00", align 1
+@vmstate_info_uint8 = external constant %struct.VMStateInfo, align 8
+@.str.228 = private unnamed_addr constant [4 x i8] c"cmd\00", align 1
+@.str.229 = private unnamed_addr constant [5 x i8] c"slot\00", align 1
+@.str.230 = private unnamed_addr constant [5 x i8] c"used\00", align 1
+@.str.231 = private unnamed_addr constant [5 x i8] c"halt\00", align 1
+@.compoundliteral.232 = internal constant [8 x { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr }] [{ ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.225, ptr null, i64 88, i64 4, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.226, ptr null, i64 96, i64 8, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint64, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.227, ptr null, i64 104, i64 1, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint8, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.228, ptr null, i64 105, i64 1, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint8, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.229, ptr null, i64 106, i64 1, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_uint8, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.230, ptr null, i64 107, i64 1, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_bool, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr @.str.231, ptr null, i64 108, i64 1, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr @vmstate_info_bool, i32 1, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }, { ptr, ptr, i64, i64, i64, i32, [4 x i8], i64, i64, ptr, i32, [4 x i8], ptr, i32, i32, ptr } { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, [4 x i8] zeroinitializer, i64 0, i64 0, ptr null, i32 65536, [4 x i8] zeroinitializer, ptr null, i32 0, i32 0, ptr null }], align 8
+@vmstate_ncq_tfs = internal constant { ptr, i8, i8, [2 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str.224, i8 0, i8 0, [2 x i8] zeroinitializer, i32 1, i32 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.compoundliteral.232, ptr null }, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @ahci_alloc(ptr noundef %ahci, i64 noundef %bytes) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %bytes.addr = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i64 %bytes, ptr %bytes.addr, align 8
-  br label %do.body
+define dso_local void @ahci_init(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.AHCIState, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  call void @memory_region_init_io(ptr noundef %6, ptr noundef %7, ptr noundef @ahci_mem_ops, ptr noundef %8, ptr noundef @.str, i64 noundef 4096)
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.AHCIState, ptr %9, i32 0, i32 3
+  %11 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %3, align 8
+  call void @memory_region_init_io(ptr noundef %10, ptr noundef %11, ptr noundef @ahci_idp_ops, ptr noundef %12, ptr noundef @.str.1, i64 noundef 32)
+  ret void
+}
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
+declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
 
-if.then:                                          ; preds = %do.body
-  br label %if.end
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @ahci_realize(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  store ptr null, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #15
+  store i32 0, ptr %8, align 4, !annotation !4
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIState, ptr %15, i32 0, i32 8
+  store ptr %14, ptr %16, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.AHCIState, ptr %17, i32 0, i32 6
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ugt i32 %19, 0
+  br i1 %20, label %21, label %22
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 106, ptr noundef @__func__.ahci_alloc, ptr noundef @.str.1) #9
+21:                                               ; preds = %3
+  br label %23
+
+22:                                               ; preds = %3
+  call void @__assert_fail(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 1591, ptr noundef @__PRETTY_FUNCTION__.ahci_realize) #16
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %do.end
+23:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds nuw %struct.AHCIState, ptr %24, i32 0, i32 6
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  store i64 %27, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  store i64 6088, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  store ptr null, ptr %11, align 8, !annotation !4
+  %28 = load i64, ptr %10, align 8
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %33
 
-do.end:                                           ; preds = %if.end
-  br label %do.body1
+30:                                               ; preds = %23
+  %31 = load i64, ptr %9, align 8
+  %32 = call noalias ptr @g_malloc0(i64 noundef %31) #17
+  store ptr %32, ptr %11, align 8
+  br label %54
 
-do.body1:                                         ; preds = %do.end
-  %1 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %parent, align 8
-  %tobool2 = icmp ne ptr %2, null
-  br i1 %tobool2, label %if.then3, label %if.else4
+33:                                               ; preds = %23
+  %34 = load i64, ptr %9, align 8
+  %35 = call i1 @llvm.is.constant.i64(i64 %34)
+  br i1 %35, label %36, label %49
 
-if.then3:                                         ; preds = %do.body1
-  br label %if.end5
+36:                                               ; preds = %33
+  %37 = load i64, ptr %10, align 8
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %44, label %39
 
-if.else4:                                         ; preds = %do.body1
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 107, ptr noundef @__func__.ahci_alloc, ptr noundef @.str.2) #9
-  unreachable
+39:                                               ; preds = %36
+  %40 = load i64, ptr %9, align 8
+  %41 = load i64, ptr %10, align 8
+  %42 = udiv i64 -1, %41
+  %43 = icmp ule i64 %40, %42
+  br i1 %43, label %44, label %49
 
-if.end5:                                          ; preds = %if.then3
-  br label %do.end6
+44:                                               ; preds = %39, %36
+  %45 = load i64, ptr %9, align 8
+  %46 = load i64, ptr %10, align 8
+  %47 = mul i64 %45, %46
+  %48 = call noalias ptr @g_malloc0(i64 noundef %47) #17
+  store ptr %48, ptr %11, align 8
+  br label %53
 
-do.end6:                                          ; preds = %if.end5
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %parent7 = getelementptr inbounds %struct.AHCIQState, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %parent7, align 8
-  %5 = load i64, ptr %bytes.addr, align 8
-  %call = call i64 @qmalloc(ptr noundef %4, i64 noundef %5)
-  ret i64 %call
-}
+49:                                               ; preds = %39, %33
+  %50 = load i64, ptr %9, align 8
+  %51 = load i64, ptr %10, align 8
+  %52 = call noalias ptr @g_malloc0_n(i64 noundef %50, i64 noundef %51) #18
+  store ptr %52, ptr %11, align 8
+  br label %53
 
-; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+53:                                               ; preds = %49, %44
+  br label %54
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qmalloc(ptr noundef %q, i64 noundef %bytes) #0 {
-entry:
-  %q.addr = alloca ptr, align 8
-  %bytes.addr = alloca i64, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %bytes, ptr %bytes.addr, align 8
-  %0 = load ptr, ptr %q.addr, align 8
-  %alloc = getelementptr inbounds %struct.QOSState, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %bytes.addr, align 8
-  %call = call i64 @guest_alloc(ptr noundef %alloc, i64 noundef %1)
-  ret i64 %call
-}
+54:                                               ; preds = %53, %30
+  %55 = load ptr, ptr %11, align 8
+  store ptr %55, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  %56 = load ptr, ptr %12, align 8
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw %struct.AHCIState, ptr %57, i32 0, i32 0
+  store ptr %56, ptr %58, align 16
+  %59 = load ptr, ptr %4, align 8
+  call void @ahci_reg_init(ptr noundef %59)
+  %60 = load ptr, ptr %4, align 8
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw %struct.AHCIState, ptr %61, i32 0, i32 6
+  %63 = load i32, ptr %62, align 8
+  %64 = call ptr @qemu_allocate_irqs(ptr noundef @ahci_irq_set, ptr noundef %60, i32 noundef %63)
+  store ptr %64, ptr %7, align 8
+  store i32 0, ptr %8, align 4
+  br label %65
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_free(ptr noundef %ahci, i64 noundef %addr) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  br label %do.body
+65:                                               ; preds = %107, %54
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %4, align 8
+  %68 = getelementptr inbounds nuw %struct.AHCIState, ptr %67, i32 0, i32 6
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ult i32 %66, %69
+  br i1 %70, label %71, label %110
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
+71:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #15
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw %struct.AHCIState, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 16
+  %75 = load i32, ptr %8, align 4
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %struct.AHCIDevice, ptr %74, i64 %76
+  store ptr %77, ptr %13, align 8
+  %78 = load ptr, ptr %13, align 8
+  %79 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %5, align 8
+  %81 = load i32, ptr %8, align 4
+  call void @ide_bus_init(ptr noundef %79, i64 noundef 2304, ptr noundef %80, i32 noundef %81, i32 noundef 1)
+  %82 = load ptr, ptr %13, align 8
+  %83 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %8, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
+  %88 = load ptr, ptr %87, align 8
+  call void @ide_bus_init_output_irq(ptr noundef %83, ptr noundef %88)
+  %89 = load ptr, ptr %4, align 8
+  %90 = load ptr, ptr %13, align 8
+  %91 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %90, i32 0, i32 6
+  store ptr %89, ptr %91, align 8
+  %92 = load i32, ptr %8, align 4
+  %93 = load ptr, ptr %13, align 8
+  %94 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %93, i32 0, i32 2
+  store i32 %92, ptr %94, align 8
+  %95 = load ptr, ptr %13, align 8
+  %96 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %95, i32 0, i32 0
+  %97 = load ptr, ptr %13, align 8
+  %98 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %97, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.IDEBus, ptr %98, i32 0, i32 7
+  store ptr %96, ptr %99, align 8
+  %100 = load ptr, ptr %13, align 8
+  %101 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %100, i32 0, i32 1
+  %102 = getelementptr inbounds nuw %struct.IDEBus, ptr %101, i32 0, i32 7
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds nuw %struct.IDEDMA, ptr %103, i32 0, i32 0
+  store ptr @ahci_dma_ops, ptr %104, align 8
+  %105 = load ptr, ptr %13, align 8
+  %106 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %105, i32 0, i32 1
+  call void @ide_bus_register_restart_cb(ptr noundef %106)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #15
+  br label %107
 
-if.then:                                          ; preds = %do.body
-  br label %if.end
+107:                                              ; preds = %71
+  %108 = load i32, ptr %8, align 4
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %8, align 4
+  br label %65, !llvm.loop !5
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 113, ptr noundef @__func__.ahci_free, ptr noundef @.str.1) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  %1 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %parent, align 8
-  %tobool2 = icmp ne ptr %2, null
-  br i1 %tobool2, label %if.then3, label %if.else4
-
-if.then3:                                         ; preds = %do.body1
-  br label %if.end5
-
-if.else4:                                         ; preds = %do.body1
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 114, ptr noundef @__func__.ahci_free, ptr noundef @.str.2) #9
-  unreachable
-
-if.end5:                                          ; preds = %if.then3
-  br label %do.end6
-
-do.end6:                                          ; preds = %if.end5
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %parent7 = getelementptr inbounds %struct.AHCIQState, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %parent7, align 8
-  %5 = load i64, ptr %addr.addr, align 8
-  call void @qfree(ptr noundef %4, i64 noundef %5)
+110:                                              ; preds = %65
+  %111 = load ptr, ptr %7, align 8
+  call void @g_free(ptr noundef %111)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @qfree(ptr noundef %q, i64 noundef %addr) #0 {
-entry:
-  %q.addr = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  %0 = load ptr, ptr %q.addr, align 8
-  %alloc = getelementptr inbounds %struct.QOSState, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %addr.addr, align 8
-  call void @guest_free(ptr noundef %alloc, i64 noundef %1)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @is_atapi(ptr noundef %ahci, i8 noundef zeroext %port) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %call = call i32 @ahci_px_rreg(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 9)
-  %cmp = icmp eq i32 %call, -351010559
-  ret i1 %cmp
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ahci_px_rreg(ptr noundef %ahci, i8 noundef zeroext %port, i32 noundef %reg_num) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %reg_num.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %2 = load i32, ptr %reg_num.addr, align 4
-  %call = call i64 @ahci_px_offset(i8 noundef zeroext %1, i32 noundef %2)
-  %conv = trunc i64 %call to i32
-  %call1 = call i32 @ahci_rreg(ptr noundef %0, i32 noundef %conv)
-  ret i32 %call1
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @get_ahci_device(ptr noundef %qts, ptr noundef %fingerprint) #0 {
-entry:
-  %qts.addr = alloca ptr, align 8
-  %fingerprint.addr = alloca ptr, align 8
-  %ahci = alloca ptr, align 8
-  %ahci_fingerprint = alloca i32, align 4
-  %pcibus = alloca ptr, align 8
-  store ptr %qts, ptr %qts.addr, align 8
-  store ptr %fingerprint, ptr %fingerprint.addr, align 8
-  %0 = load ptr, ptr %qts.addr, align 8
-  %call = call ptr @qpci_new_pc(ptr noundef %0, ptr noundef null)
-  store ptr %call, ptr %pcibus, align 8
-  %1 = load ptr, ptr %pcibus, align 8
-  %call1 = call ptr @qpci_device_find(ptr noundef %1, i32 noundef 250)
-  store ptr %call1, ptr %ahci, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %2 = load ptr, ptr %ahci, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 136, ptr noundef @__func__.get_ahci_device, ptr noundef @.str.3) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %3 = load ptr, ptr %ahci, align 8
-  %call2 = call i32 @qpci_config_readl(ptr noundef %3, i8 noundef zeroext 0)
-  store i32 %call2, ptr %ahci_fingerprint, align 4
-  %4 = load i32, ptr %ahci_fingerprint, align 4
-  switch i32 %4, label %sw.default [
-    i32 690126982, label %sw.bb
-  ]
-
-sw.bb:                                            ; preds = %do.end
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %do.end
-  br label %do.body3
-
-do.body3:                                         ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 145, ptr noundef @__func__.get_ahci_device, ptr noundef null) #9
-  unreachable
-
-do.end4:                                          ; No predecessors!
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %do.end4, %sw.bb
-  %5 = load ptr, ptr %fingerprint.addr, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %sw.epilog
-  %6 = load i32, ptr %ahci_fingerprint, align 4
-  %7 = load ptr, ptr %fingerprint.addr, align 8
-  store i32 %6, ptr %7, align 4
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.then5, %sw.epilog
-  %8 = load ptr, ptr %ahci, align 8
-  ret ptr %8
-}
-
-declare ptr @qpci_new_pc(ptr noundef, ptr noundef) #2
-
-declare ptr @qpci_device_find(ptr noundef, i32 noundef) #2
-
-declare i32 @qpci_config_readl(ptr noundef, i8 noundef zeroext) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @free_ahci_device(ptr noundef %dev) #0 {
-entry:
-  %dev.addr = alloca ptr, align 8
-  %pcibus = alloca ptr, align 8
-  store ptr %dev, ptr %dev.addr, align 8
-  %0 = load ptr, ptr %dev.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %dev.addr, align 8
-  %bus = getelementptr inbounds %struct.QPCIDevice, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %bus, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %2, %cond.true ], [ null, %cond.false ]
-  store ptr %cond, ptr %pcibus, align 8
-  %3 = load ptr, ptr %dev.addr, align 8
-  call void @g_free(ptr noundef %3)
-  %4 = load ptr, ptr %pcibus, align 8
-  call void @qpci_free_pc(ptr noundef %4)
-  ret void
-}
-
-declare void @g_free(ptr noundef) #2
-
-declare void @qpci_free_pc(ptr noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_clean_mem(ptr noundef %ahci) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port = alloca i8, align 1
-  %slot = alloca i8, align 1
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 0, ptr %port, align 1
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc30, %entry
-  %0 = load i8, ptr %port, align 1
-  %conv = zext i8 %0 to i32
-  %cmp = icmp slt i32 %conv, 32
-  br i1 %cmp, label %for.body, label %for.end32
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %ahci.addr, align 8
-  %port2 = getelementptr inbounds %struct.AHCIQState, ptr %1, i32 0, i32 7
-  %2 = load i8, ptr %port, align 1
-  %idxprom = zext i8 %2 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %idxprom
-  %fb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 0
-  %3 = load i64, ptr %fb, align 8
-  %tobool = icmp ne i64 %3, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %4 = load ptr, ptr %ahci.addr, align 8
-  %5 = load ptr, ptr %ahci.addr, align 8
-  %port3 = getelementptr inbounds %struct.AHCIQState, ptr %5, i32 0, i32 7
-  %6 = load i8, ptr %port, align 1
-  %idxprom4 = zext i8 %6 to i64
-  %arrayidx5 = getelementptr [32 x %struct.AHCIPortQState], ptr %port3, i64 0, i64 %idxprom4
-  %fb6 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx5, i32 0, i32 0
-  %7 = load i64, ptr %fb6, align 8
-  call void @ahci_free(ptr noundef %4, i64 noundef %7)
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %port7 = getelementptr inbounds %struct.AHCIQState, ptr %8, i32 0, i32 7
-  %9 = load i8, ptr %port, align 1
-  %idxprom8 = zext i8 %9 to i64
-  %arrayidx9 = getelementptr [32 x %struct.AHCIPortQState], ptr %port7, i64 0, i64 %idxprom8
-  %fb10 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx9, i32 0, i32 0
-  store i64 0, ptr %fb10, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  %10 = load ptr, ptr %ahci.addr, align 8
-  %port11 = getelementptr inbounds %struct.AHCIQState, ptr %10, i32 0, i32 7
-  %11 = load i8, ptr %port, align 1
-  %idxprom12 = zext i8 %11 to i64
-  %arrayidx13 = getelementptr [32 x %struct.AHCIPortQState], ptr %port11, i64 0, i64 %idxprom12
-  %clb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx13, i32 0, i32 1
-  %12 = load i64, ptr %clb, align 8
-  %tobool14 = icmp ne i64 %12, 0
-  br i1 %tobool14, label %if.then15, label %if.end29
-
-if.then15:                                        ; preds = %if.end
-  store i8 0, ptr %slot, align 1
-  br label %for.cond16
-
-for.cond16:                                       ; preds = %for.inc, %if.then15
-  %13 = load i8, ptr %slot, align 1
-  %conv17 = zext i8 %13 to i32
-  %cmp18 = icmp slt i32 %conv17, 32
-  br i1 %cmp18, label %for.body20, label %for.end
-
-for.body20:                                       ; preds = %for.cond16
-  %14 = load ptr, ptr %ahci.addr, align 8
-  %15 = load i8, ptr %port, align 1
-  %16 = load i8, ptr %slot, align 1
-  call void @ahci_destroy_command(ptr noundef %14, i8 noundef zeroext %15, i8 noundef zeroext %16)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body20
-  %17 = load i8, ptr %slot, align 1
-  %inc = add i8 %17, 1
-  store i8 %inc, ptr %slot, align 1
-  br label %for.cond16, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond16
-  %18 = load ptr, ptr %ahci.addr, align 8
-  %19 = load ptr, ptr %ahci.addr, align 8
-  %port21 = getelementptr inbounds %struct.AHCIQState, ptr %19, i32 0, i32 7
-  %20 = load i8, ptr %port, align 1
-  %idxprom22 = zext i8 %20 to i64
-  %arrayidx23 = getelementptr [32 x %struct.AHCIPortQState], ptr %port21, i64 0, i64 %idxprom22
-  %clb24 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx23, i32 0, i32 1
-  %21 = load i64, ptr %clb24, align 8
-  call void @ahci_free(ptr noundef %18, i64 noundef %21)
-  %22 = load ptr, ptr %ahci.addr, align 8
-  %port25 = getelementptr inbounds %struct.AHCIQState, ptr %22, i32 0, i32 7
-  %23 = load i8, ptr %port, align 1
-  %idxprom26 = zext i8 %23 to i64
-  %arrayidx27 = getelementptr [32 x %struct.AHCIPortQState], ptr %port25, i64 0, i64 %idxprom26
-  %clb28 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx27, i32 0, i32 1
-  store i64 0, ptr %clb28, align 8
-  br label %if.end29
-
-if.end29:                                         ; preds = %for.end, %if.end
-  br label %for.inc30
-
-for.inc30:                                        ; preds = %if.end29
-  %24 = load i8, ptr %port, align 1
-  %inc31 = add i8 %24, 1
-  store i8 %inc31, ptr %port, align 1
-  br label %for.cond, !llvm.loop !7
-
-for.end32:                                        ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_destroy_command(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %slot.addr = alloca i8, align 1
-  %cmd = alloca %struct.AHCICommandHeader, align 1
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %slot, ptr %slot.addr, align 1
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %2 = load i8, ptr %slot.addr, align 1
-  call void @ahci_get_command_header(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %cmd)
-  %ctba = getelementptr inbounds %struct.AHCICommandHeader, ptr %cmd, i32 0, i32 3
-  %3 = load i64, ptr %ctba, align 1
-  %cmp = icmp eq i64 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %tidy
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %ahci.addr, align 8
-  %ctba1 = getelementptr inbounds %struct.AHCICommandHeader, ptr %cmd, i32 0, i32 3
-  %5 = load i64, ptr %ctba1, align 1
-  call void @ahci_free(ptr noundef %4, i64 noundef %5)
-  br label %tidy
-
-tidy:                                             ; preds = %if.end, %if.then
-  call void @llvm.memset.p0.i64(ptr align 1 %cmd, i8 0, i64 32, i1 false)
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %7 = load i8, ptr %port.addr, align 1
-  %8 = load i8, ptr %slot.addr, align 1
-  call void @ahci_set_command_header(ptr noundef %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef %cmd)
-  %9 = load ptr, ptr %ahci.addr, align 8
-  %port2 = getelementptr inbounds %struct.AHCIQState, ptr %9, i32 0, i32 7
-  %10 = load i8, ptr %port.addr, align 1
-  %idxprom = zext i8 %10 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %idxprom
-  %ctba3 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 2
-  %11 = load i8, ptr %slot.addr, align 1
-  %idxprom4 = zext i8 %11 to i64
-  %arrayidx5 = getelementptr [32 x i64], ptr %ctba3, i64 0, i64 %idxprom4
-  store i64 0, ptr %arrayidx5, align 8
-  %12 = load ptr, ptr %ahci.addr, align 8
-  %port6 = getelementptr inbounds %struct.AHCIQState, ptr %12, i32 0, i32 7
-  %13 = load i8, ptr %port.addr, align 1
-  %idxprom7 = zext i8 %13 to i64
-  %arrayidx8 = getelementptr [32 x %struct.AHCIPortQState], ptr %port6, i64 0, i64 %idxprom7
-  %prdtl = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx8, i32 0, i32 3
-  %14 = load i8, ptr %slot.addr, align 1
-  %idxprom9 = zext i8 %14 to i64
-  %arrayidx10 = getelementptr [32 x i16], ptr %prdtl, i64 0, i64 %idxprom9
-  store i16 0, ptr %arrayidx10, align 2
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_pci_enable(ptr noundef %ahci) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %reg = alloca i8, align 1
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  call void @start_ahci_device(ptr noundef %0)
-  %1 = load ptr, ptr %ahci.addr, align 8
-  %fingerprint = getelementptr inbounds %struct.AHCIQState, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %fingerprint, align 8
-  switch i32 %2, label %sw.epilog [
-    i32 690126982, label %sw.bb
-  ]
-
-sw.bb:                                            ; preds = %entry
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %dev = getelementptr inbounds %struct.AHCIQState, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %dev, align 8
-  %call = call zeroext i8 @qpci_config_readb(ptr noundef %4, i8 noundef zeroext -110)
-  store i8 %call, ptr %reg, align 1
-  %5 = load i8, ptr %reg, align 1
-  %conv = zext i8 %5 to i32
-  %or = or i32 %conv, 63
-  %conv1 = trunc i32 %or to i8
-  store i8 %conv1, ptr %reg, align 1
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %dev2 = getelementptr inbounds %struct.AHCIQState, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %dev2, align 8
-  %8 = load i8, ptr %reg, align 1
-  call void @qpci_config_writeb(ptr noundef %7, i8 noundef zeroext -110, i8 noundef zeroext %8)
-  br label %do.body
-
-do.body:                                          ; preds = %sw.bb
-  %9 = load ptr, ptr %ahci.addr, align 8
-  %dev3 = getelementptr inbounds %struct.AHCIQState, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %dev3, align 8
-  %call4 = call zeroext i8 @qpci_config_readb(ptr noundef %10, i8 noundef zeroext -110)
-  %conv5 = zext i8 %call4 to i32
-  %and = and i32 %conv5, 63
-  %conv6 = sext i32 %and to i64
-  store i64 %conv6, ptr %__n1, align 8
-  store i64 63, ptr %__n2, align 8
-  %11 = load i64, ptr %__n1, align 8
-  %12 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %11, %12
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %13 = load i64, ptr %__n1, align 8
-  %conv8 = uitofp i64 %13 to x86_fp80
-  %14 = load i64, ptr %__n2, align 8
-  %conv9 = uitofp i64 %14 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 202, ptr noundef @__func__.ahci_pci_enable, ptr noundef @.str.4, x86_fp80 noundef %conv8, ptr noundef @.str.5, x86_fp80 noundef %conv9, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %do.end, %entry
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @start_ahci_device(ptr noundef %ahci) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %tmp = alloca %struct.QPCIBar, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %hba_bar = getelementptr inbounds %struct.AHCIQState, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %ahci.addr, align 8
-  %dev = getelementptr inbounds %struct.AHCIQState, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %dev, align 8
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %barsize = getelementptr inbounds %struct.AHCIQState, ptr %3, i32 0, i32 3
-  %call = call { i64, i8 } @qpci_iomap(ptr noundef %2, i32 noundef 5, ptr noundef %barsize)
-  %4 = getelementptr inbounds { i64, i8 }, ptr %tmp, i32 0, i32 0
-  %5 = extractvalue { i64, i8 } %call, 0
-  store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i8 }, ptr %tmp, i32 0, i32 1
-  %7 = extractvalue { i64, i8 } %call, 1
-  store i8 %7, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %hba_bar, ptr align 8 %tmp, i64 16, i1 false)
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %dev1 = getelementptr inbounds %struct.AHCIQState, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %dev1, align 8
-  call void @qpci_device_enable(ptr noundef %9)
-  ret void
-}
-
-declare zeroext i8 @qpci_config_readb(ptr noundef, i8 noundef zeroext) #2
-
-declare void @qpci_config_writeb(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) #2
-
-declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) #2
-
-declare { i64, i8 } @qpci_iomap(ptr noundef, i32 noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
-
-declare void @qpci_device_enable(ptr noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_hba_enable(ptr noundef %ahci) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %reg = alloca i32, align 4
-  %ports_impl = alloca i32, align 4
-  %i = alloca i16, align 2
-  %num_cmd_slots = alloca i8, align 1
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n135 = alloca i64, align 8
-  %__n238 = alloca i64, align 8
-  %__n148 = alloca i64, align 8
-  %__n251 = alloca i64, align 8
-  %__n182 = alloca i64, align 8
-  %__n287 = alloca i64, align 8
-  %__n1120 = alloca i64, align 8
-  %__n2125 = alloca i64, align 8
-  %__n1143 = alloca i64, align 8
-  %__n2145 = alloca i64, align 8
-  %__n1157 = alloca i64, align 8
-  %__n2159 = alloca i64, align 8
-  %__n1170 = alloca i64, align 8
-  %__n2175 = alloca i64, align 8
-  %__n1188 = alloca i64, align 8
-  %__n2190 = alloca i64, align 8
-  %__n1203 = alloca i64, align 8
-  %__n2206 = alloca i64, align 8
-  %__n1237 = alloca i64, align 8
-  %__n2242 = alloca i64, align 8
-  %__n1264 = alloca i64, align 8
-  %__n2267 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 240, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.3) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %1 = load ptr, ptr %ahci.addr, align 8
-  call void @ahci_set(ptr noundef %1, i32 noundef 1, i32 noundef -2147483648)
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %call = call i32 @ahci_rreg(ptr noundef %2, i32 noundef 1)
-  store i32 %call, ptr %reg, align 4
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  %3 = load i32, ptr %reg, align 4
-  %and = and i32 %3, -2147483648
-  %conv = zext i32 %and to i64
-  store i64 %conv, ptr %__n1, align 8
-  store i64 2147483648, ptr %__n2, align 8
-  %4 = load i64, ptr %__n1, align 8
-  %5 = load i64, ptr %__n2, align 8
-  %cmp2 = icmp eq i64 %4, %5
-  br i1 %cmp2, label %if.then4, label %if.else5
-
-if.then4:                                         ; preds = %do.body1
-  br label %if.end8
-
-if.else5:                                         ; preds = %do.body1
-  %6 = load i64, ptr %__n1, align 8
-  %conv6 = uitofp i64 %6 to x86_fp80
-  %7 = load i64, ptr %__n2, align 8
-  %conv7 = uitofp i64 %7 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 245, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.6, x86_fp80 noundef %conv6, ptr noundef @.str.5, x86_fp80 noundef %conv7, i8 noundef signext 120)
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.else5, %if.then4
-  br label %do.end9
-
-do.end9:                                          ; preds = %if.end8
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %call10 = call i32 @ahci_rreg(ptr noundef %8, i32 noundef 0)
-  %9 = load ptr, ptr %ahci.addr, align 8
-  %cap = getelementptr inbounds %struct.AHCIQState, ptr %9, i32 0, i32 5
-  store i32 %call10, ptr %cap, align 4
-  %10 = load ptr, ptr %ahci.addr, align 8
-  %call11 = call i32 @ahci_rreg(ptr noundef %10, i32 noundef 9)
-  %11 = load ptr, ptr %ahci.addr, align 8
-  %cap2 = getelementptr inbounds %struct.AHCIQState, ptr %11, i32 0, i32 6
-  store i32 %call11, ptr %cap2, align 8
-  %12 = load ptr, ptr %ahci.addr, align 8
-  %cap12 = getelementptr inbounds %struct.AHCIQState, ptr %12, i32 0, i32 5
-  %13 = load i32, ptr %cap12, align 4
-  %and13 = and i32 %13, 7936
-  %call14 = call i32 @ctz64(i64 noundef 7936)
-  %shr = lshr i32 %and13, %call14
-  %add = add i32 %shr, 1
-  %conv15 = trunc i32 %add to i8
-  store i8 %conv15, ptr %num_cmd_slots, align 1
-  %14 = load i8, ptr %num_cmd_slots, align 1
-  %conv16 = zext i8 %14 to i32
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.7, i32 noundef %conv16)
-  %15 = load ptr, ptr %ahci.addr, align 8
-  %call17 = call i32 @ahci_rreg(ptr noundef %15, i32 noundef 3)
-  store i32 %call17, ptr %ports_impl, align 4
-  store i16 0, ptr %i, align 2
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %do.end9
-  %16 = load i32, ptr %ports_impl, align 4
-  %tobool = icmp ne i32 %16, 0
-  br i1 %tobool, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %17 = load i32, ptr %ports_impl, align 4
-  %and18 = and i32 %17, 1
-  %tobool19 = icmp ne i32 %and18, 0
-  br i1 %tobool19, label %if.end21, label %if.then20
-
-if.then20:                                        ; preds = %for.body
-  br label %for.inc
-
-if.end21:                                         ; preds = %for.body
-  %18 = load i16, ptr %i, align 2
-  %conv22 = zext i16 %18 to i32
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.8, i32 noundef %conv22)
-  %19 = load ptr, ptr %ahci.addr, align 8
-  %20 = load i16, ptr %i, align 2
-  %conv23 = trunc i16 %20 to i8
-  %call24 = call i32 @ahci_px_rreg(ptr noundef %19, i8 noundef zeroext %conv23, i32 noundef 6)
-  store i32 %call24, ptr %reg, align 4
-  %21 = load i32, ptr %reg, align 4
-  %and25 = and i32 %21, 49169
-  %cmp26 = icmp eq i32 %and25, 0
-  br i1 %cmp26, label %if.then28, label %if.else29
-
-if.then28:                                        ; preds = %if.end21
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.9)
-  br label %if.end60
-
-if.else29:                                        ; preds = %if.end21
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.10)
-  %22 = load ptr, ptr %ahci.addr, align 8
-  %23 = load i16, ptr %i, align 2
-  %conv30 = trunc i16 %23 to i8
-  call void @ahci_px_clr(ptr noundef %22, i8 noundef zeroext %conv30, i32 noundef 6, i32 noundef 17)
-  %call31 = call i32 @usleep(i32 noundef 500000)
-  %24 = load ptr, ptr %ahci.addr, align 8
-  %25 = load i16, ptr %i, align 2
-  %conv32 = trunc i16 %25 to i8
-  %call33 = call i32 @ahci_px_rreg(ptr noundef %24, i8 noundef zeroext %conv32, i32 noundef 6)
-  store i32 %call33, ptr %reg, align 4
-  br label %do.body34
-
-do.body34:                                        ; preds = %if.else29
-  %26 = load i32, ptr %reg, align 4
-  %and36 = and i32 %26, 32768
-  %conv37 = zext i32 %and36 to i64
-  store i64 %conv37, ptr %__n135, align 8
-  store i64 0, ptr %__n238, align 8
-  %27 = load i64, ptr %__n135, align 8
-  %28 = load i64, ptr %__n238, align 8
-  %cmp39 = icmp eq i64 %27, %28
-  br i1 %cmp39, label %if.then41, label %if.else42
-
-if.then41:                                        ; preds = %do.body34
-  br label %if.end45
-
-if.else42:                                        ; preds = %do.body34
-  %29 = load i64, ptr %__n135, align 8
-  %conv43 = uitofp i64 %29 to x86_fp80
-  %30 = load i64, ptr %__n238, align 8
-  %conv44 = uitofp i64 %30 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 276, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.11, x86_fp80 noundef %conv43, ptr noundef @.str.5, x86_fp80 noundef %conv44, i8 noundef signext 120)
-  br label %if.end45
-
-if.end45:                                         ; preds = %if.else42, %if.then41
-  br label %do.end46
-
-do.end46:                                         ; preds = %if.end45
-  br label %do.body47
-
-do.body47:                                        ; preds = %do.end46
-  %31 = load i32, ptr %reg, align 4
-  %and49 = and i32 %31, 16384
-  %conv50 = zext i32 %and49 to i64
-  store i64 %conv50, ptr %__n148, align 8
-  store i64 0, ptr %__n251, align 8
-  %32 = load i64, ptr %__n148, align 8
-  %33 = load i64, ptr %__n251, align 8
-  %cmp52 = icmp eq i64 %32, %33
-  br i1 %cmp52, label %if.then54, label %if.else55
-
-if.then54:                                        ; preds = %do.body47
-  br label %if.end58
-
-if.else55:                                        ; preds = %do.body47
-  %34 = load i64, ptr %__n148, align 8
-  %conv56 = uitofp i64 %34 to x86_fp80
-  %35 = load i64, ptr %__n251, align 8
-  %conv57 = uitofp i64 %35 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 277, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.12, x86_fp80 noundef %conv56, ptr noundef @.str.5, x86_fp80 noundef %conv57, i8 noundef signext 120)
-  br label %if.end58
-
-if.end58:                                         ; preds = %if.else55, %if.then54
-  br label %do.end59
-
-do.end59:                                         ; preds = %if.end58
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.13)
-  br label %if.end60
-
-if.end60:                                         ; preds = %do.end59, %if.then28
-  %36 = load ptr, ptr %ahci.addr, align 8
-  %37 = load i8, ptr %num_cmd_slots, align 1
-  %conv61 = zext i8 %37 to i32
-  %mul = mul i32 %conv61, 32
-  %conv62 = sext i32 %mul to i64
-  %call63 = call i64 @ahci_alloc(ptr noundef %36, i64 noundef %conv62)
-  %38 = load ptr, ptr %ahci.addr, align 8
-  %port = getelementptr inbounds %struct.AHCIQState, ptr %38, i32 0, i32 7
-  %39 = load i16, ptr %i, align 2
-  %idxprom = zext i16 %39 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port, i64 0, i64 %idxprom
-  %clb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 1
-  store i64 %call63, ptr %clb, align 8
-  %40 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %qts, align 8
-  %43 = load ptr, ptr %ahci.addr, align 8
-  %port64 = getelementptr inbounds %struct.AHCIQState, ptr %43, i32 0, i32 7
-  %44 = load i16, ptr %i, align 2
-  %idxprom65 = zext i16 %44 to i64
-  %arrayidx66 = getelementptr [32 x %struct.AHCIPortQState], ptr %port64, i64 0, i64 %idxprom65
-  %clb67 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx66, i32 0, i32 1
-  %45 = load i64, ptr %clb67, align 8
-  %46 = load i8, ptr %num_cmd_slots, align 1
-  %conv68 = zext i8 %46 to i32
-  %mul69 = mul i32 %conv68, 32
-  %conv70 = sext i32 %mul69 to i64
-  call void @qtest_memset(ptr noundef %42, i64 noundef %45, i8 noundef zeroext 0, i64 noundef %conv70)
-  %47 = load ptr, ptr %ahci.addr, align 8
-  %port71 = getelementptr inbounds %struct.AHCIQState, ptr %47, i32 0, i32 7
-  %48 = load i16, ptr %i, align 2
-  %idxprom72 = zext i16 %48 to i64
-  %arrayidx73 = getelementptr [32 x %struct.AHCIPortQState], ptr %port71, i64 0, i64 %idxprom72
-  %clb74 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx73, i32 0, i32 1
-  %49 = load i64, ptr %clb74, align 8
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.14, i64 noundef %49)
-  %50 = load ptr, ptr %ahci.addr, align 8
-  %51 = load i16, ptr %i, align 2
-  %conv75 = trunc i16 %51 to i8
-  %52 = load ptr, ptr %ahci.addr, align 8
-  %port76 = getelementptr inbounds %struct.AHCIQState, ptr %52, i32 0, i32 7
-  %53 = load i16, ptr %i, align 2
-  %idxprom77 = zext i16 %53 to i64
-  %arrayidx78 = getelementptr [32 x %struct.AHCIPortQState], ptr %port76, i64 0, i64 %idxprom77
-  %clb79 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx78, i32 0, i32 1
-  %54 = load i64, ptr %clb79, align 8
-  %conv80 = trunc i64 %54 to i32
-  call void @ahci_px_wreg(ptr noundef %50, i8 noundef zeroext %conv75, i32 noundef 0, i32 noundef %conv80)
-  br label %do.body81
-
-do.body81:                                        ; preds = %if.end60
-  %55 = load ptr, ptr %ahci.addr, align 8
-  %port83 = getelementptr inbounds %struct.AHCIQState, ptr %55, i32 0, i32 7
-  %56 = load i16, ptr %i, align 2
-  %idxprom84 = zext i16 %56 to i64
-  %arrayidx85 = getelementptr [32 x %struct.AHCIPortQState], ptr %port83, i64 0, i64 %idxprom84
-  %clb86 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx85, i32 0, i32 1
-  %57 = load i64, ptr %clb86, align 8
-  store i64 %57, ptr %__n182, align 8
-  %58 = load ptr, ptr %ahci.addr, align 8
-  %59 = load i16, ptr %i, align 2
-  %conv88 = trunc i16 %59 to i8
-  %call89 = call i32 @ahci_px_rreg(ptr noundef %58, i8 noundef zeroext %conv88, i32 noundef 0)
-  %conv90 = zext i32 %call89 to i64
-  store i64 %conv90, ptr %__n287, align 8
-  %60 = load i64, ptr %__n182, align 8
-  %61 = load i64, ptr %__n287, align 8
-  %cmp91 = icmp eq i64 %60, %61
-  br i1 %cmp91, label %if.then93, label %if.else94
-
-if.then93:                                        ; preds = %do.body81
-  br label %if.end97
-
-if.else94:                                        ; preds = %do.body81
-  %62 = load i64, ptr %__n182, align 8
-  %conv95 = uitofp i64 %62 to x86_fp80
-  %63 = load i64, ptr %__n287, align 8
-  %conv96 = uitofp i64 %63 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 291, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.15, x86_fp80 noundef %conv95, ptr noundef @.str.5, x86_fp80 noundef %conv96, i8 noundef signext 120)
-  br label %if.end97
-
-if.end97:                                         ; preds = %if.else94, %if.then93
-  br label %do.end98
-
-do.end98:                                         ; preds = %if.end97
-  %64 = load ptr, ptr %ahci.addr, align 8
-  %call99 = call i64 @ahci_alloc(ptr noundef %64, i64 noundef 256)
-  %65 = load ptr, ptr %ahci.addr, align 8
-  %port100 = getelementptr inbounds %struct.AHCIQState, ptr %65, i32 0, i32 7
-  %66 = load i16, ptr %i, align 2
-  %idxprom101 = zext i16 %66 to i64
-  %arrayidx102 = getelementptr [32 x %struct.AHCIPortQState], ptr %port100, i64 0, i64 %idxprom101
-  %fb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx102, i32 0, i32 0
-  store i64 %call99, ptr %fb, align 8
-  %67 = load ptr, ptr %ahci.addr, align 8
-  %parent103 = getelementptr inbounds %struct.AHCIQState, ptr %67, i32 0, i32 0
-  %68 = load ptr, ptr %parent103, align 8
-  %qts104 = getelementptr inbounds %struct.QOSState, ptr %68, i32 0, i32 0
-  %69 = load ptr, ptr %qts104, align 8
-  %70 = load ptr, ptr %ahci.addr, align 8
-  %port105 = getelementptr inbounds %struct.AHCIQState, ptr %70, i32 0, i32 7
-  %71 = load i16, ptr %i, align 2
-  %idxprom106 = zext i16 %71 to i64
-  %arrayidx107 = getelementptr [32 x %struct.AHCIPortQState], ptr %port105, i64 0, i64 %idxprom106
-  %fb108 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx107, i32 0, i32 0
-  %72 = load i64, ptr %fb108, align 8
-  call void @qtest_memset(ptr noundef %69, i64 noundef %72, i8 noundef zeroext 0, i64 noundef 256)
-  %73 = load ptr, ptr %ahci.addr, align 8
-  %port109 = getelementptr inbounds %struct.AHCIQState, ptr %73, i32 0, i32 7
-  %74 = load i16, ptr %i, align 2
-  %idxprom110 = zext i16 %74 to i64
-  %arrayidx111 = getelementptr [32 x %struct.AHCIPortQState], ptr %port109, i64 0, i64 %idxprom110
-  %fb112 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx111, i32 0, i32 0
-  %75 = load i64, ptr %fb112, align 8
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.16, i64 noundef %75)
-  %76 = load ptr, ptr %ahci.addr, align 8
-  %77 = load i16, ptr %i, align 2
-  %conv113 = trunc i16 %77 to i8
-  %78 = load ptr, ptr %ahci.addr, align 8
-  %port114 = getelementptr inbounds %struct.AHCIQState, ptr %78, i32 0, i32 7
-  %79 = load i16, ptr %i, align 2
-  %idxprom115 = zext i16 %79 to i64
-  %arrayidx116 = getelementptr [32 x %struct.AHCIPortQState], ptr %port114, i64 0, i64 %idxprom115
-  %fb117 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx116, i32 0, i32 0
-  %80 = load i64, ptr %fb117, align 8
-  %conv118 = trunc i64 %80 to i32
-  call void @ahci_px_wreg(ptr noundef %76, i8 noundef zeroext %conv113, i32 noundef 2, i32 noundef %conv118)
-  br label %do.body119
-
-do.body119:                                       ; preds = %do.end98
-  %81 = load ptr, ptr %ahci.addr, align 8
-  %port121 = getelementptr inbounds %struct.AHCIQState, ptr %81, i32 0, i32 7
-  %82 = load i16, ptr %i, align 2
-  %idxprom122 = zext i16 %82 to i64
-  %arrayidx123 = getelementptr [32 x %struct.AHCIPortQState], ptr %port121, i64 0, i64 %idxprom122
-  %fb124 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx123, i32 0, i32 0
-  %83 = load i64, ptr %fb124, align 8
-  store i64 %83, ptr %__n1120, align 8
-  %84 = load ptr, ptr %ahci.addr, align 8
-  %85 = load i16, ptr %i, align 2
-  %conv126 = trunc i16 %85 to i8
-  %call127 = call i32 @ahci_px_rreg(ptr noundef %84, i8 noundef zeroext %conv126, i32 noundef 2)
-  %conv128 = zext i32 %call127 to i64
-  store i64 %conv128, ptr %__n2125, align 8
-  %86 = load i64, ptr %__n1120, align 8
-  %87 = load i64, ptr %__n2125, align 8
-  %cmp129 = icmp eq i64 %86, %87
-  br i1 %cmp129, label %if.then131, label %if.else132
-
-if.then131:                                       ; preds = %do.body119
-  br label %if.end135
-
-if.else132:                                       ; preds = %do.body119
-  %88 = load i64, ptr %__n1120, align 8
-  %conv133 = uitofp i64 %88 to x86_fp80
-  %89 = load i64, ptr %__n2125, align 8
-  %conv134 = uitofp i64 %89 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 299, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.17, x86_fp80 noundef %conv133, ptr noundef @.str.5, x86_fp80 noundef %conv134, i8 noundef signext 120)
-  br label %if.end135
-
-if.end135:                                        ; preds = %if.else132, %if.then131
-  br label %do.end136
-
-do.end136:                                        ; preds = %if.end135
-  %90 = load ptr, ptr %ahci.addr, align 8
-  %91 = load i16, ptr %i, align 2
-  %conv137 = trunc i16 %91 to i8
-  call void @ahci_px_wreg(ptr noundef %90, i8 noundef zeroext %conv137, i32 noundef 12, i32 noundef -1)
-  %92 = load ptr, ptr %ahci.addr, align 8
-  %93 = load i16, ptr %i, align 2
-  %conv138 = trunc i16 %93 to i8
-  call void @ahci_px_wreg(ptr noundef %92, i8 noundef zeroext %conv138, i32 noundef 4, i32 noundef -1)
-  %94 = load ptr, ptr %ahci.addr, align 8
-  %95 = load i16, ptr %i, align 2
-  %conv139 = zext i16 %95 to i32
-  %shl = shl i32 1, %conv139
-  call void @ahci_wreg(ptr noundef %94, i32 noundef 2, i32 noundef %shl)
-  %96 = load ptr, ptr %ahci.addr, align 8
-  %97 = load i16, ptr %i, align 2
-  %conv140 = trunc i16 %97 to i8
-  %call141 = call i32 @ahci_px_rreg(ptr noundef %96, i8 noundef zeroext %conv140, i32 noundef 12)
-  store i32 %call141, ptr %reg, align 4
-  br label %do.body142
-
-do.body142:                                       ; preds = %do.end136
-  %98 = load i32, ptr %reg, align 4
-  %conv144 = zext i32 %98 to i64
-  store i64 %conv144, ptr %__n1143, align 8
-  store i64 0, ptr %__n2145, align 8
-  %99 = load i64, ptr %__n1143, align 8
-  %100 = load i64, ptr %__n2145, align 8
-  %cmp146 = icmp eq i64 %99, %100
-  br i1 %cmp146, label %if.then148, label %if.else149
-
-if.then148:                                       ; preds = %do.body142
-  br label %if.end152
-
-if.else149:                                       ; preds = %do.body142
-  %101 = load i64, ptr %__n1143, align 8
-  %conv150 = uitofp i64 %101 to x86_fp80
-  %102 = load i64, ptr %__n2145, align 8
-  %conv151 = uitofp i64 %102 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 308, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.18, x86_fp80 noundef %conv150, ptr noundef @.str.5, x86_fp80 noundef %conv151, i8 noundef signext 120)
-  br label %if.end152
-
-if.end152:                                        ; preds = %if.else149, %if.then148
-  br label %do.end153
-
-do.end153:                                        ; preds = %if.end152
-  %103 = load ptr, ptr %ahci.addr, align 8
-  %104 = load i16, ptr %i, align 2
-  %conv154 = trunc i16 %104 to i8
-  %call155 = call i32 @ahci_px_rreg(ptr noundef %103, i8 noundef zeroext %conv154, i32 noundef 4)
-  store i32 %call155, ptr %reg, align 4
-  br label %do.body156
-
-do.body156:                                       ; preds = %do.end153
-  %105 = load i32, ptr %reg, align 4
-  %conv158 = zext i32 %105 to i64
-  store i64 %conv158, ptr %__n1157, align 8
-  store i64 0, ptr %__n2159, align 8
-  %106 = load i64, ptr %__n1157, align 8
-  %107 = load i64, ptr %__n2159, align 8
-  %cmp160 = icmp eq i64 %106, %107
-  br i1 %cmp160, label %if.then162, label %if.else163
-
-if.then162:                                       ; preds = %do.body156
-  br label %if.end166
-
-if.else163:                                       ; preds = %do.body156
-  %108 = load i64, ptr %__n1157, align 8
-  %conv164 = uitofp i64 %108 to x86_fp80
-  %109 = load i64, ptr %__n2159, align 8
-  %conv165 = uitofp i64 %109 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 311, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.18, x86_fp80 noundef %conv164, ptr noundef @.str.5, x86_fp80 noundef %conv165, i8 noundef signext 120)
-  br label %if.end166
-
-if.end166:                                        ; preds = %if.else163, %if.then162
-  br label %do.end167
-
-do.end167:                                        ; preds = %if.end166
-  %110 = load ptr, ptr %ahci.addr, align 8
-  %call168 = call i32 @ahci_rreg(ptr noundef %110, i32 noundef 2)
-  store i32 %call168, ptr %reg, align 4
-  br label %do.body169
-
-do.body169:                                       ; preds = %do.end167
-  %111 = load i32, ptr %reg, align 4
-  %112 = load i16, ptr %i, align 2
-  %conv171 = zext i16 %112 to i32
-  %shl172 = shl i32 1, %conv171
-  %and173 = and i32 %111, %shl172
-  %conv174 = zext i32 %and173 to i64
-  store i64 %conv174, ptr %__n1170, align 8
-  store i64 0, ptr %__n2175, align 8
-  %113 = load i64, ptr %__n1170, align 8
-  %114 = load i64, ptr %__n2175, align 8
-  %cmp176 = icmp eq i64 %113, %114
-  br i1 %cmp176, label %if.then178, label %if.else179
-
-if.then178:                                       ; preds = %do.body169
-  br label %if.end182
-
-if.else179:                                       ; preds = %do.body169
-  %115 = load i64, ptr %__n1170, align 8
-  %conv180 = uitofp i64 %115 to x86_fp80
-  %116 = load i64, ptr %__n2175, align 8
-  %conv181 = uitofp i64 %116 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 314, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.19, x86_fp80 noundef %conv180, ptr noundef @.str.5, x86_fp80 noundef %conv181, i8 noundef signext 120)
-  br label %if.end182
-
-if.end182:                                        ; preds = %if.else179, %if.then178
-  br label %do.end183
-
-do.end183:                                        ; preds = %if.end182
-  %117 = load ptr, ptr %ahci.addr, align 8
-  %118 = load i16, ptr %i, align 2
-  %conv184 = trunc i16 %118 to i8
-  call void @ahci_px_wreg(ptr noundef %117, i8 noundef zeroext %conv184, i32 noundef 5, i32 noundef -1)
-  %119 = load ptr, ptr %ahci.addr, align 8
-  %120 = load i16, ptr %i, align 2
-  %conv185 = trunc i16 %120 to i8
-  %call186 = call i32 @ahci_px_rreg(ptr noundef %119, i8 noundef zeroext %conv185, i32 noundef 5)
-  store i32 %call186, ptr %reg, align 4
-  br label %do.body187
-
-do.body187:                                       ; preds = %do.end183
-  %121 = load i32, ptr %reg, align 4
-  %conv189 = zext i32 %121 to i64
-  store i64 %conv189, ptr %__n1188, align 8
-  store i64 4257218815, ptr %__n2190, align 8
-  %122 = load i64, ptr %__n1188, align 8
-  %123 = load i64, ptr %__n2190, align 8
-  %cmp191 = icmp eq i64 %122, %123
-  br i1 %cmp191, label %if.then193, label %if.else194
-
-if.then193:                                       ; preds = %do.body187
-  br label %if.end197
-
-if.else194:                                       ; preds = %do.body187
-  %124 = load i64, ptr %__n1188, align 8
-  %conv195 = uitofp i64 %124 to x86_fp80
-  %125 = load i64, ptr %__n2190, align 8
-  %conv196 = uitofp i64 %125 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 319, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.20, x86_fp80 noundef %conv195, ptr noundef @.str.5, x86_fp80 noundef %conv196, i8 noundef signext 120)
-  br label %if.end197
-
-if.end197:                                        ; preds = %if.else194, %if.then193
-  br label %do.end198
-
-do.end198:                                        ; preds = %if.end197
-  %126 = load ptr, ptr %ahci.addr, align 8
-  %127 = load i16, ptr %i, align 2
-  %conv199 = trunc i16 %127 to i8
-  call void @ahci_px_set(ptr noundef %126, i8 noundef zeroext %conv199, i32 noundef 6, i32 noundef 16)
-  %128 = load ptr, ptr %ahci.addr, align 8
-  %129 = load i16, ptr %i, align 2
-  %conv200 = trunc i16 %129 to i8
-  %call201 = call i32 @ahci_px_rreg(ptr noundef %128, i8 noundef zeroext %conv200, i32 noundef 6)
-  store i32 %call201, ptr %reg, align 4
-  br label %do.body202
-
-do.body202:                                       ; preds = %do.end198
-  %130 = load i32, ptr %reg, align 4
-  %and204 = and i32 %130, 16384
-  %conv205 = zext i32 %and204 to i64
-  store i64 %conv205, ptr %__n1203, align 8
-  store i64 16384, ptr %__n2206, align 8
-  %131 = load i64, ptr %__n1203, align 8
-  %132 = load i64, ptr %__n2206, align 8
-  %cmp207 = icmp eq i64 %131, %132
-  br i1 %cmp207, label %if.then209, label %if.else210
-
-if.then209:                                       ; preds = %do.body202
-  br label %if.end213
-
-if.else210:                                       ; preds = %do.body202
-  %133 = load i64, ptr %__n1203, align 8
-  %conv211 = uitofp i64 %133 to x86_fp80
-  %134 = load i64, ptr %__n2206, align 8
-  %conv212 = uitofp i64 %134 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 324, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.21, x86_fp80 noundef %conv211, ptr noundef @.str.5, x86_fp80 noundef %conv212, i8 noundef signext 120)
-  br label %if.end213
-
-if.end213:                                        ; preds = %if.else210, %if.then209
-  br label %do.end214
-
-do.end214:                                        ; preds = %if.end213
-  %135 = load ptr, ptr %ahci.addr, align 8
-  %136 = load i16, ptr %i, align 2
-  %conv215 = trunc i16 %136 to i8
-  %call216 = call i32 @ahci_px_rreg(ptr noundef %135, i8 noundef zeroext %conv215, i32 noundef 12)
-  store i32 %call216, ptr %reg, align 4
-  %137 = load i32, ptr %reg, align 4
-  %and217 = and i32 %137, 67108864
-  %cmp218 = icmp eq i32 %and217, 67108864
-  br i1 %cmp218, label %if.then220, label %if.end222
-
-if.then220:                                       ; preds = %do.end214
-  %138 = load ptr, ptr %ahci.addr, align 8
-  %139 = load i16, ptr %i, align 2
-  %conv221 = trunc i16 %139 to i8
-  call void @ahci_px_set(ptr noundef %138, i8 noundef zeroext %conv221, i32 noundef 12, i32 noundef 67108864)
-  br label %if.end222
-
-if.end222:                                        ; preds = %if.then220, %do.end214
-  %140 = load ptr, ptr %ahci.addr, align 8
-  %141 = load i16, ptr %i, align 2
-  %conv223 = trunc i16 %141 to i8
-  %call224 = call i32 @ahci_px_rreg(ptr noundef %140, i8 noundef zeroext %conv223, i32 noundef 8)
-  store i32 %call224, ptr %reg, align 4
-  %142 = load i32, ptr %reg, align 4
-  %and225 = and i32 %142, 136
-  %cmp226 = icmp eq i32 %and225, 0
-  br i1 %cmp226, label %if.then228, label %if.end260
-
-if.then228:                                       ; preds = %if.end222
-  %143 = load ptr, ptr %ahci.addr, align 8
-  %144 = load i16, ptr %i, align 2
-  %conv229 = trunc i16 %144 to i8
-  %call230 = call i32 @ahci_px_rreg(ptr noundef %143, i8 noundef zeroext %conv229, i32 noundef 10)
-  store i32 %call230, ptr %reg, align 4
-  %145 = load i32, ptr %reg, align 4
-  %and231 = and i32 %145, 15
-  %cmp232 = icmp eq i32 %and231, 3
-  br i1 %cmp232, label %if.then234, label %if.else252
-
-if.then234:                                       ; preds = %if.then228
-  %146 = load ptr, ptr %ahci.addr, align 8
-  %147 = load i16, ptr %i, align 2
-  %conv235 = trunc i16 %147 to i8
-  call void @ahci_px_set(ptr noundef %146, i8 noundef zeroext %conv235, i32 noundef 6, i32 noundef 1)
-  br label %do.body236
-
-do.body236:                                       ; preds = %if.then234
-  %148 = load ptr, ptr %ahci.addr, align 8
-  %149 = load i16, ptr %i, align 2
-  %conv238 = trunc i16 %149 to i8
-  %call239 = call i32 @ahci_px_rreg(ptr noundef %148, i8 noundef zeroext %conv238, i32 noundef 6)
-  %and240 = and i32 %call239, 32768
-  %conv241 = zext i32 %and240 to i64
-  store i64 %conv241, ptr %__n1237, align 8
-  store i64 32768, ptr %__n2242, align 8
-  %150 = load i64, ptr %__n1237, align 8
-  %151 = load i64, ptr %__n2242, align 8
-  %cmp243 = icmp eq i64 %150, %151
-  br i1 %cmp243, label %if.then245, label %if.else246
-
-if.then245:                                       ; preds = %do.body236
-  br label %if.end249
-
-if.else246:                                       ; preds = %do.body236
-  %152 = load i64, ptr %__n1237, align 8
-  %conv247 = uitofp i64 %152 to x86_fp80
-  %153 = load i64, ptr %__n2242, align 8
-  %conv248 = uitofp i64 %153 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 341, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.22, x86_fp80 noundef %conv247, ptr noundef @.str.5, x86_fp80 noundef %conv248, i8 noundef signext 120)
-  br label %if.end249
-
-if.end249:                                        ; preds = %if.else246, %if.then245
-  br label %do.end250
-
-do.end250:                                        ; preds = %if.end249
-  %154 = load i16, ptr %i, align 2
-  %conv251 = zext i16 %154 to i32
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.23, i32 noundef %conv251)
-  br label %if.end259
-
-if.else252:                                       ; preds = %if.then228
-  %155 = load i32, ptr %reg, align 4
-  %and253 = and i32 %155, 15
-  %tobool254 = icmp ne i32 %and253, 0
-  br i1 %tobool254, label %if.then255, label %if.end258
-
-if.then255:                                       ; preds = %if.else252
-  br label %do.body256
-
-do.body256:                                       ; preds = %if.then255
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 345, ptr noundef @__func__.ahci_hba_enable, ptr noundef null) #9
-  unreachable
-
-do.end257:                                        ; No predecessors!
-  br label %if.end258
-
-if.end258:                                        ; preds = %do.end257, %if.else252
-  br label %if.end259
-
-if.end259:                                        ; preds = %if.end258, %do.end250
-  br label %if.end260
-
-if.end260:                                        ; preds = %if.end259, %if.end222
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end260, %if.then20
-  %156 = load i32, ptr %ports_impl, align 4
-  %shr261 = lshr i32 %156, 1
-  store i32 %shr261, ptr %ports_impl, align 4
-  %157 = load i16, ptr %i, align 2
-  %inc = add i16 %157, 1
-  store i16 %inc, ptr %i, align 2
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %for.cond
-  %158 = load ptr, ptr %ahci.addr, align 8
-  call void @ahci_set(ptr noundef %158, i32 noundef 1, i32 noundef 2)
-  %159 = load ptr, ptr %ahci.addr, align 8
-  %call262 = call i32 @ahci_rreg(ptr noundef %159, i32 noundef 1)
-  store i32 %call262, ptr %reg, align 4
-  br label %do.body263
-
-do.body263:                                       ; preds = %for.end
-  %160 = load i32, ptr %reg, align 4
-  %and265 = and i32 %160, 2
-  %conv266 = zext i32 %and265 to i64
-  store i64 %conv266, ptr %__n1264, align 8
-  store i64 2, ptr %__n2267, align 8
-  %161 = load i64, ptr %__n1264, align 8
-  %162 = load i64, ptr %__n2267, align 8
-  %cmp268 = icmp eq i64 %161, %162
-  br i1 %cmp268, label %if.then270, label %if.else271
-
-if.then270:                                       ; preds = %do.body263
-  br label %if.end274
-
-if.else271:                                       ; preds = %do.body263
-  %163 = load i64, ptr %__n1264, align 8
-  %conv272 = uitofp i64 %163 to x86_fp80
-  %164 = load i64, ptr %__n2267, align 8
-  %conv273 = uitofp i64 %164 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 353, ptr noundef @__func__.ahci_hba_enable, ptr noundef @.str.24, x86_fp80 noundef %conv272, ptr noundef @.str.5, x86_fp80 noundef %conv273, i8 noundef signext 120)
-  br label %if.end274
-
-if.end274:                                        ; preds = %if.else271, %if.then270
-  br label %do.end275
-
-do.end275:                                        ; preds = %if.end274
-  %165 = load ptr, ptr %ahci.addr, align 8
-  %enabled = getelementptr inbounds %struct.AHCIQState, ptr %165, i32 0, i32 8
-  store i8 1, ptr %enabled, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_set(ptr noundef %ahci, i32 noundef %reg_num, i32 noundef %mask) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %reg_num.addr = alloca i32, align 4
-  %mask.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  store i32 %mask, ptr %mask.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i32, ptr %reg_num.addr, align 4
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %3 = load i32, ptr %reg_num.addr, align 4
-  %call = call i32 @ahci_rreg(ptr noundef %2, i32 noundef %3)
-  %4 = load i32, ptr %mask.addr, align 4
-  %or = or i32 %call, %4
-  call void @ahci_wreg(ptr noundef %0, i32 noundef %1, i32 noundef %or)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ahci_rreg(ptr noundef %ahci, i32 noundef %reg_num) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %reg_num.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i32, ptr %reg_num.addr, align 4
-  %mul = mul i32 4, %1
-  %conv = zext i32 %mul to i64
-  %call = call i32 @ahci_mread(ptr noundef %0, i64 noundef %conv)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ctz64(i64 noundef %val) #0 {
-entry:
-  %val.addr = alloca i64, align 8
-  store i64 %val, ptr %val.addr, align 8
-  %0 = load i64, ptr %val.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr %val.addr, align 8
-  %2 = call i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %cast = trunc i64 %2 to i32
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %cast, %cond.true ], [ 64, %cond.false ]
-  ret i32 %cond
-}
-
-declare void @g_test_message(ptr noundef, ...) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_px_clr(ptr noundef %ahci, i8 noundef zeroext %port, i32 noundef %reg_num, i32 noundef %mask) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %reg_num.addr = alloca i32, align 4
-  %mask.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  store i32 %mask, ptr %mask.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %2 = load i32, ptr %reg_num.addr, align 4
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %4 = load i8, ptr %port.addr, align 1
-  %5 = load i32, ptr %reg_num.addr, align 4
-  %call = call i32 @ahci_px_rreg(ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5)
-  %6 = load i32, ptr %mask.addr, align 4
-  %not = xor i32 %6, -1
-  %and = and i32 %call, %not
-  call void @ahci_px_wreg(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %and)
-  ret void
-}
-
-declare i32 @usleep(i32 noundef) #2
-
-declare void @qtest_memset(ptr noundef, i64 noundef, i8 noundef zeroext, i64 noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_px_wreg(ptr noundef %ahci, i8 noundef zeroext %port, i32 noundef %reg_num, i32 noundef %value) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %reg_num.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %2 = load i32, ptr %reg_num.addr, align 4
-  %call = call i64 @ahci_px_offset(i8 noundef zeroext %1, i32 noundef %2)
-  %conv = trunc i64 %call to i32
-  %3 = load i32, ptr %value.addr, align 4
-  call void @ahci_wreg(ptr noundef %0, i32 noundef %conv, i32 noundef %3)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_wreg(ptr noundef %ahci, i32 noundef %reg_num, i32 noundef %value) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %reg_num.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i32, ptr %reg_num.addr, align 4
-  %mul = mul i32 4, %1
-  %conv = zext i32 %mul to i64
-  %2 = load i32, ptr %value.addr, align 4
-  call void @ahci_mwrite(ptr noundef %0, i64 noundef %conv, i32 noundef %2)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_px_set(ptr noundef %ahci, i8 noundef zeroext %port, i32 noundef %reg_num, i32 noundef %mask) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %reg_num.addr = alloca i32, align 4
-  %mask.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  store i32 %mask, ptr %mask.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %2 = load i32, ptr %reg_num.addr, align 4
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %4 = load i8, ptr %port.addr, align 1
-  %5 = load i32, ptr %reg_num.addr, align 4
-  %call = call i32 @ahci_px_rreg(ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5)
-  %6 = load i32, ptr %mask.addr, align 4
-  %or = or i32 %call, %6
-  call void @ahci_px_wreg(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %or)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ahci_port_select(ptr noundef %ahci) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %ports = alloca i32, align 4
-  %reg = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %call = call i32 @ahci_rreg(ptr noundef %0, i32 noundef 3)
-  store i32 %call, ptr %ports, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %cmp = icmp ult i32 %1, 32
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %ports, align 4
-  %cmp1 = icmp eq i32 %2, 0
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  store i32 32, ptr %i, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  %3 = load i32, ptr %ports, align 4
-  %and = and i32 %3, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end3, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  br label %for.inc
-
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %ahci.addr, align 8
-  %5 = load i32, ptr %i, align 4
-  %conv = trunc i32 %5 to i8
-  %call4 = call i32 @ahci_px_rreg(ptr noundef %4, i8 noundef zeroext %conv, i32 noundef 6)
-  store i32 %call4, ptr %reg, align 4
-  %6 = load i32, ptr %reg, align 4
-  %and5 = and i32 %6, 1
-  %cmp6 = icmp eq i32 %and5, 1
-  br i1 %cmp6, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %if.end3
-  br label %for.end
-
-if.end9:                                          ; preds = %if.end3
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end9, %if.then2
-  %7 = load i32, ptr %ports, align 4
-  %shr = lshr i32 %7, 1
-  store i32 %shr, ptr %ports, align 4
-  %8 = load i32, ptr %i, align 4
-  %inc = add i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %if.then8, %for.cond
-  br label %do.body
-
-do.body:                                          ; preds = %for.end
-  %9 = load i32, ptr %i, align 4
-  %cmp10 = icmp ult i32 %9, 32
-  br i1 %cmp10, label %if.then12, label %if.else
-
-if.then12:                                        ; preds = %do.body
-  br label %if.end13
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 384, ptr noundef @__func__.ahci_port_select, ptr noundef @.str.25) #9
-  unreachable
-
-if.end13:                                         ; preds = %if.then12
-  br label %do.end
-
-do.end:                                           ; preds = %if.end13
-  %10 = load i32, ptr %i, align 4
-  ret i32 %10
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_clear(ptr noundef %ahci, i8 noundef zeroext %port) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %reg = alloca i32, align 4
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %call = call i32 @ahci_px_rreg(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 4)
-  store i32 %call, ptr %reg, align 4
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %3 = load i8, ptr %port.addr, align 1
-  %4 = load i32, ptr %reg, align 4
-  call void @ahci_px_wreg(ptr noundef %2, i8 noundef zeroext %3, i32 noundef 4, i32 noundef %4)
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %5 = load ptr, ptr %ahci.addr, align 8
-  %6 = load i8, ptr %port.addr, align 1
-  %call1 = call i32 @ahci_px_rreg(ptr noundef %5, i8 noundef zeroext %6, i32 noundef 4)
-  %conv = zext i32 %call1 to i64
-  store i64 %conv, ptr %__n1, align 8
-  store i64 0, ptr %__n2, align 8
-  %7 = load i64, ptr %__n1, align 8
-  %8 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %7, %8
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %9 = load i64, ptr %__n1, align 8
-  %conv3 = uitofp i64 %9 to x86_fp80
-  %10 = load i64, ptr %__n2, align 8
-  %conv4 = uitofp i64 %10 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 398, ptr noundef @__func__.ahci_port_clear, ptr noundef @.str.26, x86_fp80 noundef %conv3, ptr noundef @.str.5, x86_fp80 noundef %conv4, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %11 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %qts, align 8
-  %14 = load ptr, ptr %ahci.addr, align 8
-  %port5 = getelementptr inbounds %struct.AHCIQState, ptr %14, i32 0, i32 7
-  %15 = load i8, ptr %port.addr, align 1
-  %idxprom = zext i8 %15 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port5, i64 0, i64 %idxprom
-  %fb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 0
-  %16 = load i64, ptr %fb, align 8
-  call void @qtest_memset(ptr noundef %13, i64 noundef %16, i8 noundef zeroext 0, i64 noundef 256)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_error(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %port = alloca i8, align 1
-  %reg = alloca i32, align 4
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n110 = alloca i64, align 8
-  %__n212 = alloca i64, align 8
-  %__n124 = alloca i64, align 8
-  %__n226 = alloca i64, align 8
-  %__n141 = alloca i64, align 8
-  %__n244 = alloca i64, align 8
-  %__n156 = alloca i64, align 8
-  %__n259 = alloca i64, align 8
-  %__n174 = alloca i64, align 8
-  %__n277 = alloca i64, align 8
-  %__n188 = alloca i64, align 8
-  %__n291 = alloca i64, align 8
-  %__n1102 = alloca i64, align 8
-  %__n2109 = alloca i64, align 8
-  %__n1119 = alloca i64, align 8
-  %__n2126 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %port1, align 1
-  store i8 %1, ptr %port, align 1
-  %2 = load ptr, ptr %cmd.addr, align 8
-  %errors = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 3
-  %3 = load i8, ptr %errors, align 1
-  %tobool = icmp ne i8 %3, 0
-  br i1 %tobool, label %if.then, label %if.else6
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %ahci.addr, align 8
-  %5 = load i8, ptr %port, align 1
-  %call = call i32 @ahci_px_rreg(ptr noundef %4, i8 noundef zeroext %5, i32 noundef 4)
-  store i32 %call, ptr %reg, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  %6 = load i32, ptr %reg, align 4
-  %and = and i32 %6, 1073741824
-  %conv = zext i32 %and to i64
-  store i64 %conv, ptr %__n1, align 8
-  store i64 1073741824, ptr %__n2, align 8
-  %7 = load i64, ptr %__n1, align 8
-  %8 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %7, %8
-  br i1 %cmp, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %9 = load i64, ptr %__n1, align 8
-  %conv4 = uitofp i64 %9 to x86_fp80
-  %10 = load i64, ptr %__n2, align 8
-  %conv5 = uitofp i64 %10 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 415, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.27, x86_fp80 noundef %conv4, ptr noundef @.str.5, x86_fp80 noundef %conv5, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then3
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %if.end21
-
-if.else6:                                         ; preds = %entry
-  %11 = load ptr, ptr %ahci.addr, align 8
-  %12 = load i8, ptr %port, align 1
-  %call7 = call i32 @ahci_px_rreg(ptr noundef %11, i8 noundef zeroext %12, i32 noundef 4)
-  store i32 %call7, ptr %reg, align 4
-  %13 = load ptr, ptr %cmd.addr, align 8
-  %interrupts = getelementptr inbounds %struct.AHCICommand, ptr %13, i32 0, i32 4
-  %14 = load i32, ptr %interrupts, align 4
-  %not = xor i32 %14, -1
-  %15 = load i32, ptr %reg, align 4
-  %and8 = and i32 %15, %not
-  store i32 %and8, ptr %reg, align 4
-  %16 = load i32, ptr %reg, align 4
-  %shr = lshr i32 %16, 23
-  store i32 %shr, ptr %reg, align 4
-  br label %do.body9
-
-do.body9:                                         ; preds = %if.else6
-  %17 = load i32, ptr %reg, align 4
-  %conv11 = zext i32 %17 to i64
-  store i64 %conv11, ptr %__n110, align 8
-  store i64 0, ptr %__n212, align 8
-  %18 = load i64, ptr %__n110, align 8
-  %19 = load i64, ptr %__n212, align 8
-  %cmp13 = icmp eq i64 %18, %19
-  br i1 %cmp13, label %if.then15, label %if.else16
-
-if.then15:                                        ; preds = %do.body9
-  br label %if.end19
-
-if.else16:                                        ; preds = %do.body9
-  %20 = load i64, ptr %__n110, align 8
-  %conv17 = uitofp i64 %20 to x86_fp80
-  %21 = load i64, ptr %__n212, align 8
-  %conv18 = uitofp i64 %21 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 421, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.18, x86_fp80 noundef %conv17, ptr noundef @.str.5, x86_fp80 noundef %conv18, i8 noundef signext 120)
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.else16, %if.then15
-  br label %do.end20
-
-do.end20:                                         ; preds = %if.end19
-  br label %if.end21
-
-if.end21:                                         ; preds = %do.end20, %do.end
-  %22 = load ptr, ptr %ahci.addr, align 8
-  %23 = load i8, ptr %port, align 1
-  %call22 = call i32 @ahci_px_rreg(ptr noundef %22, i8 noundef zeroext %23, i32 noundef 12)
-  store i32 %call22, ptr %reg, align 4
-  br label %do.body23
-
-do.body23:                                        ; preds = %if.end21
-  %24 = load i32, ptr %reg, align 4
-  %conv25 = zext i32 %24 to i64
-  store i64 %conv25, ptr %__n124, align 8
-  store i64 0, ptr %__n226, align 8
-  %25 = load i64, ptr %__n124, align 8
-  %26 = load i64, ptr %__n226, align 8
-  %cmp27 = icmp eq i64 %25, %26
-  br i1 %cmp27, label %if.then29, label %if.else30
-
-if.then29:                                        ; preds = %do.body23
-  br label %if.end33
-
-if.else30:                                        ; preds = %do.body23
-  %27 = load i64, ptr %__n124, align 8
-  %conv31 = uitofp i64 %27 to x86_fp80
-  %28 = load i64, ptr %__n226, align 8
-  %conv32 = uitofp i64 %28 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 426, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.18, x86_fp80 noundef %conv31, ptr noundef @.str.5, x86_fp80 noundef %conv32, i8 noundef signext 120)
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.else30, %if.then29
-  br label %do.end34
-
-do.end34:                                         ; preds = %if.end33
-  %29 = load ptr, ptr %cmd.addr, align 8
-  %errors35 = getelementptr inbounds %struct.AHCICommand, ptr %29, i32 0, i32 3
-  %30 = load i8, ptr %errors35, align 1
-  %tobool36 = icmp ne i8 %30, 0
-  br i1 %tobool36, label %if.then37, label %if.end68
-
-if.then37:                                        ; preds = %do.end34
-  %31 = load ptr, ptr %ahci.addr, align 8
-  %32 = load i8, ptr %port, align 1
-  call void @ahci_px_clr(ptr noundef %31, i8 noundef zeroext %32, i32 noundef 6, i32 noundef 1)
-  %call38 = call i32 @usleep(i32 noundef 500000)
-  %33 = load ptr, ptr %ahci.addr, align 8
-  %34 = load i8, ptr %port, align 1
-  %call39 = call i32 @ahci_px_rreg(ptr noundef %33, i8 noundef zeroext %34, i32 noundef 6)
-  store i32 %call39, ptr %reg, align 4
-  br label %do.body40
-
-do.body40:                                        ; preds = %if.then37
-  %35 = load i32, ptr %reg, align 4
-  %and42 = and i32 %35, 32768
-  %conv43 = zext i32 %and42 to i64
-  store i64 %conv43, ptr %__n141, align 8
-  store i64 0, ptr %__n244, align 8
-  %36 = load i64, ptr %__n141, align 8
-  %37 = load i64, ptr %__n244, align 8
-  %cmp45 = icmp eq i64 %36, %37
-  br i1 %cmp45, label %if.then47, label %if.else48
-
-if.then47:                                        ; preds = %do.body40
-  br label %if.end51
-
-if.else48:                                        ; preds = %do.body40
-  %38 = load i64, ptr %__n141, align 8
-  %conv49 = uitofp i64 %38 to x86_fp80
-  %39 = load i64, ptr %__n244, align 8
-  %conv50 = uitofp i64 %39 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 437, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.11, x86_fp80 noundef %conv49, ptr noundef @.str.5, x86_fp80 noundef %conv50, i8 noundef signext 120)
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.else48, %if.then47
-  br label %do.end52
-
-do.end52:                                         ; preds = %if.end51
-  %40 = load ptr, ptr %ahci.addr, align 8
-  %41 = load i8, ptr %port, align 1
-  %call53 = call i32 @ahci_px_rreg(ptr noundef %40, i8 noundef zeroext %41, i32 noundef 4)
-  store i32 %call53, ptr %reg, align 4
-  %42 = load ptr, ptr %ahci.addr, align 8
-  %43 = load i8, ptr %port, align 1
-  %44 = load i32, ptr %reg, align 4
-  call void @ahci_px_wreg(ptr noundef %42, i8 noundef zeroext %43, i32 noundef 4, i32 noundef %44)
-  %45 = load ptr, ptr %ahci.addr, align 8
-  %46 = load i8, ptr %port, align 1
-  %call54 = call i32 @ahci_px_rreg(ptr noundef %45, i8 noundef zeroext %46, i32 noundef 8)
-  store i32 %call54, ptr %reg, align 4
-  br label %do.body55
-
-do.body55:                                        ; preds = %do.end52
-  %47 = load i32, ptr %reg, align 4
-  %and57 = and i32 %47, 136
-  %conv58 = zext i32 %and57 to i64
-  store i64 %conv58, ptr %__n156, align 8
-  store i64 0, ptr %__n259, align 8
-  %48 = load i64, ptr %__n156, align 8
-  %49 = load i64, ptr %__n259, align 8
-  %cmp60 = icmp eq i64 %48, %49
-  br i1 %cmp60, label %if.then62, label %if.else63
-
-if.then62:                                        ; preds = %do.body55
-  br label %if.end66
-
-if.else63:                                        ; preds = %do.body55
-  %50 = load i64, ptr %__n156, align 8
-  %conv64 = uitofp i64 %50 to x86_fp80
-  %51 = load i64, ptr %__n259, align 8
-  %conv65 = uitofp i64 %51 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 447, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.28, x86_fp80 noundef %conv64, ptr noundef @.str.5, x86_fp80 noundef %conv65, i8 noundef signext 120)
-  br label %if.end66
-
-if.end66:                                         ; preds = %if.else63, %if.then62
-  br label %do.end67
-
-do.end67:                                         ; preds = %if.end66
-  %52 = load ptr, ptr %ahci.addr, align 8
-  %53 = load i8, ptr %port, align 1
-  call void @ahci_px_set(ptr noundef %52, i8 noundef zeroext %53, i32 noundef 6, i32 noundef 1)
-  br label %if.end68
-
-if.end68:                                         ; preds = %do.end67, %do.end34
-  %54 = load ptr, ptr %ahci.addr, align 8
-  %55 = load i8, ptr %port, align 1
-  %call69 = call i32 @ahci_px_rreg(ptr noundef %54, i8 noundef zeroext %55, i32 noundef 8)
-  store i32 %call69, ptr %reg, align 4
-  %56 = load ptr, ptr %cmd.addr, align 8
-  %errors70 = getelementptr inbounds %struct.AHCICommand, ptr %56, i32 0, i32 3
-  %57 = load i8, ptr %errors70, align 1
-  %tobool71 = icmp ne i8 %57, 0
-  br i1 %tobool71, label %if.else86, label %if.then72
-
-if.then72:                                        ; preds = %if.end68
-  br label %do.body73
-
-do.body73:                                        ; preds = %if.then72
-  %58 = load i32, ptr %reg, align 4
-  %and75 = and i32 %58, 1
-  %conv76 = zext i32 %and75 to i64
-  store i64 %conv76, ptr %__n174, align 8
-  store i64 0, ptr %__n277, align 8
-  %59 = load i64, ptr %__n174, align 8
-  %60 = load i64, ptr %__n277, align 8
-  %cmp78 = icmp eq i64 %59, %60
-  br i1 %cmp78, label %if.then80, label %if.else81
-
-if.then80:                                        ; preds = %do.body73
-  br label %if.end84
-
-if.else81:                                        ; preds = %do.body73
-  %61 = load i64, ptr %__n174, align 8
-  %conv82 = uitofp i64 %61 to x86_fp80
-  %62 = load i64, ptr %__n277, align 8
-  %conv83 = uitofp i64 %62 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 456, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.29, x86_fp80 noundef %conv82, ptr noundef @.str.5, x86_fp80 noundef %conv83, i8 noundef signext 120)
-  br label %if.end84
-
-if.end84:                                         ; preds = %if.else81, %if.then80
-  br label %do.end85
-
-do.end85:                                         ; preds = %if.end84
-  br label %if.end100
-
-if.else86:                                        ; preds = %if.end68
-  br label %do.body87
-
-do.body87:                                        ; preds = %if.else86
-  %63 = load i32, ptr %reg, align 4
-  %and89 = and i32 %63, 1
-  %conv90 = zext i32 %and89 to i64
-  store i64 %conv90, ptr %__n188, align 8
-  store i64 1, ptr %__n291, align 8
-  %64 = load i64, ptr %__n188, align 8
-  %65 = load i64, ptr %__n291, align 8
-  %cmp92 = icmp eq i64 %64, %65
-  br i1 %cmp92, label %if.then94, label %if.else95
-
-if.then94:                                        ; preds = %do.body87
-  br label %if.end98
-
-if.else95:                                        ; preds = %do.body87
-  %66 = load i64, ptr %__n188, align 8
-  %conv96 = uitofp i64 %66 to x86_fp80
-  %67 = load i64, ptr %__n291, align 8
-  %conv97 = uitofp i64 %67 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 458, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.30, x86_fp80 noundef %conv96, ptr noundef @.str.5, x86_fp80 noundef %conv97, i8 noundef signext 120)
-  br label %if.end98
-
-if.end98:                                         ; preds = %if.else95, %if.then94
-  br label %do.end99
-
-do.end99:                                         ; preds = %if.end98
-  br label %if.end100
-
-if.end100:                                        ; preds = %do.end99, %do.end85
-  br label %do.body101
-
-do.body101:                                       ; preds = %if.end100
-  %68 = load i32, ptr %reg, align 4
-  %69 = load ptr, ptr %cmd.addr, align 8
-  %errors103 = getelementptr inbounds %struct.AHCICommand, ptr %69, i32 0, i32 3
-  %70 = load i8, ptr %errors103, align 1
-  %conv104 = zext i8 %70 to i32
-  %not105 = xor i32 %conv104, -1
-  %shl = shl i32 %not105, 8
-  %and106 = and i32 65280, %shl
-  %and107 = and i32 %68, %and106
-  %conv108 = zext i32 %and107 to i64
-  store i64 %conv108, ptr %__n1102, align 8
-  store i64 0, ptr %__n2109, align 8
-  %71 = load i64, ptr %__n1102, align 8
-  %72 = load i64, ptr %__n2109, align 8
-  %cmp110 = icmp eq i64 %71, %72
-  br i1 %cmp110, label %if.then112, label %if.else113
-
-if.then112:                                       ; preds = %do.body101
-  br label %if.end116
-
-if.else113:                                       ; preds = %do.body101
-  %73 = load i64, ptr %__n1102, align 8
-  %conv114 = uitofp i64 %73 to x86_fp80
-  %74 = load i64, ptr %__n2109, align 8
-  %conv115 = uitofp i64 %74 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 460, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.31, x86_fp80 noundef %conv114, ptr noundef @.str.5, x86_fp80 noundef %conv115, i8 noundef signext 120)
-  br label %if.end116
-
-if.end116:                                        ; preds = %if.else113, %if.then112
-  br label %do.end117
-
-do.end117:                                        ; preds = %if.end116
-  br label %do.body118
-
-do.body118:                                       ; preds = %do.end117
-  %75 = load i32, ptr %reg, align 4
-  %76 = load ptr, ptr %cmd.addr, align 8
-  %errors120 = getelementptr inbounds %struct.AHCICommand, ptr %76, i32 0, i32 3
-  %77 = load i8, ptr %errors120, align 1
-  %conv121 = zext i8 %77 to i32
-  %shl122 = shl i32 %conv121, 8
-  %and123 = and i32 65280, %shl122
-  %and124 = and i32 %75, %and123
-  %conv125 = zext i32 %and124 to i64
-  store i64 %conv125, ptr %__n1119, align 8
-  %78 = load ptr, ptr %cmd.addr, align 8
-  %errors127 = getelementptr inbounds %struct.AHCICommand, ptr %78, i32 0, i32 3
-  %79 = load i8, ptr %errors127, align 1
-  %conv128 = zext i8 %79 to i32
-  %shl129 = shl i32 %conv128, 8
-  %and130 = and i32 65280, %shl129
-  %conv131 = sext i32 %and130 to i64
-  store i64 %conv131, ptr %__n2126, align 8
-  %80 = load i64, ptr %__n1119, align 8
-  %81 = load i64, ptr %__n2126, align 8
-  %cmp132 = icmp eq i64 %80, %81
-  br i1 %cmp132, label %if.then134, label %if.else135
-
-if.then134:                                       ; preds = %do.body118
-  br label %if.end138
-
-if.else135:                                       ; preds = %do.body118
-  %82 = load i64, ptr %__n1119, align 8
-  %conv136 = uitofp i64 %82 to x86_fp80
-  %83 = load i64, ptr %__n2126, align 8
-  %conv137 = uitofp i64 %83 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 461, ptr noundef @__func__.ahci_port_check_error, ptr noundef @.str.32, x86_fp80 noundef %conv136, ptr noundef @.str.5, x86_fp80 noundef %conv137, i8 noundef signext 120)
-  br label %if.end138
-
-if.end138:                                        ; preds = %if.else135, %if.then134
-  br label %do.end139
-
-do.end139:                                        ; preds = %if.end138
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_interrupts(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %port = alloca i8, align 1
-  %reg = alloca i32, align 4
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n111 = alloca i64, align 8
-  %__n214 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %port1, align 1
-  store i8 %1, ptr %port, align 1
-  %2 = load ptr, ptr %cmd.addr, align 8
-  %errors = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 3
-  %3 = load i8, ptr %errors, align 1
-  %tobool = icmp ne i8 %3, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %do.end22
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %ahci.addr, align 8
-  %5 = load i8, ptr %port, align 1
-  %call = call i32 @ahci_px_rreg(ptr noundef %4, i8 noundef zeroext %5, i32 noundef 4)
-  store i32 %call, ptr %reg, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  %6 = load i32, ptr %reg, align 4
-  %7 = load ptr, ptr %cmd.addr, align 8
-  %interrupts = getelementptr inbounds %struct.AHCICommand, ptr %7, i32 0, i32 4
-  %8 = load i32, ptr %interrupts, align 4
-  %and = and i32 %6, %8
-  %conv = zext i32 %and to i64
-  store i64 %conv, ptr %__n1, align 8
-  %9 = load ptr, ptr %cmd.addr, align 8
-  %interrupts2 = getelementptr inbounds %struct.AHCICommand, ptr %9, i32 0, i32 4
-  %10 = load i32, ptr %interrupts2, align 4
-  %conv3 = zext i32 %10 to i64
-  store i64 %conv3, ptr %__n2, align 8
-  %11 = load i64, ptr %__n1, align 8
-  %12 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %11, %12
-  br i1 %cmp, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %do.body
-  br label %if.end8
-
-if.else:                                          ; preds = %do.body
-  %13 = load i64, ptr %__n1, align 8
-  %conv6 = uitofp i64 %13 to x86_fp80
-  %14 = load i64, ptr %__n2, align 8
-  %conv7 = uitofp i64 %14 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 478, ptr noundef @__func__.ahci_port_check_interrupts, ptr noundef @.str.33, x86_fp80 noundef %conv6, ptr noundef @.str.5, x86_fp80 noundef %conv7, i8 noundef signext 120)
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.else, %if.then5
-  br label %do.end
-
-do.end:                                           ; preds = %if.end8
-  %15 = load ptr, ptr %ahci.addr, align 8
-  %16 = load i8, ptr %port, align 1
-  %17 = load ptr, ptr %cmd.addr, align 8
-  %interrupts9 = getelementptr inbounds %struct.AHCICommand, ptr %17, i32 0, i32 4
-  %18 = load i32, ptr %interrupts9, align 4
-  call void @ahci_px_wreg(ptr noundef %15, i8 noundef zeroext %16, i32 noundef 4, i32 noundef %18)
-  br label %do.body10
-
-do.body10:                                        ; preds = %do.end
-  %19 = load ptr, ptr %ahci.addr, align 8
-  %20 = load i8, ptr %port, align 1
-  %call12 = call i32 @ahci_px_rreg(ptr noundef %19, i8 noundef zeroext %20, i32 noundef 4)
-  %conv13 = zext i32 %call12 to i64
-  store i64 %conv13, ptr %__n111, align 8
-  store i64 0, ptr %__n214, align 8
-  %21 = load i64, ptr %__n111, align 8
-  %22 = load i64, ptr %__n214, align 8
-  %cmp15 = icmp eq i64 %21, %22
-  br i1 %cmp15, label %if.then17, label %if.else18
-
-if.then17:                                        ; preds = %do.body10
-  br label %if.end21
-
-if.else18:                                        ; preds = %do.body10
-  %23 = load i64, ptr %__n111, align 8
-  %conv19 = uitofp i64 %23 to x86_fp80
-  %24 = load i64, ptr %__n214, align 8
-  %conv20 = uitofp i64 %24 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 482, ptr noundef @__func__.ahci_port_check_interrupts, ptr noundef @.str.26, x86_fp80 noundef %conv19, ptr noundef @.str.5, x86_fp80 noundef %conv20, i8 noundef signext 120)
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.else18, %if.then17
-  br label %do.end22
-
-do.end22:                                         ; preds = %if.end21, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_nonbusy(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %slot = alloca i8, align 1
-  %port = alloca i8, align 1
-  %reg = alloca i32, align 4
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n115 = alloca i64, align 8
-  %__n220 = alloca i64, align 8
-  %__n140 = alloca i64, align 8
-  %__n245 = alloca i64, align 8
-  %__n162 = alloca i64, align 8
-  %__n267 = alloca i64, align 8
-  %__n180 = alloca i64, align 8
-  %__n283 = alloca i64, align 8
-  %__n193 = alloca i64, align 8
-  %__n296 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %slot1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %slot1, align 2
-  store i8 %1, ptr %slot, align 1
-  %2 = load ptr, ptr %cmd.addr, align 8
-  %port2 = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %port2, align 1
-  store i8 %3, ptr %port, align 1
-  %4 = load ptr, ptr %ahci.addr, align 8
-  %5 = load i8, ptr %port, align 1
-  %call = call i32 @ahci_px_rreg(ptr noundef %4, i8 noundef zeroext %5, i32 noundef 13)
-  store i32 %call, ptr %reg, align 4
-  %6 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %6, i32 0, i32 9
-  %7 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %7, i32 0, i32 9
-  %8 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %8 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.else13
-
-land.lhs.true:                                    ; preds = %entry
-  %9 = load ptr, ptr %cmd.addr, align 8
-  %errors = getelementptr inbounds %struct.AHCICommand, ptr %9, i32 0, i32 3
-  %10 = load i8, ptr %errors, align 1
-  %conv = zext i8 %10 to i32
-  %tobool3 = icmp ne i32 %conv, 0
-  br i1 %tobool3, label %if.then, label %if.else13
-
-if.then:                                          ; preds = %land.lhs.true
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  %11 = load i32, ptr %reg, align 4
-  %12 = load i8, ptr %slot, align 1
-  %conv4 = zext i8 %12 to i32
-  %shl = shl i32 1, %conv4
-  %and = and i32 %11, %shl
-  %conv5 = zext i32 %and to i64
-  store i64 %conv5, ptr %__n1, align 8
-  %13 = load i8, ptr %slot, align 1
-  %conv6 = zext i8 %13 to i32
-  %shl7 = shl i32 1, %conv6
-  %conv8 = sext i32 %shl7 to i64
-  store i64 %conv8, ptr %__n2, align 8
-  %14 = load i64, ptr %__n1, align 8
-  %15 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %14, %15
-  br i1 %cmp, label %if.then10, label %if.else
-
-if.then10:                                        ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %16 = load i64, ptr %__n1, align 8
-  %conv11 = uitofp i64 %16 to x86_fp80
-  %17 = load i64, ptr %__n2, align 8
-  %conv12 = uitofp i64 %17 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 496, ptr noundef @__func__.ahci_port_check_nonbusy, ptr noundef @.str.34, x86_fp80 noundef %conv11, ptr noundef @.str.5, x86_fp80 noundef %conv12, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then10
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %if.end29
-
-if.else13:                                        ; preds = %land.lhs.true, %entry
-  br label %do.body14
-
-do.body14:                                        ; preds = %if.else13
-  %18 = load i32, ptr %reg, align 4
-  %19 = load i8, ptr %slot, align 1
-  %conv16 = zext i8 %19 to i32
-  %shl17 = shl i32 1, %conv16
-  %and18 = and i32 %18, %shl17
-  %conv19 = zext i32 %and18 to i64
-  store i64 %conv19, ptr %__n115, align 8
-  store i64 0, ptr %__n220, align 8
-  %20 = load i64, ptr %__n115, align 8
-  %21 = load i64, ptr %__n220, align 8
-  %cmp21 = icmp eq i64 %20, %21
-  br i1 %cmp21, label %if.then23, label %if.else24
-
-if.then23:                                        ; preds = %do.body14
-  br label %if.end27
-
-if.else24:                                        ; preds = %do.body14
-  %22 = load i64, ptr %__n115, align 8
-  %conv25 = uitofp i64 %22 to x86_fp80
-  %23 = load i64, ptr %__n220, align 8
-  %conv26 = uitofp i64 %23 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 498, ptr noundef @__func__.ahci_port_check_nonbusy, ptr noundef @.str.35, x86_fp80 noundef %conv25, ptr noundef @.str.5, x86_fp80 noundef %conv26, i8 noundef signext 120)
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.else24, %if.then23
-  br label %do.end28
-
-do.end28:                                         ; preds = %if.end27
-  br label %if.end29
-
-if.end29:                                         ; preds = %do.end28, %do.end
-  %24 = load ptr, ptr %ahci.addr, align 8
-  %25 = load i8, ptr %port, align 1
-  %call30 = call i32 @ahci_px_rreg(ptr noundef %24, i8 noundef zeroext %25, i32 noundef 14)
-  store i32 %call30, ptr %reg, align 4
-  %26 = load ptr, ptr %cmd.addr, align 8
-  %props31 = getelementptr inbounds %struct.AHCICommand, ptr %26, i32 0, i32 9
-  %27 = load ptr, ptr %props31, align 8
-  %ncq32 = getelementptr inbounds %struct.AHCICommandProp, ptr %27, i32 0, i32 9
-  %28 = load i8, ptr %ncq32, align 1
-  %tobool33 = trunc i8 %28 to i1
-  br i1 %tobool33, label %if.else57, label %land.lhs.true34
-
-land.lhs.true34:                                  ; preds = %if.end29
-  %29 = load ptr, ptr %cmd.addr, align 8
-  %errors35 = getelementptr inbounds %struct.AHCICommand, ptr %29, i32 0, i32 3
-  %30 = load i8, ptr %errors35, align 1
-  %conv36 = zext i8 %30 to i32
-  %tobool37 = icmp ne i32 %conv36, 0
-  br i1 %tobool37, label %if.then38, label %if.else57
-
-if.then38:                                        ; preds = %land.lhs.true34
-  br label %do.body39
-
-do.body39:                                        ; preds = %if.then38
-  %31 = load i32, ptr %reg, align 4
-  %32 = load i8, ptr %slot, align 1
-  %conv41 = zext i8 %32 to i32
-  %shl42 = shl i32 1, %conv41
-  %and43 = and i32 %31, %shl42
-  %conv44 = zext i32 %and43 to i64
-  store i64 %conv44, ptr %__n140, align 8
-  %33 = load i8, ptr %slot, align 1
-  %conv46 = zext i8 %33 to i32
-  %shl47 = shl i32 1, %conv46
-  %conv48 = sext i32 %shl47 to i64
-  store i64 %conv48, ptr %__n245, align 8
-  %34 = load i64, ptr %__n140, align 8
-  %35 = load i64, ptr %__n245, align 8
-  %cmp49 = icmp eq i64 %34, %35
-  br i1 %cmp49, label %if.then51, label %if.else52
-
-if.then51:                                        ; preds = %do.body39
-  br label %if.end55
-
-if.else52:                                        ; preds = %do.body39
-  %36 = load i64, ptr %__n140, align 8
-  %conv53 = uitofp i64 %36 to x86_fp80
-  %37 = load i64, ptr %__n245, align 8
-  %conv54 = uitofp i64 %37 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 507, ptr noundef @__func__.ahci_port_check_nonbusy, ptr noundef @.str.34, x86_fp80 noundef %conv53, ptr noundef @.str.5, x86_fp80 noundef %conv54, i8 noundef signext 120)
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.else52, %if.then51
-  br label %do.end56
-
-do.end56:                                         ; preds = %if.end55
-  br label %if.end77
-
-if.else57:                                        ; preds = %land.lhs.true34, %if.end29
-  %38 = load ptr, ptr %cmd.addr, align 8
-  %errors58 = getelementptr inbounds %struct.AHCICommand, ptr %38, i32 0, i32 3
-  %39 = load i8, ptr %errors58, align 1
-  %tobool59 = icmp ne i8 %39, 0
-  br i1 %tobool59, label %if.end76, label %if.then60
-
-if.then60:                                        ; preds = %if.else57
-  br label %do.body61
-
-do.body61:                                        ; preds = %if.then60
-  %40 = load i32, ptr %reg, align 4
-  %41 = load i8, ptr %slot, align 1
-  %conv63 = zext i8 %41 to i32
-  %shl64 = shl i32 1, %conv63
-  %and65 = and i32 %40, %shl64
-  %conv66 = zext i32 %and65 to i64
-  store i64 %conv66, ptr %__n162, align 8
-  store i64 0, ptr %__n267, align 8
-  %42 = load i64, ptr %__n162, align 8
-  %43 = load i64, ptr %__n267, align 8
-  %cmp68 = icmp eq i64 %42, %43
-  br i1 %cmp68, label %if.then70, label %if.else71
-
-if.then70:                                        ; preds = %do.body61
-  br label %if.end74
-
-if.else71:                                        ; preds = %do.body61
-  %44 = load i64, ptr %__n162, align 8
-  %conv72 = uitofp i64 %44 to x86_fp80
-  %45 = load i64, ptr %__n267, align 8
-  %conv73 = uitofp i64 %45 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 509, ptr noundef @__func__.ahci_port_check_nonbusy, ptr noundef @.str.35, x86_fp80 noundef %conv72, ptr noundef @.str.5, x86_fp80 noundef %conv73, i8 noundef signext 120)
-  br label %if.end74
-
-if.end74:                                         ; preds = %if.else71, %if.then70
-  br label %do.end75
-
-do.end75:                                         ; preds = %if.end74
-  br label %if.end76
-
-if.end76:                                         ; preds = %do.end75, %if.else57
-  br label %if.end77
-
-if.end77:                                         ; preds = %if.end76, %do.end56
-  %46 = load ptr, ptr %ahci.addr, align 8
-  %47 = load i8, ptr %port, align 1
-  %call78 = call i32 @ahci_px_rreg(ptr noundef %46, i8 noundef zeroext %47, i32 noundef 8)
-  store i32 %call78, ptr %reg, align 4
-  br label %do.body79
-
-do.body79:                                        ; preds = %if.end77
-  %48 = load i32, ptr %reg, align 4
-  %and81 = and i32 %48, 128
-  %conv82 = zext i32 %and81 to i64
-  store i64 %conv82, ptr %__n180, align 8
-  store i64 0, ptr %__n283, align 8
-  %49 = load i64, ptr %__n180, align 8
-  %50 = load i64, ptr %__n283, align 8
-  %cmp84 = icmp eq i64 %49, %50
-  br i1 %cmp84, label %if.then86, label %if.else87
-
-if.then86:                                        ; preds = %do.body79
-  br label %if.end90
-
-if.else87:                                        ; preds = %do.body79
-  %51 = load i64, ptr %__n180, align 8
-  %conv88 = uitofp i64 %51 to x86_fp80
-  %52 = load i64, ptr %__n283, align 8
-  %conv89 = uitofp i64 %52 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 514, ptr noundef @__func__.ahci_port_check_nonbusy, ptr noundef @.str.36, x86_fp80 noundef %conv88, ptr noundef @.str.5, x86_fp80 noundef %conv89, i8 noundef signext 120)
-  br label %if.end90
-
-if.end90:                                         ; preds = %if.else87, %if.then86
-  br label %do.end91
-
-do.end91:                                         ; preds = %if.end90
-  br label %do.body92
-
-do.body92:                                        ; preds = %do.end91
-  %53 = load i32, ptr %reg, align 4
-  %and94 = and i32 %53, 8
-  %conv95 = zext i32 %and94 to i64
-  store i64 %conv95, ptr %__n193, align 8
-  store i64 0, ptr %__n296, align 8
-  %54 = load i64, ptr %__n193, align 8
-  %55 = load i64, ptr %__n296, align 8
-  %cmp97 = icmp eq i64 %54, %55
-  br i1 %cmp97, label %if.then99, label %if.else100
-
-if.then99:                                        ; preds = %do.body92
-  br label %if.end103
-
-if.else100:                                       ; preds = %do.body92
-  %56 = load i64, ptr %__n193, align 8
-  %conv101 = uitofp i64 %56 to x86_fp80
-  %57 = load i64, ptr %__n296, align 8
-  %conv102 = uitofp i64 %57 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 515, ptr noundef @__func__.ahci_port_check_nonbusy, ptr noundef @.str.37, x86_fp80 noundef %conv101, ptr noundef @.str.5, x86_fp80 noundef %conv102, i8 noundef signext 120)
-  br label %if.end103
-
-if.end103:                                        ; preds = %if.else100, %if.then99
-  br label %do.end104
-
-do.end104:                                        ; preds = %if.end103
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_d2h_sanity(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %slot.addr = alloca i8, align 1
-  %d2h = alloca ptr, align 8
-  %reg = alloca i32, align 4
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n17 = alloca i64, align 8
-  %__n29 = alloca i64, align 8
-  %__n120 = alloca i64, align 8
-  %__n223 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %slot, ptr %slot.addr, align 1
-  %call = call noalias ptr @g_malloc0(i64 noundef 32) #10
-  store ptr %call, ptr %d2h, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %qts, align 8
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCIQState, ptr %3, i32 0, i32 7
-  %4 = load i8, ptr %port.addr, align 1
-  %idxprom = zext i8 %4 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom
-  %fb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 0
-  %5 = load i64, ptr %fb, align 8
-  %add = add i64 %5, 64
-  %6 = load ptr, ptr %d2h, align 8
-  call void @qtest_memread(ptr noundef %2, i64 noundef %add, ptr noundef %6, i64 noundef 32)
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %7 = load ptr, ptr %d2h, align 8
-  %fis_type = getelementptr inbounds %struct.RegD2HFIS, ptr %7, i32 0, i32 0
-  %8 = load i8, ptr %fis_type, align 1
-  %conv = zext i8 %8 to i64
-  store i64 %conv, ptr %__n1, align 8
-  store i64 52, ptr %__n2, align 8
-  %9 = load i64, ptr %__n1, align 8
-  %10 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %9, %10
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %11 = load i64, ptr %__n1, align 8
-  %conv3 = uitofp i64 %11 to x86_fp80
-  %12 = load i64, ptr %__n2, align 8
-  %conv4 = uitofp i64 %12 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 524, ptr noundef @__func__.ahci_port_check_d2h_sanity, ptr noundef @.str.38, x86_fp80 noundef %conv3, ptr noundef @.str.5, x86_fp80 noundef %conv4, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %13 = load ptr, ptr %ahci.addr, align 8
-  %14 = load i8, ptr %port.addr, align 1
-  %call5 = call i32 @ahci_px_rreg(ptr noundef %13, i8 noundef zeroext %14, i32 noundef 8)
-  store i32 %call5, ptr %reg, align 4
-  br label %do.body6
-
-do.body6:                                         ; preds = %do.end
-  %15 = load i32, ptr %reg, align 4
-  %and = and i32 %15, 65280
-  %shr = lshr i32 %and, 8
-  %conv8 = zext i32 %shr to i64
-  store i64 %conv8, ptr %__n17, align 8
-  %16 = load ptr, ptr %d2h, align 8
-  %error = getelementptr inbounds %struct.RegD2HFIS, ptr %16, i32 0, i32 3
-  %17 = load i8, ptr %error, align 1
-  %conv10 = zext i8 %17 to i64
-  store i64 %conv10, ptr %__n29, align 8
-  %18 = load i64, ptr %__n17, align 8
-  %19 = load i64, ptr %__n29, align 8
-  %cmp11 = icmp eq i64 %18, %19
-  br i1 %cmp11, label %if.then13, label %if.else14
-
-if.then13:                                        ; preds = %do.body6
-  br label %if.end17
-
-if.else14:                                        ; preds = %do.body6
-  %20 = load i64, ptr %__n17, align 8
-  %conv15 = uitofp i64 %20 to x86_fp80
-  %21 = load i64, ptr %__n29, align 8
-  %conv16 = uitofp i64 %21 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 527, ptr noundef @__func__.ahci_port_check_d2h_sanity, ptr noundef @.str.39, x86_fp80 noundef %conv15, ptr noundef @.str.5, x86_fp80 noundef %conv16, i8 noundef signext 120)
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.else14, %if.then13
-  br label %do.end18
-
-do.end18:                                         ; preds = %if.end17
-  br label %do.body19
-
-do.body19:                                        ; preds = %do.end18
-  %22 = load i32, ptr %reg, align 4
-  %and21 = and i32 %22, 255
-  %conv22 = zext i32 %and21 to i64
-  store i64 %conv22, ptr %__n120, align 8
-  %23 = load ptr, ptr %d2h, align 8
-  %status = getelementptr inbounds %struct.RegD2HFIS, ptr %23, i32 0, i32 2
-  %24 = load i8, ptr %status, align 1
-  %conv24 = zext i8 %24 to i64
-  store i64 %conv24, ptr %__n223, align 8
-  %25 = load i64, ptr %__n120, align 8
-  %26 = load i64, ptr %__n223, align 8
-  %cmp25 = icmp eq i64 %25, %26
-  br i1 %cmp25, label %if.then27, label %if.else28
-
-if.then27:                                        ; preds = %do.body19
-  br label %if.end31
-
-if.else28:                                        ; preds = %do.body19
-  %27 = load i64, ptr %__n120, align 8
-  %conv29 = uitofp i64 %27 to x86_fp80
-  %28 = load i64, ptr %__n223, align 8
-  %conv30 = uitofp i64 %28 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 528, ptr noundef @__func__.ahci_port_check_d2h_sanity, ptr noundef @.str.40, x86_fp80 noundef %conv29, ptr noundef @.str.5, x86_fp80 noundef %conv30, i8 noundef signext 120)
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.else28, %if.then27
-  br label %do.end32
-
-do.end32:                                         ; preds = %if.end31
-  %29 = load ptr, ptr %d2h, align 8
-  call void @g_free(ptr noundef %29)
-  ret void
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: noreturn nounwind
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) #4
 
-declare void @qtest_memread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_pio_sanity(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %pio = alloca ptr, align 8
-  %port = alloca i8, align 1
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %pio_len = alloca i64, align 8
-  %__n139 = alloca i64, align 8
-  %__n243 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %call = call noalias ptr @g_malloc0(i64 noundef 32) #10
-  store ptr %call, ptr %pio, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %port1, align 1
-  store i8 %1, ptr %port, align 1
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %qts, align 8
-  %5 = load ptr, ptr %ahci.addr, align 8
-  %port2 = getelementptr inbounds %struct.AHCIQState, ptr %5, i32 0, i32 7
-  %6 = load i8, ptr %port, align 1
-  %idxprom = zext i8 %6 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %idxprom
-  %fb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 0
-  %7 = load i64, ptr %fb, align 8
-  %add = add i64 %7, 32
-  %8 = load ptr, ptr %pio, align 8
-  call void @qtest_memread(ptr noundef %4, i64 noundef %add, ptr noundef %8, i64 noundef 32)
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %9 = load ptr, ptr %pio, align 8
-  %fis_type = getelementptr inbounds %struct.PIOSetupFIS, ptr %9, i32 0, i32 0
-  %10 = load i8, ptr %fis_type, align 1
-  %conv = zext i8 %10 to i64
-  store i64 %conv, ptr %__n1, align 8
-  store i64 95, ptr %__n2, align 8
-  %11 = load i64, ptr %__n1, align 8
-  %12 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %11, %12
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %13 = load i64, ptr %__n1, align 8
-  %conv4 = uitofp i64 %13 to x86_fp80
-  %14 = load i64, ptr %__n2, align 8
-  %conv5 = uitofp i64 %14 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 542, ptr noundef @__func__.ahci_port_check_pio_sanity, ptr noundef @.str.41, x86_fp80 noundef %conv4, ptr noundef @.str.5, x86_fp80 noundef %conv5, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %15 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %15, i32 0, i32 9
-  %16 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds %struct.AHCICommandProp, ptr %16, i32 0, i32 8
-  %17 = load i8, ptr %atapi, align 8
-  %tobool = trunc i8 %17 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.else28
-
-land.lhs.true:                                    ; preds = %do.end
-  %18 = load ptr, ptr %cmd.addr, align 8
-  %xbytes = getelementptr inbounds %struct.AHCICommand, ptr %18, i32 0, i32 5
-  %19 = load i64, ptr %xbytes, align 8
-  %cmp7 = icmp eq i64 %19, 0
-  br i1 %cmp7, label %if.then12, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %20 = load ptr, ptr %cmd.addr, align 8
-  %props9 = getelementptr inbounds %struct.AHCICommand, ptr %20, i32 0, i32 9
-  %21 = load ptr, ptr %props9, align 8
-  %dma = getelementptr inbounds %struct.AHCICommandProp, ptr %21, i32 0, i32 3
-  %22 = load i8, ptr %dma, align 1
-  %tobool10 = trunc i8 %22 to i1
-  br i1 %tobool10, label %if.then12, label %if.else28
-
-if.then12:                                        ; preds = %lor.lhs.false, %land.lhs.true
-  br label %do.body13
-
-do.body13:                                        ; preds = %if.then12
-  %23 = load ptr, ptr %pio, align 8
-  %tx_count = getelementptr inbounds %struct.PIOSetupFIS, ptr %23, i32 0, i32 11
-  %24 = load i16, ptr %tx_count, align 1
-  %call14 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %24)
-  %conv15 = zext i16 %call14 to i32
-  %cmp16 = icmp eq i32 %conv15, 12
-  br i1 %cmp16, label %if.then24, label %lor.lhs.false18
-
-lor.lhs.false18:                                  ; preds = %do.body13
-  %25 = load ptr, ptr %pio, align 8
-  %tx_count19 = getelementptr inbounds %struct.PIOSetupFIS, ptr %25, i32 0, i32 11
-  %26 = load i16, ptr %tx_count19, align 1
-  %call20 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %26)
-  %conv21 = zext i16 %call20 to i32
-  %cmp22 = icmp eq i32 %conv21, 16
-  br i1 %cmp22, label %if.then24, label %if.else25
-
-if.then24:                                        ; preds = %lor.lhs.false18, %do.body13
-  br label %if.end26
-
-if.else25:                                        ; preds = %lor.lhs.false18
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 551, ptr noundef @__func__.ahci_port_check_pio_sanity, ptr noundef @.str.42) #9
-  unreachable
-
-if.end26:                                         ; preds = %if.then24
-  br label %do.end27
-
-do.end27:                                         ; preds = %if.end26
-  br label %if.end52
-
-if.else28:                                        ; preds = %lor.lhs.false, %do.end
-  %27 = load ptr, ptr %cmd.addr, align 8
-  %xbytes29 = getelementptr inbounds %struct.AHCICommand, ptr %27, i32 0, i32 5
-  %28 = load i64, ptr %xbytes29, align 8
-  %29 = load ptr, ptr %cmd.addr, align 8
-  %sector_size = getelementptr inbounds %struct.AHCICommand, ptr %29, i32 0, i32 7
-  %30 = load i32, ptr %sector_size, align 4
-  %conv30 = zext i32 %30 to i64
-  %rem = urem i64 %28, %conv30
-  %tobool31 = icmp ne i64 %rem, 0
-  br i1 %tobool31, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.else28
-  %31 = load ptr, ptr %cmd.addr, align 8
-  %xbytes32 = getelementptr inbounds %struct.AHCICommand, ptr %31, i32 0, i32 5
-  %32 = load i64, ptr %xbytes32, align 8
-  %33 = load ptr, ptr %cmd.addr, align 8
-  %sector_size33 = getelementptr inbounds %struct.AHCICommand, ptr %33, i32 0, i32 7
-  %34 = load i32, ptr %sector_size33, align 4
-  %conv34 = zext i32 %34 to i64
-  %rem35 = urem i64 %32, %conv34
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.else28
-  %35 = load ptr, ptr %cmd.addr, align 8
-  %sector_size36 = getelementptr inbounds %struct.AHCICommand, ptr %35, i32 0, i32 7
-  %36 = load i32, ptr %sector_size36, align 4
-  %conv37 = zext i32 %36 to i64
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %rem35, %cond.true ], [ %conv37, %cond.false ]
-  store i64 %cond, ptr %pio_len, align 8
-  br label %do.body38
-
-do.body38:                                        ; preds = %cond.end
-  %37 = load ptr, ptr %pio, align 8
-  %tx_count40 = getelementptr inbounds %struct.PIOSetupFIS, ptr %37, i32 0, i32 11
-  %38 = load i16, ptr %tx_count40, align 1
-  %call41 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %38)
-  %conv42 = zext i16 %call41 to i64
-  store i64 %conv42, ptr %__n139, align 8
-  %39 = load i64, ptr %pio_len, align 8
-  store i64 %39, ptr %__n243, align 8
-  %40 = load i64, ptr %__n139, align 8
-  %41 = load i64, ptr %__n243, align 8
-  %cmp44 = icmp eq i64 %40, %41
-  br i1 %cmp44, label %if.then46, label %if.else47
-
-if.then46:                                        ; preds = %do.body38
-  br label %if.end50
-
-if.else47:                                        ; preds = %do.body38
-  %42 = load i64, ptr %__n139, align 8
-  %conv48 = uitofp i64 %42 to x86_fp80
-  %43 = load i64, ptr %__n243, align 8
-  %conv49 = uitofp i64 %43 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 558, ptr noundef @__func__.ahci_port_check_pio_sanity, ptr noundef @.str.43, x86_fp80 noundef %conv48, ptr noundef @.str.5, x86_fp80 noundef %conv49, i8 noundef signext 120)
-  br label %if.end50
-
-if.end50:                                         ; preds = %if.else47, %if.then46
-  br label %do.end51
-
-do.end51:                                         ; preds = %if.end50
-  br label %if.end52
-
-if.end52:                                         ; preds = %do.end51, %do.end27
-  %44 = load ptr, ptr %pio, align 8
-  call void @g_free(ptr noundef %44)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i16 @le16_to_cpu(i16 noundef zeroext %v) #0 {
-entry:
-  %v.addr = alloca i16, align 2
-  store i16 %v, ptr %v.addr, align 2
-  %0 = load i16, ptr %v.addr, align 2
-  ret i16 %0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_port_check_cmd_sanity(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %cmdh = alloca %struct.AHCICommandHeader, align 1
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %port = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 1
-  %2 = load i8, ptr %port, align 1
-  %3 = load ptr, ptr %cmd.addr, align 8
-  %slot = getelementptr inbounds %struct.AHCICommand, ptr %3, i32 0, i32 2
-  %4 = load i8, ptr %slot, align 2
-  call void @ahci_get_command_header(ptr noundef %0, i8 noundef zeroext %2, i8 noundef zeroext %4, ptr noundef %cmdh)
-  %5 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %5, i32 0, i32 9
-  %6 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %6, i32 0, i32 9
-  %7 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %7 to i1
-  br i1 %tobool, label %if.end5, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  %8 = load ptr, ptr %cmd.addr, align 8
-  %xbytes = getelementptr inbounds %struct.AHCICommand, ptr %8, i32 0, i32 5
-  %9 = load i64, ptr %xbytes, align 8
-  store i64 %9, ptr %__n1, align 8
-  %prdbc = getelementptr inbounds %struct.AHCICommandHeader, ptr %cmdh, i32 0, i32 2
-  %10 = load i32, ptr %prdbc, align 1
-  %conv = zext i32 %10 to i64
-  store i64 %conv, ptr %__n2, align 8
-  %11 = load i64, ptr %__n1, align 8
-  %12 = load i64, ptr %__n2, align 8
-  %cmp = icmp eq i64 %11, %12
-  br i1 %cmp, label %if.then2, label %if.else
-
-if.then2:                                         ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %13 = load i64, ptr %__n1, align 8
-  %conv3 = uitofp i64 %13 to x86_fp80
-  %14 = load i64, ptr %__n2, align 8
-  %conv4 = uitofp i64 %14 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 570, ptr noundef @__func__.ahci_port_check_cmd_sanity, ptr noundef @.str.44, x86_fp80 noundef %conv3, ptr noundef @.str.5, x86_fp80 noundef %conv4, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then2
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %if.end5
-
-if.end5:                                          ; preds = %do.end, %entry
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_get_command_header(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %slot.addr = alloca i8, align 1
-  %cmd.addr = alloca ptr, align 8
-  %ba = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %slot, ptr %slot.addr, align 1
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCIQState, ptr %0, i32 0, i32 7
-  %1 = load i8, ptr %port.addr, align 1
-  %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom
-  %clb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 1
-  %2 = load i64, ptr %clb, align 8
-  store i64 %2, ptr %ba, align 8
-  %3 = load i8, ptr %slot.addr, align 1
-  %conv = zext i8 %3 to i64
-  %mul = mul i64 %conv, 32
-  %4 = load i64, ptr %ba, align 8
-  %add = add i64 %4, %mul
-  store i64 %add, ptr %ba, align 8
-  %5 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %qts, align 8
-  %8 = load i64, ptr %ba, align 8
-  %9 = load ptr, ptr %cmd.addr, align 8
-  call void @qtest_memread(ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef 32)
-  %10 = load ptr, ptr %cmd.addr, align 8
-  %flags = getelementptr inbounds %struct.AHCICommandHeader, ptr %10, i32 0, i32 0
-  %11 = load i16, ptr %flags, align 1
-  %call = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %11)
-  %12 = load ptr, ptr %cmd.addr, align 8
-  %flags2 = getelementptr inbounds %struct.AHCICommandHeader, ptr %12, i32 0, i32 0
-  store i16 %call, ptr %flags2, align 1
-  %13 = load ptr, ptr %cmd.addr, align 8
-  %prdtl = getelementptr inbounds %struct.AHCICommandHeader, ptr %13, i32 0, i32 1
-  %14 = load i16, ptr %prdtl, align 1
-  %call3 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %14)
-  %15 = load ptr, ptr %cmd.addr, align 8
-  %prdtl4 = getelementptr inbounds %struct.AHCICommandHeader, ptr %15, i32 0, i32 1
-  store i16 %call3, ptr %prdtl4, align 1
-  %16 = load ptr, ptr %cmd.addr, align 8
-  %prdbc = getelementptr inbounds %struct.AHCICommandHeader, ptr %16, i32 0, i32 2
-  %17 = load i32, ptr %prdbc, align 1
-  %call5 = call i32 @le32_to_cpu(i32 noundef %17)
-  %18 = load ptr, ptr %cmd.addr, align 8
-  %prdbc6 = getelementptr inbounds %struct.AHCICommandHeader, ptr %18, i32 0, i32 2
-  store i32 %call5, ptr %prdbc6, align 1
-  %19 = load ptr, ptr %cmd.addr, align 8
-  %ctba = getelementptr inbounds %struct.AHCICommandHeader, ptr %19, i32 0, i32 3
-  %20 = load i64, ptr %ctba, align 1
-  %call7 = call i64 @le64_to_cpu(i64 noundef %20)
-  %21 = load ptr, ptr %cmd.addr, align 8
-  %ctba8 = getelementptr inbounds %struct.AHCICommandHeader, ptr %21, i32 0, i32 3
-  store i64 %call7, ptr %ctba8, align 1
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @le32_to_cpu(i32 noundef %v) #0 {
-entry:
-  %v.addr = alloca i32, align 4
-  store i32 %v, ptr %v.addr, align 4
-  %0 = load i32, ptr %v.addr, align 4
-  ret i32 %0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @le64_to_cpu(i64 noundef %v) #0 {
-entry:
-  %v.addr = alloca i64, align 8
-  store i64 %v, ptr %v.addr, align 8
-  %0 = load i64, ptr %v.addr, align 8
-  ret i64 %0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_set_command_header(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %slot.addr = alloca i8, align 1
-  %cmd.addr = alloca ptr, align 8
-  %tmp = alloca %struct.AHCICommandHeader, align 1
-  %ba = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %slot, ptr %slot.addr, align 1
-  store ptr %cmd, ptr %cmd.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %tmp, i8 0, i64 32, i1 false)
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCIQState, ptr %0, i32 0, i32 7
-  %1 = load i8, ptr %port.addr, align 1
-  %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom
-  %clb = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 1
-  %2 = load i64, ptr %clb, align 8
-  store i64 %2, ptr %ba, align 8
-  %3 = load i8, ptr %slot.addr, align 1
-  %conv = zext i8 %3 to i64
-  %mul = mul i64 %conv, 32
-  %4 = load i64, ptr %ba, align 8
-  %add = add i64 %4, %mul
-  store i64 %add, ptr %ba, align 8
-  %5 = load ptr, ptr %cmd.addr, align 8
-  %flags = getelementptr inbounds %struct.AHCICommandHeader, ptr %5, i32 0, i32 0
-  %6 = load i16, ptr %flags, align 1
-  %call = call zeroext i16 @cpu_to_le16(i16 noundef zeroext %6)
-  %flags2 = getelementptr inbounds %struct.AHCICommandHeader, ptr %tmp, i32 0, i32 0
-  store i16 %call, ptr %flags2, align 1
-  %7 = load ptr, ptr %cmd.addr, align 8
-  %prdtl = getelementptr inbounds %struct.AHCICommandHeader, ptr %7, i32 0, i32 1
-  %8 = load i16, ptr %prdtl, align 1
-  %call3 = call zeroext i16 @cpu_to_le16(i16 noundef zeroext %8)
-  %prdtl4 = getelementptr inbounds %struct.AHCICommandHeader, ptr %tmp, i32 0, i32 1
-  store i16 %call3, ptr %prdtl4, align 1
-  %9 = load ptr, ptr %cmd.addr, align 8
-  %prdbc = getelementptr inbounds %struct.AHCICommandHeader, ptr %9, i32 0, i32 2
-  %10 = load i32, ptr %prdbc, align 1
-  %call5 = call i32 @cpu_to_le32(i32 noundef %10)
-  %prdbc6 = getelementptr inbounds %struct.AHCICommandHeader, ptr %tmp, i32 0, i32 2
-  store i32 %call5, ptr %prdbc6, align 1
-  %11 = load ptr, ptr %cmd.addr, align 8
-  %ctba = getelementptr inbounds %struct.AHCICommandHeader, ptr %11, i32 0, i32 3
-  %12 = load i64, ptr %ctba, align 1
-  %call7 = call i64 @cpu_to_le64(i64 noundef %12)
-  %ctba8 = getelementptr inbounds %struct.AHCICommandHeader, ptr %tmp, i32 0, i32 3
-  store i64 %call7, ptr %ctba8, align 1
-  %13 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %qts, align 8
-  %16 = load i64, ptr %ba, align 8
-  call void @qtest_memwrite(ptr noundef %15, i64 noundef %16, ptr noundef %tmp, i64 noundef 32)
-  ret void
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i16 @cpu_to_le16(i16 noundef zeroext %v) #0 {
-entry:
-  %v.addr = alloca i16, align 2
-  store i16 %v, ptr %v.addr, align 2
-  %0 = load i16, ptr %v.addr, align 2
-  ret i16 %0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cpu_to_le32(i32 noundef %v) #0 {
-entry:
-  %v.addr = alloca i32, align 4
-  store i32 %v, ptr %v.addr, align 4
-  %0 = load i32, ptr %v.addr, align 4
-  ret i32 %0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cpu_to_le64(i64 noundef %v) #0 {
-entry:
-  %v.addr = alloca i64, align 8
-  store i64 %v, ptr %v.addr, align 8
-  %0 = load i64, ptr %v.addr, align 8
-  ret i64 %0
-}
-
-declare void @qtest_memwrite(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_write_fis(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %tmp = alloca %struct.RegH2DFIS, align 1
-  %addr = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %fis = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp, ptr align 8 %fis, i64 20, i1 false)
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %header = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 10
-  %ctba = getelementptr inbounds %struct.AHCICommandHeader, ptr %header, i32 0, i32 3
-  %2 = load i64, ptr %ctba, align 8
-  store i64 %2, ptr %addr, align 8
-  %3 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %3, i32 0, i32 9
-  %4 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %4, i32 0, i32 9
-  %5 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %5 to i1
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %count = getelementptr inbounds %struct.RegH2DFIS, ptr %tmp, i32 0, i32 8
-  %6 = load i16, ptr %count, align 1
-  %call = call zeroext i16 @cpu_to_le16(i16 noundef zeroext %6)
-  %count1 = getelementptr inbounds %struct.RegH2DFIS, ptr %tmp, i32 0, i32 8
-  store i16 %call, ptr %count1, align 1
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %qts, align 8
-  %10 = load i64, ptr %addr, align 8
-  call void @qtest_memwrite(ptr noundef %9, i64 noundef %10, ptr noundef %tmp, i64 noundef 20)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ahci_pick_cmd(ptr noundef %ahci, i8 noundef zeroext %port) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %reg = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load i8, ptr %port.addr, align 1
-  %call = call i32 @ahci_px_rreg(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 14)
-  store i32 %call, ptr %reg, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %cmp = icmp ult i32 %2, 32
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCIQState, ptr %3, i32 0, i32 7
-  %4 = load i8, ptr %port.addr, align 1
-  %idxprom = zext i8 %4 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom
-  %next = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 4
-  %5 = load i8, ptr %next, align 8
-  %conv = zext i8 %5 to i32
-  %6 = load i32, ptr %i, align 4
-  %add = add i32 %conv, %6
-  %rem = urem i32 %add, 32
-  store i32 %rem, ptr %j, align 4
-  %7 = load i32, ptr %reg, align 4
-  %8 = load i32, ptr %j, align 4
-  %shl = shl i32 1, %8
-  %and = and i32 %7, %shl
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  br label %for.inc
-
-if.end:                                           ; preds = %for.body
-  %9 = load ptr, ptr %ahci.addr, align 8
-  %10 = load i8, ptr %port.addr, align 1
-  %11 = load i32, ptr %j, align 4
-  %conv2 = trunc i32 %11 to i8
-  call void @ahci_destroy_command(ptr noundef %9, i8 noundef zeroext %10, i8 noundef zeroext %conv2)
-  %12 = load i32, ptr %j, align 4
-  %add3 = add i32 %12, 1
-  %rem4 = urem i32 %add3, 32
-  %conv5 = trunc i32 %rem4 to i8
-  %13 = load ptr, ptr %ahci.addr, align 8
-  %port6 = getelementptr inbounds %struct.AHCIQState, ptr %13, i32 0, i32 7
-  %14 = load i8, ptr %port.addr, align 1
-  %idxprom7 = zext i8 %14 to i64
-  %arrayidx8 = getelementptr [32 x %struct.AHCIPortQState], ptr %port6, i64 0, i64 %idxprom7
-  %next9 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx8, i32 0, i32 4
-  store i8 %conv5, ptr %next9, align 8
-  %15 = load i32, ptr %j, align 4
-  br label %do.end
-
-for.inc:                                          ; preds = %if.then
-  %16 = load i32, ptr %i, align 4
-  %inc = add i32 %16, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %for.cond
-  call void (ptr, ...) @g_test_message(ptr noundef @.str.45)
-  br label %do.body
-
-do.body:                                          ; preds = %for.end
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 662, ptr noundef @__func__.ahci_pick_cmd, ptr noundef null) #9
-  unreachable
-
-do.end:                                           ; preds = %if.end
-  ret i32 %15
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @size_to_prdtl(i32 noundef %bytes, i32 noundef %bytes_per_prd) #0 {
-entry:
-  %bytes.addr = alloca i32, align 4
-  %bytes_per_prd.addr = alloca i32, align 4
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n15 = alloca i64, align 8
-  %__n27 = alloca i64, align 8
-  store i32 %bytes, ptr %bytes.addr, align 4
-  store i32 %bytes_per_prd, ptr %bytes_per_prd.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %bytes_per_prd.addr, align 4
-  %conv = zext i32 %0 to i64
-  store i64 %conv, ptr %__n1, align 8
-  store i64 4194304, ptr %__n2, align 8
-  %1 = load i64, ptr %__n1, align 8
-  %2 = load i64, ptr %__n2, align 8
-  %cmp = icmp ule i64 %1, %2
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %3 = load i64, ptr %__n1, align 8
-  %conv2 = uitofp i64 %3 to x86_fp80
-  %4 = load i64, ptr %__n2, align 8
-  %conv3 = uitofp i64 %4 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 668, ptr noundef @__func__.size_to_prdtl, ptr noundef @.str.46, x86_fp80 noundef %conv2, ptr noundef @.str.47, x86_fp80 noundef %conv3, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body4
-
-do.body4:                                         ; preds = %do.end
-  %5 = load i32, ptr %bytes_per_prd.addr, align 4
-  %and = and i32 %5, 1
-  %conv6 = zext i32 %and to i64
-  store i64 %conv6, ptr %__n15, align 8
-  store i64 0, ptr %__n27, align 8
-  %6 = load i64, ptr %__n15, align 8
-  %7 = load i64, ptr %__n27, align 8
-  %cmp8 = icmp eq i64 %6, %7
-  br i1 %cmp8, label %if.then10, label %if.else11
-
-if.then10:                                        ; preds = %do.body4
-  br label %if.end14
-
-if.else11:                                        ; preds = %do.body4
-  %8 = load i64, ptr %__n15, align 8
-  %conv12 = uitofp i64 %8 to x86_fp80
-  %9 = load i64, ptr %__n27, align 8
-  %conv13 = uitofp i64 %9 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 669, ptr noundef @__func__.size_to_prdtl, ptr noundef @.str.48, x86_fp80 noundef %conv12, ptr noundef @.str.5, x86_fp80 noundef %conv13, i8 noundef signext 120)
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.else11, %if.then10
-  br label %do.end15
-
-do.end15:                                         ; preds = %if.end14
-  %10 = load i32, ptr %bytes.addr, align 4
-  %11 = load i32, ptr %bytes_per_prd.addr, align 4
-  %add = add i32 %10, %11
-  %sub = sub i32 %add, 1
-  %12 = load i32, ptr %bytes_per_prd.addr, align 4
-  %div = udiv i32 %sub, %12
-  ret i32 %div
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_exec(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %op, ptr noundef %opts_in) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %op.addr = alloca i8, align 1
-  %opts_in.addr = alloca ptr, align 8
-  %cmd = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %opts = alloca ptr, align 8
-  %buffer_in = alloca i64, align 8
-  %bcl = alloca i16, align 2
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n152 = alloca i64, align 8
-  %__n254 = alloca i64, align 8
-  %__n177 = alloca i64, align 8
-  %__n279 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %op, ptr %op.addr, align 1
-  store ptr %opts_in, ptr %opts_in.addr, align 8
-  %0 = load ptr, ptr %opts_in.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %1 = load ptr, ptr %opts_in.addr, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ @default_opts, %cond.true ], [ %1, %cond.false ]
-  %call = call ptr @g_memdup2_qemu(ptr noundef %cond, i64 noundef 80)
-  store ptr %call, ptr %opts, align 8
-  %2 = load ptr, ptr %opts, align 8
-  %buffer = getelementptr inbounds %struct.AHCIOpts, ptr %2, i32 0, i32 5
-  %3 = load i64, ptr %buffer, align 8
-  store i64 %3, ptr %buffer_in, align 8
-  %4 = load ptr, ptr %opts, align 8
-  %size = getelementptr inbounds %struct.AHCIOpts, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %size, align 8
-  %tobool = icmp ne i64 %5, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end11
-
-land.lhs.true:                                    ; preds = %cond.end
-  %6 = load ptr, ptr %opts, align 8
-  %buffer1 = getelementptr inbounds %struct.AHCIOpts, ptr %6, i32 0, i32 5
-  %7 = load i64, ptr %buffer1, align 8
-  %tobool2 = icmp ne i64 %7, 0
-  br i1 %tobool2, label %if.end11, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %opts, align 8
-  %size3 = getelementptr inbounds %struct.AHCIOpts, ptr %9, i32 0, i32 0
-  %10 = load i64, ptr %size3, align 8
-  %call4 = call i64 @ahci_alloc(ptr noundef %8, i64 noundef %10)
-  %11 = load ptr, ptr %opts, align 8
-  %buffer5 = getelementptr inbounds %struct.AHCIOpts, ptr %11, i32 0, i32 5
-  store i64 %call4, ptr %buffer5, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  %12 = load ptr, ptr %opts, align 8
-  %buffer6 = getelementptr inbounds %struct.AHCIOpts, ptr %12, i32 0, i32 5
-  %13 = load i64, ptr %buffer6, align 8
-  %tobool7 = icmp ne i64 %13, 0
-  br i1 %tobool7, label %if.then8, label %if.else
-
-if.then8:                                         ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 702, ptr noundef @__func__.ahci_exec, ptr noundef @.str.49) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then8
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %14 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %qts, align 8
-  %17 = load ptr, ptr %opts, align 8
-  %buffer9 = getelementptr inbounds %struct.AHCIOpts, ptr %17, i32 0, i32 5
-  %18 = load i64, ptr %buffer9, align 8
-  %19 = load ptr, ptr %opts, align 8
-  %size10 = getelementptr inbounds %struct.AHCIOpts, ptr %19, i32 0, i32 0
-  %20 = load i64, ptr %size10, align 8
-  call void @qtest_memset(ptr noundef %16, i64 noundef %18, i8 noundef zeroext 0, i64 noundef %20)
-  br label %if.end11
-
-if.end11:                                         ; preds = %do.end, %land.lhs.true, %cond.end
-  %21 = load ptr, ptr %opts, align 8
-  %atapi = getelementptr inbounds %struct.AHCIOpts, ptr %21, i32 0, i32 6
-  %22 = load i8, ptr %atapi, align 8
-  %tobool12 = trunc i8 %22 to i1
-  br i1 %tobool12, label %if.then13, label %if.else22
-
-if.then13:                                        ; preds = %if.end11
-  %23 = load ptr, ptr %opts, align 8
-  %set_bcl = getelementptr inbounds %struct.AHCIOpts, ptr %23, i32 0, i32 2
-  %24 = load i8, ptr %set_bcl, align 4
-  %tobool14 = trunc i8 %24 to i1
-  br i1 %tobool14, label %cond.true15, label %cond.false17
-
-cond.true15:                                      ; preds = %if.then13
-  %25 = load ptr, ptr %opts, align 8
-  %bcl16 = getelementptr inbounds %struct.AHCIOpts, ptr %25, i32 0, i32 3
-  %26 = load i32, ptr %bcl16, align 8
-  br label %cond.end18
-
-cond.false17:                                     ; preds = %if.then13
-  br label %cond.end18
-
-cond.end18:                                       ; preds = %cond.false17, %cond.true15
-  %cond19 = phi i32 [ %26, %cond.true15 ], [ 2048, %cond.false17 ]
-  %conv = trunc i32 %cond19 to i16
-  store i16 %conv, ptr %bcl, align 2
-  %27 = load i8, ptr %op.addr, align 1
-  %28 = load i16, ptr %bcl, align 2
-  %29 = load ptr, ptr %opts, align 8
-  %atapi_dma = getelementptr inbounds %struct.AHCIOpts, ptr %29, i32 0, i32 7
-  %30 = load i8, ptr %atapi_dma, align 1
-  %tobool20 = trunc i8 %30 to i1
-  %call21 = call ptr @ahci_atapi_command_create(i8 noundef zeroext %27, i16 noundef zeroext %28, i1 noundef zeroext %tobool20)
-  store ptr %call21, ptr %cmd, align 8
-  br label %if.end24
-
-if.else22:                                        ; preds = %if.end11
-  %31 = load i8, ptr %op.addr, align 1
-  %call23 = call ptr @ahci_command_create(i8 noundef zeroext %31)
-  store ptr %call23, ptr %cmd, align 8
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.else22, %cond.end18
-  %32 = load ptr, ptr %cmd, align 8
-  %33 = load ptr, ptr %opts, align 8
-  %lba = getelementptr inbounds %struct.AHCIOpts, ptr %33, i32 0, i32 4
-  %34 = load i64, ptr %lba, align 8
-  %35 = load ptr, ptr %opts, align 8
-  %buffer25 = getelementptr inbounds %struct.AHCIOpts, ptr %35, i32 0, i32 5
-  %36 = load i64, ptr %buffer25, align 8
-  %37 = load ptr, ptr %opts, align 8
-  %size26 = getelementptr inbounds %struct.AHCIOpts, ptr %37, i32 0, i32 0
-  %38 = load i64, ptr %size26, align 8
-  %39 = load ptr, ptr %opts, align 8
-  %prd_size = getelementptr inbounds %struct.AHCIOpts, ptr %39, i32 0, i32 1
-  %40 = load i32, ptr %prd_size, align 8
-  call void @ahci_command_adjust(ptr noundef %32, i64 noundef %34, i64 noundef %36, i64 noundef %38, i32 noundef %40)
-  %41 = load ptr, ptr %opts, align 8
-  %pre_cb = getelementptr inbounds %struct.AHCIOpts, ptr %41, i32 0, i32 9
-  %42 = load ptr, ptr %pre_cb, align 8
-  %tobool27 = icmp ne ptr %42, null
-  br i1 %tobool27, label %if.then28, label %if.end41
-
-if.then28:                                        ; preds = %if.end24
-  %43 = load ptr, ptr %opts, align 8
-  %pre_cb29 = getelementptr inbounds %struct.AHCIOpts, ptr %43, i32 0, i32 9
-  %44 = load ptr, ptr %pre_cb29, align 8
-  %45 = load ptr, ptr %ahci.addr, align 8
-  %46 = load ptr, ptr %cmd, align 8
-  %47 = load ptr, ptr %opts, align 8
-  %call30 = call i32 %44(ptr noundef %45, ptr noundef %46, ptr noundef %47)
-  store i32 %call30, ptr %rc, align 4
-  br label %do.body31
-
-do.body31:                                        ; preds = %if.then28
-  %48 = load i32, ptr %rc, align 4
-  %conv32 = sext i32 %48 to i64
-  store i64 %conv32, ptr %__n1, align 8
-  store i64 0, ptr %__n2, align 8
-  %49 = load i64, ptr %__n1, align 8
-  %50 = load i64, ptr %__n2, align 8
-  %cmp33 = icmp eq i64 %49, %50
-  br i1 %cmp33, label %if.then35, label %if.else36
-
-if.then35:                                        ; preds = %do.body31
-  br label %if.end39
-
-if.else36:                                        ; preds = %do.body31
-  %51 = load i64, ptr %__n1, align 8
-  %conv37 = sitofp i64 %51 to x86_fp80
-  %52 = load i64, ptr %__n2, align 8
-  %conv38 = sitofp i64 %52 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 718, ptr noundef @__func__.ahci_exec, ptr noundef @.str.50, x86_fp80 noundef %conv37, ptr noundef @.str.5, x86_fp80 noundef %conv38, i8 noundef signext 105)
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.else36, %if.then35
-  br label %do.end40
-
-do.end40:                                         ; preds = %if.end39
-  br label %if.end41
-
-if.end41:                                         ; preds = %do.end40, %if.end24
-  %53 = load ptr, ptr %ahci.addr, align 8
-  %54 = load ptr, ptr %cmd, align 8
-  %55 = load i8, ptr %port.addr, align 1
-  call void @ahci_command_commit(ptr noundef %53, ptr noundef %54, i8 noundef zeroext %55)
-  %56 = load ptr, ptr %ahci.addr, align 8
-  %57 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_issue_async(ptr noundef %56, ptr noundef %57)
-  %58 = load ptr, ptr %opts, align 8
-  %error = getelementptr inbounds %struct.AHCIOpts, ptr %58, i32 0, i32 8
-  %59 = load i8, ptr %error, align 2
-  %tobool42 = trunc i8 %59 to i1
-  br i1 %tobool42, label %if.then43, label %if.end46
-
-if.then43:                                        ; preds = %if.end41
-  %60 = load ptr, ptr %ahci.addr, align 8
-  %parent44 = getelementptr inbounds %struct.AHCIQState, ptr %60, i32 0, i32 0
-  %61 = load ptr, ptr %parent44, align 8
-  %qts45 = getelementptr inbounds %struct.QOSState, ptr %61, i32 0, i32 0
-  %62 = load ptr, ptr %qts45, align 8
-  call void @qtest_qmp_eventwait(ptr noundef %62, ptr noundef @.str.51)
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.then43, %if.end41
-  %63 = load ptr, ptr %opts, align 8
-  %mid_cb = getelementptr inbounds %struct.AHCIOpts, ptr %63, i32 0, i32 10
-  %64 = load ptr, ptr %mid_cb, align 8
-  %tobool47 = icmp ne ptr %64, null
-  br i1 %tobool47, label %if.then48, label %if.end63
-
-if.then48:                                        ; preds = %if.end46
-  %65 = load ptr, ptr %opts, align 8
-  %mid_cb49 = getelementptr inbounds %struct.AHCIOpts, ptr %65, i32 0, i32 10
-  %66 = load ptr, ptr %mid_cb49, align 8
-  %67 = load ptr, ptr %ahci.addr, align 8
-  %68 = load ptr, ptr %cmd, align 8
-  %69 = load ptr, ptr %opts, align 8
-  %call50 = call i32 %66(ptr noundef %67, ptr noundef %68, ptr noundef %69)
-  store i32 %call50, ptr %rc, align 4
-  br label %do.body51
-
-do.body51:                                        ; preds = %if.then48
-  %70 = load i32, ptr %rc, align 4
-  %conv53 = sext i32 %70 to i64
-  store i64 %conv53, ptr %__n152, align 8
-  store i64 0, ptr %__n254, align 8
-  %71 = load i64, ptr %__n152, align 8
-  %72 = load i64, ptr %__n254, align 8
-  %cmp55 = icmp eq i64 %71, %72
-  br i1 %cmp55, label %if.then57, label %if.else58
-
-if.then57:                                        ; preds = %do.body51
-  br label %if.end61
-
-if.else58:                                        ; preds = %do.body51
-  %73 = load i64, ptr %__n152, align 8
-  %conv59 = sitofp i64 %73 to x86_fp80
-  %74 = load i64, ptr %__n254, align 8
-  %conv60 = sitofp i64 %74 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 729, ptr noundef @__func__.ahci_exec, ptr noundef @.str.50, x86_fp80 noundef %conv59, ptr noundef @.str.5, x86_fp80 noundef %conv60, i8 noundef signext 105)
-  br label %if.end61
-
-if.end61:                                         ; preds = %if.else58, %if.then57
-  br label %do.end62
-
-do.end62:                                         ; preds = %if.end61
-  br label %if.end63
-
-if.end63:                                         ; preds = %do.end62, %if.end46
-  %75 = load ptr, ptr %opts, align 8
-  %error64 = getelementptr inbounds %struct.AHCIOpts, ptr %75, i32 0, i32 8
-  %76 = load i8, ptr %error64, align 2
-  %tobool65 = trunc i8 %76 to i1
-  br i1 %tobool65, label %if.then66, label %if.end71
-
-if.then66:                                        ; preds = %if.end63
-  %77 = load ptr, ptr %ahci.addr, align 8
-  %parent67 = getelementptr inbounds %struct.AHCIQState, ptr %77, i32 0, i32 0
-  %78 = load ptr, ptr %parent67, align 8
-  %qts68 = getelementptr inbounds %struct.QOSState, ptr %78, i32 0, i32 0
-  %79 = load ptr, ptr %qts68, align 8
-  call void (ptr, ptr, ...) @qtest_qmp_send(ptr noundef %79, ptr noundef @.str.52)
-  %80 = load ptr, ptr %ahci.addr, align 8
-  %parent69 = getelementptr inbounds %struct.AHCIQState, ptr %80, i32 0, i32 0
-  %81 = load ptr, ptr %parent69, align 8
-  %qts70 = getelementptr inbounds %struct.QOSState, ptr %81, i32 0, i32 0
-  %82 = load ptr, ptr %qts70, align 8
-  call void @qtest_qmp_eventwait(ptr noundef %82, ptr noundef @.str.53)
-  br label %if.end71
-
-if.end71:                                         ; preds = %if.then66, %if.end63
-  %83 = load ptr, ptr %ahci.addr, align 8
-  %84 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_wait(ptr noundef %83, ptr noundef %84)
-  %85 = load ptr, ptr %ahci.addr, align 8
-  %86 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_verify(ptr noundef %85, ptr noundef %86)
-  %87 = load ptr, ptr %opts, align 8
-  %post_cb = getelementptr inbounds %struct.AHCIOpts, ptr %87, i32 0, i32 11
-  %88 = load ptr, ptr %post_cb, align 8
-  %tobool72 = icmp ne ptr %88, null
-  br i1 %tobool72, label %if.then73, label %if.end88
-
-if.then73:                                        ; preds = %if.end71
-  %89 = load ptr, ptr %opts, align 8
-  %post_cb74 = getelementptr inbounds %struct.AHCIOpts, ptr %89, i32 0, i32 11
-  %90 = load ptr, ptr %post_cb74, align 8
-  %91 = load ptr, ptr %ahci.addr, align 8
-  %92 = load ptr, ptr %cmd, align 8
-  %93 = load ptr, ptr %opts, align 8
-  %call75 = call i32 %90(ptr noundef %91, ptr noundef %92, ptr noundef %93)
-  store i32 %call75, ptr %rc, align 4
-  br label %do.body76
-
-do.body76:                                        ; preds = %if.then73
-  %94 = load i32, ptr %rc, align 4
-  %conv78 = sext i32 %94 to i64
-  store i64 %conv78, ptr %__n177, align 8
-  store i64 0, ptr %__n279, align 8
-  %95 = load i64, ptr %__n177, align 8
-  %96 = load i64, ptr %__n279, align 8
-  %cmp80 = icmp eq i64 %95, %96
-  br i1 %cmp80, label %if.then82, label %if.else83
-
-if.then82:                                        ; preds = %do.body76
-  br label %if.end86
-
-if.else83:                                        ; preds = %do.body76
-  %97 = load i64, ptr %__n177, align 8
-  %conv84 = sitofp i64 %97 to x86_fp80
-  %98 = load i64, ptr %__n279, align 8
-  %conv85 = sitofp i64 %98 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 741, ptr noundef @__func__.ahci_exec, ptr noundef @.str.50, x86_fp80 noundef %conv84, ptr noundef @.str.5, x86_fp80 noundef %conv85, i8 noundef signext 105)
-  br label %if.end86
-
-if.end86:                                         ; preds = %if.else83, %if.then82
-  br label %do.end87
-
-do.end87:                                         ; preds = %if.end86
-  br label %if.end88
-
-if.end88:                                         ; preds = %do.end87, %if.end71
-  %99 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_free(ptr noundef %99)
-  %100 = load ptr, ptr %opts, align 8
-  %buffer89 = getelementptr inbounds %struct.AHCIOpts, ptr %100, i32 0, i32 5
-  %101 = load i64, ptr %buffer89, align 8
-  %102 = load i64, ptr %buffer_in, align 8
-  %cmp90 = icmp ne i64 %101, %102
-  br i1 %cmp90, label %if.then92, label %if.end94
-
-if.then92:                                        ; preds = %if.end88
-  %103 = load ptr, ptr %ahci.addr, align 8
-  %104 = load ptr, ptr %opts, align 8
-  %buffer93 = getelementptr inbounds %struct.AHCIOpts, ptr %104, i32 0, i32 5
-  %105 = load i64, ptr %buffer93, align 8
-  call void @ahci_free(ptr noundef %103, i64 noundef %105)
-  br label %if.end94
-
-if.end94:                                         ; preds = %if.then92, %if.end88
-  %106 = load ptr, ptr %opts, align 8
-  call void @g_free(ptr noundef %106)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @g_memdup2_qemu(ptr noundef %mem, i64 noundef %byte_size) #0 {
-entry:
-  %mem.addr = alloca ptr, align 8
-  %byte_size.addr = alloca i64, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  store i64 %byte_size, ptr %byte_size.addr, align 8
-  %0 = load ptr, ptr %mem.addr, align 8
-  %1 = load i64, ptr %byte_size.addr, align 8
-  %call = call ptr @g_memdup2(ptr noundef %0, i64 noundef %1) #11
-  ret ptr %call
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @ahci_atapi_command_create(i8 noundef zeroext %scsi_cmd, i16 noundef zeroext %bcl, i1 noundef zeroext %dma) #0 {
-entry:
-  %scsi_cmd.addr = alloca i8, align 1
-  %bcl.addr = alloca i16, align 2
-  %dma.addr = alloca i8, align 1
-  %cmd = alloca ptr, align 8
-  store i8 %scsi_cmd, ptr %scsi_cmd.addr, align 1
-  store i16 %bcl, ptr %bcl.addr, align 2
-  %frombool = zext i1 %dma to i8
-  store i8 %frombool, ptr %dma.addr, align 1
-  %call = call ptr @ahci_command_create(i8 noundef zeroext -96)
-  store ptr %call, ptr %cmd, align 8
-  %call1 = call noalias ptr @g_malloc0(i64 noundef 16) #10
-  %0 = load ptr, ptr %cmd, align 8
-  %atapi_cmd = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 12
-  store ptr %call1, ptr %atapi_cmd, align 8
-  %1 = load i8, ptr %scsi_cmd.addr, align 1
-  %2 = load ptr, ptr %cmd, align 8
-  %atapi_cmd2 = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 12
-  %3 = load ptr, ptr %atapi_cmd2, align 8
-  %arrayidx = getelementptr i8, ptr %3, i64 0
-  store i8 %1, ptr %arrayidx, align 1
-  %4 = load ptr, ptr %cmd, align 8
-  %fis = getelementptr inbounds %struct.AHCICommand, ptr %4, i32 0, i32 11
-  %lba_lo = getelementptr inbounds %struct.RegH2DFIS, ptr %fis, i32 0, i32 4
-  %arrayidx3 = getelementptr [3 x i8], ptr %lba_lo, i64 0, i64 1
-  %5 = load i16, ptr %bcl.addr, align 2
-  call void @stw_le_p(ptr noundef %arrayidx3, i16 noundef zeroext %5)
-  %6 = load i8, ptr %dma.addr, align 1
-  %tobool = trunc i8 %6 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_enable_atapi_dma(ptr noundef %7)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %8 = load i16, ptr %bcl.addr, align 2
-  %conv = zext i16 %8 to i32
-  %tobool4 = icmp ne i32 %conv, 0
-  %cond = select i1 %tobool4, i32 2, i32 0
-  %9 = load ptr, ptr %cmd, align 8
-  %interrupts = getelementptr inbounds %struct.AHCICommand, ptr %9, i32 0, i32 4
-  %10 = load i32, ptr %interrupts, align 4
-  %or = or i32 %10, %cond
-  store i32 %or, ptr %interrupts, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %11 = load ptr, ptr %cmd, align 8
-  ret ptr %11
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @ahci_command_create(i8 noundef zeroext %command_name) #0 {
-entry:
-  %command_name.addr = alloca i8, align 1
-  %props = alloca ptr, align 8
-  %cmd = alloca ptr, align 8
-  store i8 %command_name, ptr %command_name.addr, align 1
-  %0 = load i8, ptr %command_name.addr, align 1
-  %call = call ptr @ahci_command_find(i8 noundef zeroext %0)
-  store ptr %call, ptr %props, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %props, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 906, ptr noundef @__func__.ahci_command_create, ptr noundef @.str.54) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %call1 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #12
-  store ptr %call1, ptr %cmd, align 8
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %2 = load ptr, ptr %props, align 8
-  %dma = getelementptr inbounds %struct.AHCICommandProp, ptr %2, i32 0, i32 3
-  %3 = load i8, ptr %dma, align 1
-  %tobool3 = trunc i8 %3 to i1
-  br i1 %tobool3, label %land.lhs.true, label %if.then6
-
-land.lhs.true:                                    ; preds = %do.body2
-  %4 = load ptr, ptr %props, align 8
-  %pio = getelementptr inbounds %struct.AHCICommandProp, ptr %4, i32 0, i32 2
-  %5 = load i8, ptr %pio, align 2
-  %tobool4 = trunc i8 %5 to i1
-  br i1 %tobool4, label %lor.lhs.false, label %if.then6
-
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %6 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds %struct.AHCICommandProp, ptr %6, i32 0, i32 8
-  %7 = load i8, ptr %atapi, align 8
-  %tobool5 = trunc i8 %7 to i1
-  br i1 %tobool5, label %if.then6, label %if.else7
-
-if.then6:                                         ; preds = %lor.lhs.false, %land.lhs.true, %do.body2
-  br label %if.end8
-
-if.else7:                                         ; preds = %lor.lhs.false
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 908, ptr noundef @__func__.ahci_command_create, ptr noundef @.str.58) #9
-  unreachable
-
-if.end8:                                          ; preds = %if.then6
-  br label %do.end9
-
-do.end9:                                          ; preds = %if.end8
-  br label %do.body10
-
-do.body10:                                        ; preds = %do.end9
-  %8 = load ptr, ptr %props, align 8
-  %lba28 = getelementptr inbounds %struct.AHCICommandProp, ptr %8, i32 0, i32 4
-  %9 = load i8, ptr %lba28, align 4
-  %tobool11 = trunc i8 %9 to i1
-  br i1 %tobool11, label %land.lhs.true12, label %if.then14
-
-land.lhs.true12:                                  ; preds = %do.body10
-  %10 = load ptr, ptr %props, align 8
-  %lba48 = getelementptr inbounds %struct.AHCICommandProp, ptr %10, i32 0, i32 5
-  %11 = load i8, ptr %lba48, align 1
-  %tobool13 = trunc i8 %11 to i1
-  br i1 %tobool13, label %if.else15, label %if.then14
-
-if.then14:                                        ; preds = %land.lhs.true12, %do.body10
-  br label %if.end16
-
-if.else15:                                        ; preds = %land.lhs.true12
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 909, ptr noundef @__func__.ahci_command_create, ptr noundef @.str.59) #9
-  unreachable
-
-if.end16:                                         ; preds = %if.then14
-  br label %do.end17
-
-do.end17:                                         ; preds = %if.end16
-  br label %do.body18
-
-do.body18:                                        ; preds = %do.end17
-  %12 = load ptr, ptr %props, align 8
-  %read = getelementptr inbounds %struct.AHCICommandProp, ptr %12, i32 0, i32 6
-  %13 = load i8, ptr %read, align 2
-  %tobool19 = trunc i8 %13 to i1
-  br i1 %tobool19, label %land.lhs.true20, label %if.then22
-
-land.lhs.true20:                                  ; preds = %do.body18
-  %14 = load ptr, ptr %props, align 8
-  %write = getelementptr inbounds %struct.AHCICommandProp, ptr %14, i32 0, i32 7
-  %15 = load i8, ptr %write, align 1
-  %tobool21 = trunc i8 %15 to i1
-  br i1 %tobool21, label %if.else23, label %if.then22
-
-if.then22:                                        ; preds = %land.lhs.true20, %do.body18
-  br label %if.end24
-
-if.else23:                                        ; preds = %land.lhs.true20
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 910, ptr noundef @__func__.ahci_command_create, ptr noundef @.str.60) #9
-  unreachable
-
-if.end24:                                         ; preds = %if.then22
-  br label %do.end25
-
-do.end25:                                         ; preds = %if.end24
-  br label %do.body26
-
-do.body26:                                        ; preds = %do.end25
-  %16 = load ptr, ptr %props, align 8
-  %size = getelementptr inbounds %struct.AHCICommandProp, ptr %16, i32 0, i32 10
-  %17 = load i64, ptr %size, align 8
-  %tobool27 = icmp ne i64 %17, 0
-  br i1 %tobool27, label %lor.lhs.false28, label %if.then30
-
-lor.lhs.false28:                                  ; preds = %do.body26
-  %18 = load ptr, ptr %props, align 8
-  %data = getelementptr inbounds %struct.AHCICommandProp, ptr %18, i32 0, i32 1
-  %19 = load i8, ptr %data, align 1
-  %tobool29 = trunc i8 %19 to i1
-  br i1 %tobool29, label %if.then30, label %if.else31
-
-if.then30:                                        ; preds = %lor.lhs.false28, %do.body26
-  br label %if.end32
-
-if.else31:                                        ; preds = %lor.lhs.false28
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 911, ptr noundef @__func__.ahci_command_create, ptr noundef @.str.61) #9
-  unreachable
-
-if.end32:                                         ; preds = %if.then30
-  br label %do.end33
-
-do.end33:                                         ; preds = %if.end32
-  br label %do.body34
-
-do.body34:                                        ; preds = %do.end33
-  %20 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %20, i32 0, i32 9
-  %21 = load i8, ptr %ncq, align 1
-  %tobool35 = trunc i8 %21 to i1
-  br i1 %tobool35, label %lor.lhs.false36, label %if.then39
-
-lor.lhs.false36:                                  ; preds = %do.body34
-  %22 = load ptr, ptr %props, align 8
-  %lba4837 = getelementptr inbounds %struct.AHCICommandProp, ptr %22, i32 0, i32 5
-  %23 = load i8, ptr %lba4837, align 1
-  %tobool38 = trunc i8 %23 to i1
-  br i1 %tobool38, label %if.then39, label %if.else40
-
-if.then39:                                        ; preds = %lor.lhs.false36, %do.body34
-  br label %if.end41
-
-if.else40:                                        ; preds = %lor.lhs.false36
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 912, ptr noundef @__func__.ahci_command_create, ptr noundef @.str.62) #9
-  unreachable
-
-if.end41:                                         ; preds = %if.then39
-  br label %do.end42
-
-do.end42:                                         ; preds = %if.end41
-  %24 = load ptr, ptr %props, align 8
-  %call43 = call ptr @g_memdup2_qemu(ptr noundef %24, i64 noundef 32)
-  %25 = load ptr, ptr %cmd, align 8
-  %props44 = getelementptr inbounds %struct.AHCICommand, ptr %25, i32 0, i32 9
-  store ptr %call43, ptr %props44, align 8
-  %26 = load i8, ptr %command_name.addr, align 1
-  %27 = load ptr, ptr %cmd, align 8
-  %name = getelementptr inbounds %struct.AHCICommand, ptr %27, i32 0, i32 0
-  store i8 %26, ptr %name, align 8
-  %28 = load ptr, ptr %props, align 8
-  %size45 = getelementptr inbounds %struct.AHCICommandProp, ptr %28, i32 0, i32 10
-  %29 = load i64, ptr %size45, align 8
-  %30 = load ptr, ptr %cmd, align 8
-  %xbytes = getelementptr inbounds %struct.AHCICommand, ptr %30, i32 0, i32 5
-  store i64 %29, ptr %xbytes, align 8
-  %31 = load ptr, ptr %cmd, align 8
-  %prd_size = getelementptr inbounds %struct.AHCICommand, ptr %31, i32 0, i32 6
-  store i32 4096, ptr %prd_size, align 8
-  %32 = load ptr, ptr %cmd, align 8
-  %buffer = getelementptr inbounds %struct.AHCICommand, ptr %32, i32 0, i32 8
-  store i64 2880249322, ptr %buffer, align 8
-  %33 = load ptr, ptr %props, align 8
-  %atapi46 = getelementptr inbounds %struct.AHCICommandProp, ptr %33, i32 0, i32 8
-  %34 = load i8, ptr %atapi46, align 8
-  %tobool47 = trunc i8 %34 to i1
-  %cond = select i1 %tobool47, i32 2048, i32 512
-  %35 = load ptr, ptr %cmd, align 8
-  %sector_size = getelementptr inbounds %struct.AHCICommand, ptr %35, i32 0, i32 7
-  store i32 %cond, ptr %sector_size, align 4
-  %36 = load ptr, ptr %cmd, align 8
-  %props48 = getelementptr inbounds %struct.AHCICommand, ptr %36, i32 0, i32 9
-  %37 = load ptr, ptr %props48, align 8
-  %ncq49 = getelementptr inbounds %struct.AHCICommandProp, ptr %37, i32 0, i32 9
-  %38 = load i8, ptr %ncq49, align 1
-  %tobool50 = trunc i8 %38 to i1
-  br i1 %tobool50, label %if.end52, label %if.then51
-
-if.then51:                                        ; preds = %do.end42
-  %39 = load ptr, ptr %cmd, align 8
-  %interrupts = getelementptr inbounds %struct.AHCICommand, ptr %39, i32 0, i32 4
-  store i32 1, ptr %interrupts, align 4
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.then51, %do.end42
-  %40 = load ptr, ptr %props, align 8
-  %ncq53 = getelementptr inbounds %struct.AHCICommandProp, ptr %40, i32 0, i32 9
-  %41 = load i8, ptr %ncq53, align 1
-  %tobool54 = trunc i8 %41 to i1
-  %cond55 = select i1 %tobool54, i32 8, i32 0
-  %42 = load ptr, ptr %cmd, align 8
-  %interrupts56 = getelementptr inbounds %struct.AHCICommand, ptr %42, i32 0, i32 4
-  %43 = load i32, ptr %interrupts56, align 4
-  %or = or i32 %43, %cond55
-  store i32 %or, ptr %interrupts56, align 4
-  %44 = load ptr, ptr %cmd, align 8
-  call void @command_header_init(ptr noundef %44)
-  %45 = load ptr, ptr %cmd, align 8
-  call void @command_table_init(ptr noundef %45)
-  %46 = load ptr, ptr %cmd, align 8
-  ret ptr %46
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_adjust(ptr noundef %cmd, i64 noundef %offset, i64 noundef %buffer, i64 noundef %xbytes, i32 noundef %prd_size) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %buffer.addr = alloca i64, align 8
-  %xbytes.addr = alloca i64, align 8
-  %prd_size.addr = alloca i32, align 4
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %buffer, ptr %buffer.addr, align 8
-  store i64 %xbytes, ptr %xbytes.addr, align 8
-  store i32 %prd_size, ptr %prd_size.addr, align 4
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %1 = load i64, ptr %xbytes.addr, align 8
-  %2 = load i32, ptr %prd_size.addr, align 4
-  call void @ahci_command_set_sizes(ptr noundef %0, i64 noundef %1, i32 noundef %2)
-  %3 = load ptr, ptr %cmd.addr, align 8
-  %4 = load i64, ptr %buffer.addr, align 8
-  call void @ahci_command_set_buffer(ptr noundef %3, i64 noundef %4)
-  %5 = load ptr, ptr %cmd.addr, align 8
-  %6 = load i64, ptr %offset.addr, align 8
-  call void @ahci_command_set_offset(ptr noundef %5, i64 noundef %6)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_commit(ptr noundef %ahci, ptr noundef %cmd, i8 noundef zeroext %port) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %i = alloca i16, align 2
-  %prdtl = alloca i16, align 2
-  %table_size = alloca i64, align 8
-  %table_ptr = alloca i64, align 8
-  %remaining = alloca i64, align 8
-  %prd = alloca %struct.PRD, align 1
-  %nfis = alloca ptr, align 8
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  %0 = load i8, ptr %port.addr, align 1
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 1
-  store i8 %0, ptr %port1, align 1
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %3 = load i8, ptr %port.addr, align 1
-  %call = call i32 @ahci_pick_cmd(ptr noundef %2, i8 noundef zeroext %3)
-  %conv = trunc i32 %call to i8
-  %4 = load ptr, ptr %cmd.addr, align 8
-  %slot = getelementptr inbounds %struct.AHCICommand, ptr %4, i32 0, i32 2
-  store i8 %conv, ptr %slot, align 2
-  %5 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %5, i32 0, i32 9
-  %6 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %6, i32 0, i32 9
-  %7 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %7 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %cmd.addr, align 8
-  %fis = getelementptr inbounds %struct.AHCICommand, ptr %8, i32 0, i32 11
-  store ptr %fis, ptr %nfis, align 8
-  %9 = load ptr, ptr %cmd.addr, align 8
-  %slot2 = getelementptr inbounds %struct.AHCICommand, ptr %9, i32 0, i32 2
-  %10 = load i8, ptr %slot2, align 2
-  %conv3 = zext i8 %10 to i32
-  %shl = shl i32 %conv3, 3
-  %and = and i32 %shl, 252
-  %conv4 = trunc i32 %and to i8
-  %11 = load ptr, ptr %nfis, align 8
-  %tag = getelementptr inbounds %struct.NCQFIS, ptr %11, i32 0, i32 8
-  store i8 %conv4, ptr %tag, align 1
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %12 = load ptr, ptr %cmd.addr, align 8
-  %xbytes = getelementptr inbounds %struct.AHCICommand, ptr %12, i32 0, i32 5
-  %13 = load i64, ptr %xbytes, align 8
-  %conv5 = trunc i64 %13 to i32
-  %14 = load ptr, ptr %cmd.addr, align 8
-  %prd_size = getelementptr inbounds %struct.AHCICommand, ptr %14, i32 0, i32 6
-  %15 = load i32, ptr %prd_size, align 8
-  %call6 = call i32 @size_to_prdtl(i32 noundef %conv5, i32 noundef %15)
-  %conv7 = trunc i32 %call6 to i16
-  store i16 %conv7, ptr %prdtl, align 2
-  %16 = load i16, ptr %prdtl, align 2
-  %conv8 = zext i16 %16 to i64
-  %mul = mul i64 %conv8, 16
-  %add = add i64 128, %mul
-  %add9 = add i64 %add, 127
-  %and10 = and i64 %add9, -128
-  store i64 %and10, ptr %table_size, align 8
-  %17 = load ptr, ptr %ahci.addr, align 8
-  %18 = load i64, ptr %table_size, align 8
-  %call11 = call i64 @ahci_alloc(ptr noundef %17, i64 noundef %18)
-  store i64 %call11, ptr %table_ptr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  %19 = load i64, ptr %table_ptr, align 8
-  %tobool12 = icmp ne i64 %19, 0
-  br i1 %tobool12, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %do.body
-  br label %if.end14
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 1205, ptr noundef @__func__.ahci_command_commit, ptr noundef @.str.67) #9
-  unreachable
-
-if.end14:                                         ; preds = %if.then13
-  br label %do.end
-
-do.end:                                           ; preds = %if.end14
-  br label %do.body15
-
-do.body15:                                        ; preds = %do.end
-  %20 = load i64, ptr %table_ptr, align 8
-  %and16 = and i64 %20, 127
-  %cmp = icmp eq i64 %and16, 0
-  br i1 %cmp, label %if.then18, label %if.else19
-
-if.then18:                                        ; preds = %do.body15
-  br label %if.end20
-
-if.else19:                                        ; preds = %do.body15
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 1207, ptr noundef @__func__.ahci_command_commit, ptr noundef @.str.68) #9
-  unreachable
-
-if.end20:                                         ; preds = %if.then18
-  br label %do.end21
-
-do.end21:                                         ; preds = %if.end20
-  %21 = load i64, ptr %table_ptr, align 8
-  %22 = load ptr, ptr %cmd.addr, align 8
-  %header = getelementptr inbounds %struct.AHCICommand, ptr %22, i32 0, i32 10
-  %ctba = getelementptr inbounds %struct.AHCICommandHeader, ptr %header, i32 0, i32 3
-  store i64 %21, ptr %ctba, align 8
-  %23 = load ptr, ptr %ahci.addr, align 8
-  %24 = load i8, ptr %port.addr, align 1
-  %25 = load ptr, ptr %cmd.addr, align 8
-  %slot22 = getelementptr inbounds %struct.AHCICommand, ptr %25, i32 0, i32 2
-  %26 = load i8, ptr %slot22, align 2
-  %27 = load ptr, ptr %cmd.addr, align 8
-  %header23 = getelementptr inbounds %struct.AHCICommand, ptr %27, i32 0, i32 10
-  call void @ahci_set_command_header(ptr noundef %23, i8 noundef zeroext %24, i8 noundef zeroext %26, ptr noundef %header23)
-  %28 = load ptr, ptr %ahci.addr, align 8
-  %29 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_write_fis(ptr noundef %28, ptr noundef %29)
-  %30 = load ptr, ptr %cmd.addr, align 8
-  %props24 = getelementptr inbounds %struct.AHCICommand, ptr %30, i32 0, i32 9
-  %31 = load ptr, ptr %props24, align 8
-  %atapi = getelementptr inbounds %struct.AHCICommandProp, ptr %31, i32 0, i32 8
-  %32 = load i8, ptr %atapi, align 8
-  %tobool25 = trunc i8 %32 to i1
-  br i1 %tobool25, label %if.then26, label %if.end28
-
-if.then26:                                        ; preds = %do.end21
-  %33 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %qts, align 8
-  %36 = load i64, ptr %table_ptr, align 8
-  %add27 = add i64 %36, 64
-  %37 = load ptr, ptr %cmd.addr, align 8
-  %atapi_cmd = getelementptr inbounds %struct.AHCICommand, ptr %37, i32 0, i32 12
-  %38 = load ptr, ptr %atapi_cmd, align 8
-  call void @qtest_memwrite(ptr noundef %35, i64 noundef %add27, ptr noundef %38, i64 noundef 16)
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then26, %do.end21
-  br label %do.body29
-
-do.body29:                                        ; preds = %if.end28
-  %39 = load i16, ptr %prdtl, align 2
-  %conv30 = zext i16 %39 to i64
-  store i64 %conv30, ptr %__n1, align 8
-  %40 = load ptr, ptr %cmd.addr, align 8
-  %header31 = getelementptr inbounds %struct.AHCICommand, ptr %40, i32 0, i32 10
-  %prdtl32 = getelementptr inbounds %struct.AHCICommandHeader, ptr %header31, i32 0, i32 1
-  %41 = load i16, ptr %prdtl32, align 2
-  %conv33 = zext i16 %41 to i64
-  store i64 %conv33, ptr %__n2, align 8
-  %42 = load i64, ptr %__n1, align 8
-  %43 = load i64, ptr %__n2, align 8
-  %cmp34 = icmp eq i64 %42, %43
-  br i1 %cmp34, label %if.then36, label %if.else37
-
-if.then36:                                        ; preds = %do.body29
-  br label %if.end40
-
-if.else37:                                        ; preds = %do.body29
-  %44 = load i64, ptr %__n1, align 8
-  %conv38 = uitofp i64 %44 to x86_fp80
-  %45 = load i64, ptr %__n2, align 8
-  %conv39 = uitofp i64 %45 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1220, ptr noundef @__func__.ahci_command_commit, ptr noundef @.str.69, x86_fp80 noundef %conv38, ptr noundef @.str.5, x86_fp80 noundef %conv39, i8 noundef signext 120)
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.else37, %if.then36
-  br label %do.end41
-
-do.end41:                                         ; preds = %if.end40
-  %46 = load ptr, ptr %cmd.addr, align 8
-  %xbytes42 = getelementptr inbounds %struct.AHCICommand, ptr %46, i32 0, i32 5
-  %47 = load i64, ptr %xbytes42, align 8
-  store i64 %47, ptr %remaining, align 8
-  store i16 0, ptr %i, align 2
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %do.end41
-  %48 = load i16, ptr %i, align 2
-  %conv43 = zext i16 %48 to i32
-  %49 = load i16, ptr %prdtl, align 2
-  %conv44 = zext i16 %49 to i32
-  %cmp45 = icmp slt i32 %conv43, %conv44
-  br i1 %cmp45, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %50 = load ptr, ptr %cmd.addr, align 8
-  %buffer = getelementptr inbounds %struct.AHCICommand, ptr %50, i32 0, i32 8
-  %51 = load i64, ptr %buffer, align 8
-  %52 = load ptr, ptr %cmd.addr, align 8
-  %prd_size47 = getelementptr inbounds %struct.AHCICommand, ptr %52, i32 0, i32 6
-  %53 = load i32, ptr %prd_size47, align 8
-  %54 = load i16, ptr %i, align 2
-  %conv48 = zext i16 %54 to i32
-  %mul49 = mul i32 %53, %conv48
-  %conv50 = zext i32 %mul49 to i64
-  %add51 = add i64 %51, %conv50
-  %call52 = call i64 @cpu_to_le64(i64 noundef %add51)
-  %dba = getelementptr inbounds %struct.PRD, ptr %prd, i32 0, i32 0
-  store i64 %call52, ptr %dba, align 1
-  %res = getelementptr inbounds %struct.PRD, ptr %prd, i32 0, i32 1
-  store i32 0, ptr %res, align 1
-  %55 = load i64, ptr %remaining, align 8
-  %56 = load ptr, ptr %cmd.addr, align 8
-  %prd_size53 = getelementptr inbounds %struct.AHCICommand, ptr %56, i32 0, i32 6
-  %57 = load i32, ptr %prd_size53, align 8
-  %conv54 = zext i32 %57 to i64
-  %cmp55 = icmp ugt i64 %55, %conv54
-  br i1 %cmp55, label %if.then57, label %if.else63
-
-if.then57:                                        ; preds = %for.body
-  %58 = load ptr, ptr %cmd.addr, align 8
-  %prd_size58 = getelementptr inbounds %struct.AHCICommand, ptr %58, i32 0, i32 6
-  %59 = load i32, ptr %prd_size58, align 8
-  %sub = sub i32 %59, 1
-  %call59 = call i32 @cpu_to_le32(i32 noundef %sub)
-  %dbc = getelementptr inbounds %struct.PRD, ptr %prd, i32 0, i32 2
-  store i32 %call59, ptr %dbc, align 1
-  %60 = load ptr, ptr %cmd.addr, align 8
-  %prd_size60 = getelementptr inbounds %struct.AHCICommand, ptr %60, i32 0, i32 6
-  %61 = load i32, ptr %prd_size60, align 8
-  %conv61 = zext i32 %61 to i64
-  %62 = load i64, ptr %remaining, align 8
-  %sub62 = sub i64 %62, %conv61
-  store i64 %sub62, ptr %remaining, align 8
-  br label %if.end68
-
-if.else63:                                        ; preds = %for.body
-  %63 = load i64, ptr %remaining, align 8
-  %sub64 = sub i64 %63, 1
-  %conv65 = trunc i64 %sub64 to i32
-  %call66 = call i32 @cpu_to_le32(i32 noundef %conv65)
-  %dbc67 = getelementptr inbounds %struct.PRD, ptr %prd, i32 0, i32 2
-  store i32 %call66, ptr %dbc67, align 1
-  store i64 0, ptr %remaining, align 8
-  br label %if.end68
-
-if.end68:                                         ; preds = %if.else63, %if.then57
-  %call69 = call i32 @cpu_to_le32(i32 noundef -2147483648)
-  %dbc70 = getelementptr inbounds %struct.PRD, ptr %prd, i32 0, i32 2
-  %64 = load i32, ptr %dbc70, align 1
-  %or = or i32 %64, %call69
-  store i32 %or, ptr %dbc70, align 1
-  %65 = load ptr, ptr %ahci.addr, align 8
-  %parent71 = getelementptr inbounds %struct.AHCIQState, ptr %65, i32 0, i32 0
-  %66 = load ptr, ptr %parent71, align 8
-  %qts72 = getelementptr inbounds %struct.QOSState, ptr %66, i32 0, i32 0
-  %67 = load ptr, ptr %qts72, align 8
-  %68 = load i64, ptr %table_ptr, align 8
-  %add73 = add i64 %68, 128
-  %69 = load i16, ptr %i, align 2
-  %conv74 = zext i16 %69 to i64
-  %mul75 = mul i64 %conv74, 16
-  %add76 = add i64 %add73, %mul75
-  call void @qtest_memwrite(ptr noundef %67, i64 noundef %add76, ptr noundef %prd, i64 noundef 16)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end68
-  %70 = load i16, ptr %i, align 2
-  %inc = add i16 %70, 1
-  store i16 %inc, ptr %i, align 2
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
-  %71 = load i64, ptr %table_ptr, align 8
-  %72 = load ptr, ptr %ahci.addr, align 8
-  %port77 = getelementptr inbounds %struct.AHCIQState, ptr %72, i32 0, i32 7
-  %73 = load i8, ptr %port.addr, align 1
-  %idxprom = zext i8 %73 to i64
-  %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port77, i64 0, i64 %idxprom
-  %ctba78 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx, i32 0, i32 2
-  %74 = load ptr, ptr %cmd.addr, align 8
-  %slot79 = getelementptr inbounds %struct.AHCICommand, ptr %74, i32 0, i32 2
-  %75 = load i8, ptr %slot79, align 2
-  %idxprom80 = zext i8 %75 to i64
-  %arrayidx81 = getelementptr [32 x i64], ptr %ctba78, i64 0, i64 %idxprom80
-  store i64 %71, ptr %arrayidx81, align 8
-  %76 = load i16, ptr %prdtl, align 2
-  %77 = load ptr, ptr %ahci.addr, align 8
-  %port82 = getelementptr inbounds %struct.AHCIQState, ptr %77, i32 0, i32 7
-  %78 = load i8, ptr %port.addr, align 1
-  %idxprom83 = zext i8 %78 to i64
-  %arrayidx84 = getelementptr [32 x %struct.AHCIPortQState], ptr %port82, i64 0, i64 %idxprom83
-  %prdtl85 = getelementptr inbounds %struct.AHCIPortQState, ptr %arrayidx84, i32 0, i32 3
-  %79 = load ptr, ptr %cmd.addr, align 8
-  %slot86 = getelementptr inbounds %struct.AHCICommand, ptr %79, i32 0, i32 2
-  %80 = load i8, ptr %slot86, align 2
-  %idxprom87 = zext i8 %80 to i64
-  %arrayidx88 = getelementptr [32 x i16], ptr %prdtl85, i64 0, i64 %idxprom87
-  store i16 %76, ptr %arrayidx88, align 2
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_issue_async(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 9
-  %1 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %1, i32 0, i32 9
-  %2 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %4 = load ptr, ptr %cmd.addr, align 8
-  %port = getelementptr inbounds %struct.AHCICommand, ptr %4, i32 0, i32 1
-  %5 = load i8, ptr %port, align 1
-  %6 = load ptr, ptr %cmd.addr, align 8
-  %slot = getelementptr inbounds %struct.AHCICommand, ptr %6, i32 0, i32 2
-  %7 = load i8, ptr %slot, align 2
-  %conv = zext i8 %7 to i32
-  %shl = shl i32 1, %conv
-  call void @ahci_px_wreg(ptr noundef %3, i8 noundef zeroext %5, i32 noundef 13, i32 noundef %shl)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %cmd.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCICommand, ptr %9, i32 0, i32 1
-  %10 = load i8, ptr %port1, align 1
-  %11 = load ptr, ptr %cmd.addr, align 8
-  %slot2 = getelementptr inbounds %struct.AHCICommand, ptr %11, i32 0, i32 2
-  %12 = load i8, ptr %slot2, align 2
-  %conv3 = zext i8 %12 to i32
-  %shl4 = shl i32 1, %conv3
-  call void @ahci_px_wreg(ptr noundef %8, i8 noundef zeroext %10, i32 noundef 14, i32 noundef %shl4)
-  ret void
-}
-
-declare void @qtest_qmp_eventwait(ptr noundef, ptr noundef) #2
-
-declare void @qtest_qmp_send(ptr noundef, ptr noundef, ...) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_wait(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %port = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 1
-  %2 = load i8, ptr %port, align 1
-  %call = call i32 @ahci_px_rreg(ptr noundef %0, i8 noundef zeroext %2, i32 noundef 8)
-  %and = and i32 %call, 1
-  %cmp = icmp eq i32 %and, 1
-  br i1 %cmp, label %land.end26, label %land.rhs
-
-land.rhs:                                         ; preds = %while.cond
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %4 = load ptr, ptr %cmd.addr, align 8
-  %port1 = getelementptr inbounds %struct.AHCICommand, ptr %4, i32 0, i32 1
-  %5 = load i8, ptr %port1, align 1
-  %call2 = call i32 @ahci_px_rreg(ptr noundef %3, i8 noundef zeroext %5, i32 noundef 8)
-  %and3 = and i32 %call2, 128
-  %cmp4 = icmp eq i32 %and3, 128
-  br i1 %cmp4, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.rhs
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %7 = load ptr, ptr %cmd.addr, align 8
-  %port5 = getelementptr inbounds %struct.AHCICommand, ptr %7, i32 0, i32 1
-  %8 = load i8, ptr %port5, align 1
-  %call6 = call i32 @ahci_px_rreg(ptr noundef %6, i8 noundef zeroext %8, i32 noundef 14)
-  %9 = load ptr, ptr %cmd.addr, align 8
-  %slot = getelementptr inbounds %struct.AHCICommand, ptr %9, i32 0, i32 2
-  %10 = load i8, ptr %slot, align 2
-  %conv = zext i8 %10 to i32
-  %shl = shl i32 1, %conv
-  %and7 = and i32 %call6, %shl
-  %11 = load ptr, ptr %cmd.addr, align 8
-  %slot8 = getelementptr inbounds %struct.AHCICommand, ptr %11, i32 0, i32 2
-  %12 = load i8, ptr %slot8, align 2
-  %conv9 = zext i8 %12 to i32
-  %shl10 = shl i32 1, %conv9
-  %cmp11 = icmp eq i32 %and7, %shl10
-  br i1 %cmp11, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false
-  %13 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %13, i32 0, i32 9
-  %14 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %14, i32 0, i32 9
-  %15 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %15 to i1
-  br i1 %tobool, label %land.rhs14, label %land.end
-
-land.rhs14:                                       ; preds = %lor.rhs
-  %16 = load ptr, ptr %ahci.addr, align 8
-  %17 = load ptr, ptr %cmd.addr, align 8
-  %port15 = getelementptr inbounds %struct.AHCICommand, ptr %17, i32 0, i32 1
-  %18 = load i8, ptr %port15, align 1
-  %call16 = call i32 @ahci_px_rreg(ptr noundef %16, i8 noundef zeroext %18, i32 noundef 13)
-  %19 = load ptr, ptr %cmd.addr, align 8
-  %slot17 = getelementptr inbounds %struct.AHCICommand, ptr %19, i32 0, i32 2
-  %20 = load i8, ptr %slot17, align 2
-  %conv18 = zext i8 %20 to i32
-  %shl19 = shl i32 1, %conv18
-  %and20 = and i32 %call16, %shl19
-  %21 = load ptr, ptr %cmd.addr, align 8
-  %slot21 = getelementptr inbounds %struct.AHCICommand, ptr %21, i32 0, i32 2
-  %22 = load i8, ptr %slot21, align 2
-  %conv22 = zext i8 %22 to i32
-  %shl23 = shl i32 1, %conv22
-  %cmp24 = icmp eq i32 %and20, %shl23
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs14, %lor.rhs
-  %23 = phi i1 [ false, %lor.rhs ], [ %cmp24, %land.rhs14 ]
-  br label %lor.end
-
-lor.end:                                          ; preds = %land.end, %lor.lhs.false, %land.rhs
-  %24 = phi i1 [ true, %lor.lhs.false ], [ true, %land.rhs ], [ %23, %land.end ]
-  br label %land.end26
-
-land.end26:                                       ; preds = %lor.end, %while.cond
-  %25 = phi i1 [ false, %while.cond ], [ %24, %lor.end ]
-  br i1 %25, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end26
-  %call27 = call i32 @usleep(i32 noundef 50)
-  br label %while.cond, !llvm.loop !12
-
-while.end:                                        ; preds = %land.end26
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_verify(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %slot = alloca i8, align 1
-  %port = alloca i8, align 1
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %slot1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %slot1, align 2
-  store i8 %1, ptr %slot, align 1
-  %2 = load ptr, ptr %cmd.addr, align 8
-  %port2 = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %port2, align 1
-  store i8 %3, ptr %port, align 1
-  %4 = load ptr, ptr %ahci.addr, align 8
-  %5 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_port_check_nonbusy(ptr noundef %4, ptr noundef %5)
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %7 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_port_check_error(ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_port_check_interrupts(ptr noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %ahci.addr, align 8
-  %11 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_port_check_cmd_sanity(ptr noundef %10, ptr noundef %11)
-  %12 = load ptr, ptr %cmd.addr, align 8
-  %interrupts = getelementptr inbounds %struct.AHCICommand, ptr %12, i32 0, i32 4
-  %13 = load i32, ptr %interrupts, align 4
-  %and = and i32 %13, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %14 = load ptr, ptr %ahci.addr, align 8
-  %15 = load i8, ptr %port, align 1
-  %16 = load i8, ptr %slot, align 1
-  call void @ahci_port_check_d2h_sanity(ptr noundef %14, i8 noundef zeroext %15, i8 noundef zeroext %16)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %17 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %17, i32 0, i32 9
-  %18 = load ptr, ptr %props, align 8
-  %pio = getelementptr inbounds %struct.AHCICommandProp, ptr %18, i32 0, i32 2
-  %19 = load i8, ptr %pio, align 2
-  %tobool3 = trunc i8 %19 to i1
-  br i1 %tobool3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  %20 = load ptr, ptr %ahci.addr, align 8
-  %21 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_port_check_pio_sanity(ptr noundef %20, ptr noundef %21)
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then4, %if.end
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_free(ptr noundef %cmd) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %atapi_cmd = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 12
-  %1 = load ptr, ptr %atapi_cmd, align 8
-  call void @g_free(ptr noundef %1)
-  %2 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 9
-  %3 = load ptr, ptr %props, align 8
-  call void @g_free(ptr noundef %3)
-  %4 = load ptr, ptr %cmd.addr, align 8
-  call void @g_free(ptr noundef %4)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @ahci_guest_io_halt(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %ide_cmd.addr = alloca i8, align 1
-  %buffer.addr = alloca i64, align 8
-  %bufsize.addr = alloca i64, align 8
-  %sector.addr = alloca i64, align 8
-  %cmd = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %ide_cmd, ptr %ide_cmd.addr, align 1
-  store i64 %buffer, ptr %buffer.addr, align 8
-  store i64 %bufsize, ptr %bufsize.addr, align 8
-  store i64 %sector, ptr %sector.addr, align 8
-  %0 = load i8, ptr %ide_cmd.addr, align 1
-  %call = call ptr @ahci_command_create(i8 noundef zeroext %0)
-  store ptr %call, ptr %cmd, align 8
-  %1 = load ptr, ptr %cmd, align 8
-  %2 = load i64, ptr %sector.addr, align 8
-  %3 = load i64, ptr %buffer.addr, align 8
-  %4 = load i64, ptr %bufsize.addr, align 8
-  call void @ahci_command_adjust(ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef 0)
-  %5 = load ptr, ptr %ahci.addr, align 8
-  %6 = load ptr, ptr %cmd, align 8
-  %7 = load i8, ptr %port.addr, align 1
-  call void @ahci_command_commit(ptr noundef %5, ptr noundef %6, i8 noundef zeroext %7)
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_issue_async(ptr noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %qts, align 8
-  call void @qtest_qmp_eventwait(ptr noundef %12, ptr noundef @.str.51)
-  %13 = load ptr, ptr %cmd, align 8
-  ret ptr %13
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_guest_io_resume(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %qts, align 8
-  call void (ptr, ptr, ...) @qtest_qmp_send(ptr noundef %2, ptr noundef @.str.52)
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %parent1 = getelementptr inbounds %struct.AHCIQState, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %parent1, align 8
-  %qts2 = getelementptr inbounds %struct.QOSState, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %qts2, align 8
-  call void @qtest_qmp_eventwait(ptr noundef %5, ptr noundef @.str.53)
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %7 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_command_wait(ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_command_verify(ptr noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_command_free(ptr noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_guest_io(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %ide_cmd.addr = alloca i8, align 1
-  %buffer.addr = alloca i64, align 8
-  %bufsize.addr = alloca i64, align 8
-  %sector.addr = alloca i64, align 8
-  %cmd = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %ide_cmd, ptr %ide_cmd.addr, align 1
-  store i64 %buffer, ptr %buffer.addr, align 8
-  store i64 %bufsize, ptr %bufsize.addr, align 8
-  store i64 %sector, ptr %sector.addr, align 8
-  %0 = load i8, ptr %ide_cmd.addr, align 1
-  %call = call ptr @ahci_command_create(i8 noundef zeroext %0)
-  store ptr %call, ptr %cmd, align 8
-  %1 = load ptr, ptr %cmd, align 8
-  %2 = load i64, ptr %buffer.addr, align 8
-  call void @ahci_command_set_buffer(ptr noundef %1, i64 noundef %2)
-  %3 = load ptr, ptr %cmd, align 8
-  %4 = load i64, ptr %bufsize.addr, align 8
-  call void @ahci_command_set_size(ptr noundef %3, i64 noundef %4)
-  %5 = load i64, ptr %sector.addr, align 8
-  %tobool = icmp ne i64 %5, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %cmd, align 8
-  %7 = load i64, ptr %sector.addr, align 8
-  call void @ahci_command_set_offset(ptr noundef %6, i64 noundef %7)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %cmd, align 8
-  %10 = load i8, ptr %port.addr, align 1
-  call void @ahci_command_commit(ptr noundef %8, ptr noundef %9, i8 noundef zeroext %10)
-  %11 = load ptr, ptr %ahci.addr, align 8
-  %12 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_issue(ptr noundef %11, ptr noundef %12)
-  %13 = load ptr, ptr %ahci.addr, align 8
-  %14 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_verify(ptr noundef %13, ptr noundef %14)
-  %15 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_free(ptr noundef %15)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_buffer(ptr noundef %cmd, i64 noundef %buffer) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %buffer.addr = alloca i64, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %buffer, ptr %buffer.addr, align 8
-  %0 = load i64, ptr %buffer.addr, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %buffer1 = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 8
-  store i64 %0, ptr %buffer1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_size(ptr noundef %cmd, i64 noundef %xbytes) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %xbytes.addr = alloca i64, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %xbytes, ptr %xbytes.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %1 = load i64, ptr %xbytes.addr, align 8
-  %2 = load ptr, ptr %cmd.addr, align 8
-  %prd_size = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 6
-  %3 = load i32, ptr %prd_size, align 8
-  call void @ahci_command_set_sizes(ptr noundef %0, i64 noundef %1, i32 noundef %3)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_offset(ptr noundef %cmd, i64 noundef %lba_sect) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %lba_sect.addr = alloca i64, align 8
-  %fis = alloca ptr, align 8
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n122 = alloca i64, align 8
-  %__n223 = alloca i64, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %lba_sect, ptr %lba_sect.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %fis1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 11
-  store ptr %fis1, ptr %fis, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 9
-  %2 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds %struct.AHCICommandProp, ptr %2, i32 0, i32 8
-  %3 = load i8, ptr %atapi, align 8
-  %tobool = trunc i8 %3 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %cmd.addr, align 8
-  %5 = load i64, ptr %lba_sect.addr, align 8
-  call void @ahci_atapi_command_set_offset(ptr noundef %4, i64 noundef %5)
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %6 = load ptr, ptr %cmd.addr, align 8
-  %props2 = getelementptr inbounds %struct.AHCICommand, ptr %6, i32 0, i32 9
-  %7 = load ptr, ptr %props2, align 8
-  %data = getelementptr inbounds %struct.AHCICommandProp, ptr %7, i32 0, i32 1
-  %8 = load i8, ptr %data, align 1
-  %tobool3 = trunc i8 %8 to i1
-  br i1 %tobool3, label %if.else6, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.else
-  %9 = load i64, ptr %lba_sect.addr, align 8
-  %tobool4 = icmp ne i64 %9, 0
-  br i1 %tobool4, label %if.else6, label %if.then5
-
-if.then5:                                         ; preds = %land.lhs.true
-  br label %return
-
-if.else6:                                         ; preds = %land.lhs.true, %if.else
-  %10 = load ptr, ptr %cmd.addr, align 8
-  %props7 = getelementptr inbounds %struct.AHCICommand, ptr %10, i32 0, i32 9
-  %11 = load ptr, ptr %props7, align 8
-  %lba28 = getelementptr inbounds %struct.AHCICommandProp, ptr %11, i32 0, i32 4
-  %12 = load i8, ptr %lba28, align 4
-  %tobool8 = trunc i8 %12 to i1
-  br i1 %tobool8, label %if.then9, label %if.else13
-
-if.then9:                                         ; preds = %if.else6
-  br label %do.body
-
-do.body:                                          ; preds = %if.then9
-  %13 = load i64, ptr %lba_sect.addr, align 8
-  store i64 %13, ptr %__n1, align 8
-  store i64 268435455, ptr %__n2, align 8
-  %14 = load i64, ptr %__n1, align 8
-  %15 = load i64, ptr %__n2, align 8
-  %cmp = icmp ule i64 %14, %15
-  br i1 %cmp, label %if.then10, label %if.else11
-
-if.then10:                                        ; preds = %do.body
-  br label %if.end
-
-if.else11:                                        ; preds = %do.body
-  %16 = load i64, ptr %__n1, align 8
-  %conv = uitofp i64 %16 to x86_fp80
-  %17 = load i64, ptr %__n2, align 8
-  %conv12 = uitofp i64 %17 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1073, ptr noundef @__func__.ahci_command_set_offset, ptr noundef @.str.63, x86_fp80 noundef %conv, ptr noundef @.str.47, x86_fp80 noundef %conv12, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else11, %if.then10
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %if.end36
-
-if.else13:                                        ; preds = %if.else6
-  %18 = load ptr, ptr %cmd.addr, align 8
-  %props14 = getelementptr inbounds %struct.AHCICommand, ptr %18, i32 0, i32 9
-  %19 = load ptr, ptr %props14, align 8
-  %lba48 = getelementptr inbounds %struct.AHCICommandProp, ptr %19, i32 0, i32 5
-  %20 = load i8, ptr %lba48, align 1
-  %tobool15 = trunc i8 %20 to i1
-  br i1 %tobool15, label %if.then20, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.else13
-  %21 = load ptr, ptr %cmd.addr, align 8
-  %props17 = getelementptr inbounds %struct.AHCICommand, ptr %21, i32 0, i32 9
-  %22 = load ptr, ptr %props17, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %22, i32 0, i32 9
-  %23 = load i8, ptr %ncq, align 1
-  %tobool18 = trunc i8 %23 to i1
-  br i1 %tobool18, label %if.then20, label %if.else32
-
-if.then20:                                        ; preds = %lor.lhs.false, %if.else13
-  br label %do.body21
-
-do.body21:                                        ; preds = %if.then20
-  %24 = load i64, ptr %lba_sect.addr, align 8
-  store i64 %24, ptr %__n122, align 8
-  store i64 281474976710655, ptr %__n223, align 8
-  %25 = load i64, ptr %__n122, align 8
-  %26 = load i64, ptr %__n223, align 8
-  %cmp24 = icmp ule i64 %25, %26
-  br i1 %cmp24, label %if.then26, label %if.else27
-
-if.then26:                                        ; preds = %do.body21
-  br label %if.end30
-
-if.else27:                                        ; preds = %do.body21
-  %27 = load i64, ptr %__n122, align 8
-  %conv28 = uitofp i64 %27 to x86_fp80
-  %28 = load i64, ptr %__n223, align 8
-  %conv29 = uitofp i64 %28 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1075, ptr noundef @__func__.ahci_command_set_offset, ptr noundef @.str.64, x86_fp80 noundef %conv28, ptr noundef @.str.47, x86_fp80 noundef %conv29, i8 noundef signext 120)
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.else27, %if.then26
-  br label %do.end31
-
-do.end31:                                         ; preds = %if.end30
-  br label %if.end35
-
-if.else32:                                        ; preds = %lor.lhs.false
-  br label %do.body33
-
-do.body33:                                        ; preds = %if.else32
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 1078, ptr noundef @__func__.ahci_command_set_offset, ptr noundef null) #9
-  unreachable
-
-do.end34:                                         ; No predecessors!
-  br label %if.end35
-
-if.end35:                                         ; preds = %do.end34, %do.end31
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.end35, %do.end
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end36
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.end37
-  %29 = load i64, ptr %lba_sect.addr, align 8
-  %and = and i64 %29, 255
-  %conv39 = trunc i64 %and to i8
-  %30 = load ptr, ptr %fis, align 8
-  %lba_lo = getelementptr inbounds %struct.RegH2DFIS, ptr %30, i32 0, i32 4
-  %arrayidx = getelementptr [3 x i8], ptr %lba_lo, i64 0, i64 0
-  store i8 %conv39, ptr %arrayidx, align 1
-  %31 = load i64, ptr %lba_sect.addr, align 8
-  %shr = lshr i64 %31, 8
-  %and40 = and i64 %shr, 255
-  %conv41 = trunc i64 %and40 to i8
-  %32 = load ptr, ptr %fis, align 8
-  %lba_lo42 = getelementptr inbounds %struct.RegH2DFIS, ptr %32, i32 0, i32 4
-  %arrayidx43 = getelementptr [3 x i8], ptr %lba_lo42, i64 0, i64 1
-  store i8 %conv41, ptr %arrayidx43, align 1
-  %33 = load i64, ptr %lba_sect.addr, align 8
-  %shr44 = lshr i64 %33, 16
-  %and45 = and i64 %shr44, 255
-  %conv46 = trunc i64 %and45 to i8
-  %34 = load ptr, ptr %fis, align 8
-  %lba_lo47 = getelementptr inbounds %struct.RegH2DFIS, ptr %34, i32 0, i32 4
-  %arrayidx48 = getelementptr [3 x i8], ptr %lba_lo47, i64 0, i64 2
-  store i8 %conv46, ptr %arrayidx48, align 1
-  %35 = load ptr, ptr %cmd.addr, align 8
-  %props49 = getelementptr inbounds %struct.AHCICommand, ptr %35, i32 0, i32 9
-  %36 = load ptr, ptr %props49, align 8
-  %lba2850 = getelementptr inbounds %struct.AHCICommandProp, ptr %36, i32 0, i32 4
-  %37 = load i8, ptr %lba2850, align 4
-  %tobool51 = trunc i8 %37 to i1
-  br i1 %tobool51, label %if.then52, label %if.end60
-
-if.then52:                                        ; preds = %if.end38
-  %38 = load ptr, ptr %fis, align 8
-  %device = getelementptr inbounds %struct.RegH2DFIS, ptr %38, i32 0, i32 5
-  %39 = load i8, ptr %device, align 1
-  %conv53 = zext i8 %39 to i32
-  %and54 = and i32 %conv53, 240
-  %conv55 = sext i32 %and54 to i64
-  %40 = load i64, ptr %lba_sect.addr, align 8
-  %shr56 = lshr i64 %40, 24
-  %and57 = and i64 %shr56, 15
-  %or = or i64 %conv55, %and57
-  %conv58 = trunc i64 %or to i8
-  %41 = load ptr, ptr %fis, align 8
-  %device59 = getelementptr inbounds %struct.RegH2DFIS, ptr %41, i32 0, i32 5
-  store i8 %conv58, ptr %device59, align 1
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.then52, %if.end38
-  %42 = load i64, ptr %lba_sect.addr, align 8
-  %shr61 = lshr i64 %42, 24
-  %and62 = and i64 %shr61, 255
-  %conv63 = trunc i64 %and62 to i8
-  %43 = load ptr, ptr %fis, align 8
-  %lba_hi = getelementptr inbounds %struct.RegH2DFIS, ptr %43, i32 0, i32 6
-  %arrayidx64 = getelementptr [3 x i8], ptr %lba_hi, i64 0, i64 0
-  store i8 %conv63, ptr %arrayidx64, align 1
-  %44 = load i64, ptr %lba_sect.addr, align 8
-  %shr65 = lshr i64 %44, 32
-  %and66 = and i64 %shr65, 255
-  %conv67 = trunc i64 %and66 to i8
-  %45 = load ptr, ptr %fis, align 8
-  %lba_hi68 = getelementptr inbounds %struct.RegH2DFIS, ptr %45, i32 0, i32 6
-  %arrayidx69 = getelementptr [3 x i8], ptr %lba_hi68, i64 0, i64 1
-  store i8 %conv67, ptr %arrayidx69, align 1
-  %46 = load i64, ptr %lba_sect.addr, align 8
-  %shr70 = lshr i64 %46, 40
-  %and71 = and i64 %shr70, 255
-  %conv72 = trunc i64 %and71 to i8
-  %47 = load ptr, ptr %fis, align 8
-  %lba_hi73 = getelementptr inbounds %struct.RegH2DFIS, ptr %47, i32 0, i32 6
-  %arrayidx74 = getelementptr [3 x i8], ptr %lba_hi73, i64 0, i64 2
-  store i8 %conv72, ptr %arrayidx74, align 1
-  br label %return
-
-return:                                           ; preds = %if.end60, %if.then5, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_issue(ptr noundef %ahci, ptr noundef %cmd) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_command_issue_async(ptr noundef %0, ptr noundef %1)
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %3 = load ptr, ptr %cmd.addr, align 8
-  call void @ahci_command_wait(ptr noundef %2, ptr noundef %3)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_io(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, ptr noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %ide_cmd.addr = alloca i8, align 1
-  %buffer.addr = alloca ptr, align 8
-  %bufsize.addr = alloca i64, align 8
-  %sector.addr = alloca i64, align 8
-  %ptr = alloca i64, align 8
-  %props = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store i8 %ide_cmd, ptr %ide_cmd.addr, align 1
-  store ptr %buffer, ptr %buffer.addr, align 8
-  store i64 %bufsize, ptr %bufsize.addr, align 8
-  store i64 %sector, ptr %sector.addr, align 8
-  %0 = load i8, ptr %ide_cmd.addr, align 1
-  %call = call ptr @ahci_command_find(i8 noundef zeroext %0)
-  store ptr %call, ptr %props, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %props, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 815, ptr noundef @__func__.ahci_io, ptr noundef @.str.54) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %3 = load i64, ptr %bufsize.addr, align 8
-  %call1 = call i64 @ahci_alloc(ptr noundef %2, i64 noundef %3)
-  store i64 %call1, ptr %ptr, align 8
-  br label %do.body2
-
-do.body2:                                         ; preds = %do.end
-  %4 = load i64, ptr %bufsize.addr, align 8
-  %tobool3 = icmp ne i64 %4, 0
-  br i1 %tobool3, label %lor.lhs.false, label %if.then5
-
-lor.lhs.false:                                    ; preds = %do.body2
-  %5 = load i64, ptr %ptr, align 8
-  %tobool4 = icmp ne i64 %5, 0
-  br i1 %tobool4, label %if.then5, label %if.else6
-
-if.then5:                                         ; preds = %lor.lhs.false, %do.body2
-  br label %if.end7
-
-if.else6:                                         ; preds = %lor.lhs.false
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 817, ptr noundef @__func__.ahci_io, ptr noundef @.str.55) #9
-  unreachable
-
-if.end7:                                          ; preds = %if.then5
-  br label %do.end8
-
-do.end8:                                          ; preds = %if.end7
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %qts, align 8
-  %9 = load i64, ptr %ptr, align 8
-  %10 = load i64, ptr %bufsize.addr, align 8
-  call void @qtest_memset(ptr noundef %8, i64 noundef %9, i8 noundef zeroext 0, i64 noundef %10)
-  %11 = load i64, ptr %bufsize.addr, align 8
-  %tobool9 = icmp ne i64 %11, 0
-  br i1 %tobool9, label %land.lhs.true, label %if.end14
-
-land.lhs.true:                                    ; preds = %do.end8
-  %12 = load ptr, ptr %props, align 8
-  %write = getelementptr inbounds %struct.AHCICommandProp, ptr %12, i32 0, i32 7
-  %13 = load i8, ptr %write, align 1
-  %tobool10 = trunc i8 %13 to i1
-  br i1 %tobool10, label %if.then11, label %if.end14
-
-if.then11:                                        ; preds = %land.lhs.true
-  %14 = load ptr, ptr %ahci.addr, align 8
-  %parent12 = getelementptr inbounds %struct.AHCIQState, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %parent12, align 8
-  %qts13 = getelementptr inbounds %struct.QOSState, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %qts13, align 8
-  %17 = load i64, ptr %ptr, align 8
-  %18 = load ptr, ptr %buffer.addr, align 8
-  %19 = load i64, ptr %bufsize.addr, align 8
-  call void @qtest_bufwrite(ptr noundef %16, i64 noundef %17, ptr noundef %18, i64 noundef %19)
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then11, %land.lhs.true, %do.end8
-  %20 = load ptr, ptr %ahci.addr, align 8
-  %21 = load i8, ptr %port.addr, align 1
-  %22 = load i8, ptr %ide_cmd.addr, align 1
-  %23 = load i64, ptr %ptr, align 8
-  %24 = load i64, ptr %bufsize.addr, align 8
-  %25 = load i64, ptr %sector.addr, align 8
-  call void @ahci_guest_io(ptr noundef %20, i8 noundef zeroext %21, i8 noundef zeroext %22, i64 noundef %23, i64 noundef %24, i64 noundef %25)
-  %26 = load i64, ptr %bufsize.addr, align 8
-  %tobool15 = icmp ne i64 %26, 0
-  br i1 %tobool15, label %land.lhs.true16, label %if.end21
-
-land.lhs.true16:                                  ; preds = %if.end14
-  %27 = load ptr, ptr %props, align 8
-  %read = getelementptr inbounds %struct.AHCICommandProp, ptr %27, i32 0, i32 6
-  %28 = load i8, ptr %read, align 2
-  %tobool17 = trunc i8 %28 to i1
-  br i1 %tobool17, label %if.then18, label %if.end21
-
-if.then18:                                        ; preds = %land.lhs.true16
-  %29 = load ptr, ptr %ahci.addr, align 8
-  %parent19 = getelementptr inbounds %struct.AHCIQState, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %parent19, align 8
-  %qts20 = getelementptr inbounds %struct.QOSState, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %qts20, align 8
-  %32 = load i64, ptr %ptr, align 8
-  %33 = load ptr, ptr %buffer.addr, align 8
-  %34 = load i64, ptr %bufsize.addr, align 8
-  call void @qtest_bufread(ptr noundef %31, i64 noundef %32, ptr noundef %33, i64 noundef %34)
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.then18, %land.lhs.true16, %if.end14
-  %35 = load ptr, ptr %ahci.addr, align 8
-  %36 = load i64, ptr %ptr, align 8
-  call void @ahci_free(ptr noundef %35, i64 noundef %36)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @ahci_command_find(i8 noundef zeroext %command_name) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %command_name.addr = alloca i8, align 1
-  %i = alloca i32, align 4
-  store i8 %command_name, ptr %command_name.addr, align 1
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %conv = sext i32 %0 to i64
-  %cmp = icmp ult i64 %conv, 16
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr [16 x %struct.AHCICommandProp], ptr @ahci_command_properties, i64 0, i64 %idxprom
-  %cmd = getelementptr inbounds %struct.AHCICommandProp, ptr %arrayidx, i32 0, i32 0
-  %2 = load i8, ptr %cmd, align 16
-  %conv2 = zext i8 %2 to i32
-  %3 = load i8, ptr %command_name.addr, align 1
-  %conv3 = zext i8 %3 to i32
-  %cmp4 = icmp eq i32 %conv2, %conv3
-  br i1 %cmp4, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %idxprom6 = sext i32 %4 to i64
-  %arrayidx7 = getelementptr [16 x %struct.AHCICommandProp], ptr @ahci_command_properties, i64 0, i64 %idxprom6
-  store ptr %arrayidx7, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-declare void @qtest_bufwrite(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
-
-declare void @qtest_bufread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_enable_atapi_dma(ptr noundef %cmd) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %fis = alloca ptr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %fis1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 11
-  store ptr %fis1, ptr %fis, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 9
-  %2 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds %struct.AHCICommandProp, ptr %2, i32 0, i32 8
-  %3 = load i8, ptr %atapi, align 8
-  %tobool = trunc i8 %3 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 892, ptr noundef @__func__.ahci_command_enable_atapi_dma, ptr noundef @.str.56) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %4 = load ptr, ptr %fis, align 8
-  %feature_low = getelementptr inbounds %struct.RegH2DFIS, ptr %4, i32 0, i32 3
-  %5 = load i8, ptr %feature_low, align 1
-  %conv = zext i8 %5 to i32
-  %or = or i32 %conv, 1
-  %conv2 = trunc i32 %or to i8
-  store i8 %conv2, ptr %feature_low, align 1
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end
-  %6 = load ptr, ptr %cmd.addr, align 8
-  %props4 = getelementptr inbounds %struct.AHCICommand, ptr %6, i32 0, i32 9
-  %7 = load ptr, ptr %props4, align 8
-  %pio = getelementptr inbounds %struct.AHCICommandProp, ptr %7, i32 0, i32 2
-  %8 = load i8, ptr %pio, align 2
-  %tobool5 = trunc i8 %8 to i1
-  br i1 %tobool5, label %if.then6, label %if.else7
-
-if.then6:                                         ; preds = %do.body3
-  br label %if.end8
-
-if.else7:                                         ; preds = %do.body3
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 895, ptr noundef @__func__.ahci_command_enable_atapi_dma, ptr noundef @.str.57) #9
-  unreachable
-
-if.end8:                                          ; preds = %if.then6
-  br label %do.end9
-
-do.end9:                                          ; preds = %if.end8
-  %9 = load ptr, ptr %cmd.addr, align 8
-  %props10 = getelementptr inbounds %struct.AHCICommand, ptr %9, i32 0, i32 9
-  %10 = load ptr, ptr %props10, align 8
-  %dma = getelementptr inbounds %struct.AHCICommandProp, ptr %10, i32 0, i32 3
-  store i8 1, ptr %dma, align 1
-  ret void
-}
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i64(i64) #5
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #6
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @command_header_init(ptr noundef %cmd) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %hdr = alloca ptr, align 8
-  %props = alloca ptr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %header = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 10
-  store ptr %header, ptr %hdr, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %props1 = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 9
-  %2 = load ptr, ptr %props1, align 8
-  store ptr %2, ptr %props, align 8
-  %3 = load ptr, ptr %hdr, align 8
-  %flags = getelementptr inbounds %struct.AHCICommandHeader, ptr %3, i32 0, i32 0
-  store i16 5, ptr %flags, align 1
-  %4 = load ptr, ptr %hdr, align 8
-  %flags2 = getelementptr inbounds %struct.AHCICommandHeader, ptr %4, i32 0, i32 0
-  %5 = load i16, ptr %flags2, align 1
-  %conv = zext i16 %5 to i32
-  %or = or i32 %conv, 1024
-  %conv3 = trunc i32 %or to i16
-  store i16 %conv3, ptr %flags2, align 1
-  %6 = load ptr, ptr %props, align 8
-  %write = getelementptr inbounds %struct.AHCICommandProp, ptr %6, i32 0, i32 7
-  %7 = load i8, ptr %write, align 1
-  %tobool = trunc i8 %7 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @ahci_reg_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #15
+  store i32 0, ptr %3, align 4, !annotation !4
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.AHCIState, ptr %4, i32 0, i32 6
+  %6 = load i32, ptr %5, align 8
+  %7 = sub i32 %6, 1
+  %8 = or i32 %7, 7936
+  %9 = or i32 %8, 1048576
+  %10 = or i32 %9, 1073741824
+  %11 = or i32 %10, 262144
+  %12 = or i32 %11, -2147483648
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.AHCIState, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %14, i32 0, i32 0
+  store i32 %12, ptr %15, align 8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.AHCIState, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 8
+  %19 = shl i32 1, %18
+  %20 = sub i32 %19, 1
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds nuw %struct.AHCIState, ptr %21, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %22, i32 0, i32 3
+  store i32 %20, ptr %23, align 4
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct.AHCIState, ptr %24, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %25, i32 0, i32 4
+  store i32 65536, ptr %26, align 8
+  store i32 0, ptr %3, align 4
+  br label %27
 
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %hdr, align 8
-  %flags4 = getelementptr inbounds %struct.AHCICommandHeader, ptr %8, i32 0, i32 0
-  %9 = load i16, ptr %flags4, align 1
-  %conv5 = zext i16 %9 to i32
-  %or6 = or i32 %conv5, 64
-  %conv7 = trunc i32 %or6 to i16
-  store i16 %conv7, ptr %flags4, align 1
-  br label %if.end
+27:                                               ; preds = %41, %1
+  %28 = load i32, ptr %3, align 4
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.AHCIState, ptr %29, i32 0, i32 6
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp ult i32 %28, %31
+  br i1 %32, label %33, label %44
 
-if.end:                                           ; preds = %if.then, %entry
-  %10 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds %struct.AHCICommandProp, ptr %10, i32 0, i32 8
-  %11 = load i8, ptr %atapi, align 8
-  %tobool8 = trunc i8 %11 to i1
-  br i1 %tobool8, label %if.then9, label %if.end14
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds nuw %struct.AHCIState, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 16
+  %37 = load i32, ptr %3, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds %struct.AHCIDevice, ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %39, i32 0, i32 3
+  store i32 0, ptr %40, align 4
+  br label %41
 
-if.then9:                                         ; preds = %if.end
-  %12 = load ptr, ptr %hdr, align 8
-  %flags10 = getelementptr inbounds %struct.AHCICommandHeader, ptr %12, i32 0, i32 0
-  %13 = load i16, ptr %flags10, align 1
-  %conv11 = zext i16 %13 to i32
-  %or12 = or i32 %conv11, 32
-  %conv13 = trunc i32 %or12 to i16
-  store i16 %conv13, ptr %flags10, align 1
-  br label %if.end14
+41:                                               ; preds = %33
+  %42 = load i32, ptr %3, align 4
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %3, align 4
+  br label %27, !llvm.loop !7
 
-if.end14:                                         ; preds = %if.then9, %if.end
-  %14 = load ptr, ptr %cmd.addr, align 8
-  %xbytes = getelementptr inbounds %struct.AHCICommand, ptr %14, i32 0, i32 5
-  %15 = load i64, ptr %xbytes, align 8
-  %conv15 = trunc i64 %15 to i32
-  %16 = load ptr, ptr %cmd.addr, align 8
-  %prd_size = getelementptr inbounds %struct.AHCICommand, ptr %16, i32 0, i32 6
-  %17 = load i32, ptr %prd_size, align 8
-  %call = call i32 @size_to_prdtl(i32 noundef %conv15, i32 noundef %17)
-  %conv16 = trunc i32 %call to i16
-  %18 = load ptr, ptr %hdr, align 8
-  %prdtl = getelementptr inbounds %struct.AHCICommandHeader, ptr %18, i32 0, i32 1
-  store i16 %conv16, ptr %prdtl, align 1
-  %19 = load ptr, ptr %hdr, align 8
-  %prdbc = getelementptr inbounds %struct.AHCICommandHeader, ptr %19, i32 0, i32 2
-  store i32 0, ptr %prdbc, align 1
-  %20 = load ptr, ptr %hdr, align 8
-  %ctba = getelementptr inbounds %struct.AHCICommandHeader, ptr %20, i32 0, i32 3
-  store i64 0, ptr %ctba, align 1
+44:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #15
+  ret void
+}
+
+declare ptr @qemu_allocate_irqs(ptr noundef, ptr noundef, i32 noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_irq_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  br label %7
+
+7:                                                ; preds = %3
+  %8 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 1024)
+  %9 = xor i1 %8, true
+  %10 = xor i1 %9, true
+  %11 = zext i1 %10 to i32
+  %12 = sext i32 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %18
+
+15:                                               ; preds = %7
+  %16 = load i32, ptr %5, align 4
+  %17 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.171, i32 noundef %16, i32 noundef %17)
+  br label %18
+
+18:                                               ; preds = %15, %7
+  br label %19
+
+19:                                               ; preds = %18
+  ret void
+}
+
+declare void @ide_bus_init(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+
+declare void @ide_bus_init_output_irq(ptr noundef, ptr noundef) #1
+
+declare void @ide_bus_register_restart_cb(ptr noundef) #1
+
+declare void @g_free(ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @ahci_uninit(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #15
+  store i32 0, ptr %3, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #15
+  store i32 0, ptr %4, align 4, !annotation !4
+  store i32 0, ptr %3, align 4
+  br label %6
+
+6:                                                ; preds = %35, %1
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.AHCIState, ptr %8, i32 0, i32 6
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ult i32 %7, %10
+  br i1 %11, label %12, label %38
+
+12:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.AHCIState, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 16
+  %16 = load i32, ptr %3, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds %struct.AHCIDevice, ptr %15, i64 %17
+  store ptr %18, ptr %5, align 8
+  store i32 0, ptr %4, align 4
+  br label %19
+
+19:                                               ; preds = %29, %12
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp slt i32 %20, 2
+  br i1 %21, label %22, label %32
+
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.IDEBus, ptr %24, i32 0, i32 3
+  %26 = load i32, ptr %4, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [2 x %struct.IDEState], ptr %25, i64 0, i64 %27
+  call void @ide_exit(ptr noundef %28)
+  br label %29
+
+29:                                               ; preds = %22
+  %30 = load i32, ptr %4, align 4
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %4, align 4
+  br label %19, !llvm.loop !8
+
+32:                                               ; preds = %19
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %33, i32 0, i32 1
+  call void @object_unparent(ptr noundef %34)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  br label %35
+
+35:                                               ; preds = %32
+  %36 = load i32, ptr %3, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %3, align 4
+  br label %6, !llvm.loop !9
+
+38:                                               ; preds = %6
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds nuw %struct.AHCIState, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 16
+  call void @g_free(ptr noundef %41)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #15
+  ret void
+}
+
+declare void @ide_exit(ptr noundef) #1
+
+declare void @object_unparent(ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @ahci_reset(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  store ptr null, ptr %3, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #15
+  store i32 0, ptr %4, align 4, !annotation !4
+  %5 = load ptr, ptr %2, align 8
+  call void @trace_ahci_reset(ptr noundef %5)
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIState, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %7, i32 0, i32 2
+  store i32 0, ptr %8, align 8
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.AHCIState, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %10, i32 0, i32 1
+  store i32 -2147483648, ptr %11, align 4
+  store i32 0, ptr %4, align 4
+  br label %12
+
+12:                                               ; preds = %36, %1
+  %13 = load i32, ptr %4, align 4
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.AHCIState, ptr %14, i32 0, i32 6
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ult i32 %13, %16
+  br i1 %17, label %18, label %39
+
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.AHCIState, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 16
+  %22 = load i32, ptr %4, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds %struct.AHCIDevice, ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %24, i32 0, i32 5
+  store ptr %25, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %26, i32 0, i32 4
+  store i32 0, ptr %27, align 4
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %28, i32 0, i32 5
+  store i32 0, ptr %29, align 4
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %30, i32 0, i32 11
+  store i32 0, ptr %31, align 4
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %32, i32 0, i32 6
+  store i32 6, ptr %33, align 4
+  %34 = load ptr, ptr %2, align 8
+  %35 = load i32, ptr %4, align 4
+  call void @ahci_reset_port(ptr noundef %34, i32 noundef %35)
+  br label %36
+
+36:                                               ; preds = %18
+  %37 = load i32, ptr %4, align 4
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %4, align 4
+  br label %12, !llvm.loop !10
+
+39:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_reset(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_nocheck__trace_ahci_reset(ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @command_table_init(ptr noundef %cmd) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %fis = alloca ptr, align 8
-  %sect_count = alloca i16, align 2
-  %ncqfis = alloca ptr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %fis1 = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 11
-  store ptr %fis1, ptr %fis, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %xbytes = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 5
-  %2 = load i64, ptr %xbytes, align 8
-  %3 = load ptr, ptr %cmd.addr, align 8
-  %sector_size = getelementptr inbounds %struct.AHCICommand, ptr %3, i32 0, i32 7
-  %4 = load i32, ptr %sector_size, align 4
-  %conv = zext i32 %4 to i64
-  %div = udiv i64 %2, %conv
-  %conv2 = trunc i64 %div to i16
-  store i16 %conv2, ptr %sect_count, align 2
-  %5 = load ptr, ptr %fis, align 8
-  %fis_type = getelementptr inbounds %struct.RegH2DFIS, ptr %5, i32 0, i32 0
-  store i8 39, ptr %fis_type, align 1
-  %6 = load ptr, ptr %fis, align 8
-  %flags = getelementptr inbounds %struct.RegH2DFIS, ptr %6, i32 0, i32 1
-  store i8 -128, ptr %flags, align 1
-  %7 = load ptr, ptr %cmd.addr, align 8
-  %name = getelementptr inbounds %struct.AHCICommand, ptr %7, i32 0, i32 0
-  %8 = load i8, ptr %name, align 8
-  %9 = load ptr, ptr %fis, align 8
-  %command = getelementptr inbounds %struct.RegH2DFIS, ptr %9, i32 0, i32 2
-  store i8 %8, ptr %command, align 1
-  %10 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %10, i32 0, i32 9
-  %11 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %11, i32 0, i32 9
-  %12 = load i8, ptr %ncq, align 1
-  %tobool = trunc i8 %12 to i1
-  br i1 %tobool, label %if.then, label %if.else
+define internal void @ahci_reset_port(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.AHCIState, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 16
+  %14 = load i32, ptr %4, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.AHCIDevice, ptr %13, i64 %15
+  store ptr %16, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %17, i32 0, i32 5
+  store ptr %18, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %19, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.IDEBus, ptr %20, i32 0, i32 3
+  %22 = getelementptr inbounds [2 x %struct.IDEState], ptr %21, i64 0, i64 0
+  store ptr %22, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #15
+  store i32 0, ptr %8, align 4, !annotation !4
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  call void @trace_ahci_reset_port(ptr noundef %23, i32 noundef %24)
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %25, i32 0, i32 1
+  call void @ide_bus_reset(ptr noundef %26)
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds nuw %struct.IDEState, ptr %27, i32 0, i32 76
+  store i32 32, ptr %28, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %29, i32 0, i32 10
+  store i32 0, ptr %30, align 4
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %31, i32 0, i32 12
+  store i32 0, ptr %32, align 4
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %33, i32 0, i32 13
+  store i32 0, ptr %34, align 4
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %35, i32 0, i32 8
+  store i32 127, ptr %36, align 4
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %37, i32 0, i32 9
+  store i32 -1, ptr %38, align 4
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %39, i32 0, i32 14
+  store i32 0, ptr %40, align 4
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %41, i32 0, i32 11
+  store i32 -1, ptr %42, align 4
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %43, i32 0, i32 12
+  store i8 0, ptr %44, align 8
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.AHCIState, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 16
+  %48 = load i32, ptr %4, align 4
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds %struct.AHCIDevice, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %struct.IDEBus, ptr %51, i32 0, i32 3
+  %53 = getelementptr inbounds [2 x %struct.IDEState], ptr %52, i64 0, i64 0
+  store ptr %53, ptr %7, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds nuw %struct.IDEState, ptr %54, i32 0, i32 34
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %59, label %58
 
-if.then:                                          ; preds = %entry
-  %13 = load ptr, ptr %fis, align 8
-  store ptr %13, ptr %ncqfis, align 8
-  %14 = load i16, ptr %sect_count, align 2
-  %conv3 = zext i16 %14 to i32
-  %and = and i32 %conv3, 255
-  %conv4 = trunc i32 %and to i8
-  %15 = load ptr, ptr %ncqfis, align 8
-  %sector_low = getelementptr inbounds %struct.NCQFIS, ptr %15, i32 0, i32 3
-  store i8 %conv4, ptr %sector_low, align 1
-  %16 = load i16, ptr %sect_count, align 2
-  %conv5 = zext i16 %16 to i32
-  %shr = ashr i32 %conv5, 8
-  %and6 = and i32 %shr, 255
-  %conv7 = trunc i32 %and6 to i8
-  %17 = load ptr, ptr %ncqfis, align 8
-  %sector_hi = getelementptr inbounds %struct.NCQFIS, ptr %17, i32 0, i32 7
-  store i8 %conv7, ptr %sector_hi, align 1
-  %18 = load ptr, ptr %ncqfis, align 8
-  %device = getelementptr inbounds %struct.NCQFIS, ptr %18, i32 0, i32 5
-  store i8 64, ptr %device, align 1
-  %19 = load ptr, ptr %ncqfis, align 8
-  %tag = getelementptr inbounds %struct.NCQFIS, ptr %19, i32 0, i32 8
-  store i8 0, ptr %tag, align 1
-  %20 = load ptr, ptr %ncqfis, align 8
-  %prio = getelementptr inbounds %struct.NCQFIS, ptr %20, i32 0, i32 9
-  store i8 0, ptr %prio, align 1
-  br label %if.end21
+58:                                               ; preds = %2
+  store i32 1, ptr %9, align 4
+  br label %133
 
-if.else:                                          ; preds = %entry
-  %21 = load ptr, ptr %fis, align 8
-  %feature_low = getelementptr inbounds %struct.RegH2DFIS, ptr %21, i32 0, i32 3
-  store i8 0, ptr %feature_low, align 1
-  %22 = load ptr, ptr %fis, align 8
-  %feature_high = getelementptr inbounds %struct.RegH2DFIS, ptr %22, i32 0, i32 7
-  store i8 0, ptr %feature_high, align 1
-  %23 = load ptr, ptr %cmd.addr, align 8
-  %props8 = getelementptr inbounds %struct.AHCICommand, ptr %23, i32 0, i32 9
-  %24 = load ptr, ptr %props8, align 8
-  %lba28 = getelementptr inbounds %struct.AHCICommandProp, ptr %24, i32 0, i32 4
-  %25 = load i8, ptr %lba28, align 4
-  %tobool9 = trunc i8 %25 to i1
-  br i1 %tobool9, label %if.then14, label %lor.lhs.false
+59:                                               ; preds = %2
+  store i32 0, ptr %8, align 4
+  br label %60
 
-lor.lhs.false:                                    ; preds = %if.else
-  %26 = load ptr, ptr %cmd.addr, align 8
-  %props11 = getelementptr inbounds %struct.AHCICommand, ptr %26, i32 0, i32 9
-  %27 = load ptr, ptr %props11, align 8
-  %lba48 = getelementptr inbounds %struct.AHCICommandProp, ptr %27, i32 0, i32 5
-  %28 = load i8, ptr %lba48, align 1
-  %tobool12 = trunc i8 %28 to i1
-  br i1 %tobool12, label %if.then14, label %if.end
+60:                                               ; preds = %106, %59
+  %61 = load i32, ptr %8, align 4
+  %62 = icmp slt i32 %61, 32
+  br i1 %62, label %63, label %109
 
-if.then14:                                        ; preds = %lor.lhs.false, %if.else
-  %29 = load ptr, ptr %fis, align 8
-  %device15 = getelementptr inbounds %struct.RegH2DFIS, ptr %29, i32 0, i32 5
-  store i8 64, ptr %device15, align 1
-  br label %if.end
+63:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds nuw %struct.AHCIState, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 16
+  %67 = load i32, ptr %4, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %struct.AHCIDevice, ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %69, i32 0, i32 14
+  %71 = load i32, ptr %8, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [32 x %struct.NCQTransferState], ptr %70, i64 0, i64 %72
+  store ptr %73, ptr %10, align 8
+  %74 = load ptr, ptr %10, align 8
+  %75 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %74, i32 0, i32 11
+  store i8 0, ptr %75, align 4
+  %76 = load ptr, ptr %10, align 8
+  %77 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %76, i32 0, i32 10
+  %78 = load i8, ptr %77, align 1, !range !11, !noundef !12
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %81, label %80
 
-if.end:                                           ; preds = %if.then14, %lor.lhs.false
-  %30 = load ptr, ptr %cmd.addr, align 8
-  %xbytes16 = getelementptr inbounds %struct.AHCICommand, ptr %30, i32 0, i32 5
-  %31 = load i64, ptr %xbytes16, align 8
-  %32 = load ptr, ptr %cmd.addr, align 8
-  %sector_size17 = getelementptr inbounds %struct.AHCICommand, ptr %32, i32 0, i32 7
-  %33 = load i32, ptr %sector_size17, align 4
-  %conv18 = zext i32 %33 to i64
-  %div19 = udiv i64 %31, %conv18
-  %conv20 = trunc i64 %div19 to i16
-  %34 = load ptr, ptr %fis, align 8
-  %count = getelementptr inbounds %struct.RegH2DFIS, ptr %34, i32 0, i32 8
-  store i16 %conv20, ptr %count, align 1
-  br label %if.end21
+80:                                               ; preds = %63
+  store i32 4, ptr %9, align 4
+  br label %103
 
-if.end21:                                         ; preds = %if.end, %if.then
-  %35 = load ptr, ptr %fis, align 8
-  %icc = getelementptr inbounds %struct.RegH2DFIS, ptr %35, i32 0, i32 9
-  store i8 0, ptr %icc, align 1
-  %36 = load ptr, ptr %fis, align 8
-  %control = getelementptr inbounds %struct.RegH2DFIS, ptr %36, i32 0, i32 10
-  store i8 0, ptr %control, align 1
-  %37 = load ptr, ptr %fis, align 8
-  %aux = getelementptr inbounds %struct.RegH2DFIS, ptr %37, i32 0, i32 11
-  %arraydecay = getelementptr inbounds [4 x i8], ptr %aux, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %arraydecay, i8 0, i64 4, i1 false)
-  ret void
-}
+81:                                               ; preds = %63
+  %82 = load ptr, ptr %10, align 8
+  %83 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %92
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @stw_le_p(ptr noundef %ptr, i16 noundef zeroext %v) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %v.addr = alloca i16, align 2
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i16 %v, ptr %v.addr, align 2
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load i16, ptr %v.addr, align 2
-  call void @stw_he_p(ptr noundef %0, i16 noundef zeroext %1)
-  ret void
-}
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %10, align 8
+  %88 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  call void @blk_aio_cancel(ptr noundef %89)
+  %90 = load ptr, ptr %10, align 8
+  %91 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %90, i32 0, i32 1
+  store ptr null, ptr %91, align 8
+  br label %92
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_test_ready(ptr noundef %ahci, i8 noundef zeroext %port, i1 noundef zeroext %ready, i8 noundef zeroext %expected_sense) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %ready.addr = alloca i8, align 1
-  %expected_sense.addr = alloca i8, align 1
-  %cmd = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  %frombool = zext i1 %ready to i8
-  store i8 %frombool, ptr %ready.addr, align 1
-  store i8 %expected_sense, ptr %expected_sense.addr, align 1
-  %call = call ptr @ahci_atapi_command_create(i8 noundef zeroext 0, i16 noundef zeroext 0, i1 noundef zeroext false)
-  store ptr %call, ptr %cmd, align 8
-  %0 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_set_size(ptr noundef %0, i64 noundef 0)
-  %1 = load i8, ptr %ready.addr, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.end, label %if.then
+92:                                               ; preds = %86, %81
+  %93 = load ptr, ptr %10, align 8
+  %94 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %93, i32 0, i32 10
+  %95 = load i8, ptr %94, align 1, !range !11, !noundef !12
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %98, label %97
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %cmd, align 8
-  %interrupts = getelementptr inbounds %struct.AHCICommand, ptr %2, i32 0, i32 4
-  %3 = load i32, ptr %interrupts, align 4
-  %or = or i32 %3, 1073741824
-  store i32 %or, ptr %interrupts, align 4
-  %4 = load i8, ptr %expected_sense.addr, align 1
-  %conv = zext i8 %4 to i32
-  %shl = shl i32 %conv, 4
-  %5 = load ptr, ptr %cmd, align 8
-  %errors = getelementptr inbounds %struct.AHCICommand, ptr %5, i32 0, i32 3
-  %6 = load i8, ptr %errors, align 1
-  %conv1 = zext i8 %6 to i32
-  %or2 = or i32 %conv1, %shl
-  %conv3 = trunc i32 %or2 to i8
-  store i8 %conv3, ptr %errors, align 1
-  br label %if.end
+97:                                               ; preds = %92
+  store i32 4, ptr %9, align 4
+  br label %103
 
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %ahci.addr, align 8
-  %8 = load ptr, ptr %cmd, align 8
-  %9 = load i8, ptr %port.addr, align 1
-  call void @ahci_command_commit(ptr noundef %7, ptr noundef %8, i8 noundef zeroext %9)
-  %10 = load ptr, ptr %ahci.addr, align 8
-  %11 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_issue(ptr noundef %10, ptr noundef %11)
-  %12 = load ptr, ptr %ahci.addr, align 8
-  %13 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_verify(ptr noundef %12, ptr noundef %13)
-  %14 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_free(ptr noundef %14)
-  ret void
-}
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %10, align 8
+  %100 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %99, i32 0, i32 3
+  call void @qemu_sglist_destroy(ptr noundef %100)
+  %101 = load ptr, ptr %10, align 8
+  %102 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %101, i32 0, i32 10
+  store i8 0, ptr %102, align 1
+  store i32 0, ptr %9, align 4
+  br label %103
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_get_sense(ptr noundef %ahci, i8 noundef zeroext %port, ptr noundef %sense, ptr noundef %asc) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %sense.addr = alloca ptr, align 8
-  %asc.addr = alloca ptr, align 8
-  %rx = alloca ptr, align 8
-  %opts = alloca %struct.AHCIOpts, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  store ptr %sense, ptr %sense.addr, align 8
-  store ptr %asc, ptr %asc.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %opts, ptr align 8 @__const.ahci_atapi_get_sense.opts, i64 80, i1 false)
-  %call = call noalias ptr @g_malloc(i64 noundef 18) #10
-  store ptr %call, ptr %rx, align 8
-  %0 = load ptr, ptr %rx, align 8
-  %opaque = getelementptr inbounds %struct.AHCIOpts, ptr %opts, i32 0, i32 12
-  store ptr %0, ptr %opaque, align 8
-  %1 = load ptr, ptr %ahci.addr, align 8
-  %2 = load i8, ptr %port.addr, align 1
-  call void @ahci_exec(ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext 3, ptr noundef %opts)
-  %3 = load ptr, ptr %rx, align 8
-  %arrayidx = getelementptr i8, ptr %3, i64 2
-  %4 = load i8, ptr %arrayidx, align 1
-  %5 = load ptr, ptr %sense.addr, align 8
-  store i8 %4, ptr %5, align 1
-  %6 = load ptr, ptr %rx, align 8
-  %arrayidx1 = getelementptr i8, ptr %6, i64 12
-  %7 = load i8, ptr %arrayidx1, align 1
-  %8 = load ptr, ptr %asc.addr, align 8
-  store i8 %7, ptr %8, align 1
-  %9 = load ptr, ptr %rx, align 8
-  call void @g_free(ptr noundef %9)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @copy_buffer(ptr noundef %ahci, ptr noundef %cmd, ptr noundef %opts) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %opts.addr = alloca ptr, align 8
-  %rx = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store ptr %opts, ptr %opts.addr, align 8
-  %0 = load ptr, ptr %opts.addr, align 8
-  %opaque = getelementptr inbounds %struct.AHCIOpts, ptr %0, i32 0, i32 12
-  %1 = load ptr, ptr %opaque, align 8
-  store ptr %1, ptr %rx, align 8
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %parent = getelementptr inbounds %struct.AHCIQState, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %parent, align 8
-  %qts = getelementptr inbounds %struct.QOSState, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %qts, align 8
-  %5 = load ptr, ptr %opts.addr, align 8
-  %buffer = getelementptr inbounds %struct.AHCIOpts, ptr %5, i32 0, i32 5
-  %6 = load i64, ptr %buffer, align 8
-  %7 = load ptr, ptr %rx, align 8
-  %8 = load ptr, ptr %opts.addr, align 8
-  %size = getelementptr inbounds %struct.AHCIOpts, ptr %8, i32 0, i32 0
-  %9 = load i64, ptr %size, align 8
-  call void @qtest_bufread(ptr noundef %4, i64 noundef %6, ptr noundef %7, i64 noundef %9)
-  ret i32 0
-}
-
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #4
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_eject(ptr noundef %ahci, i8 noundef zeroext %port) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %cmd = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  %call = call ptr @ahci_atapi_command_create(i8 noundef zeroext 27, i16 noundef zeroext 0, i1 noundef zeroext false)
-  store ptr %call, ptr %cmd, align 8
-  %0 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_set_size(ptr noundef %0, i64 noundef 0)
-  %1 = load ptr, ptr %cmd, align 8
-  %atapi_cmd = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 12
-  %2 = load ptr, ptr %atapi_cmd, align 8
-  %arrayidx = getelementptr i8, ptr %2, i64 4
-  store i8 2, ptr %arrayidx, align 1
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %4 = load ptr, ptr %cmd, align 8
-  %5 = load i8, ptr %port.addr, align 1
-  call void @ahci_command_commit(ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5)
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %7 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_issue(ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_verify(ptr noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_free(ptr noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_load(ptr noundef %ahci, i8 noundef zeroext %port) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %port.addr = alloca i8, align 1
-  %cmd = alloca ptr, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i8 %port, ptr %port.addr, align 1
-  %call = call ptr @ahci_atapi_command_create(i8 noundef zeroext 27, i16 noundef zeroext 0, i1 noundef zeroext false)
-  store ptr %call, ptr %cmd, align 8
-  %0 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_set_size(ptr noundef %0, i64 noundef 0)
-  %1 = load ptr, ptr %cmd, align 8
-  %atapi_cmd = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 12
-  %2 = load ptr, ptr %atapi_cmd, align 8
-  %arrayidx = getelementptr i8, ptr %2, i64 4
-  store i8 3, ptr %arrayidx, align 1
-  %3 = load ptr, ptr %ahci.addr, align 8
-  %4 = load ptr, ptr %cmd, align 8
-  %5 = load i8, ptr %port.addr, align 1
-  call void @ahci_command_commit(ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5)
-  %6 = load ptr, ptr %ahci.addr, align 8
-  %7 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_issue(ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %ahci.addr, align 8
-  %9 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_verify(ptr noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %cmd, align 8
-  call void @ahci_command_free(ptr noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_flags(ptr noundef %cmd, i16 noundef zeroext %cmdh_flags) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %cmdh_flags.addr = alloca i16, align 2
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i16 %cmdh_flags, ptr %cmdh_flags.addr, align 2
-  %0 = load i16, ptr %cmdh_flags.addr, align 2
-  %conv = zext i16 %0 to i32
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %header = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 10
-  %flags = getelementptr inbounds %struct.AHCICommandHeader, ptr %header, i32 0, i32 0
-  %2 = load i16, ptr %flags, align 8
-  %conv1 = zext i16 %2 to i32
-  %or = or i32 %conv1, %conv
-  %conv2 = trunc i32 %or to i16
-  store i16 %conv2, ptr %flags, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_clr_flags(ptr noundef %cmd, i16 noundef zeroext %cmdh_flags) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %cmdh_flags.addr = alloca i16, align 2
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i16 %cmdh_flags, ptr %cmdh_flags.addr, align 2
-  %0 = load i16, ptr %cmdh_flags.addr, align 2
-  %conv = zext i16 %0 to i32
-  %not = xor i32 %conv, -1
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %header = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 10
-  %flags = getelementptr inbounds %struct.AHCICommandHeader, ptr %header, i32 0, i32 0
-  %2 = load i16, ptr %flags, align 8
-  %conv1 = zext i16 %2 to i32
-  %and = and i32 %conv1, %not
-  %conv2 = trunc i32 %and to i16
-  store i16 %conv2, ptr %flags, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_atapi_command_set_offset(ptr noundef %cmd, i64 noundef %lba) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %lba.addr = alloca i64, align 8
-  %cbd = alloca ptr, align 8
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n113 = alloca i64, align 8
-  %__n214 = alloca i64, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %lba, ptr %lba.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %atapi_cmd = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 12
-  %1 = load ptr, ptr %atapi_cmd, align 8
-  store ptr %1, ptr %cbd, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %2 = load ptr, ptr %cbd, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 1038, ptr noundef @__func__.ahci_atapi_command_set_offset, ptr noundef @.str.70) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %3 = load ptr, ptr %cbd, align 8
-  %arrayidx = getelementptr i8, ptr %3, i64 0
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %4 to i32
-  switch i32 %conv, label %sw.default [
-    i32 40, label %sw.bb
-    i32 190, label %sw.bb
-    i32 3, label %sw.bb11
-    i32 0, label %sw.bb11
-    i32 27, label %sw.bb11
+103:                                              ; preds = %98, %97, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  %104 = load i32, ptr %9, align 4
+  switch i32 %104, label %136 [
+    i32 0, label %105
+    i32 4, label %106
   ]
 
-sw.bb:                                            ; preds = %do.end, %do.end
-  br label %do.body1
+105:                                              ; preds = %103
+  br label %106
 
-do.body1:                                         ; preds = %sw.bb
-  %5 = load i64, ptr %lba.addr, align 8
-  store i64 %5, ptr %__n1, align 8
-  store i64 4294967295, ptr %__n2, align 8
-  %6 = load i64, ptr %__n1, align 8
-  %7 = load i64, ptr %__n2, align 8
-  %cmp = icmp ule i64 %6, %7
-  br i1 %cmp, label %if.then3, label %if.else4
+106:                                              ; preds = %105, %103
+  %107 = load i32, ptr %8, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %8, align 4
+  br label %60, !llvm.loop !13
 
-if.then3:                                         ; preds = %do.body1
-  br label %if.end7
+109:                                              ; preds = %60
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds nuw %struct.AHCIState, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 16
+  %113 = load i32, ptr %4, align 4
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds %struct.AHCIDevice, ptr %112, i64 %114
+  %116 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %115, i32 0, i32 3
+  store i32 0, ptr %116, align 4
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr inbounds nuw %struct.IDEState, ptr %117, i32 0, i32 2
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp eq i32 %119, 1
+  br i1 %120, label %121, label %125
 
-if.else4:                                         ; preds = %do.body1
-  %8 = load i64, ptr %__n1, align 8
-  %conv5 = uitofp i64 %8 to x86_fp80
-  %9 = load i64, ptr %__n2, align 8
-  %conv6 = uitofp i64 %9 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1043, ptr noundef @__func__.ahci_atapi_command_set_offset, ptr noundef @.str.71, x86_fp80 noundef %conv5, ptr noundef @.str.47, x86_fp80 noundef %conv6, i8 noundef signext 105)
-  br label %if.end7
+121:                                              ; preds = %109
+  %122 = load ptr, ptr %5, align 8
+  call void @ahci_set_signature(ptr noundef %122, i32 noundef -351010559)
+  %123 = load ptr, ptr %7, align 8
+  %124 = getelementptr inbounds nuw %struct.IDEState, ptr %123, i32 0, i32 30
+  store i8 112, ptr %124, align 1
+  br label %129
 
-if.end7:                                          ; preds = %if.else4, %if.then3
-  br label %do.end8
+125:                                              ; preds = %109
+  %126 = load ptr, ptr %5, align 8
+  call void @ahci_set_signature(ptr noundef %126, i32 noundef 257)
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds nuw %struct.IDEState, ptr %127, i32 0, i32 30
+  store i8 48, ptr %128, align 1
+  br label %129
 
-do.end8:                                          ; preds = %if.end7
-  %10 = load ptr, ptr %cbd, align 8
-  %arrayidx9 = getelementptr i8, ptr %10, i64 2
-  %11 = load i64, ptr %lba.addr, align 8
-  %conv10 = trunc i64 %11 to i32
-  call void @stl_be_p(ptr noundef %arrayidx9, i32 noundef %conv10)
-  br label %sw.epilog
+129:                                              ; preds = %125, %121
+  %130 = load ptr, ptr %7, align 8
+  %131 = getelementptr inbounds nuw %struct.IDEState, ptr %130, i32 0, i32 19
+  store i8 1, ptr %131, align 1
+  %132 = load ptr, ptr %5, align 8
+  call void @ahci_init_d2h(ptr noundef %132)
+  store i32 0, ptr %9, align 4
+  br label %133
 
-sw.bb11:                                          ; preds = %do.end, %do.end, %do.end
-  br label %do.body12
-
-do.body12:                                        ; preds = %sw.bb11
-  %12 = load i64, ptr %lba.addr, align 8
-  store i64 %12, ptr %__n113, align 8
-  store i64 0, ptr %__n214, align 8
-  %13 = load i64, ptr %__n113, align 8
-  %14 = load i64, ptr %__n214, align 8
-  %cmp15 = icmp eq i64 %13, %14
-  br i1 %cmp15, label %if.then17, label %if.else18
-
-if.then17:                                        ; preds = %do.body12
-  br label %if.end21
-
-if.else18:                                        ; preds = %do.body12
-  %15 = load i64, ptr %__n113, align 8
-  %conv19 = uitofp i64 %15 to x86_fp80
-  %16 = load i64, ptr %__n214, align 8
-  %conv20 = uitofp i64 %16 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1049, ptr noundef @__func__.ahci_atapi_command_set_offset, ptr noundef @.str.72, x86_fp80 noundef %conv19, ptr noundef @.str.5, x86_fp80 noundef %conv20, i8 noundef signext 105)
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.else18, %if.then17
-  br label %do.end22
-
-do.end22:                                         ; preds = %if.end21
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %do.end
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = load ptr, ptr %cbd, align 8
-  %arrayidx23 = getelementptr i8, ptr %18, i64 0
-  %19 = load i8, ptr %arrayidx23, align 1
-  %conv24 = zext i8 %19 to i32
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.73, i32 noundef %conv24)
-  br label %do.body25
-
-do.body25:                                        ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 1058, ptr noundef @__func__.ahci_atapi_command_set_offset, ptr noundef null) #9
-  unreachable
-
-do.end26:                                         ; No predecessors!
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %do.end26, %do.end22, %do.end8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_sizes(ptr noundef %cmd, i64 noundef %xbytes, i32 noundef %prd_size) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %xbytes.addr = alloca i64, align 8
-  %prd_size.addr = alloca i32, align 4
-  %sect_count = alloca i16, align 2
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n15 = alloca i64, align 8
-  %__n27 = alloca i64, align 8
-  %nfis = alloca ptr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %xbytes, ptr %xbytes.addr, align 8
-  store i32 %prd_size, ptr %prd_size.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load i32, ptr %prd_size.addr, align 4
-  %conv = zext i32 %0 to i64
-  store i64 %conv, ptr %__n1, align 8
-  store i64 4194304, ptr %__n2, align 8
-  %1 = load i64, ptr %__n1, align 8
-  %2 = load i64, ptr %__n2, align 8
-  %cmp = icmp ule i64 %1, %2
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  %3 = load i64, ptr %__n1, align 8
-  %conv2 = uitofp i64 %3 to x86_fp80
-  %4 = load i64, ptr %__n2, align 8
-  %conv3 = uitofp i64 %4 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1142, ptr noundef @__func__.ahci_command_set_sizes, ptr noundef @.str.65, x86_fp80 noundef %conv2, ptr noundef @.str.47, x86_fp80 noundef %conv3, i8 noundef signext 120)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body4
-
-do.body4:                                         ; preds = %do.end
-  %5 = load i32, ptr %prd_size.addr, align 4
-  %and = and i32 %5, 1
-  %conv6 = zext i32 %and to i64
-  store i64 %conv6, ptr %__n15, align 8
-  store i64 0, ptr %__n27, align 8
-  %6 = load i64, ptr %__n15, align 8
-  %7 = load i64, ptr %__n27, align 8
-  %cmp8 = icmp eq i64 %6, %7
-  br i1 %cmp8, label %if.then10, label %if.else11
-
-if.then10:                                        ; preds = %do.body4
-  br label %if.end14
-
-if.else11:                                        ; preds = %do.body4
-  %8 = load i64, ptr %__n15, align 8
-  %conv12 = uitofp i64 %8 to x86_fp80
-  %9 = load i64, ptr %__n27, align 8
-  %conv13 = uitofp i64 %9 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1143, ptr noundef @__func__.ahci_command_set_sizes, ptr noundef @.str.66, x86_fp80 noundef %conv12, ptr noundef @.str.5, x86_fp80 noundef %conv13, i8 noundef signext 120)
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.else11, %if.then10
-  br label %do.end15
-
-do.end15:                                         ; preds = %if.end14
-  %10 = load i32, ptr %prd_size.addr, align 4
-  %tobool = icmp ne i32 %10, 0
-  br i1 %tobool, label %if.then16, label %if.end18
-
-if.then16:                                        ; preds = %do.end15
-  %11 = load i32, ptr %prd_size.addr, align 4
-  %12 = load ptr, ptr %cmd.addr, align 8
-  %prd_size17 = getelementptr inbounds %struct.AHCICommand, ptr %12, i32 0, i32 6
-  store i32 %11, ptr %prd_size17, align 8
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then16, %do.end15
-  %13 = load i64, ptr %xbytes.addr, align 8
-  %14 = load ptr, ptr %cmd.addr, align 8
-  %xbytes19 = getelementptr inbounds %struct.AHCICommand, ptr %14, i32 0, i32 5
-  store i64 %13, ptr %xbytes19, align 8
-  %15 = load ptr, ptr %cmd.addr, align 8
-  %xbytes20 = getelementptr inbounds %struct.AHCICommand, ptr %15, i32 0, i32 5
-  %16 = load i64, ptr %xbytes20, align 8
-  %17 = load ptr, ptr %cmd.addr, align 8
-  %sector_size = getelementptr inbounds %struct.AHCICommand, ptr %17, i32 0, i32 7
-  %18 = load i32, ptr %sector_size, align 4
-  %conv21 = zext i32 %18 to i64
-  %div = udiv i64 %16, %conv21
-  %conv22 = trunc i64 %div to i16
-  store i16 %conv22, ptr %sect_count, align 2
-  %19 = load ptr, ptr %cmd.addr, align 8
-  %props = getelementptr inbounds %struct.AHCICommand, ptr %19, i32 0, i32 9
-  %20 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds %struct.AHCICommandProp, ptr %20, i32 0, i32 9
-  %21 = load i8, ptr %ncq, align 1
-  %tobool23 = trunc i8 %21 to i1
-  br i1 %tobool23, label %if.then24, label %if.else31
-
-if.then24:                                        ; preds = %if.end18
-  %22 = load ptr, ptr %cmd.addr, align 8
-  %fis = getelementptr inbounds %struct.AHCICommand, ptr %22, i32 0, i32 11
-  store ptr %fis, ptr %nfis, align 8
-  %23 = load i16, ptr %sect_count, align 2
-  %conv25 = zext i16 %23 to i32
-  %and26 = and i32 %conv25, 255
-  %conv27 = trunc i32 %and26 to i8
-  %24 = load ptr, ptr %nfis, align 8
-  %sector_low = getelementptr inbounds %struct.NCQFIS, ptr %24, i32 0, i32 3
-  store i8 %conv27, ptr %sector_low, align 1
-  %25 = load i16, ptr %sect_count, align 2
-  %conv28 = zext i16 %25 to i32
-  %shr = ashr i32 %conv28, 8
-  %and29 = and i32 %shr, 255
-  %conv30 = trunc i32 %and29 to i8
-  %26 = load ptr, ptr %nfis, align 8
-  %sector_hi = getelementptr inbounds %struct.NCQFIS, ptr %26, i32 0, i32 7
-  store i8 %conv30, ptr %sector_hi, align 1
-  br label %if.end49
-
-if.else31:                                        ; preds = %if.end18
-  %27 = load ptr, ptr %cmd.addr, align 8
-  %props32 = getelementptr inbounds %struct.AHCICommand, ptr %27, i32 0, i32 9
-  %28 = load ptr, ptr %props32, align 8
-  %atapi = getelementptr inbounds %struct.AHCICommandProp, ptr %28, i32 0, i32 8
-  %29 = load i8, ptr %atapi, align 8
-  %tobool33 = trunc i8 %29 to i1
-  br i1 %tobool33, label %if.then34, label %if.else35
-
-if.then34:                                        ; preds = %if.else31
-  %30 = load ptr, ptr %cmd.addr, align 8
-  %31 = load i64, ptr %xbytes.addr, align 8
-  call void @ahci_atapi_set_size(ptr noundef %30, i64 noundef %31)
-  br label %if.end48
-
-if.else35:                                        ; preds = %if.else31
-  %32 = load ptr, ptr %cmd.addr, align 8
-  %props36 = getelementptr inbounds %struct.AHCICommand, ptr %32, i32 0, i32 9
-  %33 = load ptr, ptr %props36, align 8
-  %pio = getelementptr inbounds %struct.AHCICommandProp, ptr %33, i32 0, i32 2
-  %34 = load i8, ptr %pio, align 2
-  %tobool37 = trunc i8 %34 to i1
-  br i1 %tobool37, label %land.lhs.true, label %if.end46
-
-land.lhs.true:                                    ; preds = %if.else35
-  %35 = load i16, ptr %sect_count, align 2
-  %conv39 = zext i16 %35 to i32
-  %36 = load ptr, ptr %cmd.addr, align 8
-  %props40 = getelementptr inbounds %struct.AHCICommand, ptr %36, i32 0, i32 9
-  %37 = load ptr, ptr %props40, align 8
-  %read = getelementptr inbounds %struct.AHCICommandProp, ptr %37, i32 0, i32 6
-  %38 = load i8, ptr %read, align 2
-  %tobool41 = trunc i8 %38 to i1
-  %cond = select i1 %tobool41, i32 0, i32 1
-  %cmp43 = icmp sgt i32 %conv39, %cond
-  br i1 %cmp43, label %if.then45, label %if.end46
-
-if.then45:                                        ; preds = %land.lhs.true
-  %39 = load ptr, ptr %cmd.addr, align 8
-  %interrupts = getelementptr inbounds %struct.AHCICommand, ptr %39, i32 0, i32 4
-  %40 = load i32, ptr %interrupts, align 4
-  %or = or i32 %40, 2
-  store i32 %or, ptr %interrupts, align 4
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.then45, %land.lhs.true, %if.else35
-  %41 = load i16, ptr %sect_count, align 2
-  %42 = load ptr, ptr %cmd.addr, align 8
-  %fis47 = getelementptr inbounds %struct.AHCICommand, ptr %42, i32 0, i32 11
-  %count = getelementptr inbounds %struct.RegH2DFIS, ptr %fis47, i32 0, i32 8
-  store i16 %41, ptr %count, align 4
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.end46, %if.then34
-  br label %if.end49
-
-if.end49:                                         ; preds = %if.end48, %if.then24
-  %43 = load ptr, ptr %cmd.addr, align 8
-  %xbytes50 = getelementptr inbounds %struct.AHCICommand, ptr %43, i32 0, i32 5
-  %44 = load i64, ptr %xbytes50, align 8
-  %conv51 = trunc i64 %44 to i32
-  %45 = load ptr, ptr %cmd.addr, align 8
-  %prd_size52 = getelementptr inbounds %struct.AHCICommand, ptr %45, i32 0, i32 6
-  %46 = load i32, ptr %prd_size52, align 8
-  %call = call i32 @size_to_prdtl(i32 noundef %conv51, i32 noundef %46)
-  %conv53 = trunc i32 %call to i16
-  %47 = load ptr, ptr %cmd.addr, align 8
-  %header = getelementptr inbounds %struct.AHCICommand, ptr %47, i32 0, i32 10
-  %prdtl = getelementptr inbounds %struct.AHCICommandHeader, ptr %header, i32 0, i32 1
-  store i16 %conv53, ptr %prdtl, align 2
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_atapi_set_size(ptr noundef %cmd, i64 noundef %xbytes) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %xbytes.addr = alloca i64, align 8
-  %cbd = alloca ptr, align 8
-  %nsectors = alloca i64, align 8
-  %tmp = alloca i32, align 4
-  %__n1 = alloca i64, align 8
-  %__n2 = alloca i64, align 8
-  %__n113 = alloca i64, align 8
-  %__n214 = alloca i64, align 8
-  %__n135 = alloca i64, align 8
-  %__n236 = alloca i64, align 8
-  %__n149 = alloca i64, align 8
-  %__n250 = alloca i64, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %xbytes, ptr %xbytes.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %atapi_cmd = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 12
-  %1 = load ptr, ptr %atapi_cmd, align 8
-  store ptr %1, ptr %cbd, align 8
-  %2 = load i64, ptr %xbytes.addr, align 8
-  %div = udiv i64 %2, 2048
-  store i64 %div, ptr %nsectors, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %3 = load ptr, ptr %cbd, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 1103, ptr noundef @__func__.ahci_atapi_set_size, ptr noundef @.str.70) #9
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %4 = load ptr, ptr %cbd, align 8
-  %arrayidx = getelementptr i8, ptr %4, i64 0
-  %5 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %5 to i32
-  switch i32 %conv, label %sw.default [
-    i32 40, label %sw.bb
-    i32 190, label %sw.bb11
-    i32 3, label %sw.bb33
-    i32 0, label %sw.bb47
-    i32 27, label %sw.bb47
+133:                                              ; preds = %129, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  %134 = load i32, ptr %9, align 4
+  switch i32 %134, label %136 [
+    i32 0, label %135
+    i32 1, label %135
   ]
 
-sw.bb:                                            ; preds = %do.end
-  br label %do.body1
+135:                                              ; preds = %133, %133
+  ret void
 
-do.body1:                                         ; preds = %sw.bb
-  %6 = load i64, ptr %nsectors, align 8
-  store i64 %6, ptr %__n1, align 8
-  store i64 65535, ptr %__n2, align 8
-  %7 = load i64, ptr %__n1, align 8
-  %8 = load i64, ptr %__n2, align 8
-  %cmp = icmp ule i64 %7, %8
-  br i1 %cmp, label %if.then3, label %if.else4
+136:                                              ; preds = %133, %103
+  unreachable
+}
 
-if.then3:                                         ; preds = %do.body1
-  br label %if.end7
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @ahci_state_post_load(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #15
+  store i32 0, ptr %6, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #15
+  store i32 0, ptr %7, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  store ptr null, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  store ptr null, ptr %9, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  store ptr null, ptr %10, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %13 = load ptr, ptr %4, align 8
+  store ptr %13, ptr %11, align 8
+  store i32 0, ptr %6, align 4
+  br label %14
 
-if.else4:                                         ; preds = %do.body1
-  %9 = load i64, ptr %__n1, align 8
-  %conv5 = uitofp i64 %9 to x86_fp80
-  %10 = load i64, ptr %__n2, align 8
-  %conv6 = uitofp i64 %10 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1107, ptr noundef @__func__.ahci_atapi_set_size, ptr noundef @.str.74, x86_fp80 noundef %conv5, ptr noundef @.str.47, x86_fp80 noundef %conv6, i8 noundef signext 105)
-  br label %if.end7
+14:                                               ; preds = %188, %2
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds nuw %struct.AHCIState, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ult i32 %15, %18
+  br i1 %19, label %20, label %191
 
-if.end7:                                          ; preds = %if.else4, %if.then3
-  br label %do.end8
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %11, align 8
+  %22 = getelementptr inbounds nuw %struct.AHCIState, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 16
+  %24 = load i32, ptr %6, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds %struct.AHCIDevice, ptr %23, i64 %25
+  store ptr %26, ptr %8, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %27, i32 0, i32 5
+  store ptr %28, ptr %10, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %29, i32 0, i32 6
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %31, 1
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %41, label %34
 
-do.end8:                                          ; preds = %if.end7
-  %11 = load ptr, ptr %cbd, align 8
-  %arrayidx9 = getelementptr i8, ptr %11, i64 7
-  %12 = load i64, ptr %nsectors, align 8
-  %conv10 = trunc i64 %12 to i16
-  call void @stw_be_p(ptr noundef %arrayidx9, i16 noundef zeroext %conv10)
-  br label %sw.epilog
+34:                                               ; preds = %20
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %35, i32 0, i32 6
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, 32768
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
 
-sw.bb11:                                          ; preds = %do.end
-  br label %do.body12
+40:                                               ; preds = %34
+  call void (ptr, ...) @error_report(ptr noundef @.str.197)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
 
-do.body12:                                        ; preds = %sw.bb11
-  %13 = load i64, ptr %nsectors, align 8
-  store i64 %13, ptr %__n113, align 8
-  store i64 16777216, ptr %__n214, align 8
-  %14 = load i64, ptr %__n113, align 8
-  %15 = load i64, ptr %__n214, align 8
-  %cmp15 = icmp ult i64 %14, %15
-  br i1 %cmp15, label %if.then17, label %if.else18
+41:                                               ; preds = %34, %20
+  %42 = load ptr, ptr %10, align 8
+  %43 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %42, i32 0, i32 6
+  %44 = load i32, ptr %43, align 4
+  %45 = and i32 %44, 16
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %54, label %47
 
-if.then17:                                        ; preds = %do.body12
-  br label %if.end21
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %48, i32 0, i32 6
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, 16384
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %54
 
-if.else18:                                        ; preds = %do.body12
-  %16 = load i64, ptr %__n113, align 8
-  %conv19 = uitofp i64 %16 to x86_fp80
-  %17 = load i64, ptr %__n214, align 8
-  %conv20 = uitofp i64 %17 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1112, ptr noundef @__func__.ahci_atapi_set_size, ptr noundef @.str.75, x86_fp80 noundef %conv19, ptr noundef @.str.76, x86_fp80 noundef %conv20, i8 noundef signext 105)
-  br label %if.end21
+53:                                               ; preds = %47
+  call void (ptr, ...) @error_report(ptr noundef @.str.198)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
 
-if.end21:                                         ; preds = %if.else18, %if.then17
-  br label %do.end22
+54:                                               ; preds = %47, %41
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %55, i32 0, i32 6
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %57, -49153
+  store i32 %58, ptr %56, align 4
+  %59 = load ptr, ptr %8, align 8
+  %60 = call i32 @ahci_cond_start_engines(ptr noundef %59)
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %63
 
-do.end22:                                         ; preds = %if.end21
-  %18 = load i64, ptr %nsectors, align 8
-  %conv23 = trunc i64 %18 to i32
-  store i32 %conv23, ptr %tmp, align 4
-  %19 = load i32, ptr %tmp, align 4
-  %and = and i32 %19, 16711680
-  %shr = lshr i32 %and, 16
-  %conv24 = trunc i32 %shr to i8
-  %20 = load ptr, ptr %cbd, align 8
-  %arrayidx25 = getelementptr i8, ptr %20, i64 6
-  store i8 %conv24, ptr %arrayidx25, align 1
-  %21 = load i32, ptr %tmp, align 4
-  %and26 = and i32 %21, 65280
-  %shr27 = lshr i32 %and26, 8
-  %conv28 = trunc i32 %shr27 to i8
-  %22 = load ptr, ptr %cbd, align 8
-  %arrayidx29 = getelementptr i8, ptr %22, i64 7
-  store i8 %conv28, ptr %arrayidx29, align 1
-  %23 = load i32, ptr %tmp, align 4
-  %and30 = and i32 %23, 255
-  %conv31 = trunc i32 %and30 to i8
-  %24 = load ptr, ptr %cbd, align 8
-  %arrayidx32 = getelementptr i8, ptr %24, i64 8
-  store i8 %conv31, ptr %arrayidx32, align 1
-  br label %sw.epilog
+62:                                               ; preds = %54
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
 
-sw.bb33:                                          ; preds = %do.end
-  br label %do.body34
+63:                                               ; preds = %54
+  store i32 0, ptr %7, align 4
+  br label %64
 
-do.body34:                                        ; preds = %sw.bb33
-  %25 = load i64, ptr %xbytes.addr, align 8
-  store i64 %25, ptr %__n135, align 8
-  store i64 255, ptr %__n236, align 8
-  %26 = load i64, ptr %__n135, align 8
-  %27 = load i64, ptr %__n236, align 8
-  %cmp37 = icmp ule i64 %26, %27
-  br i1 %cmp37, label %if.then39, label %if.else40
+64:                                               ; preds = %154, %63
+  %65 = load i32, ptr %7, align 4
+  %66 = icmp slt i32 %65, 32
+  br i1 %66, label %67, label %157
 
-if.then39:                                        ; preds = %do.body34
-  br label %if.end43
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %8, align 8
+  %69 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %68, i32 0, i32 14
+  %70 = load i32, ptr %7, align 4
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [32 x %struct.NCQTransferState], ptr %69, i64 0, i64 %71
+  store ptr %72, ptr %9, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %74, i32 0, i32 0
+  store ptr %73, ptr %75, align 8
+  %76 = load ptr, ptr %9, align 8
+  %77 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %76, i32 0, i32 10
+  %78 = load i8, ptr %77, align 1, !range !11, !noundef !12
+  %79 = trunc i8 %78 to i1
+  %80 = zext i1 %79 to i32
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %81, i32 0, i32 11
+  %83 = load i8, ptr %82, align 4, !range !11, !noundef !12
+  %84 = trunc i8 %83 to i1
+  %85 = zext i1 %84 to i32
+  %86 = icmp ne i32 %80, %85
+  br i1 %86, label %87, label %88
 
-if.else40:                                        ; preds = %do.body34
-  %28 = load i64, ptr %__n135, align 8
-  %conv41 = uitofp i64 %28 to x86_fp80
-  %29 = load i64, ptr %__n236, align 8
-  %conv42 = uitofp i64 %29 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1119, ptr noundef @__func__.ahci_atapi_set_size, ptr noundef @.str.77, x86_fp80 noundef %conv41, ptr noundef @.str.47, x86_fp80 noundef %conv42, i8 noundef signext 105)
-  br label %if.end43
+87:                                               ; preds = %67
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
 
-if.end43:                                         ; preds = %if.else40, %if.then39
-  br label %do.end44
+88:                                               ; preds = %67
+  %89 = load ptr, ptr %9, align 8
+  %90 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %89, i32 0, i32 11
+  %91 = load i8, ptr %90, align 4, !range !11, !noundef !12
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %94, label %93
 
-do.end44:                                         ; preds = %if.end43
-  %30 = load i64, ptr %xbytes.addr, align 8
-  %conv45 = trunc i64 %30 to i8
-  %31 = load ptr, ptr %cbd, align 8
-  %arrayidx46 = getelementptr i8, ptr %31, i64 4
-  store i8 %conv45, ptr %arrayidx46, align 1
-  br label %sw.epilog
+93:                                               ; preds = %88
+  br label %154
 
-sw.bb47:                                          ; preds = %do.end, %do.end
-  br label %do.body48
+94:                                               ; preds = %88
+  %95 = load ptr, ptr %9, align 8
+  %96 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %95, i32 0, i32 8
+  %97 = load i8, ptr %96, align 1
+  %98 = call i32 @is_ncq(i8 noundef zeroext %97)
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %101, label %100
 
-do.body48:                                        ; preds = %sw.bb47
-  %32 = load i64, ptr %xbytes.addr, align 8
-  store i64 %32, ptr %__n149, align 8
-  store i64 0, ptr %__n250, align 8
-  %33 = load i64, ptr %__n149, align 8
-  %34 = load i64, ptr %__n250, align 8
-  %cmp51 = icmp eq i64 %33, %34
-  br i1 %cmp51, label %if.then53, label %if.else54
+100:                                              ; preds = %94
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
 
-if.then53:                                        ; preds = %do.body48
-  br label %if.end57
+101:                                              ; preds = %94
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %102, i32 0, i32 9
+  %104 = load i8, ptr %103, align 2
+  %105 = zext i8 %104 to i32
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %106, i32 0, i32 7
+  %108 = load i8, ptr %107, align 8
+  %109 = zext i8 %108 to i32
+  %110 = icmp ne i32 %105, %109
+  br i1 %110, label %111, label %112
 
-if.else54:                                        ; preds = %do.body48
-  %35 = load i64, ptr %__n149, align 8
-  %conv55 = uitofp i64 %35 to x86_fp80
-  %36 = load i64, ptr %__n250, align 8
-  %conv56 = uitofp i64 %36 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef @.str, i32 noundef 1124, ptr noundef @__func__.ahci_atapi_set_size, ptr noundef @.str.78, x86_fp80 noundef %conv55, ptr noundef @.str.5, x86_fp80 noundef %conv56, i8 noundef signext 105)
-  br label %if.end57
+111:                                              ; preds = %101
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
 
-if.end57:                                         ; preds = %if.else54, %if.then53
-  br label %do.end58
+112:                                              ; preds = %101
+  %113 = load ptr, ptr %11, align 8
+  %114 = load i32, ptr %6, align 4
+  %115 = trunc i32 %114 to i8
+  %116 = load ptr, ptr %9, align 8
+  %117 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %116, i32 0, i32 9
+  %118 = load i8, ptr %117, align 2
+  %119 = call ptr @get_cmd_header(ptr noundef %113, i8 noundef zeroext %115, i8 noundef zeroext %118)
+  %120 = load ptr, ptr %9, align 8
+  %121 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %120, i32 0, i32 2
+  store ptr %119, ptr %121, align 8
+  %122 = load ptr, ptr %9, align 8
+  %123 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %122, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %127, label %126
 
-do.end58:                                         ; preds = %if.end57
-  br label %sw.epilog
+126:                                              ; preds = %112
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
 
-sw.default:                                       ; preds = %do.end
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = load ptr, ptr %cbd, align 8
-  %arrayidx59 = getelementptr i8, ptr %38, i64 0
-  %39 = load i8, ptr %arrayidx59, align 1
-  %conv60 = zext i8 %39 to i32
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.79, i32 noundef %conv60)
-  br label %do.body61
+127:                                              ; preds = %112
+  %128 = load ptr, ptr %9, align 8
+  %129 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %128, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %9, align 8
+  %132 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %131, i32 0, i32 3
+  %133 = load ptr, ptr %9, align 8
+  %134 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %133, i32 0, i32 2
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %9, align 8
+  %137 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %136, i32 0, i32 5
+  %138 = load i32, ptr %137, align 8
+  %139 = zext i32 %138 to i64
+  %140 = mul i64 %139, 512
+  %141 = call i32 @ahci_populate_sglist(ptr noundef %130, ptr noundef %132, ptr noundef %135, i64 noundef %140, i64 noundef 0)
+  %142 = load ptr, ptr %9, align 8
+  %143 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %142, i32 0, i32 5
+  %144 = load i32, ptr %143, align 8
+  %145 = zext i32 %144 to i64
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %146, i32 0, i32 3
+  %148 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %147, i32 0, i32 3
+  %149 = load i64, ptr %148, align 8
+  %150 = lshr i64 %149, 9
+  %151 = icmp ne i64 %145, %150
+  br i1 %151, label %152, label %153
 
-do.body61:                                        ; preds = %sw.default
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 1132, ptr noundef @__func__.ahci_atapi_set_size, ptr noundef null) #9
+152:                                              ; preds = %127
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
+
+153:                                              ; preds = %127
+  br label %154
+
+154:                                              ; preds = %153, %93
+  %155 = load i32, ptr %7, align 4
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %7, align 4
+  br label %64, !llvm.loop !14
+
+157:                                              ; preds = %64
+  %158 = load ptr, ptr %8, align 8
+  %159 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %158, i32 0, i32 11
+  %160 = load i32, ptr %159, align 4
+  %161 = icmp eq i32 %160, -1
+  br i1 %161, label %162, label %165
+
+162:                                              ; preds = %157
+  %163 = load ptr, ptr %11, align 8
+  %164 = load i32, ptr %6, align 4
+  call void @check_cmd(ptr noundef %163, i32 noundef %164)
+  br label %187
+
+165:                                              ; preds = %157
+  %166 = load ptr, ptr %8, align 8
+  %167 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %166, i32 0, i32 11
+  %168 = load i32, ptr %167, align 4
+  %169 = icmp slt i32 %168, 0
+  br i1 %169, label %175, label %170
+
+170:                                              ; preds = %165
+  %171 = load ptr, ptr %8, align 8
+  %172 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %171, i32 0, i32 11
+  %173 = load i32, ptr %172, align 4
+  %174 = icmp sge i32 %173, 32
+  br i1 %174, label %175, label %176
+
+175:                                              ; preds = %170, %165
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
+
+176:                                              ; preds = %170
+  %177 = load ptr, ptr %11, align 8
+  %178 = load i32, ptr %6, align 4
+  %179 = trunc i32 %178 to i8
+  %180 = load ptr, ptr %8, align 8
+  %181 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %180, i32 0, i32 11
+  %182 = load i32, ptr %181, align 4
+  %183 = trunc i32 %182 to i8
+  %184 = call ptr @get_cmd_header(ptr noundef %177, i8 noundef zeroext %179, i8 noundef zeroext %183)
+  %185 = load ptr, ptr %8, align 8
+  %186 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %185, i32 0, i32 13
+  store ptr %184, ptr %186, align 8
+  br label %187
+
+187:                                              ; preds = %176, %162
+  br label %188
+
+188:                                              ; preds = %187
+  %189 = load i32, ptr %6, align 4
+  %190 = add i32 %189, 1
+  store i32 %190, ptr %6, align 4
+  br label %14, !llvm.loop !15
+
+191:                                              ; preds = %14
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %192
+
+192:                                              ; preds = %191, %175, %152, %126, %111, %100, %87, %62, %53, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #15
+  %193 = load i32, ptr %3, align 4
+  ret i32 %193
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @ahci_ide_create_devs(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #15
+  store i32 0, ptr %5, align 4, !annotation !4
+  store i32 0, ptr %5, align 4
+  br label %6
+
+6:                                                ; preds = %34, %2
+  %7 = load i32, ptr %5, align 4
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.AHCIState, ptr %8, i32 0, i32 6
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ult i32 %7, %10
+  br i1 %11, label %12, label %37
+
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i32, ptr %5, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %12
+  br label %34
+
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.AHCIState, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 16
+  %24 = load i32, ptr %5, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds %struct.AHCIDevice, ptr %23, i64 %25
+  %27 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %4, align 8
+  %29 = load i32, ptr %5, align 4
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = call ptr @ide_bus_create_drive(ptr noundef %27, i32 noundef 0, ptr noundef %32)
+  br label %34
+
+34:                                               ; preds = %20, %19
+  %35 = load i32, ptr %5, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %5, align 4
+  br label %6, !llvm.loop !16
+
+37:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #15
+  ret void
+}
+
+declare ptr @ide_bus_create_drive(ptr noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ahci_mem_read(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %14 = load i64, ptr %5, align 8
+  %15 = and i64 %14, -4
+  store i64 %15, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #15
+  %16 = load i64, ptr %5, align 8
+  %17 = load i64, ptr %7, align 8
+  %18 = sub i64 %16, %17
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %20 = load ptr, ptr %4, align 8
+  %21 = load i64, ptr %7, align 8
+  %22 = call i64 @ahci_mem_read_32(ptr noundef %20, i64 noundef %21)
+  store i64 %22, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  store i64 0, ptr %10, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  store i64 0, ptr %11, align 8, !annotation !4
+  %23 = load i32, ptr %8, align 4
+  %24 = load i32, ptr %6, align 4
+  %25 = add i32 %23, %24
+  %26 = icmp ule i32 %25, 4
+  br i1 %26, label %27, label %33
+
+27:                                               ; preds = %3
+  %28 = load i64, ptr %9, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = mul i32 %29, 8
+  %31 = zext i32 %30 to i64
+  %32 = lshr i64 %28, %31
+  store i64 %32, ptr %11, align 8
+  br label %62
+
+33:                                               ; preds = %3
+  br label %34
+
+34:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #15
+  store i32 0, ptr %12, align 4, !annotation !4
+  %35 = load i32, ptr %6, align 4
+  %36 = icmp ugt i32 %35, 1
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %34
+  store i32 1, ptr %12, align 4
+  br label %39
+
+38:                                               ; preds = %34
+  store i32 0, ptr %12, align 4
+  br label %39
+
+39:                                               ; preds = %38, %37
+  %40 = load i32, ptr %12, align 4
+  store i32 %40, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #15
+  %41 = load i32, ptr %13, align 4
+  %42 = sext i32 %41 to i64
+  %43 = call i64 @llvm.expect.i64(i64 %42, i64 1)
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %39
+  br label %47
+
+46:                                               ; preds = %39
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.3, i32 noundef 423, ptr noundef @__func__.ahci_mem_read, ptr noundef @.str.13) #19
   unreachable
 
-do.end62:                                         ; No predecessors!
-  br label %sw.epilog
+47:                                               ; preds = %45
+  br label %48
 
-sw.epilog:                                        ; preds = %do.end62, %do.end58, %do.end44, %do.end22, %do.end8
+48:                                               ; preds = %47
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %4, align 8
+  %51 = load i64, ptr %7, align 8
+  %52 = add i64 %51, 4
+  %53 = call i64 @ahci_mem_read_32(ptr noundef %50, i64 noundef %52)
+  store i64 %53, ptr %10, align 8
+  %54 = load i64, ptr %10, align 8
+  %55 = shl i64 %54, 32
+  %56 = load i64, ptr %9, align 8
+  %57 = or i64 %55, %56
+  %58 = load i32, ptr %8, align 4
+  %59 = mul i32 %58, 8
+  %60 = zext i32 %59 to i64
+  %61 = lshr i64 %57, %60
+  store i64 %61, ptr %11, align 8
+  br label %62
+
+62:                                               ; preds = %49, %27
+  %63 = load ptr, ptr %4, align 8
+  %64 = load i32, ptr %6, align 4
+  %65 = load i64, ptr %5, align 8
+  %66 = load i64, ptr %11, align 8
+  call void @trace_ahci_mem_read(ptr noundef %63, i32 noundef %64, i64 noundef %65, i64 noundef %66)
+  %67 = load i64, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  ret i64 %67
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_mem_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %9, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load i64, ptr %6, align 8
+  %16 = load i64, ptr %7, align 8
+  call void @trace_ahci_mem_write(ptr noundef %13, i32 noundef %14, i64 noundef %15, i64 noundef %16)
+  %17 = load i64, ptr %6, align 8
+  %18 = and i64 %17, 3
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %34
+
+20:                                               ; preds = %4
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 2048)
+  %23 = xor i1 %22, true
+  %24 = xor i1 %23, true
+  %25 = zext i1 %24 to i32
+  %26 = sext i32 %25 to i64
+  %27 = call i64 @llvm.expect.i64(i64 %26, i64 0)
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %21
+  %30 = load i64, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.60, i64 noundef %30)
+  br label %31
+
+31:                                               ; preds = %29, %21
+  br label %32
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32
+  store i32 1, ptr %10, align 4
+  br label %153
+
+34:                                               ; preds = %4
+  %35 = load i64, ptr %6, align 8
+  %36 = icmp ult i64 %35, 44
+  br i1 %36, label %37, label %109
+
+37:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #15
+  %38 = load i64, ptr %6, align 8
+  %39 = udiv i64 %38, 4
+  %40 = trunc i64 %39 to i32
+  store i32 %40, ptr %11, align 4
+  %41 = load i32, ptr %11, align 4
+  %42 = icmp ult i32 %41, 11
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %37
+  br label %45
+
+44:                                               ; preds = %37
+  call void @__assert_fail(ptr noundef @.str.14, ptr noundef @.str.3, i32 noundef 453, ptr noundef @__PRETTY_FUNCTION__.ahci_mem_write) #16
+  unreachable
+
+45:                                               ; preds = %43
+  %46 = load i32, ptr %11, align 4
+  switch i32 %46, label %74 [
+    i32 0, label %100
+    i32 1, label %47
+    i32 2, label %63
+    i32 3, label %100
+    i32 4, label %100
+  ]
+
+47:                                               ; preds = %45
+  %48 = load i64, ptr %7, align 8
+  %49 = and i64 %48, 1
+  %50 = icmp ne i64 %49, 0
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %9, align 8
+  call void @ahci_reset(ptr noundef %52)
+  br label %62
+
+53:                                               ; preds = %47
+  %54 = load i64, ptr %7, align 8
+  %55 = and i64 %54, 3
+  %56 = or i64 %55, 2147483648
+  %57 = trunc i64 %56 to i32
+  %58 = load ptr, ptr %9, align 8
+  %59 = getelementptr inbounds nuw %struct.AHCIState, ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %59, i32 0, i32 1
+  store i32 %57, ptr %60, align 4
+  %61 = load ptr, ptr %9, align 8
+  call void @ahci_check_irq(ptr noundef %61)
+  br label %62
+
+62:                                               ; preds = %53, %51
+  br label %100
+
+63:                                               ; preds = %45
+  %64 = load i64, ptr %7, align 8
+  %65 = xor i64 %64, -1
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.AHCIState, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %67, i32 0, i32 2
+  %69 = load i32, ptr %68, align 8
+  %70 = zext i32 %69 to i64
+  %71 = and i64 %70, %65
+  %72 = trunc i64 %71 to i32
+  store i32 %72, ptr %68, align 8
+  %73 = load ptr, ptr %9, align 8
+  call void @ahci_check_irq(ptr noundef %73)
+  br label %100
+
+74:                                               ; preds = %45
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 1024)
+  %77 = xor i1 %76, true
+  %78 = xor i1 %77, true
+  %79 = zext i1 %78 to i32
+  %80 = sext i32 %79 to i64
+  %81 = call i64 @llvm.expect.i64(i64 %80, i64 0)
+  %82 = icmp ne i64 %81, 0
+  br i1 %82, label %83, label %90
+
+83:                                               ; preds = %75
+  %84 = load i32, ptr %11, align 4
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %85
+  %87 = load ptr, ptr %86, align 8
+  %88 = load i64, ptr %6, align 8
+  %89 = load i64, ptr %7, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.61, ptr noundef %87, i64 noundef %88, i64 noundef %89)
+  br label %90
+
+90:                                               ; preds = %83, %75
+  br label %91
+
+91:                                               ; preds = %90
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %9, align 8
+  %94 = load i32, ptr %8, align 4
+  %95 = load i32, ptr %11, align 4
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %96
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i64, ptr %6, align 8
+  call void @trace_ahci_mem_write_host_unimpl(ptr noundef %93, i32 noundef %94, ptr noundef %98, i64 noundef %99)
+  br label %100
+
+100:                                              ; preds = %92, %45, %45, %63, %62, %45
+  %101 = load ptr, ptr %9, align 8
+  %102 = load i32, ptr %8, align 4
+  %103 = load i32, ptr %11, align 4
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %104
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i64, ptr %6, align 8
+  %108 = load i64, ptr %7, align 8
+  call void @trace_ahci_mem_write_host(ptr noundef %101, i32 noundef %102, ptr noundef %106, i64 noundef %107, i64 noundef %108)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #15
+  br label %152
+
+109:                                              ; preds = %34
+  %110 = load i64, ptr %6, align 8
+  %111 = icmp uge i64 %110, 256
+  br i1 %111, label %112, label %132
+
+112:                                              ; preds = %109
+  %113 = load i64, ptr %6, align 8
+  %114 = load ptr, ptr %9, align 8
+  %115 = getelementptr inbounds nuw %struct.AHCIState, ptr %114, i32 0, i32 6
+  %116 = load i32, ptr %115, align 8
+  %117 = mul i32 %116, 128
+  %118 = add i32 256, %117
+  %119 = zext i32 %118 to i64
+  %120 = icmp ult i64 %113, %119
+  br i1 %120, label %121, label %132
+
+121:                                              ; preds = %112
+  %122 = load ptr, ptr %9, align 8
+  %123 = load i64, ptr %6, align 8
+  %124 = sub i64 %123, 256
+  %125 = lshr i64 %124, 7
+  %126 = trunc i64 %125 to i32
+  %127 = load i64, ptr %6, align 8
+  %128 = and i64 %127, 127
+  %129 = trunc i64 %128 to i32
+  %130 = load i64, ptr %7, align 8
+  %131 = trunc i64 %130 to i32
+  call void @ahci_port_write(ptr noundef %122, i32 noundef %126, i32 noundef %129, i32 noundef %131)
+  br label %151
+
+132:                                              ; preds = %112, %109
+  br label %133
+
+133:                                              ; preds = %132
+  %134 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 1024)
+  %135 = xor i1 %134, true
+  %136 = xor i1 %135, true
+  %137 = zext i1 %136 to i32
+  %138 = sext i32 %137 to i64
+  %139 = call i64 @llvm.expect.i64(i64 %138, i64 0)
+  %140 = icmp ne i64 %139, 0
+  br i1 %140, label %141, label %144
+
+141:                                              ; preds = %133
+  %142 = load i64, ptr %6, align 8
+  %143 = load i64, ptr %7, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.62, i64 noundef %142, i64 noundef %143)
+  br label %144
+
+144:                                              ; preds = %141, %133
+  br label %145
+
+145:                                              ; preds = %144
+  br label %146
+
+146:                                              ; preds = %145
+  %147 = load ptr, ptr %9, align 8
+  %148 = load i32, ptr %8, align 4
+  %149 = load i64, ptr %6, align 8
+  %150 = load i64, ptr %7, align 8
+  call void @trace_ahci_mem_write_unimpl(ptr noundef %147, i32 noundef %148, i64 noundef %149, i64 noundef %150)
+  br label %151
+
+151:                                              ; preds = %146, %121
+  br label %152
+
+152:                                              ; preds = %151, %100
+  store i32 0, ptr %10, align 4
+  br label %153
+
+153:                                              ; preds = %152, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  %154 = load i32, ptr %10, align 4
+  switch i32 %154, label %156 [
+    i32 0, label %155
+    i32 1, label %155
+  ]
+
+155:                                              ; preds = %153, %153
+  ret void
+
+156:                                              ; preds = %153
+  unreachable
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i64 @ahci_mem_read_32(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %8 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #15
+  store i32 0, ptr %6, align 4
+  %9 = load i64, ptr %4, align 8
+  %10 = icmp ult i64 %9, 44
+  br i1 %10, label %11, label %61
+
+11:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #15
+  %12 = load i64, ptr %4, align 8
+  %13 = udiv i64 %12, 4
+  %14 = trunc i64 %13 to i32
+  store i32 %14, ptr %7, align 4
+  %15 = load i32, ptr %7, align 4
+  %16 = icmp ult i32 %15, 11
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %11
+  br label %19
+
+18:                                               ; preds = %11
+  call void @__assert_fail(ptr noundef @.str.14, ptr noundef @.str.3, i32 noundef 369, ptr noundef @__PRETTY_FUNCTION__.ahci_mem_read_32) #16
+  unreachable
+
+19:                                               ; preds = %17
+  %20 = load i32, ptr %7, align 4
+  switch i32 %20, label %46 [
+    i32 0, label %21
+    i32 1, label %26
+    i32 2, label %31
+    i32 3, label %36
+    i32 4, label %41
+  ]
+
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.AHCIState, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 8
+  store i32 %25, ptr %6, align 4
+  br label %53
+
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.AHCIState, ptr %27, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %6, align 4
+  br label %53
+
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw %struct.AHCIState, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8
+  store i32 %35, ptr %6, align 4
+  br label %53
+
+36:                                               ; preds = %19
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds nuw %struct.AHCIState, ptr %37, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %38, i32 0, i32 3
+  %40 = load i32, ptr %39, align 4
+  store i32 %40, ptr %6, align 4
+  br label %53
+
+41:                                               ; preds = %19
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.AHCIState, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %43, i32 0, i32 4
+  %45 = load i32, ptr %44, align 8
+  store i32 %45, ptr %6, align 4
+  br label %53
+
+46:                                               ; preds = %19
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %7, align 4
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i64, ptr %4, align 8
+  call void @trace_ahci_mem_read_32_host_default(ptr noundef %47, ptr noundef %51, i64 noundef %52)
+  br label %53
+
+53:                                               ; preds = %46, %41, %36, %31, %26, %21
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i32, ptr %7, align 4
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i64, ptr %4, align 8
+  %60 = load i32, ptr %6, align 4
+  call void @trace_ahci_mem_read_32_host(ptr noundef %54, ptr noundef %58, i64 noundef %59, i32 noundef %60)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #15
+  br label %88
+
+61:                                               ; preds = %2
+  %62 = load i64, ptr %4, align 8
+  %63 = icmp uge i64 %62, 256
+  br i1 %63, label %64, label %83
+
+64:                                               ; preds = %61
+  %65 = load i64, ptr %4, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds nuw %struct.AHCIState, ptr %66, i32 0, i32 6
+  %68 = load i32, ptr %67, align 8
+  %69 = mul i32 %68, 128
+  %70 = add i32 256, %69
+  %71 = zext i32 %70 to i64
+  %72 = icmp ult i64 %65, %71
+  br i1 %72, label %73, label %83
+
+73:                                               ; preds = %64
+  %74 = load ptr, ptr %5, align 8
+  %75 = load i64, ptr %4, align 8
+  %76 = sub i64 %75, 256
+  %77 = lshr i64 %76, 7
+  %78 = trunc i64 %77 to i32
+  %79 = load i64, ptr %4, align 8
+  %80 = and i64 %79, 127
+  %81 = trunc i64 %80 to i32
+  %82 = call i32 @ahci_port_read(ptr noundef %74, i32 noundef %78, i32 noundef %81)
+  store i32 %82, ptr %6, align 4
+  br label %87
+
+83:                                               ; preds = %64, %61
+  %84 = load ptr, ptr %5, align 8
+  %85 = load i64, ptr %4, align 8
+  %86 = load i32, ptr %6, align 4
+  call void @trace_ahci_mem_read_32_default(ptr noundef %84, i64 noundef %85, i32 noundef %86)
+  br label %87
+
+87:                                               ; preds = %83, %73
+  br label %88
+
+88:                                               ; preds = %87, %53
+  %89 = load ptr, ptr %5, align 8
+  %90 = load i64, ptr %4, align 8
+  %91 = load i32, ptr %6, align 4
+  call void @trace_ahci_mem_read_32(ptr noundef %89, i64 noundef %90, i32 noundef %91)
+  %92 = load i32, ptr %6, align 4
+  %93 = zext i32 %92 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  ret i64 %93
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #8
+
+; Function Attrs: noreturn
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #9
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_read(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load i64, ptr %7, align 8
+  %12 = load i64, ptr %8, align 8
+  call void @_nocheck__trace_ahci_mem_read(ptr noundef %9, i32 noundef %10, i64 noundef %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_read_32_host_default(ptr noundef %0, ptr noundef %1, i64 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_nocheck__trace_ahci_mem_read_32_host_default(ptr noundef %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_read_32_host(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i64, ptr %7, align 8
+  %12 = load i32, ptr %8, align 4
+  call void @_nocheck__trace_ahci_mem_read_32_host(ptr noundef %9, ptr noundef %10, i64 noundef %11, i32 noundef %12)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_prd_size(ptr noundef %cmd, i32 noundef %prd_size) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  %prd_size.addr = alloca i32, align 4
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i32 %prd_size, ptr %prd_size.addr, align 4
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %1 = load ptr, ptr %cmd.addr, align 8
-  %xbytes = getelementptr inbounds %struct.AHCICommand, ptr %1, i32 0, i32 5
-  %2 = load i64, ptr %xbytes, align 8
-  %3 = load i32, ptr %prd_size.addr, align 4
-  call void @ahci_command_set_sizes(ptr noundef %0, i64 noundef %2, i32 noundef %3)
+define internal i32 @ahci_port_read(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #15
+  store i32 0, ptr %7, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIState, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 16
+  %13 = load i32, ptr %5, align 4
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds %struct.AHCIDevice, ptr %12, i64 %14
+  %16 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %15, i32 0, i32 5
+  store ptr %16, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #15
+  %17 = load i32, ptr %6, align 4
+  %18 = sext i32 %17 to i64
+  %19 = udiv i64 %18, 4
+  %20 = trunc i64 %19 to i32
+  store i32 %20, ptr %9, align 4
+  %21 = load i32, ptr %9, align 4
+  %22 = zext i32 %21 to i64
+  %23 = icmp ult i64 %22, 32
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %3
+  br label %26
+
+25:                                               ; preds = %3
+  call void @__assert_fail(ptr noundef @.str.30, ptr noundef @.str.3, i32 noundef 115, ptr noundef @__PRETTY_FUNCTION__.ahci_port_read) #16
+  unreachable
+
+26:                                               ; preds = %24
+  %27 = load i32, ptr %9, align 4
+  switch i32 %27, label %96 [
+    i32 0, label %28
+    i32 1, label %32
+    i32 2, label %36
+    i32 3, label %40
+    i32 4, label %44
+    i32 5, label %48
+    i32 6, label %52
+    i32 8, label %56
+    i32 9, label %60
+    i32 10, label %64
+    i32 11, label %80
+    i32 12, label %84
+    i32 13, label %88
+    i32 14, label %92
+  ]
+
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 4
+  store i32 %31, ptr %7, align 4
+  br label %104
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4
+  store i32 %35, ptr %7, align 4
+  br label %104
+
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %37, i32 0, i32 2
+  %39 = load i32, ptr %38, align 4
+  store i32 %39, ptr %7, align 4
+  br label %104
+
+40:                                               ; preds = %26
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %41, i32 0, i32 3
+  %43 = load i32, ptr %42, align 4
+  store i32 %43, ptr %7, align 4
+  br label %104
+
+44:                                               ; preds = %26
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 4
+  store i32 %47, ptr %7, align 4
+  br label %104
+
+48:                                               ; preds = %26
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %49, i32 0, i32 5
+  %51 = load i32, ptr %50, align 4
+  store i32 %51, ptr %7, align 4
+  br label %104
+
+52:                                               ; preds = %26
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %53, i32 0, i32 6
+  %55 = load i32, ptr %54, align 4
+  store i32 %55, ptr %7, align 4
+  br label %104
+
+56:                                               ; preds = %26
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %57, i32 0, i32 8
+  %59 = load i32, ptr %58, align 4
+  store i32 %59, ptr %7, align 4
+  br label %104
+
+60:                                               ; preds = %26
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %61, i32 0, i32 9
+  %63 = load i32, ptr %62, align 4
+  store i32 %63, ptr %7, align 4
+  br label %104
+
+64:                                               ; preds = %26
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %struct.AHCIState, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 16
+  %68 = load i32, ptr %5, align 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds %struct.AHCIDevice, ptr %67, i64 %69
+  %71 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %70, i32 0, i32 1
+  %72 = getelementptr inbounds nuw %struct.IDEBus, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds [2 x %struct.IDEState], ptr %72, i64 0, i64 0
+  %74 = getelementptr inbounds nuw %struct.IDEState, ptr %73, i32 0, i32 34
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %78
+
+77:                                               ; preds = %64
+  store i32 275, ptr %7, align 4
+  br label %79
+
+78:                                               ; preds = %64
+  store i32 0, ptr %7, align 4
+  br label %79
+
+79:                                               ; preds = %78, %77
+  br label %104
+
+80:                                               ; preds = %26
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %81, i32 0, i32 11
+  %83 = load i32, ptr %82, align 4
+  store i32 %83, ptr %7, align 4
+  br label %104
+
+84:                                               ; preds = %26
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %85, i32 0, i32 12
+  %87 = load i32, ptr %86, align 4
+  store i32 %87, ptr %7, align 4
+  br label %104
+
+88:                                               ; preds = %26
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %89, i32 0, i32 13
+  %91 = load i32, ptr %90, align 4
+  store i32 %91, ptr %7, align 4
+  br label %104
+
+92:                                               ; preds = %26
+  %93 = load ptr, ptr %8, align 8
+  %94 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %93, i32 0, i32 14
+  %95 = load i32, ptr %94, align 4
+  store i32 %95, ptr %7, align 4
+  br label %104
+
+96:                                               ; preds = %26
+  %97 = load ptr, ptr %4, align 8
+  %98 = load i32, ptr %5, align 4
+  %99 = load i32, ptr %9, align 4
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortReg_lookup, i64 0, i64 %100
+  %102 = load ptr, ptr %101, align 8
+  %103 = load i32, ptr %6, align 4
+  call void @trace_ahci_port_read_default(ptr noundef %97, i32 noundef %98, ptr noundef %102, i32 noundef %103)
+  store i32 0, ptr %7, align 4
+  br label %104
+
+104:                                              ; preds = %96, %92, %88, %84, %80, %79, %60, %56, %52, %48, %44, %40, %36, %32, %28
+  %105 = load ptr, ptr %4, align 8
+  %106 = load i32, ptr %5, align 4
+  %107 = load i32, ptr %9, align 4
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortReg_lookup, i64 0, i64 %108
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %6, align 4
+  %112 = load i32, ptr %7, align 4
+  call void @trace_ahci_port_read(ptr noundef %105, i32 noundef %106, ptr noundef %110, i32 noundef %111, i32 noundef %112)
+  %113 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #15
+  ret i32 %113
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_read_32_default(ptr noundef %0, i64 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4
+  call void @_nocheck__trace_ahci_mem_read_32_default(ptr noundef %7, i64 noundef %8, i32 noundef %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_read_32(ptr noundef %0, i64 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4
+  call void @_nocheck__trace_ahci_mem_read_32(ptr noundef %7, i64 noundef %8, i32 noundef %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_read_32_host_default(ptr noundef %0, ptr noundef %1, i64 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_AHCI_MEM_READ_32_HOST_DEFAULT_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i64, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.15, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, ptr noundef %33, i64 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = load i64, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.16, ptr noundef %36, ptr noundef %37, i64 noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal zeroext i1 @qemu_loglevel_mask(i32 noundef %0) #7 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %4 = load i32, ptr %2, align 4
+  %5 = and i32 %3, %4
+  %6 = icmp ne i32 %5, 0
+  ret i1 %6
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: nounwind
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #11
+
+declare void @qemu_log(ptr noundef, ...) #1
+
+declare i32 @qemu_get_thread_id() #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_read_32_host(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_MEM_READ_32_HOST_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i64, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.28, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = load i64, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.29, ptr noundef %39, ptr noundef %40, i64 noundef %41, i32 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_port_read_default(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load ptr, ptr %7, align 8
+  %12 = load i32, ptr %8, align 4
+  call void @_nocheck__trace_ahci_port_read_default(ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_port_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load ptr, ptr %8, align 8
+  %14 = load i32, ptr %9, align 4
+  %15 = load i32, ptr %10, align 4
+  call void @_nocheck__trace_ahci_port_read(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_port_read_default(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_PORT_READ_DEFAULT_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.31, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.32, ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_port_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %48
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_AHCI_PORT_READ_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %48
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %48
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %41
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load ptr, ptr %8, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = load i32, ptr %10, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.52, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %40)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %47
+
+41:                                               ; preds = %26
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i32, ptr %7, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = load i32, ptr %10, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.53, ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46)
+  br label %47
+
+47:                                               ; preds = %41, %29
+  br label %48
+
+48:                                               ; preds = %47, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_read_32_default(ptr noundef %0, i64 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_AHCI_MEM_READ_32_DEFAULT_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i64, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.54, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i64 noundef %33, i32 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i64, ptr %5, align 8
+  %38 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.55, ptr noundef %36, i64 noundef %37, i32 noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_read_32(ptr noundef %0, i64 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_AHCI_MEM_READ_32_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i64, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.56, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i64 noundef %33, i32 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i64, ptr %5, align 8
+  %38 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.57, ptr noundef %36, i64 noundef %37, i32 noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_read(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_MEM_READ_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load i64, ptr %7, align 8
+  %37 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.58, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, i64 noundef %36, i64 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load i64, ptr %7, align 8
+  %42 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.59, ptr noundef %39, i32 noundef %40, i64 noundef %41, i64 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_write(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load i64, ptr %7, align 8
+  %12 = load i64, ptr %8, align 8
+  call void @_nocheck__trace_ahci_mem_write(ptr noundef %9, i32 noundef %10, i64 noundef %11, i64 noundef %12)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @ahci_command_slot(ptr noundef %cmd) #0 {
-entry:
-  %cmd.addr = alloca ptr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  %0 = load ptr, ptr %cmd.addr, align 8
-  %slot = getelementptr inbounds %struct.AHCICommand, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %slot, align 2
-  ret i8 %1
+define internal void @ahci_check_irq(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #15
+  store i32 0, ptr %3, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #15
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIState, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %7, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8
+  store i32 %9, ptr %4, align 4
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIState, ptr %10, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %11, i32 0, i32 2
+  store i32 0, ptr %12, align 8
+  store i32 0, ptr %3, align 4
+  br label %13
+
+13:                                               ; preds = %44, %1
+  %14 = load i32, ptr %3, align 4
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIState, ptr %15, i32 0, i32 6
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp ult i32 %14, %17
+  br i1 %18, label %19, label %47
+
+19:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIState, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 16
+  %23 = load i32, ptr %3, align 4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds %struct.AHCIDevice, ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %25, i32 0, i32 5
+  store ptr %26, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %27, i32 0, i32 4
+  %29 = load i32, ptr %28, align 4
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %30, i32 0, i32 5
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %29, %32
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %43
+
+35:                                               ; preds = %19
+  %36 = load i32, ptr %3, align 4
+  %37 = shl i32 1, %36
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds nuw %struct.AHCIState, ptr %38, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %39, i32 0, i32 2
+  %41 = load i32, ptr %40, align 8
+  %42 = or i32 %41, %37
+  store i32 %42, ptr %40, align 8
+  br label %43
+
+43:                                               ; preds = %35, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load i32, ptr %3, align 4
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %3, align 4
+  br label %13, !llvm.loop !17
+
+47:                                               ; preds = %13
+  %48 = load ptr, ptr %2, align 8
+  %49 = load i32, ptr %4, align 4
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds nuw %struct.AHCIState, ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %51, i32 0, i32 2
+  %53 = load i32, ptr %52, align 8
+  call void @trace_ahci_check_irq(ptr noundef %48, i32 noundef %49, i32 noundef %53)
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds nuw %struct.AHCIState, ptr %54, i32 0, i32 1
+  %56 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %55, i32 0, i32 2
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %71
+
+59:                                               ; preds = %47
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds nuw %struct.AHCIState, ptr %60, i32 0, i32 1
+  %62 = getelementptr inbounds nuw %struct.AHCIControlRegs, ptr %61, i32 0, i32 1
+  %63 = load i32, ptr %62, align 4
+  %64 = and i32 %63, 2
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %71
+
+66:                                               ; preds = %59
+  %67 = load ptr, ptr %2, align 8
+  call void @trace_ahci_irq_raise(ptr noundef %67)
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds nuw %struct.AHCIState, ptr %68, i32 0, i32 7
+  %70 = load ptr, ptr %69, align 16
+  call void @qemu_irq_raise(ptr noundef %70)
+  br label %76
+
+71:                                               ; preds = %59, %47
+  %72 = load ptr, ptr %2, align 8
+  call void @trace_ahci_irq_lower(ptr noundef %72)
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds nuw %struct.AHCIState, ptr %73, i32 0, i32 7
+  %75 = load ptr, ptr %74, align 16
+  call void @qemu_irq_lower(ptr noundef %75)
+  br label %76
+
+76:                                               ; preds = %71, %66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #15
+  ret void
 }
 
-declare i64 @guest_alloc(ptr noundef, i64 noundef) #2
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_write_host_unimpl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load ptr, ptr %7, align 8
+  %12 = load i64, ptr %8, align 8
+  call void @_nocheck__trace_ahci_mem_write_host_unimpl(ptr noundef %9, i32 noundef %10, ptr noundef %11, i64 noundef %12)
+  ret void
+}
 
-declare void @guest_free(ptr noundef, i64 noundef) #2
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_write_host(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  store i64 %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load ptr, ptr %8, align 8
+  %14 = load i64, ptr %9, align 8
+  %15 = load i64, ptr %10, align 8
+  call void @_nocheck__trace_ahci_mem_write_host(ptr noundef %11, i32 noundef %12, ptr noundef %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ahci_px_offset(i8 noundef zeroext %port, i32 noundef %reg_num) #0 {
-entry:
-  %port.addr = alloca i8, align 1
-  %reg_num.addr = alloca i32, align 4
-  store i8 %port, ptr %port.addr, align 1
-  store i32 %reg_num, ptr %reg_num.addr, align 4
-  %0 = load i8, ptr %port.addr, align 1
-  %conv = zext i8 %0 to i32
-  %mul = mul i32 32, %conv
-  %add = add i32 64, %mul
-  %1 = load i32, ptr %reg_num.addr, align 4
-  %add1 = add i32 %add, %1
-  %conv2 = zext i32 %add1 to i64
-  ret i64 %conv2
+define internal void @ahci_port_write(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.AHCIState, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 16
+  %14 = load i32, ptr %6, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.AHCIDevice, ptr %13, i64 %15
+  %17 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %16, i32 0, i32 5
+  store ptr %17, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #15
+  %18 = load i32, ptr %7, align 4
+  %19 = sext i32 %18 to i64
+  %20 = udiv i64 %19, 4
+  %21 = trunc i64 %20 to i32
+  store i32 %21, ptr %10, align 4
+  %22 = load i32, ptr %10, align 4
+  %23 = zext i32 %22 to i64
+  %24 = icmp ult i64 %23, 32
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %4
+  br label %27
+
+26:                                               ; preds = %4
+  call void @__assert_fail(ptr noundef @.str.30, ptr noundef @.str.3, i32 noundef 276, ptr noundef @__PRETTY_FUNCTION__.ahci_port_write) #16
+  unreachable
+
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = load i32, ptr %10, align 4
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortReg_lookup, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = load i32, ptr %8, align 4
+  call void @trace_ahci_port_write(ptr noundef %28, i32 noundef %29, ptr noundef %33, i32 noundef %34, i32 noundef %35)
+  %36 = load i32, ptr %10, align 4
+  switch i32 %36, label %163 [
+    i32 0, label %37
+    i32 1, label %41
+    i32 2, label %45
+    i32 3, label %49
+    i32 4, label %53
+    i32 5, label %61
+    i32 6, label %67
+    i32 8, label %124
+    i32 9, label %124
+    i32 10, label %124
+    i32 11, label %125
+    i32 12, label %142
+    i32 13, label %149
+    i32 14, label %155
+  ]
+
+37:                                               ; preds = %27
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %39, i32 0, i32 0
+  store i32 %38, ptr %40, align 4
+  br label %191
+
+41:                                               ; preds = %27
+  %42 = load i32, ptr %8, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %43, i32 0, i32 1
+  store i32 %42, ptr %44, align 4
+  br label %191
+
+45:                                               ; preds = %27
+  %46 = load i32, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %47, i32 0, i32 2
+  store i32 %46, ptr %48, align 4
+  br label %191
+
+49:                                               ; preds = %27
+  %50 = load i32, ptr %8, align 4
+  %51 = load ptr, ptr %9, align 8
+  %52 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %51, i32 0, i32 3
+  store i32 %50, ptr %52, align 4
+  br label %191
+
+53:                                               ; preds = %27
+  %54 = load i32, ptr %8, align 4
+  %55 = xor i32 %54, -1
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %56, i32 0, i32 4
+  %58 = load i32, ptr %57, align 4
+  %59 = and i32 %58, %55
+  store i32 %59, ptr %57, align 4
+  %60 = load ptr, ptr %5, align 8
+  call void @ahci_check_irq(ptr noundef %60)
+  br label %191
+
+61:                                               ; preds = %27
+  %62 = load i32, ptr %8, align 4
+  %63 = and i32 %62, -37748481
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %64, i32 0, i32 5
+  store i32 %63, ptr %65, align 4
+  %66 = load ptr, ptr %5, align 8
+  call void @ahci_check_irq(ptr noundef %66)
+  br label %191
+
+67:                                               ; preds = %27
+  %68 = load ptr, ptr %9, align 8
+  %69 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %68, i32 0, i32 6
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, 1
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %82
+
+73:                                               ; preds = %67
+  %74 = load i32, ptr %8, align 4
+  %75 = and i32 %74, 1
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %82, label %77
+
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %78, i32 0, i32 13
+  store i32 0, ptr %79, align 4
+  %80 = load ptr, ptr %9, align 8
+  %81 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %80, i32 0, i32 14
+  store i32 0, ptr %81, align 4
+  br label %82
+
+82:                                               ; preds = %77, %73, %67
+  %83 = load ptr, ptr %9, align 8
+  %84 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %83, i32 0, i32 6
+  %85 = load i32, ptr %84, align 4
+  %86 = and i32 %85, 8257504
+  %87 = load i32, ptr %8, align 4
+  %88 = and i32 %87, 260177951
+  %89 = or i32 %86, %88
+  %90 = load ptr, ptr %9, align 8
+  %91 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %90, i32 0, i32 6
+  store i32 %89, ptr %91, align 4
+  %92 = load ptr, ptr %5, align 8
+  %93 = getelementptr inbounds nuw %struct.AHCIState, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 16
+  %95 = load i32, ptr %6, align 4
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds %struct.AHCIDevice, ptr %94, i64 %96
+  %98 = call i32 @ahci_cond_start_engines(ptr noundef %97)
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %99, i32 0, i32 6
+  %101 = load i32, ptr %100, align 4
+  %102 = and i32 %101, 16384
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %121
+
+104:                                              ; preds = %82
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds nuw %struct.AHCIState, ptr %105, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 16
+  %108 = load i32, ptr %6, align 4
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds %struct.AHCIDevice, ptr %107, i64 %109
+  %111 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %110, i32 0, i32 12
+  %112 = load i8, ptr %111, align 8, !range !11, !noundef !12
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %121, label %114
+
+114:                                              ; preds = %104
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds nuw %struct.AHCIState, ptr %115, i32 0, i32 0
+  %117 = load ptr, ptr %116, align 16
+  %118 = load i32, ptr %6, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds %struct.AHCIDevice, ptr %117, i64 %119
+  call void @ahci_init_d2h(ptr noundef %120)
+  br label %121
+
+121:                                              ; preds = %114, %104, %82
+  %122 = load ptr, ptr %5, align 8
+  %123 = load i32, ptr %6, align 4
+  call void @check_cmd(ptr noundef %122, i32 noundef %123)
+  br label %191
+
+124:                                              ; preds = %27, %27, %27
+  br label %191
+
+125:                                              ; preds = %27
+  %126 = load ptr, ptr %9, align 8
+  %127 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %126, i32 0, i32 11
+  %128 = load i32, ptr %127, align 4
+  %129 = and i32 %128, 15
+  %130 = icmp eq i32 %129, 1
+  br i1 %130, label %131, label %138
+
+131:                                              ; preds = %125
+  %132 = load i32, ptr %8, align 4
+  %133 = and i32 %132, 15
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %138
+
+135:                                              ; preds = %131
+  %136 = load ptr, ptr %5, align 8
+  %137 = load i32, ptr %6, align 4
+  call void @ahci_reset_port(ptr noundef %136, i32 noundef %137)
+  br label %138
+
+138:                                              ; preds = %135, %131, %125
+  %139 = load i32, ptr %8, align 4
+  %140 = load ptr, ptr %9, align 8
+  %141 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %140, i32 0, i32 11
+  store i32 %139, ptr %141, align 4
+  br label %191
+
+142:                                              ; preds = %27
+  %143 = load i32, ptr %8, align 4
+  %144 = xor i32 %143, -1
+  %145 = load ptr, ptr %9, align 8
+  %146 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %145, i32 0, i32 12
+  %147 = load i32, ptr %146, align 4
+  %148 = and i32 %147, %144
+  store i32 %148, ptr %146, align 4
+  br label %191
+
+149:                                              ; preds = %27
+  %150 = load i32, ptr %8, align 4
+  %151 = load ptr, ptr %9, align 8
+  %152 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %151, i32 0, i32 13
+  %153 = load i32, ptr %152, align 4
+  %154 = or i32 %153, %150
+  store i32 %154, ptr %152, align 4
+  br label %191
+
+155:                                              ; preds = %27
+  %156 = load i32, ptr %8, align 4
+  %157 = load ptr, ptr %9, align 8
+  %158 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %157, i32 0, i32 14
+  %159 = load i32, ptr %158, align 4
+  %160 = or i32 %159, %156
+  store i32 %160, ptr %158, align 4
+  %161 = load ptr, ptr %5, align 8
+  %162 = load i32, ptr %6, align 4
+  call void @check_cmd(ptr noundef %161, i32 noundef %162)
+  br label %191
+
+163:                                              ; preds = %27
+  %164 = load ptr, ptr %5, align 8
+  %165 = load i32, ptr %6, align 4
+  %166 = load i32, ptr %10, align 4
+  %167 = zext i32 %166 to i64
+  %168 = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortReg_lookup, i64 0, i64 %167
+  %169 = load ptr, ptr %168, align 8
+  %170 = load i32, ptr %7, align 4
+  %171 = load i32, ptr %8, align 4
+  call void @trace_ahci_port_write_unimpl(ptr noundef %164, i32 noundef %165, ptr noundef %169, i32 noundef %170, i32 noundef %171)
+  br label %172
+
+172:                                              ; preds = %163
+  %173 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 1024)
+  %174 = xor i1 %173, true
+  %175 = xor i1 %174, true
+  %176 = zext i1 %175 to i32
+  %177 = sext i32 %176 to i64
+  %178 = call i64 @llvm.expect.i64(i64 %177, i64 0)
+  %179 = icmp ne i64 %178, 0
+  br i1 %179, label %180, label %188
+
+180:                                              ; preds = %172
+  %181 = load i32, ptr %6, align 4
+  %182 = load i32, ptr %10, align 4
+  %183 = zext i32 %182 to i64
+  %184 = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortReg_lookup, i64 0, i64 %183
+  %185 = load ptr, ptr %184, align 8
+  %186 = load i32, ptr %7, align 4
+  %187 = load i32, ptr %8, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.75, i32 noundef %181, ptr noundef %185, i32 noundef %186, i32 noundef %187)
+  br label %188
+
+188:                                              ; preds = %180, %172
+  br label %189
+
+189:                                              ; preds = %188
+  br label %190
+
+190:                                              ; preds = %189
+  br label %191
+
+191:                                              ; preds = %190, %155, %149, %142, %138, %124, %121, %61, %53, %49, %45, %41, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_mem_write_unimpl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load i64, ptr %7, align 8
+  %12 = load i64, ptr %8, align 8
+  call void @_nocheck__trace_ahci_mem_write_unimpl(ptr noundef %9, i32 noundef %10, i64 noundef %11, i64 noundef %12)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_write(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_MEM_WRITE_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load i64, ptr %7, align 8
+  %37 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.63, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, i64 noundef %36, i64 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load i64, ptr %7, align 8
+  %42 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.64, ptr noundef %39, i32 noundef %40, i64 noundef %41, i64 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_check_irq(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i32, ptr %6, align 4
+  call void @_nocheck__trace_ahci_check_irq(ptr noundef %7, i32 noundef %8, i32 noundef %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_irq_raise(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_nocheck__trace_ahci_irq_raise(ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @qemu_irq_raise(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @qemu_set_irq(ptr noundef %3, i32 noundef 1)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_irq_lower(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_nocheck__trace_ahci_irq_lower(ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @qemu_irq_lower(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @qemu_set_irq(ptr noundef %3, i32 noundef 0)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_check_irq(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_AHCI_CHECK_IRQ_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.65, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %5, align 4
+  %38 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.66, ptr noundef %36, i32 noundef %37, i32 noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_irq_raise(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %5 = icmp ne i32 %4, 0
+  %6 = xor i1 %5, true
+  %7 = xor i1 %6, true
+  %8 = zext i1 %7 to i32
+  %9 = sext i32 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 0)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %32
+
+12:                                               ; preds = %1
+  %13 = load i16, ptr @_TRACE_AHCI_IRQ_RAISE_DSTATE, align 2
+  %14 = zext i16 %13 to i32
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %32
+
+16:                                               ; preds = %12
+  %17 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %17, label %18, label %32
+
+18:                                               ; preds = %16
+  %19 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 16, i1 false), !annotation !4
+  %22 = call i32 @gettimeofday(ptr noundef %3, ptr noundef null) #15
+  %23 = call i32 @qemu_get_thread_id()
+  %24 = getelementptr inbounds nuw %struct.timeval, ptr %3, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %3, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8
+  %28 = load ptr, ptr %2, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.67, i32 noundef %23, i64 noundef %25, i64 noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #15
+  br label %31
+
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %2, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.68, ptr noundef %30)
+  br label %31
+
+31:                                               ; preds = %29, %21
+  br label %32
+
+32:                                               ; preds = %31, %16, %12, %1
+  ret void
+}
+
+declare void @qemu_set_irq(ptr noundef, i32 noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_irq_lower(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %5 = icmp ne i32 %4, 0
+  %6 = xor i1 %5, true
+  %7 = xor i1 %6, true
+  %8 = zext i1 %7 to i32
+  %9 = sext i32 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 0)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %32
+
+12:                                               ; preds = %1
+  %13 = load i16, ptr @_TRACE_AHCI_IRQ_LOWER_DSTATE, align 2
+  %14 = zext i16 %13 to i32
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %32
+
+16:                                               ; preds = %12
+  %17 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %17, label %18, label %32
+
+18:                                               ; preds = %16
+  %19 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 16, i1 false), !annotation !4
+  %22 = call i32 @gettimeofday(ptr noundef %3, ptr noundef null) #15
+  %23 = call i32 @qemu_get_thread_id()
+  %24 = getelementptr inbounds nuw %struct.timeval, ptr %3, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %3, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8
+  %28 = load ptr, ptr %2, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.69, i32 noundef %23, i64 noundef %25, i64 noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #15
+  br label %31
+
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %2, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.70, ptr noundef %30)
+  br label %31
+
+31:                                               ; preds = %29, %21
+  br label %32
+
+32:                                               ; preds = %31, %16, %12, %1
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_write_host_unimpl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_MEM_WRITE_HOST_UNIMPL_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.71, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %36, i64 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.72, ptr noundef %39, i32 noundef %40, ptr noundef %41, i64 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_write_host(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  store i64 %4, ptr %10, align 8
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %48
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_AHCI_MEM_WRITE_HOST_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %48
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %48
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %41
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load ptr, ptr %8, align 8
+  %39 = load i64, ptr %9, align 8
+  %40 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.73, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %38, i64 noundef %39, i64 noundef %40)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %47
+
+41:                                               ; preds = %26
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i32, ptr %7, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i64, ptr %9, align 8
+  %46 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.74, ptr noundef %42, i32 noundef %43, ptr noundef %44, i64 noundef %45, i64 noundef %46)
+  br label %47
+
+47:                                               ; preds = %41, %29
+  br label %48
+
+48:                                               ; preds = %47, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_port_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load ptr, ptr %8, align 8
+  %14 = load i32, ptr %9, align 4
+  %15 = load i32, ptr %10, align 4
+  call void @_nocheck__trace_ahci_port_write(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15)
+  ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ahci_mread(ptr noundef %ahci, i64 noundef %offset) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %dev = getelementptr inbounds %struct.AHCIQState, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %dev, align 8
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %hba_bar = getelementptr inbounds %struct.AHCIQState, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %offset.addr, align 8
-  %4 = getelementptr inbounds { i64, i8 }, ptr %hba_bar, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds { i64, i8 }, ptr %hba_bar, i32 0, i32 1
-  %7 = load i8, ptr %6, align 8
-  %call = call i32 @qpci_io_readl(ptr noundef %1, i64 %5, i8 %7, i64 noundef %3)
-  ret i32 %call
+define internal i32 @ahci_cond_start_engines(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %10, i32 0, i32 5
+  store ptr %11, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #15
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %12, i32 0, i32 6
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 1
+  %16 = icmp ne i32 %15, 0
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #15
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %18, i32 0, i32 6
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %20, 32768
+  %22 = icmp ne i32 %21, 0
+  %23 = zext i1 %22 to i8
+  store i8 %23, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #15
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %24, i32 0, i32 6
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, 16
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #15
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 16384
+  %34 = icmp ne i32 %33, 0
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %8, align 1
+  %36 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %50
+
+38:                                               ; preds = %1
+  %39 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %50, label %41
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %3, align 8
+  %43 = call zeroext i1 @ahci_map_clb_address(ptr noundef %42)
+  br i1 %43, label %49, label %44
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %45, i32 0, i32 6
+  %47 = load i32, ptr %46, align 4
+  %48 = and i32 %47, -2
+  store i32 %48, ptr %46, align 4
+  call void (ptr, ...) @error_report(ptr noundef @.str.78)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %84
+
+49:                                               ; preds = %41
+  br label %59
+
+50:                                               ; preds = %38, %1
+  %51 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %58, label %53
+
+53:                                               ; preds = %50
+  %54 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %58
+
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %3, align 8
+  call void @ahci_unmap_clb_address(ptr noundef %57)
+  br label %58
+
+58:                                               ; preds = %56, %53, %50
+  br label %59
+
+59:                                               ; preds = %58, %49
+  %60 = load i8, ptr %7, align 1, !range !11, !noundef !12
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %74
+
+62:                                               ; preds = %59
+  %63 = load i8, ptr %8, align 1, !range !11, !noundef !12
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %74, label %65
+
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %3, align 8
+  %67 = call zeroext i1 @ahci_map_fis_address(ptr noundef %66)
+  br i1 %67, label %73, label %68
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %69, i32 0, i32 6
+  %71 = load i32, ptr %70, align 4
+  %72 = and i32 %71, -17
+  store i32 %72, ptr %70, align 4
+  call void (ptr, ...) @error_report(ptr noundef @.str.79)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %84
+
+73:                                               ; preds = %65
+  br label %83
+
+74:                                               ; preds = %62, %59
+  %75 = load i8, ptr %7, align 1, !range !11, !noundef !12
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %82, label %77
+
+77:                                               ; preds = %74
+  %78 = load i8, ptr %8, align 1, !range !11, !noundef !12
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %3, align 8
+  call void @ahci_unmap_fis_address(ptr noundef %81)
+  br label %82
+
+82:                                               ; preds = %80, %77, %74
+  br label %83
+
+83:                                               ; preds = %82, %73
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %84
+
+84:                                               ; preds = %83, %68, %44
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  %85 = load i32, ptr %2, align 4
+  ret i32 %85
 }
 
-declare i32 @qpci_io_readl(ptr noundef, i64, i8, i64 noundef) #2
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_init_d2h(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.IDEBus, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds [2 x %struct.IDEState], ptr %8, i64 0, i64 0
+  store ptr %9, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %10, i32 0, i32 5
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %12, i32 0, i32 12
+  %14 = load i8, ptr %13, align 8, !range !11, !noundef !12
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %1
+  store i32 1, ptr %5, align 4
+  br label %48
+
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %2, align 8
+  %19 = call zeroext i1 @ahci_write_fis_d2h(ptr noundef %18, i1 noundef zeroext true)
+  br i1 %19, label %20, label %47
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %21, i32 0, i32 12
+  store i8 1, ptr %22, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %struct.IDEState, ptr %23, i32 0, i32 23
+  %25 = load i8, ptr %24, align 2
+  %26 = zext i8 %25 to i32
+  %27 = shl i32 %26, 24
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.IDEState, ptr %28, i32 0, i32 22
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = shl i32 %31, 16
+  %33 = or i32 %27, %32
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.IDEState, ptr %34, i32 0, i32 21
+  %36 = load i8, ptr %35, align 8
+  %37 = zext i8 %36 to i32
+  %38 = shl i32 %37, 8
+  %39 = or i32 %33, %38
+  %40 = load ptr, ptr %3, align 8
+  %41 = getelementptr inbounds nuw %struct.IDEState, ptr %40, i32 0, i32 20
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 255
+  %44 = or i32 %39, %43
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %45, i32 0, i32 9
+  store i32 %44, ptr %46, align 4
+  br label %47
+
+47:                                               ; preds = %20, %17
+  store i32 0, ptr %5, align 4
+  br label %48
+
+48:                                               ; preds = %47, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  %49 = load i32, ptr %5, align 4
+  switch i32 %49, label %51 [
+    i32 0, label %50
+    i32 1, label %50
+  ]
+
+50:                                               ; preds = %48, %48
+  ret void
+
+51:                                               ; preds = %48
+  unreachable
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @check_cmd(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.AHCIState, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 16
+  %10 = load i32, ptr %4, align 4
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds %struct.AHCIDevice, ptr %9, i64 %11
+  %13 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %12, i32 0, i32 5
+  store ptr %13, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #15
+  store i8 0, ptr %6, align 1, !annotation !4
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %14, i32 0, i32 6
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 1
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %54
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %20, i32 0, i32 14
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %54
+
+24:                                               ; preds = %19
+  store i8 0, ptr %6, align 1
+  br label %25
+
+25:                                               ; preds = %50, %24
+  %26 = load i8, ptr %6, align 1
+  %27 = zext i8 %26 to i32
+  %28 = icmp slt i32 %27, 32
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %30, i32 0, i32 14
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp ne i32 %32, 0
+  br label %34
+
+34:                                               ; preds = %29, %25
+  %35 = phi i1 [ false, %25 ], [ %33, %29 ]
+  br i1 %35, label %36, label %53
+
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %37, i32 0, i32 14
+  %39 = load i32, ptr %38, align 4
+  %40 = load i8, ptr %6, align 1
+  %41 = zext i8 %40 to i32
+  %42 = shl i32 1, %41
+  %43 = and i32 %39, %42
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %36
+  %46 = load ptr, ptr %3, align 8
+  %47 = load i32, ptr %4, align 4
+  %48 = load i8, ptr %6, align 1
+  call void @handle_cmd(ptr noundef %46, i32 noundef %47, i8 noundef zeroext %48)
+  br label %49
+
+49:                                               ; preds = %45, %36
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i8, ptr %6, align 1
+  %52 = add i8 %51, 1
+  store i8 %52, ptr %6, align 1
+  br label %25, !llvm.loop !18
+
+53:                                               ; preds = %34
+  br label %54
+
+54:                                               ; preds = %53, %19, %2
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_port_write_unimpl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load ptr, ptr %8, align 8
+  %14 = load i32, ptr %9, align 4
+  %15 = load i32, ptr %10, align 4
+  call void @_nocheck__trace_ahci_port_write_unimpl(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_port_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %48
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_AHCI_PORT_WRITE_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %48
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %48
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %41
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load ptr, ptr %8, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = load i32, ptr %10, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.76, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %40)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %47
+
+41:                                               ; preds = %26
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i32, ptr %7, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = load i32, ptr %10, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.77, ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46)
+  br label %47
+
+47:                                               ; preds = %41, %29
+  br label %48
+
+48:                                               ; preds = %47, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @ahci_map_clb_address(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %6, i32 0, i32 5
+  store ptr %7, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %8, i32 0, i32 13
+  store ptr null, ptr %9, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIState, ptr %12, i32 0, i32 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %15, i32 0, i32 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4
+  %20 = zext i32 %19 to i64
+  %21 = shl i64 %20, 32
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 4
+  %25 = zext i32 %24 to i64
+  %26 = or i64 %21, %25
+  call void @map_page(ptr noundef %14, ptr noundef %16, i64 noundef %26, i32 noundef 1024)
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %27, i32 0, i32 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %36
+
+31:                                               ; preds = %1
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %32, i32 0, i32 6
+  %34 = load i32, ptr %33, align 4
+  %35 = or i32 %34, 32768
+  store i32 %35, ptr %33, align 4
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %41
+
+36:                                               ; preds = %1
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %37, i32 0, i32 6
+  %39 = load i32, ptr %38, align 4
+  %40 = and i32 %39, -32769
+  store i32 %40, ptr %38, align 4
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %41
+
+41:                                               ; preds = %36, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  %42 = load i1, ptr %2, align 1
+  ret i1 %42
+}
+
+declare void @error_report(ptr noundef, ...) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_unmap_clb_address(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %14
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
+  call void @trace_ahci_unmap_clb_address_null(ptr noundef %10, i32 noundef %13)
+  br label %30
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %15, i32 0, i32 5
+  %17 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 4
+  %19 = and i32 %18, -32769
+  store i32 %19, ptr %17, align 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct.AHCIState, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %25, i32 0, i32 8
+  %27 = load ptr, ptr %26, align 8
+  call void @dma_memory_unmap(ptr noundef %24, ptr noundef %27, i64 noundef 1024, i32 noundef 1, i64 noundef 1024)
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  br label %30
+
+30:                                               ; preds = %14, %7
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @ahci_map_fis_address(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %6, i32 0, i32 5
+  store ptr %7, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIState, ptr %10, i32 0, i32 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %13, i32 0, i32 9
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %15, i32 0, i32 3
+  %17 = load i32, ptr %16, align 4
+  %18 = zext i32 %17 to i64
+  %19 = shl i64 %18, 32
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %20, i32 0, i32 2
+  %22 = load i32, ptr %21, align 4
+  %23 = zext i32 %22 to i64
+  %24 = or i64 %19, %23
+  call void @map_page(ptr noundef %12, ptr noundef %14, i64 noundef %24, i32 noundef 256)
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %25, i32 0, i32 9
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %1
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4
+  %33 = or i32 %32, 16384
+  store i32 %33, ptr %31, align 4
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %39
+
+34:                                               ; preds = %1
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %35, i32 0, i32 6
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, -16385
+  store i32 %38, ptr %36, align 4
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %39
+
+39:                                               ; preds = %34, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  %40 = load i1, ptr %2, align 1
+  ret i1 %40
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_unmap_fis_address(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %3, i32 0, i32 9
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %14
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
+  call void @trace_ahci_unmap_fis_address_null(ptr noundef %10, i32 noundef %13)
+  br label %30
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %15, i32 0, i32 5
+  %17 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 4
+  %19 = and i32 %18, -16385
+  store i32 %19, ptr %17, align 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct.AHCIState, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %25, i32 0, i32 9
+  %27 = load ptr, ptr %26, align 8
+  call void @dma_memory_unmap(ptr noundef %24, ptr noundef %27, i64 noundef 256, i32 noundef 1, i64 noundef 256)
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %28, i32 0, i32 9
+  store ptr null, ptr %29, align 8
+  br label %30
+
+30:                                               ; preds = %14, %7
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @map_page(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca %struct.MemTxAttrs, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %11 = load i32, ptr %8, align 4
+  %12 = zext i32 %11 to i64
+  store i64 %12, ptr %9, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i64, ptr %9, align 8
+  %21 = load i64, ptr %9, align 8
+  call void @dma_memory_unmap(ptr noundef %17, ptr noundef %19, i64 noundef %20, i32 noundef 1, i64 noundef %21)
+  br label %22
+
+22:                                               ; preds = %16, %4
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i64, ptr %7, align 8
+  store i32 0, ptr %10, align 4
+  %25 = load i32, ptr %10, align 4
+  %26 = and i32 %25, -2
+  %27 = or i32 %26, 0
+  store i32 %27, ptr %10, align 4
+  %28 = load i32, ptr %10, align 4
+  %29 = and i32 %28, -7
+  %30 = or i32 %29, 0
+  store i32 %30, ptr %10, align 4
+  %31 = load i32, ptr %10, align 4
+  %32 = and i32 %31, -9
+  %33 = or i32 %32, 0
+  store i32 %33, ptr %10, align 4
+  %34 = load i32, ptr %10, align 4
+  %35 = and i32 %34, -17
+  %36 = or i32 %35, 0
+  store i32 %36, ptr %10, align 4
+  %37 = load i32, ptr %10, align 4
+  %38 = and i32 %37, -2097121
+  %39 = or i32 %38, 0
+  store i32 %39, ptr %10, align 4
+  %40 = load i32, ptr %10, align 4
+  %41 = and i32 %40, -534773761
+  %42 = or i32 %41, 0
+  store i32 %42, ptr %10, align 4
+  %43 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %10, i32 0, i32 1
+  store i8 1, ptr %43, align 4
+  %44 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %10, i32 0, i32 2
+  store i8 0, ptr %44, align 1
+  %45 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %10, i32 0, i32 3
+  store i16 0, ptr %45, align 2
+  %46 = load i64, ptr %10, align 4
+  %47 = call ptr @dma_memory_map(ptr noundef %23, i64 noundef %24, ptr noundef %9, i32 noundef 1, i64 %46)
+  %48 = load ptr, ptr %6, align 8
+  store ptr %47, ptr %48, align 8
+  %49 = load i64, ptr %9, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = zext i32 %50 to i64
+  %52 = icmp ult i64 %49, %51
+  br i1 %52, label %53, label %64
+
+53:                                               ; preds = %22
+  %54 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %64
+
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %5, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i64, ptr %9, align 8
+  %62 = load i64, ptr %9, align 8
+  call void @dma_memory_unmap(ptr noundef %58, ptr noundef %60, i64 noundef %61, i32 noundef 1, i64 noundef %62)
+  %63 = load ptr, ptr %6, align 8
+  store ptr null, ptr %63, align 8
+  br label %64
+
+64:                                               ; preds = %57, %53, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @dma_memory_unmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i64 %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i64, ptr %8, align 8
+  %14 = load i32, ptr %9, align 4
+  %15 = icmp eq i32 %14, 1
+  %16 = load i64, ptr %10, align 8
+  call void @address_space_unmap(ptr noundef %11, ptr noundef %12, i64 noundef %13, i1 noundef zeroext %15, i64 noundef %16)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @dma_memory_map(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i64 %4) #7 {
+  %6 = alloca %struct.MemTxAttrs, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  store i64 %4, ptr %6, align 4
+  store ptr %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %13 = load ptr, ptr %9, align 8
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #15
+  store ptr null, ptr %12, align 8, !annotation !4
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = load i32, ptr %10, align 4
+  %18 = icmp eq i32 %17, 1
+  %19 = load i64, ptr %6, align 4
+  %20 = call ptr @address_space_map(ptr noundef %15, i64 noundef %16, ptr noundef %11, i1 noundef zeroext %18, i64 %19)
+  store ptr %20, ptr %12, align 8
+  %21 = load i64, ptr %11, align 8
+  %22 = load ptr, ptr %9, align 8
+  store i64 %21, ptr %22, align 8
+  %23 = load ptr, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  ret ptr %23
+}
+
+declare void @address_space_unmap(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) #1
+
+declare ptr @address_space_map(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, i64) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_unmap_clb_address_null(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_unmap_clb_address_null(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_unmap_clb_address_null(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_UNMAP_CLB_ADDRESS_NULL_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.80, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.81, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_unmap_fis_address_null(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_unmap_fis_address_null(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_unmap_fis_address_null(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_UNMAP_FIS_ADDRESS_NULL_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.82, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.83, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @ahci_write_fis_d2h(ptr noundef %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  %11 = zext i1 %1 to i8
+  store i8 %11, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %12, i32 0, i32 5
+  store ptr %13, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  store ptr null, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #15
+  store i32 0, ptr %8, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.IDEBus, ptr %15, i32 0, i32 3
+  %17 = getelementptr inbounds [2 x %struct.IDEState], ptr %16, i64 0, i64 0
+  store ptr %17, ptr %9, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %18, i32 0, i32 9
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %23, i32 0, i32 6
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, 16
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %22, %2
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %155
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %30, i32 0, i32 9
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 64
+  store ptr %33, ptr %7, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 0
+  store i8 52, ptr %35, align 1
+  %36 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, i32 64, i32 0
+  %39 = trunc i32 %38 to i8
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 %39, ptr %41, align 1
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.IDEState, ptr %42, i32 0, i32 30
+  %44 = load i8, ptr %43, align 1
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 2
+  store i8 %44, ptr %46, align 1
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.IDEState, ptr %47, i32 0, i32 19
+  %49 = load i8, ptr %48, align 1
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 3
+  store i8 %49, ptr %51, align 1
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.IDEState, ptr %52, i32 0, i32 21
+  %54 = load i8, ptr %53, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  store i8 %54, ptr %56, align 1
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds nuw %struct.IDEState, ptr %57, i32 0, i32 22
+  %59 = load i8, ptr %58, align 1
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 5
+  store i8 %59, ptr %61, align 1
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds nuw %struct.IDEState, ptr %62, i32 0, i32 23
+  %64 = load i8, ptr %63, align 2
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 6
+  store i8 %64, ptr %66, align 1
+  %67 = load ptr, ptr %9, align 8
+  %68 = getelementptr inbounds nuw %struct.IDEState, ptr %67, i32 0, i32 29
+  %69 = load i8, ptr %68, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 7
+  store i8 %69, ptr %71, align 1
+  %72 = load ptr, ptr %9, align 8
+  %73 = getelementptr inbounds nuw %struct.IDEState, ptr %72, i32 0, i32 26
+  %74 = load i8, ptr %73, align 1
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  store i8 %74, ptr %76, align 1
+  %77 = load ptr, ptr %9, align 8
+  %78 = getelementptr inbounds nuw %struct.IDEState, ptr %77, i32 0, i32 27
+  %79 = load i8, ptr %78, align 2
+  %80 = load ptr, ptr %7, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 9
+  store i8 %79, ptr %81, align 1
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.IDEState, ptr %82, i32 0, i32 28
+  %84 = load i8, ptr %83, align 1
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 10
+  store i8 %84, ptr %86, align 1
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 11
+  store i8 0, ptr %88, align 1
+  %89 = load ptr, ptr %9, align 8
+  %90 = getelementptr inbounds nuw %struct.IDEState, ptr %89, i32 0, i32 20
+  %91 = load i32, ptr %90, align 4
+  %92 = and i32 %91, 255
+  %93 = trunc i32 %92 to i8
+  %94 = load ptr, ptr %7, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 12
+  store i8 %93, ptr %95, align 1
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds nuw %struct.IDEState, ptr %96, i32 0, i32 20
+  %98 = load i32, ptr %97, align 4
+  %99 = lshr i32 %98, 8
+  %100 = and i32 %99, 255
+  %101 = trunc i32 %100 to i8
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 13
+  store i8 %101, ptr %103, align 1
+  store i32 14, ptr %8, align 4
+  br label %104
+
+104:                                              ; preds = %112, %29
+  %105 = load i32, ptr %8, align 4
+  %106 = icmp slt i32 %105, 20
+  br i1 %106, label %107, label %115
+
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr %8, align 4
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %108, i64 %110
+  store i8 0, ptr %111, align 1
+  br label %112
+
+112:                                              ; preds = %107
+  %113 = load i32, ptr %8, align 4
+  %114 = add i32 %113, 1
+  store i32 %114, ptr %8, align 4
+  br label %104, !llvm.loop !19
+
+115:                                              ; preds = %104
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %116, i32 0, i32 1
+  %118 = getelementptr inbounds nuw %struct.IDEBus, ptr %117, i32 0, i32 3
+  %119 = getelementptr inbounds [2 x %struct.IDEState], ptr %118, i64 0, i64 0
+  %120 = getelementptr inbounds nuw %struct.IDEState, ptr %119, i32 0, i32 19
+  %121 = load i8, ptr %120, align 1
+  %122 = zext i8 %121 to i32
+  %123 = shl i32 %122, 8
+  %124 = load ptr, ptr %4, align 8
+  %125 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %124, i32 0, i32 1
+  %126 = getelementptr inbounds nuw %struct.IDEBus, ptr %125, i32 0, i32 3
+  %127 = getelementptr inbounds [2 x %struct.IDEState], ptr %126, i64 0, i64 0
+  %128 = getelementptr inbounds nuw %struct.IDEState, ptr %127, i32 0, i32 30
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i32
+  %131 = or i32 %123, %130
+  %132 = load ptr, ptr %6, align 8
+  %133 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %132, i32 0, i32 8
+  store i32 %131, ptr %133, align 4
+  %134 = load ptr, ptr %7, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 2
+  %136 = load i8, ptr %135, align 1
+  %137 = zext i8 %136 to i32
+  %138 = and i32 %137, 1
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %140, label %145
+
+140:                                              ; preds = %115
+  %141 = load ptr, ptr %4, align 8
+  %142 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %141, i32 0, i32 6
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %4, align 8
+  call void @ahci_trigger_irq(ptr noundef %143, ptr noundef %144, i32 noundef 30)
+  br label %154
+
+145:                                              ; preds = %115
+  %146 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %148, label %153
+
+148:                                              ; preds = %145
+  %149 = load ptr, ptr %4, align 8
+  %150 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %149, i32 0, i32 6
+  %151 = load ptr, ptr %150, align 8
+  %152 = load ptr, ptr %4, align 8
+  call void @ahci_trigger_irq(ptr noundef %151, ptr noundef %152, i32 noundef 0)
+  br label %153
+
+153:                                              ; preds = %148, %145
+  br label %154
+
+154:                                              ; preds = %153, %140
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %155
+
+155:                                              ; preds = %154, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  %156 = load i1, ptr %3, align 1
+  ret i1 %156
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_trigger_irq(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  br label %11
+
+11:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #15
+  store i32 0, ptr %7, align 4, !annotation !4
+  %12 = load i32, ptr %6, align 4
+  %13 = icmp ult i32 %12, 32
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  store i32 1, ptr %7, align 4
+  br label %16
+
+15:                                               ; preds = %11
+  store i32 0, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %15, %14
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #15
+  %18 = load i32, ptr %8, align 4
+  %19 = sext i32 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 1)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %16
+  br label %24
+
+23:                                               ; preds = %16
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.3, i32 noundef 201, ptr noundef @__func__.ahci_trigger_irq, ptr noundef @.str.84) #19
+  unreachable
+
+24:                                               ; preds = %22
+  br label %25
+
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #15
+  %26 = load i32, ptr %6, align 4
+  %27 = shl i32 1, %26
+  store i32 %27, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #15
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %28, i32 0, i32 5
+  %30 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %29, i32 0, i32 4
+  %31 = load i32, ptr %30, align 4
+  %32 = load i32, ptr %9, align 4
+  %33 = or i32 %31, %32
+  store i32 %33, ptr %10, align 4
+  %34 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %36, align 8
+  %38 = load i32, ptr %6, align 4
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortIRQ_lookup, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %9, align 4
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %43, i32 0, i32 5
+  %45 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %44, i32 0, i32 4
+  %46 = load i32, ptr %45, align 4
+  %47 = load i32, ptr %10, align 4
+  %48 = load i32, ptr %10, align 4
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %49, i32 0, i32 5
+  %51 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %50, i32 0, i32 5
+  %52 = load i32, ptr %51, align 4
+  %53 = and i32 %48, %52
+  call void @trace_ahci_trigger_irq(ptr noundef %34, i32 noundef %37, ptr noundef %41, i32 noundef %42, i32 noundef %46, i32 noundef %47, i32 noundef %53)
+  %54 = load i32, ptr %10, align 4
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %55, i32 0, i32 5
+  %57 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %56, i32 0, i32 4
+  store i32 %54, ptr %57, align 4
+  %58 = load ptr, ptr %4, align 8
+  call void @ahci_check_irq(ptr noundef %58)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_trigger_irq(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #7 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store i32 %3, ptr %11, align 4
+  store i32 %4, ptr %12, align 4
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  %15 = load ptr, ptr %8, align 8
+  %16 = load i32, ptr %9, align 4
+  %17 = load ptr, ptr %10, align 8
+  %18 = load i32, ptr %11, align 4
+  %19 = load i32, ptr %12, align 4
+  %20 = load i32, ptr %13, align 4
+  %21 = load i32, ptr %14, align 4
+  call void @_nocheck__trace_ahci_trigger_irq(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_trigger_irq(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #7 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store i32 %3, ptr %11, align 4
+  store i32 %4, ptr %12, align 4
+  store i32 %5, ptr %13, align 4
+  store i32 %6, ptr %14, align 4
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %17 = icmp ne i32 %16, 0
+  %18 = xor i1 %17, true
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %56
+
+24:                                               ; preds = %7
+  %25 = load i16, ptr @_TRACE_AHCI_TRIGGER_IRQ_DSTATE, align 2
+  %26 = zext i16 %25 to i32
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %56
+
+28:                                               ; preds = %24
+  %29 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %29, label %30, label %56
+
+30:                                               ; preds = %28
+  %31 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %47
+
+33:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 16, i1 false), !annotation !4
+  %34 = call i32 @gettimeofday(ptr noundef %15, ptr noundef null) #15
+  %35 = call i32 @qemu_get_thread_id()
+  %36 = getelementptr inbounds nuw %struct.timeval, ptr %15, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct.timeval, ptr %15, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load i32, ptr %9, align 4
+  %42 = load ptr, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  %44 = load i32, ptr %12, align 4
+  %45 = load i32, ptr %13, align 4
+  %46 = load i32, ptr %14, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.85, i32 noundef %35, i64 noundef %37, i64 noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %46)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #15
+  br label %55
+
+47:                                               ; preds = %30
+  %48 = load ptr, ptr %8, align 8
+  %49 = load i32, ptr %9, align 4
+  %50 = load ptr, ptr %10, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = load i32, ptr %12, align 4
+  %53 = load i32, ptr %13, align 4
+  %54 = load i32, ptr %14, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.86, ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54)
+  br label %55
+
+55:                                               ; preds = %47, %33
+  br label %56
+
+56:                                               ; preds = %55, %28, %24, %7
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @handle_cmd(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %struct.MemTxAttrs, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  store ptr null, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  store i64 0, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  store ptr null, ptr %9, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  store ptr null, ptr %10, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  store i64 0, ptr %11, align 8, !annotation !4
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIState, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 16
+  %18 = load i32, ptr %5, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds %struct.AHCIDevice, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.IDEBus, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [2 x %struct.IDEState], ptr %22, i64 0, i64 0
+  %24 = getelementptr inbounds nuw %struct.IDEState, ptr %23, i32 0, i32 30
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i32
+  %27 = and i32 %26, 136
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %4, align 8
+  %31 = load i32, ptr %5, align 4
+  call void @trace_handle_cmd_busy(ptr noundef %30, i32 noundef %31)
+  store i32 1, ptr %12, align 4
+  br label %177
+
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.AHCIState, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 16
+  %36 = load i32, ptr %5, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds %struct.AHCIDevice, ptr %35, i64 %37
+  %39 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %38, i32 0, i32 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %45, label %42
+
+42:                                               ; preds = %32
+  %43 = load ptr, ptr %4, align 8
+  %44 = load i32, ptr %5, align 4
+  call void @trace_handle_cmd_nolist(ptr noundef %43, i32 noundef %44)
+  store i32 1, ptr %12, align 4
+  br label %177
+
+45:                                               ; preds = %32
+  %46 = load ptr, ptr %4, align 8
+  %47 = load i32, ptr %5, align 4
+  %48 = trunc i32 %47 to i8
+  %49 = load i8, ptr %6, align 1
+  %50 = call ptr @get_cmd_header(ptr noundef %46, i8 noundef zeroext %48, i8 noundef zeroext %49)
+  store ptr %50, ptr %9, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds nuw %struct.AHCIState, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 16
+  %55 = load i32, ptr %5, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds %struct.AHCIDevice, ptr %54, i64 %56
+  %58 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %57, i32 0, i32 13
+  store ptr %51, ptr %58, align 8
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %struct.AHCIState, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 16
+  %62 = load i32, ptr %5, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds %struct.AHCIDevice, ptr %61, i64 %63
+  %65 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %64, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct.IDEBus, ptr %65, i32 0, i32 3
+  %67 = getelementptr inbounds [2 x %struct.IDEState], ptr %66, i64 0, i64 0
+  store ptr %67, ptr %7, align 8
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds nuw %struct.IDEState, ptr %68, i32 0, i32 34
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %75, label %72
+
+72:                                               ; preds = %45
+  %73 = load ptr, ptr %4, align 8
+  %74 = load i32, ptr %5, align 4
+  call void @trace_handle_cmd_badport(ptr noundef %73, i32 noundef %74)
+  store i32 1, ptr %12, align 4
+  br label %177
+
+75:                                               ; preds = %45
+  %76 = load ptr, ptr %9, align 8
+  %77 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %76, i32 0, i32 3
+  %78 = load i64, ptr %77, align 1
+  %79 = call i64 @le64_to_cpu(i64 noundef %78)
+  store i64 %79, ptr %8, align 8
+  store i64 128, ptr %11, align 8
+  %80 = load ptr, ptr %4, align 8
+  %81 = getelementptr inbounds nuw %struct.AHCIState, ptr %80, i32 0, i32 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i64, ptr %8, align 8
+  store i32 0, ptr %13, align 4
+  %84 = load i32, ptr %13, align 4
+  %85 = and i32 %84, -2
+  %86 = or i32 %85, 0
+  store i32 %86, ptr %13, align 4
+  %87 = load i32, ptr %13, align 4
+  %88 = and i32 %87, -7
+  %89 = or i32 %88, 0
+  store i32 %89, ptr %13, align 4
+  %90 = load i32, ptr %13, align 4
+  %91 = and i32 %90, -9
+  %92 = or i32 %91, 0
+  store i32 %92, ptr %13, align 4
+  %93 = load i32, ptr %13, align 4
+  %94 = and i32 %93, -17
+  %95 = or i32 %94, 0
+  store i32 %95, ptr %13, align 4
+  %96 = load i32, ptr %13, align 4
+  %97 = and i32 %96, -2097121
+  %98 = or i32 %97, 0
+  store i32 %98, ptr %13, align 4
+  %99 = load i32, ptr %13, align 4
+  %100 = and i32 %99, -534773761
+  %101 = or i32 %100, 0
+  store i32 %101, ptr %13, align 4
+  %102 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %13, i32 0, i32 1
+  store i8 1, ptr %102, align 4
+  %103 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %13, i32 0, i32 2
+  store i8 0, ptr %103, align 1
+  %104 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %13, i32 0, i32 3
+  store i16 0, ptr %104, align 2
+  %105 = load i64, ptr %13, align 4
+  %106 = call ptr @dma_memory_map(ptr noundef %82, i64 noundef %83, ptr noundef %11, i32 noundef 0, i64 %105)
+  store ptr %106, ptr %10, align 8
+  %107 = load ptr, ptr %10, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %112, label %109
+
+109:                                              ; preds = %75
+  %110 = load ptr, ptr %4, align 8
+  %111 = load i32, ptr %5, align 4
+  call void @trace_handle_cmd_badfis(ptr noundef %110, i32 noundef %111)
+  store i32 1, ptr %12, align 4
+  br label %177
+
+112:                                              ; preds = %75
+  %113 = load i64, ptr %11, align 8
+  %114 = icmp ne i64 %113, 128
+  br i1 %114, label %115, label %126
+
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %4, align 8
+  %117 = load ptr, ptr %4, align 8
+  %118 = getelementptr inbounds nuw %struct.AHCIState, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 16
+  %120 = load i32, ptr %5, align 4
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds %struct.AHCIDevice, ptr %119, i64 %121
+  call void @ahci_trigger_irq(ptr noundef %116, ptr noundef %122, i32 noundef 29)
+  %123 = load ptr, ptr %4, align 8
+  %124 = load i32, ptr %5, align 4
+  %125 = load i64, ptr %11, align 8
+  call void @trace_handle_cmd_badmap(ptr noundef %123, i32 noundef %124, i64 noundef %125)
+  br label %170
+
+126:                                              ; preds = %112
+  br label %127
+
+127:                                              ; preds = %126
+  %128 = load i32, ptr @trace_events_enabled_count, align 4
+  %129 = icmp ne i32 %128, 0
+  %130 = xor i1 %129, true
+  %131 = xor i1 %130, true
+  %132 = zext i1 %131 to i32
+  %133 = sext i32 %132 to i64
+  %134 = call i64 @llvm.expect.i64(i64 %133, i64 0)
+  %135 = icmp ne i64 %134, 0
+  br i1 %135, label %136, label %147
+
+136:                                              ; preds = %127
+  %137 = load i16, ptr @_TRACE_HANDLE_CMD_FIS_DUMP_DSTATE, align 2
+  %138 = zext i16 %137 to i32
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %140, label %147
+
+140:                                              ; preds = %136
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #15
+  %141 = load ptr, ptr %10, align 8
+  %142 = call ptr @ahci_pretty_buffer_fis(ptr noundef %141, i32 noundef 128)
+  store ptr %142, ptr %14, align 8
+  %143 = load ptr, ptr %4, align 8
+  %144 = load i32, ptr %5, align 4
+  %145 = load ptr, ptr %14, align 8
+  call void @trace_handle_cmd_fis_dump(ptr noundef %143, i32 noundef %144, ptr noundef %145)
+  %146 = load ptr, ptr %14, align 8
+  call void @g_free(ptr noundef %146)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  br label %147
+
+147:                                              ; preds = %140, %136, %127
+  %148 = load ptr, ptr %10, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 0
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i32
+  switch i32 %151, label %157 [
+    i32 39, label %152
+  ]
+
+152:                                              ; preds = %147
+  %153 = load ptr, ptr %4, align 8
+  %154 = load i32, ptr %5, align 4
+  %155 = load i8, ptr %6, align 1
+  %156 = load ptr, ptr %10, align 8
+  call void @handle_reg_h2d_fis(ptr noundef %153, i32 noundef %154, i8 noundef zeroext %155, ptr noundef %156)
+  br label %169
+
+157:                                              ; preds = %147
+  %158 = load ptr, ptr %4, align 8
+  %159 = load i32, ptr %5, align 4
+  %160 = load ptr, ptr %10, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 0
+  %162 = load i8, ptr %161, align 1
+  %163 = load ptr, ptr %10, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 1
+  %165 = load i8, ptr %164, align 1
+  %166 = load ptr, ptr %10, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 2
+  %168 = load i8, ptr %167, align 1
+  call void @trace_handle_cmd_unhandled_fis(ptr noundef %158, i32 noundef %159, i8 noundef zeroext %162, i8 noundef zeroext %165, i8 noundef zeroext %168)
+  br label %169
+
+169:                                              ; preds = %157, %152
+  br label %170
+
+170:                                              ; preds = %169, %115
+  %171 = load ptr, ptr %4, align 8
+  %172 = getelementptr inbounds nuw %struct.AHCIState, ptr %171, i32 0, i32 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = load ptr, ptr %10, align 8
+  %175 = load i64, ptr %11, align 8
+  %176 = load i64, ptr %11, align 8
+  call void @dma_memory_unmap(ptr noundef %173, ptr noundef %174, i64 noundef %175, i32 noundef 0, i64 noundef %176)
+  store i32 0, ptr %12, align 4
+  br label %177
+
+177:                                              ; preds = %170, %109, %72, %42, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  %178 = load i32, ptr %12, align 4
+  switch i32 %178, label %180 [
+    i32 0, label %179
+    i32 1, label %179
+  ]
+
+179:                                              ; preds = %177, %177
+  ret void
+
+180:                                              ; preds = %177
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_cmd_busy(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_handle_cmd_busy(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_cmd_nolist(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_handle_cmd_nolist(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @get_cmd_header(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8
+  store i8 %1, ptr %6, align 1
+  store i8 %2, ptr %7, align 1
+  %8 = load i8, ptr %6, align 1
+  %9 = zext i8 %8 to i32
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIState, ptr %10, i32 0, i32 6
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp uge i32 %9, %12
+  br i1 %13, label %18, label %14
+
+14:                                               ; preds = %3
+  %15 = load i8, ptr %7, align 1
+  %16 = zext i8 %15 to i32
+  %17 = icmp sge i32 %16, 32
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %14, %3
+  store ptr null, ptr %4, align 8
+  br label %44
+
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIState, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 16
+  %23 = load i8, ptr %6, align 1
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %25, i32 0, i32 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %41
+
+29:                                               ; preds = %19
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIState, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 16
+  %33 = load i8, ptr %6, align 1
+  %34 = zext i8 %33 to i64
+  %35 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %32, i64 %34
+  %36 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %35, i32 0, i32 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = load i8, ptr %7, align 1
+  %39 = zext i8 %38 to i64
+  %40 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %37, i64 %39
+  br label %42
+
+41:                                               ; preds = %19
+  br label %42
+
+42:                                               ; preds = %41, %29
+  %43 = phi ptr [ %40, %29 ], [ null, %41 ]
+  store ptr %43, ptr %4, align 8
+  br label %44
+
+44:                                               ; preds = %42, %18
+  %45 = load ptr, ptr %4, align 8
+  ret ptr %45
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_cmd_badport(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_handle_cmd_badport(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i64 @le64_to_cpu(i64 noundef %0) #7 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  ret i64 %3
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_cmd_badfis(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_handle_cmd_badfis(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_cmd_badmap(ptr noundef %0, i32 noundef %1, i64 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  call void @_nocheck__trace_handle_cmd_badmap(ptr noundef %7, i32 noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @ahci_pretty_buffer_fis(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #15
+  store i32 0, ptr %5, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %7 = call ptr @g_string_new(ptr noundef @.str.115)
+  store ptr %7, ptr %6, align 8
+  store i32 0, ptr %5, align 4
+  br label %8
+
+8:                                                ; preds = %27, %2
+  %9 = load i32, ptr %5, align 4
+  %10 = load i32, ptr %4, align 4
+  %11 = icmp slt i32 %9, %10
+  br i1 %11, label %12, label %30
+
+12:                                               ; preds = %8
+  %13 = load i32, ptr %5, align 4
+  %14 = and i32 %13, 15
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %5, align 4
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %17, ptr noundef @.str.116, i32 noundef %18)
+  br label %19
+
+19:                                               ; preds = %16, %12
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i32, ptr %5, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i32
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %20, ptr noundef @.str.117, i32 noundef %26)
+  br label %27
+
+27:                                               ; preds = %19
+  %28 = load i32, ptr %5, align 4
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %5, align 4
+  br label %8, !llvm.loop !20
+
+30:                                               ; preds = %8
+  %31 = load ptr, ptr %6, align 8
+  %32 = call ptr @g_string_append_c_inline(ptr noundef %31, i8 noundef signext 10)
+  %33 = load ptr, ptr %6, align 8
+  %34 = call ptr @g_string_free(ptr noundef %33, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #15
+  ret ptr %34
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_cmd_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load ptr, ptr %6, align 8
+  call void @_nocheck__trace_handle_cmd_fis_dump(ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @handle_reg_h2d_fis(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i16, align 2
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i8 %2, ptr %7, align 1
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIState, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 16
+  %18 = load i32, ptr %6, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds %struct.AHCIDevice, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.IDEBus, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [2 x %struct.IDEState], ptr %22, i64 0, i64 0
+  store ptr %23, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = trunc i32 %25 to i8
+  %27 = load i8, ptr %7, align 1
+  %28 = call ptr @get_cmd_header(ptr noundef %24, i8 noundef zeroext %26, i8 noundef zeroext %27)
+  store ptr %28, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds nuw %struct.AHCIState, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 16
+  %32 = load i32, ptr %6, align 4
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds %struct.AHCIDevice, ptr %31, i64 %33
+  store ptr %34, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #15
+  %35 = load ptr, ptr %10, align 8
+  %36 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %35, i32 0, i32 0
+  %37 = load i16, ptr %36, align 1
+  %38 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %37)
+  store i16 %38, ptr %12, align 2
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i32
+  %43 = and i32 %42, 15
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %57
+
+45:                                               ; preds = %4
+  %46 = load ptr, ptr %5, align 8
+  %47 = load i32, ptr %6, align 4
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 2
+  %53 = load i8, ptr %52, align 1
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 3
+  %56 = load i8, ptr %55, align 1
+  call void @trace_handle_reg_h2d_fis_pmp(ptr noundef %46, i32 noundef %47, i8 noundef signext %50, i8 noundef signext %53, i8 noundef signext %56)
+  store i32 1, ptr %13, align 4
+  br label %259
+
+57:                                               ; preds = %4
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = and i32 %61, 112
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %76
+
+64:                                               ; preds = %57
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %6, align 4
+  %67 = load ptr, ptr %8, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 2
+  %72 = load i8, ptr %71, align 1
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 3
+  %75 = load i8, ptr %74, align 1
+  call void @trace_handle_reg_h2d_fis_res(ptr noundef %65, i32 noundef %66, i8 noundef signext %69, i8 noundef signext %72, i8 noundef signext %75)
+  store i32 1, ptr %13, align 4
+  br label %259
+
+76:                                               ; preds = %57
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = and i32 %80, 128
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %128, label %83
+
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds nuw %struct.AHCIState, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 16
+  %87 = load i32, ptr %6, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds %struct.AHCIDevice, ptr %86, i64 %88
+  %90 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %89, i32 0, i32 3
+  %91 = load i32, ptr %90, align 4
+  switch i32 %91, label %127 [
+    i32 0, label %92
+    i32 1, label %116
+  ]
+
+92:                                               ; preds = %83
+  %93 = load ptr, ptr %8, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 15
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i32
+  %97 = and i32 %96, 4
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %115
+
+99:                                               ; preds = %92
+  %100 = load ptr, ptr %5, align 8
+  %101 = getelementptr inbounds nuw %struct.AHCIState, ptr %100, i32 0, i32 0
+  %102 = load ptr, ptr %101, align 16
+  %103 = load i32, ptr %6, align 4
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds %struct.AHCIDevice, ptr %102, i64 %104
+  %106 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %105, i32 0, i32 3
+  store i32 1, ptr %106, align 4
+  %107 = load i16, ptr %12, align 2
+  %108 = zext i16 %107 to i32
+  %109 = and i32 %108, 1024
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %114
+
+111:                                              ; preds = %99
+  %112 = load ptr, ptr %11, align 8
+  %113 = load i8, ptr %7, align 1
+  call void @ahci_clear_cmd_issue(ptr noundef %112, i8 noundef zeroext %113)
+  br label %114
+
+114:                                              ; preds = %111, %99
+  br label %115
+
+115:                                              ; preds = %114, %92
+  br label %127
+
+116:                                              ; preds = %83
+  %117 = load ptr, ptr %8, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 15
+  %119 = load i8, ptr %118, align 1
+  %120 = zext i8 %119 to i32
+  %121 = and i32 %120, 4
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %126, label %123
+
+123:                                              ; preds = %116
+  %124 = load ptr, ptr %5, align 8
+  %125 = load i32, ptr %6, align 4
+  call void @ahci_reset_port(ptr noundef %124, i32 noundef %125)
+  br label %126
+
+126:                                              ; preds = %123, %116
+  br label %127
+
+127:                                              ; preds = %83, %126, %115
+  store i32 1, ptr %13, align 4
+  br label %259
+
+128:                                              ; preds = %76
+  %129 = load ptr, ptr %8, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 2
+  %131 = load i8, ptr %130, align 1
+  %132 = call i32 @is_ncq(i8 noundef zeroext %131)
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %139
+
+134:                                              ; preds = %128
+  %135 = load ptr, ptr %5, align 8
+  %136 = load i32, ptr %6, align 4
+  %137 = load ptr, ptr %8, align 8
+  %138 = load i8, ptr %7, align 1
+  call void @process_ncq_command(ptr noundef %135, i32 noundef %136, ptr noundef %137, i8 noundef zeroext %138)
+  store i32 1, ptr %13, align 4
+  br label %259
+
+139:                                              ; preds = %128
+  %140 = load ptr, ptr %8, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 3
+  %142 = load i8, ptr %141, align 1
+  %143 = load ptr, ptr %9, align 8
+  %144 = getelementptr inbounds nuw %struct.IDEState, ptr %143, i32 0, i32 18
+  store i8 %142, ptr %144, align 8
+  %145 = load ptr, ptr %8, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %147 = load i8, ptr %146, align 1
+  %148 = load ptr, ptr %9, align 8
+  %149 = getelementptr inbounds nuw %struct.IDEState, ptr %148, i32 0, i32 21
+  store i8 %147, ptr %149, align 8
+  %150 = load ptr, ptr %8, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 5
+  %152 = load i8, ptr %151, align 1
+  %153 = load ptr, ptr %9, align 8
+  %154 = getelementptr inbounds nuw %struct.IDEState, ptr %153, i32 0, i32 22
+  store i8 %152, ptr %154, align 1
+  %155 = load ptr, ptr %8, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 6
+  %157 = load i8, ptr %156, align 1
+  %158 = load ptr, ptr %9, align 8
+  %159 = getelementptr inbounds nuw %struct.IDEState, ptr %158, i32 0, i32 23
+  store i8 %157, ptr %159, align 2
+  %160 = load ptr, ptr %8, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 7
+  %162 = load i8, ptr %161, align 1
+  %163 = load ptr, ptr %9, align 8
+  %164 = getelementptr inbounds nuw %struct.IDEState, ptr %163, i32 0, i32 29
+  store i8 %162, ptr %164, align 8
+  %165 = load ptr, ptr %8, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %167 = load i8, ptr %166, align 1
+  %168 = load ptr, ptr %9, align 8
+  %169 = getelementptr inbounds nuw %struct.IDEState, ptr %168, i32 0, i32 26
+  store i8 %167, ptr %169, align 1
+  %170 = load ptr, ptr %8, align 8
+  %171 = getelementptr inbounds i8, ptr %170, i64 9
+  %172 = load i8, ptr %171, align 1
+  %173 = load ptr, ptr %9, align 8
+  %174 = getelementptr inbounds nuw %struct.IDEState, ptr %173, i32 0, i32 27
+  store i8 %172, ptr %174, align 2
+  %175 = load ptr, ptr %8, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 10
+  %177 = load i8, ptr %176, align 1
+  %178 = load ptr, ptr %9, align 8
+  %179 = getelementptr inbounds nuw %struct.IDEState, ptr %178, i32 0, i32 28
+  store i8 %177, ptr %179, align 1
+  %180 = load ptr, ptr %8, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 11
+  %182 = load i8, ptr %181, align 1
+  %183 = load ptr, ptr %9, align 8
+  %184 = getelementptr inbounds nuw %struct.IDEState, ptr %183, i32 0, i32 24
+  store i8 %182, ptr %184, align 1
+  %185 = load ptr, ptr %8, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 13
+  %187 = load i8, ptr %186, align 1
+  %188 = zext i8 %187 to i32
+  %189 = shl i32 %188, 8
+  %190 = load ptr, ptr %8, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 12
+  %192 = load i8, ptr %191, align 1
+  %193 = zext i8 %192 to i32
+  %194 = or i32 %189, %193
+  %195 = sext i32 %194 to i64
+  %196 = trunc i64 %195 to i32
+  %197 = load ptr, ptr %9, align 8
+  %198 = getelementptr inbounds nuw %struct.IDEState, ptr %197, i32 0, i32 20
+  store i32 %196, ptr %198, align 4
+  %199 = load i16, ptr %12, align 2
+  %200 = zext i16 %199 to i32
+  %201 = and i32 %200, 32
+  %202 = icmp ne i32 %201, 0
+  br i1 %202, label %203, label %232
+
+203:                                              ; preds = %139
+  %204 = load ptr, ptr %9, align 8
+  %205 = getelementptr inbounds nuw %struct.IDEState, ptr %204, i32 0, i32 59
+  %206 = load ptr, ptr %205, align 8
+  %207 = load ptr, ptr %8, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 64
+  %209 = call ptr @memcpy.inline(ptr noundef %206, ptr noundef %208, i64 noundef 16) #15
+  %210 = load i32, ptr @trace_events_enabled_count, align 4
+  %211 = icmp ne i32 %210, 0
+  %212 = xor i1 %211, true
+  %213 = xor i1 %212, true
+  %214 = zext i1 %213 to i32
+  %215 = sext i32 %214 to i64
+  %216 = call i64 @llvm.expect.i64(i64 %215, i64 0)
+  %217 = icmp ne i64 %216, 0
+  br i1 %217, label %218, label %231
+
+218:                                              ; preds = %203
+  %219 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2
+  %220 = zext i16 %219 to i32
+  %221 = icmp ne i32 %220, 0
+  br i1 %221, label %222, label %231
+
+222:                                              ; preds = %218
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #15
+  %223 = load ptr, ptr %9, align 8
+  %224 = getelementptr inbounds nuw %struct.IDEState, ptr %223, i32 0, i32 59
+  %225 = load ptr, ptr %224, align 8
+  %226 = call ptr @ahci_pretty_buffer_fis(ptr noundef %225, i32 noundef 16)
+  store ptr %226, ptr %14, align 8
+  %227 = load ptr, ptr %5, align 8
+  %228 = load i32, ptr %6, align 4
+  %229 = load ptr, ptr %14, align 8
+  call void @trace_handle_reg_h2d_fis_dump(ptr noundef %227, i32 noundef %228, ptr noundef %229)
+  %230 = load ptr, ptr %14, align 8
+  call void @g_free(ptr noundef %230)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  br label %231
+
+231:                                              ; preds = %222, %218, %203
+  br label %232
+
+232:                                              ; preds = %231, %139
+  %233 = load ptr, ptr %9, align 8
+  %234 = getelementptr inbounds nuw %struct.IDEState, ptr %233, i32 0, i32 19
+  store i8 0, ptr %234, align 1
+  %235 = load ptr, ptr %5, align 8
+  %236 = getelementptr inbounds nuw %struct.AHCIState, ptr %235, i32 0, i32 0
+  %237 = load ptr, ptr %236, align 16
+  %238 = load i32, ptr %6, align 4
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds %struct.AHCIDevice, ptr %237, i64 %239
+  %241 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %240, i32 0, i32 10
+  store i8 0, ptr %241, align 8
+  %242 = load ptr, ptr %10, align 8
+  %243 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %242, i32 0, i32 2
+  store i32 0, ptr %243, align 1
+  %244 = load i8, ptr %7, align 1
+  %245 = zext i8 %244 to i32
+  %246 = load ptr, ptr %11, align 8
+  %247 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %246, i32 0, i32 11
+  store i32 %245, ptr %247, align 4
+  %248 = load ptr, ptr %5, align 8
+  %249 = getelementptr inbounds nuw %struct.AHCIState, ptr %248, i32 0, i32 0
+  %250 = load ptr, ptr %249, align 16
+  %251 = load i32, ptr %6, align 4
+  %252 = sext i32 %251 to i64
+  %253 = getelementptr inbounds %struct.AHCIDevice, ptr %250, i64 %252
+  %254 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %253, i32 0, i32 1
+  %255 = load ptr, ptr %8, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 2
+  %257 = load i8, ptr %256, align 1
+  %258 = zext i8 %257 to i32
+  call void @ide_bus_exec_cmd(ptr noundef %254, i32 noundef %258)
+  store i32 0, ptr %13, align 4
+  br label %259
+
+259:                                              ; preds = %232, %134, %127, %64, %45
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  %260 = load i32, ptr %13, align 4
+  switch i32 %260, label %262 [
+    i32 0, label %261
+    i32 1, label %261
+  ]
+
+261:                                              ; preds = %259, %259
+  ret void
+
+262:                                              ; preds = %259
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_cmd_unhandled_fis(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i8 %3, ptr %9, align 1
+  store i8 %4, ptr %10, align 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load i8, ptr %8, align 1
+  %14 = load i8, ptr %9, align 1
+  %15 = load i8, ptr %10, align 1
+  call void @_nocheck__trace_handle_cmd_unhandled_fis(ptr noundef %11, i32 noundef %12, i8 noundef zeroext %13, i8 noundef zeroext %14, i8 noundef zeroext %15)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_cmd_busy(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_HANDLE_CMD_BUSY_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.105, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.106, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_cmd_nolist(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_HANDLE_CMD_NOLIST_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.107, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.108, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_cmd_badport(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_HANDLE_CMD_BADPORT_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.109, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.110, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_cmd_badfis(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_HANDLE_CMD_BADFIS_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.111, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.112, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_cmd_badmap(ptr noundef %0, i32 noundef %1, i64 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_HANDLE_CMD_BADMAP_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i64, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.113, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i64 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %5, align 4
+  %38 = load i64, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.114, ptr noundef %36, i32 noundef %37, i64 noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
+  ret void
+}
+
+declare ptr @g_string_new(ptr noundef) #1
+
+declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @g_string_append_c_inline(ptr noundef %0, i8 noundef signext %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._GString, ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %8 = add i64 %7, 1
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct._GString, ptr %9, i32 0, i32 2
+  %11 = load i64, ptr %10, align 8
+  %12 = icmp ult i64 %8, %11
+  br i1 %12, label %13, label %30
+
+13:                                               ; preds = %2
+  %14 = load i8, ptr %4, align 1
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct._GString, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct._GString, ptr %18, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %19, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %20
+  store i8 %14, ptr %22, align 1
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %struct._GString, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct._GString, ptr %26, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
+  store i8 0, ptr %29, align 1
+  br label %34
+
+30:                                               ; preds = %2
+  %31 = load ptr, ptr %3, align 8
+  %32 = load i8, ptr %4, align 1
+  %33 = call ptr @g_string_insert_c(ptr noundef %31, i64 noundef -1, i8 noundef signext %32)
+  br label %34
+
+34:                                               ; preds = %30, %13
+  %35 = load ptr, ptr %3, align 8
+  ret ptr %35
+}
+
+declare ptr @g_string_free(ptr noundef, i32 noundef) #1
+
+declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_cmd_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store ptr %2, ptr %6, align 8
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_HANDLE_CMD_FIS_DUMP_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.118, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, ptr noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %5, align 4
+  %38 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.119, ptr noundef %36, i32 noundef %37, ptr noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal zeroext i16 @le16_to_cpu(i16 noundef zeroext %0) #7 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2
+  %3 = load i16, ptr %2, align 2
+  ret i16 %3
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_reg_h2d_fis_pmp(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i8 %3, ptr %9, align 1
+  store i8 %4, ptr %10, align 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load i8, ptr %8, align 1
+  %14 = load i8, ptr %9, align 1
+  %15 = load i8, ptr %10, align 1
+  call void @_nocheck__trace_handle_reg_h2d_fis_pmp(ptr noundef %11, i32 noundef %12, i8 noundef signext %13, i8 noundef signext %14, i8 noundef signext %15)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_reg_h2d_fis_res(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i8 %3, ptr %9, align 1
+  store i8 %4, ptr %10, align 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load i8, ptr %8, align 1
+  %14 = load i8, ptr %9, align 1
+  %15 = load i8, ptr %10, align 1
+  call void @_nocheck__trace_handle_reg_h2d_fis_res(ptr noundef %11, i32 noundef %12, i8 noundef signext %13, i8 noundef signext %14, i8 noundef signext %15)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_clear_cmd_issue(ptr noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.IDEBus, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds [2 x %struct.IDEState], ptr %8, i64 0, i64 0
+  store ptr %9, ptr %5, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct.IDEState, ptr %10, i32 0, i32 30
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = and i32 %13, 1
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %33, label %16
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %struct.IDEState, ptr %17, i32 0, i32 30
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = and i32 %20, 136
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %33, label %23
+
+23:                                               ; preds = %16
+  %24 = load i8, ptr %4, align 1
+  %25 = zext i8 %24 to i32
+  %26 = shl i32 1, %25
+  %27 = xor i32 %26, -1
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %28, i32 0, i32 5
+  %30 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %29, i32 0, i32 14
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %31, %27
+  store i32 %32, ptr %30, align 4
+  br label %33
+
+33:                                               ; preds = %23, %16, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @is_ncq(i8 noundef zeroext %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i8, align 1
+  store i8 %0, ptr %3, align 1
+  %4 = load i8, ptr %3, align 1
+  %5 = zext i8 %4 to i32
+  switch i32 %5, label %7 [
+    i32 96, label %6
+    i32 97, label %6
+    i32 99, label %6
+    i32 101, label %6
+    i32 100, label %6
+  ]
+
+6:                                                ; preds = %1, %1, %1, %1, %1
+  store i32 1, ptr %2, align 4
+  br label %8
+
+7:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %8
+
+8:                                                ; preds = %7, %6
+  %9 = load i32, ptr %2, align 4
+  ret i32 %9
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @process_ncq_command(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i8 %3, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %struct.AHCIState, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 16
+  %20 = load i32, ptr %6, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %struct.AHCIDevice, ptr %19, i64 %21
+  store ptr %22, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %23 = load ptr, ptr %7, align 8
+  store ptr %23, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #15
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds nuw %struct.NCQFrame, ptr %24, i32 0, i32 12
+  %26 = load i8, ptr %25, align 1
+  %27 = zext i8 %26 to i32
+  %28 = ashr i32 %27, 3
+  %29 = trunc i32 %28 to i8
+  store i8 %29, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #15
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %30, i32 0, i32 14
+  %32 = load i8, ptr %11, align 1
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr inbounds nuw [32 x %struct.NCQTransferState], ptr %31, i64 0, i64 %33
+  store ptr %34, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #15
+  store i64 0, ptr %13, align 8, !annotation !4
+  br label %35
+
+35:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #15
+  store i32 0, ptr %14, align 4, !annotation !4
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds nuw %struct.NCQFrame, ptr %36, i32 0, i32 2
+  %38 = load i8, ptr %37, align 1
+  %39 = call i32 @is_ncq(i8 noundef zeroext %38)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %35
+  store i32 1, ptr %14, align 4
+  br label %43
+
+42:                                               ; preds = %35
+  store i32 0, ptr %14, align 4
+  br label %43
+
+43:                                               ; preds = %42, %41
+  %44 = load i32, ptr %14, align 4
+  store i32 %44, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #15
+  %45 = load i32, ptr %15, align 4
+  %46 = sext i32 %45 to i64
+  %47 = call i64 @llvm.expect.i64(i64 %46, i64 1)
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %43
+  br label %51
+
+50:                                               ; preds = %43
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.3, i32 noundef 1102, ptr noundef @__func__.process_ncq_command, ptr noundef @.str.124) #19
+  unreachable
+
+51:                                               ; preds = %49
+  br label %52
+
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %12, align 8
+  %55 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %54, i32 0, i32 10
+  %56 = load i8, ptr %55, align 1, !range !11, !noundef !12
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %73
+
+58:                                               ; preds = %53
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 2048)
+  %61 = xor i1 %60, true
+  %62 = xor i1 %61, true
+  %63 = zext i1 %62 to i32
+  %64 = sext i32 %63 to i64
+  %65 = call i64 @llvm.expect.i64(i64 %64, i64 0)
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %70
+
+67:                                               ; preds = %59
+  %68 = load i8, ptr %11, align 1
+  %69 = zext i8 %68 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.125, ptr noundef @__func__.process_ncq_command, i32 noundef %69)
+  br label %70
+
+70:                                               ; preds = %67, %59
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71
+  store i32 1, ptr %16, align 4
+  br label %302
+
+73:                                               ; preds = %53
+  %74 = load ptr, ptr %9, align 8
+  %75 = load i8, ptr %8, align 1
+  call void @ahci_clear_cmd_issue(ptr noundef %74, i8 noundef zeroext %75)
+  %76 = load ptr, ptr %9, align 8
+  %77 = call zeroext i1 @ahci_write_fis_d2h(ptr noundef %76, i1 noundef zeroext false)
+  %78 = load ptr, ptr %12, align 8
+  %79 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %78, i32 0, i32 10
+  store i8 1, ptr %79, align 1
+  %80 = load ptr, ptr %9, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %81, i32 0, i32 0
+  store ptr %80, ptr %82, align 8
+  %83 = load i8, ptr %8, align 1
+  %84 = load ptr, ptr %12, align 8
+  %85 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %84, i32 0, i32 9
+  store i8 %83, ptr %85, align 2
+  %86 = load ptr, ptr %9, align 8
+  %87 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %86, i32 0, i32 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i8, ptr %8, align 1
+  %90 = zext i8 %89 to i64
+  %91 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %88, i64 %90
+  %92 = load ptr, ptr %12, align 8
+  %93 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %92, i32 0, i32 2
+  store ptr %91, ptr %93, align 8
+  %94 = load ptr, ptr %10, align 8
+  %95 = getelementptr inbounds nuw %struct.NCQFrame, ptr %94, i32 0, i32 2
+  %96 = load i8, ptr %95, align 1
+  %97 = load ptr, ptr %12, align 8
+  %98 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %97, i32 0, i32 8
+  store i8 %96, ptr %98, align 1
+  %99 = load ptr, ptr %10, align 8
+  %100 = getelementptr inbounds nuw %struct.NCQFrame, ptr %99, i32 0, i32 10
+  %101 = load i8, ptr %100, align 1
+  %102 = zext i8 %101 to i64
+  %103 = shl i64 %102, 40
+  %104 = load ptr, ptr %10, align 8
+  %105 = getelementptr inbounds nuw %struct.NCQFrame, ptr %104, i32 0, i32 9
+  %106 = load i8, ptr %105, align 1
+  %107 = zext i8 %106 to i64
+  %108 = shl i64 %107, 32
+  %109 = or i64 %103, %108
+  %110 = load ptr, ptr %10, align 8
+  %111 = getelementptr inbounds nuw %struct.NCQFrame, ptr %110, i32 0, i32 8
+  %112 = load i8, ptr %111, align 1
+  %113 = zext i8 %112 to i64
+  %114 = shl i64 %113, 24
+  %115 = or i64 %109, %114
+  %116 = load ptr, ptr %10, align 8
+  %117 = getelementptr inbounds nuw %struct.NCQFrame, ptr %116, i32 0, i32 6
+  %118 = load i8, ptr %117, align 1
+  %119 = zext i8 %118 to i64
+  %120 = shl i64 %119, 16
+  %121 = or i64 %115, %120
+  %122 = load ptr, ptr %10, align 8
+  %123 = getelementptr inbounds nuw %struct.NCQFrame, ptr %122, i32 0, i32 5
+  %124 = load i8, ptr %123, align 1
+  %125 = zext i8 %124 to i64
+  %126 = shl i64 %125, 8
+  %127 = or i64 %121, %126
+  %128 = load ptr, ptr %10, align 8
+  %129 = getelementptr inbounds nuw %struct.NCQFrame, ptr %128, i32 0, i32 4
+  %130 = load i8, ptr %129, align 1
+  %131 = zext i8 %130 to i64
+  %132 = or i64 %127, %131
+  %133 = load ptr, ptr %12, align 8
+  %134 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %133, i32 0, i32 6
+  store i64 %132, ptr %134, align 8
+  %135 = load i8, ptr %11, align 1
+  %136 = load ptr, ptr %12, align 8
+  %137 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %136, i32 0, i32 7
+  store i8 %135, ptr %137, align 8
+  %138 = load i8, ptr %11, align 1
+  %139 = zext i8 %138 to i32
+  %140 = load i8, ptr %8, align 1
+  %141 = zext i8 %140 to i32
+  %142 = icmp ne i32 %139, %141
+  br i1 %142, label %143, label %148
+
+143:                                              ; preds = %73
+  %144 = load ptr, ptr %5, align 8
+  %145 = load i32, ptr %6, align 4
+  %146 = load i8, ptr %11, align 1
+  %147 = load i8, ptr %8, align 1
+  call void @trace_process_ncq_command_mismatch(ptr noundef %144, i32 noundef %145, i8 noundef zeroext %146, i8 noundef zeroext %147)
+  br label %148
+
+148:                                              ; preds = %143, %73
+  %149 = load ptr, ptr %10, align 8
+  %150 = getelementptr inbounds nuw %struct.NCQFrame, ptr %149, i32 0, i32 16
+  %151 = load i8, ptr %150, align 1
+  %152 = zext i8 %151 to i32
+  %153 = icmp ne i32 %152, 0
+  br i1 %153, label %172, label %154
+
+154:                                              ; preds = %148
+  %155 = load ptr, ptr %10, align 8
+  %156 = getelementptr inbounds nuw %struct.NCQFrame, ptr %155, i32 0, i32 17
+  %157 = load i8, ptr %156, align 1
+  %158 = zext i8 %157 to i32
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %172, label %160
+
+160:                                              ; preds = %154
+  %161 = load ptr, ptr %10, align 8
+  %162 = getelementptr inbounds nuw %struct.NCQFrame, ptr %161, i32 0, i32 18
+  %163 = load i8, ptr %162, align 1
+  %164 = zext i8 %163 to i32
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %172, label %166
+
+166:                                              ; preds = %160
+  %167 = load ptr, ptr %10, align 8
+  %168 = getelementptr inbounds nuw %struct.NCQFrame, ptr %167, i32 0, i32 19
+  %169 = load i8, ptr %168, align 1
+  %170 = zext i8 %169 to i32
+  %171 = icmp ne i32 %170, 0
+  br i1 %171, label %172, label %176
+
+172:                                              ; preds = %166, %160, %154, %148
+  %173 = load ptr, ptr %5, align 8
+  %174 = load i32, ptr %6, align 4
+  %175 = load i8, ptr %11, align 1
+  call void @trace_process_ncq_command_aux(ptr noundef %173, i32 noundef %174, i8 noundef zeroext %175)
+  br label %176
+
+176:                                              ; preds = %172, %166
+  %177 = load ptr, ptr %10, align 8
+  %178 = getelementptr inbounds nuw %struct.NCQFrame, ptr %177, i32 0, i32 13
+  %179 = load i8, ptr %178, align 1
+  %180 = zext i8 %179 to i32
+  %181 = icmp ne i32 %180, 0
+  br i1 %181, label %188, label %182
+
+182:                                              ; preds = %176
+  %183 = load ptr, ptr %10, align 8
+  %184 = getelementptr inbounds nuw %struct.NCQFrame, ptr %183, i32 0, i32 14
+  %185 = load i8, ptr %184, align 1
+  %186 = zext i8 %185 to i32
+  %187 = icmp ne i32 %186, 0
+  br i1 %187, label %188, label %192
+
+188:                                              ; preds = %182, %176
+  %189 = load ptr, ptr %5, align 8
+  %190 = load i32, ptr %6, align 4
+  %191 = load i8, ptr %11, align 1
+  call void @trace_process_ncq_command_prioicc(ptr noundef %189, i32 noundef %190, i8 noundef zeroext %191)
+  br label %192
+
+192:                                              ; preds = %188, %182
+  %193 = load ptr, ptr %10, align 8
+  %194 = getelementptr inbounds nuw %struct.NCQFrame, ptr %193, i32 0, i32 7
+  %195 = load i8, ptr %194, align 1
+  %196 = zext i8 %195 to i32
+  %197 = and i32 %196, 128
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %199, label %203
+
+199:                                              ; preds = %192
+  %200 = load ptr, ptr %5, align 8
+  %201 = load i32, ptr %6, align 4
+  %202 = load i8, ptr %11, align 1
+  call void @trace_process_ncq_command_fua(ptr noundef %200, i32 noundef %201, i8 noundef zeroext %202)
+  br label %203
+
+203:                                              ; preds = %199, %192
+  %204 = load ptr, ptr %10, align 8
+  %205 = getelementptr inbounds nuw %struct.NCQFrame, ptr %204, i32 0, i32 12
+  %206 = load i8, ptr %205, align 1
+  %207 = zext i8 %206 to i32
+  %208 = and i32 %207, 1
+  %209 = icmp ne i32 %208, 0
+  br i1 %209, label %210, label %214
+
+210:                                              ; preds = %203
+  %211 = load ptr, ptr %5, align 8
+  %212 = load i32, ptr %6, align 4
+  %213 = load i8, ptr %11, align 1
+  call void @trace_process_ncq_command_rarc(ptr noundef %211, i32 noundef %212, i8 noundef zeroext %213)
+  br label %214
+
+214:                                              ; preds = %210, %203
+  %215 = load ptr, ptr %10, align 8
+  %216 = getelementptr inbounds nuw %struct.NCQFrame, ptr %215, i32 0, i32 11
+  %217 = load i8, ptr %216, align 1
+  %218 = zext i8 %217 to i32
+  %219 = shl i32 %218, 8
+  %220 = load ptr, ptr %10, align 8
+  %221 = getelementptr inbounds nuw %struct.NCQFrame, ptr %220, i32 0, i32 3
+  %222 = load i8, ptr %221, align 1
+  %223 = zext i8 %222 to i32
+  %224 = or i32 %219, %223
+  %225 = load ptr, ptr %12, align 8
+  %226 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %225, i32 0, i32 5
+  store i32 %224, ptr %226, align 8
+  %227 = load ptr, ptr %12, align 8
+  %228 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %227, i32 0, i32 5
+  %229 = load i32, ptr %228, align 8
+  %230 = icmp ne i32 %229, 0
+  br i1 %230, label %234, label %231
+
+231:                                              ; preds = %214
+  %232 = load ptr, ptr %12, align 8
+  %233 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %232, i32 0, i32 5
+  store i32 65536, ptr %233, align 8
+  br label %234
+
+234:                                              ; preds = %231, %214
+  %235 = load ptr, ptr %12, align 8
+  %236 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %235, i32 0, i32 5
+  %237 = load i32, ptr %236, align 8
+  %238 = zext i32 %237 to i64
+  %239 = mul i64 %238, 512
+  store i64 %239, ptr %13, align 8
+  %240 = load ptr, ptr %9, align 8
+  %241 = load ptr, ptr %12, align 8
+  %242 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %241, i32 0, i32 3
+  %243 = load ptr, ptr %12, align 8
+  %244 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %243, i32 0, i32 2
+  %245 = load ptr, ptr %244, align 8
+  %246 = load i64, ptr %13, align 8
+  %247 = call i32 @ahci_populate_sglist(ptr noundef %240, ptr noundef %242, ptr noundef %245, i64 noundef %246, i64 noundef 0)
+  %248 = load ptr, ptr %12, align 8
+  %249 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %248, i32 0, i32 3
+  %250 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %249, i32 0, i32 3
+  %251 = load i64, ptr %250, align 8
+  %252 = load i64, ptr %13, align 8
+  %253 = icmp ult i64 %251, %252
+  br i1 %253, label %254, label %265
+
+254:                                              ; preds = %234
+  %255 = load ptr, ptr %12, align 8
+  %256 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %255, i32 0, i32 3
+  %257 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %256, i32 0, i32 3
+  %258 = load i64, ptr %257, align 8
+  %259 = load i64, ptr %13, align 8
+  call void (ptr, ...) @error_report(ptr noundef @.str.126, i64 noundef %258, i64 noundef %259)
+  %260 = load ptr, ptr %12, align 8
+  call void @ncq_err(ptr noundef %260)
+  %261 = load ptr, ptr %9, align 8
+  %262 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %261, i32 0, i32 6
+  %263 = load ptr, ptr %262, align 8
+  %264 = load ptr, ptr %9, align 8
+  call void @ahci_trigger_irq(ptr noundef %263, ptr noundef %264, i32 noundef 24)
+  store i32 1, ptr %16, align 4
+  br label %302
+
+265:                                              ; preds = %234
+  %266 = load ptr, ptr %12, align 8
+  %267 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %266, i32 0, i32 3
+  %268 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %267, i32 0, i32 3
+  %269 = load i64, ptr %268, align 8
+  %270 = load i64, ptr %13, align 8
+  %271 = icmp ne i64 %269, %270
+  br i1 %271, label %272, label %281
+
+272:                                              ; preds = %265
+  %273 = load ptr, ptr %5, align 8
+  %274 = load i32, ptr %6, align 4
+  %275 = load i8, ptr %11, align 1
+  %276 = load ptr, ptr %12, align 8
+  %277 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %276, i32 0, i32 3
+  %278 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %277, i32 0, i32 3
+  %279 = load i64, ptr %278, align 8
+  %280 = load i64, ptr %13, align 8
+  call void @trace_process_ncq_command_large(ptr noundef %273, i32 noundef %274, i8 noundef zeroext %275, i64 noundef %279, i64 noundef %280)
+  br label %281
+
+281:                                              ; preds = %272, %265
+  br label %282
+
+282:                                              ; preds = %281
+  %283 = load ptr, ptr %5, align 8
+  %284 = load i32, ptr %6, align 4
+  %285 = load i8, ptr %11, align 1
+  %286 = load ptr, ptr %10, align 8
+  %287 = getelementptr inbounds nuw %struct.NCQFrame, ptr %286, i32 0, i32 2
+  %288 = load i8, ptr %287, align 1
+  %289 = load ptr, ptr %12, align 8
+  %290 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %289, i32 0, i32 6
+  %291 = load i64, ptr %290, align 8
+  %292 = load ptr, ptr %12, align 8
+  %293 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %292, i32 0, i32 6
+  %294 = load i64, ptr %293, align 8
+  %295 = load ptr, ptr %12, align 8
+  %296 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %295, i32 0, i32 5
+  %297 = load i32, ptr %296, align 8
+  %298 = zext i32 %297 to i64
+  %299 = add i64 %294, %298
+  %300 = sub i64 %299, 1
+  call void @trace_process_ncq_command(ptr noundef %283, i32 noundef %284, i8 noundef zeroext %285, i8 noundef zeroext %288, i64 noundef %291, i64 noundef %300)
+  %301 = load ptr, ptr %12, align 8
+  call void @execute_ncq_command(ptr noundef %301)
+  store i32 0, ptr %16, align 4
+  br label %302
+
+302:                                              ; preds = %282, %254, %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  %303 = load i32, ptr %16, align 4
+  switch i32 %303, label %305 [
+    i32 0, label %304
+    i32 1, label %304
+  ]
+
+304:                                              ; preds = %302, %302
+  ret void
+
+305:                                              ; preds = %302
+  unreachable
+}
+
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias nonnull %0, ptr noalias nonnull %1, i64 %2) #12 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 false)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #15
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load ptr, ptr %6, align 8
+  call void @_nocheck__trace_handle_reg_h2d_fis_dump(ptr noundef %7, i32 noundef %8, ptr noundef %9)
+  ret void
+}
+
+declare void @ide_bus_exec_cmd(ptr noundef, i32 noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_reg_h2d_fis_pmp(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i8 %3, ptr %9, align 1
+  store i8 %4, ptr %10, align 1
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %54
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_PMP_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %54
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %54
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %44
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load i8, ptr %8, align 1
+  %39 = sext i8 %38 to i32
+  %40 = load i8, ptr %9, align 1
+  %41 = sext i8 %40 to i32
+  %42 = load i8, ptr %10, align 1
+  %43 = sext i8 %42 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.120, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %53
+
+44:                                               ; preds = %26
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %7, align 4
+  %47 = load i8, ptr %8, align 1
+  %48 = sext i8 %47 to i32
+  %49 = load i8, ptr %9, align 1
+  %50 = sext i8 %49 to i32
+  %51 = load i8, ptr %10, align 1
+  %52 = sext i8 %51 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.121, ptr noundef %45, i32 noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef %52)
+  br label %53
+
+53:                                               ; preds = %44, %29
+  br label %54
+
+54:                                               ; preds = %53, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_reg_h2d_fis_res(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i8 %3, ptr %9, align 1
+  store i8 %4, ptr %10, align 1
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %54
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_RES_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %54
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %54
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %44
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load i8, ptr %8, align 1
+  %39 = sext i8 %38 to i32
+  %40 = load i8, ptr %9, align 1
+  %41 = sext i8 %40 to i32
+  %42 = load i8, ptr %10, align 1
+  %43 = sext i8 %42 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.122, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %53
+
+44:                                               ; preds = %26
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %7, align 4
+  %47 = load i8, ptr %8, align 1
+  %48 = sext i8 %47 to i32
+  %49 = load i8, ptr %9, align 1
+  %50 = sext i8 %49 to i32
+  %51 = load i8, ptr %10, align 1
+  %52 = sext i8 %51 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.123, ptr noundef %45, i32 noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef %52)
+  br label %53
+
+53:                                               ; preds = %44, %29
+  br label %54
+
+54:                                               ; preds = %53, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_process_ncq_command_mismatch(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i8 %2, ptr %7, align 1
+  store i8 %3, ptr %8, align 1
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load i8, ptr %7, align 1
+  %12 = load i8, ptr %8, align 1
+  call void @_nocheck__trace_process_ncq_command_mismatch(ptr noundef %9, i32 noundef %10, i8 noundef zeroext %11, i8 noundef zeroext %12)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_process_ncq_command_aux(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i8, ptr %6, align 1
+  call void @_nocheck__trace_process_ncq_command_aux(ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_process_ncq_command_prioicc(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i8, ptr %6, align 1
+  call void @_nocheck__trace_process_ncq_command_prioicc(ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_process_ncq_command_fua(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i8, ptr %6, align 1
+  call void @_nocheck__trace_process_ncq_command_fua(ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_process_ncq_command_rarc(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i8, ptr %6, align 1
+  call void @_nocheck__trace_process_ncq_command_rarc(ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @ahci_populate_sglist(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i16, align 2
+  %13 = alloca i16, align 2
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i64, align 8
+  %22 = alloca i32, align 4
+  %23 = alloca i64, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca i32, align 4
+  %27 = alloca %struct.MemTxAttrs, align 4
+  %28 = alloca ptr, align 8
+  %29 = alloca i32, align 4
+  %30 = alloca i64, align 8
+  %31 = alloca i64, align 8
+  %32 = alloca i64, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca i64, align 8
+  %35 = alloca i64, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #15
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %36, i32 0, i32 0
+  %38 = load i16, ptr %37, align 1
+  %39 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %38)
+  store i16 %39, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #15
+  %40 = load ptr, ptr %9, align 8
+  %41 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %40, i32 0, i32 1
+  %42 = load i16, ptr %41, align 1
+  %43 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %42)
+  store i16 %43, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #15
+  %44 = load ptr, ptr %9, align 8
+  %45 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %44, i32 0, i32 3
+  %46 = load i64, ptr %45, align 1
+  %47 = call i64 @le64_to_cpu(i64 noundef %46)
+  store i64 %47, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #15
+  %48 = load i64, ptr %14, align 8
+  %49 = add i64 %48, 128
+  store i64 %49, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #15
+  %50 = load i16, ptr %13, align 2
+  %51 = zext i16 %50 to i64
+  %52 = mul i64 %51, 16
+  store i64 %52, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #15
+  %53 = load i64, ptr %16, align 8
+  store i64 %53, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #15
+  store ptr null, ptr %18, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #15
+  store i32 0, ptr %19, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #15
+  store i32 0, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #15
+  store i64 0, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #15
+  store i32 -1, ptr %22, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #15
+  store i64 -1, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #15
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %54, i32 0, i32 1
+  store ptr %55, ptr %24, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #15
+  %56 = load ptr, ptr %24, align 8
+  %57 = call ptr @BUS(ptr noundef %56)
+  store ptr %57, ptr %25, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %61, i32 0, i32 2
+  %63 = load i32, ptr %62, align 8
+  call void @trace_ahci_populate_sglist(ptr noundef %60, i32 noundef %63)
+  %64 = load i16, ptr %13, align 2
+  %65 = icmp ne i16 %64, 0
+  br i1 %65, label %74, label %66
+
+66:                                               ; preds = %5
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %67, i32 0, i32 6
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %71, align 8
+  %73 = load i16, ptr %12, align 2
+  call void @trace_ahci_populate_sglist_no_prdtl(ptr noundef %69, i32 noundef %72, i16 noundef zeroext %73)
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %26, align 4
+  br label %285
+
+74:                                               ; preds = %5
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %75, i32 0, i32 6
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw %struct.AHCIState, ptr %77, i32 0, i32 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = load i64, ptr %15, align 8
+  store i32 0, ptr %27, align 4
+  %81 = load i32, ptr %27, align 4
+  %82 = and i32 %81, -2
+  %83 = or i32 %82, 0
+  store i32 %83, ptr %27, align 4
+  %84 = load i32, ptr %27, align 4
+  %85 = and i32 %84, -7
+  %86 = or i32 %85, 0
+  store i32 %86, ptr %27, align 4
+  %87 = load i32, ptr %27, align 4
+  %88 = and i32 %87, -9
+  %89 = or i32 %88, 0
+  store i32 %89, ptr %27, align 4
+  %90 = load i32, ptr %27, align 4
+  %91 = and i32 %90, -17
+  %92 = or i32 %91, 0
+  store i32 %92, ptr %27, align 4
+  %93 = load i32, ptr %27, align 4
+  %94 = and i32 %93, -2097121
+  %95 = or i32 %94, 0
+  store i32 %95, ptr %27, align 4
+  %96 = load i32, ptr %27, align 4
+  %97 = and i32 %96, -534773761
+  %98 = or i32 %97, 0
+  store i32 %98, ptr %27, align 4
+  %99 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %27, i32 0, i32 1
+  store i8 1, ptr %99, align 4
+  %100 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %27, i32 0, i32 2
+  store i8 0, ptr %100, align 1
+  %101 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %27, i32 0, i32 3
+  store i16 0, ptr %101, align 2
+  %102 = load i64, ptr %27, align 4
+  %103 = call ptr @dma_memory_map(ptr noundef %79, i64 noundef %80, ptr noundef %16, i32 noundef 0, i64 %102)
+  store ptr %103, ptr %18, align 8
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %112, label %105
+
+105:                                              ; preds = %74
+  %106 = load ptr, ptr %7, align 8
+  %107 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %106, i32 0, i32 6
+  %108 = load ptr, ptr %107, align 8
+  %109 = load ptr, ptr %7, align 8
+  %110 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %109, i32 0, i32 2
+  %111 = load i32, ptr %110, align 8
+  call void @trace_ahci_populate_sglist_no_map(ptr noundef %108, i32 noundef %111)
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %26, align 4
+  br label %285
+
+112:                                              ; preds = %74
+  %113 = load i64, ptr %16, align 8
+  %114 = load i64, ptr %17, align 8
+  %115 = icmp ult i64 %113, %114
+  br i1 %115, label %116, label %123
+
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %117, i32 0, i32 6
+  %119 = load ptr, ptr %118, align 8
+  %120 = load ptr, ptr %7, align 8
+  %121 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %120, i32 0, i32 2
+  %122 = load i32, ptr %121, align 8
+  call void @trace_ahci_populate_sglist_short_map(ptr noundef %119, i32 noundef %122)
+  store i32 -1, ptr %20, align 4
+  br label %275
+
+123:                                              ; preds = %112
+  %124 = load i16, ptr %13, align 2
+  %125 = zext i16 %124 to i32
+  %126 = icmp sgt i32 %125, 0
+  br i1 %126, label %127, label %274
+
+127:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #15
+  %128 = load ptr, ptr %18, align 8
+  store ptr %128, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #15
+  store i32 0, ptr %29, align 4
+  store i64 0, ptr %21, align 8
+  store i32 0, ptr %19, align 4
+  br label %129
+
+129:                                              ; preds = %156, %127
+  %130 = load i32, ptr %19, align 4
+  %131 = load i16, ptr %13, align 2
+  %132 = zext i16 %131 to i32
+  %133 = icmp slt i32 %130, %132
+  br i1 %133, label %134, label %159
+
+134:                                              ; preds = %129
+  %135 = load ptr, ptr %28, align 8
+  %136 = load i32, ptr %19, align 4
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds %struct.AHCI_SG, ptr %135, i64 %137
+  %139 = call i32 @prdt_tbl_entry_size(ptr noundef %138)
+  store i32 %139, ptr %29, align 4
+  %140 = load i64, ptr %11, align 8
+  %141 = load i64, ptr %21, align 8
+  %142 = load i32, ptr %29, align 4
+  %143 = sext i32 %142 to i64
+  %144 = add i64 %141, %143
+  %145 = icmp ult i64 %140, %144
+  br i1 %145, label %146, label %151
+
+146:                                              ; preds = %134
+  %147 = load i32, ptr %19, align 4
+  store i32 %147, ptr %22, align 4
+  %148 = load i64, ptr %11, align 8
+  %149 = load i64, ptr %21, align 8
+  %150 = sub i64 %148, %149
+  store i64 %150, ptr %23, align 8
+  br label %159
+
+151:                                              ; preds = %134
+  %152 = load i32, ptr %29, align 4
+  %153 = sext i32 %152 to i64
+  %154 = load i64, ptr %21, align 8
+  %155 = add i64 %154, %153
+  store i64 %155, ptr %21, align 8
+  br label %156
+
+156:                                              ; preds = %151
+  %157 = load i32, ptr %19, align 4
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %19, align 4
+  br label %129, !llvm.loop !21
+
+159:                                              ; preds = %146, %129
+  %160 = load i32, ptr %22, align 4
+  %161 = icmp eq i32 %160, -1
+  br i1 %161, label %170, label %162
+
+162:                                              ; preds = %159
+  %163 = load i64, ptr %23, align 8
+  %164 = icmp slt i64 %163, 0
+  br i1 %164, label %170, label %165
+
+165:                                              ; preds = %162
+  %166 = load i64, ptr %23, align 8
+  %167 = load i32, ptr %29, align 4
+  %168 = sext i32 %167 to i64
+  %169 = icmp sgt i64 %166, %168
+  br i1 %169, label %170, label %179
+
+170:                                              ; preds = %165, %162, %159
+  %171 = load ptr, ptr %7, align 8
+  %172 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %171, i32 0, i32 6
+  %173 = load ptr, ptr %172, align 8
+  %174 = load ptr, ptr %7, align 8
+  %175 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %174, i32 0, i32 2
+  %176 = load i32, ptr %175, align 8
+  %177 = load i32, ptr %22, align 4
+  %178 = load i64, ptr %23, align 8
+  call void @trace_ahci_populate_sglist_bad_offset(ptr noundef %173, i32 noundef %176, i32 noundef %177, i64 noundef %178)
+  store i32 -1, ptr %20, align 4
+  store i32 2, ptr %26, align 4
+  br label %271
+
+179:                                              ; preds = %165
+  %180 = load ptr, ptr %8, align 8
+  %181 = load ptr, ptr %25, align 8
+  %182 = getelementptr inbounds nuw %struct.BusState, ptr %181, i32 0, i32 1
+  %183 = load ptr, ptr %182, align 8
+  %184 = load i16, ptr %13, align 2
+  %185 = zext i16 %184 to i32
+  %186 = load i32, ptr %22, align 4
+  %187 = sub i32 %185, %186
+  %188 = load ptr, ptr %7, align 8
+  %189 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %188, i32 0, i32 6
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw %struct.AHCIState, ptr %190, i32 0, i32 8
+  %192 = load ptr, ptr %191, align 8
+  call void @qemu_sglist_init(ptr noundef %180, ptr noundef %183, i32 noundef %187, ptr noundef %192)
+  %193 = load ptr, ptr %8, align 8
+  %194 = load ptr, ptr %28, align 8
+  %195 = load i32, ptr %22, align 4
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds %struct.AHCI_SG, ptr %194, i64 %196
+  %198 = getelementptr inbounds nuw %struct.AHCI_SG, ptr %197, i32 0, i32 0
+  %199 = load i64, ptr %198, align 1
+  %200 = call i64 @le64_to_cpu(i64 noundef %199)
+  %201 = load i64, ptr %23, align 8
+  %202 = add i64 %200, %201
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #15
+  %203 = load ptr, ptr %28, align 8
+  %204 = load i32, ptr %22, align 4
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds %struct.AHCI_SG, ptr %203, i64 %205
+  %207 = call i32 @prdt_tbl_entry_size(ptr noundef %206)
+  %208 = sext i32 %207 to i64
+  %209 = load i64, ptr %23, align 8
+  %210 = sub i64 %208, %209
+  store i64 %210, ptr %30, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #15
+  %211 = load i64, ptr %10, align 8
+  store i64 %211, ptr %31, align 8
+  %212 = load i64, ptr %30, align 8
+  %213 = load i64, ptr %31, align 8
+  %214 = icmp slt i64 %212, %213
+  br i1 %214, label %215, label %217
+
+215:                                              ; preds = %179
+  %216 = load i64, ptr %30, align 8
+  br label %219
+
+217:                                              ; preds = %179
+  %218 = load i64, ptr %31, align 8
+  br label %219
+
+219:                                              ; preds = %217, %215
+  %220 = phi i64 [ %216, %215 ], [ %218, %217 ]
+  store i64 %220, ptr %32, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #15
+  %221 = load i64, ptr %32, align 8
+  call void @qemu_sglist_add(ptr noundef %193, i64 noundef %202, i64 noundef %221)
+  %222 = load i32, ptr %22, align 4
+  %223 = add i32 %222, 1
+  store i32 %223, ptr %19, align 4
+  br label %224
+
+224:                                              ; preds = %267, %219
+  %225 = load i32, ptr %19, align 4
+  %226 = load i16, ptr %13, align 2
+  %227 = zext i16 %226 to i32
+  %228 = icmp slt i32 %225, %227
+  br i1 %228, label %229, label %235
+
+229:                                              ; preds = %224
+  %230 = load ptr, ptr %8, align 8
+  %231 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %230, i32 0, i32 3
+  %232 = load i64, ptr %231, align 8
+  %233 = load i64, ptr %10, align 8
+  %234 = icmp ult i64 %232, %233
+  br label %235
+
+235:                                              ; preds = %229, %224
+  %236 = phi i1 [ false, %224 ], [ %234, %229 ]
+  br i1 %236, label %237, label %270
+
+237:                                              ; preds = %235
+  %238 = load ptr, ptr %8, align 8
+  %239 = load ptr, ptr %28, align 8
+  %240 = load i32, ptr %19, align 4
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds %struct.AHCI_SG, ptr %239, i64 %241
+  %243 = getelementptr inbounds nuw %struct.AHCI_SG, ptr %242, i32 0, i32 0
+  %244 = load i64, ptr %243, align 1
+  %245 = call i64 @le64_to_cpu(i64 noundef %244)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #15
+  %246 = load ptr, ptr %28, align 8
+  %247 = load i32, ptr %19, align 4
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds %struct.AHCI_SG, ptr %246, i64 %248
+  %250 = call i32 @prdt_tbl_entry_size(ptr noundef %249)
+  %251 = sext i32 %250 to i64
+  store i64 %251, ptr %33, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #15
+  %252 = load i64, ptr %10, align 8
+  %253 = load ptr, ptr %8, align 8
+  %254 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %253, i32 0, i32 3
+  %255 = load i64, ptr %254, align 8
+  %256 = sub i64 %252, %255
+  store i64 %256, ptr %34, align 8
+  %257 = load i64, ptr %33, align 8
+  %258 = load i64, ptr %34, align 8
+  %259 = icmp ult i64 %257, %258
+  br i1 %259, label %260, label %262
+
+260:                                              ; preds = %237
+  %261 = load i64, ptr %33, align 8
+  br label %264
+
+262:                                              ; preds = %237
+  %263 = load i64, ptr %34, align 8
+  br label %264
+
+264:                                              ; preds = %262, %260
+  %265 = phi i64 [ %261, %260 ], [ %263, %262 ]
+  store i64 %265, ptr %35, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #15
+  %266 = load i64, ptr %35, align 8
+  call void @qemu_sglist_add(ptr noundef %238, i64 noundef %245, i64 noundef %266)
+  br label %267
+
+267:                                              ; preds = %264
+  %268 = load i32, ptr %19, align 4
+  %269 = add i32 %268, 1
+  store i32 %269, ptr %19, align 4
+  br label %224, !llvm.loop !22
+
+270:                                              ; preds = %235
+  store i32 0, ptr %26, align 4
+  br label %271
+
+271:                                              ; preds = %170, %270
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #15
+  %272 = load i32, ptr %26, align 4
+  switch i32 %272, label %285 [
+    i32 0, label %273
+    i32 2, label %275
+  ]
+
+273:                                              ; preds = %271
+  br label %274
+
+274:                                              ; preds = %273, %123
+  br label %275
+
+275:                                              ; preds = %274, %271, %116
+  %276 = load ptr, ptr %7, align 8
+  %277 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %276, i32 0, i32 6
+  %278 = load ptr, ptr %277, align 8
+  %279 = getelementptr inbounds nuw %struct.AHCIState, ptr %278, i32 0, i32 8
+  %280 = load ptr, ptr %279, align 8
+  %281 = load ptr, ptr %18, align 8
+  %282 = load i64, ptr %16, align 8
+  %283 = load i64, ptr %16, align 8
+  call void @dma_memory_unmap(ptr noundef %280, ptr noundef %281, i64 noundef %282, i32 noundef 0, i64 noundef %283)
+  %284 = load i32, ptr %20, align 4
+  store i32 %284, ptr %6, align 4
+  store i32 1, ptr %26, align 4
+  br label %285
+
+285:                                              ; preds = %275, %271, %105, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #15
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #15
+  %286 = load i32, ptr %6, align 4
+  ret i32 %286
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ncq_err(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.IDEBus, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds [2 x %struct.IDEState], ptr %8, i64 0, i64 0
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.IDEState, ptr %10, i32 0, i32 19
+  store i8 4, ptr %11, align 1
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.IDEState, ptr %12, i32 0, i32 30
+  store i8 65, ptr %13, align 1
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %14, i32 0, i32 3
+  call void @qemu_sglist_destroy(ptr noundef %15)
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %16, i32 0, i32 10
+  store i8 0, ptr %17, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_process_ncq_command_large(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i64 %3, ptr %9, align 8
+  store i64 %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load i8, ptr %8, align 1
+  %14 = load i64, ptr %9, align 8
+  %15 = load i64, ptr %10, align 8
+  call void @_nocheck__trace_process_ncq_command_large(ptr noundef %11, i32 noundef %12, i8 noundef zeroext %13, i64 noundef %14, i64 noundef %15)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_process_ncq_command(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i64 noundef %4, i64 noundef %5) #7 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store i8 %2, ptr %9, align 1
+  store i8 %3, ptr %10, align 1
+  store i64 %4, ptr %11, align 8
+  store i64 %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load i8, ptr %9, align 1
+  %16 = load i8, ptr %10, align 1
+  %17 = load i64, ptr %11, align 8
+  %18 = load i64, ptr %12, align 8
+  call void @_nocheck__trace_process_ncq_command(ptr noundef %13, i32 noundef %14, i8 noundef zeroext %15, i8 noundef zeroext %16, i64 noundef %17, i64 noundef %18)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @execute_ncq_command(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #15
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %11, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.IDEBus, ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds [2 x %struct.IDEState], ptr %13, i64 0, i64 0
+  store ptr %14, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #15
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %5, align 4
+  br label %18
+
+18:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #15
+  store i32 0, ptr %6, align 4, !annotation !4
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %19, i32 0, i32 8
+  %21 = load i8, ptr %20, align 1
+  %22 = call i32 @is_ncq(i8 noundef zeroext %21)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %18
+  store i32 1, ptr %6, align 4
+  br label %26
+
+25:                                               ; preds = %18
+  store i32 0, ptr %6, align 4
+  br label %26
+
+26:                                               ; preds = %25, %24
+  %27 = load i32, ptr %6, align 4
+  store i32 %27, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #15
+  %28 = load i32, ptr %7, align 4
+  %29 = sext i32 %28 to i64
+  %30 = call i64 @llvm.expect.i64(i64 %29, i64 1)
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %26
+  br label %34
+
+33:                                               ; preds = %26
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str.3, i32 noundef 1061, ptr noundef @__func__.execute_ncq_command, ptr noundef @.str.153) #19
+  unreachable
+
+34:                                               ; preds = %32
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %37, i32 0, i32 11
+  store i8 0, ptr %38, align 4
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %39, i32 0, i32 8
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i32
+  switch i32 %42, label %111 [
+    i32 96, label %43
+    i32 97, label %77
+  ]
+
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %44, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %5, align 4
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %48, i32 0, i32 7
+  %50 = load i8, ptr %49, align 8
+  %51 = load ptr, ptr %2, align 8
+  %52 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %51, i32 0, i32 5
+  %53 = load i32, ptr %52, align 8
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %54, i32 0, i32 6
+  %56 = load i64, ptr %55, align 8
+  call void @trace_execute_ncq_command_read(ptr noundef %46, i32 noundef %47, i8 noundef zeroext %50, i32 noundef %53, i64 noundef %56)
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw %struct.IDEState, ptr %57, i32 0, i32 34
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %60, i32 0, i32 4
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %62, i32 0, i32 3
+  call void @dma_acct_start(ptr noundef %59, ptr noundef %61, ptr noundef %63, i32 noundef 1)
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds nuw %struct.IDEState, ptr %64, i32 0, i32 34
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %2, align 8
+  %68 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %2, align 8
+  %70 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %69, i32 0, i32 6
+  %71 = load i64, ptr %70, align 8
+  %72 = shl i64 %71, 9
+  %73 = load ptr, ptr %2, align 8
+  %74 = call ptr @dma_blk_read(ptr noundef %66, ptr noundef %68, i64 noundef %72, i32 noundef 512, ptr noundef @ncq_cb, ptr noundef %73)
+  %75 = load ptr, ptr %2, align 8
+  %76 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %75, i32 0, i32 1
+  store ptr %74, ptr %76, align 8
+  br label %123
+
+77:                                               ; preds = %36
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %78, i32 0, i32 6
+  %80 = load ptr, ptr %79, align 8
+  %81 = load i32, ptr %5, align 4
+  %82 = load ptr, ptr %2, align 8
+  %83 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %82, i32 0, i32 7
+  %84 = load i8, ptr %83, align 8
+  %85 = load ptr, ptr %2, align 8
+  %86 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %85, i32 0, i32 5
+  %87 = load i32, ptr %86, align 8
+  %88 = load ptr, ptr %2, align 8
+  %89 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %88, i32 0, i32 6
+  %90 = load i64, ptr %89, align 8
+  call void @trace_execute_ncq_command_write(ptr noundef %80, i32 noundef %81, i8 noundef zeroext %84, i32 noundef %87, i64 noundef %90)
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds nuw %struct.IDEState, ptr %91, i32 0, i32 34
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %2, align 8
+  %95 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %94, i32 0, i32 4
+  %96 = load ptr, ptr %2, align 8
+  %97 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %96, i32 0, i32 3
+  call void @dma_acct_start(ptr noundef %93, ptr noundef %95, ptr noundef %97, i32 noundef 2)
+  %98 = load ptr, ptr %4, align 8
+  %99 = getelementptr inbounds nuw %struct.IDEState, ptr %98, i32 0, i32 34
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %2, align 8
+  %102 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %101, i32 0, i32 3
+  %103 = load ptr, ptr %2, align 8
+  %104 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %103, i32 0, i32 6
+  %105 = load i64, ptr %104, align 8
+  %106 = shl i64 %105, 9
+  %107 = load ptr, ptr %2, align 8
+  %108 = call ptr @dma_blk_write(ptr noundef %100, ptr noundef %102, i64 noundef %106, i32 noundef 512, ptr noundef @ncq_cb, ptr noundef %107)
+  %109 = load ptr, ptr %2, align 8
+  %110 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %109, i32 0, i32 1
+  store ptr %108, ptr %110, align 8
+  br label %123
+
+111:                                              ; preds = %36
+  %112 = load ptr, ptr %3, align 8
+  %113 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %112, i32 0, i32 6
+  %114 = load ptr, ptr %113, align 8
+  %115 = load i32, ptr %5, align 4
+  %116 = load ptr, ptr %2, align 8
+  %117 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %116, i32 0, i32 7
+  %118 = load i8, ptr %117, align 8
+  %119 = load ptr, ptr %2, align 8
+  %120 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %119, i32 0, i32 8
+  %121 = load i8, ptr %120, align 1
+  call void @trace_execute_ncq_command_unsup(ptr noundef %114, i32 noundef %115, i8 noundef zeroext %118, i8 noundef zeroext %121)
+  %122 = load ptr, ptr %2, align 8
+  call void @ncq_err(ptr noundef %122)
+  br label %123
+
+123:                                              ; preds = %111, %77, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_process_ncq_command_mismatch(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i8 %2, ptr %7, align 1
+  store i8 %3, ptr %8, align 1
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %48
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_MISMATCH_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %48
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %48
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %40
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = zext i8 %36 to i32
+  %38 = load i8, ptr %8, align 1
+  %39 = zext i8 %38 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.127, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %37, i32 noundef %39)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %47
+
+40:                                               ; preds = %24
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i32, ptr %6, align 4
+  %43 = load i8, ptr %7, align 1
+  %44 = zext i8 %43 to i32
+  %45 = load i8, ptr %8, align 1
+  %46 = zext i8 %45 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.128, ptr noundef %41, i32 noundef %42, i32 noundef %44, i32 noundef %46)
+  br label %47
+
+47:                                               ; preds = %40, %27
+  br label %48
+
+48:                                               ; preds = %47, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_process_ncq_command_aux(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %42
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_AUX_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %42
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i8, ptr %6, align 1
+  %35 = zext i8 %34 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.129, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %41
+
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = load i8, ptr %6, align 1
+  %40 = zext i8 %39 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.130, ptr noundef %37, i32 noundef %38, i32 noundef %40)
+  br label %41
+
+41:                                               ; preds = %36, %25
+  br label %42
+
+42:                                               ; preds = %41, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_process_ncq_command_prioicc(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %42
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_PRIOICC_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %42
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i8, ptr %6, align 1
+  %35 = zext i8 %34 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.131, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %41
+
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = load i8, ptr %6, align 1
+  %40 = zext i8 %39 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.132, ptr noundef %37, i32 noundef %38, i32 noundef %40)
+  br label %41
+
+41:                                               ; preds = %36, %25
+  br label %42
+
+42:                                               ; preds = %41, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_process_ncq_command_fua(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %42
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_FUA_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %42
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i8, ptr %6, align 1
+  %35 = zext i8 %34 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.133, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %41
+
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = load i8, ptr %6, align 1
+  %40 = zext i8 %39 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.134, ptr noundef %37, i32 noundef %38, i32 noundef %40)
+  br label %41
+
+41:                                               ; preds = %36, %25
+  br label %42
+
+42:                                               ; preds = %41, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_process_ncq_command_rarc(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %42
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_RARC_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %42
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i8, ptr %6, align 1
+  %35 = zext i8 %34 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.135, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %41
+
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = load i8, ptr %6, align 1
+  %40 = zext i8 %39 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.136, ptr noundef %37, i32 noundef %38, i32 noundef %40)
+  br label %41
+
+41:                                               ; preds = %36, %25
+  br label %42
+
+42:                                               ; preds = %41, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @BUS(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef @.str.137, ptr noundef @.str.138, i32 noundef 324, ptr noundef @__func__.BUS)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_populate_sglist(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_populate_sglist(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_populate_sglist_no_prdtl(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i16 %2, ptr %6, align 2
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i16, ptr %6, align 2
+  call void @_nocheck__trace_ahci_populate_sglist_no_prdtl(ptr noundef %7, i32 noundef %8, i16 noundef zeroext %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_populate_sglist_no_map(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_populate_sglist_no_map(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_populate_sglist_short_map(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_populate_sglist_short_map(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @prdt_tbl_entry_size(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.AHCI_SG, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 1
+  %6 = call i32 @le32_to_cpu(i32 noundef %5)
+  %7 = and i32 %6, 4194303
+  %8 = add i32 %7, 1
+  ret i32 %8
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_populate_sglist_bad_offset(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load i32, ptr %7, align 4
+  %12 = load i64, ptr %8, align 8
+  call void @_nocheck__trace_ahci_populate_sglist_bad_offset(ptr noundef %9, i32 noundef %10, i32 noundef %11, i64 noundef %12)
+  ret void
+}
+
+declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+declare void @qemu_sglist_add(ptr noundef, i64 noundef, i64 noundef) #1
+
+declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_populate_sglist(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.139, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.140, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_populate_sglist_no_prdtl(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i16 %2, ptr %6, align 2
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %42
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_NO_PRDTL_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %42
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i16, ptr %6, align 2
+  %35 = zext i16 %34 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.141, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %41
+
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = load i16, ptr %6, align 2
+  %40 = zext i16 %39 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.142, ptr noundef %37, i32 noundef %38, i32 noundef %40)
+  br label %41
+
+41:                                               ; preds = %36, %25
+  br label %42
+
+42:                                               ; preds = %41, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_populate_sglist_no_map(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_NO_MAP_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.143, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.144, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_populate_sglist_short_map(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_SHORT_MAP_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.145, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.146, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @le32_to_cpu(i32 noundef %0) #7 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4
+  ret i32 %3
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_populate_sglist_bad_offset(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  store i64 %3, ptr %8, align 8
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_BAD_OFFSET_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load i32, ptr %7, align 4
+  %37 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.147, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, i64 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load i32, ptr %7, align 4
+  %42 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.148, ptr noundef %39, i32 noundef %40, i32 noundef %41, i64 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
+  ret void
+}
+
+declare void @qemu_sglist_destroy(ptr noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_process_ncq_command_large(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i64 %3, ptr %9, align 8
+  store i64 %4, ptr %10, align 8
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %50
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_LARGE_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %50
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %50
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %42
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load i8, ptr %8, align 1
+  %39 = zext i8 %38 to i32
+  %40 = load i64, ptr %9, align 8
+  %41 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.149, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %39, i64 noundef %40, i64 noundef %41)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %49
+
+42:                                               ; preds = %26
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = load i8, ptr %8, align 1
+  %46 = zext i8 %45 to i32
+  %47 = load i64, ptr %9, align 8
+  %48 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.150, ptr noundef %43, i32 noundef %44, i32 noundef %46, i64 noundef %47, i64 noundef %48)
+  br label %49
+
+49:                                               ; preds = %42, %29
+  br label %50
+
+50:                                               ; preds = %49, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_process_ncq_command(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i64 noundef %4, i64 noundef %5) #7 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store i8 %2, ptr %9, align 1
+  store i8 %3, ptr %10, align 1
+  store i64 %4, ptr %11, align 8
+  store i64 %5, ptr %12, align 8
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %15 = icmp ne i32 %14, 0
+  %16 = xor i1 %15, true
+  %17 = xor i1 %16, true
+  %18 = zext i1 %17 to i32
+  %19 = sext i32 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 0)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %56
+
+22:                                               ; preds = %6
+  %23 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_DSTATE, align 2
+  %24 = zext i16 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %56
+
+26:                                               ; preds = %22
+  %27 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %27, label %28, label %56
+
+28:                                               ; preds = %26
+  %29 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %46
+
+31:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 16, i1 false), !annotation !4
+  %32 = call i32 @gettimeofday(ptr noundef %13, ptr noundef null) #15
+  %33 = call i32 @qemu_get_thread_id()
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %13, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.timeval, ptr %13, i32 0, i32 1
+  %37 = load i64, ptr %36, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load i8, ptr %9, align 1
+  %41 = zext i8 %40 to i32
+  %42 = load i8, ptr %10, align 1
+  %43 = zext i8 %42 to i32
+  %44 = load i64, ptr %11, align 8
+  %45 = load i64, ptr %12, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.151, i32 noundef %33, i64 noundef %35, i64 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %41, i32 noundef %43, i64 noundef %44, i64 noundef %45)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #15
+  br label %55
+
+46:                                               ; preds = %28
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load i8, ptr %9, align 1
+  %50 = zext i8 %49 to i32
+  %51 = load i8, ptr %10, align 1
+  %52 = zext i8 %51 to i32
+  %53 = load i64, ptr %11, align 8
+  %54 = load i64, ptr %12, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.152, ptr noundef %47, i32 noundef %48, i32 noundef %50, i32 noundef %52, i64 noundef %53, i64 noundef %54)
+  br label %55
+
+55:                                               ; preds = %46, %31
+  br label %56
+
+56:                                               ; preds = %55, %26, %22, %6
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_execute_ncq_command_read(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i32 %3, ptr %9, align 4
+  store i64 %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load i8, ptr %8, align 1
+  %14 = load i32, ptr %9, align 4
+  %15 = load i64, ptr %10, align 8
+  call void @_nocheck__trace_execute_ncq_command_read(ptr noundef %11, i32 noundef %12, i8 noundef zeroext %13, i32 noundef %14, i64 noundef %15)
+  ret void
+}
+
+declare void @dma_acct_start(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+
+declare ptr @dma_blk_read(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ncq_cb(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %9 = load ptr, ptr %3, align 8
+  store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.IDEBus, ptr %13, i32 0, i32 3
+  %15 = getelementptr inbounds [2 x %struct.IDEState], ptr %14, i64 0, i64 0
+  store ptr %15, ptr %6, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %16, i32 0, i32 1
+  store ptr null, ptr %17, align 8
+  %18 = load i32, ptr %4, align 4
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %59
+
+20:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #15
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %21, i32 0, i32 8
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = icmp eq i32 %24, 96
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #15
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %struct.IDEState, ptr %27, i32 0, i32 34
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i8, ptr %7, align 1, !range !11, !noundef !12
+  %31 = trunc i8 %30 to i1
+  %32 = load i32, ptr %4, align 4
+  %33 = sub i32 0, %32
+  %34 = call i32 @blk_get_error_action(ptr noundef %29, i1 noundef zeroext %31, i32 noundef %33)
+  store i32 %34, ptr %8, align 4
+  %35 = load i32, ptr %8, align 4
+  %36 = icmp eq i32 %35, 2
+  br i1 %36, label %37, label %44
+
+37:                                               ; preds = %20
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %38, i32 0, i32 11
+  store i8 1, ptr %39, align 4
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds nuw %struct.IDEState, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct.IDEBus, ptr %42, i32 0, i32 11
+  store i32 256, ptr %43, align 8
+  br label %50
+
+44:                                               ; preds = %20
+  %45 = load i32, ptr %8, align 4
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %5, align 8
+  call void @ncq_err(ptr noundef %48)
+  br label %49
+
+49:                                               ; preds = %47, %44
+  br label %50
+
+50:                                               ; preds = %49, %37
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds nuw %struct.IDEState, ptr %51, i32 0, i32 34
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i32, ptr %8, align 4
+  %55 = load i8, ptr %7, align 1, !range !11, !noundef !12
+  %56 = trunc i8 %55 to i1
+  %57 = load i32, ptr %4, align 4
+  %58 = sub i32 0, %57
+  call void @blk_error_action(ptr noundef %53, i32 noundef %54, i1 noundef zeroext %56, i32 noundef %58)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #15
+  br label %62
+
+59:                                               ; preds = %2
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds nuw %struct.IDEState, ptr %60, i32 0, i32 30
+  store i8 80, ptr %61, align 1
+  br label %62
+
+62:                                               ; preds = %59, %50
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %63, i32 0, i32 11
+  %65 = load i8, ptr %64, align 4, !range !11, !noundef !12
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %69, label %67
+
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %5, align 8
+  call void @ncq_finish(ptr noundef %68)
+  br label %69
+
+69:                                               ; preds = %67, %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_execute_ncq_command_write(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i32 %3, ptr %9, align 4
+  store i64 %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = load i8, ptr %8, align 1
+  %14 = load i32, ptr %9, align 4
+  %15 = load i64, ptr %10, align 8
+  call void @_nocheck__trace_execute_ncq_command_write(ptr noundef %11, i32 noundef %12, i8 noundef zeroext %13, i32 noundef %14, i64 noundef %15)
+  ret void
+}
+
+declare ptr @dma_blk_write(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_execute_ncq_command_unsup(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i8 %2, ptr %7, align 1
+  store i8 %3, ptr %8, align 1
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load i8, ptr %7, align 1
+  %12 = load i8, ptr %8, align 1
+  call void @_nocheck__trace_execute_ncq_command_unsup(ptr noundef %9, i32 noundef %10, i8 noundef zeroext %11, i8 noundef zeroext %12)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_execute_ncq_command_read(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i32 %3, ptr %9, align 4
+  store i64 %4, ptr %10, align 8
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %50
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_EXECUTE_NCQ_COMMAND_READ_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %50
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %50
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %42
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load i8, ptr %8, align 1
+  %39 = zext i8 %38 to i32
+  %40 = load i32, ptr %9, align 4
+  %41 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.154, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %40, i64 noundef %41)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %49
+
+42:                                               ; preds = %26
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = load i8, ptr %8, align 1
+  %46 = zext i8 %45 to i32
+  %47 = load i32, ptr %9, align 4
+  %48 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.155, ptr noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %47, i64 noundef %48)
+  br label %49
+
+49:                                               ; preds = %42, %29
+  br label %50
+
+50:                                               ; preds = %49, %24, %20, %5
+  ret void
+}
+
+declare i32 @blk_get_error_action(ptr noundef, i1 noundef zeroext, i32 noundef) #1
+
+declare void @blk_error_action(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ncq_finish(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %3, i32 0, i32 10
+  %5 = load i8, ptr %4, align 1, !range !11, !noundef !12
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %19
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %8, i32 0, i32 7
+  %10 = load i8, ptr %9, align 8
+  %11 = zext i8 %10 to i32
+  %12 = shl i32 1, %11
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %15, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8
+  %18 = or i32 %17, %12
+  store i32 %18, ptr %16, align 8
+  br label %19
+
+19:                                               ; preds = %7, %1
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %2, align 8
+  call void @ahci_write_fis_sdb(ptr noundef %24, ptr noundef %25)
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %36, i32 0, i32 7
+  %38 = load i8, ptr %37, align 8
+  call void @trace_ncq_finish(ptr noundef %30, i32 noundef %35, i8 noundef zeroext %38)
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.IDEBus, ptr %42, i32 0, i32 3
+  %44 = getelementptr inbounds [2 x %struct.IDEState], ptr %43, i64 0, i64 0
+  %45 = getelementptr inbounds nuw %struct.IDEState, ptr %44, i32 0, i32 34
+  %46 = load ptr, ptr %45, align 8
+  %47 = call ptr @blk_get_stats(ptr noundef %46)
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %48, i32 0, i32 4
+  call void @block_acct_done(ptr noundef %47, ptr noundef %49)
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %50, i32 0, i32 3
+  call void @qemu_sglist_destroy(ptr noundef %51)
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %52, i32 0, i32 10
+  store i8 0, ptr %53, align 1
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_write_fis_sdb(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %13, i32 0, i32 5
+  store ptr %14, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  store ptr null, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  store ptr null, ptr %8, align 8, !annotation !4
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %15, i32 0, i32 9
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %25
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %20, i32 0, i32 6
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %22, 16
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %26, label %25
+
+25:                                               ; preds = %19, %2
+  store i32 1, ptr %9, align 4
+  br label %113
+
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %27, i32 0, i32 9
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 88
+  store ptr %30, ptr %8, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.IDEBus, ptr %32, i32 0, i32 3
+  %34 = getelementptr inbounds [2 x %struct.IDEState], ptr %33, i64 0, i64 0
+  store ptr %34, ptr %7, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds nuw %struct.SDBFIS, ptr %35, i32 0, i32 0
+  store i8 -95, ptr %36, align 1
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.SDBFIS, ptr %37, i32 0, i32 1
+  store i8 64, ptr %38, align 1
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct.IDEState, ptr %39, i32 0, i32 30
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i32
+  %43 = and i32 %42, 119
+  %44 = trunc i32 %43 to i8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.SDBFIS, ptr %45, i32 0, i32 2
+  store i8 %44, ptr %46, align 1
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds nuw %struct.IDEState, ptr %47, i32 0, i32 19
+  %49 = load i8, ptr %48, align 1
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.SDBFIS, ptr %50, i32 0, i32 3
+  store i8 %49, ptr %51, align 1
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %52, i32 0, i32 4
+  %54 = load i32, ptr %53, align 8
+  %55 = call i32 @cpu_to_le32(i32 noundef %54)
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds nuw %struct.SDBFIS, ptr %56, i32 0, i32 4
+  store i32 %55, ptr %57, align 1
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %struct.IDEBus, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds [2 x %struct.IDEState], ptr %60, i64 0, i64 0
+  %62 = getelementptr inbounds nuw %struct.IDEState, ptr %61, i32 0, i32 19
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = shl i32 %64, 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.IDEBus, ptr %67, i32 0, i32 3
+  %69 = getelementptr inbounds [2 x %struct.IDEState], ptr %68, i64 0, i64 0
+  %70 = getelementptr inbounds nuw %struct.IDEState, ptr %69, i32 0, i32 30
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = and i32 %72, 119
+  %74 = or i32 %65, %73
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %75, i32 0, i32 8
+  %77 = load i32, ptr %76, align 4
+  %78 = and i32 %77, 136
+  %79 = or i32 %74, %78
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %80, i32 0, i32 8
+  store i32 %79, ptr %81, align 4
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %82, i32 0, i32 4
+  %84 = load i32, ptr %83, align 8
+  %85 = xor i32 %84, -1
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %86, i32 0, i32 13
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, %85
+  store i32 %89, ptr %87, align 4
+  %90 = load ptr, ptr %5, align 8
+  %91 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %90, i32 0, i32 4
+  store i32 0, ptr %91, align 8
+  %92 = load ptr, ptr %8, align 8
+  %93 = getelementptr inbounds nuw %struct.SDBFIS, ptr %92, i32 0, i32 2
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = and i32 %95, 1
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %101
+
+98:                                               ; preds = %26
+  %99 = load ptr, ptr %3, align 8
+  %100 = load ptr, ptr %5, align 8
+  call void @ahci_trigger_irq(ptr noundef %99, ptr noundef %100, i32 noundef 30)
+  br label %112
+
+101:                                              ; preds = %26
+  %102 = load ptr, ptr %8, align 8
+  %103 = getelementptr inbounds nuw %struct.SDBFIS, ptr %102, i32 0, i32 1
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i32
+  %106 = and i32 %105, 64
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %108, label %111
+
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %3, align 8
+  %110 = load ptr, ptr %5, align 8
+  call void @ahci_trigger_irq(ptr noundef %109, ptr noundef %110, i32 noundef 3)
+  br label %111
+
+111:                                              ; preds = %108, %101
+  br label %112
+
+112:                                              ; preds = %111, %98
+  store i32 0, ptr %9, align 4
+  br label %113
+
+113:                                              ; preds = %112, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  %114 = load i32, ptr %9, align 4
+  switch i32 %114, label %116 [
+    i32 0, label %115
+    i32 1, label %115
+  ]
+
+115:                                              ; preds = %113, %113
+  ret void
+
+116:                                              ; preds = %113
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ncq_finish(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i8, ptr %6, align 1
+  call void @_nocheck__trace_ncq_finish(ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9)
+  ret void
+}
+
+declare void @block_acct_done(ptr noundef, ptr noundef) #1
+
+declare ptr @blk_get_stats(ptr noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i32 @cpu_to_le32(i32 noundef %0) #7 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4
+  ret i32 %3
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ncq_finish(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i8 %2, ptr %6, align 1
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %42
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_NCQ_FINISH_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %42
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i8, ptr %6, align 1
+  %35 = zext i8 %34 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.156, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %41
+
+36:                                               ; preds = %22
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i32, ptr %5, align 4
+  %39 = load i8, ptr %6, align 1
+  %40 = zext i8 %39 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.157, ptr noundef %37, i32 noundef %38, i32 noundef %40)
+  br label %41
+
+41:                                               ; preds = %36, %25
+  br label %42
+
+42:                                               ; preds = %41, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_execute_ncq_command_write(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i64 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i32 %3, ptr %9, align 4
+  store i64 %4, ptr %10, align 8
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %50
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_EXECUTE_NCQ_COMMAND_WRITE_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %50
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %50
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %42
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load i8, ptr %8, align 1
+  %39 = zext i8 %38 to i32
+  %40 = load i32, ptr %9, align 4
+  %41 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.158, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %40, i64 noundef %41)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %49
+
+42:                                               ; preds = %26
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = load i8, ptr %8, align 1
+  %46 = zext i8 %45 to i32
+  %47 = load i32, ptr %9, align 4
+  %48 = load i64, ptr %10, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.159, ptr noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %47, i64 noundef %48)
+  br label %49
+
+49:                                               ; preds = %42, %29
+  br label %50
+
+50:                                               ; preds = %49, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_execute_ncq_command_unsup(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i8 %2, ptr %7, align 1
+  store i8 %3, ptr %8, align 1
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %48
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_EXECUTE_NCQ_COMMAND_UNSUP_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %48
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %48
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %40
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load i8, ptr %7, align 1
+  %37 = zext i8 %36 to i32
+  %38 = load i8, ptr %8, align 1
+  %39 = zext i8 %38 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.160, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %37, i32 noundef %39)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %47
+
+40:                                               ; preds = %24
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i32, ptr %6, align 4
+  %43 = load i8, ptr %7, align 1
+  %44 = zext i8 %43 to i32
+  %45 = load i8, ptr %8, align 1
+  %46 = zext i8 %45 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.161, ptr noundef %41, i32 noundef %42, i32 noundef %44, i32 noundef %46)
+  br label %47
+
+47:                                               ; preds = %40, %27
+  br label %48
+
+48:                                               ; preds = %47, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: nounwind
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #13
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_mwrite(ptr noundef %ahci, i64 noundef %offset, i32 noundef %value) #0 {
-entry:
-  %ahci.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %value.addr = alloca i32, align 4
-  store ptr %ahci, ptr %ahci.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load ptr, ptr %ahci.addr, align 8
-  %dev = getelementptr inbounds %struct.AHCIQState, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %dev, align 8
-  %2 = load ptr, ptr %ahci.addr, align 8
-  %hba_bar = getelementptr inbounds %struct.AHCIQState, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %offset.addr, align 8
-  %4 = load i32, ptr %value.addr, align 4
-  %5 = getelementptr inbounds { i64, i8 }, ptr %hba_bar, i32 0, i32 0
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds { i64, i8 }, ptr %hba_bar, i32 0, i32 1
-  %8 = load i8, ptr %7, align 8
-  call void @qpci_io_writel(ptr noundef %1, i64 %6, i8 %8, i64 noundef %3, i32 noundef %4)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store ptr %2, ptr %6, align 8
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.162, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, ptr noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %5, align 4
+  %38 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.163, ptr noundef %36, i32 noundef %37, ptr noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
   ret void
 }
 
-declare void @qpci_io_writel(ptr noundef, i64, i8, i64 noundef, i32 noundef) #2
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_handle_cmd_unhandled_fis(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i8 %2, ptr %8, align 1
+  store i8 %3, ptr %9, align 1
+  store i8 %4, ptr %10, align 1
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %54
 
-; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) #8
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_HANDLE_CMD_UNHANDLED_FIS_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %54
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @stw_he_p(ptr noundef %ptr, i16 noundef zeroext %v) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %v.addr = alloca i16, align 2
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i16 %v, ptr %v.addr, align 2
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 2 %v.addr, i64 2, i1 false)
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %54
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %44
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load i8, ptr %8, align 1
+  %39 = zext i8 %38 to i32
+  %40 = load i8, ptr %9, align 1
+  %41 = zext i8 %40 to i32
+  %42 = load i8, ptr %10, align 1
+  %43 = zext i8 %42 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.164, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %53
+
+44:                                               ; preds = %26
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %7, align 4
+  %47 = load i8, ptr %8, align 1
+  %48 = zext i8 %47 to i32
+  %49 = load i8, ptr %9, align 1
+  %50 = zext i8 %49 to i32
+  %51 = load i8, ptr %10, align 1
+  %52 = zext i8 %51 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.165, ptr noundef %45, i32 noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef %52)
+  br label %53
+
+53:                                               ; preds = %44, %29
+  br label %54
+
+54:                                               ; preds = %53, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_port_write_unimpl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #7 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store i32 %4, ptr %10, align 4
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %48
+
+20:                                               ; preds = %5
+  %21 = load i16, ptr @_TRACE_AHCI_PORT_WRITE_UNIMPL_DSTATE, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %48
+
+24:                                               ; preds = %20
+  %25 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %25, label %26, label %48
+
+26:                                               ; preds = %24
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %41
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 16, i1 false), !annotation !4
+  %30 = call i32 @gettimeofday(ptr noundef %11, ptr noundef null) #15
+  %31 = call i32 @qemu_get_thread_id()
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = load ptr, ptr %8, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = load i32, ptr %10, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.166, i32 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %40)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #15
+  br label %47
+
+41:                                               ; preds = %26
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i32, ptr %7, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = load i32, ptr %10, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.167, ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46)
+  br label %47
+
+47:                                               ; preds = %41, %29
+  br label %48
+
+48:                                               ; preds = %47, %24, %20, %5
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_mem_write_unimpl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_MEM_WRITE_UNIMPL_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load i64, ptr %7, align 8
+  %37 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.168, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, i64 noundef %36, i64 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load i64, ptr %7, align 8
+  %42 = load i64, ptr %8, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.169, ptr noundef %39, i32 noundef %40, i64 noundef %41, i64 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @stl_be_p(ptr noundef %ptr, i32 noundef %v) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %v.addr = alloca i32, align 4
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i32 %v, ptr %v.addr, align 4
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load i32, ptr %v.addr, align 4
-  %2 = call i32 @llvm.bswap.i32(i32 %1)
-  call void @stl_he_p(ptr noundef %0, i32 noundef %2)
-  ret void
-}
+define internal i64 @ahci_idp_read(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIState, ptr %12, i32 0, i32 4
+  %14 = load i32, ptr %13, align 16
+  %15 = zext i32 %14 to i64
+  %16 = icmp eq i64 %11, %15
+  br i1 %16, label %17, label %22
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.AHCIState, ptr %18, i32 0, i32 5
+  %20 = load i32, ptr %19, align 4
+  %21 = zext i32 %20 to i64
+  store i64 %21, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %39
+
+22:                                               ; preds = %3
+  %23 = load i64, ptr %6, align 8
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds nuw %struct.AHCIState, ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %25, align 16
+  %27 = add i32 %26, 4
+  %28 = zext i32 %27 to i64
+  %29 = icmp eq i64 %23, %28
+  br i1 %29, label %30, label %38
+
+30:                                               ; preds = %22
+  %31 = load ptr, ptr %5, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.AHCIState, ptr %32, i32 0, i32 5
+  %34 = load i32, ptr %33, align 4
+  %35 = zext i32 %34 to i64
+  %36 = load i32, ptr %7, align 4
+  %37 = call i64 @ahci_mem_read(ptr noundef %31, i64 noundef %35, i32 noundef %36)
+  store i64 %37, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %39
+
+38:                                               ; preds = %22
+  store i64 0, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %39
+
+39:                                               ; preds = %38, %30, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  %40 = load i64, ptr %4, align 8
+  ret i64 %40
+}
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @stl_he_p(ptr noundef %ptr, i32 noundef %v) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %v.addr = alloca i32, align 4
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i32 %v, ptr %v.addr, align 4
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 4 %v.addr, i64 4, i1 false)
+define internal void @ahci_idp_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = load ptr, ptr %9, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIState, ptr %12, i32 0, i32 4
+  %14 = load i32, ptr %13, align 16
+  %15 = zext i32 %14 to i64
+  %16 = icmp eq i64 %11, %15
+  br i1 %16, label %17, label %23
+
+17:                                               ; preds = %4
+  %18 = load i64, ptr %7, align 8
+  %19 = trunc i64 %18 to i32
+  %20 = and i32 %19, 4092
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds nuw %struct.AHCIState, ptr %21, i32 0, i32 5
+  store i32 %20, ptr %22, align 4
+  br label %40
+
+23:                                               ; preds = %4
+  %24 = load i64, ptr %6, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.AHCIState, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr %26, align 16
+  %28 = add i32 %27, 4
+  %29 = zext i32 %28 to i64
+  %30 = icmp eq i64 %24, %29
+  br i1 %30, label %31, label %39
+
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds nuw %struct.AHCIState, ptr %33, i32 0, i32 5
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %35 to i64
+  %37 = load i64, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  call void @ahci_mem_write(ptr noundef %32, i64 noundef %36, i64 noundef %37, i32 noundef %38)
+  br label %39
+
+39:                                               ; preds = %31, %23
+  br label %40
+
+40:                                               ; preds = %39, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @stw_be_p(ptr noundef %ptr, i16 noundef zeroext %v) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %v.addr = alloca i16, align 2
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i16 %v, ptr %v.addr, align 2
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load i16, ptr %v.addr, align 2
-  %2 = call i16 @llvm.bswap.i16(i16 %1)
-  call void @stw_he_p(ptr noundef %0, i16 noundef zeroext %2)
+define internal void @ahci_start_dma(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 0
+  store ptr %13, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  %14 = load ptr, ptr %10, align 8
+  store ptr %14, ptr %8, align 8
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %7, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %16, i32 0, i32 6
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %19, i32 0, i32 2
+  %21 = load i32, ptr %20, align 8
+  call void @trace_ahci_start_dma(ptr noundef %18, i32 noundef %21)
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.IDEState, ptr %22, i32 0, i32 52
+  store i64 0, ptr %23, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %5, align 8
+  call void %24(ptr noundef %25, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #7
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_pio_transfer(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i16, align 2
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca %struct.MemTxAttrs, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %15 = load ptr, ptr %2, align 8
+  store ptr %15, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  store ptr %17, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  %18 = load ptr, ptr %6, align 8
+  store ptr %18, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8
+  store ptr %19, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.IDEBus, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [2 x %struct.IDEState], ptr %22, i64 0, i64 0
+  store ptr %23, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #15
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw %struct.IDEState, ptr %24, i32 0, i32 58
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds nuw %struct.IDEState, ptr %27, i32 0, i32 57
+  %29 = load ptr, ptr %28, align 8
+  %30 = ptrtoint ptr %26 to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = trunc i64 %32 to i32
+  store i32 %33, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #15
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %34, i32 0, i32 13
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %36, i32 0, i32 0
+  %38 = load i16, ptr %37, align 1
+  %39 = call zeroext i16 @le16_to_cpu(i16 noundef zeroext %38)
+  store i16 %39, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #15
+  %40 = load i16, ptr %9, align 2
+  %41 = zext i16 %40 to i32
+  %42 = and i32 %41, 64
+  store i32 %42, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #15
+  %43 = load i16, ptr %9, align 2
+  %44 = zext i16 %43 to i32
+  %45 = and i32 %44, 32
+  store i32 %45, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #15
+  store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #15
+  store i8 0, ptr %13, align 1, !annotation !4
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %46, i32 0, i32 10
+  %48 = load i8, ptr %47, align 8, !range !11, !noundef !12
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %59, label %50
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn }
-attributes #10 = { allocsize(0) }
-attributes #11 = { allocsize(1) }
-attributes #12 = { allocsize(0,1) }
+50:                                               ; preds = %1
+  %51 = load i32, ptr %11, align 4
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %57, label %53
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+53:                                               ; preds = %50
+  %54 = load i32, ptr %10, align 4
+  %55 = icmp ne i32 %54, 0
+  %56 = xor i1 %55, true
+  br label %57
+
+57:                                               ; preds = %53, %50
+  %58 = phi i1 [ false, %50 ], [ %56, %53 ]
+  br label %59
+
+59:                                               ; preds = %57, %1
+  %60 = phi i1 [ true, %1 ], [ %58, %57 ]
+  %61 = zext i1 %60 to i8
+  store i8 %61, ptr %13, align 1
+  %62 = load ptr, ptr %3, align 8
+  %63 = load i32, ptr %8, align 4
+  %64 = trunc i32 %63 to i16
+  %65 = load i8, ptr %13, align 1, !range !11, !noundef !12
+  %66 = trunc i8 %65 to i1
+  call void @ahci_write_fis_pio(ptr noundef %62, i16 noundef zeroext %64, i1 noundef zeroext %66)
+  %67 = load i32, ptr %11, align 4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %75
+
+69:                                               ; preds = %59
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %70, i32 0, i32 10
+  %72 = load i8, ptr %71, align 8, !range !11, !noundef !12
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %75, label %74
+
+74:                                               ; preds = %69
+  br label %130
+
+75:                                               ; preds = %69, %59
+  %76 = load ptr, ptr %2, align 8
+  %77 = load i32, ptr %8, align 4
+  %78 = call i32 @ahci_dma_prepare_buf(ptr noundef %76, i32 noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %75
+  store i32 1, ptr %12, align 4
+  br label %81
+
+81:                                               ; preds = %80, %75
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %82, i32 0, i32 6
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %85, i32 0, i32 2
+  %87 = load i32, ptr %86, align 8
+  %88 = load i32, ptr %10, align 4
+  %89 = icmp ne i32 %88, 0
+  %90 = select i1 %89, ptr @.str.174, ptr @.str.175
+  %91 = load i32, ptr %8, align 4
+  %92 = load i32, ptr %11, align 4
+  %93 = icmp ne i32 %92, 0
+  %94 = select i1 %93, ptr @.str.176, ptr @.str.177
+  %95 = load i32, ptr %12, align 4
+  %96 = icmp ne i32 %95, 0
+  %97 = select i1 %96, ptr @.str.178, ptr @.str.179
+  call void @trace_ahci_pio_transfer(ptr noundef %84, i32 noundef %87, ptr noundef %90, i32 noundef %91, ptr noundef %94, ptr noundef %97)
+  %98 = load i32, ptr %12, align 4
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %127
+
+100:                                              ; preds = %81
+  %101 = load i32, ptr %8, align 4
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %127
+
+103:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 4 @__const.ahci_pio_transfer.attrs, i64 8, i1 false)
+  %104 = load i32, ptr %10, align 4
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %116
+
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %7, align 8
+  %108 = getelementptr inbounds nuw %struct.IDEState, ptr %107, i32 0, i32 57
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i32, ptr %8, align 4
+  %111 = zext i32 %110 to i64
+  %112 = load ptr, ptr %7, align 8
+  %113 = getelementptr inbounds nuw %struct.IDEState, ptr %112, i32 0, i32 54
+  %114 = load i64, ptr %14, align 4
+  %115 = call i32 @dma_buf_write(ptr noundef %109, i64 noundef %111, ptr noundef null, ptr noundef %113, i64 %114)
+  br label %126
+
+116:                                              ; preds = %103
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr inbounds nuw %struct.IDEState, ptr %117, i32 0, i32 57
+  %119 = load ptr, ptr %118, align 8
+  %120 = load i32, ptr %8, align 4
+  %121 = zext i32 %120 to i64
+  %122 = load ptr, ptr %7, align 8
+  %123 = getelementptr inbounds nuw %struct.IDEState, ptr %122, i32 0, i32 54
+  %124 = load i64, ptr %14, align 4
+  %125 = call i32 @dma_buf_read(ptr noundef %119, i64 noundef %121, ptr noundef null, ptr noundef %123, i64 %124)
+  br label %126
+
+126:                                              ; preds = %116, %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  br label %127
+
+127:                                              ; preds = %126, %100, %81
+  %128 = load ptr, ptr %7, align 8
+  %129 = load i32, ptr %8, align 4
+  call void @dma_buf_commit(ptr noundef %128, i32 noundef %129)
+  br label %130
+
+130:                                              ; preds = %127, %74
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds nuw %struct.IDEState, ptr %131, i32 0, i32 58
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %7, align 8
+  %135 = getelementptr inbounds nuw %struct.IDEState, ptr %134, i32 0, i32 57
+  store ptr %133, ptr %135, align 8
+  %136 = load ptr, ptr %3, align 8
+  %137 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %136, i32 0, i32 10
+  store i8 1, ptr %137, align 8
+  %138 = load i8, ptr %13, align 1, !range !11, !noundef !12
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %140, label %145
+
+140:                                              ; preds = %130
+  %141 = load ptr, ptr %3, align 8
+  %142 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %141, i32 0, i32 6
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %3, align 8
+  call void @ahci_trigger_irq(ptr noundef %143, ptr noundef %144, i32 noundef 1)
+  br label %145
+
+145:                                              ; preds = %140, %130
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %12 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %8, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 0
+  store ptr %14, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  %15 = load ptr, ptr %9, align 8
+  store ptr %15, ptr %7, align 8
+  %16 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %17, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.IDEBus, ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds [2 x %struct.IDEState], ptr %19, i64 0, i64 0
+  store ptr %20, ptr %10, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %struct.IDEState, ptr %22, i32 0, i32 54
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %24, i32 0, i32 13
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %5, align 4
+  %28 = sext i32 %27 to i64
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct.IDEState, ptr %29, i32 0, i32 52
+  %31 = load i64, ptr %30, align 8
+  %32 = call i32 @ahci_populate_sglist(ptr noundef %21, ptr noundef %23, ptr noundef %26, i64 noundef %28, i64 noundef %31)
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %34, label %41
+
+34:                                               ; preds = %2
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %35, i32 0, i32 6
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 8
+  call void @trace_ahci_dma_prepare_buf_fail(ptr noundef %37, i32 noundef %40)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %62
+
+41:                                               ; preds = %2
+  %42 = load ptr, ptr %10, align 8
+  %43 = getelementptr inbounds nuw %struct.IDEState, ptr %42, i32 0, i32 54
+  %44 = getelementptr inbounds nuw %struct.QEMUSGList, ptr %43, i32 0, i32 3
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = load ptr, ptr %10, align 8
+  %48 = getelementptr inbounds nuw %struct.IDEState, ptr %47, i32 0, i32 53
+  store i32 %46, ptr %48, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %49, i32 0, i32 6
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 8
+  %55 = load i32, ptr %5, align 4
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds nuw %struct.IDEState, ptr %56, i32 0, i32 53
+  %58 = load i32, ptr %57, align 8
+  call void @trace_ahci_dma_prepare_buf(ptr noundef %51, i32 noundef %54, i32 noundef %55, i32 noundef %58)
+  %59 = load ptr, ptr %10, align 8
+  %60 = getelementptr inbounds nuw %struct.IDEState, ptr %59, i32 0, i32 53
+  %61 = load i32, ptr %60, align 8
+  store i32 %61, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %62
+
+62:                                               ; preds = %41, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  %63 = load i32, ptr %3, align 4
+  ret i32 %63
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_commit_buf(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %9 = load ptr, ptr %3, align 8
+  store ptr %9, ptr %7, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 0
+  store ptr %11, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %5, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %14, i32 0, i32 13
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 1
+  %19 = call i32 @le32_to_cpu(i32 noundef %18)
+  %20 = load i32, ptr %4, align 4
+  %21 = add i32 %20, %19
+  store i32 %21, ptr %4, align 4
+  %22 = load i32, ptr %4, align 4
+  %23 = call i32 @cpu_to_le32(i32 noundef %22)
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %24, i32 0, i32 13
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %26, i32 0, i32 2
+  store i32 %23, ptr %27, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @ahci_dma_rw_buf(ptr noundef %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca %struct.MemTxAttrs, align 4
+  %15 = alloca %struct.MemTxAttrs, align 4
+  store ptr %0, ptr %4, align 8
+  %16 = zext i1 %1 to i8
+  store i8 %16, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %17 = load ptr, ptr %4, align 8
+  store ptr %17, ptr %8, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 0
+  store ptr %19, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  %20 = load ptr, ptr %9, align 8
+  store ptr %20, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8
+  store ptr %21, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.IDEBus, ptr %23, i32 0, i32 3
+  %25 = getelementptr inbounds [2 x %struct.IDEState], ptr %24, i64 0, i64 0
+  store ptr %25, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %26 = load ptr, ptr %10, align 8
+  %27 = getelementptr inbounds nuw %struct.IDEState, ptr %26, i32 0, i32 59
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct.IDEState, ptr %29, i32 0, i32 44
+  %31 = load i32, ptr %30, align 8
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %28, i64 %32
+  store ptr %33, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #15
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds nuw %struct.IDEState, ptr %34, i32 0, i32 53
+  %36 = load i32, ptr %35, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = getelementptr inbounds nuw %struct.IDEState, ptr %37, i32 0, i32 44
+  %39 = load i32, ptr %38, align 8
+  %40 = sub i32 %36, %39
+  store i32 %40, ptr %12, align 4
+  %41 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = getelementptr inbounds nuw %struct.IDEState, ptr %42, i32 0, i32 54
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %44, i32 0, i32 13
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %12, align 4
+  %48 = sext i32 %47 to i64
+  %49 = load ptr, ptr %10, align 8
+  %50 = getelementptr inbounds nuw %struct.IDEState, ptr %49, i32 0, i32 52
+  %51 = load i64, ptr %50, align 8
+  %52 = call i32 @ahci_populate_sglist(ptr noundef %41, ptr noundef %43, ptr noundef %46, i64 noundef %48, i64 noundef %51)
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %131
+
+55:                                               ; preds = %2
+  %56 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %87
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %11, align 8
+  %60 = load i32, ptr %12, align 4
+  %61 = sext i32 %60 to i64
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds nuw %struct.IDEState, ptr %62, i32 0, i32 54
+  store i32 0, ptr %14, align 4
+  %64 = load i32, ptr %14, align 4
+  %65 = and i32 %64, -2
+  %66 = or i32 %65, 0
+  store i32 %66, ptr %14, align 4
+  %67 = load i32, ptr %14, align 4
+  %68 = and i32 %67, -7
+  %69 = or i32 %68, 0
+  store i32 %69, ptr %14, align 4
+  %70 = load i32, ptr %14, align 4
+  %71 = and i32 %70, -9
+  %72 = or i32 %71, 0
+  store i32 %72, ptr %14, align 4
+  %73 = load i32, ptr %14, align 4
+  %74 = and i32 %73, -17
+  %75 = or i32 %74, 0
+  store i32 %75, ptr %14, align 4
+  %76 = load i32, ptr %14, align 4
+  %77 = and i32 %76, -2097121
+  %78 = or i32 %77, 0
+  store i32 %78, ptr %14, align 4
+  %79 = load i32, ptr %14, align 4
+  %80 = and i32 %79, -534773761
+  %81 = or i32 %80, 0
+  store i32 %81, ptr %14, align 4
+  %82 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %14, i32 0, i32 1
+  store i8 1, ptr %82, align 4
+  %83 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %14, i32 0, i32 2
+  store i8 0, ptr %83, align 1
+  %84 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %14, i32 0, i32 3
+  store i16 0, ptr %84, align 2
+  %85 = load i64, ptr %14, align 4
+  %86 = call i32 @dma_buf_read(ptr noundef %59, i64 noundef %61, ptr noundef null, ptr noundef %63, i64 %85)
+  br label %116
+
+87:                                               ; preds = %55
+  %88 = load ptr, ptr %11, align 8
+  %89 = load i32, ptr %12, align 4
+  %90 = sext i32 %89 to i64
+  %91 = load ptr, ptr %10, align 8
+  %92 = getelementptr inbounds nuw %struct.IDEState, ptr %91, i32 0, i32 54
+  store i32 0, ptr %15, align 4
+  %93 = load i32, ptr %15, align 4
+  %94 = and i32 %93, -2
+  %95 = or i32 %94, 0
+  store i32 %95, ptr %15, align 4
+  %96 = load i32, ptr %15, align 4
+  %97 = and i32 %96, -7
+  %98 = or i32 %97, 0
+  store i32 %98, ptr %15, align 4
+  %99 = load i32, ptr %15, align 4
+  %100 = and i32 %99, -9
+  %101 = or i32 %100, 0
+  store i32 %101, ptr %15, align 4
+  %102 = load i32, ptr %15, align 4
+  %103 = and i32 %102, -17
+  %104 = or i32 %103, 0
+  store i32 %104, ptr %15, align 4
+  %105 = load i32, ptr %15, align 4
+  %106 = and i32 %105, -2097121
+  %107 = or i32 %106, 0
+  store i32 %107, ptr %15, align 4
+  %108 = load i32, ptr %15, align 4
+  %109 = and i32 %108, -534773761
+  %110 = or i32 %109, 0
+  store i32 %110, ptr %15, align 4
+  %111 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %15, i32 0, i32 1
+  store i8 1, ptr %111, align 4
+  %112 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %15, i32 0, i32 2
+  store i8 0, ptr %112, align 1
+  %113 = getelementptr inbounds nuw %struct.MemTxAttrs, ptr %15, i32 0, i32 3
+  store i16 0, ptr %113, align 2
+  %114 = load i64, ptr %15, align 4
+  %115 = call i32 @dma_buf_write(ptr noundef %88, i64 noundef %90, ptr noundef null, ptr noundef %92, i64 %114)
+  br label %116
+
+116:                                              ; preds = %87, %58
+  %117 = load ptr, ptr %10, align 8
+  %118 = load i32, ptr %12, align 4
+  call void @dma_buf_commit(ptr noundef %117, i32 noundef %118)
+  %119 = load i32, ptr %12, align 4
+  %120 = load ptr, ptr %10, align 8
+  %121 = getelementptr inbounds nuw %struct.IDEState, ptr %120, i32 0, i32 44
+  %122 = load i32, ptr %121, align 8
+  %123 = add i32 %122, %119
+  store i32 %123, ptr %121, align 8
+  %124 = load ptr, ptr %6, align 8
+  %125 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %124, i32 0, i32 6
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %6, align 8
+  %128 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %127, i32 0, i32 2
+  %129 = load i32, ptr %128, align 8
+  %130 = load i32, ptr %12, align 4
+  call void @trace_ahci_dma_rw_buf(ptr noundef %126, i32 noundef %129, i32 noundef %130)
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %131
+
+131:                                              ; preds = %116, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #15
+  %132 = load i32, ptr %3, align 4
+  ret i32 %132
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_restart(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %9 = load ptr, ptr %2, align 8
+  store ptr %9, ptr %5, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 0
+  store ptr %11, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %4, align 8
+  %13 = load ptr, ptr %4, align 8
+  store ptr %13, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #15
+  store i32 0, ptr %7, align 4, !annotation !4
+  store i32 0, ptr %7, align 4
+  br label %14
+
+14:                                               ; preds = %30, %1
+  %15 = load i32, ptr %7, align 4
+  %16 = icmp slt i32 %15, 32
+  br i1 %16, label %17, label %33
+
+17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %18, i32 0, i32 14
+  %20 = load i32, ptr %7, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [32 x %struct.NCQTransferState], ptr %19, i64 0, i64 %21
+  store ptr %22, ptr %8, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw %struct.NCQTransferState, ptr %23, i32 0, i32 11
+  %25 = load i8, ptr %24, align 4, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %29
+
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %8, align 8
+  call void @execute_ncq_command(ptr noundef %28)
+  br label %29
+
+29:                                               ; preds = %27, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load i32, ptr %7, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %7, align 4
+  br label %14, !llvm.loop !23
+
+33:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_restart_dma(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_cmd_done(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %8 = load ptr, ptr %2, align 8
+  store ptr %8, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 0
+  store ptr %10, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.IDEBus, ptr %14, i32 0, i32 3
+  %16 = getelementptr inbounds [2 x %struct.IDEState], ptr %15, i64 0, i64 0
+  store ptr %16, ptr %7, align 8
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %17, i32 0, i32 6
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %20, i32 0, i32 2
+  %22 = load i32, ptr %21, align 8
+  call void @trace_ahci_cmd_done(ptr noundef %19, i32 noundef %22)
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %23, i32 0, i32 11
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp ne i32 %25, -1
+  br i1 %26, label %27, label %35
+
+27:                                               ; preds = %1
+  %28 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %29, i32 0, i32 11
+  %31 = load i32, ptr %30, align 4
+  %32 = trunc i32 %31 to i8
+  call void @ahci_clear_cmd_issue(ptr noundef %28, i8 noundef zeroext %32)
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %33, i32 0, i32 11
+  store i32 -1, ptr %34, align 4
+  br label %35
+
+35:                                               ; preds = %27, %1
+  %36 = load ptr, ptr %3, align 8
+  %37 = call zeroext i1 @ahci_write_fis_d2h(ptr noundef %36, i1 noundef zeroext true)
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds nuw %struct.IDEState, ptr %38, i32 0, i32 30
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = and i32 %41, 1
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %65, label %44
+
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %45, i32 0, i32 5
+  %47 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %46, i32 0, i32 14
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %65
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %51, i32 0, i32 7
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %65, label %55
+
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %3, align 8
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %57, i32 0, i32 15
+  %59 = call ptr @qemu_bh_new_full(ptr noundef @ahci_check_cmd_bh, ptr noundef %56, ptr noundef @.str.188, ptr noundef %58)
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %60, i32 0, i32 7
+  store ptr %59, ptr %61, align 8
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %62, i32 0, i32 7
+  %64 = load ptr, ptr %63, align 8
+  call void @qemu_bh_schedule(ptr noundef %64)
+  br label %65
+
+65:                                               ; preds = %55, %50, %44, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_start_dma(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_start_dma(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_start_dma(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_START_DMA_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.172, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.173, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_write_fis_pio(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i16, align 2
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i16 %1, ptr %5, align 2
+  %11 = zext i1 %2 to i8
+  store i8 %11, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %12, i32 0, i32 5
+  store ptr %13, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  store ptr null, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.IDEBus, ptr %15, i32 0, i32 3
+  %17 = getelementptr inbounds [2 x %struct.IDEState], ptr %16, i64 0, i64 0
+  store ptr %17, ptr %9, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %18, i32 0, i32 9
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %23, i32 0, i32 6
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, 16
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %22, %3
+  store i32 1, ptr %10, align 4
+  br label %157
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %30, i32 0, i32 9
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr %33, ptr %8, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 0
+  store i8 95, ptr %35, align 1
+  %36 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %37 = trunc i8 %36 to i1
+  %38 = select i1 %37, i32 64, i32 0
+  %39 = trunc i32 %38 to i8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 %39, ptr %41, align 1
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.IDEState, ptr %42, i32 0, i32 30
+  %44 = load i8, ptr %43, align 1
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 2
+  store i8 %44, ptr %46, align 1
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.IDEState, ptr %47, i32 0, i32 19
+  %49 = load i8, ptr %48, align 1
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 3
+  store i8 %49, ptr %51, align 1
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.IDEState, ptr %52, i32 0, i32 21
+  %54 = load i8, ptr %53, align 8
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  store i8 %54, ptr %56, align 1
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds nuw %struct.IDEState, ptr %57, i32 0, i32 22
+  %59 = load i8, ptr %58, align 1
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 5
+  store i8 %59, ptr %61, align 1
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds nuw %struct.IDEState, ptr %62, i32 0, i32 23
+  %64 = load i8, ptr %63, align 2
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 6
+  store i8 %64, ptr %66, align 1
+  %67 = load ptr, ptr %9, align 8
+  %68 = getelementptr inbounds nuw %struct.IDEState, ptr %67, i32 0, i32 29
+  %69 = load i8, ptr %68, align 8
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 7
+  store i8 %69, ptr %71, align 1
+  %72 = load ptr, ptr %9, align 8
+  %73 = getelementptr inbounds nuw %struct.IDEState, ptr %72, i32 0, i32 26
+  %74 = load i8, ptr %73, align 1
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  store i8 %74, ptr %76, align 1
+  %77 = load ptr, ptr %9, align 8
+  %78 = getelementptr inbounds nuw %struct.IDEState, ptr %77, i32 0, i32 27
+  %79 = load i8, ptr %78, align 2
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 9
+  store i8 %79, ptr %81, align 1
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.IDEState, ptr %82, i32 0, i32 28
+  %84 = load i8, ptr %83, align 1
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 10
+  store i8 %84, ptr %86, align 1
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 11
+  store i8 0, ptr %88, align 1
+  %89 = load ptr, ptr %9, align 8
+  %90 = getelementptr inbounds nuw %struct.IDEState, ptr %89, i32 0, i32 20
+  %91 = load i32, ptr %90, align 4
+  %92 = and i32 %91, 255
+  %93 = trunc i32 %92 to i8
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 12
+  store i8 %93, ptr %95, align 1
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds nuw %struct.IDEState, ptr %96, i32 0, i32 20
+  %98 = load i32, ptr %97, align 4
+  %99 = lshr i32 %98, 8
+  %100 = and i32 %99, 255
+  %101 = trunc i32 %100 to i8
+  %102 = load ptr, ptr %8, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 13
+  store i8 %101, ptr %103, align 1
+  %104 = load ptr, ptr %8, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 14
+  store i8 0, ptr %105, align 1
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds nuw %struct.IDEState, ptr %106, i32 0, i32 30
+  %108 = load i8, ptr %107, align 1
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 15
+  store i8 %108, ptr %110, align 1
+  %111 = load i16, ptr %5, align 2
+  %112 = zext i16 %111 to i32
+  %113 = and i32 %112, 255
+  %114 = trunc i32 %113 to i8
+  %115 = load ptr, ptr %8, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  store i8 %114, ptr %116, align 1
+  %117 = load i16, ptr %5, align 2
+  %118 = zext i16 %117 to i32
+  %119 = ashr i32 %118, 8
+  %120 = trunc i32 %119 to i8
+  %121 = load ptr, ptr %8, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 17
+  store i8 %120, ptr %122, align 1
+  %123 = load ptr, ptr %8, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 18
+  store i8 0, ptr %124, align 1
+  %125 = load ptr, ptr %8, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 19
+  store i8 0, ptr %126, align 1
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %127, i32 0, i32 1
+  %129 = getelementptr inbounds nuw %struct.IDEBus, ptr %128, i32 0, i32 3
+  %130 = getelementptr inbounds [2 x %struct.IDEState], ptr %129, i64 0, i64 0
+  %131 = getelementptr inbounds nuw %struct.IDEState, ptr %130, i32 0, i32 19
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = shl i32 %133, 8
+  %135 = load ptr, ptr %4, align 8
+  %136 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %135, i32 0, i32 1
+  %137 = getelementptr inbounds nuw %struct.IDEBus, ptr %136, i32 0, i32 3
+  %138 = getelementptr inbounds [2 x %struct.IDEState], ptr %137, i64 0, i64 0
+  %139 = getelementptr inbounds nuw %struct.IDEState, ptr %138, i32 0, i32 30
+  %140 = load i8, ptr %139, align 1
+  %141 = zext i8 %140 to i32
+  %142 = or i32 %134, %141
+  %143 = load ptr, ptr %7, align 8
+  %144 = getelementptr inbounds nuw %struct.AHCIPortRegs, ptr %143, i32 0, i32 8
+  store i32 %142, ptr %144, align 4
+  %145 = load ptr, ptr %8, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 2
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i32
+  %149 = and i32 %148, 1
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %151, label %156
+
+151:                                              ; preds = %29
+  %152 = load ptr, ptr %4, align 8
+  %153 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %152, i32 0, i32 6
+  %154 = load ptr, ptr %153, align 8
+  %155 = load ptr, ptr %4, align 8
+  call void @ahci_trigger_irq(ptr noundef %154, ptr noundef %155, i32 noundef 30)
+  br label %156
+
+156:                                              ; preds = %151, %29
+  store i32 0, ptr %10, align 4
+  br label %157
+
+157:                                              ; preds = %156, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
+  %158 = load i32, ptr %10, align 4
+  switch i32 %158, label %160 [
+    i32 0, label %159
+    i32 1, label %159
+  ]
+
+159:                                              ; preds = %157, %157
+  ret void
+
+160:                                              ; preds = %157
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_pio_transfer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #7 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load i32, ptr %10, align 4
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  call void @_nocheck__trace_ahci_pio_transfer(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+
+declare i32 @dma_buf_write(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64) #1
+
+declare i32 @dma_buf_read(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64) #1
+
+declare void @dma_buf_commit(ptr noundef, i32 noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_pio_transfer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #7 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load i32, ptr @trace_events_enabled_count, align 4
+  %15 = icmp ne i32 %14, 0
+  %16 = xor i1 %15, true
+  %17 = xor i1 %16, true
+  %18 = zext i1 %17 to i32
+  %19 = sext i32 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 0)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %52
+
+22:                                               ; preds = %6
+  %23 = load i16, ptr @_TRACE_AHCI_PIO_TRANSFER_DSTATE, align 2
+  %24 = zext i16 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %52
+
+26:                                               ; preds = %22
+  %27 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %27, label %28, label %52
+
+28:                                               ; preds = %26
+  %29 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %44
+
+31:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 16, i1 false), !annotation !4
+  %32 = call i32 @gettimeofday(ptr noundef %13, ptr noundef null) #15
+  %33 = call i32 @qemu_get_thread_id()
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %13, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.timeval, ptr %13, i32 0, i32 1
+  %37 = load i64, ptr %36, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load i32, ptr %10, align 4
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.180, i32 noundef %33, i64 noundef %35, i64 noundef %37, ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef %42, ptr noundef %43)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #15
+  br label %51
+
+44:                                               ; preds = %28
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i32, ptr %10, align 4
+  %49 = load ptr, ptr %11, align 8
+  %50 = load ptr, ptr %12, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.181, ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50)
+  br label %51
+
+51:                                               ; preds = %44, %31
+  br label %52
+
+52:                                               ; preds = %51, %26, %22, %6
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_dma_prepare_buf_fail(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_dma_prepare_buf_fail(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  store i32 %3, ptr %8, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load i32, ptr %7, align 4
+  %12 = load i32, ptr %8, align 4
+  call void @_nocheck__trace_ahci_dma_prepare_buf(ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_dma_prepare_buf_fail(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_DMA_PREPARE_BUF_FAIL_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.182, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.183, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  store i32 %3, ptr %8, align 4
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %11 = icmp ne i32 %10, 0
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %44
+
+18:                                               ; preds = %4
+  %19 = load i16, ptr @_TRACE_AHCI_DMA_PREPARE_BUF_DSTATE, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %44
+
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 16, i1 false), !annotation !4
+  %28 = call i32 @gettimeofday(ptr noundef %9, ptr noundef null) #15
+  %29 = call i32 @qemu_get_thread_id()
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = load i32, ptr %7, align 4
+  %37 = load i32, ptr %8, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.184, i32 noundef %29, i64 noundef %31, i64 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #15
+  br label %43
+
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load i32, ptr %7, align 4
+  %42 = load i32, ptr %8, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.185, ptr noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %42)
+  br label %43
+
+43:                                               ; preds = %38, %27
+  br label %44
+
+44:                                               ; preds = %43, %22, %18, %4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_dma_rw_buf(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i32, ptr %6, align 4
+  call void @_nocheck__trace_ahci_dma_rw_buf(ptr noundef %7, i32 noundef %8, i32 noundef %9)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_dma_rw_buf(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %9 = icmp ne i32 %8, 0
+  %10 = xor i1 %9, true
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %3
+  %17 = load i16, ptr @_TRACE_AHCI_DMA_RW_BUF_DSTATE, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %40
+
+20:                                               ; preds = %16
+  %21 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %21, label %22, label %40
+
+22:                                               ; preds = %20
+  %23 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false), !annotation !4
+  %26 = call i32 @gettimeofday(ptr noundef %7, ptr noundef null) #15
+  %27 = call i32 @qemu_get_thread_id()
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %5, align 4
+  %34 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.186, i32 noundef %27, i64 noundef %29, i64 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #15
+  br label %39
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %5, align 4
+  %38 = load i32, ptr %6, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.187, ptr noundef %36, i32 noundef %37, i32 noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %25
+  br label %40
+
+40:                                               ; preds = %39, %20, %16, %3
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_cmd_done(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_cmd_done(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+declare ptr @qemu_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_check_cmd_bh(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #15
+  %4 = load ptr, ptr %2, align 8
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %5, i32 0, i32 7
+  %7 = load ptr, ptr %6, align 8
+  call void @qemu_bh_delete(ptr noundef %7)
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %8, i32 0, i32 7
+  store ptr null, ptr %9, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %13, i32 0, i32 2
+  %15 = load i32, ptr %14, align 8
+  call void @check_cmd(ptr noundef %12, i32 noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #15
+  ret void
+}
+
+declare void @qemu_bh_schedule(ptr noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_cmd_done(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_CMD_DONE_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.189, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.190, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+declare void @qemu_bh_delete(ptr noundef) #1
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_reset(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load i32, ptr @trace_events_enabled_count, align 4
+  %5 = icmp ne i32 %4, 0
+  %6 = xor i1 %5, true
+  %7 = xor i1 %6, true
+  %8 = zext i1 %7 to i32
+  %9 = sext i32 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 0)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %32
+
+12:                                               ; preds = %1
+  %13 = load i16, ptr @_TRACE_AHCI_RESET_DSTATE, align 2
+  %14 = zext i16 %13 to i32
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %32
+
+16:                                               ; preds = %12
+  %17 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %17, label %18, label %32
+
+18:                                               ; preds = %16
+  %19 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 16, i1 false), !annotation !4
+  %22 = call i32 @gettimeofday(ptr noundef %3, ptr noundef null) #15
+  %23 = call i32 @qemu_get_thread_id()
+  %24 = getelementptr inbounds nuw %struct.timeval, ptr %3, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %3, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8
+  %28 = load ptr, ptr %2, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.191, i32 noundef %23, i64 noundef %25, i64 noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #15
+  br label %31
+
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %2, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.192, ptr noundef %30)
+  br label %31
+
+31:                                               ; preds = %29, %21
+  br label %32
+
+32:                                               ; preds = %31, %16, %12, %1
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_reset_port(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  call void @_nocheck__trace_ahci_reset_port(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+declare void @ide_bus_reset(ptr noundef) #1
+
+declare void @blk_aio_cancel(ptr noundef) #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @ahci_set_signature(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.IDEBus, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds [2 x %struct.IDEState], ptr %8, i64 0, i64 0
+  store ptr %9, ptr %5, align 8
+  %10 = load i32, ptr %4, align 4
+  %11 = lshr i32 %10, 24
+  %12 = and i32 %11, 255
+  %13 = trunc i32 %12 to i8
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.IDEState, ptr %14, i32 0, i32 23
+  store i8 %13, ptr %15, align 2
+  %16 = load i32, ptr %4, align 4
+  %17 = lshr i32 %16, 16
+  %18 = and i32 %17, 255
+  %19 = trunc i32 %18 to i8
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.IDEState, ptr %20, i32 0, i32 22
+  store i8 %19, ptr %21, align 1
+  %22 = load i32, ptr %4, align 4
+  %23 = lshr i32 %22, 8
+  %24 = and i32 %23, 255
+  %25 = trunc i32 %24 to i8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.IDEState, ptr %26, i32 0, i32 21
+  store i8 %25, ptr %27, align 8
+  %28 = load i32, ptr %4, align 4
+  %29 = and i32 %28, 255
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.IDEState, ptr %30, i32 0, i32 20
+  store i32 %29, ptr %31, align 4
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %32, i32 0, i32 6
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %36, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds nuw %struct.IDEState, ptr %38, i32 0, i32 20
+  %40 = load i32, ptr %39, align 4
+  %41 = trunc i32 %40 to i8
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct.IDEState, ptr %42, i32 0, i32 21
+  %44 = load i8, ptr %43, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds nuw %struct.IDEState, ptr %45, i32 0, i32 22
+  %47 = load i8, ptr %46, align 1
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct.IDEState, ptr %48, i32 0, i32 23
+  %50 = load i8, ptr %49, align 2
+  %51 = load i32, ptr %4, align 4
+  call void @trace_ahci_set_signature(ptr noundef %34, i32 noundef %37, i8 noundef zeroext %41, i8 noundef zeroext %44, i8 noundef zeroext %47, i8 noundef zeroext %50, i32 noundef %51)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_reset_port(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %2
+  %15 = load i16, ptr @_TRACE_AHCI_RESET_PORT_DSTATE, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
+
+18:                                               ; preds = %14
+  %19 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %18
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 16, i1 false), !annotation !4
+  %24 = call i32 @gettimeofday(ptr noundef %5, ptr noundef null) #15
+  %25 = call i32 @qemu_get_thread_id()
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.193, i32 noundef %25, i64 noundef %27, i64 noundef %29, ptr noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #15
+  br label %35
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.194, ptr noundef %33, i32 noundef %34)
+  br label %35
+
+35:                                               ; preds = %32, %23
+  br label %36
+
+36:                                               ; preds = %35, %18, %14, %2
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @trace_ahci_set_signature(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6) #7 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store i8 %2, ptr %10, align 1
+  store i8 %3, ptr %11, align 1
+  store i8 %4, ptr %12, align 1
+  store i8 %5, ptr %13, align 1
+  store i32 %6, ptr %14, align 4
+  %15 = load ptr, ptr %8, align 8
+  %16 = load i32, ptr %9, align 4
+  %17 = load i8, ptr %10, align 1
+  %18 = load i8, ptr %11, align 1
+  %19 = load i8, ptr %12, align 1
+  %20 = load i8, ptr %13, align 1
+  %21 = load i32, ptr %14, align 4
+  call void @_nocheck__trace_ahci_set_signature(ptr noundef %15, i32 noundef %16, i8 noundef zeroext %17, i8 noundef zeroext %18, i8 noundef zeroext %19, i8 noundef zeroext %20, i32 noundef %21)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @_nocheck__trace_ahci_set_signature(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6) #7 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  %15 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store i8 %2, ptr %10, align 1
+  store i8 %3, ptr %11, align 1
+  store i8 %4, ptr %12, align 1
+  store i8 %5, ptr %13, align 1
+  store i32 %6, ptr %14, align 4
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %17 = icmp ne i32 %16, 0
+  %18 = xor i1 %17, true
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %64
+
+24:                                               ; preds = %7
+  %25 = load i16, ptr @_TRACE_AHCI_SET_SIGNATURE_DSTATE, align 2
+  %26 = zext i16 %25 to i32
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %64
+
+28:                                               ; preds = %24
+  %29 = call zeroext i1 @qemu_loglevel_mask(i32 noundef 32768)
+  br i1 %29, label %30, label %64
+
+30:                                               ; preds = %28
+  %31 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %51
+
+33:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 16, i1 false), !annotation !4
+  %34 = call i32 @gettimeofday(ptr noundef %15, ptr noundef null) #15
+  %35 = call i32 @qemu_get_thread_id()
+  %36 = getelementptr inbounds nuw %struct.timeval, ptr %15, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct.timeval, ptr %15, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load i32, ptr %9, align 4
+  %42 = load i8, ptr %10, align 1
+  %43 = zext i8 %42 to i32
+  %44 = load i8, ptr %11, align 1
+  %45 = zext i8 %44 to i32
+  %46 = load i8, ptr %12, align 1
+  %47 = zext i8 %46 to i32
+  %48 = load i8, ptr %13, align 1
+  %49 = zext i8 %48 to i32
+  %50 = load i32, ptr %14, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.195, i32 noundef %35, i64 noundef %37, i64 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef %49, i32 noundef %50)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #15
+  br label %63
+
+51:                                               ; preds = %30
+  %52 = load ptr, ptr %8, align 8
+  %53 = load i32, ptr %9, align 4
+  %54 = load i8, ptr %10, align 1
+  %55 = zext i8 %54 to i32
+  %56 = load i8, ptr %11, align 1
+  %57 = zext i8 %56 to i32
+  %58 = load i8, ptr %12, align 1
+  %59 = zext i8 %58 to i32
+  %60 = load i8, ptr %13, align 1
+  %61 = zext i8 %60 to i32
+  %62 = load i32, ptr %14, align 4
+  call void (ptr, ...) @qemu_log(ptr noundef @.str.196, ptr noundef %52, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %62)
+  br label %63
+
+63:                                               ; preds = %51, %33
+  br label %64
+
+64:                                               ; preds = %63, %28, %24, %7
+  ret void
+}
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #12 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { allocsize(0) }
+attributes #18 = { allocsize(0,1) }
+attributes #19 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!11 = !{i8 0, i8 2}
+!12 = !{}
 !13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}

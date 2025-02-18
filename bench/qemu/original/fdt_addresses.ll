@@ -1,449 +1,509 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [15 x i8] c"#address-cells\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"#size-cells\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_address_cells(ptr noundef %fdt, i32 noundef %nodeoffset) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %val = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %nodeoffset.addr, align 4
-  %call = call i32 @fdt_cells(ptr noundef %0, i32 noundef %1, ptr noundef @.str)
-  store i32 %call, ptr %val, align 4
-  %2 = load i32, ptr %val, align 4
-  %cmp = icmp eq i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @fdt_address_cells(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  store i32 0, ptr %6, align 4, !annotation !4
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %5, align 4
+  %10 = call i32 @fdt_cells(ptr noundef %8, i32 noundef %9, ptr noundef @.str)
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  store i32 -14, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %2
+  store i32 -14, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %val, align 4
-  %cmp1 = icmp eq i32 %3, -1
-  br i1 %cmp1, label %if.then2, label %if.end3
+14:                                               ; preds = %2
+  %15 = load i32, ptr %6, align 4
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %18
 
-if.then2:                                         ; preds = %if.end
-  store i32 2, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %14
+  store i32 2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %20
 
-if.end3:                                          ; preds = %if.end
-  %4 = load i32, ptr %val, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %14
+  %19 = load i32, ptr %6, align 4
+  store i32 %19, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %20
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+20:                                               ; preds = %18, %17, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %21 = load i32, ptr %3, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @fdt_cells(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  store ptr null, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 0, ptr %10, align 4, !annotation !4
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %6, align 4
+  %14 = load ptr, ptr %7, align 8
+  %15 = call ptr @fdt_getprop(ptr noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %10)
+  store ptr %15, ptr %8, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %20, label %18
+
+18:                                               ; preds = %3
+  %19 = load i32, ptr %10, align 4
+  store i32 %19, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
+
+20:                                               ; preds = %3
+  %21 = load i32, ptr %10, align 4
+  %22 = sext i32 %21 to i64
+  %23 = icmp ne i64 %22, 4
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %20
+  store i32 -14, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
+
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = call i32 @fdt32_to_cpu(i32 noundef %27)
+  store i32 %28, ptr %9, align 4
+  %29 = load i32, ptr %9, align 4
+  %30 = icmp ugt i32 %29, 4
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %25
+  store i32 -14, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
+
+32:                                               ; preds = %25
+  %33 = load i32, ptr %9, align 4
+  store i32 %33, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
+
+34:                                               ; preds = %32, %31, %24, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %35 = load i32, ptr %4, align 4
+  ret i32 %35
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @fdt_size_cells(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  store i32 0, ptr %6, align 4, !annotation !4
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %5, align 4
+  %10 = call i32 @fdt_cells(ptr noundef %8, i32 noundef %9, ptr noundef @.str.1)
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %2
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+14:                                               ; preds = %2
+  %15 = load i32, ptr %6, align 4
+  store i32 %15, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fdt_cells(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %val = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %nodeoffset.addr, align 4
-  %2 = load ptr, ptr %name.addr, align 8
-  %call = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %len)
-  store ptr %call, ptr %c, align 8
-  %3 = load ptr, ptr %c, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local i32 @fdt_appendprop_addrrange(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca [16 x i8], align 16
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store i32 %2, ptr %10, align 4
+  store ptr %3, ptr %11, align 8
+  store i64 %4, ptr %12, align 8
+  store i64 %5, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  store i32 0, ptr %14, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  store i32 0, ptr %15, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  store i32 0, ptr %16, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #5
+  call void @llvm.memset.p0.i64(ptr align 16 %17, i8 0, i64 16, i1 false), !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  store ptr null, ptr %18, align 8, !annotation !4
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = call i32 @fdt_address_cells(ptr noundef %20, i32 noundef %21)
+  store i32 %22, ptr %16, align 4
+  %23 = load i32, ptr %16, align 4
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %27
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %len, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %6
+  %26 = load i32, ptr %16, align 4
+  store i32 %26, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %98
 
-if.end:                                           ; preds = %entry
-  %5 = load i32, ptr %len, align 4
-  %conv = sext i32 %5 to i64
-  %cmp = icmp ne i64 %conv, 4
-  br i1 %cmp, label %if.then2, label %if.end3
+27:                                               ; preds = %6
+  %28 = load i32, ptr %16, align 4
+  store i32 %28, ptr %14, align 4
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = call i32 @fdt_size_cells(ptr noundef %29, i32 noundef %30)
+  store i32 %31, ptr %16, align 4
+  %32 = load i32, ptr %16, align 4
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %36
 
-if.then2:                                         ; preds = %if.end
-  store i32 -14, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %27
+  %35 = load i32, ptr %16, align 4
+  store i32 %35, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %98
 
-if.end3:                                          ; preds = %if.end
-  %6 = load ptr, ptr %c, align 8
-  %7 = load i32, ptr %6, align 4
-  %call4 = call i32 @fdt32_to_cpu(i32 noundef %7)
-  store i32 %call4, ptr %val, align 4
-  %8 = load i32, ptr %val, align 4
-  %cmp5 = icmp ugt i32 %8, 4
-  br i1 %cmp5, label %if.then7, label %if.end8
+36:                                               ; preds = %27
+  %37 = load i32, ptr %16, align 4
+  store i32 %37, ptr %15, align 4
+  %38 = getelementptr inbounds [16 x i8], ptr %17, i64 0, i64 0
+  store ptr %38, ptr %18, align 8
+  %39 = load i32, ptr %14, align 4
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %54
 
-if.then7:                                         ; preds = %if.end3
-  store i32 -14, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %36
+  %42 = load i64, ptr %12, align 8
+  %43 = icmp ugt i64 %42, 4294967295
+  br i1 %43, label %49, label %44
 
-if.end8:                                          ; preds = %if.end3
-  %9 = load i32, ptr %val, align 4
-  store i32 %9, ptr %retval, align 4
-  br label %return
+44:                                               ; preds = %41
+  %45 = load i64, ptr %12, align 8
+  %46 = sub i64 0, %45
+  %47 = load i64, ptr %13, align 8
+  %48 = icmp ult i64 %46, %47
+  br i1 %48, label %49, label %50
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then2, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+49:                                               ; preds = %44, %41
+  store i32 -15, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %98
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %18, align 8
+  %52 = load i64, ptr %12, align 8
+  %53 = trunc i64 %52 to i32
+  call void @fdt32_st(ptr noundef %51, i32 noundef %53)
+  br label %62
+
+54:                                               ; preds = %36
+  %55 = load i32, ptr %14, align 4
+  %56 = icmp eq i32 %55, 2
+  br i1 %56, label %57, label %60
+
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %18, align 8
+  %59 = load i64, ptr %12, align 8
+  call void @fdt64_st(ptr noundef %58, i64 noundef %59)
+  br label %61
+
+60:                                               ; preds = %54
+  store i32 -14, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %98
+
+61:                                               ; preds = %57
+  br label %62
+
+62:                                               ; preds = %61, %50
+  %63 = load i32, ptr %14, align 4
+  %64 = sext i32 %63 to i64
+  %65 = mul i64 %64, 4
+  %66 = load ptr, ptr %18, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
+  store ptr %67, ptr %18, align 8
+  %68 = load i32, ptr %15, align 4
+  %69 = icmp eq i32 %68, 1
+  br i1 %69, label %70, label %78
+
+70:                                               ; preds = %62
+  %71 = load i64, ptr %13, align 8
+  %72 = icmp ugt i64 %71, 4294967295
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %70
+  store i32 -15, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %98
+
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %18, align 8
+  %76 = load i64, ptr %13, align 8
+  %77 = trunc i64 %76 to i32
+  call void @fdt32_st(ptr noundef %75, i32 noundef %77)
+  br label %86
+
+78:                                               ; preds = %62
+  %79 = load i32, ptr %15, align 4
+  %80 = icmp eq i32 %79, 2
+  br i1 %80, label %81, label %84
+
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %18, align 8
+  %83 = load i64, ptr %13, align 8
+  call void @fdt64_st(ptr noundef %82, i64 noundef %83)
+  br label %85
+
+84:                                               ; preds = %78
+  store i32 -14, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %98
+
+85:                                               ; preds = %81
+  br label %86
+
+86:                                               ; preds = %85, %74
+  %87 = load ptr, ptr %8, align 8
+  %88 = load i32, ptr %10, align 4
+  %89 = load ptr, ptr %11, align 8
+  %90 = getelementptr inbounds [16 x i8], ptr %17, i64 0, i64 0
+  %91 = load i32, ptr %14, align 4
+  %92 = load i32, ptr %15, align 4
+  %93 = add i32 %91, %92
+  %94 = sext i32 %93 to i64
+  %95 = mul i64 %94, 4
+  %96 = trunc i64 %95 to i32
+  %97 = call i32 @fdt_appendprop(ptr noundef %87, i32 noundef %88, ptr noundef %89, ptr noundef %90, i32 noundef %96)
+  store i32 %97, ptr %7, align 4
+  store i32 1, ptr %19, align 4
+  br label %98
+
+98:                                               ; preds = %86, %84, %73, %60, %49, %34, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  %99 = load i32, ptr %7, align 4
+  ret i32 %99
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_size_cells(ptr noundef %fdt, i32 noundef %nodeoffset) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %nodeoffset.addr = alloca i32, align 4
-  %val = alloca i32, align 4
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %nodeoffset.addr, align 4
-  %call = call i32 @fdt_cells(ptr noundef %0, i32 noundef %1, ptr noundef @.str.1)
-  store i32 %call, ptr %val, align 4
-  %2 = load i32, ptr %val, align 4
-  %cmp = icmp eq i32 %2, -1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %val, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_appendprop_addrrange(ptr noundef %fdt, i32 noundef %parent, i32 noundef %nodeoffset, ptr noundef %name, i64 noundef %addr, i64 noundef %size) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fdt.addr = alloca ptr, align 8
-  %parent.addr = alloca i32, align 4
-  %nodeoffset.addr = alloca i32, align 4
-  %name.addr = alloca ptr, align 8
-  %addr.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %addr_cells = alloca i32, align 4
-  %size_cells = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %data = alloca [16 x i8], align 16
-  %prop = alloca ptr, align 8
-  store ptr %fdt, ptr %fdt.addr, align 8
-  store i32 %parent, ptr %parent.addr, align 4
-  store i32 %nodeoffset, ptr %nodeoffset.addr, align 4
-  store ptr %name, ptr %name.addr, align 8
-  store i64 %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %fdt.addr, align 8
-  %1 = load i32, ptr %parent.addr, align 4
-  %call = call i32 @fdt_address_cells(ptr noundef %0, i32 noundef %1)
-  store i32 %call, ptr %ret, align 4
-  %2 = load i32, ptr %ret, align 4
-  %cmp = icmp slt i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %ret, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %addr_cells, align 4
-  %5 = load ptr, ptr %fdt.addr, align 8
-  %6 = load i32, ptr %parent.addr, align 4
-  %call1 = call i32 @fdt_size_cells(ptr noundef %5, i32 noundef %6)
-  store i32 %call1, ptr %ret, align 4
-  %7 = load i32, ptr %ret, align 4
-  %cmp2 = icmp slt i32 %7, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %8 = load i32, ptr %ret, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %9 = load i32, ptr %ret, align 4
-  store i32 %9, ptr %size_cells, align 4
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %data, i64 0, i64 0
-  store ptr %arraydecay, ptr %prop, align 8
-  %10 = load i32, ptr %addr_cells, align 4
-  %cmp5 = icmp eq i32 %10, 1
-  br i1 %cmp5, label %if.then6, label %if.else
-
-if.then6:                                         ; preds = %if.end4
-  %11 = load i64, ptr %addr.addr, align 8
-  %cmp7 = icmp ugt i64 %11, 4294967295
-  br i1 %cmp7, label %if.then9, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then6
-  %12 = load i64, ptr %addr.addr, align 8
-  %sub = sub i64 0, %12
-  %13 = load i64, ptr %size.addr, align 8
-  %cmp8 = icmp ult i64 %sub, %13
-  br i1 %cmp8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %lor.lhs.false, %if.then6
-  store i32 -15, ptr %retval, align 4
-  br label %return
-
-if.end10:                                         ; preds = %lor.lhs.false
-  %14 = load ptr, ptr %prop, align 8
-  %15 = load i64, ptr %addr.addr, align 8
-  %conv = trunc i64 %15 to i32
-  call void @fdt32_st(ptr noundef %14, i32 noundef %conv)
-  br label %if.end16
-
-if.else:                                          ; preds = %if.end4
-  %16 = load i32, ptr %addr_cells, align 4
-  %cmp11 = icmp eq i32 %16, 2
-  br i1 %cmp11, label %if.then13, label %if.else14
-
-if.then13:                                        ; preds = %if.else
-  %17 = load ptr, ptr %prop, align 8
-  %18 = load i64, ptr %addr.addr, align 8
-  call void @fdt64_st(ptr noundef %17, i64 noundef %18)
-  br label %if.end15
-
-if.else14:                                        ; preds = %if.else
-  store i32 -14, ptr %retval, align 4
-  br label %return
-
-if.end15:                                         ; preds = %if.then13
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.end15, %if.end10
-  %19 = load i32, ptr %addr_cells, align 4
-  %conv17 = sext i32 %19 to i64
-  %mul = mul i64 %conv17, 4
-  %20 = load ptr, ptr %prop, align 8
-  %add.ptr = getelementptr i8, ptr %20, i64 %mul
-  store ptr %add.ptr, ptr %prop, align 8
-  %21 = load i32, ptr %size_cells, align 4
-  %cmp18 = icmp eq i32 %21, 1
-  br i1 %cmp18, label %if.then20, label %if.else26
-
-if.then20:                                        ; preds = %if.end16
-  %22 = load i64, ptr %size.addr, align 8
-  %cmp21 = icmp ugt i64 %22, 4294967295
-  br i1 %cmp21, label %if.then23, label %if.end24
-
-if.then23:                                        ; preds = %if.then20
-  store i32 -15, ptr %retval, align 4
-  br label %return
-
-if.end24:                                         ; preds = %if.then20
-  %23 = load ptr, ptr %prop, align 8
-  %24 = load i64, ptr %size.addr, align 8
-  %conv25 = trunc i64 %24 to i32
-  call void @fdt32_st(ptr noundef %23, i32 noundef %conv25)
-  br label %if.end32
-
-if.else26:                                        ; preds = %if.end16
-  %25 = load i32, ptr %size_cells, align 4
-  %cmp27 = icmp eq i32 %25, 2
-  br i1 %cmp27, label %if.then29, label %if.else30
-
-if.then29:                                        ; preds = %if.else26
-  %26 = load ptr, ptr %prop, align 8
-  %27 = load i64, ptr %size.addr, align 8
-  call void @fdt64_st(ptr noundef %26, i64 noundef %27)
-  br label %if.end31
-
-if.else30:                                        ; preds = %if.else26
-  store i32 -14, ptr %retval, align 4
-  br label %return
-
-if.end31:                                         ; preds = %if.then29
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.end31, %if.end24
-  %28 = load ptr, ptr %fdt.addr, align 8
-  %29 = load i32, ptr %nodeoffset.addr, align 4
-  %30 = load ptr, ptr %name.addr, align 8
-  %arraydecay33 = getelementptr inbounds [16 x i8], ptr %data, i64 0, i64 0
-  %31 = load i32, ptr %addr_cells, align 4
-  %32 = load i32, ptr %size_cells, align 4
-  %add = add i32 %31, %32
-  %conv34 = sext i32 %add to i64
-  %mul35 = mul i64 %conv34, 4
-  %conv36 = trunc i64 %mul35 to i32
-  %call37 = call i32 @fdt_appendprop(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %arraydecay33, i32 noundef %conv36)
-  store i32 %call37, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end32, %if.else30, %if.then23, %if.else14, %if.then9, %if.then3, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @fdt32_st(ptr noundef %property, i32 noundef %value) #0 {
-entry:
-  %property.addr = alloca ptr, align 8
-  %value.addr = alloca i32, align 4
-  %bp = alloca ptr, align 8
-  store ptr %property, ptr %property.addr, align 8
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load ptr, ptr %property.addr, align 8
-  store ptr %0, ptr %bp, align 8
-  %1 = load i32, ptr %value.addr, align 4
-  %shr = lshr i32 %1, 24
-  %conv = trunc i32 %shr to i8
-  %2 = load ptr, ptr %bp, align 8
-  %arrayidx = getelementptr i8, ptr %2, i64 0
-  store i8 %conv, ptr %arrayidx, align 1
-  %3 = load i32, ptr %value.addr, align 4
-  %shr1 = lshr i32 %3, 16
-  %and = and i32 %shr1, 255
-  %conv2 = trunc i32 %and to i8
-  %4 = load ptr, ptr %bp, align 8
-  %arrayidx3 = getelementptr i8, ptr %4, i64 1
-  store i8 %conv2, ptr %arrayidx3, align 1
-  %5 = load i32, ptr %value.addr, align 4
-  %shr4 = lshr i32 %5, 8
-  %and5 = and i32 %shr4, 255
-  %conv6 = trunc i32 %and5 to i8
-  %6 = load ptr, ptr %bp, align 8
-  %arrayidx7 = getelementptr i8, ptr %6, i64 2
-  store i8 %conv6, ptr %arrayidx7, align 1
-  %7 = load i32, ptr %value.addr, align 4
-  %and8 = and i32 %7, 255
-  %conv9 = trunc i32 %and8 to i8
-  %8 = load ptr, ptr %bp, align 8
-  %arrayidx10 = getelementptr i8, ptr %8, i64 3
-  store i8 %conv9, ptr %arrayidx10, align 1
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt32_st(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i32, ptr %4, align 4
+  %8 = lshr i32 %7, 24
+  %9 = trunc i32 %8 to i8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 0
+  store i8 %9, ptr %11, align 1
+  %12 = load i32, ptr %4, align 4
+  %13 = lshr i32 %12, 16
+  %14 = and i32 %13, 255
+  %15 = trunc i32 %14 to i8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  store i8 %15, ptr %17, align 1
+  %18 = load i32, ptr %4, align 4
+  %19 = lshr i32 %18, 8
+  %20 = and i32 %19, 255
+  %21 = trunc i32 %20 to i8
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 2
+  store i8 %21, ptr %23, align 1
+  %24 = load i32, ptr %4, align 4
+  %25 = and i32 %24, 255
+  %26 = trunc i32 %25 to i8
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 3
+  store i8 %26, ptr %28, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @fdt64_st(ptr noundef %property, i64 noundef %value) #0 {
-entry:
-  %property.addr = alloca ptr, align 8
-  %value.addr = alloca i64, align 8
-  %bp = alloca ptr, align 8
-  store ptr %property, ptr %property.addr, align 8
-  store i64 %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %property.addr, align 8
-  store ptr %0, ptr %bp, align 8
-  %1 = load i64, ptr %value.addr, align 8
-  %shr = lshr i64 %1, 56
-  %conv = trunc i64 %shr to i8
-  %2 = load ptr, ptr %bp, align 8
-  %arrayidx = getelementptr i8, ptr %2, i64 0
-  store i8 %conv, ptr %arrayidx, align 1
-  %3 = load i64, ptr %value.addr, align 8
-  %shr1 = lshr i64 %3, 48
-  %and = and i64 %shr1, 255
-  %conv2 = trunc i64 %and to i8
-  %4 = load ptr, ptr %bp, align 8
-  %arrayidx3 = getelementptr i8, ptr %4, i64 1
-  store i8 %conv2, ptr %arrayidx3, align 1
-  %5 = load i64, ptr %value.addr, align 8
-  %shr4 = lshr i64 %5, 40
-  %and5 = and i64 %shr4, 255
-  %conv6 = trunc i64 %and5 to i8
-  %6 = load ptr, ptr %bp, align 8
-  %arrayidx7 = getelementptr i8, ptr %6, i64 2
-  store i8 %conv6, ptr %arrayidx7, align 1
-  %7 = load i64, ptr %value.addr, align 8
-  %shr8 = lshr i64 %7, 32
-  %and9 = and i64 %shr8, 255
-  %conv10 = trunc i64 %and9 to i8
-  %8 = load ptr, ptr %bp, align 8
-  %arrayidx11 = getelementptr i8, ptr %8, i64 3
-  store i8 %conv10, ptr %arrayidx11, align 1
-  %9 = load i64, ptr %value.addr, align 8
-  %shr12 = lshr i64 %9, 24
-  %and13 = and i64 %shr12, 255
-  %conv14 = trunc i64 %and13 to i8
-  %10 = load ptr, ptr %bp, align 8
-  %arrayidx15 = getelementptr i8, ptr %10, i64 4
-  store i8 %conv14, ptr %arrayidx15, align 1
-  %11 = load i64, ptr %value.addr, align 8
-  %shr16 = lshr i64 %11, 16
-  %and17 = and i64 %shr16, 255
-  %conv18 = trunc i64 %and17 to i8
-  %12 = load ptr, ptr %bp, align 8
-  %arrayidx19 = getelementptr i8, ptr %12, i64 5
-  store i8 %conv18, ptr %arrayidx19, align 1
-  %13 = load i64, ptr %value.addr, align 8
-  %shr20 = lshr i64 %13, 8
-  %and21 = and i64 %shr20, 255
-  %conv22 = trunc i64 %and21 to i8
-  %14 = load ptr, ptr %bp, align 8
-  %arrayidx23 = getelementptr i8, ptr %14, i64 6
-  store i8 %conv22, ptr %arrayidx23, align 1
-  %15 = load i64, ptr %value.addr, align 8
-  %and24 = and i64 %15, 255
-  %conv25 = trunc i64 %and24 to i8
-  %16 = load ptr, ptr %bp, align 8
-  %arrayidx26 = getelementptr i8, ptr %16, i64 7
-  store i8 %conv25, ptr %arrayidx26, align 1
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @fdt64_st(ptr noundef %0, i64 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load i64, ptr %4, align 8
+  %8 = lshr i64 %7, 56
+  %9 = trunc i64 %8 to i8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 0
+  store i8 %9, ptr %11, align 1
+  %12 = load i64, ptr %4, align 8
+  %13 = lshr i64 %12, 48
+  %14 = and i64 %13, 255
+  %15 = trunc i64 %14 to i8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  store i8 %15, ptr %17, align 1
+  %18 = load i64, ptr %4, align 8
+  %19 = lshr i64 %18, 40
+  %20 = and i64 %19, 255
+  %21 = trunc i64 %20 to i8
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 2
+  store i8 %21, ptr %23, align 1
+  %24 = load i64, ptr %4, align 8
+  %25 = lshr i64 %24, 32
+  %26 = and i64 %25, 255
+  %27 = trunc i64 %26 to i8
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 3
+  store i8 %27, ptr %29, align 1
+  %30 = load i64, ptr %4, align 8
+  %31 = lshr i64 %30, 24
+  %32 = and i64 %31, 255
+  %33 = trunc i64 %32 to i8
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  store i8 %33, ptr %35, align 1
+  %36 = load i64, ptr %4, align 8
+  %37 = lshr i64 %36, 16
+  %38 = and i64 %37, 255
+  %39 = trunc i64 %38 to i8
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 5
+  store i8 %39, ptr %41, align 1
+  %42 = load i64, ptr %4, align 8
+  %43 = lshr i64 %42, 8
+  %44 = and i64 %43, 255
+  %45 = trunc i64 %44 to i8
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 6
+  store i8 %45, ptr %47, align 1
+  %48 = load i64, ptr %4, align 8
+  %49 = and i64 %48, 255
+  %50 = trunc i64 %49 to i8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 7
+  store i8 %50, ptr %52, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-declare i32 @fdt_appendprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @fdt_appendprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #4
 
-declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @fdt32_to_cpu(i32 noundef %x) #0 {
-entry:
-  %x.addr = alloca i32, align 4
-  store i32 %x, ptr %x.addr, align 4
-  %arrayidx = getelementptr i8, ptr %x.addr, i64 0
-  %0 = load i8, ptr %arrayidx, align 4
-  %conv = zext i8 %0 to i64
-  %shl = shl i64 %conv, 24
-  %arrayidx1 = getelementptr i8, ptr %x.addr, i64 1
-  %1 = load i8, ptr %arrayidx1, align 1
-  %conv2 = zext i8 %1 to i64
-  %shl3 = shl i64 %conv2, 16
-  %or = or i64 %shl, %shl3
-  %arrayidx4 = getelementptr i8, ptr %x.addr, i64 2
-  %2 = load i8, ptr %arrayidx4, align 2
-  %conv5 = zext i8 %2 to i64
-  %shl6 = shl i64 %conv5, 8
-  %or7 = or i64 %or, %shl6
-  %arrayidx8 = getelementptr i8, ptr %x.addr, i64 3
-  %3 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %3 to i64
-  %or10 = or i64 %or7, %conv9
-  %conv11 = trunc i64 %or10 to i32
-  ret i32 %conv11
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @fdt32_to_cpu(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %2, i64 0
+  %4 = load i8, ptr %3, align 4
+  %5 = zext i8 %4 to i64
+  %6 = shl i64 %5, 24
+  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i64
+  %10 = shl i64 %9, 16
+  %11 = or i64 %6, %10
+  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %13 = load i8, ptr %12, align 2
+  %14 = zext i8 %13 to i64
+  %15 = shl i64 %14, 8
+  %16 = or i64 %11, %15
+  %17 = getelementptr inbounds i8, ptr %2, i64 3
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i64
+  %20 = or i64 %16, %19
+  %21 = trunc i64 %20 to i32
+  ret i32 %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"auto-init"}

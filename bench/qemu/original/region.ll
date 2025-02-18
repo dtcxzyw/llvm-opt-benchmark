@@ -1,24 +1,22 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.tcg_region_state = type { %struct.QemuMutex, ptr, ptr, i64, i64, i64, i64, i64, i64 }
 %struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon, %union.anon, %struct.anon.0, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
+%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon, %union.anon, %struct.anon.0, ptr, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
 %struct.anon = type { ptr, ptr }
 %struct.TCGTempSet = type { [8 x i64] }
-%struct.TCGTemp = type { i48, i64, ptr, i64, ptr, i64, ptr }
+%struct.TCGTemp = type { i64, i64, ptr, i64, ptr, i64, ptr }
 %union.anon = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.anon.0 = type { ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, %struct.IntervalTreeNode, %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
+%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, [2 x i64], [2 x i64], %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
 %struct.tb_tc = type { ptr, i64 }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
 %struct.QemuSpin = type { i32 }
 %struct.tcg_region_tree = type { %struct.QemuMutex, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
@@ -29,12 +27,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [11 x i8] c"rt != NULL\00", align 1
 @qemu_mutex_lock_func = external global ptr, align 8
 @__func__.tcg_tb_remove = private unnamed_addr constant [14 x i8] c"tcg_tb_remove\00", align 1
-@__func__.tcg_tb_lookup = private unnamed_addr constant [14 x i8] c"tcg_tb_lookup\00", align 1
 @region_trees = internal global ptr null, align 8
 @tree_size = internal global i64 0, align 8
-@__func__.tcg_region_alloc = private unnamed_addr constant [17 x i8] c"tcg_region_alloc\00", align 1
-@__func__.tcg_region_initial_alloc = private unnamed_addr constant [25 x i8] c"tcg_region_initial_alloc\00", align 1
-@__func__.tcg_region_reset_all = private unnamed_addr constant [21 x i8] c"tcg_region_reset_all\00", align 1
 @tcg_cur_ctxs = external global i32, align 4
 @tcg_ctxs = external global ptr, align 8
 @error_fatal = external global ptr, align 8
@@ -49,7 +43,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [43 x i8] c"region.start_aligned == s->code_gen_buffer\00", align 1
 @__func__.tcg_code_size = private unnamed_addr constant [14 x i8] c"tcg_code_size\00", align 1
 @.str.6 = private unnamed_addr constant [32 x i8] c"size <= s->code_gen_buffer_size\00", align 1
-@__func__.tcg_region_tree_lock_all = private unnamed_addr constant [25 x i8] c"tcg_region_tree_lock_all\00", align 1
 @__func__.tcg_region_initial_alloc__locked = private unnamed_addr constant [33 x i8] c"tcg_region_initial_alloc__locked\00", align 1
 @.str.7 = private unnamed_addr constant [5 x i8] c"!err\00", align 1
 @.str.8 = private unnamed_addr constant [8 x i8] c"tcg-jit\00", align 1
@@ -57,2189 +50,2466 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [40 x i8] c"failed to map shared memory for execute\00", align 1
 @__func__.alloc_code_gen_buffer_anon = private unnamed_addr constant [27 x i8] c"alloc_code_gen_buffer_anon\00", align 1
 @.str.10 = private unnamed_addr constant [34 x i8] c"allocate %zu bytes for jit buffer\00", align 1
+@mttcg_enabled = external global i8, align 1
 @qemu_dcache_linesize = external global i32, align 4
 @__func__.tb_tc_cmp = private unnamed_addr constant [10 x i8] c"tb_tc_cmp\00", align 1
 @.str.11 = private unnamed_addr constant [19 x i8] c"a->size == b->size\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @in_code_gen_buffer(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %2 = load ptr, ptr %1, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %3 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  %4 = load i64, ptr %3, align 8
-  %cmp = icmp ule i64 %sub.ptr.sub, %4
-  ret i1 %cmp
+define dso_local zeroext i1 @in_code_gen_buffer(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %5 = ptrtoint ptr %3 to i64
+  %6 = ptrtoint ptr %4 to i64
+  %7 = sub i64 %5, %6
+  %8 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %9 = icmp ule i64 %7, %8
+  ret i1 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_tb_insert(ptr noundef %tb) #0 {
-entry:
-  %tb.addr = alloca ptr, align 8
-  %rt = alloca ptr, align 8
-  %_f = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %atomic-temp = alloca ptr, align 8
-  store ptr %tb, ptr %tb.addr, align 8
-  %0 = load ptr, ptr %tb.addr, align 8
-  %tc = getelementptr inbounds %struct.TranslationBlock, ptr %0, i32 0, i32 6
-  %ptr = getelementptr inbounds %struct.tb_tc, ptr %tc, i32 0, i32 0
-  %1 = load ptr, ptr %ptr, align 8
-  %call = call ptr @tc_ptr_to_region_tree(ptr noundef %1)
-  store ptr %call, ptr %rt, align 8
-  br label %do.body
+define dso_local void @tcg_tb_insert(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %9, i32 0, i32 6
+  %11 = getelementptr inbounds nuw %struct.tb_tc, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @tc_ptr_to_region_tree(ptr noundef %12)
+  store ptr %13, ptr %3, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %2 = load ptr, ptr %rt, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %if.then, label %if.else
+14:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !annotation !4
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  br label %if.end
+17:                                               ; preds = %14
+  store i32 1, ptr %4, align 4
+  br label %19
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 227, ptr noundef @__func__.tcg_tb_insert, ptr noundef @.str.1) #6
+18:                                               ; preds = %14
+  store i32 0, ptr %4, align 4
+  br label %19
+
+19:                                               ; preds = %18, %17
+  %20 = load i32, ptr %4, align 4
+  store i32 %20, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %21 = load i32, ptr %5, align 4
+  %22 = sext i32 %21 to i64
+  %23 = call i64 @llvm.expect.i64(i64 %22, i64 1)
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %19
+  br label %27
+
+26:                                               ; preds = %19
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 227, ptr noundef @__func__.tcg_tb_insert, ptr noundef @.str.1) #12
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %do.end
+27:                                               ; preds = %25
+  br label %28
 
-do.end:                                           ; preds = %if.end
-  br label %while.cond
+28:                                               ; preds = %27
+  br label %29
 
-while.cond:                                       ; preds = %do.end2, %do.end
-  br i1 false, label %while.body, label %while.end
+29:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  br label %30
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body1
+30:                                               ; preds = %29
+  br i1 false, label %31, label %32
 
-do.body1:                                         ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 228, ptr noundef @__func__.tcg_tb_insert, ptr noundef null) #6
+31:                                               ; preds = %30
+  call void @qemu_build_not_reached_always() #12, !srcloc !5
   unreachable
 
-do.end2:                                          ; No predecessors!
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %3, ptr %atomic-temp, align 8
-  %4 = load ptr, ptr %atomic-temp, align 8
-  store ptr %4, ptr %tmp, align 8
-  %5 = load ptr, ptr %tmp, align 8
-  store ptr %5, ptr %_f, align 8
-  %6 = load ptr, ptr %_f, align 8
-  %7 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %7, i32 0, i32 0
-  call void %6(ptr noundef %lock, ptr noundef @.str, i32 noundef 228)
-  %8 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %tree, align 8
-  %10 = load ptr, ptr %tb.addr, align 8
-  %tc3 = getelementptr inbounds %struct.TranslationBlock, ptr %10, i32 0, i32 6
-  %11 = load ptr, ptr %tb.addr, align 8
-  call void @q_tree_insert(ptr noundef %9, ptr noundef %tc3, ptr noundef %11)
-  %12 = load ptr, ptr %rt, align 8
-  %lock4 = getelementptr inbounds %struct.tcg_region_tree, ptr %12, i32 0, i32 0
-  call void @qemu_mutex_unlock_impl(ptr noundef %lock4, ptr noundef @.str, i32 noundef 230)
+32:                                               ; preds = %30
+  %33 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %33, ptr %8, align 8
+  %34 = load ptr, ptr %8, align 8
+  store ptr %34, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8
+  store ptr %35, ptr %6, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %37, i32 0, i32 0
+  call void %36(ptr noundef %38, ptr noundef @.str, i32 noundef 228)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %2, align 8
+  call void @q_tree_insert(ptr noundef %41, ptr noundef %43, ptr noundef %44)
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %45, i32 0, i32 0
+  call void @qemu_mutex_unlock_impl(ptr noundef %46, ptr noundef @.str, i32 noundef 230)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @tc_ptr_to_region_tree(ptr noundef %p) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %region_idx = alloca i64, align 8
-  %offset = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %call = call zeroext i1 @in_code_gen_buffer(ptr noundef %0)
-  br i1 %call, label %if.end3, label %if.then
+define internal ptr @tc_ptr_to_region_tree(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  store i64 0, ptr %4, align 8, !annotation !4
+  %7 = load ptr, ptr %3, align 8
+  %8 = call zeroext i1 @in_code_gen_buffer(ptr noundef %7)
+  br i1 %8, label %18, label %9
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr @tcg_splitwx_diff, align 8
-  %2 = load ptr, ptr %p.addr, align 8
-  %idx.neg = sub i64 0, %1
-  %add.ptr = getelementptr i8, ptr %2, i64 %idx.neg
-  store ptr %add.ptr, ptr %p.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %call1 = call zeroext i1 @in_code_gen_buffer(ptr noundef %3)
-  br i1 %call1, label %if.end, label %if.then2
+9:                                                ; preds = %1
+  %10 = load i64, ptr @tcg_splitwx_diff, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = sub i64 0, %10
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  store ptr %13, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = call zeroext i1 @in_code_gen_buffer(ptr noundef %14)
+  br i1 %15, label %17, label %16
 
-if.then2:                                         ; preds = %if.then
-  store ptr null, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %9
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %49
 
-if.end:                                           ; preds = %if.then
-  br label %if.end3
+17:                                               ; preds = %9
+  br label %18
 
-if.end3:                                          ; preds = %if.end, %entry
-  %4 = load ptr, ptr %p.addr, align 8
-  %5 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %cmp = icmp ult ptr %4, %6
-  br i1 %cmp, label %if.then4, label %if.else
+18:                                               ; preds = %17, %1
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %21 = icmp ult ptr %19, %20
+  br i1 %21, label %22, label %23
 
-if.then4:                                         ; preds = %if.end3
-  store i64 0, ptr %region_idx, align 8
-  br label %if.end10
+22:                                               ; preds = %18
+  store i64 0, ptr %4, align 8
+  br label %43
 
-if.else:                                          ; preds = %if.end3
-  %7 = load ptr, ptr %p.addr, align 8
-  %8 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %offset, align 8
-  %10 = load i64, ptr %offset, align 8
-  %11 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %14 = load i64, ptr %13, align 8
-  %sub = sub i64 %14, 1
-  %mul = mul i64 %12, %sub
-  %cmp5 = icmp ugt i64 %10, %mul
-  br i1 %cmp5, label %if.then6, label %if.else8
+23:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %24 = load ptr, ptr %3, align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  store i64 %28, ptr %6, align 8
+  %29 = load i64, ptr %6, align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %32 = sub i64 %31, 1
+  %33 = mul i64 %30, %32
+  %34 = icmp ugt i64 %29, %33
+  br i1 %34, label %35, label %38
 
-if.then6:                                         ; preds = %if.else
-  %15 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %16 = load i64, ptr %15, align 8
-  %sub7 = sub i64 %16, 1
-  store i64 %sub7, ptr %region_idx, align 8
-  br label %if.end9
+35:                                               ; preds = %23
+  %36 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %37 = sub i64 %36, 1
+  store i64 %37, ptr %4, align 8
+  br label %42
 
-if.else8:                                         ; preds = %if.else
-  %17 = load i64, ptr %offset, align 8
-  %18 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
-  %19 = load i64, ptr %18, align 8
-  %div = udiv i64 %17, %19
-  store i64 %div, ptr %region_idx, align 8
-  br label %if.end9
+38:                                               ; preds = %23
+  %39 = load i64, ptr %6, align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
+  %41 = udiv i64 %39, %40
+  store i64 %41, ptr %4, align 8
+  br label %42
 
-if.end9:                                          ; preds = %if.else8, %if.then6
-  br label %if.end10
+42:                                               ; preds = %38, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %43
 
-if.end10:                                         ; preds = %if.end9, %if.then4
-  %20 = load ptr, ptr @region_trees, align 8
-  %21 = load i64, ptr %region_idx, align 8
-  %22 = load i64, ptr @tree_size, align 8
-  %mul11 = mul i64 %21, %22
-  %add.ptr12 = getelementptr i8, ptr %20, i64 %mul11
-  store ptr %add.ptr12, ptr %retval, align 8
-  br label %return
+43:                                               ; preds = %42, %22
+  %44 = load ptr, ptr @region_trees, align 8
+  %45 = load i64, ptr %4, align 8
+  %46 = load i64, ptr @tree_size, align 8
+  %47 = mul i64 %45, %46
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
+  store ptr %48, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %49
 
-return:                                           ; preds = %if.end10, %if.then2
-  %23 = load ptr, ptr %retval, align 8
-  ret ptr %23
+49:                                               ; preds = %43, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %50 = load ptr, ptr %2, align 8
+  ret ptr %50
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #2
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
-declare void @q_tree_insert(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: noreturn
+declare void @qemu_build_not_reached_always() #4
 
-declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @q_tree_insert(ptr noundef, ptr noundef, ptr noundef) #5
+
+declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_tb_remove(ptr noundef %tb) #0 {
-entry:
-  %tb.addr = alloca ptr, align 8
-  %rt = alloca ptr, align 8
-  %_f = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %atomic-temp = alloca ptr, align 8
-  store ptr %tb, ptr %tb.addr, align 8
-  %0 = load ptr, ptr %tb.addr, align 8
-  %tc = getelementptr inbounds %struct.TranslationBlock, ptr %0, i32 0, i32 6
-  %ptr = getelementptr inbounds %struct.tb_tc, ptr %tc, i32 0, i32 0
-  %1 = load ptr, ptr %ptr, align 8
-  %call = call ptr @tc_ptr_to_region_tree(ptr noundef %1)
-  store ptr %call, ptr %rt, align 8
-  br label %do.body
+define dso_local void @tcg_tb_remove(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %9, i32 0, i32 6
+  %11 = getelementptr inbounds nuw %struct.tb_tc, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @tc_ptr_to_region_tree(ptr noundef %12)
+  store ptr %13, ptr %3, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %2 = load ptr, ptr %rt, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %if.then, label %if.else
+14:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !annotation !4
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  br label %if.end
+17:                                               ; preds = %14
+  store i32 1, ptr %4, align 4
+  br label %19
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 237, ptr noundef @__func__.tcg_tb_remove, ptr noundef @.str.1) #6
+18:                                               ; preds = %14
+  store i32 0, ptr %4, align 4
+  br label %19
+
+19:                                               ; preds = %18, %17
+  %20 = load i32, ptr %4, align 4
+  store i32 %20, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %21 = load i32, ptr %5, align 4
+  %22 = sext i32 %21 to i64
+  %23 = call i64 @llvm.expect.i64(i64 %22, i64 1)
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %19
+  br label %27
+
+26:                                               ; preds = %19
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 237, ptr noundef @__func__.tcg_tb_remove, ptr noundef @.str.1) #12
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %do.end
+27:                                               ; preds = %25
+  br label %28
 
-do.end:                                           ; preds = %if.end
-  br label %while.cond
+28:                                               ; preds = %27
+  br label %29
 
-while.cond:                                       ; preds = %do.end2, %do.end
-  br i1 false, label %while.body, label %while.end
+29:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  br label %30
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body1
+30:                                               ; preds = %29
+  br i1 false, label %31, label %32
 
-do.body1:                                         ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 238, ptr noundef @__func__.tcg_tb_remove, ptr noundef null) #6
+31:                                               ; preds = %30
+  call void @qemu_build_not_reached_always() #12, !srcloc !6
   unreachable
 
-do.end2:                                          ; No predecessors!
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %3, ptr %atomic-temp, align 8
-  %4 = load ptr, ptr %atomic-temp, align 8
-  store ptr %4, ptr %tmp, align 8
-  %5 = load ptr, ptr %tmp, align 8
-  store ptr %5, ptr %_f, align 8
-  %6 = load ptr, ptr %_f, align 8
-  %7 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %7, i32 0, i32 0
-  call void %6(ptr noundef %lock, ptr noundef @.str, i32 noundef 238)
-  %8 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %tree, align 8
-  %10 = load ptr, ptr %tb.addr, align 8
-  %tc3 = getelementptr inbounds %struct.TranslationBlock, ptr %10, i32 0, i32 6
-  %call4 = call i32 @q_tree_remove(ptr noundef %9, ptr noundef %tc3)
-  %11 = load ptr, ptr %rt, align 8
-  %lock5 = getelementptr inbounds %struct.tcg_region_tree, ptr %11, i32 0, i32 0
-  call void @qemu_mutex_unlock_impl(ptr noundef %lock5, ptr noundef @.str, i32 noundef 240)
+32:                                               ; preds = %30
+  %33 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %33, ptr %8, align 8
+  %34 = load ptr, ptr %8, align 8
+  store ptr %34, ptr %7, align 8
+  %35 = load ptr, ptr %7, align 8
+  store ptr %35, ptr %6, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %37, i32 0, i32 0
+  call void %36(ptr noundef %38, ptr noundef @.str, i32 noundef 238)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %42, i32 0, i32 6
+  %44 = call i32 @q_tree_remove(ptr noundef %41, ptr noundef %43)
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %45, i32 0, i32 0
+  call void @qemu_mutex_unlock_impl(ptr noundef %46, ptr noundef @.str, i32 noundef 240)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
-declare i32 @q_tree_remove(ptr noundef, ptr noundef) #2
+declare i32 @q_tree_remove(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @tcg_tb_lookup(i64 noundef %tc_ptr) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %tc_ptr.addr = alloca i64, align 8
-  %rt = alloca ptr, align 8
-  %tb = alloca ptr, align 8
-  %s = alloca %struct.tb_tc, align 8
-  %_f = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %atomic-temp = alloca ptr, align 8
-  store i64 %tc_ptr, ptr %tc_ptr.addr, align 8
-  %0 = load i64, ptr %tc_ptr.addr, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %call = call ptr @tc_ptr_to_region_tree(ptr noundef %1)
-  store ptr %call, ptr %rt, align 8
-  %ptr = getelementptr inbounds %struct.tb_tc, ptr %s, i32 0, i32 0
-  %2 = load i64, ptr %tc_ptr.addr, align 8
-  %3 = inttoptr i64 %2 to ptr
-  store ptr %3, ptr %ptr, align 8
-  %size = getelementptr inbounds %struct.tb_tc, ptr %s, i32 0, i32 1
-  store i64 0, ptr %size, align 8
-  %4 = load ptr, ptr %rt, align 8
-  %cmp = icmp eq ptr %4, null
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @tcg_tb_lookup(i64 noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.tb_tc, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %11 = load i64, ptr %3, align 8
+  %12 = inttoptr i64 %11 to ptr
+  %13 = call ptr @tc_ptr_to_region_tree(ptr noundef %12)
+  store ptr %13, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  store ptr null, ptr %5, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #11
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 16, i1 false), !annotation !4
+  %14 = getelementptr inbounds nuw %struct.tb_tc, ptr %6, i32 0, i32 0
+  %15 = load i64, ptr %3, align 8
+  %16 = inttoptr i64 %15 to ptr
+  store ptr %16, ptr %14, align 8
+  %17 = getelementptr inbounds nuw %struct.tb_tc, ptr %6, i32 0, i32 1
+  store i64 0, ptr %17, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+20:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %38
 
-if.end:                                           ; preds = %entry
-  br label %while.cond
+21:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  br label %22
 
-while.cond:                                       ; preds = %do.end, %if.end
-  br i1 false, label %while.body, label %while.end
+22:                                               ; preds = %21
+  br i1 false, label %23, label %24
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
-
-do.body:                                          ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 258, ptr noundef @__func__.tcg_tb_lookup, ptr noundef null) #6
+23:                                               ; preds = %22
+  call void @qemu_build_not_reached_always() #12, !srcloc !7
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %while.cond
+24:                                               ; preds = %22
+  %25 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %25, ptr %10, align 8
+  %26 = load ptr, ptr %10, align 8
+  store ptr %26, ptr %9, align 8
+  %27 = load ptr, ptr %9, align 8
+  store ptr %27, ptr %8, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %29, i32 0, i32 0
+  call void %28(ptr noundef %30, ptr noundef @.str, i32 noundef 258)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr @q_tree_lookup(ptr noundef %33, ptr noundef %6)
+  store ptr %34, ptr %5, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %35, i32 0, i32 0
+  call void @qemu_mutex_unlock_impl(ptr noundef %36, ptr noundef @.str, i32 noundef 260)
+  %37 = load ptr, ptr %5, align 8
+  store ptr %37, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %38
 
-while.end:                                        ; preds = %while.cond
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %5, ptr %atomic-temp, align 8
-  %6 = load ptr, ptr %atomic-temp, align 8
-  store ptr %6, ptr %tmp, align 8
-  %7 = load ptr, ptr %tmp, align 8
-  store ptr %7, ptr %_f, align 8
-  %8 = load ptr, ptr %_f, align 8
-  %9 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %9, i32 0, i32 0
-  call void %8(ptr noundef %lock, ptr noundef @.str, i32 noundef 258)
-  %10 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %tree, align 8
-  %call1 = call ptr @q_tree_lookup(ptr noundef %11, ptr noundef %s)
-  store ptr %call1, ptr %tb, align 8
-  %12 = load ptr, ptr %rt, align 8
-  %lock2 = getelementptr inbounds %struct.tcg_region_tree, ptr %12, i32 0, i32 0
-  call void @qemu_mutex_unlock_impl(ptr noundef %lock2, ptr noundef @.str, i32 noundef 260)
-  %13 = load ptr, ptr %tb, align 8
-  store ptr %13, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then
-  %14 = load ptr, ptr %retval, align 8
-  ret ptr %14
+38:                                               ; preds = %24, %20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %39 = load ptr, ptr %2, align 8
+  ret ptr %39
 }
 
-declare ptr @q_tree_lookup(ptr noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+declare ptr @q_tree_lookup(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_tb_foreach(ptr noundef %func, ptr noundef %user_data) #0 {
-entry:
-  %func.addr = alloca ptr, align 8
-  %user_data.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %rt = alloca ptr, align 8
-  store ptr %func, ptr %func.addr, align 8
-  store ptr %user_data, ptr %user_data.addr, align 8
+define dso_local void @tcg_tb_foreach(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  store i64 0, ptr %5, align 8, !annotation !4
   call void @tcg_region_tree_lock_all()
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  store i64 0, ptr %5, align 8
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %2 = load i64, ptr %1, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %22, %2
+  %8 = load i64, ptr %5, align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %10 = icmp ult i64 %8, %9
+  br i1 %10, label %11, label %25
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr @region_trees, align 8
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %4, %5
-  %add.ptr = getelementptr i8, ptr %3, i64 %mul
-  store ptr %add.ptr, ptr %rt, align 8
-  %6 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %tree, align 8
-  %8 = load ptr, ptr %func.addr, align 8
-  %9 = load ptr, ptr %user_data.addr, align 8
-  call void @q_tree_foreach(ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  br label %for.inc
+11:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %12 = load ptr, ptr @region_trees, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr @tree_size, align 8
+  %15 = mul i64 %13, %14
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
+  store ptr %16, ptr %6, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %4, align 8
+  call void @q_tree_foreach(ptr noundef %19, ptr noundef %20, ptr noundef %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %22
 
-for.inc:                                          ; preds = %for.body
-  %10 = load i64, ptr %i, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !5
+22:                                               ; preds = %11
+  %23 = load i64, ptr %5, align 8
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %5, align 8
+  br label %7, !llvm.loop !8
 
-for.end:                                          ; preds = %for.cond
+25:                                               ; preds = %7
   call void @tcg_region_tree_unlock_all()
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_region_tree_lock_all() #0 {
-entry:
-  %i = alloca i64, align 8
-  %rt = alloca ptr, align 8
-  %_f = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %atomic-temp = alloca ptr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  %1 = alloca i64, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  store i64 0, ptr %1, align 8, !annotation !4
+  store i64 0, ptr %1, align 8
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %2 = load i64, ptr %1, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %25, %0
+  %7 = load i64, ptr %1, align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %9 = icmp ult i64 %7, %8
+  br i1 %9, label %10, label %28
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr @region_trees, align 8
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %4, %5
-  %add.ptr = getelementptr i8, ptr %3, i64 %mul
-  store ptr %add.ptr, ptr %rt, align 8
-  br label %while.cond
+10:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %11 = load ptr, ptr @region_trees, align 8
+  %12 = load i64, ptr %1, align 8
+  %13 = load i64, ptr @tree_size, align 8
+  %14 = mul i64 %12, %13
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %14
+  store ptr %15, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  br label %16
 
-while.cond:                                       ; preds = %do.end, %for.body
-  br i1 false, label %while.body, label %while.end
+16:                                               ; preds = %10
+  br i1 false, label %17, label %18
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
-
-do.body:                                          ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 271, ptr noundef @__func__.tcg_region_tree_lock_all, ptr noundef null) #6
+17:                                               ; preds = %16
+  call void @qemu_build_not_reached_always() #12, !srcloc !10
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %while.cond
+18:                                               ; preds = %16
+  %19 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %19, ptr %5, align 8
+  %20 = load ptr, ptr %5, align 8
+  store ptr %20, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8
+  store ptr %21, ptr %3, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %23, i32 0, i32 0
+  call void %22(ptr noundef %24, ptr noundef @.str, i32 noundef 271)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %25
 
-while.end:                                        ; preds = %while.cond
-  %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %6, ptr %atomic-temp, align 8
-  %7 = load ptr, ptr %atomic-temp, align 8
-  store ptr %7, ptr %tmp, align 8
-  %8 = load ptr, ptr %tmp, align 8
-  store ptr %8, ptr %_f, align 8
-  %9 = load ptr, ptr %_f, align 8
-  %10 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %10, i32 0, i32 0
-  call void %9(ptr noundef %lock, ptr noundef @.str, i32 noundef 271)
-  br label %for.inc
+25:                                               ; preds = %18
+  %26 = load i64, ptr %1, align 8
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %1, align 8
+  br label %6, !llvm.loop !11
 
-for.inc:                                          ; preds = %while.end
-  %11 = load i64, ptr %i, align 8
-  %inc = add i64 %11, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
+28:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret void
 }
 
-declare void @q_tree_foreach(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @q_tree_foreach(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_region_tree_unlock_all() #0 {
-entry:
-  %i = alloca i64, align 8
-  %rt = alloca ptr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  %1 = alloca i64, align 8
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  store i64 0, ptr %1, align 8, !annotation !4
+  store i64 0, ptr %1, align 8
+  br label %3
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %2 = load i64, ptr %1, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+3:                                                ; preds = %15, %0
+  %4 = load i64, ptr %1, align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %6 = icmp ult i64 %4, %5
+  br i1 %6, label %7, label %18
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr @region_trees, align 8
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %4, %5
-  %add.ptr = getelementptr i8, ptr %3, i64 %mul
-  store ptr %add.ptr, ptr %rt, align 8
-  %6 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 0
-  call void @qemu_mutex_unlock_impl(ptr noundef %lock, ptr noundef @.str, i32 noundef 282)
-  br label %for.inc
+7:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %8 = load ptr, ptr @region_trees, align 8
+  %9 = load i64, ptr %1, align 8
+  %10 = load i64, ptr @tree_size, align 8
+  %11 = mul i64 %9, %10
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
+  store ptr %12, ptr %2, align 8
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %13, i32 0, i32 0
+  call void @qemu_mutex_unlock_impl(ptr noundef %14, ptr noundef @.str, i32 noundef 282)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %15
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %inc = add i64 %7, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !8
+15:                                               ; preds = %7
+  %16 = load i64, ptr %1, align 8
+  %17 = add i64 %16, 1
+  store i64 %17, ptr %1, align 8
+  br label %3, !llvm.loop !12
 
-for.end:                                          ; preds = %for.cond
+18:                                               ; preds = %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @tcg_nb_tbs() #0 {
-entry:
-  %nb_tbs = alloca i64, align 8
-  %i = alloca i64, align 8
-  %rt = alloca ptr, align 8
-  store i64 0, ptr %nb_tbs, align 8
+  %1 = alloca i64, align 8
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  store i64 0, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  store i64 0, ptr %2, align 8, !annotation !4
   call void @tcg_region_tree_lock_all()
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  store i64 0, ptr %2, align 8
+  br label %4
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %2 = load i64, ptr %1, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+4:                                                ; preds = %21, %0
+  %5 = load i64, ptr %2, align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %7 = icmp ult i64 %5, %6
+  br i1 %7, label %8, label %24
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr @region_trees, align 8
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %4, %5
-  %add.ptr = getelementptr i8, ptr %3, i64 %mul
-  store ptr %add.ptr, ptr %rt, align 8
-  %6 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %tree, align 8
-  %call = call i32 @q_tree_nnodes(ptr noundef %7)
-  %conv = sext i32 %call to i64
-  %8 = load i64, ptr %nb_tbs, align 8
-  %add = add i64 %8, %conv
-  store i64 %add, ptr %nb_tbs, align 8
-  br label %for.inc
+8:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %9 = load ptr, ptr @region_trees, align 8
+  %10 = load i64, ptr %2, align 8
+  %11 = load i64, ptr @tree_size, align 8
+  %12 = mul i64 %10, %11
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  store ptr %13, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 @q_tree_nnodes(ptr noundef %16)
+  %18 = sext i32 %17 to i64
+  %19 = load i64, ptr %1, align 8
+  %20 = add i64 %19, %18
+  store i64 %20, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  br label %21
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %inc = add i64 %9, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+21:                                               ; preds = %8
+  %22 = load i64, ptr %2, align 8
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %2, align 8
+  br label %4, !llvm.loop !13
 
-for.end:                                          ; preds = %for.cond
+24:                                               ; preds = %4
   call void @tcg_region_tree_unlock_all()
-  %10 = load i64, ptr %nb_tbs, align 8
-  ret i64 %10
+  %25 = load i64, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
+  ret i64 %25
 }
 
-declare i32 @q_tree_nnodes(ptr noundef) #2
+declare i32 @q_tree_nnodes(ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @tcg_region_alloc(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %err = alloca i8, align 1
-  %size_full = alloca i64, align 8
-  %_f = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %atomic-temp = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %code_gen_buffer_size = getelementptr inbounds %struct.TCGContext, ptr %0, i32 0, i32 25
-  %1 = load i64, ptr %code_gen_buffer_size, align 8
-  store i64 %1, ptr %size_full, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %do.end, %entry
-  br i1 false, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  br label %do.body
-
-do.body:                                          ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 380, ptr noundef @__func__.tcg_region_alloc, ptr noundef null) #6
-  unreachable
-
-do.end:                                           ; No predecessors!
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %2, ptr %atomic-temp, align 8
-  %3 = load ptr, ptr %atomic-temp, align 8
-  store ptr %3, ptr %tmp, align 8
-  %4 = load ptr, ptr %tmp, align 8
-  store ptr %4, ptr %_f, align 8
-  %5 = load ptr, ptr %_f, align 8
-  call void %5(ptr noundef @region, ptr noundef @.str, i32 noundef 380)
-  %6 = load ptr, ptr %s.addr, align 8
-  %call = call zeroext i1 @tcg_region_alloc__locked(ptr noundef %6)
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %err, align 1
-  %7 = load i8, ptr %err, align 1
-  %tobool = trunc i8 %7 to i1
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %while.end
-  %8 = load i64, ptr %size_full, align 8
-  %sub = sub i64 %8, 1024
-  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
+define dso_local zeroext i1 @tcg_region_alloc(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #11
+  store i8 0, ptr %3, align 1, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.TCGContext, ptr %8, i32 0, i32 25
   %10 = load i64, ptr %9, align 8
-  %add = add i64 %10, %sub
-  %11 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
-  store i64 %add, ptr %11, align 8
-  br label %if.end
+  store i64 %10, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  br label %11
 
-if.end:                                           ; preds = %if.then, %while.end
-  call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 385)
-  %12 = load i8, ptr %err, align 1
-  %tobool1 = trunc i8 %12 to i1
-  ret i1 %tobool1
-}
+11:                                               ; preds = %1
+  br i1 false, label %12, label %13
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @tcg_region_alloc__locked(ptr noundef %s) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %s.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
-  %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp eq i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %s.addr, align 8
-  %5 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
-  %6 = load i64, ptr %5, align 8
-  call void @tcg_region_assign(ptr noundef %4, i64 noundef %6)
-  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
-  %8 = load i64, ptr %7, align 8
-  %inc = add i64 %8, 1
-  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
-  store i64 %inc, ptr %9, align 8
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i1, ptr %retval, align 1
-  ret i1 %10
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_region_initial_alloc(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %_f = alloca ptr, align 8
-  %tmp = alloca ptr, align 8
-  %atomic-temp = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %do.end, %entry
-  br i1 false, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  br label %do.body
-
-do.body:                                          ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 401, ptr noundef @__func__.tcg_region_initial_alloc, ptr noundef null) #6
+12:                                               ; preds = %11
+  call void @qemu_build_not_reached_always() #12, !srcloc !14
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %while.cond
+13:                                               ; preds = %11
+  %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %14, ptr %7, align 8
+  %15 = load ptr, ptr %7, align 8
+  store ptr %15, ptr %6, align 8
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %5, align 8
+  %17 = load ptr, ptr %5, align 8
+  call void %17(ptr noundef @region, ptr noundef @.str, i32 noundef 380)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  %18 = load ptr, ptr %2, align 8
+  %19 = call zeroext i1 @tcg_region_alloc__locked(ptr noundef %18)
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %3, align 1
+  %21 = load i8, ptr %3, align 1, !range !15, !noundef !16
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %28, label %23
 
-while.end:                                        ; preds = %while.cond
-  %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load ptr, ptr %atomic-temp, align 8
-  store ptr %1, ptr %tmp, align 8
-  %2 = load ptr, ptr %tmp, align 8
-  store ptr %2, ptr %_f, align 8
-  %3 = load ptr, ptr %_f, align 8
-  call void %3(ptr noundef @region, ptr noundef @.str, i32 noundef 401)
-  %4 = load ptr, ptr %s.addr, align 8
-  call void @tcg_region_initial_alloc__locked(ptr noundef %4)
+23:                                               ; preds = %13
+  %24 = load i64, ptr %4, align 8
+  %25 = sub i64 %24, 1024
+  %26 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
+  %27 = add i64 %26, %25
+  store i64 %27, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
+  br label %28
+
+28:                                               ; preds = %23, %13
+  call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 385)
+  %29 = load i8, ptr %3, align 1, !range !15, !noundef !16
+  %30 = trunc i8 %29 to i1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #11
+  ret i1 %30
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal zeroext i1 @tcg_region_alloc__locked(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %6 = icmp eq i64 %4, %5
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  store i1 true, ptr %2, align 1
+  br label %13
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
+  call void @tcg_region_assign(ptr noundef %9, i64 noundef %10)
+  %11 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
+  %12 = add i64 %11, 1
+  store i64 %12, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
+  store i1 false, ptr %2, align 1
+  br label %13
+
+13:                                               ; preds = %8, %7
+  %14 = load i1, ptr %2, align 1
+  ret i1 %14
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local void @tcg_region_initial_alloc(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  br label %6
+
+6:                                                ; preds = %1
+  br i1 false, label %7, label %8
+
+7:                                                ; preds = %6
+  call void @qemu_build_not_reached_always() #12, !srcloc !17
+  unreachable
+
+8:                                                ; preds = %6
+  %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %9, ptr %5, align 8
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %3, align 8
+  %12 = load ptr, ptr %3, align 8
+  call void %12(ptr noundef @region, ptr noundef @.str, i32 noundef 401)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  %13 = load ptr, ptr %2, align 8
+  call void @tcg_region_initial_alloc__locked(ptr noundef %13)
   call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 403)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_region_initial_alloc__locked(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %err = alloca i8, align 1
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %call = call zeroext i1 @tcg_region_alloc__locked(ptr noundef %0)
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %err, align 1
-  br label %do.body
+define internal void @tcg_region_initial_alloc__locked(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #11
+  %6 = load ptr, ptr %2, align 8
+  %7 = call zeroext i1 @tcg_region_alloc__locked(ptr noundef %6)
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %3, align 1
+  br label %9
 
-do.body:                                          ; preds = %entry
-  %1 = load i8, ptr %err, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.else, label %if.then
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !annotation !4
+  %10 = load i8, ptr %3, align 1, !range !15, !noundef !16
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %13, label %12
 
-if.then:                                          ; preds = %do.body
-  br label %if.end
+12:                                               ; preds = %9
+  store i32 1, ptr %4, align 4
+  br label %14
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 396, ptr noundef @__func__.tcg_region_initial_alloc__locked, ptr noundef @.str.7) #6
+13:                                               ; preds = %9
+  store i32 0, ptr %4, align 4
+  br label %14
+
+14:                                               ; preds = %13, %12
+  %15 = load i32, ptr %4, align 4
+  store i32 %15, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %16 = load i32, ptr %5, align 4
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 1)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %14
+  br label %22
+
+21:                                               ; preds = %14
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 396, ptr noundef @__func__.tcg_region_initial_alloc__locked, ptr noundef @.str.7) #12
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %do.end
+22:                                               ; preds = %20
+  br label %23
 
-do.end:                                           ; preds = %if.end
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_region_reset_all() #0 {
-entry:
-  %n_ctxs = alloca i32, align 4
-  %tmp = alloca i32, align 4
-  %atomic-temp = alloca i32, align 4
-  %i = alloca i32, align 4
-  %_f = alloca ptr, align 8
-  %tmp6 = alloca ptr, align 8
-  %atomic-temp7 = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  %tmp13 = alloca ptr, align 8
-  %atomic-temp14 = alloca ptr, align 8
-  br label %while.cond
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #11
+  br label %11
 
-while.cond:                                       ; preds = %do.end, %entry
-  br i1 false, label %while.body, label %while.end
+11:                                               ; preds = %0
+  br i1 false, label %12, label %13
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
-
-do.body:                                          ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 409, ptr noundef @__func__.tcg_region_reset_all, ptr noundef null) #6
+12:                                               ; preds = %11
+  call void @qemu_build_not_reached_always() #12, !srcloc !18
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %while.cond
+13:                                               ; preds = %11
+  %14 = load atomic i32, ptr @tcg_cur_ctxs monotonic, align 4
+  store i32 %14, ptr %3, align 4
+  %15 = load i32, ptr %3, align 4
+  store i32 %15, ptr %2, align 4
+  %16 = load i32, ptr %2, align 4
+  store i32 %16, ptr %1, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  br label %17
 
-while.end:                                        ; preds = %while.cond
-  %0 = load atomic i32, ptr @tcg_cur_ctxs monotonic, align 4
-  store i32 %0, ptr %atomic-temp, align 4
-  %1 = load i32, ptr %atomic-temp, align 4
-  store i32 %1, ptr %tmp, align 4
-  %2 = load i32, ptr %tmp, align 4
-  store i32 %2, ptr %n_ctxs, align 4
-  br label %while.cond1
+17:                                               ; preds = %13
+  br i1 false, label %18, label %19
 
-while.cond1:                                      ; preds = %do.end4, %while.end
-  br i1 false, label %while.body2, label %while.end5
-
-while.body2:                                      ; preds = %while.cond1
-  br label %do.body3
-
-do.body3:                                         ; preds = %while.body2
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 412, ptr noundef @__func__.tcg_region_reset_all, ptr noundef null) #6
+18:                                               ; preds = %17
+  call void @qemu_build_not_reached_always() #12, !srcloc !19
   unreachable
 
-do.end4:                                          ; No predecessors!
-  br label %while.cond1
+19:                                               ; preds = %17
+  %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %20, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8
+  store ptr %21, ptr %6, align 8
+  %22 = load ptr, ptr %6, align 8
+  store ptr %22, ptr %5, align 8
+  %23 = load ptr, ptr %5, align 8
+  call void %23(ptr noundef @region, ptr noundef @.str, i32 noundef 412)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  store i64 0, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 7), align 8
+  store i64 0, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
+  store i32 0, ptr %4, align 4
+  br label %24
 
-while.end5:                                       ; preds = %while.cond1
-  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %3, ptr %atomic-temp7, align 8
-  %4 = load ptr, ptr %atomic-temp7, align 8
-  store ptr %4, ptr %tmp6, align 8
-  %5 = load ptr, ptr %tmp6, align 8
-  store ptr %5, ptr %_f, align 8
-  %6 = load ptr, ptr %_f, align 8
-  call void %6(ptr noundef @region, ptr noundef @.str, i32 noundef 412)
-  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 7
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
-  store i64 0, ptr %8, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+24:                                               ; preds = %40, %19
+  %25 = load i32, ptr %4, align 4
+  %26 = load i32, ptr %1, align 4
+  %27 = icmp ult i32 %25, %26
+  br i1 %27, label %28, label %43
 
-for.cond:                                         ; preds = %for.inc, %while.end5
-  %9 = load i32, ptr %i, align 4
-  %10 = load i32, ptr %n_ctxs, align 4
-  %cmp = icmp ult i32 %9, %10
-  br i1 %cmp, label %for.body, label %for.end
+28:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  br label %29
 
-for.body:                                         ; preds = %for.cond
-  br label %while.cond8
+29:                                               ; preds = %28
+  br i1 false, label %30, label %31
 
-while.cond8:                                      ; preds = %do.end11, %for.body
-  br i1 false, label %while.body9, label %while.end12
-
-while.body9:                                      ; preds = %while.cond8
-  br label %do.body10
-
-do.body10:                                        ; preds = %while.body9
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 417, ptr noundef @__func__.tcg_region_reset_all, ptr noundef null) #6
+30:                                               ; preds = %29
+  call void @qemu_build_not_reached_always() #12, !srcloc !20
   unreachable
 
-do.end11:                                         ; No predecessors!
-  br label %while.cond8
+31:                                               ; preds = %29
+  %32 = load ptr, ptr @tcg_ctxs, align 8
+  %33 = load i32, ptr %4, align 4
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %36 = load atomic i64, ptr %35 monotonic, align 8
+  store i64 %36, ptr %10, align 8
+  %37 = load ptr, ptr %10, align 8
+  store ptr %37, ptr %9, align 8
+  %38 = load ptr, ptr %9, align 8
+  store ptr %38, ptr %8, align 8
+  %39 = load ptr, ptr %8, align 8
+  call void @tcg_region_initial_alloc__locked(ptr noundef %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %40
 
-while.end12:                                      ; preds = %while.cond8
-  %11 = load ptr, ptr @tcg_ctxs, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %12 to i64
-  %arrayidx = getelementptr ptr, ptr %11, i64 %idxprom
-  %13 = load atomic i64, ptr %arrayidx monotonic, align 8
-  store i64 %13, ptr %atomic-temp14, align 8
-  %14 = load ptr, ptr %atomic-temp14, align 8
-  store ptr %14, ptr %tmp13, align 8
-  %15 = load ptr, ptr %tmp13, align 8
-  store ptr %15, ptr %s, align 8
-  %16 = load ptr, ptr %s, align 8
-  call void @tcg_region_initial_alloc__locked(ptr noundef %16)
-  br label %for.inc
+40:                                               ; preds = %31
+  %41 = load i32, ptr %4, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %4, align 4
+  br label %24, !llvm.loop !21
 
-for.inc:                                          ; preds = %while.end12
-  %17 = load i32, ptr %i, align 4
-  %inc = add i32 %17, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %for.cond
+43:                                               ; preds = %24
   call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 420)
   call void @tcg_region_tree_reset_all()
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_region_tree_reset_all() #0 {
-entry:
-  %i = alloca i64, align 8
-  %rt = alloca ptr, align 8
+  %1 = alloca i64, align 8
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  store i64 0, ptr %1, align 8, !annotation !4
   call void @tcg_region_tree_lock_all()
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  store i64 0, ptr %1, align 8
+  br label %3
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %2 = load i64, ptr %1, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+3:                                                ; preds = %20, %0
+  %4 = load i64, ptr %1, align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %6 = icmp ult i64 %4, %5
+  br i1 %6, label %7, label %23
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr @region_trees, align 8
-  %4 = load i64, ptr %i, align 8
-  %5 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %4, %5
-  %add.ptr = getelementptr i8, ptr %3, i64 %mul
-  store ptr %add.ptr, ptr %rt, align 8
-  %6 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %tree, align 8
-  %call = call ptr @q_tree_ref(ptr noundef %7)
-  %8 = load ptr, ptr %rt, align 8
-  %tree1 = getelementptr inbounds %struct.tcg_region_tree, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %tree1, align 8
-  call void @q_tree_destroy(ptr noundef %9)
-  br label %for.inc
+7:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %8 = load ptr, ptr @region_trees, align 8
+  %9 = load i64, ptr %1, align 8
+  %10 = load i64, ptr @tree_size, align 8
+  %11 = mul i64 %9, %10
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
+  store ptr %12, ptr %2, align 8
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call ptr @q_tree_ref(ptr noundef %15)
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  call void @q_tree_destroy(ptr noundef %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %20
 
-for.inc:                                          ; preds = %for.body
-  %10 = load i64, ptr %i, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !11
+20:                                               ; preds = %7
+  %21 = load i64, ptr %1, align 8
+  %22 = add i64 %21, 1
+  store i64 %22, ptr %1, align 8
+  br label %3, !llvm.loop !22
 
-for.end:                                          ; preds = %for.cond
+23:                                               ; preds = %3
   call void @tcg_region_tree_unlock_all()
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_region_init(i64 noundef %tb_size, i32 noundef %splitwx, i32 noundef %max_cpus) #0 {
-entry:
-  %tb_size.addr = alloca i64, align 8
-  %splitwx.addr = alloca i32, align 4
-  %max_cpus.addr = alloca i32, align 4
-  %page_size = alloca i64, align 8
-  %region_size = alloca i64, align 8
-  %have_prot = alloca i32, align 4
-  %need_prot = alloca i32, align 4
-  %phys_mem = alloca i64, align 8
-  %_a0 = alloca i64, align 8
-  %_b1 = alloca i64, align 8
-  %tmp = alloca i64, align 8
-  %i = alloca i64, align 8
-  %n = alloca i64, align 8
-  %start = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  store i64 %tb_size, ptr %tb_size.addr, align 8
-  store i32 %splitwx, ptr %splitwx.addr, align 4
-  store i32 %max_cpus, ptr %max_cpus.addr, align 4
-  %call = call i64 @qemu_real_host_page_size()
-  store i64 %call, ptr %page_size, align 8
-  %0 = load i64, ptr %tb_size.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end6
+define dso_local void @tcg_region_init(i64 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  store i64 %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %22 = call i64 @qemu_real_host_page_size()
+  store i64 %22, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  store i64 0, ptr %8, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 0, ptr %10, align 4, !annotation !4
+  %23 = load i64, ptr %4, align 8
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %49
 
-if.then:                                          ; preds = %entry
-  %call1 = call i64 @qemu_get_host_physmem()
-  store i64 %call1, ptr %phys_mem, align 8
-  %1 = load i64, ptr %phys_mem, align 8
-  %cmp2 = icmp eq i64 %1, 0
-  br i1 %cmp2, label %if.then3, label %if.else
+25:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %26 = call i64 @qemu_get_host_physmem()
+  store i64 %26, ptr %11, align 8
+  %27 = load i64, ptr %11, align 8
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then3:                                         ; preds = %if.then
-  store i64 134217728, ptr %tb_size.addr, align 8
-  br label %if.end
+29:                                               ; preds = %25
+  store i64 1073741824, ptr %4, align 8
+  br label %48
 
-if.else:                                          ; preds = %if.then
-  %2 = load i64, ptr %phys_mem, align 8
-  %div = udiv i64 %2, 8
-  %3 = load i64, ptr %page_size, align 8
-  %div4 = udiv i64 %div, %3
-  %4 = load i64, ptr %page_size, align 8
-  %mul = mul i64 %div4, %4
-  store i64 %mul, ptr %tb_size.addr, align 8
-  store i64 134217728, ptr %_a0, align 8
-  %5 = load i64, ptr %tb_size.addr, align 8
-  store i64 %5, ptr %_b1, align 8
-  %6 = load i64, ptr %_a0, align 8
-  %7 = load i64, ptr %_b1, align 8
-  %cmp5 = icmp ult i64 %6, %7
-  br i1 %cmp5, label %cond.true, label %cond.false
+30:                                               ; preds = %25
+  %31 = load i64, ptr %11, align 8
+  %32 = udiv i64 %31, 8
+  %33 = load i64, ptr %7, align 8
+  %34 = udiv i64 %32, %33
+  %35 = load i64, ptr %7, align 8
+  %36 = mul i64 %34, %35
+  store i64 %36, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  store i64 1073741824, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %37 = load i64, ptr %4, align 8
+  store i64 %37, ptr %13, align 8
+  %38 = load i64, ptr %12, align 8
+  %39 = load i64, ptr %13, align 8
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %41, label %43
 
-cond.true:                                        ; preds = %if.else
-  %8 = load i64, ptr %_a0, align 8
-  br label %cond.end
+41:                                               ; preds = %30
+  %42 = load i64, ptr %12, align 8
+  br label %45
 
-cond.false:                                       ; preds = %if.else
-  %9 = load i64, ptr %_b1, align 8
-  br label %cond.end
+43:                                               ; preds = %30
+  %44 = load i64, ptr %13, align 8
+  br label %45
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %8, %cond.true ], [ %9, %cond.false ]
-  store i64 %cond, ptr %tmp, align 8
-  %10 = load i64, ptr %tmp, align 8
-  store i64 %10, ptr %tb_size.addr, align 8
-  br label %if.end
+45:                                               ; preds = %43, %41
+  %46 = phi i64 [ %42, %41 ], [ %44, %43 ]
+  store i64 %46, ptr %14, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %47 = load i64, ptr %14, align 8
+  store i64 %47, ptr %4, align 8
+  br label %48
 
-if.end:                                           ; preds = %cond.end, %if.then3
-  br label %if.end6
+48:                                               ; preds = %45, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  br label %49
 
-if.end6:                                          ; preds = %if.end, %entry
-  %11 = load i64, ptr %tb_size.addr, align 8
-  %cmp7 = icmp ult i64 %11, 1048576
-  br i1 %cmp7, label %if.then8, label %if.end9
+49:                                               ; preds = %48, %3
+  %50 = load i64, ptr %4, align 8
+  %51 = icmp ult i64 %50, 1048576
+  br i1 %51, label %52, label %53
 
-if.then8:                                         ; preds = %if.end6
-  store i64 1048576, ptr %tb_size.addr, align 8
-  br label %if.end9
+52:                                               ; preds = %49
+  store i64 1048576, ptr %4, align 8
+  br label %53
 
-if.end9:                                          ; preds = %if.then8, %if.end6
-  %12 = load i64, ptr %tb_size.addr, align 8
-  %cmp10 = icmp ugt i64 %12, 2147483648
-  br i1 %cmp10, label %if.then11, label %if.end12
+53:                                               ; preds = %52, %49
+  %54 = load i64, ptr %4, align 8
+  %55 = icmp ugt i64 %54, 2147483648
+  br i1 %55, label %56, label %57
 
-if.then11:                                        ; preds = %if.end9
-  store i64 2147483648, ptr %tb_size.addr, align 8
-  br label %if.end12
+56:                                               ; preds = %53
+  store i64 2147483648, ptr %4, align 8
+  br label %57
 
-if.end12:                                         ; preds = %if.then11, %if.end9
-  %13 = load i64, ptr %tb_size.addr, align 8
-  %14 = load i32, ptr %splitwx.addr, align 4
-  %call13 = call i32 @alloc_code_gen_buffer(i64 noundef %13, i32 noundef %14, ptr noundef @error_fatal)
-  store i32 %call13, ptr %have_prot, align 4
-  %15 = load i32, ptr %have_prot, align 4
-  %cmp14 = icmp sge i32 %15, 0
-  br i1 %cmp14, label %if.then15, label %if.else16
+57:                                               ; preds = %56, %53
+  %58 = load i64, ptr %4, align 8
+  %59 = load i32, ptr %5, align 4
+  %60 = call i32 @alloc_code_gen_buffer(i64 noundef %58, i32 noundef %59, ptr noundef @error_fatal)
+  store i32 %60, ptr %9, align 4
+  %61 = load i32, ptr %9, align 4
+  %62 = icmp sge i32 %61, 0
+  br i1 %62, label %63, label %64
 
-if.then15:                                        ; preds = %if.end12
-  br label %if.end17
+63:                                               ; preds = %57
+  br label %65
 
-if.else16:                                        ; preds = %if.end12
-  call void @__assert_fail(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 778, ptr noundef @__PRETTY_FUNCTION__.tcg_region_init) #7
+64:                                               ; preds = %57
+  call void @__assert_fail(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 776, ptr noundef @__PRETTY_FUNCTION__.tcg_region_init) #13
   unreachable
 
-if.end17:                                         ; preds = %if.then15
-  %16 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  %19 = load i64, ptr %18, align 8
-  %call18 = call i32 @qemu_madvise(ptr noundef %17, i64 noundef %19, i32 noundef 14)
-  %20 = load i64, ptr @tcg_splitwx_diff, align 8
-  %tobool = icmp ne i64 %20, 0
-  br i1 %tobool, label %if.then19, label %if.end21
+65:                                               ; preds = %63
+  %66 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %68 = call i32 @qemu_madvise(ptr noundef %66, i64 noundef %67, i32 noundef 14)
+  %69 = load i64, ptr @tcg_splitwx_diff, align 8
+  %70 = icmp ne i64 %69, 0
+  br i1 %70, label %71, label %77
 
-if.then19:                                        ; preds = %if.end17
-  %21 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i64, ptr @tcg_splitwx_diff, align 8
-  %add.ptr = getelementptr i8, ptr %22, i64 %23
-  %24 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  %25 = load i64, ptr %24, align 8
-  %call20 = call i32 @qemu_madvise(ptr noundef %add.ptr, i64 noundef %25, i32 noundef 14)
-  br label %if.end21
+71:                                               ; preds = %65
+  %72 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %73 = load i64, ptr @tcg_splitwx_diff, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %73
+  %75 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %76 = call i32 @qemu_madvise(ptr noundef %74, i64 noundef %75, i32 noundef 14)
+  br label %77
 
-if.end21:                                         ; preds = %if.then19, %if.end17
-  %26 = load i64, ptr %tb_size.addr, align 8
-  %27 = load i32, ptr %max_cpus.addr, align 4
-  %call22 = call i64 @tcg_n_regions(i64 noundef %26, i32 noundef %27)
-  %28 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  store i64 %call22, ptr %28, align 8
-  %29 = load i64, ptr %tb_size.addr, align 8
-  %30 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %31 = load i64, ptr %30, align 8
-  %div23 = udiv i64 %29, %31
-  store i64 %div23, ptr %region_size, align 8
-  %32 = load i64, ptr %region_size, align 8
-  %33 = load i64, ptr %page_size, align 8
-  %div24 = udiv i64 %32, %33
-  %34 = load i64, ptr %page_size, align 8
-  %mul25 = mul i64 %div24, %34
-  store i64 %mul25, ptr %region_size, align 8
-  br label %do.body
+77:                                               ; preds = %71, %65
+  %78 = load i64, ptr %4, align 8
+  %79 = load i32, ptr %6, align 4
+  %80 = call i64 @tcg_n_regions(i64 noundef %78, i32 noundef %79)
+  store i64 %80, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %81 = load i64, ptr %4, align 8
+  %82 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %83 = udiv i64 %81, %82
+  store i64 %83, ptr %8, align 8
+  %84 = load i64, ptr %8, align 8
+  %85 = load i64, ptr %7, align 8
+  %86 = udiv i64 %84, %85
+  %87 = load i64, ptr %7, align 8
+  %88 = mul i64 %86, %87
+  store i64 %88, ptr %8, align 8
+  br label %89
 
-do.body:                                          ; preds = %if.end21
-  %35 = load i64, ptr %region_size, align 8
-  %36 = load i64, ptr %page_size, align 8
-  %mul26 = mul i64 2, %36
-  %cmp27 = icmp uge i64 %35, %mul26
-  br i1 %cmp27, label %if.then28, label %if.else29
+89:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  store i32 0, ptr %15, align 4, !annotation !4
+  %90 = load i64, ptr %8, align 8
+  %91 = load i64, ptr %7, align 8
+  %92 = mul i64 2, %91
+  %93 = icmp uge i64 %90, %92
+  br i1 %93, label %94, label %95
 
-if.then28:                                        ; preds = %do.body
-  br label %if.end30
+94:                                               ; preds = %89
+  store i32 1, ptr %15, align 4
+  br label %96
 
-if.else29:                                        ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 797, ptr noundef @__func__.tcg_region_init, ptr noundef @.str.3) #6
+95:                                               ; preds = %89
+  store i32 0, ptr %15, align 4
+  br label %96
+
+96:                                               ; preds = %95, %94
+  %97 = load i32, ptr %15, align 4
+  store i32 %97, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  %98 = load i32, ptr %16, align 4
+  %99 = sext i32 %98 to i64
+  %100 = call i64 @llvm.expect.i64(i64 %99, i64 1)
+  %101 = icmp ne i64 %100, 0
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %96
+  br label %104
+
+103:                                              ; preds = %96
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 795, ptr noundef @__func__.tcg_region_init, ptr noundef @.str.3) #12
   unreachable
 
-if.end30:                                         ; preds = %if.then28
-  br label %do.end
+104:                                              ; preds = %102
+  br label %105
 
-do.end:                                           ; preds = %if.end30
-  %37 = load i64, ptr %region_size, align 8
-  %38 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
-  store i64 %37, ptr %38, align 8
-  %39 = load i64, ptr %region_size, align 8
-  %40 = load i64, ptr %page_size, align 8
-  %sub = sub i64 %39, %40
-  %41 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 4
-  store i64 %sub, ptr %41, align 8
-  %42 = load i64, ptr %page_size, align 8
-  %43 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  %44 = load i64, ptr %43, align 8
-  %sub31 = sub i64 %44, %42
-  %45 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  store i64 %sub31, ptr %45, align 8
-  %46 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
-  store ptr %47, ptr %48, align 8
+105:                                              ; preds = %104
+  br label %106
+
+106:                                              ; preds = %105
+  %107 = load i64, ptr %8, align 8
+  store i64 %107, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
+  %108 = load i64, ptr %8, align 8
+  %109 = load i64, ptr %7, align 8
+  %110 = sub i64 %108, %109
+  store i64 %110, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 4), align 8
+  %111 = load i64, ptr %7, align 8
+  %112 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %113 = sub i64 %112, %111
+  store i64 %113, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  store ptr %114, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
   call void @qemu_mutex_init(ptr noundef @region)
-  store i32 3, ptr %need_prot, align 4
-  %49 = load i64, ptr @tcg_splitwx_diff, align 8
-  %cmp32 = icmp eq i64 %49, 0
-  br i1 %cmp32, label %if.then33, label %if.end35
+  store i32 3, ptr %10, align 4
+  %115 = load i64, ptr @tcg_splitwx_diff, align 8
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %117, label %121
 
-if.then33:                                        ; preds = %do.end
-  %call34 = call i32 @host_prot_read_exec()
-  %50 = load i32, ptr %need_prot, align 4
-  %or = or i32 %50, %call34
-  store i32 %or, ptr %need_prot, align 4
-  br label %if.end35
+117:                                              ; preds = %106
+  %118 = call i32 @host_prot_read_exec()
+  %119 = load i32, ptr %10, align 4
+  %120 = or i32 %119, %118
+  store i32 %120, ptr %10, align 4
+  br label %121
 
-if.end35:                                         ; preds = %if.then33, %do.end
-  store i64 0, ptr %i, align 8
-  %51 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %52 = load i64, ptr %51, align 8
-  store i64 %52, ptr %n, align 8
-  br label %for.cond
+121:                                              ; preds = %117, %106
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  store i64 0, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %122 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  store i64 %122, ptr %18, align 8
+  br label %123
 
-for.cond:                                         ; preds = %for.inc, %if.end35
-  %53 = load i64, ptr %i, align 8
-  %54 = load i64, ptr %n, align 8
-  %cmp36 = icmp ult i64 %53, %54
-  br i1 %cmp36, label %for.body, label %for.end
+123:                                              ; preds = %180, %121
+  %124 = load i64, ptr %17, align 8
+  %125 = load i64, ptr %18, align 8
+  %126 = icmp ult i64 %124, %125
+  br i1 %126, label %128, label %127
 
-for.body:                                         ; preds = %for.cond
-  %55 = load i64, ptr %i, align 8
-  call void @tcg_region_bounds(i64 noundef %55, ptr noundef %start, ptr noundef %end)
-  %56 = load i32, ptr %have_prot, align 4
-  %57 = load i32, ptr %need_prot, align 4
-  %cmp37 = icmp ne i32 %56, %57
-  br i1 %cmp37, label %if.then38, label %if.end60
+127:                                              ; preds = %123
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  br label %183
 
-if.then38:                                        ; preds = %for.body
-  %58 = load i32, ptr %need_prot, align 4
-  %cmp39 = icmp eq i32 %58, 7
-  br i1 %cmp39, label %if.then40, label %if.else42
+128:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  store ptr null, ptr %19, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
+  store ptr null, ptr %20, align 8, !annotation !4
+  %129 = load i64, ptr %17, align 8
+  call void @tcg_region_bounds(i64 noundef %129, ptr noundef %19, ptr noundef %20)
+  %130 = load i32, ptr %9, align 4
+  %131 = load i32, ptr %10, align 4
+  %132 = icmp ne i32 %130, %131
+  br i1 %132, label %133, label %172
 
-if.then40:                                        ; preds = %if.then38
-  %59 = load ptr, ptr %start, align 8
-  %60 = load ptr, ptr %end, align 8
-  %61 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %60 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %61 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call41 = call i32 @qemu_mprotect_rwx(ptr noundef %59, i64 noundef %sub.ptr.sub)
-  store i32 %call41, ptr %rc, align 4
-  br label %if.end55
+133:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #11
+  store i32 0, ptr %21, align 4, !annotation !4
+  %134 = load i32, ptr %10, align 4
+  %135 = icmp eq i32 %134, 7
+  br i1 %135, label %136, label %144
 
-if.else42:                                        ; preds = %if.then38
-  %62 = load i32, ptr %need_prot, align 4
-  %cmp43 = icmp eq i32 %62, 3
-  br i1 %cmp43, label %if.then44, label %if.else49
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %19, align 8
+  %138 = load ptr, ptr %20, align 8
+  %139 = load ptr, ptr %19, align 8
+  %140 = ptrtoint ptr %138 to i64
+  %141 = ptrtoint ptr %139 to i64
+  %142 = sub i64 %140, %141
+  %143 = call i32 @qemu_mprotect_rwx(ptr noundef %137, i64 noundef %142)
+  store i32 %143, ptr %21, align 4
+  br label %165
 
-if.then44:                                        ; preds = %if.else42
-  %63 = load ptr, ptr %start, align 8
-  %64 = load ptr, ptr %end, align 8
-  %65 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast45 = ptrtoint ptr %64 to i64
-  %sub.ptr.rhs.cast46 = ptrtoint ptr %65 to i64
-  %sub.ptr.sub47 = sub i64 %sub.ptr.lhs.cast45, %sub.ptr.rhs.cast46
-  %call48 = call i32 @qemu_mprotect_rw(ptr noundef %63, i64 noundef %sub.ptr.sub47)
-  store i32 %call48, ptr %rc, align 4
-  br label %if.end54
+144:                                              ; preds = %133
+  %145 = load i32, ptr %10, align 4
+  %146 = icmp eq i32 %145, 3
+  br i1 %146, label %147, label %155
 
-if.else49:                                        ; preds = %if.else42
-  %66 = load ptr, ptr %start, align 8
-  %67 = load ptr, ptr %end, align 8
-  %68 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast50 = ptrtoint ptr %67 to i64
-  %sub.ptr.rhs.cast51 = ptrtoint ptr %68 to i64
-  %sub.ptr.sub52 = sub i64 %sub.ptr.lhs.cast50, %sub.ptr.rhs.cast51
-  %69 = load i32, ptr %need_prot, align 4
-  %call53 = call i32 @mprotect(ptr noundef %66, i64 noundef %sub.ptr.sub52, i32 noundef %69) #8
-  store i32 %call53, ptr %rc, align 4
-  br label %if.end54
+147:                                              ; preds = %144
+  %148 = load ptr, ptr %19, align 8
+  %149 = load ptr, ptr %20, align 8
+  %150 = load ptr, ptr %19, align 8
+  %151 = ptrtoint ptr %149 to i64
+  %152 = ptrtoint ptr %150 to i64
+  %153 = sub i64 %151, %152
+  %154 = call i32 @qemu_mprotect_rw(ptr noundef %148, i64 noundef %153)
+  store i32 %154, ptr %21, align 4
+  br label %164
 
-if.end54:                                         ; preds = %if.else49, %if.then44
-  br label %if.end55
+155:                                              ; preds = %144
+  %156 = load ptr, ptr %19, align 8
+  %157 = load ptr, ptr %20, align 8
+  %158 = load ptr, ptr %19, align 8
+  %159 = ptrtoint ptr %157 to i64
+  %160 = ptrtoint ptr %158 to i64
+  %161 = sub i64 %159, %160
+  %162 = load i32, ptr %10, align 4
+  %163 = call i32 @mprotect(ptr noundef %156, i64 noundef %161, i32 noundef %162) #11
+  store i32 %163, ptr %21, align 4
+  br label %164
 
-if.end55:                                         ; preds = %if.end54, %if.then40
-  %70 = load i32, ptr %rc, align 4
-  %tobool56 = icmp ne i32 %70, 0
-  br i1 %tobool56, label %if.then57, label %if.end59
+164:                                              ; preds = %155, %147
+  br label %165
 
-if.then57:                                        ; preds = %if.end55
-  %call58 = call ptr @__errno_location() #9
-  %71 = load i32, ptr %call58, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef @error_fatal, ptr noundef @.str, i32 noundef 846, ptr noundef @__func__.tcg_region_init, i32 noundef %71, ptr noundef @.str.4)
-  br label %if.end59
+165:                                              ; preds = %164, %136
+  %166 = load i32, ptr %21, align 4
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %168, label %171
 
-if.end59:                                         ; preds = %if.then57, %if.end55
-  br label %if.end60
+168:                                              ; preds = %165
+  %169 = call ptr @__errno_location() #14
+  %170 = load i32, ptr %169, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef @error_fatal, ptr noundef @.str, i32 noundef 844, ptr noundef @__func__.tcg_region_init, i32 noundef %170, ptr noundef @.str.4)
+  br label %171
 
-if.end60:                                         ; preds = %if.end59, %for.body
-  %72 = load i32, ptr %have_prot, align 4
-  %cmp61 = icmp ne i32 %72, 0
-  br i1 %cmp61, label %if.then62, label %if.end64
+171:                                              ; preds = %168, %165
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #11
+  br label %172
 
-if.then62:                                        ; preds = %if.end60
-  %73 = load ptr, ptr %end, align 8
-  %74 = load i64, ptr %page_size, align 8
-  %call63 = call i32 @qemu_mprotect_none(ptr noundef %73, i64 noundef %74)
-  br label %if.end64
+172:                                              ; preds = %171, %128
+  %173 = load i32, ptr %9, align 4
+  %174 = icmp ne i32 %173, 0
+  br i1 %174, label %175, label %179
 
-if.end64:                                         ; preds = %if.then62, %if.end60
-  br label %for.inc
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %20, align 8
+  %177 = load i64, ptr %7, align 8
+  %178 = call i32 @qemu_mprotect_none(ptr noundef %176, i64 noundef %177)
+  br label %179
 
-for.inc:                                          ; preds = %if.end64
-  %75 = load i64, ptr %i, align 8
-  %inc = add i64 %75, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !12
+179:                                              ; preds = %175, %172
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  br label %180
 
-for.end:                                          ; preds = %for.cond
+180:                                              ; preds = %179
+  %181 = load i64, ptr %17, align 8
+  %182 = add i64 %181, 1
+  store i64 %182, ptr %17, align 8
+  br label %123, !llvm.loop !23
+
+183:                                              ; preds = %127
   call void @tcg_region_trees_init()
   call void @tcg_region_initial_alloc__locked(ptr noundef @tcg_init_ctx)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qemu_real_host_page_size() #0 {
-entry:
-  %call = call i32 @getpagesize() #9
-  %conv = sext i32 %call to i64
-  ret i64 %conv
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal i64 @qemu_real_host_page_size() #7 {
+  %1 = call i32 @getpagesize() #14
+  %2 = sext i32 %1 to i64
+  ret i64 %2
 }
 
-declare i64 @qemu_get_host_physmem() #2
+declare i64 @qemu_get_host_physmem() #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @alloc_code_gen_buffer(i64 noundef %size, i32 noundef %splitwx, ptr noundef %errp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %size.addr = alloca i64, align 8
-  %splitwx.addr = alloca i32, align 4
-  %errp.addr = alloca ptr, align 8
-  %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
-  %prot = alloca i32, align 4
-  %flags = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  store i64 %size, ptr %size.addr, align 8
-  store i32 %splitwx, ptr %splitwx.addr, align 4
-  store ptr %errp, ptr %errp.addr, align 8
-  %local_err = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i32 0, i32 0
-  store ptr null, ptr %local_err, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i32 0, i32 1
-  %0 = load ptr, ptr %errp.addr, align 8
-  store ptr %0, ptr %errp1, align 8
-  br label %do.body
+define internal i32 @alloc_code_gen_buffer(i64 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.ErrorPropagator, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store i64 %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #11
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 16, i1 false), !annotation !4
+  %12 = getelementptr inbounds nuw %struct.ErrorPropagator, ptr %8, i32 0, i32 0
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %struct.ErrorPropagator, ptr %8, i32 0, i32 1
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  br label %15
 
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %errp.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %7, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %21
 
-lor.lhs.false:                                    ; preds = %do.body
-  %2 = load ptr, ptr %errp.addr, align 8
-  %cmp = icmp eq ptr %2, @error_fatal
-  br i1 %cmp, label %if.then, label %if.end
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = icmp eq ptr %19, @error_fatal
+  br i1 %20, label %21, label %23
 
-if.then:                                          ; preds = %lor.lhs.false, %do.body
-  %local_err2 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i32 0, i32 0
-  store ptr %local_err2, ptr %errp.addr, align 8
-  br label %if.end
+21:                                               ; preds = %18, %15
+  %22 = getelementptr inbounds nuw %struct.ErrorPropagator, ptr %8, i32 0, i32 0
+  store ptr %22, ptr %7, align 8
+  br label %23
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  br label %do.cond
+23:                                               ; preds = %21, %18
+  br label %24
 
-do.cond:                                          ; preds = %if.end
-  br label %do.end
+24:                                               ; preds = %23
+  br label %25
 
-do.end:                                           ; preds = %do.cond
-  %3 = load i32, ptr %splitwx.addr, align 4
-  %tobool3 = icmp ne i32 %3, 0
-  br i1 %tobool3, label %if.then4, label %if.end11
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  store i32 0, ptr %9, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 0, ptr %10, align 4, !annotation !4
+  %26 = load i32, ptr %6, align 4
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %42
 
-if.then4:                                         ; preds = %do.end
-  %4 = load i64, ptr %size.addr, align 8
-  %5 = load ptr, ptr %errp.addr, align 8
-  %call = call i32 @alloc_code_gen_buffer_splitwx(i64 noundef %4, ptr noundef %5)
-  store i32 %call, ptr %prot, align 4
-  %6 = load i32, ptr %prot, align 4
-  %cmp5 = icmp sge i32 %6, 0
-  br i1 %cmp5, label %if.then6, label %if.end7
+28:                                               ; preds = %25
+  %29 = load i64, ptr %5, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = call i32 @alloc_code_gen_buffer_splitwx(i64 noundef %29, ptr noundef %30)
+  store i32 %31, ptr %9, align 4
+  %32 = load i32, ptr %9, align 4
+  %33 = icmp sge i32 %32, 0
+  br i1 %33, label %34, label %36
 
-if.then6:                                         ; preds = %if.then4
-  %7 = load i32, ptr %prot, align 4
-  store i32 %7, ptr %retval, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+34:                                               ; preds = %28
+  %35 = load i32, ptr %9, align 4
+  store i32 %35, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %48
 
-if.end7:                                          ; preds = %if.then4
-  %8 = load i32, ptr %splitwx.addr, align 4
-  %cmp8 = icmp sgt i32 %8, 0
-  br i1 %cmp8, label %if.then9, label %if.end10
+36:                                               ; preds = %28
+  %37 = load i32, ptr %6, align 4
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %39, label %40
 
-if.then9:                                         ; preds = %if.end7
-  store i32 -1, ptr %retval, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+39:                                               ; preds = %36
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %48
 
-if.end10:                                         ; preds = %if.end7
-  %9 = load ptr, ptr %errp.addr, align 8
-  call void @error_free_or_abort(ptr noundef %9)
-  br label %if.end11
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %7, align 8
+  call void @error_free_or_abort(ptr noundef %41)
+  br label %42
 
-if.end11:                                         ; preds = %if.end10, %do.end
-  store i32 0, ptr %prot, align 4
-  store i32 34, ptr %flags, align 4
-  %10 = load i64, ptr %size.addr, align 8
-  %11 = load i32, ptr %prot, align 4
-  %12 = load i32, ptr %flags, align 4
-  %13 = load ptr, ptr %errp.addr, align 8
-  %call12 = call i32 @alloc_code_gen_buffer_anon(i64 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13)
-  store i32 %call12, ptr %retval, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+42:                                               ; preds = %40, %25
+  store i32 0, ptr %9, align 4
+  store i32 34, ptr %10, align 4
+  %43 = load i64, ptr %5, align 8
+  %44 = load i32, ptr %9, align 4
+  %45 = load i32, ptr %10, align 4
+  %46 = load ptr, ptr %7, align 8
+  %47 = call i32 @alloc_code_gen_buffer_anon(i64 noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef %46)
+  store i32 %47, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %48
 
-cleanup:                                          ; preds = %if.end11, %if.then9, %if.then6
-  call void @glib_auto_cleanup_ErrorPropagator(ptr noundef %_auto_errp_prop)
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
+48:                                               ; preds = %42, %39, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @glib_auto_cleanup_ErrorPropagator(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #11
+  %49 = load i32, ptr %4, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #8
 
-declare i32 @qemu_madvise(ptr noundef, i64 noundef, i32 noundef) #2
+declare i32 @qemu_madvise(ptr noundef, i64 noundef, i32 noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tcg_n_regions(i64 noundef %tb_size, i32 noundef %max_cpus) #0 {
-entry:
-  %tb_size.addr = alloca i64, align 8
-  %max_cpus.addr = alloca i32, align 4
-  store i64 %tb_size, ptr %tb_size.addr, align 8
-  store i32 %max_cpus, ptr %max_cpus.addr, align 4
-  ret i64 1
+define internal i64 @tcg_n_regions(i64 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store i64 0, ptr %6, align 8, !annotation !4
+  %11 = load i32, ptr %5, align 4
+  %12 = icmp eq i32 %11, 1
+  br i1 %12, label %16, label %13
+
+13:                                               ; preds = %2
+  %14 = load i8, ptr @mttcg_enabled, align 1, !range !15, !noundef !16
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %13, %2
+  store i64 1, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %42
+
+17:                                               ; preds = %13
+  %18 = load i64, ptr %4, align 8
+  %19 = udiv i64 %18, 2097152
+  store i64 %19, ptr %6, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = load i32, ptr %5, align 4
+  %22 = zext i32 %21 to i64
+  %23 = icmp ule i64 %20, %22
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %17
+  %25 = load i32, ptr %5, align 4
+  %26 = zext i32 %25 to i64
+  store i64 %26, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %42
+
+27:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %28 = load i64, ptr %6, align 8
+  store i64 %28, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %29 = load i32, ptr %5, align 4
+  %30 = mul i32 %29, 8
+  %31 = zext i32 %30 to i64
+  store i64 %31, ptr %9, align 8
+  %32 = load i64, ptr %8, align 8
+  %33 = load i64, ptr %9, align 8
+  %34 = icmp ult i64 %32, %33
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %27
+  %36 = load i64, ptr %8, align 8
+  br label %39
+
+37:                                               ; preds = %27
+  %38 = load i64, ptr %9, align 8
+  br label %39
+
+39:                                               ; preds = %37, %35
+  %40 = phi i64 [ %36, %35 ], [ %38, %37 ]
+  store i64 %40, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %41 = load i64, ptr %10, align 8
+  store i64 %41, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %42
+
+42:                                               ; preds = %39, %24, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %43 = load i64, ptr %3, align 8
+  ret i64 %43
 }
 
-declare void @qemu_mutex_init(ptr noundef) #2
+declare void @qemu_mutex_init(ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @host_prot_read_exec() #0 {
-entry:
   ret i32 5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_region_bounds(i64 noundef %curr_region, ptr noundef %pstart, ptr noundef %pend) #0 {
-entry:
-  %curr_region.addr = alloca i64, align 8
-  %pstart.addr = alloca ptr, align 8
-  %pend.addr = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  store i64 %curr_region, ptr %curr_region.addr, align 8
-  store ptr %pstart, ptr %pstart.addr, align 8
-  store ptr %pend, ptr %pend.addr, align 8
-  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %1 = load ptr, ptr %0, align 8
-  %2 = load i64, ptr %curr_region.addr, align 8
-  %3 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
-  %4 = load i64, ptr %3, align 8
-  %mul = mul i64 %2, %4
-  %add.ptr = getelementptr i8, ptr %1, i64 %mul
-  store ptr %add.ptr, ptr %start, align 8
-  %5 = load ptr, ptr %start, align 8
-  %6 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 4
-  %7 = load i64, ptr %6, align 8
-  %add.ptr1 = getelementptr i8, ptr %5, i64 %7
-  store ptr %add.ptr1, ptr %end, align 8
-  %8 = load i64, ptr %curr_region.addr, align 8
-  %cmp = icmp eq i64 %8, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @tcg_region_bounds(i64 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store i64 %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store ptr null, ptr %7, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  store ptr null, ptr %8, align 8, !annotation !4
+  %9 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %10 = load i64, ptr %4, align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
+  %12 = mul i64 %10, %11
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  store ptr %13, ptr %7, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 4), align 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
+  store ptr %16, ptr %8, align 8
+  %17 = load i64, ptr %4, align 8
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %21
 
-if.then:                                          ; preds = %entry
-  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %start, align 8
-  br label %if.end
+19:                                               ; preds = %3
+  %20 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
+  store ptr %20, ptr %7, align 8
+  br label %21
 
-if.end:                                           ; preds = %if.then, %entry
-  %11 = load i64, ptr %curr_region.addr, align 8
-  %12 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %13 = load i64, ptr %12, align 8
-  %sub = sub i64 %13, 1
-  %cmp2 = icmp eq i64 %11, %sub
-  br i1 %cmp2, label %if.then3, label %if.end5
+21:                                               ; preds = %19, %3
+  %22 = load i64, ptr %4, align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %24 = sub i64 %23, 1
+  %25 = icmp eq i64 %22, %24
+  br i1 %25, label %26, label %30
 
-if.then3:                                         ; preds = %if.end
-  %14 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  %17 = load i64, ptr %16, align 8
-  %add.ptr4 = getelementptr i8, ptr %15, i64 %17
-  store ptr %add.ptr4, ptr %end, align 8
-  br label %if.end5
+26:                                               ; preds = %21
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
+  store ptr %29, ptr %8, align 8
+  br label %30
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  %18 = load ptr, ptr %start, align 8
-  %19 = load ptr, ptr %pstart.addr, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = load ptr, ptr %end, align 8
-  %21 = load ptr, ptr %pend.addr, align 8
-  store ptr %20, ptr %21, align 8
+30:                                               ; preds = %26, %21
+  %31 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %5, align 8
+  store ptr %31, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %6, align 8
+  store ptr %33, ptr %34, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-declare i32 @qemu_mprotect_rwx(ptr noundef, i64 noundef) #2
+declare i32 @qemu_mprotect_rwx(ptr noundef, i64 noundef) #5
 
-declare i32 @qemu_mprotect_rw(ptr noundef, i64 noundef) #2
+declare i32 @qemu_mprotect_rw(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind
-declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) #4
+declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) #9
 
-declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #2
+declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #5
+declare ptr @__errno_location() #10
 
-declare i32 @qemu_mprotect_none(ptr noundef, i64 noundef) #2
+declare i32 @qemu_mprotect_none(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_region_trees_init() #0 {
-entry:
-  %i = alloca i64, align 8
-  %rt = alloca ptr, align 8
-  %0 = load i32, ptr @qemu_dcache_linesize, align 4
-  %conv = sext i32 %0 to i64
-  %add = add i64 56, %conv
-  %sub = sub i64 %add, 1
-  %1 = load i32, ptr @qemu_dcache_linesize, align 4
-  %conv1 = sext i32 %1 to i64
-  %sub2 = sub i64 0, %conv1
-  %and = and i64 %sub, %sub2
-  store i64 %and, ptr @tree_size, align 8
-  %2 = load i32, ptr @qemu_dcache_linesize, align 4
-  %conv3 = sext i32 %2 to i64
-  %3 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %4 = load i64, ptr %3, align 8
-  %5 = load i64, ptr @tree_size, align 8
-  %mul = mul i64 %4, %5
-  %call = call ptr @qemu_memalign(i64 noundef %conv3, i64 noundef %mul)
-  store ptr %call, ptr @region_trees, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+  %1 = alloca i64, align 8
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  store i64 0, ptr %1, align 8, !annotation !4
+  %3 = load i32, ptr @qemu_dcache_linesize, align 4
+  %4 = sext i32 %3 to i64
+  %5 = add i64 56, %4
+  %6 = sub i64 %5, 1
+  %7 = load i32, ptr @qemu_dcache_linesize, align 4
+  %8 = sext i32 %7 to i64
+  %9 = sub i64 0, %8
+  %10 = and i64 %6, %9
+  store i64 %10, ptr @tree_size, align 8
+  %11 = load i32, ptr @qemu_dcache_linesize, align 4
+  %12 = sext i32 %11 to i64
+  %13 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %14 = load i64, ptr @tree_size, align 8
+  %15 = mul i64 %13, %14
+  %16 = call ptr @qemu_memalign(i64 noundef %12, i64 noundef %15)
+  store ptr %16, ptr @region_trees, align 8
+  store i64 0, ptr %1, align 8
+  br label %17
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load i64, ptr %i, align 8
-  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %8 = load i64, ptr %7, align 8
-  %cmp = icmp ult i64 %6, %8
-  br i1 %cmp, label %for.body, label %for.end
+17:                                               ; preds = %32, %0
+  %18 = load i64, ptr %1, align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %20 = icmp ult i64 %18, %19
+  br i1 %20, label %21, label %35
 
-for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr @region_trees, align 8
-  %10 = load i64, ptr %i, align 8
-  %11 = load i64, ptr @tree_size, align 8
-  %mul5 = mul i64 %10, %11
-  %add.ptr = getelementptr i8, ptr %9, i64 %mul5
-  store ptr %add.ptr, ptr %rt, align 8
-  %12 = load ptr, ptr %rt, align 8
-  %lock = getelementptr inbounds %struct.tcg_region_tree, ptr %12, i32 0, i32 0
-  call void @qemu_mutex_init(ptr noundef %lock)
-  %call6 = call ptr @q_tree_new_full(ptr noundef @tb_tc_cmp, ptr noundef null, ptr noundef null, ptr noundef @tb_destroy)
-  %13 = load ptr, ptr %rt, align 8
-  %tree = getelementptr inbounds %struct.tcg_region_tree, ptr %13, i32 0, i32 1
-  store ptr %call6, ptr %tree, align 8
-  br label %for.inc
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  %22 = load ptr, ptr @region_trees, align 8
+  %23 = load i64, ptr %1, align 8
+  %24 = load i64, ptr @tree_size, align 8
+  %25 = mul i64 %23, %24
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
+  store ptr %26, ptr %2, align 8
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %27, i32 0, i32 0
+  call void @qemu_mutex_init(ptr noundef %28)
+  %29 = call ptr @q_tree_new_full(ptr noundef @tb_tc_cmp, ptr noundef null, ptr noundef null, ptr noundef @tb_destroy)
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw %struct.tcg_region_tree, ptr %30, i32 0, i32 1
+  store ptr %29, ptr %31, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  br label %32
 
-for.inc:                                          ; preds = %for.body
-  %14 = load i64, ptr %i, align 8
-  %inc = add i64 %14, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !13
+32:                                               ; preds = %21
+  %33 = load i64, ptr %1, align 8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %1, align 8
+  br label %17, !llvm.loop !24
 
-for.end:                                          ; preds = %for.cond
+35:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_region_prologue_set(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  br label %do.body
+define dso_local void @tcg_region_prologue_set(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  br label %5
 
-do.body:                                          ; preds = %entry
-  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 24
-  %3 = load ptr, ptr %code_gen_buffer, align 8
-  %cmp = icmp eq ptr %1, %3
-  br i1 %cmp, label %if.then, label %if.else
+5:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 0, ptr %3, align 4, !annotation !4
+  %6 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.TCGContext, ptr %7, i32 0, i32 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %6, %9
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %do.body
-  br label %if.end
+11:                                               ; preds = %5
+  store i32 1, ptr %3, align 4
+  br label %13
 
-if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 868, ptr noundef @__func__.tcg_region_prologue_set, ptr noundef @.str.5) #6
+12:                                               ; preds = %5
+  store i32 0, ptr %3, align 4
+  br label %13
+
+13:                                               ; preds = %12, %11
+  %14 = load i32, ptr %3, align 4
+  store i32 %14, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  %15 = load i32, ptr %4, align 4
+  %16 = sext i32 %15 to i64
+  %17 = call i64 @llvm.expect.i64(i64 %16, i64 1)
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %13
+  br label %21
+
+20:                                               ; preds = %13
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 866, ptr noundef @__func__.tcg_region_prologue_set, ptr noundef @.str.5) #12
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %do.end
+21:                                               ; preds = %19
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  %4 = load ptr, ptr %s.addr, align 8
-  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %4, i32 0, i32 23
-  %5 = load ptr, ptr %code_ptr, align 8
-  %6 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
-  store ptr %5, ptr %6, align 8
-  %7 = load ptr, ptr %s.addr, align 8
-  call void @tcg_region_assign(ptr noundef %7, i64 noundef 0)
-  %8 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %call = call ptr @tcg_splitwx_to_rx(ptr noundef %9)
-  %10 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  %13 = load i64, ptr %12, align 8
-  %add.ptr = getelementptr i8, ptr %11, i64 %13
-  %14 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call void @tcg_register_jit(ptr noundef %call, i64 noundef %sub.ptr.sub)
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.TCGContext, ptr %23, i32 0, i32 23
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
+  %26 = load ptr, ptr %2, align 8
+  call void @tcg_region_assign(ptr noundef %26, i64 noundef 0)
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
+  %28 = call ptr @tcg_splitwx_to_rx(ptr noundef %27)
+  %29 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = load ptr, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 2), align 8
+  %33 = ptrtoint ptr %31 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  call void @tcg_register_jit(ptr noundef %28, i64 noundef %35)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_region_assign(ptr noundef %s, i64 noundef %curr_region) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %curr_region.addr = alloca i64, align 8
-  %start = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store i64 %curr_region, ptr %curr_region.addr, align 8
-  %0 = load i64, ptr %curr_region.addr, align 8
-  call void @tcg_region_bounds(i64 noundef %0, ptr noundef %start, ptr noundef %end)
-  %1 = load ptr, ptr %start, align 8
-  %2 = load ptr, ptr %s.addr, align 8
-  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 24
-  store ptr %1, ptr %code_gen_buffer, align 8
-  %3 = load ptr, ptr %start, align 8
-  %4 = load ptr, ptr %s.addr, align 8
-  %code_gen_ptr = getelementptr inbounds %struct.TCGContext, ptr %4, i32 0, i32 26
-  store ptr %3, ptr %code_gen_ptr, align 8
-  %5 = load ptr, ptr %end, align 8
-  %6 = load ptr, ptr %start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %7 = load ptr, ptr %s.addr, align 8
-  %code_gen_buffer_size = getelementptr inbounds %struct.TCGContext, ptr %7, i32 0, i32 25
-  store i64 %sub.ptr.sub, ptr %code_gen_buffer_size, align 8
-  %8 = load ptr, ptr %end, align 8
-  %add.ptr = getelementptr i8, ptr %8, i64 -1024
-  %9 = load ptr, ptr %s.addr, align 8
-  %code_gen_highwater = getelementptr inbounds %struct.TCGContext, ptr %9, i32 0, i32 28
-  store ptr %add.ptr, ptr %code_gen_highwater, align 8
+define internal void @tcg_region_assign(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  store ptr null, ptr %5, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store ptr null, ptr %6, align 8, !annotation !4
+  %7 = load i64, ptr %4, align 8
+  call void @tcg_region_bounds(i64 noundef %7, ptr noundef %5, ptr noundef %6)
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.TCGContext, ptr %9, i32 0, i32 24
+  store ptr %8, ptr %10, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.TCGContext, ptr %12, i32 0, i32 26
+  store ptr %11, ptr %13, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = ptrtoint ptr %14 to i64
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %16, %17
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.TCGContext, ptr %19, i32 0, i32 25
+  store i64 %18, ptr %20, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 -1024
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %struct.TCGContext, ptr %23, i32 0, i32 28
+  store ptr %22, ptr %24, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
-declare void @tcg_register_jit(ptr noundef, i64 noundef) #2
+declare void @tcg_register_jit(ptr noundef, i64 noundef) #5
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @tcg_splitwx_to_rx(ptr noundef %rw) #0 {
-entry:
-  %rw.addr = alloca ptr, align 8
-  store ptr %rw, ptr %rw.addr, align 8
-  %0 = load ptr, ptr %rw.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal ptr @tcg_splitwx_to_rx(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %9
 
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %rw.addr, align 8
-  %2 = load i64, ptr @tcg_splitwx_diff, align 8
-  %add.ptr = getelementptr i8, ptr %1, i64 %2
-  br label %cond.end
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8
+  %7 = load i64, ptr @tcg_splitwx_diff, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  br label %10
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+9:                                                ; preds = %1
+  br label %10
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
+10:                                               ; preds = %9, %5
+  %11 = phi ptr [ %8, %5 ], [ null, %9 ]
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @tcg_code_size() #0 {
-entry:
-  %n_ctxs = alloca i32, align 4
-  %tmp = alloca i32, align 4
-  %atomic-temp = alloca i32, align 4
-  %i = alloca i32, align 4
-  %total = alloca i64, align 8
-  %_f = alloca ptr, align 8
-  %tmp6 = alloca ptr, align 8
-  %atomic-temp7 = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  %tmp13 = alloca ptr, align 8
-  %atomic-temp14 = alloca ptr, align 8
-  %size = alloca i64, align 8
-  %tmp20 = alloca ptr, align 8
-  %atomic-temp21 = alloca ptr, align 8
-  br label %while.cond
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #11
+  br label %17
 
-while.cond:                                       ; preds = %do.end, %entry
-  br i1 false, label %while.body, label %while.end
+17:                                               ; preds = %0
+  br i1 false, label %18, label %19
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
-
-do.body:                                          ; preds = %while.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 889, ptr noundef @__func__.tcg_code_size, ptr noundef null) #6
+18:                                               ; preds = %17
+  call void @qemu_build_not_reached_always() #12, !srcloc !25
   unreachable
 
-do.end:                                           ; No predecessors!
-  br label %while.cond
+19:                                               ; preds = %17
+  %20 = load atomic i32, ptr @tcg_cur_ctxs monotonic, align 4
+  store i32 %20, ptr %3, align 4
+  %21 = load i32, ptr %3, align 4
+  store i32 %21, ptr %2, align 4
+  %22 = load i32, ptr %2, align 4
+  store i32 %22, ptr %1, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  store i64 0, ptr %5, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  br label %23
 
-while.end:                                        ; preds = %while.cond
-  %0 = load atomic i32, ptr @tcg_cur_ctxs monotonic, align 4
-  store i32 %0, ptr %atomic-temp, align 4
-  %1 = load i32, ptr %atomic-temp, align 4
-  store i32 %1, ptr %tmp, align 4
-  %2 = load i32, ptr %tmp, align 4
-  store i32 %2, ptr %n_ctxs, align 4
-  br label %while.cond1
+23:                                               ; preds = %19
+  br i1 false, label %24, label %25
 
-while.cond1:                                      ; preds = %do.end4, %while.end
-  br i1 false, label %while.body2, label %while.end5
-
-while.body2:                                      ; preds = %while.cond1
-  br label %do.body3
-
-do.body3:                                         ; preds = %while.body2
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 893, ptr noundef @__func__.tcg_code_size, ptr noundef null) #6
+24:                                               ; preds = %23
+  call void @qemu_build_not_reached_always() #12, !srcloc !26
   unreachable
 
-do.end4:                                          ; No predecessors!
-  br label %while.cond1
+25:                                               ; preds = %23
+  %26 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  store i64 %26, ptr %8, align 8
+  %27 = load ptr, ptr %8, align 8
+  store ptr %27, ptr %7, align 8
+  %28 = load ptr, ptr %7, align 8
+  store ptr %28, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8
+  call void %29(ptr noundef @region, ptr noundef @.str, i32 noundef 891)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %30 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 8), align 8
+  store i64 %30, ptr %5, align 8
+  store i32 0, ptr %4, align 4
+  br label %31
 
-while.end5:                                       ; preds = %while.cond1
-  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  store i64 %3, ptr %atomic-temp7, align 8
-  %4 = load ptr, ptr %atomic-temp7, align 8
-  store ptr %4, ptr %tmp6, align 8
-  %5 = load ptr, ptr %tmp6, align 8
-  store ptr %5, ptr %_f, align 8
-  %6 = load ptr, ptr %_f, align 8
-  call void %6(ptr noundef @region, ptr noundef @.str, i32 noundef 893)
-  %7 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 8
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %total, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+31:                                               ; preds = %82, %25
+  %32 = load i32, ptr %4, align 4
+  %33 = load i32, ptr %1, align 4
+  %34 = icmp ult i32 %32, %33
+  br i1 %34, label %35, label %85
 
-for.cond:                                         ; preds = %for.inc, %while.end5
-  %9 = load i32, ptr %i, align 4
-  %10 = load i32, ptr %n_ctxs, align 4
-  %cmp = icmp ult i32 %9, %10
-  br i1 %cmp, label %for.body, label %for.end
+35:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  br label %36
 
-for.body:                                         ; preds = %for.cond
-  br label %while.cond8
+36:                                               ; preds = %35
+  br i1 false, label %37, label %38
 
-while.cond8:                                      ; preds = %do.end11, %for.body
-  br i1 false, label %while.body9, label %while.end12
-
-while.body9:                                      ; preds = %while.cond8
-  br label %do.body10
-
-do.body10:                                        ; preds = %while.body9
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 896, ptr noundef @__func__.tcg_code_size, ptr noundef null) #6
+37:                                               ; preds = %36
+  call void @qemu_build_not_reached_always() #12, !srcloc !27
   unreachable
 
-do.end11:                                         ; No predecessors!
-  br label %while.cond8
+38:                                               ; preds = %36
+  %39 = load ptr, ptr @tcg_ctxs, align 8
+  %40 = load i32, ptr %4, align 4
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
+  %43 = load atomic i64, ptr %42 monotonic, align 8
+  store i64 %43, ptr %11, align 8
+  %44 = load ptr, ptr %11, align 8
+  store ptr %44, ptr %10, align 8
+  %45 = load ptr, ptr %10, align 8
+  store ptr %45, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  store i64 0, ptr %12, align 8, !annotation !4
+  br label %46
 
-while.end12:                                      ; preds = %while.cond8
-  %11 = load ptr, ptr @tcg_ctxs, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %12 to i64
-  %arrayidx = getelementptr ptr, ptr %11, i64 %idxprom
-  %13 = load atomic i64, ptr %arrayidx monotonic, align 8
-  store i64 %13, ptr %atomic-temp14, align 8
-  %14 = load ptr, ptr %atomic-temp14, align 8
-  store ptr %14, ptr %tmp13, align 8
-  %15 = load ptr, ptr %tmp13, align 8
-  store ptr %15, ptr %s, align 8
-  br label %while.cond15
+46:                                               ; preds = %38
+  br i1 false, label %47, label %48
 
-while.cond15:                                     ; preds = %do.end18, %while.end12
-  br i1 false, label %while.body16, label %while.end19
-
-while.body16:                                     ; preds = %while.cond15
-  br label %do.body17
-
-do.body17:                                        ; preds = %while.body16
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 899, ptr noundef @__func__.tcg_code_size, ptr noundef null) #6
+47:                                               ; preds = %46
+  call void @qemu_build_not_reached_always() #12, !srcloc !28
   unreachable
 
-do.end18:                                         ; No predecessors!
-  br label %while.cond15
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.TCGContext, ptr %49, i32 0, i32 26
+  %51 = load atomic i64, ptr %50 monotonic, align 8
+  store i64 %51, ptr %14, align 8
+  %52 = load ptr, ptr %14, align 8
+  store ptr %52, ptr %13, align 8
+  %53 = load ptr, ptr %13, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw %struct.TCGContext, ptr %54, i32 0, i32 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = ptrtoint ptr %53 to i64
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %57, %58
+  store i64 %59, ptr %12, align 8
+  br label %60
 
-while.end19:                                      ; preds = %while.cond15
-  %16 = load ptr, ptr %s, align 8
-  %code_gen_ptr = getelementptr inbounds %struct.TCGContext, ptr %16, i32 0, i32 26
-  %17 = load atomic i64, ptr %code_gen_ptr monotonic, align 8
-  store i64 %17, ptr %atomic-temp21, align 8
-  %18 = load ptr, ptr %atomic-temp21, align 8
-  store ptr %18, ptr %tmp20, align 8
-  %19 = load ptr, ptr %tmp20, align 8
-  %20 = load ptr, ptr %s, align 8
-  %code_gen_buffer = getelementptr inbounds %struct.TCGContext, ptr %20, i32 0, i32 24
-  %21 = load ptr, ptr %code_gen_buffer, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %21 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %size, align 8
-  br label %do.body22
+60:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  store i32 0, ptr %15, align 4, !annotation !4
+  %61 = load i64, ptr %12, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds nuw %struct.TCGContext, ptr %62, i32 0, i32 25
+  %64 = load i64, ptr %63, align 8
+  %65 = icmp ule i64 %61, %64
+  br i1 %65, label %66, label %67
 
-do.body22:                                        ; preds = %while.end19
-  %22 = load i64, ptr %size, align 8
-  %23 = load ptr, ptr %s, align 8
-  %code_gen_buffer_size = getelementptr inbounds %struct.TCGContext, ptr %23, i32 0, i32 25
-  %24 = load i64, ptr %code_gen_buffer_size, align 8
-  %cmp23 = icmp ule i64 %22, %24
-  br i1 %cmp23, label %if.then, label %if.else
+66:                                               ; preds = %60
+  store i32 1, ptr %15, align 4
+  br label %68
 
-if.then:                                          ; preds = %do.body22
-  br label %if.end
+67:                                               ; preds = %60
+  store i32 0, ptr %15, align 4
+  br label %68
 
-if.else:                                          ; preds = %do.body22
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 900, ptr noundef @__func__.tcg_code_size, ptr noundef @.str.6) #6
+68:                                               ; preds = %67, %66
+  %69 = load i32, ptr %15, align 4
+  store i32 %69, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  %70 = load i32, ptr %16, align 4
+  %71 = sext i32 %70 to i64
+  %72 = call i64 @llvm.expect.i64(i64 %71, i64 1)
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %68
+  br label %76
+
+75:                                               ; preds = %68
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 898, ptr noundef @__func__.tcg_code_size, ptr noundef @.str.6) #12
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %do.end24
+76:                                               ; preds = %74
+  br label %77
 
-do.end24:                                         ; preds = %if.end
-  %25 = load i64, ptr %size, align 8
-  %26 = load i64, ptr %total, align 8
-  %add = add i64 %26, %25
-  store i64 %add, ptr %total, align 8
-  br label %for.inc
+77:                                               ; preds = %76
+  br label %78
 
-for.inc:                                          ; preds = %do.end24
-  %27 = load i32, ptr %i, align 4
-  %inc = add i32 %27, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !14
+78:                                               ; preds = %77
+  %79 = load i64, ptr %12, align 8
+  %80 = load i64, ptr %5, align 8
+  %81 = add i64 %80, %79
+  store i64 %81, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  br label %82
 
-for.end:                                          ; preds = %for.cond
-  call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 903)
-  %28 = load i64, ptr %total, align 8
-  ret i64 %28
+82:                                               ; preds = %78
+  %83 = load i32, ptr %4, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %4, align 4
+  br label %31, !llvm.loop !29
+
+85:                                               ; preds = %31
+  call void @qemu_mutex_unlock_impl(ptr noundef @region, ptr noundef @.str, i32 noundef 901)
+  %86 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #11
+  ret i64 %86
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @tcg_code_capacity() #0 {
-entry:
-  %guard_size = alloca i64, align 8
-  %capacity = alloca i64, align 8
-  %0 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 5
-  %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 4
-  %3 = load i64, ptr %2, align 8
-  %sub = sub i64 %1, %3
-  store i64 %sub, ptr %guard_size, align 8
-  %4 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  %5 = load i64, ptr %4, align 8
-  store i64 %5, ptr %capacity, align 8
-  %6 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %7 = load i64, ptr %6, align 8
-  %sub1 = sub i64 %7, 1
-  %8 = load i64, ptr %guard_size, align 8
-  %mul = mul i64 %sub1, %8
-  %9 = load i64, ptr %capacity, align 8
-  %sub2 = sub i64 %9, %mul
-  store i64 %sub2, ptr %capacity, align 8
-  %10 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 3
-  %11 = load i64, ptr %10, align 8
-  %mul3 = mul i64 %11, 1024
-  %12 = load i64, ptr %capacity, align 8
-  %sub4 = sub i64 %12, %mul3
-  store i64 %sub4, ptr %capacity, align 8
-  %13 = load i64, ptr %capacity, align 8
-  ret i64 %13
+  %1 = alloca i64, align 8
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  store i64 0, ptr %1, align 8, !annotation !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  store i64 0, ptr %2, align 8, !annotation !4
+  %3 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 5), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 4), align 8
+  %5 = sub i64 %3, %4
+  store i64 %5, ptr %1, align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  store i64 %6, ptr %2, align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %8 = sub i64 %7, 1
+  %9 = load i64, ptr %1, align 8
+  %10 = mul i64 %8, %9
+  %11 = load i64, ptr %2, align 8
+  %12 = sub i64 %11, %10
+  store i64 %12, ptr %2, align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 3), align 8
+  %14 = mul i64 %13, 1024
+  %15 = load i64, ptr %2, align 8
+  %16 = sub i64 %15, %14
+  store i64 %16, ptr %2, align 8
+  %17 = load i64, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
+  ret i64 %17
 }
 
-declare ptr @q_tree_ref(ptr noundef) #2
+declare ptr @q_tree_ref(ptr noundef) #5
 
-declare void @q_tree_destroy(ptr noundef) #2
+declare void @q_tree_destroy(ptr noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @getpagesize() #5
+declare i32 @getpagesize() #10
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @glib_auto_cleanup_ErrorPropagator(ptr noundef %_ptr) #0 {
-entry:
-  %_ptr.addr = alloca ptr, align 8
-  store ptr %_ptr, ptr %_ptr.addr, align 8
-  %0 = load ptr, ptr %_ptr.addr, align 8
-  call void @error_propagator_cleanup(ptr noundef %0)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @glib_auto_cleanup_ErrorPropagator(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @error_propagator_cleanup(ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @alloc_code_gen_buffer_splitwx(i64 noundef %size, ptr noundef %errp) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  %errp.addr = alloca ptr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %errp, ptr %errp.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load ptr, ptr %errp.addr, align 8
-  %call = call i32 @alloc_code_gen_buffer_splitwx_memfd(i64 noundef %0, ptr noundef %1)
-  ret i32 %call
+define internal i32 @alloc_code_gen_buffer_splitwx(i64 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load i64, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call i32 @alloc_code_gen_buffer_splitwx_memfd(i64 noundef %5, ptr noundef %6)
+  ret i32 %7
 }
 
-declare void @error_free_or_abort(ptr noundef) #2
+declare void @error_free_or_abort(ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @alloc_code_gen_buffer_anon(i64 noundef %size, i32 noundef %prot, i32 noundef %flags, ptr noundef %errp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %size.addr = alloca i64, align 8
-  %prot.addr = alloca i32, align 4
-  %flags.addr = alloca i32, align 4
-  %errp.addr = alloca ptr, align 8
-  %buf = alloca ptr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i32 %prot, ptr %prot.addr, align 4
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %errp, ptr %errp.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load i32, ptr %prot.addr, align 4
-  %2 = load i32, ptr %flags.addr, align 4
-  %call = call ptr @mmap64(ptr noundef null, i64 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef -1, i64 noundef 0) #8
-  store ptr %call, ptr %buf, align 8
-  %3 = load ptr, ptr %buf, align 8
-  %4 = inttoptr i64 -1 to ptr
-  %cmp = icmp eq ptr %3, %4
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @alloc_code_gen_buffer_anon(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store i64 %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  store ptr null, ptr %10, align 8, !annotation !4
+  %12 = load i64, ptr %6, align 8
+  %13 = load i32, ptr %7, align 4
+  %14 = load i32, ptr %8, align 4
+  %15 = call ptr @mmap64(ptr noundef null, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef -1, i64 noundef 0) #11
+  store ptr %15, ptr %10, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
+  br i1 %17, label %18, label %23
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %errp.addr, align 8
-  %call1 = call ptr @__errno_location() #9
-  %6 = load i32, ptr %call1, align 4
-  %7 = load i64, ptr %size.addr, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %5, ptr noundef @.str, i32 noundef 562, ptr noundef @__func__.alloc_code_gen_buffer_anon, i32 noundef %6, ptr noundef @.str.10, i64 noundef %7)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr @__errno_location() #14
+  %21 = load i32, ptr %20, align 4
+  %22 = load i64, ptr %6, align 8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %19, ptr noundef @.str, i32 noundef 562, ptr noundef @__func__.alloc_code_gen_buffer_anon, i32 noundef %21, ptr noundef @.str.10, i64 noundef %22)
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %buf, align 8
-  %9 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  store ptr %8, ptr %9, align 8
-  %10 = load i64, ptr %size.addr, align 8
-  %11 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  store i64 %10, ptr %11, align 8
-  %12 = load i32, ptr %prot.addr, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %10, align 8
+  store ptr %24, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %25 = load i64, ptr %6, align 8
+  store i64 %25, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %26 = load i32, ptr %7, align 4
+  store i32 %26, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %27
 
-return:                                           ; preds = %if.end, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+27:                                               ; preds = %23, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  %28 = load i32, ptr %5, align 4
+  ret i32 %28
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @error_propagator_cleanup(ptr noundef %prop) #0 {
-entry:
-  %prop.addr = alloca ptr, align 8
-  store ptr %prop, ptr %prop.addr, align 8
-  %0 = load ptr, ptr %prop.addr, align 8
-  %errp = getelementptr inbounds %struct.ErrorPropagator, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %errp, align 8
-  %2 = load ptr, ptr %prop.addr, align 8
-  %local_err = getelementptr inbounds %struct.ErrorPropagator, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %local_err, align 8
-  call void @error_propagate(ptr noundef %1, ptr noundef %3)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @error_propagator_cleanup(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.ErrorPropagator, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.ErrorPropagator, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @error_propagate(ptr noundef %5, ptr noundef %8)
   ret void
 }
 
-declare void @error_propagate(ptr noundef, ptr noundef) #2
+declare void @error_propagate(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @alloc_code_gen_buffer_splitwx_memfd(i64 noundef %size, ptr noundef %errp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %size.addr = alloca i64, align 8
-  %errp.addr = alloca ptr, align 8
-  %buf_rw = alloca ptr, align 8
-  %buf_rx = alloca ptr, align 8
-  %fd = alloca i32, align 4
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %errp, ptr %errp.addr, align 8
-  store ptr null, ptr %buf_rw, align 8
-  %0 = inttoptr i64 -1 to ptr
-  store ptr %0, ptr %buf_rx, align 8
-  store i32 -1, ptr %fd, align 4
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load ptr, ptr %errp.addr, align 8
-  %call = call ptr @qemu_memfd_alloc(ptr noundef @.str.8, i64 noundef %1, i32 noundef 0, ptr noundef %fd, ptr noundef %2)
-  store ptr %call, ptr %buf_rw, align 8
-  %3 = load ptr, ptr %buf_rw, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @alloc_code_gen_buffer_splitwx_memfd(i64 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store i64 %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store ptr inttoptr (i64 -1 to ptr), ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 -1, ptr %8, align 4
+  %10 = load i64, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @qemu_memfd_alloc(ptr noundef @.str.8, i64 noundef %10, i32 noundef 0, ptr noundef %8, ptr noundef %11)
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  br label %fail
+15:                                               ; preds = %2
+  br label %37
 
-if.end:                                           ; preds = %entry
-  %4 = load i64, ptr %size.addr, align 8
-  %call1 = call i32 @host_prot_read_exec()
-  %5 = load i32, ptr %fd, align 4
-  %call2 = call ptr @mmap64(ptr noundef null, i64 noundef %4, i32 noundef %call1, i32 noundef 1, i32 noundef %5, i64 noundef 0) #8
-  store ptr %call2, ptr %buf_rx, align 8
-  %6 = load ptr, ptr %buf_rx, align 8
-  %7 = inttoptr i64 -1 to ptr
-  %cmp3 = icmp eq ptr %6, %7
-  br i1 %cmp3, label %if.then4, label %if.end5
+16:                                               ; preds = %2
+  %17 = load i64, ptr %4, align 8
+  %18 = call i32 @host_prot_read_exec()
+  %19 = load i32, ptr %8, align 4
+  %20 = call ptr @mmap64(ptr noundef null, i64 noundef %17, i32 noundef %18, i32 noundef 1, i32 noundef %19, i64 noundef 0) #11
+  store ptr %20, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
+  br i1 %22, label %23, label %27
 
-if.then4:                                         ; preds = %if.end
-  br label %fail_rx
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %5, align 8
+  %25 = call ptr @__errno_location() #14
+  %26 = load i32, ptr %25, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %24, ptr noundef @.str, i32 noundef 588, ptr noundef @__func__.alloc_code_gen_buffer_splitwx_memfd, i32 noundef %26, ptr noundef @.str.9)
+  br label %37
 
-if.end5:                                          ; preds = %if.end
-  %8 = load i32, ptr %fd, align 4
-  %call6 = call i32 @close(i32 noundef %8)
-  %9 = load ptr, ptr %buf_rw, align 8
-  %10 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 1
-  store ptr %9, ptr %10, align 8
-  %11 = load i64, ptr %size.addr, align 8
-  %12 = getelementptr inbounds %struct.tcg_region_state, ptr @region, i32 0, i32 6
-  store i64 %11, ptr %12, align 8
-  %13 = load ptr, ptr %buf_rx, align 8
-  %14 = load ptr, ptr %buf_rw, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %14 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr @tcg_splitwx_diff, align 8
-  store i32 3, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %16
+  %28 = load i32, ptr %8, align 4
+  %29 = call i32 @close(i32 noundef %28)
+  %30 = load ptr, ptr %6, align 8
+  store ptr %30, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 1), align 8
+  %31 = load i64, ptr %4, align 8
+  store i64 %31, ptr getelementptr inbounds nuw (%struct.tcg_region_state, ptr @region, i32 0, i32 6), align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = ptrtoint ptr %32 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  store i64 %36, ptr @tcg_splitwx_diff, align 8
+  store i32 3, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %51
 
-fail_rx:                                          ; preds = %if.then4
-  %15 = load ptr, ptr %errp.addr, align 8
-  %call7 = call ptr @__errno_location() #9
-  %16 = load i32, ptr %call7, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %15, ptr noundef @.str, i32 noundef 598, ptr noundef @__func__.alloc_code_gen_buffer_splitwx_memfd, i32 noundef %16, ptr noundef @.str.9)
-  br label %fail
+37:                                               ; preds = %23, %15
+  %38 = load ptr, ptr %6, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %44
 
-fail:                                             ; preds = %fail_rx, %if.then
-  %17 = load ptr, ptr %buf_rx, align 8
-  %18 = inttoptr i64 -1 to ptr
-  %cmp8 = icmp ne ptr %17, %18
-  br i1 %cmp8, label %if.then9, label %if.end11
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %6, align 8
+  %42 = load i64, ptr %4, align 8
+  %43 = call i32 @munmap(ptr noundef %41, i64 noundef %42) #11
+  br label %44
 
-if.then9:                                         ; preds = %fail
-  %19 = load ptr, ptr %buf_rx, align 8
-  %20 = load i64, ptr %size.addr, align 8
-  %call10 = call i32 @munmap(ptr noundef %19, i64 noundef %20) #8
-  br label %if.end11
+44:                                               ; preds = %40, %37
+  %45 = load i32, ptr %8, align 4
+  %46 = icmp sge i32 %45, 0
+  br i1 %46, label %47, label %50
 
-if.end11:                                         ; preds = %if.then9, %fail
-  %21 = load ptr, ptr %buf_rw, align 8
-  %tobool = icmp ne ptr %21, null
-  br i1 %tobool, label %if.then12, label %if.end14
+47:                                               ; preds = %44
+  %48 = load i32, ptr %8, align 4
+  %49 = call i32 @close(i32 noundef %48)
+  br label %50
 
-if.then12:                                        ; preds = %if.end11
-  %22 = load ptr, ptr %buf_rw, align 8
-  %23 = load i64, ptr %size.addr, align 8
-  %call13 = call i32 @munmap(ptr noundef %22, i64 noundef %23) #8
-  br label %if.end14
+50:                                               ; preds = %47, %44
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %51
 
-if.end14:                                         ; preds = %if.then12, %if.end11
-  %24 = load i32, ptr %fd, align 4
-  %cmp15 = icmp sge i32 %24, 0
-  br i1 %cmp15, label %if.then16, label %if.end18
+51:                                               ; preds = %50, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %52 = load i32, ptr %3, align 4
+  ret i32 %52
+}
 
-if.then16:                                        ; preds = %if.end14
-  %25 = load i32, ptr %fd, align 4
-  %call17 = call i32 @close(i32 noundef %25)
-  br label %if.end18
+declare ptr @qemu_memfd_alloc(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) #5
 
-if.end18:                                         ; preds = %if.then16, %if.end14
-  store i32 -1, ptr %retval, align 4
-  br label %return
+; Function Attrs: nounwind
+declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #9
 
-return:                                           ; preds = %if.end18, %if.end5
-  %26 = load i32, ptr %retval, align 4
+declare i32 @close(i32 noundef) #5
+
+; Function Attrs: nounwind
+declare i32 @munmap(ptr noundef, i64 noundef) #9
+
+declare ptr @qemu_memalign(i64 noundef, i64 noundef) #5
+
+declare ptr @q_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @tb_tc_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %9, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = getelementptr inbounds nuw %struct.tb_tc, ptr %15, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.tb_tc, ptr %20, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp ne i64 %22, 0
+  br label %24
+
+24:                                               ; preds = %19, %3
+  %25 = phi i1 [ false, %3 ], [ %23, %19 ]
+  %26 = xor i1 %25, true
+  %27 = xor i1 %26, true
+  %28 = zext i1 %27 to i32
+  %29 = sext i32 %28 to i64
+  %30 = call i64 @llvm.expect.i64(i64 %29, i64 1)
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %73
+
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds nuw %struct.tb_tc, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.tb_tc, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ugt ptr %35, %38
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %32
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+41:                                               ; preds = %32
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds nuw %struct.tb_tc, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds nuw %struct.tb_tc, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp ult ptr %44, %47
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %41
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+50:                                               ; preds = %41
+  br label %51
+
+51:                                               ; preds = %50
+  br label %52
+
+52:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %11, align 4, !annotation !4
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds nuw %struct.tb_tc, ptr %53, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds nuw %struct.tb_tc, ptr %56, i32 0, i32 1
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp eq i64 %55, %58
+  br i1 %59, label %60, label %61
+
+60:                                               ; preds = %52
+  store i32 1, ptr %11, align 4
+  br label %62
+
+61:                                               ; preds = %52
+  store i32 0, ptr %11, align 4
+  br label %62
+
+62:                                               ; preds = %61, %60
+  %63 = load i32, ptr %11, align 4
+  store i32 %63, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  %64 = load i32, ptr %12, align 4
+  %65 = sext i32 %64 to i64
+  %66 = call i64 @llvm.expect.i64(i64 %65, i64 1)
+  %67 = icmp ne i64 %66, 0
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %62
+  br label %70
+
+69:                                               ; preds = %62
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 160, ptr noundef @__func__.tb_tc_cmp, ptr noundef @.str.11) #12
+  unreachable
+
+70:                                               ; preds = %68
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+73:                                               ; preds = %24
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds nuw %struct.tb_tc, ptr %74, i32 0, i32 1
+  %76 = load i64, ptr %75, align 8
+  %77 = icmp eq i64 %76, 0
+  %78 = xor i1 %77, true
+  %79 = xor i1 %78, true
+  %80 = zext i1 %79 to i32
+  %81 = sext i32 %80 to i64
+  %82 = call i64 @llvm.expect.i64(i64 %81, i64 1)
+  %83 = icmp ne i64 %82, 0
+  br i1 %83, label %84, label %90
+
+84:                                               ; preds = %73
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds nuw %struct.tb_tc, ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %9, align 8
+  %89 = call i32 @ptr_cmp_tb_tc(ptr noundef %87, ptr noundef %88)
+  store i32 %89, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+90:                                               ; preds = %73
+  %91 = load ptr, ptr %9, align 8
+  %92 = getelementptr inbounds nuw %struct.tb_tc, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = call i32 @ptr_cmp_tb_tc(ptr noundef %93, ptr noundef %94)
+  store i32 %95, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+96:                                               ; preds = %90, %84, %72, %49, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %97 = load i32, ptr %4, align 4
+  ret i32 %97
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @tb_destroy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.TranslationBlock, ptr %5, i32 0, i32 9
+  call void @qemu_spin_destroy(ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal i32 @ptr_cmp_tb_tc(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds nuw %struct.tb_tc, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct.tb_tc, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  %14 = icmp uge ptr %6, %13
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %2
+  store i32 1, ptr %3, align 4
+  br label %25
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.tb_tc, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ult ptr %17, %20
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %16
+  store i32 -1, ptr %3, align 4
+  br label %25
+
+23:                                               ; preds = %16
+  br label %24
+
+24:                                               ; preds = %23
+  store i32 0, ptr %3, align 4
+  br label %25
+
+25:                                               ; preds = %24, %22, %15
+  %26 = load i32, ptr %3, align 4
   ret i32 %26
 }
 
-declare ptr @qemu_memfd_alloc(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind
-declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #4
-
-declare i32 @close(i32 noundef) #2
-
-; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) #4
-
-declare ptr @qemu_memalign(i64 noundef, i64 noundef) #2
-
-declare ptr @q_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @tb_tc_cmp(ptr noundef %ap, ptr noundef %bp, ptr noundef %userdata) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ap.addr = alloca ptr, align 8
-  %bp.addr = alloca ptr, align 8
-  %userdata.addr = alloca ptr, align 8
-  %a = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  store ptr %ap, ptr %ap.addr, align 8
-  store ptr %bp, ptr %bp.addr, align 8
-  store ptr %userdata, ptr %userdata.addr, align 8
-  %0 = load ptr, ptr %ap.addr, align 8
-  store ptr %0, ptr %a, align 8
-  %1 = load ptr, ptr %bp.addr, align 8
-  store ptr %1, ptr %b, align 8
-  %2 = load ptr, ptr %a, align 8
-  %size = getelementptr inbounds %struct.tb_tc, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %size, align 8
-  %tobool = icmp ne i64 %3, 0
-  br i1 %tobool, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %4 = load ptr, ptr %b, align 8
-  %size1 = getelementptr inbounds %struct.tb_tc, ptr %4, i32 0, i32 1
-  %5 = load i64, ptr %size1, align 8
-  %tobool2 = icmp ne i64 %5, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %6 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
-  %lnot = xor i1 %6, true
-  %lnot3 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot3 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool4 = icmp ne i64 %conv, 0
-  br i1 %tobool4, label %if.then, label %if.end21
-
-if.then:                                          ; preds = %land.end
-  %7 = load ptr, ptr %a, align 8
-  %ptr = getelementptr inbounds %struct.tb_tc, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %ptr, align 8
-  %9 = load ptr, ptr %b, align 8
-  %ptr5 = getelementptr inbounds %struct.tb_tc, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %ptr5, align 8
-  %cmp = icmp ugt ptr %8, %10
-  br i1 %cmp, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %if.then
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %if.then
-  %11 = load ptr, ptr %a, align 8
-  %ptr8 = getelementptr inbounds %struct.tb_tc, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %ptr8, align 8
-  %13 = load ptr, ptr %b, align 8
-  %ptr9 = getelementptr inbounds %struct.tb_tc, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %ptr9, align 8
-  %cmp10 = icmp ult ptr %12, %14
-  br i1 %cmp10, label %if.then12, label %if.end
-
-if.then12:                                        ; preds = %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.else
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.end
-  br label %do.body
-
-do.body:                                          ; preds = %if.end13
-  %15 = load ptr, ptr %a, align 8
-  %size14 = getelementptr inbounds %struct.tb_tc, ptr %15, i32 0, i32 1
-  %16 = load i64, ptr %size14, align 8
-  %17 = load ptr, ptr %b, align 8
-  %size15 = getelementptr inbounds %struct.tb_tc, ptr %17, i32 0, i32 1
-  %18 = load i64, ptr %size15, align 8
-  %cmp16 = icmp eq i64 %16, %18
-  br i1 %cmp16, label %if.then18, label %if.else19
-
-if.then18:                                        ; preds = %do.body
-  br label %if.end20
-
-if.else19:                                        ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef @.str, i32 noundef 160, ptr noundef @__func__.tb_tc_cmp, ptr noundef @.str.11) #6
-  unreachable
-
-if.end20:                                         ; preds = %if.then18
-  br label %do.end
-
-do.end:                                           ; preds = %if.end20
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end21:                                         ; preds = %land.end
-  %19 = load ptr, ptr %a, align 8
-  %size22 = getelementptr inbounds %struct.tb_tc, ptr %19, i32 0, i32 1
-  %20 = load i64, ptr %size22, align 8
-  %cmp23 = icmp eq i64 %20, 0
-  %lnot25 = xor i1 %cmp23, true
-  %lnot27 = xor i1 %lnot25, true
-  %lnot.ext28 = zext i1 %lnot27 to i32
-  %conv29 = sext i32 %lnot.ext28 to i64
-  %tobool30 = icmp ne i64 %conv29, 0
-  br i1 %tobool30, label %if.then31, label %if.end33
-
-if.then31:                                        ; preds = %if.end21
-  %21 = load ptr, ptr %a, align 8
-  %ptr32 = getelementptr inbounds %struct.tb_tc, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %ptr32, align 8
-  %23 = load ptr, ptr %b, align 8
-  %call = call i32 @ptr_cmp_tb_tc(ptr noundef %22, ptr noundef %23)
-  store i32 %call, ptr %retval, align 4
-  br label %return
-
-if.end33:                                         ; preds = %if.end21
-  %24 = load ptr, ptr %b, align 8
-  %ptr34 = getelementptr inbounds %struct.tb_tc, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %ptr34, align 8
-  %26 = load ptr, ptr %a, align 8
-  %call35 = call i32 @ptr_cmp_tb_tc(ptr noundef %25, ptr noundef %26)
-  store i32 %call35, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end33, %if.then31, %do.end, %if.then12, %if.then7
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @tb_destroy(ptr noundef %value) #0 {
-entry:
-  %value.addr = alloca ptr, align 8
-  %tb = alloca ptr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %tb, align 8
-  %1 = load ptr, ptr %tb, align 8
-  %jmp_lock = getelementptr inbounds %struct.TranslationBlock, ptr %1, i32 0, i32 8
-  call void @qemu_spin_destroy(ptr noundef %jmp_lock)
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal void @qemu_spin_destroy(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ptr_cmp_tb_tc(ptr noundef %ptr, ptr noundef %s) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ptr.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %ptr1 = getelementptr inbounds %struct.tb_tc, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %ptr1, align 8
-  %3 = load ptr, ptr %s.addr, align 8
-  %size = getelementptr inbounds %struct.tb_tc, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %size, align 8
-  %add.ptr = getelementptr i8, ptr %2, i64 %4
-  %cmp = icmp uge ptr %0, %add.ptr
-  br i1 %cmp, label %if.then, label %if.else
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { noreturn "dontcall-error"="code path is reachable" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %ptr.addr, align 8
-  %6 = load ptr, ptr %s.addr, align 8
-  %ptr2 = getelementptr inbounds %struct.tb_tc, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ptr2, align 8
-  %cmp3 = icmp ult ptr %5, %7
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.else
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_spin_destroy(ptr noundef %spin) #0 {
-entry:
-  %spin.addr = alloca ptr, align 8
-  store ptr %spin, ptr %spin.addr, align 8
-  ret void
-}
-
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!4 = !{!"auto-init"}
+!5 = !{i64 2150935633}
+!6 = !{i64 2150937271}
+!7 = !{i64 2150938018}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{i64 2150938743}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = !{i64 2150939498}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{i64 2150941100}
+!18 = !{i64 2150941588}
+!19 = !{i64 2150942194}
+!20 = !{i64 2150942589}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = !{i64 2150950352}
+!26 = !{i64 2150950958}
+!27 = !{i64 2150951353}
+!28 = !{i64 2150951724}
+!29 = distinct !{!29, !9}

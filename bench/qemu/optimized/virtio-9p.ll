@@ -1,13 +1,13 @@
 ; ModuleID = 'bench/qemu/original/virtio-9p.ll'
 source_filename = "bench/qemu/original/virtio-9p.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.QPCIAddress = type { i32, i16, i16 }
+%struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 
 @local_test_path = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [39 x i8] c"../qemu/tests/qtest/libqos/virtio-9p.c\00", align 1
@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [29 x i8] c"fsdev=fsdev0,mount_tag=qtest\00", align 1
 @.str.16 = private unnamed_addr constant [39 x i8] c"fsdev=fsdev0,addr=04.0,mount_tag=qtest\00", align 1
 @.str.17 = private unnamed_addr constant [23 x i8] c"-fsdev synth,id=fsdev0\00", align 1
-@__const.virtio_9p_register_nodes.opts = private unnamed_addr constant %struct.QOSGraphEdgeOptions { ptr null, i32 0, ptr null, ptr @.str.17, ptr null, ptr null }, align 8
+@__const.virtio_9p_register_nodes.opts = private unnamed_addr constant { ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr @.str.17, ptr null, ptr null }, align 8
 @.str.18 = private unnamed_addr constant [17 x i8] c"virtio-9p-device\00", align 1
 @.str.19 = private unnamed_addr constant [11 x i8] c"virtio-bus\00", align 1
 @.str.20 = private unnamed_addr constant [7 x i8] c"virtio\00", align 1
@@ -51,459 +51,466 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_9p_create_local_test_dir() local_unnamed_addr #0 {
-entry:
-  %st = alloca %struct.stat, align 8
-  %0 = load ptr, ptr @local_test_path, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %do.end, label %if.else
+  %1 = alloca %struct.stat, align 8
+  %2 = load ptr, ptr @local_test_path, align 8
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %4, label %3, !prof !4
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 42, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.1) #10
+3:                                                ; preds = %0
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 42, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.1) #12
   unreachable
 
-do.end:                                           ; preds = %entry
-  %call = tail call ptr @g_get_current_dir() #11
-  %call.i = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %call, ptr noundef nonnull @.str.2, ptr noundef null) #11
-  %call2 = tail call ptr @g_mkdtemp(ptr noundef %call.i) #11
-  store ptr %call2, ptr @local_test_path, align 8
-  %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %do.body7, label %do.body13
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false), !annotation !5
+  %5 = tail call ptr @g_get_current_dir() #13
+  %6 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef null) #13
+  %7 = tail call ptr @g_mkdtemp(ptr noundef %6) #13
+  store ptr %7, ptr @local_test_path, align 8
+  %.not12 = icmp eq ptr %7, null
+  br i1 %.not12, label %8, label %.thread
 
-do.body7:                                         ; preds = %do.end
-  %call4 = tail call ptr @__errno_location() #12
-  %1 = load i32, ptr %call4, align 4
-  %call5 = tail call ptr @strerror(i32 noundef %1) #11
-  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.3, ptr noundef %call.i, ptr noundef %call5) #11
+8:                                                ; preds = %4
+  %9 = tail call ptr @__errno_location() #14
+  %10 = load i32, ptr %9, align 4
+  %11 = tail call ptr @strerror(i32 noundef %10) #13
+  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.3, ptr noundef %6, ptr noundef %11) #13
   %.pr = load ptr, ptr @local_test_path, align 8
-  %cmp8.not = icmp eq ptr %.pr, null
-  br i1 %cmp8.not, label %if.else10, label %do.body13
+  %.not13 = icmp eq ptr %.pr, null
+  br i1 %.not13, label %12, label %.thread, !prof !6
 
-if.else10:                                        ; preds = %do.body7
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.4) #10
+12:                                               ; preds = %8
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.4) #12
   unreachable
 
-do.body13:                                        ; preds = %do.end, %do.body7
-  %2 = phi ptr [ %.pr, %do.body7 ], [ %call2, %do.end ]
-  %call14 = call i32 @stat64(ptr noundef nonnull %2, ptr noundef nonnull %st) #11
-  %cmp15 = icmp eq i32 %call14, 0
-  br i1 %cmp15, label %do.body21, label %if.else17
+.thread:                                          ; preds = %4, %8
+  %13 = phi ptr [ %.pr, %8 ], [ %7, %4 ]
+  %14 = call i32 @stat64(ptr noundef nonnull %13, ptr noundef nonnull %1) #13
+  %.not16 = icmp eq i32 %14, 0
+  br i1 %.not16, label %16, label %15, !prof !4
 
-if.else17:                                        ; preds = %do.body13
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.5) #10
+15:                                               ; preds = %.thread
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.5) #12
   unreachable
 
-do.body21:                                        ; preds = %do.body13
-  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
-  %3 = load i32, ptr %st_mode, align 8
-  %and = and i32 %3, 61440
-  %cmp22 = icmp eq i32 %and, 16384
-  br i1 %cmp22, label %do.end27, label %if.else24
+16:                                               ; preds = %.thread
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 61440
+  %.not18 = icmp eq i32 %19, 16384
+  br i1 %.not18, label %21, label %20, !prof !4
 
-if.else24:                                        ; preds = %do.body21
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 61, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.6) #10
+20:                                               ; preds = %16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 61, ptr noundef nonnull @__func__.virtio_9p_create_local_test_dir, ptr noundef nonnull @.str.6) #12
   unreachable
 
-do.end27:                                         ; preds = %do.body21
-  tail call void @g_free(ptr noundef %call) #11
+21:                                               ; preds = %16
+  tail call void @g_free(ptr noundef %5) #13
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #13
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_get_current_dir() local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @g_mkdtemp(ptr noundef) local_unnamed_addr #2
+declare ptr @g_get_current_dir() local_unnamed_addr #4
 
-declare void @g_test_message(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @g_mkdtemp(ptr noundef) local_unnamed_addr #4
+
+declare void @g_test_message(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #3
+declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_9p_remove_local_test_dir() local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @local_test_path, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.else, label %do.end
+  %1 = load ptr, ptr @local_test_path, align 8
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %2, label %3, !prof !7
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @__func__.virtio_9p_remove_local_test_dir, ptr noundef nonnull @.str.4) #10
+2:                                                ; preds = %0
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @__func__.virtio_9p_remove_local_test_dir, ptr noundef nonnull @.str.4) #12
   unreachable
 
-do.end:                                           ; preds = %entry
-  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %0) #11
-  %call1 = tail call i32 @system(ptr noundef %call) #11
-  %1 = load ptr, ptr @local_test_path, align 8
-  tail call void @g_free(ptr noundef %1) #11
+3:                                                ; preds = %0
+  %4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #13
+  %5 = tail call i32 @system(ptr noundef %4) #13
+  %6 = load ptr, ptr @local_test_path, align 8
+  tail call void @g_free(ptr noundef %6) #13
   store ptr null, ptr @local_test_path, align 8
-  tail call void @g_free(ptr noundef %call) #11
+  tail call void @g_free(ptr noundef %4) #13
   ret void
 }
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @virtio_9p_test_path(ptr noundef %path) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @local_test_path, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.else, label %do.end
+define dso_local noalias ptr @virtio_9p_test_path(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = load ptr, ptr @local_test_path, align 8
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %3, label %4, !prof !7
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 78, ptr noundef nonnull @__func__.virtio_9p_test_path, ptr noundef nonnull @.str.8) #10
+3:                                                ; preds = %1
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 78, ptr noundef nonnull @__func__.virtio_9p_test_path, ptr noundef nonnull @.str.8) #12
   unreachable
 
-do.end:                                           ; preds = %entry
-  %call.i = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %0, ptr noundef %path, ptr noundef null) #11
-  ret ptr %call.i
+4:                                                ; preds = %1
+  %5 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null) #13
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_9p_assign_local_driver(ptr noundef %cmd_line, ptr noundef %args) local_unnamed_addr #0 {
-entry:
-  %0 = load ptr, ptr @local_test_path, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.else, label %do.end
+define dso_local void @virtio_9p_assign_local_driver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load ptr, ptr @local_test_path, align 8
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %4, label %5, !prof !7
 
-if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.virtio_9p_assign_local_driver, ptr noundef nonnull @.str.9) #11
-  br label %do.end
+4:                                                ; preds = %2
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.virtio_9p_assign_local_driver, ptr noundef nonnull @.str.9) #13
+  br label %5
 
-do.end:                                           ; preds = %if.else, %entry
-  tail call void (ptr, ptr, ptr, ...) @regex_replace(ptr noundef %cmd_line, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
-  %1 = load ptr, ptr @local_test_path, align 8
-  tail call void (ptr, ptr, ptr, ...) @regex_replace(ptr noundef %cmd_line, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef %1)
-  %tobool.not = icmp eq ptr %args, null
-  br i1 %tobool.not, label %return, label %if.end2
+5:                                                ; preds = %4, %2
+  tail call void (ptr, ptr, ptr, ...) @regex_replace(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
+  %6 = load ptr, ptr @local_test_path, align 8
+  tail call void (ptr, ptr, ptr, ...) @regex_replace(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef %6)
+  %.not8 = icmp eq ptr %1, null
+  br i1 %.not8, label %8, label %7
 
-if.end2:                                          ; preds = %do.end
-  tail call void (ptr, ptr, ptr, ...) @regex_replace(ptr noundef %cmd_line, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, ptr noundef nonnull %args)
-  br label %return
+7:                                                ; preds = %5
+  tail call void (ptr, ptr, ptr, ...) @regex_replace(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, ptr noundef nonnull %1)
+  br label %8
 
-return:                                           ; preds = %do.end, %if.end2
+8:                                                ; preds = %5, %7
   ret void
 }
 
-declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @regex_replace(ptr noundef %haystack, ptr noundef %pattern, ptr noundef %replace_fmt, ...) unnamed_addr #0 {
-entry:
-  %argp = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %argp)
-  %call = call noalias ptr @g_strdup_vprintf(ptr noundef %replace_fmt, ptr noundef nonnull %argp) #11
-  call void @llvm.va_end.p0(ptr nonnull %argp)
-  %call3 = call ptr @g_regex_new(ptr noundef %pattern, i32 noundef 0, i32 noundef 0, ptr noundef null) #11
-  %0 = load ptr, ptr %haystack, align 8
-  %call4 = call ptr @g_regex_replace(ptr noundef %call3, ptr noundef %0, i64 noundef -1, i32 noundef 0, ptr noundef %call, i32 noundef 0, ptr noundef null) #11
-  %call5 = call ptr @g_string_assign(ptr noundef nonnull %haystack, ptr noundef %call4) #11
-  call void @g_free(ptr noundef %call4) #11
-  call void @g_free(ptr noundef %call) #11
-  %tobool.not.i.i = icmp eq ptr %call3, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GRegex.exit, label %if.then.i.i
+define internal void @regex_replace(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
+  %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
+  call void @llvm.va_start.p0(ptr nonnull %4)
+  %5 = call noalias ptr @g_strdup_vprintf(ptr noundef %2, ptr noundef nonnull %4) #13
+  call void @llvm.va_end.p0(ptr nonnull %4)
+  %6 = call ptr @g_regex_new(ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef null) #13
+  %7 = load ptr, ptr %0, align 8
+  %8 = call ptr @g_regex_replace(ptr noundef %6, ptr noundef %7, i64 noundef -1, i32 noundef 0, ptr noundef %5, i32 noundef 0, ptr noundef null) #13
+  %9 = call ptr @g_string_assign(ptr noundef nonnull %0, ptr noundef %8) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @g_free(ptr noundef %8) #13
+  call void @g_free(ptr noundef %5) #13
+  %.not.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i, label %glib_autoptr_cleanup_GRegex.exit, label %10
 
-if.then.i.i:                                      ; preds = %entry
-  call void @g_regex_unref(ptr noundef nonnull %call3) #11
+10:                                               ; preds = %3
+  call void @g_regex_unref(ptr noundef nonnull %6) #13
   br label %glib_autoptr_cleanup_GRegex.exit
 
-glib_autoptr_cleanup_GRegex.exit:                 ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_GRegex.exit:                 ; preds = %3, %10
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_virtio_9p_register_nodes() #0 {
-entry:
-  tail call void @register_module_init(ptr noundef nonnull @virtio_9p_register_nodes, i32 noundef 6) #11
+  tail call void @register_module_init(ptr noundef nonnull @virtio_9p_register_nodes, i32 noundef 6) #13
   ret void
 }
 
-declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_register_nodes() #0 {
-entry:
-  %addr = alloca %struct.QPCIAddress, align 8
-  %opts = alloca %struct.QOSGraphEdgeOptions, align 8
-  store i64 32, ptr %addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %opts, ptr noundef nonnull align 8 dereferenceable(48) @__const.virtio_9p_register_nodes.opts, i64 48, i1 false)
-  %extra_device_opts = getelementptr inbounds nuw i8, ptr %opts, i64 16
-  store ptr @.str.15, ptr %extra_device_opts, align 8
-  tail call void @qos_node_create_driver(ptr noundef nonnull @.str.18, ptr noundef nonnull @virtio_9p_device_create) #11
-  call void @qos_node_consumes(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull %opts) #11
-  call void @qos_node_produces(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20) #11
-  call void @qos_node_produces(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.21) #11
-  store ptr @.str.16, ptr %extra_device_opts, align 8
-  call void @add_qpci_address(ptr noundef nonnull %opts, ptr noundef nonnull %addr) #11
-  call void @qos_node_create_driver(ptr noundef nonnull @.str.22, ptr noundef nonnull @virtio_9p_pci_create) #11
-  call void @qos_node_consumes(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull %opts) #11
-  call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #11
-  call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20) #11
-  call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21) #11
+  %1 = alloca %struct.QPCIAddress, align 8
+  %2 = alloca %struct.QOSGraphEdgeOptions, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
+  store i64 32, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) @__const.virtio_9p_register_nodes.opts, i64 48, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr @.str.15, ptr %3, align 8
+  tail call void @qos_node_create_driver(ptr noundef nonnull @.str.18, ptr noundef nonnull @virtio_9p_device_create) #13
+  call void @qos_node_consumes(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull %2) #13
+  call void @qos_node_produces(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20) #13
+  call void @qos_node_produces(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.21) #13
+  store ptr @.str.16, ptr %3, align 8
+  call void @add_qpci_address(ptr noundef nonnull %2, ptr noundef nonnull %1) #13
+  call void @qos_node_create_driver(ptr noundef nonnull @.str.22, ptr noundef nonnull @virtio_9p_pci_create) #13
+  call void @qos_node_consumes(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull %2) #13
+  call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #13
+  call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20) #13
+  call void @qos_node_produces(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21) #13
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
   ret void
 }
 
-declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #2
-
-declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @g_regex_replace(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @g_regex_unref(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
-
-declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @virtio_9p_device_create(ptr noundef %virtio_dev, ptr noundef %t_alloc, ptr readnone captures(none) %addr) #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #13
-  %v9p = getelementptr inbounds nuw i8, ptr %call, i64 40
-  store ptr %virtio_dev, ptr %v9p, align 8
-  store ptr %t_alloc, ptr @alloc, align 8
-  %destructor = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store ptr @virtio_9p_device_destructor, ptr %destructor, align 8
-  store ptr @virtio_9p_device_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr @virtio_9p_device_start_hw, ptr %start_hw, align 8
-  ret ptr %call
-}
-
-declare void @qos_node_consumes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @qos_node_produces(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @virtio_9p_pci_create(ptr noundef %pci_bus, ptr noundef %t_alloc, ptr noundef %addr) #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 168) #13
-  %v9p = getelementptr inbounds nuw i8, ptr %call, i64 152
-  tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #11
-  %vdev = getelementptr inbounds nuw i8, ptr %call, i64 40
-  store ptr %vdev, ptr %v9p, align 8
-  store ptr %t_alloc, ptr @alloc, align 8
-  %device_type = getelementptr inbounds nuw i8, ptr %call, i64 48
-  %0 = load i16, ptr %device_type, align 8
-  %cmp = icmp eq i16 %0, 9
-  br i1 %cmp, label %do.end, label %if.else
-
-if.else:                                          ; preds = %entry
-  %conv7 = uitofp i16 %0 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 194, ptr noundef nonnull @__func__.virtio_9p_pci_create, ptr noundef nonnull @.str.26, x86_fp80 noundef %conv7, ptr noundef nonnull @.str.27, x86_fp80 noundef 0xK40029000000000000000, i8 noundef signext 120) #11
-  br label %do.end
-
-do.end:                                           ; preds = %if.else, %entry
-  %destructor = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store ptr @virtio_9p_pci_destructor, ptr %destructor, align 8
-  %start_hw = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr @virtio_9p_pci_start_hw, ptr %start_hw, align 8
-  store ptr @virtio_9p_pci_get_driver, ptr %call, align 8
-  ret ptr %call
-}
-
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #8
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_device_destructor(ptr noundef readonly captures(none) %obj) #0 {
-entry:
-  %v9p1 = getelementptr inbounds nuw i8, ptr %obj, i64 40
-  %v9p1.val = load ptr, ptr %v9p1, align 8
-  %0 = getelementptr i8, ptr %obj, i64 48
-  %v9p1.val1 = load ptr, ptr %0, align 8
-  %v9p1.val.val = load ptr, ptr %v9p1.val, align 8
-  %1 = load ptr, ptr @alloc, align 8
-  tail call void @qvirtqueue_cleanup(ptr noundef %v9p1.val.val, ptr noundef %v9p1.val1, ptr noundef %1) #11
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @virtio_9p_device_get_driver(ptr noundef readonly captures(ret: address, provenance) %object, ptr noundef %interface) #0 {
-entry:
-  %v9p = getelementptr inbounds nuw i8, ptr %object, i64 40
-  %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.21) #11
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %virtio_9p_get_driver.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.20) #11
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end4.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  %0 = load ptr, ptr %v9p, align 8
-  br label %virtio_9p_get_driver.exit
-
-if.end4.i:                                        ; preds = %if.end.i
-  %1 = load ptr, ptr @stderr, align 8
-  %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef %interface) #14
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @__func__.virtio_9p_get_driver, ptr noundef null) #10
-  unreachable
-
-virtio_9p_get_driver.exit:                        ; preds = %entry, %if.then3.i
-  %retval.0.i = phi ptr [ %0, %if.then3.i ], [ %v9p, %entry ]
-  ret ptr %retval.0.i
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_device_start_hw(ptr noundef captures(none) initializes((48, 56)) %obj) #0 {
-entry:
-  %v9p1 = getelementptr inbounds nuw i8, ptr %obj, i64 40
-  %0 = load ptr, ptr %v9p1, align 8
-  %call.i = tail call i64 @qvirtio_get_features(ptr noundef %0) #11
-  %and.i = and i64 %call.i, -1610612737
-  %1 = load ptr, ptr %v9p1, align 8
-  tail call void @qvirtio_set_features(ptr noundef %1, i64 noundef %and.i) #11
-  %2 = load ptr, ptr %v9p1, align 8
-  %3 = load ptr, ptr @alloc, align 8
-  %call3.i = tail call ptr @qvirtqueue_setup(ptr noundef %2, ptr noundef %3, i16 noundef zeroext 0) #11
-  %vq.i = getelementptr inbounds nuw i8, ptr %obj, i64 48
-  store ptr %call3.i, ptr %vq.i, align 8
-  %4 = load ptr, ptr %v9p1, align 8
-  tail call void @qvirtio_set_driver_ok(ptr noundef %4) #11
-  ret void
-}
-
-declare void @qvirtqueue_cleanup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
-
-declare i64 @qvirtio_get_features(ptr noundef) local_unnamed_addr #2
-
-declare void @qvirtio_set_features(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @qvirtqueue_setup(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
-
-declare void @qvirtio_set_driver_ok(ptr noundef) local_unnamed_addr #2
-
-declare void @virtio_pci_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_pci_destructor(ptr noundef %obj) #0 {
-entry:
-  %v9p = getelementptr inbounds nuw i8, ptr %obj, i64 152
-  %v9p.val = load ptr, ptr %v9p, align 8
-  %0 = getelementptr i8, ptr %obj, i64 160
-  %v9p.val2 = load ptr, ptr %0, align 8
-  %v9p.val.val = load ptr, ptr %v9p.val, align 8
-  %1 = load ptr, ptr @alloc, align 8
-  tail call void @qvirtqueue_cleanup(ptr noundef %v9p.val.val, ptr noundef %v9p.val2, ptr noundef %1) #11
-  tail call void @qvirtio_pci_destructor(ptr noundef %obj) #11
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_pci_start_hw(ptr noundef %obj) #0 {
-entry:
-  %v9p = getelementptr inbounds nuw i8, ptr %obj, i64 152
-  tail call void @qvirtio_pci_start_hw(ptr noundef %obj) #11
-  %0 = load ptr, ptr %v9p, align 8
-  %call.i = tail call i64 @qvirtio_get_features(ptr noundef %0) #11
-  %and.i = and i64 %call.i, -1610612737
-  %1 = load ptr, ptr %v9p, align 8
-  tail call void @qvirtio_set_features(ptr noundef %1, i64 noundef %and.i) #11
-  %2 = load ptr, ptr %v9p, align 8
-  %3 = load ptr, ptr @alloc, align 8
-  %call3.i = tail call ptr @qvirtqueue_setup(ptr noundef %2, ptr noundef %3, i16 noundef zeroext 0) #11
-  %vq.i = getelementptr inbounds nuw i8, ptr %obj, i64 160
-  store ptr %call3.i, ptr %vq.i, align 8
-  %4 = load ptr, ptr %v9p, align 8
-  tail call void @qvirtio_set_driver_ok(ptr noundef %4) #11
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @virtio_9p_pci_get_driver(ptr noundef readonly captures(ret: address, provenance) %object, ptr noundef %interface) #0 {
-entry:
-  %call = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.24) #11
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds nuw i8, ptr %object, i64 72
-  %0 = load ptr, ptr %pdev, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %v9p = getelementptr inbounds nuw i8, ptr %object, i64 152
-  %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.21) #11
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %if.end
-  %call1.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.20) #11
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %if.then3.i, label %if.end4.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  %1 = load ptr, ptr %v9p, align 8
-  br label %return
-
-if.end4.i:                                        ; preds = %if.end.i
-  %2 = load ptr, ptr @stderr, align 8
-  %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef %interface) #14
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @__func__.virtio_9p_get_driver, ptr noundef null) #10
-  unreachable
-
-return:                                           ; preds = %if.then3.i, %if.end, %if.then
-  %retval.0 = phi ptr [ %0, %if.then ], [ %1, %if.then3.i ], [ %v9p, %if.end ]
-  ret ptr %retval.0
-}
-
-declare void @qvirtio_pci_destructor(ptr noundef) local_unnamed_addr #2
-
-declare void @qvirtio_pci_start_hw(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #9
 
+declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #9
 
-attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { cold }
+declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+declare ptr @g_regex_replace(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @g_regex_unref(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+
+declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal noalias noundef ptr @virtio_9p_device_create(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+  %4 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #15
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr @alloc, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr @virtio_9p_device_destructor, ptr %6, align 8
+  store ptr @virtio_9p_device_get_driver, ptr %4, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @virtio_9p_device_start_hw, ptr %7, align 8
+  ret ptr %4
+}
+
+declare void @qos_node_consumes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @qos_node_produces(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal noundef ptr @virtio_9p_pci_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0(i64 noundef 168) #15
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  tail call void @virtio_pci_init(ptr noundef %4, ptr noundef %0, ptr noundef %2) #13
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %6, ptr %5, align 8
+  store ptr %1, ptr @alloc, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = load i16, ptr %7, align 8
+  %9 = icmp eq i16 %8, 9
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %3
+  %11 = uitofp i16 %8 to x86_fp80
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 194, ptr noundef nonnull @__func__.virtio_9p_pci_create, ptr noundef nonnull @.str.26, x86_fp80 noundef %11, ptr noundef nonnull @.str.27, x86_fp80 noundef 0xK40029000000000000000, i8 noundef signext 120) #13
+  br label %12
+
+12:                                               ; preds = %3, %10
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr @virtio_9p_pci_destructor, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @virtio_9p_pci_start_hw, ptr %14, align 8
+  store ptr @virtio_9p_pci_get_driver, ptr %4, align 8
+  ret ptr %4
+}
+
+; Function Attrs: allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @virtio_9p_device_destructor(ptr noundef readonly captures(none) %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val = load ptr, ptr %2, align 8
+  %3 = getelementptr i8, ptr %0, i64 48
+  %.val3 = load ptr, ptr %3, align 8
+  %.val.val = load ptr, ptr %.val, align 8
+  %4 = load ptr, ptr @alloc, align 8
+  tail call void @qvirtqueue_cleanup(ptr noundef %.val.val, ptr noundef %.val3, ptr noundef %4) #13
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @virtio_9p_device_get_driver(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1) #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull @.str.21) #13
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %virtio_9p_get_driver.exit, label %5
+
+5:                                                ; preds = %2
+  %6 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull @.str.20) #13
+  %.not6.i = icmp eq i32 %6, 0
+  br i1 %.not6.i, label %7, label %9
+
+7:                                                ; preds = %5
+  %8 = load ptr, ptr %3, align 8
+  br label %virtio_9p_get_driver.exit
+
+9:                                                ; preds = %5
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %10, i32 noundef 1, ptr noundef nonnull @.str.25, ptr noundef %1) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @__func__.virtio_9p_get_driver, ptr noundef null) #12
+  unreachable
+
+virtio_9p_get_driver.exit:                        ; preds = %2, %7
+  %.0.i = phi ptr [ %8, %7 ], [ %3, %2 ]
+  ret ptr %.0.i
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @virtio_9p_device_start_hw(ptr noundef captures(none) initializes((48, 56)) %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call i64 @qvirtio_get_features(ptr noundef %3) #13
+  %5 = and i64 %4, -1610612737
+  %6 = load ptr, ptr %2, align 8
+  tail call void @qvirtio_set_features(ptr noundef %6, i64 noundef %5) #13
+  %7 = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr @alloc, align 8
+  %9 = tail call ptr @qvirtqueue_setup(ptr noundef %7, ptr noundef %8, i16 noundef zeroext 0) #13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %9, ptr %10, align 8
+  %11 = load ptr, ptr %2, align 8
+  tail call void @qvirtio_set_driver_ok(ptr noundef %11) #13
+  ret void
+}
+
+declare void @qvirtqueue_cleanup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+
+declare i64 @qvirtio_get_features(ptr noundef) local_unnamed_addr #4
+
+declare void @qvirtio_set_features(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare ptr @qvirtqueue_setup(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+
+declare void @qvirtio_set_driver_ok(ptr noundef) local_unnamed_addr #4
+
+declare void @virtio_pci_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #4
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @virtio_9p_pci_destructor(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %.val = load ptr, ptr %2, align 8
+  %3 = getelementptr i8, ptr %0, i64 160
+  %.val5 = load ptr, ptr %3, align 8
+  %.val.val = load ptr, ptr %.val, align 8
+  %4 = load ptr, ptr @alloc, align 8
+  tail call void @qvirtqueue_cleanup(ptr noundef %.val.val, ptr noundef %.val5, ptr noundef %4) #13
+  tail call void @qvirtio_pci_destructor(ptr noundef %0) #13
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @virtio_9p_pci_start_hw(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  tail call void @qvirtio_pci_start_hw(ptr noundef %0) #13
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call i64 @qvirtio_get_features(ptr noundef %3) #13
+  %5 = and i64 %4, -1610612737
+  %6 = load ptr, ptr %2, align 8
+  tail call void @qvirtio_set_features(ptr noundef %6, i64 noundef %5) #13
+  %7 = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr @alloc, align 8
+  %9 = tail call ptr @qvirtqueue_setup(ptr noundef %7, ptr noundef %8, i16 noundef zeroext 0) #13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %9, ptr %10, align 8
+  %11 = load ptr, ptr %2, align 8
+  tail call void @qvirtio_set_driver_ok(ptr noundef %11) #13
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal ptr @virtio_9p_pci_get_driver(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1) #0 {
+  %3 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull @.str.24) #13
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %7
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %6 = load ptr, ptr %5, align 8
+  br label %virtio_9p_get_driver.exit
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull @.str.21) #13
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %virtio_9p_get_driver.exit, label %10
+
+10:                                               ; preds = %7
+  %11 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull @.str.20) #13
+  %.not6.i = icmp eq i32 %11, 0
+  br i1 %.not6.i, label %12, label %14
+
+12:                                               ; preds = %10
+  %13 = load ptr, ptr %8, align 8
+  br label %virtio_9p_get_driver.exit
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr @stderr, align 8
+  %16 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %15, i32 noundef 1, ptr noundef nonnull @.str.25, ptr noundef %1) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @__func__.virtio_9p_get_driver, ptr noundef null) #12
+  unreachable
+
+virtio_9p_get_driver.exit:                        ; preds = %12, %7, %4
+  %.0 = phi ptr [ %6, %4 ], [ %13, %12 ], [ %8, %7 ]
+  ret ptr %.0
+}
+
+declare void @qvirtio_pci_destructor(ptr noundef) local_unnamed_addr #4
+
+declare void @qvirtio_pci_start_hw(ptr noundef) local_unnamed_addr #4
+
+attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { nounwind allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = !{!"auto-init"}
+!6 = !{!"branch_weights", !"expected", i32 2861880, i32 2144621768}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
