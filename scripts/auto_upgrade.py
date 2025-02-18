@@ -71,6 +71,7 @@ supported_project = [
     "arrow",
     "assimp",
     "box2d",
+    "bullet3",
 ]
 
 modify_only = [

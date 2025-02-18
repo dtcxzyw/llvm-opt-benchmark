@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
@@ -76,1651 +76,1814 @@ $_ZmlRK9btVector3RKf = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr noundef nonnull align 4 dereferenceable(280) %this, ptr noundef nonnull align 4 dereferenceable(16) %plane, float noundef %margin, ptr noundef %points, i32 noundef %point_count) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %plane.addr = alloca ptr, align 8
-  %margin.addr = alloca float, align 4
-  %points.addr = alloca ptr, align 8
-  %point_count.addr = alloca i32, align 4
-  %point_indices = alloca [16 x i32], align 16
-  %_k = alloca i32, align 4
-  %_dist = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  store float %margin, ptr %margin.addr, align 4
-  store ptr %points, ptr %points.addr, align 8
-  store i32 %point_count, ptr %point_count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_point_count = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 1
-  store i32 0, ptr %m_point_count, align 4
-  %m_penetration_depth = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 0
-  store float -1.000000e+03, ptr %m_penetration_depth, align 4
-  store i32 0, ptr %_k, align 4
-  br label %for.cond
+define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr noundef nonnull align 4 dereferenceable(280) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, float noundef %2, ptr noundef %3, i32 noundef %4) #2 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca [16 x i32], align 16
+  %12 = alloca i32, align 4
+  %13 = alloca float, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !12
+  store ptr %1, ptr %7, align 8, !tbaa !14
+  store float %2, ptr %8, align 4, !tbaa !16
+  store ptr %3, ptr %9, align 8, !tbaa !18
+  store i32 %4, ptr %10, align 4, !tbaa !9
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 1
+  store i32 0, ptr %15, align 4, !tbaa !20
+  %16 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 0
+  store float -1.000000e+03, ptr %16, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 64, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store i32 0, ptr %12, align 4, !tbaa !9
+  br label %17
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %_k, align 4
-  %1 = load i32, ptr %point_count.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+17:                                               ; preds = %62, %5
+  %18 = load i32, ptr %12, align 4, !tbaa !9
+  %19 = load i32, ptr %10, align 4, !tbaa !9
+  %20 = icmp slt i32 %18, %19
+  br i1 %20, label %21, label %65
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %plane.addr, align 8
-  %3 = load ptr, ptr %points.addr, align 8
-  %4 = load i32, ptr %_k, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %3, i64 %idxprom
-  %call = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
-  %fneg = fneg float %call
-  %5 = load float, ptr %margin.addr, align 4
-  %add = fadd float %fneg, %5
-  store float %add, ptr %_dist, align 4
-  %6 = load float, ptr %_dist, align 4
-  %cmp2 = fcmp oge float %6, 0.000000e+00
-  br i1 %cmp2, label %if.then, label %if.end18
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %22 = load ptr, ptr %7, align 8, !tbaa !14
+  %23 = load ptr, ptr %9, align 8, !tbaa !18
+  %24 = load i32, ptr %12, align 4, !tbaa !9
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds %class.btVector3, ptr %23, i64 %25
+  %27 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %26)
+  %28 = fneg float %27
+  %29 = load float, ptr %8, align 4, !tbaa !16
+  %30 = fadd float %28, %29
+  store float %30, ptr %13, align 4, !tbaa !16
+  %31 = load float, ptr %13, align 4, !tbaa !16
+  %32 = fcmp oge float %31, 0.000000e+00
+  br i1 %32, label %33, label %61
 
-if.then:                                          ; preds = %for.body
-  %7 = load float, ptr %_dist, align 4
-  %m_penetration_depth3 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 0
-  %8 = load float, ptr %m_penetration_depth3, align 4
-  %cmp4 = fcmp ogt float %7, %8
-  br i1 %cmp4, label %if.then5, label %if.else
+33:                                               ; preds = %21
+  %34 = load float, ptr %13, align 4, !tbaa !16
+  %35 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 0
+  %36 = load float, ptr %35, align 4, !tbaa !24
+  %37 = fcmp ogt float %34, %36
+  br i1 %37, label %38, label %44
 
-if.then5:                                         ; preds = %if.then
-  %9 = load float, ptr %_dist, align 4
-  %m_penetration_depth6 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 0
-  store float %9, ptr %m_penetration_depth6, align 4
-  %10 = load i32, ptr %_k, align 4
-  %arrayidx7 = getelementptr inbounds [16 x i32], ptr %point_indices, i64 0, i64 0
-  store i32 %10, ptr %arrayidx7, align 16
-  %m_point_count8 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 1
-  store i32 1, ptr %m_point_count8, align 4
-  br label %if.end17
+38:                                               ; preds = %33
+  %39 = load float, ptr %13, align 4, !tbaa !16
+  %40 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 0
+  store float %39, ptr %40, align 4, !tbaa !24
+  %41 = load i32, ptr %12, align 4, !tbaa !9
+  %42 = getelementptr inbounds [16 x i32], ptr %11, i64 0, i64 0
+  store i32 %41, ptr %42, align 16, !tbaa !9
+  %43 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 1
+  store i32 1, ptr %43, align 4, !tbaa !20
+  br label %60
 
-if.else:                                          ; preds = %if.then
-  %11 = load float, ptr %_dist, align 4
-  %add9 = fadd float %11, 0x3E80000000000000
-  %m_penetration_depth10 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 0
-  %12 = load float, ptr %m_penetration_depth10, align 4
-  %cmp11 = fcmp oge float %add9, %12
-  br i1 %cmp11, label %if.then12, label %if.end
+44:                                               ; preds = %33
+  %45 = load float, ptr %13, align 4, !tbaa !16
+  %46 = fadd float %45, 0x3E80000000000000
+  %47 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 0
+  %48 = load float, ptr %47, align 4, !tbaa !24
+  %49 = fcmp oge float %46, %48
+  br i1 %49, label %50, label %59
 
-if.then12:                                        ; preds = %if.else
-  %13 = load i32, ptr %_k, align 4
-  %m_point_count13 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 1
-  %14 = load i32, ptr %m_point_count13, align 4
-  %idxprom14 = sext i32 %14 to i64
-  %arrayidx15 = getelementptr inbounds [16 x i32], ptr %point_indices, i64 0, i64 %idxprom14
-  store i32 %13, ptr %arrayidx15, align 4
-  %m_point_count16 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 1
-  %15 = load i32, ptr %m_point_count16, align 4
-  %inc = add nsw i32 %15, 1
-  store i32 %inc, ptr %m_point_count16, align 4
-  br label %if.end
+50:                                               ; preds = %44
+  %51 = load i32, ptr %12, align 4, !tbaa !9
+  %52 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 1
+  %53 = load i32, ptr %52, align 4, !tbaa !20
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [16 x i32], ptr %11, i64 0, i64 %54
+  store i32 %51, ptr %55, align 4, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 1
+  %57 = load i32, ptr %56, align 4, !tbaa !20
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %56, align 4, !tbaa !20
+  br label %59
 
-if.end:                                           ; preds = %if.then12, %if.else
-  br label %if.end17
+59:                                               ; preds = %50, %44
+  br label %60
 
-if.end17:                                         ; preds = %if.end, %if.then5
-  br label %if.end18
+60:                                               ; preds = %59, %38
+  br label %61
 
-if.end18:                                         ; preds = %if.end17, %for.body
-  br label %for.inc
+61:                                               ; preds = %60, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  br label %62
 
-for.inc:                                          ; preds = %if.end18
-  %16 = load i32, ptr %_k, align 4
-  %inc19 = add nsw i32 %16, 1
-  store i32 %inc19, ptr %_k, align 4
-  br label %for.cond, !llvm.loop !5
+62:                                               ; preds = %61
+  %63 = load i32, ptr %12, align 4, !tbaa !9
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %12, align 4, !tbaa !9
+  br label %17, !llvm.loop !25
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %_k, align 4
-  br label %for.cond20
+65:                                               ; preds = %17
+  store i32 0, ptr %12, align 4, !tbaa !9
+  br label %66
 
-for.cond20:                                       ; preds = %for.inc30, %for.end
-  %17 = load i32, ptr %_k, align 4
-  %m_point_count21 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 1
-  %18 = load i32, ptr %m_point_count21, align 4
-  %cmp22 = icmp slt i32 %17, %18
-  br i1 %cmp22, label %for.body23, label %for.end32
+66:                                               ; preds = %83, %65
+  %67 = load i32, ptr %12, align 4, !tbaa !9
+  %68 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 1
+  %69 = load i32, ptr %68, align 4, !tbaa !20
+  %70 = icmp slt i32 %67, %69
+  br i1 %70, label %71, label %86
 
-for.body23:                                       ; preds = %for.cond20
-  %19 = load ptr, ptr %points.addr, align 8
-  %20 = load i32, ptr %_k, align 4
-  %idxprom24 = sext i32 %20 to i64
-  %arrayidx25 = getelementptr inbounds [16 x i32], ptr %point_indices, i64 0, i64 %idxprom24
-  %21 = load i32, ptr %arrayidx25, align 4
-  %idxprom26 = sext i32 %21 to i64
-  %arrayidx27 = getelementptr inbounds %class.btVector3, ptr %19, i64 %idxprom26
-  %m_points = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 3
-  %22 = load i32, ptr %_k, align 4
-  %idxprom28 = sext i32 %22 to i64
-  %arrayidx29 = getelementptr inbounds [16 x %class.btVector3], ptr %m_points, i64 0, i64 %idxprom28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx29, ptr align 4 %arrayidx27, i64 16, i1 false)
-  br label %for.inc30
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %9, align 8, !tbaa !18
+  %73 = load i32, ptr %12, align 4, !tbaa !9
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [16 x i32], ptr %11, i64 0, i64 %74
+  %76 = load i32, ptr %75, align 4, !tbaa !9
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds %class.btVector3, ptr %72, i64 %77
+  %79 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 3
+  %80 = load i32, ptr %12, align 4, !tbaa !9
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds [16 x %class.btVector3], ptr %79, i64 0, i64 %81
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %82, ptr align 4 %78, i64 16, i1 false), !tbaa.struct !27
+  br label %83
 
-for.inc30:                                        ; preds = %for.body23
-  %23 = load i32, ptr %_k, align 4
-  %inc31 = add nsw i32 %23, 1
-  store i32 %inc31, ptr %_k, align 4
-  br label %for.cond20, !llvm.loop !7
+83:                                               ; preds = %71
+  %84 = load i32, ptr %12, align 4, !tbaa !9
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %12, align 4, !tbaa !9
+  br label %66, !llvm.loop !28
 
-for.end32:                                        ; preds = %for.cond20
+86:                                               ; preds = %66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 64, ptr %11) #10
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef nonnull align 4 dereferenceable(16) %point) #2 comdat {
-entry:
-  %plane.addr = alloca ptr, align 8
-  %point.addr = alloca ptr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %point, ptr %point.addr, align 8
-  %0 = load ptr, ptr %point.addr, align 8
-  %1 = load ptr, ptr %plane.addr, align 8
-  %call = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  %2 = load ptr, ptr %plane.addr, align 8
-  %call1 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %2)
-  %arrayidx = getelementptr inbounds float, ptr %call1, i64 3
-  %3 = load float, ptr %arrayidx, align 4
-  %sub = fsub float %call, %3
-  ret float %sub
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8, !tbaa !14
+  %7 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6)
+  %8 = load ptr, ptr %3, align 8, !tbaa !14
+  %9 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %10 = getelementptr inbounds float, ptr %9, i64 3
+  %11 = load float, ptr %10, align 4, !tbaa !16
+  %12 = fsub float %7, %11
+  ret float %12
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr noundef nonnull align 4 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(72) %other) #2 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %total_margin = alloca float, align 4
-  %dis0 = alloca float, align 4
-  %dis1 = alloca float, align 4
-  %dis2 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_margin = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 2
-  %0 = load float, ptr %m_margin, align 4
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_margin2 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %1, i32 0, i32 2
-  %2 = load float, ptr %m_margin2, align 4
-  %add = fadd float %0, %2
-  store float %add, ptr %total_margin, align 4
-  %m_plane = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %other.addr, align 8
-  %m_vertices = getelementptr inbounds %class.btPrimitiveTriangle, ptr %3, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices, i64 0, i64 0
-  %call = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_plane, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
-  %4 = load float, ptr %total_margin, align 4
-  %sub = fsub float %call, %4
-  store float %sub, ptr %dis0, align 4
-  %m_plane3 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %other.addr, align 8
-  %m_vertices4 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %5, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices4, i64 0, i64 1
-  %call6 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_plane3, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5)
-  %6 = load float, ptr %total_margin, align 4
-  %sub7 = fsub float %call6, %6
-  store float %sub7, ptr %dis1, align 4
-  %m_plane8 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %other.addr, align 8
-  %m_vertices9 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %7, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices9, i64 0, i64 2
-  %call11 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_plane8, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10)
-  %8 = load float, ptr %total_margin, align 4
-  %sub12 = fsub float %call11, %8
-  store float %sub12, ptr %dis2, align 4
-  %9 = load float, ptr %dis0, align 4
-  %cmp = fcmp ogt float %9, 0.000000e+00
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr noundef nonnull align 4 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(72) %1) #2 align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %12 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %11, i32 0, i32 2
+  %13 = load float, ptr %12, align 4, !tbaa !31
+  %14 = load ptr, ptr %5, align 8, !tbaa !29
+  %15 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %14, i32 0, i32 2
+  %16 = load float, ptr %15, align 4, !tbaa !31
+  %17 = fadd float %13, %16
+  store float %17, ptr %6, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %18 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %5, align 8, !tbaa !29
+  %20 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds [3 x %class.btVector3], ptr %20, i64 0, i64 0
+  %22 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %21)
+  %23 = load float, ptr %6, align 4, !tbaa !16
+  %24 = fsub float %22, %23
+  store float %24, ptr %7, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %25 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %11, i32 0, i32 1
+  %26 = load ptr, ptr %5, align 8, !tbaa !29
+  %27 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [3 x %class.btVector3], ptr %27, i64 0, i64 1
+  %29 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %28)
+  %30 = load float, ptr %6, align 4, !tbaa !16
+  %31 = fsub float %29, %30
+  store float %31, ptr %8, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %32 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %11, i32 0, i32 1
+  %33 = load ptr, ptr %5, align 8, !tbaa !29
+  %34 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds [3 x %class.btVector3], ptr %34, i64 0, i64 2
+  %36 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %35)
+  %37 = load float, ptr %6, align 4, !tbaa !16
+  %38 = fsub float %36, %37
+  store float %38, ptr %9, align 4, !tbaa !16
+  %39 = load float, ptr %7, align 4, !tbaa !16
+  %40 = fcmp ogt float %39, 0.000000e+00
+  br i1 %40, label %41, label %48
 
-land.lhs.true:                                    ; preds = %entry
-  %10 = load float, ptr %dis1, align 4
-  %cmp13 = fcmp ogt float %10, 0.000000e+00
-  br i1 %cmp13, label %land.lhs.true14, label %if.end
+41:                                               ; preds = %2
+  %42 = load float, ptr %8, align 4, !tbaa !16
+  %43 = fcmp ogt float %42, 0.000000e+00
+  br i1 %43, label %44, label %48
 
-land.lhs.true14:                                  ; preds = %land.lhs.true
-  %11 = load float, ptr %dis2, align 4
-  %cmp15 = fcmp ogt float %11, 0.000000e+00
-  br i1 %cmp15, label %if.then, label %if.end
+44:                                               ; preds = %41
+  %45 = load float, ptr %9, align 4, !tbaa !16
+  %46 = fcmp ogt float %45, 0.000000e+00
+  br i1 %46, label %47, label %48
 
-if.then:                                          ; preds = %land.lhs.true14
-  store i1 false, ptr %retval, align 1
-  br label %return
+47:                                               ; preds = %44
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %80
 
-if.end:                                           ; preds = %land.lhs.true14, %land.lhs.true, %entry
-  %12 = load ptr, ptr %other.addr, align 8
-  %m_plane16 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %12, i32 0, i32 1
-  %m_vertices17 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 0
-  %arrayidx18 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices17, i64 0, i64 0
-  %call19 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_plane16, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx18)
-  %13 = load float, ptr %total_margin, align 4
-  %sub20 = fsub float %call19, %13
-  store float %sub20, ptr %dis0, align 4
-  %14 = load ptr, ptr %other.addr, align 8
-  %m_plane21 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %14, i32 0, i32 1
-  %m_vertices22 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 0
-  %arrayidx23 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices22, i64 0, i64 1
-  %call24 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_plane21, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx23)
-  %15 = load float, ptr %total_margin, align 4
-  %sub25 = fsub float %call24, %15
-  store float %sub25, ptr %dis1, align 4
-  %16 = load ptr, ptr %other.addr, align 8
-  %m_plane26 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %16, i32 0, i32 1
-  %m_vertices27 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 0
-  %arrayidx28 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices27, i64 0, i64 2
-  %call29 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_plane26, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx28)
-  %17 = load float, ptr %total_margin, align 4
-  %sub30 = fsub float %call29, %17
-  store float %sub30, ptr %dis2, align 4
-  %18 = load float, ptr %dis0, align 4
-  %cmp31 = fcmp ogt float %18, 0.000000e+00
-  br i1 %cmp31, label %land.lhs.true32, label %if.end37
+48:                                               ; preds = %44, %41, %2
+  %49 = load ptr, ptr %5, align 8, !tbaa !29
+  %50 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %49, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %11, i32 0, i32 0
+  %52 = getelementptr inbounds [3 x %class.btVector3], ptr %51, i64 0, i64 0
+  %53 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %52)
+  %54 = load float, ptr %6, align 4, !tbaa !16
+  %55 = fsub float %53, %54
+  store float %55, ptr %7, align 4, !tbaa !16
+  %56 = load ptr, ptr %5, align 8, !tbaa !29
+  %57 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %56, i32 0, i32 1
+  %58 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %11, i32 0, i32 0
+  %59 = getelementptr inbounds [3 x %class.btVector3], ptr %58, i64 0, i64 1
+  %60 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %59)
+  %61 = load float, ptr %6, align 4, !tbaa !16
+  %62 = fsub float %60, %61
+  store float %62, ptr %8, align 4, !tbaa !16
+  %63 = load ptr, ptr %5, align 8, !tbaa !29
+  %64 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %63, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %11, i32 0, i32 0
+  %66 = getelementptr inbounds [3 x %class.btVector3], ptr %65, i64 0, i64 2
+  %67 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %66)
+  %68 = load float, ptr %6, align 4, !tbaa !16
+  %69 = fsub float %67, %68
+  store float %69, ptr %9, align 4, !tbaa !16
+  %70 = load float, ptr %7, align 4, !tbaa !16
+  %71 = fcmp ogt float %70, 0.000000e+00
+  br i1 %71, label %72, label %79
 
-land.lhs.true32:                                  ; preds = %if.end
-  %19 = load float, ptr %dis1, align 4
-  %cmp33 = fcmp ogt float %19, 0.000000e+00
-  br i1 %cmp33, label %land.lhs.true34, label %if.end37
+72:                                               ; preds = %48
+  %73 = load float, ptr %8, align 4, !tbaa !16
+  %74 = fcmp ogt float %73, 0.000000e+00
+  br i1 %74, label %75, label %79
 
-land.lhs.true34:                                  ; preds = %land.lhs.true32
-  %20 = load float, ptr %dis2, align 4
-  %cmp35 = fcmp ogt float %20, 0.000000e+00
-  br i1 %cmp35, label %if.then36, label %if.end37
+75:                                               ; preds = %72
+  %76 = load float, ptr %9, align 4, !tbaa !16
+  %77 = fcmp ogt float %76, 0.000000e+00
+  br i1 %77, label %78, label %79
 
-if.then36:                                        ; preds = %land.lhs.true34
-  store i1 false, ptr %retval, align 1
-  br label %return
+78:                                               ; preds = %75
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %80
 
-if.end37:                                         ; preds = %land.lhs.true34, %land.lhs.true32, %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
+79:                                               ; preds = %75, %72, %48
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %80
 
-return:                                           ; preds = %if.end37, %if.then36, %if.then
-  %21 = load i1, ptr %retval, align 1
-  ret i1 %21
+80:                                               ; preds = %79, %78, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %81 = load i1, ptr %3, align 1
+  ret i1 %81
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull align 4 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(72) %other, ptr noundef %clipped_points) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %clipped_points.addr = alloca ptr, align 8
-  %temp_points = alloca [16 x %class.btVector3], align 16
-  %edgeplane = alloca %class.btVector4, align 4
-  %clipped_count = alloca i32, align 4
-  %temp_points1 = alloca [16 x %class.btVector3], align 16
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  store ptr %clipped_points, ptr %clipped_points.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %array.begin = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 16
-  br label %arrayctor.loop
+define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull align 4 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef %2) #2 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca [16 x %class.btVector3], align 16
+  %9 = alloca %class.btVector4, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca [16 x %class.btVector3], align 16
+  store ptr %0, ptr %5, align 8, !tbaa !29
+  store ptr %1, ptr %6, align 8, !tbaa !29
+  store ptr %2, ptr %7, align 8, !tbaa !18
+  %13 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 256, ptr %8) #10
+  %14 = getelementptr inbounds [16 x %class.btVector3], ptr %8, i32 0, i32 0
+  %15 = getelementptr inbounds %class.btVector3, ptr %14, i64 16
+  br label %16
 
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+16:                                               ; preds = %16, %3
+  %17 = phi ptr [ %14, %3 ], [ %18, %16 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %17)
+  %18 = getelementptr inbounds %class.btVector3, ptr %17, i64 1
+  %19 = icmp eq ptr %18, %15
+  br i1 %19, label %20, label %16
 
-arrayctor.cont:                                   ; preds = %arrayctor.loop
-  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  call void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %this1, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_vertices = getelementptr inbounds %class.btPrimitiveTriangle, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices, i64 0, i64 0
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_vertices2 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices2, i64 0, i64 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_vertices4 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %2, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices4, i64 0, i64 2
-  %arraydecay = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points, i64 0, i64 0
-  %call = call noundef i32 @_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, ptr noundef %arraydecay)
-  store i32 %call, ptr %clipped_count, align 4
-  %3 = load i32, ptr %clipped_count, align 4
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+20:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #10
+  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %9)
+  call void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %13, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(16) %9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %21 = load ptr, ptr %6, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds [3 x %class.btVector3], ptr %22, i64 0, i64 0
+  %24 = load ptr, ptr %6, align 8, !tbaa !29
+  %25 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds [3 x %class.btVector3], ptr %25, i64 0, i64 1
+  %27 = load ptr, ptr %6, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [3 x %class.btVector3], ptr %28, i64 0, i64 2
+  %30 = getelementptr inbounds [16 x %class.btVector3], ptr %8, i64 0, i64 0
+  %31 = call noundef i32 @_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef %30)
+  store i32 %31, ptr %10, align 4, !tbaa !9
+  %32 = load i32, ptr %10, align 4, !tbaa !9
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
 
-if.then:                                          ; preds = %arrayctor.cont
-  store i32 0, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %20
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %57
 
-if.end:                                           ; preds = %arrayctor.cont
-  %array.begin6 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points1, i32 0, i32 0
-  %arrayctor.end7 = getelementptr inbounds %class.btVector3, ptr %array.begin6, i64 16
-  br label %arrayctor.loop8
+35:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 256, ptr %12) #10
+  %36 = getelementptr inbounds [16 x %class.btVector3], ptr %12, i32 0, i32 0
+  %37 = getelementptr inbounds %class.btVector3, ptr %36, i64 16
+  br label %38
 
-arrayctor.loop8:                                  ; preds = %arrayctor.loop8, %if.end
-  %arrayctor.cur9 = phi ptr [ %array.begin6, %if.end ], [ %arrayctor.next10, %arrayctor.loop8 ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur9)
-  %arrayctor.next10 = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur9, i64 1
-  %arrayctor.done11 = icmp eq ptr %arrayctor.next10, %arrayctor.end7
-  br i1 %arrayctor.done11, label %arrayctor.cont12, label %arrayctor.loop8
+38:                                               ; preds = %38, %35
+  %39 = phi ptr [ %36, %35 ], [ %40, %38 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %39)
+  %40 = getelementptr inbounds %class.btVector3, ptr %39, i64 1
+  %41 = icmp eq ptr %40, %37
+  br i1 %41, label %42, label %38
 
-arrayctor.cont12:                                 ; preds = %arrayctor.loop8
-  call void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %this1, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arraydecay13 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points, i64 0, i64 0
-  %4 = load i32, ptr %clipped_count, align 4
-  %arraydecay14 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points1, i64 0, i64 0
-  %call15 = call noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef %arraydecay13, i32 noundef %4, ptr noundef %arraydecay14)
-  store i32 %call15, ptr %clipped_count, align 4
-  %5 = load i32, ptr %clipped_count, align 4
-  %cmp16 = icmp eq i32 %5, 0
-  br i1 %cmp16, label %if.then17, label %if.end18
+42:                                               ; preds = %38
+  call void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %13, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %43 = getelementptr inbounds [16 x %class.btVector3], ptr %8, i64 0, i64 0
+  %44 = load i32, ptr %10, align 4, !tbaa !9
+  %45 = getelementptr inbounds [16 x %class.btVector3], ptr %12, i64 0, i64 0
+  %46 = call noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef %43, i32 noundef %44, ptr noundef %45)
+  store i32 %46, ptr %10, align 4, !tbaa !9
+  %47 = load i32, ptr %10, align 4, !tbaa !9
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %50
 
-if.then17:                                        ; preds = %arrayctor.cont12
-  store i32 0, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %42
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %56
 
-if.end18:                                         ; preds = %arrayctor.cont12
-  call void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %this1, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arraydecay19 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points1, i64 0, i64 0
-  %6 = load i32, ptr %clipped_count, align 4
-  %7 = load ptr, ptr %clipped_points.addr, align 8
-  %call20 = call noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef %arraydecay19, i32 noundef %6, ptr noundef %7)
-  store i32 %call20, ptr %clipped_count, align 4
-  %8 = load i32, ptr %clipped_count, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %42
+  call void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %13, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %51 = getelementptr inbounds [16 x %class.btVector3], ptr %12, i64 0, i64 0
+  %52 = load i32, ptr %10, align 4, !tbaa !9
+  %53 = load ptr, ptr %7, align 8, !tbaa !18
+  %54 = call noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef %51, i32 noundef %52, ptr noundef %53)
+  store i32 %54, ptr %10, align 4, !tbaa !9
+  %55 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %55, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %56
 
-return:                                           ; preds = %if.end18, %if.then17, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+56:                                               ; preds = %50, %49
+  call void @llvm.lifetime.end.p0(i64 256, ptr %12) #10
+  br label %57
+
+57:                                               ; preds = %56, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 256, ptr %8) #10
+  %58 = load i32, ptr %4, align 4
+  ret i32 %58
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this1)
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %3)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %10 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [3 x %class.btVector3], ptr %10, i64 0, i64 %12
+  store ptr %13, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %14 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %9, i32 0, i32 0
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  %17 = srem i32 %16, 3
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [3 x %class.btVector3], ptr %14, i64 0, i64 %18
+  store ptr %19, ptr %8, align 8, !tbaa !18
+  %20 = load ptr, ptr %7, align 8, !tbaa !18
+  %21 = load ptr, ptr %8, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %9, i32 0, i32 1
+  %23 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @_Z13bt_edge_planeRK9btVector3S1_S1_R9btVector4(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !14
+  store ptr %1, ptr %7, align 8, !tbaa !18
+  store ptr %2, ptr %8, align 8, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !18
+  store ptr %4, ptr %10, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  store i32 0, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  %15 = load ptr, ptr %6, align 8, !tbaa !14
+  %16 = load ptr, ptr %7, align 8, !tbaa !18
+  %17 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %16)
+  store float %17, ptr %12, align 4, !tbaa !16
+  %18 = load float, ptr %12, align 4, !tbaa !16
+  %19 = fcmp ogt float %18, 0x3E80000000000000
+  br i1 %19, label %28, label %20
+
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8, !tbaa !18
+  %22 = load ptr, ptr %10, align 8, !tbaa !18
+  %23 = load i32, ptr %11, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds %class.btVector3, ptr %22, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr align 4 %21, i64 16, i1 false), !tbaa.struct !27
+  %26 = load i32, ptr %11, align 4, !tbaa !9
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %11, align 4, !tbaa !9
+  br label %28
+
+28:                                               ; preds = %20, %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %29 = load float, ptr %12, align 4, !tbaa !16
+  store float %29, ptr %13, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %30 = load ptr, ptr %6, align 8, !tbaa !14
+  %31 = load ptr, ptr %8, align 8, !tbaa !18
+  %32 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %31)
+  store float %32, ptr %14, align 4, !tbaa !16
+  %33 = load ptr, ptr %7, align 8, !tbaa !18
+  %34 = load ptr, ptr %8, align 8, !tbaa !18
+  %35 = load float, ptr %13, align 4, !tbaa !16
+  %36 = load float, ptr %14, align 4, !tbaa !16
+  %37 = load ptr, ptr %10, align 8, !tbaa !18
+  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %34, float noundef %35, float noundef %36, ptr noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %38 = load float, ptr %14, align 4, !tbaa !16
+  store float %38, ptr %13, align 4, !tbaa !16
+  %39 = load ptr, ptr %6, align 8, !tbaa !14
+  %40 = load ptr, ptr %9, align 8, !tbaa !18
+  %41 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %40)
+  store float %41, ptr %14, align 4, !tbaa !16
+  %42 = load ptr, ptr %8, align 8, !tbaa !18
+  %43 = load ptr, ptr %9, align 8, !tbaa !18
+  %44 = load float, ptr %13, align 4, !tbaa !16
+  %45 = load float, ptr %14, align 4, !tbaa !16
+  %46 = load ptr, ptr %10, align 8, !tbaa !18
+  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) %43, float noundef %44, float noundef %45, ptr noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %47 = load float, ptr %14, align 4, !tbaa !16
+  store float %47, ptr %13, align 4, !tbaa !16
+  %48 = load ptr, ptr %9, align 8, !tbaa !18
+  %49 = load ptr, ptr %7, align 8, !tbaa !18
+  %50 = load float, ptr %13, align 4, !tbaa !16
+  %51 = load float, ptr %12, align 4, !tbaa !16
+  %52 = load ptr, ptr %10, align 8, !tbaa !18
+  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %49, float noundef %50, float noundef %51, ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %53 = load i32, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  ret i32 %53
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !14
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %14 = load ptr, ptr %5, align 8, !tbaa !14
+  %15 = load ptr, ptr %6, align 8, !tbaa !18
+  %16 = getelementptr inbounds %class.btVector3, ptr %15, i64 0
+  %17 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %16)
+  store float %17, ptr %10, align 4, !tbaa !16
+  %18 = load float, ptr %10, align 4, !tbaa !16
+  %19 = fcmp ogt float %18, 0x3E80000000000000
+  br i1 %19, label %29, label %20
+
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %6, align 8, !tbaa !18
+  %22 = getelementptr inbounds %class.btVector3, ptr %21, i64 0
+  %23 = load ptr, ptr %8, align 8, !tbaa !18
+  %24 = load i32, ptr %9, align 4, !tbaa !9
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds %class.btVector3, ptr %23, i64 %25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %22, i64 16, i1 false), !tbaa.struct !27
+  %27 = load i32, ptr %9, align 4, !tbaa !9
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %9, align 4, !tbaa !9
+  br label %29
+
+29:                                               ; preds = %20, %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %30 = load float, ptr %10, align 4, !tbaa !16
+  store float %30, ptr %11, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store i32 1, ptr %12, align 4, !tbaa !9
+  br label %31
+
+31:                                               ; preds = %56, %29
+  %32 = load i32, ptr %12, align 4, !tbaa !9
+  %33 = load i32, ptr %7, align 4, !tbaa !9
+  %34 = icmp slt i32 %32, %33
+  br i1 %34, label %36, label %35
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  br label %59
+
+36:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %37 = load ptr, ptr %5, align 8, !tbaa !14
+  %38 = load ptr, ptr %6, align 8, !tbaa !18
+  %39 = load i32, ptr %12, align 4, !tbaa !9
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %class.btVector3, ptr %38, i64 %40
+  %42 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %41)
+  store float %42, ptr %13, align 4, !tbaa !16
+  %43 = load ptr, ptr %6, align 8, !tbaa !18
+  %44 = load i32, ptr %12, align 4, !tbaa !9
+  %45 = sub nsw i32 %44, 1
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %class.btVector3, ptr %43, i64 %46
+  %48 = load ptr, ptr %6, align 8, !tbaa !18
+  %49 = load i32, ptr %12, align 4, !tbaa !9
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds %class.btVector3, ptr %48, i64 %50
+  %52 = load float, ptr %11, align 4, !tbaa !16
+  %53 = load float, ptr %13, align 4, !tbaa !16
+  %54 = load ptr, ptr %8, align 8, !tbaa !18
+  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %51, float noundef %52, float noundef %53, ptr noundef %54, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %55 = load float, ptr %13, align 4, !tbaa !16
+  store float %55, ptr %11, align 4, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  br label %56
+
+56:                                               ; preds = %36
+  %57 = load i32, ptr %12, align 4, !tbaa !9
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %12, align 4, !tbaa !9
+  br label %31, !llvm.loop !33
+
+59:                                               ; preds = %35
+  %60 = load ptr, ptr %6, align 8, !tbaa !18
+  %61 = load i32, ptr %7, align 4, !tbaa !9
+  %62 = sub nsw i32 %61, 1
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds %class.btVector3, ptr %60, i64 %63
+  %65 = load ptr, ptr %6, align 8, !tbaa !18
+  %66 = getelementptr inbounds %class.btVector3, ptr %65, i64 0
+  %67 = load float, ptr %11, align 4, !tbaa !16
+  %68 = load float, ptr %10, align 4, !tbaa !16
+  %69 = load ptr, ptr %8, align 8, !tbaa !18
+  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %66, float noundef %67, float noundef %68, ptr noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %70 = load i32, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  ret i32 %70
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(280) %2) #2 align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca [16 x %class.btVector3], align 16
+  %10 = alloca i32, align 4
+  %11 = alloca %struct.GIM_TRIANGLE_CONTACT, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca float, align 4
+  %14 = alloca %struct.GIM_TRIANGLE_CONTACT, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !29
+  store ptr %1, ptr %6, align 8, !tbaa !29
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  %15 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %16 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %15, i32 0, i32 2
+  %17 = load float, ptr %16, align 4, !tbaa !31
+  %18 = load ptr, ptr %6, align 8, !tbaa !29
+  %19 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %18, i32 0, i32 2
+  %20 = load float, ptr %19, align 4, !tbaa !31
+  %21 = fadd float %17, %20
+  store float %21, ptr %8, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 256, ptr %9) #10
+  %22 = getelementptr inbounds [16 x %class.btVector3], ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds %class.btVector3, ptr %22, i64 16
+  br label %24
+
+24:                                               ; preds = %24, %3
+  %25 = phi ptr [ %22, %3 ], [ %26, %24 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %25)
+  %26 = getelementptr inbounds %class.btVector3, ptr %25, i64 1
+  %27 = icmp eq ptr %26, %23
+  br i1 %27, label %28, label %24
+
+28:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 280, ptr %11) #10
+  call void @_ZN20GIM_TRIANGLE_CONTACTC2Ev(ptr noundef nonnull align 4 dereferenceable(280) %11)
+  %29 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %15, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %11, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %30, ptr align 4 %29, i64 16, i1 false)
+  %31 = load ptr, ptr %6, align 8, !tbaa !29
+  %32 = getelementptr inbounds [16 x %class.btVector3], ptr %9, i64 0, i64 0
+  %33 = call noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull align 4 dereferenceable(72) %15, ptr noundef nonnull align 4 dereferenceable(72) %31, ptr noundef %32)
+  store i32 %33, ptr %10, align 4, !tbaa !9
+  %34 = load i32, ptr %10, align 4, !tbaa !9
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %28
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %79
+
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %11, i32 0, i32 2
+  %39 = load float, ptr %8, align 4, !tbaa !16
+  %40 = getelementptr inbounds [16 x %class.btVector3], ptr %9, i64 0, i64 0
+  %41 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr noundef nonnull align 4 dereferenceable(280) %11, ptr noundef nonnull align 4 dereferenceable(16) %38, float noundef %39, ptr noundef %40, i32 noundef %41)
+  %42 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %11, i32 0, i32 1
+  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %37
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %79
+
+46:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  store float -1.000000e+00, ptr %13, align 4, !tbaa !16
+  %47 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %11, i32 0, i32 2
+  %48 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 280, ptr %14) #10
+  call void @_ZN20GIM_TRIANGLE_CONTACTC2Ev(ptr noundef nonnull align 4 dereferenceable(280) %14)
+  %49 = load ptr, ptr %6, align 8, !tbaa !29
+  %50 = getelementptr inbounds nuw %class.btPrimitiveTriangle, ptr %49, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %51, ptr align 4 %50, i64 16, i1 false)
+  %52 = load ptr, ptr %6, align 8, !tbaa !29
+  %53 = getelementptr inbounds [16 x %class.btVector3], ptr %9, i64 0, i64 0
+  %54 = call noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull align 4 dereferenceable(72) %52, ptr noundef nonnull align 4 dereferenceable(72) %15, ptr noundef %53)
+  store i32 %54, ptr %10, align 4, !tbaa !9
+  %55 = load i32, ptr %10, align 4, !tbaa !9
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %46
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %78
+
+58:                                               ; preds = %46
+  %59 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 2
+  %60 = load float, ptr %8, align 4, !tbaa !16
+  %61 = getelementptr inbounds [16 x %class.btVector3], ptr %9, i64 0, i64 0
+  %62 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr noundef nonnull align 4 dereferenceable(280) %14, ptr noundef nonnull align 4 dereferenceable(16) %59, float noundef %60, ptr noundef %61, i32 noundef %62)
+  %63 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 1
+  %64 = load i32, ptr %63, align 4, !tbaa !20
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %67
+
+66:                                               ; preds = %58
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %78
+
+67:                                               ; preds = %58
+  %68 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 0
+  %69 = load float, ptr %68, align 4, !tbaa !24
+  %70 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %11, i32 0, i32 0
+  %71 = load float, ptr %70, align 4, !tbaa !24
+  %72 = fcmp olt float %69, %71
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %67
+  %74 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_(ptr noundef nonnull align 4 dereferenceable(280) %74, ptr noundef nonnull align 4 dereferenceable(280) %14)
+  br label %77
+
+75:                                               ; preds = %67
+  %76 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_(ptr noundef nonnull align 4 dereferenceable(280) %76, ptr noundef nonnull align 4 dereferenceable(280) %11)
+  br label %77
+
+77:                                               ; preds = %75, %73
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %78
+
+78:                                               ; preds = %77, %66, %57
+  call void @llvm.lifetime.end.p0(i64 280, ptr %14) #10
+  br label %79
+
+79:                                               ; preds = %78, %45, %36
+  call void @llvm.lifetime.end.p0(i64 280, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 256, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %80 = load i1, ptr %4, align 1
+  ret i1 %80
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20GIM_TRIANGLE_CONTACTC2Ev(ptr noundef nonnull align 4 dereferenceable(280) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %3, i32 0, i32 2
+  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %5 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %3, i32 0, i32 3
+  %6 = getelementptr inbounds [16 x %class.btVector3], ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %class.btVector3, ptr %6, i64 16
+  br label %8
+
+8:                                                ; preds = %8, %1
+  %9 = phi ptr [ %6, %1 ], [ %10, %8 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %10 = getelementptr inbounds %class.btVector3, ptr %9, i64 1
+  %11 = icmp eq ptr %10, %7
+  br i1 %11, label %12, label %8
+
+12:                                               ; preds = %8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !34
+  %7 = load float, ptr %6, align 4, !tbaa !16
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 0
+  %10 = load float, ptr %9, align 4, !tbaa !16
+  %11 = fmul float %10, %7
+  store float %11, ptr %9, align 4, !tbaa !16
+  %12 = load ptr, ptr %4, align 8, !tbaa !34
+  %13 = load float, ptr %12, align 4, !tbaa !16
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 1
+  %16 = load float, ptr %15, align 4, !tbaa !16
+  %17 = fmul float %16, %13
+  store float %17, ptr %15, align 4, !tbaa !16
+  %18 = load ptr, ptr %4, align 8, !tbaa !34
+  %19 = load float, ptr %18, align 4, !tbaa !16
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  %22 = load float, ptr %21, align 4, !tbaa !16
+  %23 = fmul float %22, %19
+  store float %23, ptr %21, align 4, !tbaa !16
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_(ptr noundef nonnull align 4 dereferenceable(280) %0, ptr noundef nonnull align 4 dereferenceable(280) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %7, i32 0, i32 0
+  %9 = load float, ptr %8, align 4, !tbaa !24
+  %10 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %6, i32 0, i32 0
+  store float %9, ptr %10, align 4, !tbaa !24
+  %11 = load ptr, ptr %4, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %6, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %12, i64 16, i1 false)
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !20
+  %17 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %6, i32 0, i32 1
+  store i32 %16, ptr %17, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %18 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %6, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4, !tbaa !20
+  store i32 %19, ptr %5, align 4, !tbaa !9
+  br label %20
+
+20:                                               ; preds = %24, %2
+  %21 = load i32, ptr %5, align 4, !tbaa !9
+  %22 = add nsw i32 %21, -1
+  store i32 %22, ptr %5, align 4, !tbaa !9
+  %23 = icmp ne i32 %21, 0
+  br i1 %23, label %24, label %34
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %4, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %5, align 4, !tbaa !9
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [16 x %class.btVector3], ptr %26, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT, ptr %6, i32 0, i32 3
+  %31 = load i32, ptr %5, align 4, !tbaa !9
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds [16 x %class.btVector3], ptr %30, i64 0, i64 %32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %29, i64 16, i1 false), !tbaa.struct !27
+  br label %20, !llvm.loop !36
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK19btPrimitiveTriangle14get_edge_planeEiR9btVector4(ptr noundef nonnull align 4 dereferenceable(72) %this, i32 noundef %edge_index, ptr noundef nonnull align 4 dereferenceable(16) %plane) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %edge_index.addr = alloca i32, align 4
-  %plane.addr = alloca ptr, align 8
-  %e0 = alloca ptr, align 8
-  %e1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %edge_index, ptr %edge_index.addr, align 4
-  store ptr %plane, ptr %plane.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_vertices = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %edge_index.addr, align 4
-  %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices, i64 0, i64 %idxprom
-  store ptr %arrayidx, ptr %e0, align 8
-  %m_vertices2 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %edge_index.addr, align 4
-  %add = add nsw i32 %1, 1
-  %rem = srem i32 %add, 3
-  %idxprom3 = sext i32 %rem to i64
-  %arrayidx4 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices2, i64 0, i64 %idxprom3
-  store ptr %arrayidx4, ptr %e1, align 8
-  %2 = load ptr, ptr %e0, align 8
-  %3 = load ptr, ptr %e1, align 8
-  %m_plane = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %plane.addr, align 8
-  call void @_Z13bt_edge_planeRK9btVector3S1_S1_R9btVector4(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %m_plane, ptr noundef nonnull align 4 dereferenceable(16) %4)
+define dso_local noundef zeroext i1 @_ZN17btTriangleShapeEx25overlap_test_conservativeERKS_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #2 align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca %class.btVector4, align 4
+  %8 = alloca %class.btVector4, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %14 = load ptr, ptr %13, align 8, !tbaa !39
+  %15 = getelementptr inbounds ptr, ptr %14, i64 12
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noundef float %16(ptr noundef nonnull align 8 dereferenceable(72) %13)
+  %18 = load ptr, ptr %5, align 8, !tbaa !37
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %20 = getelementptr inbounds ptr, ptr %19, i64 12
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef float %21(ptr noundef nonnull align 8 dereferenceable(72) %18)
+  %23 = fadd float %17, %22
+  store float %23, ptr %6, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #10
+  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %7)
+  call void @_ZNK17btTriangleShapeEx13buildTriPlaneER9btVector4(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 4 dereferenceable(16) %7)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #10
+  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %24 = load ptr, ptr %5, align 8, !tbaa !37
+  call void @_ZNK17btTriangleShapeEx13buildTriPlaneER9btVector4(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %25 = load ptr, ptr %5, align 8, !tbaa !37
+  %26 = getelementptr inbounds nuw %class.btTriangleShape, ptr %25, i32 0, i32 1
+  %27 = getelementptr inbounds [3 x %class.btVector3], ptr %26, i64 0, i64 0
+  %28 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %27)
+  %29 = load float, ptr %6, align 4, !tbaa !16
+  %30 = fsub float %28, %29
+  store float %30, ptr %9, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %31 = load ptr, ptr %5, align 8, !tbaa !37
+  %32 = getelementptr inbounds nuw %class.btTriangleShape, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds [3 x %class.btVector3], ptr %32, i64 0, i64 1
+  %34 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %33)
+  %35 = load float, ptr %6, align 4, !tbaa !16
+  %36 = fsub float %34, %35
+  store float %36, ptr %10, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %37 = load ptr, ptr %5, align 8, !tbaa !37
+  %38 = getelementptr inbounds nuw %class.btTriangleShape, ptr %37, i32 0, i32 1
+  %39 = getelementptr inbounds [3 x %class.btVector3], ptr %38, i64 0, i64 2
+  %40 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %39)
+  %41 = load float, ptr %6, align 4, !tbaa !16
+  %42 = fsub float %40, %41
+  store float %42, ptr %11, align 4, !tbaa !16
+  %43 = load float, ptr %9, align 4, !tbaa !16
+  %44 = fcmp ogt float %43, 0.000000e+00
+  br i1 %44, label %45, label %52
+
+45:                                               ; preds = %2
+  %46 = load float, ptr %10, align 4, !tbaa !16
+  %47 = fcmp ogt float %46, 0.000000e+00
+  br i1 %47, label %48, label %52
+
+48:                                               ; preds = %45
+  %49 = load float, ptr %11, align 4, !tbaa !16
+  %50 = fcmp ogt float %49, 0.000000e+00
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %48
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %12, align 4
+  br label %78
+
+52:                                               ; preds = %48, %45, %2
+  %53 = getelementptr inbounds nuw %class.btTriangleShape, ptr %13, i32 0, i32 1
+  %54 = getelementptr inbounds [3 x %class.btVector3], ptr %53, i64 0, i64 0
+  %55 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %54)
+  %56 = load float, ptr %6, align 4, !tbaa !16
+  %57 = fsub float %55, %56
+  store float %57, ptr %9, align 4, !tbaa !16
+  %58 = getelementptr inbounds nuw %class.btTriangleShape, ptr %13, i32 0, i32 1
+  %59 = getelementptr inbounds [3 x %class.btVector3], ptr %58, i64 0, i64 1
+  %60 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %59)
+  %61 = load float, ptr %6, align 4, !tbaa !16
+  %62 = fsub float %60, %61
+  store float %62, ptr %10, align 4, !tbaa !16
+  %63 = getelementptr inbounds nuw %class.btTriangleShape, ptr %13, i32 0, i32 1
+  %64 = getelementptr inbounds [3 x %class.btVector3], ptr %63, i64 0, i64 2
+  %65 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %64)
+  %66 = load float, ptr %6, align 4, !tbaa !16
+  %67 = fsub float %65, %66
+  store float %67, ptr %11, align 4, !tbaa !16
+  %68 = load float, ptr %9, align 4, !tbaa !16
+  %69 = fcmp ogt float %68, 0.000000e+00
+  br i1 %69, label %70, label %77
+
+70:                                               ; preds = %52
+  %71 = load float, ptr %10, align 4, !tbaa !16
+  %72 = fcmp ogt float %71, 0.000000e+00
+  br i1 %72, label %73, label %77
+
+73:                                               ; preds = %70
+  %74 = load float, ptr %11, align 4, !tbaa !16
+  %75 = fcmp ogt float %74, 0.000000e+00
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %73
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %12, align 4
+  br label %78
+
+77:                                               ; preds = %73, %70, %52
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %12, align 4
+  br label %78
+
+78:                                               ; preds = %77, %76, %51
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %79 = load i1, ptr %3, align 1
+  ret i1 %79
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK17btTriangleShapeEx13buildTriPlaneER9btVector4(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.btVector3, align 4
+  %6 = alloca %class.btVector3, align 4
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #10
+  %10 = getelementptr inbounds nuw %class.btTriangleShape, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds [3 x %class.btVector3], ptr %10, i64 0, i64 1
+  %12 = getelementptr inbounds nuw %class.btTriangleShape, ptr %9, i32 0, i32 1
+  %13 = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 0
+  %14 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %15 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %15, i32 0, i32 0
+  %17 = extractvalue { <2 x float>, <2 x float> } %14, 0
+  store <2 x float> %17, ptr %16, align 4
+  %18 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %15, i32 0, i32 1
+  %19 = extractvalue { <2 x float>, <2 x float> } %14, 1
+  store <2 x float> %19, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #10
+  %20 = getelementptr inbounds nuw %class.btTriangleShape, ptr %9, i32 0, i32 1
+  %21 = getelementptr inbounds [3 x %class.btVector3], ptr %20, i64 0, i64 2
+  %22 = getelementptr inbounds nuw %class.btTriangleShape, ptr %9, i32 0, i32 1
+  %23 = getelementptr inbounds [3 x %class.btVector3], ptr %22, i64 0, i64 0
+  %24 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %23)
+  %25 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %26 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %25, i32 0, i32 0
+  %27 = extractvalue { <2 x float>, <2 x float> } %24, 0
+  store <2 x float> %27, ptr %26, align 4
+  %28 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %25, i32 0, i32 1
+  %29 = extractvalue { <2 x float>, <2 x float> } %24, 1
+  store <2 x float> %29, ptr %28, align 4
+  %30 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
+  %31 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %32 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %31, i32 0, i32 0
+  %33 = extractvalue { <2 x float>, <2 x float> } %30, 0
+  store <2 x float> %33, ptr %32, align 4
+  %34 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %31, i32 0, i32 1
+  %35 = extractvalue { <2 x float>, <2 x float> } %30, 1
+  store <2 x float> %35, ptr %34, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #10
+  %36 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %37 = load ptr, ptr %4, align 8, !tbaa !14
+  %38 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %39 = getelementptr inbounds float, ptr %38, i64 0
+  %40 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %41 = getelementptr inbounds float, ptr %40, i64 1
+  %42 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %43 = getelementptr inbounds float, ptr %42, i64 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %44 = getelementptr inbounds nuw %class.btTriangleShape, ptr %9, i32 0, i32 1
+  %45 = getelementptr inbounds [3 x %class.btVector3], ptr %44, i64 0, i64 0
+  %46 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %5)
+  store float %46, ptr %8, align 4, !tbaa !16
+  call void @_ZN9btVector48setValueERKfS1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #10
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_(ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef nonnull align 4 dereferenceable(16) %point0, ptr noundef nonnull align 4 dereferenceable(16) %point1, ptr noundef nonnull align 4 dereferenceable(16) %point2, ptr noundef %clipped) #2 comdat {
-entry:
-  %plane.addr = alloca ptr, align 8
-  %point0.addr = alloca ptr, align 8
-  %point1.addr = alloca ptr, align 8
-  %point2.addr = alloca ptr, align 8
-  %clipped.addr = alloca ptr, align 8
-  %clipped_count = alloca i32, align 4
-  %firstdist = alloca float, align 4
-  %olddist = alloca float, align 4
-  %dist = alloca float, align 4
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %point0, ptr %point0.addr, align 8
-  store ptr %point1, ptr %point1.addr, align 8
-  store ptr %point2, ptr %point2.addr, align 8
-  store ptr %clipped, ptr %clipped.addr, align 8
-  store i32 0, ptr %clipped_count, align 4
-  %0 = load ptr, ptr %plane.addr, align 8
-  %1 = load ptr, ptr %point0.addr, align 8
-  %call = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  store float %call, ptr %firstdist, align 4
-  %2 = load float, ptr %firstdist, align 4
-  %cmp = fcmp ogt float %2, 0x3E80000000000000
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %point0.addr, align 8
-  %4 = load ptr, ptr %clipped.addr, align 8
-  %5 = load i32, ptr %clipped_count, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %4, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx, ptr align 4 %3, i64 16, i1 false)
-  %6 = load i32, ptr %clipped_count, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %clipped_count, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load float, ptr %firstdist, align 4
-  store float %7, ptr %olddist, align 4
-  %8 = load ptr, ptr %plane.addr, align 8
-  %9 = load ptr, ptr %point1.addr, align 8
-  %call1 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %9)
-  store float %call1, ptr %dist, align 4
-  %10 = load ptr, ptr %point0.addr, align 8
-  %11 = load ptr, ptr %point1.addr, align 8
-  %12 = load float, ptr %olddist, align 4
-  %13 = load float, ptr %dist, align 4
-  %14 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %11, float noundef %12, float noundef %13, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %15 = load float, ptr %dist, align 4
-  store float %15, ptr %olddist, align 4
-  %16 = load ptr, ptr %plane.addr, align 8
-  %17 = load ptr, ptr %point2.addr, align 8
-  %call2 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %17)
-  store float %call2, ptr %dist, align 4
-  %18 = load ptr, ptr %point1.addr, align 8
-  %19 = load ptr, ptr %point2.addr, align 8
-  %20 = load float, ptr %olddist, align 4
-  %21 = load float, ptr %dist, align 4
-  %22 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %19, float noundef %20, float noundef %21, ptr noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %23 = load float, ptr %dist, align 4
-  store float %23, ptr %olddist, align 4
-  %24 = load ptr, ptr %point2.addr, align 8
-  %25 = load ptr, ptr %point0.addr, align 8
-  %26 = load float, ptr %olddist, align 4
-  %27 = load float, ptr %firstdist, align 4
-  %28 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %25, float noundef %26, float noundef %27, ptr noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %29 = load i32, ptr %clipped_count, align 4
-  ret i32 %29
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds [4 x float], ptr %6, i64 0, i64 0
+  %8 = load float, ptr %7, align 4, !tbaa !16
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !16
+  %13 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
+  %15 = load float, ptr %14, align 4, !tbaa !16
+  %16 = load ptr, ptr %4, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  %19 = load float, ptr %18, align 4, !tbaa !16
+  %20 = fmul float %15, %19
+  %21 = call float @llvm.fmuladd.f32(float %8, float %12, float %20)
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 2
+  %24 = load float, ptr %23, align 4, !tbaa !16
+  %25 = load ptr, ptr %4, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds [4 x float], ptr %26, i64 0, i64 2
+  %28 = load float, ptr %27, align 4, !tbaa !16
+  %29 = call float @llvm.fmuladd.f32(float %24, float %28, float %21)
+  ret float %29
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef %polygon_points, i32 noundef %polygon_point_count, ptr noundef %clipped) #2 comdat {
-entry:
-  %plane.addr = alloca ptr, align 8
-  %polygon_points.addr = alloca ptr, align 8
-  %polygon_point_count.addr = alloca i32, align 4
-  %clipped.addr = alloca ptr, align 8
-  %clipped_count = alloca i32, align 4
-  %firstdist = alloca float, align 4
-  %olddist = alloca float, align 4
-  %i = alloca i32, align 4
-  %dist = alloca float, align 4
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %polygon_points, ptr %polygon_points.addr, align 8
-  store i32 %polygon_point_count, ptr %polygon_point_count.addr, align 4
-  store ptr %clipped, ptr %clipped.addr, align 8
-  store i32 0, ptr %clipped_count, align 4
-  %0 = load ptr, ptr %plane.addr, align 8
-  %1 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %1, i64 0
-  %call = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
-  store float %call, ptr %firstdist, align 4
-  %2 = load float, ptr %firstdist, align 4
-  %cmp = fcmp ogt float %2, 0x3E80000000000000
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx1 = getelementptr inbounds %class.btVector3, ptr %3, i64 0
-  %4 = load ptr, ptr %clipped.addr, align 8
-  %5 = load i32, ptr %clipped_count, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx2 = getelementptr inbounds %class.btVector3, ptr %4, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx2, ptr align 4 %arrayidx1, i64 16, i1 false)
-  %6 = load i32, ptr %clipped_count, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %clipped_count, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load float, ptr %firstdist, align 4
-  store float %7, ptr %olddist, align 4
-  store i32 1, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr %polygon_point_count.addr, align 4
-  %cmp3 = icmp slt i32 %8, %9
-  br i1 %cmp3, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %plane.addr, align 8
-  %11 = load ptr, ptr %polygon_points.addr, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %12 to i64
-  %arrayidx5 = getelementptr inbounds %class.btVector3, ptr %11, i64 %idxprom4
-  %call6 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5)
-  store float %call6, ptr %dist, align 4
-  %13 = load ptr, ptr %polygon_points.addr, align 8
-  %14 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %14, 1
-  %idxprom7 = sext i32 %sub to i64
-  %arrayidx8 = getelementptr inbounds %class.btVector3, ptr %13, i64 %idxprom7
-  %15 = load ptr, ptr %polygon_points.addr, align 8
-  %16 = load i32, ptr %i, align 4
-  %idxprom9 = sext i32 %16 to i64
-  %arrayidx10 = getelementptr inbounds %class.btVector3, ptr %15, i64 %idxprom9
-  %17 = load float, ptr %olddist, align 4
-  %18 = load float, ptr %dist, align 4
-  %19 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10, float noundef %17, float noundef %18, ptr noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %20 = load float, ptr %dist, align 4
-  store float %20, ptr %olddist, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %21 = load i32, ptr %i, align 4
-  %inc11 = add nsw i32 %21, 1
-  store i32 %inc11, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %for.cond
-  %22 = load ptr, ptr %polygon_points.addr, align 8
-  %23 = load i32, ptr %polygon_point_count.addr, align 4
-  %sub12 = sub nsw i32 %23, 1
-  %idxprom13 = sext i32 %sub12 to i64
-  %arrayidx14 = getelementptr inbounds %class.btVector3, ptr %22, i64 %idxprom13
-  %24 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx15 = getelementptr inbounds %class.btVector3, ptr %24, i64 0
-  %25 = load float, ptr %olddist, align 4
-  %26 = load float, ptr %firstdist, align 4
-  %27 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx15, float noundef %25, float noundef %26, ptr noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %28 = load i32, ptr %clipped_count, align 4
-  ret i32 %28
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(72) %other, ptr noundef nonnull align 4 dereferenceable(280) %contacts) #2 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %contacts.addr = alloca ptr, align 8
-  %margin = alloca float, align 4
-  %clipped_points = alloca [16 x %class.btVector3], align 16
-  %clipped_count = alloca i32, align 4
-  %contacts1 = alloca %struct.GIM_TRIANGLE_CONTACT, align 4
-  %ref.tmp = alloca float, align 4
-  %contacts2 = alloca %struct.GIM_TRIANGLE_CONTACT, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  store ptr %contacts, ptr %contacts.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_margin = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 2
-  %0 = load float, ptr %m_margin, align 4
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_margin2 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %1, i32 0, i32 2
-  %2 = load float, ptr %m_margin2, align 4
-  %add = fadd float %0, %2
-  store float %add, ptr %margin, align 4
-  %array.begin = getelementptr inbounds [16 x %class.btVector3], ptr %clipped_points, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 16
-  br label %arrayctor.loop
-
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
-
-arrayctor.cont:                                   ; preds = %arrayctor.loop
-  call void @_ZN20GIM_TRIANGLE_CONTACTC2Ev(ptr noundef nonnull align 4 dereferenceable(280) %contacts1)
-  %m_plane = getelementptr inbounds %class.btPrimitiveTriangle, ptr %this1, i32 0, i32 1
-  %m_separating_normal = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_separating_normal, ptr align 4 %m_plane, i64 16, i1 false)
-  %3 = load ptr, ptr %other.addr, align 8
-  %arraydecay = getelementptr inbounds [16 x %class.btVector3], ptr %clipped_points, i64 0, i64 0
-  %call = call noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull align 4 dereferenceable(72) %this1, ptr noundef nonnull align 4 dereferenceable(72) %3, ptr noundef %arraydecay)
-  store i32 %call, ptr %clipped_count, align 4
-  %4 = load i32, ptr %clipped_count, align 4
-  %cmp = icmp eq i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %arrayctor.cont
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %arrayctor.cont
-  %m_separating_normal3 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts1, i32 0, i32 2
-  %5 = load float, ptr %margin, align 4
-  %arraydecay4 = getelementptr inbounds [16 x %class.btVector3], ptr %clipped_points, i64 0, i64 0
-  %6 = load i32, ptr %clipped_count, align 4
-  call void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr noundef nonnull align 4 dereferenceable(280) %contacts1, ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal3, float noundef %5, ptr noundef %arraydecay4, i32 noundef %6)
-  %m_point_count = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts1, i32 0, i32 1
-  %7 = load i32, ptr %m_point_count, align 4
-  %cmp5 = icmp eq i32 %7, 0
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.end
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end7:                                          ; preds = %if.end
-  store float -1.000000e+00, ptr %ref.tmp, align 4
-  %m_separating_normal8 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts1, i32 0, i32 2
-  %call9 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  call void @_ZN20GIM_TRIANGLE_CONTACTC2Ev(ptr noundef nonnull align 4 dereferenceable(280) %contacts2)
-  %8 = load ptr, ptr %other.addr, align 8
-  %m_plane10 = getelementptr inbounds %class.btPrimitiveTriangle, ptr %8, i32 0, i32 1
-  %m_separating_normal11 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_separating_normal11, ptr align 4 %m_plane10, i64 16, i1 false)
-  %9 = load ptr, ptr %other.addr, align 8
-  %arraydecay12 = getelementptr inbounds [16 x %class.btVector3], ptr %clipped_points, i64 0, i64 0
-  %call13 = call noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull align 4 dereferenceable(72) %9, ptr noundef nonnull align 4 dereferenceable(72) %this1, ptr noundef %arraydecay12)
-  store i32 %call13, ptr %clipped_count, align 4
-  %10 = load i32, ptr %clipped_count, align 4
-  %cmp14 = icmp eq i32 %10, 0
-  br i1 %cmp14, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %if.end7
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end16:                                         ; preds = %if.end7
-  %m_separating_normal17 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts2, i32 0, i32 2
-  %11 = load float, ptr %margin, align 4
-  %arraydecay18 = getelementptr inbounds [16 x %class.btVector3], ptr %clipped_points, i64 0, i64 0
-  %12 = load i32, ptr %clipped_count, align 4
-  call void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr noundef nonnull align 4 dereferenceable(280) %contacts2, ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal17, float noundef %11, ptr noundef %arraydecay18, i32 noundef %12)
-  %m_point_count19 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts2, i32 0, i32 1
-  %13 = load i32, ptr %m_point_count19, align 4
-  %cmp20 = icmp eq i32 %13, 0
-  br i1 %cmp20, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %if.end16
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end22:                                         ; preds = %if.end16
-  %m_penetration_depth = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts2, i32 0, i32 0
-  %14 = load float, ptr %m_penetration_depth, align 4
-  %m_penetration_depth23 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %contacts1, i32 0, i32 0
-  %15 = load float, ptr %m_penetration_depth23, align 4
-  %cmp24 = fcmp olt float %14, %15
-  br i1 %cmp24, label %if.then25, label %if.else
-
-if.then25:                                        ; preds = %if.end22
-  %16 = load ptr, ptr %contacts.addr, align 8
-  call void @_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_(ptr noundef nonnull align 4 dereferenceable(280) %16, ptr noundef nonnull align 4 dereferenceable(280) %contacts2)
-  br label %if.end26
-
-if.else:                                          ; preds = %if.end22
-  %17 = load ptr, ptr %contacts.addr, align 8
-  call void @_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_(ptr noundef nonnull align 4 dereferenceable(280) %17, ptr noundef nonnull align 4 dereferenceable(280) %contacts1)
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.else, %if.then25
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end26, %if.then21, %if.then15, %if.then6, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20GIM_TRIANGLE_CONTACTC2Ev(ptr noundef nonnull align 4 dereferenceable(280) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_separating_normal = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 2
-  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal)
-  %m_points = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 3
-  %array.begin = getelementptr inbounds [16 x %class.btVector3], ptr %m_points, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 16
-  br label %arrayctor.loop
-
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
-
-arrayctor.cont:                                   ; preds = %arrayctor.loop
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %s) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %2 = load float, ptr %arrayidx, align 4
-  %mul = fmul float %2, %1
-  store float %mul, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %s.addr, align 8
-  %4 = load float, ptr %3, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  %5 = load float, ptr %arrayidx3, align 4
-  %mul4 = fmul float %5, %4
-  store float %mul4, ptr %arrayidx3, align 4
-  %6 = load ptr, ptr %s.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %m_floats5 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [4 x float], ptr %m_floats5, i64 0, i64 2
-  %8 = load float, ptr %arrayidx6, align 4
-  %mul7 = fmul float %8, %7
-  store float %mul7, ptr %arrayidx6, align 4
-  ret ptr %this1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_(ptr noundef nonnull align 4 dereferenceable(280) %this, ptr noundef nonnull align 4 dereferenceable(280) %other) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_penetration_depth = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %0, i32 0, i32 0
-  %1 = load float, ptr %m_penetration_depth, align 4
-  %m_penetration_depth2 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 0
-  store float %1, ptr %m_penetration_depth2, align 4
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_separating_normal = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %2, i32 0, i32 2
-  %m_separating_normal3 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_separating_normal3, ptr align 4 %m_separating_normal, i64 16, i1 false)
-  %3 = load ptr, ptr %other.addr, align 8
-  %m_point_count = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %m_point_count, align 4
-  %m_point_count4 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 1
-  store i32 %4, ptr %m_point_count4, align 4
-  %m_point_count5 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 1
-  %5 = load i32, ptr %m_point_count5, align 4
-  store i32 %5, ptr %i, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %6 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %6, -1
-  store i32 %dec, ptr %i, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %7 = load ptr, ptr %other.addr, align 8
-  %m_points = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [16 x %class.btVector3], ptr %m_points, i64 0, i64 %idxprom
-  %m_points6 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT, ptr %this1, i32 0, i32 3
-  %9 = load i32, ptr %i, align 4
-  %idxprom7 = sext i32 %9 to i64
-  %arrayidx8 = getelementptr inbounds [16 x %class.btVector3], ptr %m_points6, i64 0, i64 %idxprom7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx8, ptr align 4 %arrayidx, i64 16, i1 false)
-  br label %while.cond, !llvm.loop !9
-
-while.end:                                        ; preds = %while.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN17btTriangleShapeEx25overlap_test_conservativeERKS_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %other) #2 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %total_margin = alloca float, align 4
-  %plane0 = alloca %class.btVector4, align 4
-  %plane1 = alloca %class.btVector4, align 4
-  %dis0 = alloca float, align 4
-  %dis1 = alloca float, align 4
-  %dis2 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
-  %0 = load ptr, ptr %vfn, align 8
-  %call = call noundef float %0(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %1 = load ptr, ptr %other.addr, align 8
-  %vtable2 = load ptr, ptr %1, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 12
-  %2 = load ptr, ptr %vfn3, align 8
-  %call4 = call noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
-  %add = fadd float %call, %call4
-  store float %add, ptr %total_margin, align 4
-  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %plane0)
-  call void @_ZNK17btTriangleShapeEx13buildTriPlaneER9btVector4(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef nonnull align 4 dereferenceable(16) %plane0)
-  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %plane1)
-  %3 = load ptr, ptr %other.addr, align 8
-  call void @_ZNK17btTriangleShapeEx13buildTriPlaneER9btVector4(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 4 dereferenceable(16) %plane1)
-  %4 = load ptr, ptr %other.addr, align 8
-  %m_vertices1 = getelementptr inbounds %class.btTriangleShape, ptr %4, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices1, i64 0, i64 0
-  %call5 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %plane0, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
-  %5 = load float, ptr %total_margin, align 4
-  %sub = fsub float %call5, %5
-  store float %sub, ptr %dis0, align 4
-  %6 = load ptr, ptr %other.addr, align 8
-  %m_vertices16 = getelementptr inbounds %class.btTriangleShape, ptr %6, i32 0, i32 1
-  %arrayidx7 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices16, i64 0, i64 1
-  %call8 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %plane0, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7)
-  %7 = load float, ptr %total_margin, align 4
-  %sub9 = fsub float %call8, %7
-  store float %sub9, ptr %dis1, align 4
-  %8 = load ptr, ptr %other.addr, align 8
-  %m_vertices110 = getelementptr inbounds %class.btTriangleShape, ptr %8, i32 0, i32 1
-  %arrayidx11 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices110, i64 0, i64 2
-  %call12 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %plane0, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11)
-  %9 = load float, ptr %total_margin, align 4
-  %sub13 = fsub float %call12, %9
-  store float %sub13, ptr %dis2, align 4
-  %10 = load float, ptr %dis0, align 4
-  %cmp = fcmp ogt float %10, 0.000000e+00
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %11 = load float, ptr %dis1, align 4
-  %cmp14 = fcmp ogt float %11, 0.000000e+00
-  br i1 %cmp14, label %land.lhs.true15, label %if.end
-
-land.lhs.true15:                                  ; preds = %land.lhs.true
-  %12 = load float, ptr %dis2, align 4
-  %cmp16 = fcmp ogt float %12, 0.000000e+00
-  br i1 %cmp16, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true15
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true15, %land.lhs.true, %entry
-  %m_vertices117 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx18 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices117, i64 0, i64 0
-  %call19 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %plane1, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx18)
-  %13 = load float, ptr %total_margin, align 4
-  %sub20 = fsub float %call19, %13
-  store float %sub20, ptr %dis0, align 4
-  %m_vertices121 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx22 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices121, i64 0, i64 1
-  %call23 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %plane1, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx22)
-  %14 = load float, ptr %total_margin, align 4
-  %sub24 = fsub float %call23, %14
-  store float %sub24, ptr %dis1, align 4
-  %m_vertices125 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx26 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices125, i64 0, i64 2
-  %call27 = call noundef float @_Z23bt_distance_point_planeRK9btVector4RK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %plane1, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx26)
-  %15 = load float, ptr %total_margin, align 4
-  %sub28 = fsub float %call27, %15
-  store float %sub28, ptr %dis2, align 4
-  %16 = load float, ptr %dis0, align 4
-  %cmp29 = fcmp ogt float %16, 0.000000e+00
-  br i1 %cmp29, label %land.lhs.true30, label %if.end35
-
-land.lhs.true30:                                  ; preds = %if.end
-  %17 = load float, ptr %dis1, align 4
-  %cmp31 = fcmp ogt float %17, 0.000000e+00
-  br i1 %cmp31, label %land.lhs.true32, label %if.end35
-
-land.lhs.true32:                                  ; preds = %land.lhs.true30
-  %18 = load float, ptr %dis2, align 4
-  %cmp33 = fcmp ogt float %18, 0.000000e+00
-  br i1 %cmp33, label %if.then34, label %if.end35
-
-if.then34:                                        ; preds = %land.lhs.true32
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end35:                                         ; preds = %land.lhs.true32, %land.lhs.true30, %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end35, %if.then34, %if.then
-  %19 = load i1, ptr %retval, align 1
-  ret i1 %19
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK17btTriangleShapeEx13buildTriPlaneER9btVector4(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(16) %plane) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %plane.addr = alloca ptr, align 8
-  %normal = alloca %class.btVector3, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp4 = alloca %class.btVector3, align 4
-  %ref.tmp20 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_vertices1 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices1, i64 0, i64 1
-  %m_vertices12 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices12, i64 0, i64 0
-  %call = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %0 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %1, ptr %0, align 4
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %3, ptr %2, align 4
-  %m_vertices15 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx6 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices15, i64 0, i64 2
-  %m_vertices17 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx8 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices17, i64 0, i64 0
-  %call9 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8)
-  %coerce.dive10 = getelementptr inbounds %class.btVector3, ptr %ref.tmp4, i32 0, i32 0
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive10, i32 0, i32 0
-  %5 = extractvalue { <2 x float>, <2 x float> } %call9, 0
-  store <2 x float> %5, ptr %4, align 4
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive10, i32 0, i32 1
-  %7 = extractvalue { <2 x float>, <2 x float> } %call9, 1
-  store <2 x float> %7, ptr %6, align 4
-  %call11 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp4)
-  %coerce.dive12 = getelementptr inbounds %class.btVector3, ptr %normal, i32 0, i32 0
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 0
-  %9 = extractvalue { <2 x float>, <2 x float> } %call11, 0
-  store <2 x float> %9, ptr %8, align 4
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 1
-  %11 = extractvalue { <2 x float>, <2 x float> } %call11, 1
-  store <2 x float> %11, ptr %10, align 4
-  %call13 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  %12 = load ptr, ptr %plane.addr, align 8
-  %call14 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  %arrayidx15 = getelementptr inbounds float, ptr %call14, i64 0
-  %call16 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  %arrayidx17 = getelementptr inbounds float, ptr %call16, i64 1
-  %call18 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  %arrayidx19 = getelementptr inbounds float, ptr %call18, i64 2
-  %m_vertices121 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
-  %arrayidx22 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices121, i64 0, i64 0
-  %call23 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx22, ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  store float %call23, ptr %ref.tmp20, align 4
-  call void @_ZN9btVector48setValueERKfS1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx15, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx17, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %v) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %0 = load float, ptr %arrayidx, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 0
-  %2 = load float, ptr %arrayidx3, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %3 = load float, ptr %arrayidx5, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %5 = load float, ptr %arrayidx7, align 4
-  %mul8 = fmul float %3, %5
-  %6 = call float @llvm.fmuladd.f32(float %0, float %2, float %mul8)
-  %m_floats9 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [4 x float], ptr %m_floats9, i64 0, i64 2
-  %7 = load float, ptr %arrayidx10, align 4
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_floats11 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_floats11, i64 0, i64 2
-  %9 = load float, ptr %arrayidx12, align 4
-  %10 = call float @llvm.fmuladd.f32(float %7, float %9, float %6)
-  ret float %10
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_Z13bt_edge_planeRK9btVector3S1_S1_R9btVector4(ptr noundef nonnull align 4 dereferenceable(16) %e1, ptr noundef nonnull align 4 dereferenceable(16) %e2, ptr noundef nonnull align 4 dereferenceable(16) %normal, ptr noundef nonnull align 4 dereferenceable(16) %plane) #4 comdat {
-entry:
-  %e1.addr = alloca ptr, align 8
-  %e2.addr = alloca ptr, align 8
-  %normal.addr = alloca ptr, align 8
-  %plane.addr = alloca ptr, align 8
-  %planenormal = alloca %class.btVector3, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp9 = alloca float, align 4
-  store ptr %e1, ptr %e1.addr, align 8
-  store ptr %e2, ptr %e2.addr, align 8
-  store ptr %normal, ptr %normal.addr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  %0 = load ptr, ptr %e2.addr, align 8
-  %1 = load ptr, ptr %e1.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %3, ptr %2, align 4
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %5, ptr %4, align 4
-  %6 = load ptr, ptr %normal.addr, align 8
-  %call1 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %6)
-  %coerce.dive2 = getelementptr inbounds %class.btVector3, ptr %planenormal, i32 0, i32 0
-  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive2, i32 0, i32 0
-  %8 = extractvalue { <2 x float>, <2 x float> } %call1, 0
-  store <2 x float> %8, ptr %7, align 4
-  %9 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive2, i32 0, i32 1
-  %10 = extractvalue { <2 x float>, <2 x float> } %call1, 1
-  store <2 x float> %10, ptr %9, align 4
-  %call3 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %planenormal)
-  %11 = load ptr, ptr %plane.addr, align 8
-  %call4 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %planenormal)
-  %arrayidx = getelementptr inbounds float, ptr %call4, i64 0
-  %call5 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %planenormal)
-  %arrayidx6 = getelementptr inbounds float, ptr %call5, i64 1
-  %call7 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %planenormal)
-  %arrayidx8 = getelementptr inbounds float, ptr %call7, i64 2
-  %12 = load ptr, ptr %e2.addr, align 8
-  %call10 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %planenormal)
-  store float %call10, ptr %ref.tmp9, align 4
-  call void @_ZN9btVector48setValueERKfS1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx6, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_Z13bt_edge_planeRK9btVector3S1_S1_R9btVector4(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) #7 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %class.btVector3, align 4
+  %10 = alloca %class.btVector3, align 4
+  %11 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store ptr %2, ptr %7, align 8, !tbaa !18
+  store ptr %3, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #10
+  %12 = load ptr, ptr %6, align 8, !tbaa !18
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %15 = getelementptr inbounds nuw %class.btVector3, ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %15, i32 0, i32 0
+  %17 = extractvalue { <2 x float>, <2 x float> } %14, 0
+  store <2 x float> %17, ptr %16, align 4
+  %18 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %15, i32 0, i32 1
+  %19 = extractvalue { <2 x float>, <2 x float> } %14, 1
+  store <2 x float> %19, ptr %18, align 4
+  %20 = load ptr, ptr %7, align 8, !tbaa !18
+  %21 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %20)
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %22, i32 0, i32 0
+  %24 = extractvalue { <2 x float>, <2 x float> } %21, 0
+  store <2 x float> %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %22, i32 0, i32 1
+  %26 = extractvalue { <2 x float>, <2 x float> } %21, 1
+  store <2 x float> %26, ptr %25, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #10
+  %27 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %28 = load ptr, ptr %8, align 8, !tbaa !14
+  %29 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %30 = getelementptr inbounds float, ptr %29, i64 0
+  %31 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %32 = getelementptr inbounds float, ptr %31, i64 1
+  %33 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %34 = getelementptr inbounds float, ptr %33, i64 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %35 = load ptr, ptr %6, align 8, !tbaa !18
+  %36 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %9)
+  store float %36, ptr %11, align 4, !tbaa !16
+  call void @_ZN9btVector48setValueERKfS1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #10
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2) #2 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %m_floats1 = getelementptr inbounds %class.btVector3, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [4 x float], ptr %m_floats1, i64 0, i64 0
-  %3 = load float, ptr %arrayidx2, align 4
-  %sub = fsub float %1, %3
-  store float %sub, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v1.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %7 = load float, ptr %arrayidx7, align 4
-  %sub8 = fsub float %5, %7
-  store float %sub8, ptr %ref.tmp3, align 4
-  %8 = load ptr, ptr %v1.addr, align 8
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %9 = load float, ptr %arrayidx11, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %10, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 2
-  %11 = load float, ptr %arrayidx13, align 4
-  %sub14 = fsub float %9, %11
-  store float %sub14, ptr %ref.tmp9, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #4 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !16
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 0
+  %16 = load float, ptr %15, align 4, !tbaa !16
+  %17 = fsub float %12, %16
+  store float %17, ptr %6, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %18 = load ptr, ptr %4, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x float], ptr %19, i64 0, i64 1
+  %21 = load float, ptr %20, align 4, !tbaa !16
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 1
+  %25 = load float, ptr %24, align 4, !tbaa !16
+  %26 = fsub float %21, %25
+  store float %26, ptr %7, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %27 = load ptr, ptr %4, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [4 x float], ptr %28, i64 0, i64 2
+  %30 = load float, ptr %29, align 4, !tbaa !16
+  %31 = load ptr, ptr %5, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x float], ptr %32, i64 0, i64 2
+  %34 = load float, ptr %33, align 4, !tbaa !16
+  %35 = fsub float %30, %34
+  store float %35, ptr %8, align 4, !tbaa !16
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %36 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %37 = load { <2 x float>, <2 x float> }, ptr %36, align 4
+  ret { <2 x float>, <2 x float> } %37
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %v) #2 comdat align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  %ref.tmp20 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 1
-  %0 = load float, ptr %arrayidx, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 2
-  %2 = load float, ptr %arrayidx3, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  %3 = load float, ptr %arrayidx5, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %5 = load float, ptr %arrayidx7, align 4
-  %mul8 = fmul float %3, %5
-  %neg = fneg float %mul8
-  %6 = call float @llvm.fmuladd.f32(float %0, float %2, float %neg)
-  store float %6, ptr %ref.tmp, align 4
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %7 = load float, ptr %arrayidx11, align 4
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 0
-  %9 = load float, ptr %arrayidx13, align 4
-  %m_floats14 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx15 = getelementptr inbounds [4 x float], ptr %m_floats14, i64 0, i64 0
-  %10 = load float, ptr %arrayidx15, align 4
-  %11 = load ptr, ptr %v.addr, align 8
-  %m_floats16 = getelementptr inbounds %class.btVector3, ptr %11, i32 0, i32 0
-  %arrayidx17 = getelementptr inbounds [4 x float], ptr %m_floats16, i64 0, i64 2
-  %12 = load float, ptr %arrayidx17, align 4
-  %mul18 = fmul float %10, %12
-  %neg19 = fneg float %mul18
-  %13 = call float @llvm.fmuladd.f32(float %7, float %9, float %neg19)
-  store float %13, ptr %ref.tmp9, align 4
-  %m_floats21 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx22 = getelementptr inbounds [4 x float], ptr %m_floats21, i64 0, i64 0
-  %14 = load float, ptr %arrayidx22, align 4
-  %15 = load ptr, ptr %v.addr, align 8
-  %m_floats23 = getelementptr inbounds %class.btVector3, ptr %15, i32 0, i32 0
-  %arrayidx24 = getelementptr inbounds [4 x float], ptr %m_floats23, i64 0, i64 1
-  %16 = load float, ptr %arrayidx24, align 4
-  %m_floats25 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx26 = getelementptr inbounds [4 x float], ptr %m_floats25, i64 0, i64 1
-  %17 = load float, ptr %arrayidx26, align 4
-  %18 = load ptr, ptr %v.addr, align 8
-  %m_floats27 = getelementptr inbounds %class.btVector3, ptr %18, i32 0, i32 0
-  %arrayidx28 = getelementptr inbounds [4 x float], ptr %m_floats27, i64 0, i64 0
-  %19 = load float, ptr %arrayidx28, align 4
-  %mul29 = fmul float %17, %19
-  %neg30 = fneg float %mul29
-  %20 = call float @llvm.fmuladd.f32(float %14, float %16, float %neg30)
-  store float %20, ptr %ref.tmp20, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %21 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %21
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #4 comdat align 2 {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 1
+  %12 = load float, ptr %11, align 4, !tbaa !16
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 2
+  %16 = load float, ptr %15, align 4, !tbaa !16
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %18 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
+  %19 = load float, ptr %18, align 4, !tbaa !16
+  %20 = load ptr, ptr %5, align 8, !tbaa !18
+  %21 = getelementptr inbounds nuw %class.btVector3, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [4 x float], ptr %21, i64 0, i64 1
+  %23 = load float, ptr %22, align 4, !tbaa !16
+  %24 = fmul float %19, %23
+  %25 = fneg float %24
+  %26 = call float @llvm.fmuladd.f32(float %12, float %16, float %25)
+  store float %26, ptr %6, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %27 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %28 = getelementptr inbounds [4 x float], ptr %27, i64 0, i64 2
+  %29 = load float, ptr %28, align 4, !tbaa !16
+  %30 = load ptr, ptr %5, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw %class.btVector3, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds [4 x float], ptr %31, i64 0, i64 0
+  %33 = load float, ptr %32, align 4, !tbaa !16
+  %34 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %35 = getelementptr inbounds [4 x float], ptr %34, i64 0, i64 0
+  %36 = load float, ptr %35, align 4, !tbaa !16
+  %37 = load ptr, ptr %5, align 8, !tbaa !18
+  %38 = getelementptr inbounds nuw %class.btVector3, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds [4 x float], ptr %38, i64 0, i64 2
+  %40 = load float, ptr %39, align 4, !tbaa !16
+  %41 = fmul float %36, %40
+  %42 = fneg float %41
+  %43 = call float @llvm.fmuladd.f32(float %29, float %33, float %42)
+  store float %43, ptr %7, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %44 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %45 = getelementptr inbounds [4 x float], ptr %44, i64 0, i64 0
+  %46 = load float, ptr %45, align 4, !tbaa !16
+  %47 = load ptr, ptr %5, align 8, !tbaa !18
+  %48 = getelementptr inbounds nuw %class.btVector3, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds [4 x float], ptr %48, i64 0, i64 1
+  %50 = load float, ptr %49, align 4, !tbaa !16
+  %51 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %52 = getelementptr inbounds [4 x float], ptr %51, i64 0, i64 1
+  %53 = load float, ptr %52, align 4, !tbaa !16
+  %54 = load ptr, ptr %5, align 8, !tbaa !18
+  %55 = getelementptr inbounds nuw %class.btVector3, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds [4 x float], ptr %55, i64 0, i64 0
+  %57 = load float, ptr %56, align 4, !tbaa !16
+  %58 = fmul float %53, %57
+  %59 = fneg float %58
+  %60 = call float @llvm.fmuladd.f32(float %46, float %50, float %59)
+  store float %60, ptr %8, align 4, !tbaa !16
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %61 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %62 = load { <2 x float>, <2 x float> }, ptr %61, align 4
+  ret { <2 x float>, <2 x float> } %62
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %this1)
-  store float %call, ptr %ref.tmp, align 4
-  %call2 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %this1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  ret ptr %call2
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca float, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  %5 = call noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  store float %5, ptr %3, align 4, !tbaa !16
+  %6 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector48setValueERKfS1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %_x, ptr noundef nonnull align 4 dereferenceable(4) %_y, ptr noundef nonnull align 4 dereferenceable(4) %_z, ptr noundef nonnull align 4 dereferenceable(4) %_w) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca ptr, align 8
-  %_y.addr = alloca ptr, align 8
-  %_z.addr = alloca ptr, align 8
-  %_w.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_x, ptr %_x.addr, align 8
-  store ptr %_y, ptr %_y.addr, align 8
-  store ptr %_z, ptr %_z.addr, align 8
-  store ptr %_w, ptr %_w.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %_x.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  store float %1, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %_y.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  store float %3, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %_z.addr, align 8
-  %5 = load float, ptr %4, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  store float %5, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %_w.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 3
-  store float %7, ptr %arrayidx7, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector48setValueERKfS1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !14
+  store ptr %1, ptr %7, align 8, !tbaa !34
+  store ptr %2, ptr %8, align 8, !tbaa !34
+  store ptr %3, ptr %9, align 8, !tbaa !34
+  store ptr %4, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %7, align 8, !tbaa !34
+  %13 = load float, ptr %12, align 4, !tbaa !16
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 0
+  store float %13, ptr %15, align 4, !tbaa !16
+  %16 = load ptr, ptr %8, align 8, !tbaa !34
+  %17 = load float, ptr %16, align 4, !tbaa !16
+  %18 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %19 = getelementptr inbounds [4 x float], ptr %18, i64 0, i64 1
+  store float %17, ptr %19, align 4, !tbaa !16
+  %20 = load ptr, ptr %9, align 8, !tbaa !34
+  %21 = load float, ptr %20, align 4, !tbaa !16
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 2
+  store float %21, ptr %23, align 4, !tbaa !16
+  %24 = load ptr, ptr %10, align 8, !tbaa !34
+  %25 = load float, ptr %24, align 4, !tbaa !16
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %27 = getelementptr inbounds [4 x float], ptr %26, i64 0, i64 3
+  store float %25, ptr %27, align 4, !tbaa !16
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %_x, ptr noundef nonnull align 4 dereferenceable(4) %_y, ptr noundef nonnull align 4 dereferenceable(4) %_z) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca ptr, align 8
-  %_y.addr = alloca ptr, align 8
-  %_z.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_x, ptr %_x.addr, align 8
-  store ptr %_y, ptr %_y.addr, align 8
-  store ptr %_z, ptr %_z.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %_x.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  store float %1, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %_y.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  store float %3, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %_z.addr, align 8
-  %5 = load float, ptr %4, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  store float %5, ptr %arrayidx5, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx7, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !34
+  store ptr %2, ptr %7, align 8, !tbaa !34
+  store ptr %3, ptr %8, align 8, !tbaa !34
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !34
+  %11 = load float, ptr %10, align 4, !tbaa !16
+  %12 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 0
+  store float %11, ptr %13, align 4, !tbaa !16
+  %14 = load ptr, ptr %7, align 8, !tbaa !34
+  %15 = load float, ptr %14, align 4, !tbaa !16
+  %16 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %17 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 1
+  store float %15, ptr %17, align 4, !tbaa !16
+  %18 = load ptr, ptr %8, align 8, !tbaa !34
+  %19 = load float, ptr %18, align 4, !tbaa !16
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  store float %19, ptr %21, align 4, !tbaa !16
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 3
+  store float 0.000000e+00, ptr %23, align 4, !tbaa !16
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this1)
-  %call2 = call noundef float @_Z6btSqrtf(float noundef %call)
-  ret float %call2
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %3)
+  %5 = call noundef float @_Z6btSqrtf(float noundef %4)
+  ret float %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %s) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %div = fdiv float 1.000000e+00, %1
-  store float %div, ptr %ref.tmp, align 4
-  %call = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %this1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %7 = load ptr, ptr %4, align 8, !tbaa !34
+  %8 = load float, ptr %7, align 4, !tbaa !16
+  %9 = fdiv float 1.000000e+00, %8
+  store float %9, ptr %5, align 4, !tbaa !16
+  %10 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_Z6btSqrtf(float noundef %y) #1 comdat {
-entry:
-  %y.addr = alloca float, align 4
-  store float %y, ptr %y.addr, align 4
-  %0 = load float, ptr %y.addr, align 4
-  %call = call float @sqrtf(float noundef %0) #7
-  ret float %call
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_Z6btSqrtf(float noundef %0) #6 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !16
+  %3 = load float, ptr %2, align 4, !tbaa !16
+  %4 = call float @sqrtf(float noundef %3) #10, !tbaa !9
+  ret float %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this1, ptr noundef nonnull align 4 dereferenceable(16) %this1)
-  ret float %call
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %3)
+  ret float %4
 }
 
 ; Function Attrs: nounwind
-declare float @sqrtf(float noundef) #6
+declare float @sqrtf(float noundef) #9
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %point0, ptr noundef nonnull align 4 dereferenceable(16) %point1, float noundef %dist0, float noundef %dist1, ptr noundef %clipped, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count) #2 comdat {
-entry:
-  %point0.addr = alloca ptr, align 8
-  %point1.addr = alloca ptr, align 8
-  %dist0.addr = alloca float, align 4
-  %dist1.addr = alloca float, align 4
-  %clipped.addr = alloca ptr, align 8
-  %clipped_count.addr = alloca ptr, align 8
-  %_prevclassif = alloca i8, align 1
-  %_classif = alloca i8, align 1
-  %blendfactor = alloca float, align 4
-  store ptr %point0, ptr %point0.addr, align 8
-  store ptr %point1, ptr %point1.addr, align 8
-  store float %dist0, ptr %dist0.addr, align 4
-  store float %dist1, ptr %dist1.addr, align 4
-  store ptr %clipped, ptr %clipped.addr, align 8
-  store ptr %clipped_count, ptr %clipped_count.addr, align 8
-  %0 = load float, ptr %dist0.addr, align 4
-  %cmp = fcmp ogt float %0, 0x3E80000000000000
-  %frombool = zext i1 %cmp to i8
-  store i8 %frombool, ptr %_prevclassif, align 1
-  %1 = load float, ptr %dist1.addr, align 4
-  %cmp1 = fcmp ogt float %1, 0x3E80000000000000
-  %frombool2 = zext i1 %cmp1 to i8
-  store i8 %frombool2, ptr %_classif, align 1
-  %2 = load i8, ptr %_classif, align 1
-  %tobool = trunc i8 %2 to i1
-  %conv = zext i1 %tobool to i32
-  %3 = load i8, ptr %_prevclassif, align 1
-  %tobool3 = trunc i8 %3 to i1
-  %conv4 = zext i1 %tobool3 to i32
-  %cmp5 = icmp ne i32 %conv, %conv4
-  br i1 %cmp5, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) #4 comdat {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  %15 = alloca float, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !18
+  store ptr %1, ptr %8, align 8, !tbaa !18
+  store float %2, ptr %9, align 4, !tbaa !16
+  store float %3, ptr %10, align 4, !tbaa !16
+  store ptr %4, ptr %11, align 8, !tbaa !18
+  store ptr %5, ptr %12, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #10
+  %16 = load float, ptr %9, align 4, !tbaa !16
+  %17 = fcmp ogt float %16, 0x3E80000000000000
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %13, align 1, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
+  %19 = load float, ptr %10, align 4, !tbaa !16
+  %20 = fcmp ogt float %19, 0x3E80000000000000
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr %14, align 1, !tbaa !43
+  %22 = load i8, ptr %14, align 1, !tbaa !43, !range !45, !noundef !46
+  %23 = trunc i8 %22 to i1
+  %24 = zext i1 %23 to i32
+  %25 = load i8, ptr %13, align 1, !tbaa !43, !range !45, !noundef !46
+  %26 = trunc i8 %25 to i1
+  %27 = zext i1 %26 to i32
+  %28 = icmp ne i32 %24, %27
+  br i1 %28, label %29, label %47
 
-if.then:                                          ; preds = %entry
-  %4 = load float, ptr %dist0.addr, align 4
-  %fneg = fneg float %4
-  %5 = load float, ptr %dist1.addr, align 4
-  %6 = load float, ptr %dist0.addr, align 4
-  %sub = fsub float %5, %6
-  %div = fdiv float %fneg, %sub
-  store float %div, ptr %blendfactor, align 4
-  %7 = load ptr, ptr %clipped.addr, align 8
-  %8 = load ptr, ptr %clipped_count.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %7, i64 %idxprom
-  %10 = load ptr, ptr %point0.addr, align 8
-  %11 = load ptr, ptr %point1.addr, align 8
-  %12 = load float, ptr %blendfactor, align 4
-  call void @_Z12bt_vec_blendR9btVector3RKS_S2_f(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %11, float noundef %12)
-  %13 = load ptr, ptr %clipped_count.addr, align 8
-  %14 = load i32, ptr %13, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %13, align 4
-  br label %if.end
+29:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  %30 = load float, ptr %9, align 4, !tbaa !16
+  %31 = fneg float %30
+  %32 = load float, ptr %10, align 4, !tbaa !16
+  %33 = load float, ptr %9, align 4, !tbaa !16
+  %34 = fsub float %32, %33
+  %35 = fdiv float %31, %34
+  store float %35, ptr %15, align 4, !tbaa !16
+  %36 = load ptr, ptr %11, align 8, !tbaa !18
+  %37 = load ptr, ptr %12, align 8, !tbaa !41
+  %38 = load i32, ptr %37, align 4, !tbaa !9
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %class.btVector3, ptr %36, i64 %39
+  %41 = load ptr, ptr %7, align 8, !tbaa !18
+  %42 = load ptr, ptr %8, align 8, !tbaa !18
+  %43 = load float, ptr %15, align 4, !tbaa !16
+  call void @_Z12bt_vec_blendR9btVector3RKS_S2_f(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %42, float noundef %43)
+  %44 = load ptr, ptr %12, align 8, !tbaa !41
+  %45 = load i32, ptr %44, align 4, !tbaa !9
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %44, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  br label %47
 
-if.end:                                           ; preds = %if.then, %entry
-  %15 = load i8, ptr %_classif, align 1
-  %tobool6 = trunc i8 %15 to i1
-  br i1 %tobool6, label %if.end11, label %if.then7
+47:                                               ; preds = %29, %6
+  %48 = load i8, ptr %14, align 1, !tbaa !43, !range !45, !noundef !46
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %60, label %50
 
-if.then7:                                         ; preds = %if.end
-  %16 = load ptr, ptr %point1.addr, align 8
-  %17 = load ptr, ptr %clipped.addr, align 8
-  %18 = load ptr, ptr %clipped_count.addr, align 8
-  %19 = load i32, ptr %18, align 4
-  %idxprom8 = sext i32 %19 to i64
-  %arrayidx9 = getelementptr inbounds %class.btVector3, ptr %17, i64 %idxprom8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx9, ptr align 4 %16, i64 16, i1 false)
-  %20 = load ptr, ptr %clipped_count.addr, align 8
-  %21 = load i32, ptr %20, align 4
-  %inc10 = add nsw i32 %21, 1
-  store i32 %inc10, ptr %20, align 4
-  br label %if.end11
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %8, align 8, !tbaa !18
+  %52 = load ptr, ptr %11, align 8, !tbaa !18
+  %53 = load ptr, ptr %12, align 8, !tbaa !41
+  %54 = load i32, ptr %53, align 4, !tbaa !9
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds %class.btVector3, ptr %52, i64 %55
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %56, ptr align 4 %51, i64 16, i1 false), !tbaa.struct !27
+  %57 = load ptr, ptr %12, align 8, !tbaa !41
+  %58 = load i32, ptr %57, align 4, !tbaa !9
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %57, align 4, !tbaa !9
+  br label %60
 
-if.end11:                                         ; preds = %if.then7, %if.end
+60:                                               ; preds = %50, %47
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #10
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_Z12bt_vec_blendR9btVector3RKS_S2_f(ptr noundef nonnull align 4 dereferenceable(16) %vr, ptr noundef nonnull align 4 dereferenceable(16) %va, ptr noundef nonnull align 4 dereferenceable(16) %vb, float noundef %blend_factor) #4 comdat {
-entry:
-  %vr.addr = alloca ptr, align 8
-  %va.addr = alloca ptr, align 8
-  %vb.addr = alloca ptr, align 8
-  %blend_factor.addr = alloca float, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp1 = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca %class.btVector3, align 4
-  store ptr %vr, ptr %vr.addr, align 8
-  store ptr %va, ptr %va.addr, align 8
-  store ptr %vb, ptr %vb.addr, align 8
-  store float %blend_factor, ptr %blend_factor.addr, align 4
-  %0 = load float, ptr %blend_factor.addr, align 4
-  %sub = fsub float 1.000000e+00, %0
-  store float %sub, ptr %ref.tmp2, align 4
-  %1 = load ptr, ptr %va.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp1, i32 0, i32 0
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %3, ptr %2, align 4
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %5, ptr %4, align 4
-  %6 = load ptr, ptr %vb.addr, align 8
-  %call4 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %blend_factor.addr, ptr noundef nonnull align 4 dereferenceable(16) %6)
-  %coerce.dive5 = getelementptr inbounds %class.btVector3, ptr %ref.tmp3, i32 0, i32 0
-  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive5, i32 0, i32 0
-  %8 = extractvalue { <2 x float>, <2 x float> } %call4, 0
-  store <2 x float> %8, ptr %7, align 4
-  %9 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive5, i32 0, i32 1
-  %10 = extractvalue { <2 x float>, <2 x float> } %call4, 1
-  store <2 x float> %10, ptr %9, align 4
-  %call6 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp3)
-  %coerce.dive7 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive7, i32 0, i32 0
-  %12 = extractvalue { <2 x float>, <2 x float> } %call6, 0
-  store <2 x float> %12, ptr %11, align 4
-  %13 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive7, i32 0, i32 1
-  %14 = extractvalue { <2 x float>, <2 x float> } %call6, 1
-  store <2 x float> %14, ptr %13, align 4
-  %15 = load ptr, ptr %vr.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %ref.tmp, i64 16, i1 false)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_Z12bt_vec_blendR9btVector3RKS_S2_f(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef %3) #7 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca %class.btVector3, align 4
+  %10 = alloca %class.btVector3, align 4
+  %11 = alloca float, align 4
+  %12 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store ptr %2, ptr %7, align 8, !tbaa !18
+  store float %3, ptr %8, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %13 = load float, ptr %8, align 4, !tbaa !16
+  %14 = fsub float 1.000000e+00, %13
+  store float %14, ptr %11, align 4, !tbaa !16
+  %15 = load ptr, ptr %6, align 8, !tbaa !18
+  %16 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(16) %15)
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %10, i32 0, i32 0
+  %18 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %17, i32 0, i32 0
+  %19 = extractvalue { <2 x float>, <2 x float> } %16, 0
+  store <2 x float> %19, ptr %18, align 4
+  %20 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %17, i32 0, i32 1
+  %21 = extractvalue { <2 x float>, <2 x float> } %16, 1
+  store <2 x float> %21, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #10
+  %22 = load ptr, ptr %7, align 8, !tbaa !18
+  %23 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(16) %22)
+  %24 = getelementptr inbounds nuw %class.btVector3, ptr %12, i32 0, i32 0
+  %25 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %24, i32 0, i32 0
+  %26 = extractvalue { <2 x float>, <2 x float> } %23, 0
+  store <2 x float> %26, ptr %25, align 4
+  %27 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %24, i32 0, i32 1
+  %28 = extractvalue { <2 x float>, <2 x float> } %23, 1
+  store <2 x float> %28, ptr %27, align 4
+  %29 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %30 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %31 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %30, i32 0, i32 0
+  %32 = extractvalue { <2 x float>, <2 x float> } %29, 0
+  store <2 x float> %32, ptr %31, align 4
+  %33 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %30, i32 0, i32 1
+  %34 = extractvalue { <2 x float>, <2 x float> } %29, 1
+  store <2 x float> %34, ptr %33, align 4
+  %35 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %35, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #10
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2) #2 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %m_floats1 = getelementptr inbounds %class.btVector3, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [4 x float], ptr %m_floats1, i64 0, i64 0
-  %3 = load float, ptr %arrayidx2, align 4
-  %add = fadd float %1, %3
-  store float %add, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v1.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %7 = load float, ptr %arrayidx7, align 4
-  %add8 = fadd float %5, %7
-  store float %add8, ptr %ref.tmp3, align 4
-  %8 = load ptr, ptr %v1.addr, align 8
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %9 = load float, ptr %arrayidx11, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %10, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 2
-  %11 = load float, ptr %arrayidx13, align 4
-  %add14 = fadd float %9, %11
-  store float %add14, ptr %ref.tmp9, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #4 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !16
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 0
+  %16 = load float, ptr %15, align 4, !tbaa !16
+  %17 = fadd float %12, %16
+  store float %17, ptr %6, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %18 = load ptr, ptr %4, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x float], ptr %19, i64 0, i64 1
+  %21 = load float, ptr %20, align 4, !tbaa !16
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 1
+  %25 = load float, ptr %24, align 4, !tbaa !16
+  %26 = fadd float %21, %25
+  store float %26, ptr %7, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %27 = load ptr, ptr %4, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [4 x float], ptr %28, i64 0, i64 2
+  %30 = load float, ptr %29, align 4, !tbaa !16
+  %31 = load ptr, ptr %5, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x float], ptr %32, i64 0, i64 2
+  %34 = load float, ptr %33, align 4, !tbaa !16
+  %35 = fadd float %30, %34
+  store float %35, ptr %8, align 4, !tbaa !16
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %36 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %37 = load { <2 x float>, <2 x float> }, ptr %36, align 4
+  ret { <2 x float>, <2 x float> } %37
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %s, ptr noundef nonnull align 4 dereferenceable(16) %v) #4 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %s.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %3, ptr %2, align 4
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %5, ptr %4, align 4
-  %coerce.dive1 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %6 = load { <2 x float>, <2 x float> }, ptr %coerce.dive1, align 4
-  ret { <2 x float>, <2 x float> } %6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #7 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8, !tbaa !34
+  %8 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %9 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %9, i32 0, i32 0
+  %11 = extractvalue { <2 x float>, <2 x float> } %8, 0
+  store <2 x float> %11, ptr %10, align 4
+  %12 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %9, i32 0, i32 1
+  %13 = extractvalue { <2 x float>, <2 x float> } %8, 1
+  store <2 x float> %13, ptr %12, align 4
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %15 = load { <2 x float>, <2 x float> }, ptr %14, align 4
+  ret { <2 x float>, <2 x float> } %15
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(4) %s) #2 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp1 = alloca float, align 4
-  %ref.tmp5 = alloca float, align 4
-  store ptr %v, ptr %v.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %mul = fmul float %1, %3
-  store float %mul, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  %5 = load float, ptr %arrayidx3, align 4
-  %6 = load ptr, ptr %s.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %mul4 = fmul float %5, %7
-  store float %mul4, ptr %ref.tmp1, align 4
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 2
-  %9 = load float, ptr %arrayidx7, align 4
-  %10 = load ptr, ptr %s.addr, align 8
-  %11 = load float, ptr %10, align 4
-  %mul8 = fmul float %9, %11
-  store float %mul8, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !16
+  %13 = load ptr, ptr %5, align 8, !tbaa !34
+  %14 = load float, ptr %13, align 4, !tbaa !16
+  %15 = fmul float %12, %14
+  store float %15, ptr %6, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %16 = load ptr, ptr %4, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  %19 = load float, ptr %18, align 4, !tbaa !16
+  %20 = load ptr, ptr %5, align 8, !tbaa !34
+  %21 = load float, ptr %20, align 4, !tbaa !16
+  %22 = fmul float %19, %21
+  store float %22, ptr %7, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %23 = load ptr, ptr %4, align 8, !tbaa !18
+  %24 = getelementptr inbounds nuw %class.btVector3, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [4 x float], ptr %24, i64 0, i64 2
+  %26 = load float, ptr %25, align 4, !tbaa !16
+  %27 = load ptr, ptr %5, align 8, !tbaa !34
+  %28 = load float, ptr %27, align 4, !tbaa !16
+  %29 = fmul float %26, %28
+  store float %29, ptr %8, align 4, !tbaa !16
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %30 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %31 = load { <2 x float>, <2 x float> }, ptr %30, align 4
+  ret { <2 x float>, <2 x float> } %31
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_btTriangleShapeEx.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS20GIM_TRIANGLE_CONTACT", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS9btVector4", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"float", !7, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS9btVector3", !6, i64 0}
+!20 = !{!21, !10, i64 4}
+!21 = !{!"_ZTS20GIM_TRIANGLE_CONTACT", !17, i64 0, !10, i64 4, !22, i64 8, !7, i64 24}
+!22 = !{!"_ZTS9btVector4", !23, i64 0}
+!23 = !{!"_ZTS9btVector3", !7, i64 0}
+!24 = !{!21, !17, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{i64 0, i64 16, !11}
+!28 = distinct !{!28, !26}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS19btPrimitiveTriangle", !6, i64 0}
+!31 = !{!32, !17, i64 64}
+!32 = !{!"_ZTS19btPrimitiveTriangle", !7, i64 0, !22, i64 48, !17, i64 64, !17, i64 68}
+!33 = distinct !{!33, !26}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 float", !6, i64 0}
+!36 = distinct !{!36, !26}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS17btTriangleShapeEx", !6, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"vtable pointer", !8, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 int", !6, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"bool", !7, i64 0}
+!45 = !{i8 0, i8 2}
+!46 = !{}

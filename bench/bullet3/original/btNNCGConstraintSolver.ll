@@ -1,36 +1,29 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
-%class.btNNCGConstraintSolver = type <{ %class.btSequentialImpulseConstraintSolver, float, [4 x i8], %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, i8, [7 x i8] }>
-%class.btSequentialImpulseConstraintSolver = type { %class.btConstraintSolver, %class.btAlignedObjectArray, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.8, i32, i32, %class.btAlignedObjectArray.4, ptr, ptr, ptr, i32, float, i64, %struct.btSolverAnalyticsData }
+%class.btNNCGConstraintSolver = type <{ %class.btSequentialImpulseConstraintSolver, float, [4 x i8], %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, i8, [7 x i8] }>
+%class.btSequentialImpulseConstraintSolver = type { %class.btConstraintSolver, %class.btAlignedObjectArray, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.4, i32, i32, %class.btAlignedObjectArray.2, ptr, ptr, ptr, i32, float, i64, %struct.btSolverAnalyticsData }
 %class.btConstraintSolver = type { ptr }
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
+%class.btAlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.0 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.4 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %struct.btSolverAnalyticsData = type { i32, i32, i32, i32, i32, double }
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
+%class.btAlignedObjectArray.6 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btVector3 = type { [4 x float] }
 %struct.btContactSolverInfoData = type { float, float, float, float, float, i32, float, float, float, float, float, float, float, float, float, float, i32, float, float, float, float, float, i32, i32, i32, float, float, float, float, i8, i8, i32, i32 }
-%struct.btSolverConstraint = type { %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, float, float, float, float, %union.anon.16, i32, i32, i32, i32 }
-%union.anon.16 = type { ptr }
+%struct.btSolverConstraint = type { %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, float, float, float, float, %union.anon.8, i32, i32, i32, i32 }
+%union.anon.8 = type { ptr }
 %struct.btSolverBody = type { %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, ptr }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btTypedConstraint = type { ptr, %struct.btTypedObject, i32, %union.anon.17, float, i8, i8, i32, ptr, ptr, float, float, ptr }
+%class.btTypedConstraint = type { ptr, %struct.btTypedObject, i32, %union.anon.9, float, i8, i8, i32, ptr, ptr, float, float, ptr }
 %struct.btTypedObject = type { i32 }
-%union.anon.17 = type { ptr }
+%union.anon.9 = type { ptr }
 
 $_ZN18btInfMaskConverterC2Ei = comdat any
-
-$_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv = comdat any
 
 $_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi = comdat any
 
@@ -55,16 +48,6 @@ $_ZNK17btTypedConstraint9isEnabledEv = comdat any
 $_ZN17btTypedConstraint13getRigidBodyAEv = comdat any
 
 $_ZN17btTypedConstraint13getRigidBodyBEv = comdat any
-
-$_ZN17btTypedConstraintD2Ev = comdat any
-
-$_ZN17btTypedConstraintD0Ev = comdat any
-
-$_ZN17btTypedConstraint13buildJacobianEv = comdat any
-
-$_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif = comdat any
-
-$_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f = comdat any
 
 $_ZN22btNNCGConstraintSolverD2Ev = comdat any
 
@@ -112,2612 +95,2783 @@ $_ZNK20btAlignedObjectArrayIfE4copyEiiPf = comdat any
 
 $_ZN18btAlignedAllocatorIfLj16EE8allocateEiPPKf = comdat any
 
-$_ZTV17btTypedConstraint = comdat any
-
-$_ZTS17btTypedConstraint = comdat any
-
-$_ZTS13btTypedObject = comdat any
-
-$_ZTI13btTypedObject = comdat any
-
-$_ZTI17btTypedConstraint = comdat any
-
 @_ZL14btInfinityMask = internal global %struct.btInfMaskConverter zeroinitializer, align 4
-@_ZTV17btTypedConstraint = linkonce_odr dso_local unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTI17btTypedConstraint, ptr @_ZN17btTypedConstraintD2Ev, ptr @_ZN17btTypedConstraintD0Ev, ptr @_ZN17btTypedConstraint13buildJacobianEv, ptr @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv, ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer] }, comdat, align 8
-@_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
-@_ZTS17btTypedConstraint = linkonce_odr dso_local constant [20 x i8] c"17btTypedConstraint\00", comdat, align 1
-@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTS13btTypedObject = linkonce_odr dso_local constant [16 x i8] c"13btTypedObject\00", comdat, align 1
-@_ZTI13btTypedObject = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS13btTypedObject }, comdat, align 8
-@_ZTI17btTypedConstraint = linkonce_odr dso_local constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTS17btTypedConstraint, i32 0, i32 1, ptr @_ZTI13btTypedObject, i64 2050 }, comdat, align 8
 @_ZTV22btNNCGConstraintSolver = dso_local unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI22btNNCGConstraintSolver, ptr @_ZN22btNNCGConstraintSolverD2Ev, ptr @_ZN22btNNCGConstraintSolverD0Ev, ptr @_ZN18btConstraintSolver12prepareSolveEii, ptr @_ZN35btSequentialImpulseConstraintSolver10solveGroupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDrawP12btDispatcher, ptr @_ZN18btConstraintSolver9allSolvedERK19btContactSolverInfoP12btIDebugDraw, ptr @_ZN35btSequentialImpulseConstraintSolver5resetEv, ptr @_ZNK22btNNCGConstraintSolver13getSolverTypeEv, ptr @_ZN35btSequentialImpulseConstraintSolver15convertContactsEPP20btPersistentManifoldiRK19btContactSolverInfo, ptr @_ZN35btSequentialImpulseConstraintSolver13convertJointsEPP17btTypedConstraintiRK19btContactSolverInfo, ptr @_ZN35btSequentialImpulseConstraintSolver13convertBodiesEPP17btCollisionObjectiRK19btContactSolverInfo, ptr @_ZN35btSequentialImpulseConstraintSolver45solveGroupCacheFriendlySplitImpulseIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw, ptr @_ZN22btNNCGConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo, ptr @_ZN22btNNCGConstraintSolver20solveSingleIterationEiPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw, ptr @_ZN22btNNCGConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw, ptr @_ZN35btSequentialImpulseConstraintSolver33solveGroupCacheFriendlyIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw] }, align 8
+@_ZTI22btNNCGConstraintSolver = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS22btNNCGConstraintSolver, ptr @_ZTI35btSequentialImpulseConstraintSolver }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS22btNNCGConstraintSolver = dso_local constant [25 x i8] c"22btNNCGConstraintSolver\00", align 1
 @_ZTI35btSequentialImpulseConstraintSolver = external constant ptr
-@_ZTI22btNNCGConstraintSolver = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS22btNNCGConstraintSolver, ptr @_ZTI35btSequentialImpulseConstraintSolver }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_btNNCGConstraintSolver.cpp, ptr null }]
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret i32 64
+; Function Attrs: mustprogress uwtable
+define dso_local noundef float @_ZN22btNNCGConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(673) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(128) %7, ptr noundef %8) unnamed_addr #2 align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca float, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !12
+  store ptr %1, ptr %11, align 8, !tbaa !14
+  store i32 %2, ptr %12, align 4, !tbaa !9
+  store ptr %3, ptr %13, align 8, !tbaa !16
+  store i32 %4, ptr %14, align 4, !tbaa !9
+  store ptr %5, ptr %15, align 8, !tbaa !18
+  store i32 %6, ptr %16, align 4, !tbaa !9
+  store ptr %7, ptr %17, align 8, !tbaa !20
+  store ptr %8, ptr %18, align 8, !tbaa !22
+  %20 = load ptr, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #12
+  %21 = load ptr, ptr %11, align 8, !tbaa !14
+  %22 = load i32, ptr %12, align 4, !tbaa !9
+  %23 = load ptr, ptr %13, align 8, !tbaa !16
+  %24 = load i32, ptr %14, align 4, !tbaa !9
+  %25 = load ptr, ptr %15, align 8, !tbaa !18
+  %26 = load i32, ptr %16, align 4, !tbaa !9
+  %27 = load ptr, ptr %17, align 8, !tbaa !20
+  %28 = load ptr, ptr %18, align 8, !tbaa !22
+  %29 = call noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408) %20, ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(128) %27, ptr noundef %28)
+  store float %29, ptr %19, align 4, !tbaa !24
+  %30 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 3
+  %31 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 3
+  %32 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %31)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %30, i32 noundef %32)
+  %33 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 4
+  %34 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 2
+  %35 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %34)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %33, i32 noundef %35)
+  %36 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 5
+  %37 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 4
+  %38 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %37)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %36, i32 noundef %38)
+  %39 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 6
+  %40 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 5
+  %41 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %40)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %39, i32 noundef %41)
+  %42 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 7
+  %43 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 3
+  %44 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %43)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %42, i32 noundef %44)
+  %45 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 8
+  %46 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 2
+  %47 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %46)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %45, i32 noundef %47)
+  %48 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 9
+  %49 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 4
+  %50 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %49)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %48, i32 noundef %50)
+  %51 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %20, i32 0, i32 10
+  %52 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %20, i32 0, i32 5
+  %53 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %52)
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %51, i32 noundef %53)
+  %54 = load float, ptr %19, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #12
+  ret float %54
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN22btNNCGConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(673) %this, ptr noundef %bodies, i32 noundef %numBodies, ptr noundef %manifoldPtr, i32 noundef %numManifolds, ptr noundef %constraints, i32 noundef %numConstraints, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %debugDrawer) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %bodies.addr = alloca ptr, align 8
-  %numBodies.addr = alloca i32, align 4
-  %manifoldPtr.addr = alloca ptr, align 8
-  %numManifolds.addr = alloca i32, align 4
-  %constraints.addr = alloca ptr, align 8
-  %numConstraints.addr = alloca i32, align 4
-  %infoGlobal.addr = alloca ptr, align 8
-  %debugDrawer.addr = alloca ptr, align 8
-  %val = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %bodies, ptr %bodies.addr, align 8
-  store i32 %numBodies, ptr %numBodies.addr, align 4
-  store ptr %manifoldPtr, ptr %manifoldPtr.addr, align 8
-  store i32 %numManifolds, ptr %numManifolds.addr, align 4
-  store ptr %constraints, ptr %constraints.addr, align 8
-  store i32 %numConstraints, ptr %numConstraints.addr, align 4
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  store ptr %debugDrawer, ptr %debugDrawer.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %bodies.addr, align 8
-  %1 = load i32, ptr %numBodies.addr, align 4
-  %2 = load ptr, ptr %manifoldPtr.addr, align 8
-  %3 = load i32, ptr %numManifolds.addr, align 4
-  %4 = load ptr, ptr %constraints.addr, align 8
-  %5 = load i32, ptr %numConstraints.addr, align 4
-  %6 = load ptr, ptr %infoGlobal.addr, align 8
-  %7 = load ptr, ptr %debugDrawer.addr, align 8
-  %call = call noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(128) %6, ptr noundef %7)
-  store float %call, ptr %val, align 4
-  %m_pNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 3
-  %m_tmpSolverNonContactConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 3
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC, i32 noundef %call2)
-  %m_pC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 4
-  %m_tmpSolverContactConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 2
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pC, i32 noundef %call3)
-  %m_pCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 5
-  %m_tmpSolverContactFrictionConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 4
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF, i32 noundef %call4)
-  %m_pCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 6
-  %m_tmpSolverContactRollingFrictionConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 5
-  %call5 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF, i32 noundef %call5)
-  %m_deltafNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 7
-  %m_tmpSolverNonContactConstraintPool6 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 3
-  %call7 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool6)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC, i32 noundef %call7)
-  %m_deltafC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 8
-  %m_tmpSolverContactConstraintPool8 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 2
-  %call9 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool8)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafC, i32 noundef %call9)
-  %m_deltafCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 9
-  %m_tmpSolverContactFrictionConstraintPool10 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 4
-  %call11 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool10)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF, i32 noundef %call11)
-  %m_deltafCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 10
-  %m_tmpSolverContactRollingFrictionConstraintPool12 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this1, i32 0, i32 5
-  %call13 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool12)
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCRF, i32 noundef %call13)
-  %8 = load float, ptr %val, align 4
-  ret float %8
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #3
+declare noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #4
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %newsize.addr, align 4
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp sgt i32 %0, %call
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !9
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
+  %8 = icmp sgt i32 %6, %7
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIfE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  br label %if.end
+9:                                                ; preds = %2
+  %10 = load i32, ptr %4, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIfE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %10)
+  br label %11
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  store i32 %2, ptr %m_size, align 4
+11:                                               ; preds = %9, %2
+  %12 = load i32, ptr %4, align 4, !tbaa !9
+  %13 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %5, i32 0, i32 1
+  store i32 %12, ptr %13, align 4, !tbaa !28
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !35
+  ret i32 %5
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN22btNNCGConstraintSolver20solveSingleIterationEiPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(673) %this, i32 noundef %iteration, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %constraints, i32 noundef %numConstraints, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %4) unnamed_addr #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %iteration.addr = alloca i32, align 4
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca i32, align 4
-  %.addr2 = alloca ptr, align 8
-  %.addr3 = alloca i32, align 4
-  %constraints.addr = alloca ptr, align 8
-  %numConstraints.addr = alloca i32, align 4
-  %infoGlobal.addr = alloca ptr, align 8
-  %.addr4 = alloca ptr, align 8
-  %numNonContactPool = alloca i32, align 4
-  %numConstraintPool = alloca i32, align 4
-  %numFrictionPool = alloca i32, align 4
-  %j = alloca i32, align 4
-  %tmp = alloca i32, align 4
-  %swapi = alloca i32, align 4
-  %j18 = alloca i32, align 4
-  %tmp22 = alloca i32, align 4
-  %swapi24 = alloca i32, align 4
-  %j36 = alloca i32, align 4
-  %tmp40 = alloca i32, align 4
-  %swapi42 = alloca i32, align 4
-  %deltaflengthsqr = alloca float, align 4
-  %j55 = alloca i32, align 4
-  %constraint = alloca ptr, align 8
-  %deltaf = alloca float, align 4
-  %j80 = alloca i32, align 4
-  %beta = alloca float, align 4
-  %j96 = alloca i32, align 4
-  %j108 = alloca i32, align 4
-  %constraint114 = alloca ptr, align 8
-  %additionaldeltaimpulse = alloca float, align 4
-  %body1 = alloca ptr, align 8
-  %body2 = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp141 = alloca %class.btVector3, align 4
-  %j156 = alloca i32, align 4
-  %bodyAid = alloca i32, align 4
-  %bodyBid = alloca i32, align 4
-  %bodyA = alloca ptr, align 8
-  %bodyB = alloca ptr, align 8
-  %numPoolConstraints = alloca i32, align 4
-  %multiplier = alloca i32, align 4
-  %c192 = alloca i32, align 4
-  %totalImpulse = alloca float, align 4
-  %solveManifold = alloca ptr, align 8
-  %deltaf200 = alloca float, align 4
-  %applyFriction = alloca i8, align 1
-  %solveManifold213 = alloca ptr, align 8
-  %deltaf224 = alloca float, align 4
-  %solveManifold244 = alloca ptr, align 8
-  %deltaf260 = alloca float, align 4
-  %numPoolConstraints285 = alloca i32, align 4
-  %j288 = alloca i32, align 4
-  %solveManifold292 = alloca ptr, align 8
-  %deltaf297 = alloca float, align 4
-  %numFrictionPoolConstraints = alloca i32, align 4
-  %solveManifold316 = alloca ptr, align 8
-  %totalImpulse321 = alloca float, align 4
-  %deltaf334 = alloca float, align 4
-  %numRollingFrictionPoolConstraints = alloca i32, align 4
-  %j354 = alloca i32, align 4
-  %rollingFrictionConstraint = alloca ptr, align 8
-  %totalImpulse360 = alloca float, align 4
-  %rollingFrictionMagnitude = alloca float, align 4
-  %deltaf377 = alloca float, align 4
-  %j400 = alloca i32, align 4
-  %j413 = alloca i32, align 4
-  %j425 = alloca i32, align 4
-  %j437 = alloca i32, align 4
-  %beta450 = alloca float, align 4
-  %j461 = alloca i32, align 4
-  %j472 = alloca i32, align 4
-  %j483 = alloca i32, align 4
-  %j494 = alloca i32, align 4
-  %j506 = alloca i32, align 4
-  %constraint512 = alloca ptr, align 8
-  %additionaldeltaimpulse520 = alloca float, align 4
-  %body1534 = alloca ptr, align 8
-  %body2538 = alloca ptr, align 8
-  %c542 = alloca ptr, align 8
-  %ref.tmp543 = alloca %class.btVector3, align 4
-  %ref.tmp549 = alloca %class.btVector3, align 4
-  %j559 = alloca i32, align 4
-  %constraint565 = alloca ptr, align 8
-  %additionaldeltaimpulse573 = alloca float, align 4
-  %body1587 = alloca ptr, align 8
-  %body2591 = alloca ptr, align 8
-  %c595 = alloca ptr, align 8
-  %ref.tmp596 = alloca %class.btVector3, align 4
-  %ref.tmp602 = alloca %class.btVector3, align 4
-  %j612 = alloca i32, align 4
-  %constraint618 = alloca ptr, align 8
-  %additionaldeltaimpulse626 = alloca float, align 4
-  %body1640 = alloca ptr, align 8
-  %body2644 = alloca ptr, align 8
-  %c648 = alloca ptr, align 8
-  %ref.tmp649 = alloca %class.btVector3, align 4
-  %ref.tmp655 = alloca %class.btVector3, align 4
-  %j665 = alloca i32, align 4
-  %constraint671 = alloca ptr, align 8
-  %additionaldeltaimpulse677 = alloca float, align 4
-  %body1691 = alloca ptr, align 8
-  %body2695 = alloca ptr, align 8
-  %c699 = alloca ptr, align 8
-  %ref.tmp700 = alloca %class.btVector3, align 4
-  %ref.tmp706 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %iteration, ptr %iteration.addr, align 4
-  store ptr %0, ptr %.addr, align 8
-  store i32 %1, ptr %.addr1, align 4
-  store ptr %2, ptr %.addr2, align 8
-  store i32 %3, ptr %.addr3, align 4
-  store ptr %constraints, ptr %constraints.addr, align 8
-  store i32 %numConstraints, ptr %numConstraints.addr, align 4
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  store ptr %4, ptr %.addr4, align 8
-  %this5 = load ptr, ptr %this.addr, align 8
-  %m_tmpSolverNonContactConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool)
-  store i32 %call, ptr %numNonContactPool, align 4
-  %m_tmpSolverContactConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %call6 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool)
-  store i32 %call6, ptr %numConstraintPool, align 4
-  %m_tmpSolverContactFrictionConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %call7 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool)
-  store i32 %call7, ptr %numFrictionPool, align 4
-  %5 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_solverMode = getelementptr inbounds %struct.btContactSolverInfoData, ptr %5, i32 0, i32 22
-  %6 = load i32, ptr %m_solverMode, align 4
-  %and = and i32 %6, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end54
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %j, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %7 = load i32, ptr %j, align 4
-  %8 = load i32, ptr %numNonContactPool, align 4
-  %cmp = icmp slt i32 %7, %8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %m_orderNonContactConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 7
-  %9 = load i32, ptr %j, align 4
-  %call8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderNonContactConstraintPool, i32 noundef %9)
-  %10 = load i32, ptr %call8, align 4
-  store i32 %10, ptr %tmp, align 4
-  %11 = load i32, ptr %j, align 4
-  %add = add nsw i32 %11, 1
-  %call9 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this5, i32 noundef %add)
-  store i32 %call9, ptr %swapi, align 4
-  %m_orderNonContactConstraintPool10 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 7
-  %12 = load i32, ptr %swapi, align 4
-  %call11 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderNonContactConstraintPool10, i32 noundef %12)
-  %13 = load i32, ptr %call11, align 4
-  %m_orderNonContactConstraintPool12 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 7
-  %14 = load i32, ptr %j, align 4
-  %call13 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderNonContactConstraintPool12, i32 noundef %14)
-  store i32 %13, ptr %call13, align 4
-  %15 = load i32, ptr %tmp, align 4
-  %m_orderNonContactConstraintPool14 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 7
-  %16 = load i32, ptr %swapi, align 4
-  %call15 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderNonContactConstraintPool14, i32 noundef %16)
-  store i32 %15, ptr %call15, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %17 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %17, 1
-  store i32 %inc, ptr %j, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  %18 = load i32, ptr %iteration.addr, align 4
-  %19 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_numIterations = getelementptr inbounds %struct.btContactSolverInfoData, ptr %19, i32 0, i32 5
-  %20 = load i32, ptr %m_numIterations, align 4
-  %cmp16 = icmp slt i32 %18, %20
-  br i1 %cmp16, label %if.then17, label %if.end
-
-if.then17:                                        ; preds = %for.end
-  store i32 0, ptr %j18, align 4
-  br label %for.cond19
-
-for.cond19:                                       ; preds = %for.inc33, %if.then17
-  %21 = load i32, ptr %j18, align 4
-  %22 = load i32, ptr %numConstraintPool, align 4
-  %cmp20 = icmp slt i32 %21, %22
-  br i1 %cmp20, label %for.body21, label %for.end35
-
-for.body21:                                       ; preds = %for.cond19
-  %m_orderTmpConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 6
-  %23 = load i32, ptr %j18, align 4
-  %call23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderTmpConstraintPool, i32 noundef %23)
-  %24 = load i32, ptr %call23, align 4
-  store i32 %24, ptr %tmp22, align 4
-  %25 = load i32, ptr %j18, align 4
-  %add25 = add nsw i32 %25, 1
-  %call26 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this5, i32 noundef %add25)
-  store i32 %call26, ptr %swapi24, align 4
-  %m_orderTmpConstraintPool27 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 6
-  %26 = load i32, ptr %swapi24, align 4
-  %call28 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderTmpConstraintPool27, i32 noundef %26)
-  %27 = load i32, ptr %call28, align 4
-  %m_orderTmpConstraintPool29 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 6
-  %28 = load i32, ptr %j18, align 4
-  %call30 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderTmpConstraintPool29, i32 noundef %28)
-  store i32 %27, ptr %call30, align 4
-  %29 = load i32, ptr %tmp22, align 4
-  %m_orderTmpConstraintPool31 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 6
-  %30 = load i32, ptr %swapi24, align 4
-  %call32 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderTmpConstraintPool31, i32 noundef %30)
-  store i32 %29, ptr %call32, align 4
-  br label %for.inc33
-
-for.inc33:                                        ; preds = %for.body21
-  %31 = load i32, ptr %j18, align 4
-  %inc34 = add nsw i32 %31, 1
-  store i32 %inc34, ptr %j18, align 4
-  br label %for.cond19, !llvm.loop !7
-
-for.end35:                                        ; preds = %for.cond19
-  store i32 0, ptr %j36, align 4
-  br label %for.cond37
-
-for.cond37:                                       ; preds = %for.inc51, %for.end35
-  %32 = load i32, ptr %j36, align 4
-  %33 = load i32, ptr %numFrictionPool, align 4
-  %cmp38 = icmp slt i32 %32, %33
-  br i1 %cmp38, label %for.body39, label %for.end53
-
-for.body39:                                       ; preds = %for.cond37
-  %m_orderFrictionConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %34 = load i32, ptr %j36, align 4
-  %call41 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool, i32 noundef %34)
-  %35 = load i32, ptr %call41, align 4
-  store i32 %35, ptr %tmp40, align 4
-  %36 = load i32, ptr %j36, align 4
-  %add43 = add nsw i32 %36, 1
-  %call44 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this5, i32 noundef %add43)
-  store i32 %call44, ptr %swapi42, align 4
-  %m_orderFrictionConstraintPool45 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %37 = load i32, ptr %swapi42, align 4
-  %call46 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool45, i32 noundef %37)
-  %38 = load i32, ptr %call46, align 4
-  %m_orderFrictionConstraintPool47 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %39 = load i32, ptr %j36, align 4
-  %call48 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool47, i32 noundef %39)
-  store i32 %38, ptr %call48, align 4
-  %40 = load i32, ptr %tmp40, align 4
-  %m_orderFrictionConstraintPool49 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %41 = load i32, ptr %swapi42, align 4
-  %call50 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool49, i32 noundef %41)
-  store i32 %40, ptr %call50, align 4
-  br label %for.inc51
-
-for.inc51:                                        ; preds = %for.body39
-  %42 = load i32, ptr %j36, align 4
-  %inc52 = add nsw i32 %42, 1
-  store i32 %inc52, ptr %j36, align 4
-  br label %for.cond37, !llvm.loop !8
-
-for.end53:                                        ; preds = %for.cond37
-  br label %if.end
-
-if.end:                                           ; preds = %for.end53, %for.end
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.end, %entry
-  store float 0.000000e+00, ptr %deltaflengthsqr, align 4
-  store i32 0, ptr %j55, align 4
-  br label %for.cond56
-
-for.cond56:                                       ; preds = %for.inc73, %if.end54
-  %43 = load i32, ptr %j55, align 4
-  %m_tmpSolverNonContactConstraintPool57 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call58 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool57)
-  %cmp59 = icmp slt i32 %43, %call58
-  br i1 %cmp59, label %for.body60, label %for.end75
-
-for.body60:                                       ; preds = %for.cond56
-  %m_tmpSolverNonContactConstraintPool61 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %m_orderNonContactConstraintPool62 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 7
-  %44 = load i32, ptr %j55, align 4
-  %call63 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderNonContactConstraintPool62, i32 noundef %44)
-  %45 = load i32, ptr %call63, align 4
-  %call64 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool61, i32 noundef %45)
-  store ptr %call64, ptr %constraint, align 8
-  %46 = load i32, ptr %iteration.addr, align 4
-  %47 = load ptr, ptr %constraint, align 8
-  %m_overrideNumSolverIterations = getelementptr inbounds %struct.btSolverConstraint, ptr %47, i32 0, i32 16
-  %48 = load i32, ptr %m_overrideNumSolverIterations, align 8
-  %cmp65 = icmp slt i32 %46, %48
-  br i1 %cmp65, label %if.then66, label %if.end72
-
-if.then66:                                        ; preds = %for.body60
-  %m_tmpSolverBodyPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %49 = load ptr, ptr %constraint, align 8
-  %m_solverBodyIdA = getelementptr inbounds %struct.btSolverConstraint, ptr %49, i32 0, i32 18
-  %50 = load i32, ptr %m_solverBodyIdA, align 8
-  %call67 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool, i32 noundef %50)
-  %m_tmpSolverBodyPool68 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %51 = load ptr, ptr %constraint, align 8
-  %m_solverBodyIdB = getelementptr inbounds %struct.btSolverConstraint, ptr %51, i32 0, i32 19
-  %52 = load i32, ptr %m_solverBodyIdB, align 4
-  %call69 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool68, i32 noundef %52)
-  %53 = load ptr, ptr %constraint, align 8
-  %call70 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(248) %call67, ptr noundef nonnull align 8 dereferenceable(248) %call69, ptr noundef nonnull align 8 dereferenceable(160) %53)
-  store float %call70, ptr %deltaf, align 4
-  %54 = load float, ptr %deltaf, align 4
-  %m_deltafNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 7
-  %55 = load i32, ptr %j55, align 4
-  %call71 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC, i32 noundef %55)
-  store float %54, ptr %call71, align 4
-  %56 = load float, ptr %deltaf, align 4
-  %57 = load float, ptr %deltaf, align 4
-  %58 = load float, ptr %deltaflengthsqr, align 4
-  %59 = call float @llvm.fmuladd.f32(float %56, float %57, float %58)
-  store float %59, ptr %deltaflengthsqr, align 4
-  br label %if.end72
-
-if.end72:                                         ; preds = %if.then66, %for.body60
-  br label %for.inc73
-
-for.inc73:                                        ; preds = %if.end72
-  %60 = load i32, ptr %j55, align 4
-  %inc74 = add nsw i32 %60, 1
-  store i32 %inc74, ptr %j55, align 4
-  br label %for.cond56, !llvm.loop !9
-
-for.end75:                                        ; preds = %for.cond56
-  %m_onlyForNoneContact = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 11
-  %61 = load i8, ptr %m_onlyForNoneContact, align 8
-  %tobool76 = trunc i8 %61 to i1
-  br i1 %tobool76, label %if.then77, label %if.end152
-
-if.then77:                                        ; preds = %for.end75
-  %62 = load i32, ptr %iteration.addr, align 4
-  %cmp78 = icmp eq i32 %62, 0
-  br i1 %cmp78, label %if.then79, label %if.else
-
-if.then79:                                        ; preds = %if.then77
-  store i32 0, ptr %j80, align 4
-  br label %for.cond81
-
-for.cond81:                                       ; preds = %for.inc89, %if.then79
-  %63 = load i32, ptr %j80, align 4
-  %m_tmpSolverNonContactConstraintPool82 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call83 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool82)
-  %cmp84 = icmp slt i32 %63, %call83
-  br i1 %cmp84, label %for.body85, label %for.end91
-
-for.body85:                                       ; preds = %for.cond81
-  %m_deltafNC86 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 7
-  %64 = load i32, ptr %j80, align 4
-  %call87 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC86, i32 noundef %64)
-  %65 = load float, ptr %call87, align 4
-  %m_pNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %66 = load i32, ptr %j80, align 4
-  %call88 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC, i32 noundef %66)
-  store float %65, ptr %call88, align 4
-  br label %for.inc89
-
-for.inc89:                                        ; preds = %for.body85
-  %67 = load i32, ptr %j80, align 4
-  %inc90 = add nsw i32 %67, 1
-  store i32 %inc90, ptr %j80, align 4
-  br label %for.cond81, !llvm.loop !10
-
-for.end91:                                        ; preds = %for.cond81
-  br label %if.end150
-
-if.else:                                          ; preds = %if.then77
-  %m_deltafLengthSqrPrev = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 1
-  %68 = load float, ptr %m_deltafLengthSqrPrev, align 8
-  %cmp92 = fcmp ogt float %68, 0.000000e+00
-  br i1 %cmp92, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.else
-  %69 = load float, ptr %deltaflengthsqr, align 4
-  %m_deltafLengthSqrPrev93 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 1
-  %70 = load float, ptr %m_deltafLengthSqrPrev93, align 8
-  %div = fdiv float %69, %70
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.else
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi float [ %div, %cond.true ], [ 2.000000e+00, %cond.false ]
-  store float %cond, ptr %beta, align 4
-  %71 = load float, ptr %beta, align 4
-  %cmp94 = fcmp ogt float %71, 1.000000e+00
-  br i1 %cmp94, label %if.then95, label %if.else107
-
-if.then95:                                        ; preds = %cond.end
-  store i32 0, ptr %j96, align 4
-  br label %for.cond97
-
-for.cond97:                                       ; preds = %for.inc104, %if.then95
-  %72 = load i32, ptr %j96, align 4
-  %m_tmpSolverNonContactConstraintPool98 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call99 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool98)
-  %cmp100 = icmp slt i32 %72, %call99
-  br i1 %cmp100, label %for.body101, label %for.end106
-
-for.body101:                                      ; preds = %for.cond97
-  %m_pNC102 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %73 = load i32, ptr %j96, align 4
-  %call103 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC102, i32 noundef %73)
-  store float 0.000000e+00, ptr %call103, align 4
-  br label %for.inc104
-
-for.inc104:                                       ; preds = %for.body101
-  %74 = load i32, ptr %j96, align 4
-  %inc105 = add nsw i32 %74, 1
-  store i32 %inc105, ptr %j96, align 4
-  br label %for.cond97, !llvm.loop !11
-
-for.end106:                                       ; preds = %for.cond97
-  br label %if.end149
-
-if.else107:                                       ; preds = %cond.end
-  store i32 0, ptr %j108, align 4
-  br label %for.cond109
-
-for.cond109:                                      ; preds = %for.inc146, %if.else107
-  %75 = load i32, ptr %j108, align 4
-  %m_tmpSolverNonContactConstraintPool110 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call111 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool110)
-  %cmp112 = icmp slt i32 %75, %call111
-  br i1 %cmp112, label %for.body113, label %for.end148
-
-for.body113:                                      ; preds = %for.cond109
-  %m_tmpSolverNonContactConstraintPool115 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %m_orderNonContactConstraintPool116 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 7
-  %76 = load i32, ptr %j108, align 4
-  %call117 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderNonContactConstraintPool116, i32 noundef %76)
-  %77 = load i32, ptr %call117, align 4
-  %call118 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool115, i32 noundef %77)
-  store ptr %call118, ptr %constraint114, align 8
-  %78 = load i32, ptr %iteration.addr, align 4
-  %79 = load ptr, ptr %constraint114, align 8
-  %m_overrideNumSolverIterations119 = getelementptr inbounds %struct.btSolverConstraint, ptr %79, i32 0, i32 16
-  %80 = load i32, ptr %m_overrideNumSolverIterations119, align 8
-  %cmp120 = icmp slt i32 %78, %80
-  br i1 %cmp120, label %if.then121, label %if.end145
-
-if.then121:                                       ; preds = %for.body113
-  %81 = load float, ptr %beta, align 4
-  %m_pNC122 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %82 = load i32, ptr %j108, align 4
-  %call123 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC122, i32 noundef %82)
-  %83 = load float, ptr %call123, align 4
-  %mul = fmul float %81, %83
-  store float %mul, ptr %additionaldeltaimpulse, align 4
-  %84 = load ptr, ptr %constraint114, align 8
-  %m_appliedImpulse = getelementptr inbounds %struct.btSolverConstraint, ptr %84, i32 0, i32 7
-  %85 = load float, ptr %m_appliedImpulse, align 4
-  %86 = load float, ptr %additionaldeltaimpulse, align 4
-  %add124 = fadd float %85, %86
-  %87 = load ptr, ptr %constraint114, align 8
-  %m_appliedImpulse125 = getelementptr inbounds %struct.btSolverConstraint, ptr %87, i32 0, i32 7
-  store float %add124, ptr %m_appliedImpulse125, align 4
-  %88 = load float, ptr %beta, align 4
-  %m_pNC126 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %89 = load i32, ptr %j108, align 4
-  %call127 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC126, i32 noundef %89)
-  %90 = load float, ptr %call127, align 4
-  %m_deltafNC129 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 7
-  %91 = load i32, ptr %j108, align 4
-  %call130 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC129, i32 noundef %91)
-  %92 = load float, ptr %call130, align 4
-  %93 = call float @llvm.fmuladd.f32(float %88, float %90, float %92)
-  %m_pNC131 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %94 = load i32, ptr %j108, align 4
-  %call132 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC131, i32 noundef %94)
-  store float %93, ptr %call132, align 4
-  %m_tmpSolverBodyPool133 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %95 = load ptr, ptr %constraint114, align 8
-  %m_solverBodyIdA134 = getelementptr inbounds %struct.btSolverConstraint, ptr %95, i32 0, i32 18
-  %96 = load i32, ptr %m_solverBodyIdA134, align 8
-  %call135 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool133, i32 noundef %96)
-  store ptr %call135, ptr %body1, align 8
-  %m_tmpSolverBodyPool136 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %97 = load ptr, ptr %constraint114, align 8
-  %m_solverBodyIdB137 = getelementptr inbounds %struct.btSolverConstraint, ptr %97, i32 0, i32 19
-  %98 = load i32, ptr %m_solverBodyIdB137, align 4
-  %call138 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool136, i32 noundef %98)
-  store ptr %call138, ptr %body2, align 8
-  %99 = load ptr, ptr %constraint114, align 8
-  store ptr %99, ptr %c, align 8
-  %100 = load ptr, ptr %body1, align 8
-  %101 = load ptr, ptr %c, align 8
-  %m_contactNormal1 = getelementptr inbounds %struct.btSolverConstraint, ptr %101, i32 0, i32 1
-  %102 = load ptr, ptr %body1, align 8
-  %call139 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %102)
-  %call140 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal1, ptr noundef nonnull align 4 dereferenceable(16) %call139)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %103 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %104 = extractvalue { <2 x float>, <2 x float> } %call140, 0
-  store <2 x float> %104, ptr %103, align 4
-  %105 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %106 = extractvalue { <2 x float>, <2 x float> } %call140, 1
-  store <2 x float> %106, ptr %105, align 4
-  %107 = load ptr, ptr %c, align 8
-  %m_angularComponentA = getelementptr inbounds %struct.btSolverConstraint, ptr %107, i32 0, i32 4
-  %108 = load float, ptr %additionaldeltaimpulse, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %100, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentA, float noundef %108)
-  %109 = load ptr, ptr %body2, align 8
-  %110 = load ptr, ptr %c, align 8
-  %m_contactNormal2 = getelementptr inbounds %struct.btSolverConstraint, ptr %110, i32 0, i32 3
-  %111 = load ptr, ptr %body2, align 8
-  %call142 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %111)
-  %call143 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal2, ptr noundef nonnull align 4 dereferenceable(16) %call142)
-  %coerce.dive144 = getelementptr inbounds %class.btVector3, ptr %ref.tmp141, i32 0, i32 0
-  %112 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive144, i32 0, i32 0
-  %113 = extractvalue { <2 x float>, <2 x float> } %call143, 0
-  store <2 x float> %113, ptr %112, align 4
-  %114 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive144, i32 0, i32 1
-  %115 = extractvalue { <2 x float>, <2 x float> } %call143, 1
-  store <2 x float> %115, ptr %114, align 4
-  %116 = load ptr, ptr %c, align 8
-  %m_angularComponentB = getelementptr inbounds %struct.btSolverConstraint, ptr %116, i32 0, i32 5
-  %117 = load float, ptr %additionaldeltaimpulse, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %109, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp141, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentB, float noundef %117)
-  br label %if.end145
-
-if.end145:                                        ; preds = %if.then121, %for.body113
-  br label %for.inc146
-
-for.inc146:                                       ; preds = %if.end145
-  %118 = load i32, ptr %j108, align 4
-  %inc147 = add nsw i32 %118, 1
-  store i32 %inc147, ptr %j108, align 4
-  br label %for.cond109, !llvm.loop !12
-
-for.end148:                                       ; preds = %for.cond109
-  br label %if.end149
-
-if.end149:                                        ; preds = %for.end148, %for.end106
-  br label %if.end150
-
-if.end150:                                        ; preds = %if.end149, %for.end91
-  %119 = load float, ptr %deltaflengthsqr, align 4
-  %m_deltafLengthSqrPrev151 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 1
-  store float %119, ptr %m_deltafLengthSqrPrev151, align 8
-  br label %if.end152
-
-if.end152:                                        ; preds = %if.end150, %for.end75
-  %120 = load i32, ptr %iteration.addr, align 4
-  %121 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_numIterations153 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %121, i32 0, i32 5
-  %122 = load i32, ptr %m_numIterations153, align 4
-  %cmp154 = icmp slt i32 %120, %122
-  br i1 %cmp154, label %if.then155, label %if.end394
-
-if.then155:                                       ; preds = %if.end152
-  store i32 0, ptr %j156, align 4
-  br label %for.cond157
-
-for.cond157:                                      ; preds = %for.inc179, %if.then155
-  %123 = load i32, ptr %j156, align 4
-  %124 = load i32, ptr %numConstraints.addr, align 4
-  %cmp158 = icmp slt i32 %123, %124
-  br i1 %cmp158, label %for.body159, label %for.end181
-
-for.body159:                                      ; preds = %for.cond157
-  %125 = load ptr, ptr %constraints.addr, align 8
-  %126 = load i32, ptr %j156, align 4
-  %idxprom = sext i32 %126 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %125, i64 %idxprom
-  %127 = load ptr, ptr %arrayidx, align 8
-  %call160 = call noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %127)
-  br i1 %call160, label %if.then161, label %if.end178
-
-if.then161:                                       ; preds = %for.body159
-  %128 = load ptr, ptr %constraints.addr, align 8
-  %129 = load i32, ptr %j156, align 4
-  %idxprom162 = sext i32 %129 to i64
-  %arrayidx163 = getelementptr inbounds ptr, ptr %128, i64 %idxprom162
-  %130 = load ptr, ptr %arrayidx163, align 8
-  %call164 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %130)
-  %131 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_timeStep = getelementptr inbounds %struct.btContactSolverInfoData, ptr %131, i32 0, i32 3
-  %132 = load float, ptr %m_timeStep, align 4
-  %call165 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(372) %call164, float noundef %132)
-  store i32 %call165, ptr %bodyAid, align 4
-  %133 = load ptr, ptr %constraints.addr, align 8
-  %134 = load i32, ptr %j156, align 4
-  %idxprom166 = sext i32 %134 to i64
-  %arrayidx167 = getelementptr inbounds ptr, ptr %133, i64 %idxprom166
-  %135 = load ptr, ptr %arrayidx167, align 8
-  %call168 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %135)
-  %136 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_timeStep169 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %136, i32 0, i32 3
-  %137 = load float, ptr %m_timeStep169, align 4
-  %call170 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(372) %call168, float noundef %137)
-  store i32 %call170, ptr %bodyBid, align 4
-  %m_tmpSolverBodyPool171 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %138 = load i32, ptr %bodyAid, align 4
-  %call172 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool171, i32 noundef %138)
-  store ptr %call172, ptr %bodyA, align 8
-  %m_tmpSolverBodyPool173 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %139 = load i32, ptr %bodyBid, align 4
-  %call174 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool173, i32 noundef %139)
-  store ptr %call174, ptr %bodyB, align 8
-  %140 = load ptr, ptr %constraints.addr, align 8
-  %141 = load i32, ptr %j156, align 4
-  %idxprom175 = sext i32 %141 to i64
-  %arrayidx176 = getelementptr inbounds ptr, ptr %140, i64 %idxprom175
-  %142 = load ptr, ptr %arrayidx176, align 8
-  %143 = load ptr, ptr %bodyA, align 8
-  %144 = load ptr, ptr %bodyB, align 8
-  %145 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_timeStep177 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %145, i32 0, i32 3
-  %146 = load float, ptr %m_timeStep177, align 4
-  %vtable = load ptr, ptr %142, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
-  %147 = load ptr, ptr %vfn, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(72) %142, ptr noundef nonnull align 8 dereferenceable(248) %143, ptr noundef nonnull align 8 dereferenceable(248) %144, float noundef %146)
-  br label %if.end178
-
-if.end178:                                        ; preds = %if.then161, %for.body159
-  br label %for.inc179
-
-for.inc179:                                       ; preds = %if.end178
-  %148 = load i32, ptr %j156, align 4
-  %inc180 = add nsw i32 %148, 1
-  store i32 %inc180, ptr %j156, align 4
-  br label %for.cond157, !llvm.loop !13
-
-for.end181:                                       ; preds = %for.cond157
-  %149 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_solverMode182 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %149, i32 0, i32 22
-  %150 = load i32, ptr %m_solverMode182, align 4
-  %and183 = and i32 %150, 512
-  %tobool184 = icmp ne i32 %and183, 0
-  br i1 %tobool184, label %if.then185, label %if.else284
-
-if.then185:                                       ; preds = %for.end181
-  %m_tmpSolverContactConstraintPool186 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %call187 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool186)
-  store i32 %call187, ptr %numPoolConstraints, align 4
-  %151 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_solverMode188 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %151, i32 0, i32 22
-  %152 = load i32, ptr %m_solverMode188, align 4
-  %and189 = and i32 %152, 16
-  %tobool190 = icmp ne i32 %and189, 0
-  %cond191 = select i1 %tobool190, i32 2, i32 1
-  store i32 %cond191, ptr %multiplier, align 4
-  store i32 0, ptr %c192, align 4
-  br label %for.cond193
-
-for.cond193:                                      ; preds = %for.inc281, %if.then185
-  %153 = load i32, ptr %c192, align 4
-  %154 = load i32, ptr %numPoolConstraints, align 4
-  %cmp194 = icmp slt i32 %153, %154
-  br i1 %cmp194, label %for.body195, label %for.end283
-
-for.body195:                                      ; preds = %for.cond193
-  store float 0.000000e+00, ptr %totalImpulse, align 4
-  %m_tmpSolverContactConstraintPool196 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %m_orderTmpConstraintPool197 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 6
-  %155 = load i32, ptr %c192, align 4
-  %call198 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderTmpConstraintPool197, i32 noundef %155)
-  %156 = load i32, ptr %call198, align 4
-  %call199 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool196, i32 noundef %156)
-  store ptr %call199, ptr %solveManifold, align 8
-  %m_tmpSolverBodyPool201 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %157 = load ptr, ptr %solveManifold, align 8
-  %m_solverBodyIdA202 = getelementptr inbounds %struct.btSolverConstraint, ptr %157, i32 0, i32 18
-  %158 = load i32, ptr %m_solverBodyIdA202, align 8
-  %call203 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool201, i32 noundef %158)
-  %m_tmpSolverBodyPool204 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %159 = load ptr, ptr %solveManifold, align 8
-  %m_solverBodyIdB205 = getelementptr inbounds %struct.btSolverConstraint, ptr %159, i32 0, i32 19
-  %160 = load i32, ptr %m_solverBodyIdB205, align 4
-  %call206 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool204, i32 noundef %160)
-  %161 = load ptr, ptr %solveManifold, align 8
-  %call207 = call noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(248) %call203, ptr noundef nonnull align 8 dereferenceable(248) %call206, ptr noundef nonnull align 8 dereferenceable(160) %161)
-  store float %call207, ptr %deltaf200, align 4
-  %162 = load float, ptr %deltaf200, align 4
-  %m_deltafC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 8
-  %163 = load i32, ptr %c192, align 4
-  %call208 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafC, i32 noundef %163)
-  store float %162, ptr %call208, align 4
-  %164 = load float, ptr %deltaf200, align 4
-  %165 = load float, ptr %deltaf200, align 4
-  %166 = load float, ptr %deltaflengthsqr, align 4
-  %167 = call float @llvm.fmuladd.f32(float %164, float %165, float %166)
-  store float %167, ptr %deltaflengthsqr, align 4
-  %168 = load ptr, ptr %solveManifold, align 8
-  %m_appliedImpulse210 = getelementptr inbounds %struct.btSolverConstraint, ptr %168, i32 0, i32 7
-  %169 = load float, ptr %m_appliedImpulse210, align 4
-  store float %169, ptr %totalImpulse, align 4
-  store i8 1, ptr %applyFriction, align 1
-  %170 = load i8, ptr %applyFriction, align 1
-  %tobool211 = trunc i8 %170 to i1
-  br i1 %tobool211, label %if.then212, label %if.end280
-
-if.then212:                                       ; preds = %for.body195
-  %m_tmpSolverContactFrictionConstraintPool214 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %m_orderFrictionConstraintPool215 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %171 = load i32, ptr %c192, align 4
-  %172 = load i32, ptr %multiplier, align 4
-  %mul216 = mul nsw i32 %171, %172
-  %call217 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool215, i32 noundef %mul216)
-  %173 = load i32, ptr %call217, align 4
-  %call218 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool214, i32 noundef %173)
-  store ptr %call218, ptr %solveManifold213, align 8
-  %174 = load float, ptr %totalImpulse, align 4
-  %cmp219 = fcmp ogt float %174, 0.000000e+00
-  br i1 %cmp219, label %if.then220, label %if.else235
-
-if.then220:                                       ; preds = %if.then212
-  %175 = load ptr, ptr %solveManifold213, align 8
-  %m_friction = getelementptr inbounds %struct.btSolverConstraint, ptr %175, i32 0, i32 8
-  %176 = load float, ptr %m_friction, align 8
-  %177 = load float, ptr %totalImpulse, align 4
-  %mul221 = fmul float %176, %177
-  %fneg = fneg float %mul221
-  %178 = load ptr, ptr %solveManifold213, align 8
-  %m_lowerLimit = getelementptr inbounds %struct.btSolverConstraint, ptr %178, i32 0, i32 12
-  store float %fneg, ptr %m_lowerLimit, align 8
-  %179 = load ptr, ptr %solveManifold213, align 8
-  %m_friction222 = getelementptr inbounds %struct.btSolverConstraint, ptr %179, i32 0, i32 8
-  %180 = load float, ptr %m_friction222, align 8
-  %181 = load float, ptr %totalImpulse, align 4
-  %mul223 = fmul float %180, %181
-  %182 = load ptr, ptr %solveManifold213, align 8
-  %m_upperLimit = getelementptr inbounds %struct.btSolverConstraint, ptr %182, i32 0, i32 13
-  store float %mul223, ptr %m_upperLimit, align 4
-  %m_tmpSolverBodyPool225 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %183 = load ptr, ptr %solveManifold213, align 8
-  %m_solverBodyIdA226 = getelementptr inbounds %struct.btSolverConstraint, ptr %183, i32 0, i32 18
-  %184 = load i32, ptr %m_solverBodyIdA226, align 8
-  %call227 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool225, i32 noundef %184)
-  %m_tmpSolverBodyPool228 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %185 = load ptr, ptr %solveManifold213, align 8
-  %m_solverBodyIdB229 = getelementptr inbounds %struct.btSolverConstraint, ptr %185, i32 0, i32 19
-  %186 = load i32, ptr %m_solverBodyIdB229, align 4
-  %call230 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool228, i32 noundef %186)
-  %187 = load ptr, ptr %solveManifold213, align 8
-  %call231 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(248) %call227, ptr noundef nonnull align 8 dereferenceable(248) %call230, ptr noundef nonnull align 8 dereferenceable(160) %187)
-  store float %call231, ptr %deltaf224, align 4
-  %188 = load float, ptr %deltaf224, align 4
-  %m_deltafCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %189 = load i32, ptr %c192, align 4
-  %190 = load i32, ptr %multiplier, align 4
-  %mul232 = mul nsw i32 %189, %190
-  %call233 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF, i32 noundef %mul232)
-  store float %188, ptr %call233, align 4
-  %191 = load float, ptr %deltaf224, align 4
-  %192 = load float, ptr %deltaf224, align 4
-  %193 = load float, ptr %deltaflengthsqr, align 4
-  %194 = call float @llvm.fmuladd.f32(float %191, float %192, float %193)
-  store float %194, ptr %deltaflengthsqr, align 4
-  br label %if.end239
-
-if.else235:                                       ; preds = %if.then212
-  %m_deltafCF236 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %195 = load i32, ptr %c192, align 4
-  %196 = load i32, ptr %multiplier, align 4
-  %mul237 = mul nsw i32 %195, %196
-  %call238 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF236, i32 noundef %mul237)
-  store float 0.000000e+00, ptr %call238, align 4
-  br label %if.end239
-
-if.end239:                                        ; preds = %if.else235, %if.then220
-  %197 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_solverMode240 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %197, i32 0, i32 22
-  %198 = load i32, ptr %m_solverMode240, align 4
-  %and241 = and i32 %198, 16
-  %tobool242 = icmp ne i32 %and241, 0
-  br i1 %tobool242, label %if.then243, label %if.end279
-
-if.then243:                                       ; preds = %if.end239
-  %m_tmpSolverContactFrictionConstraintPool245 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %m_orderFrictionConstraintPool246 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %199 = load i32, ptr %c192, align 4
-  %200 = load i32, ptr %multiplier, align 4
-  %mul247 = mul nsw i32 %199, %200
-  %add248 = add nsw i32 %mul247, 1
-  %call249 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool246, i32 noundef %add248)
-  %201 = load i32, ptr %call249, align 4
-  %call250 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool245, i32 noundef %201)
-  store ptr %call250, ptr %solveManifold244, align 8
-  %202 = load float, ptr %totalImpulse, align 4
-  %cmp251 = fcmp ogt float %202, 0.000000e+00
-  br i1 %cmp251, label %if.then252, label %if.else273
-
-if.then252:                                       ; preds = %if.then243
-  %203 = load ptr, ptr %solveManifold244, align 8
-  %m_friction253 = getelementptr inbounds %struct.btSolverConstraint, ptr %203, i32 0, i32 8
-  %204 = load float, ptr %m_friction253, align 8
-  %205 = load float, ptr %totalImpulse, align 4
-  %mul254 = fmul float %204, %205
-  %fneg255 = fneg float %mul254
-  %206 = load ptr, ptr %solveManifold244, align 8
-  %m_lowerLimit256 = getelementptr inbounds %struct.btSolverConstraint, ptr %206, i32 0, i32 12
-  store float %fneg255, ptr %m_lowerLimit256, align 8
-  %207 = load ptr, ptr %solveManifold244, align 8
-  %m_friction257 = getelementptr inbounds %struct.btSolverConstraint, ptr %207, i32 0, i32 8
-  %208 = load float, ptr %m_friction257, align 8
-  %209 = load float, ptr %totalImpulse, align 4
-  %mul258 = fmul float %208, %209
-  %210 = load ptr, ptr %solveManifold244, align 8
-  %m_upperLimit259 = getelementptr inbounds %struct.btSolverConstraint, ptr %210, i32 0, i32 13
-  store float %mul258, ptr %m_upperLimit259, align 4
-  %m_tmpSolverBodyPool261 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %211 = load ptr, ptr %solveManifold244, align 8
-  %m_solverBodyIdA262 = getelementptr inbounds %struct.btSolverConstraint, ptr %211, i32 0, i32 18
-  %212 = load i32, ptr %m_solverBodyIdA262, align 8
-  %call263 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool261, i32 noundef %212)
-  %m_tmpSolverBodyPool264 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %213 = load ptr, ptr %solveManifold244, align 8
-  %m_solverBodyIdB265 = getelementptr inbounds %struct.btSolverConstraint, ptr %213, i32 0, i32 19
-  %214 = load i32, ptr %m_solverBodyIdB265, align 4
-  %call266 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool264, i32 noundef %214)
-  %215 = load ptr, ptr %solveManifold244, align 8
-  %call267 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(248) %call263, ptr noundef nonnull align 8 dereferenceable(248) %call266, ptr noundef nonnull align 8 dereferenceable(160) %215)
-  store float %call267, ptr %deltaf260, align 4
-  %216 = load float, ptr %deltaf260, align 4
-  %m_deltafCF268 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %217 = load i32, ptr %c192, align 4
-  %218 = load i32, ptr %multiplier, align 4
-  %mul269 = mul nsw i32 %217, %218
-  %add270 = add nsw i32 %mul269, 1
-  %call271 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF268, i32 noundef %add270)
-  store float %216, ptr %call271, align 4
-  %219 = load float, ptr %deltaf260, align 4
-  %220 = load float, ptr %deltaf260, align 4
-  %221 = load float, ptr %deltaflengthsqr, align 4
-  %222 = call float @llvm.fmuladd.f32(float %219, float %220, float %221)
-  store float %222, ptr %deltaflengthsqr, align 4
-  br label %if.end278
-
-if.else273:                                       ; preds = %if.then243
-  %m_deltafCF274 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %223 = load i32, ptr %c192, align 4
-  %224 = load i32, ptr %multiplier, align 4
-  %mul275 = mul nsw i32 %223, %224
-  %add276 = add nsw i32 %mul275, 1
-  %call277 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF274, i32 noundef %add276)
-  store float 0.000000e+00, ptr %call277, align 4
-  br label %if.end278
-
-if.end278:                                        ; preds = %if.else273, %if.then252
-  br label %if.end279
-
-if.end279:                                        ; preds = %if.end278, %if.end239
-  br label %if.end280
-
-if.end280:                                        ; preds = %if.end279, %for.body195
-  br label %for.inc281
-
-for.inc281:                                       ; preds = %if.end280
-  %225 = load i32, ptr %c192, align 4
-  %inc282 = add nsw i32 %225, 1
-  store i32 %inc282, ptr %c192, align 4
-  br label %for.cond193, !llvm.loop !14
-
-for.end283:                                       ; preds = %for.cond193
-  br label %if.end352
-
-if.else284:                                       ; preds = %for.end181
-  %m_tmpSolverContactConstraintPool286 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %call287 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool286)
-  store i32 %call287, ptr %numPoolConstraints285, align 4
-  store i32 0, ptr %j288, align 4
-  br label %for.cond289
-
-for.cond289:                                      ; preds = %for.inc308, %if.else284
-  %226 = load i32, ptr %j288, align 4
-  %227 = load i32, ptr %numPoolConstraints285, align 4
-  %cmp290 = icmp slt i32 %226, %227
-  br i1 %cmp290, label %for.body291, label %for.end310
-
-for.body291:                                      ; preds = %for.cond289
-  %m_tmpSolverContactConstraintPool293 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %m_orderTmpConstraintPool294 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 6
-  %228 = load i32, ptr %j288, align 4
-  %call295 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderTmpConstraintPool294, i32 noundef %228)
-  %229 = load i32, ptr %call295, align 4
-  %call296 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool293, i32 noundef %229)
-  store ptr %call296, ptr %solveManifold292, align 8
-  %m_tmpSolverBodyPool298 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %230 = load ptr, ptr %solveManifold292, align 8
-  %m_solverBodyIdA299 = getelementptr inbounds %struct.btSolverConstraint, ptr %230, i32 0, i32 18
-  %231 = load i32, ptr %m_solverBodyIdA299, align 8
-  %call300 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool298, i32 noundef %231)
-  %m_tmpSolverBodyPool301 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %232 = load ptr, ptr %solveManifold292, align 8
-  %m_solverBodyIdB302 = getelementptr inbounds %struct.btSolverConstraint, ptr %232, i32 0, i32 19
-  %233 = load i32, ptr %m_solverBodyIdB302, align 4
-  %call303 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool301, i32 noundef %233)
-  %234 = load ptr, ptr %solveManifold292, align 8
-  %call304 = call noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(248) %call300, ptr noundef nonnull align 8 dereferenceable(248) %call303, ptr noundef nonnull align 8 dereferenceable(160) %234)
-  store float %call304, ptr %deltaf297, align 4
-  %235 = load float, ptr %deltaf297, align 4
-  %m_deltafC305 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 8
-  %236 = load i32, ptr %j288, align 4
-  %call306 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafC305, i32 noundef %236)
-  store float %235, ptr %call306, align 4
-  %237 = load float, ptr %deltaf297, align 4
-  %238 = load float, ptr %deltaf297, align 4
-  %239 = load float, ptr %deltaflengthsqr, align 4
-  %240 = call float @llvm.fmuladd.f32(float %237, float %238, float %239)
-  store float %240, ptr %deltaflengthsqr, align 4
-  br label %for.inc308
-
-for.inc308:                                       ; preds = %for.body291
-  %241 = load i32, ptr %j288, align 4
-  %inc309 = add nsw i32 %241, 1
-  store i32 %inc309, ptr %j288, align 4
-  br label %for.cond289, !llvm.loop !15
-
-for.end310:                                       ; preds = %for.cond289
-  %m_tmpSolverContactFrictionConstraintPool311 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %call312 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool311)
-  store i32 %call312, ptr %numFrictionPoolConstraints, align 4
-  store i32 0, ptr %j288, align 4
-  br label %for.cond313
-
-for.cond313:                                      ; preds = %for.inc349, %for.end310
-  %242 = load i32, ptr %j288, align 4
-  %243 = load i32, ptr %numFrictionPoolConstraints, align 4
-  %cmp314 = icmp slt i32 %242, %243
-  br i1 %cmp314, label %for.body315, label %for.end351
-
-for.body315:                                      ; preds = %for.cond313
-  %m_tmpSolverContactFrictionConstraintPool317 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %m_orderFrictionConstraintPool318 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %244 = load i32, ptr %j288, align 4
-  %call319 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool318, i32 noundef %244)
-  %245 = load i32, ptr %call319, align 4
-  %call320 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool317, i32 noundef %245)
-  store ptr %call320, ptr %solveManifold316, align 8
-  %m_tmpSolverContactConstraintPool322 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %246 = load ptr, ptr %solveManifold316, align 8
-  %m_frictionIndex = getelementptr inbounds %struct.btSolverConstraint, ptr %246, i32 0, i32 17
-  %247 = load i32, ptr %m_frictionIndex, align 4
-  %call323 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool322, i32 noundef %247)
-  %m_appliedImpulse324 = getelementptr inbounds %struct.btSolverConstraint, ptr %call323, i32 0, i32 7
-  %248 = load float, ptr %m_appliedImpulse324, align 4
-  store float %248, ptr %totalImpulse321, align 4
-  %249 = load float, ptr %totalImpulse321, align 4
-  %cmp325 = fcmp ogt float %249, 0.000000e+00
-  br i1 %cmp325, label %if.then326, label %if.else345
-
-if.then326:                                       ; preds = %for.body315
-  %250 = load ptr, ptr %solveManifold316, align 8
-  %m_friction327 = getelementptr inbounds %struct.btSolverConstraint, ptr %250, i32 0, i32 8
-  %251 = load float, ptr %m_friction327, align 8
-  %252 = load float, ptr %totalImpulse321, align 4
-  %mul328 = fmul float %251, %252
-  %fneg329 = fneg float %mul328
-  %253 = load ptr, ptr %solveManifold316, align 8
-  %m_lowerLimit330 = getelementptr inbounds %struct.btSolverConstraint, ptr %253, i32 0, i32 12
-  store float %fneg329, ptr %m_lowerLimit330, align 8
-  %254 = load ptr, ptr %solveManifold316, align 8
-  %m_friction331 = getelementptr inbounds %struct.btSolverConstraint, ptr %254, i32 0, i32 8
-  %255 = load float, ptr %m_friction331, align 8
-  %256 = load float, ptr %totalImpulse321, align 4
-  %mul332 = fmul float %255, %256
-  %257 = load ptr, ptr %solveManifold316, align 8
-  %m_upperLimit333 = getelementptr inbounds %struct.btSolverConstraint, ptr %257, i32 0, i32 13
-  store float %mul332, ptr %m_upperLimit333, align 4
-  %m_tmpSolverBodyPool335 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %258 = load ptr, ptr %solveManifold316, align 8
-  %m_solverBodyIdA336 = getelementptr inbounds %struct.btSolverConstraint, ptr %258, i32 0, i32 18
-  %259 = load i32, ptr %m_solverBodyIdA336, align 8
-  %call337 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool335, i32 noundef %259)
-  %m_tmpSolverBodyPool338 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %260 = load ptr, ptr %solveManifold316, align 8
-  %m_solverBodyIdB339 = getelementptr inbounds %struct.btSolverConstraint, ptr %260, i32 0, i32 19
-  %261 = load i32, ptr %m_solverBodyIdB339, align 4
-  %call340 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool338, i32 noundef %261)
-  %262 = load ptr, ptr %solveManifold316, align 8
-  %call341 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(248) %call337, ptr noundef nonnull align 8 dereferenceable(248) %call340, ptr noundef nonnull align 8 dereferenceable(160) %262)
-  store float %call341, ptr %deltaf334, align 4
-  %263 = load float, ptr %deltaf334, align 4
-  %m_deltafCF342 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %264 = load i32, ptr %j288, align 4
-  %call343 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF342, i32 noundef %264)
-  store float %263, ptr %call343, align 4
-  %265 = load float, ptr %deltaf334, align 4
-  %266 = load float, ptr %deltaf334, align 4
-  %267 = load float, ptr %deltaflengthsqr, align 4
-  %268 = call float @llvm.fmuladd.f32(float %265, float %266, float %267)
-  store float %268, ptr %deltaflengthsqr, align 4
-  br label %if.end348
-
-if.else345:                                       ; preds = %for.body315
-  %m_deltafCF346 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %269 = load i32, ptr %j288, align 4
-  %call347 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF346, i32 noundef %269)
-  store float 0.000000e+00, ptr %call347, align 4
-  br label %if.end348
-
-if.end348:                                        ; preds = %if.else345, %if.then326
-  br label %for.inc349
-
-for.inc349:                                       ; preds = %if.end348
-  %270 = load i32, ptr %j288, align 4
-  %inc350 = add nsw i32 %270, 1
-  store i32 %inc350, ptr %j288, align 4
-  br label %for.cond313, !llvm.loop !16
-
-for.end351:                                       ; preds = %for.cond313
-  br label %if.end352
-
-if.end352:                                        ; preds = %for.end351, %for.end283
-  %m_tmpSolverContactRollingFrictionConstraintPool = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 5
-  %call353 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool)
-  store i32 %call353, ptr %numRollingFrictionPoolConstraints, align 4
-  store i32 0, ptr %j354, align 4
-  br label %for.cond355
-
-for.cond355:                                      ; preds = %for.inc391, %if.end352
-  %271 = load i32, ptr %j354, align 4
-  %272 = load i32, ptr %numRollingFrictionPoolConstraints, align 4
-  %cmp356 = icmp slt i32 %271, %272
-  br i1 %cmp356, label %for.body357, label %for.end393
-
-for.body357:                                      ; preds = %for.cond355
-  %m_tmpSolverContactRollingFrictionConstraintPool358 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 5
-  %273 = load i32, ptr %j354, align 4
-  %call359 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool358, i32 noundef %273)
-  store ptr %call359, ptr %rollingFrictionConstraint, align 8
-  %m_tmpSolverContactConstraintPool361 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %274 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_frictionIndex362 = getelementptr inbounds %struct.btSolverConstraint, ptr %274, i32 0, i32 17
-  %275 = load i32, ptr %m_frictionIndex362, align 4
-  %call363 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool361, i32 noundef %275)
-  %m_appliedImpulse364 = getelementptr inbounds %struct.btSolverConstraint, ptr %call363, i32 0, i32 7
-  %276 = load float, ptr %m_appliedImpulse364, align 4
-  store float %276, ptr %totalImpulse360, align 4
-  %277 = load float, ptr %totalImpulse360, align 4
-  %cmp365 = fcmp ogt float %277, 0.000000e+00
-  br i1 %cmp365, label %if.then366, label %if.else387
-
-if.then366:                                       ; preds = %for.body357
-  %278 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_friction367 = getelementptr inbounds %struct.btSolverConstraint, ptr %278, i32 0, i32 8
-  %279 = load float, ptr %m_friction367, align 8
-  %280 = load float, ptr %totalImpulse360, align 4
-  %mul368 = fmul float %279, %280
-  store float %mul368, ptr %rollingFrictionMagnitude, align 4
-  %281 = load float, ptr %rollingFrictionMagnitude, align 4
-  %282 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_friction369 = getelementptr inbounds %struct.btSolverConstraint, ptr %282, i32 0, i32 8
-  %283 = load float, ptr %m_friction369, align 8
-  %cmp370 = fcmp ogt float %281, %283
-  br i1 %cmp370, label %if.then371, label %if.end373
-
-if.then371:                                       ; preds = %if.then366
-  %284 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_friction372 = getelementptr inbounds %struct.btSolverConstraint, ptr %284, i32 0, i32 8
-  %285 = load float, ptr %m_friction372, align 8
-  store float %285, ptr %rollingFrictionMagnitude, align 4
-  br label %if.end373
-
-if.end373:                                        ; preds = %if.then371, %if.then366
-  %286 = load float, ptr %rollingFrictionMagnitude, align 4
-  %fneg374 = fneg float %286
-  %287 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_lowerLimit375 = getelementptr inbounds %struct.btSolverConstraint, ptr %287, i32 0, i32 12
-  store float %fneg374, ptr %m_lowerLimit375, align 8
-  %288 = load float, ptr %rollingFrictionMagnitude, align 4
-  %289 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_upperLimit376 = getelementptr inbounds %struct.btSolverConstraint, ptr %289, i32 0, i32 13
-  store float %288, ptr %m_upperLimit376, align 4
-  %m_tmpSolverBodyPool378 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %290 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_solverBodyIdA379 = getelementptr inbounds %struct.btSolverConstraint, ptr %290, i32 0, i32 18
-  %291 = load i32, ptr %m_solverBodyIdA379, align 8
-  %call380 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool378, i32 noundef %291)
-  %m_tmpSolverBodyPool381 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %292 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %m_solverBodyIdB382 = getelementptr inbounds %struct.btSolverConstraint, ptr %292, i32 0, i32 19
-  %293 = load i32, ptr %m_solverBodyIdB382, align 4
-  %call383 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool381, i32 noundef %293)
-  %294 = load ptr, ptr %rollingFrictionConstraint, align 8
-  %call384 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this5, ptr noundef nonnull align 8 dereferenceable(248) %call380, ptr noundef nonnull align 8 dereferenceable(248) %call383, ptr noundef nonnull align 8 dereferenceable(160) %294)
-  store float %call384, ptr %deltaf377, align 4
-  %295 = load float, ptr %deltaf377, align 4
-  %m_deltafCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 10
-  %296 = load i32, ptr %j354, align 4
-  %call385 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCRF, i32 noundef %296)
-  store float %295, ptr %call385, align 4
-  %297 = load float, ptr %deltaf377, align 4
-  %298 = load float, ptr %deltaf377, align 4
-  %299 = load float, ptr %deltaflengthsqr, align 4
-  %300 = call float @llvm.fmuladd.f32(float %297, float %298, float %299)
-  store float %300, ptr %deltaflengthsqr, align 4
-  br label %if.end390
-
-if.else387:                                       ; preds = %for.body357
-  %m_deltafCRF388 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 10
-  %301 = load i32, ptr %j354, align 4
-  %call389 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCRF388, i32 noundef %301)
-  store float 0.000000e+00, ptr %call389, align 4
-  br label %if.end390
-
-if.end390:                                        ; preds = %if.else387, %if.end373
-  br label %for.inc391
-
-for.inc391:                                       ; preds = %if.end390
-  %302 = load i32, ptr %j354, align 4
-  %inc392 = add nsw i32 %302, 1
-  store i32 %inc392, ptr %j354, align 4
-  br label %for.cond355, !llvm.loop !17
-
-for.end393:                                       ; preds = %for.cond355
-  br label %if.end394
-
-if.end394:                                        ; preds = %for.end393, %if.end152
-  %m_onlyForNoneContact395 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 11
-  %303 = load i8, ptr %m_onlyForNoneContact395, align 8
-  %tobool396 = trunc i8 %303 to i1
-  br i1 %tobool396, label %if.end719, label %if.then397
-
-if.then397:                                       ; preds = %if.end394
-  %304 = load i32, ptr %iteration.addr, align 4
-  %cmp398 = icmp eq i32 %304, 0
-  br i1 %cmp398, label %if.then399, label %if.else449
-
-if.then399:                                       ; preds = %if.then397
-  store i32 0, ptr %j400, align 4
-  br label %for.cond401
-
-for.cond401:                                      ; preds = %for.inc410, %if.then399
-  %305 = load i32, ptr %j400, align 4
-  %m_tmpSolverNonContactConstraintPool402 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call403 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool402)
-  %cmp404 = icmp slt i32 %305, %call403
-  br i1 %cmp404, label %for.body405, label %for.end412
-
-for.body405:                                      ; preds = %for.cond401
-  %m_deltafNC406 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 7
-  %306 = load i32, ptr %j400, align 4
-  %call407 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC406, i32 noundef %306)
-  %307 = load float, ptr %call407, align 4
-  %m_pNC408 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %308 = load i32, ptr %j400, align 4
-  %call409 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC408, i32 noundef %308)
-  store float %307, ptr %call409, align 4
-  br label %for.inc410
-
-for.inc410:                                       ; preds = %for.body405
-  %309 = load i32, ptr %j400, align 4
-  %inc411 = add nsw i32 %309, 1
-  store i32 %inc411, ptr %j400, align 4
-  br label %for.cond401, !llvm.loop !18
-
-for.end412:                                       ; preds = %for.cond401
-  store i32 0, ptr %j413, align 4
-  br label %for.cond414
-
-for.cond414:                                      ; preds = %for.inc422, %for.end412
-  %310 = load i32, ptr %j413, align 4
-  %m_tmpSolverContactConstraintPool415 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %call416 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool415)
-  %cmp417 = icmp slt i32 %310, %call416
-  br i1 %cmp417, label %for.body418, label %for.end424
-
-for.body418:                                      ; preds = %for.cond414
-  %m_deltafC419 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 8
-  %311 = load i32, ptr %j413, align 4
-  %call420 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafC419, i32 noundef %311)
-  %312 = load float, ptr %call420, align 4
-  %m_pC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 4
-  %313 = load i32, ptr %j413, align 4
-  %call421 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pC, i32 noundef %313)
-  store float %312, ptr %call421, align 4
-  br label %for.inc422
-
-for.inc422:                                       ; preds = %for.body418
-  %314 = load i32, ptr %j413, align 4
-  %inc423 = add nsw i32 %314, 1
-  store i32 %inc423, ptr %j413, align 4
-  br label %for.cond414, !llvm.loop !19
-
-for.end424:                                       ; preds = %for.cond414
-  store i32 0, ptr %j425, align 4
-  br label %for.cond426
-
-for.cond426:                                      ; preds = %for.inc434, %for.end424
-  %315 = load i32, ptr %j425, align 4
-  %m_tmpSolverContactFrictionConstraintPool427 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %call428 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool427)
-  %cmp429 = icmp slt i32 %315, %call428
-  br i1 %cmp429, label %for.body430, label %for.end436
-
-for.body430:                                      ; preds = %for.cond426
-  %m_deltafCF431 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %316 = load i32, ptr %j425, align 4
-  %call432 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF431, i32 noundef %316)
-  %317 = load float, ptr %call432, align 4
-  %m_pCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 5
-  %318 = load i32, ptr %j425, align 4
-  %call433 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF, i32 noundef %318)
-  store float %317, ptr %call433, align 4
-  br label %for.inc434
-
-for.inc434:                                       ; preds = %for.body430
-  %319 = load i32, ptr %j425, align 4
-  %inc435 = add nsw i32 %319, 1
-  store i32 %inc435, ptr %j425, align 4
-  br label %for.cond426, !llvm.loop !20
-
-for.end436:                                       ; preds = %for.cond426
-  store i32 0, ptr %j437, align 4
-  br label %for.cond438
-
-for.cond438:                                      ; preds = %for.inc446, %for.end436
-  %320 = load i32, ptr %j437, align 4
-  %m_tmpSolverContactRollingFrictionConstraintPool439 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 5
-  %call440 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool439)
-  %cmp441 = icmp slt i32 %320, %call440
-  br i1 %cmp441, label %for.body442, label %for.end448
-
-for.body442:                                      ; preds = %for.cond438
-  %m_deltafCRF443 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 10
-  %321 = load i32, ptr %j437, align 4
-  %call444 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCRF443, i32 noundef %321)
-  %322 = load float, ptr %call444, align 4
-  %m_pCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 6
-  %323 = load i32, ptr %j437, align 4
-  %call445 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF, i32 noundef %323)
-  store float %322, ptr %call445, align 4
-  br label %for.inc446
-
-for.inc446:                                       ; preds = %for.body442
-  %324 = load i32, ptr %j437, align 4
-  %inc447 = add nsw i32 %324, 1
-  store i32 %inc447, ptr %j437, align 4
-  br label %for.cond438, !llvm.loop !21
-
-for.end448:                                       ; preds = %for.cond438
-  br label %if.end717
-
-if.else449:                                       ; preds = %if.then397
-  %m_deltafLengthSqrPrev451 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 1
-  %325 = load float, ptr %m_deltafLengthSqrPrev451, align 8
-  %cmp452 = fcmp ogt float %325, 0.000000e+00
-  br i1 %cmp452, label %cond.true453, label %cond.false456
-
-cond.true453:                                     ; preds = %if.else449
-  %326 = load float, ptr %deltaflengthsqr, align 4
-  %m_deltafLengthSqrPrev454 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 1
-  %327 = load float, ptr %m_deltafLengthSqrPrev454, align 8
-  %div455 = fdiv float %326, %327
-  br label %cond.end457
-
-cond.false456:                                    ; preds = %if.else449
-  br label %cond.end457
-
-cond.end457:                                      ; preds = %cond.false456, %cond.true453
-  %cond458 = phi float [ %div455, %cond.true453 ], [ 2.000000e+00, %cond.false456 ]
-  store float %cond458, ptr %beta450, align 4
-  %328 = load float, ptr %beta450, align 4
-  %cmp459 = fcmp ogt float %328, 1.000000e+00
-  br i1 %cmp459, label %if.then460, label %if.else505
-
-if.then460:                                       ; preds = %cond.end457
-  store i32 0, ptr %j461, align 4
-  br label %for.cond462
-
-for.cond462:                                      ; preds = %for.inc469, %if.then460
-  %329 = load i32, ptr %j461, align 4
-  %m_tmpSolverNonContactConstraintPool463 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call464 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool463)
-  %cmp465 = icmp slt i32 %329, %call464
-  br i1 %cmp465, label %for.body466, label %for.end471
-
-for.body466:                                      ; preds = %for.cond462
-  %m_pNC467 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %330 = load i32, ptr %j461, align 4
-  %call468 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC467, i32 noundef %330)
-  store float 0.000000e+00, ptr %call468, align 4
-  br label %for.inc469
-
-for.inc469:                                       ; preds = %for.body466
-  %331 = load i32, ptr %j461, align 4
-  %inc470 = add nsw i32 %331, 1
-  store i32 %inc470, ptr %j461, align 4
-  br label %for.cond462, !llvm.loop !22
-
-for.end471:                                       ; preds = %for.cond462
-  store i32 0, ptr %j472, align 4
-  br label %for.cond473
-
-for.cond473:                                      ; preds = %for.inc480, %for.end471
-  %332 = load i32, ptr %j472, align 4
-  %m_tmpSolverContactConstraintPool474 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %call475 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool474)
-  %cmp476 = icmp slt i32 %332, %call475
-  br i1 %cmp476, label %for.body477, label %for.end482
-
-for.body477:                                      ; preds = %for.cond473
-  %m_pC478 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 4
-  %333 = load i32, ptr %j472, align 4
-  %call479 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pC478, i32 noundef %333)
-  store float 0.000000e+00, ptr %call479, align 4
-  br label %for.inc480
-
-for.inc480:                                       ; preds = %for.body477
-  %334 = load i32, ptr %j472, align 4
-  %inc481 = add nsw i32 %334, 1
-  store i32 %inc481, ptr %j472, align 4
-  br label %for.cond473, !llvm.loop !23
-
-for.end482:                                       ; preds = %for.cond473
-  store i32 0, ptr %j483, align 4
-  br label %for.cond484
-
-for.cond484:                                      ; preds = %for.inc491, %for.end482
-  %335 = load i32, ptr %j483, align 4
-  %m_tmpSolverContactFrictionConstraintPool485 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %call486 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool485)
-  %cmp487 = icmp slt i32 %335, %call486
-  br i1 %cmp487, label %for.body488, label %for.end493
-
-for.body488:                                      ; preds = %for.cond484
-  %m_pCF489 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 5
-  %336 = load i32, ptr %j483, align 4
-  %call490 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF489, i32 noundef %336)
-  store float 0.000000e+00, ptr %call490, align 4
-  br label %for.inc491
-
-for.inc491:                                       ; preds = %for.body488
-  %337 = load i32, ptr %j483, align 4
-  %inc492 = add nsw i32 %337, 1
-  store i32 %inc492, ptr %j483, align 4
-  br label %for.cond484, !llvm.loop !24
-
-for.end493:                                       ; preds = %for.cond484
-  store i32 0, ptr %j494, align 4
-  br label %for.cond495
-
-for.cond495:                                      ; preds = %for.inc502, %for.end493
-  %338 = load i32, ptr %j494, align 4
-  %m_tmpSolverContactRollingFrictionConstraintPool496 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 5
-  %call497 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool496)
-  %cmp498 = icmp slt i32 %338, %call497
-  br i1 %cmp498, label %for.body499, label %for.end504
-
-for.body499:                                      ; preds = %for.cond495
-  %m_pCRF500 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 6
-  %339 = load i32, ptr %j494, align 4
-  %call501 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF500, i32 noundef %339)
-  store float 0.000000e+00, ptr %call501, align 4
-  br label %for.inc502
-
-for.inc502:                                       ; preds = %for.body499
-  %340 = load i32, ptr %j494, align 4
-  %inc503 = add nsw i32 %340, 1
-  store i32 %inc503, ptr %j494, align 4
-  br label %for.cond495, !llvm.loop !25
-
-for.end504:                                       ; preds = %for.cond495
-  br label %if.end716
-
-if.else505:                                       ; preds = %cond.end457
-  store i32 0, ptr %j506, align 4
-  br label %for.cond507
-
-for.cond507:                                      ; preds = %for.inc556, %if.else505
-  %341 = load i32, ptr %j506, align 4
-  %m_tmpSolverNonContactConstraintPool508 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %call509 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool508)
-  %cmp510 = icmp slt i32 %341, %call509
-  br i1 %cmp510, label %for.body511, label %for.end558
-
-for.body511:                                      ; preds = %for.cond507
-  %m_tmpSolverNonContactConstraintPool513 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 3
-  %m_orderNonContactConstraintPool514 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 7
-  %342 = load i32, ptr %j506, align 4
-  %call515 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderNonContactConstraintPool514, i32 noundef %342)
-  %343 = load i32, ptr %call515, align 4
-  %call516 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool513, i32 noundef %343)
-  store ptr %call516, ptr %constraint512, align 8
-  %344 = load i32, ptr %iteration.addr, align 4
-  %345 = load ptr, ptr %constraint512, align 8
-  %m_overrideNumSolverIterations517 = getelementptr inbounds %struct.btSolverConstraint, ptr %345, i32 0, i32 16
-  %346 = load i32, ptr %m_overrideNumSolverIterations517, align 8
-  %cmp518 = icmp slt i32 %344, %346
-  br i1 %cmp518, label %if.then519, label %if.end555
-
-if.then519:                                       ; preds = %for.body511
-  %347 = load float, ptr %beta450, align 4
-  %m_pNC521 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %348 = load i32, ptr %j506, align 4
-  %call522 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC521, i32 noundef %348)
-  %349 = load float, ptr %call522, align 4
-  %mul523 = fmul float %347, %349
-  store float %mul523, ptr %additionaldeltaimpulse520, align 4
-  %350 = load ptr, ptr %constraint512, align 8
-  %m_appliedImpulse524 = getelementptr inbounds %struct.btSolverConstraint, ptr %350, i32 0, i32 7
-  %351 = load float, ptr %m_appliedImpulse524, align 4
-  %352 = load float, ptr %additionaldeltaimpulse520, align 4
-  %add525 = fadd float %351, %352
-  %353 = load ptr, ptr %constraint512, align 8
-  %m_appliedImpulse526 = getelementptr inbounds %struct.btSolverConstraint, ptr %353, i32 0, i32 7
-  store float %add525, ptr %m_appliedImpulse526, align 4
-  %354 = load float, ptr %beta450, align 4
-  %m_pNC527 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %355 = load i32, ptr %j506, align 4
-  %call528 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC527, i32 noundef %355)
-  %356 = load float, ptr %call528, align 4
-  %m_deltafNC530 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 7
-  %357 = load i32, ptr %j506, align 4
-  %call531 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC530, i32 noundef %357)
-  %358 = load float, ptr %call531, align 4
-  %359 = call float @llvm.fmuladd.f32(float %354, float %356, float %358)
-  %m_pNC532 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 3
-  %360 = load i32, ptr %j506, align 4
-  %call533 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC532, i32 noundef %360)
-  store float %359, ptr %call533, align 4
-  %m_tmpSolverBodyPool535 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %361 = load ptr, ptr %constraint512, align 8
-  %m_solverBodyIdA536 = getelementptr inbounds %struct.btSolverConstraint, ptr %361, i32 0, i32 18
-  %362 = load i32, ptr %m_solverBodyIdA536, align 8
-  %call537 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool535, i32 noundef %362)
-  store ptr %call537, ptr %body1534, align 8
-  %m_tmpSolverBodyPool539 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %363 = load ptr, ptr %constraint512, align 8
-  %m_solverBodyIdB540 = getelementptr inbounds %struct.btSolverConstraint, ptr %363, i32 0, i32 19
-  %364 = load i32, ptr %m_solverBodyIdB540, align 4
-  %call541 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool539, i32 noundef %364)
-  store ptr %call541, ptr %body2538, align 8
-  %365 = load ptr, ptr %constraint512, align 8
-  store ptr %365, ptr %c542, align 8
-  %366 = load ptr, ptr %body1534, align 8
-  %367 = load ptr, ptr %c542, align 8
-  %m_contactNormal1544 = getelementptr inbounds %struct.btSolverConstraint, ptr %367, i32 0, i32 1
-  %368 = load ptr, ptr %body1534, align 8
-  %call545 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %368)
-  %call546 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal1544, ptr noundef nonnull align 4 dereferenceable(16) %call545)
-  %coerce.dive547 = getelementptr inbounds %class.btVector3, ptr %ref.tmp543, i32 0, i32 0
-  %369 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive547, i32 0, i32 0
-  %370 = extractvalue { <2 x float>, <2 x float> } %call546, 0
-  store <2 x float> %370, ptr %369, align 4
-  %371 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive547, i32 0, i32 1
-  %372 = extractvalue { <2 x float>, <2 x float> } %call546, 1
-  store <2 x float> %372, ptr %371, align 4
-  %373 = load ptr, ptr %c542, align 8
-  %m_angularComponentA548 = getelementptr inbounds %struct.btSolverConstraint, ptr %373, i32 0, i32 4
-  %374 = load float, ptr %additionaldeltaimpulse520, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %366, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp543, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentA548, float noundef %374)
-  %375 = load ptr, ptr %body2538, align 8
-  %376 = load ptr, ptr %c542, align 8
-  %m_contactNormal2550 = getelementptr inbounds %struct.btSolverConstraint, ptr %376, i32 0, i32 3
-  %377 = load ptr, ptr %body2538, align 8
-  %call551 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %377)
-  %call552 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal2550, ptr noundef nonnull align 4 dereferenceable(16) %call551)
-  %coerce.dive553 = getelementptr inbounds %class.btVector3, ptr %ref.tmp549, i32 0, i32 0
-  %378 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive553, i32 0, i32 0
-  %379 = extractvalue { <2 x float>, <2 x float> } %call552, 0
-  store <2 x float> %379, ptr %378, align 4
-  %380 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive553, i32 0, i32 1
-  %381 = extractvalue { <2 x float>, <2 x float> } %call552, 1
-  store <2 x float> %381, ptr %380, align 4
-  %382 = load ptr, ptr %c542, align 8
-  %m_angularComponentB554 = getelementptr inbounds %struct.btSolverConstraint, ptr %382, i32 0, i32 5
-  %383 = load float, ptr %additionaldeltaimpulse520, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %375, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp549, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentB554, float noundef %383)
-  br label %if.end555
-
-if.end555:                                        ; preds = %if.then519, %for.body511
-  br label %for.inc556
-
-for.inc556:                                       ; preds = %if.end555
-  %384 = load i32, ptr %j506, align 4
-  %inc557 = add nsw i32 %384, 1
-  store i32 %inc557, ptr %j506, align 4
-  br label %for.cond507, !llvm.loop !26
-
-for.end558:                                       ; preds = %for.cond507
-  store i32 0, ptr %j559, align 4
-  br label %for.cond560
-
-for.cond560:                                      ; preds = %for.inc609, %for.end558
-  %385 = load i32, ptr %j559, align 4
-  %m_tmpSolverContactConstraintPool561 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %call562 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool561)
-  %cmp563 = icmp slt i32 %385, %call562
-  br i1 %cmp563, label %for.body564, label %for.end611
-
-for.body564:                                      ; preds = %for.cond560
-  %m_tmpSolverContactConstraintPool566 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 2
-  %m_orderTmpConstraintPool567 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 6
-  %386 = load i32, ptr %j559, align 4
-  %call568 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderTmpConstraintPool567, i32 noundef %386)
-  %387 = load i32, ptr %call568, align 4
-  %call569 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactConstraintPool566, i32 noundef %387)
-  store ptr %call569, ptr %constraint565, align 8
-  %388 = load i32, ptr %iteration.addr, align 4
-  %389 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_numIterations570 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %389, i32 0, i32 5
-  %390 = load i32, ptr %m_numIterations570, align 4
-  %cmp571 = icmp slt i32 %388, %390
-  br i1 %cmp571, label %if.then572, label %if.end608
-
-if.then572:                                       ; preds = %for.body564
-  %391 = load float, ptr %beta450, align 4
-  %m_pC574 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 4
-  %392 = load i32, ptr %j559, align 4
-  %call575 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pC574, i32 noundef %392)
-  %393 = load float, ptr %call575, align 4
-  %mul576 = fmul float %391, %393
-  store float %mul576, ptr %additionaldeltaimpulse573, align 4
-  %394 = load ptr, ptr %constraint565, align 8
-  %m_appliedImpulse577 = getelementptr inbounds %struct.btSolverConstraint, ptr %394, i32 0, i32 7
-  %395 = load float, ptr %m_appliedImpulse577, align 4
-  %396 = load float, ptr %additionaldeltaimpulse573, align 4
-  %add578 = fadd float %395, %396
-  %397 = load ptr, ptr %constraint565, align 8
-  %m_appliedImpulse579 = getelementptr inbounds %struct.btSolverConstraint, ptr %397, i32 0, i32 7
-  store float %add578, ptr %m_appliedImpulse579, align 4
-  %398 = load float, ptr %beta450, align 4
-  %m_pC580 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 4
-  %399 = load i32, ptr %j559, align 4
-  %call581 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pC580, i32 noundef %399)
-  %400 = load float, ptr %call581, align 4
-  %m_deltafC583 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 8
-  %401 = load i32, ptr %j559, align 4
-  %call584 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafC583, i32 noundef %401)
-  %402 = load float, ptr %call584, align 4
-  %403 = call float @llvm.fmuladd.f32(float %398, float %400, float %402)
-  %m_pC585 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 4
-  %404 = load i32, ptr %j559, align 4
-  %call586 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pC585, i32 noundef %404)
-  store float %403, ptr %call586, align 4
-  %m_tmpSolverBodyPool588 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %405 = load ptr, ptr %constraint565, align 8
-  %m_solverBodyIdA589 = getelementptr inbounds %struct.btSolverConstraint, ptr %405, i32 0, i32 18
-  %406 = load i32, ptr %m_solverBodyIdA589, align 8
-  %call590 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool588, i32 noundef %406)
-  store ptr %call590, ptr %body1587, align 8
-  %m_tmpSolverBodyPool592 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %407 = load ptr, ptr %constraint565, align 8
-  %m_solverBodyIdB593 = getelementptr inbounds %struct.btSolverConstraint, ptr %407, i32 0, i32 19
-  %408 = load i32, ptr %m_solverBodyIdB593, align 4
-  %call594 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool592, i32 noundef %408)
-  store ptr %call594, ptr %body2591, align 8
-  %409 = load ptr, ptr %constraint565, align 8
-  store ptr %409, ptr %c595, align 8
-  %410 = load ptr, ptr %body1587, align 8
-  %411 = load ptr, ptr %c595, align 8
-  %m_contactNormal1597 = getelementptr inbounds %struct.btSolverConstraint, ptr %411, i32 0, i32 1
-  %412 = load ptr, ptr %body1587, align 8
-  %call598 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %412)
-  %call599 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal1597, ptr noundef nonnull align 4 dereferenceable(16) %call598)
-  %coerce.dive600 = getelementptr inbounds %class.btVector3, ptr %ref.tmp596, i32 0, i32 0
-  %413 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive600, i32 0, i32 0
-  %414 = extractvalue { <2 x float>, <2 x float> } %call599, 0
-  store <2 x float> %414, ptr %413, align 4
-  %415 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive600, i32 0, i32 1
-  %416 = extractvalue { <2 x float>, <2 x float> } %call599, 1
-  store <2 x float> %416, ptr %415, align 4
-  %417 = load ptr, ptr %c595, align 8
-  %m_angularComponentA601 = getelementptr inbounds %struct.btSolverConstraint, ptr %417, i32 0, i32 4
-  %418 = load float, ptr %additionaldeltaimpulse573, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %410, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp596, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentA601, float noundef %418)
-  %419 = load ptr, ptr %body2591, align 8
-  %420 = load ptr, ptr %c595, align 8
-  %m_contactNormal2603 = getelementptr inbounds %struct.btSolverConstraint, ptr %420, i32 0, i32 3
-  %421 = load ptr, ptr %body2591, align 8
-  %call604 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %421)
-  %call605 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal2603, ptr noundef nonnull align 4 dereferenceable(16) %call604)
-  %coerce.dive606 = getelementptr inbounds %class.btVector3, ptr %ref.tmp602, i32 0, i32 0
-  %422 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive606, i32 0, i32 0
-  %423 = extractvalue { <2 x float>, <2 x float> } %call605, 0
-  store <2 x float> %423, ptr %422, align 4
-  %424 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive606, i32 0, i32 1
-  %425 = extractvalue { <2 x float>, <2 x float> } %call605, 1
-  store <2 x float> %425, ptr %424, align 4
-  %426 = load ptr, ptr %c595, align 8
-  %m_angularComponentB607 = getelementptr inbounds %struct.btSolverConstraint, ptr %426, i32 0, i32 5
-  %427 = load float, ptr %additionaldeltaimpulse573, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %419, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp602, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentB607, float noundef %427)
-  br label %if.end608
-
-if.end608:                                        ; preds = %if.then572, %for.body564
-  br label %for.inc609
-
-for.inc609:                                       ; preds = %if.end608
-  %428 = load i32, ptr %j559, align 4
-  %inc610 = add nsw i32 %428, 1
-  store i32 %inc610, ptr %j559, align 4
-  br label %for.cond560, !llvm.loop !27
-
-for.end611:                                       ; preds = %for.cond560
-  store i32 0, ptr %j612, align 4
-  br label %for.cond613
-
-for.cond613:                                      ; preds = %for.inc662, %for.end611
-  %429 = load i32, ptr %j612, align 4
-  %m_tmpSolverContactFrictionConstraintPool614 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %call615 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool614)
-  %cmp616 = icmp slt i32 %429, %call615
-  br i1 %cmp616, label %for.body617, label %for.end664
-
-for.body617:                                      ; preds = %for.cond613
-  %m_tmpSolverContactFrictionConstraintPool619 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 4
-  %m_orderFrictionConstraintPool620 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 8
-  %430 = load i32, ptr %j612, align 4
-  %call621 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_orderFrictionConstraintPool620, i32 noundef %430)
-  %431 = load i32, ptr %call621, align 4
-  %call622 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool619, i32 noundef %431)
-  store ptr %call622, ptr %constraint618, align 8
-  %432 = load i32, ptr %iteration.addr, align 4
-  %433 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_numIterations623 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %433, i32 0, i32 5
-  %434 = load i32, ptr %m_numIterations623, align 4
-  %cmp624 = icmp slt i32 %432, %434
-  br i1 %cmp624, label %if.then625, label %if.end661
-
-if.then625:                                       ; preds = %for.body617
-  %435 = load float, ptr %beta450, align 4
-  %m_pCF627 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 5
-  %436 = load i32, ptr %j612, align 4
-  %call628 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF627, i32 noundef %436)
-  %437 = load float, ptr %call628, align 4
-  %mul629 = fmul float %435, %437
-  store float %mul629, ptr %additionaldeltaimpulse626, align 4
-  %438 = load ptr, ptr %constraint618, align 8
-  %m_appliedImpulse630 = getelementptr inbounds %struct.btSolverConstraint, ptr %438, i32 0, i32 7
-  %439 = load float, ptr %m_appliedImpulse630, align 4
-  %440 = load float, ptr %additionaldeltaimpulse626, align 4
-  %add631 = fadd float %439, %440
-  %441 = load ptr, ptr %constraint618, align 8
-  %m_appliedImpulse632 = getelementptr inbounds %struct.btSolverConstraint, ptr %441, i32 0, i32 7
-  store float %add631, ptr %m_appliedImpulse632, align 4
-  %442 = load float, ptr %beta450, align 4
-  %m_pCF633 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 5
-  %443 = load i32, ptr %j612, align 4
-  %call634 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF633, i32 noundef %443)
-  %444 = load float, ptr %call634, align 4
-  %m_deltafCF636 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 9
-  %445 = load i32, ptr %j612, align 4
-  %call637 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF636, i32 noundef %445)
-  %446 = load float, ptr %call637, align 4
-  %447 = call float @llvm.fmuladd.f32(float %442, float %444, float %446)
-  %m_pCF638 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 5
-  %448 = load i32, ptr %j612, align 4
-  %call639 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF638, i32 noundef %448)
-  store float %447, ptr %call639, align 4
-  %m_tmpSolverBodyPool641 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %449 = load ptr, ptr %constraint618, align 8
-  %m_solverBodyIdA642 = getelementptr inbounds %struct.btSolverConstraint, ptr %449, i32 0, i32 18
-  %450 = load i32, ptr %m_solverBodyIdA642, align 8
-  %call643 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool641, i32 noundef %450)
-  store ptr %call643, ptr %body1640, align 8
-  %m_tmpSolverBodyPool645 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %451 = load ptr, ptr %constraint618, align 8
-  %m_solverBodyIdB646 = getelementptr inbounds %struct.btSolverConstraint, ptr %451, i32 0, i32 19
-  %452 = load i32, ptr %m_solverBodyIdB646, align 4
-  %call647 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool645, i32 noundef %452)
-  store ptr %call647, ptr %body2644, align 8
-  %453 = load ptr, ptr %constraint618, align 8
-  store ptr %453, ptr %c648, align 8
-  %454 = load ptr, ptr %body1640, align 8
-  %455 = load ptr, ptr %c648, align 8
-  %m_contactNormal1650 = getelementptr inbounds %struct.btSolverConstraint, ptr %455, i32 0, i32 1
-  %456 = load ptr, ptr %body1640, align 8
-  %call651 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %456)
-  %call652 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal1650, ptr noundef nonnull align 4 dereferenceable(16) %call651)
-  %coerce.dive653 = getelementptr inbounds %class.btVector3, ptr %ref.tmp649, i32 0, i32 0
-  %457 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive653, i32 0, i32 0
-  %458 = extractvalue { <2 x float>, <2 x float> } %call652, 0
-  store <2 x float> %458, ptr %457, align 4
-  %459 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive653, i32 0, i32 1
-  %460 = extractvalue { <2 x float>, <2 x float> } %call652, 1
-  store <2 x float> %460, ptr %459, align 4
-  %461 = load ptr, ptr %c648, align 8
-  %m_angularComponentA654 = getelementptr inbounds %struct.btSolverConstraint, ptr %461, i32 0, i32 4
-  %462 = load float, ptr %additionaldeltaimpulse626, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %454, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp649, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentA654, float noundef %462)
-  %463 = load ptr, ptr %body2644, align 8
-  %464 = load ptr, ptr %c648, align 8
-  %m_contactNormal2656 = getelementptr inbounds %struct.btSolverConstraint, ptr %464, i32 0, i32 3
-  %465 = load ptr, ptr %body2644, align 8
-  %call657 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %465)
-  %call658 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal2656, ptr noundef nonnull align 4 dereferenceable(16) %call657)
-  %coerce.dive659 = getelementptr inbounds %class.btVector3, ptr %ref.tmp655, i32 0, i32 0
-  %466 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive659, i32 0, i32 0
-  %467 = extractvalue { <2 x float>, <2 x float> } %call658, 0
-  store <2 x float> %467, ptr %466, align 4
-  %468 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive659, i32 0, i32 1
-  %469 = extractvalue { <2 x float>, <2 x float> } %call658, 1
-  store <2 x float> %469, ptr %468, align 4
-  %470 = load ptr, ptr %c648, align 8
-  %m_angularComponentB660 = getelementptr inbounds %struct.btSolverConstraint, ptr %470, i32 0, i32 5
-  %471 = load float, ptr %additionaldeltaimpulse626, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %463, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp655, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentB660, float noundef %471)
-  br label %if.end661
-
-if.end661:                                        ; preds = %if.then625, %for.body617
-  br label %for.inc662
-
-for.inc662:                                       ; preds = %if.end661
-  %472 = load i32, ptr %j612, align 4
-  %inc663 = add nsw i32 %472, 1
-  store i32 %inc663, ptr %j612, align 4
-  br label %for.cond613, !llvm.loop !28
-
-for.end664:                                       ; preds = %for.cond613
-  store i32 0, ptr %j665, align 4
-  br label %for.cond666
-
-for.cond666:                                      ; preds = %for.inc713, %for.end664
-  %473 = load i32, ptr %j665, align 4
-  %m_tmpSolverContactRollingFrictionConstraintPool667 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 5
-  %call668 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool667)
-  %cmp669 = icmp slt i32 %473, %call668
-  br i1 %cmp669, label %for.body670, label %for.end715
-
-for.body670:                                      ; preds = %for.cond666
-  %m_tmpSolverContactRollingFrictionConstraintPool672 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 5
-  %474 = load i32, ptr %j665, align 4
-  %call673 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool672, i32 noundef %474)
-  store ptr %call673, ptr %constraint671, align 8
-  %475 = load i32, ptr %iteration.addr, align 4
-  %476 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_numIterations674 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %476, i32 0, i32 5
-  %477 = load i32, ptr %m_numIterations674, align 4
-  %cmp675 = icmp slt i32 %475, %477
-  br i1 %cmp675, label %if.then676, label %if.end712
-
-if.then676:                                       ; preds = %for.body670
-  %478 = load float, ptr %beta450, align 4
-  %m_pCRF678 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 6
-  %479 = load i32, ptr %j665, align 4
-  %call679 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF678, i32 noundef %479)
-  %480 = load float, ptr %call679, align 4
-  %mul680 = fmul float %478, %480
-  store float %mul680, ptr %additionaldeltaimpulse677, align 4
-  %481 = load ptr, ptr %constraint671, align 8
-  %m_appliedImpulse681 = getelementptr inbounds %struct.btSolverConstraint, ptr %481, i32 0, i32 7
-  %482 = load float, ptr %m_appliedImpulse681, align 4
-  %483 = load float, ptr %additionaldeltaimpulse677, align 4
-  %add682 = fadd float %482, %483
-  %484 = load ptr, ptr %constraint671, align 8
-  %m_appliedImpulse683 = getelementptr inbounds %struct.btSolverConstraint, ptr %484, i32 0, i32 7
-  store float %add682, ptr %m_appliedImpulse683, align 4
-  %485 = load float, ptr %beta450, align 4
-  %m_pCRF684 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 6
-  %486 = load i32, ptr %j665, align 4
-  %call685 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF684, i32 noundef %486)
-  %487 = load float, ptr %call685, align 4
-  %m_deltafCRF687 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 10
-  %488 = load i32, ptr %j665, align 4
-  %call688 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCRF687, i32 noundef %488)
-  %489 = load float, ptr %call688, align 4
-  %490 = call float @llvm.fmuladd.f32(float %485, float %487, float %489)
-  %m_pCRF689 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 6
-  %491 = load i32, ptr %j665, align 4
-  %call690 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF689, i32 noundef %491)
-  store float %490, ptr %call690, align 4
-  %m_tmpSolverBodyPool692 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %492 = load ptr, ptr %constraint671, align 8
-  %m_solverBodyIdA693 = getelementptr inbounds %struct.btSolverConstraint, ptr %492, i32 0, i32 18
-  %493 = load i32, ptr %m_solverBodyIdA693, align 8
-  %call694 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool692, i32 noundef %493)
-  store ptr %call694, ptr %body1691, align 8
-  %m_tmpSolverBodyPool696 = getelementptr inbounds %class.btSequentialImpulseConstraintSolver, ptr %this5, i32 0, i32 1
-  %494 = load ptr, ptr %constraint671, align 8
-  %m_solverBodyIdB697 = getelementptr inbounds %struct.btSolverConstraint, ptr %494, i32 0, i32 19
-  %495 = load i32, ptr %m_solverBodyIdB697, align 4
-  %call698 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool696, i32 noundef %495)
-  store ptr %call698, ptr %body2695, align 8
-  %496 = load ptr, ptr %constraint671, align 8
-  store ptr %496, ptr %c699, align 8
-  %497 = load ptr, ptr %body1691, align 8
-  %498 = load ptr, ptr %c699, align 8
-  %m_contactNormal1701 = getelementptr inbounds %struct.btSolverConstraint, ptr %498, i32 0, i32 1
-  %499 = load ptr, ptr %body1691, align 8
-  %call702 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %499)
-  %call703 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal1701, ptr noundef nonnull align 4 dereferenceable(16) %call702)
-  %coerce.dive704 = getelementptr inbounds %class.btVector3, ptr %ref.tmp700, i32 0, i32 0
-  %500 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive704, i32 0, i32 0
-  %501 = extractvalue { <2 x float>, <2 x float> } %call703, 0
-  store <2 x float> %501, ptr %500, align 4
-  %502 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive704, i32 0, i32 1
-  %503 = extractvalue { <2 x float>, <2 x float> } %call703, 1
-  store <2 x float> %503, ptr %502, align 4
-  %504 = load ptr, ptr %c699, align 8
-  %m_angularComponentA705 = getelementptr inbounds %struct.btSolverConstraint, ptr %504, i32 0, i32 4
-  %505 = load float, ptr %additionaldeltaimpulse677, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %497, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp700, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentA705, float noundef %505)
-  %506 = load ptr, ptr %body2695, align 8
-  %507 = load ptr, ptr %c699, align 8
-  %m_contactNormal2707 = getelementptr inbounds %struct.btSolverConstraint, ptr %507, i32 0, i32 3
-  %508 = load ptr, ptr %body2695, align 8
-  %call708 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %508)
-  %call709 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal2707, ptr noundef nonnull align 4 dereferenceable(16) %call708)
-  %coerce.dive710 = getelementptr inbounds %class.btVector3, ptr %ref.tmp706, i32 0, i32 0
-  %509 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive710, i32 0, i32 0
-  %510 = extractvalue { <2 x float>, <2 x float> } %call709, 0
-  store <2 x float> %510, ptr %509, align 4
-  %511 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive710, i32 0, i32 1
-  %512 = extractvalue { <2 x float>, <2 x float> } %call709, 1
-  store <2 x float> %512, ptr %511, align 4
-  %513 = load ptr, ptr %c699, align 8
-  %m_angularComponentB711 = getelementptr inbounds %struct.btSolverConstraint, ptr %513, i32 0, i32 5
-  %514 = load float, ptr %additionaldeltaimpulse677, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %506, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp706, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentB711, float noundef %514)
-  br label %if.end712
-
-if.end712:                                        ; preds = %if.then676, %for.body670
-  br label %for.inc713
-
-for.inc713:                                       ; preds = %if.end712
-  %515 = load i32, ptr %j665, align 4
-  %inc714 = add nsw i32 %515, 1
-  store i32 %inc714, ptr %j665, align 4
-  br label %for.cond666, !llvm.loop !29
-
-for.end715:                                       ; preds = %for.cond666
-  br label %if.end716
-
-if.end716:                                        ; preds = %for.end715, %for.end504
-  br label %if.end717
-
-if.end717:                                        ; preds = %if.end716, %for.end448
-  %516 = load float, ptr %deltaflengthsqr, align 4
-  %m_deltafLengthSqrPrev718 = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this5, i32 0, i32 1
-  store float %516, ptr %m_deltafLengthSqrPrev718, align 8
-  br label %if.end719
-
-if.end719:                                        ; preds = %if.end717, %if.end394
-  %517 = load float, ptr %deltaflengthsqr, align 4
-  ret float %517
+define dso_local noundef float @_ZN22btNNCGConstraintSolver20solveSingleIterationEiPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(673) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(128) %8, ptr noundef %9) unnamed_addr #7 align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca float, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca ptr, align 8
+  %36 = alloca float, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca float, align 4
+  %39 = alloca i32, align 4
+  %40 = alloca i32, align 4
+  %41 = alloca ptr, align 8
+  %42 = alloca float, align 4
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca %class.btVector3, align 4
+  %47 = alloca %class.btVector3, align 4
+  %48 = alloca i32, align 4
+  %49 = alloca i32, align 4
+  %50 = alloca i32, align 4
+  %51 = alloca ptr, align 8
+  %52 = alloca ptr, align 8
+  %53 = alloca i32, align 4
+  %54 = alloca i32, align 4
+  %55 = alloca i32, align 4
+  %56 = alloca float, align 4
+  %57 = alloca ptr, align 8
+  %58 = alloca float, align 4
+  %59 = alloca i8, align 1
+  %60 = alloca ptr, align 8
+  %61 = alloca float, align 4
+  %62 = alloca ptr, align 8
+  %63 = alloca float, align 4
+  %64 = alloca i32, align 4
+  %65 = alloca i32, align 4
+  %66 = alloca ptr, align 8
+  %67 = alloca float, align 4
+  %68 = alloca i32, align 4
+  %69 = alloca ptr, align 8
+  %70 = alloca float, align 4
+  %71 = alloca float, align 4
+  %72 = alloca i32, align 4
+  %73 = alloca i32, align 4
+  %74 = alloca ptr, align 8
+  %75 = alloca float, align 4
+  %76 = alloca float, align 4
+  %77 = alloca float, align 4
+  %78 = alloca i32, align 4
+  %79 = alloca i32, align 4
+  %80 = alloca i32, align 4
+  %81 = alloca i32, align 4
+  %82 = alloca float, align 4
+  %83 = alloca i32, align 4
+  %84 = alloca i32, align 4
+  %85 = alloca i32, align 4
+  %86 = alloca i32, align 4
+  %87 = alloca i32, align 4
+  %88 = alloca ptr, align 8
+  %89 = alloca float, align 4
+  %90 = alloca ptr, align 8
+  %91 = alloca ptr, align 8
+  %92 = alloca ptr, align 8
+  %93 = alloca %class.btVector3, align 4
+  %94 = alloca %class.btVector3, align 4
+  %95 = alloca i32, align 4
+  %96 = alloca ptr, align 8
+  %97 = alloca float, align 4
+  %98 = alloca ptr, align 8
+  %99 = alloca ptr, align 8
+  %100 = alloca ptr, align 8
+  %101 = alloca %class.btVector3, align 4
+  %102 = alloca %class.btVector3, align 4
+  %103 = alloca i32, align 4
+  %104 = alloca ptr, align 8
+  %105 = alloca float, align 4
+  %106 = alloca ptr, align 8
+  %107 = alloca ptr, align 8
+  %108 = alloca ptr, align 8
+  %109 = alloca %class.btVector3, align 4
+  %110 = alloca %class.btVector3, align 4
+  %111 = alloca i32, align 4
+  %112 = alloca ptr, align 8
+  %113 = alloca float, align 4
+  %114 = alloca ptr, align 8
+  %115 = alloca ptr, align 8
+  %116 = alloca ptr, align 8
+  %117 = alloca %class.btVector3, align 4
+  %118 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !12
+  store i32 %1, ptr %12, align 4, !tbaa !9
+  store ptr %2, ptr %13, align 8, !tbaa !14
+  store i32 %3, ptr %14, align 4, !tbaa !9
+  store ptr %4, ptr %15, align 8, !tbaa !16
+  store i32 %5, ptr %16, align 4, !tbaa !9
+  store ptr %6, ptr %17, align 8, !tbaa !18
+  store i32 %7, ptr %18, align 4, !tbaa !9
+  store ptr %8, ptr %19, align 8, !tbaa !20
+  store ptr %9, ptr %20, align 8, !tbaa !22
+  %119 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #12
+  %120 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %121 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %120)
+  store i32 %121, ptr %21, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #12
+  %122 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %123 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %122)
+  store i32 %123, ptr %22, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #12
+  %124 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %125 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %124)
+  store i32 %125, ptr %23, align 4, !tbaa !9
+  %126 = load ptr, ptr %19, align 8, !tbaa !20
+  %127 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %126, i32 0, i32 22
+  %128 = load i32, ptr %127, align 4, !tbaa !39
+  %129 = and i32 %128, 1
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %223
+
+131:                                              ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #12
+  store i32 0, ptr %24, align 4, !tbaa !9
+  br label %132
+
+132:                                              ; preds = %156, %131
+  %133 = load i32, ptr %24, align 4, !tbaa !9
+  %134 = load i32, ptr %21, align 4, !tbaa !9
+  %135 = icmp slt i32 %133, %134
+  br i1 %135, label %137, label %136
+
+136:                                              ; preds = %132
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #12
+  br label %159
+
+137:                                              ; preds = %132
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #12
+  %138 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 7
+  %139 = load i32, ptr %24, align 4, !tbaa !9
+  %140 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %138, i32 noundef %139)
+  %141 = load i32, ptr %140, align 4, !tbaa !9
+  store i32 %141, ptr %25, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #12
+  %142 = load i32, ptr %24, align 4, !tbaa !9
+  %143 = add nsw i32 %142, 1
+  %144 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %119, i32 noundef %143)
+  store i32 %144, ptr %26, align 4, !tbaa !9
+  %145 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 7
+  %146 = load i32, ptr %26, align 4, !tbaa !9
+  %147 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %145, i32 noundef %146)
+  %148 = load i32, ptr %147, align 4, !tbaa !9
+  %149 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 7
+  %150 = load i32, ptr %24, align 4, !tbaa !9
+  %151 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %149, i32 noundef %150)
+  store i32 %148, ptr %151, align 4, !tbaa !9
+  %152 = load i32, ptr %25, align 4, !tbaa !9
+  %153 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 7
+  %154 = load i32, ptr %26, align 4, !tbaa !9
+  %155 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %153, i32 noundef %154)
+  store i32 %152, ptr %155, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #12
+  br label %156
+
+156:                                              ; preds = %137
+  %157 = load i32, ptr %24, align 4, !tbaa !9
+  %158 = add nsw i32 %157, 1
+  store i32 %158, ptr %24, align 4, !tbaa !9
+  br label %132, !llvm.loop !41
+
+159:                                              ; preds = %136
+  %160 = load i32, ptr %12, align 4, !tbaa !9
+  %161 = load ptr, ptr %19, align 8, !tbaa !20
+  %162 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %161, i32 0, i32 5
+  %163 = load i32, ptr %162, align 4, !tbaa !43
+  %164 = icmp slt i32 %160, %163
+  br i1 %164, label %165, label %222
+
+165:                                              ; preds = %159
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #12
+  store i32 0, ptr %27, align 4, !tbaa !9
+  br label %166
+
+166:                                              ; preds = %190, %165
+  %167 = load i32, ptr %27, align 4, !tbaa !9
+  %168 = load i32, ptr %22, align 4, !tbaa !9
+  %169 = icmp slt i32 %167, %168
+  br i1 %169, label %171, label %170
+
+170:                                              ; preds = %166
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #12
+  br label %193
+
+171:                                              ; preds = %166
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #12
+  %172 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 6
+  %173 = load i32, ptr %27, align 4, !tbaa !9
+  %174 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %172, i32 noundef %173)
+  %175 = load i32, ptr %174, align 4, !tbaa !9
+  store i32 %175, ptr %28, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #12
+  %176 = load i32, ptr %27, align 4, !tbaa !9
+  %177 = add nsw i32 %176, 1
+  %178 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %119, i32 noundef %177)
+  store i32 %178, ptr %29, align 4, !tbaa !9
+  %179 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 6
+  %180 = load i32, ptr %29, align 4, !tbaa !9
+  %181 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %179, i32 noundef %180)
+  %182 = load i32, ptr %181, align 4, !tbaa !9
+  %183 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 6
+  %184 = load i32, ptr %27, align 4, !tbaa !9
+  %185 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %183, i32 noundef %184)
+  store i32 %182, ptr %185, align 4, !tbaa !9
+  %186 = load i32, ptr %28, align 4, !tbaa !9
+  %187 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 6
+  %188 = load i32, ptr %29, align 4, !tbaa !9
+  %189 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %187, i32 noundef %188)
+  store i32 %186, ptr %189, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #12
+  br label %190
+
+190:                                              ; preds = %171
+  %191 = load i32, ptr %27, align 4, !tbaa !9
+  %192 = add nsw i32 %191, 1
+  store i32 %192, ptr %27, align 4, !tbaa !9
+  br label %166, !llvm.loop !44
+
+193:                                              ; preds = %170
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #12
+  store i32 0, ptr %30, align 4, !tbaa !9
+  br label %194
+
+194:                                              ; preds = %218, %193
+  %195 = load i32, ptr %30, align 4, !tbaa !9
+  %196 = load i32, ptr %23, align 4, !tbaa !9
+  %197 = icmp slt i32 %195, %196
+  br i1 %197, label %199, label %198
+
+198:                                              ; preds = %194
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #12
+  br label %221
+
+199:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #12
+  %200 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %201 = load i32, ptr %30, align 4, !tbaa !9
+  %202 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %200, i32 noundef %201)
+  %203 = load i32, ptr %202, align 4, !tbaa !9
+  store i32 %203, ptr %31, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #12
+  %204 = load i32, ptr %30, align 4, !tbaa !9
+  %205 = add nsw i32 %204, 1
+  %206 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %119, i32 noundef %205)
+  store i32 %206, ptr %32, align 4, !tbaa !9
+  %207 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %208 = load i32, ptr %32, align 4, !tbaa !9
+  %209 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %207, i32 noundef %208)
+  %210 = load i32, ptr %209, align 4, !tbaa !9
+  %211 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %212 = load i32, ptr %30, align 4, !tbaa !9
+  %213 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %211, i32 noundef %212)
+  store i32 %210, ptr %213, align 4, !tbaa !9
+  %214 = load i32, ptr %31, align 4, !tbaa !9
+  %215 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %216 = load i32, ptr %32, align 4, !tbaa !9
+  %217 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %215, i32 noundef %216)
+  store i32 %214, ptr %217, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #12
+  br label %218
+
+218:                                              ; preds = %199
+  %219 = load i32, ptr %30, align 4, !tbaa !9
+  %220 = add nsw i32 %219, 1
+  store i32 %220, ptr %30, align 4, !tbaa !9
+  br label %194, !llvm.loop !45
+
+221:                                              ; preds = %198
+  br label %222
+
+222:                                              ; preds = %221, %159
+  br label %223
+
+223:                                              ; preds = %222, %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #12
+  store float 0.000000e+00, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #12
+  store i32 0, ptr %34, align 4, !tbaa !9
+  br label %224
+
+224:                                              ; preds = %264, %223
+  %225 = load i32, ptr %34, align 4, !tbaa !9
+  %226 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %227 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %226)
+  %228 = icmp slt i32 %225, %227
+  br i1 %228, label %230, label %229
+
+229:                                              ; preds = %224
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #12
+  br label %267
+
+230:                                              ; preds = %224
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #12
+  %231 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %232 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 7
+  %233 = load i32, ptr %34, align 4, !tbaa !9
+  %234 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %232, i32 noundef %233)
+  %235 = load i32, ptr %234, align 4, !tbaa !9
+  %236 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %231, i32 noundef %235)
+  store ptr %236, ptr %35, align 8, !tbaa !46
+  %237 = load i32, ptr %12, align 4, !tbaa !9
+  %238 = load ptr, ptr %35, align 8, !tbaa !46
+  %239 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %238, i32 0, i32 16
+  %240 = load i32, ptr %239, align 8, !tbaa !47
+  %241 = icmp slt i32 %237, %240
+  br i1 %241, label %242, label %263
+
+242:                                              ; preds = %230
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #12
+  %243 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %244 = load ptr, ptr %35, align 8, !tbaa !46
+  %245 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %244, i32 0, i32 18
+  %246 = load i32, ptr %245, align 8, !tbaa !50
+  %247 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %243, i32 noundef %246)
+  %248 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %249 = load ptr, ptr %35, align 8, !tbaa !46
+  %250 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %249, i32 0, i32 19
+  %251 = load i32, ptr %250, align 4, !tbaa !51
+  %252 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %248, i32 noundef %251)
+  %253 = load ptr, ptr %35, align 8, !tbaa !46
+  %254 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(248) %247, ptr noundef nonnull align 8 dereferenceable(248) %252, ptr noundef nonnull align 8 dereferenceable(160) %253)
+  store float %254, ptr %36, align 4, !tbaa !24
+  %255 = load float, ptr %36, align 4, !tbaa !24
+  %256 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 7
+  %257 = load i32, ptr %34, align 4, !tbaa !9
+  %258 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %256, i32 noundef %257)
+  store float %255, ptr %258, align 4, !tbaa !24
+  %259 = load float, ptr %36, align 4, !tbaa !24
+  %260 = load float, ptr %36, align 4, !tbaa !24
+  %261 = load float, ptr %33, align 4, !tbaa !24
+  %262 = call float @llvm.fmuladd.f32(float %259, float %260, float %261)
+  store float %262, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #12
+  br label %263
+
+263:                                              ; preds = %242, %230
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #12
+  br label %264
+
+264:                                              ; preds = %263
+  %265 = load i32, ptr %34, align 4, !tbaa !9
+  %266 = add nsw i32 %265, 1
+  store i32 %266, ptr %34, align 4, !tbaa !9
+  br label %224, !llvm.loop !52
+
+267:                                              ; preds = %229
+  %268 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 11
+  %269 = load i8, ptr %268, align 8, !tbaa !53, !range !69, !noundef !70
+  %270 = trunc i8 %269 to i1
+  br i1 %270, label %271, label %416
+
+271:                                              ; preds = %267
+  %272 = load i32, ptr %12, align 4, !tbaa !9
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %293
+
+274:                                              ; preds = %271
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #12
+  store i32 0, ptr %37, align 4, !tbaa !9
+  br label %275
+
+275:                                              ; preds = %289, %274
+  %276 = load i32, ptr %37, align 4, !tbaa !9
+  %277 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %278 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %277)
+  %279 = icmp slt i32 %276, %278
+  br i1 %279, label %281, label %280
+
+280:                                              ; preds = %275
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #12
+  br label %292
+
+281:                                              ; preds = %275
+  %282 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 7
+  %283 = load i32, ptr %37, align 4, !tbaa !9
+  %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %282, i32 noundef %283)
+  %285 = load float, ptr %284, align 4, !tbaa !24
+  %286 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %287 = load i32, ptr %37, align 4, !tbaa !9
+  %288 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %286, i32 noundef %287)
+  store float %285, ptr %288, align 4, !tbaa !24
+  br label %289
+
+289:                                              ; preds = %281
+  %290 = load i32, ptr %37, align 4, !tbaa !9
+  %291 = add nsw i32 %290, 1
+  store i32 %291, ptr %37, align 4, !tbaa !9
+  br label %275, !llvm.loop !71
+
+292:                                              ; preds = %280
+  br label %413
+
+293:                                              ; preds = %271
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #12
+  %294 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 1
+  %295 = load float, ptr %294, align 8, !tbaa !72
+  %296 = fcmp ogt float %295, 0.000000e+00
+  br i1 %296, label %297, label %302
+
+297:                                              ; preds = %293
+  %298 = load float, ptr %33, align 4, !tbaa !24
+  %299 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 1
+  %300 = load float, ptr %299, align 8, !tbaa !72
+  %301 = fdiv float %298, %300
+  br label %303
+
+302:                                              ; preds = %293
+  br label %303
+
+303:                                              ; preds = %302, %297
+  %304 = phi float [ %301, %297 ], [ 2.000000e+00, %302 ]
+  store float %304, ptr %38, align 4, !tbaa !24
+  %305 = load float, ptr %38, align 4, !tbaa !24
+  %306 = fcmp ogt float %305, 1.000000e+00
+  br i1 %306, label %307, label %322
+
+307:                                              ; preds = %303
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #12
+  store i32 0, ptr %39, align 4, !tbaa !9
+  br label %308
+
+308:                                              ; preds = %318, %307
+  %309 = load i32, ptr %39, align 4, !tbaa !9
+  %310 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %311 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %310)
+  %312 = icmp slt i32 %309, %311
+  br i1 %312, label %314, label %313
+
+313:                                              ; preds = %308
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #12
+  br label %321
+
+314:                                              ; preds = %308
+  %315 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %316 = load i32, ptr %39, align 4, !tbaa !9
+  %317 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %315, i32 noundef %316)
+  store float 0.000000e+00, ptr %317, align 4, !tbaa !24
+  br label %318
+
+318:                                              ; preds = %314
+  %319 = load i32, ptr %39, align 4, !tbaa !9
+  %320 = add nsw i32 %319, 1
+  store i32 %320, ptr %39, align 4, !tbaa !9
+  br label %308, !llvm.loop !73
+
+321:                                              ; preds = %313
+  br label %412
+
+322:                                              ; preds = %303
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #12
+  store i32 0, ptr %40, align 4, !tbaa !9
+  br label %323
+
+323:                                              ; preds = %408, %322
+  %324 = load i32, ptr %40, align 4, !tbaa !9
+  %325 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %326 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %325)
+  %327 = icmp slt i32 %324, %326
+  br i1 %327, label %329, label %328
+
+328:                                              ; preds = %323
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #12
+  br label %411
+
+329:                                              ; preds = %323
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #12
+  %330 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %331 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 7
+  %332 = load i32, ptr %40, align 4, !tbaa !9
+  %333 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %331, i32 noundef %332)
+  %334 = load i32, ptr %333, align 4, !tbaa !9
+  %335 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %330, i32 noundef %334)
+  store ptr %335, ptr %41, align 8, !tbaa !46
+  %336 = load i32, ptr %12, align 4, !tbaa !9
+  %337 = load ptr, ptr %41, align 8, !tbaa !46
+  %338 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %337, i32 0, i32 16
+  %339 = load i32, ptr %338, align 8, !tbaa !47
+  %340 = icmp slt i32 %336, %339
+  br i1 %340, label %341, label %407
+
+341:                                              ; preds = %329
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #12
+  %342 = load float, ptr %38, align 4, !tbaa !24
+  %343 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %344 = load i32, ptr %40, align 4, !tbaa !9
+  %345 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %343, i32 noundef %344)
+  %346 = load float, ptr %345, align 4, !tbaa !24
+  %347 = fmul float %342, %346
+  store float %347, ptr %42, align 4, !tbaa !24
+  %348 = load ptr, ptr %41, align 8, !tbaa !46
+  %349 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %348, i32 0, i32 7
+  %350 = load float, ptr %349, align 4, !tbaa !74
+  %351 = load float, ptr %42, align 4, !tbaa !24
+  %352 = fadd float %350, %351
+  %353 = load ptr, ptr %41, align 8, !tbaa !46
+  %354 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %353, i32 0, i32 7
+  store float %352, ptr %354, align 4, !tbaa !74
+  %355 = load float, ptr %38, align 4, !tbaa !24
+  %356 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %357 = load i32, ptr %40, align 4, !tbaa !9
+  %358 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %356, i32 noundef %357)
+  %359 = load float, ptr %358, align 4, !tbaa !24
+  %360 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 7
+  %361 = load i32, ptr %40, align 4, !tbaa !9
+  %362 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %360, i32 noundef %361)
+  %363 = load float, ptr %362, align 4, !tbaa !24
+  %364 = call float @llvm.fmuladd.f32(float %355, float %359, float %363)
+  %365 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %366 = load i32, ptr %40, align 4, !tbaa !9
+  %367 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %365, i32 noundef %366)
+  store float %364, ptr %367, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #12
+  %368 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %369 = load ptr, ptr %41, align 8, !tbaa !46
+  %370 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %369, i32 0, i32 18
+  %371 = load i32, ptr %370, align 8, !tbaa !50
+  %372 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %368, i32 noundef %371)
+  store ptr %372, ptr %43, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #12
+  %373 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %374 = load ptr, ptr %41, align 8, !tbaa !46
+  %375 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %374, i32 0, i32 19
+  %376 = load i32, ptr %375, align 4, !tbaa !51
+  %377 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %373, i32 noundef %376)
+  store ptr %377, ptr %44, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #12
+  %378 = load ptr, ptr %41, align 8, !tbaa !46
+  store ptr %378, ptr %45, align 8, !tbaa !46
+  %379 = load ptr, ptr %43, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %46) #12
+  %380 = load ptr, ptr %45, align 8, !tbaa !46
+  %381 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %380, i32 0, i32 1
+  %382 = load ptr, ptr %43, align 8, !tbaa !75
+  %383 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %382)
+  %384 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %381, ptr noundef nonnull align 4 dereferenceable(16) %383)
+  %385 = getelementptr inbounds nuw %class.btVector3, ptr %46, i32 0, i32 0
+  %386 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %385, i32 0, i32 0
+  %387 = extractvalue { <2 x float>, <2 x float> } %384, 0
+  store <2 x float> %387, ptr %386, align 4
+  %388 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %385, i32 0, i32 1
+  %389 = extractvalue { <2 x float>, <2 x float> } %384, 1
+  store <2 x float> %389, ptr %388, align 4
+  %390 = load ptr, ptr %45, align 8, !tbaa !46
+  %391 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %390, i32 0, i32 4
+  %392 = load float, ptr %42, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %379, ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %391, float noundef %392)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %46) #12
+  %393 = load ptr, ptr %44, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %47) #12
+  %394 = load ptr, ptr %45, align 8, !tbaa !46
+  %395 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %394, i32 0, i32 3
+  %396 = load ptr, ptr %44, align 8, !tbaa !75
+  %397 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %396)
+  %398 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %395, ptr noundef nonnull align 4 dereferenceable(16) %397)
+  %399 = getelementptr inbounds nuw %class.btVector3, ptr %47, i32 0, i32 0
+  %400 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %399, i32 0, i32 0
+  %401 = extractvalue { <2 x float>, <2 x float> } %398, 0
+  store <2 x float> %401, ptr %400, align 4
+  %402 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %399, i32 0, i32 1
+  %403 = extractvalue { <2 x float>, <2 x float> } %398, 1
+  store <2 x float> %403, ptr %402, align 4
+  %404 = load ptr, ptr %45, align 8, !tbaa !46
+  %405 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %404, i32 0, i32 5
+  %406 = load float, ptr %42, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %393, ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %405, float noundef %406)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %47) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #12
+  br label %407
+
+407:                                              ; preds = %341, %329
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #12
+  br label %408
+
+408:                                              ; preds = %407
+  %409 = load i32, ptr %40, align 4, !tbaa !9
+  %410 = add nsw i32 %409, 1
+  store i32 %410, ptr %40, align 4, !tbaa !9
+  br label %323, !llvm.loop !76
+
+411:                                              ; preds = %328
+  br label %412
+
+412:                                              ; preds = %411, %321
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #12
+  br label %413
+
+413:                                              ; preds = %412, %292
+  %414 = load float, ptr %33, align 4, !tbaa !24
+  %415 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 1
+  store float %414, ptr %415, align 8, !tbaa !72
+  br label %416
+
+416:                                              ; preds = %413, %267
+  %417 = load i32, ptr %12, align 4, !tbaa !9
+  %418 = load ptr, ptr %19, align 8, !tbaa !20
+  %419 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %418, i32 0, i32 5
+  %420 = load i32, ptr %419, align 4, !tbaa !43
+  %421 = icmp slt i32 %417, %420
+  br i1 %421, label %422, label %835
+
+422:                                              ; preds = %416
+  call void @llvm.lifetime.start.p0(i64 4, ptr %48) #12
+  store i32 0, ptr %48, align 4, !tbaa !9
+  br label %423
+
+423:                                              ; preds = %476, %422
+  %424 = load i32, ptr %48, align 4, !tbaa !9
+  %425 = load i32, ptr %18, align 4, !tbaa !9
+  %426 = icmp slt i32 %424, %425
+  br i1 %426, label %428, label %427
+
+427:                                              ; preds = %423
+  call void @llvm.lifetime.end.p0(i64 4, ptr %48) #12
+  br label %479
+
+428:                                              ; preds = %423
+  %429 = load ptr, ptr %17, align 8, !tbaa !18
+  %430 = load i32, ptr %48, align 4, !tbaa !9
+  %431 = sext i32 %430 to i64
+  %432 = getelementptr inbounds ptr, ptr %429, i64 %431
+  %433 = load ptr, ptr %432, align 8, !tbaa !77
+  %434 = call noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %433)
+  br i1 %434, label %435, label %475
+
+435:                                              ; preds = %428
+  call void @llvm.lifetime.start.p0(i64 4, ptr %49) #12
+  %436 = load ptr, ptr %17, align 8, !tbaa !18
+  %437 = load i32, ptr %48, align 4, !tbaa !9
+  %438 = sext i32 %437 to i64
+  %439 = getelementptr inbounds ptr, ptr %436, i64 %438
+  %440 = load ptr, ptr %439, align 8, !tbaa !77
+  %441 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %440)
+  %442 = load ptr, ptr %19, align 8, !tbaa !20
+  %443 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %442, i32 0, i32 3
+  %444 = load float, ptr %443, align 4, !tbaa !79
+  %445 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(372) %441, float noundef %444)
+  store i32 %445, ptr %49, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %50) #12
+  %446 = load ptr, ptr %17, align 8, !tbaa !18
+  %447 = load i32, ptr %48, align 4, !tbaa !9
+  %448 = sext i32 %447 to i64
+  %449 = getelementptr inbounds ptr, ptr %446, i64 %448
+  %450 = load ptr, ptr %449, align 8, !tbaa !77
+  %451 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %450)
+  %452 = load ptr, ptr %19, align 8, !tbaa !20
+  %453 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %452, i32 0, i32 3
+  %454 = load float, ptr %453, align 4, !tbaa !79
+  %455 = call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(372) %451, float noundef %454)
+  store i32 %455, ptr %50, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #12
+  %456 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %457 = load i32, ptr %49, align 4, !tbaa !9
+  %458 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %456, i32 noundef %457)
+  store ptr %458, ptr %51, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %52) #12
+  %459 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %460 = load i32, ptr %50, align 4, !tbaa !9
+  %461 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %459, i32 noundef %460)
+  store ptr %461, ptr %52, align 8, !tbaa !75
+  %462 = load ptr, ptr %17, align 8, !tbaa !18
+  %463 = load i32, ptr %48, align 4, !tbaa !9
+  %464 = sext i32 %463 to i64
+  %465 = getelementptr inbounds ptr, ptr %462, i64 %464
+  %466 = load ptr, ptr %465, align 8, !tbaa !77
+  %467 = load ptr, ptr %51, align 8, !tbaa !75
+  %468 = load ptr, ptr %52, align 8, !tbaa !75
+  %469 = load ptr, ptr %19, align 8, !tbaa !20
+  %470 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %469, i32 0, i32 3
+  %471 = load float, ptr %470, align 4, !tbaa !79
+  %472 = load ptr, ptr %466, align 8, !tbaa !80
+  %473 = getelementptr inbounds ptr, ptr %472, i64 6
+  %474 = load ptr, ptr %473, align 8
+  call void %474(ptr noundef nonnull align 8 dereferenceable(72) %466, ptr noundef nonnull align 8 dereferenceable(248) %467, ptr noundef nonnull align 8 dereferenceable(248) %468, float noundef %471)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %52) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %50) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %49) #12
+  br label %475
+
+475:                                              ; preds = %435, %428
+  br label %476
+
+476:                                              ; preds = %475
+  %477 = load i32, ptr %48, align 4, !tbaa !9
+  %478 = add nsw i32 %477, 1
+  store i32 %478, ptr %48, align 4, !tbaa !9
+  br label %423, !llvm.loop !82
+
+479:                                              ; preds = %427
+  %480 = load ptr, ptr %19, align 8, !tbaa !20
+  %481 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %480, i32 0, i32 22
+  %482 = load i32, ptr %481, align 4, !tbaa !39
+  %483 = and i32 %482, 512
+  %484 = icmp ne i32 %483, 0
+  br i1 %484, label %485, label %657
+
+485:                                              ; preds = %479
+  call void @llvm.lifetime.start.p0(i64 4, ptr %53) #12
+  %486 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %487 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %486)
+  store i32 %487, ptr %53, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %54) #12
+  %488 = load ptr, ptr %19, align 8, !tbaa !20
+  %489 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %488, i32 0, i32 22
+  %490 = load i32, ptr %489, align 4, !tbaa !39
+  %491 = and i32 %490, 16
+  %492 = icmp ne i32 %491, 0
+  %493 = select i1 %492, i32 2, i32 1
+  store i32 %493, ptr %54, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %55) #12
+  store i32 0, ptr %55, align 4, !tbaa !9
+  br label %494
+
+494:                                              ; preds = %653, %485
+  %495 = load i32, ptr %55, align 4, !tbaa !9
+  %496 = load i32, ptr %53, align 4, !tbaa !9
+  %497 = icmp slt i32 %495, %496
+  br i1 %497, label %499, label %498
+
+498:                                              ; preds = %494
+  call void @llvm.lifetime.end.p0(i64 4, ptr %55) #12
+  br label %656
+
+499:                                              ; preds = %494
+  call void @llvm.lifetime.start.p0(i64 4, ptr %56) #12
+  store float 0.000000e+00, ptr %56, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %57) #12
+  %500 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %501 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 6
+  %502 = load i32, ptr %55, align 4, !tbaa !9
+  %503 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %501, i32 noundef %502)
+  %504 = load i32, ptr %503, align 4, !tbaa !9
+  %505 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %500, i32 noundef %504)
+  store ptr %505, ptr %57, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %58) #12
+  %506 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %507 = load ptr, ptr %57, align 8, !tbaa !46
+  %508 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %507, i32 0, i32 18
+  %509 = load i32, ptr %508, align 8, !tbaa !50
+  %510 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %506, i32 noundef %509)
+  %511 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %512 = load ptr, ptr %57, align 8, !tbaa !46
+  %513 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %512, i32 0, i32 19
+  %514 = load i32, ptr %513, align 4, !tbaa !51
+  %515 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %511, i32 noundef %514)
+  %516 = load ptr, ptr %57, align 8, !tbaa !46
+  %517 = call noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(248) %510, ptr noundef nonnull align 8 dereferenceable(248) %515, ptr noundef nonnull align 8 dereferenceable(160) %516)
+  store float %517, ptr %58, align 4, !tbaa !24
+  %518 = load float, ptr %58, align 4, !tbaa !24
+  %519 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 8
+  %520 = load i32, ptr %55, align 4, !tbaa !9
+  %521 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %519, i32 noundef %520)
+  store float %518, ptr %521, align 4, !tbaa !24
+  %522 = load float, ptr %58, align 4, !tbaa !24
+  %523 = load float, ptr %58, align 4, !tbaa !24
+  %524 = load float, ptr %33, align 4, !tbaa !24
+  %525 = call float @llvm.fmuladd.f32(float %522, float %523, float %524)
+  store float %525, ptr %33, align 4, !tbaa !24
+  %526 = load ptr, ptr %57, align 8, !tbaa !46
+  %527 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %526, i32 0, i32 7
+  %528 = load float, ptr %527, align 4, !tbaa !74
+  store float %528, ptr %56, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %58) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %57) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %59) #12
+  store i8 1, ptr %59, align 1, !tbaa !83
+  %529 = load i8, ptr %59, align 1, !tbaa !83, !range !69, !noundef !70
+  %530 = trunc i8 %529 to i1
+  br i1 %530, label %531, label %652
+
+531:                                              ; preds = %499
+  call void @llvm.lifetime.start.p0(i64 8, ptr %60) #12
+  %532 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %533 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %534 = load i32, ptr %55, align 4, !tbaa !9
+  %535 = load i32, ptr %54, align 4, !tbaa !9
+  %536 = mul nsw i32 %534, %535
+  %537 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %533, i32 noundef %536)
+  %538 = load i32, ptr %537, align 4, !tbaa !9
+  %539 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %532, i32 noundef %538)
+  store ptr %539, ptr %60, align 8, !tbaa !46
+  %540 = load float, ptr %56, align 4, !tbaa !24
+  %541 = fcmp ogt float %540, 0.000000e+00
+  br i1 %541, label %542, label %580
+
+542:                                              ; preds = %531
+  %543 = load ptr, ptr %60, align 8, !tbaa !46
+  %544 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %543, i32 0, i32 8
+  %545 = load float, ptr %544, align 8, !tbaa !84
+  %546 = load float, ptr %56, align 4, !tbaa !24
+  %547 = fmul float %545, %546
+  %548 = fneg float %547
+  %549 = load ptr, ptr %60, align 8, !tbaa !46
+  %550 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %549, i32 0, i32 12
+  store float %548, ptr %550, align 8, !tbaa !85
+  %551 = load ptr, ptr %60, align 8, !tbaa !46
+  %552 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %551, i32 0, i32 8
+  %553 = load float, ptr %552, align 8, !tbaa !84
+  %554 = load float, ptr %56, align 4, !tbaa !24
+  %555 = fmul float %553, %554
+  %556 = load ptr, ptr %60, align 8, !tbaa !46
+  %557 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %556, i32 0, i32 13
+  store float %555, ptr %557, align 4, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %61) #12
+  %558 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %559 = load ptr, ptr %60, align 8, !tbaa !46
+  %560 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %559, i32 0, i32 18
+  %561 = load i32, ptr %560, align 8, !tbaa !50
+  %562 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %558, i32 noundef %561)
+  %563 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %564 = load ptr, ptr %60, align 8, !tbaa !46
+  %565 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %564, i32 0, i32 19
+  %566 = load i32, ptr %565, align 4, !tbaa !51
+  %567 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %563, i32 noundef %566)
+  %568 = load ptr, ptr %60, align 8, !tbaa !46
+  %569 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(248) %562, ptr noundef nonnull align 8 dereferenceable(248) %567, ptr noundef nonnull align 8 dereferenceable(160) %568)
+  store float %569, ptr %61, align 4, !tbaa !24
+  %570 = load float, ptr %61, align 4, !tbaa !24
+  %571 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %572 = load i32, ptr %55, align 4, !tbaa !9
+  %573 = load i32, ptr %54, align 4, !tbaa !9
+  %574 = mul nsw i32 %572, %573
+  %575 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %571, i32 noundef %574)
+  store float %570, ptr %575, align 4, !tbaa !24
+  %576 = load float, ptr %61, align 4, !tbaa !24
+  %577 = load float, ptr %61, align 4, !tbaa !24
+  %578 = load float, ptr %33, align 4, !tbaa !24
+  %579 = call float @llvm.fmuladd.f32(float %576, float %577, float %578)
+  store float %579, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %61) #12
+  br label %586
+
+580:                                              ; preds = %531
+  %581 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %582 = load i32, ptr %55, align 4, !tbaa !9
+  %583 = load i32, ptr %54, align 4, !tbaa !9
+  %584 = mul nsw i32 %582, %583
+  %585 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %581, i32 noundef %584)
+  store float 0.000000e+00, ptr %585, align 4, !tbaa !24
+  br label %586
+
+586:                                              ; preds = %580, %542
+  call void @llvm.lifetime.end.p0(i64 8, ptr %60) #12
+  %587 = load ptr, ptr %19, align 8, !tbaa !20
+  %588 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %587, i32 0, i32 22
+  %589 = load i32, ptr %588, align 4, !tbaa !39
+  %590 = and i32 %589, 16
+  %591 = icmp ne i32 %590, 0
+  br i1 %591, label %592, label %651
+
+592:                                              ; preds = %586
+  call void @llvm.lifetime.start.p0(i64 8, ptr %62) #12
+  %593 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %594 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %595 = load i32, ptr %55, align 4, !tbaa !9
+  %596 = load i32, ptr %54, align 4, !tbaa !9
+  %597 = mul nsw i32 %595, %596
+  %598 = add nsw i32 %597, 1
+  %599 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %594, i32 noundef %598)
+  %600 = load i32, ptr %599, align 4, !tbaa !9
+  %601 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %593, i32 noundef %600)
+  store ptr %601, ptr %62, align 8, !tbaa !46
+  %602 = load float, ptr %56, align 4, !tbaa !24
+  %603 = fcmp ogt float %602, 0.000000e+00
+  br i1 %603, label %604, label %643
+
+604:                                              ; preds = %592
+  %605 = load ptr, ptr %62, align 8, !tbaa !46
+  %606 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %605, i32 0, i32 8
+  %607 = load float, ptr %606, align 8, !tbaa !84
+  %608 = load float, ptr %56, align 4, !tbaa !24
+  %609 = fmul float %607, %608
+  %610 = fneg float %609
+  %611 = load ptr, ptr %62, align 8, !tbaa !46
+  %612 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %611, i32 0, i32 12
+  store float %610, ptr %612, align 8, !tbaa !85
+  %613 = load ptr, ptr %62, align 8, !tbaa !46
+  %614 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %613, i32 0, i32 8
+  %615 = load float, ptr %614, align 8, !tbaa !84
+  %616 = load float, ptr %56, align 4, !tbaa !24
+  %617 = fmul float %615, %616
+  %618 = load ptr, ptr %62, align 8, !tbaa !46
+  %619 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %618, i32 0, i32 13
+  store float %617, ptr %619, align 4, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %63) #12
+  %620 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %621 = load ptr, ptr %62, align 8, !tbaa !46
+  %622 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %621, i32 0, i32 18
+  %623 = load i32, ptr %622, align 8, !tbaa !50
+  %624 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %620, i32 noundef %623)
+  %625 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %626 = load ptr, ptr %62, align 8, !tbaa !46
+  %627 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %626, i32 0, i32 19
+  %628 = load i32, ptr %627, align 4, !tbaa !51
+  %629 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %625, i32 noundef %628)
+  %630 = load ptr, ptr %62, align 8, !tbaa !46
+  %631 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(248) %624, ptr noundef nonnull align 8 dereferenceable(248) %629, ptr noundef nonnull align 8 dereferenceable(160) %630)
+  store float %631, ptr %63, align 4, !tbaa !24
+  %632 = load float, ptr %63, align 4, !tbaa !24
+  %633 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %634 = load i32, ptr %55, align 4, !tbaa !9
+  %635 = load i32, ptr %54, align 4, !tbaa !9
+  %636 = mul nsw i32 %634, %635
+  %637 = add nsw i32 %636, 1
+  %638 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %633, i32 noundef %637)
+  store float %632, ptr %638, align 4, !tbaa !24
+  %639 = load float, ptr %63, align 4, !tbaa !24
+  %640 = load float, ptr %63, align 4, !tbaa !24
+  %641 = load float, ptr %33, align 4, !tbaa !24
+  %642 = call float @llvm.fmuladd.f32(float %639, float %640, float %641)
+  store float %642, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %63) #12
+  br label %650
+
+643:                                              ; preds = %592
+  %644 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %645 = load i32, ptr %55, align 4, !tbaa !9
+  %646 = load i32, ptr %54, align 4, !tbaa !9
+  %647 = mul nsw i32 %645, %646
+  %648 = add nsw i32 %647, 1
+  %649 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %644, i32 noundef %648)
+  store float 0.000000e+00, ptr %649, align 4, !tbaa !24
+  br label %650
+
+650:                                              ; preds = %643, %604
+  call void @llvm.lifetime.end.p0(i64 8, ptr %62) #12
+  br label %651
+
+651:                                              ; preds = %650, %586
+  br label %652
+
+652:                                              ; preds = %651, %499
+  call void @llvm.lifetime.end.p0(i64 1, ptr %59) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %56) #12
+  br label %653
+
+653:                                              ; preds = %652
+  %654 = load i32, ptr %55, align 4, !tbaa !9
+  %655 = add nsw i32 %654, 1
+  store i32 %655, ptr %55, align 4, !tbaa !9
+  br label %494, !llvm.loop !87
+
+656:                                              ; preds = %498
+  call void @llvm.lifetime.end.p0(i64 4, ptr %54) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %53) #12
+  br label %762
+
+657:                                              ; preds = %479
+  call void @llvm.lifetime.start.p0(i64 4, ptr %64) #12
+  %658 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %659 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %658)
+  store i32 %659, ptr %64, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %65) #12
+  store i32 0, ptr %65, align 4, !tbaa !9
+  br label %660
+
+660:                                              ; preds = %691, %657
+  %661 = load i32, ptr %65, align 4, !tbaa !9
+  %662 = load i32, ptr %64, align 4, !tbaa !9
+  %663 = icmp slt i32 %661, %662
+  br i1 %663, label %664, label %694
+
+664:                                              ; preds = %660
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #12
+  %665 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %666 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 6
+  %667 = load i32, ptr %65, align 4, !tbaa !9
+  %668 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %666, i32 noundef %667)
+  %669 = load i32, ptr %668, align 4, !tbaa !9
+  %670 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %665, i32 noundef %669)
+  store ptr %670, ptr %66, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %67) #12
+  %671 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %672 = load ptr, ptr %66, align 8, !tbaa !46
+  %673 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %672, i32 0, i32 18
+  %674 = load i32, ptr %673, align 8, !tbaa !50
+  %675 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %671, i32 noundef %674)
+  %676 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %677 = load ptr, ptr %66, align 8, !tbaa !46
+  %678 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %677, i32 0, i32 19
+  %679 = load i32, ptr %678, align 4, !tbaa !51
+  %680 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %676, i32 noundef %679)
+  %681 = load ptr, ptr %66, align 8, !tbaa !46
+  %682 = call noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(248) %675, ptr noundef nonnull align 8 dereferenceable(248) %680, ptr noundef nonnull align 8 dereferenceable(160) %681)
+  store float %682, ptr %67, align 4, !tbaa !24
+  %683 = load float, ptr %67, align 4, !tbaa !24
+  %684 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 8
+  %685 = load i32, ptr %65, align 4, !tbaa !9
+  %686 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %684, i32 noundef %685)
+  store float %683, ptr %686, align 4, !tbaa !24
+  %687 = load float, ptr %67, align 4, !tbaa !24
+  %688 = load float, ptr %67, align 4, !tbaa !24
+  %689 = load float, ptr %33, align 4, !tbaa !24
+  %690 = call float @llvm.fmuladd.f32(float %687, float %688, float %689)
+  store float %690, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %67) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #12
+  br label %691
+
+691:                                              ; preds = %664
+  %692 = load i32, ptr %65, align 4, !tbaa !9
+  %693 = add nsw i32 %692, 1
+  store i32 %693, ptr %65, align 4, !tbaa !9
+  br label %660, !llvm.loop !88
+
+694:                                              ; preds = %660
+  call void @llvm.lifetime.start.p0(i64 4, ptr %68) #12
+  %695 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %696 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %695)
+  store i32 %696, ptr %68, align 4, !tbaa !9
+  store i32 0, ptr %65, align 4, !tbaa !9
+  br label %697
+
+697:                                              ; preds = %758, %694
+  %698 = load i32, ptr %65, align 4, !tbaa !9
+  %699 = load i32, ptr %68, align 4, !tbaa !9
+  %700 = icmp slt i32 %698, %699
+  br i1 %700, label %701, label %761
+
+701:                                              ; preds = %697
+  call void @llvm.lifetime.start.p0(i64 8, ptr %69) #12
+  %702 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %703 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %704 = load i32, ptr %65, align 4, !tbaa !9
+  %705 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %703, i32 noundef %704)
+  %706 = load i32, ptr %705, align 4, !tbaa !9
+  %707 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %702, i32 noundef %706)
+  store ptr %707, ptr %69, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %70) #12
+  %708 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %709 = load ptr, ptr %69, align 8, !tbaa !46
+  %710 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %709, i32 0, i32 17
+  %711 = load i32, ptr %710, align 4, !tbaa !89
+  %712 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %708, i32 noundef %711)
+  %713 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %712, i32 0, i32 7
+  %714 = load float, ptr %713, align 4, !tbaa !74
+  store float %714, ptr %70, align 4, !tbaa !24
+  %715 = load float, ptr %70, align 4, !tbaa !24
+  %716 = fcmp ogt float %715, 0.000000e+00
+  br i1 %716, label %717, label %753
+
+717:                                              ; preds = %701
+  %718 = load ptr, ptr %69, align 8, !tbaa !46
+  %719 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %718, i32 0, i32 8
+  %720 = load float, ptr %719, align 8, !tbaa !84
+  %721 = load float, ptr %70, align 4, !tbaa !24
+  %722 = fmul float %720, %721
+  %723 = fneg float %722
+  %724 = load ptr, ptr %69, align 8, !tbaa !46
+  %725 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %724, i32 0, i32 12
+  store float %723, ptr %725, align 8, !tbaa !85
+  %726 = load ptr, ptr %69, align 8, !tbaa !46
+  %727 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %726, i32 0, i32 8
+  %728 = load float, ptr %727, align 8, !tbaa !84
+  %729 = load float, ptr %70, align 4, !tbaa !24
+  %730 = fmul float %728, %729
+  %731 = load ptr, ptr %69, align 8, !tbaa !46
+  %732 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %731, i32 0, i32 13
+  store float %730, ptr %732, align 4, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %71) #12
+  %733 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %734 = load ptr, ptr %69, align 8, !tbaa !46
+  %735 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %734, i32 0, i32 18
+  %736 = load i32, ptr %735, align 8, !tbaa !50
+  %737 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %733, i32 noundef %736)
+  %738 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %739 = load ptr, ptr %69, align 8, !tbaa !46
+  %740 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %739, i32 0, i32 19
+  %741 = load i32, ptr %740, align 4, !tbaa !51
+  %742 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %738, i32 noundef %741)
+  %743 = load ptr, ptr %69, align 8, !tbaa !46
+  %744 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(248) %737, ptr noundef nonnull align 8 dereferenceable(248) %742, ptr noundef nonnull align 8 dereferenceable(160) %743)
+  store float %744, ptr %71, align 4, !tbaa !24
+  %745 = load float, ptr %71, align 4, !tbaa !24
+  %746 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %747 = load i32, ptr %65, align 4, !tbaa !9
+  %748 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %746, i32 noundef %747)
+  store float %745, ptr %748, align 4, !tbaa !24
+  %749 = load float, ptr %71, align 4, !tbaa !24
+  %750 = load float, ptr %71, align 4, !tbaa !24
+  %751 = load float, ptr %33, align 4, !tbaa !24
+  %752 = call float @llvm.fmuladd.f32(float %749, float %750, float %751)
+  store float %752, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %71) #12
+  br label %757
+
+753:                                              ; preds = %701
+  %754 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %755 = load i32, ptr %65, align 4, !tbaa !9
+  %756 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %754, i32 noundef %755)
+  store float 0.000000e+00, ptr %756, align 4, !tbaa !24
+  br label %757
+
+757:                                              ; preds = %753, %717
+  call void @llvm.lifetime.end.p0(i64 4, ptr %70) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %69) #12
+  br label %758
+
+758:                                              ; preds = %757
+  %759 = load i32, ptr %65, align 4, !tbaa !9
+  %760 = add nsw i32 %759, 1
+  store i32 %760, ptr %65, align 4, !tbaa !9
+  br label %697, !llvm.loop !90
+
+761:                                              ; preds = %697
+  call void @llvm.lifetime.end.p0(i64 4, ptr %68) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %65) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %64) #12
+  br label %762
+
+762:                                              ; preds = %761, %656
+  call void @llvm.lifetime.start.p0(i64 4, ptr %72) #12
+  %763 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 5
+  %764 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %763)
+  store i32 %764, ptr %72, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %73) #12
+  store i32 0, ptr %73, align 4, !tbaa !9
+  br label %765
+
+765:                                              ; preds = %831, %762
+  %766 = load i32, ptr %73, align 4, !tbaa !9
+  %767 = load i32, ptr %72, align 4, !tbaa !9
+  %768 = icmp slt i32 %766, %767
+  br i1 %768, label %770, label %769
+
+769:                                              ; preds = %765
+  call void @llvm.lifetime.end.p0(i64 4, ptr %73) #12
+  br label %834
+
+770:                                              ; preds = %765
+  call void @llvm.lifetime.start.p0(i64 8, ptr %74) #12
+  %771 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 5
+  %772 = load i32, ptr %73, align 4, !tbaa !9
+  %773 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %771, i32 noundef %772)
+  store ptr %773, ptr %74, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %75) #12
+  %774 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %775 = load ptr, ptr %74, align 8, !tbaa !46
+  %776 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %775, i32 0, i32 17
+  %777 = load i32, ptr %776, align 4, !tbaa !89
+  %778 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %774, i32 noundef %777)
+  %779 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %778, i32 0, i32 7
+  %780 = load float, ptr %779, align 4, !tbaa !74
+  store float %780, ptr %75, align 4, !tbaa !24
+  %781 = load float, ptr %75, align 4, !tbaa !24
+  %782 = fcmp ogt float %781, 0.000000e+00
+  br i1 %782, label %783, label %826
+
+783:                                              ; preds = %770
+  call void @llvm.lifetime.start.p0(i64 4, ptr %76) #12
+  %784 = load ptr, ptr %74, align 8, !tbaa !46
+  %785 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %784, i32 0, i32 8
+  %786 = load float, ptr %785, align 8, !tbaa !84
+  %787 = load float, ptr %75, align 4, !tbaa !24
+  %788 = fmul float %786, %787
+  store float %788, ptr %76, align 4, !tbaa !24
+  %789 = load float, ptr %76, align 4, !tbaa !24
+  %790 = load ptr, ptr %74, align 8, !tbaa !46
+  %791 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %790, i32 0, i32 8
+  %792 = load float, ptr %791, align 8, !tbaa !84
+  %793 = fcmp ogt float %789, %792
+  br i1 %793, label %794, label %798
+
+794:                                              ; preds = %783
+  %795 = load ptr, ptr %74, align 8, !tbaa !46
+  %796 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %795, i32 0, i32 8
+  %797 = load float, ptr %796, align 8, !tbaa !84
+  store float %797, ptr %76, align 4, !tbaa !24
+  br label %798
+
+798:                                              ; preds = %794, %783
+  %799 = load float, ptr %76, align 4, !tbaa !24
+  %800 = fneg float %799
+  %801 = load ptr, ptr %74, align 8, !tbaa !46
+  %802 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %801, i32 0, i32 12
+  store float %800, ptr %802, align 8, !tbaa !85
+  %803 = load float, ptr %76, align 4, !tbaa !24
+  %804 = load ptr, ptr %74, align 8, !tbaa !46
+  %805 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %804, i32 0, i32 13
+  store float %803, ptr %805, align 4, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %77) #12
+  %806 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %807 = load ptr, ptr %74, align 8, !tbaa !46
+  %808 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %807, i32 0, i32 18
+  %809 = load i32, ptr %808, align 8, !tbaa !50
+  %810 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %806, i32 noundef %809)
+  %811 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %812 = load ptr, ptr %74, align 8, !tbaa !46
+  %813 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %812, i32 0, i32 19
+  %814 = load i32, ptr %813, align 4, !tbaa !51
+  %815 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %811, i32 noundef %814)
+  %816 = load ptr, ptr %74, align 8, !tbaa !46
+  %817 = call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %119, ptr noundef nonnull align 8 dereferenceable(248) %810, ptr noundef nonnull align 8 dereferenceable(248) %815, ptr noundef nonnull align 8 dereferenceable(160) %816)
+  store float %817, ptr %77, align 4, !tbaa !24
+  %818 = load float, ptr %77, align 4, !tbaa !24
+  %819 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 10
+  %820 = load i32, ptr %73, align 4, !tbaa !9
+  %821 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %819, i32 noundef %820)
+  store float %818, ptr %821, align 4, !tbaa !24
+  %822 = load float, ptr %77, align 4, !tbaa !24
+  %823 = load float, ptr %77, align 4, !tbaa !24
+  %824 = load float, ptr %33, align 4, !tbaa !24
+  %825 = call float @llvm.fmuladd.f32(float %822, float %823, float %824)
+  store float %825, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %77) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %76) #12
+  br label %830
+
+826:                                              ; preds = %770
+  %827 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 10
+  %828 = load i32, ptr %73, align 4, !tbaa !9
+  %829 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %827, i32 noundef %828)
+  store float 0.000000e+00, ptr %829, align 4, !tbaa !24
+  br label %830
+
+830:                                              ; preds = %826, %798
+  call void @llvm.lifetime.end.p0(i64 4, ptr %75) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %74) #12
+  br label %831
+
+831:                                              ; preds = %830
+  %832 = load i32, ptr %73, align 4, !tbaa !9
+  %833 = add nsw i32 %832, 1
+  store i32 %833, ptr %73, align 4, !tbaa !9
+  br label %765, !llvm.loop !91
+
+834:                                              ; preds = %769
+  call void @llvm.lifetime.end.p0(i64 4, ptr %72) #12
+  br label %835
+
+835:                                              ; preds = %834, %416
+  %836 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 11
+  %837 = load i8, ptr %836, align 8, !tbaa !53, !range !69, !noundef !70
+  %838 = trunc i8 %837 to i1
+  br i1 %838, label %1344, label %839
+
+839:                                              ; preds = %835
+  %840 = load i32, ptr %12, align 4, !tbaa !9
+  %841 = icmp eq i32 %840, 0
+  br i1 %841, label %842, label %915
+
+842:                                              ; preds = %839
+  call void @llvm.lifetime.start.p0(i64 4, ptr %78) #12
+  store i32 0, ptr %78, align 4, !tbaa !9
+  br label %843
+
+843:                                              ; preds = %857, %842
+  %844 = load i32, ptr %78, align 4, !tbaa !9
+  %845 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %846 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %845)
+  %847 = icmp slt i32 %844, %846
+  br i1 %847, label %849, label %848
+
+848:                                              ; preds = %843
+  call void @llvm.lifetime.end.p0(i64 4, ptr %78) #12
+  br label %860
+
+849:                                              ; preds = %843
+  %850 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 7
+  %851 = load i32, ptr %78, align 4, !tbaa !9
+  %852 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %850, i32 noundef %851)
+  %853 = load float, ptr %852, align 4, !tbaa !24
+  %854 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %855 = load i32, ptr %78, align 4, !tbaa !9
+  %856 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %854, i32 noundef %855)
+  store float %853, ptr %856, align 4, !tbaa !24
+  br label %857
+
+857:                                              ; preds = %849
+  %858 = load i32, ptr %78, align 4, !tbaa !9
+  %859 = add nsw i32 %858, 1
+  store i32 %859, ptr %78, align 4, !tbaa !9
+  br label %843, !llvm.loop !92
+
+860:                                              ; preds = %848
+  call void @llvm.lifetime.start.p0(i64 4, ptr %79) #12
+  store i32 0, ptr %79, align 4, !tbaa !9
+  br label %861
+
+861:                                              ; preds = %875, %860
+  %862 = load i32, ptr %79, align 4, !tbaa !9
+  %863 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %864 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %863)
+  %865 = icmp slt i32 %862, %864
+  br i1 %865, label %867, label %866
+
+866:                                              ; preds = %861
+  call void @llvm.lifetime.end.p0(i64 4, ptr %79) #12
+  br label %878
+
+867:                                              ; preds = %861
+  %868 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 8
+  %869 = load i32, ptr %79, align 4, !tbaa !9
+  %870 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %868, i32 noundef %869)
+  %871 = load float, ptr %870, align 4, !tbaa !24
+  %872 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 4
+  %873 = load i32, ptr %79, align 4, !tbaa !9
+  %874 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %872, i32 noundef %873)
+  store float %871, ptr %874, align 4, !tbaa !24
+  br label %875
+
+875:                                              ; preds = %867
+  %876 = load i32, ptr %79, align 4, !tbaa !9
+  %877 = add nsw i32 %876, 1
+  store i32 %877, ptr %79, align 4, !tbaa !9
+  br label %861, !llvm.loop !93
+
+878:                                              ; preds = %866
+  call void @llvm.lifetime.start.p0(i64 4, ptr %80) #12
+  store i32 0, ptr %80, align 4, !tbaa !9
+  br label %879
+
+879:                                              ; preds = %893, %878
+  %880 = load i32, ptr %80, align 4, !tbaa !9
+  %881 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %882 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %881)
+  %883 = icmp slt i32 %880, %882
+  br i1 %883, label %885, label %884
+
+884:                                              ; preds = %879
+  call void @llvm.lifetime.end.p0(i64 4, ptr %80) #12
+  br label %896
+
+885:                                              ; preds = %879
+  %886 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %887 = load i32, ptr %80, align 4, !tbaa !9
+  %888 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %886, i32 noundef %887)
+  %889 = load float, ptr %888, align 4, !tbaa !24
+  %890 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 5
+  %891 = load i32, ptr %80, align 4, !tbaa !9
+  %892 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %890, i32 noundef %891)
+  store float %889, ptr %892, align 4, !tbaa !24
+  br label %893
+
+893:                                              ; preds = %885
+  %894 = load i32, ptr %80, align 4, !tbaa !9
+  %895 = add nsw i32 %894, 1
+  store i32 %895, ptr %80, align 4, !tbaa !9
+  br label %879, !llvm.loop !94
+
+896:                                              ; preds = %884
+  call void @llvm.lifetime.start.p0(i64 4, ptr %81) #12
+  store i32 0, ptr %81, align 4, !tbaa !9
+  br label %897
+
+897:                                              ; preds = %911, %896
+  %898 = load i32, ptr %81, align 4, !tbaa !9
+  %899 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 5
+  %900 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %899)
+  %901 = icmp slt i32 %898, %900
+  br i1 %901, label %903, label %902
+
+902:                                              ; preds = %897
+  call void @llvm.lifetime.end.p0(i64 4, ptr %81) #12
+  br label %914
+
+903:                                              ; preds = %897
+  %904 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 10
+  %905 = load i32, ptr %81, align 4, !tbaa !9
+  %906 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %904, i32 noundef %905)
+  %907 = load float, ptr %906, align 4, !tbaa !24
+  %908 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 6
+  %909 = load i32, ptr %81, align 4, !tbaa !9
+  %910 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %908, i32 noundef %909)
+  store float %907, ptr %910, align 4, !tbaa !24
+  br label %911
+
+911:                                              ; preds = %903
+  %912 = load i32, ptr %81, align 4, !tbaa !9
+  %913 = add nsw i32 %912, 1
+  store i32 %913, ptr %81, align 4, !tbaa !9
+  br label %897, !llvm.loop !95
+
+914:                                              ; preds = %902
+  br label %1341
+
+915:                                              ; preds = %839
+  call void @llvm.lifetime.start.p0(i64 4, ptr %82) #12
+  %916 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 1
+  %917 = load float, ptr %916, align 8, !tbaa !72
+  %918 = fcmp ogt float %917, 0.000000e+00
+  br i1 %918, label %919, label %924
+
+919:                                              ; preds = %915
+  %920 = load float, ptr %33, align 4, !tbaa !24
+  %921 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 1
+  %922 = load float, ptr %921, align 8, !tbaa !72
+  %923 = fdiv float %920, %922
+  br label %925
+
+924:                                              ; preds = %915
+  br label %925
+
+925:                                              ; preds = %924, %919
+  %926 = phi float [ %923, %919 ], [ 2.000000e+00, %924 ]
+  store float %926, ptr %82, align 4, !tbaa !24
+  %927 = load float, ptr %82, align 4, !tbaa !24
+  %928 = fcmp ogt float %927, 1.000000e+00
+  br i1 %928, label %929, label %986
+
+929:                                              ; preds = %925
+  call void @llvm.lifetime.start.p0(i64 4, ptr %83) #12
+  store i32 0, ptr %83, align 4, !tbaa !9
+  br label %930
+
+930:                                              ; preds = %940, %929
+  %931 = load i32, ptr %83, align 4, !tbaa !9
+  %932 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %933 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %932)
+  %934 = icmp slt i32 %931, %933
+  br i1 %934, label %936, label %935
+
+935:                                              ; preds = %930
+  call void @llvm.lifetime.end.p0(i64 4, ptr %83) #12
+  br label %943
+
+936:                                              ; preds = %930
+  %937 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %938 = load i32, ptr %83, align 4, !tbaa !9
+  %939 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %937, i32 noundef %938)
+  store float 0.000000e+00, ptr %939, align 4, !tbaa !24
+  br label %940
+
+940:                                              ; preds = %936
+  %941 = load i32, ptr %83, align 4, !tbaa !9
+  %942 = add nsw i32 %941, 1
+  store i32 %942, ptr %83, align 4, !tbaa !9
+  br label %930, !llvm.loop !96
+
+943:                                              ; preds = %935
+  call void @llvm.lifetime.start.p0(i64 4, ptr %84) #12
+  store i32 0, ptr %84, align 4, !tbaa !9
+  br label %944
+
+944:                                              ; preds = %954, %943
+  %945 = load i32, ptr %84, align 4, !tbaa !9
+  %946 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %947 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %946)
+  %948 = icmp slt i32 %945, %947
+  br i1 %948, label %950, label %949
+
+949:                                              ; preds = %944
+  call void @llvm.lifetime.end.p0(i64 4, ptr %84) #12
+  br label %957
+
+950:                                              ; preds = %944
+  %951 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 4
+  %952 = load i32, ptr %84, align 4, !tbaa !9
+  %953 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %951, i32 noundef %952)
+  store float 0.000000e+00, ptr %953, align 4, !tbaa !24
+  br label %954
+
+954:                                              ; preds = %950
+  %955 = load i32, ptr %84, align 4, !tbaa !9
+  %956 = add nsw i32 %955, 1
+  store i32 %956, ptr %84, align 4, !tbaa !9
+  br label %944, !llvm.loop !97
+
+957:                                              ; preds = %949
+  call void @llvm.lifetime.start.p0(i64 4, ptr %85) #12
+  store i32 0, ptr %85, align 4, !tbaa !9
+  br label %958
+
+958:                                              ; preds = %968, %957
+  %959 = load i32, ptr %85, align 4, !tbaa !9
+  %960 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %961 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %960)
+  %962 = icmp slt i32 %959, %961
+  br i1 %962, label %964, label %963
+
+963:                                              ; preds = %958
+  call void @llvm.lifetime.end.p0(i64 4, ptr %85) #12
+  br label %971
+
+964:                                              ; preds = %958
+  %965 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 5
+  %966 = load i32, ptr %85, align 4, !tbaa !9
+  %967 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %965, i32 noundef %966)
+  store float 0.000000e+00, ptr %967, align 4, !tbaa !24
+  br label %968
+
+968:                                              ; preds = %964
+  %969 = load i32, ptr %85, align 4, !tbaa !9
+  %970 = add nsw i32 %969, 1
+  store i32 %970, ptr %85, align 4, !tbaa !9
+  br label %958, !llvm.loop !98
+
+971:                                              ; preds = %963
+  call void @llvm.lifetime.start.p0(i64 4, ptr %86) #12
+  store i32 0, ptr %86, align 4, !tbaa !9
+  br label %972
+
+972:                                              ; preds = %982, %971
+  %973 = load i32, ptr %86, align 4, !tbaa !9
+  %974 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 5
+  %975 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %974)
+  %976 = icmp slt i32 %973, %975
+  br i1 %976, label %978, label %977
+
+977:                                              ; preds = %972
+  call void @llvm.lifetime.end.p0(i64 4, ptr %86) #12
+  br label %985
+
+978:                                              ; preds = %972
+  %979 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 6
+  %980 = load i32, ptr %86, align 4, !tbaa !9
+  %981 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %979, i32 noundef %980)
+  store float 0.000000e+00, ptr %981, align 4, !tbaa !24
+  br label %982
+
+982:                                              ; preds = %978
+  %983 = load i32, ptr %86, align 4, !tbaa !9
+  %984 = add nsw i32 %983, 1
+  store i32 %984, ptr %86, align 4, !tbaa !9
+  br label %972, !llvm.loop !99
+
+985:                                              ; preds = %977
+  br label %1340
+
+986:                                              ; preds = %925
+  call void @llvm.lifetime.start.p0(i64 4, ptr %87) #12
+  store i32 0, ptr %87, align 4, !tbaa !9
+  br label %987
+
+987:                                              ; preds = %1072, %986
+  %988 = load i32, ptr %87, align 4, !tbaa !9
+  %989 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %990 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %989)
+  %991 = icmp slt i32 %988, %990
+  br i1 %991, label %993, label %992
+
+992:                                              ; preds = %987
+  call void @llvm.lifetime.end.p0(i64 4, ptr %87) #12
+  br label %1075
+
+993:                                              ; preds = %987
+  call void @llvm.lifetime.start.p0(i64 8, ptr %88) #12
+  %994 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 3
+  %995 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 7
+  %996 = load i32, ptr %87, align 4, !tbaa !9
+  %997 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %995, i32 noundef %996)
+  %998 = load i32, ptr %997, align 4, !tbaa !9
+  %999 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %994, i32 noundef %998)
+  store ptr %999, ptr %88, align 8, !tbaa !46
+  %1000 = load i32, ptr %12, align 4, !tbaa !9
+  %1001 = load ptr, ptr %88, align 8, !tbaa !46
+  %1002 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1001, i32 0, i32 16
+  %1003 = load i32, ptr %1002, align 8, !tbaa !47
+  %1004 = icmp slt i32 %1000, %1003
+  br i1 %1004, label %1005, label %1071
+
+1005:                                             ; preds = %993
+  call void @llvm.lifetime.start.p0(i64 4, ptr %89) #12
+  %1006 = load float, ptr %82, align 4, !tbaa !24
+  %1007 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %1008 = load i32, ptr %87, align 4, !tbaa !9
+  %1009 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1007, i32 noundef %1008)
+  %1010 = load float, ptr %1009, align 4, !tbaa !24
+  %1011 = fmul float %1006, %1010
+  store float %1011, ptr %89, align 4, !tbaa !24
+  %1012 = load ptr, ptr %88, align 8, !tbaa !46
+  %1013 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1012, i32 0, i32 7
+  %1014 = load float, ptr %1013, align 4, !tbaa !74
+  %1015 = load float, ptr %89, align 4, !tbaa !24
+  %1016 = fadd float %1014, %1015
+  %1017 = load ptr, ptr %88, align 8, !tbaa !46
+  %1018 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1017, i32 0, i32 7
+  store float %1016, ptr %1018, align 4, !tbaa !74
+  %1019 = load float, ptr %82, align 4, !tbaa !24
+  %1020 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %1021 = load i32, ptr %87, align 4, !tbaa !9
+  %1022 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1020, i32 noundef %1021)
+  %1023 = load float, ptr %1022, align 4, !tbaa !24
+  %1024 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 7
+  %1025 = load i32, ptr %87, align 4, !tbaa !9
+  %1026 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1024, i32 noundef %1025)
+  %1027 = load float, ptr %1026, align 4, !tbaa !24
+  %1028 = call float @llvm.fmuladd.f32(float %1019, float %1023, float %1027)
+  %1029 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 3
+  %1030 = load i32, ptr %87, align 4, !tbaa !9
+  %1031 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1029, i32 noundef %1030)
+  store float %1028, ptr %1031, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %90) #12
+  %1032 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1033 = load ptr, ptr %88, align 8, !tbaa !46
+  %1034 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1033, i32 0, i32 18
+  %1035 = load i32, ptr %1034, align 8, !tbaa !50
+  %1036 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1032, i32 noundef %1035)
+  store ptr %1036, ptr %90, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %91) #12
+  %1037 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1038 = load ptr, ptr %88, align 8, !tbaa !46
+  %1039 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1038, i32 0, i32 19
+  %1040 = load i32, ptr %1039, align 4, !tbaa !51
+  %1041 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1037, i32 noundef %1040)
+  store ptr %1041, ptr %91, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %92) #12
+  %1042 = load ptr, ptr %88, align 8, !tbaa !46
+  store ptr %1042, ptr %92, align 8, !tbaa !46
+  %1043 = load ptr, ptr %90, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %93) #12
+  %1044 = load ptr, ptr %92, align 8, !tbaa !46
+  %1045 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1044, i32 0, i32 1
+  %1046 = load ptr, ptr %90, align 8, !tbaa !75
+  %1047 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1046)
+  %1048 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1045, ptr noundef nonnull align 4 dereferenceable(16) %1047)
+  %1049 = getelementptr inbounds nuw %class.btVector3, ptr %93, i32 0, i32 0
+  %1050 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1049, i32 0, i32 0
+  %1051 = extractvalue { <2 x float>, <2 x float> } %1048, 0
+  store <2 x float> %1051, ptr %1050, align 4
+  %1052 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1049, i32 0, i32 1
+  %1053 = extractvalue { <2 x float>, <2 x float> } %1048, 1
+  store <2 x float> %1053, ptr %1052, align 4
+  %1054 = load ptr, ptr %92, align 8, !tbaa !46
+  %1055 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1054, i32 0, i32 4
+  %1056 = load float, ptr %89, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1043, ptr noundef nonnull align 4 dereferenceable(16) %93, ptr noundef nonnull align 4 dereferenceable(16) %1055, float noundef %1056)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %93) #12
+  %1057 = load ptr, ptr %91, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %94) #12
+  %1058 = load ptr, ptr %92, align 8, !tbaa !46
+  %1059 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1058, i32 0, i32 3
+  %1060 = load ptr, ptr %91, align 8, !tbaa !75
+  %1061 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1060)
+  %1062 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1059, ptr noundef nonnull align 4 dereferenceable(16) %1061)
+  %1063 = getelementptr inbounds nuw %class.btVector3, ptr %94, i32 0, i32 0
+  %1064 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1063, i32 0, i32 0
+  %1065 = extractvalue { <2 x float>, <2 x float> } %1062, 0
+  store <2 x float> %1065, ptr %1064, align 4
+  %1066 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1063, i32 0, i32 1
+  %1067 = extractvalue { <2 x float>, <2 x float> } %1062, 1
+  store <2 x float> %1067, ptr %1066, align 4
+  %1068 = load ptr, ptr %92, align 8, !tbaa !46
+  %1069 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1068, i32 0, i32 5
+  %1070 = load float, ptr %89, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1057, ptr noundef nonnull align 4 dereferenceable(16) %94, ptr noundef nonnull align 4 dereferenceable(16) %1069, float noundef %1070)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %94) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %92) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %91) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %90) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %89) #12
+  br label %1071
+
+1071:                                             ; preds = %1005, %993
+  call void @llvm.lifetime.end.p0(i64 8, ptr %88) #12
+  br label %1072
+
+1072:                                             ; preds = %1071
+  %1073 = load i32, ptr %87, align 4, !tbaa !9
+  %1074 = add nsw i32 %1073, 1
+  store i32 %1074, ptr %87, align 4, !tbaa !9
+  br label %987, !llvm.loop !100
+
+1075:                                             ; preds = %992
+  call void @llvm.lifetime.start.p0(i64 4, ptr %95) #12
+  store i32 0, ptr %95, align 4, !tbaa !9
+  br label %1076
+
+1076:                                             ; preds = %1161, %1075
+  %1077 = load i32, ptr %95, align 4, !tbaa !9
+  %1078 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %1079 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %1078)
+  %1080 = icmp slt i32 %1077, %1079
+  br i1 %1080, label %1082, label %1081
+
+1081:                                             ; preds = %1076
+  call void @llvm.lifetime.end.p0(i64 4, ptr %95) #12
+  br label %1164
+
+1082:                                             ; preds = %1076
+  call void @llvm.lifetime.start.p0(i64 8, ptr %96) #12
+  %1083 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 2
+  %1084 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 6
+  %1085 = load i32, ptr %95, align 4, !tbaa !9
+  %1086 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1084, i32 noundef %1085)
+  %1087 = load i32, ptr %1086, align 4, !tbaa !9
+  %1088 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1083, i32 noundef %1087)
+  store ptr %1088, ptr %96, align 8, !tbaa !46
+  %1089 = load i32, ptr %12, align 4, !tbaa !9
+  %1090 = load ptr, ptr %19, align 8, !tbaa !20
+  %1091 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %1090, i32 0, i32 5
+  %1092 = load i32, ptr %1091, align 4, !tbaa !43
+  %1093 = icmp slt i32 %1089, %1092
+  br i1 %1093, label %1094, label %1160
+
+1094:                                             ; preds = %1082
+  call void @llvm.lifetime.start.p0(i64 4, ptr %97) #12
+  %1095 = load float, ptr %82, align 4, !tbaa !24
+  %1096 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 4
+  %1097 = load i32, ptr %95, align 4, !tbaa !9
+  %1098 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1096, i32 noundef %1097)
+  %1099 = load float, ptr %1098, align 4, !tbaa !24
+  %1100 = fmul float %1095, %1099
+  store float %1100, ptr %97, align 4, !tbaa !24
+  %1101 = load ptr, ptr %96, align 8, !tbaa !46
+  %1102 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1101, i32 0, i32 7
+  %1103 = load float, ptr %1102, align 4, !tbaa !74
+  %1104 = load float, ptr %97, align 4, !tbaa !24
+  %1105 = fadd float %1103, %1104
+  %1106 = load ptr, ptr %96, align 8, !tbaa !46
+  %1107 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1106, i32 0, i32 7
+  store float %1105, ptr %1107, align 4, !tbaa !74
+  %1108 = load float, ptr %82, align 4, !tbaa !24
+  %1109 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 4
+  %1110 = load i32, ptr %95, align 4, !tbaa !9
+  %1111 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1109, i32 noundef %1110)
+  %1112 = load float, ptr %1111, align 4, !tbaa !24
+  %1113 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 8
+  %1114 = load i32, ptr %95, align 4, !tbaa !9
+  %1115 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1113, i32 noundef %1114)
+  %1116 = load float, ptr %1115, align 4, !tbaa !24
+  %1117 = call float @llvm.fmuladd.f32(float %1108, float %1112, float %1116)
+  %1118 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 4
+  %1119 = load i32, ptr %95, align 4, !tbaa !9
+  %1120 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1118, i32 noundef %1119)
+  store float %1117, ptr %1120, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %98) #12
+  %1121 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1122 = load ptr, ptr %96, align 8, !tbaa !46
+  %1123 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1122, i32 0, i32 18
+  %1124 = load i32, ptr %1123, align 8, !tbaa !50
+  %1125 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1121, i32 noundef %1124)
+  store ptr %1125, ptr %98, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %99) #12
+  %1126 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1127 = load ptr, ptr %96, align 8, !tbaa !46
+  %1128 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1127, i32 0, i32 19
+  %1129 = load i32, ptr %1128, align 4, !tbaa !51
+  %1130 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1126, i32 noundef %1129)
+  store ptr %1130, ptr %99, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %100) #12
+  %1131 = load ptr, ptr %96, align 8, !tbaa !46
+  store ptr %1131, ptr %100, align 8, !tbaa !46
+  %1132 = load ptr, ptr %98, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %101) #12
+  %1133 = load ptr, ptr %100, align 8, !tbaa !46
+  %1134 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1133, i32 0, i32 1
+  %1135 = load ptr, ptr %98, align 8, !tbaa !75
+  %1136 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1135)
+  %1137 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1134, ptr noundef nonnull align 4 dereferenceable(16) %1136)
+  %1138 = getelementptr inbounds nuw %class.btVector3, ptr %101, i32 0, i32 0
+  %1139 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1138, i32 0, i32 0
+  %1140 = extractvalue { <2 x float>, <2 x float> } %1137, 0
+  store <2 x float> %1140, ptr %1139, align 4
+  %1141 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1138, i32 0, i32 1
+  %1142 = extractvalue { <2 x float>, <2 x float> } %1137, 1
+  store <2 x float> %1142, ptr %1141, align 4
+  %1143 = load ptr, ptr %100, align 8, !tbaa !46
+  %1144 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1143, i32 0, i32 4
+  %1145 = load float, ptr %97, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1132, ptr noundef nonnull align 4 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(16) %1144, float noundef %1145)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %101) #12
+  %1146 = load ptr, ptr %99, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %102) #12
+  %1147 = load ptr, ptr %100, align 8, !tbaa !46
+  %1148 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1147, i32 0, i32 3
+  %1149 = load ptr, ptr %99, align 8, !tbaa !75
+  %1150 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1149)
+  %1151 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1148, ptr noundef nonnull align 4 dereferenceable(16) %1150)
+  %1152 = getelementptr inbounds nuw %class.btVector3, ptr %102, i32 0, i32 0
+  %1153 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1152, i32 0, i32 0
+  %1154 = extractvalue { <2 x float>, <2 x float> } %1151, 0
+  store <2 x float> %1154, ptr %1153, align 4
+  %1155 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1152, i32 0, i32 1
+  %1156 = extractvalue { <2 x float>, <2 x float> } %1151, 1
+  store <2 x float> %1156, ptr %1155, align 4
+  %1157 = load ptr, ptr %100, align 8, !tbaa !46
+  %1158 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1157, i32 0, i32 5
+  %1159 = load float, ptr %97, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1146, ptr noundef nonnull align 4 dereferenceable(16) %102, ptr noundef nonnull align 4 dereferenceable(16) %1158, float noundef %1159)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %102) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %100) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %99) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %98) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %97) #12
+  br label %1160
+
+1160:                                             ; preds = %1094, %1082
+  call void @llvm.lifetime.end.p0(i64 8, ptr %96) #12
+  br label %1161
+
+1161:                                             ; preds = %1160
+  %1162 = load i32, ptr %95, align 4, !tbaa !9
+  %1163 = add nsw i32 %1162, 1
+  store i32 %1163, ptr %95, align 4, !tbaa !9
+  br label %1076, !llvm.loop !101
+
+1164:                                             ; preds = %1081
+  call void @llvm.lifetime.start.p0(i64 4, ptr %103) #12
+  store i32 0, ptr %103, align 4, !tbaa !9
+  br label %1165
+
+1165:                                             ; preds = %1250, %1164
+  %1166 = load i32, ptr %103, align 4, !tbaa !9
+  %1167 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %1168 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %1167)
+  %1169 = icmp slt i32 %1166, %1168
+  br i1 %1169, label %1171, label %1170
+
+1170:                                             ; preds = %1165
+  call void @llvm.lifetime.end.p0(i64 4, ptr %103) #12
+  br label %1253
+
+1171:                                             ; preds = %1165
+  call void @llvm.lifetime.start.p0(i64 8, ptr %104) #12
+  %1172 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 4
+  %1173 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 8
+  %1174 = load i32, ptr %103, align 4, !tbaa !9
+  %1175 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1173, i32 noundef %1174)
+  %1176 = load i32, ptr %1175, align 4, !tbaa !9
+  %1177 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1172, i32 noundef %1176)
+  store ptr %1177, ptr %104, align 8, !tbaa !46
+  %1178 = load i32, ptr %12, align 4, !tbaa !9
+  %1179 = load ptr, ptr %19, align 8, !tbaa !20
+  %1180 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %1179, i32 0, i32 5
+  %1181 = load i32, ptr %1180, align 4, !tbaa !43
+  %1182 = icmp slt i32 %1178, %1181
+  br i1 %1182, label %1183, label %1249
+
+1183:                                             ; preds = %1171
+  call void @llvm.lifetime.start.p0(i64 4, ptr %105) #12
+  %1184 = load float, ptr %82, align 4, !tbaa !24
+  %1185 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 5
+  %1186 = load i32, ptr %103, align 4, !tbaa !9
+  %1187 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1185, i32 noundef %1186)
+  %1188 = load float, ptr %1187, align 4, !tbaa !24
+  %1189 = fmul float %1184, %1188
+  store float %1189, ptr %105, align 4, !tbaa !24
+  %1190 = load ptr, ptr %104, align 8, !tbaa !46
+  %1191 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1190, i32 0, i32 7
+  %1192 = load float, ptr %1191, align 4, !tbaa !74
+  %1193 = load float, ptr %105, align 4, !tbaa !24
+  %1194 = fadd float %1192, %1193
+  %1195 = load ptr, ptr %104, align 8, !tbaa !46
+  %1196 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1195, i32 0, i32 7
+  store float %1194, ptr %1196, align 4, !tbaa !74
+  %1197 = load float, ptr %82, align 4, !tbaa !24
+  %1198 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 5
+  %1199 = load i32, ptr %103, align 4, !tbaa !9
+  %1200 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1198, i32 noundef %1199)
+  %1201 = load float, ptr %1200, align 4, !tbaa !24
+  %1202 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 9
+  %1203 = load i32, ptr %103, align 4, !tbaa !9
+  %1204 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1202, i32 noundef %1203)
+  %1205 = load float, ptr %1204, align 4, !tbaa !24
+  %1206 = call float @llvm.fmuladd.f32(float %1197, float %1201, float %1205)
+  %1207 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 5
+  %1208 = load i32, ptr %103, align 4, !tbaa !9
+  %1209 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1207, i32 noundef %1208)
+  store float %1206, ptr %1209, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %106) #12
+  %1210 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1211 = load ptr, ptr %104, align 8, !tbaa !46
+  %1212 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1211, i32 0, i32 18
+  %1213 = load i32, ptr %1212, align 8, !tbaa !50
+  %1214 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1210, i32 noundef %1213)
+  store ptr %1214, ptr %106, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %107) #12
+  %1215 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1216 = load ptr, ptr %104, align 8, !tbaa !46
+  %1217 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1216, i32 0, i32 19
+  %1218 = load i32, ptr %1217, align 4, !tbaa !51
+  %1219 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1215, i32 noundef %1218)
+  store ptr %1219, ptr %107, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %108) #12
+  %1220 = load ptr, ptr %104, align 8, !tbaa !46
+  store ptr %1220, ptr %108, align 8, !tbaa !46
+  %1221 = load ptr, ptr %106, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %109) #12
+  %1222 = load ptr, ptr %108, align 8, !tbaa !46
+  %1223 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1222, i32 0, i32 1
+  %1224 = load ptr, ptr %106, align 8, !tbaa !75
+  %1225 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1224)
+  %1226 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1223, ptr noundef nonnull align 4 dereferenceable(16) %1225)
+  %1227 = getelementptr inbounds nuw %class.btVector3, ptr %109, i32 0, i32 0
+  %1228 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1227, i32 0, i32 0
+  %1229 = extractvalue { <2 x float>, <2 x float> } %1226, 0
+  store <2 x float> %1229, ptr %1228, align 4
+  %1230 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1227, i32 0, i32 1
+  %1231 = extractvalue { <2 x float>, <2 x float> } %1226, 1
+  store <2 x float> %1231, ptr %1230, align 4
+  %1232 = load ptr, ptr %108, align 8, !tbaa !46
+  %1233 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1232, i32 0, i32 4
+  %1234 = load float, ptr %105, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1221, ptr noundef nonnull align 4 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %1233, float noundef %1234)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %109) #12
+  %1235 = load ptr, ptr %107, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %110) #12
+  %1236 = load ptr, ptr %108, align 8, !tbaa !46
+  %1237 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1236, i32 0, i32 3
+  %1238 = load ptr, ptr %107, align 8, !tbaa !75
+  %1239 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1238)
+  %1240 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1237, ptr noundef nonnull align 4 dereferenceable(16) %1239)
+  %1241 = getelementptr inbounds nuw %class.btVector3, ptr %110, i32 0, i32 0
+  %1242 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1241, i32 0, i32 0
+  %1243 = extractvalue { <2 x float>, <2 x float> } %1240, 0
+  store <2 x float> %1243, ptr %1242, align 4
+  %1244 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1241, i32 0, i32 1
+  %1245 = extractvalue { <2 x float>, <2 x float> } %1240, 1
+  store <2 x float> %1245, ptr %1244, align 4
+  %1246 = load ptr, ptr %108, align 8, !tbaa !46
+  %1247 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1246, i32 0, i32 5
+  %1248 = load float, ptr %105, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1235, ptr noundef nonnull align 4 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) %1247, float noundef %1248)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %110) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %108) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %107) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %106) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %105) #12
+  br label %1249
+
+1249:                                             ; preds = %1183, %1171
+  call void @llvm.lifetime.end.p0(i64 8, ptr %104) #12
+  br label %1250
+
+1250:                                             ; preds = %1249
+  %1251 = load i32, ptr %103, align 4, !tbaa !9
+  %1252 = add nsw i32 %1251, 1
+  store i32 %1252, ptr %103, align 4, !tbaa !9
+  br label %1165, !llvm.loop !102
+
+1253:                                             ; preds = %1170
+  call void @llvm.lifetime.start.p0(i64 4, ptr %111) #12
+  store i32 0, ptr %111, align 4, !tbaa !9
+  br label %1254
+
+1254:                                             ; preds = %1336, %1253
+  %1255 = load i32, ptr %111, align 4, !tbaa !9
+  %1256 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 5
+  %1257 = call noundef i32 @_ZNK20btAlignedObjectArrayI18btSolverConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %1256)
+  %1258 = icmp slt i32 %1255, %1257
+  br i1 %1258, label %1260, label %1259
+
+1259:                                             ; preds = %1254
+  call void @llvm.lifetime.end.p0(i64 4, ptr %111) #12
+  br label %1339
+
+1260:                                             ; preds = %1254
+  call void @llvm.lifetime.start.p0(i64 8, ptr %112) #12
+  %1261 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 5
+  %1262 = load i32, ptr %111, align 4, !tbaa !9
+  %1263 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1261, i32 noundef %1262)
+  store ptr %1263, ptr %112, align 8, !tbaa !46
+  %1264 = load i32, ptr %12, align 4, !tbaa !9
+  %1265 = load ptr, ptr %19, align 8, !tbaa !20
+  %1266 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %1265, i32 0, i32 5
+  %1267 = load i32, ptr %1266, align 4, !tbaa !43
+  %1268 = icmp slt i32 %1264, %1267
+  br i1 %1268, label %1269, label %1335
+
+1269:                                             ; preds = %1260
+  call void @llvm.lifetime.start.p0(i64 4, ptr %113) #12
+  %1270 = load float, ptr %82, align 4, !tbaa !24
+  %1271 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 6
+  %1272 = load i32, ptr %111, align 4, !tbaa !9
+  %1273 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1271, i32 noundef %1272)
+  %1274 = load float, ptr %1273, align 4, !tbaa !24
+  %1275 = fmul float %1270, %1274
+  store float %1275, ptr %113, align 4, !tbaa !24
+  %1276 = load ptr, ptr %112, align 8, !tbaa !46
+  %1277 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1276, i32 0, i32 7
+  %1278 = load float, ptr %1277, align 4, !tbaa !74
+  %1279 = load float, ptr %113, align 4, !tbaa !24
+  %1280 = fadd float %1278, %1279
+  %1281 = load ptr, ptr %112, align 8, !tbaa !46
+  %1282 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1281, i32 0, i32 7
+  store float %1280, ptr %1282, align 4, !tbaa !74
+  %1283 = load float, ptr %82, align 4, !tbaa !24
+  %1284 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 6
+  %1285 = load i32, ptr %111, align 4, !tbaa !9
+  %1286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1284, i32 noundef %1285)
+  %1287 = load float, ptr %1286, align 4, !tbaa !24
+  %1288 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 10
+  %1289 = load i32, ptr %111, align 4, !tbaa !9
+  %1290 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1288, i32 noundef %1289)
+  %1291 = load float, ptr %1290, align 4, !tbaa !24
+  %1292 = call float @llvm.fmuladd.f32(float %1283, float %1287, float %1291)
+  %1293 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 6
+  %1294 = load i32, ptr %111, align 4, !tbaa !9
+  %1295 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1293, i32 noundef %1294)
+  store float %1292, ptr %1295, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %114) #12
+  %1296 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1297 = load ptr, ptr %112, align 8, !tbaa !46
+  %1298 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1297, i32 0, i32 18
+  %1299 = load i32, ptr %1298, align 8, !tbaa !50
+  %1300 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1296, i32 noundef %1299)
+  store ptr %1300, ptr %114, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %115) #12
+  %1301 = getelementptr inbounds nuw %class.btSequentialImpulseConstraintSolver, ptr %119, i32 0, i32 1
+  %1302 = load ptr, ptr %112, align 8, !tbaa !46
+  %1303 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1302, i32 0, i32 19
+  %1304 = load i32, ptr %1303, align 4, !tbaa !51
+  %1305 = call noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %1301, i32 noundef %1304)
+  store ptr %1305, ptr %115, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %116) #12
+  %1306 = load ptr, ptr %112, align 8, !tbaa !46
+  store ptr %1306, ptr %116, align 8, !tbaa !46
+  %1307 = load ptr, ptr %114, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %117) #12
+  %1308 = load ptr, ptr %116, align 8, !tbaa !46
+  %1309 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1308, i32 0, i32 1
+  %1310 = load ptr, ptr %114, align 8, !tbaa !75
+  %1311 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1310)
+  %1312 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1309, ptr noundef nonnull align 4 dereferenceable(16) %1311)
+  %1313 = getelementptr inbounds nuw %class.btVector3, ptr %117, i32 0, i32 0
+  %1314 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1313, i32 0, i32 0
+  %1315 = extractvalue { <2 x float>, <2 x float> } %1312, 0
+  store <2 x float> %1315, ptr %1314, align 4
+  %1316 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1313, i32 0, i32 1
+  %1317 = extractvalue { <2 x float>, <2 x float> } %1312, 1
+  store <2 x float> %1317, ptr %1316, align 4
+  %1318 = load ptr, ptr %116, align 8, !tbaa !46
+  %1319 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1318, i32 0, i32 4
+  %1320 = load float, ptr %113, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1307, ptr noundef nonnull align 4 dereferenceable(16) %117, ptr noundef nonnull align 4 dereferenceable(16) %1319, float noundef %1320)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %117) #12
+  %1321 = load ptr, ptr %115, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 16, ptr %118) #12
+  %1322 = load ptr, ptr %116, align 8, !tbaa !46
+  %1323 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1322, i32 0, i32 3
+  %1324 = load ptr, ptr %115, align 8, !tbaa !75
+  %1325 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %1324)
+  %1326 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %1323, ptr noundef nonnull align 4 dereferenceable(16) %1325)
+  %1327 = getelementptr inbounds nuw %class.btVector3, ptr %118, i32 0, i32 0
+  %1328 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1327, i32 0, i32 0
+  %1329 = extractvalue { <2 x float>, <2 x float> } %1326, 0
+  store <2 x float> %1329, ptr %1328, align 4
+  %1330 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %1327, i32 0, i32 1
+  %1331 = extractvalue { <2 x float>, <2 x float> } %1326, 1
+  store <2 x float> %1331, ptr %1330, align 4
+  %1332 = load ptr, ptr %116, align 8, !tbaa !46
+  %1333 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1332, i32 0, i32 5
+  %1334 = load float, ptr %113, align 4, !tbaa !24
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %1321, ptr noundef nonnull align 4 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(16) %1333, float noundef %1334)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %118) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %116) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %115) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %114) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %113) #12
+  br label %1335
+
+1335:                                             ; preds = %1269, %1260
+  call void @llvm.lifetime.end.p0(i64 8, ptr %112) #12
+  br label %1336
+
+1336:                                             ; preds = %1335
+  %1337 = load i32, ptr %111, align 4, !tbaa !9
+  %1338 = add nsw i32 %1337, 1
+  store i32 %1338, ptr %111, align 4, !tbaa !9
+  br label %1254, !llvm.loop !103
+
+1339:                                             ; preds = %1259
+  br label %1340
+
+1340:                                             ; preds = %1339, %985
+  call void @llvm.lifetime.end.p0(i64 4, ptr %82) #12
+  br label %1341
+
+1341:                                             ; preds = %1340, %914
+  %1342 = load float, ptr %33, align 4, !tbaa !24
+  %1343 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %119, i32 0, i32 1
+  store float %1342, ptr %1343, align 8, !tbaa !72
+  br label %1344
+
+1344:                                             ; preds = %1341, %835
+  %1345 = load float, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #12
+  ret float %1345
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !106
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds i32, ptr %7, i64 %9
+  ret ptr %10
 }
 
-declare noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408), i32 noundef) #3
+declare noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408), i32 noundef) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %struct.btSolverConstraint, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN20btAlignedObjectArrayI18btSolverConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !107
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %struct.btSolverConstraint, ptr %7, i64 %9
+  ret ptr %10
 }
 
-declare noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(160)) #3
+declare noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(160)) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %struct.btSolverBody, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN20btAlignedObjectArrayI12btSolverBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !108
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !110
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %struct.btSolverBody, ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds float, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !111
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds float, ptr %7, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #8
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef %3) #9 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca %class.btVector3, align 4
+  %10 = alloca %class.btVector3, align 4
+  %11 = alloca %class.btVector3, align 4
+  %12 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !75
+  store ptr %1, ptr %6, align 8, !tbaa !112
+  store ptr %2, ptr %7, align 8, !tbaa !112
+  store float %3, ptr %8, align 4, !tbaa !24
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 12
+  %15 = load ptr, ptr %14, align 8, !tbaa !114
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %50
+
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #12
+  %18 = load ptr, ptr %6, align 8, !tbaa !112
+  %19 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %20, i32 0, i32 0
+  %22 = extractvalue { <2 x float>, <2 x float> } %19, 0
+  store <2 x float> %22, ptr %21, align 4
+  %23 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %20, i32 0, i32 1
+  %24 = extractvalue { <2 x float>, <2 x float> } %19, 1
+  store <2 x float> %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 4
+  %26 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %25)
+  %27 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %28 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %27, i32 0, i32 0
+  %29 = extractvalue { <2 x float>, <2 x float> } %26, 0
+  store <2 x float> %29, ptr %28, align 4
+  %30 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %27, i32 0, i32 1
+  %31 = extractvalue { <2 x float>, <2 x float> } %26, 1
+  store <2 x float> %31, ptr %30, align 4
+  %32 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 1
+  %33 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #12
+  %34 = load ptr, ptr %7, align 8, !tbaa !112
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #12
+  %35 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 3
+  %36 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(16) %35)
+  %37 = getelementptr inbounds nuw %class.btVector3, ptr %12, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %37, i32 0, i32 0
+  %39 = extractvalue { <2 x float>, <2 x float> } %36, 0
+  store <2 x float> %39, ptr %38, align 4
+  %40 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %37, i32 0, i32 1
+  %41 = extractvalue { <2 x float>, <2 x float> } %36, 1
+  store <2 x float> %41, ptr %40, align 4
+  %42 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %43 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %44 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %43, i32 0, i32 0
+  %45 = extractvalue { <2 x float>, <2 x float> } %42, 0
+  store <2 x float> %45, ptr %44, align 4
+  %46 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %43, i32 0, i32 1
+  %47 = extractvalue { <2 x float>, <2 x float> } %42, 1
+  store <2 x float> %47, ptr %46, align 4
+  %48 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 2
+  %49 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %11)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #12
+  br label %50
+
+50:                                               ; preds = %17, %4
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #5 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !112
+  store ptr %1, ptr %5, align 8, !tbaa !112
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  %9 = load ptr, ptr %4, align 8, !tbaa !112
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !24
+  %13 = load ptr, ptr %5, align 8, !tbaa !112
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 0
+  %16 = load float, ptr %15, align 4, !tbaa !24
+  %17 = fmul float %12, %16
+  store float %17, ptr %6, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %18 = load ptr, ptr %4, align 8, !tbaa !112
+  %19 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x float], ptr %19, i64 0, i64 1
+  %21 = load float, ptr %20, align 4, !tbaa !24
+  %22 = load ptr, ptr %5, align 8, !tbaa !112
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 1
+  %25 = load float, ptr %24, align 4, !tbaa !24
+  %26 = fmul float %21, %25
+  store float %26, ptr %7, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %27 = load ptr, ptr %4, align 8, !tbaa !112
+  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [4 x float], ptr %28, i64 0, i64 2
+  %30 = load float, ptr %29, align 4, !tbaa !24
+  %31 = load ptr, ptr %5, align 8, !tbaa !112
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x float], ptr %32, i64 0, i64 2
+  %34 = load float, ptr %33, align 4, !tbaa !24
+  %35 = fmul float %30, %34
+  store float %35, ptr %8, align 4, !tbaa !24
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  %36 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %37 = load { <2 x float>, <2 x float> }, ptr %36, align 4
+  ret { <2 x float>, <2 x float> } %37
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.btSolverBody, ptr %3, i32 0, i32 5
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btTypedConstraint, ptr %3, i32 0, i32 5
+  %5 = load i8, ptr %4, align 4, !tbaa !119, !range !69, !noundef !70
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
+}
+
+declare noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(372), float noundef) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btTypedConstraint, ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !123
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btTypedConstraint, ptr %3, i32 0, i32 9
+  %5 = load ptr, ptr %4, align 8, !tbaa !124
+  ret ptr %5
+}
+
+declare noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(160)) #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 4 dereferenceable(16) %linearComponent, ptr noundef nonnull align 4 dereferenceable(16) %angularComponent, float noundef %impulseMagnitude) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %linearComponent.addr = alloca ptr, align 8
-  %angularComponent.addr = alloca ptr, align 8
-  %impulseMagnitude.addr = alloca float, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca %class.btVector3, align 4
-  %ref.tmp6 = alloca %class.btVector3, align 4
-  %ref.tmp7 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %linearComponent, ptr %linearComponent.addr, align 8
-  store ptr %angularComponent, ptr %angularComponent.addr, align 8
-  store float %impulseMagnitude, ptr %impulseMagnitude.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_originalBody = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 12
-  %0 = load ptr, ptr %m_originalBody, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define dso_local noundef float @_ZN22btNNCGConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(673) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3) unnamed_addr #2 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !14
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !20
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 3
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef 0)
+  %11 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 4
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %11, i32 noundef 0)
+  %12 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 5
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %12, i32 noundef 0)
+  %13 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 6
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %13, i32 noundef 0)
+  %14 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 7
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %14, i32 noundef 0)
+  %15 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 8
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %15, i32 noundef 0)
+  %16 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 9
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %16, i32 noundef 0)
+  %17 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %9, i32 0, i32 10
+  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %17, i32 noundef 0)
+  %18 = load ptr, ptr %6, align 8, !tbaa !14
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = load ptr, ptr %8, align 8, !tbaa !20
+  %21 = call noundef float @_ZN35btSequentialImpulseConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %9, ptr noundef %18, i32 noundef %19, ptr noundef nonnull align 4 dereferenceable(128) %20)
+  ret float %21
+}
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %linearComponent.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %impulseMagnitude.addr)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp2, i32 0, i32 0
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %3, ptr %2, align 4
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %5, ptr %4, align 4
-  %m_linearFactor = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 4
-  %call3 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(16) %m_linearFactor)
-  %coerce.dive4 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive4, i32 0, i32 0
-  %7 = extractvalue { <2 x float>, <2 x float> } %call3, 0
-  store <2 x float> %7, ptr %6, align 4
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive4, i32 0, i32 1
-  %9 = extractvalue { <2 x float>, <2 x float> } %call3, 1
-  store <2 x float> %9, ptr %8, align 4
-  %m_deltaLinearVelocity = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 1
-  %call5 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %m_deltaLinearVelocity, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
-  %10 = load ptr, ptr %angularComponent.addr, align 8
-  %m_angularFactor = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 3
-  %call8 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %impulseMagnitude.addr, ptr noundef nonnull align 4 dereferenceable(16) %m_angularFactor)
-  %coerce.dive9 = getelementptr inbounds %class.btVector3, ptr %ref.tmp7, i32 0, i32 0
-  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive9, i32 0, i32 0
-  %12 = extractvalue { <2 x float>, <2 x float> } %call8, 0
-  store <2 x float> %12, ptr %11, align 4
-  %13 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive9, i32 0, i32 1
-  %14 = extractvalue { <2 x float>, <2 x float> } %call8, 1
-  store <2 x float> %14, ptr %13, align 4
-  %call10 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp7)
-  %coerce.dive11 = getelementptr inbounds %class.btVector3, ptr %ref.tmp6, i32 0, i32 0
-  %15 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 0
-  %16 = extractvalue { <2 x float>, <2 x float> } %call10, 0
-  store <2 x float> %16, ptr %15, align 4
-  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 1
-  %18 = extractvalue { <2 x float>, <2 x float> } %call10, 1
-  store <2 x float> %18, ptr %17, align 4
-  %m_deltaAngularVelocity = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 2
-  %call12 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %m_deltaAngularVelocity, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp6)
-  br label %if.end
+declare noundef float @_ZN35btSequentialImpulseConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #4
 
-if.end:                                           ; preds = %if.then, %entry
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN22btNNCGConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV22btNNCGConstraintSolver, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !80
+  %4 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 10
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #12
+  %5 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 9
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #12
+  %6 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 8
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #12
+  %7 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 7
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #12
+  %8 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 6
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #12
+  %9 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 5
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9) #12
+  %10 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 4
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %10) #12
+  %11 = getelementptr inbounds nuw %class.btNNCGConstraintSolver, ptr %3, i32 0, i32 3
+  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #12
+  call void @_ZN35btSequentialImpulseConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2) #2 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %m_floats1 = getelementptr inbounds %class.btVector3, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [4 x float], ptr %m_floats1, i64 0, i64 0
-  %3 = load float, ptr %arrayidx2, align 4
-  %mul = fmul float %1, %3
-  store float %mul, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v1.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %7 = load float, ptr %arrayidx7, align 4
-  %mul8 = fmul float %5, %7
-  store float %mul8, ptr %ref.tmp3, align 4
-  %8 = load ptr, ptr %v1.addr, align 8
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %9 = load float, ptr %arrayidx11, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %10, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 2
-  %11 = load float, ptr %arrayidx13, align 4
-  %mul14 = fmul float %9, %11
-  store float %mul14, ptr %ref.tmp9, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_invMass = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 5
-  ret ptr %m_invMass
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_isEnabled = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 5
-  %0 = load i8, ptr %m_isEnabled, align 4
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
-}
-
-declare noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(372), float noundef) #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rbA = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %m_rbA, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rbB = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 9
-  %0 = load ptr, ptr %m_rbB, align 8
-  ret ptr %0
-}
-
-declare noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(160)) #3
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN22btNNCGConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(673) %this, ptr noundef %bodies, i32 noundef %numBodies, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %bodies.addr = alloca ptr, align 8
-  %numBodies.addr = alloca i32, align 4
-  %infoGlobal.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %bodies, ptr %bodies.addr, align 8
-  store i32 %numBodies, ptr %numBodies.addr, align 4
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_pNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 3
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC, i32 noundef 0)
-  %m_pC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 4
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pC, i32 noundef 0)
-  %m_pCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 5
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF, i32 noundef 0)
-  %m_pCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 6
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF, i32 noundef 0)
-  %m_deltafNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 7
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC, i32 noundef 0)
-  %m_deltafC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 8
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafC, i32 noundef 0)
-  %m_deltafCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 9
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF, i32 noundef 0)
-  %m_deltafCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 10
-  call void @_ZN20btAlignedObjectArrayIfE18resizeNoInitializeEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCRF, i32 noundef 0)
-  %0 = load ptr, ptr %bodies.addr, align 8
-  %1 = load i32, ptr %numBodies.addr, align 4
-  %2 = load ptr, ptr %infoGlobal.addr, align 8
-  %call = call noundef float @_ZN35btSequentialImpulseConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %this1, ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(128) %2)
-  ret float %call
-}
-
-declare noundef float @_ZN35btSequentialImpulseConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN22btNNCGConstraintSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN22btNNCGConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(673) %3) #12
+  call void @_ZN22btNNCGConstraintSolverdlEPv(ptr noundef %3) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #9
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN18btConstraintSolver12prepareSolveEii(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !125
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
   ret void
 }
 
+declare noundef float @_ZN35btSequentialImpulseConstraintSolver10solveGroupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDrawP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef, ptr noundef) unnamed_addr #4
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(25) %ca, i32 noundef %solverBodyA, i32 noundef %solverBodyB, float noundef %timeStep) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ca.addr = alloca ptr, align 8
-  %solverBodyA.addr = alloca i32, align 4
-  %solverBodyB.addr = alloca i32, align 4
-  %timeStep.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ca, ptr %ca.addr, align 8
-  store i32 %solverBodyA, ptr %solverBodyA.addr, align 4
-  store i32 %solverBodyB, ptr %solverBodyB.addr, align 4
-  store float %timeStep, ptr %timeStep.addr, align 4
+define linkonce_odr dso_local void @_ZN18btConstraintSolver9allSolvedERK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(128) %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !125
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !22
   ret void
 }
 
-declare void @__cxa_pure_virtual() unnamed_addr
+declare void @_ZN35btSequentialImpulseConstraintSolver5resetEv(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %2) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  %.addr2 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  store float %2, ptr %.addr2, align 4
-  ret void
-}
-
-declare noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN22btNNCGConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(673) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV22btNNCGConstraintSolver, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_deltafCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 10
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCRF) #10
-  %m_deltafCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 9
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafCF) #10
-  %m_deltafC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 8
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafC) #10
-  %m_deltafNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 7
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltafNC) #10
-  %m_pCRF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 6
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_pCRF) #10
-  %m_pCF = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 5
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_pCF) #10
-  %m_pC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 4
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_pC) #10
-  %m_pNC = getelementptr inbounds %class.btNNCGConstraintSolver, ptr %this1, i32 0, i32 3
-  call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_pNC) #10
-  call void @_ZN35btSequentialImpulseConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this1) #10
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN22btNNCGConstraintSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(673) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN22btNNCGConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(673) %this1) #10
-  call void @_ZN22btNNCGConstraintSolverdlEPv(ptr noundef %this1) #10
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btConstraintSolver12prepareSolveEii(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca i32, align 4
-  %.addr1 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  store i32 %1, ptr %.addr1, align 4
-  ret void
-}
-
-declare noundef float @_ZN35btSequentialImpulseConstraintSolver10solveGroupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDrawP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef, ptr noundef) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btConstraintSolver9allSolvedERK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(128) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  ret void
-}
-
-declare void @_ZN35btSequentialImpulseConstraintSolver5resetEv(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK22btNNCGConstraintSolver13getSolverTypeEv(ptr noundef nonnull align 8 dereferenceable(673) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local noundef i32 @_ZNK22btNNCGConstraintSolver13getSolverTypeEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret i32 4
 }
 
-declare void @_ZN35btSequentialImpulseConstraintSolver15convertContactsEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #3
+declare void @_ZN35btSequentialImpulseConstraintSolver15convertContactsEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #4
 
-declare void @_ZN35btSequentialImpulseConstraintSolver13convertJointsEPP17btTypedConstraintiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #3
+declare void @_ZN35btSequentialImpulseConstraintSolver13convertJointsEPP17btTypedConstraintiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #4
 
-declare void @_ZN35btSequentialImpulseConstraintSolver13convertBodiesEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #3
+declare void @_ZN35btSequentialImpulseConstraintSolver13convertBodiesEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #4
 
-declare void @_ZN35btSequentialImpulseConstraintSolver45solveGroupCacheFriendlySplitImpulseIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #3
+declare void @_ZN35btSequentialImpulseConstraintSolver45solveGroupCacheFriendlySplitImpulseIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #4
 
-declare noundef float @_ZN35btSequentialImpulseConstraintSolver33solveGroupCacheFriendlyIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #3
+declare noundef float @_ZN35btSequentialImpulseConstraintSolver33solveGroupCacheFriendlyIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #4
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(4) %s) #2 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp1 = alloca float, align 4
-  %ref.tmp5 = alloca float, align 4
-  store ptr %v, ptr %v.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %mul = fmul float %1, %3
-  store float %mul, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  %5 = load float, ptr %arrayidx3, align 4
-  %6 = load ptr, ptr %s.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %mul4 = fmul float %5, %7
-  store float %mul4, ptr %ref.tmp1, align 4
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 2
-  %9 = load float, ptr %arrayidx7, align 4
-  %10 = load ptr, ptr %s.addr, align 8
-  %11 = load float, ptr %10, align 4
-  %mul8 = fmul float %9, %11
-  store float %mul8, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !112
+  store ptr %1, ptr %5, align 8, !tbaa !127
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  %9 = load ptr, ptr %4, align 8, !tbaa !112
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !24
+  %13 = load ptr, ptr %5, align 8, !tbaa !127
+  %14 = load float, ptr %13, align 4, !tbaa !24
+  %15 = fmul float %12, %14
+  store float %15, ptr %6, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %16 = load ptr, ptr %4, align 8, !tbaa !112
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  %19 = load float, ptr %18, align 4, !tbaa !24
+  %20 = load ptr, ptr %5, align 8, !tbaa !127
+  %21 = load float, ptr %20, align 4, !tbaa !24
+  %22 = fmul float %19, %21
+  store float %22, ptr %7, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %23 = load ptr, ptr %4, align 8, !tbaa !112
+  %24 = getelementptr inbounds nuw %class.btVector3, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [4 x float], ptr %24, i64 0, i64 2
+  %26 = load float, ptr %25, align 4, !tbaa !24
+  %27 = load ptr, ptr %5, align 8, !tbaa !127
+  %28 = load float, ptr %27, align 4, !tbaa !24
+  %29 = fmul float %26, %28
+  store float %29, ptr %8, align 4, !tbaa !24
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  %30 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %31 = load { <2 x float>, <2 x float> }, ptr %30, align 4
+  ret { <2 x float>, <2 x float> } %31
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %v) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 0
-  %2 = load float, ptr %arrayidx3, align 4
-  %add = fadd float %2, %1
-  store float %add, ptr %arrayidx3, align 4
-  %3 = load ptr, ptr %v.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %3, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %4 = load float, ptr %arrayidx5, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %5 = load float, ptr %arrayidx7, align 4
-  %add8 = fadd float %5, %4
-  store float %add8, ptr %arrayidx7, align 4
-  %6 = load ptr, ptr %v.addr, align 8
-  %m_floats9 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [4 x float], ptr %m_floats9, i64 0, i64 2
-  %7 = load float, ptr %arrayidx10, align 4
-  %m_floats11 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_floats11, i64 0, i64 2
-  %8 = load float, ptr %arrayidx12, align 4
-  %add13 = fadd float %8, %7
-  store float %add13, ptr %arrayidx12, align 4
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !112
+  store ptr %1, ptr %4, align 8, !tbaa !112
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !112
+  %7 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds [4 x float], ptr %7, i64 0, i64 0
+  %9 = load float, ptr %8, align 4, !tbaa !24
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !24
+  %13 = fadd float %12, %9
+  store float %13, ptr %11, align 4, !tbaa !24
+  %14 = load ptr, ptr %4, align 8, !tbaa !112
+  %15 = getelementptr inbounds nuw %class.btVector3, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 1
+  %17 = load float, ptr %16, align 4, !tbaa !24
+  %18 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds [4 x float], ptr %18, i64 0, i64 1
+  %20 = load float, ptr %19, align 4, !tbaa !24
+  %21 = fadd float %20, %17
+  store float %21, ptr %19, align 4, !tbaa !24
+  %22 = load ptr, ptr %4, align 8, !tbaa !112
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 2
+  %25 = load float, ptr %24, align 4, !tbaa !24
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %27 = getelementptr inbounds [4 x float], ptr %26, i64 0, i64 2
+  %28 = load float, ptr %27, align 4, !tbaa !24
+  %29 = fadd float %28, %25
+  store float %29, ptr %27, align 4, !tbaa !24
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %s, ptr noundef nonnull align 4 dereferenceable(16) %v) #4 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %s.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %3, ptr %2, align 4
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %5, ptr %4, align 4
-  %coerce.dive1 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %6 = load { <2 x float>, <2 x float> }, ptr %coerce.dive1, align 4
-  ret { <2 x float>, <2 x float> } %6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #9 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !127
+  store ptr %1, ptr %5, align 8, !tbaa !112
+  %6 = load ptr, ptr %5, align 8, !tbaa !112
+  %7 = load ptr, ptr %4, align 8, !tbaa !127
+  %8 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %9 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %9, i32 0, i32 0
+  %11 = extractvalue { <2 x float>, <2 x float> } %8, 0
+  store <2 x float> %11, ptr %10, align 4
+  %12 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %9, i32 0, i32 1
+  %13 = extractvalue { <2 x float>, <2 x float> } %8, 1
+  store <2 x float> %13, ptr %12, align 4
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %15 = load { <2 x float>, <2 x float> }, ptr %14, align 4
+  ret { <2 x float>, <2 x float> } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %_x, ptr noundef nonnull align 4 dereferenceable(4) %_y, ptr noundef nonnull align 4 dereferenceable(4) %_z) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca ptr, align 8
-  %_y.addr = alloca ptr, align 8
-  %_z.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_x, ptr %_x.addr, align 8
-  store ptr %_y, ptr %_y.addr, align 8
-  store ptr %_z, ptr %_z.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %_x.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  store float %1, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %_y.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  store float %3, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %_z.addr, align 8
-  %5 = load float, ptr %4, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  store float %5, ptr %arrayidx5, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx7, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !112
+  store ptr %1, ptr %6, align 8, !tbaa !127
+  store ptr %2, ptr %7, align 8, !tbaa !127
+  store ptr %3, ptr %8, align 8, !tbaa !127
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !127
+  %11 = load float, ptr %10, align 4, !tbaa !24
+  %12 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 0
+  store float %11, ptr %13, align 4, !tbaa !24
+  %14 = load ptr, ptr %7, align 8, !tbaa !127
+  %15 = load float, ptr %14, align 4, !tbaa !24
+  %16 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %17 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 1
+  store float %15, ptr %17, align 4, !tbaa !24
+  %18 = load ptr, ptr %8, align 8, !tbaa !127
+  %19 = load float, ptr %18, align 4, !tbaa !24
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  store float %19, ptr %21, align 4, !tbaa !24
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 3
+  store float 0.000000e+00, ptr %23, align 4, !tbaa !24
   ret void
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20btAlignedObjectArrayIfE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20btAlignedObjectArrayIfE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN35btSequentialImpulseConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #7
+declare void @_ZN35btSequentialImpulseConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #10
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIfE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20btAlignedObjectArrayIfE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIfE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIfE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20btAlignedObjectArrayIfE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIfE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
-  call void @_ZSt9terminatev() #9
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
+  call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -2725,327 +2879,427 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+13:                                               ; preds = %9
+  br label %14
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !30
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !128
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !28
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
 
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !129, !range !69, !noundef !70
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
 
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18btAlignedAllocatorIfLj16EE10deallocateEPf(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !111
+  call void @_ZN18btAlignedAllocatorIfLj16EE10deallocateEPf(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !111
+  br label %16
 
-if.end6:                                          ; preds = %if.end, %entry
+16:                                               ; preds = %14, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !129
+  %5 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !111
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !28
+  %7 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !130
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIfLj16EE10deallocateEPf(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIfLj16EE10deallocateEPf(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store ptr %1, ptr %4, align 8, !tbaa !127
+  %5 = load ptr, ptr %4, align 8, !tbaa !127
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
   ret void
 }
 
-declare void @_Z21btAlignedFreeInternalPv(ptr noundef) #3
+declare void @_Z21btAlignedFreeInternalPv(ptr noundef) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN22btNNCGConstraintSolverdlEPv(ptr noundef %ptr) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN22btNNCGConstraintSolverdlEPv(ptr noundef %0) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !133
+  %3 = load ptr, ptr %2, align 8, !tbaa !133
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIfE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIfE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %21
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20btAlignedObjectArrayIfE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %2 = load ptr, ptr %s, align 8
-  call void @_ZNK20btAlignedObjectArrayIfE4copyEiiPf(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call3, ptr noundef %2)
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIfE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call4)
-  call void @_ZN20btAlignedObjectArrayIfE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %3 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  store ptr %3, ptr %m_data, align 8
-  %4 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 3
-  store i32 %4, ptr %m_capacity, align 8
-  br label %if.end
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20btAlignedObjectArrayIfE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !127
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %14 = load ptr, ptr %5, align 8, !tbaa !127
+  call void @_ZNK20btAlignedObjectArrayIfE4copyEiiPf(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %13, ptr noundef %14)
+  %15 = call noundef i32 @_ZNK20btAlignedObjectArrayIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20btAlignedObjectArrayIfE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %15)
+  call void @_ZN20btAlignedObjectArrayIfE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %16 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 5
+  store i8 1, ptr %16, align 8, !tbaa !129
+  %17 = load ptr, ptr %5, align 8, !tbaa !127
+  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 4
+  store ptr %17, ptr %18, align 8, !tbaa !111
+  %19 = load i32, ptr %4, align 4, !tbaa !9
+  %20 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 2
+  store i32 %19, ptr %20, align 8, !tbaa !130
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %21
 
-if.end:                                           ; preds = %if.then, %entry
+21:                                               ; preds = %10, %2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIfE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIfE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !130
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIfE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIfE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18btAlignedAllocatorIfLj16EE8allocateEiPPKf(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18btAlignedAllocatorIfLj16EE8allocateEiPPKf(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIfE4copyEiiPf(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIfE4copyEiiPf(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !127
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds float, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds float, ptr %5, i64 %idxprom2
-  %7 = load float, ptr %arrayidx3, align 4
-  store float %7, ptr %arrayidx, align 4
-  br label %for.inc
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !127
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds float, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !111
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds float, ptr %22, i64 %24
+  %26 = load float, ptr %25, align 4, !tbaa !24
+  store float %26, ptr %20, align 4, !tbaa !24
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !31
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !134
 
-for.end:                                          ; preds = %for.cond
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIfLj16EE8allocateEiPPKf(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 4, %conv
-  %call = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIfLj16EE8allocateEiPPKf(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !131
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !135
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 4, %8
+  %10 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
-declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) #3
+declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_btNNCGConstraintSolver.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS22btNNCGConstraintSolver", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p2 _ZTS17btCollisionObject", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 _ZTS20btPersistentManifold", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p2 _ZTS17btTypedConstraint", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS19btContactSolverInfo", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS12btIDebugDraw", !6, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"float", !7, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS20btAlignedObjectArrayIfE", !6, i64 0}
+!28 = !{!29, !10, i64 4}
+!29 = !{!"_ZTS20btAlignedObjectArrayIfE", !30, i64 0, !10, i64 4, !10, i64 8, !31, i64 16, !32, i64 24}
+!30 = !{!"_ZTS18btAlignedAllocatorIfLj16EE"}
+!31 = !{!"p1 float", !6, i64 0}
+!32 = !{!"bool", !7, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS20btAlignedObjectArrayI18btSolverConstraintE", !6, i64 0}
+!35 = !{!36, !10, i64 4}
+!36 = !{!"_ZTS20btAlignedObjectArrayI18btSolverConstraintE", !37, i64 0, !10, i64 4, !10, i64 8, !38, i64 16, !32, i64 24}
+!37 = !{!"_ZTS18btAlignedAllocatorI18btSolverConstraintLj16EE"}
+!38 = !{!"p1 _ZTS18btSolverConstraint", !6, i64 0}
+!39 = !{!40, !10, i64 88}
+!40 = !{!"_ZTS23btContactSolverInfoData", !25, i64 0, !25, i64 4, !25, i64 8, !25, i64 12, !25, i64 16, !10, i64 20, !25, i64 24, !25, i64 28, !25, i64 32, !25, i64 36, !25, i64 40, !25, i64 44, !25, i64 48, !25, i64 52, !25, i64 56, !25, i64 60, !10, i64 64, !25, i64 68, !25, i64 72, !25, i64 76, !25, i64 80, !25, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !25, i64 100, !25, i64 104, !25, i64 108, !25, i64 112, !32, i64 116, !32, i64 117, !10, i64 120, !10, i64 124}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!40, !10, i64 20}
+!44 = distinct !{!44, !42}
+!45 = distinct !{!45, !42}
+!46 = !{!38, !38, i64 0}
+!47 = !{!48, !10, i64 144}
+!48 = !{!"_ZTS18btSolverConstraint", !49, i64 0, !49, i64 16, !49, i64 32, !49, i64 48, !49, i64 64, !49, i64 80, !25, i64 96, !25, i64 100, !25, i64 104, !25, i64 108, !25, i64 112, !25, i64 116, !25, i64 120, !25, i64 124, !25, i64 128, !7, i64 136, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156}
+!49 = !{!"_ZTS9btVector3", !7, i64 0}
+!50 = !{!48, !10, i64 152}
+!51 = !{!48, !10, i64 156}
+!52 = distinct !{!52, !42}
+!53 = !{!54, !32, i64 672}
+!54 = !{!"_ZTS22btNNCGConstraintSolver", !55, i64 0, !25, i64 408, !29, i64 416, !29, i64 448, !29, i64 480, !29, i64 512, !29, i64 544, !29, i64 576, !29, i64 608, !29, i64 640, !32, i64 672}
+!55 = !{!"_ZTS35btSequentialImpulseConstraintSolver", !56, i64 0, !57, i64 8, !36, i64 40, !36, i64 72, !36, i64 104, !36, i64 136, !60, i64 168, !60, i64 200, !60, i64 232, !63, i64 264, !10, i64 296, !10, i64 300, !60, i64 304, !6, i64 336, !6, i64 344, !6, i64 352, !10, i64 360, !25, i64 364, !66, i64 368, !67, i64 376}
+!56 = !{!"_ZTS18btConstraintSolver"}
+!57 = !{!"_ZTS20btAlignedObjectArrayI12btSolverBodyE", !58, i64 0, !10, i64 4, !10, i64 8, !59, i64 16, !32, i64 24}
+!58 = !{!"_ZTS18btAlignedAllocatorI12btSolverBodyLj16EE"}
+!59 = !{!"p1 _ZTS12btSolverBody", !6, i64 0}
+!60 = !{!"_ZTS20btAlignedObjectArrayIiE", !61, i64 0, !10, i64 4, !10, i64 8, !62, i64 16, !32, i64 24}
+!61 = !{!"_ZTS18btAlignedAllocatorIiLj16EE"}
+!62 = !{!"p1 int", !6, i64 0}
+!63 = !{!"_ZTS20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE", !64, i64 0, !10, i64 4, !10, i64 8, !65, i64 16, !32, i64 24}
+!64 = !{!"_ZTS18btAlignedAllocatorIN17btTypedConstraint17btConstraintInfo1ELj16EE"}
+!65 = !{!"p1 _ZTSN17btTypedConstraint17btConstraintInfo1E", !6, i64 0}
+!66 = !{!"long", !7, i64 0}
+!67 = !{!"_ZTS21btSolverAnalyticsData", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !68, i64 24}
+!68 = !{!"double", !7, i64 0}
+!69 = !{i8 0, i8 2}
+!70 = !{}
+!71 = distinct !{!71, !42}
+!72 = !{!54, !25, i64 408}
+!73 = distinct !{!73, !42}
+!74 = !{!48, !25, i64 100}
+!75 = !{!59, !59, i64 0}
+!76 = distinct !{!76, !42}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS17btTypedConstraint", !6, i64 0}
+!79 = !{!40, !25, i64 12}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"vtable pointer", !8, i64 0}
+!82 = distinct !{!82, !42}
+!83 = !{!32, !32, i64 0}
+!84 = !{!48, !25, i64 104}
+!85 = !{!48, !25, i64 120}
+!86 = !{!48, !25, i64 124}
+!87 = distinct !{!87, !42}
+!88 = distinct !{!88, !42}
+!89 = !{!48, !10, i64 148}
+!90 = distinct !{!90, !42}
+!91 = distinct !{!91, !42}
+!92 = distinct !{!92, !42}
+!93 = distinct !{!93, !42}
+!94 = distinct !{!94, !42}
+!95 = distinct !{!95, !42}
+!96 = distinct !{!96, !42}
+!97 = distinct !{!97, !42}
+!98 = distinct !{!98, !42}
+!99 = distinct !{!99, !42}
+!100 = distinct !{!100, !42}
+!101 = distinct !{!101, !42}
+!102 = distinct !{!102, !42}
+!103 = distinct !{!103, !42}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTS20btAlignedObjectArrayIiE", !6, i64 0}
+!106 = !{!60, !62, i64 16}
+!107 = !{!36, !38, i64 16}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p1 _ZTS20btAlignedObjectArrayI12btSolverBodyE", !6, i64 0}
+!110 = !{!57, !59, i64 16}
+!111 = !{!29, !31, i64 16}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 _ZTS9btVector3", !6, i64 0}
+!114 = !{!115, !118, i64 240}
+!115 = !{!"_ZTS12btSolverBody", !116, i64 0, !49, i64 64, !49, i64 80, !49, i64 96, !49, i64 112, !49, i64 128, !49, i64 144, !49, i64 160, !49, i64 176, !49, i64 192, !49, i64 208, !49, i64 224, !118, i64 240}
+!116 = !{!"_ZTS11btTransform", !117, i64 0, !49, i64 48}
+!117 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!118 = !{!"p1 _ZTS11btRigidBody", !6, i64 0}
+!119 = !{!120, !32, i64 28}
+!120 = !{!"_ZTS17btTypedConstraint", !121, i64 8, !10, i64 12, !7, i64 16, !25, i64 24, !32, i64 28, !32, i64 29, !10, i64 32, !118, i64 40, !118, i64 48, !25, i64 56, !25, i64 60, !122, i64 64}
+!121 = !{!"_ZTS13btTypedObject", !10, i64 0}
+!122 = !{!"p1 _ZTS15btJointFeedback", !6, i64 0}
+!123 = !{!120, !118, i64 40}
+!124 = !{!120, !118, i64 48}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTS18btConstraintSolver", !6, i64 0}
+!127 = !{!31, !31, i64 0}
+!128 = distinct !{!128, !42}
+!129 = !{!29, !32, i64 24}
+!130 = !{!29, !10, i64 8}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 _ZTS18btAlignedAllocatorIfLj16EE", !6, i64 0}
+!133 = !{!6, !6, i64 0}
+!134 = distinct !{!134, !42}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"p2 float", !6, i64 0}

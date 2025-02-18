@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
@@ -21,2014 +21,2172 @@ $_ZSt4fabsf = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7SolveP2Pfff(ptr noundef %x, float noundef %a, float noundef %b) #2 {
-entry:
-  %retval = alloca i32, align 4
-  %x.addr = alloca ptr, align 8
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  %D = alloca float, align 4
-  store ptr %x, ptr %x.addr, align 8
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  %0 = load float, ptr %a.addr, align 4
-  %conv = fpext float %0 to double
-  %mul = fmul double 2.500000e-01, %conv
-  %1 = load float, ptr %a.addr, align 4
-  %conv1 = fpext float %1 to double
-  %2 = load float, ptr %b.addr, align 4
-  %conv3 = fpext float %2 to double
-  %neg = fneg double %conv3
-  %3 = call double @llvm.fmuladd.f64(double %mul, double %conv1, double %neg)
-  %conv4 = fptrunc double %3 to float
-  store float %conv4, ptr %D, align 4
-  %4 = load float, ptr %D, align 4
-  %cmp = fcmp oge float %4, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local noundef i32 @_Z7SolveP2Pfff(ptr noundef %0, float noundef %1, float noundef %2) #2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store float %1, ptr %6, align 4, !tbaa !14
+  store float %2, ptr %7, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %10 = load float, ptr %6, align 4, !tbaa !14
+  %11 = fpext float %10 to double
+  %12 = fmul double 2.500000e-01, %11
+  %13 = load float, ptr %6, align 4, !tbaa !14
+  %14 = fpext float %13 to double
+  %15 = load float, ptr %7, align 4, !tbaa !14
+  %16 = fpext float %15 to double
+  %17 = fneg double %16
+  %18 = call double @llvm.fmuladd.f64(double %12, double %14, double %17)
+  %19 = fptrunc double %18 to float
+  store float %19, ptr %8, align 4, !tbaa !14
+  %20 = load float, ptr %8, align 4, !tbaa !14
+  %21 = fcmp oge float %20, 0.000000e+00
+  br i1 %21, label %22, label %42
 
-if.then:                                          ; preds = %entry
-  %5 = load float, ptr %D, align 4
-  %call = call noundef float @_ZSt4sqrtf(float noundef %5)
-  store float %call, ptr %D, align 4
-  %6 = load float, ptr %a.addr, align 4
-  %conv5 = fpext float %6 to double
-  %7 = load float, ptr %D, align 4
-  %conv7 = fpext float %7 to double
-  %8 = call double @llvm.fmuladd.f64(double -5.000000e-01, double %conv5, double %conv7)
-  %conv8 = fptrunc double %8 to float
-  %9 = load ptr, ptr %x.addr, align 8
-  %arrayidx = getelementptr inbounds float, ptr %9, i64 0
-  store float %conv8, ptr %arrayidx, align 4
-  %10 = load float, ptr %a.addr, align 4
-  %conv9 = fpext float %10 to double
-  %11 = load float, ptr %D, align 4
-  %conv11 = fpext float %11 to double
-  %neg12 = fneg double %conv11
-  %12 = call double @llvm.fmuladd.f64(double -5.000000e-01, double %conv9, double %neg12)
-  %conv13 = fptrunc double %12 to float
-  %13 = load ptr, ptr %x.addr, align 8
-  %arrayidx14 = getelementptr inbounds float, ptr %13, i64 1
-  store float %conv13, ptr %arrayidx14, align 4
-  store i32 2, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %3
+  %23 = load float, ptr %8, align 4, !tbaa !14
+  %24 = call noundef float @_ZSt4sqrtf(float noundef %23)
+  store float %24, ptr %8, align 4, !tbaa !14
+  %25 = load float, ptr %6, align 4, !tbaa !14
+  %26 = fpext float %25 to double
+  %27 = load float, ptr %8, align 4, !tbaa !14
+  %28 = fpext float %27 to double
+  %29 = call double @llvm.fmuladd.f64(double -5.000000e-01, double %26, double %28)
+  %30 = fptrunc double %29 to float
+  %31 = load ptr, ptr %5, align 8, !tbaa !12
+  %32 = getelementptr inbounds float, ptr %31, i64 0
+  store float %30, ptr %32, align 4, !tbaa !14
+  %33 = load float, ptr %6, align 4, !tbaa !14
+  %34 = fpext float %33 to double
+  %35 = load float, ptr %8, align 4, !tbaa !14
+  %36 = fpext float %35 to double
+  %37 = fneg double %36
+  %38 = call double @llvm.fmuladd.f64(double -5.000000e-01, double %34, double %37)
+  %39 = fptrunc double %38 to float
+  %40 = load ptr, ptr %5, align 8, !tbaa !12
+  %41 = getelementptr inbounds float, ptr %40, i64 1
+  store float %39, ptr %41, align 4, !tbaa !14
+  store i32 2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %54
 
-if.end:                                           ; preds = %entry
-  %14 = load float, ptr %a.addr, align 4
-  %conv15 = fpext float %14 to double
-  %mul16 = fmul double -5.000000e-01, %conv15
-  %conv17 = fptrunc double %mul16 to float
-  %15 = load ptr, ptr %x.addr, align 8
-  %arrayidx18 = getelementptr inbounds float, ptr %15, i64 0
-  store float %conv17, ptr %arrayidx18, align 4
-  %16 = load float, ptr %D, align 4
-  %fneg = fneg float %16
-  %call19 = call noundef float @_ZSt4sqrtf(float noundef %fneg)
-  %17 = load ptr, ptr %x.addr, align 8
-  %arrayidx20 = getelementptr inbounds float, ptr %17, i64 1
-  store float %call19, ptr %arrayidx20, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %3
+  %43 = load float, ptr %6, align 4, !tbaa !14
+  %44 = fpext float %43 to double
+  %45 = fmul double -5.000000e-01, %44
+  %46 = fptrunc double %45 to float
+  %47 = load ptr, ptr %5, align 8, !tbaa !12
+  %48 = getelementptr inbounds float, ptr %47, i64 0
+  store float %46, ptr %48, align 4, !tbaa !14
+  %49 = load float, ptr %8, align 4, !tbaa !14
+  %50 = fneg float %49
+  %51 = call noundef float @_ZSt4sqrtf(float noundef %50)
+  %52 = load ptr, ptr %5, align 8, !tbaa !12
+  %53 = getelementptr inbounds float, ptr %52, i64 1
+  store float %51, ptr %53, align 4, !tbaa !14
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %54
 
-return:                                           ; preds = %if.end, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+54:                                               ; preds = %42, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %55 = load i32, ptr %4, align 4
+  ret i32 %55
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZSt4sqrtf(float noundef %__x) #1 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %call = call float @sqrtf(float noundef %0) #5
-  ret float %call
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7SolveP3Pffff(ptr noundef %x, float noundef %a, float noundef %b, float noundef %c) #2 {
-entry:
-  %retval = alloca i32, align 4
-  %x.addr = alloca ptr, align 8
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  %c.addr = alloca float, align 4
-  %a2 = alloca float, align 4
-  %q = alloca float, align 4
-  %r = alloca float, align 4
-  %r2 = alloca float, align 4
-  %q3 = alloca float, align 4
-  %A = alloca float, align 4
-  %B = alloca float, align 4
-  %t = alloca float, align 4
-  store ptr %x, ptr %x.addr, align 8
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  store float %c, ptr %c.addr, align 4
-  %0 = load float, ptr %a.addr, align 4
-  %1 = load float, ptr %a.addr, align 4
-  %mul = fmul float %0, %1
-  store float %mul, ptr %a2, align 4
-  %2 = load float, ptr %a2, align 4
-  %3 = load float, ptr %b.addr, align 4
-  %4 = call float @llvm.fmuladd.f32(float -3.000000e+00, float %3, float %2)
-  %div = fdiv float %4, 9.000000e+00
-  store float %div, ptr %q, align 4
-  %5 = load float, ptr %q, align 4
-  %cmp = fcmp olt float %5, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store float 0x3E80000000000000, ptr %q, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load float, ptr %a.addr, align 4
-  %7 = load float, ptr %a2, align 4
-  %8 = load float, ptr %b.addr, align 4
-  %mul3 = fmul float 9.000000e+00, %8
-  %neg = fneg float %mul3
-  %9 = call float @llvm.fmuladd.f32(float 2.000000e+00, float %7, float %neg)
-  %10 = load float, ptr %c.addr, align 4
-  %mul5 = fmul float 2.700000e+01, %10
-  %11 = call float @llvm.fmuladd.f32(float %6, float %9, float %mul5)
-  %div6 = fdiv float %11, 5.400000e+01
-  store float %div6, ptr %r, align 4
-  %12 = load float, ptr %r, align 4
-  %13 = load float, ptr %r, align 4
-  %mul7 = fmul float %12, %13
-  store float %mul7, ptr %r2, align 4
-  %14 = load float, ptr %q, align 4
-  %15 = load float, ptr %q, align 4
-  %mul8 = fmul float %14, %15
-  %16 = load float, ptr %q, align 4
-  %mul9 = fmul float %mul8, %16
-  store float %mul9, ptr %q3, align 4
-  %17 = load float, ptr %r2, align 4
-  %18 = load float, ptr %q3, align 4
-  %add = fadd float %18, 0x3E80000000000000
-  %cmp10 = fcmp ole float %17, %add
-  br i1 %cmp10, label %if.then11, label %if.else
-
-if.then11:                                        ; preds = %if.end
-  %19 = load float, ptr %r, align 4
-  %20 = load float, ptr %q3, align 4
-  %call = call noundef float @_ZSt4sqrtf(float noundef %20)
-  %div12 = fdiv float %19, %call
-  store float %div12, ptr %t, align 4
-  %21 = load float, ptr %t, align 4
-  %cmp13 = fcmp olt float %21, -1.000000e+00
-  br i1 %cmp13, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %if.then11
-  store float -1.000000e+00, ptr %t, align 4
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then14, %if.then11
-  %22 = load float, ptr %t, align 4
-  %cmp16 = fcmp ogt float %22, 1.000000e+00
-  br i1 %cmp16, label %if.then17, label %if.end18
-
-if.then17:                                        ; preds = %if.end15
-  store float 1.000000e+00, ptr %t, align 4
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then17, %if.end15
-  %23 = load float, ptr %t, align 4
-  %call19 = call noundef float @_ZSt4acosf(float noundef %23)
-  store float %call19, ptr %t, align 4
-  %24 = load float, ptr %a.addr, align 4
-  %div20 = fdiv float %24, 3.000000e+00
-  store float %div20, ptr %a.addr, align 4
-  %25 = load float, ptr %q, align 4
-  %call21 = call noundef float @_ZSt4sqrtf(float noundef %25)
-  %mul22 = fmul float -2.000000e+00, %call21
-  store float %mul22, ptr %q, align 4
-  %26 = load float, ptr %q, align 4
-  %27 = load float, ptr %t, align 4
-  %div23 = fdiv float %27, 3.000000e+00
-  %call24 = call noundef float @_ZSt3cosf(float noundef %div23)
-  %28 = load float, ptr %a.addr, align 4
-  %neg26 = fneg float %28
-  %29 = call float @llvm.fmuladd.f32(float %26, float %call24, float %neg26)
-  %30 = load ptr, ptr %x.addr, align 8
-  %arrayidx = getelementptr inbounds float, ptr %30, i64 0
-  store float %29, ptr %arrayidx, align 4
-  %31 = load float, ptr %q, align 4
-  %conv = fpext float %31 to double
-  %32 = load float, ptr %t, align 4
-  %conv27 = fpext float %32 to double
-  %add28 = fadd double %conv27, 0x401921FB54442D18
-  %div29 = fdiv double %add28, 3.000000e+00
-  %call30 = call double @cos(double noundef %div29) #5
-  %33 = load float, ptr %a.addr, align 4
-  %conv32 = fpext float %33 to double
-  %neg33 = fneg double %conv32
-  %34 = call double @llvm.fmuladd.f64(double %conv, double %call30, double %neg33)
-  %conv34 = fptrunc double %34 to float
-  %35 = load ptr, ptr %x.addr, align 8
-  %arrayidx35 = getelementptr inbounds float, ptr %35, i64 1
-  store float %conv34, ptr %arrayidx35, align 4
-  %36 = load float, ptr %q, align 4
-  %conv36 = fpext float %36 to double
-  %37 = load float, ptr %t, align 4
-  %conv37 = fpext float %37 to double
-  %sub = fsub double %conv37, 0x401921FB54442D18
-  %div38 = fdiv double %sub, 3.000000e+00
-  %call39 = call double @cos(double noundef %div38) #5
-  %38 = load float, ptr %a.addr, align 4
-  %conv41 = fpext float %38 to double
-  %neg42 = fneg double %conv41
-  %39 = call double @llvm.fmuladd.f64(double %conv36, double %call39, double %neg42)
-  %conv43 = fptrunc double %39 to float
-  %40 = load ptr, ptr %x.addr, align 8
-  %arrayidx44 = getelementptr inbounds float, ptr %40, i64 2
-  store float %conv43, ptr %arrayidx44, align 4
-  store i32 3, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %if.end
-  %41 = load float, ptr %r, align 4
-  %call45 = call noundef float @_ZSt4fabsf(float noundef %41)
-  %42 = load float, ptr %r2, align 4
-  %43 = load float, ptr %q3, align 4
-  %sub46 = fsub float %42, %43
-  %call47 = call noundef float @_ZSt4sqrtf(float noundef %sub46)
-  %add48 = fadd float %call45, %call47
-  %call49 = call noundef float @_Z5root3f(float noundef %add48)
-  %fneg = fneg float %call49
-  store float %fneg, ptr %A, align 4
-  %44 = load float, ptr %r, align 4
-  %cmp50 = fcmp olt float %44, 0.000000e+00
-  br i1 %cmp50, label %if.then51, label %if.end53
-
-if.then51:                                        ; preds = %if.else
-  %45 = load float, ptr %A, align 4
-  %fneg52 = fneg float %45
-  store float %fneg52, ptr %A, align 4
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.then51, %if.else
-  %46 = load float, ptr %A, align 4
-  %cmp54 = fcmp oeq float %46, 0.000000e+00
-  br i1 %cmp54, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end53
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end53
-  %47 = load float, ptr %q, align 4
-  %48 = load float, ptr %A, align 4
-  %div55 = fdiv float %47, %48
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi float [ 0.000000e+00, %cond.true ], [ %div55, %cond.false ]
-  store float %cond, ptr %B, align 4
-  %49 = load float, ptr %a.addr, align 4
-  %div56 = fdiv float %49, 3.000000e+00
-  store float %div56, ptr %a.addr, align 4
-  %50 = load float, ptr %A, align 4
-  %51 = load float, ptr %B, align 4
-  %add57 = fadd float %50, %51
-  %52 = load float, ptr %a.addr, align 4
-  %sub58 = fsub float %add57, %52
-  %53 = load ptr, ptr %x.addr, align 8
-  %arrayidx59 = getelementptr inbounds float, ptr %53, i64 0
-  store float %sub58, ptr %arrayidx59, align 4
-  %54 = load float, ptr %A, align 4
-  %55 = load float, ptr %B, align 4
-  %add60 = fadd float %54, %55
-  %conv61 = fpext float %add60 to double
-  %56 = load float, ptr %a.addr, align 4
-  %conv63 = fpext float %56 to double
-  %neg64 = fneg double %conv63
-  %57 = call double @llvm.fmuladd.f64(double -5.000000e-01, double %conv61, double %neg64)
-  %conv65 = fptrunc double %57 to float
-  %58 = load ptr, ptr %x.addr, align 8
-  %arrayidx66 = getelementptr inbounds float, ptr %58, i64 1
-  store float %conv65, ptr %arrayidx66, align 4
-  %call67 = call double @sqrt(double noundef 3.000000e+00) #5
-  %mul68 = fmul double 5.000000e-01, %call67
-  %59 = load float, ptr %A, align 4
-  %60 = load float, ptr %B, align 4
-  %sub69 = fsub float %59, %60
-  %conv70 = fpext float %sub69 to double
-  %mul71 = fmul double %mul68, %conv70
-  %conv72 = fptrunc double %mul71 to float
-  %61 = load ptr, ptr %x.addr, align 8
-  %arrayidx73 = getelementptr inbounds float, ptr %61, i64 2
-  store float %conv72, ptr %arrayidx73, align 4
-  %62 = load ptr, ptr %x.addr, align 8
-  %arrayidx74 = getelementptr inbounds float, ptr %62, i64 2
-  %63 = load float, ptr %arrayidx74, align 4
-  %call75 = call noundef float @_ZSt4fabsf(float noundef %63)
-  %cmp76 = fcmp olt float %call75, 0x3E80000000000000
-  br i1 %cmp76, label %if.then77, label %if.end80
-
-if.then77:                                        ; preds = %cond.end
-  %64 = load ptr, ptr %x.addr, align 8
-  %arrayidx78 = getelementptr inbounds float, ptr %64, i64 1
-  %65 = load float, ptr %arrayidx78, align 4
-  %66 = load ptr, ptr %x.addr, align 8
-  %arrayidx79 = getelementptr inbounds float, ptr %66, i64 2
-  store float %65, ptr %arrayidx79, align 4
-  store i32 2, ptr %retval, align 4
-  br label %return
-
-if.end80:                                         ; preds = %cond.end
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end80, %if.then77, %if.end18
-  %67 = load i32, ptr %retval, align 4
-  ret i32 %67
-}
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZSt4acosf(float noundef %__x) #1 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %call = call float @acosf(float noundef %0) #5
-  ret float %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZSt3cosf(float noundef %__x) #1 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %call = call float @cosf(float noundef %0) #5
-  ret float %call
-}
-
-; Function Attrs: nounwind
-declare double @cos(double noundef) #4
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_Z5root3f(float noundef %x) #2 comdat {
-entry:
-  %retval = alloca float, align 4
-  %x.addr = alloca float, align 4
-  store float %x, ptr %x.addr, align 4
-  %0 = load float, ptr %x.addr, align 4
-  %cmp = fcmp ogt float %0, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load float, ptr %x.addr, align 4
-  %call = call noundef float @_ZL6_root3f(float noundef %1)
-  store float %call, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %2 = load float, ptr %x.addr, align 4
-  %cmp1 = fcmp olt float %2, 0.000000e+00
-  br i1 %cmp1, label %if.then2, label %if.else5
-
-if.then2:                                         ; preds = %if.else
-  %3 = load float, ptr %x.addr, align 4
-  %fneg = fneg float %3
-  %call3 = call noundef float @_ZL6_root3f(float noundef %fneg)
-  %fneg4 = fneg float %call3
-  store float %fneg4, ptr %retval, align 4
-  br label %return
-
-if.else5:                                         ; preds = %if.else
-  store float 0.000000e+00, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else5, %if.then2, %if.then
-  %4 = load float, ptr %retval, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZSt4sqrtf(float noundef %0) #5 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !14
+  %3 = load float, ptr %2, align 4, !tbaa !14
+  %4 = call float @sqrtf(float noundef %3) #8, !tbaa !9
   ret float %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZSt4fabsf(float noundef %__x) #1 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %1 = call float @llvm.fabs.f32(float %0)
-  ret float %1
-}
-
-; Function Attrs: nounwind
-declare double @sqrt(double noundef) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z5CSqrtffRfS_(float noundef %x, float noundef %y, ptr noundef nonnull align 4 dereferenceable(4) %a, ptr noundef nonnull align 4 dereferenceable(4) %b) #2 {
-entry:
-  %x.addr = alloca float, align 4
-  %y.addr = alloca float, align 4
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %r = alloca float, align 4
-  store float %x, ptr %x.addr, align 4
-  store float %y, ptr %y.addr, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load float, ptr %x.addr, align 4
-  %1 = load float, ptr %x.addr, align 4
-  %2 = load float, ptr %y.addr, align 4
-  %3 = load float, ptr %y.addr, align 4
-  %mul1 = fmul float %2, %3
-  %4 = call float @llvm.fmuladd.f32(float %0, float %1, float %mul1)
-  %call = call noundef float @_ZSt4sqrtf(float noundef %4)
-  store float %call, ptr %r, align 4
-  %5 = load float, ptr %y.addr, align 4
-  %cmp = fcmp oeq float %5, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else5
-
-if.then:                                          ; preds = %entry
-  %6 = load float, ptr %r, align 4
-  %call2 = call noundef float @_ZSt4sqrtf(float noundef %6)
-  store float %call2, ptr %r, align 4
-  %7 = load float, ptr %x.addr, align 4
-  %cmp3 = fcmp oge float %7, 0.000000e+00
-  br i1 %cmp3, label %if.then4, label %if.else
-
-if.then4:                                         ; preds = %if.then
-  %8 = load float, ptr %r, align 4
-  %9 = load ptr, ptr %a.addr, align 8
-  store float %8, ptr %9, align 4
-  %10 = load ptr, ptr %b.addr, align 8
-  store float 0.000000e+00, ptr %10, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %11 = load ptr, ptr %a.addr, align 8
-  store float 0.000000e+00, ptr %11, align 4
-  %12 = load float, ptr %r, align 4
-  %13 = load ptr, ptr %b.addr, align 8
-  store float %12, ptr %13, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then4
-  br label %if.end12
-
-if.else5:                                         ; preds = %entry
-  %14 = load float, ptr %x.addr, align 4
-  %15 = load float, ptr %r, align 4
-  %add = fadd float %14, %15
-  %conv = fpext float %add to double
-  %mul = fmul double 5.000000e-01, %conv
-  %call6 = call double @sqrt(double noundef %mul) #5
-  %conv7 = fptrunc double %call6 to float
-  %16 = load ptr, ptr %a.addr, align 8
-  store float %conv7, ptr %16, align 4
-  %17 = load float, ptr %y.addr, align 4
-  %conv8 = fpext float %17 to double
-  %mul9 = fmul double 5.000000e-01, %conv8
-  %18 = load ptr, ptr %a.addr, align 8
-  %19 = load float, ptr %18, align 4
-  %conv10 = fpext float %19 to double
-  %div = fdiv double %mul9, %conv10
-  %conv11 = fptrunc double %div to float
-  %20 = load ptr, ptr %b.addr, align 8
-  store float %conv11, ptr %20, align 4
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.else5, %if.end
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z9SolveP4BiPfff(ptr noundef %x, float noundef %b, float noundef %d) #2 {
-entry:
-  %retval = alloca i32, align 4
-  %x.addr = alloca ptr, align 8
-  %b.addr = alloca float, align 4
-  %d.addr = alloca float, align 4
-  %D = alloca float, align 4
-  %sD = alloca float, align 4
-  %x1 = alloca float, align 4
-  %x2 = alloca float, align 4
-  %sx1 = alloca float, align 4
-  %sx2 = alloca float, align 4
-  %sx115 = alloca float, align 4
-  %sx218 = alloca float, align 4
-  %sx126 = alloca float, align 4
-  %sx228 = alloca float, align 4
-  %sD2 = alloca float, align 4
-  store ptr %x, ptr %x.addr, align 8
-  store float %b, ptr %b.addr, align 4
-  store float %d, ptr %d.addr, align 4
-  %0 = load float, ptr %b.addr, align 4
-  %1 = load float, ptr %b.addr, align 4
-  %2 = load float, ptr %d.addr, align 4
-  %mul1 = fmul float 4.000000e+00, %2
-  %neg = fneg float %mul1
-  %3 = call float @llvm.fmuladd.f32(float %0, float %1, float %neg)
-  store float %3, ptr %D, align 4
-  %4 = load float, ptr %D, align 4
-  %cmp = fcmp oge float %4, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %5 = load float, ptr %D, align 4
-  %call = call noundef float @_ZSt4sqrtf(float noundef %5)
-  store float %call, ptr %sD, align 4
-  %6 = load float, ptr %b.addr, align 4
-  %fneg = fneg float %6
-  %7 = load float, ptr %sD, align 4
-  %add = fadd float %fneg, %7
-  %div = fdiv float %add, 2.000000e+00
-  store float %div, ptr %x1, align 4
-  %8 = load float, ptr %b.addr, align 4
-  %fneg2 = fneg float %8
-  %9 = load float, ptr %sD, align 4
-  %sub = fsub float %fneg2, %9
-  %div3 = fdiv float %sub, 2.000000e+00
-  store float %div3, ptr %x2, align 4
-  %10 = load float, ptr %x2, align 4
-  %cmp4 = fcmp oge float %10, 0.000000e+00
-  br i1 %cmp4, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %if.then
-  %11 = load float, ptr %x1, align 4
-  %call6 = call noundef float @_ZSt4sqrtf(float noundef %11)
-  store float %call6, ptr %sx1, align 4
-  %12 = load float, ptr %x2, align 4
-  %call7 = call noundef float @_ZSt4sqrtf(float noundef %12)
-  store float %call7, ptr %sx2, align 4
-  %13 = load float, ptr %sx1, align 4
-  %fneg8 = fneg float %13
-  %14 = load ptr, ptr %x.addr, align 8
-  %arrayidx = getelementptr inbounds float, ptr %14, i64 0
-  store float %fneg8, ptr %arrayidx, align 4
-  %15 = load float, ptr %sx1, align 4
-  %16 = load ptr, ptr %x.addr, align 8
-  %arrayidx9 = getelementptr inbounds float, ptr %16, i64 1
-  store float %15, ptr %arrayidx9, align 4
-  %17 = load float, ptr %sx2, align 4
-  %fneg10 = fneg float %17
-  %18 = load ptr, ptr %x.addr, align 8
-  %arrayidx11 = getelementptr inbounds float, ptr %18, i64 2
-  store float %fneg10, ptr %arrayidx11, align 4
-  %19 = load float, ptr %sx2, align 4
-  %20 = load ptr, ptr %x.addr, align 8
-  %arrayidx12 = getelementptr inbounds float, ptr %20, i64 3
-  store float %19, ptr %arrayidx12, align 4
-  store i32 4, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  %21 = load float, ptr %x1, align 4
-  %cmp13 = fcmp olt float %21, 0.000000e+00
-  br i1 %cmp13, label %if.then14, label %if.end25
-
-if.then14:                                        ; preds = %if.end
-  %22 = load float, ptr %x1, align 4
-  %fneg16 = fneg float %22
-  %call17 = call noundef float @_ZSt4sqrtf(float noundef %fneg16)
-  store float %call17, ptr %sx115, align 4
-  %23 = load float, ptr %x2, align 4
-  %fneg19 = fneg float %23
-  %call20 = call noundef float @_ZSt4sqrtf(float noundef %fneg19)
-  store float %call20, ptr %sx218, align 4
-  %24 = load ptr, ptr %x.addr, align 8
-  %arrayidx21 = getelementptr inbounds float, ptr %24, i64 0
-  store float 0.000000e+00, ptr %arrayidx21, align 4
-  %25 = load float, ptr %sx115, align 4
-  %26 = load ptr, ptr %x.addr, align 8
-  %arrayidx22 = getelementptr inbounds float, ptr %26, i64 1
-  store float %25, ptr %arrayidx22, align 4
-  %27 = load ptr, ptr %x.addr, align 8
-  %arrayidx23 = getelementptr inbounds float, ptr %27, i64 2
-  store float 0.000000e+00, ptr %arrayidx23, align 4
-  %28 = load float, ptr %sx218, align 4
-  %29 = load ptr, ptr %x.addr, align 8
-  %arrayidx24 = getelementptr inbounds float, ptr %29, i64 3
-  store float %28, ptr %arrayidx24, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end25:                                         ; preds = %if.end
-  %30 = load float, ptr %x1, align 4
-  %call27 = call noundef float @_ZSt4sqrtf(float noundef %30)
-  store float %call27, ptr %sx126, align 4
-  %31 = load float, ptr %x2, align 4
-  %fneg29 = fneg float %31
-  %call30 = call noundef float @_ZSt4sqrtf(float noundef %fneg29)
-  store float %call30, ptr %sx228, align 4
-  %32 = load float, ptr %sx126, align 4
-  %fneg31 = fneg float %32
-  %33 = load ptr, ptr %x.addr, align 8
-  %arrayidx32 = getelementptr inbounds float, ptr %33, i64 0
-  store float %fneg31, ptr %arrayidx32, align 4
-  %34 = load float, ptr %sx126, align 4
-  %35 = load ptr, ptr %x.addr, align 8
-  %arrayidx33 = getelementptr inbounds float, ptr %35, i64 1
-  store float %34, ptr %arrayidx33, align 4
-  %36 = load ptr, ptr %x.addr, align 8
-  %arrayidx34 = getelementptr inbounds float, ptr %36, i64 2
-  store float 0.000000e+00, ptr %arrayidx34, align 4
-  %37 = load float, ptr %sx228, align 4
-  %38 = load ptr, ptr %x.addr, align 8
-  %arrayidx35 = getelementptr inbounds float, ptr %38, i64 3
-  store float %37, ptr %arrayidx35, align 4
-  store i32 2, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %39 = load float, ptr %D, align 4
-  %fneg36 = fneg float %39
-  %call37 = call noundef float @_ZSt4sqrtf(float noundef %fneg36)
-  %conv = fpext float %call37 to double
-  %mul = fmul double 5.000000e-01, %conv
-  %conv38 = fptrunc double %mul to float
-  store float %conv38, ptr %sD2, align 4
-  %40 = load float, ptr %b.addr, align 4
-  %conv39 = fpext float %40 to double
-  %mul40 = fmul double -5.000000e-01, %conv39
-  %conv41 = fptrunc double %mul40 to float
-  %41 = load float, ptr %sD2, align 4
-  %42 = load ptr, ptr %x.addr, align 8
-  %arrayidx42 = getelementptr inbounds float, ptr %42, i64 0
-  %43 = load ptr, ptr %x.addr, align 8
-  %arrayidx43 = getelementptr inbounds float, ptr %43, i64 1
-  call void @_Z5CSqrtffRfS_(float noundef %conv41, float noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx42, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx43)
-  %44 = load float, ptr %b.addr, align 4
-  %conv44 = fpext float %44 to double
-  %mul45 = fmul double -5.000000e-01, %conv44
-  %conv46 = fptrunc double %mul45 to float
-  %45 = load float, ptr %sD2, align 4
-  %fneg47 = fneg float %45
-  %46 = load ptr, ptr %x.addr, align 8
-  %arrayidx48 = getelementptr inbounds float, ptr %46, i64 2
-  %47 = load ptr, ptr %x.addr, align 8
-  %arrayidx49 = getelementptr inbounds float, ptr %47, i64 3
-  call void @_Z5CSqrtffRfS_(float noundef %conv46, float noundef %fneg47, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx48, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx49)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.end25, %if.then14, %if.then5
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z9SolveP4DePffff(ptr noundef %x, float noundef %b, float noundef %c, float noundef %d) #2 {
-entry:
-  %retval = alloca i32, align 4
-  %x.addr = alloca ptr, align 8
-  %b.addr = alloca float, align 4
-  %c.addr = alloca float, align 4
-  %d.addr = alloca float, align 4
-  %res3 = alloca i32, align 4
-  %sz1 = alloca float, align 4
-  %sz2 = alloca float, align 4
-  %sz3 = alloca float, align 4
-  %sz161 = alloca float, align 4
-  %sz265 = alloca float, align 4
-  %sz369 = alloca float, align 4
-  %sz1105 = alloca float, align 4
-  %szr = alloca float, align 4
-  %szi = alloca float, align 4
-  store ptr %x, ptr %x.addr, align 8
-  store float %b, ptr %b.addr, align 4
-  store float %c, ptr %c.addr, align 4
-  store float %d, ptr %d.addr, align 4
-  %0 = load float, ptr %c.addr, align 4
-  %call = call noundef float @_ZSt4fabsf(float noundef %0)
-  %conv = fpext float %call to double
-  %1 = load float, ptr %b.addr, align 4
-  %call1 = call noundef float @_ZSt4fabsf(float noundef %1)
-  %2 = load float, ptr %d.addr, align 4
-  %call2 = call noundef float @_ZSt4fabsf(float noundef %2)
-  %add = fadd float %call1, %call2
-  %conv3 = fpext float %add to double
-  %mul = fmul double 0x3D06849B86A12B9B, %conv3
-  %cmp = fcmp olt double %conv, %mul
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %x.addr, align 8
-  %4 = load float, ptr %b.addr, align 4
-  %5 = load float, ptr %d.addr, align 4
-  %call4 = call noundef i32 @_Z9SolveP4BiPfff(ptr noundef %3, float noundef %4, float noundef %5)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %x.addr, align 8
-  %7 = load float, ptr %b.addr, align 4
-  %mul5 = fmul float 2.000000e+00, %7
-  %8 = load float, ptr %b.addr, align 4
-  %9 = load float, ptr %b.addr, align 4
-  %10 = load float, ptr %d.addr, align 4
-  %mul7 = fmul float 4.000000e+00, %10
-  %neg = fneg float %mul7
-  %11 = call float @llvm.fmuladd.f32(float %8, float %9, float %neg)
-  %12 = load float, ptr %c.addr, align 4
-  %fneg = fneg float %12
-  %13 = load float, ptr %c.addr, align 4
-  %mul8 = fmul float %fneg, %13
-  %call9 = call noundef i32 @_Z7SolveP3Pffff(ptr noundef %6, float noundef %mul5, float noundef %11, float noundef %mul8)
-  store i32 %call9, ptr %res3, align 4
-  %14 = load i32, ptr %res3, align 4
-  %cmp10 = icmp sgt i32 %14, 1
-  br i1 %cmp10, label %if.then11, label %if.end99
-
-if.then11:                                        ; preds = %if.end
-  %15 = load ptr, ptr %x.addr, align 8
-  %arrayidx = getelementptr inbounds float, ptr %15, i64 0
-  %16 = load ptr, ptr %x.addr, align 8
-  %arrayidx12 = getelementptr inbounds float, ptr %16, i64 1
-  %17 = load ptr, ptr %x.addr, align 8
-  %arrayidx13 = getelementptr inbounds float, ptr %17, i64 2
-  call void @_ZL8dblSort3RfS_S_(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx12, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx13)
-  %18 = load ptr, ptr %x.addr, align 8
-  %arrayidx14 = getelementptr inbounds float, ptr %18, i64 0
-  %19 = load float, ptr %arrayidx14, align 4
-  %cmp15 = fcmp ogt float %19, 0.000000e+00
-  br i1 %cmp15, label %if.then16, label %if.end60
-
-if.then16:                                        ; preds = %if.then11
-  %20 = load ptr, ptr %x.addr, align 8
-  %arrayidx17 = getelementptr inbounds float, ptr %20, i64 0
-  %21 = load float, ptr %arrayidx17, align 4
-  %call18 = call noundef float @_ZSt4sqrtf(float noundef %21)
-  store float %call18, ptr %sz1, align 4
-  %22 = load ptr, ptr %x.addr, align 8
-  %arrayidx19 = getelementptr inbounds float, ptr %22, i64 1
-  %23 = load float, ptr %arrayidx19, align 4
-  %call20 = call noundef float @_ZSt4sqrtf(float noundef %23)
-  store float %call20, ptr %sz2, align 4
-  %24 = load ptr, ptr %x.addr, align 8
-  %arrayidx21 = getelementptr inbounds float, ptr %24, i64 2
-  %25 = load float, ptr %arrayidx21, align 4
-  %call22 = call noundef float @_ZSt4sqrtf(float noundef %25)
-  store float %call22, ptr %sz3, align 4
-  %26 = load float, ptr %c.addr, align 4
-  %cmp23 = fcmp ogt float %26, 0.000000e+00
-  br i1 %cmp23, label %if.then24, label %if.end41
-
-if.then24:                                        ; preds = %if.then16
-  %27 = load float, ptr %sz1, align 4
-  %fneg25 = fneg float %27
-  %28 = load float, ptr %sz2, align 4
-  %sub = fsub float %fneg25, %28
-  %29 = load float, ptr %sz3, align 4
-  %sub26 = fsub float %sub, %29
-  %div = fdiv float %sub26, 2.000000e+00
-  %30 = load ptr, ptr %x.addr, align 8
-  %arrayidx27 = getelementptr inbounds float, ptr %30, i64 0
-  store float %div, ptr %arrayidx27, align 4
-  %31 = load float, ptr %sz1, align 4
-  %fneg28 = fneg float %31
-  %32 = load float, ptr %sz2, align 4
-  %add29 = fadd float %fneg28, %32
-  %33 = load float, ptr %sz3, align 4
-  %add30 = fadd float %add29, %33
-  %div31 = fdiv float %add30, 2.000000e+00
-  %34 = load ptr, ptr %x.addr, align 8
-  %arrayidx32 = getelementptr inbounds float, ptr %34, i64 1
-  store float %div31, ptr %arrayidx32, align 4
-  %35 = load float, ptr %sz1, align 4
-  %36 = load float, ptr %sz2, align 4
-  %sub33 = fsub float %35, %36
-  %37 = load float, ptr %sz3, align 4
-  %add34 = fadd float %sub33, %37
-  %div35 = fdiv float %add34, 2.000000e+00
-  %38 = load ptr, ptr %x.addr, align 8
-  %arrayidx36 = getelementptr inbounds float, ptr %38, i64 2
-  store float %div35, ptr %arrayidx36, align 4
-  %39 = load float, ptr %sz1, align 4
-  %40 = load float, ptr %sz2, align 4
-  %add37 = fadd float %39, %40
-  %41 = load float, ptr %sz3, align 4
-  %sub38 = fsub float %add37, %41
-  %div39 = fdiv float %sub38, 2.000000e+00
-  %42 = load ptr, ptr %x.addr, align 8
-  %arrayidx40 = getelementptr inbounds float, ptr %42, i64 3
-  store float %div39, ptr %arrayidx40, align 4
-  store i32 4, ptr %retval, align 4
-  br label %return
-
-if.end41:                                         ; preds = %if.then16
-  %43 = load float, ptr %sz1, align 4
-  %fneg42 = fneg float %43
-  %44 = load float, ptr %sz2, align 4
-  %sub43 = fsub float %fneg42, %44
-  %45 = load float, ptr %sz3, align 4
-  %add44 = fadd float %sub43, %45
-  %div45 = fdiv float %add44, 2.000000e+00
-  %46 = load ptr, ptr %x.addr, align 8
-  %arrayidx46 = getelementptr inbounds float, ptr %46, i64 0
-  store float %div45, ptr %arrayidx46, align 4
-  %47 = load float, ptr %sz1, align 4
-  %fneg47 = fneg float %47
-  %48 = load float, ptr %sz2, align 4
-  %add48 = fadd float %fneg47, %48
-  %49 = load float, ptr %sz3, align 4
-  %sub49 = fsub float %add48, %49
-  %div50 = fdiv float %sub49, 2.000000e+00
-  %50 = load ptr, ptr %x.addr, align 8
-  %arrayidx51 = getelementptr inbounds float, ptr %50, i64 1
-  store float %div50, ptr %arrayidx51, align 4
-  %51 = load float, ptr %sz1, align 4
-  %52 = load float, ptr %sz2, align 4
-  %sub52 = fsub float %51, %52
-  %53 = load float, ptr %sz3, align 4
-  %sub53 = fsub float %sub52, %53
-  %div54 = fdiv float %sub53, 2.000000e+00
-  %54 = load ptr, ptr %x.addr, align 8
-  %arrayidx55 = getelementptr inbounds float, ptr %54, i64 2
-  store float %div54, ptr %arrayidx55, align 4
-  %55 = load float, ptr %sz1, align 4
-  %56 = load float, ptr %sz2, align 4
-  %add56 = fadd float %55, %56
-  %57 = load float, ptr %sz3, align 4
-  %add57 = fadd float %add56, %57
-  %div58 = fdiv float %add57, 2.000000e+00
-  %58 = load ptr, ptr %x.addr, align 8
-  %arrayidx59 = getelementptr inbounds float, ptr %58, i64 3
-  store float %div58, ptr %arrayidx59, align 4
-  store i32 4, ptr %retval, align 4
-  br label %return
-
-if.end60:                                         ; preds = %if.then11
-  %59 = load ptr, ptr %x.addr, align 8
-  %arrayidx62 = getelementptr inbounds float, ptr %59, i64 0
-  %60 = load float, ptr %arrayidx62, align 4
-  %fneg63 = fneg float %60
-  %call64 = call noundef float @_ZSt4sqrtf(float noundef %fneg63)
-  store float %call64, ptr %sz161, align 4
-  %61 = load ptr, ptr %x.addr, align 8
-  %arrayidx66 = getelementptr inbounds float, ptr %61, i64 1
-  %62 = load float, ptr %arrayidx66, align 4
-  %fneg67 = fneg float %62
-  %call68 = call noundef float @_ZSt4sqrtf(float noundef %fneg67)
-  store float %call68, ptr %sz265, align 4
-  %63 = load ptr, ptr %x.addr, align 8
-  %arrayidx70 = getelementptr inbounds float, ptr %63, i64 2
-  %64 = load float, ptr %arrayidx70, align 4
-  %call71 = call noundef float @_ZSt4sqrtf(float noundef %64)
-  store float %call71, ptr %sz369, align 4
-  %65 = load float, ptr %c.addr, align 4
-  %cmp72 = fcmp ogt float %65, 0.000000e+00
-  br i1 %cmp72, label %if.then73, label %if.end86
-
-if.then73:                                        ; preds = %if.end60
-  %66 = load float, ptr %sz369, align 4
-  %fneg74 = fneg float %66
-  %div75 = fdiv float %fneg74, 2.000000e+00
-  %67 = load ptr, ptr %x.addr, align 8
-  %arrayidx76 = getelementptr inbounds float, ptr %67, i64 0
-  store float %div75, ptr %arrayidx76, align 4
-  %68 = load float, ptr %sz161, align 4
-  %69 = load float, ptr %sz265, align 4
-  %sub77 = fsub float %68, %69
-  %div78 = fdiv float %sub77, 2.000000e+00
-  %70 = load ptr, ptr %x.addr, align 8
-  %arrayidx79 = getelementptr inbounds float, ptr %70, i64 1
-  store float %div78, ptr %arrayidx79, align 4
-  %71 = load float, ptr %sz369, align 4
-  %div80 = fdiv float %71, 2.000000e+00
-  %72 = load ptr, ptr %x.addr, align 8
-  %arrayidx81 = getelementptr inbounds float, ptr %72, i64 2
-  store float %div80, ptr %arrayidx81, align 4
-  %73 = load float, ptr %sz161, align 4
-  %fneg82 = fneg float %73
-  %74 = load float, ptr %sz265, align 4
-  %sub83 = fsub float %fneg82, %74
-  %div84 = fdiv float %sub83, 2.000000e+00
-  %75 = load ptr, ptr %x.addr, align 8
-  %arrayidx85 = getelementptr inbounds float, ptr %75, i64 3
-  store float %div84, ptr %arrayidx85, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end86:                                         ; preds = %if.end60
-  %76 = load float, ptr %sz369, align 4
-  %div87 = fdiv float %76, 2.000000e+00
-  %77 = load ptr, ptr %x.addr, align 8
-  %arrayidx88 = getelementptr inbounds float, ptr %77, i64 0
-  store float %div87, ptr %arrayidx88, align 4
-  %78 = load float, ptr %sz161, align 4
-  %fneg89 = fneg float %78
-  %79 = load float, ptr %sz265, align 4
-  %add90 = fadd float %fneg89, %79
-  %div91 = fdiv float %add90, 2.000000e+00
-  %80 = load ptr, ptr %x.addr, align 8
-  %arrayidx92 = getelementptr inbounds float, ptr %80, i64 1
-  store float %div91, ptr %arrayidx92, align 4
-  %81 = load float, ptr %sz369, align 4
-  %fneg93 = fneg float %81
-  %div94 = fdiv float %fneg93, 2.000000e+00
-  %82 = load ptr, ptr %x.addr, align 8
-  %arrayidx95 = getelementptr inbounds float, ptr %82, i64 2
-  store float %div94, ptr %arrayidx95, align 4
-  %83 = load float, ptr %sz161, align 4
-  %84 = load float, ptr %sz265, align 4
-  %add96 = fadd float %83, %84
-  %div97 = fdiv float %add96, 2.000000e+00
-  %85 = load ptr, ptr %x.addr, align 8
-  %arrayidx98 = getelementptr inbounds float, ptr %85, i64 3
-  store float %div97, ptr %arrayidx98, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end99:                                         ; preds = %if.end
-  %86 = load ptr, ptr %x.addr, align 8
-  %arrayidx100 = getelementptr inbounds float, ptr %86, i64 0
-  %87 = load float, ptr %arrayidx100, align 4
-  %cmp101 = fcmp olt float %87, 0.000000e+00
-  br i1 %cmp101, label %if.then102, label %if.end104
-
-if.then102:                                       ; preds = %if.end99
-  %88 = load ptr, ptr %x.addr, align 8
-  %arrayidx103 = getelementptr inbounds float, ptr %88, i64 0
-  store float 0.000000e+00, ptr %arrayidx103, align 4
-  br label %if.end104
-
-if.end104:                                        ; preds = %if.then102, %if.end99
-  %89 = load ptr, ptr %x.addr, align 8
-  %arrayidx106 = getelementptr inbounds float, ptr %89, i64 0
-  %90 = load float, ptr %arrayidx106, align 4
-  %call107 = call noundef float @_ZSt4sqrtf(float noundef %90)
-  store float %call107, ptr %sz1105, align 4
-  %91 = load ptr, ptr %x.addr, align 8
-  %arrayidx108 = getelementptr inbounds float, ptr %91, i64 1
-  %92 = load float, ptr %arrayidx108, align 4
-  %93 = load ptr, ptr %x.addr, align 8
-  %arrayidx109 = getelementptr inbounds float, ptr %93, i64 2
-  %94 = load float, ptr %arrayidx109, align 4
-  call void @_Z5CSqrtffRfS_(float noundef %92, float noundef %94, ptr noundef nonnull align 4 dereferenceable(4) %szr, ptr noundef nonnull align 4 dereferenceable(4) %szi)
-  %95 = load float, ptr %c.addr, align 4
-  %cmp110 = fcmp ogt float %95, 0.000000e+00
-  br i1 %cmp110, label %if.then111, label %if.end123
-
-if.then111:                                       ; preds = %if.end104
-  %96 = load float, ptr %sz1105, align 4
-  %fneg112 = fneg float %96
-  %div113 = fdiv float %fneg112, 2.000000e+00
-  %97 = load float, ptr %szr, align 4
-  %sub114 = fsub float %div113, %97
-  %98 = load ptr, ptr %x.addr, align 8
-  %arrayidx115 = getelementptr inbounds float, ptr %98, i64 0
-  store float %sub114, ptr %arrayidx115, align 4
-  %99 = load float, ptr %sz1105, align 4
-  %fneg116 = fneg float %99
-  %div117 = fdiv float %fneg116, 2.000000e+00
-  %100 = load float, ptr %szr, align 4
-  %add118 = fadd float %div117, %100
-  %101 = load ptr, ptr %x.addr, align 8
-  %arrayidx119 = getelementptr inbounds float, ptr %101, i64 1
-  store float %add118, ptr %arrayidx119, align 4
-  %102 = load float, ptr %sz1105, align 4
-  %div120 = fdiv float %102, 2.000000e+00
-  %103 = load ptr, ptr %x.addr, align 8
-  %arrayidx121 = getelementptr inbounds float, ptr %103, i64 2
-  store float %div120, ptr %arrayidx121, align 4
-  %104 = load float, ptr %szi, align 4
-  %105 = load ptr, ptr %x.addr, align 8
-  %arrayidx122 = getelementptr inbounds float, ptr %105, i64 3
-  store float %104, ptr %arrayidx122, align 4
-  store i32 2, ptr %retval, align 4
-  br label %return
-
-if.end123:                                        ; preds = %if.end104
-  %106 = load float, ptr %sz1105, align 4
-  %div124 = fdiv float %106, 2.000000e+00
-  %107 = load float, ptr %szr, align 4
-  %sub125 = fsub float %div124, %107
-  %108 = load ptr, ptr %x.addr, align 8
-  %arrayidx126 = getelementptr inbounds float, ptr %108, i64 0
-  store float %sub125, ptr %arrayidx126, align 4
-  %109 = load float, ptr %sz1105, align 4
-  %div127 = fdiv float %109, 2.000000e+00
-  %110 = load float, ptr %szr, align 4
-  %add128 = fadd float %div127, %110
-  %111 = load ptr, ptr %x.addr, align 8
-  %arrayidx129 = getelementptr inbounds float, ptr %111, i64 1
-  store float %add128, ptr %arrayidx129, align 4
-  %112 = load float, ptr %sz1105, align 4
-  %fneg130 = fneg float %112
-  %div131 = fdiv float %fneg130, 2.000000e+00
-  %113 = load ptr, ptr %x.addr, align 8
-  %arrayidx132 = getelementptr inbounds float, ptr %113, i64 2
-  store float %div131, ptr %arrayidx132, align 4
-  %114 = load float, ptr %szi, align 4
-  %115 = load ptr, ptr %x.addr, align 8
-  %arrayidx133 = getelementptr inbounds float, ptr %115, i64 3
-  store float %114, ptr %arrayidx133, align 4
-  store i32 2, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end123, %if.then111, %if.end86, %if.then73, %if.end41, %if.then24, %if.then
-  %116 = load i32, ptr %retval, align 4
-  ret i32 %116
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL8dblSort3RfS_S_(ptr noundef nonnull align 4 dereferenceable(4) %a, ptr noundef nonnull align 4 dereferenceable(4) %b, ptr noundef nonnull align 4 dereferenceable(4) %c) #1 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %t = alloca float, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %2 = load ptr, ptr %b.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %cmp = fcmp ogt float %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %b.addr, align 8
-  %5 = load float, ptr %4, align 4
-  store float %5, ptr %t, align 4
-  %6 = load ptr, ptr %a.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %8 = load ptr, ptr %b.addr, align 8
-  store float %7, ptr %8, align 4
-  %9 = load float, ptr %t, align 4
-  %10 = load ptr, ptr %a.addr, align 8
-  store float %9, ptr %10, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %11 = load ptr, ptr %c.addr, align 8
-  %12 = load float, ptr %11, align 4
-  %13 = load ptr, ptr %b.addr, align 8
-  %14 = load float, ptr %13, align 4
-  %cmp1 = fcmp olt float %12, %14
-  br i1 %cmp1, label %if.then2, label %if.end6
-
-if.then2:                                         ; preds = %if.end
-  %15 = load ptr, ptr %c.addr, align 8
-  %16 = load float, ptr %15, align 4
-  store float %16, ptr %t, align 4
-  %17 = load ptr, ptr %b.addr, align 8
-  %18 = load float, ptr %17, align 4
-  %19 = load ptr, ptr %c.addr, align 8
-  store float %18, ptr %19, align 4
-  %20 = load float, ptr %t, align 4
-  %21 = load ptr, ptr %b.addr, align 8
-  store float %20, ptr %21, align 4
-  %22 = load ptr, ptr %a.addr, align 8
-  %23 = load float, ptr %22, align 4
-  %24 = load ptr, ptr %b.addr, align 8
-  %25 = load float, ptr %24, align 4
-  %cmp3 = fcmp ogt float %23, %25
-  br i1 %cmp3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.then2
-  %26 = load ptr, ptr %b.addr, align 8
-  %27 = load float, ptr %26, align 4
-  store float %27, ptr %t, align 4
-  %28 = load ptr, ptr %a.addr, align 8
-  %29 = load float, ptr %28, align 4
-  %30 = load ptr, ptr %b.addr, align 8
-  store float %29, ptr %30, align 4
-  %31 = load float, ptr %t, align 4
-  %32 = load ptr, ptr %a.addr, align 8
-  store float %31, ptr %32, align 4
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then4, %if.then2
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.end5, %if.end
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef float @_Z6N4Stepfffff(float noundef %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d) #1 {
-entry:
-  %retval = alloca float, align 4
-  %x.addr = alloca float, align 4
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  %c.addr = alloca float, align 4
-  %d.addr = alloca float, align 4
-  %fxs = alloca float, align 4
-  %fx = alloca float, align 4
-  store float %x, ptr %x.addr, align 4
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  store float %c, ptr %c.addr, align 4
-  store float %d, ptr %d.addr, align 4
-  %0 = load float, ptr %x.addr, align 4
-  %1 = load float, ptr %a.addr, align 4
-  %mul1 = fmul float 3.000000e+00, %1
-  %2 = call float @llvm.fmuladd.f32(float 4.000000e+00, float %0, float %mul1)
-  %3 = load float, ptr %x.addr, align 4
-  %4 = load float, ptr %b.addr, align 4
-  %mul2 = fmul float 2.000000e+00, %4
-  %5 = call float @llvm.fmuladd.f32(float %2, float %3, float %mul2)
-  %6 = load float, ptr %x.addr, align 4
-  %7 = load float, ptr %c.addr, align 4
-  %8 = call float @llvm.fmuladd.f32(float %5, float %6, float %7)
-  store float %8, ptr %fxs, align 4
-  %9 = load float, ptr %fxs, align 4
-  %cmp = fcmp oeq float %9, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %10 = load float, ptr %x.addr, align 4
-  store float %10, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %11 = load float, ptr %x.addr, align 4
-  %12 = load float, ptr %a.addr, align 4
-  %add = fadd float %11, %12
-  %13 = load float, ptr %x.addr, align 4
-  %14 = load float, ptr %b.addr, align 4
-  %15 = call float @llvm.fmuladd.f32(float %add, float %13, float %14)
-  %16 = load float, ptr %x.addr, align 4
-  %17 = load float, ptr %c.addr, align 4
-  %18 = call float @llvm.fmuladd.f32(float %15, float %16, float %17)
-  %19 = load float, ptr %x.addr, align 4
-  %20 = load float, ptr %d.addr, align 4
-  %21 = call float @llvm.fmuladd.f32(float %18, float %19, float %20)
-  store float %21, ptr %fx, align 4
-  %22 = load float, ptr %x.addr, align 4
-  %23 = load float, ptr %fx, align 4
-  %24 = load float, ptr %fxs, align 4
-  %div = fdiv float %23, %24
-  %sub = fsub float %22, %div
-  store float %sub, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %25 = load float, ptr %retval, align 4
-  ret float %25
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7SolveP4Pfffff(ptr noundef %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d) #2 {
-entry:
-  %x.addr = alloca ptr, align 8
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  %c.addr = alloca float, align 4
-  %d.addr = alloca float, align 4
-  %d1 = alloca float, align 4
-  %c1 = alloca float, align 4
-  %b1 = alloca float, align 4
-  %res = alloca i32, align 4
-  store ptr %x, ptr %x.addr, align 8
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  store float %c, ptr %c.addr, align 4
-  store float %d, ptr %d.addr, align 4
-  %0 = load float, ptr %d.addr, align 4
-  %conv = fpext float %0 to double
-  %1 = load float, ptr %a.addr, align 4
-  %conv1 = fpext float %1 to double
-  %mul = fmul double 2.500000e-01, %conv1
-  %2 = load float, ptr %b.addr, align 4
-  %conv2 = fpext float %2 to double
-  %mul3 = fmul double 2.500000e-01, %conv2
-  %3 = load float, ptr %a.addr, align 4
-  %conv4 = fpext float %3 to double
-  %4 = load float, ptr %a.addr, align 4
-  %conv6 = fpext float %4 to double
-  %mul7 = fmul double 4.687500e-02, %conv6
-  %5 = load float, ptr %a.addr, align 4
-  %conv8 = fpext float %5 to double
-  %mul9 = fmul double %mul7, %conv8
-  %6 = load float, ptr %a.addr, align 4
-  %conv10 = fpext float %6 to double
-  %mul11 = fmul double %mul9, %conv10
-  %neg = fneg double %mul11
-  %7 = call double @llvm.fmuladd.f64(double %mul3, double %conv4, double %neg)
-  %8 = load float, ptr %c.addr, align 4
-  %conv12 = fpext float %8 to double
-  %sub = fsub double %7, %conv12
-  %9 = call double @llvm.fmuladd.f64(double %mul, double %sub, double %conv)
-  %conv14 = fptrunc double %9 to float
-  store float %conv14, ptr %d1, align 4
-  %10 = load float, ptr %c.addr, align 4
-  %conv15 = fpext float %10 to double
-  %11 = load float, ptr %a.addr, align 4
-  %conv16 = fpext float %11 to double
-  %mul17 = fmul double 5.000000e-01, %conv16
-  %12 = load float, ptr %a.addr, align 4
-  %conv18 = fpext float %12 to double
-  %mul19 = fmul double 2.500000e-01, %conv18
-  %13 = load float, ptr %a.addr, align 4
-  %conv20 = fpext float %13 to double
-  %14 = load float, ptr %b.addr, align 4
-  %conv22 = fpext float %14 to double
-  %neg23 = fneg double %conv22
-  %15 = call double @llvm.fmuladd.f64(double %mul19, double %conv20, double %neg23)
-  %16 = call double @llvm.fmuladd.f64(double %mul17, double %15, double %conv15)
-  %conv25 = fptrunc double %16 to float
-  store float %conv25, ptr %c1, align 4
-  %17 = load float, ptr %b.addr, align 4
-  %conv26 = fpext float %17 to double
-  %18 = load float, ptr %a.addr, align 4
-  %conv27 = fpext float %18 to double
-  %mul28 = fmul double 3.750000e-01, %conv27
-  %19 = load float, ptr %a.addr, align 4
-  %conv29 = fpext float %19 to double
-  %neg31 = fneg double %mul28
-  %20 = call double @llvm.fmuladd.f64(double %neg31, double %conv29, double %conv26)
-  %conv32 = fptrunc double %20 to float
-  store float %conv32, ptr %b1, align 4
-  %21 = load ptr, ptr %x.addr, align 8
-  %22 = load float, ptr %b1, align 4
-  %23 = load float, ptr %c1, align 4
-  %24 = load float, ptr %d1, align 4
-  %call = call noundef i32 @_Z9SolveP4DePffff(ptr noundef %21, float noundef %22, float noundef %23, float noundef %24)
-  store i32 %call, ptr %res, align 4
-  %25 = load i32, ptr %res, align 4
-  %cmp = icmp eq i32 %25, 4
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %26 = load float, ptr %a.addr, align 4
-  %div = fdiv float %26, 4.000000e+00
-  %27 = load ptr, ptr %x.addr, align 8
-  %arrayidx = getelementptr inbounds float, ptr %27, i64 0
-  %28 = load float, ptr %arrayidx, align 4
-  %sub33 = fsub float %28, %div
-  store float %sub33, ptr %arrayidx, align 4
-  %29 = load float, ptr %a.addr, align 4
-  %div34 = fdiv float %29, 4.000000e+00
-  %30 = load ptr, ptr %x.addr, align 8
-  %arrayidx35 = getelementptr inbounds float, ptr %30, i64 1
-  %31 = load float, ptr %arrayidx35, align 4
-  %sub36 = fsub float %31, %div34
-  store float %sub36, ptr %arrayidx35, align 4
-  %32 = load float, ptr %a.addr, align 4
-  %div37 = fdiv float %32, 4.000000e+00
-  %33 = load ptr, ptr %x.addr, align 8
-  %arrayidx38 = getelementptr inbounds float, ptr %33, i64 2
-  %34 = load float, ptr %arrayidx38, align 4
-  %sub39 = fsub float %34, %div37
-  store float %sub39, ptr %arrayidx38, align 4
-  %35 = load float, ptr %a.addr, align 4
-  %div40 = fdiv float %35, 4.000000e+00
-  %36 = load ptr, ptr %x.addr, align 8
-  %arrayidx41 = getelementptr inbounds float, ptr %36, i64 3
-  %37 = load float, ptr %arrayidx41, align 4
-  %sub42 = fsub float %37, %div40
-  store float %sub42, ptr %arrayidx41, align 4
-  br label %if.end61
-
-if.else:                                          ; preds = %entry
-  %38 = load i32, ptr %res, align 4
-  %cmp43 = icmp eq i32 %38, 2
-  br i1 %cmp43, label %if.then44, label %if.else54
-
-if.then44:                                        ; preds = %if.else
-  %39 = load float, ptr %a.addr, align 4
-  %div45 = fdiv float %39, 4.000000e+00
-  %40 = load ptr, ptr %x.addr, align 8
-  %arrayidx46 = getelementptr inbounds float, ptr %40, i64 0
-  %41 = load float, ptr %arrayidx46, align 4
-  %sub47 = fsub float %41, %div45
-  store float %sub47, ptr %arrayidx46, align 4
-  %42 = load float, ptr %a.addr, align 4
-  %div48 = fdiv float %42, 4.000000e+00
-  %43 = load ptr, ptr %x.addr, align 8
-  %arrayidx49 = getelementptr inbounds float, ptr %43, i64 1
-  %44 = load float, ptr %arrayidx49, align 4
-  %sub50 = fsub float %44, %div48
-  store float %sub50, ptr %arrayidx49, align 4
-  %45 = load float, ptr %a.addr, align 4
-  %div51 = fdiv float %45, 4.000000e+00
-  %46 = load ptr, ptr %x.addr, align 8
-  %arrayidx52 = getelementptr inbounds float, ptr %46, i64 2
-  %47 = load float, ptr %arrayidx52, align 4
-  %sub53 = fsub float %47, %div51
-  store float %sub53, ptr %arrayidx52, align 4
-  br label %if.end
-
-if.else54:                                        ; preds = %if.else
-  %48 = load float, ptr %a.addr, align 4
-  %div55 = fdiv float %48, 4.000000e+00
-  %49 = load ptr, ptr %x.addr, align 8
-  %arrayidx56 = getelementptr inbounds float, ptr %49, i64 0
-  %50 = load float, ptr %arrayidx56, align 4
-  %sub57 = fsub float %50, %div55
-  store float %sub57, ptr %arrayidx56, align 4
-  %51 = load float, ptr %a.addr, align 4
-  %div58 = fdiv float %51, 4.000000e+00
-  %52 = load ptr, ptr %x.addr, align 8
-  %arrayidx59 = getelementptr inbounds float, ptr %52, i64 2
-  %53 = load float, ptr %arrayidx59, align 4
-  %sub60 = fsub float %53, %div58
-  store float %sub60, ptr %arrayidx59, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else54, %if.then44
-  br label %if.end61
-
-if.end61:                                         ; preds = %if.end, %if.then
-  %54 = load i32, ptr %res, align 4
-  %cmp62 = icmp sgt i32 %54, 0
-  br i1 %cmp62, label %if.then63, label %if.end70
-
-if.then63:                                        ; preds = %if.end61
-  %55 = load ptr, ptr %x.addr, align 8
-  %arrayidx64 = getelementptr inbounds float, ptr %55, i64 0
-  %56 = load float, ptr %arrayidx64, align 4
-  %57 = load float, ptr %a.addr, align 4
-  %58 = load float, ptr %b.addr, align 4
-  %59 = load float, ptr %c.addr, align 4
-  %60 = load float, ptr %d.addr, align 4
-  %call65 = call noundef float @_Z6N4Stepfffff(float noundef %56, float noundef %57, float noundef %58, float noundef %59, float noundef %60)
-  %61 = load ptr, ptr %x.addr, align 8
-  %arrayidx66 = getelementptr inbounds float, ptr %61, i64 0
-  store float %call65, ptr %arrayidx66, align 4
-  %62 = load ptr, ptr %x.addr, align 8
-  %arrayidx67 = getelementptr inbounds float, ptr %62, i64 1
-  %63 = load float, ptr %arrayidx67, align 4
-  %64 = load float, ptr %a.addr, align 4
-  %65 = load float, ptr %b.addr, align 4
-  %66 = load float, ptr %c.addr, align 4
-  %67 = load float, ptr %d.addr, align 4
-  %call68 = call noundef float @_Z6N4Stepfffff(float noundef %63, float noundef %64, float noundef %65, float noundef %66, float noundef %67)
-  %68 = load ptr, ptr %x.addr, align 8
-  %arrayidx69 = getelementptr inbounds float, ptr %68, i64 1
-  store float %call68, ptr %arrayidx69, align 4
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then63, %if.end61
-  %69 = load i32, ptr %res, align 4
-  %cmp71 = icmp sgt i32 %69, 2
-  br i1 %cmp71, label %if.then72, label %if.end79
-
-if.then72:                                        ; preds = %if.end70
-  %70 = load ptr, ptr %x.addr, align 8
-  %arrayidx73 = getelementptr inbounds float, ptr %70, i64 2
-  %71 = load float, ptr %arrayidx73, align 4
-  %72 = load float, ptr %a.addr, align 4
-  %73 = load float, ptr %b.addr, align 4
-  %74 = load float, ptr %c.addr, align 4
-  %75 = load float, ptr %d.addr, align 4
-  %call74 = call noundef float @_Z6N4Stepfffff(float noundef %71, float noundef %72, float noundef %73, float noundef %74, float noundef %75)
-  %76 = load ptr, ptr %x.addr, align 8
-  %arrayidx75 = getelementptr inbounds float, ptr %76, i64 2
-  store float %call74, ptr %arrayidx75, align 4
-  %77 = load ptr, ptr %x.addr, align 8
-  %arrayidx76 = getelementptr inbounds float, ptr %77, i64 3
-  %78 = load float, ptr %arrayidx76, align 4
-  %79 = load float, ptr %a.addr, align 4
-  %80 = load float, ptr %b.addr, align 4
-  %81 = load float, ptr %c.addr, align 4
-  %82 = load float, ptr %d.addr, align 4
-  %call77 = call noundef float @_Z6N4Stepfffff(float noundef %78, float noundef %79, float noundef %80, float noundef %81, float noundef %82)
-  %83 = load ptr, ptr %x.addr, align 8
-  %arrayidx78 = getelementptr inbounds float, ptr %83, i64 3
-  store float %call77, ptr %arrayidx78, align 4
-  br label %if.end79
-
-if.end79:                                         ; preds = %if.then72, %if.end70
-  %84 = load i32, ptr %res, align 4
-  ret i32 %84
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e) #2 {
-entry:
-  %retval = alloca float, align 4
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  %c.addr = alloca float, align 4
-  %d.addr = alloca float, align 4
-  %e.addr = alloca float, align 4
-  %cnt = alloca i32, align 4
-  %brd = alloca float, align 4
-  %x0 = alloca float, align 4
-  %f0 = alloca float, align 4
-  %x1 = alloca float, align 4
-  %f1 = alloca float, align 4
-  %x2 = alloca float, align 4
-  %f2 = alloca float, align 4
-  %f2s = alloca float, align 4
-  %dx = alloca float, align 4
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  store float %c, ptr %c.addr, align 4
-  store float %d, ptr %d.addr, align 4
-  store float %e, ptr %e.addr, align 4
-  %0 = load float, ptr %e.addr, align 4
-  %call = call noundef float @_ZSt4fabsf(float noundef %0)
-  %cmp = fcmp olt float %call, 0x3E80000000000000
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store float 0.000000e+00, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load float, ptr %a.addr, align 4
-  %call1 = call noundef float @_ZSt4fabsf(float noundef %1)
-  store float %call1, ptr %brd, align 4
-  %2 = load float, ptr %b.addr, align 4
-  %call2 = call noundef float @_ZSt4fabsf(float noundef %2)
-  %3 = load float, ptr %brd, align 4
-  %cmp3 = fcmp ogt float %call2, %3
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.end
-  %4 = load float, ptr %b.addr, align 4
-  %call5 = call noundef float @_ZSt4fabsf(float noundef %4)
-  store float %call5, ptr %brd, align 4
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.then4, %if.end
-  %5 = load float, ptr %c.addr, align 4
-  %call7 = call noundef float @_ZSt4fabsf(float noundef %5)
-  %6 = load float, ptr %brd, align 4
-  %cmp8 = fcmp ogt float %call7, %6
-  br i1 %cmp8, label %if.then9, label %if.end11
-
-if.then9:                                         ; preds = %if.end6
-  %7 = load float, ptr %c.addr, align 4
-  %call10 = call noundef float @_ZSt4fabsf(float noundef %7)
-  store float %call10, ptr %brd, align 4
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then9, %if.end6
-  %8 = load float, ptr %d.addr, align 4
-  %call12 = call noundef float @_ZSt4fabsf(float noundef %8)
-  %9 = load float, ptr %brd, align 4
-  %cmp13 = fcmp ogt float %call12, %9
-  br i1 %cmp13, label %if.then14, label %if.end16
-
-if.then14:                                        ; preds = %if.end11
-  %10 = load float, ptr %d.addr, align 4
-  %call15 = call noundef float @_ZSt4fabsf(float noundef %10)
-  store float %call15, ptr %brd, align 4
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.then14, %if.end11
-  %11 = load float, ptr %e.addr, align 4
-  %call17 = call noundef float @_ZSt4fabsf(float noundef %11)
-  %12 = load float, ptr %brd, align 4
-  %cmp18 = fcmp ogt float %call17, %12
-  br i1 %cmp18, label %if.then19, label %if.end21
-
-if.then19:                                        ; preds = %if.end16
-  %13 = load float, ptr %e.addr, align 4
-  %call20 = call noundef float @_ZSt4fabsf(float noundef %13)
-  store float %call20, ptr %brd, align 4
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.then19, %if.end16
-  %14 = load float, ptr %brd, align 4
-  %inc = fadd float %14, 1.000000e+00
-  store float %inc, ptr %brd, align 4
-  store float 0.000000e+00, ptr %dx, align 4
-  %15 = load float, ptr %e.addr, align 4
-  %cmp22 = fcmp olt float %15, 0.000000e+00
-  br i1 %cmp22, label %if.then23, label %if.else
-
-if.then23:                                        ; preds = %if.end21
-  store float 0.000000e+00, ptr %x0, align 4
-  %16 = load float, ptr %brd, align 4
-  store float %16, ptr %x1, align 4
-  %17 = load float, ptr %e.addr, align 4
-  store float %17, ptr %f0, align 4
-  %18 = load float, ptr %x1, align 4
-  %19 = load float, ptr %a.addr, align 4
-  %add = fadd float %18, %19
-  %20 = load float, ptr %x1, align 4
-  %21 = load float, ptr %b.addr, align 4
-  %22 = call float @llvm.fmuladd.f32(float %add, float %20, float %21)
-  %23 = load float, ptr %x1, align 4
-  %24 = load float, ptr %c.addr, align 4
-  %25 = call float @llvm.fmuladd.f32(float %22, float %23, float %24)
-  %26 = load float, ptr %x1, align 4
-  %27 = load float, ptr %d.addr, align 4
-  %28 = call float @llvm.fmuladd.f32(float %25, float %26, float %27)
-  %29 = load float, ptr %x1, align 4
-  %30 = load float, ptr %e.addr, align 4
-  %31 = call float @llvm.fmuladd.f32(float %28, float %29, float %30)
-  store float %31, ptr %f1, align 4
-  %32 = load float, ptr %brd, align 4
-  %conv = fpext float %32 to double
-  %mul = fmul double 1.000000e-02, %conv
-  %conv24 = fptrunc double %mul to float
-  store float %conv24, ptr %x2, align 4
-  br label %if.end33
-
-if.else:                                          ; preds = %if.end21
-  %33 = load float, ptr %brd, align 4
-  %fneg = fneg float %33
-  store float %fneg, ptr %x0, align 4
-  store float 0.000000e+00, ptr %x1, align 4
-  %34 = load float, ptr %x0, align 4
-  %35 = load float, ptr %a.addr, align 4
-  %add25 = fadd float %34, %35
-  %36 = load float, ptr %x0, align 4
-  %37 = load float, ptr %b.addr, align 4
-  %38 = call float @llvm.fmuladd.f32(float %add25, float %36, float %37)
-  %39 = load float, ptr %x0, align 4
-  %40 = load float, ptr %c.addr, align 4
-  %41 = call float @llvm.fmuladd.f32(float %38, float %39, float %40)
-  %42 = load float, ptr %x0, align 4
-  %43 = load float, ptr %d.addr, align 4
-  %44 = call float @llvm.fmuladd.f32(float %41, float %42, float %43)
-  %45 = load float, ptr %x0, align 4
-  %46 = load float, ptr %e.addr, align 4
-  %47 = call float @llvm.fmuladd.f32(float %44, float %45, float %46)
-  store float %47, ptr %f0, align 4
-  %48 = load float, ptr %e.addr, align 4
-  store float %48, ptr %f1, align 4
-  %49 = load float, ptr %brd, align 4
-  %conv30 = fpext float %49 to double
-  %mul31 = fmul double -1.000000e-02, %conv30
-  %conv32 = fptrunc double %mul31 to float
-  store float %conv32, ptr %x2, align 4
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.else, %if.then23
-  %50 = load float, ptr %f0, align 4
-  %call34 = call noundef float @_ZSt4fabsf(float noundef %50)
-  %cmp35 = fcmp olt float %call34, 0x3E80000000000000
-  br i1 %cmp35, label %if.then36, label %if.end37
-
-if.then36:                                        ; preds = %if.end33
-  %51 = load float, ptr %x0, align 4
-  store float %51, ptr %retval, align 4
-  br label %return
-
-if.end37:                                         ; preds = %if.end33
-  %52 = load float, ptr %f1, align 4
-  %call38 = call noundef float @_ZSt4fabsf(float noundef %52)
-  %cmp39 = fcmp olt float %call38, 0x3E80000000000000
-  br i1 %cmp39, label %if.then40, label %if.end41
-
-if.then40:                                        ; preds = %if.end37
-  %53 = load float, ptr %x1, align 4
-  store float %53, ptr %retval, align 4
-  br label %return
-
-if.end41:                                         ; preds = %if.end37
-  store i32 0, ptr %cnt, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end41
-  %54 = load i32, ptr %cnt, align 4
-  %cmp42 = icmp slt i32 %54, 10
-  br i1 %cmp42, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %55 = load float, ptr %x0, align 4
-  %56 = load float, ptr %x1, align 4
-  %add43 = fadd float %55, %56
-  %div = fdiv float %add43, 2.000000e+00
-  store float %div, ptr %x2, align 4
-  %57 = load float, ptr %x2, align 4
-  %58 = load float, ptr %a.addr, align 4
-  %add44 = fadd float %57, %58
-  %59 = load float, ptr %x2, align 4
-  %60 = load float, ptr %b.addr, align 4
-  %61 = call float @llvm.fmuladd.f32(float %add44, float %59, float %60)
-  %62 = load float, ptr %x2, align 4
-  %63 = load float, ptr %c.addr, align 4
-  %64 = call float @llvm.fmuladd.f32(float %61, float %62, float %63)
-  %65 = load float, ptr %x2, align 4
-  %66 = load float, ptr %d.addr, align 4
-  %67 = call float @llvm.fmuladd.f32(float %64, float %65, float %66)
-  %68 = load float, ptr %x2, align 4
-  %69 = load float, ptr %e.addr, align 4
-  %70 = call float @llvm.fmuladd.f32(float %67, float %68, float %69)
-  store float %70, ptr %f2, align 4
-  %71 = load float, ptr %f2, align 4
-  %call49 = call noundef float @_ZSt4fabsf(float noundef %71)
-  %cmp50 = fcmp olt float %call49, 0x3E80000000000000
-  br i1 %cmp50, label %if.then51, label %if.end52
-
-if.then51:                                        ; preds = %for.body
-  %72 = load float, ptr %x2, align 4
-  store float %72, ptr %retval, align 4
-  br label %return
-
-if.end52:                                         ; preds = %for.body
-  %73 = load float, ptr %f2, align 4
-  %cmp53 = fcmp ogt float %73, 0.000000e+00
-  br i1 %cmp53, label %if.then54, label %if.else55
-
-if.then54:                                        ; preds = %if.end52
-  %74 = load float, ptr %x2, align 4
-  store float %74, ptr %x1, align 4
-  %75 = load float, ptr %f2, align 4
-  store float %75, ptr %f1, align 4
-  br label %if.end56
-
-if.else55:                                        ; preds = %if.end52
-  %76 = load float, ptr %x2, align 4
-  store float %76, ptr %x0, align 4
-  %77 = load float, ptr %f2, align 4
-  store float %77, ptr %f0, align 4
-  br label %if.end56
-
-if.end56:                                         ; preds = %if.else55, %if.then54
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end56
-  %78 = load i32, ptr %cnt, align 4
-  %inc57 = add nsw i32 %78, 1
-  store i32 %inc57, ptr %cnt, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %for.end
-  %79 = load i32, ptr %cnt, align 4
-  %inc58 = add nsw i32 %79, 1
-  store i32 %inc58, ptr %cnt, align 4
-  %cmp59 = icmp sgt i32 %79, 50
-  br i1 %cmp59, label %if.then60, label %if.end61
-
-if.then60:                                        ; preds = %do.body
-  br label %do.end
-
-if.end61:                                         ; preds = %do.body
-  %80 = load float, ptr %x2, align 4
-  %81 = load float, ptr %x0, align 4
-  %cmp62 = fcmp ole float %80, %81
-  br i1 %cmp62, label %if.then64, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end61
-  %82 = load float, ptr %x2, align 4
-  %83 = load float, ptr %x1, align 4
-  %cmp63 = fcmp oge float %82, %83
-  br i1 %cmp63, label %if.then64, label %if.end67
-
-if.then64:                                        ; preds = %lor.lhs.false, %if.end61
-  %84 = load float, ptr %x0, align 4
-  %85 = load float, ptr %x1, align 4
-  %add65 = fadd float %84, %85
-  %div66 = fdiv float %add65, 2.000000e+00
-  store float %div66, ptr %x2, align 4
-  br label %if.end67
-
-if.end67:                                         ; preds = %if.then64, %lor.lhs.false
-  %86 = load float, ptr %x2, align 4
-  %87 = load float, ptr %a.addr, align 4
-  %add68 = fadd float %86, %87
-  %88 = load float, ptr %x2, align 4
-  %89 = load float, ptr %b.addr, align 4
-  %90 = call float @llvm.fmuladd.f32(float %add68, float %88, float %89)
-  %91 = load float, ptr %x2, align 4
-  %92 = load float, ptr %c.addr, align 4
-  %93 = call float @llvm.fmuladd.f32(float %90, float %91, float %92)
-  %94 = load float, ptr %x2, align 4
-  %95 = load float, ptr %d.addr, align 4
-  %96 = call float @llvm.fmuladd.f32(float %93, float %94, float %95)
-  %97 = load float, ptr %x2, align 4
-  %98 = load float, ptr %e.addr, align 4
-  %99 = call float @llvm.fmuladd.f32(float %96, float %97, float %98)
-  store float %99, ptr %f2, align 4
-  %100 = load float, ptr %f2, align 4
-  %call73 = call noundef float @_ZSt4fabsf(float noundef %100)
-  %cmp74 = fcmp olt float %call73, 0x3E80000000000000
-  br i1 %cmp74, label %if.then75, label %if.end76
-
-if.then75:                                        ; preds = %if.end67
-  %101 = load float, ptr %x2, align 4
-  store float %101, ptr %retval, align 4
-  br label %return
-
-if.end76:                                         ; preds = %if.end67
-  %102 = load float, ptr %f2, align 4
-  %cmp77 = fcmp ogt float %102, 0.000000e+00
-  br i1 %cmp77, label %if.then78, label %if.else79
-
-if.then78:                                        ; preds = %if.end76
-  %103 = load float, ptr %x2, align 4
-  store float %103, ptr %x1, align 4
-  %104 = load float, ptr %f2, align 4
-  store float %104, ptr %f1, align 4
-  br label %if.end80
-
-if.else79:                                        ; preds = %if.end76
-  %105 = load float, ptr %x2, align 4
-  store float %105, ptr %x0, align 4
-  %106 = load float, ptr %f2, align 4
-  store float %106, ptr %f0, align 4
-  br label %if.end80
-
-if.end80:                                         ; preds = %if.else79, %if.then78
-  %107 = load float, ptr %x2, align 4
-  %108 = load float, ptr %a.addr, align 4
-  %mul82 = fmul float 4.000000e+00, %108
-  %109 = call float @llvm.fmuladd.f32(float 5.000000e+00, float %107, float %mul82)
-  %110 = load float, ptr %x2, align 4
-  %111 = load float, ptr %b.addr, align 4
-  %mul84 = fmul float 3.000000e+00, %111
-  %112 = call float @llvm.fmuladd.f32(float %109, float %110, float %mul84)
-  %113 = load float, ptr %x2, align 4
-  %114 = load float, ptr %c.addr, align 4
-  %mul86 = fmul float 2.000000e+00, %114
-  %115 = call float @llvm.fmuladd.f32(float %112, float %113, float %mul86)
-  %116 = load float, ptr %x2, align 4
-  %117 = load float, ptr %d.addr, align 4
-  %118 = call float @llvm.fmuladd.f32(float %115, float %116, float %117)
-  store float %118, ptr %f2s, align 4
-  %119 = load float, ptr %f2s, align 4
-  %call88 = call noundef float @_ZSt4fabsf(float noundef %119)
-  %cmp89 = fcmp olt float %call88, 0x3E80000000000000
-  br i1 %cmp89, label %if.then90, label %if.end91
-
-if.then90:                                        ; preds = %if.end80
-  store float 0x7FF0000000000000, ptr %x2, align 4
-  br label %do.cond
-
-if.end91:                                         ; preds = %if.end80
-  %120 = load float, ptr %f2, align 4
-  %121 = load float, ptr %f2s, align 4
-  %div92 = fdiv float %120, %121
-  store float %div92, ptr %dx, align 4
-  %122 = load float, ptr %dx, align 4
-  %123 = load float, ptr %x2, align 4
-  %sub = fsub float %123, %122
-  store float %sub, ptr %x2, align 4
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end91, %if.then90
-  %124 = load float, ptr %dx, align 4
-  %call93 = call noundef float @_ZSt4fabsf(float noundef %124)
-  %cmp94 = fcmp ogt float %call93, 0x3E80000000000000
-  br i1 %cmp94, label %do.body, label %do.end, !llvm.loop !7
-
-do.end:                                           ; preds = %do.cond, %if.then60
-  %125 = load float, ptr %x2, align 4
-  store float %125, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end, %if.then75, %if.then51, %if.then40, %if.then36, %if.then
-  %126 = load float, ptr %retval, align 4
-  ret float %126
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7SolveP5Pffffff(ptr noundef %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e) #2 {
-entry:
-  %x.addr = alloca ptr, align 8
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  %c.addr = alloca float, align 4
-  %d.addr = alloca float, align 4
-  %e.addr = alloca float, align 4
-  %r = alloca float, align 4
-  %a1 = alloca float, align 4
-  %b1 = alloca float, align 4
-  %c1 = alloca float, align 4
-  %d1 = alloca float, align 4
-  store ptr %x, ptr %x.addr, align 8
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  store float %c, ptr %c.addr, align 4
-  store float %d, ptr %d.addr, align 4
-  store float %e, ptr %e.addr, align 4
-  %0 = load float, ptr %a.addr, align 4
-  %1 = load float, ptr %b.addr, align 4
-  %2 = load float, ptr %c.addr, align 4
-  %3 = load float, ptr %d.addr, align 4
-  %4 = load float, ptr %e.addr, align 4
-  %call = call noundef float @_Z9SolveP5_1fffff(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4)
-  %5 = load ptr, ptr %x.addr, align 8
-  %arrayidx = getelementptr inbounds float, ptr %5, i64 0
-  store float %call, ptr %arrayidx, align 4
-  store float %call, ptr %r, align 4
-  %6 = load float, ptr %a.addr, align 4
-  %7 = load float, ptr %r, align 4
-  %add = fadd float %6, %7
-  store float %add, ptr %a1, align 4
-  %8 = load float, ptr %b.addr, align 4
-  %9 = load float, ptr %r, align 4
-  %10 = load float, ptr %a1, align 4
-  %11 = call float @llvm.fmuladd.f32(float %9, float %10, float %8)
-  store float %11, ptr %b1, align 4
-  %12 = load float, ptr %c.addr, align 4
-  %13 = load float, ptr %r, align 4
-  %14 = load float, ptr %b1, align 4
-  %15 = call float @llvm.fmuladd.f32(float %13, float %14, float %12)
-  store float %15, ptr %c1, align 4
-  %16 = load float, ptr %d.addr, align 4
-  %17 = load float, ptr %r, align 4
-  %18 = load float, ptr %c1, align 4
-  %19 = call float @llvm.fmuladd.f32(float %17, float %18, float %16)
-  store float %19, ptr %d1, align 4
-  %20 = load ptr, ptr %x.addr, align 8
-  %add.ptr = getelementptr inbounds float, ptr %20, i64 1
-  %21 = load float, ptr %a1, align 4
-  %22 = load float, ptr %b1, align 4
-  %23 = load float, ptr %c1, align 4
-  %24 = load float, ptr %d1, align 4
-  %call1 = call noundef i32 @_Z7SolveP4Pfffff(ptr noundef %add.ptr, float noundef %21, float noundef %22, float noundef %23, float noundef %24)
-  %add2 = add nsw i32 1, %call1
-  ret i32 %add2
-}
-
-; Function Attrs: nounwind
-declare float @sqrtf(float noundef) #4
-
-; Function Attrs: nounwind
-declare float @acosf(float noundef) #4
-
-; Function Attrs: nounwind
-declare float @cosf(float noundef) #4
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef float @_ZL6_root3f(float noundef %x) #1 {
-entry:
-  %x.addr = alloca float, align 4
-  %s = alloca float, align 4
-  %r = alloca float, align 4
-  store float %x, ptr %x.addr, align 4
-  store float 1.000000e+00, ptr %s, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load float, ptr %x.addr, align 4
-  %conv = fpext float %0 to double
-  %cmp = fcmp olt double %conv, 1.000000e+00
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %1 = load float, ptr %x.addr, align 4
-  %conv1 = fpext float %1 to double
-  %mul = fmul double %conv1, 8.000000e+00
-  %conv2 = fptrunc double %mul to float
-  store float %conv2, ptr %x.addr, align 4
-  %2 = load float, ptr %s, align 4
-  %conv3 = fpext float %2 to double
-  %mul4 = fmul double %conv3, 5.000000e-01
-  %conv5 = fptrunc double %mul4 to float
-  store float %conv5, ptr %s, align 4
-  br label %while.cond, !llvm.loop !8
-
-while.end:                                        ; preds = %while.cond
-  br label %while.cond6
-
-while.cond6:                                      ; preds = %while.body9, %while.end
-  %3 = load float, ptr %x.addr, align 4
-  %conv7 = fpext float %3 to double
-  %cmp8 = fcmp ogt double %conv7, 8.000000e+00
-  br i1 %cmp8, label %while.body9, label %while.end16
-
-while.body9:                                      ; preds = %while.cond6
-  %4 = load float, ptr %x.addr, align 4
-  %conv10 = fpext float %4 to double
-  %mul11 = fmul double %conv10, 1.250000e-01
-  %conv12 = fptrunc double %mul11 to float
-  store float %conv12, ptr %x.addr, align 4
-  %5 = load float, ptr %s, align 4
-  %conv13 = fpext float %5 to double
-  %mul14 = fmul double %conv13, 2.000000e+00
-  %conv15 = fptrunc double %mul14 to float
-  store float %conv15, ptr %s, align 4
-  br label %while.cond6, !llvm.loop !9
-
-while.end16:                                      ; preds = %while.cond6
-  store float 1.500000e+00, ptr %r, align 4
-  %6 = load float, ptr %r, align 4
-  %7 = load float, ptr %x.addr, align 4
-  %8 = load float, ptr %r, align 4
-  %9 = load float, ptr %r, align 4
-  %mul17 = fmul float %8, %9
-  %div = fdiv float %7, %mul17
-  %sub = fsub float %6, %div
-  %conv18 = fpext float %sub to double
-  %10 = load float, ptr %r, align 4
-  %conv20 = fpext float %10 to double
-  %11 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %conv18, double %conv20)
-  %conv21 = fptrunc double %11 to float
-  store float %conv21, ptr %r, align 4
-  %12 = load float, ptr %r, align 4
-  %13 = load float, ptr %x.addr, align 4
-  %14 = load float, ptr %r, align 4
-  %15 = load float, ptr %r, align 4
-  %mul22 = fmul float %14, %15
-  %div23 = fdiv float %13, %mul22
-  %sub24 = fsub float %12, %div23
-  %conv25 = fpext float %sub24 to double
-  %16 = load float, ptr %r, align 4
-  %conv27 = fpext float %16 to double
-  %17 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %conv25, double %conv27)
-  %conv28 = fptrunc double %17 to float
-  store float %conv28, ptr %r, align 4
-  %18 = load float, ptr %r, align 4
-  %19 = load float, ptr %x.addr, align 4
-  %20 = load float, ptr %r, align 4
-  %21 = load float, ptr %r, align 4
-  %mul29 = fmul float %20, %21
-  %div30 = fdiv float %19, %mul29
-  %sub31 = fsub float %18, %div30
-  %conv32 = fpext float %sub31 to double
-  %22 = load float, ptr %r, align 4
-  %conv34 = fpext float %22 to double
-  %23 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %conv32, double %conv34)
-  %conv35 = fptrunc double %23 to float
-  store float %conv35, ptr %r, align 4
-  %24 = load float, ptr %r, align 4
-  %25 = load float, ptr %x.addr, align 4
-  %26 = load float, ptr %r, align 4
-  %27 = load float, ptr %r, align 4
-  %mul36 = fmul float %26, %27
-  %div37 = fdiv float %25, %mul36
-  %sub38 = fsub float %24, %div37
-  %conv39 = fpext float %sub38 to double
-  %28 = load float, ptr %r, align 4
-  %conv41 = fpext float %28 to double
-  %29 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %conv39, double %conv41)
-  %conv42 = fptrunc double %29 to float
-  store float %conv42, ptr %r, align 4
-  %30 = load float, ptr %r, align 4
-  %31 = load float, ptr %x.addr, align 4
-  %32 = load float, ptr %r, align 4
-  %33 = load float, ptr %r, align 4
-  %mul43 = fmul float %32, %33
-  %div44 = fdiv float %31, %mul43
-  %sub45 = fsub float %30, %div44
-  %conv46 = fpext float %sub45 to double
-  %34 = load float, ptr %r, align 4
-  %conv48 = fpext float %34 to double
-  %35 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %conv46, double %conv48)
-  %conv49 = fptrunc double %35 to float
-  store float %conv49, ptr %r, align 4
-  %36 = load float, ptr %r, align 4
-  %37 = load float, ptr %x.addr, align 4
-  %38 = load float, ptr %r, align 4
-  %39 = load float, ptr %r, align 4
-  %mul50 = fmul float %38, %39
-  %div51 = fdiv float %37, %mul50
-  %sub52 = fsub float %36, %div51
-  %conv53 = fpext float %sub52 to double
-  %40 = load float, ptr %r, align 4
-  %conv55 = fpext float %40 to double
-  %41 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %conv53, double %conv55)
-  %conv56 = fptrunc double %41 to float
-  store float %conv56, ptr %r, align 4
-  %42 = load float, ptr %r, align 4
-  %43 = load float, ptr %s, align 4
-  %mul57 = fmul float %42, %43
-  ret float %mul57
+define dso_local noundef i32 @_Z7SolveP3Pffff(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #2 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !12
+  store float %1, ptr %7, align 4, !tbaa !14
+  store float %2, ptr %8, align 4, !tbaa !14
+  store float %3, ptr %9, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %19 = load float, ptr %7, align 4, !tbaa !14
+  %20 = load float, ptr %7, align 4, !tbaa !14
+  %21 = fmul float %19, %20
+  store float %21, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %22 = load float, ptr %10, align 4, !tbaa !14
+  %23 = load float, ptr %8, align 4, !tbaa !14
+  %24 = call float @llvm.fmuladd.f32(float -3.000000e+00, float %23, float %22)
+  %25 = fdiv float %24, 9.000000e+00
+  store float %25, ptr %11, align 4, !tbaa !14
+  %26 = load float, ptr %11, align 4, !tbaa !14
+  %27 = fcmp olt float %26, 0.000000e+00
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %4
+  store float 0x3E80000000000000, ptr %11, align 4, !tbaa !14
+  br label %29
+
+29:                                               ; preds = %28, %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %30 = load float, ptr %7, align 4, !tbaa !14
+  %31 = load float, ptr %10, align 4, !tbaa !14
+  %32 = load float, ptr %8, align 4, !tbaa !14
+  %33 = fmul float 9.000000e+00, %32
+  %34 = fneg float %33
+  %35 = call float @llvm.fmuladd.f32(float 2.000000e+00, float %31, float %34)
+  %36 = load float, ptr %9, align 4, !tbaa !14
+  %37 = fmul float 2.700000e+01, %36
+  %38 = call float @llvm.fmuladd.f32(float %30, float %35, float %37)
+  %39 = fdiv float %38, 5.400000e+01
+  store float %39, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %40 = load float, ptr %12, align 4, !tbaa !14
+  %41 = load float, ptr %12, align 4, !tbaa !14
+  %42 = fmul float %40, %41
+  store float %42, ptr %13, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %43 = load float, ptr %11, align 4, !tbaa !14
+  %44 = load float, ptr %11, align 4, !tbaa !14
+  %45 = fmul float %43, %44
+  %46 = load float, ptr %11, align 4, !tbaa !14
+  %47 = fmul float %45, %46
+  store float %47, ptr %14, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %48 = load float, ptr %13, align 4, !tbaa !14
+  %49 = load float, ptr %14, align 4, !tbaa !14
+  %50 = fadd float %49, 0x3E80000000000000
+  %51 = fcmp ole float %48, %50
+  br i1 %51, label %52, label %109
+
+52:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %53 = load float, ptr %12, align 4, !tbaa !14
+  %54 = load float, ptr %14, align 4, !tbaa !14
+  %55 = call noundef float @_ZSt4sqrtf(float noundef %54)
+  %56 = fdiv float %53, %55
+  store float %56, ptr %17, align 4, !tbaa !14
+  %57 = load float, ptr %17, align 4, !tbaa !14
+  %58 = fcmp olt float %57, -1.000000e+00
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %52
+  store float -1.000000e+00, ptr %17, align 4, !tbaa !14
+  br label %60
+
+60:                                               ; preds = %59, %52
+  %61 = load float, ptr %17, align 4, !tbaa !14
+  %62 = fcmp ogt float %61, 1.000000e+00
+  br i1 %62, label %63, label %64
+
+63:                                               ; preds = %60
+  store float 1.000000e+00, ptr %17, align 4, !tbaa !14
+  br label %64
+
+64:                                               ; preds = %63, %60
+  %65 = load float, ptr %17, align 4, !tbaa !14
+  %66 = call noundef float @_ZSt4acosf(float noundef %65)
+  store float %66, ptr %17, align 4, !tbaa !14
+  %67 = load float, ptr %7, align 4, !tbaa !14
+  %68 = fdiv float %67, 3.000000e+00
+  store float %68, ptr %7, align 4, !tbaa !14
+  %69 = load float, ptr %11, align 4, !tbaa !14
+  %70 = call noundef float @_ZSt4sqrtf(float noundef %69)
+  %71 = fmul float -2.000000e+00, %70
+  store float %71, ptr %11, align 4, !tbaa !14
+  %72 = load float, ptr %11, align 4, !tbaa !14
+  %73 = load float, ptr %17, align 4, !tbaa !14
+  %74 = fdiv float %73, 3.000000e+00
+  %75 = call noundef float @_ZSt3cosf(float noundef %74)
+  %76 = load float, ptr %7, align 4, !tbaa !14
+  %77 = fneg float %76
+  %78 = call float @llvm.fmuladd.f32(float %72, float %75, float %77)
+  %79 = load ptr, ptr %6, align 8, !tbaa !12
+  %80 = getelementptr inbounds float, ptr %79, i64 0
+  store float %78, ptr %80, align 4, !tbaa !14
+  %81 = load float, ptr %11, align 4, !tbaa !14
+  %82 = fpext float %81 to double
+  %83 = load float, ptr %17, align 4, !tbaa !14
+  %84 = fpext float %83 to double
+  %85 = fadd double %84, 0x401921FB54442D18
+  %86 = fdiv double %85, 3.000000e+00
+  %87 = call double @cos(double noundef %86) #8, !tbaa !9
+  %88 = load float, ptr %7, align 4, !tbaa !14
+  %89 = fpext float %88 to double
+  %90 = fneg double %89
+  %91 = call double @llvm.fmuladd.f64(double %82, double %87, double %90)
+  %92 = fptrunc double %91 to float
+  %93 = load ptr, ptr %6, align 8, !tbaa !12
+  %94 = getelementptr inbounds float, ptr %93, i64 1
+  store float %92, ptr %94, align 4, !tbaa !14
+  %95 = load float, ptr %11, align 4, !tbaa !14
+  %96 = fpext float %95 to double
+  %97 = load float, ptr %17, align 4, !tbaa !14
+  %98 = fpext float %97 to double
+  %99 = fsub double %98, 0x401921FB54442D18
+  %100 = fdiv double %99, 3.000000e+00
+  %101 = call double @cos(double noundef %100) #8, !tbaa !9
+  %102 = load float, ptr %7, align 4, !tbaa !14
+  %103 = fpext float %102 to double
+  %104 = fneg double %103
+  %105 = call double @llvm.fmuladd.f64(double %96, double %101, double %104)
+  %106 = fptrunc double %105 to float
+  %107 = load ptr, ptr %6, align 8, !tbaa !12
+  %108 = getelementptr inbounds float, ptr %107, i64 2
+  store float %106, ptr %108, align 4, !tbaa !14
+  store i32 3, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  br label %176
+
+109:                                              ; preds = %29
+  %110 = load float, ptr %12, align 4, !tbaa !14
+  %111 = call noundef float @_ZSt4fabsf(float noundef %110)
+  %112 = load float, ptr %13, align 4, !tbaa !14
+  %113 = load float, ptr %14, align 4, !tbaa !14
+  %114 = fsub float %112, %113
+  %115 = call noundef float @_ZSt4sqrtf(float noundef %114)
+  %116 = fadd float %111, %115
+  %117 = call noundef float @_Z5root3f(float noundef %116)
+  %118 = fneg float %117
+  store float %118, ptr %15, align 4, !tbaa !14
+  %119 = load float, ptr %12, align 4, !tbaa !14
+  %120 = fcmp olt float %119, 0.000000e+00
+  br i1 %120, label %121, label %124
+
+121:                                              ; preds = %109
+  %122 = load float, ptr %15, align 4, !tbaa !14
+  %123 = fneg float %122
+  store float %123, ptr %15, align 4, !tbaa !14
+  br label %124
+
+124:                                              ; preds = %121, %109
+  %125 = load float, ptr %15, align 4, !tbaa !14
+  %126 = fcmp oeq float %125, 0.000000e+00
+  br i1 %126, label %127, label %128
+
+127:                                              ; preds = %124
+  br label %132
+
+128:                                              ; preds = %124
+  %129 = load float, ptr %11, align 4, !tbaa !14
+  %130 = load float, ptr %15, align 4, !tbaa !14
+  %131 = fdiv float %129, %130
+  br label %132
+
+132:                                              ; preds = %128, %127
+  %133 = phi float [ 0.000000e+00, %127 ], [ %131, %128 ]
+  store float %133, ptr %16, align 4, !tbaa !14
+  %134 = load float, ptr %7, align 4, !tbaa !14
+  %135 = fdiv float %134, 3.000000e+00
+  store float %135, ptr %7, align 4, !tbaa !14
+  %136 = load float, ptr %15, align 4, !tbaa !14
+  %137 = load float, ptr %16, align 4, !tbaa !14
+  %138 = fadd float %136, %137
+  %139 = load float, ptr %7, align 4, !tbaa !14
+  %140 = fsub float %138, %139
+  %141 = load ptr, ptr %6, align 8, !tbaa !12
+  %142 = getelementptr inbounds float, ptr %141, i64 0
+  store float %140, ptr %142, align 4, !tbaa !14
+  %143 = load float, ptr %15, align 4, !tbaa !14
+  %144 = load float, ptr %16, align 4, !tbaa !14
+  %145 = fadd float %143, %144
+  %146 = fpext float %145 to double
+  %147 = load float, ptr %7, align 4, !tbaa !14
+  %148 = fpext float %147 to double
+  %149 = fneg double %148
+  %150 = call double @llvm.fmuladd.f64(double -5.000000e-01, double %146, double %149)
+  %151 = fptrunc double %150 to float
+  %152 = load ptr, ptr %6, align 8, !tbaa !12
+  %153 = getelementptr inbounds float, ptr %152, i64 1
+  store float %151, ptr %153, align 4, !tbaa !14
+  %154 = call double @sqrt(double noundef 3.000000e+00) #8, !tbaa !9
+  %155 = fmul double 5.000000e-01, %154
+  %156 = load float, ptr %15, align 4, !tbaa !14
+  %157 = load float, ptr %16, align 4, !tbaa !14
+  %158 = fsub float %156, %157
+  %159 = fpext float %158 to double
+  %160 = fmul double %155, %159
+  %161 = fptrunc double %160 to float
+  %162 = load ptr, ptr %6, align 8, !tbaa !12
+  %163 = getelementptr inbounds float, ptr %162, i64 2
+  store float %161, ptr %163, align 4, !tbaa !14
+  %164 = load ptr, ptr %6, align 8, !tbaa !12
+  %165 = getelementptr inbounds float, ptr %164, i64 2
+  %166 = load float, ptr %165, align 4, !tbaa !14
+  %167 = call noundef float @_ZSt4fabsf(float noundef %166)
+  %168 = fcmp olt float %167, 0x3E80000000000000
+  br i1 %168, label %169, label %175
+
+169:                                              ; preds = %132
+  %170 = load ptr, ptr %6, align 8, !tbaa !12
+  %171 = getelementptr inbounds float, ptr %170, i64 1
+  %172 = load float, ptr %171, align 4, !tbaa !14
+  %173 = load ptr, ptr %6, align 8, !tbaa !12
+  %174 = getelementptr inbounds float, ptr %173, i64 2
+  store float %172, ptr %174, align 4, !tbaa !14
+  store i32 2, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %176
+
+175:                                              ; preds = %132
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %176
+
+176:                                              ; preds = %175, %169, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %177 = load i32, ptr %5, align 4
+  ret i32 %177
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #4
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZSt4acosf(float noundef %0) #5 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !14
+  %3 = load float, ptr %2, align 4, !tbaa !14
+  %4 = call float @acosf(float noundef %3) #8, !tbaa !9
+  ret float %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZSt3cosf(float noundef %0) #5 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !14
+  %3 = load float, ptr %2, align 4, !tbaa !14
+  %4 = call float @cosf(float noundef %3) #8, !tbaa !9
+  ret float %4
+}
+
+; Function Attrs: nounwind
+declare double @cos(double noundef) #6
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef float @_Z5root3f(float noundef %0) #7 comdat {
+  %2 = alloca float, align 4
+  %3 = alloca float, align 4
+  store float %0, ptr %3, align 4, !tbaa !14
+  %4 = load float, ptr %3, align 4, !tbaa !14
+  %5 = fcmp ogt float %4, 0.000000e+00
+  br i1 %5, label %6, label %9
+
+6:                                                ; preds = %1
+  %7 = load float, ptr %3, align 4, !tbaa !14
+  %8 = call noundef float @_ZL6_root3f(float noundef %7)
+  store float %8, ptr %2, align 4
+  br label %18
+
+9:                                                ; preds = %1
+  %10 = load float, ptr %3, align 4, !tbaa !14
+  %11 = fcmp olt float %10, 0.000000e+00
+  br i1 %11, label %12, label %17
+
+12:                                               ; preds = %9
+  %13 = load float, ptr %3, align 4, !tbaa !14
+  %14 = fneg float %13
+  %15 = call noundef float @_ZL6_root3f(float noundef %14)
+  %16 = fneg float %15
+  store float %16, ptr %2, align 4
+  br label %18
+
+17:                                               ; preds = %9
+  store float 0.000000e+00, ptr %2, align 4
+  br label %18
+
+18:                                               ; preds = %17, %12, %6
+  %19 = load float, ptr %2, align 4
+  ret float %19
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZSt4fabsf(float noundef %0) #5 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !14
+  %3 = load float, ptr %2, align 4, !tbaa !14
+  %4 = call float @llvm.fabs.f32(float %3)
+  ret float %4
+}
+
+; Function Attrs: nounwind
+declare double @sqrt(double noundef) #6
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_Z5CSqrtffRfS_(float noundef %0, float noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #2 {
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  store float %0, ptr %5, align 4, !tbaa !14
+  store float %1, ptr %6, align 4, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %10 = load float, ptr %5, align 4, !tbaa !14
+  %11 = load float, ptr %5, align 4, !tbaa !14
+  %12 = load float, ptr %6, align 4, !tbaa !14
+  %13 = load float, ptr %6, align 4, !tbaa !14
+  %14 = fmul float %12, %13
+  %15 = call float @llvm.fmuladd.f32(float %10, float %11, float %14)
+  %16 = call noundef float @_ZSt4sqrtf(float noundef %15)
+  store float %16, ptr %9, align 4, !tbaa !14
+  %17 = load float, ptr %6, align 4, !tbaa !14
+  %18 = fcmp oeq float %17, 0.000000e+00
+  br i1 %18, label %19, label %33
+
+19:                                               ; preds = %4
+  %20 = load float, ptr %9, align 4, !tbaa !14
+  %21 = call noundef float @_ZSt4sqrtf(float noundef %20)
+  store float %21, ptr %9, align 4, !tbaa !14
+  %22 = load float, ptr %5, align 4, !tbaa !14
+  %23 = fcmp oge float %22, 0.000000e+00
+  br i1 %23, label %24, label %28
+
+24:                                               ; preds = %19
+  %25 = load float, ptr %9, align 4, !tbaa !14
+  %26 = load ptr, ptr %7, align 8, !tbaa !12
+  store float %25, ptr %26, align 4, !tbaa !14
+  %27 = load ptr, ptr %8, align 8, !tbaa !12
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !14
+  br label %32
+
+28:                                               ; preds = %19
+  %29 = load ptr, ptr %7, align 8, !tbaa !12
+  store float 0.000000e+00, ptr %29, align 4, !tbaa !14
+  %30 = load float, ptr %9, align 4, !tbaa !14
+  %31 = load ptr, ptr %8, align 8, !tbaa !12
+  store float %30, ptr %31, align 4, !tbaa !14
+  br label %32
+
+32:                                               ; preds = %28, %24
+  br label %51
+
+33:                                               ; preds = %4
+  %34 = load float, ptr %5, align 4, !tbaa !14
+  %35 = load float, ptr %9, align 4, !tbaa !14
+  %36 = fadd float %34, %35
+  %37 = fpext float %36 to double
+  %38 = fmul double 5.000000e-01, %37
+  %39 = call double @sqrt(double noundef %38) #8, !tbaa !9
+  %40 = fptrunc double %39 to float
+  %41 = load ptr, ptr %7, align 8, !tbaa !12
+  store float %40, ptr %41, align 4, !tbaa !14
+  %42 = load float, ptr %6, align 4, !tbaa !14
+  %43 = fpext float %42 to double
+  %44 = fmul double 5.000000e-01, %43
+  %45 = load ptr, ptr %7, align 8, !tbaa !12
+  %46 = load float, ptr %45, align 4, !tbaa !14
+  %47 = fpext float %46 to double
+  %48 = fdiv double %44, %47
+  %49 = fptrunc double %48 to float
+  %50 = load ptr, ptr %8, align 8, !tbaa !12
+  store float %49, ptr %50, align 4, !tbaa !14
+  br label %51
+
+51:                                               ; preds = %33, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef i32 @_Z9SolveP4BiPfff(ptr noundef %0, float noundef %1, float noundef %2) #2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store float %1, ptr %6, align 4, !tbaa !14
+  store float %2, ptr %7, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %20 = load float, ptr %6, align 4, !tbaa !14
+  %21 = load float, ptr %6, align 4, !tbaa !14
+  %22 = load float, ptr %7, align 4, !tbaa !14
+  %23 = fmul float 4.000000e+00, %22
+  %24 = fneg float %23
+  %25 = call float @llvm.fmuladd.f32(float %20, float %21, float %24)
+  store float %25, ptr %8, align 4, !tbaa !14
+  %26 = load float, ptr %8, align 4, !tbaa !14
+  %27 = fcmp oge float %26, 0.000000e+00
+  br i1 %27, label %28, label %101
+
+28:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %29 = load float, ptr %8, align 4, !tbaa !14
+  %30 = call noundef float @_ZSt4sqrtf(float noundef %29)
+  store float %30, ptr %9, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %31 = load float, ptr %6, align 4, !tbaa !14
+  %32 = fneg float %31
+  %33 = load float, ptr %9, align 4, !tbaa !14
+  %34 = fadd float %32, %33
+  %35 = fdiv float %34, 2.000000e+00
+  store float %35, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %36 = load float, ptr %6, align 4, !tbaa !14
+  %37 = fneg float %36
+  %38 = load float, ptr %9, align 4, !tbaa !14
+  %39 = fsub float %37, %38
+  %40 = fdiv float %39, 2.000000e+00
+  store float %40, ptr %11, align 4, !tbaa !14
+  %41 = load float, ptr %11, align 4, !tbaa !14
+  %42 = fcmp oge float %41, 0.000000e+00
+  br i1 %42, label %43, label %62
+
+43:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %44 = load float, ptr %10, align 4, !tbaa !14
+  %45 = call noundef float @_ZSt4sqrtf(float noundef %44)
+  store float %45, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %46 = load float, ptr %11, align 4, !tbaa !14
+  %47 = call noundef float @_ZSt4sqrtf(float noundef %46)
+  store float %47, ptr %13, align 4, !tbaa !14
+  %48 = load float, ptr %12, align 4, !tbaa !14
+  %49 = fneg float %48
+  %50 = load ptr, ptr %5, align 8, !tbaa !12
+  %51 = getelementptr inbounds float, ptr %50, i64 0
+  store float %49, ptr %51, align 4, !tbaa !14
+  %52 = load float, ptr %12, align 4, !tbaa !14
+  %53 = load ptr, ptr %5, align 8, !tbaa !12
+  %54 = getelementptr inbounds float, ptr %53, i64 1
+  store float %52, ptr %54, align 4, !tbaa !14
+  %55 = load float, ptr %13, align 4, !tbaa !14
+  %56 = fneg float %55
+  %57 = load ptr, ptr %5, align 8, !tbaa !12
+  %58 = getelementptr inbounds float, ptr %57, i64 2
+  store float %56, ptr %58, align 4, !tbaa !14
+  %59 = load float, ptr %13, align 4, !tbaa !14
+  %60 = load ptr, ptr %5, align 8, !tbaa !12
+  %61 = getelementptr inbounds float, ptr %60, i64 3
+  store float %59, ptr %61, align 4, !tbaa !14
+  store i32 4, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  br label %100
+
+62:                                               ; preds = %28
+  %63 = load float, ptr %10, align 4, !tbaa !14
+  %64 = fcmp olt float %63, 0.000000e+00
+  br i1 %64, label %65, label %82
+
+65:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %66 = load float, ptr %10, align 4, !tbaa !14
+  %67 = fneg float %66
+  %68 = call noundef float @_ZSt4sqrtf(float noundef %67)
+  store float %68, ptr %15, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %69 = load float, ptr %11, align 4, !tbaa !14
+  %70 = fneg float %69
+  %71 = call noundef float @_ZSt4sqrtf(float noundef %70)
+  store float %71, ptr %16, align 4, !tbaa !14
+  %72 = load ptr, ptr %5, align 8, !tbaa !12
+  %73 = getelementptr inbounds float, ptr %72, i64 0
+  store float 0.000000e+00, ptr %73, align 4, !tbaa !14
+  %74 = load float, ptr %15, align 4, !tbaa !14
+  %75 = load ptr, ptr %5, align 8, !tbaa !12
+  %76 = getelementptr inbounds float, ptr %75, i64 1
+  store float %74, ptr %76, align 4, !tbaa !14
+  %77 = load ptr, ptr %5, align 8, !tbaa !12
+  %78 = getelementptr inbounds float, ptr %77, i64 2
+  store float 0.000000e+00, ptr %78, align 4, !tbaa !14
+  %79 = load float, ptr %16, align 4, !tbaa !14
+  %80 = load ptr, ptr %5, align 8, !tbaa !12
+  %81 = getelementptr inbounds float, ptr %80, i64 3
+  store float %79, ptr %81, align 4, !tbaa !14
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  br label %100
+
+82:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %83 = load float, ptr %10, align 4, !tbaa !14
+  %84 = call noundef float @_ZSt4sqrtf(float noundef %83)
+  store float %84, ptr %17, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %85 = load float, ptr %11, align 4, !tbaa !14
+  %86 = fneg float %85
+  %87 = call noundef float @_ZSt4sqrtf(float noundef %86)
+  store float %87, ptr %18, align 4, !tbaa !14
+  %88 = load float, ptr %17, align 4, !tbaa !14
+  %89 = fneg float %88
+  %90 = load ptr, ptr %5, align 8, !tbaa !12
+  %91 = getelementptr inbounds float, ptr %90, i64 0
+  store float %89, ptr %91, align 4, !tbaa !14
+  %92 = load float, ptr %17, align 4, !tbaa !14
+  %93 = load ptr, ptr %5, align 8, !tbaa !12
+  %94 = getelementptr inbounds float, ptr %93, i64 1
+  store float %92, ptr %94, align 4, !tbaa !14
+  %95 = load ptr, ptr %5, align 8, !tbaa !12
+  %96 = getelementptr inbounds float, ptr %95, i64 2
+  store float 0.000000e+00, ptr %96, align 4, !tbaa !14
+  %97 = load float, ptr %18, align 4, !tbaa !14
+  %98 = load ptr, ptr %5, align 8, !tbaa !12
+  %99 = getelementptr inbounds float, ptr %98, i64 3
+  store float %97, ptr %99, align 4, !tbaa !14
+  store i32 2, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  br label %100
+
+100:                                              ; preds = %82, %65, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  br label %127
+
+101:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  %102 = load float, ptr %8, align 4, !tbaa !14
+  %103 = fneg float %102
+  %104 = call noundef float @_ZSt4sqrtf(float noundef %103)
+  %105 = fpext float %104 to double
+  %106 = fmul double 5.000000e-01, %105
+  %107 = fptrunc double %106 to float
+  store float %107, ptr %19, align 4, !tbaa !14
+  %108 = load float, ptr %6, align 4, !tbaa !14
+  %109 = fpext float %108 to double
+  %110 = fmul double -5.000000e-01, %109
+  %111 = fptrunc double %110 to float
+  %112 = load float, ptr %19, align 4, !tbaa !14
+  %113 = load ptr, ptr %5, align 8, !tbaa !12
+  %114 = getelementptr inbounds float, ptr %113, i64 0
+  %115 = load ptr, ptr %5, align 8, !tbaa !12
+  %116 = getelementptr inbounds float, ptr %115, i64 1
+  call void @_Z5CSqrtffRfS_(float noundef %111, float noundef %112, ptr noundef nonnull align 4 dereferenceable(4) %114, ptr noundef nonnull align 4 dereferenceable(4) %116)
+  %117 = load float, ptr %6, align 4, !tbaa !14
+  %118 = fpext float %117 to double
+  %119 = fmul double -5.000000e-01, %118
+  %120 = fptrunc double %119 to float
+  %121 = load float, ptr %19, align 4, !tbaa !14
+  %122 = fneg float %121
+  %123 = load ptr, ptr %5, align 8, !tbaa !12
+  %124 = getelementptr inbounds float, ptr %123, i64 2
+  %125 = load ptr, ptr %5, align 8, !tbaa !12
+  %126 = getelementptr inbounds float, ptr %125, i64 3
+  call void @_Z5CSqrtffRfS_(float noundef %120, float noundef %122, ptr noundef nonnull align 4 dereferenceable(4) %124, ptr noundef nonnull align 4 dereferenceable(4) %126)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  br label %127
+
+127:                                              ; preds = %101, %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %128 = load i32, ptr %4, align 4
+  ret i32 %128
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef i32 @_Z9SolveP4DePffff(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3) #2 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !12
+  store float %1, ptr %7, align 4, !tbaa !14
+  store float %2, ptr %8, align 4, !tbaa !14
+  store float %3, ptr %9, align 4, !tbaa !14
+  %21 = load float, ptr %8, align 4, !tbaa !14
+  %22 = call noundef float @_ZSt4fabsf(float noundef %21)
+  %23 = fpext float %22 to double
+  %24 = load float, ptr %7, align 4, !tbaa !14
+  %25 = call noundef float @_ZSt4fabsf(float noundef %24)
+  %26 = load float, ptr %9, align 4, !tbaa !14
+  %27 = call noundef float @_ZSt4fabsf(float noundef %26)
+  %28 = fadd float %25, %27
+  %29 = fpext float %28 to double
+  %30 = fmul double 0x3D06849B86A12B9B, %29
+  %31 = fcmp olt double %23, %30
+  br i1 %31, label %32, label %37
+
+32:                                               ; preds = %4
+  %33 = load ptr, ptr %6, align 8, !tbaa !12
+  %34 = load float, ptr %7, align 4, !tbaa !14
+  %35 = load float, ptr %9, align 4, !tbaa !14
+  %36 = call noundef i32 @_Z9SolveP4BiPfff(ptr noundef %33, float noundef %34, float noundef %35)
+  store i32 %36, ptr %5, align 4
+  br label %281
+
+37:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %38 = load ptr, ptr %6, align 8, !tbaa !12
+  %39 = load float, ptr %7, align 4, !tbaa !14
+  %40 = fmul float 2.000000e+00, %39
+  %41 = load float, ptr %7, align 4, !tbaa !14
+  %42 = load float, ptr %7, align 4, !tbaa !14
+  %43 = load float, ptr %9, align 4, !tbaa !14
+  %44 = fmul float 4.000000e+00, %43
+  %45 = fneg float %44
+  %46 = call float @llvm.fmuladd.f32(float %41, float %42, float %45)
+  %47 = load float, ptr %8, align 4, !tbaa !14
+  %48 = fneg float %47
+  %49 = load float, ptr %8, align 4, !tbaa !14
+  %50 = fmul float %48, %49
+  %51 = call noundef i32 @_Z7SolveP3Pffff(ptr noundef %38, float noundef %40, float noundef %46, float noundef %50)
+  store i32 %51, ptr %10, align 4, !tbaa !9
+  %52 = load i32, ptr %10, align 4, !tbaa !9
+  %53 = icmp sgt i32 %52, 1
+  br i1 %53, label %54, label %215
+
+54:                                               ; preds = %37
+  %55 = load ptr, ptr %6, align 8, !tbaa !12
+  %56 = getelementptr inbounds float, ptr %55, i64 0
+  %57 = load ptr, ptr %6, align 8, !tbaa !12
+  %58 = getelementptr inbounds float, ptr %57, i64 1
+  %59 = load ptr, ptr %6, align 8, !tbaa !12
+  %60 = getelementptr inbounds float, ptr %59, i64 2
+  call void @_ZL8dblSort3RfS_S_(ptr noundef nonnull align 4 dereferenceable(4) %56, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 4 dereferenceable(4) %60)
+  %61 = load ptr, ptr %6, align 8, !tbaa !12
+  %62 = getelementptr inbounds float, ptr %61, i64 0
+  %63 = load float, ptr %62, align 4, !tbaa !14
+  %64 = fcmp ogt float %63, 0.000000e+00
+  br i1 %64, label %65, label %151
+
+65:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %66 = load ptr, ptr %6, align 8, !tbaa !12
+  %67 = getelementptr inbounds float, ptr %66, i64 0
+  %68 = load float, ptr %67, align 4, !tbaa !14
+  %69 = call noundef float @_ZSt4sqrtf(float noundef %68)
+  store float %69, ptr %11, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %70 = load ptr, ptr %6, align 8, !tbaa !12
+  %71 = getelementptr inbounds float, ptr %70, i64 1
+  %72 = load float, ptr %71, align 4, !tbaa !14
+  %73 = call noundef float @_ZSt4sqrtf(float noundef %72)
+  store float %73, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %74 = load ptr, ptr %6, align 8, !tbaa !12
+  %75 = getelementptr inbounds float, ptr %74, i64 2
+  %76 = load float, ptr %75, align 4, !tbaa !14
+  %77 = call noundef float @_ZSt4sqrtf(float noundef %76)
+  store float %77, ptr %13, align 4, !tbaa !14
+  %78 = load float, ptr %8, align 4, !tbaa !14
+  %79 = fcmp ogt float %78, 0.000000e+00
+  br i1 %79, label %80, label %115
+
+80:                                               ; preds = %65
+  %81 = load float, ptr %11, align 4, !tbaa !14
+  %82 = fneg float %81
+  %83 = load float, ptr %12, align 4, !tbaa !14
+  %84 = fsub float %82, %83
+  %85 = load float, ptr %13, align 4, !tbaa !14
+  %86 = fsub float %84, %85
+  %87 = fdiv float %86, 2.000000e+00
+  %88 = load ptr, ptr %6, align 8, !tbaa !12
+  %89 = getelementptr inbounds float, ptr %88, i64 0
+  store float %87, ptr %89, align 4, !tbaa !14
+  %90 = load float, ptr %11, align 4, !tbaa !14
+  %91 = fneg float %90
+  %92 = load float, ptr %12, align 4, !tbaa !14
+  %93 = fadd float %91, %92
+  %94 = load float, ptr %13, align 4, !tbaa !14
+  %95 = fadd float %93, %94
+  %96 = fdiv float %95, 2.000000e+00
+  %97 = load ptr, ptr %6, align 8, !tbaa !12
+  %98 = getelementptr inbounds float, ptr %97, i64 1
+  store float %96, ptr %98, align 4, !tbaa !14
+  %99 = load float, ptr %11, align 4, !tbaa !14
+  %100 = load float, ptr %12, align 4, !tbaa !14
+  %101 = fsub float %99, %100
+  %102 = load float, ptr %13, align 4, !tbaa !14
+  %103 = fadd float %101, %102
+  %104 = fdiv float %103, 2.000000e+00
+  %105 = load ptr, ptr %6, align 8, !tbaa !12
+  %106 = getelementptr inbounds float, ptr %105, i64 2
+  store float %104, ptr %106, align 4, !tbaa !14
+  %107 = load float, ptr %11, align 4, !tbaa !14
+  %108 = load float, ptr %12, align 4, !tbaa !14
+  %109 = fadd float %107, %108
+  %110 = load float, ptr %13, align 4, !tbaa !14
+  %111 = fsub float %109, %110
+  %112 = fdiv float %111, 2.000000e+00
+  %113 = load ptr, ptr %6, align 8, !tbaa !12
+  %114 = getelementptr inbounds float, ptr %113, i64 3
+  store float %112, ptr %114, align 4, !tbaa !14
+  store i32 4, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %150
+
+115:                                              ; preds = %65
+  %116 = load float, ptr %11, align 4, !tbaa !14
+  %117 = fneg float %116
+  %118 = load float, ptr %12, align 4, !tbaa !14
+  %119 = fsub float %117, %118
+  %120 = load float, ptr %13, align 4, !tbaa !14
+  %121 = fadd float %119, %120
+  %122 = fdiv float %121, 2.000000e+00
+  %123 = load ptr, ptr %6, align 8, !tbaa !12
+  %124 = getelementptr inbounds float, ptr %123, i64 0
+  store float %122, ptr %124, align 4, !tbaa !14
+  %125 = load float, ptr %11, align 4, !tbaa !14
+  %126 = fneg float %125
+  %127 = load float, ptr %12, align 4, !tbaa !14
+  %128 = fadd float %126, %127
+  %129 = load float, ptr %13, align 4, !tbaa !14
+  %130 = fsub float %128, %129
+  %131 = fdiv float %130, 2.000000e+00
+  %132 = load ptr, ptr %6, align 8, !tbaa !12
+  %133 = getelementptr inbounds float, ptr %132, i64 1
+  store float %131, ptr %133, align 4, !tbaa !14
+  %134 = load float, ptr %11, align 4, !tbaa !14
+  %135 = load float, ptr %12, align 4, !tbaa !14
+  %136 = fsub float %134, %135
+  %137 = load float, ptr %13, align 4, !tbaa !14
+  %138 = fsub float %136, %137
+  %139 = fdiv float %138, 2.000000e+00
+  %140 = load ptr, ptr %6, align 8, !tbaa !12
+  %141 = getelementptr inbounds float, ptr %140, i64 2
+  store float %139, ptr %141, align 4, !tbaa !14
+  %142 = load float, ptr %11, align 4, !tbaa !14
+  %143 = load float, ptr %12, align 4, !tbaa !14
+  %144 = fadd float %142, %143
+  %145 = load float, ptr %13, align 4, !tbaa !14
+  %146 = fadd float %144, %145
+  %147 = fdiv float %146, 2.000000e+00
+  %148 = load ptr, ptr %6, align 8, !tbaa !12
+  %149 = getelementptr inbounds float, ptr %148, i64 3
+  store float %147, ptr %149, align 4, !tbaa !14
+  store i32 4, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %150
+
+150:                                              ; preds = %115, %80
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  br label %280
+
+151:                                              ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %152 = load ptr, ptr %6, align 8, !tbaa !12
+  %153 = getelementptr inbounds float, ptr %152, i64 0
+  %154 = load float, ptr %153, align 4, !tbaa !14
+  %155 = fneg float %154
+  %156 = call noundef float @_ZSt4sqrtf(float noundef %155)
+  store float %156, ptr %15, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %157 = load ptr, ptr %6, align 8, !tbaa !12
+  %158 = getelementptr inbounds float, ptr %157, i64 1
+  %159 = load float, ptr %158, align 4, !tbaa !14
+  %160 = fneg float %159
+  %161 = call noundef float @_ZSt4sqrtf(float noundef %160)
+  store float %161, ptr %16, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %162 = load ptr, ptr %6, align 8, !tbaa !12
+  %163 = getelementptr inbounds float, ptr %162, i64 2
+  %164 = load float, ptr %163, align 4, !tbaa !14
+  %165 = call noundef float @_ZSt4sqrtf(float noundef %164)
+  store float %165, ptr %17, align 4, !tbaa !14
+  %166 = load float, ptr %8, align 4, !tbaa !14
+  %167 = fcmp ogt float %166, 0.000000e+00
+  br i1 %167, label %168, label %191
+
+168:                                              ; preds = %151
+  %169 = load float, ptr %17, align 4, !tbaa !14
+  %170 = fneg float %169
+  %171 = fdiv float %170, 2.000000e+00
+  %172 = load ptr, ptr %6, align 8, !tbaa !12
+  %173 = getelementptr inbounds float, ptr %172, i64 0
+  store float %171, ptr %173, align 4, !tbaa !14
+  %174 = load float, ptr %15, align 4, !tbaa !14
+  %175 = load float, ptr %16, align 4, !tbaa !14
+  %176 = fsub float %174, %175
+  %177 = fdiv float %176, 2.000000e+00
+  %178 = load ptr, ptr %6, align 8, !tbaa !12
+  %179 = getelementptr inbounds float, ptr %178, i64 1
+  store float %177, ptr %179, align 4, !tbaa !14
+  %180 = load float, ptr %17, align 4, !tbaa !14
+  %181 = fdiv float %180, 2.000000e+00
+  %182 = load ptr, ptr %6, align 8, !tbaa !12
+  %183 = getelementptr inbounds float, ptr %182, i64 2
+  store float %181, ptr %183, align 4, !tbaa !14
+  %184 = load float, ptr %15, align 4, !tbaa !14
+  %185 = fneg float %184
+  %186 = load float, ptr %16, align 4, !tbaa !14
+  %187 = fsub float %185, %186
+  %188 = fdiv float %187, 2.000000e+00
+  %189 = load ptr, ptr %6, align 8, !tbaa !12
+  %190 = getelementptr inbounds float, ptr %189, i64 3
+  store float %188, ptr %190, align 4, !tbaa !14
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %214
+
+191:                                              ; preds = %151
+  %192 = load float, ptr %17, align 4, !tbaa !14
+  %193 = fdiv float %192, 2.000000e+00
+  %194 = load ptr, ptr %6, align 8, !tbaa !12
+  %195 = getelementptr inbounds float, ptr %194, i64 0
+  store float %193, ptr %195, align 4, !tbaa !14
+  %196 = load float, ptr %15, align 4, !tbaa !14
+  %197 = fneg float %196
+  %198 = load float, ptr %16, align 4, !tbaa !14
+  %199 = fadd float %197, %198
+  %200 = fdiv float %199, 2.000000e+00
+  %201 = load ptr, ptr %6, align 8, !tbaa !12
+  %202 = getelementptr inbounds float, ptr %201, i64 1
+  store float %200, ptr %202, align 4, !tbaa !14
+  %203 = load float, ptr %17, align 4, !tbaa !14
+  %204 = fneg float %203
+  %205 = fdiv float %204, 2.000000e+00
+  %206 = load ptr, ptr %6, align 8, !tbaa !12
+  %207 = getelementptr inbounds float, ptr %206, i64 2
+  store float %205, ptr %207, align 4, !tbaa !14
+  %208 = load float, ptr %15, align 4, !tbaa !14
+  %209 = load float, ptr %16, align 4, !tbaa !14
+  %210 = fadd float %208, %209
+  %211 = fdiv float %210, 2.000000e+00
+  %212 = load ptr, ptr %6, align 8, !tbaa !12
+  %213 = getelementptr inbounds float, ptr %212, i64 3
+  store float %211, ptr %213, align 4, !tbaa !14
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %214
+
+214:                                              ; preds = %191, %168
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  br label %280
+
+215:                                              ; preds = %37
+  %216 = load ptr, ptr %6, align 8, !tbaa !12
+  %217 = getelementptr inbounds float, ptr %216, i64 0
+  %218 = load float, ptr %217, align 4, !tbaa !14
+  %219 = fcmp olt float %218, 0.000000e+00
+  br i1 %219, label %220, label %223
+
+220:                                              ; preds = %215
+  %221 = load ptr, ptr %6, align 8, !tbaa !12
+  %222 = getelementptr inbounds float, ptr %221, i64 0
+  store float 0.000000e+00, ptr %222, align 4, !tbaa !14
+  br label %223
+
+223:                                              ; preds = %220, %215
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %224 = load ptr, ptr %6, align 8, !tbaa !12
+  %225 = getelementptr inbounds float, ptr %224, i64 0
+  %226 = load float, ptr %225, align 4, !tbaa !14
+  %227 = call noundef float @_ZSt4sqrtf(float noundef %226)
+  store float %227, ptr %18, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  %228 = load ptr, ptr %6, align 8, !tbaa !12
+  %229 = getelementptr inbounds float, ptr %228, i64 1
+  %230 = load float, ptr %229, align 4, !tbaa !14
+  %231 = load ptr, ptr %6, align 8, !tbaa !12
+  %232 = getelementptr inbounds float, ptr %231, i64 2
+  %233 = load float, ptr %232, align 4, !tbaa !14
+  call void @_Z5CSqrtffRfS_(float noundef %230, float noundef %233, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %234 = load float, ptr %8, align 4, !tbaa !14
+  %235 = fcmp ogt float %234, 0.000000e+00
+  br i1 %235, label %236, label %258
+
+236:                                              ; preds = %223
+  %237 = load float, ptr %18, align 4, !tbaa !14
+  %238 = fneg float %237
+  %239 = fdiv float %238, 2.000000e+00
+  %240 = load float, ptr %19, align 4, !tbaa !14
+  %241 = fsub float %239, %240
+  %242 = load ptr, ptr %6, align 8, !tbaa !12
+  %243 = getelementptr inbounds float, ptr %242, i64 0
+  store float %241, ptr %243, align 4, !tbaa !14
+  %244 = load float, ptr %18, align 4, !tbaa !14
+  %245 = fneg float %244
+  %246 = fdiv float %245, 2.000000e+00
+  %247 = load float, ptr %19, align 4, !tbaa !14
+  %248 = fadd float %246, %247
+  %249 = load ptr, ptr %6, align 8, !tbaa !12
+  %250 = getelementptr inbounds float, ptr %249, i64 1
+  store float %248, ptr %250, align 4, !tbaa !14
+  %251 = load float, ptr %18, align 4, !tbaa !14
+  %252 = fdiv float %251, 2.000000e+00
+  %253 = load ptr, ptr %6, align 8, !tbaa !12
+  %254 = getelementptr inbounds float, ptr %253, i64 2
+  store float %252, ptr %254, align 4, !tbaa !14
+  %255 = load float, ptr %20, align 4, !tbaa !14
+  %256 = load ptr, ptr %6, align 8, !tbaa !12
+  %257 = getelementptr inbounds float, ptr %256, i64 3
+  store float %255, ptr %257, align 4, !tbaa !14
+  store i32 2, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %279
+
+258:                                              ; preds = %223
+  %259 = load float, ptr %18, align 4, !tbaa !14
+  %260 = fdiv float %259, 2.000000e+00
+  %261 = load float, ptr %19, align 4, !tbaa !14
+  %262 = fsub float %260, %261
+  %263 = load ptr, ptr %6, align 8, !tbaa !12
+  %264 = getelementptr inbounds float, ptr %263, i64 0
+  store float %262, ptr %264, align 4, !tbaa !14
+  %265 = load float, ptr %18, align 4, !tbaa !14
+  %266 = fdiv float %265, 2.000000e+00
+  %267 = load float, ptr %19, align 4, !tbaa !14
+  %268 = fadd float %266, %267
+  %269 = load ptr, ptr %6, align 8, !tbaa !12
+  %270 = getelementptr inbounds float, ptr %269, i64 1
+  store float %268, ptr %270, align 4, !tbaa !14
+  %271 = load float, ptr %18, align 4, !tbaa !14
+  %272 = fneg float %271
+  %273 = fdiv float %272, 2.000000e+00
+  %274 = load ptr, ptr %6, align 8, !tbaa !12
+  %275 = getelementptr inbounds float, ptr %274, i64 2
+  store float %273, ptr %275, align 4, !tbaa !14
+  %276 = load float, ptr %20, align 4, !tbaa !14
+  %277 = load ptr, ptr %6, align 8, !tbaa !12
+  %278 = getelementptr inbounds float, ptr %277, i64 3
+  store float %276, ptr %278, align 4, !tbaa !14
+  store i32 2, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %279
+
+279:                                              ; preds = %258, %236
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  br label %280
+
+280:                                              ; preds = %279, %214, %150
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  br label %281
+
+281:                                              ; preds = %280, %32
+  %282 = load i32, ptr %5, align 4
+  ret i32 %282
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL8dblSort3RfS_S_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !12
+  %9 = load float, ptr %8, align 4, !tbaa !14
+  %10 = load ptr, ptr %5, align 8, !tbaa !12
+  %11 = load float, ptr %10, align 4, !tbaa !14
+  %12 = fcmp ogt float %9, %11
+  br i1 %12, label %13, label %21
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !12
+  %15 = load float, ptr %14, align 4, !tbaa !14
+  store float %15, ptr %7, align 4, !tbaa !14
+  %16 = load ptr, ptr %4, align 8, !tbaa !12
+  %17 = load float, ptr %16, align 4, !tbaa !14
+  %18 = load ptr, ptr %5, align 8, !tbaa !12
+  store float %17, ptr %18, align 4, !tbaa !14
+  %19 = load float, ptr %7, align 4, !tbaa !14
+  %20 = load ptr, ptr %4, align 8, !tbaa !12
+  store float %19, ptr %20, align 4, !tbaa !14
+  br label %21
+
+21:                                               ; preds = %13, %3
+  %22 = load ptr, ptr %6, align 8, !tbaa !12
+  %23 = load float, ptr %22, align 4, !tbaa !14
+  %24 = load ptr, ptr %5, align 8, !tbaa !12
+  %25 = load float, ptr %24, align 4, !tbaa !14
+  %26 = fcmp olt float %23, %25
+  br i1 %26, label %27, label %49
+
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %6, align 8, !tbaa !12
+  %29 = load float, ptr %28, align 4, !tbaa !14
+  store float %29, ptr %7, align 4, !tbaa !14
+  %30 = load ptr, ptr %5, align 8, !tbaa !12
+  %31 = load float, ptr %30, align 4, !tbaa !14
+  %32 = load ptr, ptr %6, align 8, !tbaa !12
+  store float %31, ptr %32, align 4, !tbaa !14
+  %33 = load float, ptr %7, align 4, !tbaa !14
+  %34 = load ptr, ptr %5, align 8, !tbaa !12
+  store float %33, ptr %34, align 4, !tbaa !14
+  %35 = load ptr, ptr %4, align 8, !tbaa !12
+  %36 = load float, ptr %35, align 4, !tbaa !14
+  %37 = load ptr, ptr %5, align 8, !tbaa !12
+  %38 = load float, ptr %37, align 4, !tbaa !14
+  %39 = fcmp ogt float %36, %38
+  br i1 %39, label %40, label %48
+
+40:                                               ; preds = %27
+  %41 = load ptr, ptr %5, align 8, !tbaa !12
+  %42 = load float, ptr %41, align 4, !tbaa !14
+  store float %42, ptr %7, align 4, !tbaa !14
+  %43 = load ptr, ptr %4, align 8, !tbaa !12
+  %44 = load float, ptr %43, align 4, !tbaa !14
+  %45 = load ptr, ptr %5, align 8, !tbaa !12
+  store float %44, ptr %45, align 4, !tbaa !14
+  %46 = load float, ptr %7, align 4, !tbaa !14
+  %47 = load ptr, ptr %4, align 8, !tbaa !12
+  store float %46, ptr %47, align 4, !tbaa !14
+  br label %48
+
+48:                                               ; preds = %40, %27
+  br label %49
+
+49:                                               ; preds = %48, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef float @_Z6N4Stepfffff(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #1 {
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca float, align 4
+  store float %0, ptr %7, align 4, !tbaa !14
+  store float %1, ptr %8, align 4, !tbaa !14
+  store float %2, ptr %9, align 4, !tbaa !14
+  store float %3, ptr %10, align 4, !tbaa !14
+  store float %4, ptr %11, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %15 = load float, ptr %7, align 4, !tbaa !14
+  %16 = load float, ptr %8, align 4, !tbaa !14
+  %17 = fmul float 3.000000e+00, %16
+  %18 = call float @llvm.fmuladd.f32(float 4.000000e+00, float %15, float %17)
+  %19 = load float, ptr %7, align 4, !tbaa !14
+  %20 = load float, ptr %9, align 4, !tbaa !14
+  %21 = fmul float 2.000000e+00, %20
+  %22 = call float @llvm.fmuladd.f32(float %18, float %19, float %21)
+  %23 = load float, ptr %7, align 4, !tbaa !14
+  %24 = load float, ptr %10, align 4, !tbaa !14
+  %25 = call float @llvm.fmuladd.f32(float %22, float %23, float %24)
+  store float %25, ptr %12, align 4, !tbaa !14
+  %26 = load float, ptr %12, align 4, !tbaa !14
+  %27 = fcmp oeq float %26, 0.000000e+00
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %5
+  %29 = load float, ptr %7, align 4, !tbaa !14
+  store float %29, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %48
+
+30:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %31 = load float, ptr %7, align 4, !tbaa !14
+  %32 = load float, ptr %8, align 4, !tbaa !14
+  %33 = fadd float %31, %32
+  %34 = load float, ptr %7, align 4, !tbaa !14
+  %35 = load float, ptr %9, align 4, !tbaa !14
+  %36 = call float @llvm.fmuladd.f32(float %33, float %34, float %35)
+  %37 = load float, ptr %7, align 4, !tbaa !14
+  %38 = load float, ptr %10, align 4, !tbaa !14
+  %39 = call float @llvm.fmuladd.f32(float %36, float %37, float %38)
+  %40 = load float, ptr %7, align 4, !tbaa !14
+  %41 = load float, ptr %11, align 4, !tbaa !14
+  %42 = call float @llvm.fmuladd.f32(float %39, float %40, float %41)
+  store float %42, ptr %14, align 4, !tbaa !14
+  %43 = load float, ptr %7, align 4, !tbaa !14
+  %44 = load float, ptr %14, align 4, !tbaa !14
+  %45 = load float, ptr %12, align 4, !tbaa !14
+  %46 = fdiv float %44, %45
+  %47 = fsub float %43, %46
+  store float %47, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  br label %48
+
+48:                                               ; preds = %30, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %49 = load float, ptr %6, align 4
+  ret float %49
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef i32 @_Z7SolveP4Pfffff(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !12
+  store float %1, ptr %7, align 4, !tbaa !14
+  store float %2, ptr %8, align 4, !tbaa !14
+  store float %3, ptr %9, align 4, !tbaa !14
+  store float %4, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %15 = load float, ptr %10, align 4, !tbaa !14
+  %16 = fpext float %15 to double
+  %17 = load float, ptr %7, align 4, !tbaa !14
+  %18 = fpext float %17 to double
+  %19 = fmul double 2.500000e-01, %18
+  %20 = load float, ptr %8, align 4, !tbaa !14
+  %21 = fpext float %20 to double
+  %22 = fmul double 2.500000e-01, %21
+  %23 = load float, ptr %7, align 4, !tbaa !14
+  %24 = fpext float %23 to double
+  %25 = load float, ptr %7, align 4, !tbaa !14
+  %26 = fpext float %25 to double
+  %27 = fmul double 4.687500e-02, %26
+  %28 = load float, ptr %7, align 4, !tbaa !14
+  %29 = fpext float %28 to double
+  %30 = fmul double %27, %29
+  %31 = load float, ptr %7, align 4, !tbaa !14
+  %32 = fpext float %31 to double
+  %33 = fmul double %30, %32
+  %34 = fneg double %33
+  %35 = call double @llvm.fmuladd.f64(double %22, double %24, double %34)
+  %36 = load float, ptr %9, align 4, !tbaa !14
+  %37 = fpext float %36 to double
+  %38 = fsub double %35, %37
+  %39 = call double @llvm.fmuladd.f64(double %19, double %38, double %16)
+  %40 = fptrunc double %39 to float
+  store float %40, ptr %11, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %41 = load float, ptr %9, align 4, !tbaa !14
+  %42 = fpext float %41 to double
+  %43 = load float, ptr %7, align 4, !tbaa !14
+  %44 = fpext float %43 to double
+  %45 = fmul double 5.000000e-01, %44
+  %46 = load float, ptr %7, align 4, !tbaa !14
+  %47 = fpext float %46 to double
+  %48 = fmul double 2.500000e-01, %47
+  %49 = load float, ptr %7, align 4, !tbaa !14
+  %50 = fpext float %49 to double
+  %51 = load float, ptr %8, align 4, !tbaa !14
+  %52 = fpext float %51 to double
+  %53 = fneg double %52
+  %54 = call double @llvm.fmuladd.f64(double %48, double %50, double %53)
+  %55 = call double @llvm.fmuladd.f64(double %45, double %54, double %42)
+  %56 = fptrunc double %55 to float
+  store float %56, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %57 = load float, ptr %8, align 4, !tbaa !14
+  %58 = fpext float %57 to double
+  %59 = load float, ptr %7, align 4, !tbaa !14
+  %60 = fpext float %59 to double
+  %61 = fmul double 3.750000e-01, %60
+  %62 = load float, ptr %7, align 4, !tbaa !14
+  %63 = fpext float %62 to double
+  %64 = fneg double %61
+  %65 = call double @llvm.fmuladd.f64(double %64, double %63, double %58)
+  %66 = fptrunc double %65 to float
+  store float %66, ptr %13, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %67 = load ptr, ptr %6, align 8, !tbaa !12
+  %68 = load float, ptr %13, align 4, !tbaa !14
+  %69 = load float, ptr %12, align 4, !tbaa !14
+  %70 = load float, ptr %11, align 4, !tbaa !14
+  %71 = call noundef i32 @_Z9SolveP4DePffff(ptr noundef %67, float noundef %68, float noundef %69, float noundef %70)
+  store i32 %71, ptr %14, align 4, !tbaa !9
+  %72 = load i32, ptr %14, align 4, !tbaa !9
+  %73 = icmp eq i32 %72, 4
+  br i1 %73, label %74, label %99
+
+74:                                               ; preds = %5
+  %75 = load float, ptr %7, align 4, !tbaa !14
+  %76 = fdiv float %75, 4.000000e+00
+  %77 = load ptr, ptr %6, align 8, !tbaa !12
+  %78 = getelementptr inbounds float, ptr %77, i64 0
+  %79 = load float, ptr %78, align 4, !tbaa !14
+  %80 = fsub float %79, %76
+  store float %80, ptr %78, align 4, !tbaa !14
+  %81 = load float, ptr %7, align 4, !tbaa !14
+  %82 = fdiv float %81, 4.000000e+00
+  %83 = load ptr, ptr %6, align 8, !tbaa !12
+  %84 = getelementptr inbounds float, ptr %83, i64 1
+  %85 = load float, ptr %84, align 4, !tbaa !14
+  %86 = fsub float %85, %82
+  store float %86, ptr %84, align 4, !tbaa !14
+  %87 = load float, ptr %7, align 4, !tbaa !14
+  %88 = fdiv float %87, 4.000000e+00
+  %89 = load ptr, ptr %6, align 8, !tbaa !12
+  %90 = getelementptr inbounds float, ptr %89, i64 2
+  %91 = load float, ptr %90, align 4, !tbaa !14
+  %92 = fsub float %91, %88
+  store float %92, ptr %90, align 4, !tbaa !14
+  %93 = load float, ptr %7, align 4, !tbaa !14
+  %94 = fdiv float %93, 4.000000e+00
+  %95 = load ptr, ptr %6, align 8, !tbaa !12
+  %96 = getelementptr inbounds float, ptr %95, i64 3
+  %97 = load float, ptr %96, align 4, !tbaa !14
+  %98 = fsub float %97, %94
+  store float %98, ptr %96, align 4, !tbaa !14
+  br label %135
+
+99:                                               ; preds = %5
+  %100 = load i32, ptr %14, align 4, !tbaa !9
+  %101 = icmp eq i32 %100, 2
+  br i1 %101, label %102, label %121
+
+102:                                              ; preds = %99
+  %103 = load float, ptr %7, align 4, !tbaa !14
+  %104 = fdiv float %103, 4.000000e+00
+  %105 = load ptr, ptr %6, align 8, !tbaa !12
+  %106 = getelementptr inbounds float, ptr %105, i64 0
+  %107 = load float, ptr %106, align 4, !tbaa !14
+  %108 = fsub float %107, %104
+  store float %108, ptr %106, align 4, !tbaa !14
+  %109 = load float, ptr %7, align 4, !tbaa !14
+  %110 = fdiv float %109, 4.000000e+00
+  %111 = load ptr, ptr %6, align 8, !tbaa !12
+  %112 = getelementptr inbounds float, ptr %111, i64 1
+  %113 = load float, ptr %112, align 4, !tbaa !14
+  %114 = fsub float %113, %110
+  store float %114, ptr %112, align 4, !tbaa !14
+  %115 = load float, ptr %7, align 4, !tbaa !14
+  %116 = fdiv float %115, 4.000000e+00
+  %117 = load ptr, ptr %6, align 8, !tbaa !12
+  %118 = getelementptr inbounds float, ptr %117, i64 2
+  %119 = load float, ptr %118, align 4, !tbaa !14
+  %120 = fsub float %119, %116
+  store float %120, ptr %118, align 4, !tbaa !14
+  br label %134
+
+121:                                              ; preds = %99
+  %122 = load float, ptr %7, align 4, !tbaa !14
+  %123 = fdiv float %122, 4.000000e+00
+  %124 = load ptr, ptr %6, align 8, !tbaa !12
+  %125 = getelementptr inbounds float, ptr %124, i64 0
+  %126 = load float, ptr %125, align 4, !tbaa !14
+  %127 = fsub float %126, %123
+  store float %127, ptr %125, align 4, !tbaa !14
+  %128 = load float, ptr %7, align 4, !tbaa !14
+  %129 = fdiv float %128, 4.000000e+00
+  %130 = load ptr, ptr %6, align 8, !tbaa !12
+  %131 = getelementptr inbounds float, ptr %130, i64 2
+  %132 = load float, ptr %131, align 4, !tbaa !14
+  %133 = fsub float %132, %129
+  store float %133, ptr %131, align 4, !tbaa !14
+  br label %134
+
+134:                                              ; preds = %121, %102
+  br label %135
+
+135:                                              ; preds = %134, %74
+  %136 = load i32, ptr %14, align 4, !tbaa !9
+  %137 = icmp sgt i32 %136, 0
+  br i1 %137, label %138, label %159
+
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %6, align 8, !tbaa !12
+  %140 = getelementptr inbounds float, ptr %139, i64 0
+  %141 = load float, ptr %140, align 4, !tbaa !14
+  %142 = load float, ptr %7, align 4, !tbaa !14
+  %143 = load float, ptr %8, align 4, !tbaa !14
+  %144 = load float, ptr %9, align 4, !tbaa !14
+  %145 = load float, ptr %10, align 4, !tbaa !14
+  %146 = call noundef float @_Z6N4Stepfffff(float noundef %141, float noundef %142, float noundef %143, float noundef %144, float noundef %145)
+  %147 = load ptr, ptr %6, align 8, !tbaa !12
+  %148 = getelementptr inbounds float, ptr %147, i64 0
+  store float %146, ptr %148, align 4, !tbaa !14
+  %149 = load ptr, ptr %6, align 8, !tbaa !12
+  %150 = getelementptr inbounds float, ptr %149, i64 1
+  %151 = load float, ptr %150, align 4, !tbaa !14
+  %152 = load float, ptr %7, align 4, !tbaa !14
+  %153 = load float, ptr %8, align 4, !tbaa !14
+  %154 = load float, ptr %9, align 4, !tbaa !14
+  %155 = load float, ptr %10, align 4, !tbaa !14
+  %156 = call noundef float @_Z6N4Stepfffff(float noundef %151, float noundef %152, float noundef %153, float noundef %154, float noundef %155)
+  %157 = load ptr, ptr %6, align 8, !tbaa !12
+  %158 = getelementptr inbounds float, ptr %157, i64 1
+  store float %156, ptr %158, align 4, !tbaa !14
+  br label %159
+
+159:                                              ; preds = %138, %135
+  %160 = load i32, ptr %14, align 4, !tbaa !9
+  %161 = icmp sgt i32 %160, 2
+  br i1 %161, label %162, label %183
+
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %6, align 8, !tbaa !12
+  %164 = getelementptr inbounds float, ptr %163, i64 2
+  %165 = load float, ptr %164, align 4, !tbaa !14
+  %166 = load float, ptr %7, align 4, !tbaa !14
+  %167 = load float, ptr %8, align 4, !tbaa !14
+  %168 = load float, ptr %9, align 4, !tbaa !14
+  %169 = load float, ptr %10, align 4, !tbaa !14
+  %170 = call noundef float @_Z6N4Stepfffff(float noundef %165, float noundef %166, float noundef %167, float noundef %168, float noundef %169)
+  %171 = load ptr, ptr %6, align 8, !tbaa !12
+  %172 = getelementptr inbounds float, ptr %171, i64 2
+  store float %170, ptr %172, align 4, !tbaa !14
+  %173 = load ptr, ptr %6, align 8, !tbaa !12
+  %174 = getelementptr inbounds float, ptr %173, i64 3
+  %175 = load float, ptr %174, align 4, !tbaa !14
+  %176 = load float, ptr %7, align 4, !tbaa !14
+  %177 = load float, ptr %8, align 4, !tbaa !14
+  %178 = load float, ptr %9, align 4, !tbaa !14
+  %179 = load float, ptr %10, align 4, !tbaa !14
+  %180 = call noundef float @_Z6N4Stepfffff(float noundef %175, float noundef %176, float noundef %177, float noundef %178, float noundef %179)
+  %181 = load ptr, ptr %6, align 8, !tbaa !12
+  %182 = getelementptr inbounds float, ptr %181, i64 3
+  store float %180, ptr %182, align 4, !tbaa !14
+  br label %183
+
+183:                                              ; preds = %162, %159
+  %184 = load i32, ptr %14, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  ret i32 %184
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #2 {
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  %21 = alloca float, align 4
+  %22 = alloca float, align 4
+  store float %0, ptr %7, align 4, !tbaa !14
+  store float %1, ptr %8, align 4, !tbaa !14
+  store float %2, ptr %9, align 4, !tbaa !14
+  store float %3, ptr %10, align 4, !tbaa !14
+  store float %4, ptr %11, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %23 = load float, ptr %11, align 4, !tbaa !14
+  %24 = call noundef float @_ZSt4fabsf(float noundef %23)
+  %25 = fcmp olt float %24, 0x3E80000000000000
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %5
+  store float 0.000000e+00, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %248
+
+27:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %28 = load float, ptr %7, align 4, !tbaa !14
+  %29 = call noundef float @_ZSt4fabsf(float noundef %28)
+  store float %29, ptr %14, align 4, !tbaa !14
+  %30 = load float, ptr %8, align 4, !tbaa !14
+  %31 = call noundef float @_ZSt4fabsf(float noundef %30)
+  %32 = load float, ptr %14, align 4, !tbaa !14
+  %33 = fcmp ogt float %31, %32
+  br i1 %33, label %34, label %37
+
+34:                                               ; preds = %27
+  %35 = load float, ptr %8, align 4, !tbaa !14
+  %36 = call noundef float @_ZSt4fabsf(float noundef %35)
+  store float %36, ptr %14, align 4, !tbaa !14
+  br label %37
+
+37:                                               ; preds = %34, %27
+  %38 = load float, ptr %9, align 4, !tbaa !14
+  %39 = call noundef float @_ZSt4fabsf(float noundef %38)
+  %40 = load float, ptr %14, align 4, !tbaa !14
+  %41 = fcmp ogt float %39, %40
+  br i1 %41, label %42, label %45
+
+42:                                               ; preds = %37
+  %43 = load float, ptr %9, align 4, !tbaa !14
+  %44 = call noundef float @_ZSt4fabsf(float noundef %43)
+  store float %44, ptr %14, align 4, !tbaa !14
+  br label %45
+
+45:                                               ; preds = %42, %37
+  %46 = load float, ptr %10, align 4, !tbaa !14
+  %47 = call noundef float @_ZSt4fabsf(float noundef %46)
+  %48 = load float, ptr %14, align 4, !tbaa !14
+  %49 = fcmp ogt float %47, %48
+  br i1 %49, label %50, label %53
+
+50:                                               ; preds = %45
+  %51 = load float, ptr %10, align 4, !tbaa !14
+  %52 = call noundef float @_ZSt4fabsf(float noundef %51)
+  store float %52, ptr %14, align 4, !tbaa !14
+  br label %53
+
+53:                                               ; preds = %50, %45
+  %54 = load float, ptr %11, align 4, !tbaa !14
+  %55 = call noundef float @_ZSt4fabsf(float noundef %54)
+  %56 = load float, ptr %14, align 4, !tbaa !14
+  %57 = fcmp ogt float %55, %56
+  br i1 %57, label %58, label %61
+
+58:                                               ; preds = %53
+  %59 = load float, ptr %11, align 4, !tbaa !14
+  %60 = call noundef float @_ZSt4fabsf(float noundef %59)
+  store float %60, ptr %14, align 4, !tbaa !14
+  br label %61
+
+61:                                               ; preds = %58, %53
+  %62 = load float, ptr %14, align 4, !tbaa !14
+  %63 = fadd float %62, 1.000000e+00
+  store float %63, ptr %14, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  store float 0.000000e+00, ptr %22, align 4, !tbaa !14
+  %64 = load float, ptr %11, align 4, !tbaa !14
+  %65 = fcmp olt float %64, 0.000000e+00
+  br i1 %65, label %66, label %88
+
+66:                                               ; preds = %61
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !14
+  %67 = load float, ptr %14, align 4, !tbaa !14
+  store float %67, ptr %17, align 4, !tbaa !14
+  %68 = load float, ptr %11, align 4, !tbaa !14
+  store float %68, ptr %16, align 4, !tbaa !14
+  %69 = load float, ptr %17, align 4, !tbaa !14
+  %70 = load float, ptr %7, align 4, !tbaa !14
+  %71 = fadd float %69, %70
+  %72 = load float, ptr %17, align 4, !tbaa !14
+  %73 = load float, ptr %8, align 4, !tbaa !14
+  %74 = call float @llvm.fmuladd.f32(float %71, float %72, float %73)
+  %75 = load float, ptr %17, align 4, !tbaa !14
+  %76 = load float, ptr %9, align 4, !tbaa !14
+  %77 = call float @llvm.fmuladd.f32(float %74, float %75, float %76)
+  %78 = load float, ptr %17, align 4, !tbaa !14
+  %79 = load float, ptr %10, align 4, !tbaa !14
+  %80 = call float @llvm.fmuladd.f32(float %77, float %78, float %79)
+  %81 = load float, ptr %17, align 4, !tbaa !14
+  %82 = load float, ptr %11, align 4, !tbaa !14
+  %83 = call float @llvm.fmuladd.f32(float %80, float %81, float %82)
+  store float %83, ptr %18, align 4, !tbaa !14
+  %84 = load float, ptr %14, align 4, !tbaa !14
+  %85 = fpext float %84 to double
+  %86 = fmul double 1.000000e-02, %85
+  %87 = fptrunc double %86 to float
+  store float %87, ptr %19, align 4, !tbaa !14
+  br label %111
+
+88:                                               ; preds = %61
+  %89 = load float, ptr %14, align 4, !tbaa !14
+  %90 = fneg float %89
+  store float %90, ptr %15, align 4, !tbaa !14
+  store float 0.000000e+00, ptr %17, align 4, !tbaa !14
+  %91 = load float, ptr %15, align 4, !tbaa !14
+  %92 = load float, ptr %7, align 4, !tbaa !14
+  %93 = fadd float %91, %92
+  %94 = load float, ptr %15, align 4, !tbaa !14
+  %95 = load float, ptr %8, align 4, !tbaa !14
+  %96 = call float @llvm.fmuladd.f32(float %93, float %94, float %95)
+  %97 = load float, ptr %15, align 4, !tbaa !14
+  %98 = load float, ptr %9, align 4, !tbaa !14
+  %99 = call float @llvm.fmuladd.f32(float %96, float %97, float %98)
+  %100 = load float, ptr %15, align 4, !tbaa !14
+  %101 = load float, ptr %10, align 4, !tbaa !14
+  %102 = call float @llvm.fmuladd.f32(float %99, float %100, float %101)
+  %103 = load float, ptr %15, align 4, !tbaa !14
+  %104 = load float, ptr %11, align 4, !tbaa !14
+  %105 = call float @llvm.fmuladd.f32(float %102, float %103, float %104)
+  store float %105, ptr %16, align 4, !tbaa !14
+  %106 = load float, ptr %11, align 4, !tbaa !14
+  store float %106, ptr %18, align 4, !tbaa !14
+  %107 = load float, ptr %14, align 4, !tbaa !14
+  %108 = fpext float %107 to double
+  %109 = fmul double -1.000000e-02, %108
+  %110 = fptrunc double %109 to float
+  store float %110, ptr %19, align 4, !tbaa !14
+  br label %111
+
+111:                                              ; preds = %88, %66
+  %112 = load float, ptr %16, align 4, !tbaa !14
+  %113 = call noundef float @_ZSt4fabsf(float noundef %112)
+  %114 = fcmp olt float %113, 0x3E80000000000000
+  br i1 %114, label %115, label %117
+
+115:                                              ; preds = %111
+  %116 = load float, ptr %15, align 4, !tbaa !14
+  store float %116, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %247
+
+117:                                              ; preds = %111
+  %118 = load float, ptr %18, align 4, !tbaa !14
+  %119 = call noundef float @_ZSt4fabsf(float noundef %118)
+  %120 = fcmp olt float %119, 0x3E80000000000000
+  br i1 %120, label %121, label %123
+
+121:                                              ; preds = %117
+  %122 = load float, ptr %17, align 4, !tbaa !14
+  store float %122, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %247
+
+123:                                              ; preds = %117
+  store i32 0, ptr %12, align 4, !tbaa !9
+  br label %124
+
+124:                                              ; preds = %162, %123
+  %125 = load i32, ptr %12, align 4, !tbaa !9
+  %126 = icmp slt i32 %125, 10
+  br i1 %126, label %127, label %165
+
+127:                                              ; preds = %124
+  %128 = load float, ptr %15, align 4, !tbaa !14
+  %129 = load float, ptr %17, align 4, !tbaa !14
+  %130 = fadd float %128, %129
+  %131 = fdiv float %130, 2.000000e+00
+  store float %131, ptr %19, align 4, !tbaa !14
+  %132 = load float, ptr %19, align 4, !tbaa !14
+  %133 = load float, ptr %7, align 4, !tbaa !14
+  %134 = fadd float %132, %133
+  %135 = load float, ptr %19, align 4, !tbaa !14
+  %136 = load float, ptr %8, align 4, !tbaa !14
+  %137 = call float @llvm.fmuladd.f32(float %134, float %135, float %136)
+  %138 = load float, ptr %19, align 4, !tbaa !14
+  %139 = load float, ptr %9, align 4, !tbaa !14
+  %140 = call float @llvm.fmuladd.f32(float %137, float %138, float %139)
+  %141 = load float, ptr %19, align 4, !tbaa !14
+  %142 = load float, ptr %10, align 4, !tbaa !14
+  %143 = call float @llvm.fmuladd.f32(float %140, float %141, float %142)
+  %144 = load float, ptr %19, align 4, !tbaa !14
+  %145 = load float, ptr %11, align 4, !tbaa !14
+  %146 = call float @llvm.fmuladd.f32(float %143, float %144, float %145)
+  store float %146, ptr %20, align 4, !tbaa !14
+  %147 = load float, ptr %20, align 4, !tbaa !14
+  %148 = call noundef float @_ZSt4fabsf(float noundef %147)
+  %149 = fcmp olt float %148, 0x3E80000000000000
+  br i1 %149, label %150, label %152
+
+150:                                              ; preds = %127
+  %151 = load float, ptr %19, align 4, !tbaa !14
+  store float %151, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %247
+
+152:                                              ; preds = %127
+  %153 = load float, ptr %20, align 4, !tbaa !14
+  %154 = fcmp ogt float %153, 0.000000e+00
+  br i1 %154, label %155, label %158
+
+155:                                              ; preds = %152
+  %156 = load float, ptr %19, align 4, !tbaa !14
+  store float %156, ptr %17, align 4, !tbaa !14
+  %157 = load float, ptr %20, align 4, !tbaa !14
+  store float %157, ptr %18, align 4, !tbaa !14
+  br label %161
+
+158:                                              ; preds = %152
+  %159 = load float, ptr %19, align 4, !tbaa !14
+  store float %159, ptr %15, align 4, !tbaa !14
+  %160 = load float, ptr %20, align 4, !tbaa !14
+  store float %160, ptr %16, align 4, !tbaa !14
+  br label %161
+
+161:                                              ; preds = %158, %155
+  br label %162
+
+162:                                              ; preds = %161
+  %163 = load i32, ptr %12, align 4, !tbaa !9
+  %164 = add nsw i32 %163, 1
+  store i32 %164, ptr %12, align 4, !tbaa !9
+  br label %124, !llvm.loop !16
+
+165:                                              ; preds = %124
+  br label %166
+
+166:                                              ; preds = %241, %165
+  %167 = load i32, ptr %12, align 4, !tbaa !9
+  %168 = add nsw i32 %167, 1
+  store i32 %168, ptr %12, align 4, !tbaa !9
+  %169 = icmp sgt i32 %167, 50
+  br i1 %169, label %170, label %171
+
+170:                                              ; preds = %166
+  br label %245
+
+171:                                              ; preds = %166
+  %172 = load float, ptr %19, align 4, !tbaa !14
+  %173 = load float, ptr %15, align 4, !tbaa !14
+  %174 = fcmp ole float %172, %173
+  br i1 %174, label %179, label %175
+
+175:                                              ; preds = %171
+  %176 = load float, ptr %19, align 4, !tbaa !14
+  %177 = load float, ptr %17, align 4, !tbaa !14
+  %178 = fcmp oge float %176, %177
+  br i1 %178, label %179, label %184
+
+179:                                              ; preds = %175, %171
+  %180 = load float, ptr %15, align 4, !tbaa !14
+  %181 = load float, ptr %17, align 4, !tbaa !14
+  %182 = fadd float %180, %181
+  %183 = fdiv float %182, 2.000000e+00
+  store float %183, ptr %19, align 4, !tbaa !14
+  br label %184
+
+184:                                              ; preds = %179, %175
+  %185 = load float, ptr %19, align 4, !tbaa !14
+  %186 = load float, ptr %7, align 4, !tbaa !14
+  %187 = fadd float %185, %186
+  %188 = load float, ptr %19, align 4, !tbaa !14
+  %189 = load float, ptr %8, align 4, !tbaa !14
+  %190 = call float @llvm.fmuladd.f32(float %187, float %188, float %189)
+  %191 = load float, ptr %19, align 4, !tbaa !14
+  %192 = load float, ptr %9, align 4, !tbaa !14
+  %193 = call float @llvm.fmuladd.f32(float %190, float %191, float %192)
+  %194 = load float, ptr %19, align 4, !tbaa !14
+  %195 = load float, ptr %10, align 4, !tbaa !14
+  %196 = call float @llvm.fmuladd.f32(float %193, float %194, float %195)
+  %197 = load float, ptr %19, align 4, !tbaa !14
+  %198 = load float, ptr %11, align 4, !tbaa !14
+  %199 = call float @llvm.fmuladd.f32(float %196, float %197, float %198)
+  store float %199, ptr %20, align 4, !tbaa !14
+  %200 = load float, ptr %20, align 4, !tbaa !14
+  %201 = call noundef float @_ZSt4fabsf(float noundef %200)
+  %202 = fcmp olt float %201, 0x3E80000000000000
+  br i1 %202, label %203, label %205
+
+203:                                              ; preds = %184
+  %204 = load float, ptr %19, align 4, !tbaa !14
+  store float %204, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %247
+
+205:                                              ; preds = %184
+  %206 = load float, ptr %20, align 4, !tbaa !14
+  %207 = fcmp ogt float %206, 0.000000e+00
+  br i1 %207, label %208, label %211
+
+208:                                              ; preds = %205
+  %209 = load float, ptr %19, align 4, !tbaa !14
+  store float %209, ptr %17, align 4, !tbaa !14
+  %210 = load float, ptr %20, align 4, !tbaa !14
+  store float %210, ptr %18, align 4, !tbaa !14
+  br label %214
+
+211:                                              ; preds = %205
+  %212 = load float, ptr %19, align 4, !tbaa !14
+  store float %212, ptr %15, align 4, !tbaa !14
+  %213 = load float, ptr %20, align 4, !tbaa !14
+  store float %213, ptr %16, align 4, !tbaa !14
+  br label %214
+
+214:                                              ; preds = %211, %208
+  %215 = load float, ptr %19, align 4, !tbaa !14
+  %216 = load float, ptr %7, align 4, !tbaa !14
+  %217 = fmul float 4.000000e+00, %216
+  %218 = call float @llvm.fmuladd.f32(float 5.000000e+00, float %215, float %217)
+  %219 = load float, ptr %19, align 4, !tbaa !14
+  %220 = load float, ptr %8, align 4, !tbaa !14
+  %221 = fmul float 3.000000e+00, %220
+  %222 = call float @llvm.fmuladd.f32(float %218, float %219, float %221)
+  %223 = load float, ptr %19, align 4, !tbaa !14
+  %224 = load float, ptr %9, align 4, !tbaa !14
+  %225 = fmul float 2.000000e+00, %224
+  %226 = call float @llvm.fmuladd.f32(float %222, float %223, float %225)
+  %227 = load float, ptr %19, align 4, !tbaa !14
+  %228 = load float, ptr %10, align 4, !tbaa !14
+  %229 = call float @llvm.fmuladd.f32(float %226, float %227, float %228)
+  store float %229, ptr %21, align 4, !tbaa !14
+  %230 = load float, ptr %21, align 4, !tbaa !14
+  %231 = call noundef float @_ZSt4fabsf(float noundef %230)
+  %232 = fcmp olt float %231, 0x3E80000000000000
+  br i1 %232, label %233, label %234
+
+233:                                              ; preds = %214
+  store float 0x7FF0000000000000, ptr %19, align 4, !tbaa !14
+  br label %241
+
+234:                                              ; preds = %214
+  %235 = load float, ptr %20, align 4, !tbaa !14
+  %236 = load float, ptr %21, align 4, !tbaa !14
+  %237 = fdiv float %235, %236
+  store float %237, ptr %22, align 4, !tbaa !14
+  %238 = load float, ptr %22, align 4, !tbaa !14
+  %239 = load float, ptr %19, align 4, !tbaa !14
+  %240 = fsub float %239, %238
+  store float %240, ptr %19, align 4, !tbaa !14
+  br label %241
+
+241:                                              ; preds = %234, %233
+  %242 = load float, ptr %22, align 4, !tbaa !14
+  %243 = call noundef float @_ZSt4fabsf(float noundef %242)
+  %244 = fcmp ogt float %243, 0x3E80000000000000
+  br i1 %244, label %166, label %245, !llvm.loop !18
+
+245:                                              ; preds = %241, %170
+  %246 = load float, ptr %19, align 4, !tbaa !14
+  store float %246, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %247
+
+247:                                              ; preds = %245, %203, %150, %121, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  br label %248
+
+248:                                              ; preds = %247, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %249 = load float, ptr %6, align 4
+  ret float %249
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef i32 @_Z7SolveP5Pffffff(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) #2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !12
+  store float %1, ptr %8, align 4, !tbaa !14
+  store float %2, ptr %9, align 4, !tbaa !14
+  store float %3, ptr %10, align 4, !tbaa !14
+  store float %4, ptr %11, align 4, !tbaa !14
+  store float %5, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %18 = load float, ptr %8, align 4, !tbaa !14
+  %19 = load float, ptr %9, align 4, !tbaa !14
+  %20 = load float, ptr %10, align 4, !tbaa !14
+  %21 = load float, ptr %11, align 4, !tbaa !14
+  %22 = load float, ptr %12, align 4, !tbaa !14
+  %23 = call noundef float @_Z9SolveP5_1fffff(float noundef %18, float noundef %19, float noundef %20, float noundef %21, float noundef %22)
+  %24 = load ptr, ptr %7, align 8, !tbaa !12
+  %25 = getelementptr inbounds float, ptr %24, i64 0
+  store float %23, ptr %25, align 4, !tbaa !14
+  store float %23, ptr %13, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %26 = load float, ptr %8, align 4, !tbaa !14
+  %27 = load float, ptr %13, align 4, !tbaa !14
+  %28 = fadd float %26, %27
+  store float %28, ptr %14, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %29 = load float, ptr %9, align 4, !tbaa !14
+  %30 = load float, ptr %13, align 4, !tbaa !14
+  %31 = load float, ptr %14, align 4, !tbaa !14
+  %32 = call float @llvm.fmuladd.f32(float %30, float %31, float %29)
+  store float %32, ptr %15, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %33 = load float, ptr %10, align 4, !tbaa !14
+  %34 = load float, ptr %13, align 4, !tbaa !14
+  %35 = load float, ptr %15, align 4, !tbaa !14
+  %36 = call float @llvm.fmuladd.f32(float %34, float %35, float %33)
+  store float %36, ptr %16, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %37 = load float, ptr %11, align 4, !tbaa !14
+  %38 = load float, ptr %13, align 4, !tbaa !14
+  %39 = load float, ptr %16, align 4, !tbaa !14
+  %40 = call float @llvm.fmuladd.f32(float %38, float %39, float %37)
+  store float %40, ptr %17, align 4, !tbaa !14
+  %41 = load ptr, ptr %7, align 8, !tbaa !12
+  %42 = getelementptr inbounds float, ptr %41, i64 1
+  %43 = load float, ptr %14, align 4, !tbaa !14
+  %44 = load float, ptr %15, align 4, !tbaa !14
+  %45 = load float, ptr %16, align 4, !tbaa !14
+  %46 = load float, ptr %17, align 4, !tbaa !14
+  %47 = call noundef i32 @_Z7SolveP4Pfffff(ptr noundef %42, float noundef %43, float noundef %44, float noundef %45, float noundef %46)
+  %48 = add nsw i32 1, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  ret i32 %48
+}
+
+; Function Attrs: nounwind
+declare float @sqrtf(float noundef) #6
+
+; Function Attrs: nounwind
+declare float @acosf(float noundef) #6
+
+; Function Attrs: nounwind
+declare float @cosf(float noundef) #6
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef float @_ZL6_root3f(float noundef %0) #5 {
+  %2 = alloca float, align 4
+  %3 = alloca float, align 4
+  %4 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  store float 1.000000e+00, ptr %3, align 4, !tbaa !14
+  br label %5
+
+5:                                                ; preds = %9, %1
+  %6 = load float, ptr %2, align 4, !tbaa !14
+  %7 = fpext float %6 to double
+  %8 = fcmp olt double %7, 1.000000e+00
+  br i1 %8, label %9, label %18
+
+9:                                                ; preds = %5
+  %10 = load float, ptr %2, align 4, !tbaa !14
+  %11 = fpext float %10 to double
+  %12 = fmul double %11, 8.000000e+00
+  %13 = fptrunc double %12 to float
+  store float %13, ptr %2, align 4, !tbaa !14
+  %14 = load float, ptr %3, align 4, !tbaa !14
+  %15 = fpext float %14 to double
+  %16 = fmul double %15, 5.000000e-01
+  %17 = fptrunc double %16 to float
+  store float %17, ptr %3, align 4, !tbaa !14
+  br label %5, !llvm.loop !19
+
+18:                                               ; preds = %5
+  br label %19
+
+19:                                               ; preds = %23, %18
+  %20 = load float, ptr %2, align 4, !tbaa !14
+  %21 = fpext float %20 to double
+  %22 = fcmp ogt double %21, 8.000000e+00
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %19
+  %24 = load float, ptr %2, align 4, !tbaa !14
+  %25 = fpext float %24 to double
+  %26 = fmul double %25, 1.250000e-01
+  %27 = fptrunc double %26 to float
+  store float %27, ptr %2, align 4, !tbaa !14
+  %28 = load float, ptr %3, align 4, !tbaa !14
+  %29 = fpext float %28 to double
+  %30 = fmul double %29, 2.000000e+00
+  %31 = fptrunc double %30 to float
+  store float %31, ptr %3, align 4, !tbaa !14
+  br label %19, !llvm.loop !20
+
+32:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  store float 1.500000e+00, ptr %4, align 4, !tbaa !14
+  %33 = load float, ptr %4, align 4, !tbaa !14
+  %34 = load float, ptr %2, align 4, !tbaa !14
+  %35 = load float, ptr %4, align 4, !tbaa !14
+  %36 = load float, ptr %4, align 4, !tbaa !14
+  %37 = fmul float %35, %36
+  %38 = fdiv float %34, %37
+  %39 = fsub float %33, %38
+  %40 = fpext float %39 to double
+  %41 = load float, ptr %4, align 4, !tbaa !14
+  %42 = fpext float %41 to double
+  %43 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %40, double %42)
+  %44 = fptrunc double %43 to float
+  store float %44, ptr %4, align 4, !tbaa !14
+  %45 = load float, ptr %4, align 4, !tbaa !14
+  %46 = load float, ptr %2, align 4, !tbaa !14
+  %47 = load float, ptr %4, align 4, !tbaa !14
+  %48 = load float, ptr %4, align 4, !tbaa !14
+  %49 = fmul float %47, %48
+  %50 = fdiv float %46, %49
+  %51 = fsub float %45, %50
+  %52 = fpext float %51 to double
+  %53 = load float, ptr %4, align 4, !tbaa !14
+  %54 = fpext float %53 to double
+  %55 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %52, double %54)
+  %56 = fptrunc double %55 to float
+  store float %56, ptr %4, align 4, !tbaa !14
+  %57 = load float, ptr %4, align 4, !tbaa !14
+  %58 = load float, ptr %2, align 4, !tbaa !14
+  %59 = load float, ptr %4, align 4, !tbaa !14
+  %60 = load float, ptr %4, align 4, !tbaa !14
+  %61 = fmul float %59, %60
+  %62 = fdiv float %58, %61
+  %63 = fsub float %57, %62
+  %64 = fpext float %63 to double
+  %65 = load float, ptr %4, align 4, !tbaa !14
+  %66 = fpext float %65 to double
+  %67 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %64, double %66)
+  %68 = fptrunc double %67 to float
+  store float %68, ptr %4, align 4, !tbaa !14
+  %69 = load float, ptr %4, align 4, !tbaa !14
+  %70 = load float, ptr %2, align 4, !tbaa !14
+  %71 = load float, ptr %4, align 4, !tbaa !14
+  %72 = load float, ptr %4, align 4, !tbaa !14
+  %73 = fmul float %71, %72
+  %74 = fdiv float %70, %73
+  %75 = fsub float %69, %74
+  %76 = fpext float %75 to double
+  %77 = load float, ptr %4, align 4, !tbaa !14
+  %78 = fpext float %77 to double
+  %79 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %76, double %78)
+  %80 = fptrunc double %79 to float
+  store float %80, ptr %4, align 4, !tbaa !14
+  %81 = load float, ptr %4, align 4, !tbaa !14
+  %82 = load float, ptr %2, align 4, !tbaa !14
+  %83 = load float, ptr %4, align 4, !tbaa !14
+  %84 = load float, ptr %4, align 4, !tbaa !14
+  %85 = fmul float %83, %84
+  %86 = fdiv float %82, %85
+  %87 = fsub float %81, %86
+  %88 = fpext float %87 to double
+  %89 = load float, ptr %4, align 4, !tbaa !14
+  %90 = fpext float %89 to double
+  %91 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %88, double %90)
+  %92 = fptrunc double %91 to float
+  store float %92, ptr %4, align 4, !tbaa !14
+  %93 = load float, ptr %4, align 4, !tbaa !14
+  %94 = load float, ptr %2, align 4, !tbaa !14
+  %95 = load float, ptr %4, align 4, !tbaa !14
+  %96 = load float, ptr %4, align 4, !tbaa !14
+  %97 = fmul float %95, %96
+  %98 = fdiv float %94, %97
+  %99 = fsub float %93, %98
+  %100 = fpext float %99 to double
+  %101 = load float, ptr %4, align 4, !tbaa !14
+  %102 = fpext float %101 to double
+  %103 = call double @llvm.fmuladd.f64(double 0xBFD5555555555555, double %100, double %102)
+  %104 = fptrunc double %103 to float
+  store float %104, ptr %4, align 4, !tbaa !14
+  %105 = load float, ptr %4, align 4, !tbaa !14
+  %106 = load float, ptr %3, align 4, !tbaa !14
+  %107 = fmul float %105, %106
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret float %107
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_poly34.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 float", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !7, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}

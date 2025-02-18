@@ -1,49 +1,41 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
-%class.btSimulationIslandManagerMt = type { %class.btSimulationIslandManager.base, [7 x i8], %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.8, ptr, i32, i32, ptr }
-%class.btSimulationIslandManager.base = type <{ ptr, %class.btUnionFind, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4, i8 }>
+%class.btSimulationIslandManagerMt = type { %class.btSimulationIslandManager.base, [7 x i8], %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, ptr, i32, i32, ptr }
+%class.btSimulationIslandManager.base = type <{ ptr, %class.btUnionFind, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.2, i8 }>
 %class.btUnionFind = type { %class.btAlignedObjectArray }
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
+%class.btAlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.0 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.4 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.CProfileSample = type { i8 }
 %struct.UpdateIslandDispatcher = type { %class.btIParallelForBody, ptr, ptr }
 %class.btIParallelForBody = type { ptr }
 %"struct.btSimulationIslandManagerMt::SolverParams" = type { ptr, ptr, ptr, ptr, ptr }
-%"struct.btSimulationIslandManagerMt::Island" = type <{ %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.12, i32, i8, [3 x i8] }>
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
+%"struct.btSimulationIslandManagerMt::Island" = type <{ %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.6, i32, i8, [3 x i8] }>
+%class.btAlignedObjectArray.6 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.IslandBodyCapacitySortPredicate = type { i8 }
-%class.btSimulationIslandManager = type <{ ptr, %class.btUnionFind, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4, i8, [7 x i8] }>
+%class.btSimulationIslandManager = type <{ ptr, %class.btUnionFind, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.2, i8, [7 x i8] }>
 %struct.btElement = type { i32, i32 }
-%class.btCollisionWorld = type <{ ptr, %class.btAlignedObjectArray.4, ptr, %struct.btDispatcherInfo, ptr, ptr, i8, [7 x i8] }>
+%class.btCollisionWorld = type <{ ptr, %class.btAlignedObjectArray.2, ptr, %struct.btDispatcherInfo, ptr, ptr, i8, [7 x i8] }>
 %struct.btDispatcherInfo = type <{ float, i32, i32, float, i8, [7 x i8], ptr, i8, i8, i8, i8, float, i8, [3 x i8], float, i8, [7 x i8] }>
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.16, i32, %class.btVector3, [4 x i8] }>
+%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.8, i32, %class.btVector3, [4 x i8] }>
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
+%class.btAlignedObjectArray.8 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btVector3 = type { [4 x float] }
 %class.btPersistentManifold = type { %struct.btTypedObject, [4 x i8], [4 x %class.btManifoldPoint], ptr, ptr, i32, float, float, i32, i32, i32 }
 %struct.btTypedObject = type { i32 }
-%class.btManifoldPoint = type <{ %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, i32, i32, i32, i32, [4 x i8], ptr, i32, float, float, float, float, float, float, %union.anon.20, %union.anon.21, float, i32, %class.btVector3, %class.btVector3, [4 x i8] }>
-%union.anon.20 = type { float }
-%union.anon.21 = type { float }
-%class.btTypedConstraint = type { ptr, %struct.btTypedObject, i32, %union.anon.22, float, i8, i8, i32, ptr, ptr, float, float, ptr }
-%union.anon.22 = type { ptr }
+%class.btManifoldPoint = type <{ %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, i32, i32, i32, i32, [4 x i8], ptr, i32, float, float, float, float, float, float, %union.anon.10, %union.anon.11, float, i32, %class.btVector3, %class.btVector3, [4 x i8] }>
+%union.anon.10 = type { float }
+%union.anon.11 = type { float }
+%class.btTypedConstraint = type { ptr, %struct.btTypedObject, i32, %union.anon.12, float, i8, i8, i32, ptr, ptr, float, float, ptr }
+%union.anon.12 = type { ptr }
 %class.IslandBatchSizeSortPredicate = type { i8 }
 
 $_ZN18btInfMaskConverterC2Ei = comdat any
-
-$_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv = comdat any
 
 $_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev = comdat any
 
@@ -143,19 +135,9 @@ $_ZN20btAlignedObjectArrayIP20btPersistentManifoldEixEi = comdat any
 
 $_ZN22UpdateIslandDispatcherC2ER20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEERKNS1_12SolverParamsE = comdat any
 
-$_ZN22UpdateIslandDispatcherD2Ev = comdat any
+$_ZN18btIParallelForBodyD2Ev = comdat any
 
 $_ZN25btSimulationIslandManager15getSplitIslandsEv = comdat any
-
-$_ZN17btTypedConstraintD2Ev = comdat any
-
-$_ZN17btTypedConstraintD0Ev = comdat any
-
-$_ZN17btTypedConstraint13buildJacobianEv = comdat any
-
-$_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif = comdat any
-
-$_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f = comdat any
 
 $_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev = comdat any
 
@@ -218,8 +200,6 @@ $_ZN18btIParallelForBodyC2Ev = comdat any
 $_ZN22UpdateIslandDispatcherD0Ev = comdat any
 
 $_ZNK22UpdateIslandDispatcher7forLoopEii = comdat any
-
-$_ZN18btIParallelForBodyD2Ev = comdat any
 
 $_ZN18btIParallelForBodyD0Ev = comdat any
 
@@ -285,25 +265,15 @@ $_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_ = comdat any
 
 $_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE8allocateEiPPKS1_ = comdat any
 
-$_ZTV17btTypedConstraint = comdat any
-
-$_ZTS17btTypedConstraint = comdat any
-
-$_ZTS13btTypedObject = comdat any
-
-$_ZTI13btTypedObject = comdat any
-
-$_ZTI17btTypedConstraint = comdat any
-
 $_ZTV22UpdateIslandDispatcher = comdat any
+
+$_ZTI22UpdateIslandDispatcher = comdat any
 
 $_ZTS22UpdateIslandDispatcher = comdat any
 
-$_ZTS18btIParallelForBody = comdat any
-
 $_ZTI18btIParallelForBody = comdat any
 
-$_ZTI22UpdateIslandDispatcher = comdat any
+$_ZTS18btIParallelForBody = comdat any
 
 $_ZTV18btIParallelForBody = comdat any
 
@@ -314,22 +284,16 @@ $_ZTV18btIParallelForBody = comdat any
 @.str.2 = private unnamed_addr constant [23 x i8] c"parallelIslandDispatch\00", align 1
 @_ZN37btSequentialImpulseConstraintSolverMt36s_minimumContactManifoldsForBatchingE = external global i32, align 4
 @.str.3 = private unnamed_addr constant [23 x i8] c"buildAndProcessIslands\00", align 1
-@_ZTV17btTypedConstraint = linkonce_odr dso_local unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTI17btTypedConstraint, ptr @_ZN17btTypedConstraintD2Ev, ptr @_ZN17btTypedConstraintD0Ev, ptr @_ZN17btTypedConstraint13buildJacobianEv, ptr @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv, ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer] }, comdat, align 8
-@_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
-@_ZTS17btTypedConstraint = linkonce_odr dso_local constant [20 x i8] c"17btTypedConstraint\00", comdat, align 1
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTS13btTypedObject = linkonce_odr dso_local constant [16 x i8] c"13btTypedObject\00", comdat, align 1
-@_ZTI13btTypedObject = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS13btTypedObject }, comdat, align 8
-@_ZTI17btTypedConstraint = linkonce_odr dso_local constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTS17btTypedConstraint, i32 0, i32 1, ptr @_ZTI13btTypedObject, i64 2050 }, comdat, align 8
+@_ZTI27btSimulationIslandManagerMt = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS27btSimulationIslandManagerMt, ptr @_ZTI25btSimulationIslandManager }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS27btSimulationIslandManagerMt = dso_local constant [30 x i8] c"27btSimulationIslandManagerMt\00", align 1
 @_ZTI25btSimulationIslandManager = external constant ptr
-@_ZTI27btSimulationIslandManagerMt = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS27btSimulationIslandManagerMt, ptr @_ZTI25btSimulationIslandManager }, align 8
-@_ZTV22UpdateIslandDispatcher = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI22UpdateIslandDispatcher, ptr @_ZN22UpdateIslandDispatcherD2Ev, ptr @_ZN22UpdateIslandDispatcherD0Ev, ptr @_ZNK22UpdateIslandDispatcher7forLoopEii] }, comdat, align 8
-@_ZTS22UpdateIslandDispatcher = linkonce_odr dso_local constant [25 x i8] c"22UpdateIslandDispatcher\00", comdat, align 1
-@_ZTS18btIParallelForBody = linkonce_odr dso_local constant [21 x i8] c"18btIParallelForBody\00", comdat, align 1
-@_ZTI18btIParallelForBody = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS18btIParallelForBody }, comdat, align 8
+@_ZTV22UpdateIslandDispatcher = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI22UpdateIslandDispatcher, ptr @_ZN18btIParallelForBodyD2Ev, ptr @_ZN22UpdateIslandDispatcherD0Ev, ptr @_ZNK22UpdateIslandDispatcher7forLoopEii] }, comdat, align 8
 @_ZTI22UpdateIslandDispatcher = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS22UpdateIslandDispatcher, ptr @_ZTI18btIParallelForBody }, comdat, align 8
+@_ZTS22UpdateIslandDispatcher = linkonce_odr dso_local constant [25 x i8] c"22UpdateIslandDispatcher\00", comdat, align 1
+@_ZTI18btIParallelForBody = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS18btIParallelForBody }, comdat, align 8
+@_ZTS18btIParallelForBody = linkonce_odr dso_local constant [21 x i8] c"18btIParallelForBody\00", comdat, align 1
 @_ZTV18btIParallelForBody = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI18btIParallelForBody, ptr @_ZN18btIParallelForBodyD2Ev, ptr @_ZN18btIParallelForBodyD0Ev, ptr @__cxa_pure_virtual] }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_btSimulationIslandManagerMt.cpp, ptr null }]
 
@@ -338,438 +302,474 @@ $_ZTV18btIParallelForBody = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret i32 64
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMtC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN25btSimulationIslandManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_allocatedIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN27btSimulationIslandManagerMtC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %5 = load ptr, ptr %2, align 8
+  call void @_ZN25btSimulationIslandManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %5)
+  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !14
+  %6 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 2
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6)
+          to label %7 unwind label %20
 
-invoke.cont:                                      ; preds = %entry
-  %m_activeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands)
-          to label %invoke.cont3 unwind label %lpad2
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 3
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8)
+          to label %9 unwind label %24
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  %m_freeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 4
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_freeIslands)
-          to label %invoke.cont5 unwind label %lpad4
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 4
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %10)
+          to label %11 unwind label %28
 
-invoke.cont5:                                     ; preds = %invoke.cont3
-  %m_lookupIslandFromId = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId)
-          to label %invoke.cont7 unwind label %lpad6
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 5
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %12)
+          to label %13 unwind label %32
 
-invoke.cont7:                                     ; preds = %invoke.cont5
-  %call = invoke noundef i32 @_Z13calcBatchCostiii(i32 noundef 0, i32 noundef 128, i32 noundef 0)
-          to label %invoke.cont9 unwind label %lpad8
+13:                                               ; preds = %11
+  %14 = invoke noundef i32 @_Z13calcBatchCostiii(i32 noundef 0, i32 noundef 128, i32 noundef 0)
+          to label %15 unwind label %36
 
-invoke.cont9:                                     ; preds = %invoke.cont7
-  %m_minimumSolverBatchSize = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 7
-  store i32 %call, ptr %m_minimumSolverBatchSize, align 8
-  %m_batchIslandMinBodyCount = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 8
-  store i32 32, ptr %m_batchIslandMinBodyCount, align 4
-  %m_islandDispatch = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 9
-  store ptr @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchEP20btAlignedObjectArrayIPNS_6IslandEERKNS_12SolverParamsE, ptr %m_islandDispatch, align 8
-  %m_batchIsland = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 6
-  store ptr null, ptr %m_batchIsland, align 8
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 7
+  store i32 %14, ptr %16, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 8
+  store i32 32, ptr %17, align 4, !tbaa !34
+  %18 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 9
+  store ptr @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchEP20btAlignedObjectArrayIPNS_6IslandEERKNS_12SolverParamsE, ptr %18, align 8, !tbaa !35
+  %19 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %5, i32 0, i32 6
+  store ptr null, ptr %19, align 8, !tbaa !36
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  br label %ehcleanup12
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
+  br label %43
 
-lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+24:                                               ; preds = %7
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup11
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  br label %42
 
-lpad4:                                            ; preds = %invoke.cont3
-  %7 = landingpad { ptr, i32 }
+28:                                               ; preds = %9
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  br label %ehcleanup10
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
+  br label %41
 
-lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+32:                                               ; preds = %11
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
+  br label %40
 
-lpad8:                                            ; preds = %invoke.cont7
-  %13 = landingpad { ptr, i32 }
+36:                                               ; preds = %13
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId) #10
-  br label %ehcleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %12) #13
+  br label %40
 
-ehcleanup:                                        ; preds = %lpad8, %lpad6
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_freeIslands) #10
-  br label %ehcleanup10
+40:                                               ; preds = %36, %32
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %10) #13
+  br label %41
 
-ehcleanup10:                                      ; preds = %ehcleanup, %lpad4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands) #10
-  br label %ehcleanup11
+41:                                               ; preds = %40, %28
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #13
+  br label %42
 
-ehcleanup11:                                      ; preds = %ehcleanup10, %lpad2
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands) #10
-  br label %ehcleanup12
+42:                                               ; preds = %41, %24
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #13
+  br label %43
 
-ehcleanup12:                                      ; preds = %ehcleanup11, %lpad
-  call void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this1) #10
-  br label %eh.resume
+43:                                               ; preds = %42, %20
+  call void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %5) #13
+  br label %44
 
-eh.resume:                                        ; preds = %ehcleanup12
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val13 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val13
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %3, align 8
+  %46 = load i32, ptr %4, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 declare void @_ZN25btSimulationIslandManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(105)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 0
-  call void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_Z13calcBatchCostiii(i32 noundef %bodies, i32 noundef %manifolds, i32 noundef %constraints) #1 comdat {
-entry:
-  %bodies.addr = alloca i32, align 4
-  %manifolds.addr = alloca i32, align 4
-  %constraints.addr = alloca i32, align 4
-  %batchCost = alloca i32, align 4
-  store i32 %bodies, ptr %bodies.addr, align 4
-  store i32 %manifolds, ptr %manifolds.addr, align 4
-  store i32 %constraints, ptr %constraints.addr, align 4
-  %0 = load i32, ptr %bodies.addr, align 4
-  %1 = load i32, ptr %manifolds.addr, align 4
-  %mul = mul nsw i32 8, %1
-  %add = add nsw i32 %0, %mul
-  %2 = load i32, ptr %constraints.addr, align 4
-  %mul1 = mul nsw i32 4, %2
-  %add2 = add nsw i32 %add, %mul1
-  store i32 %add2, ptr %batchCost, align 4
-  %3 = load i32, ptr %batchCost, align 4
-  ret i32 %3
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_Z13calcBatchCostiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) #4 comdat {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !9
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = load i32, ptr %5, align 4, !tbaa !9
+  %10 = mul nsw i32 8, %9
+  %11 = add nsw i32 %8, %10
+  %12 = load i32, ptr %6, align 4, !tbaa !9
+  %13 = mul nsw i32 4, %12
+  %14 = add nsw i32 %11, %13
+  store i32 %14, ptr %7, align 4, !tbaa !9
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchEP20btAlignedObjectArrayIPNS_6IslandEERKNS_12SolverParamsE(ptr noundef %islandsPtr, ptr noundef nonnull align 8 dereferenceable(40) %solverParams) #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %islandsPtr.addr = alloca ptr, align 8
-  %solverParams.addr = alloca ptr, align 8
-  %__profile = alloca %class.CProfileSample, align 1
-  %dispatcher = alloca %struct.UpdateIslandDispatcher, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %iBegin = alloca i32, align 4
-  %island = alloca ptr, align 8
-  store ptr %islandsPtr, ptr %islandsPtr.addr, align 8
-  store ptr %solverParams, ptr %solverParams.addr, align 8
-  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef @.str.2)
-  %0 = load ptr, ptr %islandsPtr.addr, align 8
-  %1 = load ptr, ptr %solverParams.addr, align 8
-  invoke void @_ZN22UpdateIslandDispatcherC2ER20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEERKNS1_12SolverParamsE(ptr noundef nonnull align 8 dereferenceable(24) %dispatcher, ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchEP20btAlignedObjectArrayIPNS_6IslandEERKNS_12SolverParamsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.CProfileSample, align 1
+  %6 = alloca %struct.UpdateIslandDispatcher, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #13
+  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef @.str.2)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #13
+  %12 = load ptr, ptr %3, align 8, !tbaa !37
+  %13 = load ptr, ptr %4, align 8, !tbaa !39
+  invoke void @_ZN22UpdateIslandDispatcherC2ER20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEERKNS1_12SolverParamsE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(25) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
+          to label %14 unwind label %39
 
-invoke.cont:                                      ; preds = %entry
-  store i32 0, ptr %iBegin, align 4
-  %2 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverMt = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_solverMt, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.then, label %if.end11
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  store i32 0, ptr %9, align 4, !tbaa !9
+  %15 = load ptr, ptr %4, align 8, !tbaa !39
+  %16 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %64
 
-if.then:                                          ; preds = %invoke.cont
-  br label %while.cond
+19:                                               ; preds = %14
+  br label %20
 
-while.cond:                                       ; preds = %invoke.cont10, %if.then
-  %4 = load i32, ptr %iBegin, align 4
-  %5 = load ptr, ptr %islandsPtr.addr, align 8
-  %call = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
-          to label %invoke.cont2 unwind label %lpad1
+20:                                               ; preds = %62, %19
+  %21 = load i32, ptr %9, align 4, !tbaa !9
+  %22 = load ptr, ptr %3, align 8, !tbaa !37
+  %23 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %22)
+          to label %24 unwind label %43
 
-invoke.cont2:                                     ; preds = %while.cond
-  %cmp = icmp slt i32 %4, %call
-  br i1 %cmp, label %while.body, label %while.end
+24:                                               ; preds = %20
+  %25 = icmp slt i32 %21, %23
+  br i1 %25, label %26, label %63
 
-while.body:                                       ; preds = %invoke.cont2
-  %6 = load ptr, ptr %islandsPtr.addr, align 8
-  %7 = load i32, ptr %iBegin, align 4
-  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %7)
-          to label %invoke.cont3 unwind label %lpad1
+26:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %27 = load ptr, ptr %3, align 8, !tbaa !37
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %27, i32 noundef %28)
+          to label %30 unwind label %47
 
-invoke.cont3:                                     ; preds = %while.body
-  %8 = load ptr, ptr %call4, align 8
-  store ptr %8, ptr %island, align 8
-  %9 = load ptr, ptr %island, align 8
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %9, i32 0, i32 1
-  %call6 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray)
-          to label %invoke.cont5 unwind label %lpad1
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %29, align 8, !tbaa !47
+  store ptr %31, ptr %10, align 8, !tbaa !47
+  %32 = load ptr, ptr %10, align 8, !tbaa !47
+  %33 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %32, i32 0, i32 1
+  %34 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %33)
+          to label %35 unwind label %47
 
-invoke.cont5:                                     ; preds = %invoke.cont3
-  %10 = load i32, ptr @_ZN37btSequentialImpulseConstraintSolverMt36s_minimumContactManifoldsForBatchingE, align 4
-  %cmp7 = icmp slt i32 %call6, %10
-  br i1 %cmp7, label %if.then8, label %if.end
+35:                                               ; preds = %30
+  %36 = load i32, ptr @_ZN37btSequentialImpulseConstraintSolverMt36s_minimumContactManifoldsForBatchingE, align 4, !tbaa !9
+  %37 = icmp slt i32 %34, %36
+  br i1 %37, label %38, label %51
 
-if.then8:                                         ; preds = %invoke.cont5
-  br label %while.end
+38:                                               ; preds = %35
+  store i32 3, ptr %11, align 4
+  br label %60
 
-lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+39:                                               ; preds = %2
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %7, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %8, align 4
+  br label %71
 
-lpad1:                                            ; preds = %invoke.cont12, %if.end11, %if.end, %invoke.cont3, %while.body, %while.cond
-  %14 = landingpad { ptr, i32 }
+43:                                               ; preds = %68, %64, %20
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
-  call void @_ZN22UpdateIslandDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dispatcher) #10
-  br label %ehcleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %7, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %8, align 4
+  br label %70
 
-if.end:                                           ; preds = %invoke.cont5
-  %17 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverMt9 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %m_solverMt9, align 8
-  %19 = load ptr, ptr %island, align 8
-  %20 = load ptr, ptr %solverParams.addr, align 8
-  invoke void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(101) %19, ptr noundef nonnull align 8 dereferenceable(40) %20)
-          to label %invoke.cont10 unwind label %lpad1
+47:                                               ; preds = %51, %30, %26
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %7, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  br label %70
 
-invoke.cont10:                                    ; preds = %if.end
-  %21 = load i32, ptr %iBegin, align 4
-  %inc = add nsw i32 %21, 1
-  store i32 %inc, ptr %iBegin, align 4
-  br label %while.cond, !llvm.loop !5
+51:                                               ; preds = %35
+  %52 = load ptr, ptr %4, align 8, !tbaa !39
+  %53 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !41
+  %55 = load ptr, ptr %10, align 8, !tbaa !47
+  %56 = load ptr, ptr %4, align 8, !tbaa !39
+  invoke void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(101) %55, ptr noundef nonnull align 8 dereferenceable(40) %56)
+          to label %57 unwind label %47
 
-while.end:                                        ; preds = %if.then8, %invoke.cont2
-  br label %if.end11
+57:                                               ; preds = %51
+  %58 = load i32, ptr %9, align 4, !tbaa !9
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %9, align 4, !tbaa !9
+  store i32 0, ptr %11, align 4
+  br label %60
 
-if.end11:                                         ; preds = %while.end, %invoke.cont
-  %22 = load i32, ptr %iBegin, align 4
-  %23 = load ptr, ptr %islandsPtr.addr, align 8
-  %call13 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %23)
-          to label %invoke.cont12 unwind label %lpad1
+60:                                               ; preds = %57, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  %61 = load i32, ptr %11, align 4
+  switch i32 %61, label %77 [
+    i32 0, label %62
+    i32 3, label %63
+  ]
 
-invoke.cont12:                                    ; preds = %if.end11
-  invoke void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef %22, i32 noundef %call13, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %dispatcher)
-          to label %invoke.cont14 unwind label %lpad1
+62:                                               ; preds = %60
+  br label %20, !llvm.loop !48
 
-invoke.cont14:                                    ; preds = %invoke.cont12
-  call void @_ZN22UpdateIslandDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dispatcher) #10
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
+63:                                               ; preds = %60, %24
+  br label %64
+
+64:                                               ; preds = %63, %14
+  %65 = load i32, ptr %9, align 4, !tbaa !9
+  %66 = load ptr, ptr %3, align 8, !tbaa !37
+  %67 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %66)
+          to label %68 unwind label %43
+
+68:                                               ; preds = %64
+  invoke void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef %65, i32 noundef %67, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %69 unwind label %43
+
+69:                                               ; preds = %68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
   ret void
 
-ehcleanup:                                        ; preds = %lpad1, %lpad
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
-  br label %eh.resume
+70:                                               ; preds = %47, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
+  br label %71
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val15 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val15
+71:                                               ; preds = %70, %39
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %7, align 8
+  %74 = load i32, ptr %8, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
+
+77:                                               ; preds = %60
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #14
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(105)) unnamed_addr #4
+declare void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(105)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMtD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ref.tmp = alloca ptr, align 8
-  %ref.tmp7 = alloca ptr, align 8
-  %ref.tmp9 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @_ZN27btSimulationIslandManagerMtD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %7 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #13
+  store i32 0, ptr %3, align 4, !tbaa !9
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %m_allocatedIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  %call = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands)
-          to label %invoke.cont unwind label %terminate.lpad
+8:                                                ; preds = %24, %1
+  %9 = load i32, ptr %3, align 4, !tbaa !9
+  %10 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 2
+  %11 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+          to label %12 unwind label %38
 
-invoke.cont:                                      ; preds = %for.cond
-  %cmp = icmp slt i32 %1, %call
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %8
+  %13 = icmp slt i32 %9, %11
+  br i1 %13, label %15, label %14
 
-for.body:                                         ; preds = %invoke.cont
-  %m_allocatedIslands2 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %i, align 4
-  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands2, i32 noundef %2)
-          to label %invoke.cont3 unwind label %terminate.lpad
+14:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #13
+  br label %27
 
-invoke.cont3:                                     ; preds = %for.body
-  %3 = load ptr, ptr %call4, align 8
-  %isnull = icmp eq ptr %3, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 2
+  %17 = load i32, ptr %3, align 4, !tbaa !9
+  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %16, i32 noundef %17)
+          to label %19 unwind label %38
 
-delete.notnull:                                   ; preds = %invoke.cont3
-  call void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %3) #10
-  call void @_ZdlPv(ptr noundef %3) #12
-  br label %delete.end
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %18, align 8, !tbaa !47
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %23, label %22
 
-delete.end:                                       ; preds = %delete.notnull, %invoke.cont3
-  br label %for.inc
+22:                                               ; preds = %19
+  call void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %20) #13
+  call void @_ZdlPvm(ptr noundef %20, i64 noundef 104) #15
+  br label %23
 
-for.inc:                                          ; preds = %delete.end
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+23:                                               ; preds = %22, %19
+  br label %24
 
-for.end:                                          ; preds = %invoke.cont
-  %m_allocatedIslands5 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  store ptr null, ptr %ref.tmp, align 8
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands5, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont6 unwind label %terminate.lpad
+24:                                               ; preds = %23
+  %25 = load i32, ptr %3, align 4, !tbaa !9
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %3, align 4, !tbaa !9
+  br label %8, !llvm.loop !50
 
-invoke.cont6:                                     ; preds = %for.end
-  %m_activeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  store ptr null, ptr %ref.tmp7, align 8
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7)
-          to label %invoke.cont8 unwind label %terminate.lpad
+27:                                               ; preds = %14
+  %28 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #13
+  store ptr null, ptr %4, align 8, !tbaa !47
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %28, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %29 unwind label %38
 
-invoke.cont8:                                     ; preds = %invoke.cont6
-  %m_freeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 4
-  store ptr null, ptr %ref.tmp9, align 8
-  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_freeIslands, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9)
-          to label %invoke.cont10 unwind label %terminate.lpad
+29:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #13
+  %30 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  store ptr null, ptr %5, align 8, !tbaa !47
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %30, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %31 unwind label %38
 
-invoke.cont10:                                    ; preds = %invoke.cont8
-  %m_lookupIslandFromId = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId) #10
-  %m_freeIslands11 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_freeIslands11) #10
-  %m_activeIslands12 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands12) #10
-  %m_allocatedIslands13 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands13) #10
-  call void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this1) #10
+31:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  %32 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  store ptr null, ptr %6, align 8, !tbaa !47
+  invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %32, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  %34 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 5
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %34) #13
+  %35 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 4
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %35) #13
+  %36 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 3
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %36) #13
+  %37 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %7, i32 0, i32 2
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %37) #13
+  call void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %7) #13
   ret void
 
-terminate.lpad:                                   ; preds = %invoke.cont8, %invoke.cont6, %for.end, %for.body, %for.cond
-  %5 = landingpad { ptr, i32 }
+38:                                               ; preds = %31, %29, %27, %15, %8
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #11
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #14
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !51
+  ret i32 %5
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
-  call void @_ZSt9terminatev() #11
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
+  call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -777,5205 +777,5824 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 2
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray) #10
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 1
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray) #10
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 0
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray) #10
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %3, i32 0, i32 2
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #13
+  %5 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %3, i32 0, i32 1
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #13
+  %6 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %3, i32 0, i32 0
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #13
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #8
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(8) %fillData) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i5 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #9 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  store i32 %11, ptr %7, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %27
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %16, ptr %8, align 4, !tbaa !9
+  br label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+17:                                               ; preds = %23, %15
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = icmp slt i32 %18, %19
+  br i1 %20, label %22, label %21
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+21:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %26
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end15
+22:                                               ; preds = %17
+  br label %23
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %7 = load i32, ptr %curSize, align 4
-  %cmp3 = icmp sgt i32 %6, %7
-  br i1 %cmp3, label %if.then4, label %if.end
+23:                                               ; preds = %22
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %8, align 4, !tbaa !9
+  br label %17, !llvm.loop !54
 
-if.then4:                                         ; preds = %if.else
-  %8 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %8)
-  br label %if.end
+26:                                               ; preds = %21
+  br label %52
 
-if.end:                                           ; preds = %if.then4, %if.else
-  %9 = load i32, ptr %curSize, align 4
-  store i32 %9, ptr %i5, align 4
-  br label %for.cond6
+27:                                               ; preds = %3
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = load i32, ptr %7, align 4, !tbaa !9
+  %30 = icmp sgt i32 %28, %29
+  br i1 %30, label %31, label %33
 
-for.cond6:                                        ; preds = %for.inc12, %if.end
-  %10 = load i32, ptr %i5, align 4
-  %11 = load i32, ptr %newsize.addr, align 4
-  %cmp7 = icmp slt i32 %10, %11
-  br i1 %cmp7, label %for.body8, label %for.end14
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef %32)
+  br label %33
 
-for.body8:                                        ; preds = %for.cond6
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %12 = load ptr, ptr %m_data9, align 8
-  %13 = load i32, ptr %i5, align 4
-  %idxprom10 = sext i32 %13 to i64
-  %arrayidx11 = getelementptr inbounds ptr, ptr %12, i64 %idxprom10
-  %14 = load ptr, ptr %fillData.addr, align 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %arrayidx11, align 8
-  br label %for.inc12
+33:                                               ; preds = %31, %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %34, ptr %9, align 4, !tbaa !9
+  br label %35
 
-for.inc12:                                        ; preds = %for.body8
-  %16 = load i32, ptr %i5, align 4
-  %inc13 = add nsw i32 %16, 1
-  store i32 %inc13, ptr %i5, align 4
-  br label %for.cond6, !llvm.loop !9
+35:                                               ; preds = %48, %33
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = load i32, ptr %5, align 4, !tbaa !9
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %40, label %39
 
-for.end14:                                        ; preds = %for.cond6
-  br label %if.end15
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %51
 
-if.end15:                                         ; preds = %for.end14, %for.end
-  %17 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  store i32 %17, ptr %m_size, align 4
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %10, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !52
+  %43 = load i32, ptr %9, align 4, !tbaa !9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !53
+  %47 = load ptr, ptr %46, align 8, !tbaa !47
+  store ptr %47, ptr %45, align 8, !tbaa !47
+  br label %48
+
+48:                                               ; preds = %40
+  %49 = load i32, ptr %9, align 4, !tbaa !9
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %9, align 4, !tbaa !9
+  br label %35, !llvm.loop !55
+
+51:                                               ; preds = %39
+  br label %52
+
+52:                                               ; preds = %51, %26
+  %53 = load i32, ptr %5, align 4, !tbaa !9
+  %54 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %10, i32 0, i32 1
+  store i32 %53, ptr %54, align 4, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMtD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN27btSimulationIslandManagerMtD1Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #10
-  call void @_ZdlPv(ptr noundef %this1) #12
+define dso_local void @_ZN27btSimulationIslandManagerMtD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN27btSimulationIslandManagerMtD1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 264) #15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt6Island6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(101) %this, ptr noundef nonnull align 8 dereferenceable(101) %other) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %i5 = alloca i32, align 4
-  %i16 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @_ZN27btSimulationIslandManagerMt6Island6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(101) %0, ptr noundef nonnull align 8 dereferenceable(101) %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %other.addr, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  %cmp = icmp slt i32 %0, %call
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %22, %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = load ptr, ptr %4, align 8, !tbaa !47
+  %12 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %11, i32 0, i32 0
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %12)
+  %14 = icmp slt i32 %10, %13
+  br i1 %14, label %16, label %15
 
-for.body:                                         ; preds = %for.cond
-  %bodyArray2 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %other.addr, align 8
-  %bodyArray3 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %i, align 4
-  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray3, i32 noundef %3)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray2, ptr noundef nonnull align 8 dereferenceable(8) %call4)
-  br label %for.inc
+15:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  br label %25
 
-for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %8, i32 0, i32 0
+  %18 = load ptr, ptr %4, align 8, !tbaa !47
+  %19 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %19, i32 noundef %20)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %17, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  br label %22
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %i5, align 4
-  br label %for.cond6
+22:                                               ; preds = %16
+  %23 = load i32, ptr %5, align 4, !tbaa !9
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %5, align 4, !tbaa !9
+  br label %9, !llvm.loop !56
 
-for.cond6:                                        ; preds = %for.inc13, %for.end
-  %5 = load i32, ptr %i5, align 4
-  %6 = load ptr, ptr %other.addr, align 8
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %6, i32 0, i32 1
-  %call7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray)
-  %cmp8 = icmp slt i32 %5, %call7
-  br i1 %cmp8, label %for.body9, label %for.end15
+25:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 0, ptr %6, align 4, !tbaa !9
+  br label %26
 
-for.body9:                                        ; preds = %for.cond6
-  %manifoldArray10 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %other.addr, align 8
-  %manifoldArray11 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %i5, align 4
-  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray11, i32 noundef %8)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray10, ptr noundef nonnull align 8 dereferenceable(8) %call12)
-  br label %for.inc13
+26:                                               ; preds = %39, %25
+  %27 = load i32, ptr %6, align 4, !tbaa !9
+  %28 = load ptr, ptr %4, align 8, !tbaa !47
+  %29 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %28, i32 0, i32 1
+  %30 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %29)
+  %31 = icmp slt i32 %27, %30
+  br i1 %31, label %33, label %32
 
-for.inc13:                                        ; preds = %for.body9
-  %9 = load i32, ptr %i5, align 4
-  %inc14 = add nsw i32 %9, 1
-  store i32 %inc14, ptr %i5, align 4
-  br label %for.cond6, !llvm.loop !11
+32:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  br label %42
 
-for.end15:                                        ; preds = %for.cond6
-  store i32 0, ptr %i16, align 4
-  br label %for.cond17
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %8, i32 0, i32 1
+  %35 = load ptr, ptr %4, align 8, !tbaa !47
+  %36 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %6, align 4, !tbaa !9
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %36, i32 noundef %37)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %34, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  br label %39
 
-for.cond17:                                       ; preds = %for.inc24, %for.end15
-  %10 = load i32, ptr %i16, align 4
-  %11 = load ptr, ptr %other.addr, align 8
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %11, i32 0, i32 2
-  %call18 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray)
-  %cmp19 = icmp slt i32 %10, %call18
-  br i1 %cmp19, label %for.body20, label %for.end26
+39:                                               ; preds = %33
+  %40 = load i32, ptr %6, align 4, !tbaa !9
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %6, align 4, !tbaa !9
+  br label %26, !llvm.loop !57
 
-for.body20:                                       ; preds = %for.cond17
-  %constraintArray21 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %other.addr, align 8
-  %constraintArray22 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %12, i32 0, i32 2
-  %13 = load i32, ptr %i16, align 4
-  %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray22, i32 noundef %13)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray21, ptr noundef nonnull align 8 dereferenceable(8) %call23)
-  br label %for.inc24
+42:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !9
+  br label %43
 
-for.inc24:                                        ; preds = %for.body20
-  %14 = load i32, ptr %i16, align 4
-  %inc25 = add nsw i32 %14, 1
-  store i32 %inc25, ptr %i16, align 4
-  br label %for.cond17, !llvm.loop !12
+43:                                               ; preds = %56, %42
+  %44 = load i32, ptr %7, align 4, !tbaa !9
+  %45 = load ptr, ptr %4, align 8, !tbaa !47
+  %46 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %45, i32 0, i32 2
+  %47 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %46)
+  %48 = icmp slt i32 %44, %47
+  br i1 %48, label %50, label %49
 
-for.end26:                                        ; preds = %for.cond17
+49:                                               ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %59
+
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %8, i32 0, i32 2
+  %52 = load ptr, ptr %4, align 8, !tbaa !47
+  %53 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %7, align 4, !tbaa !9
+  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %53, i32 noundef %54)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %51, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  br label %56
+
+56:                                               ; preds = %50
+  %57 = load i32, ptr %7, align 4, !tbaa !9
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %7, align 4, !tbaa !9
+  br label %43, !llvm.loop !58
+
+59:                                               ; preds = %49
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !61
+  ret i32 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !62
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  store i32 %7, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %13 = call noundef i32 @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %12)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %2
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %6, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
+  %17 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %6, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !61
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !62
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  store ptr %22, ptr %20, align 8, !tbaa !64
+  %23 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %6, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !61
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !68
+  ret i32 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store ptr %1, ptr %4, align 8, !tbaa !69
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  store i32 %7, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %13 = call noundef i32 @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %12)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %2
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %6, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !70
+  %17 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %6, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !68
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !69
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  store ptr %22, ptr %20, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %6, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !68
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !75
+  ret i32 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !79
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  store i32 %7, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %13 = call noundef i32 @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %12)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %2
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !80
+  %17 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !75
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !79
+  %22 = load ptr, ptr %21, align 8, !tbaa !81
+  store ptr %22, ptr %20, align 8, !tbaa !81
+  %23 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !75
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !80
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_Z16btIsBodyInIslandRKN27btSimulationIslandManagerMt6IslandEPK17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(101) %0, ptr noundef %1) #2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !47
+  store ptr %1, ptr %5, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 0, ptr %6, align 4, !tbaa !9
+  br label %8
+
+8:                                                ; preds = %25, %2
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = load ptr, ptr %4, align 8, !tbaa !47
+  %11 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %10, i32 0, i32 0
+  %12 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %11)
+  %13 = icmp slt i32 %9, %12
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %8
+  store i32 2, ptr %7, align 4
+  br label %28
+
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %4, align 8, !tbaa !47
+  %17 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %6, align 4, !tbaa !9
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %17, i32 noundef %18)
+  %20 = load ptr, ptr %19, align 8, !tbaa !64
+  %21 = load ptr, ptr %5, align 8, !tbaa !64
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %15
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %28
+
+24:                                               ; preds = %15
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i32, ptr %6, align 4, !tbaa !9
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %6, align 4, !tbaa !9
+  br label %8, !llvm.loop !83
+
+28:                                               ; preds = %23, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  %29 = load i32, ptr %7, align 4
+  switch i32 %29, label %33 [
+    i32 2, label %30
+    i32 1, label %31
+  ]
+
+30:                                               ; preds = %28
+  store i1 false, ptr %3, align 1
+  br label %31
+
+31:                                               ; preds = %30, %28
+  %32 = load i1, ptr %3, align 1
+  ret i1 %32
+
+33:                                               ; preds = %28
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN27btSimulationIslandManagerMt15initIslandPoolsEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %class.IslandBodyCapacitySortPredicate, align 1
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %20 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #13
+  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %20)
+  %22 = call noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %21)
+  store i32 %22, ptr %3, align 4, !tbaa !9
+  %23 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 5
+  %24 = load i32, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #13
+  store ptr null, ptr %4, align 8, !tbaa !47
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %23, i32 noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %25
+
+25:                                               ; preds = %35, %1
+  %26 = load i32, ptr %5, align 4, !tbaa !9
+  %27 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 5
+  %28 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %27)
+  %29 = icmp slt i32 %26, %28
+  br i1 %29, label %31, label %30
+
+30:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  br label %38
+
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 5
+  %33 = load i32, ptr %5, align 4, !tbaa !9
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %32, i32 noundef %33)
+  store ptr null, ptr %34, align 8, !tbaa !47
+  br label %35
+
+35:                                               ; preds = %31
+  %36 = load i32, ptr %5, align 4, !tbaa !9
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %5, align 4, !tbaa !9
+  br label %25, !llvm.loop !84
+
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  store ptr null, ptr %6, align 8, !tbaa !47
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %39, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  %40 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  store ptr null, ptr %7, align 8, !tbaa !47
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %40, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 0, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #13
+  store i8 1, ptr %9, align 1, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  store i32 0, ptr %10, align 4, !tbaa !9
+  br label %41
+
+41:                                               ; preds = %64, %38
+  %42 = load i32, ptr %10, align 4, !tbaa !9
+  %43 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 2
+  %44 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %43)
+  %45 = icmp slt i32 %42, %44
+  br i1 %45, label %47, label %46
+
+46:                                               ; preds = %41
+  store i32 5, ptr %11, align 4
+  br label %67
+
+47:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %48 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 2
+  %49 = load i32, ptr %10, align 4, !tbaa !9
+  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %48, i32 noundef %49)
+  %51 = load ptr, ptr %50, align 8, !tbaa !47
+  store ptr %51, ptr %12, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %52 = load ptr, ptr %12, align 8, !tbaa !47
+  %53 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %52, i32 0, i32 0
+  %54 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %53)
+  store i32 %54, ptr %13, align 4, !tbaa !9
+  %55 = load i32, ptr %13, align 4, !tbaa !9
+  %56 = load i32, ptr %8, align 4, !tbaa !9
+  %57 = icmp sgt i32 %55, %56
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %47
+  store i8 0, ptr %9, align 1, !tbaa !85
+  store i32 5, ptr %11, align 4
+  br label %61
+
+59:                                               ; preds = %47
+  %60 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %60, ptr %8, align 4, !tbaa !9
+  store i32 0, ptr %11, align 4
+  br label %61
+
+61:                                               ; preds = %59, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %62 = load i32, ptr %11, align 4
+  switch i32 %62, label %67 [
+    i32 0, label %63
+  ]
+
+63:                                               ; preds = %61
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load i32, ptr %10, align 4, !tbaa !9
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %10, align 4, !tbaa !9
+  br label %41, !llvm.loop !86
+
+67:                                               ; preds = %61, %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load i8, ptr %9, align 1, !tbaa !85, !range !87, !noundef !88
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %73, label %71
+
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #13
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %72, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #13
+  br label %73
+
+73:                                               ; preds = %71, %68
+  %74 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 6
+  store ptr null, ptr %74, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #13
+  store i32 0, ptr %15, align 4, !tbaa !9
+  br label %75
+
+75:                                               ; preds = %97, %73
+  %76 = load i32, ptr %15, align 4, !tbaa !9
+  %77 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 2
+  %78 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %77)
+  %79 = icmp slt i32 %76, %78
+  br i1 %79, label %81, label %80
+
+80:                                               ; preds = %75
+  store i32 8, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #13
+  br label %100
+
+81:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  %82 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 2
+  %83 = load i32, ptr %15, align 4, !tbaa !9
+  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %82, i32 noundef %83)
+  %85 = load ptr, ptr %84, align 8, !tbaa !47
+  store ptr %85, ptr %16, align 8, !tbaa !47
+  %86 = load ptr, ptr %16, align 8, !tbaa !47
+  %87 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %86, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #13
+  store ptr null, ptr %17, align 8, !tbaa !64
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %87, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #13
+  %88 = load ptr, ptr %16, align 8, !tbaa !47
+  %89 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %88, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  store ptr null, ptr %18, align 8, !tbaa !71
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %89, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  %90 = load ptr, ptr %16, align 8, !tbaa !47
+  %91 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %90, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #13
+  store ptr null, ptr %19, align 8, !tbaa !81
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %91, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #13
+  %92 = load ptr, ptr %16, align 8, !tbaa !47
+  %93 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %92, i32 0, i32 3
+  store i32 -1, ptr %93, align 8, !tbaa !89
+  %94 = load ptr, ptr %16, align 8, !tbaa !47
+  %95 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %94, i32 0, i32 4
+  store i8 1, ptr %95, align 4, !tbaa !91
+  %96 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %20, i32 0, i32 4
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %96, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  br label %97
+
+97:                                               ; preds = %81
+  %98 = load i32, ptr %15, align 4, !tbaa !9
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr %15, align 4, !tbaa !9
+  br label %75, !llvm.loop !92
+
+100:                                              ; preds = %80
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btSimulationIslandManager, ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btUnionFind, ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNK20btAlignedObjectArrayI9btElementE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %4)
+  ret i32 %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !97
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %_Val) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !98
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %12
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8, !tbaa !98
+  %10 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
+  %11 = sub nsw i32 %10, 1
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 1 dereferenceable(1) %9, i32 noundef 0, i32 noundef %11)
+  br label %12
 
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %_Val.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %arrayidx, align 8
-  %m_size5 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %m_size5, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %m_size5, align 4
+12:                                               ; preds = %8, %2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #9 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !62
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  store i32 %11, ptr %7, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %27
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
-}
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %16, ptr %8, align 4, !tbaa !9
+  br label %17
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %_Val) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
+17:                                               ; preds = %23, %15
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = icmp slt i32 %18, %19
+  br i1 %20, label %22, label %21
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
+21:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %26
 
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %_Val.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %arrayidx, align 8
-  %m_size5 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %m_size5, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %m_size5, align 4
+22:                                               ; preds = %17
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %8, align 4, !tbaa !9
+  br label %17, !llvm.loop !100
+
+26:                                               ; preds = %21
+  br label %52
+
+27:                                               ; preds = %3
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = load i32, ptr %7, align 4, !tbaa !9
+  %30 = icmp sgt i32 %28, %29
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef %32)
+  br label %33
+
+33:                                               ; preds = %31, %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %34, ptr %9, align 4, !tbaa !9
+  br label %35
+
+35:                                               ; preds = %48, %33
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = load i32, ptr %5, align 4, !tbaa !9
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %51
+
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %10, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !63
+  %43 = load i32, ptr %9, align 4, !tbaa !9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !62
+  %47 = load ptr, ptr %46, align 8, !tbaa !64
+  store ptr %47, ptr %45, align 8, !tbaa !64
+  br label %48
+
+48:                                               ; preds = %40
+  %49 = load i32, ptr %9, align 4, !tbaa !9
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %9, align 4, !tbaa !9
+  br label %35, !llvm.loop !101
+
+51:                                               ; preds = %39
+  br label %52
+
+52:                                               ; preds = %51, %26
+  %53 = load i32, ptr %5, align 4, !tbaa !9
+  %54 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %10, i32 0, i32 1
+  store i32 %53, ptr %54, align 4, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #9 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !66
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !69
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  store i32 %11, ptr %7, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %27
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
-}
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %16, ptr %8, align 4, !tbaa !9
+  br label %17
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %_Val) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
+17:                                               ; preds = %23, %15
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = icmp slt i32 %18, %19
+  br i1 %20, label %22, label %21
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
+21:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %26
 
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %_Val.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %arrayidx, align 8
-  %m_size5 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %m_size5, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %m_size5, align 4
+22:                                               ; preds = %17
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %8, align 4, !tbaa !9
+  br label %17, !llvm.loop !102
+
+26:                                               ; preds = %21
+  br label %52
+
+27:                                               ; preds = %3
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = load i32, ptr %7, align 4, !tbaa !9
+  %30 = icmp sgt i32 %28, %29
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef %32)
+  br label %33
+
+33:                                               ; preds = %31, %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %34, ptr %9, align 4, !tbaa !9
+  br label %35
+
+35:                                               ; preds = %48, %33
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = load i32, ptr %5, align 4, !tbaa !9
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %51
+
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %10, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !70
+  %43 = load i32, ptr %9, align 4, !tbaa !9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !69
+  %47 = load ptr, ptr %46, align 8, !tbaa !71
+  store ptr %47, ptr %45, align 8, !tbaa !71
+  br label %48
+
+48:                                               ; preds = %40
+  %49 = load i32, ptr %9, align 4, !tbaa !9
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %9, align 4, !tbaa !9
+  br label %35, !llvm.loop !103
+
+51:                                               ; preds = %39
+  br label %52
+
+52:                                               ; preds = %51, %26
+  %53 = load i32, ptr %5, align 4, !tbaa !9
+  %54 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %10, i32 0, i32 1
+  store i32 %53, ptr %54, align 4, !tbaa !68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #9 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !73
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !79
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  store i32 %11, ptr %7, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %27
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_Z16btIsBodyInIslandRKN27btSimulationIslandManagerMt6IslandEPK17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(101) %island, ptr noundef %obj) #2 {
-entry:
-  %retval = alloca i1, align 1
-  %island.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %island, ptr %island.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %16, ptr %8, align 4, !tbaa !9
+  br label %17
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %island.addr, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  %cmp = icmp slt i32 %0, %call
-  br i1 %cmp, label %for.body, label %for.end
+17:                                               ; preds = %23, %15
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = icmp slt i32 %18, %19
+  br i1 %20, label %22, label %21
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %island.addr, align 8
-  %bodyArray1 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %i, align 4
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray1, i32 noundef %3)
-  %4 = load ptr, ptr %call2, align 8
-  %5 = load ptr, ptr %obj.addr, align 8
-  %cmp3 = icmp eq ptr %4, %5
-  br i1 %cmp3, label %if.then, label %if.end
+21:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %26
 
-if.then:                                          ; preds = %for.body
-  store i1 true, ptr %retval, align 1
-  br label %return
+22:                                               ; preds = %17
+  br label %23
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+23:                                               ; preds = %22
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %8, align 4, !tbaa !9
+  br label %17, !llvm.loop !104
 
-for.inc:                                          ; preds = %if.end
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
+26:                                               ; preds = %21
+  br label %52
 
-for.end:                                          ; preds = %for.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
+27:                                               ; preds = %3
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = load i32, ptr %7, align 4, !tbaa !9
+  %30 = icmp sgt i32 %28, %29
+  br i1 %30, label %31, label %33
 
-return:                                           ; preds = %for.end, %if.then
-  %7 = load i1, ptr %retval, align 1
-  ret i1 %7
-}
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef %32)
+  br label %33
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt15initIslandPoolsEv(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %numElem = alloca i32, align 4
-  %ref.tmp = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ref.tmp7 = alloca ptr, align 8
-  %ref.tmp8 = alloca ptr, align 8
-  %lastCapacity = alloca i32, align 4
-  %isSorted = alloca i8, align 1
-  %i9 = alloca i32, align 4
-  %island = alloca ptr, align 8
-  %cap = alloca i32, align 4
-  %ref.tmp23 = alloca %class.IslandBodyCapacitySortPredicate, align 1
-  %i25 = alloca i32, align 4
-  %island31 = alloca ptr, align 8
-  %ref.tmp35 = alloca ptr, align 8
-  %ref.tmp36 = alloca ptr, align 8
-  %ref.tmp37 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  %call2 = call noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %call)
-  store i32 %call2, ptr %numElem, align 4
-  %m_lookupIslandFromId = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  %0 = load i32, ptr %numElem, align 4
-  store ptr null, ptr %ref.tmp, align 8
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+33:                                               ; preds = %31, %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %34, ptr %9, align 4, !tbaa !9
+  br label %35
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %m_lookupIslandFromId3 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId3)
-  %cmp = icmp slt i32 %1, %call4
-  br i1 %cmp, label %for.body, label %for.end
+35:                                               ; preds = %48, %33
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = load i32, ptr %5, align 4, !tbaa !9
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %40, label %39
 
-for.body:                                         ; preds = %for.cond
-  %m_lookupIslandFromId5 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %i, align 4
-  %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId5, i32 noundef %2)
-  store ptr null, ptr %call6, align 8
-  br label %for.inc
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %51
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !14
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %10, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !80
+  %43 = load i32, ptr %9, align 4, !tbaa !9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !79
+  %47 = load ptr, ptr %46, align 8, !tbaa !81
+  store ptr %47, ptr %45, align 8, !tbaa !81
+  br label %48
 
-for.end:                                          ; preds = %for.cond
-  %m_activeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  store ptr null, ptr %ref.tmp7, align 8
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7)
-  %m_freeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 4
-  store ptr null, ptr %ref.tmp8, align 8
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_freeIslands, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
-  store i32 0, ptr %lastCapacity, align 4
-  store i8 1, ptr %isSorted, align 1
-  store i32 0, ptr %i9, align 4
-  br label %for.cond10
+48:                                               ; preds = %40
+  %49 = load i32, ptr %9, align 4, !tbaa !9
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %9, align 4, !tbaa !9
+  br label %35, !llvm.loop !105
 
-for.cond10:                                       ; preds = %for.inc18, %for.end
-  %4 = load i32, ptr %i9, align 4
-  %m_allocatedIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  %call11 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands)
-  %cmp12 = icmp slt i32 %4, %call11
-  br i1 %cmp12, label %for.body13, label %for.end20
+51:                                               ; preds = %39
+  br label %52
 
-for.body13:                                       ; preds = %for.cond10
-  %m_allocatedIslands14 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %i9, align 4
-  %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands14, i32 noundef %5)
-  %6 = load ptr, ptr %call15, align 8
-  store ptr %6, ptr %island, align 8
-  %7 = load ptr, ptr %island, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %7, i32 0, i32 0
-  %call16 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  store i32 %call16, ptr %cap, align 4
-  %8 = load i32, ptr %cap, align 4
-  %9 = load i32, ptr %lastCapacity, align 4
-  %cmp17 = icmp sgt i32 %8, %9
-  br i1 %cmp17, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body13
-  store i8 0, ptr %isSorted, align 1
-  br label %for.end20
-
-if.end:                                           ; preds = %for.body13
-  %10 = load i32, ptr %cap, align 4
-  store i32 %10, ptr %lastCapacity, align 4
-  br label %for.inc18
-
-for.inc18:                                        ; preds = %if.end
-  %11 = load i32, ptr %i9, align 4
-  %inc19 = add nsw i32 %11, 1
-  store i32 %inc19, ptr %i9, align 4
-  br label %for.cond10, !llvm.loop !15
-
-for.end20:                                        ; preds = %if.then, %for.cond10
-  %12 = load i8, ptr %isSorted, align 1
-  %tobool = trunc i8 %12 to i1
-  br i1 %tobool, label %if.end24, label %if.then21
-
-if.then21:                                        ; preds = %for.end20
-  %m_allocatedIslands22 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.then21, %for.end20
-  %m_batchIsland = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 6
-  store ptr null, ptr %m_batchIsland, align 8
-  store i32 0, ptr %i25, align 4
-  br label %for.cond26
-
-for.cond26:                                       ; preds = %for.inc39, %if.end24
-  %13 = load i32, ptr %i25, align 4
-  %m_allocatedIslands27 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  %call28 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands27)
-  %cmp29 = icmp slt i32 %13, %call28
-  br i1 %cmp29, label %for.body30, label %for.end41
-
-for.body30:                                       ; preds = %for.cond26
-  %m_allocatedIslands32 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  %14 = load i32, ptr %i25, align 4
-  %call33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands32, i32 noundef %14)
-  %15 = load ptr, ptr %call33, align 8
-  store ptr %15, ptr %island31, align 8
-  %16 = load ptr, ptr %island31, align 8
-  %bodyArray34 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %16, i32 0, i32 0
-  store ptr null, ptr %ref.tmp35, align 8
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray34, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35)
-  %17 = load ptr, ptr %island31, align 8
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %17, i32 0, i32 1
-  store ptr null, ptr %ref.tmp36, align 8
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp36)
-  %18 = load ptr, ptr %island31, align 8
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %18, i32 0, i32 2
-  store ptr null, ptr %ref.tmp37, align 8
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
-  %19 = load ptr, ptr %island31, align 8
-  %id = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %19, i32 0, i32 3
-  store i32 -1, ptr %id, align 8
-  %20 = load ptr, ptr %island31, align 8
-  %isSleeping = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %20, i32 0, i32 4
-  store i8 1, ptr %isSleeping, align 4
-  %m_freeIslands38 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_freeIslands38, ptr noundef nonnull align 8 dereferenceable(8) %island31)
-  br label %for.inc39
-
-for.inc39:                                        ; preds = %for.body30
-  %21 = load i32, ptr %i25, align 4
-  %inc40 = add nsw i32 %21, 1
-  store i32 %inc40, ptr %i25, align 4
-  br label %for.cond26, !llvm.loop !16
-
-for.end41:                                        ; preds = %for.cond26
+52:                                               ; preds = %51, %26
+  %53 = load i32, ptr %5, align 4, !tbaa !9
+  %54 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %10, i32 0, i32 1
+  store i32 %53, ptr %54, align 4, !tbaa !75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_unionFind = getelementptr inbounds %class.btSimulationIslandManager, ptr %this1, i32 0, i32 1
-  ret ptr %m_unionFind
-}
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  store i32 %7, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %11, label %14
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_elements = getelementptr inbounds %class.btUnionFind, ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayI9btElementE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_elements)
-  ret i32 %call
-}
+11:                                               ; preds = %2
+  %12 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %13 = call noundef i32 @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %12)
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %13)
+  br label %14
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 1 dereferenceable(1) %CompareFunc) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %CompareFunc.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %CompareFunc, ptr %CompareFunc.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp sgt i32 %call, 1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %CompareFunc.addr, align 8
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %sub = sub nsw i32 %call2, 1
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef 0, i32 noundef %sub)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+14:                                               ; preds = %11, %2
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %6, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %17 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %6, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !51
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !53
+  %22 = load ptr, ptr %21, align 8, !tbaa !47
+  store ptr %22, ptr %20, align 8, !tbaa !47
+  %23 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %6, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !51
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(8) %fillData) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i5 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %9 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %8, i32 0, i32 5
+  %10 = load i32, ptr %4, align 4, !tbaa !9
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %9, i32 noundef %10)
+  %12 = load ptr, ptr %11, align 8, !tbaa !47
+  store ptr %12, ptr %5, align 8, !tbaa !47
+  %13 = load ptr, ptr %5, align 8, !tbaa !47
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %46
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 0, ptr %6, align 4, !tbaa !9
+  br label %16
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+16:                                               ; preds = %37, %15
+  %17 = load i32, ptr %6, align 4, !tbaa !9
+  %18 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %8, i32 0, i32 3
+  %19 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %18)
+  %20 = icmp slt i32 %17, %19
+  br i1 %20, label %22, label %21
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+21:                                               ; preds = %16
+  store i32 2, ptr %7, align 4
+  br label %40
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !17
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %8, i32 0, i32 3
+  %24 = load i32, ptr %6, align 4, !tbaa !9
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %23, i32 noundef %24)
+  %26 = load ptr, ptr %25, align 8, !tbaa !47
+  %27 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %26, i32 0, i32 3
+  %28 = load i32, ptr %27, align 8, !tbaa !89
+  %29 = load i32, ptr %4, align 4, !tbaa !9
+  %30 = icmp eq i32 %28, %29
+  br i1 %30, label %31, label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end15
+31:                                               ; preds = %22
+  %32 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %8, i32 0, i32 3
+  %33 = load i32, ptr %6, align 4, !tbaa !9
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %32, i32 noundef %33)
+  %35 = load ptr, ptr %34, align 8, !tbaa !47
+  store ptr %35, ptr %5, align 8, !tbaa !47
+  store i32 2, ptr %7, align 4
+  br label %40
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %7 = load i32, ptr %curSize, align 4
-  %cmp3 = icmp sgt i32 %6, %7
-  br i1 %cmp3, label %if.then4, label %if.end
+36:                                               ; preds = %22
+  br label %37
 
-if.then4:                                         ; preds = %if.else
-  %8 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %8)
-  br label %if.end
+37:                                               ; preds = %36
+  %38 = load i32, ptr %6, align 4, !tbaa !9
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %6, align 4, !tbaa !9
+  br label %16, !llvm.loop !106
 
-if.end:                                           ; preds = %if.then4, %if.else
-  %9 = load i32, ptr %curSize, align 4
-  store i32 %9, ptr %i5, align 4
-  br label %for.cond6
+40:                                               ; preds = %31, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  br label %41
 
-for.cond6:                                        ; preds = %for.inc12, %if.end
-  %10 = load i32, ptr %i5, align 4
-  %11 = load i32, ptr %newsize.addr, align 4
-  %cmp7 = icmp slt i32 %10, %11
-  br i1 %cmp7, label %for.body8, label %for.end14
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %5, align 8, !tbaa !47
+  %43 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %8, i32 0, i32 5
+  %44 = load i32, ptr %4, align 4, !tbaa !9
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %43, i32 noundef %44)
+  store ptr %42, ptr %45, align 8, !tbaa !47
+  br label %46
 
-for.body8:                                        ; preds = %for.cond6
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %12 = load ptr, ptr %m_data9, align 8
-  %13 = load i32, ptr %i5, align 4
-  %idxprom10 = sext i32 %13 to i64
-  %arrayidx11 = getelementptr inbounds ptr, ptr %12, i64 %idxprom10
-  %14 = load ptr, ptr %fillData.addr, align 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %arrayidx11, align 8
-  br label %for.inc12
-
-for.inc12:                                        ; preds = %for.body8
-  %16 = load i32, ptr %i5, align 4
-  %inc13 = add nsw i32 %16, 1
-  store i32 %inc13, ptr %i5, align 4
-  br label %for.cond6, !llvm.loop !18
-
-for.end14:                                        ; preds = %for.cond6
-  br label %if.end15
-
-if.end15:                                         ; preds = %for.end14, %for.end
-  %17 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  store i32 %17, ptr %m_size, align 4
-  ret void
+46:                                               ; preds = %41, %2
+  %47 = load ptr, ptr %5, align 8, !tbaa !47
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(8) %fillData) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i5 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt14allocateIslandEii(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %18 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  store ptr null, ptr %8, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %19, ptr %9, align 4, !tbaa !9
+  %20 = load i32, ptr %7, align 4, !tbaa !9
+  %21 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 8
+  %22 = load i32, ptr %21, align 4, !tbaa !34
+  %23 = icmp slt i32 %20, %22
+  br i1 %23, label %24, label %52
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 6
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %47
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !36
+  store ptr %30, ptr %8, align 8, !tbaa !47
+  %31 = load ptr, ptr %8, align 8, !tbaa !47
+  %32 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 5
+  %33 = load i32, ptr %6, align 4, !tbaa !9
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %32, i32 noundef %33)
+  store ptr %31, ptr %34, align 8, !tbaa !47
+  %35 = load ptr, ptr %8, align 8, !tbaa !47
+  %36 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %35, i32 0, i32 0
+  %37 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %36)
+  %38 = load i32, ptr %7, align 4, !tbaa !9
+  %39 = add nsw i32 %37, %38
+  %40 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 8
+  %41 = load i32, ptr %40, align 4, !tbaa !34
+  %42 = icmp sge i32 %39, %41
+  br i1 %42, label %43, label %45
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+43:                                               ; preds = %28
+  %44 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 6
+  store ptr null, ptr %44, align 8, !tbaa !36
+  br label %45
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !19
+45:                                               ; preds = %43, %28
+  %46 = load ptr, ptr %8, align 8, !tbaa !47
+  store ptr %46, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %147
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end15
+47:                                               ; preds = %24
+  %48 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 8
+  %49 = load i32, ptr %48, align 4, !tbaa !34
+  %50 = mul nsw i32 %49, 2
+  store i32 %50, ptr %9, align 4, !tbaa !9
+  br label %51
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %7 = load i32, ptr %curSize, align 4
-  %cmp3 = icmp sgt i32 %6, %7
-  br i1 %cmp3, label %if.then4, label %if.end
+51:                                               ; preds = %47
+  br label %52
 
-if.then4:                                         ; preds = %if.else
-  %8 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %8)
-  br label %if.end
+52:                                               ; preds = %51, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %53 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 4
+  store ptr %53, ptr %11, align 8, !tbaa !37
+  %54 = load ptr, ptr %11, align 8, !tbaa !37
+  %55 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %54)
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %57, label %115
 
-if.end:                                           ; preds = %if.then4, %if.else
-  %9 = load i32, ptr %curSize, align 4
-  store i32 %9, ptr %i5, align 4
-  br label %for.cond6
+57:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %58 = load ptr, ptr %11, align 8, !tbaa !37
+  %59 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %58)
+  store i32 %59, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %60 = load ptr, ptr %11, align 8, !tbaa !37
+  %61 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %60)
+  %62 = sub nsw i32 %61, 1
+  store i32 %62, ptr %13, align 4, !tbaa !9
+  br label %63
 
-for.cond6:                                        ; preds = %for.inc12, %if.end
-  %10 = load i32, ptr %i5, align 4
-  %11 = load i32, ptr %newsize.addr, align 4
-  %cmp7 = icmp slt i32 %10, %11
-  br i1 %cmp7, label %for.body8, label %for.end14
+63:                                               ; preds = %86, %57
+  %64 = load i32, ptr %13, align 4, !tbaa !9
+  %65 = icmp sge i32 %64, 0
+  br i1 %65, label %67, label %66
 
-for.body8:                                        ; preds = %for.cond6
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %12 = load ptr, ptr %m_data9, align 8
-  %13 = load i32, ptr %i5, align 4
-  %idxprom10 = sext i32 %13 to i64
-  %arrayidx11 = getelementptr inbounds ptr, ptr %12, i64 %idxprom10
-  %14 = load ptr, ptr %fillData.addr, align 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %arrayidx11, align 8
-  br label %for.inc12
+66:                                               ; preds = %63
+  store i32 2, ptr %10, align 4
+  br label %89
 
-for.inc12:                                        ; preds = %for.body8
-  %16 = load i32, ptr %i5, align 4
-  %inc13 = add nsw i32 %16, 1
-  store i32 %inc13, ptr %i5, align 4
-  br label %for.cond6, !llvm.loop !20
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %11, align 8, !tbaa !37
+  %69 = load i32, ptr %13, align 4, !tbaa !9
+  %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %68, i32 noundef %69)
+  %71 = load ptr, ptr %70, align 8, !tbaa !47
+  %72 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %71, i32 0, i32 0
+  %73 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %72)
+  %74 = load i32, ptr %9, align 4, !tbaa !9
+  %75 = icmp sge i32 %73, %74
+  br i1 %75, label %76, label %85
 
-for.end14:                                        ; preds = %for.cond6
-  br label %if.end15
+76:                                               ; preds = %67
+  %77 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %77, ptr %12, align 4, !tbaa !9
+  %78 = load ptr, ptr %11, align 8, !tbaa !37
+  %79 = load i32, ptr %13, align 4, !tbaa !9
+  %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %78, i32 noundef %79)
+  %81 = load ptr, ptr %80, align 8, !tbaa !47
+  store ptr %81, ptr %8, align 8, !tbaa !47
+  %82 = load i32, ptr %6, align 4, !tbaa !9
+  %83 = load ptr, ptr %8, align 8, !tbaa !47
+  %84 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %83, i32 0, i32 3
+  store i32 %82, ptr %84, align 8, !tbaa !89
+  store i32 2, ptr %10, align 4
+  br label %89
 
-if.end15:                                         ; preds = %for.end14, %for.end
-  %17 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  store i32 %17, ptr %m_size, align 4
-  ret void
-}
+85:                                               ; preds = %67
+  br label %86
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(8) %fillData) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i5 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+86:                                               ; preds = %85
+  %87 = load i32, ptr %13, align 4, !tbaa !9
+  %88 = add nsw i32 %87, -1
+  store i32 %88, ptr %13, align 4, !tbaa !9
+  br label %63, !llvm.loop !107
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+89:                                               ; preds = %76, %66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  br label %90
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+90:                                               ; preds = %89
+  %91 = load ptr, ptr %8, align 8, !tbaa !47
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %114
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+93:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %94 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %94, ptr %14, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #13
+  %95 = load i32, ptr %14, align 4, !tbaa !9
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %15, align 4, !tbaa !9
+  br label %97
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !21
+97:                                               ; preds = %102, %93
+  %98 = load i32, ptr %15, align 4, !tbaa !9
+  %99 = load ptr, ptr %11, align 8, !tbaa !37
+  %100 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %99)
+  %101 = icmp slt i32 %98, %100
+  br i1 %101, label %102, label %112
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end15
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %11, align 8, !tbaa !37
+  %104 = load i32, ptr %15, align 4, !tbaa !9
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %15, align 4, !tbaa !9
+  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %103, i32 noundef %104)
+  %107 = load ptr, ptr %106, align 8, !tbaa !47
+  %108 = load ptr, ptr %11, align 8, !tbaa !37
+  %109 = load i32, ptr %14, align 4, !tbaa !9
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %14, align 4, !tbaa !9
+  %111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %108, i32 noundef %109)
+  store ptr %107, ptr %111, align 8, !tbaa !47
+  br label %97, !llvm.loop !108
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %7 = load i32, ptr %curSize, align 4
-  %cmp3 = icmp sgt i32 %6, %7
-  br i1 %cmp3, label %if.then4, label %if.end
+112:                                              ; preds = %97
+  %113 = load ptr, ptr %11, align 8, !tbaa !37
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(25) %113)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  br label %114
 
-if.then4:                                         ; preds = %if.else
-  %8 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %8)
-  br label %if.end
+114:                                              ; preds = %112, %90
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  br label %115
 
-if.end:                                           ; preds = %if.then4, %if.else
-  %9 = load i32, ptr %curSize, align 4
-  store i32 %9, ptr %i5, align 4
-  br label %for.cond6
+115:                                              ; preds = %114, %52
+  %116 = load ptr, ptr %8, align 8, !tbaa !47
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %118, label %132
 
-for.cond6:                                        ; preds = %for.inc12, %if.end
-  %10 = load i32, ptr %i5, align 4
-  %11 = load i32, ptr %newsize.addr, align 4
-  %cmp7 = icmp slt i32 %10, %11
-  br i1 %cmp7, label %for.body8, label %for.end14
+118:                                              ; preds = %115
+  %119 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #16
+  call void @llvm.memset.p0.i64(ptr align 16 %119, i8 0, i64 104, i1 false)
+  invoke void @_ZN27btSimulationIslandManagerMt6IslandC2Ev(ptr noundef nonnull align 8 dereferenceable(101) %119)
+          to label %120 unwind label %128
 
-for.body8:                                        ; preds = %for.cond6
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %12 = load ptr, ptr %m_data9, align 8
-  %13 = load i32, ptr %i5, align 4
-  %idxprom10 = sext i32 %13 to i64
-  %arrayidx11 = getelementptr inbounds ptr, ptr %12, i64 %idxprom10
-  %14 = load ptr, ptr %fillData.addr, align 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %arrayidx11, align 8
-  br label %for.inc12
+120:                                              ; preds = %118
+  store ptr %119, ptr %8, align 8, !tbaa !47
+  %121 = load i32, ptr %6, align 4, !tbaa !9
+  %122 = load ptr, ptr %8, align 8, !tbaa !47
+  %123 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %122, i32 0, i32 3
+  store i32 %121, ptr %123, align 8, !tbaa !89
+  %124 = load ptr, ptr %8, align 8, !tbaa !47
+  %125 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %124, i32 0, i32 0
+  %126 = load i32, ptr %9, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %125, i32 noundef %126)
+  %127 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 2
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %127, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  br label %132
 
-for.inc12:                                        ; preds = %for.body8
-  %16 = load i32, ptr %i5, align 4
-  %inc13 = add nsw i32 %16, 1
-  store i32 %inc13, ptr %i5, align 4
-  br label %for.cond6, !llvm.loop !22
-
-for.end14:                                        ; preds = %for.cond6
-  br label %if.end15
-
-if.end15:                                         ; preds = %for.end14, %for.end
-  %17 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  store i32 %17, ptr %m_size, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %_Val) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %_Val.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %arrayidx, align 8
-  %m_size5 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %m_size5, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %m_size5, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %id) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %id.addr = alloca i32, align 4
-  %island = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %id, ptr %id.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_lookupIslandFromId = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  %0 = load i32, ptr %id.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId, i32 noundef %0)
-  %1 = load ptr, ptr %call, align 8
-  store ptr %1, ptr %island, align 8
-  %2 = load ptr, ptr %island, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end13
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %m_activeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands)
-  %cmp3 = icmp slt i32 %3, %call2
-  br i1 %cmp3, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %m_activeIslands4 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %4 = load i32, ptr %i, align 4
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands4, i32 noundef %4)
-  %5 = load ptr, ptr %call5, align 8
-  %id6 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %id6, align 8
-  %7 = load i32, ptr %id.addr, align 4
-  %cmp7 = icmp eq i32 %6, %7
-  br i1 %cmp7, label %if.then8, label %if.end
-
-if.then8:                                         ; preds = %for.body
-  %m_activeIslands9 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %8 = load i32, ptr %i, align 4
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands9, i32 noundef %8)
-  %9 = load ptr, ptr %call10, align 8
-  store ptr %9, ptr %island, align 8
-  br label %for.end
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %10 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %10, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !23
-
-for.end:                                          ; preds = %if.then8, %for.cond
-  %11 = load ptr, ptr %island, align 8
-  %m_lookupIslandFromId11 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  %12 = load i32, ptr %id.addr, align 4
-  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId11, i32 noundef %12)
-  store ptr %11, ptr %call12, align 8
-  br label %if.end13
-
-if.end13:                                         ; preds = %for.end, %entry
-  %13 = load ptr, ptr %island, align 8
-  ret ptr %13
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt14allocateIslandEii(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %id, i32 noundef %numBodies) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %id.addr = alloca i32, align 4
-  %numBodies.addr = alloca i32, align 4
-  %island = alloca ptr, align 8
-  %allocSize = alloca i32, align 4
-  %freeIslands = alloca ptr, align 8
-  %iFound = alloca i32, align 4
-  %i = alloca i32, align 4
-  %iDest = alloca i32, align 4
-  %iSrc = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %id, ptr %id.addr, align 4
-  store i32 %numBodies, ptr %numBodies.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr null, ptr %island, align 8
-  %0 = load i32, ptr %numBodies.addr, align 4
-  store i32 %0, ptr %allocSize, align 4
-  %1 = load i32, ptr %numBodies.addr, align 4
-  %m_batchIslandMinBodyCount = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 8
-  %2 = load i32, ptr %m_batchIslandMinBodyCount, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %if.then, label %if.end11
-
-if.then:                                          ; preds = %entry
-  %m_batchIsland = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %m_batchIsland, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.then2, label %if.else
-
-if.then2:                                         ; preds = %if.then
-  %m_batchIsland3 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %m_batchIsland3, align 8
-  store ptr %4, ptr %island, align 8
-  %5 = load ptr, ptr %island, align 8
-  %m_lookupIslandFromId = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  %6 = load i32, ptr %id.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId, i32 noundef %6)
-  store ptr %5, ptr %call, align 8
-  %7 = load ptr, ptr %island, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %7, i32 0, i32 0
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  %8 = load i32, ptr %numBodies.addr, align 4
-  %add = add nsw i32 %call4, %8
-  %m_batchIslandMinBodyCount5 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 8
-  %9 = load i32, ptr %m_batchIslandMinBodyCount5, align 4
-  %cmp6 = icmp sge i32 %add, %9
-  br i1 %cmp6, label %if.then7, label %if.end
-
-if.then7:                                         ; preds = %if.then2
-  %m_batchIsland8 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 6
-  store ptr null, ptr %m_batchIsland8, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then7, %if.then2
-  %10 = load ptr, ptr %island, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %if.then
-  %m_batchIslandMinBodyCount9 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 8
-  %11 = load i32, ptr %m_batchIslandMinBodyCount9, align 4
-  %mul = mul nsw i32 %11, 2
-  store i32 %mul, ptr %allocSize, align 4
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.else
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %entry
-  %m_freeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 4
-  store ptr %m_freeIslands, ptr %freeIslands, align 8
-  %12 = load ptr, ptr %freeIslands, align 8
-  %call12 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %12)
-  %cmp13 = icmp sgt i32 %call12, 0
-  br i1 %cmp13, label %if.then14, label %if.end35
-
-if.then14:                                        ; preds = %if.end11
-  %13 = load ptr, ptr %freeIslands, align 8
-  %call15 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %13)
-  store i32 %call15, ptr %iFound, align 4
-  %14 = load ptr, ptr %freeIslands, align 8
-  %call16 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %14)
-  %sub = sub nsw i32 %call16, 1
-  store i32 %sub, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then14
-  %15 = load i32, ptr %i, align 4
-  %cmp17 = icmp sge i32 %15, 0
-  br i1 %cmp17, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %freeIslands, align 8
-  %17 = load i32, ptr %i, align 4
-  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %16, i32 noundef %17)
-  %18 = load ptr, ptr %call18, align 8
-  %bodyArray19 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %18, i32 0, i32 0
-  %call20 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray19)
-  %19 = load i32, ptr %allocSize, align 4
-  %cmp21 = icmp sge i32 %call20, %19
-  br i1 %cmp21, label %if.then22, label %if.end25
-
-if.then22:                                        ; preds = %for.body
-  %20 = load i32, ptr %i, align 4
-  store i32 %20, ptr %iFound, align 4
-  %21 = load ptr, ptr %freeIslands, align 8
-  %22 = load i32, ptr %i, align 4
-  %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %21, i32 noundef %22)
-  %23 = load ptr, ptr %call23, align 8
-  store ptr %23, ptr %island, align 8
-  %24 = load i32, ptr %id.addr, align 4
-  %25 = load ptr, ptr %island, align 8
-  %id24 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %25, i32 0, i32 3
-  store i32 %24, ptr %id24, align 8
-  br label %for.end
-
-if.end25:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end25
-  %26 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %26, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond, !llvm.loop !24
-
-for.end:                                          ; preds = %if.then22, %for.cond
-  %27 = load ptr, ptr %island, align 8
-  %tobool26 = icmp ne ptr %27, null
-  br i1 %tobool26, label %if.then27, label %if.end34
-
-if.then27:                                        ; preds = %for.end
-  %28 = load i32, ptr %iFound, align 4
-  store i32 %28, ptr %iDest, align 4
-  %29 = load i32, ptr %iDest, align 4
-  %add28 = add nsw i32 %29, 1
-  store i32 %add28, ptr %iSrc, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.then27
-  %30 = load i32, ptr %iSrc, align 4
-  %31 = load ptr, ptr %freeIslands, align 8
-  %call29 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %31)
-  %cmp30 = icmp slt i32 %30, %call29
-  br i1 %cmp30, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %32 = load ptr, ptr %freeIslands, align 8
-  %33 = load i32, ptr %iSrc, align 4
-  %inc = add nsw i32 %33, 1
-  store i32 %inc, ptr %iSrc, align 4
-  %call31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %32, i32 noundef %33)
-  %34 = load ptr, ptr %call31, align 8
-  %35 = load ptr, ptr %freeIslands, align 8
-  %36 = load i32, ptr %iDest, align 4
-  %inc32 = add nsw i32 %36, 1
-  store i32 %inc32, ptr %iDest, align 4
-  %call33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %35, i32 noundef %36)
-  store ptr %34, ptr %call33, align 8
-  br label %while.cond, !llvm.loop !25
-
-while.end:                                        ; preds = %while.cond
-  %37 = load ptr, ptr %freeIslands, align 8
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(25) %37)
-  br label %if.end34
-
-if.end34:                                         ; preds = %while.end, %for.end
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end34, %if.end11
-  %38 = load ptr, ptr %island, align 8
-  %cmp36 = icmp eq ptr %38, null
-  br i1 %cmp36, label %if.then37, label %if.end41
-
-if.then37:                                        ; preds = %if.end35
-  %call38 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #13
-  call void @llvm.memset.p0.i64(ptr align 16 %call38, i8 0, i64 104, i1 false)
-  invoke void @_ZN27btSimulationIslandManagerMt6IslandC2Ev(ptr noundef nonnull align 8 dereferenceable(101) %call38)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then37
-  store ptr %call38, ptr %island, align 8
-  %39 = load i32, ptr %id.addr, align 4
-  %40 = load ptr, ptr %island, align 8
-  %id39 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %40, i32 0, i32 3
-  store i32 %39, ptr %id39, align 8
-  %41 = load ptr, ptr %island, align 8
-  %bodyArray40 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %41, i32 0, i32 0
-  %42 = load i32, ptr %allocSize, align 4
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray40, i32 noundef %42)
-  %m_allocatedIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands, ptr noundef nonnull align 8 dereferenceable(8) %island)
-  br label %if.end41
-
-lpad:                                             ; preds = %if.then37
-  %43 = landingpad { ptr, i32 }
+128:                                              ; preds = %118
+  %129 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call38) #12
-  br label %eh.resume
+  %130 = extractvalue { ptr, i32 } %129, 0
+  store ptr %130, ptr %16, align 8
+  %131 = extractvalue { ptr, i32 } %129, 1
+  store i32 %131, ptr %17, align 4
+  call void @_ZdlPvm(ptr noundef %119, i64 noundef 104) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  br label %149
 
-if.end41:                                         ; preds = %invoke.cont, %if.end35
-  %46 = load ptr, ptr %island, align 8
-  %m_lookupIslandFromId42 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 5
-  %47 = load i32, ptr %id.addr, align 4
-  %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_lookupIslandFromId42, i32 noundef %47)
-  store ptr %46, ptr %call43, align 8
-  %48 = load i32, ptr %numBodies.addr, align 4
-  %m_batchIslandMinBodyCount44 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 8
-  %49 = load i32, ptr %m_batchIslandMinBodyCount44, align 4
-  %cmp45 = icmp slt i32 %48, %49
-  br i1 %cmp45, label %if.then46, label %if.end48
+132:                                              ; preds = %120, %115
+  %133 = load ptr, ptr %8, align 8, !tbaa !47
+  %134 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 5
+  %135 = load i32, ptr %6, align 4, !tbaa !9
+  %136 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %134, i32 noundef %135)
+  store ptr %133, ptr %136, align 8, !tbaa !47
+  %137 = load i32, ptr %7, align 4, !tbaa !9
+  %138 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 8
+  %139 = load i32, ptr %138, align 4, !tbaa !34
+  %140 = icmp slt i32 %137, %139
+  br i1 %140, label %141, label %144
 
-if.then46:                                        ; preds = %if.end41
-  %50 = load ptr, ptr %island, align 8
-  %m_batchIsland47 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 6
-  store ptr %50, ptr %m_batchIsland47, align 8
-  br label %if.end48
+141:                                              ; preds = %132
+  %142 = load ptr, ptr %8, align 8, !tbaa !47
+  %143 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 6
+  store ptr %142, ptr %143, align 8, !tbaa !36
+  br label %144
 
-if.end48:                                         ; preds = %if.then46, %if.end41
-  %m_activeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands, ptr noundef nonnull align 8 dereferenceable(8) %island)
-  %51 = load ptr, ptr %island, align 8
-  store ptr %51, ptr %retval, align 8
-  br label %return
+144:                                              ; preds = %141, %132
+  %145 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %18, i32 0, i32 3
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %145, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %146 = load ptr, ptr %8, align 8, !tbaa !47
+  store ptr %146, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  br label %147
 
-return:                                           ; preds = %if.end48, %if.end
-  %52 = load ptr, ptr %retval, align 8
-  ret ptr %52
+147:                                              ; preds = %144, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %148 = load ptr, ptr %4, align 8
+  ret ptr %148
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val49 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val49
+149:                                              ; preds = %128
+  %150 = load ptr, ptr %16, align 8
+  %151 = load i32, ptr %17, align 4
+  %152 = insertvalue { ptr, i32 } poison, ptr %150, 0
+  %153 = insertvalue { ptr, i32 } %152, i32 %151, 1
+  resume { ptr, i32 } %153
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  %dec = add nsw i32 %0, -1
-  store i32 %dec, ptr %m_size, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !51
+  %6 = add nsw i32 %5, -1
+  store i32 %6, ptr %4, align 4, !tbaa !51
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN27btSimulationIslandManagerMt6IslandC2Ev(ptr noundef nonnull align 8 dereferenceable(101) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 0
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 1
-  invoke void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray)
-          to label %invoke.cont unwind label %lpad
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN27btSimulationIslandManagerMt6IslandC2Ev(ptr noundef nonnull align 8 dereferenceable(101) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %5, i32 0, i32 0
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %7 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %5, i32 0, i32 1
+  invoke void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7)
+          to label %8 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %this1, i32 0, i32 2
-  invoke void @_ZN20btAlignedObjectArrayIP17btTypedConstraintEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray)
-          to label %invoke.cont3 unwind label %lpad2
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %5, i32 0, i32 2
+  invoke void @_ZN20btAlignedObjectArrayIP17btTypedConstraintEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9)
+          to label %10 unwind label %15
 
-invoke.cont3:                                     ; preds = %invoke.cont
+10:                                               ; preds = %8
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
+  br label %19
 
-lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray) #10
-  br label %ehcleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %3, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %4, align 4
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #13
+  br label %19
 
-ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray) #10
-  br label %eh.resume
+19:                                               ; preds = %15, %11
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #13
+  br label %20
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i32, ptr %4, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %21
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !62
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %14 = load ptr, ptr %5, align 8, !tbaa !62
+  call void @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %13, ptr noundef %14)
+  %15 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %15)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %16 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %6, i32 0, i32 5
+  store i8 1, ptr %16, align 8, !tbaa !109
+  %17 = load ptr, ptr %5, align 8, !tbaa !62
+  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %6, i32 0, i32 4
+  store ptr %17, ptr %18, align 8, !tbaa !63
+  %19 = load i32, ptr %4, align 4, !tbaa !9
+  %20 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %6, i32 0, i32 2
+  store i32 %19, ptr %20, align 8, !tbaa !97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  br label %21
+
+21:                                               ; preds = %10, %2
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.CProfileSample, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !110
+  store ptr %2, ptr %6, align 8, !tbaa !111
+  %26 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #13
+  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef @.str)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %27 = load ptr, ptr %6, align 8, !tbaa !111
+  %28 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %27)
+          to label %29 unwind label %71
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %2 = load ptr, ptr %s, align 8
-  call void @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call3, ptr noundef %2)
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call4)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %3 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  store ptr %3, ptr %m_data, align 8
-  %4 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 3
-  store i32 %4, ptr %m_capacity, align 8
-  br label %if.end
+29:                                               ; preds = %3
+  store ptr %28, ptr %8, align 8, !tbaa !59
+  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %26)
+          to label %31 unwind label %71
 
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
+31:                                               ; preds = %29
+  invoke void @_ZN11btUnionFind11sortIslandsEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %32 unwind label %71
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef %dispatcher, ptr noundef %collisionWorld) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dispatcher.addr = alloca ptr, align 8
-  %collisionWorld.addr = alloca ptr, align 8
-  %__profile = alloca %class.CProfileSample, align 1
-  %collisionObjects = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %numElem = alloca i32, align 4
-  %endIslandIndex = alloca i32, align 4
-  %startIslandIndex = alloca i32, align 4
-  %islandId = alloca i32, align 4
-  %allSleeping = alloca i8, align 1
-  %idx = alloca i32, align 4
-  %i = alloca i32, align 4
-  %colObj0 = alloca ptr, align 8
-  %idx54 = alloca i32, align 4
-  %i58 = alloca i32, align 4
-  %colObj064 = alloca ptr, align 8
-  %idx85 = alloca i32, align 4
-  %i89 = alloca i32, align 4
-  %colObj095 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dispatcher, ptr %dispatcher.addr, align 8
-  store ptr %collisionWorld, ptr %collisionWorld.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef @.str)
-  %0 = load ptr, ptr %collisionWorld.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %0)
-          to label %invoke.cont unwind label %lpad
+32:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %26)
+          to label %34 unwind label %75
 
-invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %collisionObjects, align 8
-  %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont2 unwind label %lpad
+34:                                               ; preds = %32
+  %35 = invoke noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
+          to label %36 unwind label %75
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  invoke void @_ZN11btUnionFind11sortIslandsEv(ptr noundef nonnull align 8 dereferenceable(32) %call3)
-          to label %invoke.cont4 unwind label %lpad
+36:                                               ; preds = %34
+  store i32 %35, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  store i32 1, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  store i32 0, ptr %13, align 4, !tbaa !9
+  br label %37
 
-invoke.cont4:                                     ; preds = %invoke.cont2
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont5 unwind label %lpad
+37:                                               ; preds = %265, %36
+  %38 = load i32, ptr %13, align 4, !tbaa !9
+  %39 = load i32, ptr %11, align 4, !tbaa !9
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %41, label %269
 
-invoke.cont5:                                     ; preds = %invoke.cont4
-  %call8 = invoke noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %call6)
-          to label %invoke.cont7 unwind label %lpad
+41:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %26)
+          to label %43 unwind label %79
 
-invoke.cont7:                                     ; preds = %invoke.cont5
-  store i32 %call8, ptr %numElem, align 4
-  store i32 1, ptr %endIslandIndex, align 4
-  store i32 0, ptr %startIslandIndex, align 4
-  br label %for.cond
+43:                                               ; preds = %41
+  %44 = load i32, ptr %13, align 4, !tbaa !9
+  %45 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef %44)
+          to label %46 unwind label %79
 
-for.cond:                                         ; preds = %for.inc123, %invoke.cont7
-  %1 = load i32, ptr %startIslandIndex, align 4
-  %2 = load i32, ptr %numElem, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end124
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw %struct.btElement, ptr %45, i32 0, i32 0
+  %48 = load i32, ptr %47, align 4, !tbaa !113
+  store i32 %48, ptr %14, align 4, !tbaa !9
+  %49 = load i32, ptr %13, align 4, !tbaa !9
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %12, align 4, !tbaa !9
+  br label %51
 
-for.body:                                         ; preds = %for.cond
-  %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont9 unwind label %lpad
+51:                                               ; preds = %68, %46
+  %52 = load i32, ptr %12, align 4, !tbaa !9
+  %53 = load i32, ptr %11, align 4, !tbaa !9
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %65
 
-invoke.cont9:                                     ; preds = %for.body
-  %3 = load i32, ptr %startIslandIndex, align 4
-  %call12 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call10, i32 noundef %3)
-          to label %invoke.cont11 unwind label %lpad
+55:                                               ; preds = %51
+  %56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %26)
+          to label %57 unwind label %79
 
-invoke.cont11:                                    ; preds = %invoke.cont9
-  %m_id = getelementptr inbounds %struct.btElement, ptr %call12, i32 0, i32 0
-  %4 = load i32, ptr %m_id, align 4
-  store i32 %4, ptr %islandId, align 4
-  %5 = load i32, ptr %startIslandIndex, align 4
-  %add = add nsw i32 %5, 1
-  store i32 %add, ptr %endIslandIndex, align 4
-  br label %for.cond13
+57:                                               ; preds = %55
+  %58 = load i32, ptr %12, align 4, !tbaa !9
+  %59 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %56, i32 noundef %58)
+          to label %60 unwind label %79
 
-for.cond13:                                       ; preds = %for.inc, %invoke.cont11
-  %6 = load i32, ptr %endIslandIndex, align 4
-  %7 = load i32, ptr %numElem, align 4
-  %cmp14 = icmp slt i32 %6, %7
-  br i1 %cmp14, label %land.rhs, label %land.end
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw %struct.btElement, ptr %59, i32 0, i32 0
+  %62 = load i32, ptr %61, align 4, !tbaa !113
+  %63 = load i32, ptr %14, align 4, !tbaa !9
+  %64 = icmp eq i32 %62, %63
+  br label %65
 
-land.rhs:                                         ; preds = %for.cond13
-  %call16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont15 unwind label %lpad
+65:                                               ; preds = %60, %51
+  %66 = phi i1 [ false, %51 ], [ %64, %60 ]
+  br i1 %66, label %67, label %83
 
-invoke.cont15:                                    ; preds = %land.rhs
-  %8 = load i32, ptr %endIslandIndex, align 4
-  %call18 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call16, i32 noundef %8)
-          to label %invoke.cont17 unwind label %lpad
+67:                                               ; preds = %65
+  br label %68
 
-invoke.cont17:                                    ; preds = %invoke.cont15
-  %m_id19 = getelementptr inbounds %struct.btElement, ptr %call18, i32 0, i32 0
-  %9 = load i32, ptr %m_id19, align 4
-  %10 = load i32, ptr %islandId, align 4
-  %cmp20 = icmp eq i32 %9, %10
-  br label %land.end
+68:                                               ; preds = %67
+  %69 = load i32, ptr %12, align 4, !tbaa !9
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %12, align 4, !tbaa !9
+  br label %51, !llvm.loop !115
 
-land.end:                                         ; preds = %invoke.cont17, %for.cond13
-  %11 = phi i1 [ false, %for.cond13 ], [ %cmp20, %invoke.cont17 ]
-  br i1 %11, label %for.body21, label %for.end
-
-for.body21:                                       ; preds = %land.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body21
-  %12 = load i32, ptr %endIslandIndex, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %endIslandIndex, align 4
-  br label %for.cond13, !llvm.loop !26
-
-lpad:                                             ; preds = %invoke.cont115, %if.then114, %if.then110, %if.end106, %land.lhs.true101, %invoke.cont96, %invoke.cont92, %invoke.cont90, %for.body88, %if.then79, %if.end75, %land.lhs.true70, %invoke.cont65, %invoke.cont61, %invoke.cont59, %for.body57, %lor.lhs.false, %if.then40, %if.end, %land.lhs.true, %invoke.cont29, %invoke.cont27, %invoke.cont25, %for.body24, %invoke.cont15, %land.rhs, %invoke.cont9, %for.body, %invoke.cont5, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %13 = landingpad { ptr, i32 }
+71:                                               ; preds = %31, %29, %3
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
-  br label %eh.resume
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %9, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %10, align 4
+  br label %271
 
-for.end:                                          ; preds = %land.end
-  store i8 1, ptr %allSleeping, align 1
-  %16 = load i32, ptr %startIslandIndex, align 4
-  store i32 %16, ptr %idx, align 4
-  br label %for.cond22
+75:                                               ; preds = %34, %32
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %9, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %10, align 4
+  br label %270
 
-for.cond22:                                       ; preds = %for.inc50, %for.end
-  %17 = load i32, ptr %idx, align 4
-  %18 = load i32, ptr %endIslandIndex, align 4
-  %cmp23 = icmp slt i32 %17, %18
-  br i1 %cmp23, label %for.body24, label %for.end52
+79:                                               ; preds = %57, %55, %43, %41
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %9, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %10, align 4
+  br label %268
 
-for.body24:                                       ; preds = %for.cond22
-  %call26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont25 unwind label %lpad
+83:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #13
+  store i8 1, ptr %15, align 1, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %84 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %84, ptr %16, align 4, !tbaa !9
+  br label %85
 
-invoke.cont25:                                    ; preds = %for.body24
-  %19 = load i32, ptr %idx, align 4
-  %call28 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call26, i32 noundef %19)
-          to label %invoke.cont27 unwind label %lpad
+85:                                               ; preds = %143, %83
+  %86 = load i32, ptr %16, align 4, !tbaa !9
+  %87 = load i32, ptr %12, align 4, !tbaa !9
+  %88 = icmp slt i32 %86, %87
+  br i1 %88, label %89, label %147
 
-invoke.cont27:                                    ; preds = %invoke.cont25
-  %m_sz = getelementptr inbounds %struct.btElement, ptr %call28, i32 0, i32 1
-  %20 = load i32, ptr %m_sz, align 4
-  store i32 %20, ptr %i, align 4
-  %21 = load ptr, ptr %collisionObjects, align 8
-  %22 = load i32, ptr %i, align 4
-  %call30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %21, i32 noundef %22)
-          to label %invoke.cont29 unwind label %lpad
+89:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #13
+  %90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %26)
+          to label %91 unwind label %113
 
-invoke.cont29:                                    ; preds = %invoke.cont27
-  %23 = load ptr, ptr %call30, align 8
-  store ptr %23, ptr %colObj0, align 8
-  %24 = load ptr, ptr %colObj0, align 8
-  %call32 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %24)
-          to label %invoke.cont31 unwind label %lpad
+91:                                               ; preds = %89
+  %92 = load i32, ptr %16, align 4, !tbaa !9
+  %93 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %90, i32 noundef %92)
+          to label %94 unwind label %113
 
-invoke.cont31:                                    ; preds = %invoke.cont29
-  %25 = load i32, ptr %islandId, align 4
-  %cmp33 = icmp ne i32 %call32, %25
-  br i1 %cmp33, label %land.lhs.true, label %if.end
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw %struct.btElement, ptr %93, i32 0, i32 1
+  %96 = load i32, ptr %95, align 4, !tbaa !116
+  store i32 %96, ptr %17, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  %97 = load ptr, ptr %8, align 8, !tbaa !59
+  %98 = load i32, ptr %17, align 4, !tbaa !9
+  %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %97, i32 noundef %98)
+          to label %100 unwind label %117
 
-land.lhs.true:                                    ; preds = %invoke.cont31
-  %26 = load ptr, ptr %colObj0, align 8
-  %call35 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %26)
-          to label %invoke.cont34 unwind label %lpad
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %99, align 8, !tbaa !64
+  store ptr %101, ptr %18, align 8, !tbaa !64
+  %102 = load ptr, ptr %18, align 8, !tbaa !64
+  %103 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %102)
+          to label %104 unwind label %117
 
-invoke.cont34:                                    ; preds = %land.lhs.true
-  %cmp36 = icmp ne i32 %call35, -1
-  br i1 %cmp36, label %if.then, label %if.end
+104:                                              ; preds = %100
+  %105 = load i32, ptr %14, align 4, !tbaa !9
+  %106 = icmp ne i32 %103, %105
+  br i1 %106, label %107, label %121
 
-if.then:                                          ; preds = %invoke.cont34
-  br label %if.end
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %18, align 8, !tbaa !64
+  %109 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %108)
+          to label %110 unwind label %117
 
-if.end:                                           ; preds = %if.then, %invoke.cont34, %invoke.cont31
-  %27 = load ptr, ptr %colObj0, align 8
-  %call38 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %27)
-          to label %invoke.cont37 unwind label %lpad
+110:                                              ; preds = %107
+  %111 = icmp ne i32 %109, -1
+  br i1 %111, label %112, label %121
 
-invoke.cont37:                                    ; preds = %if.end
-  %28 = load i32, ptr %islandId, align 4
-  %cmp39 = icmp eq i32 %call38, %28
-  br i1 %cmp39, label %if.then40, label %if.end49
+112:                                              ; preds = %110
+  br label %121
 
-if.then40:                                        ; preds = %invoke.cont37
-  %29 = load ptr, ptr %colObj0, align 8
-  %call42 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %29)
-          to label %invoke.cont41 unwind label %lpad
+113:                                              ; preds = %91, %89
+  %114 = landingpad { ptr, i32 }
+          cleanup
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %9, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %10, align 4
+  br label %146
 
-invoke.cont41:                                    ; preds = %if.then40
-  %cmp43 = icmp eq i32 %call42, 1
-  br i1 %cmp43, label %if.then47, label %lor.lhs.false
+117:                                              ; preds = %132, %127, %121, %107, %100, %94
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %9, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  br label %146
 
-lor.lhs.false:                                    ; preds = %invoke.cont41
-  %30 = load ptr, ptr %colObj0, align 8
-  %call45 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %30)
-          to label %invoke.cont44 unwind label %lpad
+121:                                              ; preds = %112, %110, %104
+  %122 = load ptr, ptr %18, align 8, !tbaa !64
+  %123 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %122)
+          to label %124 unwind label %117
 
-invoke.cont44:                                    ; preds = %lor.lhs.false
-  %cmp46 = icmp eq i32 %call45, 4
-  br i1 %cmp46, label %if.then47, label %if.end48
+124:                                              ; preds = %121
+  %125 = load i32, ptr %14, align 4, !tbaa !9
+  %126 = icmp eq i32 %123, %125
+  br i1 %126, label %127, label %139
 
-if.then47:                                        ; preds = %invoke.cont44, %invoke.cont41
-  store i8 0, ptr %allSleeping, align 1
-  br label %for.end52
+127:                                              ; preds = %124
+  %128 = load ptr, ptr %18, align 8, !tbaa !64
+  %129 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %128)
+          to label %130 unwind label %117
 
-if.end48:                                         ; preds = %invoke.cont44
-  br label %if.end49
+130:                                              ; preds = %127
+  %131 = icmp eq i32 %129, 1
+  br i1 %131, label %137, label %132
 
-if.end49:                                         ; preds = %if.end48, %invoke.cont37
-  br label %for.inc50
+132:                                              ; preds = %130
+  %133 = load ptr, ptr %18, align 8, !tbaa !64
+  %134 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %133)
+          to label %135 unwind label %117
 
-for.inc50:                                        ; preds = %if.end49
-  %31 = load i32, ptr %idx, align 4
-  %inc51 = add nsw i32 %31, 1
-  store i32 %inc51, ptr %idx, align 4
-  br label %for.cond22, !llvm.loop !27
+135:                                              ; preds = %132
+  %136 = icmp eq i32 %134, 4
+  br i1 %136, label %137, label %138
 
-for.end52:                                        ; preds = %if.then47, %for.cond22
-  %32 = load i8, ptr %allSleeping, align 1
-  %tobool = trunc i8 %32 to i1
-  br i1 %tobool, label %if.then53, label %if.else
+137:                                              ; preds = %135, %130
+  store i8 0, ptr %15, align 1, !tbaa !85
+  store i32 8, ptr %19, align 4
+  br label %140
 
-if.then53:                                        ; preds = %for.end52
-  %33 = load i32, ptr %startIslandIndex, align 4
-  store i32 %33, ptr %idx54, align 4
-  br label %for.cond55
+138:                                              ; preds = %135
+  br label %139
 
-for.cond55:                                       ; preds = %for.inc82, %if.then53
-  %34 = load i32, ptr %idx54, align 4
-  %35 = load i32, ptr %endIslandIndex, align 4
-  %cmp56 = icmp slt i32 %34, %35
-  br i1 %cmp56, label %for.body57, label %for.end84
+139:                                              ; preds = %138, %124
+  store i32 0, ptr %19, align 4
+  br label %140
 
-for.body57:                                       ; preds = %for.cond55
-  %call60 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont59 unwind label %lpad
+140:                                              ; preds = %139, %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  %141 = load i32, ptr %19, align 4
+  switch i32 %141, label %277 [
+    i32 0, label %142
+    i32 8, label %147
+  ]
 
-invoke.cont59:                                    ; preds = %for.body57
-  %36 = load i32, ptr %idx54, align 4
-  %call62 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call60, i32 noundef %36)
-          to label %invoke.cont61 unwind label %lpad
+142:                                              ; preds = %140
+  br label %143
 
-invoke.cont61:                                    ; preds = %invoke.cont59
-  %m_sz63 = getelementptr inbounds %struct.btElement, ptr %call62, i32 0, i32 1
-  %37 = load i32, ptr %m_sz63, align 4
-  store i32 %37, ptr %i58, align 4
-  %38 = load ptr, ptr %collisionObjects, align 8
-  %39 = load i32, ptr %i58, align 4
-  %call66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %38, i32 noundef %39)
-          to label %invoke.cont65 unwind label %lpad
+143:                                              ; preds = %142
+  %144 = load i32, ptr %16, align 4, !tbaa !9
+  %145 = add nsw i32 %144, 1
+  store i32 %145, ptr %16, align 4, !tbaa !9
+  br label %85, !llvm.loop !117
 
-invoke.cont65:                                    ; preds = %invoke.cont61
-  %40 = load ptr, ptr %call66, align 8
-  store ptr %40, ptr %colObj064, align 8
-  %41 = load ptr, ptr %colObj064, align 8
-  %call68 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %41)
-          to label %invoke.cont67 unwind label %lpad
+146:                                              ; preds = %117, %113
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  br label %267
 
-invoke.cont67:                                    ; preds = %invoke.cont65
-  %42 = load i32, ptr %islandId, align 4
-  %cmp69 = icmp ne i32 %call68, %42
-  br i1 %cmp69, label %land.lhs.true70, label %if.end75
+147:                                              ; preds = %140, %85
+  %148 = load i8, ptr %15, align 1, !tbaa !85, !range !87, !noundef !88
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %150, label %203
 
-land.lhs.true70:                                  ; preds = %invoke.cont67
-  %43 = load ptr, ptr %colObj064, align 8
-  %call72 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %43)
-          to label %invoke.cont71 unwind label %lpad
+150:                                              ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #13
+  %151 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %151, ptr %20, align 4, !tbaa !9
+  br label %152
 
-invoke.cont71:                                    ; preds = %land.lhs.true70
-  %cmp73 = icmp ne i32 %call72, -1
-  br i1 %cmp73, label %if.then74, label %if.end75
+152:                                              ; preds = %198, %150
+  %153 = load i32, ptr %20, align 4, !tbaa !9
+  %154 = load i32, ptr %12, align 4, !tbaa !9
+  %155 = icmp slt i32 %153, %154
+  br i1 %155, label %156, label %202
 
-if.then74:                                        ; preds = %invoke.cont71
-  br label %if.end75
+156:                                              ; preds = %152
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #13
+  %157 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %26)
+          to label %158 unwind label %180
 
-if.end75:                                         ; preds = %if.then74, %invoke.cont71, %invoke.cont67
-  %44 = load ptr, ptr %colObj064, align 8
-  %call77 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %44)
-          to label %invoke.cont76 unwind label %lpad
+158:                                              ; preds = %156
+  %159 = load i32, ptr %20, align 4, !tbaa !9
+  %160 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %157, i32 noundef %159)
+          to label %161 unwind label %180
 
-invoke.cont76:                                    ; preds = %if.end75
-  %45 = load i32, ptr %islandId, align 4
-  %cmp78 = icmp eq i32 %call77, %45
-  br i1 %cmp78, label %if.then79, label %if.end81
+161:                                              ; preds = %158
+  %162 = getelementptr inbounds nuw %struct.btElement, ptr %160, i32 0, i32 1
+  %163 = load i32, ptr %162, align 4, !tbaa !116
+  store i32 %163, ptr %21, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #13
+  %164 = load ptr, ptr %8, align 8, !tbaa !59
+  %165 = load i32, ptr %21, align 4, !tbaa !9
+  %166 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %164, i32 noundef %165)
+          to label %167 unwind label %184
 
-if.then79:                                        ; preds = %invoke.cont76
-  %46 = load ptr, ptr %colObj064, align 8
-  invoke void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372) %46, i32 noundef 2)
-          to label %invoke.cont80 unwind label %lpad
+167:                                              ; preds = %161
+  %168 = load ptr, ptr %166, align 8, !tbaa !64
+  store ptr %168, ptr %22, align 8, !tbaa !64
+  %169 = load ptr, ptr %22, align 8, !tbaa !64
+  %170 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %169)
+          to label %171 unwind label %184
 
-invoke.cont80:                                    ; preds = %if.then79
-  br label %if.end81
+171:                                              ; preds = %167
+  %172 = load i32, ptr %14, align 4, !tbaa !9
+  %173 = icmp ne i32 %170, %172
+  br i1 %173, label %174, label %188
 
-if.end81:                                         ; preds = %invoke.cont80, %invoke.cont76
-  br label %for.inc82
+174:                                              ; preds = %171
+  %175 = load ptr, ptr %22, align 8, !tbaa !64
+  %176 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %175)
+          to label %177 unwind label %184
 
-for.inc82:                                        ; preds = %if.end81
-  %47 = load i32, ptr %idx54, align 4
-  %inc83 = add nsw i32 %47, 1
-  store i32 %inc83, ptr %idx54, align 4
-  br label %for.cond55, !llvm.loop !28
+177:                                              ; preds = %174
+  %178 = icmp ne i32 %176, -1
+  br i1 %178, label %179, label %188
 
-for.end84:                                        ; preds = %for.cond55
-  br label %if.end122
+179:                                              ; preds = %177
+  br label %188
 
-if.else:                                          ; preds = %for.end52
-  %48 = load i32, ptr %startIslandIndex, align 4
-  store i32 %48, ptr %idx85, align 4
-  br label %for.cond86
+180:                                              ; preds = %158, %156
+  %181 = landingpad { ptr, i32 }
+          cleanup
+  %182 = extractvalue { ptr, i32 } %181, 0
+  store ptr %182, ptr %9, align 8
+  %183 = extractvalue { ptr, i32 } %181, 1
+  store i32 %183, ptr %10, align 4
+  br label %201
 
-for.cond86:                                       ; preds = %for.inc119, %if.else
-  %49 = load i32, ptr %idx85, align 4
-  %50 = load i32, ptr %endIslandIndex, align 4
-  %cmp87 = icmp slt i32 %49, %50
-  br i1 %cmp87, label %for.body88, label %for.end121
+184:                                              ; preds = %194, %188, %174, %167, %161
+  %185 = landingpad { ptr, i32 }
+          cleanup
+  %186 = extractvalue { ptr, i32 } %185, 0
+  store ptr %186, ptr %9, align 8
+  %187 = extractvalue { ptr, i32 } %185, 1
+  store i32 %187, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #13
+  br label %201
 
-for.body88:                                       ; preds = %for.cond86
-  %call91 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont90 unwind label %lpad
+188:                                              ; preds = %179, %177, %171
+  %189 = load ptr, ptr %22, align 8, !tbaa !64
+  %190 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %189)
+          to label %191 unwind label %184
 
-invoke.cont90:                                    ; preds = %for.body88
-  %51 = load i32, ptr %idx85, align 4
-  %call93 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call91, i32 noundef %51)
-          to label %invoke.cont92 unwind label %lpad
+191:                                              ; preds = %188
+  %192 = load i32, ptr %14, align 4, !tbaa !9
+  %193 = icmp eq i32 %190, %192
+  br i1 %193, label %194, label %197
 
-invoke.cont92:                                    ; preds = %invoke.cont90
-  %m_sz94 = getelementptr inbounds %struct.btElement, ptr %call93, i32 0, i32 1
-  %52 = load i32, ptr %m_sz94, align 4
-  store i32 %52, ptr %i89, align 4
-  %53 = load ptr, ptr %collisionObjects, align 8
-  %54 = load i32, ptr %i89, align 4
-  %call97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %53, i32 noundef %54)
-          to label %invoke.cont96 unwind label %lpad
+194:                                              ; preds = %191
+  %195 = load ptr, ptr %22, align 8, !tbaa !64
+  invoke void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372) %195, i32 noundef 2)
+          to label %196 unwind label %184
 
-invoke.cont96:                                    ; preds = %invoke.cont92
-  %55 = load ptr, ptr %call97, align 8
-  store ptr %55, ptr %colObj095, align 8
-  %56 = load ptr, ptr %colObj095, align 8
-  %call99 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %56)
-          to label %invoke.cont98 unwind label %lpad
+196:                                              ; preds = %194
+  br label %197
 
-invoke.cont98:                                    ; preds = %invoke.cont96
-  %57 = load i32, ptr %islandId, align 4
-  %cmp100 = icmp ne i32 %call99, %57
-  br i1 %cmp100, label %land.lhs.true101, label %if.end106
+197:                                              ; preds = %196, %191
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #13
+  br label %198
 
-land.lhs.true101:                                 ; preds = %invoke.cont98
-  %58 = load ptr, ptr %colObj095, align 8
-  %call103 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %58)
-          to label %invoke.cont102 unwind label %lpad
+198:                                              ; preds = %197
+  %199 = load i32, ptr %20, align 4, !tbaa !9
+  %200 = add nsw i32 %199, 1
+  store i32 %200, ptr %20, align 4, !tbaa !9
+  br label %152, !llvm.loop !118
 
-invoke.cont102:                                   ; preds = %land.lhs.true101
-  %cmp104 = icmp ne i32 %call103, -1
-  br i1 %cmp104, label %if.then105, label %if.end106
+201:                                              ; preds = %184, %180
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #13
+  br label %267
 
-if.then105:                                       ; preds = %invoke.cont102
-  br label %if.end106
+202:                                              ; preds = %152
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #13
+  br label %264
 
-if.end106:                                        ; preds = %if.then105, %invoke.cont102, %invoke.cont98
-  %59 = load ptr, ptr %colObj095, align 8
-  %call108 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %59)
-          to label %invoke.cont107 unwind label %lpad
+203:                                              ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #13
+  %204 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %204, ptr %23, align 4, !tbaa !9
+  br label %205
 
-invoke.cont107:                                   ; preds = %if.end106
-  %60 = load i32, ptr %islandId, align 4
-  %cmp109 = icmp eq i32 %call108, %60
-  br i1 %cmp109, label %if.then110, label %if.end118
+205:                                              ; preds = %259, %203
+  %206 = load i32, ptr %23, align 4, !tbaa !9
+  %207 = load i32, ptr %12, align 4, !tbaa !9
+  %208 = icmp slt i32 %206, %207
+  br i1 %208, label %209, label %263
 
-if.then110:                                       ; preds = %invoke.cont107
-  %61 = load ptr, ptr %colObj095, align 8
-  %call112 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %61)
-          to label %invoke.cont111 unwind label %lpad
+209:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #13
+  %210 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %26)
+          to label %211 unwind label %233
 
-invoke.cont111:                                   ; preds = %if.then110
-  %cmp113 = icmp eq i32 %call112, 2
-  br i1 %cmp113, label %if.then114, label %if.end117
+211:                                              ; preds = %209
+  %212 = load i32, ptr %23, align 4, !tbaa !9
+  %213 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %210, i32 noundef %212)
+          to label %214 unwind label %233
 
-if.then114:                                       ; preds = %invoke.cont111
-  %62 = load ptr, ptr %colObj095, align 8
-  invoke void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372) %62, i32 noundef 3)
-          to label %invoke.cont115 unwind label %lpad
+214:                                              ; preds = %211
+  %215 = getelementptr inbounds nuw %struct.btElement, ptr %213, i32 0, i32 1
+  %216 = load i32, ptr %215, align 4, !tbaa !116
+  store i32 %216, ptr %24, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #13
+  %217 = load ptr, ptr %8, align 8, !tbaa !59
+  %218 = load i32, ptr %24, align 4, !tbaa !9
+  %219 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %217, i32 noundef %218)
+          to label %220 unwind label %237
 
-invoke.cont115:                                   ; preds = %if.then114
-  %63 = load ptr, ptr %colObj095, align 8
-  invoke void @_ZN17btCollisionObject19setDeactivationTimeEf(ptr noundef nonnull align 8 dereferenceable(372) %63, float noundef 0.000000e+00)
-          to label %invoke.cont116 unwind label %lpad
+220:                                              ; preds = %214
+  %221 = load ptr, ptr %219, align 8, !tbaa !64
+  store ptr %221, ptr %25, align 8, !tbaa !64
+  %222 = load ptr, ptr %25, align 8, !tbaa !64
+  %223 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %222)
+          to label %224 unwind label %237
 
-invoke.cont116:                                   ; preds = %invoke.cont115
-  br label %if.end117
+224:                                              ; preds = %220
+  %225 = load i32, ptr %14, align 4, !tbaa !9
+  %226 = icmp ne i32 %223, %225
+  br i1 %226, label %227, label %241
 
-if.end117:                                        ; preds = %invoke.cont116, %invoke.cont111
-  br label %if.end118
+227:                                              ; preds = %224
+  %228 = load ptr, ptr %25, align 8, !tbaa !64
+  %229 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %228)
+          to label %230 unwind label %237
 
-if.end118:                                        ; preds = %if.end117, %invoke.cont107
-  br label %for.inc119
+230:                                              ; preds = %227
+  %231 = icmp ne i32 %229, -1
+  br i1 %231, label %232, label %241
 
-for.inc119:                                       ; preds = %if.end118
-  %64 = load i32, ptr %idx85, align 4
-  %inc120 = add nsw i32 %64, 1
-  store i32 %inc120, ptr %idx85, align 4
-  br label %for.cond86, !llvm.loop !29
+232:                                              ; preds = %230
+  br label %241
 
-for.end121:                                       ; preds = %for.cond86
-  br label %if.end122
+233:                                              ; preds = %211, %209
+  %234 = landingpad { ptr, i32 }
+          cleanup
+  %235 = extractvalue { ptr, i32 } %234, 0
+  store ptr %235, ptr %9, align 8
+  %236 = extractvalue { ptr, i32 } %234, 1
+  store i32 %236, ptr %10, align 4
+  br label %262
 
-if.end122:                                        ; preds = %for.end121, %for.end84
-  br label %for.inc123
+237:                                              ; preds = %254, %252, %247, %241, %227, %220, %214
+  %238 = landingpad { ptr, i32 }
+          cleanup
+  %239 = extractvalue { ptr, i32 } %238, 0
+  store ptr %239, ptr %9, align 8
+  %240 = extractvalue { ptr, i32 } %238, 1
+  store i32 %240, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #13
+  br label %262
 
-for.inc123:                                       ; preds = %if.end122
-  %65 = load i32, ptr %endIslandIndex, align 4
-  store i32 %65, ptr %startIslandIndex, align 4
-  br label %for.cond, !llvm.loop !30
+241:                                              ; preds = %232, %230, %224
+  %242 = load ptr, ptr %25, align 8, !tbaa !64
+  %243 = invoke noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %242)
+          to label %244 unwind label %237
 
-for.end124:                                       ; preds = %for.cond
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
+244:                                              ; preds = %241
+  %245 = load i32, ptr %14, align 4, !tbaa !9
+  %246 = icmp eq i32 %243, %245
+  br i1 %246, label %247, label %258
+
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %25, align 8, !tbaa !64
+  %249 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %248)
+          to label %250 unwind label %237
+
+250:                                              ; preds = %247
+  %251 = icmp eq i32 %249, 2
+  br i1 %251, label %252, label %257
+
+252:                                              ; preds = %250
+  %253 = load ptr, ptr %25, align 8, !tbaa !64
+  invoke void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372) %253, i32 noundef 3)
+          to label %254 unwind label %237
+
+254:                                              ; preds = %252
+  %255 = load ptr, ptr %25, align 8, !tbaa !64
+  invoke void @_ZN17btCollisionObject19setDeactivationTimeEf(ptr noundef nonnull align 8 dereferenceable(372) %255, float noundef 0.000000e+00)
+          to label %256 unwind label %237
+
+256:                                              ; preds = %254
+  br label %257
+
+257:                                              ; preds = %256, %250
+  br label %258
+
+258:                                              ; preds = %257, %244
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #13
+  br label %259
+
+259:                                              ; preds = %258
+  %260 = load i32, ptr %23, align 4, !tbaa !9
+  %261 = add nsw i32 %260, 1
+  store i32 %261, ptr %23, align 4, !tbaa !9
+  br label %205, !llvm.loop !119
+
+262:                                              ; preds = %237, %233
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #13
+  br label %267
+
+263:                                              ; preds = %205
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #13
+  br label %264
+
+264:                                              ; preds = %263, %202
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  br label %265
+
+265:                                              ; preds = %264
+  %266 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %266, ptr %13, align 4, !tbaa !9
+  br label %37, !llvm.loop !120
+
+267:                                              ; preds = %262, %201, %146
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #13
+  br label %268
+
+268:                                              ; preds = %267, %79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  br label %270
+
+269:                                              ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val125 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val125
+270:                                              ; preds = %268, %75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %271
+
+271:                                              ; preds = %270, %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
+  br label %272
+
+272:                                              ; preds = %271
+  %273 = load ptr, ptr %9, align 8
+  %274 = load i32, ptr %10, align 4
+  %275 = insertvalue { ptr, i32 } poison, ptr %273, 0
+  %276 = insertvalue { ptr, i32 } %275, i32 %274, 1
+  resume { ptr, i32 } %276
+
+277:                                              ; preds = %140
+  unreachable
 }
 
 declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_collisionObjects = getelementptr inbounds %class.btCollisionWorld, ptr %this1, i32 0, i32 1
-  ret ptr %m_collisionObjects
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionWorld, ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
 declare void @_ZN11btUnionFind11sortIslandsEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %index) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_elements = getelementptr inbounds %class.btUnionFind, ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %index.addr, align 4
-  %call = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayI9btElementEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_elements, i32 noundef %0)
-  ret ptr %call
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btUnionFind, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  %8 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayI9btElementEixEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %7)
+  ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_islandTag1 = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 13
-  %0 = load i32, ptr %m_islandTag1, align 4
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 13
+  %5 = load i32, ptr %4, align 4, !tbaa !121
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_activationState1 = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 16
-  %0 = load i32, ptr %m_activationState1, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 16
+  %5 = load i32, ptr %4, align 8, !tbaa !131
+  ret i32 %5
 }
 
 declare void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372), i32 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btCollisionObject19setDeactivationTimeEf(ptr noundef nonnull align 8 dereferenceable(372) %this, float noundef %time) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %time.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %time, ptr %time.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load float, ptr %time.addr, align 4
-  %m_deactivationTime = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 17
-  store float %0, ptr %m_deactivationTime, align 4
+define linkonce_odr dso_local void @_ZN17btCollisionObject19setDeactivationTimeEf(ptr noundef nonnull align 8 dereferenceable(372) %0, float noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !64
+  store float %1, ptr %4, align 4, !tbaa !132
+  %5 = load ptr, ptr %3, align 8
+  %6 = load float, ptr %4, align 4, !tbaa !132
+  %7 = getelementptr inbounds nuw %class.btCollisionObject, ptr %5, i32 0, i32 17
+  store float %6, ptr %7, align 4, !tbaa !133
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef %collisionWorld) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %collisionWorld.addr = alloca ptr, align 8
-  %collisionObjects = alloca ptr, align 8
-  %endIslandIndex = alloca i32, align 4
-  %startIslandIndex = alloca i32, align 4
-  %numElem = alloca i32, align 4
-  %islandId = alloca i32, align 4
-  %islandSleeping = alloca i8, align 1
-  %iElem = alloca i32, align 4
-  %i = alloca i32, align 4
-  %colObj = alloca ptr, align 8
-  %numBodies = alloca i32, align 4
-  %island = alloca ptr, align 8
-  %iElem25 = alloca i32, align 4
-  %i29 = alloca i32, align 4
-  %colObj33 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %collisionWorld, ptr %collisionWorld.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %collisionWorld.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %0)
-  store ptr %call, ptr %collisionObjects, align 8
-  store i32 1, ptr %endIslandIndex, align 4
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  %call3 = call noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %call2)
-  store i32 %call3, ptr %numElem, align 4
-  store i32 0, ptr %startIslandIndex, align 4
-  br label %for.cond
+define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !111
+  %19 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %20 = load ptr, ptr %4, align 8, !tbaa !111
+  %21 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %20)
+  store ptr %21, ptr %5, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 1, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %19)
+  %23 = call noundef i32 @_ZNK11btUnionFind14getNumElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
+  store i32 %23, ptr %8, align 4, !tbaa !9
+  store i32 0, ptr %7, align 4, !tbaa !9
+  br label %24
 
-for.cond:                                         ; preds = %for.inc39, %entry
-  %1 = load i32, ptr %startIslandIndex, align 4
-  %2 = load i32, ptr %numElem, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end40
+24:                                               ; preds = %115, %2
+  %25 = load i32, ptr %7, align 4, !tbaa !9
+  %26 = load i32, ptr %8, align 4, !tbaa !9
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %117
 
-for.body:                                         ; preds = %for.cond
-  %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  %3 = load i32, ptr %startIslandIndex, align 4
-  %call5 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call4, i32 noundef %3)
-  %m_id = getelementptr inbounds %struct.btElement, ptr %call5, i32 0, i32 0
-  %4 = load i32, ptr %m_id, align 4
-  store i32 %4, ptr %islandId, align 4
-  %5 = load i32, ptr %startIslandIndex, align 4
-  store i32 %5, ptr %endIslandIndex, align 4
-  br label %for.cond6
+28:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %19)
+  %30 = load i32, ptr %7, align 4, !tbaa !9
+  %31 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef %30)
+  %32 = getelementptr inbounds nuw %struct.btElement, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 4, !tbaa !113
+  store i32 %33, ptr %9, align 4, !tbaa !9
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %34, ptr %6, align 4, !tbaa !9
+  br label %35
 
-for.cond6:                                        ; preds = %for.inc, %for.body
-  %6 = load i32, ptr %endIslandIndex, align 4
-  %7 = load i32, ptr %numElem, align 4
-  %cmp7 = icmp slt i32 %6, %7
-  br i1 %cmp7, label %land.rhs, label %land.end
+35:                                               ; preds = %50, %28
+  %36 = load i32, ptr %6, align 4, !tbaa !9
+  %37 = load i32, ptr %8, align 4, !tbaa !9
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %39, label %47
 
-land.rhs:                                         ; preds = %for.cond6
-  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  %8 = load i32, ptr %endIslandIndex, align 4
-  %call9 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call8, i32 noundef %8)
-  %m_id10 = getelementptr inbounds %struct.btElement, ptr %call9, i32 0, i32 0
-  %9 = load i32, ptr %m_id10, align 4
-  %10 = load i32, ptr %islandId, align 4
-  %cmp11 = icmp eq i32 %9, %10
-  br label %land.end
+39:                                               ; preds = %35
+  %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %19)
+  %41 = load i32, ptr %6, align 4, !tbaa !9
+  %42 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef %41)
+  %43 = getelementptr inbounds nuw %struct.btElement, ptr %42, i32 0, i32 0
+  %44 = load i32, ptr %43, align 4, !tbaa !113
+  %45 = load i32, ptr %9, align 4, !tbaa !9
+  %46 = icmp eq i32 %44, %45
+  br label %47
 
-land.end:                                         ; preds = %land.rhs, %for.cond6
-  %11 = phi i1 [ false, %for.cond6 ], [ %cmp11, %land.rhs ]
-  br i1 %11, label %for.body12, label %for.end
+47:                                               ; preds = %39, %35
+  %48 = phi i1 [ false, %35 ], [ %46, %39 ]
+  br i1 %48, label %49, label %53
 
-for.body12:                                       ; preds = %land.end
-  br label %for.inc
+49:                                               ; preds = %47
+  br label %50
 
-for.inc:                                          ; preds = %for.body12
-  %12 = load i32, ptr %endIslandIndex, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %endIslandIndex, align 4
-  br label %for.cond6, !llvm.loop !31
+50:                                               ; preds = %49
+  %51 = load i32, ptr %6, align 4, !tbaa !9
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %6, align 4, !tbaa !9
+  br label %35, !llvm.loop !134
 
-for.end:                                          ; preds = %land.end
-  store i8 1, ptr %islandSleeping, align 1
-  %13 = load i32, ptr %startIslandIndex, align 4
-  store i32 %13, ptr %iElem, align 4
-  br label %for.cond13
+53:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #13
+  store i8 1, ptr %10, align 1, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %54 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %54, ptr %11, align 4, !tbaa !9
+  br label %55
 
-for.cond13:                                       ; preds = %for.inc20, %for.end
-  %14 = load i32, ptr %iElem, align 4
-  %15 = load i32, ptr %endIslandIndex, align 4
-  %cmp14 = icmp slt i32 %14, %15
-  br i1 %cmp14, label %for.body15, label %for.end22
+55:                                               ; preds = %74, %53
+  %56 = load i32, ptr %11, align 4, !tbaa !9
+  %57 = load i32, ptr %6, align 4, !tbaa !9
+  %58 = icmp slt i32 %56, %57
+  br i1 %58, label %60, label %59
 
-for.body15:                                       ; preds = %for.cond13
-  %call16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  %16 = load i32, ptr %iElem, align 4
-  %call17 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call16, i32 noundef %16)
-  %m_sz = getelementptr inbounds %struct.btElement, ptr %call17, i32 0, i32 1
-  %17 = load i32, ptr %m_sz, align 4
-  store i32 %17, ptr %i, align 4
-  %18 = load ptr, ptr %collisionObjects, align 8
-  %19 = load i32, ptr %i, align 4
-  %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %18, i32 noundef %19)
-  %20 = load ptr, ptr %call18, align 8
-  store ptr %20, ptr %colObj, align 8
-  %21 = load ptr, ptr %colObj, align 8
-  %call19 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %21)
-  br i1 %call19, label %if.then, label %if.end
+59:                                               ; preds = %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %77
 
-if.then:                                          ; preds = %for.body15
-  store i8 0, ptr %islandSleeping, align 1
-  br label %if.end
+60:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %19)
+  %62 = load i32, ptr %11, align 4, !tbaa !9
+  %63 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef %62)
+  %64 = getelementptr inbounds nuw %struct.btElement, ptr %63, i32 0, i32 1
+  %65 = load i32, ptr %64, align 4, !tbaa !116
+  store i32 %65, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %66 = load ptr, ptr %5, align 8, !tbaa !59
+  %67 = load i32, ptr %12, align 4, !tbaa !9
+  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %66, i32 noundef %67)
+  %69 = load ptr, ptr %68, align 8, !tbaa !64
+  store ptr %69, ptr %13, align 8, !tbaa !64
+  %70 = load ptr, ptr %13, align 8, !tbaa !64
+  %71 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %70)
+  br i1 %71, label %72, label %73
 
-if.end:                                           ; preds = %if.then, %for.body15
-  br label %for.inc20
+72:                                               ; preds = %60
+  store i8 0, ptr %10, align 1, !tbaa !85
+  br label %73
 
-for.inc20:                                        ; preds = %if.end
-  %22 = load i32, ptr %iElem, align 4
-  %inc21 = add nsw i32 %22, 1
-  store i32 %inc21, ptr %iElem, align 4
-  br label %for.cond13, !llvm.loop !32
+73:                                               ; preds = %72, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  br label %74
 
-for.end22:                                        ; preds = %for.cond13
-  %23 = load i8, ptr %islandSleeping, align 1
-  %tobool = trunc i8 %23 to i1
-  br i1 %tobool, label %if.end38, label %if.then23
+74:                                               ; preds = %73
+  %75 = load i32, ptr %11, align 4, !tbaa !9
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %11, align 4, !tbaa !9
+  br label %55, !llvm.loop !135
 
-if.then23:                                        ; preds = %for.end22
-  %24 = load i32, ptr %endIslandIndex, align 4
-  %25 = load i32, ptr %startIslandIndex, align 4
-  %sub = sub nsw i32 %24, %25
-  store i32 %sub, ptr %numBodies, align 4
-  %26 = load i32, ptr %islandId, align 4
-  %27 = load i32, ptr %numBodies, align 4
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %28 = load ptr, ptr %vfn, align 8
-  %call24 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(264) %this1, i32 noundef %26, i32 noundef %27)
-  store ptr %call24, ptr %island, align 8
-  %29 = load ptr, ptr %island, align 8
-  %isSleeping = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %29, i32 0, i32 4
-  store i8 0, ptr %isSleeping, align 4
-  %30 = load i32, ptr %startIslandIndex, align 4
-  store i32 %30, ptr %iElem25, align 4
-  br label %for.cond26
+77:                                               ; preds = %59
+  %78 = load i8, ptr %10, align 1, !tbaa !85, !range !87, !noundef !88
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %114, label %80
 
-for.cond26:                                       ; preds = %for.inc35, %if.then23
-  %31 = load i32, ptr %iElem25, align 4
-  %32 = load i32, ptr %endIslandIndex, align 4
-  %cmp27 = icmp slt i32 %31, %32
-  br i1 %cmp27, label %for.body28, label %for.end37
+80:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %81 = load i32, ptr %6, align 4, !tbaa !9
+  %82 = load i32, ptr %7, align 4, !tbaa !9
+  %83 = sub nsw i32 %81, %82
+  store i32 %83, ptr %14, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  %84 = load i32, ptr %9, align 4, !tbaa !9
+  %85 = load i32, ptr %14, align 4, !tbaa !9
+  %86 = load ptr, ptr %19, align 8, !tbaa !14
+  %87 = getelementptr inbounds ptr, ptr %86, i64 4
+  %88 = load ptr, ptr %87, align 8
+  %89 = call noundef ptr %88(ptr noundef nonnull align 8 dereferenceable(264) %19, i32 noundef %84, i32 noundef %85)
+  store ptr %89, ptr %15, align 8, !tbaa !47
+  %90 = load ptr, ptr %15, align 8, !tbaa !47
+  %91 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %90, i32 0, i32 4
+  store i8 0, ptr %91, align 4, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %92 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %92, ptr %16, align 4, !tbaa !9
+  br label %93
 
-for.body28:                                       ; preds = %for.cond26
-  %call30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  %33 = load i32, ptr %iElem25, align 4
-  %call31 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %call30, i32 noundef %33)
-  %m_sz32 = getelementptr inbounds %struct.btElement, ptr %call31, i32 0, i32 1
-  %34 = load i32, ptr %m_sz32, align 4
-  store i32 %34, ptr %i29, align 4
-  %35 = load ptr, ptr %collisionObjects, align 8
-  %36 = load i32, ptr %i29, align 4
-  %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %35, i32 noundef %36)
-  %37 = load ptr, ptr %call34, align 8
-  store ptr %37, ptr %colObj33, align 8
-  %38 = load ptr, ptr %island, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %38, i32 0, i32 0
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray, ptr noundef nonnull align 8 dereferenceable(8) %colObj33)
-  br label %for.inc35
+93:                                               ; preds = %110, %80
+  %94 = load i32, ptr %16, align 4, !tbaa !9
+  %95 = load i32, ptr %6, align 4, !tbaa !9
+  %96 = icmp slt i32 %94, %95
+  br i1 %96, label %98, label %97
 
-for.inc35:                                        ; preds = %for.body28
-  %39 = load i32, ptr %iElem25, align 4
-  %inc36 = add nsw i32 %39, 1
-  store i32 %inc36, ptr %iElem25, align 4
-  br label %for.cond26, !llvm.loop !33
+97:                                               ; preds = %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  br label %113
 
-for.end37:                                        ; preds = %for.cond26
-  br label %if.end38
+98:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #13
+  %99 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN25btSimulationIslandManager12getUnionFindEv(ptr noundef nonnull align 8 dereferenceable(105) %19)
+  %100 = load i32, ptr %16, align 4, !tbaa !9
+  %101 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN11btUnionFind10getElementEi(ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef %100)
+  %102 = getelementptr inbounds nuw %struct.btElement, ptr %101, i32 0, i32 1
+  %103 = load i32, ptr %102, align 4, !tbaa !116
+  store i32 %103, ptr %17, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  %104 = load ptr, ptr %5, align 8, !tbaa !59
+  %105 = load i32, ptr %17, align 4, !tbaa !9
+  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %104, i32 noundef %105)
+  %107 = load ptr, ptr %106, align 8, !tbaa !64
+  store ptr %107, ptr %18, align 8, !tbaa !64
+  %108 = load ptr, ptr %15, align 8, !tbaa !47
+  %109 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %108, i32 0, i32 0
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %109, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  br label %110
 
-if.end38:                                         ; preds = %for.end37, %for.end22
-  br label %for.inc39
+110:                                              ; preds = %98
+  %111 = load i32, ptr %16, align 4, !tbaa !9
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %16, align 4, !tbaa !9
+  br label %93, !llvm.loop !136
 
-for.inc39:                                        ; preds = %if.end38
-  %40 = load i32, ptr %endIslandIndex, align 4
-  store i32 %40, ptr %startIslandIndex, align 4
-  br label %for.cond, !llvm.loop !34
+113:                                              ; preds = %97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  br label %114
 
-for.end40:                                        ; preds = %for.cond
+114:                                              ; preds = %113, %77
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  br label %115
+
+115:                                              ; preds = %114
+  %116 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %116, ptr %7, align 4, !tbaa !9
+  br label %24, !llvm.loop !137
+
+117:                                              ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  %cmp = icmp ne i32 %call, 6
-  br i1 %cmp, label %land.lhs.true, label %land.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
+  %5 = icmp ne i32 %4, 6
+  br i1 %5, label %6, label %12
 
-land.lhs.true:                                    ; preds = %entry
-  %call2 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  %cmp3 = icmp ne i32 %call2, 2
-  br i1 %cmp3, label %land.rhs, label %land.end
+6:                                                ; preds = %1
+  %7 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
+  %8 = icmp ne i32 %7, 2
+  br i1 %8, label %9, label %12
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %call4 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  %cmp5 = icmp ne i32 %call4, 5
-  br label %land.end
+9:                                                ; preds = %6
+  %10 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
+  %11 = icmp ne i32 %10, 5
+  br label %12
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %0 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp5, %land.rhs ]
-  ret i1 %0
+12:                                               ; preds = %9, %6, %1
+  %13 = phi i1 [ false, %6 ], [ false, %1 ], [ %11, %9 ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt21addManifoldsToIslandsEP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef %dispatcher) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dispatcher.addr = alloca ptr, align 8
-  %maxNumManifolds = alloca i32, align 4
-  %i = alloca i32, align 4
-  %manifold = alloca ptr, align 8
-  %colObj0 = alloca ptr, align 8
-  %colObj1 = alloca ptr, align 8
-  %islandId = alloca i32, align 4
-  %island = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dispatcher, ptr %dispatcher.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %dispatcher.addr, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
-  %1 = load ptr, ptr %vfn, align 8
-  %call = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store i32 %call, ptr %maxNumManifolds, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @_ZN27btSimulationIslandManagerMt21addManifoldsToIslandsEP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !110
+  %12 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %13 = load ptr, ptr %4, align 8, !tbaa !110
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
+  %15 = getelementptr inbounds ptr, ptr %14, i64 9
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  store i32 %17, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 0, ptr %6, align 4, !tbaa !9
+  br label %18
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr %maxNumManifolds, align 4
-  %cmp = icmp slt i32 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+18:                                               ; preds = %94, %2
+  %19 = load i32, ptr %6, align 4, !tbaa !9
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %23, label %22
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %dispatcher.addr, align 8
-  %5 = load i32, ptr %i, align 4
-  %vtable2 = load ptr, ptr %4, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 10
-  %6 = load ptr, ptr %vfn3, align 8
-  %call4 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5)
-  store ptr %call4, ptr %manifold, align 8
-  %7 = load ptr, ptr %manifold, align 8
-  %call5 = call noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %7)
-  store ptr %call5, ptr %colObj0, align 8
-  %8 = load ptr, ptr %manifold, align 8
-  %call6 = call noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %8)
-  store ptr %call6, ptr %colObj1, align 8
-  %9 = load ptr, ptr %colObj0, align 8
-  %tobool = icmp ne ptr %9, null
-  br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
+22:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  br label %97
 
-land.lhs.true:                                    ; preds = %for.body
-  %10 = load ptr, ptr %colObj0, align 8
-  %call7 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %10)
-  %cmp8 = icmp ne i32 %call7, 2
-  br i1 %cmp8, label %if.then, label %lor.lhs.false
+23:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %24 = load ptr, ptr %4, align 8, !tbaa !110
+  %25 = load i32, ptr %6, align 4, !tbaa !9
+  %26 = load ptr, ptr %24, align 8, !tbaa !14
+  %27 = getelementptr inbounds ptr, ptr %26, i64 10
+  %28 = load ptr, ptr %27, align 8
+  %29 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %25)
+  store ptr %29, ptr %7, align 8, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %30 = load ptr, ptr %7, align 8, !tbaa !71
+  %31 = call noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %30)
+  store ptr %31, ptr %8, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %32 = load ptr, ptr %7, align 8, !tbaa !71
+  %33 = call noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %32)
+  store ptr %33, ptr %9, align 8, !tbaa !64
+  %34 = load ptr, ptr %8, align 8, !tbaa !64
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %40
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %for.body
-  %11 = load ptr, ptr %colObj1, align 8
-  %tobool9 = icmp ne ptr %11, null
-  br i1 %tobool9, label %land.lhs.true10, label %if.end40
+36:                                               ; preds = %23
+  %37 = load ptr, ptr %8, align 8, !tbaa !64
+  %38 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %37)
+  %39 = icmp ne i32 %38, 2
+  br i1 %39, label %47, label %40
 
-land.lhs.true10:                                  ; preds = %lor.lhs.false
-  %12 = load ptr, ptr %colObj1, align 8
-  %call11 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %12)
-  %cmp12 = icmp ne i32 %call11, 2
-  br i1 %cmp12, label %if.then, label %if.end40
+40:                                               ; preds = %36, %23
+  %41 = load ptr, ptr %9, align 8, !tbaa !64
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %93
 
-if.then:                                          ; preds = %land.lhs.true10, %land.lhs.true
-  %13 = load ptr, ptr %colObj0, align 8
-  %call13 = call noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %13)
-  br i1 %call13, label %land.lhs.true14, label %if.end20
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %9, align 8, !tbaa !64
+  %45 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %44)
+  %46 = icmp ne i32 %45, 2
+  br i1 %46, label %47, label %93
 
-land.lhs.true14:                                  ; preds = %if.then
-  %14 = load ptr, ptr %colObj0, align 8
-  %call15 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %14)
-  %cmp16 = icmp ne i32 %call15, 2
-  br i1 %cmp16, label %if.then17, label %if.end20
+47:                                               ; preds = %43, %36
+  %48 = load ptr, ptr %8, align 8, !tbaa !64
+  %49 = call noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %48)
+  br i1 %49, label %50, label %60
 
-if.then17:                                        ; preds = %land.lhs.true14
-  %15 = load ptr, ptr %colObj0, align 8
-  %call18 = call noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %15)
-  br i1 %call18, label %if.then19, label %if.end
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %8, align 8, !tbaa !64
+  %52 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %51)
+  %53 = icmp ne i32 %52, 2
+  br i1 %53, label %54, label %60
 
-if.then19:                                        ; preds = %if.then17
-  %16 = load ptr, ptr %colObj1, align 8
-  call void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %16, i1 noundef zeroext false)
-  br label %if.end
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %8, align 8, !tbaa !64
+  %56 = call noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %55)
+  br i1 %56, label %57, label %59
 
-if.end:                                           ; preds = %if.then19, %if.then17
-  br label %if.end20
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %9, align 8, !tbaa !64
+  call void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %58, i1 noundef zeroext false)
+  br label %59
 
-if.end20:                                         ; preds = %if.end, %land.lhs.true14, %if.then
-  %17 = load ptr, ptr %colObj1, align 8
-  %call21 = call noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %17)
-  br i1 %call21, label %land.lhs.true22, label %if.end29
+59:                                               ; preds = %57, %54
+  br label %60
 
-land.lhs.true22:                                  ; preds = %if.end20
-  %18 = load ptr, ptr %colObj1, align 8
-  %call23 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %18)
-  %cmp24 = icmp ne i32 %call23, 2
-  br i1 %cmp24, label %if.then25, label %if.end29
+60:                                               ; preds = %59, %50, %47
+  %61 = load ptr, ptr %9, align 8, !tbaa !64
+  %62 = call noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %61)
+  br i1 %62, label %63, label %73
 
-if.then25:                                        ; preds = %land.lhs.true22
-  %19 = load ptr, ptr %colObj1, align 8
-  %call26 = call noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %19)
-  br i1 %call26, label %if.then27, label %if.end28
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %9, align 8, !tbaa !64
+  %65 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %64)
+  %66 = icmp ne i32 %65, 2
+  br i1 %66, label %67, label %73
 
-if.then27:                                        ; preds = %if.then25
-  %20 = load ptr, ptr %colObj0, align 8
-  call void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %20, i1 noundef zeroext false)
-  br label %if.end28
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %9, align 8, !tbaa !64
+  %69 = call noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %68)
+  br i1 %69, label %70, label %72
 
-if.end28:                                         ; preds = %if.then27, %if.then25
-  br label %if.end29
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %8, align 8, !tbaa !64
+  call void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %71, i1 noundef zeroext false)
+  br label %72
 
-if.end29:                                         ; preds = %if.end28, %land.lhs.true22, %if.end20
-  %21 = load ptr, ptr %dispatcher.addr, align 8
-  %22 = load ptr, ptr %colObj0, align 8
-  %23 = load ptr, ptr %colObj1, align 8
-  %vtable30 = load ptr, ptr %21, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 7
-  %24 = load ptr, ptr %vfn31, align 8
-  %call32 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %22, ptr noundef %23)
-  br i1 %call32, label %if.then33, label %if.end39
+72:                                               ; preds = %70, %67
+  br label %73
 
-if.then33:                                        ; preds = %if.end29
-  %25 = load ptr, ptr %manifold, align 8
-  %call34 = call noundef i32 @_Z11getIslandIdPK20btPersistentManifold(ptr noundef %25)
-  store i32 %call34, ptr %islandId, align 4
-  %26 = load i32, ptr %islandId, align 4
-  %call35 = call noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr noundef nonnull align 8 dereferenceable(264) %this1, i32 noundef %26)
-  store ptr %call35, ptr %island, align 8
-  %27 = load ptr, ptr %island, align 8
-  %tobool36 = icmp ne ptr %27, null
-  br i1 %tobool36, label %if.then37, label %if.end38
+73:                                               ; preds = %72, %63, %60
+  %74 = load ptr, ptr %4, align 8, !tbaa !110
+  %75 = load ptr, ptr %8, align 8, !tbaa !64
+  %76 = load ptr, ptr %9, align 8, !tbaa !64
+  %77 = load ptr, ptr %74, align 8, !tbaa !14
+  %78 = getelementptr inbounds ptr, ptr %77, i64 7
+  %79 = load ptr, ptr %78, align 8
+  %80 = call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %75, ptr noundef %76)
+  br i1 %80, label %81, label %92
 
-if.then37:                                        ; preds = %if.then33
-  %28 = load ptr, ptr %island, align 8
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %28, i32 0, i32 1
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray, ptr noundef nonnull align 8 dereferenceable(8) %manifold)
-  br label %if.end38
+81:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %82 = load ptr, ptr %7, align 8, !tbaa !71
+  %83 = call noundef i32 @_Z11getIslandIdPK20btPersistentManifold(ptr noundef %82)
+  store i32 %83, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %84 = load i32, ptr %10, align 4, !tbaa !9
+  %85 = call noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef %84)
+  store ptr %85, ptr %11, align 8, !tbaa !47
+  %86 = load ptr, ptr %11, align 8, !tbaa !47
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %91
 
-if.end38:                                         ; preds = %if.then37, %if.then33
-  br label %if.end39
+88:                                               ; preds = %81
+  %89 = load ptr, ptr %11, align 8, !tbaa !47
+  %90 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %89, i32 0, i32 1
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %90, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br label %91
 
-if.end39:                                         ; preds = %if.end38, %if.end29
-  br label %if.end40
+91:                                               ; preds = %88, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  br label %92
 
-if.end40:                                         ; preds = %if.end39, %land.lhs.true10, %lor.lhs.false
-  br label %for.inc
+92:                                               ; preds = %91, %73
+  br label %93
 
-for.inc:                                          ; preds = %if.end40
-  %29 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %29, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !35
+93:                                               ; preds = %92, %43, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  br label %94
 
-for.end:                                          ; preds = %for.cond
+94:                                               ; preds = %93
+  %95 = load i32, ptr %6, align 4, !tbaa !9
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %6, align 4, !tbaa !9
+  br label %18, !llvm.loop !138
+
+97:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_body0 = getelementptr inbounds %class.btPersistentManifold, ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %m_body0, align 8
-  ret ptr %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btPersistentManifold, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8, !tbaa !139
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_body1 = getelementptr inbounds %class.btPersistentManifold, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %m_body1, align 8
-  ret ptr %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btPersistentManifold, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !142
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_collisionFlags = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 12
-  %0 = load i32, ptr %m_collisionFlags, align 8
-  %and = and i32 %0, 2
-  %cmp = icmp ne i32 %and, 0
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 12
+  %5 = load i32, ptr %4, align 8, !tbaa !143
+  %6 = and i32 %5, 2
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_collisionFlags = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 12
-  %0 = load i32, ptr %m_collisionFlags, align 8
-  %and = and i32 %0, 4
-  %cmp = icmp eq i32 %and, 0
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 12
+  %5 = load i32, ptr %4, align 8, !tbaa !143
+  %6 = and i32 %5, 4
+  %7 = icmp eq i32 %6, 0
+  ret i1 %7
 }
 
 declare void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372), i1 noundef zeroext) #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_Z11getIslandIdPK20btPersistentManifold(ptr noundef %lhs) #1 comdat {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rcolObj0 = alloca ptr, align 8
-  %rcolObj1 = alloca ptr, align 8
-  %islandId = alloca i32, align 4
-  store ptr %lhs, ptr %lhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %call = call noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %0)
-  store ptr %call, ptr %rcolObj0, align 8
-  %1 = load ptr, ptr %lhs.addr, align 8
-  %call1 = call noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %1)
-  store ptr %call1, ptr %rcolObj1, align 8
-  %2 = load ptr, ptr %rcolObj0, align 8
-  %call2 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %2)
-  %cmp = icmp sge i32 %call2, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_Z11getIslandIdPK20btPersistentManifold(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #13
+  %6 = load ptr, ptr %2, align 8, !tbaa !71
+  %7 = call noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %6)
+  store ptr %7, ptr %3, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #13
+  %8 = load ptr, ptr %2, align 8, !tbaa !71
+  %9 = call noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %8)
+  store ptr %9, ptr %4, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %10 = load ptr, ptr %3, align 8, !tbaa !64
+  %11 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %10)
+  %12 = icmp sge i32 %11, 0
+  br i1 %12, label %13, label %16
 
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %rcolObj0, align 8
-  %call3 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
-  br label %cond.end
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !64
+  %15 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %14)
+  br label %19
 
-cond.false:                                       ; preds = %entry
-  %4 = load ptr, ptr %rcolObj1, align 8
-  %call4 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %4)
-  br label %cond.end
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %4, align 8, !tbaa !64
+  %18 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %17)
+  br label %19
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call3, %cond.true ], [ %call4, %cond.false ]
-  store i32 %cond, ptr %islandId, align 4
-  %5 = load i32, ptr %islandId, align 4
-  ret i32 %5
+19:                                               ; preds = %16, %13
+  %20 = phi i32 [ %15, %13 ], [ %18, %16 ]
+  store i32 %20, ptr %5, align 4, !tbaa !9
+  %21 = load i32, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #13
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt23addConstraintsToIslandsER20btAlignedObjectArrayIP17btTypedConstraintE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(25) %constraints) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %constraints.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %constraint = alloca ptr, align 8
-  %islandId = alloca i32, align 4
-  %island = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %constraints, ptr %constraints.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @_ZN27btSimulationIslandManagerMt23addConstraintsToIslandsER20btAlignedObjectArrayIP17btTypedConstraintE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !73
+  %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %constraints.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %1)
-  %cmp = icmp slt i32 %0, %call
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %35, %2
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = load ptr, ptr %4, align 8, !tbaa !73
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %12)
+  %14 = icmp slt i32 %11, %13
+  br i1 %14, label %16, label %15
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %constraints.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %2, i32 noundef %3)
-  %4 = load ptr, ptr %call2, align 8
-  store ptr %4, ptr %constraint, align 8
-  %5 = load ptr, ptr %constraint, align 8
-  %call3 = call noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
-  br i1 %call3, label %if.then, label %if.end7
+15:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  br label %38
 
-if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %constraint, align 8
-  %call4 = call noundef i32 @_Z24btGetConstraintIslandId1PK17btTypedConstraint(ptr noundef %6)
-  store i32 %call4, ptr %islandId, align 4
-  %7 = load i32, ptr %islandId, align 4
-  %call5 = call noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr noundef nonnull align 8 dereferenceable(264) %this1, i32 noundef %7)
-  store ptr %call5, ptr %island, align 8
-  %8 = load ptr, ptr %island, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.then6, label %if.end
+16:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  %17 = load ptr, ptr %4, align 8, !tbaa !73
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %17, i32 noundef %18)
+  %20 = load ptr, ptr %19, align 8, !tbaa !81
+  store ptr %20, ptr %6, align 8, !tbaa !81
+  %21 = load ptr, ptr %6, align 8, !tbaa !81
+  %22 = call noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %21)
+  br i1 %22, label %23, label %34
 
-if.then6:                                         ; preds = %if.then
-  %9 = load ptr, ptr %island, align 8
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %9, i32 0, i32 2
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray, ptr noundef nonnull align 8 dereferenceable(8) %constraint)
-  br label %if.end
+23:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %24 = load ptr, ptr %6, align 8, !tbaa !81
+  %25 = call noundef i32 @_Z24btGetConstraintIslandId1PK17btTypedConstraint(ptr noundef %24)
+  store i32 %25, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %26 = load i32, ptr %7, align 4, !tbaa !9
+  %27 = call noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr noundef nonnull align 8 dereferenceable(264) %9, i32 noundef %26)
+  store ptr %27, ptr %8, align 8, !tbaa !47
+  %28 = load ptr, ptr %8, align 8, !tbaa !47
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %33
 
-if.end:                                           ; preds = %if.then6, %if.then
-  br label %if.end7
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %8, align 8, !tbaa !47
+  %32 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %31, i32 0, i32 2
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %32, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br label %33
 
-if.end7:                                          ; preds = %if.end, %for.body
-  br label %for.inc
+33:                                               ; preds = %30, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %34
 
-for.inc:                                          ; preds = %if.end7
-  %10 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %10, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !36
+34:                                               ; preds = %33, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  br label %35
 
-for.end:                                          ; preds = %for.cond
+35:                                               ; preds = %34
+  %36 = load i32, ptr %5, align 4, !tbaa !9
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %5, align 4, !tbaa !9
+  br label %10, !llvm.loop !144
+
+38:                                               ; preds = %15
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_isEnabled = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 5
-  %0 = load i8, ptr %m_isEnabled, align 4
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z24btGetConstraintIslandId1PK17btTypedConstraint(ptr noundef %lhs) #2 comdat {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rcolObj0 = alloca ptr, align 8
-  %rcolObj1 = alloca ptr, align 8
-  %islandId = alloca i32, align 4
-  store ptr %lhs, ptr %lhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr %call, ptr %rcolObj0, align 8
-  %1 = load ptr, ptr %lhs.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %1)
-  store ptr %call1, ptr %rcolObj1, align 8
-  %2 = load ptr, ptr %rcolObj0, align 8
-  %call2 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %2)
-  %cmp = icmp sge i32 %call2, 0
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %rcolObj0, align 8
-  %call3 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %4 = load ptr, ptr %rcolObj1, align 8
-  %call4 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %4)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call3, %cond.true ], [ %call4, %cond.false ]
-  store i32 %cond, ptr %islandId, align 4
-  %5 = load i32, ptr %islandId, align 4
-  ret i32 %5
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt12mergeIslandsEv(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.IslandBatchSizeSortPredicate, align 1
-  %destIslandIndex = alloca i32, align 4
-  %i = alloca i32, align 4
-  %island = alloca ptr, align 8
-  %batchSize = alloca i32, align 4
-  %lastIndex = alloca i32, align 4
-  %island12 = alloca ptr, align 8
-  %numBodies = alloca i32, align 4
-  %numManifolds = alloca i32, align 4
-  %numConstraints = alloca i32, align 4
-  %firstIndex = alloca i32, align 4
-  %src = alloca ptr, align 8
-  %batchCost = alloca i32, align 4
-  %i42 = alloca i32, align 4
-  %ref.tmp52 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_activeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28IslandBatchSizeSortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %m_activeIslands2 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands2)
-  store i32 %call, ptr %destIslandIndex, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %m_activeIslands3 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands3)
-  %cmp = icmp slt i32 %0, %call4
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %m_activeIslands5 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %i, align 4
-  %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands5, i32 noundef %1)
-  %2 = load ptr, ptr %call6, align 8
-  store ptr %2, ptr %island, align 8
-  %3 = load ptr, ptr %island, align 8
-  %call7 = call noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %3)
-  store i32 %call7, ptr %batchSize, align 4
-  %4 = load i32, ptr %batchSize, align 4
-  %m_minimumSolverBatchSize = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 7
-  %5 = load i32, ptr %m_minimumSolverBatchSize, align 8
-  %cmp8 = icmp slt i32 %4, %5
-  br i1 %cmp8, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %6 = load i32, ptr %i, align 4
-  store i32 %6, ptr %destIslandIndex, align 4
-  br label %for.end
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !37
-
-for.end:                                          ; preds = %if.then, %for.cond
-  %m_activeIslands9 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %call10 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands9)
-  %sub = sub nsw i32 %call10, 1
-  store i32 %sub, ptr %lastIndex, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %for.end50, %for.end
-  %8 = load i32, ptr %destIslandIndex, align 4
-  %9 = load i32, ptr %lastIndex, align 4
-  %cmp11 = icmp slt i32 %8, %9
-  br i1 %cmp11, label %while.body, label %while.end55
-
-while.body:                                       ; preds = %while.cond
-  %m_activeIslands13 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %10 = load i32, ptr %destIslandIndex, align 4
-  %call14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands13, i32 noundef %10)
-  %11 = load ptr, ptr %call14, align 8
-  store ptr %11, ptr %island12, align 8
-  %12 = load ptr, ptr %island12, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %12, i32 0, i32 0
-  %call15 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  store i32 %call15, ptr %numBodies, align 4
-  %13 = load ptr, ptr %island12, align 8
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %13, i32 0, i32 1
-  %call16 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray)
-  store i32 %call16, ptr %numManifolds, align 4
-  %14 = load ptr, ptr %island12, align 8
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %14, i32 0, i32 2
-  %call17 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray)
-  store i32 %call17, ptr %numConstraints, align 4
-  %15 = load i32, ptr %lastIndex, align 4
-  store i32 %15, ptr %firstIndex, align 4
-  br label %while.body19
-
-while.body19:                                     ; preds = %if.end38, %while.body
-  %m_activeIslands20 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %16 = load i32, ptr %firstIndex, align 4
-  %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands20, i32 noundef %16)
-  %17 = load ptr, ptr %call21, align 8
-  store ptr %17, ptr %src, align 8
-  %18 = load ptr, ptr %src, align 8
-  %bodyArray22 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %18, i32 0, i32 0
-  %call23 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray22)
-  %19 = load i32, ptr %numBodies, align 4
-  %add = add nsw i32 %19, %call23
-  store i32 %add, ptr %numBodies, align 4
-  %20 = load ptr, ptr %src, align 8
-  %manifoldArray24 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %20, i32 0, i32 1
-  %call25 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray24)
-  %21 = load i32, ptr %numManifolds, align 4
-  %add26 = add nsw i32 %21, %call25
-  store i32 %add26, ptr %numManifolds, align 4
-  %22 = load ptr, ptr %src, align 8
-  %constraintArray27 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %22, i32 0, i32 2
-  %call28 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray27)
-  %23 = load i32, ptr %numConstraints, align 4
-  %add29 = add nsw i32 %23, %call28
-  store i32 %add29, ptr %numConstraints, align 4
-  %24 = load i32, ptr %numBodies, align 4
-  %25 = load i32, ptr %numManifolds, align 4
-  %26 = load i32, ptr %numConstraints, align 4
-  %call30 = call noundef i32 @_Z13calcBatchCostiii(i32 noundef %24, i32 noundef %25, i32 noundef %26)
-  store i32 %call30, ptr %batchCost, align 4
-  %27 = load i32, ptr %batchCost, align 4
-  %m_minimumSolverBatchSize31 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 7
-  %28 = load i32, ptr %m_minimumSolverBatchSize31, align 8
-  %cmp32 = icmp sge i32 %27, %28
-  br i1 %cmp32, label %if.then33, label %if.end34
-
-if.then33:                                        ; preds = %while.body19
-  br label %while.end
-
-if.end34:                                         ; preds = %while.body19
-  %29 = load i32, ptr %firstIndex, align 4
-  %sub35 = sub nsw i32 %29, 1
-  %30 = load i32, ptr %destIslandIndex, align 4
-  %cmp36 = icmp eq i32 %sub35, %30
-  br i1 %cmp36, label %if.then37, label %if.end38
-
-if.then37:                                        ; preds = %if.end34
-  br label %while.end
-
-if.end38:                                         ; preds = %if.end34
-  %31 = load i32, ptr %firstIndex, align 4
-  %dec = add nsw i32 %31, -1
-  store i32 %dec, ptr %firstIndex, align 4
-  br label %while.body19, !llvm.loop !38
-
-while.end:                                        ; preds = %if.then37, %if.then33
-  %32 = load ptr, ptr %island12, align 8
-  %bodyArray39 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %32, i32 0, i32 0
-  %33 = load i32, ptr %numBodies, align 4
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray39, i32 noundef %33)
-  %34 = load ptr, ptr %island12, align 8
-  %manifoldArray40 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %34, i32 0, i32 1
-  %35 = load i32, ptr %numManifolds, align 4
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray40, i32 noundef %35)
-  %36 = load ptr, ptr %island12, align 8
-  %constraintArray41 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %36, i32 0, i32 2
-  %37 = load i32, ptr %numConstraints, align 4
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray41, i32 noundef %37)
-  %38 = load i32, ptr %firstIndex, align 4
-  store i32 %38, ptr %i42, align 4
-  br label %for.cond43
-
-for.cond43:                                       ; preds = %for.inc48, %while.end
-  %39 = load i32, ptr %i42, align 4
-  %40 = load i32, ptr %lastIndex, align 4
-  %cmp44 = icmp sle i32 %39, %40
-  br i1 %cmp44, label %for.body45, label %for.end50
-
-for.body45:                                       ; preds = %for.cond43
-  %41 = load ptr, ptr %island12, align 8
-  %m_activeIslands46 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %42 = load i32, ptr %i42, align 4
-  %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands46, i32 noundef %42)
-  %43 = load ptr, ptr %call47, align 8
-  call void @_ZN27btSimulationIslandManagerMt6Island6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(101) %41, ptr noundef nonnull align 8 dereferenceable(101) %43)
-  br label %for.inc48
-
-for.inc48:                                        ; preds = %for.body45
-  %44 = load i32, ptr %i42, align 4
-  %inc49 = add nsw i32 %44, 1
-  store i32 %inc49, ptr %i42, align 4
-  br label %for.cond43, !llvm.loop !39
-
-for.end50:                                        ; preds = %for.cond43
-  %m_activeIslands51 = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %45 = load i32, ptr %firstIndex, align 4
-  store ptr null, ptr %ref.tmp52, align 8
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_activeIslands51, i32 noundef %45, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp52)
-  %46 = load i32, ptr %firstIndex, align 4
-  %sub53 = sub nsw i32 %46, 1
-  store i32 %sub53, ptr %lastIndex, align 4
-  %47 = load i32, ptr %destIslandIndex, align 4
-  %inc54 = add nsw i32 %47, 1
-  store i32 %inc54, ptr %destIslandIndex, align 4
-  br label %while.cond, !llvm.loop !40
-
-while.end55:                                      ; preds = %while.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28IslandBatchSizeSortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 1 dereferenceable(1) %CompareFunc) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %CompareFunc.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %CompareFunc, ptr %CompareFunc.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp sgt i32 %call, 1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %CompareFunc.addr, align 8
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %sub = sub nsw i32 %call2, 1
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef 0, i32 noundef %sub)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %island) #2 comdat {
-entry:
-  %island.addr = alloca ptr, align 8
-  store ptr %island, ptr %island.addr, align 8
-  %0 = load ptr, ptr %island.addr, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %0, i32 0, i32 0
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  %1 = load ptr, ptr %island.addr, align 8
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %1, i32 0, i32 1
-  %call1 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray)
-  %2 = load ptr, ptr %island.addr, align 8
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %2, i32 0, i32 2
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray)
-  %call3 = call noundef i32 @_Z13calcBatchCostiii(i32 noundef %call, i32 noundef %call1, i32 noundef %call2)
-  ret i32 %call3
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %2 = load ptr, ptr %s, align 8
-  call void @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call3, ptr noundef %2)
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call4)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %3 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  store ptr %3, ptr %m_data, align 8
-  %4 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 3
-  store i32 %4, ptr %m_capacity, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %2 = load ptr, ptr %s, align 8
-  call void @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call3, ptr noundef %2)
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call4)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %3 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  store ptr %3, ptr %m_data, align 8
-  %4 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 3
-  store i32 %4, ptr %m_capacity, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %solver, ptr noundef nonnull align 8 dereferenceable(101) %island, ptr noundef nonnull align 8 dereferenceable(40) %solverParams) #2 align 2 {
-entry:
-  %solver.addr = alloca ptr, align 8
-  %island.addr = alloca ptr, align 8
-  %solverParams.addr = alloca ptr, align 8
-  %manifolds = alloca ptr, align 8
-  %constraintsPtr = alloca ptr, align 8
-  store ptr %solver, ptr %solver.addr, align 8
-  store ptr %island, ptr %island.addr, align 8
-  store ptr %solverParams, ptr %solverParams.addr, align 8
-  %0 = load ptr, ptr %island.addr, align 8
-  %manifoldArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %0, i32 0, i32 1
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %island.addr, align 8
-  %manifoldArray1 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %1, i32 0, i32 1
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray1, i32 noundef 0)
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call2, %cond.true ], [ null, %cond.false ]
-  store ptr %cond, ptr %manifolds, align 8
-  %2 = load ptr, ptr %island.addr, align 8
-  %constraintArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %2, i32 0, i32 2
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray)
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %cond.true5, label %cond.false8
-
-cond.true5:                                       ; preds = %cond.end
-  %3 = load ptr, ptr %island.addr, align 8
-  %constraintArray6 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %3, i32 0, i32 2
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray6, i32 noundef 0)
-  br label %cond.end9
-
-cond.false8:                                      ; preds = %cond.end
-  br label %cond.end9
-
-cond.end9:                                        ; preds = %cond.false8, %cond.true5
-  %cond10 = phi ptr [ %call7, %cond.true5 ], [ null, %cond.false8 ]
-  store ptr %cond10, ptr %constraintsPtr, align 8
-  %4 = load ptr, ptr %solver.addr, align 8
-  %5 = load ptr, ptr %island.addr, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %5, i32 0, i32 0
-  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray, i32 noundef 0)
-  %6 = load ptr, ptr %island.addr, align 8
-  %bodyArray12 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %6, i32 0, i32 0
-  %call13 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray12)
-  %7 = load ptr, ptr %manifolds, align 8
-  %8 = load ptr, ptr %island.addr, align 8
-  %manifoldArray14 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %8, i32 0, i32 1
-  %call15 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray14)
-  %9 = load ptr, ptr %constraintsPtr, align 8
-  %10 = load ptr, ptr %island.addr, align 8
-  %constraintArray16 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %10, i32 0, i32 2
-  %call17 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %constraintArray16)
-  %11 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverInfo = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %m_solverInfo, align 8
-  %13 = load ptr, ptr %solverParams.addr, align 8
-  %m_debugDrawer = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %13, i32 0, i32 3
-  %14 = load ptr, ptr %m_debugDrawer, align 8
-  %15 = load ptr, ptr %solverParams.addr, align 8
-  %m_dispatcher = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %m_dispatcher, align 8
-  %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %17 = load ptr, ptr %vfn, align 8
-  %call18 = call noundef float %17(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %call11, i32 noundef %call13, ptr noundef %7, i32 noundef %call15, ptr noundef %9, i32 noundef %call17, ptr noundef nonnull align 4 dereferenceable(128) %12, ptr noundef %14, ptr noundef %16)
-  ret void
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !80
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btTypedConstraint9isEnabledEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btTypedConstraint, ptr %3, i32 0, i32 5
+  %5 = load i8, ptr %4, align 4, !tbaa !145, !range !87, !noundef !88
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_Z24btGetConstraintIslandId1PK17btTypedConstraint(ptr noundef %0) #9 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #13
+  %6 = load ptr, ptr %2, align 8, !tbaa !81
+  %7 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  store ptr %7, ptr %3, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #13
+  %8 = load ptr, ptr %2, align 8, !tbaa !81
+  %9 = call noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  store ptr %9, ptr %4, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %10 = load ptr, ptr %3, align 8, !tbaa !64
+  %11 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %10)
+  %12 = icmp sge i32 %11, 0
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !64
+  %15 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %14)
+  br label %19
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %4, align 8, !tbaa !64
+  %18 = call noundef i32 @_ZNK17btCollisionObject12getIslandTagEv(ptr noundef nonnull align 8 dereferenceable(372) %17)
+  br label %19
+
+19:                                               ; preds = %16, %13
+  %20 = phi i32 [ %15, %13 ], [ %18, %16 ]
+  store i32 %20, ptr %5, align 4, !tbaa !9
+  %21 = load i32, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #13
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt20serialIslandDispatchEP20btAlignedObjectArrayIPNS_6IslandEERKNS_12SolverParamsE(ptr noundef %islandsPtr, ptr noundef nonnull align 8 dereferenceable(40) %solverParams) #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %islandsPtr.addr = alloca ptr, align 8
-  %solverParams.addr = alloca ptr, align 8
-  %__profile = alloca %class.CProfileSample, align 1
-  %islands = alloca ptr, align 8
-  %solver = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %islandsPtr, ptr %islandsPtr.addr, align 8
-  store ptr %solverParams, ptr %solverParams.addr, align 8
-  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef @.str.1)
-  %0 = load ptr, ptr %islandsPtr.addr, align 8
-  store ptr %0, ptr %islands, align 8
-  %1 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverMt = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %m_solverMt, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define dso_local void @_ZN27btSimulationIslandManagerMt12mergeIslandsEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %class.IslandBatchSizeSortPredicate, align 1
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #13
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28IslandBatchSizeSortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %20, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #13
+  %21 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %22 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %21)
+  store i32 %22, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %23
 
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverMt1 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %m_solverMt1, align 8
-  br label %cond.end
+23:                                               ; preds = %46, %1
+  %24 = load i32, ptr %5, align 4, !tbaa !9
+  %25 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %26 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %25)
+  %27 = icmp slt i32 %24, %26
+  br i1 %27, label %29, label %28
 
-cond.false:                                       ; preds = %entry
-  %5 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverPool = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %m_solverPool, align 8
-  br label %cond.end
+28:                                               ; preds = %23
+  store i32 2, ptr %6, align 4
+  br label %49
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %4, %cond.true ], [ %6, %cond.false ]
-  store ptr %cond, ptr %solver, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+29:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %30 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %31 = load i32, ptr %5, align 4, !tbaa !9
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %30, i32 noundef %31)
+  %33 = load ptr, ptr %32, align 8, !tbaa !47
+  store ptr %33, ptr %7, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %34 = load ptr, ptr %7, align 8, !tbaa !47
+  %35 = call noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %34)
+  store i32 %35, ptr %8, align 4, !tbaa !9
+  %36 = load i32, ptr %8, align 4, !tbaa !9
+  %37 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 7
+  %38 = load i32, ptr %37, align 8, !tbaa !16
+  %39 = icmp slt i32 %36, %38
+  br i1 %39, label %40, label %42
 
-for.cond:                                         ; preds = %for.inc, %cond.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load ptr, ptr %islands, align 8
-  %call = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
-          to label %invoke.cont unwind label %lpad
+40:                                               ; preds = %29
+  %41 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %41, ptr %4, align 4, !tbaa !9
+  store i32 2, ptr %6, align 4
+  br label %43
 
-invoke.cont:                                      ; preds = %for.cond
-  %cmp = icmp slt i32 %7, %call
-  br i1 %cmp, label %for.body, label %for.end
+42:                                               ; preds = %29
+  store i32 0, ptr %6, align 4
+  br label %43
 
-for.body:                                         ; preds = %invoke.cont
-  %9 = load ptr, ptr %solver, align 8
-  %10 = load ptr, ptr %islands, align 8
-  %11 = load i32, ptr %i, align 4
-  %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef %11)
-          to label %invoke.cont2 unwind label %lpad
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  %44 = load i32, ptr %6, align 4
+  switch i32 %44, label %49 [
+    i32 0, label %45
+  ]
 
-invoke.cont2:                                     ; preds = %for.body
-  %12 = load ptr, ptr %call3, align 8
-  %13 = load ptr, ptr %solverParams.addr, align 8
-  invoke void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(101) %12, ptr noundef nonnull align 8 dereferenceable(40) %13)
-          to label %invoke.cont4 unwind label %lpad
+45:                                               ; preds = %43
+  br label %46
 
-invoke.cont4:                                     ; preds = %invoke.cont2
-  br label %for.inc
+46:                                               ; preds = %45
+  %47 = load i32, ptr %5, align 4, !tbaa !9
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %5, align 4, !tbaa !9
+  br label %23, !llvm.loop !149
 
-for.inc:                                          ; preds = %invoke.cont4
-  %14 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !41
+49:                                               ; preds = %43, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  br label %50
 
-lpad:                                             ; preds = %invoke.cont2, %for.body, %for.cond
-  %15 = landingpad { ptr, i32 }
+50:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %51 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %52 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %51)
+  %53 = sub nsw i32 %52, 1
+  store i32 %53, ptr %9, align 4, !tbaa !9
+  br label %54
+
+54:                                               ; preds = %140, %50
+  %55 = load i32, ptr %4, align 4, !tbaa !9
+  %56 = load i32, ptr %9, align 4, !tbaa !9
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %58, label %147
+
+58:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  %59 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %60 = load i32, ptr %4, align 4, !tbaa !9
+  %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %59, i32 noundef %60)
+  %62 = load ptr, ptr %61, align 8, !tbaa !47
+  store ptr %62, ptr %10, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %63 = load ptr, ptr %10, align 8, !tbaa !47
+  %64 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %63, i32 0, i32 0
+  %65 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %64)
+  store i32 %65, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %66 = load ptr, ptr %10, align 8, !tbaa !47
+  %67 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %66, i32 0, i32 1
+  %68 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %67)
+  store i32 %68, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %69 = load ptr, ptr %10, align 8, !tbaa !47
+  %70 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %69, i32 0, i32 2
+  %71 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %70)
+  store i32 %71, ptr %13, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %72 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %72, ptr %14, align 4, !tbaa !9
+  br label %73
+
+73:                                               ; preds = %114, %58
+  br label %74
+
+74:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  %75 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %76 = load i32, ptr %14, align 4, !tbaa !9
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %75, i32 noundef %76)
+  %78 = load ptr, ptr %77, align 8, !tbaa !47
+  store ptr %78, ptr %15, align 8, !tbaa !47
+  %79 = load ptr, ptr %15, align 8, !tbaa !47
+  %80 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %79, i32 0, i32 0
+  %81 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %80)
+  %82 = load i32, ptr %11, align 4, !tbaa !9
+  %83 = add nsw i32 %82, %81
+  store i32 %83, ptr %11, align 4, !tbaa !9
+  %84 = load ptr, ptr %15, align 8, !tbaa !47
+  %85 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %84, i32 0, i32 1
+  %86 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %85)
+  %87 = load i32, ptr %12, align 4, !tbaa !9
+  %88 = add nsw i32 %87, %86
+  store i32 %88, ptr %12, align 4, !tbaa !9
+  %89 = load ptr, ptr %15, align 8, !tbaa !47
+  %90 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %89, i32 0, i32 2
+  %91 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %90)
+  %92 = load i32, ptr %13, align 4, !tbaa !9
+  %93 = add nsw i32 %92, %91
+  store i32 %93, ptr %13, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %94 = load i32, ptr %11, align 4, !tbaa !9
+  %95 = load i32, ptr %12, align 4, !tbaa !9
+  %96 = load i32, ptr %13, align 4, !tbaa !9
+  %97 = call noundef i32 @_Z13calcBatchCostiii(i32 noundef %94, i32 noundef %95, i32 noundef %96)
+  store i32 %97, ptr %16, align 4, !tbaa !9
+  %98 = load i32, ptr %16, align 4, !tbaa !9
+  %99 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 7
+  %100 = load i32, ptr %99, align 8, !tbaa !16
+  %101 = icmp sge i32 %98, %100
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %74
+  store i32 8, ptr %6, align 4
+  br label %112
+
+103:                                              ; preds = %74
+  %104 = load i32, ptr %14, align 4, !tbaa !9
+  %105 = sub nsw i32 %104, 1
+  %106 = load i32, ptr %4, align 4, !tbaa !9
+  %107 = icmp eq i32 %105, %106
+  br i1 %107, label %108, label %109
+
+108:                                              ; preds = %103
+  store i32 8, ptr %6, align 4
+  br label %112
+
+109:                                              ; preds = %103
+  %110 = load i32, ptr %14, align 4, !tbaa !9
+  %111 = add nsw i32 %110, -1
+  store i32 %111, ptr %14, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4
+  br label %112
+
+112:                                              ; preds = %109, %108, %102
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  %113 = load i32, ptr %6, align 4
+  switch i32 %113, label %148 [
+    i32 0, label %114
+    i32 8, label %115
+  ]
+
+114:                                              ; preds = %112
+  br label %73, !llvm.loop !150
+
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %10, align 8, !tbaa !47
+  %117 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %116, i32 0, i32 0
+  %118 = load i32, ptr %11, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %117, i32 noundef %118)
+  %119 = load ptr, ptr %10, align 8, !tbaa !47
+  %120 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %119, i32 0, i32 1
+  %121 = load i32, ptr %12, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %120, i32 noundef %121)
+  %122 = load ptr, ptr %10, align 8, !tbaa !47
+  %123 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %122, i32 0, i32 2
+  %124 = load i32, ptr %13, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %123, i32 noundef %124)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #13
+  %125 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %125, ptr %17, align 4, !tbaa !9
+  br label %126
+
+126:                                              ; preds = %137, %115
+  %127 = load i32, ptr %17, align 4, !tbaa !9
+  %128 = load i32, ptr %9, align 4, !tbaa !9
+  %129 = icmp sle i32 %127, %128
+  br i1 %129, label %131, label %130
+
+130:                                              ; preds = %126
+  store i32 9, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  br label %140
+
+131:                                              ; preds = %126
+  %132 = load ptr, ptr %10, align 8, !tbaa !47
+  %133 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %134 = load i32, ptr %17, align 4, !tbaa !9
+  %135 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %133, i32 noundef %134)
+  %136 = load ptr, ptr %135, align 8, !tbaa !47
+  call void @_ZN27btSimulationIslandManagerMt6Island6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(101) %132, ptr noundef nonnull align 8 dereferenceable(101) %136)
+  br label %137
+
+137:                                              ; preds = %131
+  %138 = load i32, ptr %17, align 4, !tbaa !9
+  %139 = add nsw i32 %138, 1
+  store i32 %139, ptr %17, align 4, !tbaa !9
+  br label %126, !llvm.loop !151
+
+140:                                              ; preds = %130
+  %141 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %19, i32 0, i32 3
+  %142 = load i32, ptr %14, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  store ptr null, ptr %18, align 8, !tbaa !47
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %141, i32 noundef %142, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  %143 = load i32, ptr %14, align 4, !tbaa !9
+  %144 = sub nsw i32 %143, 1
+  store i32 %144, ptr %9, align 4, !tbaa !9
+  %145 = load i32, ptr %4, align 4, !tbaa !9
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  br label %54, !llvm.loop !152
+
+147:                                              ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #13
+  ret void
+
+148:                                              ; preds = %112
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28IslandBatchSizeSortPredicateEEvRKT_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !153
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8, !tbaa !153
+  %10 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %5)
+  %11 = sub nsw i32 %10, 1
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 1 dereferenceable(1) %9, i32 noundef 0, i32 noundef %11)
+  br label %12
+
+12:                                               ; preds = %8, %2
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %0) #9 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %4 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %4)
+  %6 = load ptr, ptr %2, align 8, !tbaa !47
+  %7 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %6, i32 0, i32 1
+  %8 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %7)
+  %9 = load ptr, ptr %2, align 8, !tbaa !47
+  %10 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %9, i32 0, i32 2
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  %12 = call noundef i32 @_Z13calcBatchCostiii(i32 noundef %5, i32 noundef %8, i32 noundef %11)
+  ret i32 %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %21
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !69
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %14 = load ptr, ptr %5, align 8, !tbaa !69
+  call void @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %13, ptr noundef %14)
+  %15 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %15)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %16 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %6, i32 0, i32 5
+  store i8 1, ptr %16, align 8, !tbaa !155
+  %17 = load ptr, ptr %5, align 8, !tbaa !69
+  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %6, i32 0, i32 4
+  store ptr %17, ptr %18, align 8, !tbaa !70
+  %19 = load i32, ptr %4, align 4, !tbaa !9
+  %20 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %6, i32 0, i32 2
+  store i32 %19, ptr %20, align 8, !tbaa !156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  br label %21
+
+21:                                               ; preds = %10, %2
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %21
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !79
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %14 = load ptr, ptr %5, align 8, !tbaa !79
+  call void @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %13, ptr noundef %14)
+  %15 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %15)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %16 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 5
+  store i8 1, ptr %16, align 8, !tbaa !157
+  %17 = load ptr, ptr %5, align 8, !tbaa !79
+  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 4
+  store ptr %17, ptr %18, align 8, !tbaa !80
+  %19 = load i32, ptr %4, align 4, !tbaa !9
+  %20 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %6, i32 0, i32 2
+  store i32 %19, ptr %20, align 8, !tbaa !158
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  br label %21
+
+21:                                               ; preds = %10, %2
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(101) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !159
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %9 = load ptr, ptr %5, align 8, !tbaa !47
+  %10 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %9, i32 0, i32 1
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !47
+  %15 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %14, i32 0, i32 1
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %15, i32 noundef 0)
+  br label %18
+
+17:                                               ; preds = %3
+  br label %18
+
+18:                                               ; preds = %17, %13
+  %19 = phi ptr [ %16, %13 ], [ null, %17 ]
+  store ptr %19, ptr %7, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %20 = load ptr, ptr %5, align 8, !tbaa !47
+  %21 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %20, i32 0, i32 2
+  %22 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %21)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %28
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %5, align 8, !tbaa !47
+  %26 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %25, i32 0, i32 2
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %26, i32 noundef 0)
+  br label %29
+
+28:                                               ; preds = %18
+  br label %29
+
+29:                                               ; preds = %28, %24
+  %30 = phi ptr [ %27, %24 ], [ null, %28 ]
+  store ptr %30, ptr %8, align 8, !tbaa !79
+  %31 = load ptr, ptr %4, align 8, !tbaa !159
+  %32 = load ptr, ptr %5, align 8, !tbaa !47
+  %33 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %32, i32 0, i32 0
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %33, i32 noundef 0)
+  %35 = load ptr, ptr %5, align 8, !tbaa !47
+  %36 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %35, i32 0, i32 0
+  %37 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %36)
+  %38 = load ptr, ptr %7, align 8, !tbaa !69
+  %39 = load ptr, ptr %5, align 8, !tbaa !47
+  %40 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %39, i32 0, i32 1
+  %41 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %40)
+  %42 = load ptr, ptr %8, align 8, !tbaa !79
+  %43 = load ptr, ptr %5, align 8, !tbaa !47
+  %44 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %43, i32 0, i32 2
+  %45 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %44)
+  %46 = load ptr, ptr %6, align 8, !tbaa !39
+  %47 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !160
+  %49 = load ptr, ptr %6, align 8, !tbaa !39
+  %50 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %50, align 8, !tbaa !161
+  %52 = load ptr, ptr %6, align 8, !tbaa !39
+  %53 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %52, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8, !tbaa !162
+  %55 = load ptr, ptr %31, align 8, !tbaa !14
+  %56 = getelementptr inbounds ptr, ptr %55, i64 3
+  %57 = load ptr, ptr %56, align 8
+  %58 = call noundef float %57(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %34, i32 noundef %37, ptr noundef %38, i32 noundef %41, ptr noundef %42, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(128) %48, ptr noundef %51, ptr noundef %54)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN27btSimulationIslandManagerMt20serialIslandDispatchEP20btAlignedObjectArrayIPNS_6IslandEERKNS_12SolverParamsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.CProfileSample, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #13
+  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef @.str.1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  %11 = load ptr, ptr %3, align 8, !tbaa !37
+  store ptr %11, ptr %6, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %12 = load ptr, ptr %4, align 8, !tbaa !39
+  %13 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %20
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !39
+  %18 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !41
+  br label %24
+
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %4, align 8, !tbaa !39
+  %22 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !163
+  br label %24
+
+24:                                               ; preds = %20, %16
+  %25 = phi ptr [ %19, %16 ], [ %23, %20 ]
+  store ptr %25, ptr %7, align 8, !tbaa !159
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 0, ptr %8, align 4, !tbaa !9
+  br label %26
+
+26:                                               ; preds = %46, %24
+  %27 = load i32, ptr %8, align 4, !tbaa !9
+  %28 = load ptr, ptr %6, align 8, !tbaa !37
+  %29 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %28)
+          to label %30 unwind label %33
+
+30:                                               ; preds = %26
+  %31 = icmp slt i32 %27, %29
+  br i1 %31, label %37, label %32
+
+32:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %49
+
+33:                                               ; preds = %42, %37, %26
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
-  br label %eh.resume
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %9, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
+  br label %50
 
-for.end:                                          ; preds = %invoke.cont
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %7, align 8, !tbaa !159
+  %39 = load ptr, ptr %6, align 8, !tbaa !37
+  %40 = load i32, ptr %8, align 4, !tbaa !9
+  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %39, i32 noundef %40)
+          to label %42 unwind label %33
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %41, align 8, !tbaa !47
+  %44 = load ptr, ptr %4, align 8, !tbaa !39
+  invoke void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(101) %43, ptr noundef nonnull align 8 dereferenceable(40) %44)
+          to label %45 unwind label %33
+
+45:                                               ; preds = %42
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load i32, ptr %8, align 4, !tbaa !9
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %8, align 4, !tbaa !9
+  br label %26, !llvm.loop !164
+
+49:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+50:                                               ; preds = %33
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i32, ptr %10, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN22UpdateIslandDispatcherC2ER20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEERKNS1_12SolverParamsE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(25) %islandsPtr, ptr noundef nonnull align 8 dereferenceable(40) %solverParams) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %islandsPtr.addr = alloca ptr, align 8
-  %solverParams.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %islandsPtr, ptr %islandsPtr.addr, align 8
-  store ptr %solverParams, ptr %solverParams.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_islandsPtr = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %islandsPtr.addr, align 8
-  store ptr %1, ptr %m_islandsPtr, align 8
-  %m_solverParams = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %solverParams.addr, align 8
-  store ptr %2, ptr %m_solverParams, align 8
+define linkonce_odr dso_local void @_ZN22UpdateIslandDispatcherC2ER20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEERKNS1_12SolverParamsE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !165
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !14
+  %8 = getelementptr inbounds nuw %struct.UpdateIslandDispatcher, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %5, align 8, !tbaa !37
+  store ptr %9, ptr %8, align 8, !tbaa !37
+  %10 = getelementptr inbounds nuw %struct.UpdateIslandDispatcher, ptr %7, i32 0, i32 2
+  %11 = load ptr, ptr %6, align 8, !tbaa !39
+  store ptr %11, ptr %10, align 8, !tbaa !39
   ret void
 }
 
 declare void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN22UpdateIslandDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
+define linkonce_odr dso_local void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btSimulationIslandManagerMt22buildAndProcessIslandsEP12btDispatcherP16btCollisionWorldR20btAlignedObjectArrayIP17btTypedConstraintERKNS_12SolverParamsE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef %dispatcher, ptr noundef %collisionWorld, ptr noundef nonnull align 8 dereferenceable(25) %constraints, ptr noundef nonnull align 8 dereferenceable(40) %solverParams) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dispatcher.addr = alloca ptr, align 8
-  %collisionWorld.addr = alloca ptr, align 8
-  %constraints.addr = alloca ptr, align 8
-  %solverParams.addr = alloca ptr, align 8
-  %__profile = alloca %class.CProfileSample, align 1
-  %collisionObjects = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %manifolds = alloca ptr, align 8
-  %maxNumManifolds = alloca i32, align 4
-  %i = alloca i32, align 4
-  %manifold = alloca ptr, align 8
-  %colObj0 = alloca ptr, align 8
-  %colObj1 = alloca ptr, align 8
-  %constraintsPtr = alloca ptr, align 8
-  %solver = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dispatcher, ptr %dispatcher.addr, align 8
-  store ptr %collisionWorld, ptr %collisionWorld.addr, align 8
-  store ptr %constraints, ptr %constraints.addr, align 8
-  store ptr %solverParams, ptr %solverParams.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef @.str.3)
-  %0 = load ptr, ptr %collisionWorld.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %0)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN27btSimulationIslandManagerMt22buildAndProcessIslandsEP12btDispatcherP16btCollisionWorldR20btAlignedObjectArrayIP17btTypedConstraintERKNS_12SolverParamsE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %class.CProfileSample, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !12
+  store ptr %1, ptr %7, align 8, !tbaa !110
+  store ptr %2, ptr %8, align 8, !tbaa !111
+  store ptr %3, ptr %9, align 8, !tbaa !73
+  store ptr %4, ptr %10, align 8, !tbaa !39
+  %23 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #13
+  call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef @.str.3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %24 = load ptr, ptr %8, align 8, !tbaa !111
+  %25 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZN16btCollisionWorld23getCollisionObjectArrayEv(ptr noundef nonnull align 8 dereferenceable(121) %24)
+          to label %26 unwind label %53
 
-invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %collisionObjects, align 8
-  %1 = load ptr, ptr %dispatcher.addr, align 8
-  %2 = load ptr, ptr %collisionWorld.addr, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
-  %3 = load ptr, ptr %vfn, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(264) %this1, ptr noundef %1, ptr noundef %2)
-          to label %invoke.cont2 unwind label %lpad
+26:                                               ; preds = %5
+  store ptr %25, ptr %12, align 8, !tbaa !59
+  %27 = load ptr, ptr %7, align 8, !tbaa !110
+  %28 = load ptr, ptr %8, align 8, !tbaa !111
+  %29 = load ptr, ptr %23, align 8, !tbaa !14
+  %30 = getelementptr inbounds ptr, ptr %29, i64 11
+  %31 = load ptr, ptr %30, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef %27, ptr noundef %28)
+          to label %32 unwind label %53
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  %call4 = invoke noundef zeroext i1 @_ZN25btSimulationIslandManager15getSplitIslandsEv(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-          to label %invoke.cont3 unwind label %lpad
+32:                                               ; preds = %26
+  %33 = invoke noundef zeroext i1 @_ZN25btSimulationIslandManager15getSplitIslandsEv(ptr noundef nonnull align 8 dereferenceable(105) %23)
+          to label %34 unwind label %53
 
-invoke.cont3:                                     ; preds = %invoke.cont2
-  br i1 %call4, label %if.else, label %if.then
+34:                                               ; preds = %32
+  br i1 %33, label %204, label %35
 
-if.then:                                          ; preds = %invoke.cont3
-  %4 = load ptr, ptr %dispatcher.addr, align 8
-  %vtable5 = load ptr, ptr %4, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 11
-  %5 = load ptr, ptr %vfn6, align 8
-  %call8 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %invoke.cont7 unwind label %lpad
+35:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  %36 = load ptr, ptr %7, align 8, !tbaa !110
+  %37 = load ptr, ptr %36, align 8, !tbaa !14
+  %38 = getelementptr inbounds ptr, ptr %37, i64 11
+  %39 = load ptr, ptr %38, align 8
+  %40 = invoke noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %36)
+          to label %41 unwind label %57
 
-invoke.cont7:                                     ; preds = %if.then
-  store ptr %call8, ptr %manifolds, align 8
-  %6 = load ptr, ptr %dispatcher.addr, align 8
-  %vtable9 = load ptr, ptr %6, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 9
-  %7 = load ptr, ptr %vfn10, align 8
-  %call12 = invoke noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %invoke.cont11 unwind label %lpad
+41:                                               ; preds = %35
+  store ptr %40, ptr %15, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  %42 = load ptr, ptr %7, align 8, !tbaa !110
+  %43 = load ptr, ptr %42, align 8, !tbaa !14
+  %44 = getelementptr inbounds ptr, ptr %43, i64 9
+  %45 = load ptr, ptr %44, align 8
+  %46 = invoke noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(8) %42)
+          to label %47 unwind label %61
 
-invoke.cont11:                                    ; preds = %invoke.cont7
-  store i32 %call12, ptr %maxNumManifolds, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+47:                                               ; preds = %41
+  store i32 %46, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #13
+  store i32 0, ptr %17, align 4, !tbaa !9
+  br label %48
 
-for.cond:                                         ; preds = %for.inc, %invoke.cont11
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr %maxNumManifolds, align 4
-  %cmp = icmp slt i32 %8, %9
-  br i1 %cmp, label %for.body, label %for.end
+48:                                               ; preds = %136, %47
+  %49 = load i32, ptr %17, align 4, !tbaa !9
+  %50 = load i32, ptr %16, align 4, !tbaa !9
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %65, label %52
 
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %manifolds, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx, align 8
-  store ptr %12, ptr %manifold, align 8
-  %13 = load ptr, ptr %manifold, align 8
-  %call14 = invoke noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %13)
-          to label %invoke.cont13 unwind label %lpad
+52:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  br label %140
 
-invoke.cont13:                                    ; preds = %for.body
-  store ptr %call14, ptr %colObj0, align 8
-  %14 = load ptr, ptr %manifold, align 8
-  %call16 = invoke noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %14)
-          to label %invoke.cont15 unwind label %lpad
-
-invoke.cont15:                                    ; preds = %invoke.cont13
-  store ptr %call16, ptr %colObj1, align 8
-  %15 = load ptr, ptr %colObj0, align 8
-  %tobool = icmp ne ptr %15, null
-  br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
-
-land.lhs.true:                                    ; preds = %invoke.cont15
-  %16 = load ptr, ptr %colObj0, align 8
-  %call18 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %16)
-          to label %invoke.cont17 unwind label %lpad
-
-invoke.cont17:                                    ; preds = %land.lhs.true
-  %cmp19 = icmp ne i32 %call18, 2
-  br i1 %cmp19, label %if.then25, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %invoke.cont17, %invoke.cont15
-  %17 = load ptr, ptr %colObj1, align 8
-  %tobool20 = icmp ne ptr %17, null
-  br i1 %tobool20, label %land.lhs.true21, label %if.end51
-
-land.lhs.true21:                                  ; preds = %lor.lhs.false
-  %18 = load ptr, ptr %colObj1, align 8
-  %call23 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %18)
-          to label %invoke.cont22 unwind label %lpad
-
-invoke.cont22:                                    ; preds = %land.lhs.true21
-  %cmp24 = icmp ne i32 %call23, 2
-  br i1 %cmp24, label %if.then25, label %if.end51
-
-if.then25:                                        ; preds = %invoke.cont22, %invoke.cont17
-  %19 = load ptr, ptr %colObj0, align 8
-  %call27 = invoke noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %19)
-          to label %invoke.cont26 unwind label %lpad
-
-invoke.cont26:                                    ; preds = %if.then25
-  br i1 %call27, label %land.lhs.true28, label %if.end37
-
-land.lhs.true28:                                  ; preds = %invoke.cont26
-  %20 = load ptr, ptr %colObj0, align 8
-  %call30 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %20)
-          to label %invoke.cont29 unwind label %lpad
-
-invoke.cont29:                                    ; preds = %land.lhs.true28
-  %cmp31 = icmp ne i32 %call30, 2
-  br i1 %cmp31, label %if.then32, label %if.end37
-
-if.then32:                                        ; preds = %invoke.cont29
-  %21 = load ptr, ptr %colObj0, align 8
-  %call34 = invoke noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %21)
-          to label %invoke.cont33 unwind label %lpad
-
-invoke.cont33:                                    ; preds = %if.then32
-  br i1 %call34, label %if.then35, label %if.end
-
-if.then35:                                        ; preds = %invoke.cont33
-  %22 = load ptr, ptr %colObj1, align 8
-  invoke void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %22, i1 noundef zeroext false)
-          to label %invoke.cont36 unwind label %lpad
-
-invoke.cont36:                                    ; preds = %if.then35
-  br label %if.end
-
-lpad:                                             ; preds = %if.end90, %if.then86, %invoke.cont81, %invoke.cont78, %invoke.cont75, %if.else, %invoke.cont67, %invoke.cont65, %invoke.cont63, %cond.end61, %cond.true, %for.end, %if.then47, %if.then44, %land.lhs.true40, %if.end37, %if.then35, %if.then32, %land.lhs.true28, %if.then25, %land.lhs.true21, %land.lhs.true, %invoke.cont13, %for.body, %invoke.cont7, %if.then, %invoke.cont2, %invoke.cont, %entry
-  %23 = landingpad { ptr, i32 }
+53:                                               ; preds = %232, %227, %218, %213, %208, %204, %32, %26, %5
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
-  br label %eh.resume
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %13, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %14, align 4
+  br label %239
 
-if.end:                                           ; preds = %invoke.cont36, %invoke.cont33
-  br label %if.end37
+57:                                               ; preds = %35
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %13, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %14, align 4
+  br label %203
 
-if.end37:                                         ; preds = %if.end, %invoke.cont29, %invoke.cont26
-  %26 = load ptr, ptr %colObj1, align 8
-  %call39 = invoke noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %26)
-          to label %invoke.cont38 unwind label %lpad
+61:                                               ; preds = %41
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %13, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %14, align 4
+  br label %202
 
-invoke.cont38:                                    ; preds = %if.end37
-  br i1 %call39, label %land.lhs.true40, label %if.end50
+65:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  %66 = load ptr, ptr %15, align 8, !tbaa !69
+  %67 = load i32, ptr %17, align 4, !tbaa !9
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
+  %70 = load ptr, ptr %69, align 8, !tbaa !71
+  store ptr %70, ptr %18, align 8, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #13
+  %71 = load ptr, ptr %18, align 8, !tbaa !71
+  %72 = invoke noundef ptr @_ZNK20btPersistentManifold8getBody0Ev(ptr noundef nonnull align 8 dereferenceable(880) %71)
+          to label %73 unwind label %108
 
-land.lhs.true40:                                  ; preds = %invoke.cont38
-  %27 = load ptr, ptr %colObj1, align 8
-  %call42 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %27)
-          to label %invoke.cont41 unwind label %lpad
+73:                                               ; preds = %65
+  store ptr %72, ptr %19, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #13
+  %74 = load ptr, ptr %18, align 8, !tbaa !71
+  %75 = invoke noundef ptr @_ZNK20btPersistentManifold8getBody1Ev(ptr noundef nonnull align 8 dereferenceable(880) %74)
+          to label %76 unwind label %112
 
-invoke.cont41:                                    ; preds = %land.lhs.true40
-  %cmp43 = icmp ne i32 %call42, 2
-  br i1 %cmp43, label %if.then44, label %if.end50
+76:                                               ; preds = %73
+  store ptr %75, ptr %20, align 8, !tbaa !64
+  %77 = load ptr, ptr %19, align 8, !tbaa !64
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %84
 
-if.then44:                                        ; preds = %invoke.cont41
-  %28 = load ptr, ptr %colObj1, align 8
-  %call46 = invoke noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %28)
-          to label %invoke.cont45 unwind label %lpad
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %19, align 8, !tbaa !64
+  %81 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %80)
+          to label %82 unwind label %112
 
-invoke.cont45:                                    ; preds = %if.then44
-  br i1 %call46, label %if.then47, label %if.end49
+82:                                               ; preds = %79
+  %83 = icmp ne i32 %81, 2
+  br i1 %83, label %92, label %84
 
-if.then47:                                        ; preds = %invoke.cont45
-  %29 = load ptr, ptr %colObj0, align 8
-  invoke void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %29, i1 noundef zeroext false)
-          to label %invoke.cont48 unwind label %lpad
+84:                                               ; preds = %82, %76
+  %85 = load ptr, ptr %20, align 8, !tbaa !64
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %135
 
-invoke.cont48:                                    ; preds = %if.then47
-  br label %if.end49
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %20, align 8, !tbaa !64
+  %89 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %88)
+          to label %90 unwind label %112
 
-if.end49:                                         ; preds = %invoke.cont48, %invoke.cont45
-  br label %if.end50
+90:                                               ; preds = %87
+  %91 = icmp ne i32 %89, 2
+  br i1 %91, label %92, label %135
 
-if.end50:                                         ; preds = %if.end49, %invoke.cont41, %invoke.cont38
-  br label %if.end51
+92:                                               ; preds = %90, %82
+  %93 = load ptr, ptr %19, align 8, !tbaa !64
+  %94 = invoke noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %93)
+          to label %95 unwind label %112
 
-if.end51:                                         ; preds = %if.end50, %invoke.cont22, %lor.lhs.false
-  br label %for.inc
+95:                                               ; preds = %92
+  br i1 %94, label %96, label %117
 
-for.inc:                                          ; preds = %if.end51
-  %30 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %30, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !42
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %19, align 8, !tbaa !64
+  %98 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %97)
+          to label %99 unwind label %112
 
-for.end:                                          ; preds = %for.cond
-  %31 = load ptr, ptr %constraints.addr, align 8
-  %call53 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %31)
-          to label %invoke.cont52 unwind label %lpad
+99:                                               ; preds = %96
+  %100 = icmp ne i32 %98, 2
+  br i1 %100, label %101, label %117
 
-invoke.cont52:                                    ; preds = %for.end
-  %tobool54 = icmp ne i32 %call53, 0
-  br i1 %tobool54, label %cond.true, label %cond.false
+101:                                              ; preds = %99
+  %102 = load ptr, ptr %19, align 8, !tbaa !64
+  %103 = invoke noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %102)
+          to label %104 unwind label %112
 
-cond.true:                                        ; preds = %invoke.cont52
-  %32 = load ptr, ptr %constraints.addr, align 8
-  %call56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %32, i32 noundef 0)
-          to label %invoke.cont55 unwind label %lpad
+104:                                              ; preds = %101
+  br i1 %103, label %105, label %116
 
-invoke.cont55:                                    ; preds = %cond.true
-  br label %cond.end
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %20, align 8, !tbaa !64
+  invoke void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %106, i1 noundef zeroext false)
+          to label %107 unwind label %112
 
-cond.false:                                       ; preds = %invoke.cont52
-  br label %cond.end
+107:                                              ; preds = %105
+  br label %116
 
-cond.end:                                         ; preds = %cond.false, %invoke.cont55
-  %cond = phi ptr [ %call56, %invoke.cont55 ], [ null, %cond.false ]
-  store ptr %cond, ptr %constraintsPtr, align 8
-  %33 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverMt = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %m_solverMt, align 8
-  %tobool57 = icmp ne ptr %34, null
-  br i1 %tobool57, label %cond.true58, label %cond.false60
+108:                                              ; preds = %65
+  %109 = landingpad { ptr, i32 }
+          cleanup
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %13, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %14, align 4
+  br label %139
 
-cond.true58:                                      ; preds = %cond.end
-  %35 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverMt59 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %m_solverMt59, align 8
-  br label %cond.end61
+112:                                              ; preds = %130, %126, %121, %117, %105, %101, %96, %92, %87, %79, %73
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %13, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #13
+  br label %139
 
-cond.false60:                                     ; preds = %cond.end
-  %37 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverPool = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %m_solverPool, align 8
-  br label %cond.end61
+116:                                              ; preds = %107, %104
+  br label %117
 
-cond.end61:                                       ; preds = %cond.false60, %cond.true58
-  %cond62 = phi ptr [ %36, %cond.true58 ], [ %38, %cond.false60 ]
-  store ptr %cond62, ptr %solver, align 8
-  %39 = load ptr, ptr %solver, align 8
-  %40 = load ptr, ptr %collisionObjects, align 8
-  %call64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %40, i32 noundef 0)
-          to label %invoke.cont63 unwind label %lpad
+117:                                              ; preds = %116, %99, %95
+  %118 = load ptr, ptr %20, align 8, !tbaa !64
+  %119 = invoke noundef zeroext i1 @_ZNK17btCollisionObject17isKinematicObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %118)
+          to label %120 unwind label %112
 
-invoke.cont63:                                    ; preds = %cond.end61
-  %41 = load ptr, ptr %collisionObjects, align 8
-  %call66 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %41)
-          to label %invoke.cont65 unwind label %lpad
+120:                                              ; preds = %117
+  br i1 %119, label %121, label %134
 
-invoke.cont65:                                    ; preds = %invoke.cont63
-  %42 = load ptr, ptr %manifolds, align 8
-  %43 = load i32, ptr %maxNumManifolds, align 4
-  %44 = load ptr, ptr %constraintsPtr, align 8
-  %45 = load ptr, ptr %constraints.addr, align 8
-  %call68 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %45)
-          to label %invoke.cont67 unwind label %lpad
+121:                                              ; preds = %120
+  %122 = load ptr, ptr %20, align 8, !tbaa !64
+  %123 = invoke noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %122)
+          to label %124 unwind label %112
 
-invoke.cont67:                                    ; preds = %invoke.cont65
-  %46 = load ptr, ptr %solverParams.addr, align 8
-  %m_solverInfo = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %46, i32 0, i32 2
-  %47 = load ptr, ptr %m_solverInfo, align 8
-  %48 = load ptr, ptr %solverParams.addr, align 8
-  %m_debugDrawer = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %48, i32 0, i32 3
-  %49 = load ptr, ptr %m_debugDrawer, align 8
-  %50 = load ptr, ptr %solverParams.addr, align 8
-  %m_dispatcher = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %50, i32 0, i32 4
-  %51 = load ptr, ptr %m_dispatcher, align 8
-  %vtable69 = load ptr, ptr %39, align 8
-  %vfn70 = getelementptr inbounds ptr, ptr %vtable69, i64 3
-  %52 = load ptr, ptr %vfn70, align 8
-  %call72 = invoke noundef float %52(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %call64, i32 noundef %call66, ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %call68, ptr noundef nonnull align 4 dereferenceable(128) %47, ptr noundef %49, ptr noundef %51)
-          to label %invoke.cont71 unwind label %lpad
+124:                                              ; preds = %121
+  %125 = icmp ne i32 %123, 2
+  br i1 %125, label %126, label %134
 
-invoke.cont71:                                    ; preds = %invoke.cont67
-  br label %if.end92
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %20, align 8, !tbaa !64
+  %128 = invoke noundef zeroext i1 @_ZNK17btCollisionObject18hasContactResponseEv(ptr noundef nonnull align 8 dereferenceable(372) %127)
+          to label %129 unwind label %112
 
-if.else:                                          ; preds = %invoke.cont3
-  %vtable73 = load ptr, ptr %this1, align 8
-  %vfn74 = getelementptr inbounds ptr, ptr %vtable73, i64 5
-  %53 = load ptr, ptr %vfn74, align 8
-  invoke void %53(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-          to label %invoke.cont75 unwind label %lpad
+129:                                              ; preds = %126
+  br i1 %128, label %130, label %133
 
-invoke.cont75:                                    ; preds = %if.else
-  %54 = load ptr, ptr %collisionWorld.addr, align 8
-  %vtable76 = load ptr, ptr %this1, align 8
-  %vfn77 = getelementptr inbounds ptr, ptr %vtable76, i64 6
-  %55 = load ptr, ptr %vfn77, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(264) %this1, ptr noundef %54)
-          to label %invoke.cont78 unwind label %lpad
+130:                                              ; preds = %129
+  %131 = load ptr, ptr %19, align 8, !tbaa !64
+  invoke void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %131, i1 noundef zeroext false)
+          to label %132 unwind label %112
 
-invoke.cont78:                                    ; preds = %invoke.cont75
-  %56 = load ptr, ptr %dispatcher.addr, align 8
-  %vtable79 = load ptr, ptr %this1, align 8
-  %vfn80 = getelementptr inbounds ptr, ptr %vtable79, i64 7
-  %57 = load ptr, ptr %vfn80, align 8
-  invoke void %57(ptr noundef nonnull align 8 dereferenceable(264) %this1, ptr noundef %56)
-          to label %invoke.cont81 unwind label %lpad
+132:                                              ; preds = %130
+  br label %133
 
-invoke.cont81:                                    ; preds = %invoke.cont78
-  %58 = load ptr, ptr %constraints.addr, align 8
-  %vtable82 = load ptr, ptr %this1, align 8
-  %vfn83 = getelementptr inbounds ptr, ptr %vtable82, i64 8
-  %59 = load ptr, ptr %vfn83, align 8
-  invoke void %59(ptr noundef nonnull align 8 dereferenceable(264) %this1, ptr noundef nonnull align 8 dereferenceable(25) %58)
-          to label %invoke.cont84 unwind label %lpad
+133:                                              ; preds = %132, %129
+  br label %134
 
-invoke.cont84:                                    ; preds = %invoke.cont81
-  %m_minimumSolverBatchSize = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 7
-  %60 = load i32, ptr %m_minimumSolverBatchSize, align 8
-  %cmp85 = icmp sgt i32 %60, 1
-  br i1 %cmp85, label %if.then86, label %if.end90
+134:                                              ; preds = %133, %124, %120
+  br label %135
 
-if.then86:                                        ; preds = %invoke.cont84
-  %vtable87 = load ptr, ptr %this1, align 8
-  %vfn88 = getelementptr inbounds ptr, ptr %vtable87, i64 9
-  %61 = load ptr, ptr %vfn88, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-          to label %invoke.cont89 unwind label %lpad
+135:                                              ; preds = %134, %90, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  br label %136
 
-invoke.cont89:                                    ; preds = %if.then86
-  br label %if.end90
+136:                                              ; preds = %135
+  %137 = load i32, ptr %17, align 4, !tbaa !9
+  %138 = add nsw i32 %137, 1
+  store i32 %138, ptr %17, align 4, !tbaa !9
+  br label %48, !llvm.loop !169
 
-if.end90:                                         ; preds = %invoke.cont89, %invoke.cont84
-  %m_islandDispatch = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 9
-  %62 = load ptr, ptr %m_islandDispatch, align 8
-  %m_activeIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 3
-  %63 = load ptr, ptr %solverParams.addr, align 8
-  invoke void %62(ptr noundef %m_activeIslands, ptr noundef nonnull align 8 dereferenceable(40) %63)
-          to label %invoke.cont91 unwind label %lpad
+139:                                              ; preds = %112, %108
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #13
+  br label %202
 
-invoke.cont91:                                    ; preds = %if.end90
-  br label %if.end92
+140:                                              ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #13
+  %141 = load ptr, ptr %9, align 8, !tbaa !73
+  %142 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %141)
+          to label %143 unwind label %193
 
-if.end92:                                         ; preds = %invoke.cont91, %invoke.cont71
-  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #10
+143:                                              ; preds = %140
+  %144 = icmp ne i32 %142, 0
+  br i1 %144, label %145, label %149
+
+145:                                              ; preds = %143
+  %146 = load ptr, ptr %9, align 8, !tbaa !73
+  %147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintEixEi(ptr noundef nonnull align 8 dereferenceable(25) %146, i32 noundef 0)
+          to label %148 unwind label %193
+
+148:                                              ; preds = %145
+  br label %150
+
+149:                                              ; preds = %143
+  br label %150
+
+150:                                              ; preds = %149, %148
+  %151 = phi ptr [ %147, %148 ], [ null, %149 ]
+  store ptr %151, ptr %21, align 8, !tbaa !79
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #13
+  %152 = load ptr, ptr %10, align 8, !tbaa !39
+  %153 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %152, i32 0, i32 1
+  %154 = load ptr, ptr %153, align 8, !tbaa !41
+  %155 = icmp ne ptr %154, null
+  br i1 %155, label %156, label %160
+
+156:                                              ; preds = %150
+  %157 = load ptr, ptr %10, align 8, !tbaa !39
+  %158 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8, !tbaa !41
+  br label %164
+
+160:                                              ; preds = %150
+  %161 = load ptr, ptr %10, align 8, !tbaa !39
+  %162 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %161, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8, !tbaa !163
+  br label %164
+
+164:                                              ; preds = %160, %156
+  %165 = phi ptr [ %159, %156 ], [ %163, %160 ]
+  store ptr %165, ptr %22, align 8, !tbaa !159
+  %166 = load ptr, ptr %22, align 8, !tbaa !159
+  %167 = load ptr, ptr %12, align 8, !tbaa !59
+  %168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectEixEi(ptr noundef nonnull align 8 dereferenceable(25) %167, i32 noundef 0)
+          to label %169 unwind label %197
+
+169:                                              ; preds = %164
+  %170 = load ptr, ptr %12, align 8, !tbaa !59
+  %171 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %170)
+          to label %172 unwind label %197
+
+172:                                              ; preds = %169
+  %173 = load ptr, ptr %15, align 8, !tbaa !69
+  %174 = load i32, ptr %16, align 4, !tbaa !9
+  %175 = load ptr, ptr %21, align 8, !tbaa !79
+  %176 = load ptr, ptr %9, align 8, !tbaa !73
+  %177 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %176)
+          to label %178 unwind label %197
+
+178:                                              ; preds = %172
+  %179 = load ptr, ptr %10, align 8, !tbaa !39
+  %180 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %179, i32 0, i32 2
+  %181 = load ptr, ptr %180, align 8, !tbaa !160
+  %182 = load ptr, ptr %10, align 8, !tbaa !39
+  %183 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %182, i32 0, i32 3
+  %184 = load ptr, ptr %183, align 8, !tbaa !161
+  %185 = load ptr, ptr %10, align 8, !tbaa !39
+  %186 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %185, i32 0, i32 4
+  %187 = load ptr, ptr %186, align 8, !tbaa !162
+  %188 = load ptr, ptr %166, align 8, !tbaa !14
+  %189 = getelementptr inbounds ptr, ptr %188, i64 3
+  %190 = load ptr, ptr %189, align 8
+  %191 = invoke noundef float %190(ptr noundef nonnull align 8 dereferenceable(8) %166, ptr noundef %168, i32 noundef %171, ptr noundef %173, i32 noundef %174, ptr noundef %175, i32 noundef %177, ptr noundef nonnull align 4 dereferenceable(128) %181, ptr noundef %184, ptr noundef %187)
+          to label %192 unwind label %197
+
+192:                                              ; preds = %178
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  br label %238
+
+193:                                              ; preds = %145, %140
+  %194 = landingpad { ptr, i32 }
+          cleanup
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %13, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %14, align 4
+  br label %201
+
+197:                                              ; preds = %178, %172, %169, %164
+  %198 = landingpad { ptr, i32 }
+          cleanup
+  %199 = extractvalue { ptr, i32 } %198, 0
+  store ptr %199, ptr %13, align 8
+  %200 = extractvalue { ptr, i32 } %198, 1
+  store i32 %200, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #13
+  br label %201
+
+201:                                              ; preds = %197, %193
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #13
+  br label %202
+
+202:                                              ; preds = %201, %139, %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  br label %203
+
+203:                                              ; preds = %202, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  br label %239
+
+204:                                              ; preds = %34
+  %205 = load ptr, ptr %23, align 8, !tbaa !14
+  %206 = getelementptr inbounds ptr, ptr %205, i64 5
+  %207 = load ptr, ptr %206, align 8
+  invoke void %207(ptr noundef nonnull align 8 dereferenceable(264) %23)
+          to label %208 unwind label %53
+
+208:                                              ; preds = %204
+  %209 = load ptr, ptr %8, align 8, !tbaa !111
+  %210 = load ptr, ptr %23, align 8, !tbaa !14
+  %211 = getelementptr inbounds ptr, ptr %210, i64 6
+  %212 = load ptr, ptr %211, align 8
+  invoke void %212(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef %209)
+          to label %213 unwind label %53
+
+213:                                              ; preds = %208
+  %214 = load ptr, ptr %7, align 8, !tbaa !110
+  %215 = load ptr, ptr %23, align 8, !tbaa !14
+  %216 = getelementptr inbounds ptr, ptr %215, i64 7
+  %217 = load ptr, ptr %216, align 8
+  invoke void %217(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef %214)
+          to label %218 unwind label %53
+
+218:                                              ; preds = %213
+  %219 = load ptr, ptr %9, align 8, !tbaa !73
+  %220 = load ptr, ptr %23, align 8, !tbaa !14
+  %221 = getelementptr inbounds ptr, ptr %220, i64 8
+  %222 = load ptr, ptr %221, align 8
+  invoke void %222(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull align 8 dereferenceable(25) %219)
+          to label %223 unwind label %53
+
+223:                                              ; preds = %218
+  %224 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %23, i32 0, i32 7
+  %225 = load i32, ptr %224, align 8, !tbaa !16
+  %226 = icmp sgt i32 %225, 1
+  br i1 %226, label %227, label %232
+
+227:                                              ; preds = %223
+  %228 = load ptr, ptr %23, align 8, !tbaa !14
+  %229 = getelementptr inbounds ptr, ptr %228, i64 9
+  %230 = load ptr, ptr %229, align 8
+  invoke void %230(ptr noundef nonnull align 8 dereferenceable(264) %23)
+          to label %231 unwind label %53
+
+231:                                              ; preds = %227
+  br label %232
+
+232:                                              ; preds = %231, %223
+  %233 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %23, i32 0, i32 9
+  %234 = load ptr, ptr %233, align 8, !tbaa !35
+  %235 = getelementptr inbounds nuw %class.btSimulationIslandManagerMt, ptr %23, i32 0, i32 3
+  %236 = load ptr, ptr %10, align 8, !tbaa !39
+  invoke void %234(ptr noundef %235, ptr noundef nonnull align 8 dereferenceable(40) %236)
+          to label %237 unwind label %53
+
+237:                                              ; preds = %232
+  br label %238
+
+238:                                              ; preds = %237, %192
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #13
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val93 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val93
+239:                                              ; preds = %203, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #13
+  br label %240
+
+240:                                              ; preds = %239
+  %241 = load ptr, ptr %13, align 8
+  %242 = load i32, ptr %14, align 4
+  %243 = insertvalue { ptr, i32 } poison, ptr %241, 0
+  %244 = insertvalue { ptr, i32 } %243, i32 %242, 1
+  resume { ptr, i32 } %244
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN25btSimulationIslandManager15getSplitIslandsEv(ptr noundef nonnull align 8 dereferenceable(105) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_splitIslands = getelementptr inbounds %class.btSimulationIslandManager, ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %m_splitIslands, align 8
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #11
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(25) %ca, i32 noundef %solverBodyA, i32 noundef %solverBodyB, float noundef %timeStep) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ca.addr = alloca ptr, align 8
-  %solverBodyA.addr = alloca i32, align 4
-  %solverBodyB.addr = alloca i32, align 4
-  %timeStep.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ca, ptr %ca.addr, align 8
-  store i32 %solverBodyA, ptr %solverBodyA.addr, align 4
-  store i32 %solverBodyB, ptr %solverBodyB.addr, align 4
-  store float %timeStep, ptr %timeStep.addr, align 4
-  ret void
+define linkonce_odr dso_local noundef zeroext i1 @_ZN25btSimulationIslandManager15getSplitIslandsEv(ptr noundef nonnull align 8 dereferenceable(105) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btSimulationIslandManager, ptr %3, i32 0, i32 4
+  %5 = load i8, ptr %4, align 8, !tbaa !170, !range !87, !noundef !88
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %2) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  %.addr2 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  store float %2, ptr %.addr2, align 4
-  ret void
-}
-
-declare noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #3
 
 declare void @_ZN25btSimulationIslandManager21updateActivationStateEP16btCollisionWorldP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(105), ptr noundef, ptr noundef) unnamed_addr #3
 
 declare void @_ZN25btSimulationIslandManager26storeIslandActivationStateEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(105), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #14
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !73
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+13:                                               ; preds = %9
+  br label %14
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !43
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !171
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !80
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
 
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !157, !range !87, !noundef !88
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
 
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !80
+  call void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !80
+  br label %16
 
-if.end6:                                          ; preds = %if.end, %entry
+16:                                               ; preds = %14, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !157
+  %5 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !80
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !75
+  %7 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !158
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !172
+  store ptr %1, ptr %4, align 8, !tbaa !79
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
   ret void
 }
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) #3
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !66
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+13:                                               ; preds = %9
+  br label %14
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !44
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !174
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
 
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !155, !range !87, !noundef !88
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
 
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !70
+  call void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !70
+  br label %16
 
-if.end6:                                          ; preds = %if.end, %entry
+16:                                               ; preds = %14, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !155
+  %5 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !70
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !68
+  %7 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !156
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !175
+  store ptr %1, ptr %4, align 8, !tbaa !69
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !45
-
-for.end:                                          ; preds = %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
+13:                                               ; preds = %9
+  br label %14
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !177
 
-if.end6:                                          ; preds = %if.end, %entry
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !109, !range !87, !noundef !88
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !63
+  call void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !63
+  br label %16
+
+16:                                               ; preds = %14, %1
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayI9btElementE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 0
-  call void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !109
+  %5 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !61
+  %7 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !97
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 0
-  call void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !178
+  store ptr %1, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayI9btElementE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !180
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !182
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 0
-  call void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayI9btElementEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %struct.btElement, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rbA = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %m_rbA, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rbB = getelementptr inbounds %class.btTypedConstraint, ptr %this1, i32 0, i32 9
-  %0 = load ptr, ptr %m_rbB, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN22UpdateIslandDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN22UpdateIslandDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #10
-  call void @_ZdlPv(ptr noundef %this1) #12
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK22UpdateIslandDispatcher7forLoopEii(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %iBegin, i32 noundef %iEnd) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %iBegin.addr = alloca i32, align 4
-  %iEnd.addr = alloca i32, align 4
-  %solver = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %island = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %iBegin, ptr %iBegin.addr, align 4
-  store i32 %iEnd, ptr %iEnd.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_solverParams = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %m_solverParams, align 8
-  %m_solverPool = getelementptr inbounds %"struct.btSimulationIslandManagerMt::SolverParams", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %m_solverPool, align 8
-  store ptr %1, ptr %solver, align 8
-  %2 = load i32, ptr %iBegin.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %iEnd.addr, align 4
-  %cmp = icmp slt i32 %3, %4
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %m_islandsPtr = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_islandsPtr, align 8
-  %6 = load i32, ptr %i, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %5, i32 noundef %6)
-  %7 = load ptr, ptr %call, align 8
-  store ptr %7, ptr %island, align 8
-  %8 = load ptr, ptr %solver, align 8
-  %9 = load ptr, ptr %island, align 8
-  %m_solverParams2 = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 2
-  %10 = load ptr, ptr %m_solverParams2, align 8
-  call void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(101) %9, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %11 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !46
-
-for.end:                                          ; preds = %for.cond
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !178
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btIParallelForBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #11
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !175
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !172
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayI9btElementEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !180
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !183
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %struct.btElement, ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyAEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btTypedConstraint, ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !184
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(744) ptr @_ZNK17btTypedConstraint13getRigidBodyBEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btTypedConstraint, ptr %3, i32 0, i32 9
+  %5 = load ptr, ptr %4, align 8, !tbaa !185
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN22UpdateIslandDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !165
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18btIParallelForBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK22UpdateIslandDispatcher7forLoopEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !165
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %11 = getelementptr inbounds nuw %struct.UpdateIslandDispatcher, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !186
+  %13 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::SolverParams", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !163
+  store ptr %14, ptr %7, align 8, !tbaa !159
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %15, ptr %8, align 4, !tbaa !9
+  br label %16
+
+16:                                               ; preds = %31, %3
+  %17 = load i32, ptr %8, align 4, !tbaa !9
+  %18 = load i32, ptr %6, align 4, !tbaa !9
+  %19 = icmp slt i32 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %34
+
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %22 = getelementptr inbounds nuw %struct.UpdateIslandDispatcher, ptr %10, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !189
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %23, i32 noundef %24)
+  %26 = load ptr, ptr %25, align 8, !tbaa !47
+  store ptr %26, ptr %9, align 8, !tbaa !47
+  %27 = load ptr, ptr %7, align 8, !tbaa !159
+  %28 = load ptr, ptr %9, align 8, !tbaa !47
+  %29 = getelementptr inbounds nuw %struct.UpdateIslandDispatcher, ptr %10, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !186
+  call void @_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(101) %28, ptr noundef nonnull align 8 dereferenceable(40) %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  br label %31
+
+31:                                               ; preds = %21
+  %32 = load i32, ptr %8, align 4, !tbaa !9
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %8, align 4, !tbaa !9
+  br label %16, !llvm.loop !190
+
+34:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN18btIParallelForBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
+  call void @llvm.trap() #14
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !191
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !193
+  %5 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !52
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !51
+  %7 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !194
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+13:                                               ; preds = %9
+  br label %14
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !47
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !195
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
 
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !193, !range !87, !noundef !88
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
 
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE10deallocateEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
+  call void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE10deallocateEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !52
+  br label %16
 
-if.end6:                                          ; preds = %if.end, %entry
+16:                                               ; preds = %14, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE10deallocateEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE10deallocateEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !191
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %21
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #13
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !53
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %14 = load ptr, ptr %5, align 8, !tbaa !53
+  call void @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %13, ptr noundef %14)
+  %15 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %15)
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %16 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %6, i32 0, i32 5
+  store i8 1, ptr %16, align 8, !tbaa !193
+  %17 = load ptr, ptr %5, align 8, !tbaa !53
+  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %6, i32 0, i32 4
+  store ptr %17, ptr %18, align 8, !tbaa !52
+  %19 = load i32, ptr %4, align 4, !tbaa !9
+  %20 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %6, i32 0, i32 2
+  store i32 %19, ptr %20, align 8, !tbaa !194
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #13
+  br label %21
+
+21:                                               ; preds = %10, %2
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !194
+  ret i32 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE8allocateEiPPKS2_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
+
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
+
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !53
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
+
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !53
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !52
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !47
+  store ptr %26, ptr %20, align 8, !tbaa !47
+  br label %27
+
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !196
+
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %2 = load ptr, ptr %s, align 8
-  call void @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call3, ptr noundef %2)
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call4)
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %3 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  store ptr %3, ptr %m_data, align 8
-  %4 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 3
-  store i32 %4, ptr %m_capacity, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE8allocateEiPPKS2_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %5, i64 %idxprom2
-  %7 = load ptr, ptr %arrayidx3, align 8
-  store ptr %7, ptr %arrayidx, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !48
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE8allocateEiPPKS2_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 8, %conv
-  %call = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE8allocateEiPPKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !191
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !197
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 8, %8
+  %10 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIP17btCollisionObjectE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !156
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !158
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIP17btTypedConstraintE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 1 dereferenceable(1) %CompareFunc, i32 noundef %lo, i32 noundef %hi) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %CompareFunc.addr = alloca ptr, align 8
-  %lo.addr = alloca i32, align 4
-  %hi.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %x = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %CompareFunc, ptr %CompareFunc.addr, align 8
-  store i32 %lo, ptr %lo.addr, align 4
-  store i32 %hi, ptr %hi.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %lo.addr, align 4
-  store i32 %0, ptr %i, align 4
-  %1 = load i32, ptr %hi.addr, align 4
-  store i32 %1, ptr %j, align 4
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data, align 8
-  %3 = load i32, ptr %lo.addr, align 4
-  %4 = load i32, ptr %hi.addr, align 4
-  %add = add nsw i32 %3, %4
-  %div = sdiv i32 %add, 2
-  %idxprom = sext i32 %div to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %5 = load ptr, ptr %arrayidx, align 8
-  store ptr %5, ptr %x, align 8
-  br label %do.body
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %1, ptr %6, align 8, !tbaa !98
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %13, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %14 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %14, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %12, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %17 = load i32, ptr %7, align 4, !tbaa !9
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = add nsw i32 %17, %18
+  %20 = sdiv i32 %19, 2
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %16, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !47
+  store ptr %23, ptr %11, align 8, !tbaa !47
+  br label %24
 
-do.body:                                          ; preds = %do.cond, %entry
-  br label %while.cond
+24:                                               ; preds = %64, %4
+  br label %25
 
-while.cond:                                       ; preds = %while.body, %do.body
-  %6 = load ptr, ptr %CompareFunc.addr, align 8
-  %m_data2 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %m_data2, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %8 to i64
-  %arrayidx4 = getelementptr inbounds ptr, ptr %7, i64 %idxprom3
-  %9 = load ptr, ptr %arrayidx4, align 8
-  %10 = load ptr, ptr %x, align 8
-  %call = call noundef zeroext i1 @_ZNK31IslandBodyCapacitySortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %9, ptr noundef %10)
-  br i1 %call, label %while.body, label %while.end
+25:                                               ; preds = %35, %24
+  %26 = load ptr, ptr %6, align 8, !tbaa !98
+  %27 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %12, i32 0, i32 4
+  %28 = load ptr, ptr %27, align 8, !tbaa !52
+  %29 = load i32, ptr %9, align 4, !tbaa !9
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !47
+  %33 = load ptr, ptr %11, align 8, !tbaa !47
+  %34 = call noundef zeroext i1 @_ZNK31IslandBodyCapacitySortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef %32, ptr noundef %33)
+  br i1 %34, label %35, label %38
 
-while.body:                                       ; preds = %while.cond
-  %11 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %i, align 4
-  br label %while.cond, !llvm.loop !49
+35:                                               ; preds = %25
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %9, align 4, !tbaa !9
+  br label %25, !llvm.loop !199
 
-while.end:                                        ; preds = %while.cond
-  br label %while.cond5
+38:                                               ; preds = %25
+  br label %39
 
-while.cond5:                                      ; preds = %while.body10, %while.end
-  %12 = load ptr, ptr %CompareFunc.addr, align 8
-  %13 = load ptr, ptr %x, align 8
-  %m_data6 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %14 = load ptr, ptr %m_data6, align 8
-  %15 = load i32, ptr %j, align 4
-  %idxprom7 = sext i32 %15 to i64
-  %arrayidx8 = getelementptr inbounds ptr, ptr %14, i64 %idxprom7
-  %16 = load ptr, ptr %arrayidx8, align 8
-  %call9 = call noundef zeroext i1 @_ZNK31IslandBodyCapacitySortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13, ptr noundef %16)
-  br i1 %call9, label %while.body10, label %while.end11
+39:                                               ; preds = %49, %38
+  %40 = load ptr, ptr %6, align 8, !tbaa !98
+  %41 = load ptr, ptr %11, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %12, i32 0, i32 4
+  %43 = load ptr, ptr %42, align 8, !tbaa !52
+  %44 = load i32, ptr %10, align 4, !tbaa !9
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !47
+  %48 = call noundef zeroext i1 @_ZNK31IslandBodyCapacitySortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef %41, ptr noundef %47)
+  br i1 %48, label %49, label %52
 
-while.body10:                                     ; preds = %while.cond5
-  %17 = load i32, ptr %j, align 4
-  %dec = add nsw i32 %17, -1
-  store i32 %dec, ptr %j, align 4
-  br label %while.cond5, !llvm.loop !50
+49:                                               ; preds = %39
+  %50 = load i32, ptr %10, align 4, !tbaa !9
+  %51 = add nsw i32 %50, -1
+  store i32 %51, ptr %10, align 4, !tbaa !9
+  br label %39, !llvm.loop !200
 
-while.end11:                                      ; preds = %while.cond5
-  %18 = load i32, ptr %i, align 4
-  %19 = load i32, ptr %j, align 4
-  %cmp = icmp sle i32 %18, %19
-  br i1 %cmp, label %if.then, label %if.end
+52:                                               ; preds = %39
+  %53 = load i32, ptr %9, align 4, !tbaa !9
+  %54 = load i32, ptr %10, align 4, !tbaa !9
+  %55 = icmp sle i32 %53, %54
+  br i1 %55, label %56, label %63
 
-if.then:                                          ; preds = %while.end11
-  %20 = load i32, ptr %i, align 4
-  %21 = load i32, ptr %j, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4swapEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %20, i32 noundef %21)
-  %22 = load i32, ptr %i, align 4
-  %inc12 = add nsw i32 %22, 1
-  store i32 %inc12, ptr %i, align 4
-  %23 = load i32, ptr %j, align 4
-  %dec13 = add nsw i32 %23, -1
-  store i32 %dec13, ptr %j, align 4
-  br label %if.end
+56:                                               ; preds = %52
+  %57 = load i32, ptr %9, align 4, !tbaa !9
+  %58 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4swapEii(ptr noundef nonnull align 8 dereferenceable(25) %12, i32 noundef %57, i32 noundef %58)
+  %59 = load i32, ptr %9, align 4, !tbaa !9
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %9, align 4, !tbaa !9
+  %61 = load i32, ptr %10, align 4, !tbaa !9
+  %62 = add nsw i32 %61, -1
+  store i32 %62, ptr %10, align 4, !tbaa !9
+  br label %63
 
-if.end:                                           ; preds = %if.then, %while.end11
-  br label %do.cond
+63:                                               ; preds = %56, %52
+  br label %64
 
-do.cond:                                          ; preds = %if.end
-  %24 = load i32, ptr %i, align 4
-  %25 = load i32, ptr %j, align 4
-  %cmp14 = icmp sle i32 %24, %25
-  br i1 %cmp14, label %do.body, label %do.end, !llvm.loop !51
+64:                                               ; preds = %63
+  %65 = load i32, ptr %9, align 4, !tbaa !9
+  %66 = load i32, ptr %10, align 4, !tbaa !9
+  %67 = icmp sle i32 %65, %66
+  br i1 %67, label %24, label %68, !llvm.loop !201
 
-do.end:                                           ; preds = %do.cond
-  %26 = load i32, ptr %lo.addr, align 4
-  %27 = load i32, ptr %j, align 4
-  %cmp15 = icmp slt i32 %26, %27
-  br i1 %cmp15, label %if.then16, label %if.end17
+68:                                               ; preds = %64
+  %69 = load i32, ptr %7, align 4, !tbaa !9
+  %70 = load i32, ptr %10, align 4, !tbaa !9
+  %71 = icmp slt i32 %69, %70
+  br i1 %71, label %72, label %76
 
-if.then16:                                        ; preds = %do.end
-  %28 = load ptr, ptr %CompareFunc.addr, align 8
-  %29 = load i32, ptr %lo.addr, align 4
-  %30 = load i32, ptr %j, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef nonnull align 1 dereferenceable(1) %28, i32 noundef %29, i32 noundef %30)
-  br label %if.end17
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %6, align 8, !tbaa !98
+  %74 = load i32, ptr %7, align 4, !tbaa !9
+  %75 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %12, ptr noundef nonnull align 1 dereferenceable(1) %73, i32 noundef %74, i32 noundef %75)
+  br label %76
 
-if.end17:                                         ; preds = %if.then16, %do.end
-  %31 = load i32, ptr %i, align 4
-  %32 = load i32, ptr %hi.addr, align 4
-  %cmp18 = icmp slt i32 %31, %32
-  br i1 %cmp18, label %if.then19, label %if.end20
+76:                                               ; preds = %72, %68
+  %77 = load i32, ptr %9, align 4, !tbaa !9
+  %78 = load i32, ptr %8, align 4, !tbaa !9
+  %79 = icmp slt i32 %77, %78
+  br i1 %79, label %80, label %84
 
-if.then19:                                        ; preds = %if.end17
-  %33 = load ptr, ptr %CompareFunc.addr, align 8
-  %34 = load i32, ptr %i, align 4
-  %35 = load i32, ptr %hi.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef nonnull align 1 dereferenceable(1) %33, i32 noundef %34, i32 noundef %35)
-  br label %if.end20
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %6, align 8, !tbaa !98
+  %82 = load i32, ptr %9, align 4, !tbaa !9
+  %83 = load i32, ptr %8, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %12, ptr noundef nonnull align 1 dereferenceable(1) %81, i32 noundef %82, i32 noundef %83)
+  br label %84
 
-if.end20:                                         ; preds = %if.then19, %if.end17
+84:                                               ; preds = %80, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK31IslandBodyCapacitySortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %lhs, ptr noundef %rhs) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %bodyArray = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %0, i32 0, i32 0
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray)
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %bodyArray2 = getelementptr inbounds %"struct.btSimulationIslandManagerMt::Island", ptr %1, i32 0, i32 0
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %bodyArray2)
-  %cmp = icmp sgt i32 %call, %call3
-  ret i1 %cmp
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK31IslandBodyCapacitySortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %5, align 8, !tbaa !47
+  %8 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %7, i32 0, i32 0
+  %9 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  %10 = load ptr, ptr %6, align 8, !tbaa !47
+  %11 = getelementptr inbounds nuw %"struct.btSimulationIslandManagerMt::Island", ptr %10, i32 0, i32 0
+  %12 = call noundef i32 @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %11)
+  %13 = icmp sgt i32 %9, %12
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4swapEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %index0, i32 noundef %index1) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index0.addr = alloca i32, align 4
-  %index1.addr = alloca i32, align 4
-  %temp = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index0, ptr %index0.addr, align 4
-  store i32 %index1, ptr %index1.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %index0.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  store ptr %2, ptr %temp, align 8
-  %m_data2 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %m_data2, align 8
-  %4 = load i32, ptr %index1.addr, align 4
-  %idxprom3 = sext i32 %4 to i64
-  %arrayidx4 = getelementptr inbounds ptr, ptr %3, i64 %idxprom3
-  %5 = load ptr, ptr %arrayidx4, align 8
-  %m_data5 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %m_data5, align 8
-  %7 = load i32, ptr %index0.addr, align 4
-  %idxprom6 = sext i32 %7 to i64
-  %arrayidx7 = getelementptr inbounds ptr, ptr %6, i64 %idxprom6
-  store ptr %5, ptr %arrayidx7, align 8
-  %8 = load ptr, ptr %temp, align 8
-  %m_data8 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %9 = load ptr, ptr %m_data8, align 8
-  %10 = load i32, ptr %index1.addr, align 4
-  %idxprom9 = sext i32 %10 to i64
-  %arrayidx10 = getelementptr inbounds ptr, ptr %9, i64 %idxprom9
-  store ptr %8, ptr %arrayidx10, align 8
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4swapEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
+  %9 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %8, i32 0, i32 4
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %14 = load ptr, ptr %13, align 8, !tbaa !47
+  store ptr %14, ptr %7, align 8, !tbaa !47
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %8, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %17 = load i32, ptr %6, align 4, !tbaa !9
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %20 = load ptr, ptr %19, align 8, !tbaa !47
+  %21 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %8, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !52
+  %23 = load i32, ptr %5, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  store ptr %20, ptr %25, align 8, !tbaa !47
+  %26 = load ptr, ptr %7, align 8, !tbaa !47
+  %27 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %8, i32 0, i32 4
+  %28 = load ptr, ptr %27, align 8, !tbaa !52
+  %29 = load i32, ptr %6, align 4, !tbaa !9
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  store ptr %26, ptr %31, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !59
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !62
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %5, i64 %idxprom2
-  %7 = load ptr, ptr %arrayidx3, align 8
-  store ptr %7, ptr %arrayidx, align 8
-  br label %for.inc
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !62
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.btAlignedObjectArray.2, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !63
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !64
+  store ptr %26, ptr %20, align 8, !tbaa !64
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !52
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !202
 
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 8, %conv
-  %call = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 1 dereferenceable(1) %CompareFunc, i32 noundef %lo, i32 noundef %hi) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %CompareFunc.addr = alloca ptr, align 8
-  %lo.addr = alloca i32, align 4
-  %hi.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %x = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %CompareFunc, ptr %CompareFunc.addr, align 8
-  store i32 %lo, ptr %lo.addr, align 4
-  store i32 %hi, ptr %hi.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %lo.addr, align 4
-  store i32 %0, ptr %i, align 4
-  %1 = load i32, ptr %hi.addr, align 4
-  store i32 %1, ptr %j, align 4
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data, align 8
-  %3 = load i32, ptr %lo.addr, align 4
-  %4 = load i32, ptr %hi.addr, align 4
-  %add = add nsw i32 %3, %4
-  %div = sdiv i32 %add, 2
-  %idxprom = sext i32 %div to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  %5 = load ptr, ptr %arrayidx, align 8
-  store ptr %5, ptr %x, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %entry
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %do.body
-  %6 = load ptr, ptr %CompareFunc.addr, align 8
-  %m_data2 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %m_data2, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %8 to i64
-  %arrayidx4 = getelementptr inbounds ptr, ptr %7, i64 %idxprom3
-  %9 = load ptr, ptr %arrayidx4, align 8
-  %10 = load ptr, ptr %x, align 8
-  %call = call noundef zeroext i1 @_ZNK28IslandBatchSizeSortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %9, ptr noundef %10)
-  br i1 %call, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %11 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %i, align 4
-  br label %while.cond, !llvm.loop !53
-
-while.end:                                        ; preds = %while.cond
-  br label %while.cond5
-
-while.cond5:                                      ; preds = %while.body10, %while.end
-  %12 = load ptr, ptr %CompareFunc.addr, align 8
-  %13 = load ptr, ptr %x, align 8
-  %m_data6 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %14 = load ptr, ptr %m_data6, align 8
-  %15 = load i32, ptr %j, align 4
-  %idxprom7 = sext i32 %15 to i64
-  %arrayidx8 = getelementptr inbounds ptr, ptr %14, i64 %idxprom7
-  %16 = load ptr, ptr %arrayidx8, align 8
-  %call9 = call noundef zeroext i1 @_ZNK28IslandBatchSizeSortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13, ptr noundef %16)
-  br i1 %call9, label %while.body10, label %while.end11
-
-while.body10:                                     ; preds = %while.cond5
-  %17 = load i32, ptr %j, align 4
-  %dec = add nsw i32 %17, -1
-  store i32 %dec, ptr %j, align 4
-  br label %while.cond5, !llvm.loop !54
-
-while.end11:                                      ; preds = %while.cond5
-  %18 = load i32, ptr %i, align 4
-  %19 = load i32, ptr %j, align 4
-  %cmp = icmp sle i32 %18, %19
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.end11
-  %20 = load i32, ptr %i, align 4
-  %21 = load i32, ptr %j, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4swapEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %20, i32 noundef %21)
-  %22 = load i32, ptr %i, align 4
-  %inc12 = add nsw i32 %22, 1
-  store i32 %inc12, ptr %i, align 4
-  %23 = load i32, ptr %j, align 4
-  %dec13 = add nsw i32 %23, -1
-  store i32 %dec13, ptr %j, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %while.end11
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end
-  %24 = load i32, ptr %i, align 4
-  %25 = load i32, ptr %j, align 4
-  %cmp14 = icmp sle i32 %24, %25
-  br i1 %cmp14, label %do.body, label %do.end, !llvm.loop !55
-
-do.end:                                           ; preds = %do.cond
-  %26 = load i32, ptr %lo.addr, align 4
-  %27 = load i32, ptr %j, align 4
-  %cmp15 = icmp slt i32 %26, %27
-  br i1 %cmp15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %do.end
-  %28 = load ptr, ptr %CompareFunc.addr, align 8
-  %29 = load i32, ptr %lo.addr, align 4
-  %30 = load i32, ptr %j, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef nonnull align 1 dereferenceable(1) %28, i32 noundef %29, i32 noundef %30)
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then16, %do.end
-  %31 = load i32, ptr %i, align 4
-  %32 = load i32, ptr %hi.addr, align 4
-  %cmp18 = icmp slt i32 %31, %32
-  br i1 %cmp18, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %if.end17
-  %33 = load ptr, ptr %CompareFunc.addr, align 8
-  %34 = load i32, ptr %i, align 4
-  %35 = load i32, ptr %hi.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef nonnull align 1 dereferenceable(1) %33, i32 noundef %34, i32 noundef %35)
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.then19, %if.end17
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK28IslandBatchSizeSortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %lhs, ptr noundef %rhs) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  %lCost = alloca i32, align 4
-  %rCost = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %call = call noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %0)
-  store i32 %call, ptr %lCost, align 4
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %call2 = call noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %1)
-  store i32 %call2, ptr %rCost, align 4
-  %2 = load i32, ptr %lCost, align 4
-  %3 = load i32, ptr %rCost, align 4
-  %cmp = icmp sgt i32 %2, %3
-  ret i1 %cmp
+define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP17btCollisionObjectLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !178
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !203
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 8, %8
+  %10 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %1, ptr %6, align 8, !tbaa !153
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %13, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %14 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %14, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %12, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %17 = load i32, ptr %7, align 4, !tbaa !9
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = add nsw i32 %17, %18
+  %20 = sdiv i32 %19, 2
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %16, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !47
+  store ptr %23, ptr %11, align 8, !tbaa !47
+  br label %24
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+24:                                               ; preds = %64, %4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %35, %24
+  %26 = load ptr, ptr %6, align 8, !tbaa !153
+  %27 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %12, i32 0, i32 4
+  %28 = load ptr, ptr %27, align 8, !tbaa !52
+  %29 = load i32, ptr %9, align 4, !tbaa !9
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !47
+  %33 = load ptr, ptr %11, align 8, !tbaa !47
+  %34 = call noundef zeroext i1 @_ZNK28IslandBatchSizeSortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef %32, ptr noundef %33)
+  br i1 %34, label %35, label %38
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
-}
+35:                                               ; preds = %25
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %9, align 4, !tbaa !9
+  br label %25, !llvm.loop !205
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+38:                                               ; preds = %25
+  br label %39
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+39:                                               ; preds = %49, %38
+  %40 = load ptr, ptr %6, align 8, !tbaa !153
+  %41 = load ptr, ptr %11, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw %class.btAlignedObjectArray.4, ptr %12, i32 0, i32 4
+  %43 = load ptr, ptr %42, align 8, !tbaa !52
+  %44 = load i32, ptr %10, align 4, !tbaa !9
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !47
+  %48 = call noundef zeroext i1 @_ZNK28IslandBatchSizeSortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef %41, ptr noundef %47)
+  br i1 %48, label %49, label %52
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %5, i64 %idxprom2
-  %7 = load ptr, ptr %arrayidx3, align 8
-  store ptr %7, ptr %arrayidx, align 8
-  br label %for.inc
+49:                                               ; preds = %39
+  %50 = load i32, ptr %10, align 4, !tbaa !9
+  %51 = add nsw i32 %50, -1
+  store i32 %51, ptr %10, align 4, !tbaa !9
+  br label %39, !llvm.loop !206
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !56
+52:                                               ; preds = %39
+  %53 = load i32, ptr %9, align 4, !tbaa !9
+  %54 = load i32, ptr %10, align 4, !tbaa !9
+  %55 = icmp sle i32 %53, %54
+  br i1 %55, label %56, label %63
 
-for.end:                                          ; preds = %for.cond
+56:                                               ; preds = %52
+  %57 = load i32, ptr %9, align 4, !tbaa !9
+  %58 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4swapEii(ptr noundef nonnull align 8 dereferenceable(25) %12, i32 noundef %57, i32 noundef %58)
+  %59 = load i32, ptr %9, align 4, !tbaa !9
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %9, align 4, !tbaa !9
+  %61 = load i32, ptr %10, align 4, !tbaa !9
+  %62 = add nsw i32 %61, -1
+  store i32 %62, ptr %10, align 4, !tbaa !9
+  br label %63
+
+63:                                               ; preds = %56, %52
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load i32, ptr %9, align 4, !tbaa !9
+  %66 = load i32, ptr %10, align 4, !tbaa !9
+  %67 = icmp sle i32 %65, %66
+  br i1 %67, label %24, label %68, !llvm.loop !207
+
+68:                                               ; preds = %64
+  %69 = load i32, ptr %7, align 4, !tbaa !9
+  %70 = load i32, ptr %10, align 4, !tbaa !9
+  %71 = icmp slt i32 %69, %70
+  br i1 %71, label %72, label %76
+
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %6, align 8, !tbaa !153
+  %74 = load i32, ptr %7, align 4, !tbaa !9
+  %75 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %12, ptr noundef nonnull align 1 dereferenceable(1) %73, i32 noundef %74, i32 noundef %75)
+  br label %76
+
+76:                                               ; preds = %72, %68
+  %77 = load i32, ptr %9, align 4, !tbaa !9
+  %78 = load i32, ptr %8, align 4, !tbaa !9
+  %79 = icmp slt i32 %77, %78
+  br i1 %79, label %80, label %84
+
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %6, align 8, !tbaa !153
+  %82 = load i32, ptr %9, align 4, !tbaa !9
+  %83 = load i32, ptr %8, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI28IslandBatchSizeSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %12, ptr noundef nonnull align 1 dereferenceable(1) %81, i32 noundef %82, i32 noundef %83)
+  br label %84
+
+84:                                               ; preds = %80, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 8, %conv
-  %call = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK28IslandBatchSizeSortPredicateclEPKN27btSimulationIslandManagerMt6IslandES3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %9 = load ptr, ptr %5, align 8, !tbaa !47
+  %10 = call noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %9)
+  store i32 %10, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %11 = load ptr, ptr %6, align 8, !tbaa !47
+  %12 = call noundef i32 @_Z13calcBatchCostPKN27btSimulationIslandManagerMt6IslandE(ptr noundef %11)
+  store i32 %12, ptr %8, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = load i32, ptr %8, align 4, !tbaa !9
+  %15 = icmp sgt i32 %13, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  ret i1 %15
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !66
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !66
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !69
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %5, i64 %idxprom2
-  %7 = load ptr, ptr %arrayidx3, align 8
-  store ptr %7, ptr %arrayidx, align 8
-  br label %for.inc
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !69
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.btAlignedObjectArray.0, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !70
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !71
+  store ptr %26, ptr %20, align 8, !tbaa !71
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !57
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !208
 
-for.end:                                          ; preds = %for.cond
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 8, %conv
-  %call = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP20btPersistentManifoldLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !175
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !209
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 8, %8
+  %10 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !73
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
+
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
+
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !73
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !79
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
+
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !79
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !80
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !81
+  store ptr %26, ptr %20, align 8, !tbaa !81
+  br label %27
+
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !211
+
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP17btTypedConstraintLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !172
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !212
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 8, %8
+  %10 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_btSimulationIslandManagerMt.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { builtin nounwind }
-attributes #13 = { builtin allocsize(0) }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
-!57 = distinct !{!57, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS27btSimulationIslandManagerMt", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"vtable pointer", !8, i64 0}
+!16 = !{!17, !10, i64 248}
+!17 = !{!"_ZTS27btSimulationIslandManagerMt", !18, i64 0, !30, i64 112, !30, i64 144, !30, i64 176, !30, i64 208, !33, i64 240, !10, i64 248, !10, i64 252, !6, i64 256}
+!18 = !{!"_ZTS25btSimulationIslandManager", !19, i64 8, !24, i64 40, !27, i64 72, !23, i64 104}
+!19 = !{!"_ZTS11btUnionFind", !20, i64 0}
+!20 = !{!"_ZTS20btAlignedObjectArrayI9btElementE", !21, i64 0, !10, i64 4, !10, i64 8, !22, i64 16, !23, i64 24}
+!21 = !{!"_ZTS18btAlignedAllocatorI9btElementLj16EE"}
+!22 = !{!"p1 _ZTS9btElement", !6, i64 0}
+!23 = !{!"bool", !7, i64 0}
+!24 = !{!"_ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !25, i64 0, !10, i64 4, !10, i64 8, !26, i64 16, !23, i64 24}
+!25 = !{!"_ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE"}
+!26 = !{!"p2 _ZTS20btPersistentManifold", !6, i64 0}
+!27 = !{!"_ZTS20btAlignedObjectArrayIP17btCollisionObjectE", !28, i64 0, !10, i64 4, !10, i64 8, !29, i64 16, !23, i64 24}
+!28 = !{!"_ZTS18btAlignedAllocatorIP17btCollisionObjectLj16EE"}
+!29 = !{!"p2 _ZTS17btCollisionObject", !6, i64 0}
+!30 = !{!"_ZTS20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE", !31, i64 0, !10, i64 4, !10, i64 8, !32, i64 16, !23, i64 24}
+!31 = !{!"_ZTS18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE"}
+!32 = !{!"p2 _ZTSN27btSimulationIslandManagerMt6IslandE", !6, i64 0}
+!33 = !{!"p1 _ZTSN27btSimulationIslandManagerMt6IslandE", !6, i64 0}
+!34 = !{!17, !10, i64 252}
+!35 = !{!17, !6, i64 256}
+!36 = !{!17, !33, i64 240}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE", !6, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSN27btSimulationIslandManagerMt12SolverParamsE", !6, i64 0}
+!41 = !{!42, !43, i64 8}
+!42 = !{!"_ZTSN27btSimulationIslandManagerMt12SolverParamsE", !43, i64 0, !43, i64 8, !44, i64 16, !45, i64 24, !46, i64 32}
+!43 = !{!"p1 _ZTS18btConstraintSolver", !6, i64 0}
+!44 = !{!"p1 _ZTS19btContactSolverInfo", !6, i64 0}
+!45 = !{!"p1 _ZTS12btIDebugDraw", !6, i64 0}
+!46 = !{!"p1 _ZTS12btDispatcher", !6, i64 0}
+!47 = !{!33, !33, i64 0}
+!48 = distinct !{!48, !49}
+!49 = !{!"llvm.loop.mustprogress"}
+!50 = distinct !{!50, !49}
+!51 = !{!30, !10, i64 4}
+!52 = !{!30, !32, i64 16}
+!53 = !{!32, !32, i64 0}
+!54 = distinct !{!54, !49}
+!55 = distinct !{!55, !49}
+!56 = distinct !{!56, !49}
+!57 = distinct !{!57, !49}
+!58 = distinct !{!58, !49}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS20btAlignedObjectArrayIP17btCollisionObjectE", !6, i64 0}
+!61 = !{!27, !10, i64 4}
+!62 = !{!29, !29, i64 0}
+!63 = !{!27, !29, i64 16}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS17btCollisionObject", !6, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !6, i64 0}
+!68 = !{!24, !10, i64 4}
+!69 = !{!26, !26, i64 0}
+!70 = !{!24, !26, i64 16}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTS20btPersistentManifold", !6, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !6, i64 0}
+!75 = !{!76, !10, i64 4}
+!76 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !77, i64 0, !10, i64 4, !10, i64 8, !78, i64 16, !23, i64 24}
+!77 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
+!78 = !{!"p2 _ZTS17btTypedConstraint", !6, i64 0}
+!79 = !{!78, !78, i64 0}
+!80 = !{!76, !78, i64 16}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTS17btTypedConstraint", !6, i64 0}
+!83 = distinct !{!83, !49}
+!84 = distinct !{!84, !49}
+!85 = !{!23, !23, i64 0}
+!86 = distinct !{!86, !49}
+!87 = !{i8 0, i8 2}
+!88 = !{}
+!89 = !{!90, !10, i64 96}
+!90 = !{!"_ZTSN27btSimulationIslandManagerMt6IslandE", !27, i64 0, !24, i64 32, !76, i64 64, !10, i64 96, !23, i64 100}
+!91 = !{!90, !23, i64 100}
+!92 = distinct !{!92, !49}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTS25btSimulationIslandManager", !6, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTS11btUnionFind", !6, i64 0}
+!97 = !{!27, !10, i64 8}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS31IslandBodyCapacitySortPredicate", !6, i64 0}
+!100 = distinct !{!100, !49}
+!101 = distinct !{!101, !49}
+!102 = distinct !{!102, !49}
+!103 = distinct !{!103, !49}
+!104 = distinct !{!104, !49}
+!105 = distinct !{!105, !49}
+!106 = distinct !{!106, !49}
+!107 = distinct !{!107, !49}
+!108 = distinct !{!108, !49}
+!109 = !{!27, !23, i64 24}
+!110 = !{!46, !46, i64 0}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"p1 _ZTS16btCollisionWorld", !6, i64 0}
+!113 = !{!114, !10, i64 0}
+!114 = !{!"_ZTS9btElement", !10, i64 0, !10, i64 4}
+!115 = distinct !{!115, !49}
+!116 = !{!114, !10, i64 4}
+!117 = distinct !{!117, !49}
+!118 = distinct !{!118, !49}
+!119 = distinct !{!119, !49}
+!120 = distinct !{!120, !49}
+!121 = !{!122, !10, i64 228}
+!122 = !{!"_ZTS17btCollisionObject", !123, i64 8, !123, i64 72, !125, i64 136, !125, i64 152, !125, i64 168, !10, i64 184, !126, i64 188, !127, i64 192, !128, i64 200, !6, i64 208, !128, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !126, i64 244, !126, i64 248, !126, i64 252, !126, i64 256, !126, i64 260, !126, i64 264, !126, i64 268, !10, i64 272, !6, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !126, i64 300, !126, i64 304, !126, i64 308, !10, i64 312, !129, i64 320, !10, i64 352, !125, i64 356}
+!123 = !{!"_ZTS11btTransform", !124, i64 0, !125, i64 48}
+!124 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!125 = !{!"_ZTS9btVector3", !7, i64 0}
+!126 = !{!"float", !7, i64 0}
+!127 = !{!"p1 _ZTS17btBroadphaseProxy", !6, i64 0}
+!128 = !{!"p1 _ZTS16btCollisionShape", !6, i64 0}
+!129 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !130, i64 0, !10, i64 4, !10, i64 8, !29, i64 16, !23, i64 24}
+!130 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!131 = !{!122, !10, i64 240}
+!132 = !{!126, !126, i64 0}
+!133 = !{!122, !126, i64 244}
+!134 = distinct !{!134, !49}
+!135 = distinct !{!135, !49}
+!136 = distinct !{!136, !49}
+!137 = distinct !{!137, !49}
+!138 = distinct !{!138, !49}
+!139 = !{!140, !65, i64 840}
+!140 = !{!"_ZTS20btPersistentManifold", !141, i64 0, !7, i64 8, !65, i64 840, !65, i64 848, !10, i64 856, !126, i64 860, !126, i64 864, !10, i64 868, !10, i64 872, !10, i64 876}
+!141 = !{!"_ZTS13btTypedObject", !10, i64 0}
+!142 = !{!140, !65, i64 848}
+!143 = !{!122, !10, i64 224}
+!144 = distinct !{!144, !49}
+!145 = !{!146, !23, i64 28}
+!146 = !{!"_ZTS17btTypedConstraint", !141, i64 8, !10, i64 12, !7, i64 16, !126, i64 24, !23, i64 28, !23, i64 29, !10, i64 32, !147, i64 40, !147, i64 48, !126, i64 56, !126, i64 60, !148, i64 64}
+!147 = !{!"p1 _ZTS11btRigidBody", !6, i64 0}
+!148 = !{!"p1 _ZTS15btJointFeedback", !6, i64 0}
+!149 = distinct !{!149, !49}
+!150 = distinct !{!150, !49}
+!151 = distinct !{!151, !49}
+!152 = distinct !{!152, !49}
+!153 = !{!154, !154, i64 0}
+!154 = !{!"p1 _ZTS28IslandBatchSizeSortPredicate", !6, i64 0}
+!155 = !{!24, !23, i64 24}
+!156 = !{!24, !10, i64 8}
+!157 = !{!76, !23, i64 24}
+!158 = !{!76, !10, i64 8}
+!159 = !{!43, !43, i64 0}
+!160 = !{!42, !44, i64 16}
+!161 = !{!42, !45, i64 24}
+!162 = !{!42, !46, i64 32}
+!163 = !{!42, !43, i64 0}
+!164 = distinct !{!164, !49}
+!165 = !{!166, !166, i64 0}
+!166 = !{!"p1 _ZTS22UpdateIslandDispatcher", !6, i64 0}
+!167 = !{!168, !168, i64 0}
+!168 = !{!"p1 _ZTS18btIParallelForBody", !6, i64 0}
+!169 = distinct !{!169, !49}
+!170 = !{!18, !23, i64 104}
+!171 = distinct !{!171, !49}
+!172 = !{!173, !173, i64 0}
+!173 = !{!"p1 _ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE", !6, i64 0}
+!174 = distinct !{!174, !49}
+!175 = !{!176, !176, i64 0}
+!176 = !{!"p1 _ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE", !6, i64 0}
+!177 = distinct !{!177, !49}
+!178 = !{!179, !179, i64 0}
+!179 = !{!"p1 _ZTS18btAlignedAllocatorIP17btCollisionObjectLj16EE", !6, i64 0}
+!180 = !{!181, !181, i64 0}
+!181 = !{!"p1 _ZTS20btAlignedObjectArrayI9btElementE", !6, i64 0}
+!182 = !{!20, !10, i64 4}
+!183 = !{!20, !22, i64 16}
+!184 = !{!146, !147, i64 40}
+!185 = !{!146, !147, i64 48}
+!186 = !{!187, !40, i64 16}
+!187 = !{!"_ZTS22UpdateIslandDispatcher", !188, i64 0, !38, i64 8, !40, i64 16}
+!188 = !{!"_ZTS18btIParallelForBody"}
+!189 = !{!187, !38, i64 8}
+!190 = distinct !{!190, !49}
+!191 = !{!192, !192, i64 0}
+!192 = !{!"p1 _ZTS18btAlignedAllocatorIPN27btSimulationIslandManagerMt6IslandELj16EE", !6, i64 0}
+!193 = !{!30, !23, i64 24}
+!194 = !{!30, !10, i64 8}
+!195 = distinct !{!195, !49}
+!196 = distinct !{!196, !49}
+!197 = !{!198, !198, i64 0}
+!198 = !{!"p3 _ZTSN27btSimulationIslandManagerMt6IslandE", !6, i64 0}
+!199 = distinct !{!199, !49}
+!200 = distinct !{!200, !49}
+!201 = distinct !{!201, !49}
+!202 = distinct !{!202, !49}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p3 _ZTS17btCollisionObject", !6, i64 0}
+!205 = distinct !{!205, !49}
+!206 = distinct !{!206, !49}
+!207 = distinct !{!207, !49}
+!208 = distinct !{!208, !49}
+!209 = !{!210, !210, i64 0}
+!210 = !{!"p3 _ZTS20btPersistentManifold", !6, i64 0}
+!211 = distinct !{!211, !49}
+!212 = !{!213, !213, i64 0}
+!213 = !{!"p3 _ZTS17btTypedConstraint", !6, i64 0}

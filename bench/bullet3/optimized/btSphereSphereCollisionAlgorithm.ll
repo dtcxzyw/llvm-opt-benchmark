@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/bullet3/original/btSphereSphereCollisionAlgorithm.ll'
 source_filename = "bench/bullet3/original/btSphereSphereCollisionAlgorithm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %class.btVector3 = type { [4 x float] }
 %class.btManifoldPoint = type <{ %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, i32, i32, i32, i32, [4 x i8], ptr, i32, float, float, float, float, float, float, %union.anon.0, %union.anon.1, float, i32, %class.btVector3, %class.btVector3, [4 x i8] }>
@@ -13,10 +13,10 @@ $__clang_call_terminate = comdat any
 $_ZN32btSphereSphereCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE = comdat any
 
 @_ZTV32btSphereSphereCollisionAlgorithm = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTI32btSphereSphereCollisionAlgorithm, ptr @_ZN32btSphereSphereCollisionAlgorithmD2Ev, ptr @_ZN32btSphereSphereCollisionAlgorithmD0Ev, ptr @_ZN32btSphereSphereCollisionAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult, ptr @_ZN32btSphereSphereCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult, ptr @_ZN32btSphereSphereCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE] }, align 8
+@_ZTI32btSphereSphereCollisionAlgorithm = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS32btSphereSphereCollisionAlgorithm, ptr @_ZTI30btActivatingCollisionAlgorithm }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS32btSphereSphereCollisionAlgorithm = dso_local constant [35 x i8] c"32btSphereSphereCollisionAlgorithm\00", align 1
 @_ZTI30btActivatingCollisionAlgorithm = external constant ptr
-@_ZTI32btSphereSphereCollisionAlgorithm = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS32btSphereSphereCollisionAlgorithm, ptr @_ZTI30btActivatingCollisionAlgorithm }, align 8
 @gContactEndedCallback = external local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
@@ -24,42 +24,41 @@ $_ZN32btSphereSphereCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjec
 @_ZN32btSphereSphereCollisionAlgorithmD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN32btSphereSphereCollisionAlgorithmD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN32btSphereSphereCollisionAlgorithmC2EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %mf, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %col0Wrap, ptr noundef %col1Wrap) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %col0Wrap, ptr noundef %col1Wrap)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32btSphereSphereCollisionAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 0, ptr %m_ownManifold, align 8
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %mf, ptr %m_manifoldPtr, align 8
-  %tobool.not = icmp eq ptr %mf, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define dso_local void @_ZN32btSphereSphereCollisionAlgorithmC2EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4)
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV32btSphereSphereCollisionAlgorithm, i64 16), ptr %0, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %6, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %1, ptr %7, align 8, !tbaa !16
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %8, label %22
 
-if.then:                                          ; preds = %entry
-  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m_dispatcher, align 8
-  %m_collisionObject.i = getelementptr inbounds nuw i8, ptr %col0Wrap, i64 16
-  %1 = load ptr, ptr %m_collisionObject.i, align 8
-  %m_collisionObject.i3 = getelementptr inbounds nuw i8, ptr %col1Wrap, i64 16
-  %2 = load ptr, ptr %m_collisionObject.i3, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call6 = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2)
-          to label %invoke.cont5 unwind label %lpad
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %15 = load ptr, ptr %10, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = invoke noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %12, ptr noundef %14)
+          to label %19 unwind label %20
 
-invoke.cont5:                                     ; preds = %if.then
-  store ptr %call6, ptr %m_manifoldPtr, align 8
-  store i8 1, ptr %m_ownManifold, align 8
-  br label %if.end
+19:                                               ; preds = %8
+  store ptr %18, ptr %7, align 8, !tbaa !16
+  store i8 1, ptr %6, align 8, !tbaa !7
+  br label %22
 
-lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+20:                                               ; preds = %8
+  %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #12
-  resume { ptr, i32 } %4
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  resume { ptr, i32 } %21
 
-if.end:                                           ; preds = %invoke.cont5, %entry
+22:                                               ; preds = %19, %5
   ret void
 }
 
@@ -71,42 +70,41 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN32btSphereSphereCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32btSphereSphereCollisionAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i8, ptr %m_ownManifold, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end5
+define dso_local void @_ZN32btSphereSphereCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV32btSphereSphereCollisionAlgorithm, i64 16), ptr %0, align 8, !tbaa !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i8, ptr %2, align 8, !tbaa !7, !range !25, !noundef !26
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %14
 
-if.then:                                          ; preds = %entry
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %if.end5, label %if.then3
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %14, label %8
 
-if.then3:                                         ; preds = %if.then
-  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %m_dispatcher, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %3 = load ptr, ptr %vfn, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %1)
-          to label %if.end5 unwind label %terminate.lpad
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load ptr, ptr %10, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %13 = load ptr, ptr %12, align 8
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %7)
+          to label %14 unwind label %15
 
-if.end5:                                          ; preds = %if.then, %if.then3, %entry
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #12
+14:                                               ; preds = %5, %8, %1
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   ret void
 
-terminate.lpad:                                   ; preds = %if.then3
-  %4 = landingpad { ptr, i32 }
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #13
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #13
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
   tail call void @_ZSt9terminatev() #13
@@ -119,309 +117,312 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN32btSphereSphereCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32btSphereSphereCollisionAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i8, ptr %m_ownManifold.i, align 8
-  %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit
+define dso_local void @_ZN32btSphereSphereCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV32btSphereSphereCollisionAlgorithm, i64 16), ptr %0, align 8, !tbaa !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i8, ptr %2, align 8, !tbaa !7, !range !25, !noundef !26
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit
 
-if.then.i:                                        ; preds = %entry
-  %m_manifoldPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %m_manifoldPtr.i, align 8
-  %tobool2.not.i = icmp eq ptr %1, null
-  br i1 %tobool2.not.i, label %_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit, label %if.then3.i
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit, label %8
 
-if.then3.i:                                       ; preds = %if.then.i
-  %m_dispatcher.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %m_dispatcher.i, align 8
-  %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
-  %3 = load ptr, ptr %vfn.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %1)
-          to label %_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit unwind label %terminate.lpad.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load ptr, ptr %10, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %13 = load ptr, ptr %12, align 8
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %7)
+          to label %_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit unwind label %14
 
-terminate.lpad.i:                                 ; preds = %if.then3.i
-  %4 = landingpad { ptr, i32 }
+14:                                               ; preds = %8
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #13
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #13
   unreachable
 
-_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit:   ; preds = %entry, %if.then.i, %if.then3.i
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+_ZN32btSphereSphereCollisionAlgorithmD2Ev.exit:   ; preds = %1, %5, %8
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN32btSphereSphereCollisionAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %col0Wrap, ptr noundef readonly captures(none) %col1Wrap, ptr nonnull readnone align 8 captures(none) %dispatchInfo, ptr noundef %resultOut) unnamed_addr #7 align 2 {
-entry:
-  %ref.tmp.i = alloca ptr, align 8
-  %normalOnSurfaceB = alloca %class.btVector3, align 8
-  %pos1 = alloca %class.btVector3, align 8
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %return, label %if.end
+define dso_local void @_ZN32btSphereSphereCollisionAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr noundef %4) unnamed_addr #7 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.btVector3, align 8
+  %8 = alloca %class.btVector3, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %97, label %11
 
-if.end:                                           ; preds = %entry
-  %m_manifoldPtr.i = getelementptr inbounds nuw i8, ptr %resultOut, i64 8
-  store ptr %0, ptr %m_manifoldPtr.i, align 8
-  %m_shape.i = getelementptr inbounds nuw i8, ptr %col0Wrap, i64 8
-  %1 = load ptr, ptr %m_shape.i, align 8
-  %m_shape.i8 = getelementptr inbounds nuw i8, ptr %col1Wrap, i64 8
-  %2 = load ptr, ptr %m_shape.i8, align 8
-  %m_worldTransform.i = getelementptr inbounds nuw i8, ptr %col0Wrap, i64 24
-  %3 = load ptr, ptr %m_worldTransform.i, align 8
-  %m_origin.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %m_worldTransform.i9 = getelementptr inbounds nuw i8, ptr %col1Wrap, i64 24
-  %4 = load ptr, ptr %m_worldTransform.i9, align 8
-  %m_origin.i10 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %5 = load float, ptr %m_origin.i, align 4
-  %6 = load float, ptr %m_origin.i10, align 4
-  %sub.i = fsub float %5, %6
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %7 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %8 = load float, ptr %arrayidx7.i, align 4
-  %sub8.i = fsub float %7, %8
-  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %9 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %10 = load float, ptr %arrayidx13.i, align 4
-  %sub14.i = fsub float %9, %10
-  %mul8.i.i.i = fmul float %sub8.i, %sub8.i
-  %11 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul8.i.i.i)
-  %12 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %11)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %12)
-  %m_implicitShapeDimensions.i = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %13 = load float, ptr %m_implicitShapeDimensions.i, align 4
-  %m_localScaling.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load float, ptr %m_localScaling.i, align 4
-  %mul.i = fmul float %13, %14
-  %m_implicitShapeDimensions.i11 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %15 = load float, ptr %m_implicitShapeDimensions.i11, align 4
-  %m_localScaling.i12 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %16 = load float, ptr %m_localScaling.i12, align 4
-  %mul.i13 = fmul float %15, %16
-  %17 = load ptr, ptr %m_manifoldPtr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %m_cachedPoints.i = getelementptr inbounds nuw i8, ptr %17, i64 856
-  %18 = load i32, ptr %m_cachedPoints.i, align 8
-  %cmp4.i = icmp sgt i32 %18, 0
-  br i1 %cmp4.i, label %for.body.lr.ph.i, label %for.end.i
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %10, ptr %12, align 8, !tbaa !27
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %23 = load float, ptr %19, align 4, !tbaa !33
+  %24 = load float, ptr %22, align 4, !tbaa !33
+  %25 = fsub float %23, %24
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 52
+  %27 = load float, ptr %26, align 4, !tbaa !33
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 52
+  %29 = load float, ptr %28, align 4, !tbaa !33
+  %30 = fsub float %27, %29
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %32 = load float, ptr %31, align 4, !tbaa !33
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %34 = load float, ptr %33, align 4, !tbaa !33
+  %35 = fsub float %32, %34
+  %36 = fmul float %30, %30
+  %37 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %36)
+  %38 = tail call noundef float @llvm.fmuladd.f32(float %35, float %35, float %37)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %38)
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %40 = load float, ptr %39, align 4, !tbaa !33
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %42 = load float, ptr %41, align 4, !tbaa !33
+  %43 = fmul float %40, %42
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %45 = load float, ptr %44, align 4, !tbaa !33
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %47 = load float, ptr %46, align 4, !tbaa !33
+  %48 = fmul float %45, %47
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 856
+  %50 = load i32, ptr %49, align 8, !tbaa !34
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end
-  %m_pointCache.i = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br label %for.body.i
+.lr.ph.i:                                         ; preds = %11
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  br label %53
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %m_pointCache.i, i64 0, i64 %indvars.iv.i
-  tail call void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %17, ptr noundef nonnull align 8 dereferenceable(204) %arrayidx.i)
+53:                                               ; preds = %53, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
+  %54 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %52, i64 0, i64 %indvars.iv.i
+  tail call void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %10, ptr noundef nonnull align 8 dereferenceable(204) %54)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = load i32, ptr %m_cachedPoints.i, align 8
-  %20 = sext i32 %19 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5
+  %55 = load i32, ptr %49, align 8, !tbaa !34
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next.i, %56
+  br i1 %57, label %53, label %._crit_edge.i, !llvm.loop !37
 
-for.end.i:                                        ; preds = %for.body.i, %if.end
-  %.lcssa.i = phi i32 [ %18, %if.end ], [ %19, %for.body.i ]
-  %21 = load ptr, ptr @gContactEndedCallback, align 8
-  %tobool.not.i = icmp eq ptr %21, null
-  %tobool3.not.i = icmp eq i32 %.lcssa.i, 0
-  %or.cond.i = or i1 %tobool3.not.i, %tobool.not.i
-  br i1 %or.cond.i, label %_ZN20btPersistentManifold13clearManifoldEv.exit, label %if.then.i
+._crit_edge.i:                                    ; preds = %53, %11
+  %.lcssa.i = phi i32 [ %50, %11 ], [ %55, %53 ]
+  %58 = load ptr, ptr @gContactEndedCallback, align 8, !tbaa !39
+  %.not.i = icmp eq ptr %58, null
+  %.not5.i = icmp eq i32 %.lcssa.i, 0
+  %or.cond.i = or i1 %.not5.i, %.not.i
+  br i1 %or.cond.i, label %_ZN20btPersistentManifold13clearManifoldEv.exit, label %59
 
-if.then.i:                                        ; preds = %for.end.i
-  store ptr %17, ptr %ref.tmp.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+59:                                               ; preds = %._crit_edge.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  store ptr %10, ptr %6, align 8, !tbaa !40
+  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   br label %_ZN20btPersistentManifold13clearManifoldEv.exit
 
-_ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %for.end.i, %if.then.i
-  store i32 0, ptr %m_cachedPoints.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %add = fadd float %mul.i, %mul.i13
-  %m_closestPointDistanceThreshold = getelementptr inbounds nuw i8, ptr %resultOut, i64 48
-  %22 = load float, ptr %m_closestPointDistanceThreshold, align 8
-  %add13 = fadd float %add, %22
-  %cmp = fcmp ogt float %sqrt.i, %add13
-  br i1 %cmp, label %return, label %if.end15
+_ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %._crit_edge.i, %59
+  store i32 0, ptr %49, align 8, !tbaa !34
+  %60 = fadd float %43, %48
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %62 = load float, ptr %61, align 8, !tbaa !41
+  %63 = fadd float %60, %62
+  %64 = fcmp ogt float %sqrt.i, %63
+  br i1 %64, label %97, label %65
 
-if.end15:                                         ; preds = %_ZN20btPersistentManifold13clearManifoldEv.exit
-  %sub = fsub float %sqrt.i, %add
-  store float 1.000000e+00, ptr %normalOnSurfaceB, align 8
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %normalOnSurfaceB, i64 4
-  store float 0.000000e+00, ptr %arrayidx3.i, align 4
-  %arrayidx5.i14 = getelementptr inbounds nuw i8, ptr %normalOnSurfaceB, i64 8
-  store float 0.000000e+00, ptr %arrayidx5.i14, align 8
-  %arrayidx7.i15 = getelementptr inbounds nuw i8, ptr %normalOnSurfaceB, i64 12
-  store float 0.000000e+00, ptr %arrayidx7.i15, align 4
-  %cmp19 = fcmp ogt float %sqrt.i, 0x3E80000000000000
-  br i1 %cmp19, label %if.then20, label %if.end24
+65:                                               ; preds = %_ZN20btPersistentManifold13clearManifoldEv.exit
+  %66 = fsub float %sqrt.i, %60
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  store float 1.000000e+00, ptr %7, align 8, !tbaa !33
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store float 0.000000e+00, ptr %67, align 4, !tbaa !33
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store float 0.000000e+00, ptr %68, align 8, !tbaa !33
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store float 0.000000e+00, ptr %69, align 4, !tbaa !33
+  %70 = fcmp ogt float %sqrt.i, 0x3E80000000000000
+  br i1 %70, label %71, label %76
 
-if.then20:                                        ; preds = %if.end15
-  %div.i = fdiv float 1.000000e+00, %sqrt.i
-  %mul.i.i = fmul float %sub.i, %div.i
-  %mul4.i.i = fmul float %sub8.i, %div.i
-  %mul8.i.i = fmul float %sub14.i, %div.i
-  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
-  %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %mul4.i.i, i64 1
-  %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %normalOnSurfaceB, align 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %arrayidx5.i14, align 8
-  br label %if.end24
+71:                                               ; preds = %65
+  %72 = fdiv float 1.000000e+00, %sqrt.i
+  %73 = fmul float %25, %72
+  %74 = fmul float %30, %72
+  %75 = fmul float %35, %72
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %73, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %74, i64 1
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %75, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %7, align 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %68, align 8, !tbaa !42
+  br label %76
 
-if.end24:                                         ; preds = %if.then20, %if.end15
-  %23 = phi float [ %mul8.i.i, %if.then20 ], [ 0.000000e+00, %if.end15 ]
-  %24 = phi float [ %mul4.i.i, %if.then20 ], [ 0.000000e+00, %if.end15 ]
-  %25 = phi float [ %mul.i.i, %if.then20 ], [ 1.000000e+00, %if.end15 ]
-  %26 = load ptr, ptr %m_worldTransform.i9, align 8
-  %m_origin.i17 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %mul.i.i18 = fmul float %mul.i13, %25
-  %mul4.i.i20 = fmul float %mul.i13, %24
-  %mul8.i.i22 = fmul float %mul.i13, %23
-  %27 = load float, ptr %m_origin.i17, align 4
-  %add.i = fadd float %mul.i.i18, %27
-  %arrayidx5.i28 = getelementptr inbounds nuw i8, ptr %26, i64 52
-  %28 = load float, ptr %arrayidx5.i28, align 4
-  %add8.i = fadd float %mul4.i.i20, %28
-  %arrayidx11.i30 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %29 = load float, ptr %arrayidx11.i30, align 4
-  %add14.i = fadd float %mul8.i.i22, %29
-  %retval.sroa.0.0.vec.insert.i32 = insertelement <2 x float> poison, float %add.i, i64 0
-  %retval.sroa.0.4.vec.insert.i33 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i32, float %add8.i, i64 1
-  %retval.sroa.3.12.vec.insert.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  store <2 x float> %retval.sroa.0.4.vec.insert.i33, ptr %pos1, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %pos1, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i34, ptr %30, align 8
-  %vtable = load ptr, ptr %resultOut, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %31 = load ptr, ptr %vfn, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(52) %resultOut, ptr noundef nonnull align 4 dereferenceable(16) %normalOnSurfaceB, ptr noundef nonnull align 4 dereferenceable(16) %pos1, float noundef %sub)
-  br label %return
+76:                                               ; preds = %71, %65
+  %77 = phi float [ %75, %71 ], [ 0.000000e+00, %65 ]
+  %78 = phi float [ %74, %71 ], [ 0.000000e+00, %65 ]
+  %79 = phi float [ %73, %71 ], [ 1.000000e+00, %65 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  %80 = load ptr, ptr %20, align 8, !tbaa !32
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %82 = fmul float %48, %79
+  %83 = fmul float %48, %78
+  %84 = fmul float %48, %77
+  %85 = load float, ptr %81, align 4, !tbaa !33
+  %86 = fadd float %82, %85
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 52
+  %88 = load float, ptr %87, align 4, !tbaa !33
+  %89 = fadd float %83, %88
+  %90 = getelementptr inbounds nuw i8, ptr %80, i64 56
+  %91 = load float, ptr %90, align 4, !tbaa !33
+  %92 = fadd float %84, %91
+  %.sroa.0.0.vec.insert.i20 = insertelement <2 x float> poison, float %86, i64 0
+  %.sroa.0.4.vec.insert.i21 = insertelement <2 x float> %.sroa.0.0.vec.insert.i20, float %89, i64 1
+  %.sroa.3.12.vec.insert.i22 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %92, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i21, ptr %8, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i22, ptr %93, align 8
+  %94 = load ptr, ptr %4, align 8, !tbaa !4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, float noundef %66)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  br label %97
 
-return:                                           ; preds = %_ZN20btPersistentManifold13clearManifoldEv.exit, %entry, %if.end24
+97:                                               ; preds = %76, %_ZN20btPersistentManifold13clearManifoldEv.exit, %5
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_ZN32btSphereSphereCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %col0, ptr readnone captures(none) %col1, ptr nonnull readnone align 8 captures(none) %dispatchInfo, ptr readnone captures(none) %resultOut) unnamed_addr #8 align 2 {
-entry:
+define dso_local noundef float @_ZN32btSphereSphereCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr readnone captures(none) %4) unnamed_addr #9 align 2 {
   ret float 1.000000e+00
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN32btSphereSphereCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray) unnamed_addr #0 comdat align 2 {
-entry:
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+define linkonce_odr dso_local void @_ZN32btSphereSphereCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) unnamed_addr #0 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %44, label %5
 
-land.lhs.true:                                    ; preds = %entry
-  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i8, ptr %m_ownManifold, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then, label %if.end
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i8, ptr %6, align 8, !tbaa !7, !range !25, !noundef !26
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %9, label %44
 
-if.then:                                          ; preds = %land.lhs.true
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 4
-  %2 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 8
-  %3 = load i32, ptr %m_capacity.i.i, align 8
-  %cmp.i = icmp eq i32 %2, %3
-  br i1 %cmp.i, label %if.then.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !43
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i32, ptr %12, align 8, !tbaa !47
+  %14 = icmp eq i32 %11, %13
+  br i1 %14, label %15, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
-if.then.i:                                        ; preds = %if.then
-  %tobool.not.i.i = icmp eq i32 %2, 0
-  %mul.i.i = shl nsw i32 %2, 1
-  %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
-  %cmp.i.i = icmp slt i32 %2, %cond.i.i
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+15:                                               ; preds = %9
+  %.not.i.i = icmp eq i32 %11, 0
+  %16 = shl nsw i32 %11, 1
+  %17 = select i1 %.not.i.i, i32 1, i32 %16
+  %18 = icmp slt i32 %11, %17
+  br i1 %18, label %19, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
-if.then.i.i:                                      ; preds = %if.then.i
-  %tobool.not.i.i.i = icmp eq i32 %cond.i.i, 0
-  br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i, label %if.then.i.i.i
+19:                                               ; preds = %15
+  %.not.i.i.i = icmp eq i32 %17, 0
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i, label %20
 
-if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %conv.i.i.i.i = sext i32 %cond.i.i to i64
-  %mul.i.i.i.i = shl nsw i64 %conv.i.i.i.i, 3
-  %call.i.i.i.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i.i, i32 noundef 16)
-  %.pre.i = load i32, ptr %m_size.i.i, align 4
+20:                                               ; preds = %19
+  %21 = sext i32 %17 to i64
+  %22 = shl nsw i64 %21, 3
+  %23 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %22, i32 noundef 16)
+  %.pre.i = load i32, ptr %10, align 4, !tbaa !43
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
-  %4 = phi i32 [ %.pre.i, %if.then.i.i.i ], [ %2, %if.then.i.i ]
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i ], [ null, %if.then.i.i ]
-  %cmp4.i.i.i = icmp sgt i32 %4, 0
-  br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %20, %19
+  %24 = phi i32 [ %.pre.i, %20 ], [ %11, %19 ]
+  %.0.i.i.i = phi ptr [ %23, %20 ], [ null, %19 ]
+  %25 = icmp sgt i32 %24, 0
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !48
+  br i1 %25, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
 
-for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
-  %wide.trip.count.i.i.i = zext nneg i32 %4 to i64
-  br label %for.body.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
+  %wide.trip.count.i.i.i = zext nneg i32 %24 to i64
+  br label %28
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
-  %5 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
-  %6 = load ptr, ptr %arrayidx3.i.i.i, align 8
-  store ptr %6, ptr %arrayidx.i.i.i, align 8
+28:                                               ; preds = %28, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %28 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i.i
+  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  store ptr %31, ptr %29, align 8, !tbaa !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %28, !llvm.loop !49
 
-_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
-  %7 = load ptr, ptr %m_data.i5.i.i, align 8
-  %tobool.not.i6.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i6.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %if.then.i7.i.i
+_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
+  %.not.i5.i.i = icmp eq ptr %27, null
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
 
-if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 24
-  %8 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %tobool2.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %28, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load i8, ptr %32, align 8, !tbaa !50, !range !25, !noundef !26
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %7)
+35:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %27)
+  %.pre2.pre.pre.i = load i32, ptr %10, align 4, !tbaa !43
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 24
-  store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
-  store i32 %cond.i.i, ptr %m_capacity.i.i, align 8
-  %.pre2.i = load i32, ptr %m_size.i.i, align 4
-  %.pre = load ptr, ptr %m_manifoldPtr, align 8
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %35, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  %.pre2.i = phi i32 [ %24, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %35 ], [ %24, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 1, ptr %36, align 8, !tbaa !50
+  store ptr %.0.i.i.i, ptr %26, align 8, !tbaa !48
+  store i32 %17, ptr %12, align 8, !tbaa !47
+  %.pre = load ptr, ptr %3, align 8, !tbaa !40
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %if.then, %if.then.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
-  %9 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %0, %if.then.i ], [ %0, %if.then ]
-  %10 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %2, %if.then.i ], [ %2, %if.then ]
-  %m_data.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
-  %11 = load ptr, ptr %m_data.i, align 8
-  %idxprom.i = sext i32 %10 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom.i
-  store ptr %9, ptr %arrayidx.i, align 8
-  %12 = load i32, ptr %m_size.i.i, align 4
-  %inc.i = add nsw i32 %12, 1
-  store i32 %inc.i, ptr %m_size.i.i, align 4
-  br label %if.end
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %9, %15, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %37 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %4, %15 ], [ %4, %9 ]
+  %38 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %11, %15 ], [ %11, %9 ]
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !48
+  %41 = sext i32 %38 to i64
+  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  store ptr %37, ptr %42, align 8, !tbaa !40
+  %43 = add nsw i32 %38, 1
+  store i32 %43, ptr %10, align 4, !tbaa !43
+  br label %44
 
-if.end:                                           ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %land.lhs.true, %entry
+44:                                               ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %5, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #10
 
 declare void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880), ptr noundef nonnull align 8 dereferenceable(204)) local_unnamed_addr #1
 
@@ -430,37 +431,74 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #10
+declare float @llvm.sqrt.f32(float) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold nofree noreturn }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"vtable pointer", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !14, i64 16}
+!8 = !{!"_ZTS32btSphereSphereCollisionAlgorithm", !9, i64 0, !14, i64 16, !15, i64 24}
+!9 = !{!"_ZTS30btActivatingCollisionAlgorithm", !10, i64 0}
+!10 = !{!"_ZTS20btCollisionAlgorithm", !11, i64 8}
+!11 = !{!"p1 _ZTS12btDispatcher", !12, i64 0}
+!12 = !{!"any pointer", !13, i64 0}
+!13 = !{!"omnipotent char", !6, i64 0}
+!14 = !{!"bool", !13, i64 0}
+!15 = !{!"p1 _ZTS20btPersistentManifold", !12, i64 0}
+!16 = !{!8, !15, i64 24}
+!17 = !{!10, !11, i64 8}
+!18 = !{!19, !22, i64 16}
+!19 = !{!"_ZTS24btCollisionObjectWrapper", !20, i64 0, !21, i64 8, !22, i64 16, !23, i64 24, !23, i64 32, !24, i64 40, !24, i64 44}
+!20 = !{!"p1 _ZTS24btCollisionObjectWrapper", !12, i64 0}
+!21 = !{!"p1 _ZTS16btCollisionShape", !12, i64 0}
+!22 = !{!"p1 _ZTS17btCollisionObject", !12, i64 0}
+!23 = !{!"p1 _ZTS11btTransform", !12, i64 0}
+!24 = !{!"int", !13, i64 0}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = !{!28, !15, i64 8}
+!28 = !{!"_ZTS16btManifoldResult", !29, i64 0, !15, i64 8, !20, i64 16, !20, i64 24, !24, i64 32, !24, i64 36, !24, i64 40, !24, i64 44, !30, i64 48}
+!29 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface6ResultE"}
+!30 = !{!"float", !13, i64 0}
+!31 = !{!19, !21, i64 8}
+!32 = !{!19, !23, i64 24}
+!33 = !{!30, !30, i64 0}
+!34 = !{!35, !24, i64 856}
+!35 = !{!"_ZTS20btPersistentManifold", !36, i64 0, !13, i64 8, !22, i64 840, !22, i64 848, !24, i64 856, !30, i64 860, !30, i64 864, !24, i64 868, !24, i64 872, !24, i64 876}
+!36 = !{!"_ZTS13btTypedObject", !24, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!12, !12, i64 0}
+!40 = !{!15, !15, i64 0}
+!41 = !{!28, !30, i64 48}
+!42 = !{!13, !13, i64 0}
+!43 = !{!44, !24, i64 4}
+!44 = !{!"_ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !45, i64 0, !24, i64 4, !24, i64 8, !46, i64 16, !14, i64 24}
+!45 = !{!"_ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE"}
+!46 = !{!"p2 _ZTS20btPersistentManifold", !12, i64 0}
+!47 = !{!44, !24, i64 8}
+!48 = !{!44, !46, i64 16}
+!49 = distinct !{!49, !38}
+!50 = !{!44, !14, i64 24}

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/bullet3/original/btTriangleIndexVertexArray.ll'
 source_filename = "bench/bullet3/original/btTriangleIndexVertexArray.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btIndexedMesh = type <{ i32, [4 x i8], ptr, i32, i32, ptr, i32, i32, i32, [4 x i8] }>
 
@@ -22,148 +22,145 @@ $_ZNK23btStridingMeshInterface28calculateSerializeBufferSizeEv = comdat any
 $__clang_call_terminate = comdat any
 
 @_ZTV26btTriangleIndexVertexArray = dso_local unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI26btTriangleIndexVertexArray, ptr @_ZN26btTriangleIndexVertexArrayD2Ev, ptr @_ZN26btTriangleIndexVertexArrayD0Ev, ptr @_ZNK23btStridingMeshInterface27InternalProcessAllTrianglesEP31btInternalTriangleIndexCallbackRK9btVector3S4_, ptr @_ZN26btTriangleIndexVertexArray24getLockedVertexIndexBaseEPPhRiR14PHY_ScalarTypeS2_S1_S2_S2_S4_i, ptr @_ZNK26btTriangleIndexVertexArray32getLockedReadOnlyVertexIndexBaseEPPKhRiR14PHY_ScalarTypeS3_S2_S3_S3_S5_i, ptr @_ZN26btTriangleIndexVertexArray16unLockVertexBaseEi, ptr @_ZNK26btTriangleIndexVertexArray24unLockReadOnlyVertexBaseEi, ptr @_ZNK26btTriangleIndexVertexArray14getNumSubPartsEv, ptr @_ZN26btTriangleIndexVertexArray19preallocateVerticesEi, ptr @_ZN26btTriangleIndexVertexArray18preallocateIndicesEi, ptr @_ZNK26btTriangleIndexVertexArray14hasPremadeAabbEv, ptr @_ZNK26btTriangleIndexVertexArray14setPremadeAabbERK9btVector3S2_, ptr @_ZNK26btTriangleIndexVertexArray14getPremadeAabbEP9btVector3S1_, ptr @_ZNK23btStridingMeshInterface28calculateSerializeBufferSizeEv, ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSerializer] }, align 8
+@_ZTI26btTriangleIndexVertexArray = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS26btTriangleIndexVertexArray, ptr @_ZTI23btStridingMeshInterface }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS26btTriangleIndexVertexArray = dso_local constant [29 x i8] c"26btTriangleIndexVertexArray\00", align 1
 @_ZTI23btStridingMeshInterface = external constant ptr
-@_ZTI26btTriangleIndexVertexArray = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS26btTriangleIndexVertexArray, ptr @_ZTI23btStridingMeshInterface }, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 @_ZN26btTriangleIndexVertexArrayC1EiPiiiPfi = dso_local unnamed_addr alias void (ptr, i32, ptr, i32, i32, ptr, i32), ptr @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi
 @_ZN26btTriangleIndexVertexArrayD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN26btTriangleIndexVertexArrayD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 24), (28, 36), (40, 49), (64, 68)) %this, i32 noundef %numTriangles, ptr noundef %triangleIndexBase, i32 noundef %triangleIndexStride, i32 noundef %numVertices, ptr noundef %vertexBase, i32 noundef %vertexStride) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont:
-  %m_scaling.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store float 1.000000e+00, ptr %m_scaling.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store float 1.000000e+00, ptr %arrayidx3.i.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store float 1.000000e+00, ptr %arrayidx5.i.i, align 8
-  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i32 0, ptr %m_capacity.i.i, align 8
-  %m_hasAabb = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i32 0, ptr %m_hasAabb, align 8
-  %call.i.i.i.i.i4 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 48, i32 noundef 16)
-          to label %call.i.i.i.i.i.noexc unwind label %lpad2
+define dso_local void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 24), (28, 36), (40, 49), (64, 68)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float 1.000000e+00, ptr %8, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float 1.000000e+00, ptr %9, align 4, !tbaa !4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float 1.000000e+00, ptr %10, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !4
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %0, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 1, ptr %12, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr null, ptr %13, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 0, ptr %14, align 4, !tbaa !18
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %15, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %16, align 8, !tbaa !20
+  %17 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 48, i32 noundef 16)
+          to label %.noexc unwind label %34
 
-call.i.i.i.i.i.noexc:                             ; preds = %invoke.cont
-  %.pre.i.i = load i32, ptr %m_size.i.i, align 4
-  %cmp4.i.i.i.i = icmp sgt i32 %.pre.i.i, 0
-  br i1 %cmp4.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
+.noexc:                                           ; preds = %7
+  %.pre.i.i = load i32, ptr %14, align 4, !tbaa !18
+  %18 = icmp sgt i32 %.pre.i.i, 0
+  br i1 %18, label %.lr.ph.i.i.i.i, label %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
 
-for.body.lr.ph.i.i.i.i:                           ; preds = %call.i.i.i.i.i.noexc
+.lr.ph.i.i.i.i:                                   ; preds = %.noexc
   %wide.trip.count.i.i.i.i = zext nneg i32 %.pre.i.i to i64
-  br label %for.body.i.i.i.i
+  br label %19
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %struct.btIndexedMesh, ptr %call.i.i.i.i.i4, i64 %indvars.iv.i.i.i.i
-  %0 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx3.i.i.i.i = getelementptr inbounds nuw %struct.btIndexedMesh, ptr %0, i64 %indvars.iv.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx3.i.i.i.i, i64 48, i1 false)
+19:                                               ; preds = %19, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %19 ]
+  %20 = getelementptr inbounds nuw %struct.btIndexedMesh, ptr %17, i64 %indvars.iv.i.i.i.i
+  %21 = load ptr, ptr %13, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw %struct.btIndexedMesh, ptr %21, i64 %indvars.iv.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !24
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i, label %19, !llvm.loop !30
 
-_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i: ; preds = %for.body.i.i.i.i, %call.i.i.i.i.i.noexc
-  %1 = load ptr, ptr %m_data.i.i, align 8
-  %tobool.not.i6.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i6.i.i.i, label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i, label %if.then.i7.i.i.i
+_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i: ; preds = %19, %.noexc
+  %23 = load ptr, ptr %13, align 8, !tbaa !17
+  %.not.i5.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i5.i.i.i, label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i, label %24
 
-if.then.i7.i.i.i:                                 ; preds = %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
-  %2 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %tobool2.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i
+24:                                               ; preds = %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
+  %25 = load i8, ptr %12, align 8, !tbaa !10, !range !32, !noundef !33
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i
 
-if.then3.i.i.i.i:                                 ; preds = %if.then.i7.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %1)
-          to label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i unwind label %lpad2
+27:                                               ; preds = %24
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %23)
+          to label %_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i unwind label %34
 
-_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i: ; preds = %if.then3.i.i.i.i, %if.then.i7.i.i.i, %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
-  store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr %call.i.i.i.i.i4, ptr %m_data.i.i, align 8
-  store i32 1, ptr %m_capacity.i.i, align 8
-  %.pre2.i.i = load i32, ptr %m_size.i.i, align 4
-  %3 = sext i32 %.pre2.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.btIndexedMesh, ptr %call.i.i.i.i.i4, i64 %3
-  store i32 %numTriangles, ptr %arrayidx.i.i, align 8
-  %mesh.sroa.25.0.arrayidx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
-  store ptr %triangleIndexBase, ptr %mesh.sroa.25.0.arrayidx.i.i.sroa_idx, align 8
-  %mesh.sroa.3.0.arrayidx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
-  store i32 %triangleIndexStride, ptr %mesh.sroa.3.0.arrayidx.i.i.sroa_idx, align 8
-  %mesh.sroa.4.0.arrayidx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 20
-  store i32 %numVertices, ptr %mesh.sroa.4.0.arrayidx.i.i.sroa_idx, align 4
-  %mesh.sroa.5.0.arrayidx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
-  store ptr %vertexBase, ptr %mesh.sroa.5.0.arrayidx.i.i.sroa_idx, align 8
-  %mesh.sroa.6.0.arrayidx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 32
-  store i32 %vertexStride, ptr %mesh.sroa.6.0.arrayidx.i.i.sroa_idx, align 8
-  %mesh.sroa.7.0.arrayidx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 36
-  store i32 2, ptr %mesh.sroa.7.0.arrayidx.i.i.sroa_idx, align 4
-  %mesh.sroa.8.0.arrayidx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 40
-  store i32 0, ptr %mesh.sroa.8.0.arrayidx.i.i.sroa_idx, align 8
-  %4 = load i32, ptr %m_size.i.i, align 4
-  %inc.i.i = add nsw i32 %4, 1
-  store i32 %inc.i.i, ptr %m_size.i.i, align 4
-  %5 = load ptr, ptr %m_data.i.i, align 8
-  %idxprom.i2.i = sext i32 %4 to i64
-  %m_indexType.i3 = getelementptr inbounds %struct.btIndexedMesh, ptr %5, i64 %idxprom.i2.i, i32 7
-  store i32 2, ptr %m_indexType.i3, align 4
+_ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i: ; preds = %27, %24, %_ZNK20btAlignedObjectArrayI13btIndexedMeshE4copyEiiPS0_.exit.i.i.i
+  store i8 1, ptr %12, align 8, !tbaa !10
+  store ptr %17, ptr %13, align 8, !tbaa !17
+  store i32 1, ptr %15, align 8, !tbaa !19
+  %.pre2.i.i = load i32, ptr %14, align 4, !tbaa !18
+  %28 = sext i32 %.pre2.i.i to i64
+  %29 = getelementptr inbounds %struct.btIndexedMesh, ptr %17, i64 %28
+  store i32 %1, ptr %29, align 8, !tbaa !25
+  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %2, ptr %.sroa.511.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i32 %3, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !25
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 20
+  store i32 %4, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !25
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store ptr %5, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !26
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store i32 %6, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !25
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 36
+  store i32 2, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !28
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 40
+  store i32 0, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !28
+  %30 = load i32, ptr %14, align 4, !tbaa !18
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %14, align 4, !tbaa !18
+  %32 = sext i32 %30 to i64
+  %33 = getelementptr inbounds %struct.btIndexedMesh, ptr %17, i64 %32, i32 7
+  store i32 2, ptr %33, align 4, !tbaa !34
   ret void
 
-lpad2:                                            ; preds = %if.then3.i.i.i.i, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+34:                                               ; preds = %27, %7
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %m_indexedMeshes = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_indexedMeshes) #10
-  tail call void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #10
-  resume { ptr, i32 } %6
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %36) #11
+  tail call void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
+  resume { ptr, i32 } %35
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %m_data.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %.not.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i, label %9, label %4
 
-if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %tobool2.i.i = trunc i8 %1 to i1
-  br i1 %tobool2.i.i, label %if.then3.i.i, label %invoke.cont
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load i8, ptr %5, align 8, !tbaa !10, !range !32, !noundef !33
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %8, label %9
 
-if.then3.i.i:                                     ; preds = %if.then.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
-          to label %invoke.cont unwind label %terminate.lpad
+8:                                                ; preds = %4
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
+          to label %9 unwind label %13
 
-invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %m_ownsMemory.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i8 1, ptr %m_ownsMemory.i1.i, align 8
-  store ptr null, ptr %m_data.i.i, align 8
-  store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 0, ptr %m_capacity.i.i, align 8
+9:                                                ; preds = %4, %1, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 1, ptr %11, align 8, !tbaa !10
+  store ptr null, ptr %2, align 8, !tbaa !17
+  store i32 0, ptr %10, align 4, !tbaa !18
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %12, align 8, !tbaa !19
   ret void
 
-terminate.lpad:                                   ; preds = %if.then3.i.i
-  %2 = landingpad { ptr, i32 }
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #11
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #12
   unreachable
 }
 
@@ -171,86 +168,84 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %m_data.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit, label %if.then.i.i.i
+define dso_local void @_ZN26btTriangleIndexVertexArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %0, align 8, !tbaa !8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %.not.i.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit, label %4
 
-if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %tobool2.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = load i8, ptr %5, align 8, !tbaa !10, !range !32, !noundef !33
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %8, label %_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit
 
-if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
-          to label %_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit unwind label %terminate.lpad.i
+8:                                                ; preds = %4
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
+          to label %_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit unwind label %9
 
-terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %2 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #12
   unreachable
 
-_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %m_ownsMemory.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
-  store ptr null, ptr %m_data.i.i.i, align 8
-  store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i32 0, ptr %m_capacity.i.i.i, align 8
-  tail call void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #10
+_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit: ; preds = %1, %4, %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 1, ptr %13, align 8, !tbaa !10
+  store ptr null, ptr %2, align 8, !tbaa !17
+  store i32 0, ptr %12, align 4, !tbaa !18
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %14, align 8, !tbaa !19
+  tail call void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %this, align 8
-  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %m_data.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN26btTriangleIndexVertexArrayD2Ev.exit, label %if.then.i.i.i.i
+define dso_local void @_ZN26btTriangleIndexVertexArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %0, align 8, !tbaa !8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %.not.i.i.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i.i.i, label %_ZN26btTriangleIndexVertexArrayD2Ev.exit, label %4
 
-if.then.i.i.i.i:                                  ; preds = %entry
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %1 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
-  %tobool2.i.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN26btTriangleIndexVertexArrayD2Ev.exit
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = load i8, ptr %5, align 8, !tbaa !10, !range !32, !noundef !33
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %8, label %_ZN26btTriangleIndexVertexArrayD2Ev.exit
 
-if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
-          to label %_ZN26btTriangleIndexVertexArrayD2Ev.exit unwind label %terminate.lpad.i.i
+8:                                                ; preds = %4
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
+          to label %_ZN26btTriangleIndexVertexArrayD2Ev.exit unwind label %9
 
-terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #11
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #12
   unreachable
 
-_ZN26btTriangleIndexVertexArrayD2Ev.exit:         ; preds = %entry, %if.then.i.i.i.i, %if.then3.i.i.i.i
-  %m_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %m_ownsMemory.i1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i8 1, ptr %m_ownsMemory.i1.i.i.i, align 8
-  store ptr null, ptr %m_data.i.i.i.i, align 8
-  store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) #10
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
-          to label %_ZN26btTriangleIndexVertexArraydlEPv.exit unwind label %terminate.lpad.i
+_ZN26btTriangleIndexVertexArrayD2Ev.exit:         ; preds = %1, %4, %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 1, ptr %13, align 8, !tbaa !10
+  store ptr null, ptr %2, align 8, !tbaa !17
+  store i32 0, ptr %12, align 4, !tbaa !18
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %14, align 8, !tbaa !19
+  tail call void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #11
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
+          to label %_ZN26btTriangleIndexVertexArraydlEPv.exit unwind label %15
 
-terminate.lpad.i:                                 ; preds = %_ZN26btTriangleIndexVertexArrayD2Ev.exit
-  %4 = landingpad { ptr, i32 }
+15:                                               ; preds = %_ZN26btTriangleIndexVertexArrayD2Ev.exit
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #11
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN26btTriangleIndexVertexArraydlEPv.exit:        ; preds = %_ZN26btTriangleIndexVertexArrayD2Ev.exit
@@ -258,89 +253,85 @@ _ZN26btTriangleIndexVertexArraydlEPv.exit:        ; preds = %_ZN26btTriangleInde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArray24getLockedVertexIndexBaseEPPhRiR14PHY_ScalarTypeS2_S1_S2_S2_S4_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %vertexbase, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %numverts, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %type, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %vertexStride, ptr noundef writeonly captures(none) initializes((0, 8)) %indexbase, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %indexstride, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %numfaces, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %indicestype, i32 noundef %subpart) unnamed_addr #3 align 2 {
-entry:
-  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %m_data.i, align 8
-  %idxprom.i = sext i32 %subpart to i64
-  %arrayidx.i = getelementptr inbounds %struct.btIndexedMesh, ptr %0, i64 %idxprom.i
-  %m_numVertices = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
-  %1 = load i32, ptr %m_numVertices, align 4
-  store i32 %1, ptr %numverts, align 4
-  %m_vertexBase = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
-  %2 = load ptr, ptr %m_vertexBase, align 8
-  store ptr %2, ptr %vertexbase, align 8
-  %m_vertexType = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
-  %3 = load i32, ptr %m_vertexType, align 8
-  store i32 %3, ptr %type, align 4
-  %m_vertexStride = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
-  %4 = load i32, ptr %m_vertexStride, align 8
-  store i32 %4, ptr %vertexStride, align 4
-  %5 = load i32, ptr %arrayidx.i, align 8
-  store i32 %5, ptr %numfaces, align 4
-  %m_triangleIndexBase = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %6 = load ptr, ptr %m_triangleIndexBase, align 8
-  store ptr %6, ptr %indexbase, align 8
-  %m_triangleIndexStride = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
-  %7 = load i32, ptr %m_triangleIndexStride, align 8
-  store i32 %7, ptr %indexstride, align 4
-  %m_indexType = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 36
-  %8 = load i32, ptr %m_indexType, align 4
-  store i32 %8, ptr %indicestype, align 4
+define dso_local void @_ZN26btTriangleIndexVertexArray24getLockedVertexIndexBaseEPPhRiR14PHY_ScalarTypeS2_S1_S2_S2_S4_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %7, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %8, i32 noundef %9) unnamed_addr #3 align 2 {
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %13 = sext i32 %9 to i64
+  %14 = getelementptr inbounds %struct.btIndexedMesh, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !36
+  store i32 %16, ptr %2, align 4, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !37
+  store ptr %18, ptr %1, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %20 = load i32, ptr %19, align 8, !tbaa !38
+  store i32 %20, ptr %3, align 4, !tbaa !28
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %22 = load i32, ptr %21, align 8, !tbaa !39
+  store i32 %22, ptr %4, align 4, !tbaa !25
+  %23 = load i32, ptr %14, align 8, !tbaa !40
+  store i32 %23, ptr %7, align 4, !tbaa !25
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !41
+  store ptr %25, ptr %5, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %27 = load i32, ptr %26, align 8, !tbaa !42
+  store i32 %27, ptr %6, align 4, !tbaa !25
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %29 = load i32, ptr %28, align 4, !tbaa !34
+  store i32 %29, ptr %8, align 4, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK26btTriangleIndexVertexArray32getLockedReadOnlyVertexIndexBaseEPPKhRiR14PHY_ScalarTypeS3_S2_S3_S3_S5_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %vertexbase, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %numverts, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %type, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %vertexStride, ptr noundef writeonly captures(none) initializes((0, 8)) %indexbase, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %indexstride, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %numfaces, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %indicestype, i32 noundef %subpart) unnamed_addr #3 align 2 {
-entry:
-  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %m_data.i, align 8
-  %idxprom.i = sext i32 %subpart to i64
-  %arrayidx.i = getelementptr inbounds %struct.btIndexedMesh, ptr %0, i64 %idxprom.i
-  %m_numVertices = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
-  %1 = load i32, ptr %m_numVertices, align 4
-  store i32 %1, ptr %numverts, align 4
-  %m_vertexBase = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
-  %2 = load ptr, ptr %m_vertexBase, align 8
-  store ptr %2, ptr %vertexbase, align 8
-  %m_vertexType = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
-  %3 = load i32, ptr %m_vertexType, align 8
-  store i32 %3, ptr %type, align 4
-  %m_vertexStride = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
-  %4 = load i32, ptr %m_vertexStride, align 8
-  store i32 %4, ptr %vertexStride, align 4
-  %5 = load i32, ptr %arrayidx.i, align 8
-  store i32 %5, ptr %numfaces, align 4
-  %m_triangleIndexBase = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %6 = load ptr, ptr %m_triangleIndexBase, align 8
-  store ptr %6, ptr %indexbase, align 8
-  %m_triangleIndexStride = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
-  %7 = load i32, ptr %m_triangleIndexStride, align 8
-  store i32 %7, ptr %indexstride, align 4
-  %m_indexType = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 36
-  %8 = load i32, ptr %m_indexType, align 4
-  store i32 %8, ptr %indicestype, align 4
+define dso_local void @_ZNK26btTriangleIndexVertexArray32getLockedReadOnlyVertexIndexBaseEPPKhRiR14PHY_ScalarTypeS3_S2_S3_S3_S5_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %7, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %8, i32 noundef %9) unnamed_addr #3 align 2 {
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %13 = sext i32 %9 to i64
+  %14 = getelementptr inbounds %struct.btIndexedMesh, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !36
+  store i32 %16, ptr %2, align 4, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %18 = load ptr, ptr %17, align 8, !tbaa !37
+  store ptr %18, ptr %1, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %20 = load i32, ptr %19, align 8, !tbaa !38
+  store i32 %20, ptr %3, align 4, !tbaa !28
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %22 = load i32, ptr %21, align 8, !tbaa !39
+  store i32 %22, ptr %4, align 4, !tbaa !25
+  %23 = load i32, ptr %14, align 8, !tbaa !40
+  store i32 %23, ptr %7, align 4, !tbaa !25
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !41
+  store ptr %25, ptr %5, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %27 = load i32, ptr %26, align 8, !tbaa !42
+  store i32 %27, ptr %6, align 4, !tbaa !25
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %29 = load i32, ptr %28, align 4, !tbaa !34
+  store i32 %29, ptr %8, align 4, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK26btTriangleIndexVertexArray14hasPremadeAabbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this) unnamed_addr #4 align 2 {
-entry:
-  %m_hasAabb = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load i32, ptr %m_hasAabb, align 8
-  %cmp = icmp eq i32 %0, 1
-  ret i1 %cmp
+define dso_local noundef zeroext i1 @_ZNK26btTriangleIndexVertexArray14hasPremadeAabbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0) unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load i32, ptr %2, align 8, !tbaa !20
+  %4 = icmp eq i32 %3, 1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK26btTriangleIndexVertexArray14setPremadeAabbERK9btVector3S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(100) initializes((64, 100)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %aabbMin, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %aabbMax) unnamed_addr #5 align 2 {
-entry:
-  %m_aabbMin = getelementptr inbounds nuw i8, ptr %this, i64 68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
-  %m_aabbMax = getelementptr inbounds nuw i8, ptr %this, i64 84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMax, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, i64 16, i1 false)
-  %m_hasAabb = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i32 1, ptr %m_hasAabb, align 8
+define dso_local void @_ZNK26btTriangleIndexVertexArray14setPremadeAabbERK9btVector3S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(100) initializes((64, 100)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #5 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !43
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !43
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 1, ptr %6, align 8, !tbaa !20
   ret void
 }
 
@@ -348,52 +339,45 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK26btTriangleIndexVertexArray14getPremadeAabbEP9btVector3S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %aabbMin, ptr noundef writeonly captures(none) initializes((0, 16)) %aabbMax) unnamed_addr #5 align 2 {
-entry:
-  %m_aabbMin = getelementptr inbounds nuw i8, ptr %this, i64 68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, i64 16, i1 false)
-  %m_aabbMax = getelementptr inbounds nuw i8, ptr %this, i64 84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMax, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMax, i64 16, i1 false)
+define dso_local void @_ZNK26btTriangleIndexVertexArray14getPremadeAabbEP9btVector3S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) unnamed_addr #5 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !43
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !43
   ret void
 }
 
 declare void @_ZNK23btStridingMeshInterface27InternalProcessAllTrianglesEP31btInternalTriangleIndexCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN26btTriangleIndexVertexArray16unLockVertexBaseEi(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %subpart) unnamed_addr #1 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN26btTriangleIndexVertexArray16unLockVertexBaseEi(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK26btTriangleIndexVertexArray24unLockReadOnlyVertexBaseEi(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %subpart) unnamed_addr #1 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZNK26btTriangleIndexVertexArray24unLockReadOnlyVertexBaseEi(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK26btTriangleIndexVertexArray14getNumSubPartsEv(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %0 = load i32, ptr %m_size.i, align 4
-  ret i32 %0
+define linkonce_odr dso_local noundef i32 @_ZNK26btTriangleIndexVertexArray14getNumSubPartsEv(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #1 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %3 = load i32, ptr %2, align 4, !tbaa !18
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN26btTriangleIndexVertexArray19preallocateVerticesEi(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %numverts) unnamed_addr #1 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN26btTriangleIndexVertexArray19preallocateVerticesEi(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN26btTriangleIndexVertexArray18preallocateIndicesEi(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %numindices) unnamed_addr #1 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN26btTriangleIndexVertexArray18preallocateIndicesEi(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK23btStridingMeshInterface28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
-entry:
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK23btStridingMeshInterface28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
   ret i32 32
 }
 
@@ -403,37 +387,76 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #11
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"float", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"vtable pointer", !7, i64 0}
+!10 = !{!11, !16, i64 24}
+!11 = !{!"_ZTS20btAlignedObjectArrayI13btIndexedMeshE", !12, i64 0, !13, i64 4, !13, i64 8, !14, i64 16, !16, i64 24}
+!12 = !{!"_ZTS18btAlignedAllocatorI13btIndexedMeshLj16EE"}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!"p1 _ZTS13btIndexedMesh", !15, i64 0}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!"bool", !6, i64 0}
+!17 = !{!11, !14, i64 16}
+!18 = !{!11, !13, i64 4}
+!19 = !{!11, !13, i64 8}
+!20 = !{!21, !13, i64 64}
+!21 = !{!"_ZTS26btTriangleIndexVertexArray", !22, i64 0, !11, i64 24, !6, i64 56, !13, i64 64, !23, i64 68, !23, i64 84}
+!22 = !{!"_ZTS23btStridingMeshInterface", !23, i64 8}
+!23 = !{!"_ZTS9btVector3", !6, i64 0}
+!24 = !{i64 0, i64 4, !25, i64 8, i64 8, !26, i64 16, i64 4, !25, i64 20, i64 4, !25, i64 24, i64 8, !26, i64 32, i64 4, !25, i64 36, i64 4, !28, i64 40, i64 4, !28}
+!25 = !{!13, !13, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 omnipotent char", !15, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"_ZTS14PHY_ScalarType", !6, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = !{i8 0, i8 2}
+!33 = !{}
+!34 = !{!35, !29, i64 36}
+!35 = !{!"_ZTS13btIndexedMesh", !13, i64 0, !27, i64 8, !13, i64 16, !13, i64 20, !27, i64 24, !13, i64 32, !29, i64 36, !29, i64 40}
+!36 = !{!35, !13, i64 20}
+!37 = !{!35, !27, i64 24}
+!38 = !{!35, !29, i64 40}
+!39 = !{!35, !13, i64 32}
+!40 = !{!35, !13, i64 0}
+!41 = !{!35, !27, i64 8}
+!42 = !{!35, !13, i64 16}
+!43 = !{i64 0, i64 16, !44}
+!44 = !{!6, !6, i64 0}

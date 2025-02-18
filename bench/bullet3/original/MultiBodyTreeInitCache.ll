@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
@@ -9,15 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.btInverseDynamicsBullet3::mat33" = type { %class.btMatrix3x3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %"struct.btInverseDynamicsBullet3::JointData" = type { i32, i32, i32, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3" }
-%"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache" = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.0, i32, [4 x i8], %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.8, i32, [4 x i8] }
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
-%class.b3AlignedObjectArray.0 = type <{ %class.b3AlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.1 = type { i8 }
-%class.b3AlignedObjectArray.4 = type <{ %class.b3AlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.5 = type { i8 }
-%class.b3AlignedObjectArray.8 = type <{ %class.b3AlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.9 = type { i8 }
+%"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache" = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.0, i32, [4 x i8], %class.b3AlignedObjectArray.2, %class.b3AlignedObjectArray.2, %class.b3AlignedObjectArray.4, i32, [4 x i8] }
+%class.b3AlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.b3AlignedObjectArray.0 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.b3AlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.b3AlignedObjectArray.4 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 
 $_ZN18btInfMaskConverterC2Ei = comdat any
 
@@ -221,1639 +217,1665 @@ $_ZN18b3AlignedAllocatorIPvLj16EE8allocateEiPPKS0_ = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(172) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp = alloca %"struct.btInverseDynamicsBullet3::InertiaData", align 4
-  %ref.tmp13 = alloca %"struct.btInverseDynamicsBullet3::JointData", align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_inertias = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 0
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_inertias)
-  %m_joints = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 1
-  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_joints)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(172) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %"struct.btInverseDynamicsBullet3::InertiaData", align 4
+  %6 = alloca %"struct.btInverseDynamicsBullet3::JointData", align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 0
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  %9 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 1
+  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9)
+          to label %10 unwind label %25
 
-invoke.cont:                                      ; preds = %entry
-  %m_parent_index = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 4
-  invoke void @_ZN20b3AlignedObjectArrayIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_parent_index)
-          to label %invoke.cont3 unwind label %lpad2
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 4
+  invoke void @_ZN20b3AlignedObjectArrayIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11)
+          to label %12 unwind label %29
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  %m_user_int = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 5
-  invoke void @_ZN20b3AlignedObjectArrayIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_user_int)
-          to label %invoke.cont5 unwind label %lpad4
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 5
+  invoke void @_ZN20b3AlignedObjectArrayIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %13)
+          to label %14 unwind label %33
 
-invoke.cont5:                                     ; preds = %invoke.cont3
-  %m_user_ptr = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 6
-  invoke void @_ZN20b3AlignedObjectArrayIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_user_ptr)
-          to label %invoke.cont7 unwind label %lpad6
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 6
+  invoke void @_ZN20b3AlignedObjectArrayIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %15)
+          to label %16 unwind label %37
 
-invoke.cont7:                                     ; preds = %invoke.cont5
-  %m_inertias8 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 4 %ref.tmp, i8 0, i64 68, i1 false)
-  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2Ev(ptr noundef nonnull align 4 dereferenceable(68) %ref.tmp)
-          to label %invoke.cont10 unwind label %lpad9
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 68, ptr %5) #10
+  call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 68, i1 false)
+  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2Ev(ptr noundef nonnull align 4 dereferenceable(68) %5)
+          to label %18 unwind label %41
 
-invoke.cont10:                                    ; preds = %invoke.cont7
-  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %m_inertias8, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(68) %ref.tmp)
-          to label %invoke.cont11 unwind label %lpad9
+18:                                               ; preds = %16
+  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %17, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(68) %5)
+          to label %19 unwind label %41
 
-invoke.cont11:                                    ; preds = %invoke.cont10
-  %m_joints12 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 4 %ref.tmp13, i8 0, i64 92, i1 false)
-  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2Ev(ptr noundef nonnull align 4 dereferenceable(92) %ref.tmp13)
-          to label %invoke.cont14 unwind label %lpad9
+19:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 68, ptr %5) #10
+  %20 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 92, ptr %6) #10
+  call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 92, i1 false)
+  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2Ev(ptr noundef nonnull align 4 dereferenceable(92) %6)
+          to label %21 unwind label %45
 
-invoke.cont14:                                    ; preds = %invoke.cont11
-  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %m_joints12, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(92) %ref.tmp13)
-          to label %invoke.cont15 unwind label %lpad9
+21:                                               ; preds = %19
+  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %20, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(92) %6)
+          to label %22 unwind label %45
 
-invoke.cont15:                                    ; preds = %invoke.cont14
-  %m_num_dofs = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_num_dofs, align 8
-  %m_root_index = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 7
-  store i32 -1, ptr %m_root_index, align 8
+22:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 92, ptr %6) #10
+  %23 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 2
+  store i32 0, ptr %23, align 8, !tbaa !14
+  %24 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i32 0, i32 7
+  store i32 -1, ptr %24, align 8, !tbaa !28
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+25:                                               ; preds = %1
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup18
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %3, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %4, align 4
+  br label %53
 
-lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup17
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %3, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %4, align 4
+  br label %52
 
-lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+33:                                               ; preds = %12
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  br label %ehcleanup16
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %3, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %4, align 4
+  br label %51
 
-lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+37:                                               ; preds = %14
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %3, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %4, align 4
+  br label %50
 
-lpad9:                                            ; preds = %invoke.cont14, %invoke.cont11, %invoke.cont10, %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+41:                                               ; preds = %18, %16
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  call void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_user_ptr) #7
-  br label %ehcleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %3, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 68, ptr %5) #10
+  br label %49
 
-ehcleanup:                                        ; preds = %lpad9, %lpad6
-  call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_user_int) #7
-  br label %ehcleanup16
+45:                                               ; preds = %21, %19
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %3, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 92, ptr %6) #10
+  br label %49
 
-ehcleanup16:                                      ; preds = %ehcleanup, %lpad4
-  call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_parent_index) #7
-  br label %ehcleanup17
+49:                                               ; preds = %45, %41
+  call void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %15) #10
+  br label %50
 
-ehcleanup17:                                      ; preds = %ehcleanup16, %lpad2
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_joints) #7
-  br label %ehcleanup18
+50:                                               ; preds = %49, %37
+  call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %13) #10
+  br label %51
 
-ehcleanup18:                                      ; preds = %ehcleanup17, %lpad
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_inertias) #7
-  br label %eh.resume
+51:                                               ; preds = %50, %33
+  call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #10
+  br label %52
 
-eh.resume:                                        ; preds = %ehcleanup18
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val19 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val19
+52:                                               ; preds = %51, %29
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9) #10
+  br label %53
+
+53:                                               ; preds = %52, %25
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #10
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %3, align 8
+  %56 = load i32, ptr %4, align 4
+  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
+  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
+  resume { ptr, i32 } %58
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 0
-  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 0
-  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 0
-  call void @_ZN18b3AlignedAllocatorIiLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20b3AlignedObjectArrayIiE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18b3AlignedAllocatorIiLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20b3AlignedObjectArrayIiE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 0
-  call void @_ZN18b3AlignedAllocatorIPvLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20b3AlignedObjectArrayIPvE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18b3AlignedAllocatorIPvLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20b3AlignedObjectArrayIPvE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 4 dereferenceable(68) %fillData) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i6 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(68) %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !37
+  %12 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %13 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %12)
+  store i32 %13, ptr %7, align 4, !tbaa !9
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %17, label %29
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %18, ptr %8, align 4, !tbaa !9
+  br label %19
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+19:                                               ; preds = %25, %17
+  %20 = load i32, ptr %8, align 4, !tbaa !9
+  %21 = load i32, ptr %7, align 4, !tbaa !9
+  %22 = icmp slt i32 %20, %21
+  br i1 %22, label %24, label %23
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+23:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  br label %28
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+24:                                               ; preds = %19
+  br label %25
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end17
+25:                                               ; preds = %24
+  %26 = load i32, ptr %8, align 4, !tbaa !9
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %8, align 4, !tbaa !9
+  br label %19, !llvm.loop !38
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %call3 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp4 = icmp sgt i32 %6, %call3
-  br i1 %cmp4, label %if.then5, label %if.end
+28:                                               ; preds = %23
+  br label %59
 
-if.then5:                                         ; preds = %if.else
-  %7 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %7)
-  br label %if.end
+29:                                               ; preds = %3
+  %30 = load i32, ptr %5, align 4, !tbaa !9
+  %31 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %12)
+  %32 = icmp sgt i32 %30, %31
+  br i1 %32, label %33, label %35
 
-if.end:                                           ; preds = %if.then5, %if.else
-  %8 = load i32, ptr %curSize, align 4
-  store i32 %8, ptr %i6, align 4
-  br label %for.cond7
+33:                                               ; preds = %29
+  %34 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %12, i32 noundef %34)
+  br label %35
 
-for.cond7:                                        ; preds = %for.inc14, %if.end
-  %9 = load i32, ptr %i6, align 4
-  %10 = load i32, ptr %newsize.addr, align 4
-  %cmp8 = icmp slt i32 %9, %10
-  br i1 %cmp8, label %for.body9, label %for.end16
+35:                                               ; preds = %33, %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %36 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %36, ptr %9, align 4, !tbaa !9
+  br label %37
 
-for.body9:                                        ; preds = %for.cond7
-  %m_data10 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  %11 = load ptr, ptr %m_data10, align 8
-  %12 = load i32, ptr %i6, align 4
-  %idxprom11 = sext i32 %12 to i64
-  %arrayidx12 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %11, i64 %idxprom11
-  %call13 = call noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef 68, ptr noundef %arrayidx12)
-  %13 = load ptr, ptr %fillData.addr, align 8
-  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %call13, ptr noundef nonnull align 4 dereferenceable(68) %13)
-          to label %invoke.cont unwind label %lpad
+37:                                               ; preds = %51, %35
+  %38 = load i32, ptr %9, align 4, !tbaa !9
+  %39 = load i32, ptr %5, align 4, !tbaa !9
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %42, label %41
 
-invoke.cont:                                      ; preds = %for.body9
-  br label %for.inc14
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %58
 
-for.inc14:                                        ; preds = %invoke.cont
-  %14 = load i32, ptr %i6, align 4
-  %inc15 = add nsw i32 %14, 1
-  store i32 %inc15, ptr %i6, align 4
-  br label %for.cond7, !llvm.loop !7
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %12, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8, !tbaa !40
+  %45 = load i32, ptr %9, align 4, !tbaa !9
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %44, i64 %46
+  %48 = call noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef 68, ptr noundef %47)
+  %49 = load ptr, ptr %6, align 8, !tbaa !37
+  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %48, ptr noundef nonnull align 4 dereferenceable(68) %49)
+          to label %50 unwind label %54
 
-lpad:                                             ; preds = %for.body9
-  %15 = landingpad { ptr, i32 }
+50:                                               ; preds = %42
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load i32, ptr %9, align 4, !tbaa !9
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %9, align 4, !tbaa !9
+  br label %37, !llvm.loop !41
+
+54:                                               ; preds = %42
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  call void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %call13, ptr noundef %arrayidx12) #7
-  br label %eh.resume
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %10, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %11, align 4
+  call void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %48, ptr noundef %47) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  br label %62
 
-for.end16:                                        ; preds = %for.cond7
-  br label %if.end17
+58:                                               ; preds = %41
+  br label %59
 
-if.end17:                                         ; preds = %for.end16, %for.end
-  %18 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 2
-  store i32 %18, ptr %m_size, align 4
+59:                                               ; preds = %58, %28
+  %60 = load i32, ptr %5, align 4, !tbaa !9
+  %61 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %12, i32 0, i32 1
+  store i32 %60, ptr %61, align 4, !tbaa !42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val18 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val18
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %10, align 8
+  %64 = load i32, ptr %11, align 4
+  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
+  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
+  resume { ptr, i32 } %66
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet311InertiaDataC2Ev(ptr noundef nonnull align 4 dereferenceable(68) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_body_pos_body_com = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %this1, i32 0, i32 1
-  call void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_body_pos_body_com)
-  %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %this1, i32 0, i32 2
-  call void @_ZN24btInverseDynamicsBullet35mat33C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet311InertiaDataC2Ev(ptr noundef nonnull align 4 dereferenceable(68) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %3, i32 0, i32 1
+  call void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %5 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %3, i32 0, i32 2
+  call void @_ZN24btInverseDynamicsBullet35mat33C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %5)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 4 dereferenceable(92) %fillData) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i6 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(92) %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !43
+  %12 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %13 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %12)
+  store i32 %13, ptr %7, align 4, !tbaa !9
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %17, label %29
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %18, ptr %8, align 4, !tbaa !9
+  br label %19
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+19:                                               ; preds = %25, %17
+  %20 = load i32, ptr %8, align 4, !tbaa !9
+  %21 = load i32, ptr %7, align 4, !tbaa !9
+  %22 = icmp slt i32 %20, %21
+  br i1 %22, label %24, label %23
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+23:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  br label %28
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end17
+24:                                               ; preds = %19
+  br label %25
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %call3 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp4 = icmp sgt i32 %6, %call3
-  br i1 %cmp4, label %if.then5, label %if.end
+25:                                               ; preds = %24
+  %26 = load i32, ptr %8, align 4, !tbaa !9
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %8, align 4, !tbaa !9
+  br label %19, !llvm.loop !44
 
-if.then5:                                         ; preds = %if.else
-  %7 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %7)
-  br label %if.end
+28:                                               ; preds = %23
+  br label %59
 
-if.end:                                           ; preds = %if.then5, %if.else
-  %8 = load i32, ptr %curSize, align 4
-  store i32 %8, ptr %i6, align 4
-  br label %for.cond7
+29:                                               ; preds = %3
+  %30 = load i32, ptr %5, align 4, !tbaa !9
+  %31 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %12)
+  %32 = icmp sgt i32 %30, %31
+  br i1 %32, label %33, label %35
 
-for.cond7:                                        ; preds = %for.inc14, %if.end
-  %9 = load i32, ptr %i6, align 4
-  %10 = load i32, ptr %newsize.addr, align 4
-  %cmp8 = icmp slt i32 %9, %10
-  br i1 %cmp8, label %for.body9, label %for.end16
+33:                                               ; preds = %29
+  %34 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %12, i32 noundef %34)
+  br label %35
 
-for.body9:                                        ; preds = %for.cond7
-  %m_data10 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %11 = load ptr, ptr %m_data10, align 8
-  %12 = load i32, ptr %i6, align 4
-  %idxprom11 = sext i32 %12 to i64
-  %arrayidx12 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %11, i64 %idxprom11
-  %call13 = call noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef 92, ptr noundef %arrayidx12)
-  %13 = load ptr, ptr %fillData.addr, align 8
-  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %call13, ptr noundef nonnull align 4 dereferenceable(92) %13)
-          to label %invoke.cont unwind label %lpad
+35:                                               ; preds = %33, %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %36 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %36, ptr %9, align 4, !tbaa !9
+  br label %37
 
-invoke.cont:                                      ; preds = %for.body9
-  br label %for.inc14
+37:                                               ; preds = %51, %35
+  %38 = load i32, ptr %9, align 4, !tbaa !9
+  %39 = load i32, ptr %5, align 4, !tbaa !9
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %42, label %41
 
-for.inc14:                                        ; preds = %invoke.cont
-  %14 = load i32, ptr %i6, align 4
-  %inc15 = add nsw i32 %14, 1
-  store i32 %inc15, ptr %i6, align 4
-  br label %for.cond7, !llvm.loop !9
+41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %58
 
-lpad:                                             ; preds = %for.body9
-  %15 = landingpad { ptr, i32 }
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %12, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8, !tbaa !45
+  %45 = load i32, ptr %9, align 4, !tbaa !9
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %44, i64 %46
+  %48 = call noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef 92, ptr noundef %47)
+  %49 = load ptr, ptr %6, align 8, !tbaa !43
+  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %48, ptr noundef nonnull align 4 dereferenceable(92) %49)
+          to label %50 unwind label %54
+
+50:                                               ; preds = %42
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load i32, ptr %9, align 4, !tbaa !9
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %9, align 4, !tbaa !9
+  br label %37, !llvm.loop !46
+
+54:                                               ; preds = %42
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  call void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %call13, ptr noundef %arrayidx12) #7
-  br label %eh.resume
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %10, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %11, align 4
+  call void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %48, ptr noundef %47) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  br label %62
 
-for.end16:                                        ; preds = %for.cond7
-  br label %if.end17
+58:                                               ; preds = %41
+  br label %59
 
-if.end17:                                         ; preds = %for.end16, %for.end
-  %18 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  store i32 %18, ptr %m_size, align 4
+59:                                               ; preds = %58, %28
+  %60 = load i32, ptr %5, align 4, !tbaa !9
+  %61 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %12, i32 0, i32 1
+  store i32 %60, ptr %61, align 4, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val18 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val18
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %10, align 8
+  %64 = load i32, ptr %11, align 4
+  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
+  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
+  resume { ptr, i32 } %66
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39JointDataC2Ev(ptr noundef nonnull align 4 dereferenceable(92) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_parent_pos_parent_child_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 3
-  call void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_child_ref)
-  %m_child_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 4
-  call void @_ZN24btInverseDynamicsBullet35mat33C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref)
-  %m_child_axis_of_motion = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 5
-  call void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_child_axis_of_motion)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39JointDataC2Ev(ptr noundef nonnull align 4 dereferenceable(92) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %3, i32 0, i32 3
+  call void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %5 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %3, i32 0, i32 4
+  call void @_ZN24btInverseDynamicsBullet35mat33C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %5)
+  %6 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %3, i32 0, i32 5
+  call void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20b3AlignedObjectArrayIPvE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20b3AlignedObjectArrayIPvE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20b3AlignedObjectArrayIiE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20b3AlignedObjectArrayIiE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %body_index, i32 noundef %parent_index, i32 noundef %joint_type, ptr noundef nonnull align 4 dereferenceable(16) %parent_r_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(48) %body_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(16) %body_axis_of_motion, float noundef %mass, ptr noundef nonnull align 4 dereferenceable(16) %body_r_body_com, ptr noundef nonnull align 4 dereferenceable(48) %body_I_body, i32 noundef %user_int, ptr noundef %user_ptr) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %body_index.addr = alloca i32, align 4
-  %parent_index.addr = alloca i32, align 4
-  %joint_type.addr = alloca i32, align 4
-  %parent_r_parent_body_ref.addr = alloca ptr, align 8
-  %body_T_parent_ref.addr = alloca ptr, align 8
-  %body_axis_of_motion.addr = alloca ptr, align 8
-  %mass.addr = alloca float, align 4
-  %body_r_body_com.addr = alloca ptr, align 8
-  %body_I_body.addr = alloca ptr, align 8
-  %user_int.addr = alloca i32, align 4
-  %user_ptr.addr = alloca ptr, align 8
-  %joint = alloca %"struct.btInverseDynamicsBullet3::JointData", align 4
-  %body = alloca %"struct.btInverseDynamicsBullet3::InertiaData", align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %body_index, ptr %body_index.addr, align 4
-  store i32 %parent_index, ptr %parent_index.addr, align 4
-  store i32 %joint_type, ptr %joint_type.addr, align 4
-  store ptr %parent_r_parent_body_ref, ptr %parent_r_parent_body_ref.addr, align 8
-  store ptr %body_T_parent_ref, ptr %body_T_parent_ref.addr, align 8
-  store ptr %body_axis_of_motion, ptr %body_axis_of_motion.addr, align 8
-  store float %mass, ptr %mass.addr, align 4
-  store ptr %body_r_body_com, ptr %body_r_body_com.addr, align 8
-  store ptr %body_I_body, ptr %body_I_body.addr, align 8
-  store i32 %user_int, ptr %user_int.addr, align 4
-  store ptr %user_ptr, ptr %user_ptr.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %joint_type.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb
-    i32 0, label %sw.bb2
-    i32 4, label %sw.bb3
-    i32 3, label %sw.bb6
+define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, float noundef %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(48) %9, i32 noundef %10, ptr noundef %11) #2 align 2 {
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca float, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca ptr, align 8
+  %26 = alloca %"struct.btInverseDynamicsBullet3::JointData", align 4
+  %27 = alloca %"struct.btInverseDynamicsBullet3::InertiaData", align 4
+  store ptr %0, ptr %14, align 8, !tbaa !12
+  store i32 %1, ptr %15, align 4, !tbaa !9
+  store i32 %2, ptr %16, align 4, !tbaa !9
+  store i32 %3, ptr %17, align 4, !tbaa !48
+  store ptr %4, ptr %18, align 8, !tbaa !50
+  store ptr %5, ptr %19, align 8, !tbaa !52
+  store ptr %6, ptr %20, align 8, !tbaa !50
+  store float %7, ptr %21, align 4, !tbaa !54
+  store ptr %8, ptr %22, align 8, !tbaa !50
+  store ptr %9, ptr %23, align 8, !tbaa !52
+  store i32 %10, ptr %24, align 4, !tbaa !9
+  store ptr %11, ptr %25, align 8, !tbaa !56
+  %28 = load ptr, ptr %14, align 8
+  %29 = load i32, ptr %17, align 4, !tbaa !48
+  switch i32 %29, label %42 [
+    i32 1, label %30
+    i32 2, label %30
+    i32 0, label %46
+    i32 4, label %34
+    i32 3, label %38
   ]
 
-sw.bb:                                            ; preds = %entry, %entry
-  %m_num_dofs = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %m_num_dofs, align 8
-  %add = add nsw i32 %1, 1
-  store i32 %add, ptr %m_num_dofs, align 8
-  br label %sw.epilog
+30:                                               ; preds = %12, %12
+  %31 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 2
+  %32 = load i32, ptr %31, align 8, !tbaa !14
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %31, align 8, !tbaa !14
+  br label %46
 
-sw.bb2:                                           ; preds = %entry
-  br label %sw.epilog
+34:                                               ; preds = %12
+  %35 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 2
+  %36 = load i32, ptr %35, align 8, !tbaa !14
+  %37 = add nsw i32 %36, 3
+  store i32 %37, ptr %35, align 8, !tbaa !14
+  br label %46
 
-sw.bb3:                                           ; preds = %entry
-  %m_num_dofs4 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_num_dofs4, align 8
-  %add5 = add nsw i32 %2, 3
-  store i32 %add5, ptr %m_num_dofs4, align 8
-  br label %sw.epilog
+38:                                               ; preds = %12
+  %39 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 2
+  %40 = load i32, ptr %39, align 8, !tbaa !14
+  %41 = add nsw i32 %40, 6
+  store i32 %41, ptr %39, align 8, !tbaa !14
+  br label %46
 
-sw.bb6:                                           ; preds = %entry
-  %m_num_dofs7 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 2
-  %3 = load i32, ptr %m_num_dofs7, align 8
-  %add8 = add nsw i32 %3, 6
-  store i32 %add8, ptr %m_num_dofs7, align 8
-  br label %sw.epilog
+42:                                               ; preds = %12
+  br label %43
 
-sw.default:                                       ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %sw.default
+43:                                               ; preds = %42
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 38)
-  %4 = load i32, ptr %joint_type.addr, align 4
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.2, i32 noundef %4)
-  br label %do.end
+  %44 = load i32, ptr %17, align 4, !tbaa !48
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.2, i32 noundef %44)
+  br label %45
 
-do.end:                                           ; preds = %do.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %43
+  store i32 -1, ptr %13, align 4
+  br label %87
 
-sw.epilog:                                        ; preds = %sw.bb6, %sw.bb3, %sw.bb2, %sw.bb
-  %5 = load i32, ptr %parent_index.addr, align 4
-  %cmp = icmp eq i32 -1, %5
-  br i1 %cmp, label %if.then, label %if.end15
+46:                                               ; preds = %38, %34, %12, %30
+  %47 = load i32, ptr %16, align 4, !tbaa !9
+  %48 = icmp eq i32 -1, %47
+  br i1 %48, label %49, label %62
 
-if.then:                                          ; preds = %sw.epilog
-  %m_root_index = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 7
-  %6 = load i32, ptr %m_root_index, align 8
-  %cmp9 = icmp sge i32 %6, 0
-  br i1 %cmp9, label %if.then10, label %if.end
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 7
+  %51 = load i32, ptr %50, align 8, !tbaa !28
+  %52 = icmp sge i32 %51, 0
+  br i1 %52, label %53, label %59
 
-if.then10:                                        ; preds = %if.then
-  br label %do.body11
+53:                                               ; preds = %49
+  br label %54
 
-do.body11:                                        ; preds = %if.then10
+54:                                               ; preds = %53
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 47)
-  %7 = load i32, ptr %body_index.addr, align 4
-  %m_root_index12 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 7
-  %8 = load i32, ptr %m_root_index12, align 8
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.3, i32 noundef %7, i32 noundef %8)
-  br label %do.end13
+  %55 = load i32, ptr %15, align 4, !tbaa !9
+  %56 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 7
+  %57 = load i32, ptr %56, align 8, !tbaa !28
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.3, i32 noundef %55, i32 noundef %57)
+  br label %58
 
-do.end13:                                         ; preds = %do.body11
-  store i32 -1, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %54
+  store i32 -1, ptr %13, align 4
+  br label %87
 
-if.end:                                           ; preds = %if.then
-  %9 = load i32, ptr %body_index.addr, align 4
-  %m_root_index14 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 7
-  store i32 %9, ptr %m_root_index14, align 8
-  br label %if.end15
+59:                                               ; preds = %49
+  %60 = load i32, ptr %15, align 4, !tbaa !9
+  %61 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 7
+  store i32 %60, ptr %61, align 8, !tbaa !28
+  br label %62
 
-if.end15:                                         ; preds = %if.end, %sw.epilog
-  call void @_ZN24btInverseDynamicsBullet39JointDataC2Ev(ptr noundef nonnull align 4 dereferenceable(92) %joint)
-  %10 = load i32, ptr %body_index.addr, align 4
-  %m_child = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i32 0, i32 2
-  store i32 %10, ptr %m_child, align 4
-  %11 = load i32, ptr %parent_index.addr, align 4
-  %m_parent = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i32 0, i32 1
-  store i32 %11, ptr %m_parent, align 4
-  %12 = load i32, ptr %joint_type.addr, align 4
-  %m_type = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i32 0, i32 0
-  store i32 %12, ptr %m_type, align 4
-  %13 = load ptr, ptr %parent_r_parent_body_ref.addr, align 8
-  %m_parent_pos_parent_child_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_parent_pos_parent_child_ref, ptr align 4 %13, i64 16, i1 false)
-  %14 = load ptr, ptr %body_T_parent_ref.addr, align 8
-  %m_child_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i32 0, i32 4
-  %call = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(48) %14)
-  %15 = load ptr, ptr %body_axis_of_motion.addr, align 8
-  %m_child_axis_of_motion = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_child_axis_of_motion, ptr align 4 %15, i64 16, i1 false)
-  call void @_ZN24btInverseDynamicsBullet311InertiaDataC2Ev(ptr noundef nonnull align 4 dereferenceable(68) %body)
-  %16 = load float, ptr %mass.addr, align 4
-  %m_mass = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %body, i32 0, i32 0
-  store float %16, ptr %m_mass, align 4
-  %17 = load ptr, ptr %body_r_body_com.addr, align 8
-  %m_body_pos_body_com = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %body, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_body_pos_body_com, ptr align 4 %17, i64 16, i1 false)
-  %18 = load ptr, ptr %body_I_body.addr, align 8
-  %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %body, i32 0, i32 2
-  %call16 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(48) %18)
-  %m_inertias = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 0
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %m_inertias, ptr noundef nonnull align 4 dereferenceable(68) %body)
-  %m_joints = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 1
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %m_joints, ptr noundef nonnull align 4 dereferenceable(92) %joint)
-  %m_user_int = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 5
-  call void @_ZN20b3AlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %m_user_int, ptr noundef nonnull align 4 dereferenceable(4) %user_int.addr)
-  %m_user_ptr = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 6
-  call void @_ZN20b3AlignedObjectArrayIPvE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %m_user_ptr, ptr noundef nonnull align 8 dereferenceable(8) %user_ptr.addr)
-  store i32 0, ptr %retval, align 4
-  br label %return
+62:                                               ; preds = %59, %46
+  call void @llvm.lifetime.start.p0(i64 92, ptr %26) #10
+  call void @_ZN24btInverseDynamicsBullet39JointDataC2Ev(ptr noundef nonnull align 4 dereferenceable(92) %26)
+  %63 = load i32, ptr %15, align 4, !tbaa !9
+  %64 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %26, i32 0, i32 2
+  store i32 %63, ptr %64, align 4, !tbaa !57
+  %65 = load i32, ptr %16, align 4, !tbaa !9
+  %66 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %26, i32 0, i32 1
+  store i32 %65, ptr %66, align 4, !tbaa !63
+  %67 = load i32, ptr %17, align 4, !tbaa !48
+  %68 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %26, i32 0, i32 0
+  store i32 %67, ptr %68, align 4, !tbaa !64
+  %69 = load ptr, ptr %18, align 8, !tbaa !50
+  %70 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %26, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %70, ptr align 4 %69, i64 16, i1 false)
+  %71 = load ptr, ptr %19, align 8, !tbaa !52
+  %72 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %26, i32 0, i32 4
+  %73 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %72, ptr noundef nonnull align 4 dereferenceable(48) %71)
+  %74 = load ptr, ptr %20, align 8, !tbaa !50
+  %75 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %26, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %75, ptr align 4 %74, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 68, ptr %27) #10
+  call void @_ZN24btInverseDynamicsBullet311InertiaDataC2Ev(ptr noundef nonnull align 4 dereferenceable(68) %27)
+  %76 = load float, ptr %21, align 4, !tbaa !54
+  %77 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %27, i32 0, i32 0
+  store float %76, ptr %77, align 4, !tbaa !65
+  %78 = load ptr, ptr %22, align 8, !tbaa !50
+  %79 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %27, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %79, ptr align 4 %78, i64 16, i1 false)
+  %80 = load ptr, ptr %23, align 8, !tbaa !52
+  %81 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %27, i32 0, i32 2
+  %82 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %81, ptr noundef nonnull align 4 dereferenceable(48) %80)
+  %83 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 0
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %83, ptr noundef nonnull align 4 dereferenceable(68) %27)
+  %84 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 1
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %84, ptr noundef nonnull align 4 dereferenceable(92) %26)
+  %85 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 5
+  call void @_ZN20b3AlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %85, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %86 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %28, i32 0, i32 6
+  call void @_ZN20b3AlignedObjectArrayIPvE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %86, ptr noundef nonnull align 8 dereferenceable(8) %25)
+  store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 68, ptr %27) #10
+  call void @llvm.lifetime.end.p0(i64 92, ptr %26) #10
+  br label %87
 
-return:                                           ; preds = %if.end15, %do.end13, %do.end
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+87:                                               ; preds = %62, %58, %45
+  %88 = load i32, ptr %13, align 4
+  ret i32 %88
 }
 
-declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) #4
+declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(48) %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %this1, ptr noundef nonnull align 4 dereferenceable(48) %1)
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  store ptr %1, ptr %4, align 8, !tbaa !52
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !52
+  %7 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(48) %6)
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 4 dereferenceable(68) %_Val) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(68) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %9 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  store i32 %9, ptr %5, align 4, !tbaa !9
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  %12 = icmp eq i32 %10, %11
+  br i1 %12, label %13, label %16
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
+13:                                               ; preds = %2
+  %14 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  %15 = call noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %8, i32 noundef %14)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %8, i32 noundef %15)
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %1, i64 %idxprom
-  %call5 = call noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef 68, ptr noundef %arrayidx)
-  %3 = load ptr, ptr %_Val.addr, align 8
-  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %call5, ptr noundef nonnull align 4 dereferenceable(68) %3)
-          to label %invoke.cont unwind label %lpad
+16:                                               ; preds = %13, %2
+  %17 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %8, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %19 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %8, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4, !tbaa !42
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %18, i64 %21
+  %23 = call noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef 68, ptr noundef %22)
+  %24 = load ptr, ptr %4, align 8, !tbaa !37
+  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %23, ptr noundef nonnull align 4 dereferenceable(68) %24)
+          to label %25 unwind label %29
 
-invoke.cont:                                      ; preds = %if.end
-  %m_size6 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 2
-  %4 = load i32, ptr %m_size6, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %m_size6, align 4
+25:                                               ; preds = %16
+  %26 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %8, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !42
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %26, align 4, !tbaa !42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 
-lpad:                                             ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+29:                                               ; preds = %16
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %call5, ptr noundef %arrayidx) #7
-  br label %eh.resume
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %6, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %7, align 4
+  call void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %23, ptr noundef %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %33
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val7
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i32, ptr %7, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 4 dereferenceable(92) %_Val) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(92) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %9 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  store i32 %9, ptr %5, align 4, !tbaa !9
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  %12 = icmp eq i32 %10, %11
+  br i1 %12, label %13, label %16
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
+13:                                               ; preds = %2
+  %14 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  %15 = call noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %8, i32 noundef %14)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %8, i32 noundef %15)
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %1, i64 %idxprom
-  %call5 = call noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef 92, ptr noundef %arrayidx)
-  %3 = load ptr, ptr %_Val.addr, align 8
-  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %call5, ptr noundef nonnull align 4 dereferenceable(92) %3)
-          to label %invoke.cont unwind label %lpad
+16:                                               ; preds = %13, %2
+  %17 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %8, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8, !tbaa !45
+  %19 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %8, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4, !tbaa !47
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %18, i64 %21
+  %23 = call noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef 92, ptr noundef %22)
+  %24 = load ptr, ptr %4, align 8, !tbaa !43
+  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %23, ptr noundef nonnull align 4 dereferenceable(92) %24)
+          to label %25 unwind label %29
 
-invoke.cont:                                      ; preds = %if.end
-  %m_size6 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  %4 = load i32, ptr %m_size6, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %m_size6, align 4
+25:                                               ; preds = %16
+  %26 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %8, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !47
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %26, align 4, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 
-lpad:                                             ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+29:                                               ; preds = %16
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %call5, ptr noundef %arrayidx) #7
-  br label %eh.resume
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %6, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %7, align 4
+  call void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %23, ptr noundef %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %33
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val7
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i32, ptr %7, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 4 dereferenceable(4) %_Val) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %7 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  store i32 %7, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %11, label %14
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20b3AlignedObjectArrayIiE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
+11:                                               ; preds = %2
+  %12 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %13 = call noundef i32 @_ZN20b3AlignedObjectArrayIiE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %12)
+  call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %_Val.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  store i32 %4, ptr %arrayidx, align 4
-  %m_size5 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %m_size5, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %m_size5, align 4
+14:                                               ; preds = %11, %2
+  %15 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %6, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %17 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %6, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !69
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i32, ptr %16, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !67
+  %22 = load i32, ptr %21, align 4, !tbaa !9
+  store i32 %22, ptr %20, align 4, !tbaa !9
+  %23 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %6, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !69
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %7 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  store i32 %7, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %13 = call noundef i32 @_ZN20b3AlignedObjectArrayIPvE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %12)
+  call void @_ZN20b3AlignedObjectArrayIPvE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %2
+  %15 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %6, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !70
+  %17 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %6, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !71
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !56
+  %22 = load ptr, ptr %21, align 8, !tbaa !56
+  store ptr %22, ptr %20, align 8, !tbaa !56
+  %23 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %6, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !71
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %_Val) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Val.addr = alloca ptr, align 8
-  %sz = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_Val, ptr %_Val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %sz, align 4
-  %0 = load i32, ptr %sz, align 4
-  %call2 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp = icmp eq i32 %0, %call2
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache14getInertiaDataEiPNS_11InertiaDataE(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1, ptr noundef %2) #2 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %16, label %11
 
-if.then:                                          ; preds = %entry
-  %call3 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %call4 = call noundef i32 @_ZN20b3AlignedObjectArrayIPvE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call3)
-  call void @_ZN20b3AlignedObjectArrayIPvE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %call4)
-  br label %if.end
+11:                                               ; preds = %3
+  %12 = load i32, ptr %6, align 4, !tbaa !9
+  %13 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 0
+  %14 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %13)
+  %15 = icmp sgt i32 %12, %14
+  br i1 %15, label %16, label %19
 
-if.end:                                           ; preds = %if.then, %entry
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %m_size, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %_Val.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %arrayidx, align 8
-  %m_size5 = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  %5 = load i32, ptr %m_size5, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %m_size5, align 4
-  ret void
-}
+16:                                               ; preds = %11, %3
+  br label %17
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache14getInertiaDataEiPNS_11InertiaDataE(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %index, ptr noundef %inertia) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %inertia.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  store ptr %inertia, ptr %inertia.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %index.addr, align 4
-  %m_inertias = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_inertias)
-  %cmp2 = icmp sgt i32 %1, %call
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
+17:                                               ; preds = %16
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 76)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.4)
-  br label %do.end
+  br label %18
 
-do.end:                                           ; preds = %do.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %17
+  store i32 -1, ptr %4, align 4
+  br label %25
 
-if.end:                                           ; preds = %lor.lhs.false
-  %m_inertias3 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 0
-  %2 = load i32, ptr %index.addr, align 4
-  %call4 = call noundef nonnull align 4 dereferenceable(68) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_inertias3, i32 noundef %2)
-  %3 = load ptr, ptr %inertia.addr, align 8
-  %call5 = call noundef nonnull align 4 dereferenceable(68) ptr @_ZN24btInverseDynamicsBullet311InertiaDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %3, ptr noundef nonnull align 4 dereferenceable(68) %call4)
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 0
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = call noundef nonnull align 4 dereferenceable(68) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %20, i32 noundef %21)
+  %23 = load ptr, ptr %7, align 8, !tbaa !37
+  %24 = call noundef nonnull align 4 dereferenceable(68) ptr @_ZN24btInverseDynamicsBullet311InertiaDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %23, ptr noundef nonnull align 4 dereferenceable(68) %22)
+  store i32 0, ptr %4, align 4
+  br label %25
 
-return:                                           ; preds = %if.end, %do.end
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+25:                                               ; preds = %19, %18
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !42
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(68) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(68) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(68) ptr @_ZN24btInverseDynamicsBullet311InertiaDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %this, ptr noundef nonnull align 4 dereferenceable(68) %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_mass = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %m_mass2 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_mass, ptr align 4 %m_mass2, i64 20, i1 false)
-  %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %m_body_I_body3 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %2, i32 0, i32 2
-  %call = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body3)
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(68) ptr @_ZN24btInverseDynamicsBullet311InertiaDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %0, ptr noundef nonnull align 4 dereferenceable(68) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %8, i64 20, i1 false)
+  %9 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8, !tbaa !37
+  %11 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %10, i32 0, i32 2
+  %12 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %9, ptr noundef nonnull align 4 dereferenceable(48) %11)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %index, ptr noundef %user_int) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %user_int.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  store ptr %user_int, ptr %user_int.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1, ptr noundef %2) #2 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !67
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %16, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %index.addr, align 4
-  %m_user_int = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 5
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_user_int)
-  %cmp2 = icmp sgt i32 %1, %call
-  br i1 %cmp2, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load i32, ptr %6, align 4, !tbaa !9
+  %13 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 5
+  %14 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %13)
+  %15 = icmp sgt i32 %12, %14
+  br i1 %15, label %16, label %19
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %do.body
+16:                                               ; preds = %11, %3
+  br label %17
 
-do.body:                                          ; preds = %if.then
+17:                                               ; preds = %16
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 88)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.4)
-  br label %do.end
+  br label %18
 
-do.end:                                           ; preds = %do.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %17
+  store i32 -1, ptr %4, align 4
+  br label %25
 
-if.end:                                           ; preds = %lor.lhs.false
-  %m_user_int3 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %index.addr, align 4
-  %call4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_user_int3, i32 noundef %2)
-  %3 = load i32, ptr %call4, align 4
-  %4 = load ptr, ptr %user_int.addr, align 8
-  store i32 %3, ptr %4, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 5
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %20, i32 noundef %21)
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = load ptr, ptr %7, align 8, !tbaa !67
+  store i32 %23, ptr %24, align 4, !tbaa !9
+  store i32 0, ptr %4, align 4
+  br label %25
 
-return:                                           ; preds = %if.end, %do.end
-  %5 = load i32, ptr %retval, align 4
+25:                                               ; preds = %19, %18
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !69
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds i32, ptr %7, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %index, ptr noundef %user_ptr) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %user_ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  store ptr %user_ptr, ptr %user_ptr.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1, ptr noundef %2) #2 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %16, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %index.addr, align 4
-  %m_user_ptr = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 6
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_user_ptr)
-  %cmp2 = icmp sgt i32 %1, %call
-  br i1 %cmp2, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load i32, ptr %6, align 4, !tbaa !9
+  %13 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 6
+  %14 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %13)
+  %15 = icmp sgt i32 %12, %14
+  br i1 %15, label %16, label %19
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %do.body
+16:                                               ; preds = %11, %3
+  br label %17
 
-do.body:                                          ; preds = %if.then
+17:                                               ; preds = %16
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 99)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.4)
-  br label %do.end
+  br label %18
 
-do.end:                                           ; preds = %do.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %17
+  store i32 -1, ptr %4, align 4
+  br label %25
 
-if.end:                                           ; preds = %lor.lhs.false
-  %m_user_ptr3 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 6
-  %2 = load i32, ptr %index.addr, align 4
-  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20b3AlignedObjectArrayIPvEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_user_ptr3, i32 noundef %2)
-  %3 = load ptr, ptr %call4, align 8
-  %4 = load ptr, ptr %user_ptr.addr, align 8
-  store ptr %3, ptr %4, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 6
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20b3AlignedObjectArrayIPvEixEi(ptr noundef nonnull align 8 dereferenceable(25) %20, i32 noundef %21)
+  %23 = load ptr, ptr %22, align 8, !tbaa !56
+  %24 = load ptr, ptr %7, align 8, !tbaa !56
+  store ptr %23, ptr %24, align 8, !tbaa !56
+  store i32 0, ptr %4, align 4
+  br label %25
 
-return:                                           ; preds = %if.end, %do.end
-  %5 = load i32, ptr %retval, align 4
+25:                                               ; preds = %19, %18
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !71
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20b3AlignedObjectArrayIPvEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK20b3AlignedObjectArrayIPvEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache12getJointDataEiPNS_9JointDataE(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %index, ptr noundef %joint) #2 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  %joint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  store ptr %joint, ptr %joint.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache12getJointDataEiPNS_9JointDataE(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1, ptr noundef %2) #2 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !43
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %16, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %index.addr, align 4
-  %m_joints = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 1
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_joints)
-  %cmp2 = icmp sgt i32 %1, %call
-  br i1 %cmp2, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load i32, ptr %6, align 4, !tbaa !9
+  %13 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 1
+  %14 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %13)
+  %15 = icmp sgt i32 %12, %14
+  br i1 %15, label %16, label %19
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %do.body
+16:                                               ; preds = %11, %3
+  br label %17
 
-do.body:                                          ; preds = %if.then
+17:                                               ; preds = %16
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 110)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.4)
-  br label %do.end
+  br label %18
 
-do.end:                                           ; preds = %do.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %17
+  store i32 -1, ptr %4, align 4
+  br label %25
 
-if.end:                                           ; preds = %lor.lhs.false
-  %m_joints3 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %index.addr, align 4
-  %call4 = call noundef nonnull align 4 dereferenceable(92) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_joints3, i32 noundef %2)
-  %3 = load ptr, ptr %joint.addr, align 8
-  %call5 = call noundef nonnull align 4 dereferenceable(92) ptr @_ZN24btInverseDynamicsBullet39JointDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %3, ptr noundef nonnull align 4 dereferenceable(92) %call4)
-  store i32 0, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %8, i32 0, i32 1
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = call noundef nonnull align 4 dereferenceable(92) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %20, i32 noundef %21)
+  %23 = load ptr, ptr %7, align 8, !tbaa !43
+  %24 = call noundef nonnull align 4 dereferenceable(92) ptr @_ZN24btInverseDynamicsBullet39JointDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %23, ptr noundef nonnull align 4 dereferenceable(92) %22)
+  store i32 0, ptr %4, align 4
+  br label %25
 
-return:                                           ; preds = %if.end, %do.end
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+25:                                               ; preds = %19, %18
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !47
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN24btInverseDynamicsBullet39JointDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %this, ptr noundef nonnull align 4 dereferenceable(92) %0) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_type = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %m_type2 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_type, ptr align 4 %m_type2, i64 28, i1 false)
-  %m_child_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %.addr, align 8
-  %m_child_T_parent_ref3 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %2, i32 0, i32 4
-  %call = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref3)
-  %m_child_axis_of_motion = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %.addr, align 8
-  %m_child_axis_of_motion4 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %3, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_child_axis_of_motion, ptr align 4 %m_child_axis_of_motion4, i64 16, i1 false)
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN24btInverseDynamicsBullet39JointDataaSERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %0, ptr noundef nonnull align 4 dereferenceable(92) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !43
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %8, i64 28, i1 false)
+  %9 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %5, i32 0, i32 4
+  %10 = load ptr, ptr %4, align 8, !tbaa !43
+  %11 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %10, i32 0, i32 4
+  %12 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZN24btInverseDynamicsBullet35mat33aSERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %9, ptr noundef nonnull align 4 dereferenceable(48) %11)
+  %13 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %5, i32 0, i32 5
+  %14 = load ptr, ptr %4, align 8, !tbaa !43
+  %15 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %14, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %15, i64 16, i1 false)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache14buildIndexSetsEv(ptr noundef nonnull align 8 dereferenceable(172) %this) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca i32, align 4
-  %j = alloca i32, align 4
-  %joint = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_parent_index = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 4
-  %call = call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache9numBodiesEv(ptr noundef nonnull align 8 dereferenceable(172) %this1)
-  store i32 0, ptr %ref.tmp, align 4
-  call void @_ZN20b3AlignedObjectArrayIiE6resizeEiRKi(ptr noundef nonnull align 8 dereferenceable(25) %m_parent_index, i32 noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  store i32 0, ptr %j, align 4
-  br label %for.cond
+define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache14buildIndexSetsEv(ptr noundef nonnull align 8 dereferenceable(172) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %6, i32 0, i32 4
+  %8 = call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache9numBodiesEv(ptr noundef nonnull align 8 dereferenceable(172) %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  store i32 0, ptr %3, align 4, !tbaa !9
+  call void @_ZN20b3AlignedObjectArrayIiE6resizeEiRKi(ptr noundef nonnull align 8 dereferenceable(25) %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  store i32 0, ptr %4, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %j, align 4
-  %m_joints = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 1
-  %call2 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_joints)
-  %cmp = icmp slt i32 %0, %call2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %27, %1
+  %10 = load i32, ptr %4, align 4, !tbaa !9
+  %11 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %6, i32 0, i32 1
+  %12 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %11)
+  %13 = icmp slt i32 %10, %12
+  br i1 %13, label %15, label %14
 
-for.body:                                         ; preds = %for.cond
-  %m_joints3 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %j, align 4
-  %call4 = call noundef nonnull align 4 dereferenceable(92) ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_joints3, i32 noundef %1)
-  store ptr %call4, ptr %joint, align 8
-  %2 = load ptr, ptr %joint, align 8
-  %m_parent = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %m_parent, align 4
-  %m_parent_index5 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %joint, align 8
-  %m_child = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %m_child, align 4
-  %call6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_parent_index5, i32 noundef %5)
-  store i32 %3, ptr %call6, align 4
-  br label %for.inc
+14:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  br label %30
 
-for.inc:                                          ; preds = %for.body
-  %6 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %j, align 4
-  br label %for.cond, !llvm.loop !10
+15:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %16 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %6, i32 0, i32 1
+  %17 = load i32, ptr %4, align 4, !tbaa !9
+  %18 = call noundef nonnull align 4 dereferenceable(92) ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %16, i32 noundef %17)
+  store ptr %18, ptr %5, align 8, !tbaa !43
+  %19 = load ptr, ptr %5, align 8, !tbaa !43
+  %20 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4, !tbaa !63
+  %22 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %6, i32 0, i32 4
+  %23 = load ptr, ptr %5, align 8, !tbaa !43
+  %24 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 4, !tbaa !57
+  %26 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %22, i32 noundef %25)
+  store i32 %21, ptr %26, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %27
 
-for.end:                                          ; preds = %for.cond
+27:                                               ; preds = %15
+  %28 = load i32, ptr %4, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %4, align 4, !tbaa !9
+  br label %9, !llvm.loop !72
+
+30:                                               ; preds = %14
   ret i32 0
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE6resizeEiRKi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 4 dereferenceable(4) %fillData) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i6 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE6resizeEiRKi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !67
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %11 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  store i32 %11, ptr %7, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %27
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %16, ptr %8, align 4, !tbaa !9
+  br label %17
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+17:                                               ; preds = %23, %15
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = icmp slt i32 %18, %19
+  br i1 %20, label %22, label %21
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+21:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  br label %26
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
+22:                                               ; preds = %17
+  br label %23
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end16
+23:                                               ; preds = %22
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %8, align 4, !tbaa !9
+  br label %17, !llvm.loop !73
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %call3 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %cmp4 = icmp sgt i32 %6, %call3
-  br i1 %cmp4, label %if.then5, label %if.end
+26:                                               ; preds = %21
+  br label %52
 
-if.then5:                                         ; preds = %if.else
-  %7 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %7)
-  br label %if.end
+27:                                               ; preds = %3
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  %30 = icmp sgt i32 %28, %29
+  br i1 %30, label %31, label %33
 
-if.end:                                           ; preds = %if.then5, %if.else
-  %8 = load i32, ptr %curSize, align 4
-  store i32 %8, ptr %i6, align 4
-  br label %for.cond7
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef %32)
+  br label %33
 
-for.cond7:                                        ; preds = %for.inc13, %if.end
-  %9 = load i32, ptr %i6, align 4
-  %10 = load i32, ptr %newsize.addr, align 4
-  %cmp8 = icmp slt i32 %9, %10
-  br i1 %cmp8, label %for.body9, label %for.end15
+33:                                               ; preds = %31, %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %34, ptr %9, align 4, !tbaa !9
+  br label %35
 
-for.body9:                                        ; preds = %for.cond7
-  %m_data10 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %11 = load ptr, ptr %m_data10, align 8
-  %12 = load i32, ptr %i6, align 4
-  %idxprom11 = sext i32 %12 to i64
-  %arrayidx12 = getelementptr inbounds i32, ptr %11, i64 %idxprom11
-  %13 = load ptr, ptr %fillData.addr, align 8
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %arrayidx12, align 4
-  br label %for.inc13
+35:                                               ; preds = %48, %33
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = load i32, ptr %5, align 4, !tbaa !9
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %40, label %39
 
-for.inc13:                                        ; preds = %for.body9
-  %15 = load i32, ptr %i6, align 4
-  %inc14 = add nsw i32 %15, 1
-  store i32 %inc14, ptr %i6, align 4
-  br label %for.cond7, !llvm.loop !12
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %51
 
-for.end15:                                        ; preds = %for.cond7
-  br label %if.end16
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %10, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !68
+  %43 = load i32, ptr %9, align 4, !tbaa !9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i32, ptr %42, i64 %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !67
+  %47 = load i32, ptr %46, align 4, !tbaa !9
+  store i32 %47, ptr %45, align 4, !tbaa !9
+  br label %48
 
-if.end16:                                         ; preds = %for.end15, %for.end
-  %16 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  store i32 %16, ptr %m_size, align 4
+48:                                               ; preds = %40
+  %49 = load i32, ptr %9, align 4, !tbaa !9
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %9, align 4, !tbaa !9
+  br label %35, !llvm.loop !74
+
+51:                                               ; preds = %39
+  br label %52
+
+52:                                               ; preds = %51, %26
+  %53 = load i32, ptr %5, align 4, !tbaa !9
+  %54 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %10, i32 0, i32 1
+  store i32 %53, ptr %54, align 4, !tbaa !69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache9numBodiesEv(ptr noundef nonnull align 8 dereferenceable(172) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_inertias = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_inertias)
-  ret i32 %call
+define linkonce_odr dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache9numBodiesEv(ptr noundef nonnull align 8 dereferenceable(172) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %4)
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20b3AlignedObjectArrayIiEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds i32, ptr %7, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this1)
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet34vec3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat33C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %this1)
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat33C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
-  br label %arrayctor.loop
+define linkonce_odr dso_local void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [3 x %class.btVector3], ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %class.btVector3, ptr %5, i64 3
+  br label %7
 
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+7:                                                ; preds = %7, %1
+  %8 = phi ptr [ %5, %1 ], [ %9, %7 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %9 = getelementptr inbounds %class.btVector3, ptr %8, i64 1
+  %10 = icmp eq ptr %9, %6
+  br i1 %10, label %11, label %7
 
-arrayctor.cont:                                   ; preds = %arrayctor.loop
+11:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !75
+  store ptr %1, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !75
+  %7 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds [3 x %class.btVector3], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds [3 x %class.btVector3], ptr %9, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 %8, i64 16, i1 false), !tbaa.struct !79
+  %11 = load ptr, ptr %4, align 8, !tbaa !75
+  %12 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 1
+  %14 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %15 = getelementptr inbounds [3 x %class.btVector3], ptr %14, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %13, i64 16, i1 false), !tbaa.struct !79
+  %16 = load ptr, ptr %4, align 8, !tbaa !75
+  %17 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [3 x %class.btVector3], ptr %17, i64 0, i64 2
+  %19 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %20 = getelementptr inbounds [3 x %class.btVector3], ptr %19, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %18, i64 16, i1 false), !tbaa.struct !79
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !82
+  %5 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !40
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !42
+  %7 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !86
+  %5 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !45
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !47
+  %7 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !87
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(48) %other) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i64 0, i64 0
-  %m_el2 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el2, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx3, ptr align 4 %arrayidx, i64 16, i1 false)
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_el4 = getelementptr inbounds %class.btMatrix3x3, ptr %1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el4, i64 0, i64 1
-  %m_el6 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el6, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx7, ptr align 4 %arrayidx5, i64 16, i1 false)
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_el8 = getelementptr inbounds %class.btMatrix3x3, ptr %2, i32 0, i32 0
-  %arrayidx9 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el8, i64 0, i64 2
-  %m_el10 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el10, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx11, ptr align 4 %arrayidx9, i64 16, i1 false)
-  ret ptr %this1
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIiLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !88
+  ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !90
+  %5 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !68
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !69
+  %7 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !91
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIPvLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !92
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !94
+  %5 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !70
+  %6 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !71
+  %7 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !95
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIiLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIPvLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  ret void
-}
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #7
-  call void @_ZSt9terminatev() #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
+  call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -1861,1317 +1883,1395 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #8 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+13:                                               ; preds = %9
+  br label %14
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !96
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !82, !range !97, !noundef !98
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
+  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !40
+  br label %16
+
+16:                                               ; preds = %14, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %5)
+  ret void
+}
 
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
+declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) #6
 
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  ret void
+}
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #8 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-if.end6:                                          ; preds = %if.end, %entry
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %9
+  br label %14
+
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !99
+
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !86, !range !97, !noundef !98
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !45
+  br label %16
+
+16:                                               ; preds = %14, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %0)
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !84
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
+  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %5)
   ret void
 }
 
-declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) #4
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIiE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20b3AlignedObjectArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIiE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #8 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+13:                                               ; preds = %9
+  br label %14
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !14
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !100
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
 
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !90, !range !97, !noundef !98
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
 
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !68
+  call void @_ZN18b3AlignedAllocatorIiLj16EE10deallocateEPi(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !68
+  br label %16
 
-if.end6:                                          ; preds = %if.end, %entry
+16:                                               ; preds = %14, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %0)
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIiLj16EE10deallocateEPi(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIPvE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20b3AlignedObjectArrayIPvE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20b3AlignedObjectArrayIPvE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #8 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !35
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
+
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %9
+  br label %14
+
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !101
+
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !94, !range !97, !noundef !98
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !70
+  call void @_ZN18b3AlignedAllocatorIPvLj16EE10deallocateEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !70
+  br label %16
+
+16:                                               ; preds = %14, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIiE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20b3AlignedObjectArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIiE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIPvLj16EE10deallocateEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %5)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %29
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !37
+  %13 = load ptr, ptr %5, align 8, !tbaa !37
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %20
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+15:                                               ; preds = %10
+  br label %16
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !15
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
-
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18b3AlignedAllocatorIiLj16EE10deallocateEPi(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.end, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIiLj16EE10deallocateEPi(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIPvE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20b3AlignedObjectArrayIPvE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIPvE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !16
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
-
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18b3AlignedAllocatorIPvLj16EE10deallocateEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.end, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18b3AlignedAllocatorIPvLj16EE10deallocateEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21b3AlignedFreeInternalPv(ptr noundef %0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end7
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %2 = load ptr, ptr %s, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
-  br label %do.body
-
-do.body:                                          ; preds = %if.then4
+16:                                               ; preds = %15
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.5, i32 noundef 301)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.6)
-  br label %do.end
+  br label %17
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %_Count.addr, align 4
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  br label %if.end
+17:                                               ; preds = %16
+  br label %18
 
-if.end:                                           ; preds = %do.end, %if.then
-  %call5 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %3 = load ptr, ptr %s, align 8
-  call void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call5, ptr noundef %3)
-  %call6 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call6)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %4 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  store ptr %4, ptr %m_data, align 8
-  %5 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 3
-  store i32 %5, ptr %m_capacity, align 8
-  br label %if.end7
+18:                                               ; preds = %17
+  store i32 0, ptr %4, align 4, !tbaa !9
+  %19 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %6, i32 0, i32 1
+  store i32 0, ptr %19, align 4, !tbaa !42
+  br label %20
 
-if.end7:                                          ; preds = %if.end, %entry
+20:                                               ; preds = %18, %10
+  %21 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %22 = load ptr, ptr %5, align 8, !tbaa !37
+  call void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %21, ptr noundef %22)
+  %23 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %23)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %24 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %6, i32 0, i32 5
+  store i8 1, ptr %24, align 8, !tbaa !82
+  %25 = load ptr, ptr %5, align 8, !tbaa !37
+  %26 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %6, i32 0, i32 4
+  store ptr %25, ptr %26, align 8, !tbaa !40
+  %27 = load i32, ptr %4, align 4, !tbaa !9
+  %28 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %6, i32 0, i32 2
+  store i32 %27, ptr %28, align 8, !tbaa !83
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %29
+
+29:                                               ; preds = %20, %2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef %0, ptr noundef %ptr) #1 comdat align 2 {
-entry:
-  %.addr = alloca i64, align 8
-  %ptr.addr = alloca ptr, align 8
-  store i64 %0, ptr %.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  ret ptr %1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !102
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %this, ptr noundef nonnull align 4 dereferenceable(68) %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_mass = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %m_mass2 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_mass, ptr align 4 %m_mass2, i64 20, i1 false)
-  %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %m_body_I_body3 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %2, i32 0, i32 2
-  call void @_ZN24btInverseDynamicsBullet35mat33C2ERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body3)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %0, ptr noundef nonnull align 4 dereferenceable(68) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %8, i64 20, i1 false)
+  %9 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8, !tbaa !37
+  %11 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::InertiaData", ptr %10, i32 0, i32 2
+  call void @_ZN24btInverseDynamicsBullet35mat33C2ERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %9, ptr noundef nonnull align 4 dereferenceable(48) %11)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
-entry:
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !83
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !29
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !37
+  %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %13 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %13, ptr %9, align 4, !tbaa !9
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %30, %4
+  %15 = load i32, ptr %9, align 4, !tbaa !9
+  %16 = load i32, ptr %7, align 4, !tbaa !9
+  %17 = icmp slt i32 %15, %16
+  br i1 %17, label %18, label %37
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %3, i64 %idxprom
-  %call = call noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef 68, ptr noundef %arrayidx)
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %5, i64 %idxprom2
-  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %call, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx3)
-          to label %invoke.cont unwind label %lpad
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %8, align 8, !tbaa !37
+  %20 = load i32, ptr %9, align 4, !tbaa !9
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %19, i64 %21
+  %23 = call noundef ptr @_ZN24btInverseDynamicsBullet311InertiaDatanwEmPv(i64 noundef 68, ptr noundef %22)
+  %24 = getelementptr inbounds nuw %class.b3AlignedObjectArray, ptr %12, i32 0, i32 4
+  %25 = load ptr, ptr %24, align 8, !tbaa !40
+  %26 = load i32, ptr %9, align 4, !tbaa !9
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %25, i64 %27
+  invoke void @_ZN24btInverseDynamicsBullet311InertiaDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(68) %23, ptr noundef nonnull align 4 dereferenceable(68) %28)
+          to label %29 unwind label %33
 
-invoke.cont:                                      ; preds = %for.body
-  br label %for.inc
+29:                                               ; preds = %18
+  br label %30
 
-for.inc:                                          ; preds = %invoke.cont
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !17
+30:                                               ; preds = %29
+  %31 = load i32, ptr %9, align 4, !tbaa !9
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %9, align 4, !tbaa !9
+  br label %14, !llvm.loop !104
 
-lpad:                                             ; preds = %for.body
-  %8 = landingpad { ptr, i32 }
+33:                                               ; preds = %18
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %call, ptr noundef %arrayidx) #7
-  br label %eh.resume
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %10, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %11, align 4
+  call void @_ZN24btInverseDynamicsBullet311InertiaDatadlEPvS1_(ptr noundef %23, ptr noundef %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %38
 
-for.end:                                          ; preds = %for.cond
+37:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr %11, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 68, %conv
-  %call = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !80
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !105
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 68, %8
+  %10 = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
-declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) #4
+declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) #6
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat33C2ERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %this1, ptr noundef nonnull align 4 dereferenceable(48) %1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(48) %other) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
-  br label %arrayctor.loop
-
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
-
-arrayctor.cont:                                   ; preds = %arrayctor.loop
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_el2 = getelementptr inbounds %class.btMatrix3x3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_el2, i64 0, i64 0
-  %m_el3 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx4 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el3, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx4, ptr align 4 %arrayidx, i64 16, i1 false)
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_el5 = getelementptr inbounds %class.btMatrix3x3, ptr %1, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el5, i64 0, i64 1
-  %m_el7 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el7, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx8, ptr align 4 %arrayidx6, i64 16, i1 false)
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_el9 = getelementptr inbounds %class.btMatrix3x3, ptr %2, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el9, i64 0, i64 2
-  %m_el11 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el11, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx12, ptr align 4 %arrayidx10, i64 16, i1 false)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat33C2ERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  store ptr %1, ptr %4, align 8, !tbaa !52
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !52
+  call void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(48) %6)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end7
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN11btMatrix3x3C2ERKS_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !75
+  store ptr %1, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds [3 x %class.btVector3], ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %class.btVector3, ptr %7, i64 3
+  br label %9
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %2 = load ptr, ptr %s, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then4, label %if.end
+9:                                                ; preds = %9, %2
+  %10 = phi ptr [ %7, %2 ], [ %11, %9 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %10)
+  %11 = getelementptr inbounds %class.btVector3, ptr %10, i64 1
+  %12 = icmp eq ptr %11, %8
+  br i1 %12, label %13, label %9
 
-if.then4:                                         ; preds = %if.then
-  br label %do.body
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %4, align 8, !tbaa !75
+  %15 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [3 x %class.btVector3], ptr %15, i64 0, i64 0
+  %17 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %18 = getelementptr inbounds [3 x %class.btVector3], ptr %17, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %16, i64 16, i1 false), !tbaa.struct !79
+  %19 = load ptr, ptr %4, align 8, !tbaa !75
+  %20 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds [3 x %class.btVector3], ptr %20, i64 0, i64 1
+  %22 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %23 = getelementptr inbounds [3 x %class.btVector3], ptr %22, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %21, i64 16, i1 false), !tbaa.struct !79
+  %24 = load ptr, ptr %4, align 8, !tbaa !75
+  %25 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds [3 x %class.btVector3], ptr %25, i64 0, i64 2
+  %27 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %28 = getelementptr inbounds [3 x %class.btVector3], ptr %27, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %28, ptr align 4 %26, i64 16, i1 false), !tbaa.struct !79
+  ret void
+}
 
-do.body:                                          ; preds = %if.then4
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %29
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !43
+  %13 = load ptr, ptr %5, align 8, !tbaa !43
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %10
+  br label %16
+
+16:                                               ; preds = %15
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.5, i32 noundef 301)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.6)
-  br label %do.end
+  br label %17
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %_Count.addr, align 4
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  br label %if.end
+17:                                               ; preds = %16
+  br label %18
 
-if.end:                                           ; preds = %do.end, %if.then
-  %call5 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %3 = load ptr, ptr %s, align 8
-  call void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call5, ptr noundef %3)
-  %call6 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call6)
-  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %4 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  store ptr %4, ptr %m_data, align 8
-  %5 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 3
-  store i32 %5, ptr %m_capacity, align 8
-  br label %if.end7
+18:                                               ; preds = %17
+  store i32 0, ptr %4, align 4, !tbaa !9
+  %19 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %6, i32 0, i32 1
+  store i32 0, ptr %19, align 4, !tbaa !47
+  br label %20
 
-if.end7:                                          ; preds = %if.end, %entry
+20:                                               ; preds = %18, %10
+  %21 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %22 = load ptr, ptr %5, align 8, !tbaa !43
+  call void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %21, ptr noundef %22)
+  %23 = call noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %23)
+  call void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %24 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %6, i32 0, i32 5
+  store i8 1, ptr %24, align 8, !tbaa !86
+  %25 = load ptr, ptr %5, align 8, !tbaa !43
+  %26 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %6, i32 0, i32 4
+  store ptr %25, ptr %26, align 8, !tbaa !45
+  %27 = load i32, ptr %4, align 4, !tbaa !9
+  %28 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %6, i32 0, i32 2
+  store i32 %27, ptr %28, align 8, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %29
+
+29:                                               ; preds = %20, %2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef %0, ptr noundef %ptr) #1 comdat align 2 {
-entry:
-  %.addr = alloca i64, align 8
-  %ptr.addr = alloca ptr, align 8
-  store i64 %0, ptr %.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %1 = load ptr, ptr %ptr.addr, align 8
-  ret ptr %1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !102
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %this, ptr noundef nonnull align 4 dereferenceable(92) %0) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_type = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %m_type2 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_type, ptr align 4 %m_type2, i64 28, i1 false)
-  %m_child_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %.addr, align 8
-  %m_child_T_parent_ref3 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %2, i32 0, i32 4
-  call void @_ZN24btInverseDynamicsBullet35mat33C2ERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref3)
-  %m_child_axis_of_motion = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %.addr, align 8
-  %m_child_axis_of_motion4 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %3, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_child_axis_of_motion, ptr align 4 %m_child_axis_of_motion4, i64 16, i1 false)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %0, ptr noundef nonnull align 4 dereferenceable(92) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !43
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %8, i64 28, i1 false)
+  %9 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %5, i32 0, i32 4
+  %10 = load ptr, ptr %4, align 8, !tbaa !43
+  %11 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %10, i32 0, i32 4
+  call void @_ZN24btInverseDynamicsBullet35mat33C2ERKS0_(ptr noundef nonnull align 4 dereferenceable(48) %9, ptr noundef nonnull align 4 dereferenceable(48) %11)
+  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %5, i32 0, i32 5
+  %13 = load ptr, ptr %4, align 8, !tbaa !43
+  %14 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::JointData", ptr %13, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %14, i64 16, i1 false)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
-entry:
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !87
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !31
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !43
+  %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %13 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %13, ptr %9, align 4, !tbaa !9
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %30, %4
+  %15 = load i32, ptr %9, align 4, !tbaa !9
+  %16 = load i32, ptr %7, align 4, !tbaa !9
+  %17 = icmp slt i32 %15, %16
+  br i1 %17, label %18, label %37
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %3, i64 %idxprom
-  %call = call noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef 92, ptr noundef %arrayidx)
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %5, i64 %idxprom2
-  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %call, ptr noundef nonnull align 4 dereferenceable(92) %arrayidx3)
-          to label %invoke.cont unwind label %lpad
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %8, align 8, !tbaa !43
+  %20 = load i32, ptr %9, align 4, !tbaa !9
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %19, i64 %21
+  %23 = call noundef ptr @_ZN24btInverseDynamicsBullet39JointDatanwEmPv(i64 noundef 92, ptr noundef %22)
+  %24 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %12, i32 0, i32 4
+  %25 = load ptr, ptr %24, align 8, !tbaa !45
+  %26 = load i32, ptr %9, align 4, !tbaa !9
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %25, i64 %27
+  invoke void @_ZN24btInverseDynamicsBullet39JointDataC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(92) %23, ptr noundef nonnull align 4 dereferenceable(92) %28)
+          to label %29 unwind label %33
 
-invoke.cont:                                      ; preds = %for.body
-  br label %for.inc
+29:                                               ; preds = %18
+  br label %30
 
-for.inc:                                          ; preds = %invoke.cont
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !18
+30:                                               ; preds = %29
+  %31 = load i32, ptr %9, align 4, !tbaa !9
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %9, align 4, !tbaa !9
+  br label %14, !llvm.loop !107
 
-lpad:                                             ; preds = %for.body
-  %8 = landingpad { ptr, i32 }
+33:                                               ; preds = %18
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %call, ptr noundef %arrayidx) #7
-  br label %eh.resume
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %10, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %11, align 4
+  call void @_ZN24btInverseDynamicsBullet39JointDatadlEPvS1_(ptr noundef %23, ptr noundef %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %38
 
-for.end:                                          ; preds = %for.cond
+37:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr %11, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 92, %conv
-  %call = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !84
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !108
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 92, %8
+  %10 = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !91
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end7
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %29
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20b3AlignedObjectArrayIiE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %2 = load ptr, ptr %s, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then4, label %if.end
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20b3AlignedObjectArrayIiE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !67
+  %13 = load ptr, ptr %5, align 8, !tbaa !67
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %20
 
-if.then4:                                         ; preds = %if.then
-  br label %do.body
+15:                                               ; preds = %10
+  br label %16
 
-do.body:                                          ; preds = %if.then4
+16:                                               ; preds = %15
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.5, i32 noundef 301)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.6)
-  br label %do.end
+  br label %17
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %_Count.addr, align 4
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  br label %if.end
+17:                                               ; preds = %16
+  br label %18
 
-if.end:                                           ; preds = %do.end, %if.then
-  %call5 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %3 = load ptr, ptr %s, align 8
-  call void @_ZNK20b3AlignedObjectArrayIiE4copyEiiPi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call5, ptr noundef %3)
-  %call6 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIiE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call6)
-  call void @_ZN20b3AlignedObjectArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %4 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  store ptr %4, ptr %m_data, align 8
-  %5 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 3
-  store i32 %5, ptr %m_capacity, align 8
-  br label %if.end7
+18:                                               ; preds = %17
+  store i32 0, ptr %4, align 4, !tbaa !9
+  %19 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %6, i32 0, i32 1
+  store i32 0, ptr %19, align 4, !tbaa !69
+  br label %20
 
-if.end7:                                          ; preds = %if.end, %entry
+20:                                               ; preds = %18, %10
+  %21 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %22 = load ptr, ptr %5, align 8, !tbaa !67
+  call void @_ZNK20b3AlignedObjectArrayIiE4copyEiiPi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %21, ptr noundef %22)
+  %23 = call noundef i32 @_ZNK20b3AlignedObjectArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20b3AlignedObjectArrayIiE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %23)
+  call void @_ZN20b3AlignedObjectArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %24 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %6, i32 0, i32 5
+  store i8 1, ptr %24, align 8, !tbaa !90
+  %25 = load ptr, ptr %5, align 8, !tbaa !67
+  %26 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %6, i32 0, i32 4
+  store ptr %25, ptr %26, align 8, !tbaa !68
+  %27 = load i32, ptr %4, align 4, !tbaa !9
+  %28 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %6, i32 0, i32 2
+  store i32 %27, ptr %28, align 8, !tbaa !91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %29
+
+29:                                               ; preds = %20, %2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIiE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIiE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIiE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIiE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18b3AlignedAllocatorIiLj16EE8allocateEiPPKi(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18b3AlignedAllocatorIiLj16EE8allocateEiPPKi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIiE4copyEiiPi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIiE4copyEiiPi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !33
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !67
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds i32, ptr %5, i64 %idxprom2
-  %7 = load i32, ptr %arrayidx3, align 4
-  store i32 %7, ptr %arrayidx, align 4
-  br label %for.inc
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !67
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i32, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !68
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i32, ptr %22, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !9
+  store i32 %26, ptr %20, align 4, !tbaa !9
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !19
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !110
 
-for.end:                                          ; preds = %for.cond
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIiLj16EE8allocateEiPPKi(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 4, %conv
-  %call = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIiLj16EE8allocateEiPPKi(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !88
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !111
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 4, %8
+  %10 = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIPvE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20b3AlignedObjectArrayIPvE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !95
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end7
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %29
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20b3AlignedObjectArrayIPvE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %2 = load ptr, ptr %s, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then4, label %if.end
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20b3AlignedObjectArrayIPvE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !56
+  %13 = load ptr, ptr %5, align 8, !tbaa !56
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %20
 
-if.then4:                                         ; preds = %if.then
-  br label %do.body
+15:                                               ; preds = %10
+  br label %16
 
-do.body:                                          ; preds = %if.then4
+16:                                               ; preds = %15
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str, ptr noundef @.str.5, i32 noundef 301)
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef @.str.6)
-  br label %do.end
+  br label %17
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %_Count.addr, align 4
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  br label %if.end
+17:                                               ; preds = %16
+  br label %18
 
-if.end:                                           ; preds = %do.end, %if.then
-  %call5 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %3 = load ptr, ptr %s, align 8
-  call void @_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call5, ptr noundef %3)
-  %call6 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20b3AlignedObjectArrayIPvE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call6)
-  call void @_ZN20b3AlignedObjectArrayIPvE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %4 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  store ptr %4, ptr %m_data, align 8
-  %5 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 3
-  store i32 %5, ptr %m_capacity, align 8
-  br label %if.end7
+18:                                               ; preds = %17
+  store i32 0, ptr %4, align 4, !tbaa !9
+  %19 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %6, i32 0, i32 1
+  store i32 0, ptr %19, align 4, !tbaa !71
+  br label %20
 
-if.end7:                                          ; preds = %if.end, %entry
+20:                                               ; preds = %18, %10
+  %21 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %22 = load ptr, ptr %5, align 8, !tbaa !56
+  call void @_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %21, ptr noundef %22)
+  %23 = call noundef i32 @_ZNK20b3AlignedObjectArrayIPvE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20b3AlignedObjectArrayIPvE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %23)
+  call void @_ZN20b3AlignedObjectArrayIPvE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %24 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %6, i32 0, i32 5
+  store i8 1, ptr %24, align 8, !tbaa !94
+  %25 = load ptr, ptr %5, align 8, !tbaa !56
+  %26 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %6, i32 0, i32 4
+  store ptr %25, ptr %26, align 8, !tbaa !70
+  %27 = load i32, ptr %4, align 4, !tbaa !9
+  %28 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %6, i32 0, i32 2
+  store i32 %27, ptr %28, align 8, !tbaa !95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %29
+
+29:                                               ; preds = %20, %2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIPvE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN20b3AlignedObjectArrayIPvE9allocSizeEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %size.addr, align 4
-  %mul = mul nsw i32 %1, 2
-  br label %cond.end
+7:                                                ; preds = %2
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = mul nsw i32 %8, 2
+  br label %11
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %2
+  br label %11
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %mul, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+11:                                               ; preds = %10, %7
+  %12 = phi i32 [ %9, %7 ], [ 1, %10 ]
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIPvE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20b3AlignedObjectArrayIPvE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !35
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18b3AlignedAllocatorIPvLj16EE8allocateEiPPKS0_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18b3AlignedAllocatorIPvLj16EE8allocateEiPPKS0_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !35
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !56
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %5, i64 %idxprom2
-  %7 = load ptr, ptr %arrayidx3, align 8
-  store ptr %7, ptr %arrayidx, align 8
-  br label %for.inc
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !56
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.b3AlignedObjectArray.4, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !70
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
+  store ptr %26, ptr %20, align 8, !tbaa !56
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !20
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !113
 
-for.end:                                          ; preds = %for.cond
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIPvLj16EE8allocateEiPPKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 8, %conv
-  %call = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZN18b3AlignedAllocatorIPvLj16EE8allocateEiPPKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 8, %8
+  %10 = call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_MultiBodyTreeInitCache.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN24btInverseDynamicsBullet313MultiBodyTree9InitCacheE", !6, i64 0}
+!14 = !{!15, !10, i64 64}
+!15 = !{!"_ZTSN24btInverseDynamicsBullet313MultiBodyTree9InitCacheE", !16, i64 0, !20, i64 32, !10, i64 64, !23, i64 72, !23, i64 104, !26, i64 136, !10, i64 168}
+!16 = !{!"_ZTS20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE", !17, i64 0, !10, i64 4, !10, i64 8, !18, i64 16, !19, i64 24}
+!17 = !{!"_ZTS18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE"}
+!18 = !{!"p1 _ZTSN24btInverseDynamicsBullet311InertiaDataE", !6, i64 0}
+!19 = !{!"bool", !7, i64 0}
+!20 = !{!"_ZTS20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE", !21, i64 0, !10, i64 4, !10, i64 8, !22, i64 16, !19, i64 24}
+!21 = !{!"_ZTS18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE"}
+!22 = !{!"p1 _ZTSN24btInverseDynamicsBullet39JointDataE", !6, i64 0}
+!23 = !{!"_ZTS20b3AlignedObjectArrayIiE", !24, i64 0, !10, i64 4, !10, i64 8, !25, i64 16, !19, i64 24}
+!24 = !{!"_ZTS18b3AlignedAllocatorIiLj16EE"}
+!25 = !{!"p1 int", !6, i64 0}
+!26 = !{!"_ZTS20b3AlignedObjectArrayIPvE", !27, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !19, i64 24}
+!27 = !{!"_ZTS18b3AlignedAllocatorIPvLj16EE"}
+!28 = !{!15, !10, i64 168}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE", !6, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE", !6, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS20b3AlignedObjectArrayIiE", !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS20b3AlignedObjectArrayIPvE", !6, i64 0}
+!37 = !{!18, !18, i64 0}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = !{!16, !18, i64 16}
+!41 = distinct !{!41, !39}
+!42 = !{!16, !10, i64 4}
+!43 = !{!22, !22, i64 0}
+!44 = distinct !{!44, !39}
+!45 = !{!20, !22, i64 16}
+!46 = distinct !{!46, !39}
+!47 = !{!20, !10, i64 4}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"_ZTSN24btInverseDynamicsBullet39JointTypeE", !7, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSN24btInverseDynamicsBullet34vec3E", !6, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN24btInverseDynamicsBullet35mat33E", !6, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"float", !7, i64 0}
+!56 = !{!6, !6, i64 0}
+!57 = !{!58, !10, i64 8}
+!58 = !{!"_ZTSN24btInverseDynamicsBullet39JointDataE", !49, i64 0, !10, i64 4, !10, i64 8, !59, i64 12, !61, i64 28, !59, i64 76}
+!59 = !{!"_ZTSN24btInverseDynamicsBullet34vec3E", !60, i64 0}
+!60 = !{!"_ZTS9btVector3", !7, i64 0}
+!61 = !{!"_ZTSN24btInverseDynamicsBullet35mat33E", !62, i64 0}
+!62 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!63 = !{!58, !10, i64 4}
+!64 = !{!58, !49, i64 0}
+!65 = !{!66, !55, i64 0}
+!66 = !{!"_ZTSN24btInverseDynamicsBullet311InertiaDataE", !55, i64 0, !59, i64 4, !61, i64 20}
+!67 = !{!25, !25, i64 0}
+!68 = !{!23, !25, i64 16}
+!69 = !{!23, !10, i64 4}
+!70 = !{!26, !6, i64 16}
+!71 = !{!26, !10, i64 4}
+!72 = distinct !{!72, !39}
+!73 = distinct !{!73, !39}
+!74 = distinct !{!74, !39}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTS11btMatrix3x3", !6, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS9btVector3", !6, i64 0}
+!79 = !{i64 0, i64 16, !11}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTS18b3AlignedAllocatorIN24btInverseDynamicsBullet311InertiaDataELj16EE", !6, i64 0}
+!82 = !{!16, !19, i64 24}
+!83 = !{!16, !10, i64 8}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTS18b3AlignedAllocatorIN24btInverseDynamicsBullet39JointDataELj16EE", !6, i64 0}
+!86 = !{!20, !19, i64 24}
+!87 = !{!20, !10, i64 8}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTS18b3AlignedAllocatorIiLj16EE", !6, i64 0}
+!90 = !{!23, !19, i64 24}
+!91 = !{!23, !10, i64 8}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS18b3AlignedAllocatorIPvLj16EE", !6, i64 0}
+!94 = !{!26, !19, i64 24}
+!95 = !{!26, !10, i64 8}
+!96 = distinct !{!96, !39}
+!97 = !{i8 0, i8 2}
+!98 = !{}
+!99 = distinct !{!99, !39}
+!100 = distinct !{!100, !39}
+!101 = distinct !{!101, !39}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"long", !7, i64 0}
+!104 = distinct !{!104, !39}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p2 _ZTSN24btInverseDynamicsBullet311InertiaDataE", !6, i64 0}
+!107 = distinct !{!107, !39}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p2 _ZTSN24btInverseDynamicsBullet39JointDataE", !6, i64 0}
+!110 = distinct !{!110, !39}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"p2 int", !6, i64 0}
+!113 = distinct !{!113, !39}

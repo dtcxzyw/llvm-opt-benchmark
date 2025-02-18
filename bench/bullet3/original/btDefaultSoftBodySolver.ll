@@ -1,101 +1,55 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
 %class.btDefaultSoftBodySolver = type { %class.btSoftBodySolver.base, i8, [3 x i8], %class.btAlignedObjectArray }
 %class.btSoftBodySolver.base = type <{ ptr, i32, i32, float }>
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
+%class.btAlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btSoftBodySolver = type <{ ptr, i32, i32, float, [4 x i8] }>
 %class.btVector3 = type { [4 x float] }
-%class.btSoftBody = type { %class.btCollisionObject.base, [4 x i8], %class.btAlignedObjectArray.0, ptr, %"struct.btSoftBody::Config", %"struct.btSoftBody::SolverState", [4 x i8], %"struct.btSoftBody::Pose", ptr, ptr, %class.btAlignedObjectArray.20, %class.btAlignedObjectArray.24, %class.btAlignedObjectArray.28, %class.btAlignedObjectArray.32, %class.btAlignedObjectArray.36, %class.btAlignedObjectArray.40, %class.btAlignedObjectArray.44, %class.btAlignedObjectArray.48, %class.btAlignedObjectArray.48, %class.btAlignedObjectArray.52, %class.btAlignedObjectArray.56, %class.btAlignedObjectArray.60, %class.btAlignedObjectArray.64, %class.btAlignedObjectArray.68, %class.btAlignedObjectArray.72, %class.btAlignedObjectArray.68, %class.btAlignedObjectArray.76, %class.btAlignedObjectArray.80, %class.btAlignedObjectArray.84, float, [2 x %class.btVector3], i8, %struct.btDbvt, %struct.btDbvt, ptr, %struct.btDbvt, %class.btAlignedObjectArray.92, float, float, float, [4 x i8], %class.btAlignedObjectArray.12, float, float, i8, [7 x i8], %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.96, %class.btAlignedObjectArray.100, %class.btAlignedObjectArray.16, i8, i8, [6 x i8], %class.btAlignedObjectArray.104, %class.btVector3, float, i8, [3 x i8], %class.btAlignedObjectArray.108 }
+%class.btSoftBody = type { %class.btCollisionObject.base, [4 x i8], %class.btAlignedObjectArray.0, ptr, %"struct.btSoftBody::Config", %"struct.btSoftBody::SolverState", [4 x i8], %"struct.btSoftBody::Pose", ptr, ptr, %class.btAlignedObjectArray.10, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.14, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.18, %class.btAlignedObjectArray.20, %class.btAlignedObjectArray.22, %class.btAlignedObjectArray.24, %class.btAlignedObjectArray.24, %class.btAlignedObjectArray.26, %class.btAlignedObjectArray.28, %class.btAlignedObjectArray.30, %class.btAlignedObjectArray.32, %class.btAlignedObjectArray.34, %class.btAlignedObjectArray.36, %class.btAlignedObjectArray.34, %class.btAlignedObjectArray.38, %class.btAlignedObjectArray.40, %class.btAlignedObjectArray.42, float, [2 x %class.btVector3], i8, %struct.btDbvt, %struct.btDbvt, ptr, %struct.btDbvt, %class.btAlignedObjectArray.46, float, float, float, [4 x i8], %class.btAlignedObjectArray.6, float, float, i8, [7 x i8], %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.48, %class.btAlignedObjectArray.50, %class.btAlignedObjectArray.8, i8, i8, [6 x i8], %class.btAlignedObjectArray.52, %class.btVector3, float, i8, [3 x i8], %class.btAlignedObjectArray.54 }
 %class.btCollisionObject.base = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.0, i32, %class.btVector3 }>
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%"struct.btSoftBody::Config" = type { i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, i32, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.8, float, float }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
+%class.btAlignedObjectArray.0 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%"struct.btSoftBody::Config" = type { i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, i32, %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, float, float }
+%class.btAlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.4 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %"struct.btSoftBody::SolverState" = type { float, float, float, float, float }
-%"struct.btSoftBody::Pose" = type { i8, i8, float, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.16, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3 }
-%class.btAlignedObjectArray.20 = type <{ %class.btAlignedAllocator.21, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.21 = type { i8 }
-%class.btAlignedObjectArray.24 = type <{ %class.btAlignedAllocator.25, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.25 = type { i8 }
-%class.btAlignedObjectArray.28 = type <{ %class.btAlignedAllocator.29, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.29 = type { i8 }
-%class.btAlignedObjectArray.32 = type <{ %class.btAlignedAllocator.33, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.33 = type { i8 }
-%class.btAlignedObjectArray.36 = type <{ %class.btAlignedAllocator.37, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.37 = type { i8 }
-%class.btAlignedObjectArray.40 = type <{ %class.btAlignedAllocator.41, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.41 = type { i8 }
-%class.btAlignedObjectArray.44 = type <{ %class.btAlignedAllocator.45, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.45 = type { i8 }
-%class.btAlignedObjectArray.48 = type <{ %class.btAlignedAllocator.49, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.49 = type { i8 }
-%class.btAlignedObjectArray.52 = type <{ %class.btAlignedAllocator.53, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.53 = type { i8 }
-%class.btAlignedObjectArray.56 = type <{ %class.btAlignedAllocator.57, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.57 = type { i8 }
-%class.btAlignedObjectArray.60 = type <{ %class.btAlignedAllocator.61, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.61 = type { i8 }
-%class.btAlignedObjectArray.64 = type <{ %class.btAlignedAllocator.65, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.65 = type { i8 }
-%class.btAlignedObjectArray.72 = type <{ %class.btAlignedAllocator.73, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.73 = type { i8 }
-%class.btAlignedObjectArray.68 = type <{ %class.btAlignedAllocator.69, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.69 = type { i8 }
-%class.btAlignedObjectArray.76 = type <{ %class.btAlignedAllocator.77, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.77 = type { i8 }
-%class.btAlignedObjectArray.80 = type <{ %class.btAlignedAllocator.81, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.81 = type { i8 }
-%class.btAlignedObjectArray.84 = type <{ %class.btAlignedAllocator.85, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.85 = type { i8 }
-%struct.btDbvt = type { ptr, ptr, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray.88 }
-%class.btAlignedObjectArray.88 = type <{ %class.btAlignedAllocator.89, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.89 = type { i8 }
-%class.btAlignedObjectArray.92 = type <{ %class.btAlignedAllocator.93, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.93 = type { i8 }
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
-%class.btAlignedObjectArray.96 = type <{ %class.btAlignedAllocator.97, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.97 = type { i8 }
-%class.btAlignedObjectArray.100 = type <{ %class.btAlignedAllocator.101, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.101 = type { i8 }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
-%class.btAlignedObjectArray.104 = type <{ %class.btAlignedAllocator.105, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.105 = type { i8 }
-%class.btAlignedObjectArray.108 = type <{ %class.btAlignedAllocator.109, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.109 = type { i8 }
+%"struct.btSoftBody::Pose" = type { i8, i8, float, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.8, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3 }
+%class.btAlignedObjectArray.10 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.12 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.14 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.16 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.18 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.20 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.22 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.24 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.26 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.28 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.30 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.32 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.36 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.34 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.38 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.40 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.42 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%struct.btDbvt = type { ptr, ptr, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray.44 }
+%class.btAlignedObjectArray.44 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.46 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.6 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.48 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.50 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.8 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.52 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.54 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %"struct.btSoftBody::Node" = type <{ %"struct.btSoftBody::Feature", %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, ptr, i32, i8, [3 x i8], i32, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, [4 x i8] }>
 %"struct.btSoftBody::Feature" = type { %"struct.btSoftBody::Element", ptr }
 %"struct.btSoftBody::Element" = type { ptr }
 %class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.0, i32, %class.btVector3, [4 x i8] }>
-%class.btMultiBodyLinkCollider = type <{ %class.btCollisionObject.base, [4 x i8], ptr, i32, [4 x i8] }>
-%struct.btMultibodyLink = type { float, %class.btVector3, i32, %class.btQuaternion, %class.btVector3, %class.btVector3, %struct.btSpatialMotionVector, %struct.btSpatialMotionVector, [6 x %struct.btSpatialMotionVector], i32, i32, %class.btQuaternion, %class.btVector3, %class.btQuaternion, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [7 x float], [7 x float], [6 x float], ptr, i32, i32, i32, i32, ptr, %class.btTransform, ptr, ptr, ptr, float, float, float, float, float, float }
-%struct.btSpatialMotionVector = type { %class.btVector3, %class.btVector3 }
-%class.btQuaternion = type { %class.btQuadWord }
-%class.btQuadWord = type { [4 x float] }
-%struct.btMultiBodyLinkColliderFloatData = type { %struct.btCollisionObjectFloatData, ptr, i32, [4 x i8] }
-%struct.btCollisionObjectFloatData = type { ptr, ptr, ptr, ptr, %struct.btTransformFloatData, %struct.btTransformFloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.btTransformFloatData = type { %struct.btMatrix3x3FloatData, %struct.btVector3FloatData }
-%struct.btMatrix3x3FloatData = type { [3 x %struct.btVector3FloatData] }
-%struct.btVector3FloatData = type { [4 x float] }
-%class.btMultiBody = type { ptr, ptr, ptr, %class.btVector3, %class.btVector3, %class.btQuaternion, %class.btQuaternion, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8], %class.btAlignedObjectArray.112, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.116, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, i8, i8, i8, i8, i8, float, float, float, ptr, i32, i32, i32, float, float, i8, float, float, i8, i8, i32, i32, i8, i8, i8, i8 }
-%class.btAlignedObjectArray.112 = type <{ %class.btAlignedAllocator.113, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.113 = type { i8 }
-%class.btAlignedObjectArray.116 = type <{ %class.btAlignedAllocator.117, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.117 = type { i8 }
 
 $_ZN18btInfMaskConverterC2Ei = comdat any
-
-$_ZNK23btMultiBodyLinkCollider28calculateSerializeBufferSizeEv = comdat any
 
 $_ZN16btSoftBodySolverC2Ev = comdat any
 
@@ -121,16 +75,6 @@ $_ZNK9btVector34getYEv = comdat any
 
 $_ZNK9btVector34getZEv = comdat any
 
-$_ZN23btMultiBodyLinkColliderD2Ev = comdat any
-
-$_ZN23btMultiBodyLinkColliderD0Ev = comdat any
-
-$_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape = comdat any
-
-$_ZNK23btMultiBodyLinkCollider24checkCollideWithOverrideEPK17btCollisionObject = comdat any
-
-$_ZNK23btMultiBodyLinkCollider9serializeEPvP12btSerializer = comdat any
-
 $_ZNK23btDefaultSoftBodySolver13getSolverTypeEv = comdat any
 
 $_ZN16btSoftBodySolver29setNumberOfPositionIterationsEi = comdat any
@@ -147,19 +91,7 @@ $_ZN16btSoftBodySolverD0Ev = comdat any
 
 $_ZNK17btCollisionObject18getActivationStateEv = comdat any
 
-$_ZN17btCollisionObjectdlEPv = comdat any
-
 $__clang_call_terminate = comdat any
-
-$_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject = comdat any
-
-$_ZNK11btMultiBody16hasSelfCollisionEv = comdat any
-
-$_ZN11btMultiBody7getLinkEi = comdat any
-
-$_ZNK17btCollisionObject15getInternalTypeEv = comdat any
-
-$_ZN20btAlignedObjectArrayI15btMultibodyLinkEixEi = comdat any
 
 $_ZN18btAlignedAllocatorIP10btSoftBodyLj16EEC2Ev = comdat any
 
@@ -185,32 +117,21 @@ $_ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi = comdat any
 
 $_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE8allocateEiPPKS1_ = comdat any
 
-$_ZTV23btMultiBodyLinkCollider = comdat any
-
-$_ZTS23btMultiBodyLinkCollider = comdat any
-
-$_ZTI23btMultiBodyLinkCollider = comdat any
+$_ZTI16btSoftBodySolver = comdat any
 
 $_ZTS16btSoftBodySolver = comdat any
-
-$_ZTI16btSoftBodySolver = comdat any
 
 $_ZTV16btSoftBodySolver = comdat any
 
 @_ZL14btInfinityMask = internal global %struct.btInfMaskConverter zeroinitializer, align 4
 @_ZTV23btDefaultSoftBodySolver = dso_local unnamed_addr constant { [18 x ptr] } { [18 x ptr] [ptr null, ptr @_ZTI23btDefaultSoftBodySolver, ptr @_ZN23btDefaultSoftBodySolverD1Ev, ptr @_ZN23btDefaultSoftBodySolverD0Ev, ptr @_ZNK23btDefaultSoftBodySolver13getSolverTypeEv, ptr @_ZN23btDefaultSoftBodySolver16checkInitializedEv, ptr @_ZN23btDefaultSoftBodySolver8optimizeER20btAlignedObjectArrayIP10btSoftBodyEb, ptr @_ZN23btDefaultSoftBodySolver20copyBackToSoftBodiesEb, ptr @_ZN23btDefaultSoftBodySolver13predictMotionEf, ptr @_ZN23btDefaultSoftBodySolver16solveConstraintsEf, ptr @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv, ptr @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyPK24btCollisionObjectWrapper, ptr @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyS1_, ptr @_ZN16btSoftBodySolver29setNumberOfPositionIterationsEi, ptr @_ZN16btSoftBodySolver29getNumberOfPositionIterationsEv, ptr @_ZN16btSoftBodySolver29setNumberOfVelocityIterationsEi, ptr @_ZN16btSoftBodySolver29getNumberOfVelocityIterationsEv, ptr @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferEPK10btSoftBodyP24btVertexBufferDescriptor] }, align 8
-@_ZTV23btMultiBodyLinkCollider = linkonce_odr dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTI23btMultiBodyLinkCollider, ptr @_ZN23btMultiBodyLinkColliderD2Ev, ptr @_ZN23btMultiBodyLinkColliderD0Ev, ptr @_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape, ptr @_ZNK23btMultiBodyLinkCollider24checkCollideWithOverrideEPK17btCollisionObject, ptr @_ZNK23btMultiBodyLinkCollider28calculateSerializeBufferSizeEv, ptr @_ZNK23btMultiBodyLinkCollider9serializeEPvP12btSerializer, ptr @_ZNK17btCollisionObject21serializeSingleObjectEP12btSerializer] }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTS23btMultiBodyLinkCollider = linkonce_odr dso_local constant [26 x i8] c"23btMultiBodyLinkCollider\00", comdat, align 1
-@_ZTI17btCollisionObject = external constant ptr
-@_ZTI23btMultiBodyLinkCollider = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS23btMultiBodyLinkCollider, ptr @_ZTI17btCollisionObject }, comdat, align 8
+@_ZTI23btDefaultSoftBodySolver = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS23btDefaultSoftBodySolver, ptr @_ZTI16btSoftBodySolver }, align 8
 @_ZTS23btDefaultSoftBodySolver = dso_local constant [26 x i8] c"23btDefaultSoftBodySolver\00", align 1
+@_ZTI16btSoftBodySolver = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS16btSoftBodySolver }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTS16btSoftBodySolver = linkonce_odr dso_local constant [19 x i8] c"16btSoftBodySolver\00", comdat, align 1
-@_ZTI16btSoftBodySolver = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS16btSoftBodySolver }, comdat, align 8
-@_ZTI23btDefaultSoftBodySolver = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS23btDefaultSoftBodySolver, ptr @_ZTI16btSoftBodySolver }, align 8
 @_ZTV16btSoftBodySolver = linkonce_odr dso_local unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI16btSoftBodySolver, ptr @_ZN16btSoftBodySolverD2Ev, ptr @_ZN16btSoftBodySolverD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN16btSoftBodySolver29setNumberOfPositionIterationsEi, ptr @_ZN16btSoftBodySolver29getNumberOfPositionIterationsEv, ptr @_ZN16btSoftBodySolver29setNumberOfVelocityIterationsEi, ptr @_ZN16btSoftBodySolver29getNumberOfVelocityIterationsEv] }, comdat, align 8
-@.str = private unnamed_addr constant [33 x i8] c"btMultiBodyLinkColliderFloatData\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_btDefaultSoftBodySolver.cpp, ptr null }]
 
 @_ZN23btDefaultSoftBodySolverC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN23btDefaultSoftBodySolverC2Ev
@@ -218,1148 +139,822 @@ $_ZTV16btSoftBodySolver = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK23btMultiBodyLinkCollider28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret i32 304
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN16btSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1)
-  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  invoke void @_ZN20btAlignedObjectArrayIP10btSoftBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN23btDefaultSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %5 = load ptr, ptr %2, align 8
+  call void @_ZN16btSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %5)
+  store ptr getelementptr inbounds inrange(-16, 128) ({ [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !14
+  %6 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %5, i32 0, i32 3
+  invoke void @_ZN20btAlignedObjectArrayIP10btSoftBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6)
+          to label %7 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
-  %m_updateSolverConstants = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 1
-  store i8 1, ptr %m_updateSolverConstants, align 4
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %5, i32 0, i32 1
+  store i8 1, ptr %8, align 4, !tbaa !16
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN16btSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1) #10
-  br label %eh.resume
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN16btSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #11
+  br label %13
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV16btSoftBodySolver, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_numberOfPositionIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 1
-  store i32 10, ptr %m_numberOfPositionIterations, align 8
-  %m_timeScale = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 3
-  store float 1.000000e+00, ptr %m_timeScale, align 8
-  %m_numberOfVelocityIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_numberOfVelocityIterations, align 4
-  %m_numberOfPositionIterations2 = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 1
-  store i32 5, ptr %m_numberOfPositionIterations2, align 8
+define linkonce_odr dso_local void @_ZN16btSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV16btSoftBodySolver, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %3, i32 0, i32 1
+  store i32 10, ptr %4, align 8, !tbaa !26
+  %5 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %3, i32 0, i32 3
+  store float 1.000000e+00, ptr %5, align 8, !tbaa !27
+  %6 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 4, !tbaa !28
+  %7 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %3, i32 0, i32 1
+  store i32 5, ptr %7, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 0
-  call void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator)
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet) #10
-  call void @_ZN16btSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1) #10
+define dso_local void @_ZN23btDefaultSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 128) ({ [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %3, i32 0, i32 3
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #11
+  call void @_ZN16btSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN20btAlignedObjectArrayIP10btSoftBodyE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN20btAlignedObjectArrayIP10btSoftBodyE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #11
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN23btDefaultSoftBodySolverD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #10
-  call void @_ZdlPv(ptr noundef %this1) #12
+define dso_local void @_ZN23btDefaultSoftBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN23btDefaultSoftBodySolverD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #11
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 56) #13
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver20copyBackToSoftBodiesEb(ptr noundef nonnull align 8 dereferenceable(56) %this, i1 noundef zeroext %bMove) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %bMove.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  %frombool = zext i1 %bMove to i8
-  store i8 %frombool, ptr %bMove.addr, align 1
+define dso_local void @_ZN23btDefaultSoftBodySolver20copyBackToSoftBodiesEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver8optimizeER20btAlignedObjectArrayIP10btSoftBodyEb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(25) %softBodies, i1 noundef zeroext %forceUpdate) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %softBodies.addr = alloca ptr, align 8
-  %forceUpdate.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %softBodies, ptr %softBodies.addr, align 8
-  %frombool = zext i1 %forceUpdate to i8
-  store i8 %frombool, ptr %forceUpdate.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %softBodies.addr, align 8
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet, ptr noundef nonnull align 8 dereferenceable(25) %0)
+define dso_local void @_ZN23btDefaultSoftBodySolver8optimizeER20btAlignedObjectArrayIP10btSoftBodyEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1, !tbaa !31
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %8, i32 0, i32 3
+  %10 = load ptr, ptr %5, align 8, !tbaa !29
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %9, ptr noundef nonnull align 8 dereferenceable(25) %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(25) %otherArray) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %otherArray.addr = alloca ptr, align 8
-  %otherSize = alloca i32, align 4
-  %ref.tmp = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %otherArray, ptr %otherArray.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %otherArray.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0)
-  store i32 %call, ptr %otherSize, align 4
-  %1 = load i32, ptr %otherSize, align 4
-  store ptr null, ptr %ref.tmp, align 8
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %2 = load ptr, ptr %otherArray.addr, align 8
-  %3 = load i32, ptr %otherSize, align 4
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %m_data, align 8
-  call void @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %2, i32 noundef 0, i32 noundef %3, ptr noundef %4)
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !29
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !29
+  %9 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  store i32 %9, ptr %5, align 4, !tbaa !9
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store ptr null, ptr %6, align 8, !tbaa !32
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %7, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %11 = load ptr, ptr %4, align 8, !tbaa !29
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %7, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  call void @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %11, i32 noundef 0, i32 noundef %12, ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %psb = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 0, ptr %3, align 4, !tbaa !9
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet)
-  %cmp = icmp slt i32 %0, %call
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %22, %1
+  %7 = load i32, ptr %3, align 4, !tbaa !9
+  %8 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %5, i32 0, i32 3
+  %9 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
+  %10 = icmp slt i32 %7, %9
+  br i1 %10, label %12, label %11
 
-for.body:                                         ; preds = %for.cond
-  %m_softBodySet2 = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %i, align 4
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet2, i32 noundef %1)
-  %2 = load ptr, ptr %call3, align 8
-  store ptr %2, ptr %psb, align 8
-  %3 = load ptr, ptr %psb, align 8
-  %call4 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
-  br i1 %call4, label %if.then, label %if.end
+11:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  br label %25
 
-if.then:                                          ; preds = %for.body
-  %4 = load ptr, ptr %psb, align 8
-  call void @_ZN10btSoftBody15integrateMotionEv(ptr noundef nonnull align 8 dereferenceable(2064) %4)
-  br label %if.end
+12:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %13 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %5, i32 0, i32 3
+  %14 = load i32, ptr %3, align 4, !tbaa !9
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %13, i32 noundef %14)
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  store ptr %16, ptr %4, align 8, !tbaa !32
+  %17 = load ptr, ptr %4, align 8, !tbaa !32
+  %18 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %17)
+  br i1 %18, label %19, label %21
 
-if.end:                                           ; preds = %if.then, %for.body
-  br label %for.inc
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @_ZN10btSoftBody15integrateMotionEv(ptr noundef nonnull align 8 dereferenceable(2064) %20)
+  br label %21
 
-for.inc:                                          ; preds = %if.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+21:                                               ; preds = %19, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  br label %22
 
-for.end:                                          ; preds = %for.cond
+22:                                               ; preds = %21
+  %23 = load i32, ptr %3, align 4, !tbaa !9
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %3, align 4, !tbaa !9
+  br label %6, !llvm.loop !35
+
+25:                                               ; preds = %11
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !37
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  %cmp = icmp ne i32 %call, 6
-  br i1 %cmp, label %land.lhs.true, label %land.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
+  %5 = icmp ne i32 %4, 6
+  br i1 %5, label %6, label %12
 
-land.lhs.true:                                    ; preds = %entry
-  %call2 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  %cmp3 = icmp ne i32 %call2, 2
-  br i1 %cmp3, label %land.rhs, label %land.end
+6:                                                ; preds = %1
+  %7 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
+  %8 = icmp ne i32 %7, 2
+  br i1 %8, label %9, label %12
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %call4 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  %cmp5 = icmp ne i32 %call4, 5
-  br label %land.end
+9:                                                ; preds = %6
+  %10 = call noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
+  %11 = icmp ne i32 %10, 5
+  br label %12
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %0 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp5, %land.rhs ]
-  ret i1 %0
+12:                                               ; preds = %9, %6, %1
+  %13 = phi i1 [ false, %6 ], [ false, %1 ], [ %11, %9 ]
+  ret i1 %13
 }
 
-declare void @_ZN10btSoftBody15integrateMotionEv(ptr noundef nonnull align 8 dereferenceable(2064)) #4
+declare void @_ZN10btSoftBody15integrateMotionEv(ptr noundef nonnull align 8 dereferenceable(2064)) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN23btDefaultSoftBodySolver16checkInitializedEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define dso_local noundef zeroext i1 @_ZN23btDefaultSoftBodySolver16checkInitializedEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16solveConstraintsEf(ptr noundef nonnull align 8 dereferenceable(56) %this, float noundef %solverdt) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %solverdt.addr = alloca float, align 4
-  %i = alloca i32, align 4
-  %psb = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store float %solverdt, ptr %solverdt.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @_ZN23btDefaultSoftBodySolver16solveConstraintsEf(ptr noundef nonnull align 8 dereferenceable(56) %0, float noundef %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store float %1, ptr %4, align 4, !tbaa !40
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet)
-  %cmp = icmp slt i32 %0, %call
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %24, %2
+  %9 = load i32, ptr %5, align 4, !tbaa !9
+  %10 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %7, i32 0, i32 3
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  %12 = icmp slt i32 %9, %11
+  br i1 %12, label %14, label %13
 
-for.body:                                         ; preds = %for.cond
-  %m_softBodySet2 = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %i, align 4
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet2, i32 noundef %1)
-  %2 = load ptr, ptr %call3, align 8
-  store ptr %2, ptr %psb, align 8
-  %3 = load ptr, ptr %psb, align 8
-  %call4 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
-  br i1 %call4, label %if.then, label %if.end
+13:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  br label %27
 
-if.then:                                          ; preds = %for.body
-  %4 = load ptr, ptr %psb, align 8
-  call void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull align 8 dereferenceable(2064) %4)
-  br label %if.end
+14:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %15 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %7, i32 0, i32 3
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %15, i32 noundef %16)
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  store ptr %18, ptr %6, align 8, !tbaa !32
+  %19 = load ptr, ptr %6, align 8, !tbaa !32
+  %20 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %19)
+  br i1 %20, label %21, label %23
 
-if.end:                                           ; preds = %if.then, %for.body
-  br label %for.inc
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull align 8 dereferenceable(2064) %22)
+  br label %23
 
-for.inc:                                          ; preds = %if.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+23:                                               ; preds = %21, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %24
 
-for.end:                                          ; preds = %for.cond
+24:                                               ; preds = %23
+  %25 = load i32, ptr %5, align 4, !tbaa !9
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %5, align 4, !tbaa !9
+  br label %8, !llvm.loop !41
+
+27:                                               ; preds = %13
   ret void
 }
 
-declare void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull align 8 dereferenceable(2064)) #4
+declare void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull align 8 dereferenceable(2064)) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferEPK10btSoftBodyP24btVertexBufferDescriptor(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %softBody, ptr noundef %vertexBuffer) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %softBody.addr = alloca ptr, align 8
-  %vertexBuffer.addr = alloca ptr, align 8
-  %clothVertices = alloca ptr, align 8
-  %numVertices = alloca i32, align 4
-  %cpuVertexBuffer = alloca ptr, align 8
-  %basePointer = alloca ptr, align 8
-  %vertexOffset = alloca i32, align 4
-  %vertexStride = alloca i32, align 4
-  %vertexPointer = alloca ptr, align 8
-  %vertexIndex = alloca i32, align 4
-  %position = alloca %class.btVector3, align 4
-  %normalOffset = alloca i32, align 4
-  %normalStride = alloca i32, align 4
-  %normalPointer = alloca ptr, align 8
-  %vertexIndex38 = alloca i32, align 4
-  %normal = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %softBody, ptr %softBody.addr, align 8
-  store ptr %vertexBuffer, ptr %vertexBuffer.addr, align 8
-  %0 = load ptr, ptr %vertexBuffer.addr, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %1 = load ptr, ptr %vfn, align 8
-  %call = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(28) %0)
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end55
+define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferEPK10btSoftBodyP24btVertexBufferDescriptor(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %class.btVector3, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !42
+  %21 = load ptr, ptr %6, align 8, !tbaa !42
+  %22 = load ptr, ptr %21, align 8, !tbaa !14
+  %23 = getelementptr inbounds ptr, ptr %22, i64 4
+  %24 = load ptr, ptr %23, align 8
+  %25 = call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(28) %21)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %140
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %softBody.addr, align 8
-  %m_nodes = getelementptr inbounds %class.btSoftBody, ptr %2, i32 0, i32 11
-  store ptr %m_nodes, ptr %clothVertices, align 8
-  %3 = load ptr, ptr %clothVertices, align 8
-  %call2 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
-  store i32 %call2, ptr %numVertices, align 4
-  %4 = load ptr, ptr %vertexBuffer.addr, align 8
-  store ptr %4, ptr %cpuVertexBuffer, align 8
-  %5 = load ptr, ptr %cpuVertexBuffer, align 8
-  %vtable3 = load ptr, ptr %5, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 9
-  %6 = load ptr, ptr %vfn4, align 8
-  %call5 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %5)
-  store ptr %call5, ptr %basePointer, align 8
-  %7 = load ptr, ptr %vertexBuffer.addr, align 8
-  %vtable6 = load ptr, ptr %7, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 2
-  %8 = load ptr, ptr %vfn7, align 8
-  %call8 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(28) %7)
-  br i1 %call8, label %if.then9, label %if.end
+27:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %28 = load ptr, ptr %5, align 8, !tbaa !32
+  %29 = getelementptr inbounds nuw %class.btSoftBody, ptr %28, i32 0, i32 11
+  store ptr %29, ptr %7, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %30 = load ptr, ptr %7, align 8, !tbaa !44
+  %31 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %30)
+  store i32 %31, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %32 = load ptr, ptr %6, align 8, !tbaa !42
+  store ptr %32, ptr %9, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %33 = load ptr, ptr %9, align 8, !tbaa !46
+  %34 = load ptr, ptr %33, align 8, !tbaa !14
+  %35 = getelementptr inbounds ptr, ptr %34, i64 9
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(40) %33)
+  store ptr %37, ptr %10, align 8, !tbaa !48
+  %38 = load ptr, ptr %6, align 8, !tbaa !42
+  %39 = load ptr, ptr %38, align 8, !tbaa !14
+  %40 = getelementptr inbounds ptr, ptr %39, i64 2
+  %41 = load ptr, ptr %40, align 8
+  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(28) %38)
+  br i1 %42, label %43, label %88
 
-if.then9:                                         ; preds = %if.then
-  %9 = load ptr, ptr %cpuVertexBuffer, align 8
-  %vtable10 = load ptr, ptr %9, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 5
-  %10 = load ptr, ptr %vfn11, align 8
-  %call12 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(28) %9)
-  store i32 %call12, ptr %vertexOffset, align 4
-  %11 = load ptr, ptr %cpuVertexBuffer, align 8
-  %vtable13 = load ptr, ptr %11, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 6
-  %12 = load ptr, ptr %vfn14, align 8
-  %call15 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(28) %11)
-  store i32 %call15, ptr %vertexStride, align 4
-  %13 = load ptr, ptr %basePointer, align 8
-  %14 = load i32, ptr %vertexOffset, align 4
-  %idx.ext = sext i32 %14 to i64
-  %add.ptr = getelementptr inbounds float, ptr %13, i64 %idx.ext
-  store ptr %add.ptr, ptr %vertexPointer, align 8
-  store i32 0, ptr %vertexIndex, align 4
-  br label %for.cond
+43:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %44 = load ptr, ptr %9, align 8, !tbaa !46
+  %45 = load ptr, ptr %44, align 8, !tbaa !14
+  %46 = getelementptr inbounds ptr, ptr %45, i64 5
+  %47 = load ptr, ptr %46, align 8
+  %48 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(28) %44)
+  store i32 %48, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  %49 = load ptr, ptr %9, align 8, !tbaa !46
+  %50 = load ptr, ptr %49, align 8, !tbaa !14
+  %51 = getelementptr inbounds ptr, ptr %50, i64 6
+  %52 = load ptr, ptr %51, align 8
+  %53 = call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(28) %49)
+  store i32 %53, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %54 = load ptr, ptr %10, align 8, !tbaa !48
+  %55 = load i32, ptr %11, align 4, !tbaa !9
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds float, ptr %54, i64 %56
+  store ptr %57, ptr %13, align 8, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  store i32 0, ptr %14, align 4, !tbaa !9
+  br label %58
 
-for.cond:                                         ; preds = %for.inc, %if.then9
-  %15 = load i32, ptr %vertexIndex, align 4
-  %16 = load i32, ptr %numVertices, align 4
-  %cmp16 = icmp slt i32 %15, %16
-  br i1 %cmp16, label %for.body, label %for.end
+58:                                               ; preds = %84, %43
+  %59 = load i32, ptr %14, align 4, !tbaa !9
+  %60 = load i32, ptr %8, align 4, !tbaa !9
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %63, label %62
 
-for.body:                                         ; preds = %for.cond
-  %17 = load ptr, ptr %clothVertices, align 8
-  %18 = load i32, ptr %vertexIndex, align 4
-  %call17 = call noundef nonnull align 8 dereferenceable(252) ptr @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %17, i32 noundef %18)
-  %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %call17, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %position, ptr align 8 %m_x, i64 16, i1 false)
-  %call18 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getXEv(ptr noundef nonnull align 4 dereferenceable(16) %position)
-  %19 = load float, ptr %call18, align 4
-  %20 = load ptr, ptr %vertexPointer, align 8
-  %add.ptr19 = getelementptr inbounds float, ptr %20, i64 0
-  store float %19, ptr %add.ptr19, align 4
-  %call20 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getYEv(ptr noundef nonnull align 4 dereferenceable(16) %position)
-  %21 = load float, ptr %call20, align 4
-  %22 = load ptr, ptr %vertexPointer, align 8
-  %add.ptr21 = getelementptr inbounds float, ptr %22, i64 1
-  store float %21, ptr %add.ptr21, align 4
-  %call22 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getZEv(ptr noundef nonnull align 4 dereferenceable(16) %position)
-  %23 = load float, ptr %call22, align 4
-  %24 = load ptr, ptr %vertexPointer, align 8
-  %add.ptr23 = getelementptr inbounds float, ptr %24, i64 2
-  store float %23, ptr %add.ptr23, align 4
-  %25 = load i32, ptr %vertexStride, align 4
-  %26 = load ptr, ptr %vertexPointer, align 8
-  %idx.ext24 = sext i32 %25 to i64
-  %add.ptr25 = getelementptr inbounds float, ptr %26, i64 %idx.ext24
-  store ptr %add.ptr25, ptr %vertexPointer, align 8
-  br label %for.inc
+62:                                               ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  br label %87
 
-for.inc:                                          ; preds = %for.body
-  %27 = load i32, ptr %vertexIndex, align 4
-  %inc = add nsw i32 %27, 1
-  store i32 %inc, ptr %vertexIndex, align 4
-  br label %for.cond, !llvm.loop !8
+63:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #11
+  %64 = load ptr, ptr %7, align 8, !tbaa !44
+  %65 = load i32, ptr %14, align 4, !tbaa !9
+  %66 = call noundef nonnull align 8 dereferenceable(252) ptr @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %64, i32 noundef %65)
+  %67 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %66, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 8 %67, i64 16, i1 false), !tbaa.struct !50
+  %68 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getXEv(ptr noundef nonnull align 4 dereferenceable(16) %15)
+  %69 = load float, ptr %68, align 4, !tbaa !40
+  %70 = load ptr, ptr %13, align 8, !tbaa !48
+  %71 = getelementptr inbounds float, ptr %70, i64 0
+  store float %69, ptr %71, align 4, !tbaa !40
+  %72 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getYEv(ptr noundef nonnull align 4 dereferenceable(16) %15)
+  %73 = load float, ptr %72, align 4, !tbaa !40
+  %74 = load ptr, ptr %13, align 8, !tbaa !48
+  %75 = getelementptr inbounds float, ptr %74, i64 1
+  store float %73, ptr %75, align 4, !tbaa !40
+  %76 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getZEv(ptr noundef nonnull align 4 dereferenceable(16) %15)
+  %77 = load float, ptr %76, align 4, !tbaa !40
+  %78 = load ptr, ptr %13, align 8, !tbaa !48
+  %79 = getelementptr inbounds float, ptr %78, i64 2
+  store float %77, ptr %79, align 4, !tbaa !40
+  %80 = load i32, ptr %12, align 4, !tbaa !9
+  %81 = load ptr, ptr %13, align 8, !tbaa !48
+  %82 = sext i32 %80 to i64
+  %83 = getelementptr inbounds float, ptr %81, i64 %82
+  store ptr %83, ptr %13, align 8, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #11
+  br label %84
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+84:                                               ; preds = %63
+  %85 = load i32, ptr %14, align 4, !tbaa !9
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %14, align 4, !tbaa !9
+  br label %58, !llvm.loop !51
 
-if.end:                                           ; preds = %for.end, %if.then
-  %28 = load ptr, ptr %vertexBuffer.addr, align 8
-  %vtable26 = load ptr, ptr %28, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 3
-  %29 = load ptr, ptr %vfn27, align 8
-  %call28 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(28) %28)
-  br i1 %call28, label %if.then29, label %if.end54
+87:                                               ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  br label %88
 
-if.then29:                                        ; preds = %if.end
-  %30 = load ptr, ptr %cpuVertexBuffer, align 8
-  %vtable30 = load ptr, ptr %30, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 7
-  %31 = load ptr, ptr %vfn31, align 8
-  %call32 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(28) %30)
-  store i32 %call32, ptr %normalOffset, align 4
-  %32 = load ptr, ptr %cpuVertexBuffer, align 8
-  %vtable33 = load ptr, ptr %32, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 8
-  %33 = load ptr, ptr %vfn34, align 8
-  %call35 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(28) %32)
-  store i32 %call35, ptr %normalStride, align 4
-  %34 = load ptr, ptr %basePointer, align 8
-  %35 = load i32, ptr %normalOffset, align 4
-  %idx.ext36 = sext i32 %35 to i64
-  %add.ptr37 = getelementptr inbounds float, ptr %34, i64 %idx.ext36
-  store ptr %add.ptr37, ptr %normalPointer, align 8
-  store i32 0, ptr %vertexIndex38, align 4
-  br label %for.cond39
+88:                                               ; preds = %87, %27
+  %89 = load ptr, ptr %6, align 8, !tbaa !42
+  %90 = load ptr, ptr %89, align 8, !tbaa !14
+  %91 = getelementptr inbounds ptr, ptr %90, i64 3
+  %92 = load ptr, ptr %91, align 8
+  %93 = call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(28) %89)
+  br i1 %93, label %94, label %139
 
-for.cond39:                                       ; preds = %for.inc51, %if.then29
-  %36 = load i32, ptr %vertexIndex38, align 4
-  %37 = load i32, ptr %numVertices, align 4
-  %cmp40 = icmp slt i32 %36, %37
-  br i1 %cmp40, label %for.body41, label %for.end53
+94:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #11
+  %95 = load ptr, ptr %9, align 8, !tbaa !46
+  %96 = load ptr, ptr %95, align 8, !tbaa !14
+  %97 = getelementptr inbounds ptr, ptr %96, i64 7
+  %98 = load ptr, ptr %97, align 8
+  %99 = call noundef i32 %98(ptr noundef nonnull align 8 dereferenceable(28) %95)
+  store i32 %99, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  %100 = load ptr, ptr %9, align 8, !tbaa !46
+  %101 = load ptr, ptr %100, align 8, !tbaa !14
+  %102 = getelementptr inbounds ptr, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(28) %100)
+  store i32 %104, ptr %17, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %105 = load ptr, ptr %10, align 8, !tbaa !48
+  %106 = load i32, ptr %16, align 4, !tbaa !9
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds float, ptr %105, i64 %107
+  store ptr %108, ptr %18, align 8, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #11
+  store i32 0, ptr %19, align 4, !tbaa !9
+  br label %109
 
-for.body41:                                       ; preds = %for.cond39
-  %38 = load ptr, ptr %clothVertices, align 8
-  %39 = load i32, ptr %vertexIndex38, align 4
-  %call42 = call noundef nonnull align 8 dereferenceable(252) ptr @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %38, i32 noundef %39)
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Node", ptr %call42, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %normal, ptr align 8 %m_n, i64 16, i1 false)
-  %call43 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getXEv(ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  %40 = load float, ptr %call43, align 4
-  %41 = load ptr, ptr %normalPointer, align 8
-  %add.ptr44 = getelementptr inbounds float, ptr %41, i64 0
-  store float %40, ptr %add.ptr44, align 4
-  %call45 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getYEv(ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  %42 = load float, ptr %call45, align 4
-  %43 = load ptr, ptr %normalPointer, align 8
-  %add.ptr46 = getelementptr inbounds float, ptr %43, i64 1
-  store float %42, ptr %add.ptr46, align 4
-  %call47 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getZEv(ptr noundef nonnull align 4 dereferenceable(16) %normal)
-  %44 = load float, ptr %call47, align 4
-  %45 = load ptr, ptr %normalPointer, align 8
-  %add.ptr48 = getelementptr inbounds float, ptr %45, i64 2
-  store float %44, ptr %add.ptr48, align 4
-  %46 = load i32, ptr %normalStride, align 4
-  %47 = load ptr, ptr %normalPointer, align 8
-  %idx.ext49 = sext i32 %46 to i64
-  %add.ptr50 = getelementptr inbounds float, ptr %47, i64 %idx.ext49
-  store ptr %add.ptr50, ptr %normalPointer, align 8
-  br label %for.inc51
+109:                                              ; preds = %135, %94
+  %110 = load i32, ptr %19, align 4, !tbaa !9
+  %111 = load i32, ptr %8, align 4, !tbaa !9
+  %112 = icmp slt i32 %110, %111
+  br i1 %112, label %114, label %113
 
-for.inc51:                                        ; preds = %for.body41
-  %48 = load i32, ptr %vertexIndex38, align 4
-  %inc52 = add nsw i32 %48, 1
-  store i32 %inc52, ptr %vertexIndex38, align 4
-  br label %for.cond39, !llvm.loop !9
+113:                                              ; preds = %109
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #11
+  br label %138
 
-for.end53:                                        ; preds = %for.cond39
-  br label %if.end54
+114:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #11
+  %115 = load ptr, ptr %7, align 8, !tbaa !44
+  %116 = load i32, ptr %19, align 4, !tbaa !9
+  %117 = call noundef nonnull align 8 dereferenceable(252) ptr @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %115, i32 noundef %116)
+  %118 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %117, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 8 %118, i64 16, i1 false), !tbaa.struct !50
+  %119 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getXEv(ptr noundef nonnull align 4 dereferenceable(16) %20)
+  %120 = load float, ptr %119, align 4, !tbaa !40
+  %121 = load ptr, ptr %18, align 8, !tbaa !48
+  %122 = getelementptr inbounds float, ptr %121, i64 0
+  store float %120, ptr %122, align 4, !tbaa !40
+  %123 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getYEv(ptr noundef nonnull align 4 dereferenceable(16) %20)
+  %124 = load float, ptr %123, align 4, !tbaa !40
+  %125 = load ptr, ptr %18, align 8, !tbaa !48
+  %126 = getelementptr inbounds float, ptr %125, i64 1
+  store float %124, ptr %126, align 4, !tbaa !40
+  %127 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getZEv(ptr noundef nonnull align 4 dereferenceable(16) %20)
+  %128 = load float, ptr %127, align 4, !tbaa !40
+  %129 = load ptr, ptr %18, align 8, !tbaa !48
+  %130 = getelementptr inbounds float, ptr %129, i64 2
+  store float %128, ptr %130, align 4, !tbaa !40
+  %131 = load i32, ptr %17, align 4, !tbaa !9
+  %132 = load ptr, ptr %18, align 8, !tbaa !48
+  %133 = sext i32 %131 to i64
+  %134 = getelementptr inbounds float, ptr %132, i64 %133
+  store ptr %134, ptr %18, align 8, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #11
+  br label %135
 
-if.end54:                                         ; preds = %for.end53, %if.end
-  br label %if.end55
+135:                                              ; preds = %114
+  %136 = load i32, ptr %19, align 4, !tbaa !9
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %19, align 4, !tbaa !9
+  br label %109, !llvm.loop !52
 
-if.end55:                                         ; preds = %if.end54, %entry
+138:                                              ; preds = %113
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #11
+  br label %139
+
+139:                                              ; preds = %138, %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %140
+
+140:                                              ; preds = %139, %3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !53
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(252) ptr @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(252) ptr @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getXEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getXEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getYEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 1
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getYEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 1
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getZEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 2
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9btVector34getZEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 2
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyS1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %softBody, ptr noundef %otherSoftBody) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %softBody.addr = alloca ptr, align 8
-  %otherSoftBody.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %softBody, ptr %softBody.addr, align 8
-  store ptr %otherSoftBody, ptr %otherSoftBody.addr, align 8
-  %0 = load ptr, ptr %softBody.addr, align 8
-  %1 = load ptr, ptr %otherSoftBody.addr, align 8
-  call void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef %1)
+define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %5, align 8, !tbaa !32
+  %8 = load ptr, ptr %6, align 8, !tbaa !32
+  call void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef %8)
   ret void
 }
 
-declare void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064), ptr noundef) #4
+declare void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064), ptr noundef) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %softBody, ptr noundef %collisionObjectWrap) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %softBody.addr = alloca ptr, align 8
-  %collisionObjectWrap.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %softBody, ptr %softBody.addr, align 8
-  store ptr %collisionObjectWrap, ptr %collisionObjectWrap.addr, align 8
-  %0 = load ptr, ptr %softBody.addr, align 8
-  %1 = load ptr, ptr %collisionObjectWrap.addr, align 8
-  call void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef %1)
+define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !60
+  %7 = load ptr, ptr %5, align 8, !tbaa !32
+  %8 = load ptr, ptr %6, align 8, !tbaa !60
+  call void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef %8)
   ret void
 }
 
-declare void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(2064), ptr noundef) #4
+declare void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(2064), ptr noundef) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver13predictMotionEf(ptr noundef nonnull align 8 dereferenceable(56) %this, float noundef %timeStep) unnamed_addr #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %timeStep.addr = alloca float, align 4
-  %i = alloca i32, align 4
-  %psb = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store float %timeStep, ptr %timeStep.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @_ZN23btDefaultSoftBodySolver13predictMotionEf(ptr noundef nonnull align 8 dereferenceable(56) %0, float noundef %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store float %1, ptr %4, align 4, !tbaa !40
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet)
-  %cmp = icmp slt i32 %0, %call
-  br i1 %cmp, label %for.body, label %for.end
+8:                                                ; preds = %25, %2
+  %9 = load i32, ptr %5, align 4, !tbaa !9
+  %10 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %7, i32 0, i32 3
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  %12 = icmp slt i32 %9, %11
+  br i1 %12, label %14, label %13
 
-for.body:                                         ; preds = %for.cond
-  %m_softBodySet2 = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %i, align 4
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet2, i32 noundef %1)
-  %2 = load ptr, ptr %call3, align 8
-  store ptr %2, ptr %psb, align 8
-  %3 = load ptr, ptr %psb, align 8
-  %call4 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %3)
-  br i1 %call4, label %if.then, label %if.end
+13:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  br label %28
 
-if.then:                                          ; preds = %for.body
-  %4 = load ptr, ptr %psb, align 8
-  %5 = load float, ptr %timeStep.addr, align 4
-  call void @_ZN10btSoftBody13predictMotionEf(ptr noundef nonnull align 8 dereferenceable(2064) %4, float noundef %5)
-  br label %if.end
+14:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %15 = getelementptr inbounds nuw %class.btDefaultSoftBodySolver, ptr %7, i32 0, i32 3
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyEixEi(ptr noundef nonnull align 8 dereferenceable(25) %15, i32 noundef %16)
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  store ptr %18, ptr %6, align 8, !tbaa !32
+  %19 = load ptr, ptr %6, align 8, !tbaa !32
+  %20 = call noundef zeroext i1 @_ZNK17btCollisionObject8isActiveEv(ptr noundef nonnull align 8 dereferenceable(372) %19)
+  br i1 %20, label %21, label %24
 
-if.end:                                           ; preds = %if.then, %for.body
-  br label %for.inc
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %6, align 8, !tbaa !32
+  %23 = load float, ptr %4, align 4, !tbaa !40
+  call void @_ZN10btSoftBody13predictMotionEf(ptr noundef nonnull align 8 dereferenceable(2064) %22, float noundef %23)
+  br label %24
 
-for.inc:                                          ; preds = %if.end
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+24:                                               ; preds = %21, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %25
 
-for.end:                                          ; preds = %for.cond
+25:                                               ; preds = %24
+  %26 = load i32, ptr %5, align 4, !tbaa !9
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %5, align 4, !tbaa !9
+  br label %8, !llvm.loop !62
+
+28:                                               ; preds = %13
   ret void
 }
 
-declare void @_ZN10btSoftBody13predictMotionEf(ptr noundef nonnull align 8 dereferenceable(2064), float noundef) #4
+declare void @_ZN10btSoftBody13predictMotionEf(ptr noundef nonnull align 8 dereferenceable(2064), float noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23btMultiBodyLinkColliderD2Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1) #10
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23btMultiBodyLinkColliderD0Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN23btMultiBodyLinkColliderD2Ev(ptr noundef nonnull align 8 dereferenceable(388) %this1) #10
-  call void @_ZN17btCollisionObjectdlEPv(ptr noundef %this1) #10
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape(ptr noundef nonnull align 8 dereferenceable(372) %this, ptr noundef %collisionShape) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %collisionShape.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %collisionShape, ptr %collisionShape.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_updateRevision = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 36
-  %0 = load i32, ptr %m_updateRevision, align 8
-  %inc = add nsw i32 %0, 1
-  store i32 %inc, ptr %m_updateRevision, align 8
-  %1 = load ptr, ptr %collisionShape.addr, align 8
-  %m_collisionShape = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 9
-  store ptr %1, ptr %m_collisionShape, align 8
-  %2 = load ptr, ptr %collisionShape.addr, align 8
-  %m_rootCollisionShape = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 11
-  store ptr %2, ptr %m_rootCollisionShape, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK23btMultiBodyLinkCollider24checkCollideWithOverrideEPK17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %co) unnamed_addr #2 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %co.addr = alloca ptr, align 8
-  %other = alloca ptr, align 8
-  %link = alloca ptr, align 8
-  %parent_of_this = alloca i32, align 4
-  %otherLink = alloca ptr, align 8
-  %parent_of_other = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %co, ptr %co.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %co.addr, align 8
-  %call = call noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %0)
-  store ptr %call, ptr %other, align 8
-  %1 = load ptr, ptr %other, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %other, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %m_multiBody, align 8
-  %m_multiBody2 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %m_multiBody2, align 8
-  %cmp = icmp ne ptr %3, %4
-  br i1 %cmp, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %m_multiBody5 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %m_multiBody5, align 8
-  %call6 = call noundef zeroext i1 @_ZNK11btMultiBody16hasSelfCollisionEv(ptr noundef nonnull align 8 dereferenceable(640) %5)
-  br i1 %call6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %if.end4
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end8:                                          ; preds = %if.end4
-  %m_link = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %6 = load i32, ptr %m_link, align 8
-  %cmp9 = icmp sge i32 %6, 0
-  br i1 %cmp9, label %if.then10, label %if.end37
-
-if.then10:                                        ; preds = %if.end8
-  %m_multiBody11 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %m_multiBody11, align 8
-  %m_link12 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %8 = load i32, ptr %m_link12, align 8
-  %call13 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %7, i32 noundef %8)
-  store ptr %call13, ptr %link, align 8
-  %9 = load ptr, ptr %link, align 8
-  %m_flags = getelementptr inbounds %struct.btMultibodyLink, ptr %9, i32 0, i32 23
-  %10 = load i32, ptr %m_flags, align 8
-  %and = and i32 %10, 2
-  %tobool14 = icmp ne i32 %and, 0
-  br i1 %tobool14, label %if.then15, label %if.else
-
-if.then15:                                        ; preds = %if.then10
-  %m_link16 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %11 = load i32, ptr %m_link16, align 8
-  store i32 %11, ptr %parent_of_this, align 4
-  br label %while.body
-
-while.body:                                       ; preds = %if.end25, %if.then15
-  %12 = load i32, ptr %parent_of_this, align 4
-  %cmp17 = icmp eq i32 %12, -1
-  br i1 %cmp17, label %if.then18, label %if.end19
-
-if.then18:                                        ; preds = %while.body
-  br label %while.end
-
-if.end19:                                         ; preds = %while.body
-  %m_multiBody20 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %13 = load ptr, ptr %m_multiBody20, align 8
-  %14 = load i32, ptr %parent_of_this, align 4
-  %call21 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %13, i32 noundef %14)
-  %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %call21, i32 0, i32 2
-  %15 = load i32, ptr %m_parent, align 4
-  store i32 %15, ptr %parent_of_this, align 4
-  %16 = load i32, ptr %parent_of_this, align 4
-  %17 = load ptr, ptr %other, align 8
-  %m_link22 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %m_link22, align 8
-  %cmp23 = icmp eq i32 %16, %18
-  br i1 %cmp23, label %if.then24, label %if.end25
-
-if.then24:                                        ; preds = %if.end19
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end25:                                         ; preds = %if.end19
-  br label %while.body, !llvm.loop !11
-
-while.end:                                        ; preds = %if.then18
-  br label %if.end36
-
-if.else:                                          ; preds = %if.then10
-  %19 = load ptr, ptr %link, align 8
-  %m_flags26 = getelementptr inbounds %struct.btMultibodyLink, ptr %19, i32 0, i32 23
-  %20 = load i32, ptr %m_flags26, align 8
-  %and27 = and i32 %20, 1
-  %tobool28 = icmp ne i32 %and27, 0
-  br i1 %tobool28, label %if.then29, label %if.end35
-
-if.then29:                                        ; preds = %if.else
-  %21 = load ptr, ptr %link, align 8
-  %m_parent30 = getelementptr inbounds %struct.btMultibodyLink, ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %m_parent30, align 4
-  %23 = load ptr, ptr %other, align 8
-  %m_link31 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %23, i32 0, i32 3
-  %24 = load i32, ptr %m_link31, align 8
-  %cmp32 = icmp eq i32 %22, %24
-  br i1 %cmp32, label %if.then33, label %if.end34
-
-if.then33:                                        ; preds = %if.then29
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end34:                                         ; preds = %if.then29
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end34, %if.else
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.end35, %while.end
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end36, %if.end8
-  %25 = load ptr, ptr %other, align 8
-  %m_link38 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %25, i32 0, i32 3
-  %26 = load i32, ptr %m_link38, align 8
-  %cmp39 = icmp sge i32 %26, 0
-  br i1 %cmp39, label %if.then40, label %if.end73
-
-if.then40:                                        ; preds = %if.end37
-  %27 = load ptr, ptr %other, align 8
-  %m_multiBody41 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %27, i32 0, i32 2
-  %28 = load ptr, ptr %m_multiBody41, align 8
-  %29 = load ptr, ptr %other, align 8
-  %m_link42 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %29, i32 0, i32 3
-  %30 = load i32, ptr %m_link42, align 8
-  %call43 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %28, i32 noundef %30)
-  store ptr %call43, ptr %otherLink, align 8
-  %31 = load ptr, ptr %otherLink, align 8
-  %m_flags44 = getelementptr inbounds %struct.btMultibodyLink, ptr %31, i32 0, i32 23
-  %32 = load i32, ptr %m_flags44, align 8
-  %and45 = and i32 %32, 2
-  %tobool46 = icmp ne i32 %and45, 0
-  br i1 %tobool46, label %if.then47, label %if.else61
-
-if.then47:                                        ; preds = %if.then40
-  %33 = load ptr, ptr %other, align 8
-  %m_link48 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %33, i32 0, i32 3
-  %34 = load i32, ptr %m_link48, align 8
-  store i32 %34, ptr %parent_of_other, align 4
-  br label %while.body49
-
-while.body49:                                     ; preds = %if.end59, %if.then47
-  %35 = load i32, ptr %parent_of_other, align 4
-  %cmp50 = icmp eq i32 %35, -1
-  br i1 %cmp50, label %if.then51, label %if.end52
-
-if.then51:                                        ; preds = %while.body49
-  br label %while.end60
-
-if.end52:                                         ; preds = %while.body49
-  %m_multiBody53 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %36 = load ptr, ptr %m_multiBody53, align 8
-  %37 = load i32, ptr %parent_of_other, align 4
-  %call54 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %36, i32 noundef %37)
-  %m_parent55 = getelementptr inbounds %struct.btMultibodyLink, ptr %call54, i32 0, i32 2
-  %38 = load i32, ptr %m_parent55, align 4
-  store i32 %38, ptr %parent_of_other, align 4
-  %39 = load i32, ptr %parent_of_other, align 4
-  %m_link56 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %40 = load i32, ptr %m_link56, align 8
-  %cmp57 = icmp eq i32 %39, %40
-  br i1 %cmp57, label %if.then58, label %if.end59
-
-if.then58:                                        ; preds = %if.end52
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end59:                                         ; preds = %if.end52
-  br label %while.body49, !llvm.loop !12
-
-while.end60:                                      ; preds = %if.then51
-  br label %if.end72
-
-if.else61:                                        ; preds = %if.then40
-  %41 = load ptr, ptr %otherLink, align 8
-  %m_flags62 = getelementptr inbounds %struct.btMultibodyLink, ptr %41, i32 0, i32 23
-  %42 = load i32, ptr %m_flags62, align 8
-  %and63 = and i32 %42, 1
-  %tobool64 = icmp ne i32 %and63, 0
-  br i1 %tobool64, label %if.then65, label %if.end71
-
-if.then65:                                        ; preds = %if.else61
-  %43 = load ptr, ptr %otherLink, align 8
-  %m_parent66 = getelementptr inbounds %struct.btMultibodyLink, ptr %43, i32 0, i32 2
-  %44 = load i32, ptr %m_parent66, align 4
-  %m_link67 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %45 = load i32, ptr %m_link67, align 8
-  %cmp68 = icmp eq i32 %44, %45
-  br i1 %cmp68, label %if.then69, label %if.end70
-
-if.then69:                                        ; preds = %if.then65
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end70:                                         ; preds = %if.then65
-  br label %if.end71
-
-if.end71:                                         ; preds = %if.end70, %if.else61
-  br label %if.end72
-
-if.end72:                                         ; preds = %if.end71, %while.end60
-  br label %if.end73
-
-if.end73:                                         ; preds = %if.end72, %if.end37
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end73, %if.then69, %if.then58, %if.then33, %if.then24, %if.then7, %if.then3, %if.then
-  %46 = load i1, ptr %retval, align 1
-  ret i1 %46
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK23btMultiBodyLinkCollider9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dataBuffer.addr = alloca ptr, align 8
-  %serializer.addr = alloca ptr, align 8
-  %dataOut = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dataBuffer, ptr %dataBuffer.addr, align 8
-  store ptr %serializer, ptr %serializer.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %dataBuffer.addr, align 8
-  store ptr %0, ptr %dataOut, align 8
-  %1 = load ptr, ptr %dataOut, align 8
-  %m_colObjData = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %serializer.addr, align 8
-  %call = call noundef ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372) %this1, ptr noundef %m_colObjData, ptr noundef %2)
-  %m_link = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %m_link, align 8
-  %4 = load ptr, ptr %dataOut, align 8
-  %m_link2 = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %4, i32 0, i32 2
-  store i32 %3, ptr %m_link2, align 8
-  %5 = load ptr, ptr %serializer.addr, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %m_multiBody, align 8
-  %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %7 = load ptr, ptr %vfn, align 8
-  %call3 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
-  %8 = load ptr, ptr %dataOut, align 8
-  %m_multiBody4 = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %8, i32 0, i32 1
-  store ptr %call3, ptr %m_multiBody4, align 8
-  %9 = load ptr, ptr %dataOut, align 8
-  %m_padding = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %9, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [4 x i8], ptr %m_padding, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %arraydecay, i8 0, i64 4, i1 false)
-  ret ptr @.str
-}
-
-declare void @_ZNK17btCollisionObject21serializeSingleObjectEP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372), ptr noundef) unnamed_addr #4
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK23btDefaultSoftBodySolver13getSolverTypeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local noundef i32 @_ZNK23btDefaultSoftBodySolver13getSolverTypeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btSoftBodySolver29setNumberOfPositionIterationsEi(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %iterations) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %iterations.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %iterations, ptr %iterations.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %iterations.addr, align 4
-  %m_numberOfPositionIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 1
-  store i32 %0, ptr %m_numberOfPositionIterations, align 8
+define linkonce_odr dso_local void @_ZN16btSoftBodySolver29setNumberOfPositionIterationsEi(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !9
+  %7 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %5, i32 0, i32 1
+  store i32 %6, ptr %7, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN16btSoftBodySolver29getNumberOfPositionIterationsEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_numberOfPositionIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %m_numberOfPositionIterations, align 8
-  ret i32 %0
+define linkonce_odr dso_local noundef i32 @_ZN16btSoftBodySolver29getNumberOfPositionIterationsEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !26
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btSoftBodySolver29setNumberOfVelocityIterationsEi(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %iterations) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %iterations.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %iterations, ptr %iterations.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %iterations.addr, align 4
-  %m_numberOfVelocityIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 2
-  store i32 %0, ptr %m_numberOfVelocityIterations, align 4
+define linkonce_odr dso_local void @_ZN16btSoftBodySolver29setNumberOfVelocityIterationsEi(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !9
+  %7 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %5, i32 0, i32 2
+  store i32 %6, ptr %7, align 4, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN16btSoftBodySolver29getNumberOfVelocityIterationsEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_numberOfVelocityIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_numberOfVelocityIterations, align 4
-  ret i32 %0
+define linkonce_odr dso_local noundef i32 @_ZN16btSoftBodySolver29getNumberOfVelocityIterationsEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btSoftBodySolver, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !28
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN16btSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btSoftBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #11
+define linkonce_odr dso_local void @_ZN16btSoftBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  call void @llvm.trap() #12
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #9
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_activationState1 = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 16
-  %0 = load i32, ptr %m_activationState1, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject18getActivationStateEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 16
+  %5 = load i32, ptr %4, align 8, !tbaa !63
+  ret i32 %5
 }
 
-; Function Attrs: nounwind
-declare void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372)) unnamed_addr #7
+declare void @_Z21btAlignedFreeInternalPv(ptr noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btCollisionObjectdlEPv(ptr noundef %ptr) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
-  unreachable
-}
-
-declare void @_Z21btAlignedFreeInternalPv(ptr noundef) #4
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
-  call void @_ZSt9terminatev() #11
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
+  call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -1367,478 +962,467 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %colObj) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %colObj.addr = alloca ptr, align 8
-  store ptr %colObj, ptr %colObj.addr, align 8
-  %0 = load ptr, ptr %colObj.addr, align 8
-  %call = call noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %0)
-  %and = and i32 %call, 64
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %colObj.addr, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
-}
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK11btMultiBody16hasSelfCollisionEv(ptr noundef nonnull align 8 dereferenceable(640) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_hasSelfCollision = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 41
-  %0 = load i8, ptr %m_hasSelfCollision, align 8
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %index) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_links = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 14
-  %0 = load i32, ptr %index.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN20btAlignedObjectArrayI15btMultibodyLinkEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_links, i32 noundef %0)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_internalType = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 24
-  %0 = load i32, ptr %m_internalType, align 8
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(688) ptr @_ZN20btAlignedObjectArrayI15btMultibodyLinkEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.112, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %struct.btMultibodyLink, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
-
-declare noundef ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372), ptr noundef, ptr noundef) unnamed_addr #4
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 2
-  store i32 0, ptr %m_size, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 3
-  store i32 0, ptr %m_capacity, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 5
+  store i8 1, ptr %4, align 8, !tbaa !75
+  %5 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8, !tbaa !34
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 4, !tbaa !37
+  %7 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 8, !tbaa !76
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call)
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %3, i32 noundef 0, i32 noundef %4)
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE4initEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %first, i32 noundef %last) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %last.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  store i32 %last, ptr %last.addr, align 4
-  %0 = load i32, ptr %first.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %8, ptr %7, align 4, !tbaa !9
+  br label %9
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %last.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+9:                                                ; preds = %14, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = icmp slt i32 %10, %11
+  br i1 %12, label %13, label %17
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+13:                                               ; preds = %9
+  br label %14
 
-for.inc:                                          ; preds = %for.body
-  %3 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
+14:                                               ; preds = %13
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !77
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 5
+  %9 = load i8, ptr %8, align 8, !tbaa !75, !range !78, !noundef !79
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  call void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %7
+  %15 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 4
+  store ptr null, ptr %15, align 8, !tbaa !34
+  br label %16
+
+16:                                               ; preds = %14, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end6
-
-if.then:                                          ; preds = %entry
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 6
-  %1 = load i8, ptr %m_ownsMemory, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 0
-  %m_data4 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_data4, align 8
-  call void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, ptr noundef %2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then3, %if.then
-  %m_data5 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_data5, align 8
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.end, %entry
+define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !80
+  %5 = load ptr, ptr %4, align 8, !tbaa !80
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE10deallocateEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %ptr) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !80
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %11 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %10)
+  store i32 %11, ptr %7, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %27
+
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %16, ptr %8, align 4, !tbaa !9
+  br label %17
+
+17:                                               ; preds = %23, %15
+  %18 = load i32, ptr %8, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = icmp slt i32 %18, %19
+  br i1 %20, label %22, label %21
+
+21:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  br label %26
+
+22:                                               ; preds = %17
+  br label %23
+
+23:                                               ; preds = %22
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %8, align 4, !tbaa !9
+  br label %17, !llvm.loop !81
+
+26:                                               ; preds = %21
+  br label %52
+
+27:                                               ; preds = %3
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = load i32, ptr %7, align 4, !tbaa !9
+  %30 = icmp sgt i32 %28, %29
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %10, i32 noundef %32)
+  br label %33
+
+33:                                               ; preds = %31, %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %34, ptr %9, align 4, !tbaa !9
+  br label %35
+
+35:                                               ; preds = %48, %33
+  %36 = load i32, ptr %9, align 4, !tbaa !9
+  %37 = load i32, ptr %5, align 4, !tbaa !9
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  br label %51
+
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %10, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %43 = load i32, ptr %9, align 4, !tbaa !9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !80
+  %47 = load ptr, ptr %46, align 8, !tbaa !32
+  store ptr %47, ptr %45, align 8, !tbaa !32
+  br label %48
+
+48:                                               ; preds = %40
+  %49 = load i32, ptr %9, align 4, !tbaa !9
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %9, align 4, !tbaa !9
+  br label %35, !llvm.loop !82
+
+51:                                               ; preds = %39
+  br label %52
+
+52:                                               ; preds = %51, %26
+  %53 = load i32, ptr %5, align 4, !tbaa !9
+  %54 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %10, i32 0, i32 1
+  store i32 %53, ptr %54, align 4, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(8) %fillData) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newsize.addr = alloca i32, align 4
-  %fillData.addr = alloca ptr, align 8
-  %curSize = alloca i32, align 4
-  %i = alloca i32, align 4
-  %i5 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newsize, ptr %newsize.addr, align 4
-  store ptr %fillData, ptr %fillData.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store i32 %call, ptr %curSize, align 4
-  %0 = load i32, ptr %newsize.addr, align 4
-  %1 = load i32, ptr %curSize, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !29
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !80
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %11, ptr %9, align 4, !tbaa !9
+  br label %12
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newsize.addr, align 4
-  store i32 %2, ptr %i, align 4
-  br label %for.cond
+12:                                               ; preds = %27, %4
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %16, label %30
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %curSize, align 4
-  %cmp2 = icmp slt i32 %3, %4
-  br i1 %cmp2, label %for.body, label %for.end
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !80
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %10, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8, !tbaa !34
+  %23 = load i32, ptr %9, align 4, !tbaa !9
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  store ptr %26, ptr %20, align 8, !tbaa !32
+  br label %27
 
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
+27:                                               ; preds = %16
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %9, align 4, !tbaa !9
+  br label %12, !llvm.loop !83
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !14
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end15
-
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %newsize.addr, align 4
-  %7 = load i32, ptr %curSize, align 4
-  %cmp3 = icmp sgt i32 %6, %7
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.else
-  %8 = load i32, ptr %newsize.addr, align 4
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %8)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %if.else
-  %9 = load i32, ptr %curSize, align 4
-  store i32 %9, ptr %i5, align 4
-  br label %for.cond6
-
-for.cond6:                                        ; preds = %for.inc12, %if.end
-  %10 = load i32, ptr %i5, align 4
-  %11 = load i32, ptr %newsize.addr, align 4
-  %cmp7 = icmp slt i32 %10, %11
-  br i1 %cmp7, label %for.body8, label %for.end14
-
-for.body8:                                        ; preds = %for.cond6
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %12 = load ptr, ptr %m_data9, align 8
-  %13 = load i32, ptr %i5, align 4
-  %idxprom10 = sext i32 %13 to i64
-  %arrayidx11 = getelementptr inbounds ptr, ptr %12, i64 %idxprom10
-  %14 = load ptr, ptr %fillData.addr, align 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %arrayidx11, align 8
-  br label %for.inc12
-
-for.inc12:                                        ; preds = %for.body8
-  %16 = load i32, ptr %i5, align 4
-  %inc13 = add nsw i32 %16, 1
-  store i32 %inc13, ptr %i5, align 4
-  br label %for.cond6, !llvm.loop !15
-
-for.end14:                                        ; preds = %for.cond6
-  br label %if.end15
-
-if.end15:                                         ; preds = %for.end14, %for.end
-  %17 = load i32, ptr %newsize.addr, align 4
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 2
-  store i32 %17, ptr %m_size, align 4
+30:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %start, i32 noundef %end, ptr noundef %dest) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %start.addr, align 4
-  store i32 %0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %21
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %end.addr, align 4
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = call noundef ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !80
+  %13 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %14 = load ptr, ptr %5, align 8, !tbaa !80
+  call void @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %13, ptr noundef %14)
+  %15 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %6, i32 noundef 0, i32 noundef %15)
+  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %6)
+  %16 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %6, i32 0, i32 5
+  store i8 1, ptr %16, align 8, !tbaa !75
+  %17 = load ptr, ptr %5, align 8, !tbaa !80
+  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %6, i32 0, i32 4
+  store ptr %17, ptr %18, align 8, !tbaa !34
+  %19 = load i32, ptr %4, align 4, !tbaa !9
+  %20 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %6, i32 0, i32 2
+  store i32 %19, ptr %20, align 8, !tbaa !76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %21
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_data, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %6 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %5, i64 %idxprom2
-  %7 = load ptr, ptr %arrayidx3, align 8
-  store ptr %7, ptr %arrayidx, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !16
-
-for.end:                                          ; preds = %for.cond
+21:                                               ; preds = %10, %2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_Count.addr = alloca i32, align 4
-  %s = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_Count, ptr %_Count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %0 = load i32, ptr %_Count.addr, align 4
-  %cmp = icmp slt i32 %call, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %_Count.addr, align 4
-  %call2 = call noundef ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef %1)
-  store ptr %call2, ptr %s, align 8
-  %call3 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %2 = load ptr, ptr %s, align 8
-  call void @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call3, ptr noundef %2)
-  %call4 = call noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE7destroyEii(ptr noundef nonnull align 8 dereferenceable(25) %this1, i32 noundef 0, i32 noundef %call4)
-  call void @_ZN20btAlignedObjectArrayIP10btSoftBodyE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  %m_ownsMemory = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 6
-  store i8 1, ptr %m_ownsMemory, align 8
-  %3 = load ptr, ptr %s, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 5
-  store ptr %3, ptr %m_data, align 8
-  %4 = load i32, ptr %_Count.addr, align 4
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 3
-  store i32 %4, ptr %m_capacity, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !76
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIP10btSoftBodyE8capacityEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_capacity = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %m_capacity, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = call noundef ptr @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %10, ptr noundef null)
+  store ptr %11, ptr %3, align 8
+  br label %13
+
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %13
+
+13:                                               ; preds = %12, %9
+  %14 = load ptr, ptr %3, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %size) #2 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %size.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %class.btAlignedObjectArray, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %size.addr, align 4
-  %call = call noundef ptr @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %m_allocator, i32 noundef %1, ptr noundef null)
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !73
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !84
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = mul i64 8, %8
+  %10 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN18btAlignedAllocatorIP10btSoftBodyLj16EE8allocateEiPPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %n, ptr noundef %hint) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %hint.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %hint, ptr %hint.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %conv = sext i32 %0 to i64
-  %mul = mul i64 8, %conv
-  %call = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
-  ret ptr %call
-}
-
-declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) #4
+declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) #7
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_btDefaultSoftBodySolver.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { builtin nounwind }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS23btDefaultSoftBodySolver", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"vtable pointer", !8, i64 0}
+!16 = !{!17, !20, i64 20}
+!17 = !{!"_ZTS23btDefaultSoftBodySolver", !18, i64 0, !20, i64 20, !21, i64 24}
+!18 = !{!"_ZTS16btSoftBodySolver", !10, i64 8, !10, i64 12, !19, i64 16}
+!19 = !{!"float", !7, i64 0}
+!20 = !{!"bool", !7, i64 0}
+!21 = !{!"_ZTS20btAlignedObjectArrayIP10btSoftBodyE", !22, i64 0, !10, i64 4, !10, i64 8, !23, i64 16, !20, i64 24}
+!22 = !{!"_ZTS18btAlignedAllocatorIP10btSoftBodyLj16EE"}
+!23 = !{!"p2 _ZTS10btSoftBody", !6, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS16btSoftBodySolver", !6, i64 0}
+!26 = !{!18, !10, i64 8}
+!27 = !{!18, !19, i64 16}
+!28 = !{!18, !10, i64 12}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS20btAlignedObjectArrayIP10btSoftBodyE", !6, i64 0}
+!31 = !{!20, !20, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS10btSoftBody", !6, i64 0}
+!34 = !{!21, !23, i64 16}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.mustprogress"}
+!37 = !{!21, !10, i64 4}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS17btCollisionObject", !6, i64 0}
+!40 = !{!19, !19, i64 0}
+!41 = distinct !{!41, !36}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS24btVertexBufferDescriptor", !6, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !6, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS27btCPUVertexBufferDescriptor", !6, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 float", !6, i64 0}
+!50 = !{i64 0, i64 16, !11}
+!51 = distinct !{!51, !36}
+!52 = distinct !{!52, !36}
+!53 = !{!54, !10, i64 4}
+!54 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !55, i64 0, !10, i64 4, !10, i64 8, !56, i64 16, !20, i64 24}
+!55 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NodeELj16EE"}
+!56 = !{!"p1 _ZTSN10btSoftBody4NodeE", !6, i64 0}
+!57 = !{!54, !56, i64 16}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS9btVector3", !6, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS24btCollisionObjectWrapper", !6, i64 0}
+!62 = distinct !{!62, !36}
+!63 = !{!64, !10, i64 240}
+!64 = !{!"_ZTS17btCollisionObject", !65, i64 8, !65, i64 72, !67, i64 136, !67, i64 152, !67, i64 168, !10, i64 184, !19, i64 188, !68, i64 192, !69, i64 200, !6, i64 208, !69, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !19, i64 244, !19, i64 248, !19, i64 252, !19, i64 256, !19, i64 260, !19, i64 264, !19, i64 268, !10, i64 272, !6, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !19, i64 300, !19, i64 304, !19, i64 308, !10, i64 312, !70, i64 320, !10, i64 352, !67, i64 356}
+!65 = !{!"_ZTS11btTransform", !66, i64 0, !67, i64 48}
+!66 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!67 = !{!"_ZTS9btVector3", !7, i64 0}
+!68 = !{!"p1 _ZTS17btBroadphaseProxy", !6, i64 0}
+!69 = !{!"p1 _ZTS16btCollisionShape", !6, i64 0}
+!70 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !71, i64 0, !10, i64 4, !10, i64 8, !72, i64 16, !20, i64 24}
+!71 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!72 = !{!"p2 _ZTS17btCollisionObject", !6, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS18btAlignedAllocatorIP10btSoftBodyLj16EE", !6, i64 0}
+!75 = !{!21, !20, i64 24}
+!76 = !{!21, !10, i64 8}
+!77 = distinct !{!77, !36}
+!78 = !{i8 0, i8 2}
+!79 = !{}
+!80 = !{!23, !23, i64 0}
+!81 = distinct !{!81, !36}
+!82 = distinct !{!82, !36}
+!83 = distinct !{!83, !36}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p3 _ZTS10btSoftBody", !6, i64 0}

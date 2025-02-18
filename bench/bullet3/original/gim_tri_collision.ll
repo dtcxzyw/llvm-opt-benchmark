@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
@@ -49,4033 +49,4178 @@ $_ZN25GIM_TRIANGLE_CONTACT_DATA19mergepoints_genericI22DISTANCE_PLANE_3D_FUNC9bt
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK12GIM_TRIANGLE26collide_triangle_hard_testERKS_R25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(52) %this, ptr noundef nonnull align 4 dereferenceable(52) %other, ptr noundef nonnull align 4 dereferenceable(280) %contact_data) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %contact_data.addr = alloca ptr, align 8
-  %calc_cache = alloca %class.GIM_TRIANGLE_CALCULATION_CACHE, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  store ptr %contact_data, ptr %contact_data.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN30GIM_TRIANGLE_CALCULATION_CACHEC2Ev(ptr noundef nonnull align 4 dereferenceable(1012) %calc_cache)
-  %m_vertices = getelementptr inbounds %class.GIM_TRIANGLE, ptr %this1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices, i64 0, i64 0
-  %m_vertices2 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %this1, i32 0, i32 1
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices2, i64 0, i64 1
-  %m_vertices4 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %this1, i32 0, i32 1
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices4, i64 0, i64 2
-  %m_margin = getelementptr inbounds %class.GIM_TRIANGLE, ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %m_margin, align 4
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_vertices6 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %1, i32 0, i32 1
-  %arrayidx7 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices6, i64 0, i64 0
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_vertices8 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %2, i32 0, i32 1
-  %arrayidx9 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices8, i64 0, i64 1
-  %3 = load ptr, ptr %other.addr, align 8
-  %m_vertices10 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %3, i32 0, i32 1
-  %arrayidx11 = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices10, i64 0, i64 2
-  %4 = load ptr, ptr %other.addr, align 8
-  %m_margin12 = getelementptr inbounds %class.GIM_TRIANGLE, ptr %4, i32 0, i32 0
-  %5 = load float, ptr %m_margin12, align 4
-  %6 = load ptr, ptr %contact_data.addr, align 8
-  %call = call noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(1012) %calc_cache, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, float noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11, float noundef %5, ptr noundef nonnull align 4 dereferenceable(280) %6)
-  ret i1 %call
+define dso_local noundef zeroext i1 @_ZNK12GIM_TRIANGLE26collide_triangle_hard_testERKS_R25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(52) %1, ptr noundef nonnull align 4 dereferenceable(280) %2) #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.GIM_TRIANGLE_CALCULATION_CACHE, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1012, ptr %7) #8
+  call void @_ZN30GIM_TRIANGLE_CALCULATION_CACHEC2Ev(ptr noundef nonnull align 4 dereferenceable(1012) %7)
+  %9 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %8, i32 0, i32 1
+  %10 = getelementptr inbounds [3 x %class.btVector3], ptr %9, i64 0, i64 0
+  %11 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %8, i32 0, i32 1
+  %12 = getelementptr inbounds [3 x %class.btVector3], ptr %11, i64 0, i64 1
+  %13 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %8, i32 0, i32 1
+  %14 = getelementptr inbounds [3 x %class.btVector3], ptr %13, i64 0, i64 2
+  %15 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %8, i32 0, i32 0
+  %16 = load float, ptr %15, align 4, !tbaa !16
+  %17 = load ptr, ptr %5, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %17, i32 0, i32 1
+  %19 = getelementptr inbounds [3 x %class.btVector3], ptr %18, i64 0, i64 0
+  %20 = load ptr, ptr %5, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds [3 x %class.btVector3], ptr %21, i64 0, i64 1
+  %23 = load ptr, ptr %5, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds [3 x %class.btVector3], ptr %24, i64 0, i64 2
+  %26 = load ptr, ptr %5, align 8, !tbaa !12
+  %27 = getelementptr inbounds nuw %class.GIM_TRIANGLE, ptr %26, i32 0, i32 0
+  %28 = load float, ptr %27, align 4, !tbaa !16
+  %29 = load ptr, ptr %6, align 8, !tbaa !14
+  %30 = call noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(1012) %7, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %14, float noundef %16, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %25, float noundef %28, ptr noundef nonnull align 4 dereferenceable(280) %29)
+  call void @llvm.lifetime.end.p0(i64 1012, ptr %7) #8
+  ret i1 %30
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN30GIM_TRIANGLE_CALCULATION_CACHEC2Ev(ptr noundef nonnull align 4 dereferenceable(1012) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %tu_vertices = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
-  br label %arrayctor.loop
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN30GIM_TRIANGLE_CALCULATION_CACHEC2Ev(ptr noundef nonnull align 4 dereferenceable(1012) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds [3 x %class.btVector3], ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %class.btVector3, ptr %5, i64 3
+  br label %7
 
-arrayctor.cont:                                   ; preds = %arrayctor.loop
-  %tv_vertices = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %array.begin2 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices, i32 0, i32 0
-  %arrayctor.end3 = getelementptr inbounds %class.btVector3, ptr %array.begin2, i64 3
-  br label %arrayctor.loop4
+7:                                                ; preds = %7, %1
+  %8 = phi ptr [ %5, %1 ], [ %9, %7 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %9 = getelementptr inbounds %class.btVector3, ptr %8, i64 1
+  %10 = icmp eq ptr %9, %6
+  br i1 %10, label %11, label %7
 
-arrayctor.loop4:                                  ; preds = %arrayctor.loop4, %arrayctor.cont
-  %arrayctor.cur5 = phi ptr [ %array.begin2, %arrayctor.cont ], [ %arrayctor.next6, %arrayctor.loop4 ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur5)
-  %arrayctor.next6 = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur5, i64 1
-  %arrayctor.done7 = icmp eq ptr %arrayctor.next6, %arrayctor.end3
-  br i1 %arrayctor.done7, label %arrayctor.cont8, label %arrayctor.loop4
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 2
+  %13 = getelementptr inbounds [3 x %class.btVector3], ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %class.btVector3, ptr %13, i64 3
+  br label %15
 
-arrayctor.cont8:                                  ; preds = %arrayctor.loop4
-  %tu_plane = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane)
-  %tv_plane = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane)
-  %closest_point_u = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 5
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %closest_point_u)
-  %closest_point_v = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 6
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %closest_point_v)
-  %edge_edge_dir = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 7
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %edge_edge_dir)
-  %distances = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %distances)
-  %temp_points = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 15
-  %array.begin9 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points, i32 0, i32 0
-  %arrayctor.end10 = getelementptr inbounds %class.btVector3, ptr %array.begin9, i64 16
-  br label %arrayctor.loop11
+15:                                               ; preds = %15, %11
+  %16 = phi ptr [ %13, %11 ], [ %17, %15 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %16)
+  %17 = getelementptr inbounds %class.btVector3, ptr %16, i64 1
+  %18 = icmp eq ptr %17, %14
+  br i1 %18, label %19, label %15
 
-arrayctor.loop11:                                 ; preds = %arrayctor.loop11, %arrayctor.cont8
-  %arrayctor.cur12 = phi ptr [ %array.begin9, %arrayctor.cont8 ], [ %arrayctor.next13, %arrayctor.loop11 ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur12)
-  %arrayctor.next13 = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur12, i64 1
-  %arrayctor.done14 = icmp eq ptr %arrayctor.next13, %arrayctor.end10
-  br i1 %arrayctor.done14, label %arrayctor.cont15, label %arrayctor.loop11
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 3
+  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %20)
+  %21 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 4
+  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %21)
+  %22 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 5
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22)
+  %23 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 6
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23)
+  %24 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 7
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %24)
+  %25 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 8
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %25)
+  %26 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 15
+  %27 = getelementptr inbounds [16 x %class.btVector3], ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds %class.btVector3, ptr %27, i64 16
+  br label %29
 
-arrayctor.cont15:                                 ; preds = %arrayctor.loop11
-  %temp_points1 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 16
-  %array.begin16 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points1, i32 0, i32 0
-  %arrayctor.end17 = getelementptr inbounds %class.btVector3, ptr %array.begin16, i64 16
-  br label %arrayctor.loop18
+29:                                               ; preds = %29, %19
+  %30 = phi ptr [ %27, %19 ], [ %31, %29 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %30)
+  %31 = getelementptr inbounds %class.btVector3, ptr %30, i64 1
+  %32 = icmp eq ptr %31, %28
+  br i1 %32, label %33, label %29
 
-arrayctor.loop18:                                 ; preds = %arrayctor.loop18, %arrayctor.cont15
-  %arrayctor.cur19 = phi ptr [ %array.begin16, %arrayctor.cont15 ], [ %arrayctor.next20, %arrayctor.loop18 ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur19)
-  %arrayctor.next20 = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur19, i64 1
-  %arrayctor.done21 = icmp eq ptr %arrayctor.next20, %arrayctor.end17
-  br i1 %arrayctor.done21, label %arrayctor.cont22, label %arrayctor.loop18
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 16
+  %35 = getelementptr inbounds [16 x %class.btVector3], ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds %class.btVector3, ptr %35, i64 16
+  br label %37
 
-arrayctor.cont22:                                 ; preds = %arrayctor.loop18
-  %contact_points = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 17
-  %array.begin23 = getelementptr inbounds [16 x %class.btVector3], ptr %contact_points, i32 0, i32 0
-  %arrayctor.end24 = getelementptr inbounds %class.btVector3, ptr %array.begin23, i64 16
-  br label %arrayctor.loop25
+37:                                               ; preds = %37, %33
+  %38 = phi ptr [ %35, %33 ], [ %39, %37 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %38)
+  %39 = getelementptr inbounds %class.btVector3, ptr %38, i64 1
+  %40 = icmp eq ptr %39, %36
+  br i1 %40, label %41, label %37
 
-arrayctor.loop25:                                 ; preds = %arrayctor.loop25, %arrayctor.cont22
-  %arrayctor.cur26 = phi ptr [ %array.begin23, %arrayctor.cont22 ], [ %arrayctor.next27, %arrayctor.loop25 ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur26)
-  %arrayctor.next27 = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur26, i64 1
-  %arrayctor.done28 = icmp eq ptr %arrayctor.next27, %arrayctor.end24
-  br i1 %arrayctor.done28, label %arrayctor.cont29, label %arrayctor.loop25
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %3, i32 0, i32 17
+  %43 = getelementptr inbounds [16 x %class.btVector3], ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds %class.btVector3, ptr %43, i64 16
+  br label %45
 
-arrayctor.cont29:                                 ; preds = %arrayctor.loop25
+45:                                               ; preds = %45, %41
+  %46 = phi ptr [ %43, %41 ], [ %47, %45 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %46)
+  %47 = getelementptr inbounds %class.btVector3, ptr %46, i64 1
+  %48 = icmp eq ptr %47, %44
+  br i1 %48, label %49, label %45
+
+49:                                               ; preds = %45
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(1012) %this, ptr noundef nonnull align 4 dereferenceable(16) %u0, ptr noundef nonnull align 4 dereferenceable(16) %u1, ptr noundef nonnull align 4 dereferenceable(16) %u2, float noundef %margin_u, ptr noundef nonnull align 4 dereferenceable(16) %v0, ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2, float noundef %margin_v, ptr noundef nonnull align 4 dereferenceable(280) %contacts) #2 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %u0.addr = alloca ptr, align 8
-  %u1.addr = alloca ptr, align 8
-  %u2.addr = alloca ptr, align 8
-  %margin_u.addr = alloca float, align 4
-  %v0.addr = alloca ptr, align 8
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %margin_v.addr = alloca float, align 4
-  %contacts.addr = alloca ptr, align 8
-  %_dif1 = alloca [3 x float], align 4
-  %_dif2 = alloca [3 x float], align 4
-  %len = alloca float, align 4
-  %_pp = alloca float, align 4
-  %_x = alloca float, align 4
-  %_y = alloca i32, align 4
-  %_dif1754 = alloca [3 x float], align 4
-  %_dif2755 = alloca [3 x float], align 4
-  %len845 = alloca float, align 4
-  %_pp846 = alloca float, align 4
-  %_x871 = alloca float, align 4
-  %_y873 = alloca i32, align 4
-  %bl = alloca i32, align 4
-  %point_count = alloca i32, align 4
-  %ref.tmp = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %u0, ptr %u0.addr, align 8
-  store ptr %u1, ptr %u1.addr, align 8
-  store ptr %u2, ptr %u2.addr, align 8
-  store float %margin_u, ptr %margin_u.addr, align 4
-  store ptr %v0, ptr %v0.addr, align 8
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  store float %margin_v, ptr %margin_v.addr, align 4
-  store ptr %contacts, ptr %contacts.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load float, ptr %margin_u.addr, align 4
-  %1 = load float, ptr %margin_v.addr, align 4
-  %add = fadd float %0, %1
-  %margin = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  store float %add, ptr %margin, align 4
-  %2 = load ptr, ptr %u0.addr, align 8
-  %tu_vertices = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx, ptr align 4 %2, i64 16, i1 false)
-  %3 = load ptr, ptr %u1.addr, align 8
-  %tu_vertices2 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices2, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx3, ptr align 4 %3, i64 16, i1 false)
-  %4 = load ptr, ptr %u2.addr, align 8
-  %tu_vertices4 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices4, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx5, ptr align 4 %4, i64 16, i1 false)
-  %5 = load ptr, ptr %v0.addr, align 8
-  %tv_vertices = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx6 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx6, ptr align 4 %5, i64 16, i1 false)
-  %6 = load ptr, ptr %v1.addr, align 8
-  %tv_vertices7 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx8 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices7, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx8, ptr align 4 %6, i64 16, i1 false)
-  %7 = load ptr, ptr %v2.addr, align 8
-  %tv_vertices9 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx10 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices9, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx10, ptr align 4 %7, i64 16, i1 false)
-  %tv_vertices11 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx12 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices11, i64 0, i64 1
-  %call = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12)
-  %arrayidx13 = getelementptr inbounds float, ptr %call, i64 0
-  %8 = load float, ptr %arrayidx13, align 4
-  %tv_vertices14 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx15 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices14, i64 0, i64 0
-  %call16 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx15)
-  %arrayidx17 = getelementptr inbounds float, ptr %call16, i64 0
-  %9 = load float, ptr %arrayidx17, align 4
-  %sub = fsub float %8, %9
-  %arrayidx18 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 0
-  store float %sub, ptr %arrayidx18, align 4
-  %tv_vertices19 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx20 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices19, i64 0, i64 1
-  %call21 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20)
-  %arrayidx22 = getelementptr inbounds float, ptr %call21, i64 1
-  %10 = load float, ptr %arrayidx22, align 4
-  %tv_vertices23 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx24 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices23, i64 0, i64 0
-  %call25 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx24)
-  %arrayidx26 = getelementptr inbounds float, ptr %call25, i64 1
-  %11 = load float, ptr %arrayidx26, align 4
-  %sub27 = fsub float %10, %11
-  %arrayidx28 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 1
-  store float %sub27, ptr %arrayidx28, align 4
-  %tv_vertices29 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx30 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices29, i64 0, i64 1
-  %call31 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx30)
-  %arrayidx32 = getelementptr inbounds float, ptr %call31, i64 2
-  %12 = load float, ptr %arrayidx32, align 4
-  %tv_vertices33 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx34 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices33, i64 0, i64 0
-  %call35 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx34)
-  %arrayidx36 = getelementptr inbounds float, ptr %call35, i64 2
-  %13 = load float, ptr %arrayidx36, align 4
-  %sub37 = fsub float %12, %13
-  %arrayidx38 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 2
-  store float %sub37, ptr %arrayidx38, align 4
-  %tv_vertices39 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx40 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices39, i64 0, i64 2
-  %call41 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx40)
-  %arrayidx42 = getelementptr inbounds float, ptr %call41, i64 0
-  %14 = load float, ptr %arrayidx42, align 4
-  %tv_vertices43 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx44 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices43, i64 0, i64 0
-  %call45 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx44)
-  %arrayidx46 = getelementptr inbounds float, ptr %call45, i64 0
-  %15 = load float, ptr %arrayidx46, align 4
-  %sub47 = fsub float %14, %15
-  %arrayidx48 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 0
-  store float %sub47, ptr %arrayidx48, align 4
-  %tv_vertices49 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx50 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices49, i64 0, i64 2
-  %call51 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx50)
-  %arrayidx52 = getelementptr inbounds float, ptr %call51, i64 1
-  %16 = load float, ptr %arrayidx52, align 4
-  %tv_vertices53 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx54 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices53, i64 0, i64 0
-  %call55 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx54)
-  %arrayidx56 = getelementptr inbounds float, ptr %call55, i64 1
-  %17 = load float, ptr %arrayidx56, align 4
-  %sub57 = fsub float %16, %17
-  %arrayidx58 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 1
-  store float %sub57, ptr %arrayidx58, align 4
-  %tv_vertices59 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx60 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices59, i64 0, i64 2
-  %call61 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx60)
-  %arrayidx62 = getelementptr inbounds float, ptr %call61, i64 2
-  %18 = load float, ptr %arrayidx62, align 4
-  %tv_vertices63 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx64 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices63, i64 0, i64 0
-  %call65 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx64)
-  %arrayidx66 = getelementptr inbounds float, ptr %call65, i64 2
-  %19 = load float, ptr %arrayidx66, align 4
-  %sub67 = fsub float %18, %19
-  %arrayidx68 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 2
-  store float %sub67, ptr %arrayidx68, align 4
-  %arrayidx69 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 1
-  %20 = load float, ptr %arrayidx69, align 4
-  %arrayidx70 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 2
-  %21 = load float, ptr %arrayidx70, align 4
-  %arrayidx71 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 2
-  %22 = load float, ptr %arrayidx71, align 4
-  %arrayidx72 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 1
-  %23 = load float, ptr %arrayidx72, align 4
-  %mul73 = fmul float %22, %23
-  %neg = fneg float %mul73
-  %24 = call float @llvm.fmuladd.f32(float %20, float %21, float %neg)
-  %tv_plane = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call74 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane)
-  %arrayidx75 = getelementptr inbounds float, ptr %call74, i64 0
-  store float %24, ptr %arrayidx75, align 4
-  %arrayidx76 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 2
-  %25 = load float, ptr %arrayidx76, align 4
-  %arrayidx77 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 0
-  %26 = load float, ptr %arrayidx77, align 4
-  %arrayidx78 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 0
-  %27 = load float, ptr %arrayidx78, align 4
-  %arrayidx79 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 2
-  %28 = load float, ptr %arrayidx79, align 4
-  %mul80 = fmul float %27, %28
-  %neg81 = fneg float %mul80
-  %29 = call float @llvm.fmuladd.f32(float %25, float %26, float %neg81)
-  %tv_plane82 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call83 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane82)
-  %arrayidx84 = getelementptr inbounds float, ptr %call83, i64 1
-  store float %29, ptr %arrayidx84, align 4
-  %arrayidx85 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 0
-  %30 = load float, ptr %arrayidx85, align 4
-  %arrayidx86 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 1
-  %31 = load float, ptr %arrayidx86, align 4
-  %arrayidx87 = getelementptr inbounds [3 x float], ptr %_dif1, i64 0, i64 1
-  %32 = load float, ptr %arrayidx87, align 4
-  %arrayidx88 = getelementptr inbounds [3 x float], ptr %_dif2, i64 0, i64 0
-  %33 = load float, ptr %arrayidx88, align 4
-  %mul89 = fmul float %32, %33
-  %neg90 = fneg float %mul89
-  %34 = call float @llvm.fmuladd.f32(float %30, float %31, float %neg90)
-  %tv_plane91 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call92 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane91)
-  %arrayidx93 = getelementptr inbounds float, ptr %call92, i64 2
-  store float %34, ptr %arrayidx93, align 4
-  %tv_plane94 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call95 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane94)
-  %arrayidx96 = getelementptr inbounds float, ptr %call95, i64 0
-  %35 = load float, ptr %arrayidx96, align 4
-  %tv_plane97 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call98 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane97)
-  %arrayidx99 = getelementptr inbounds float, ptr %call98, i64 0
-  %36 = load float, ptr %arrayidx99, align 4
-  %tv_plane100 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call101 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane100)
-  %arrayidx102 = getelementptr inbounds float, ptr %call101, i64 1
-  %37 = load float, ptr %arrayidx102, align 4
-  %tv_plane103 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call104 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane103)
-  %arrayidx105 = getelementptr inbounds float, ptr %call104, i64 1
-  %38 = load float, ptr %arrayidx105, align 4
-  %mul106 = fmul float %37, %38
-  %39 = call float @llvm.fmuladd.f32(float %35, float %36, float %mul106)
-  %tv_plane107 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call108 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane107)
-  %arrayidx109 = getelementptr inbounds float, ptr %call108, i64 2
-  %40 = load float, ptr %arrayidx109, align 4
-  %tv_plane110 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call111 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane110)
-  %arrayidx112 = getelementptr inbounds float, ptr %call111, i64 2
-  %41 = load float, ptr %arrayidx112, align 4
-  %42 = call float @llvm.fmuladd.f32(float %40, float %41, float %39)
-  store float %42, ptr %_pp, align 4
-  %43 = load float, ptr %_pp, align 4
-  %cmp = fcmp ole float %43, 0x3E7AD7F2A0000000
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store float 0x47EFFFFFE0000000, ptr %len, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %44 = load float, ptr %_pp, align 4
-  %mul = fmul float %44, 5.000000e-01
-  store float %mul, ptr %_x, align 4
-  %45 = load i32, ptr %_pp, align 4
-  %shr = lshr i32 %45, 1
-  %sub113 = sub i32 1597463007, %shr
-  store i32 %sub113, ptr %_y, align 4
-  %46 = load float, ptr %_y, align 4
-  store float %46, ptr %len, align 4
-  %47 = load float, ptr %len, align 4
-  %48 = load float, ptr %_x, align 4
-  %49 = load float, ptr %len, align 4
-  %mul114 = fmul float %48, %49
-  %50 = load float, ptr %len, align 4
-  %neg116 = fneg float %mul114
-  %51 = call float @llvm.fmuladd.f32(float %neg116, float %50, float 1.500000e+00)
-  %mul117 = fmul float %47, %51
-  store float %mul117, ptr %len, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %52 = load float, ptr %len, align 4
-  %cmp118 = fcmp olt float %52, 0x47EFFFFFE0000000
-  br i1 %cmp118, label %if.then119, label %if.end132
-
-if.then119:                                       ; preds = %if.end
-  %53 = load float, ptr %len, align 4
-  %tv_plane120 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call121 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane120)
-  %arrayidx122 = getelementptr inbounds float, ptr %call121, i64 0
-  %54 = load float, ptr %arrayidx122, align 4
-  %mul123 = fmul float %54, %53
-  store float %mul123, ptr %arrayidx122, align 4
-  %55 = load float, ptr %len, align 4
-  %tv_plane124 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call125 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane124)
-  %arrayidx126 = getelementptr inbounds float, ptr %call125, i64 1
-  %56 = load float, ptr %arrayidx126, align 4
-  %mul127 = fmul float %56, %55
-  store float %mul127, ptr %arrayidx126, align 4
-  %57 = load float, ptr %len, align 4
-  %tv_plane128 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call129 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane128)
-  %arrayidx130 = getelementptr inbounds float, ptr %call129, i64 2
-  %58 = load float, ptr %arrayidx130, align 4
-  %mul131 = fmul float %58, %57
-  store float %mul131, ptr %arrayidx130, align 4
-  br label %if.end132
-
-if.end132:                                        ; preds = %if.then119, %if.end
-  %tv_vertices133 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx134 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices133, i64 0, i64 0
-  %call135 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx134)
-  %arrayidx136 = getelementptr inbounds float, ptr %call135, i64 0
-  %59 = load float, ptr %arrayidx136, align 4
-  %tv_plane137 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call138 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane137)
-  %arrayidx139 = getelementptr inbounds float, ptr %call138, i64 0
-  %60 = load float, ptr %arrayidx139, align 4
-  %tv_vertices141 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx142 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices141, i64 0, i64 0
-  %call143 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx142)
-  %arrayidx144 = getelementptr inbounds float, ptr %call143, i64 1
-  %61 = load float, ptr %arrayidx144, align 4
-  %tv_plane145 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call146 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane145)
-  %arrayidx147 = getelementptr inbounds float, ptr %call146, i64 1
-  %62 = load float, ptr %arrayidx147, align 4
-  %mul148 = fmul float %61, %62
-  %63 = call float @llvm.fmuladd.f32(float %59, float %60, float %mul148)
-  %tv_vertices149 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx150 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices149, i64 0, i64 0
-  %call151 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx150)
-  %arrayidx152 = getelementptr inbounds float, ptr %call151, i64 2
-  %64 = load float, ptr %arrayidx152, align 4
-  %tv_plane153 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call154 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane153)
-  %arrayidx155 = getelementptr inbounds float, ptr %call154, i64 2
-  %65 = load float, ptr %arrayidx155, align 4
-  %66 = call float @llvm.fmuladd.f32(float %64, float %65, float %63)
-  %tv_plane157 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call158 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane157)
-  %arrayidx159 = getelementptr inbounds float, ptr %call158, i64 3
-  store float %66, ptr %arrayidx159, align 4
-  %tv_plane160 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call161 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane160)
-  %arrayidx162 = getelementptr inbounds float, ptr %call161, i64 0
-  %67 = load float, ptr %arrayidx162, align 4
-  %tu_vertices163 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx164 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices163, i64 0, i64 0
-  %call165 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx164)
-  %arrayidx166 = getelementptr inbounds float, ptr %call165, i64 0
-  %68 = load float, ptr %arrayidx166, align 4
-  %tv_plane168 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call169 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane168)
-  %arrayidx170 = getelementptr inbounds float, ptr %call169, i64 1
-  %69 = load float, ptr %arrayidx170, align 4
-  %tu_vertices171 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx172 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices171, i64 0, i64 0
-  %call173 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx172)
-  %arrayidx174 = getelementptr inbounds float, ptr %call173, i64 1
-  %70 = load float, ptr %arrayidx174, align 4
-  %mul175 = fmul float %69, %70
-  %71 = call float @llvm.fmuladd.f32(float %67, float %68, float %mul175)
-  %tv_plane176 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call177 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane176)
-  %arrayidx178 = getelementptr inbounds float, ptr %call177, i64 2
-  %72 = load float, ptr %arrayidx178, align 4
-  %tu_vertices179 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx180 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices179, i64 0, i64 0
-  %call181 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx180)
-  %arrayidx182 = getelementptr inbounds float, ptr %call181, i64 2
-  %73 = load float, ptr %arrayidx182, align 4
-  %74 = call float @llvm.fmuladd.f32(float %72, float %73, float %71)
-  %tv_plane184 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call185 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane184)
-  %arrayidx186 = getelementptr inbounds float, ptr %call185, i64 3
-  %75 = load float, ptr %arrayidx186, align 4
-  %sub187 = fsub float %74, %75
-  %du = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx188 = getelementptr inbounds [4 x float], ptr %du, i64 0, i64 0
-  store float %sub187, ptr %arrayidx188, align 4
-  %tv_plane189 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call190 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane189)
-  %arrayidx191 = getelementptr inbounds float, ptr %call190, i64 0
-  %76 = load float, ptr %arrayidx191, align 4
-  %tu_vertices192 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx193 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices192, i64 0, i64 1
-  %call194 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx193)
-  %arrayidx195 = getelementptr inbounds float, ptr %call194, i64 0
-  %77 = load float, ptr %arrayidx195, align 4
-  %tv_plane197 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call198 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane197)
-  %arrayidx199 = getelementptr inbounds float, ptr %call198, i64 1
-  %78 = load float, ptr %arrayidx199, align 4
-  %tu_vertices200 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx201 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices200, i64 0, i64 1
-  %call202 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx201)
-  %arrayidx203 = getelementptr inbounds float, ptr %call202, i64 1
-  %79 = load float, ptr %arrayidx203, align 4
-  %mul204 = fmul float %78, %79
-  %80 = call float @llvm.fmuladd.f32(float %76, float %77, float %mul204)
-  %tv_plane205 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call206 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane205)
-  %arrayidx207 = getelementptr inbounds float, ptr %call206, i64 2
-  %81 = load float, ptr %arrayidx207, align 4
-  %tu_vertices208 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx209 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices208, i64 0, i64 1
-  %call210 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx209)
-  %arrayidx211 = getelementptr inbounds float, ptr %call210, i64 2
-  %82 = load float, ptr %arrayidx211, align 4
-  %83 = call float @llvm.fmuladd.f32(float %81, float %82, float %80)
-  %tv_plane213 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call214 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane213)
-  %arrayidx215 = getelementptr inbounds float, ptr %call214, i64 3
-  %84 = load float, ptr %arrayidx215, align 4
-  %sub216 = fsub float %83, %84
-  %du217 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx218 = getelementptr inbounds [4 x float], ptr %du217, i64 0, i64 1
-  store float %sub216, ptr %arrayidx218, align 4
-  %tv_plane219 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call220 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane219)
-  %arrayidx221 = getelementptr inbounds float, ptr %call220, i64 0
-  %85 = load float, ptr %arrayidx221, align 4
-  %tu_vertices222 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx223 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices222, i64 0, i64 2
-  %call224 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx223)
-  %arrayidx225 = getelementptr inbounds float, ptr %call224, i64 0
-  %86 = load float, ptr %arrayidx225, align 4
-  %tv_plane227 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call228 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane227)
-  %arrayidx229 = getelementptr inbounds float, ptr %call228, i64 1
-  %87 = load float, ptr %arrayidx229, align 4
-  %tu_vertices230 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx231 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices230, i64 0, i64 2
-  %call232 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx231)
-  %arrayidx233 = getelementptr inbounds float, ptr %call232, i64 1
-  %88 = load float, ptr %arrayidx233, align 4
-  %mul234 = fmul float %87, %88
-  %89 = call float @llvm.fmuladd.f32(float %85, float %86, float %mul234)
-  %tv_plane235 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call236 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane235)
-  %arrayidx237 = getelementptr inbounds float, ptr %call236, i64 2
-  %90 = load float, ptr %arrayidx237, align 4
-  %tu_vertices238 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx239 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices238, i64 0, i64 2
-  %call240 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx239)
-  %arrayidx241 = getelementptr inbounds float, ptr %call240, i64 2
-  %91 = load float, ptr %arrayidx241, align 4
-  %92 = call float @llvm.fmuladd.f32(float %90, float %91, float %89)
-  %tv_plane243 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call244 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane243)
-  %arrayidx245 = getelementptr inbounds float, ptr %call244, i64 3
-  %93 = load float, ptr %arrayidx245, align 4
-  %sub246 = fsub float %92, %93
-  %du247 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx248 = getelementptr inbounds [4 x float], ptr %du247, i64 0, i64 2
-  store float %sub246, ptr %arrayidx248, align 4
-  %du249 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx250 = getelementptr inbounds [4 x float], ptr %du249, i64 0, i64 0
-  %94 = load float, ptr %arrayidx250, align 4
-  %du251 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx252 = getelementptr inbounds [4 x float], ptr %du251, i64 0, i64 1
-  %95 = load float, ptr %arrayidx252, align 4
-  %mul253 = fmul float %94, %95
-  %du0du1 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 10
-  store float %mul253, ptr %du0du1, align 4
-  %du254 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx255 = getelementptr inbounds [4 x float], ptr %du254, i64 0, i64 0
-  %96 = load float, ptr %arrayidx255, align 4
-  %du256 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx257 = getelementptr inbounds [4 x float], ptr %du256, i64 0, i64 2
-  %97 = load float, ptr %arrayidx257, align 4
-  %mul258 = fmul float %96, %97
-  %du0du2 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 11
-  store float %mul258, ptr %du0du2, align 4
-  %du0du1259 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 10
-  %98 = load float, ptr %du0du1259, align 4
-  %cmp260 = fcmp ogt float %98, 0.000000e+00
-  br i1 %cmp260, label %land.lhs.true, label %if.else506
-
-land.lhs.true:                                    ; preds = %if.end132
-  %du0du2261 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 11
-  %99 = load float, ptr %du0du2261, align 4
-  %cmp262 = fcmp ogt float %99, 0.000000e+00
-  br i1 %cmp262, label %if.then263, label %if.else506
-
-if.then263:                                       ; preds = %land.lhs.true
-  %du264 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx265 = getelementptr inbounds [4 x float], ptr %du264, i64 0, i64 0
-  %100 = load float, ptr %arrayidx265, align 4
-  %cmp266 = fcmp olt float %100, 0.000000e+00
-  br i1 %cmp266, label %if.then267, label %if.else459
-
-if.then267:                                       ; preds = %if.then263
-  %du268 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx269 = getelementptr inbounds [4 x float], ptr %du268, i64 0, i64 0
-  %101 = load float, ptr %arrayidx269, align 4
-  %du270 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx271 = getelementptr inbounds [4 x float], ptr %du270, i64 0, i64 1
-  %102 = load float, ptr %arrayidx271, align 4
-  %du272 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx273 = getelementptr inbounds [4 x float], ptr %du272, i64 0, i64 2
-  %103 = load float, ptr %arrayidx273, align 4
-  %cmp274 = fcmp olt float %102, %103
-  br i1 %cmp274, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then267
-  %du275 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx276 = getelementptr inbounds [4 x float], ptr %du275, i64 0, i64 2
-  %104 = load float, ptr %arrayidx276, align 4
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then267
-  %du277 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx278 = getelementptr inbounds [4 x float], ptr %du277, i64 0, i64 1
-  %105 = load float, ptr %arrayidx278, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi float [ %104, %cond.true ], [ %105, %cond.false ]
-  %cmp279 = fcmp olt float %101, %cond
-  br i1 %cmp279, label %cond.true280, label %cond.false294
-
-cond.true280:                                     ; preds = %cond.end
-  %du281 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx282 = getelementptr inbounds [4 x float], ptr %du281, i64 0, i64 1
-  %106 = load float, ptr %arrayidx282, align 4
-  %du283 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx284 = getelementptr inbounds [4 x float], ptr %du283, i64 0, i64 2
-  %107 = load float, ptr %arrayidx284, align 4
-  %cmp285 = fcmp olt float %106, %107
-  br i1 %cmp285, label %cond.true286, label %cond.false289
-
-cond.true286:                                     ; preds = %cond.true280
-  %du287 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx288 = getelementptr inbounds [4 x float], ptr %du287, i64 0, i64 2
-  %108 = load float, ptr %arrayidx288, align 4
-  br label %cond.end292
-
-cond.false289:                                    ; preds = %cond.true280
-  %du290 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx291 = getelementptr inbounds [4 x float], ptr %du290, i64 0, i64 1
-  %109 = load float, ptr %arrayidx291, align 4
-  br label %cond.end292
-
-cond.end292:                                      ; preds = %cond.false289, %cond.true286
-  %cond293 = phi float [ %108, %cond.true286 ], [ %109, %cond.false289 ]
-  br label %cond.end297
-
-cond.false294:                                    ; preds = %cond.end
-  %du295 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx296 = getelementptr inbounds [4 x float], ptr %du295, i64 0, i64 0
-  %110 = load float, ptr %arrayidx296, align 4
-  br label %cond.end297
-
-cond.end297:                                      ; preds = %cond.false294, %cond.end292
-  %cond298 = phi float [ %cond293, %cond.end292 ], [ %110, %cond.false294 ]
-  %distances = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call299 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances)
-  %arrayidx300 = getelementptr inbounds float, ptr %call299, i64 0
-  store float %cond298, ptr %arrayidx300, align 4
-  %distances301 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call302 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances301)
-  %arrayidx303 = getelementptr inbounds float, ptr %call302, i64 0
-  %111 = load float, ptr %arrayidx303, align 4
-  %fneg = fneg float %111
-  %distances304 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call305 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances304)
-  %arrayidx306 = getelementptr inbounds float, ptr %call305, i64 0
-  store float %fneg, ptr %arrayidx306, align 4
-  %distances307 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call308 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances307)
-  %arrayidx309 = getelementptr inbounds float, ptr %call308, i64 0
-  %112 = load float, ptr %arrayidx309, align 4
-  %margin310 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %113 = load float, ptr %margin310, align 4
-  %cmp311 = fcmp ogt float %112, %113
-  br i1 %cmp311, label %if.then312, label %if.end313
-
-if.then312:                                       ; preds = %cond.end297
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end313:                                        ; preds = %cond.end297
-  %tv_vertices314 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx315 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices314, i64 0, i64 0
-  %call316 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx315)
-  %arrayidx317 = getelementptr inbounds float, ptr %call316, i64 0
-  %114 = load float, ptr %arrayidx317, align 4
-  %tv_vertices318 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx319 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices318, i64 0, i64 1
-  %call320 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx319)
-  %arrayidx321 = getelementptr inbounds float, ptr %call320, i64 0
-  %115 = load float, ptr %arrayidx321, align 4
-  %add322 = fadd float %114, %115
-  %tv_vertices323 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx324 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices323, i64 0, i64 0
-  %call325 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx324)
-  %arrayidx326 = getelementptr inbounds float, ptr %call325, i64 0
-  store float %add322, ptr %arrayidx326, align 4
-  %tv_vertices327 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx328 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices327, i64 0, i64 0
-  %call329 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx328)
-  %arrayidx330 = getelementptr inbounds float, ptr %call329, i64 0
-  %116 = load float, ptr %arrayidx330, align 4
-  %tv_vertices331 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx332 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices331, i64 0, i64 1
-  %call333 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx332)
-  %arrayidx334 = getelementptr inbounds float, ptr %call333, i64 0
-  %117 = load float, ptr %arrayidx334, align 4
-  %sub335 = fsub float %116, %117
-  %tv_vertices336 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx337 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices336, i64 0, i64 1
-  %call338 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx337)
-  %arrayidx339 = getelementptr inbounds float, ptr %call338, i64 0
-  store float %sub335, ptr %arrayidx339, align 4
-  %tv_vertices340 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx341 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices340, i64 0, i64 0
-  %call342 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx341)
-  %arrayidx343 = getelementptr inbounds float, ptr %call342, i64 0
-  %118 = load float, ptr %arrayidx343, align 4
-  %tv_vertices344 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx345 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices344, i64 0, i64 1
-  %call346 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx345)
-  %arrayidx347 = getelementptr inbounds float, ptr %call346, i64 0
-  %119 = load float, ptr %arrayidx347, align 4
-  %sub348 = fsub float %118, %119
-  %tv_vertices349 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx350 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices349, i64 0, i64 0
-  %call351 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx350)
-  %arrayidx352 = getelementptr inbounds float, ptr %call351, i64 0
-  store float %sub348, ptr %arrayidx352, align 4
-  %tv_vertices353 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx354 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices353, i64 0, i64 0
-  %call355 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx354)
-  %arrayidx356 = getelementptr inbounds float, ptr %call355, i64 1
-  %120 = load float, ptr %arrayidx356, align 4
-  %tv_vertices357 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx358 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices357, i64 0, i64 1
-  %call359 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx358)
-  %arrayidx360 = getelementptr inbounds float, ptr %call359, i64 1
-  %121 = load float, ptr %arrayidx360, align 4
-  %add361 = fadd float %120, %121
-  %tv_vertices362 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx363 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices362, i64 0, i64 0
-  %call364 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx363)
-  %arrayidx365 = getelementptr inbounds float, ptr %call364, i64 1
-  store float %add361, ptr %arrayidx365, align 4
-  %tv_vertices366 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx367 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices366, i64 0, i64 0
-  %call368 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx367)
-  %arrayidx369 = getelementptr inbounds float, ptr %call368, i64 1
-  %122 = load float, ptr %arrayidx369, align 4
-  %tv_vertices370 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx371 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices370, i64 0, i64 1
-  %call372 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx371)
-  %arrayidx373 = getelementptr inbounds float, ptr %call372, i64 1
-  %123 = load float, ptr %arrayidx373, align 4
-  %sub374 = fsub float %122, %123
-  %tv_vertices375 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx376 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices375, i64 0, i64 1
-  %call377 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx376)
-  %arrayidx378 = getelementptr inbounds float, ptr %call377, i64 1
-  store float %sub374, ptr %arrayidx378, align 4
-  %tv_vertices379 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx380 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices379, i64 0, i64 0
-  %call381 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx380)
-  %arrayidx382 = getelementptr inbounds float, ptr %call381, i64 1
-  %124 = load float, ptr %arrayidx382, align 4
-  %tv_vertices383 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx384 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices383, i64 0, i64 1
-  %call385 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx384)
-  %arrayidx386 = getelementptr inbounds float, ptr %call385, i64 1
-  %125 = load float, ptr %arrayidx386, align 4
-  %sub387 = fsub float %124, %125
-  %tv_vertices388 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx389 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices388, i64 0, i64 0
-  %call390 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx389)
-  %arrayidx391 = getelementptr inbounds float, ptr %call390, i64 1
-  store float %sub387, ptr %arrayidx391, align 4
-  %tv_vertices392 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx393 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices392, i64 0, i64 0
-  %call394 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx393)
-  %arrayidx395 = getelementptr inbounds float, ptr %call394, i64 2
-  %126 = load float, ptr %arrayidx395, align 4
-  %tv_vertices396 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx397 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices396, i64 0, i64 1
-  %call398 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx397)
-  %arrayidx399 = getelementptr inbounds float, ptr %call398, i64 2
-  %127 = load float, ptr %arrayidx399, align 4
-  %add400 = fadd float %126, %127
-  %tv_vertices401 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx402 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices401, i64 0, i64 0
-  %call403 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx402)
-  %arrayidx404 = getelementptr inbounds float, ptr %call403, i64 2
-  store float %add400, ptr %arrayidx404, align 4
-  %tv_vertices405 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx406 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices405, i64 0, i64 0
-  %call407 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx406)
-  %arrayidx408 = getelementptr inbounds float, ptr %call407, i64 2
-  %128 = load float, ptr %arrayidx408, align 4
-  %tv_vertices409 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx410 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices409, i64 0, i64 1
-  %call411 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx410)
-  %arrayidx412 = getelementptr inbounds float, ptr %call411, i64 2
-  %129 = load float, ptr %arrayidx412, align 4
-  %sub413 = fsub float %128, %129
-  %tv_vertices414 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx415 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices414, i64 0, i64 1
-  %call416 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx415)
-  %arrayidx417 = getelementptr inbounds float, ptr %call416, i64 2
-  store float %sub413, ptr %arrayidx417, align 4
-  %tv_vertices418 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx419 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices418, i64 0, i64 0
-  %call420 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx419)
-  %arrayidx421 = getelementptr inbounds float, ptr %call420, i64 2
-  %130 = load float, ptr %arrayidx421, align 4
-  %tv_vertices422 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx423 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices422, i64 0, i64 1
-  %call424 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx423)
-  %arrayidx425 = getelementptr inbounds float, ptr %call424, i64 2
-  %131 = load float, ptr %arrayidx425, align 4
-  %sub426 = fsub float %130, %131
-  %tv_vertices427 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx428 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices427, i64 0, i64 0
-  %call429 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx428)
-  %arrayidx430 = getelementptr inbounds float, ptr %call429, i64 2
-  store float %sub426, ptr %arrayidx430, align 4
-  %tv_plane431 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call432 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane431)
-  %arrayidx433 = getelementptr inbounds float, ptr %call432, i64 0
-  %132 = load float, ptr %arrayidx433, align 4
-  %mul434 = fmul float -1.000000e+00, %132
-  %tv_plane435 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call436 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane435)
-  %arrayidx437 = getelementptr inbounds float, ptr %call436, i64 0
-  store float %mul434, ptr %arrayidx437, align 4
-  %tv_plane438 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call439 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane438)
-  %arrayidx440 = getelementptr inbounds float, ptr %call439, i64 1
-  %133 = load float, ptr %arrayidx440, align 4
-  %mul441 = fmul float -1.000000e+00, %133
-  %tv_plane442 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call443 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane442)
-  %arrayidx444 = getelementptr inbounds float, ptr %call443, i64 1
-  store float %mul441, ptr %arrayidx444, align 4
-  %tv_plane445 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call446 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane445)
-  %arrayidx447 = getelementptr inbounds float, ptr %call446, i64 2
-  %134 = load float, ptr %arrayidx447, align 4
-  %mul448 = fmul float -1.000000e+00, %134
-  %tv_plane449 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call450 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane449)
-  %arrayidx451 = getelementptr inbounds float, ptr %call450, i64 2
-  store float %mul448, ptr %arrayidx451, align 4
-  %tv_plane452 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call453 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane452)
-  %arrayidx454 = getelementptr inbounds float, ptr %call453, i64 3
-  %135 = load float, ptr %arrayidx454, align 4
-  %mul455 = fmul float -1.000000e+00, %135
-  %tv_plane456 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call457 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane456)
-  %arrayidx458 = getelementptr inbounds float, ptr %call457, i64 3
-  store float %mul455, ptr %arrayidx458, align 4
-  br label %if.end505
-
-if.else459:                                       ; preds = %if.then263
-  %du460 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx461 = getelementptr inbounds [4 x float], ptr %du460, i64 0, i64 0
-  %136 = load float, ptr %arrayidx461, align 4
-  %du462 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx463 = getelementptr inbounds [4 x float], ptr %du462, i64 0, i64 1
-  %137 = load float, ptr %arrayidx463, align 4
-  %du464 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx465 = getelementptr inbounds [4 x float], ptr %du464, i64 0, i64 2
-  %138 = load float, ptr %arrayidx465, align 4
-  %cmp466 = fcmp ogt float %137, %138
-  br i1 %cmp466, label %cond.true467, label %cond.false470
-
-cond.true467:                                     ; preds = %if.else459
-  %du468 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx469 = getelementptr inbounds [4 x float], ptr %du468, i64 0, i64 2
-  %139 = load float, ptr %arrayidx469, align 4
-  br label %cond.end473
-
-cond.false470:                                    ; preds = %if.else459
-  %du471 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx472 = getelementptr inbounds [4 x float], ptr %du471, i64 0, i64 1
-  %140 = load float, ptr %arrayidx472, align 4
-  br label %cond.end473
-
-cond.end473:                                      ; preds = %cond.false470, %cond.true467
-  %cond474 = phi float [ %139, %cond.true467 ], [ %140, %cond.false470 ]
-  %cmp475 = fcmp ogt float %136, %cond474
-  br i1 %cmp475, label %cond.true476, label %cond.false490
-
-cond.true476:                                     ; preds = %cond.end473
-  %du477 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx478 = getelementptr inbounds [4 x float], ptr %du477, i64 0, i64 1
-  %141 = load float, ptr %arrayidx478, align 4
-  %du479 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx480 = getelementptr inbounds [4 x float], ptr %du479, i64 0, i64 2
-  %142 = load float, ptr %arrayidx480, align 4
-  %cmp481 = fcmp ogt float %141, %142
-  br i1 %cmp481, label %cond.true482, label %cond.false485
-
-cond.true482:                                     ; preds = %cond.true476
-  %du483 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx484 = getelementptr inbounds [4 x float], ptr %du483, i64 0, i64 2
-  %143 = load float, ptr %arrayidx484, align 4
-  br label %cond.end488
-
-cond.false485:                                    ; preds = %cond.true476
-  %du486 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx487 = getelementptr inbounds [4 x float], ptr %du486, i64 0, i64 1
-  %144 = load float, ptr %arrayidx487, align 4
-  br label %cond.end488
-
-cond.end488:                                      ; preds = %cond.false485, %cond.true482
-  %cond489 = phi float [ %143, %cond.true482 ], [ %144, %cond.false485 ]
-  br label %cond.end493
-
-cond.false490:                                    ; preds = %cond.end473
-  %du491 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx492 = getelementptr inbounds [4 x float], ptr %du491, i64 0, i64 0
-  %145 = load float, ptr %arrayidx492, align 4
-  br label %cond.end493
-
-cond.end493:                                      ; preds = %cond.false490, %cond.end488
-  %cond494 = phi float [ %cond489, %cond.end488 ], [ %145, %cond.false490 ]
-  %distances495 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call496 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances495)
-  %arrayidx497 = getelementptr inbounds float, ptr %call496, i64 0
-  store float %cond494, ptr %arrayidx497, align 4
-  %distances498 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call499 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances498)
-  %arrayidx500 = getelementptr inbounds float, ptr %call499, i64 0
-  %146 = load float, ptr %arrayidx500, align 4
-  %margin501 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %147 = load float, ptr %margin501, align 4
-  %cmp502 = fcmp ogt float %146, %147
-  br i1 %cmp502, label %if.then503, label %if.end504
-
-if.then503:                                       ; preds = %cond.end493
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end504:                                        ; preds = %cond.end493
-  br label %if.end505
-
-if.end505:                                        ; preds = %if.end504, %if.end313
-  br label %if.end753
-
-if.else506:                                       ; preds = %land.lhs.true, %if.end132
-  %du507 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx508 = getelementptr inbounds [4 x float], ptr %du507, i64 0, i64 0
-  %148 = load float, ptr %arrayidx508, align 4
-  %du509 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx510 = getelementptr inbounds [4 x float], ptr %du509, i64 0, i64 1
-  %149 = load float, ptr %arrayidx510, align 4
-  %add511 = fadd float %148, %149
-  %du512 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx513 = getelementptr inbounds [4 x float], ptr %du512, i64 0, i64 2
-  %150 = load float, ptr %arrayidx513, align 4
-  %add514 = fadd float %add511, %150
-  %div = fdiv float %add514, 3.000000e+00
-  %distances515 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call516 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances515)
-  %arrayidx517 = getelementptr inbounds float, ptr %call516, i64 0
-  store float %div, ptr %arrayidx517, align 4
-  %distances518 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call519 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances518)
-  %arrayidx520 = getelementptr inbounds float, ptr %call519, i64 0
-  %151 = load float, ptr %arrayidx520, align 4
-  %cmp521 = fcmp olt float %151, 0.000000e+00
-  br i1 %cmp521, label %if.then522, label %if.else713
-
-if.then522:                                       ; preds = %if.else506
-  %tv_vertices523 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx524 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices523, i64 0, i64 0
-  %call525 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx524)
-  %arrayidx526 = getelementptr inbounds float, ptr %call525, i64 0
-  %152 = load float, ptr %arrayidx526, align 4
-  %tv_vertices527 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx528 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices527, i64 0, i64 1
-  %call529 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx528)
-  %arrayidx530 = getelementptr inbounds float, ptr %call529, i64 0
-  %153 = load float, ptr %arrayidx530, align 4
-  %add531 = fadd float %152, %153
-  %tv_vertices532 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx533 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices532, i64 0, i64 0
-  %call534 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx533)
-  %arrayidx535 = getelementptr inbounds float, ptr %call534, i64 0
-  store float %add531, ptr %arrayidx535, align 4
-  %tv_vertices536 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx537 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices536, i64 0, i64 0
-  %call538 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx537)
-  %arrayidx539 = getelementptr inbounds float, ptr %call538, i64 0
-  %154 = load float, ptr %arrayidx539, align 4
-  %tv_vertices540 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx541 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices540, i64 0, i64 1
-  %call542 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx541)
-  %arrayidx543 = getelementptr inbounds float, ptr %call542, i64 0
-  %155 = load float, ptr %arrayidx543, align 4
-  %sub544 = fsub float %154, %155
-  %tv_vertices545 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx546 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices545, i64 0, i64 1
-  %call547 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx546)
-  %arrayidx548 = getelementptr inbounds float, ptr %call547, i64 0
-  store float %sub544, ptr %arrayidx548, align 4
-  %tv_vertices549 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx550 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices549, i64 0, i64 0
-  %call551 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx550)
-  %arrayidx552 = getelementptr inbounds float, ptr %call551, i64 0
-  %156 = load float, ptr %arrayidx552, align 4
-  %tv_vertices553 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx554 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices553, i64 0, i64 1
-  %call555 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx554)
-  %arrayidx556 = getelementptr inbounds float, ptr %call555, i64 0
-  %157 = load float, ptr %arrayidx556, align 4
-  %sub557 = fsub float %156, %157
-  %tv_vertices558 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx559 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices558, i64 0, i64 0
-  %call560 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx559)
-  %arrayidx561 = getelementptr inbounds float, ptr %call560, i64 0
-  store float %sub557, ptr %arrayidx561, align 4
-  %tv_vertices562 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx563 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices562, i64 0, i64 0
-  %call564 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx563)
-  %arrayidx565 = getelementptr inbounds float, ptr %call564, i64 1
-  %158 = load float, ptr %arrayidx565, align 4
-  %tv_vertices566 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx567 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices566, i64 0, i64 1
-  %call568 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx567)
-  %arrayidx569 = getelementptr inbounds float, ptr %call568, i64 1
-  %159 = load float, ptr %arrayidx569, align 4
-  %add570 = fadd float %158, %159
-  %tv_vertices571 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx572 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices571, i64 0, i64 0
-  %call573 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx572)
-  %arrayidx574 = getelementptr inbounds float, ptr %call573, i64 1
-  store float %add570, ptr %arrayidx574, align 4
-  %tv_vertices575 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx576 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices575, i64 0, i64 0
-  %call577 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx576)
-  %arrayidx578 = getelementptr inbounds float, ptr %call577, i64 1
-  %160 = load float, ptr %arrayidx578, align 4
-  %tv_vertices579 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx580 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices579, i64 0, i64 1
-  %call581 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx580)
-  %arrayidx582 = getelementptr inbounds float, ptr %call581, i64 1
-  %161 = load float, ptr %arrayidx582, align 4
-  %sub583 = fsub float %160, %161
-  %tv_vertices584 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx585 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices584, i64 0, i64 1
-  %call586 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx585)
-  %arrayidx587 = getelementptr inbounds float, ptr %call586, i64 1
-  store float %sub583, ptr %arrayidx587, align 4
-  %tv_vertices588 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx589 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices588, i64 0, i64 0
-  %call590 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx589)
-  %arrayidx591 = getelementptr inbounds float, ptr %call590, i64 1
-  %162 = load float, ptr %arrayidx591, align 4
-  %tv_vertices592 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx593 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices592, i64 0, i64 1
-  %call594 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx593)
-  %arrayidx595 = getelementptr inbounds float, ptr %call594, i64 1
-  %163 = load float, ptr %arrayidx595, align 4
-  %sub596 = fsub float %162, %163
-  %tv_vertices597 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx598 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices597, i64 0, i64 0
-  %call599 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx598)
-  %arrayidx600 = getelementptr inbounds float, ptr %call599, i64 1
-  store float %sub596, ptr %arrayidx600, align 4
-  %tv_vertices601 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx602 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices601, i64 0, i64 0
-  %call603 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx602)
-  %arrayidx604 = getelementptr inbounds float, ptr %call603, i64 2
-  %164 = load float, ptr %arrayidx604, align 4
-  %tv_vertices605 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx606 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices605, i64 0, i64 1
-  %call607 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx606)
-  %arrayidx608 = getelementptr inbounds float, ptr %call607, i64 2
-  %165 = load float, ptr %arrayidx608, align 4
-  %add609 = fadd float %164, %165
-  %tv_vertices610 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx611 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices610, i64 0, i64 0
-  %call612 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx611)
-  %arrayidx613 = getelementptr inbounds float, ptr %call612, i64 2
-  store float %add609, ptr %arrayidx613, align 4
-  %tv_vertices614 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx615 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices614, i64 0, i64 0
-  %call616 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx615)
-  %arrayidx617 = getelementptr inbounds float, ptr %call616, i64 2
-  %166 = load float, ptr %arrayidx617, align 4
-  %tv_vertices618 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx619 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices618, i64 0, i64 1
-  %call620 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx619)
-  %arrayidx621 = getelementptr inbounds float, ptr %call620, i64 2
-  %167 = load float, ptr %arrayidx621, align 4
-  %sub622 = fsub float %166, %167
-  %tv_vertices623 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx624 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices623, i64 0, i64 1
-  %call625 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx624)
-  %arrayidx626 = getelementptr inbounds float, ptr %call625, i64 2
-  store float %sub622, ptr %arrayidx626, align 4
-  %tv_vertices627 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx628 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices627, i64 0, i64 0
-  %call629 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx628)
-  %arrayidx630 = getelementptr inbounds float, ptr %call629, i64 2
-  %168 = load float, ptr %arrayidx630, align 4
-  %tv_vertices631 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx632 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices631, i64 0, i64 1
-  %call633 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx632)
-  %arrayidx634 = getelementptr inbounds float, ptr %call633, i64 2
-  %169 = load float, ptr %arrayidx634, align 4
-  %sub635 = fsub float %168, %169
-  %tv_vertices636 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx637 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices636, i64 0, i64 0
-  %call638 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx637)
-  %arrayidx639 = getelementptr inbounds float, ptr %call638, i64 2
-  store float %sub635, ptr %arrayidx639, align 4
-  %tv_plane640 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call641 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane640)
-  %arrayidx642 = getelementptr inbounds float, ptr %call641, i64 0
-  %170 = load float, ptr %arrayidx642, align 4
-  %mul643 = fmul float -1.000000e+00, %170
-  %tv_plane644 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call645 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane644)
-  %arrayidx646 = getelementptr inbounds float, ptr %call645, i64 0
-  store float %mul643, ptr %arrayidx646, align 4
-  %tv_plane647 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call648 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane647)
-  %arrayidx649 = getelementptr inbounds float, ptr %call648, i64 1
-  %171 = load float, ptr %arrayidx649, align 4
-  %mul650 = fmul float -1.000000e+00, %171
-  %tv_plane651 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call652 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane651)
-  %arrayidx653 = getelementptr inbounds float, ptr %call652, i64 1
-  store float %mul650, ptr %arrayidx653, align 4
-  %tv_plane654 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call655 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane654)
-  %arrayidx656 = getelementptr inbounds float, ptr %call655, i64 2
-  %172 = load float, ptr %arrayidx656, align 4
-  %mul657 = fmul float -1.000000e+00, %172
-  %tv_plane658 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call659 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane658)
-  %arrayidx660 = getelementptr inbounds float, ptr %call659, i64 2
-  store float %mul657, ptr %arrayidx660, align 4
-  %tv_plane661 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call662 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane661)
-  %arrayidx663 = getelementptr inbounds float, ptr %call662, i64 3
-  %173 = load float, ptr %arrayidx663, align 4
-  %mul664 = fmul float -1.000000e+00, %173
-  %tv_plane665 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %call666 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tv_plane665)
-  %arrayidx667 = getelementptr inbounds float, ptr %call666, i64 3
-  store float %mul664, ptr %arrayidx667, align 4
-  %du668 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx669 = getelementptr inbounds [4 x float], ptr %du668, i64 0, i64 0
-  %174 = load float, ptr %arrayidx669, align 4
-  %du670 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx671 = getelementptr inbounds [4 x float], ptr %du670, i64 0, i64 1
-  %175 = load float, ptr %arrayidx671, align 4
-  %du672 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx673 = getelementptr inbounds [4 x float], ptr %du672, i64 0, i64 2
-  %176 = load float, ptr %arrayidx673, align 4
-  %cmp674 = fcmp olt float %175, %176
-  br i1 %cmp674, label %cond.true675, label %cond.false678
-
-cond.true675:                                     ; preds = %if.then522
-  %du676 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx677 = getelementptr inbounds [4 x float], ptr %du676, i64 0, i64 2
-  %177 = load float, ptr %arrayidx677, align 4
-  br label %cond.end681
-
-cond.false678:                                    ; preds = %if.then522
-  %du679 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx680 = getelementptr inbounds [4 x float], ptr %du679, i64 0, i64 1
-  %178 = load float, ptr %arrayidx680, align 4
-  br label %cond.end681
-
-cond.end681:                                      ; preds = %cond.false678, %cond.true675
-  %cond682 = phi float [ %177, %cond.true675 ], [ %178, %cond.false678 ]
-  %cmp683 = fcmp olt float %174, %cond682
-  br i1 %cmp683, label %cond.true684, label %cond.false698
-
-cond.true684:                                     ; preds = %cond.end681
-  %du685 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx686 = getelementptr inbounds [4 x float], ptr %du685, i64 0, i64 1
-  %179 = load float, ptr %arrayidx686, align 4
-  %du687 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx688 = getelementptr inbounds [4 x float], ptr %du687, i64 0, i64 2
-  %180 = load float, ptr %arrayidx688, align 4
-  %cmp689 = fcmp olt float %179, %180
-  br i1 %cmp689, label %cond.true690, label %cond.false693
-
-cond.true690:                                     ; preds = %cond.true684
-  %du691 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx692 = getelementptr inbounds [4 x float], ptr %du691, i64 0, i64 2
-  %181 = load float, ptr %arrayidx692, align 4
-  br label %cond.end696
-
-cond.false693:                                    ; preds = %cond.true684
-  %du694 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx695 = getelementptr inbounds [4 x float], ptr %du694, i64 0, i64 1
-  %182 = load float, ptr %arrayidx695, align 4
-  br label %cond.end696
-
-cond.end696:                                      ; preds = %cond.false693, %cond.true690
-  %cond697 = phi float [ %181, %cond.true690 ], [ %182, %cond.false693 ]
-  br label %cond.end701
-
-cond.false698:                                    ; preds = %cond.end681
-  %du699 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx700 = getelementptr inbounds [4 x float], ptr %du699, i64 0, i64 0
-  %183 = load float, ptr %arrayidx700, align 4
-  br label %cond.end701
-
-cond.end701:                                      ; preds = %cond.false698, %cond.end696
-  %cond702 = phi float [ %cond697, %cond.end696 ], [ %183, %cond.false698 ]
-  %distances703 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call704 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances703)
-  %arrayidx705 = getelementptr inbounds float, ptr %call704, i64 0
-  store float %cond702, ptr %arrayidx705, align 4
-  %distances706 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call707 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances706)
-  %arrayidx708 = getelementptr inbounds float, ptr %call707, i64 0
-  %184 = load float, ptr %arrayidx708, align 4
-  %fneg709 = fneg float %184
-  %distances710 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call711 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances710)
-  %arrayidx712 = getelementptr inbounds float, ptr %call711, i64 0
-  store float %fneg709, ptr %arrayidx712, align 4
-  br label %if.end752
-
-if.else713:                                       ; preds = %if.else506
-  %du714 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx715 = getelementptr inbounds [4 x float], ptr %du714, i64 0, i64 0
-  %185 = load float, ptr %arrayidx715, align 4
-  %du716 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx717 = getelementptr inbounds [4 x float], ptr %du716, i64 0, i64 1
-  %186 = load float, ptr %arrayidx717, align 4
-  %du718 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx719 = getelementptr inbounds [4 x float], ptr %du718, i64 0, i64 2
-  %187 = load float, ptr %arrayidx719, align 4
-  %cmp720 = fcmp ogt float %186, %187
-  br i1 %cmp720, label %cond.true721, label %cond.false724
-
-cond.true721:                                     ; preds = %if.else713
-  %du722 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx723 = getelementptr inbounds [4 x float], ptr %du722, i64 0, i64 2
-  %188 = load float, ptr %arrayidx723, align 4
-  br label %cond.end727
-
-cond.false724:                                    ; preds = %if.else713
-  %du725 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx726 = getelementptr inbounds [4 x float], ptr %du725, i64 0, i64 1
-  %189 = load float, ptr %arrayidx726, align 4
-  br label %cond.end727
-
-cond.end727:                                      ; preds = %cond.false724, %cond.true721
-  %cond728 = phi float [ %188, %cond.true721 ], [ %189, %cond.false724 ]
-  %cmp729 = fcmp ogt float %185, %cond728
-  br i1 %cmp729, label %cond.true730, label %cond.false744
-
-cond.true730:                                     ; preds = %cond.end727
-  %du731 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx732 = getelementptr inbounds [4 x float], ptr %du731, i64 0, i64 1
-  %190 = load float, ptr %arrayidx732, align 4
-  %du733 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx734 = getelementptr inbounds [4 x float], ptr %du733, i64 0, i64 2
-  %191 = load float, ptr %arrayidx734, align 4
-  %cmp735 = fcmp ogt float %190, %191
-  br i1 %cmp735, label %cond.true736, label %cond.false739
-
-cond.true736:                                     ; preds = %cond.true730
-  %du737 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx738 = getelementptr inbounds [4 x float], ptr %du737, i64 0, i64 2
-  %192 = load float, ptr %arrayidx738, align 4
-  br label %cond.end742
-
-cond.false739:                                    ; preds = %cond.true730
-  %du740 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx741 = getelementptr inbounds [4 x float], ptr %du740, i64 0, i64 1
-  %193 = load float, ptr %arrayidx741, align 4
-  br label %cond.end742
-
-cond.end742:                                      ; preds = %cond.false739, %cond.true736
-  %cond743 = phi float [ %192, %cond.true736 ], [ %193, %cond.false739 ]
-  br label %cond.end747
-
-cond.false744:                                    ; preds = %cond.end727
-  %du745 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 9
-  %arrayidx746 = getelementptr inbounds [4 x float], ptr %du745, i64 0, i64 0
-  %194 = load float, ptr %arrayidx746, align 4
-  br label %cond.end747
-
-cond.end747:                                      ; preds = %cond.false744, %cond.end742
-  %cond748 = phi float [ %cond743, %cond.end742 ], [ %194, %cond.false744 ]
-  %distances749 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call750 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances749)
-  %arrayidx751 = getelementptr inbounds float, ptr %call750, i64 0
-  store float %cond748, ptr %arrayidx751, align 4
-  br label %if.end752
-
-if.end752:                                        ; preds = %cond.end747, %cond.end701
-  br label %if.end753
-
-if.end753:                                        ; preds = %if.end752, %if.end505
-  %tu_vertices756 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx757 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices756, i64 0, i64 1
-  %call758 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx757)
-  %arrayidx759 = getelementptr inbounds float, ptr %call758, i64 0
-  %195 = load float, ptr %arrayidx759, align 4
-  %tu_vertices760 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx761 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices760, i64 0, i64 0
-  %call762 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx761)
-  %arrayidx763 = getelementptr inbounds float, ptr %call762, i64 0
-  %196 = load float, ptr %arrayidx763, align 4
-  %sub764 = fsub float %195, %196
-  %arrayidx765 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 0
-  store float %sub764, ptr %arrayidx765, align 4
-  %tu_vertices766 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx767 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices766, i64 0, i64 1
-  %call768 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx767)
-  %arrayidx769 = getelementptr inbounds float, ptr %call768, i64 1
-  %197 = load float, ptr %arrayidx769, align 4
-  %tu_vertices770 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx771 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices770, i64 0, i64 0
-  %call772 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx771)
-  %arrayidx773 = getelementptr inbounds float, ptr %call772, i64 1
-  %198 = load float, ptr %arrayidx773, align 4
-  %sub774 = fsub float %197, %198
-  %arrayidx775 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 1
-  store float %sub774, ptr %arrayidx775, align 4
-  %tu_vertices776 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx777 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices776, i64 0, i64 1
-  %call778 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx777)
-  %arrayidx779 = getelementptr inbounds float, ptr %call778, i64 2
-  %199 = load float, ptr %arrayidx779, align 4
-  %tu_vertices780 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx781 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices780, i64 0, i64 0
-  %call782 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx781)
-  %arrayidx783 = getelementptr inbounds float, ptr %call782, i64 2
-  %200 = load float, ptr %arrayidx783, align 4
-  %sub784 = fsub float %199, %200
-  %arrayidx785 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 2
-  store float %sub784, ptr %arrayidx785, align 4
-  %tu_vertices786 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx787 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices786, i64 0, i64 2
-  %call788 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx787)
-  %arrayidx789 = getelementptr inbounds float, ptr %call788, i64 0
-  %201 = load float, ptr %arrayidx789, align 4
-  %tu_vertices790 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx791 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices790, i64 0, i64 0
-  %call792 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx791)
-  %arrayidx793 = getelementptr inbounds float, ptr %call792, i64 0
-  %202 = load float, ptr %arrayidx793, align 4
-  %sub794 = fsub float %201, %202
-  %arrayidx795 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 0
-  store float %sub794, ptr %arrayidx795, align 4
-  %tu_vertices796 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx797 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices796, i64 0, i64 2
-  %call798 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx797)
-  %arrayidx799 = getelementptr inbounds float, ptr %call798, i64 1
-  %203 = load float, ptr %arrayidx799, align 4
-  %tu_vertices800 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx801 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices800, i64 0, i64 0
-  %call802 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx801)
-  %arrayidx803 = getelementptr inbounds float, ptr %call802, i64 1
-  %204 = load float, ptr %arrayidx803, align 4
-  %sub804 = fsub float %203, %204
-  %arrayidx805 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 1
-  store float %sub804, ptr %arrayidx805, align 4
-  %tu_vertices806 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx807 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices806, i64 0, i64 2
-  %call808 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx807)
-  %arrayidx809 = getelementptr inbounds float, ptr %call808, i64 2
-  %205 = load float, ptr %arrayidx809, align 4
-  %tu_vertices810 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx811 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices810, i64 0, i64 0
-  %call812 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx811)
-  %arrayidx813 = getelementptr inbounds float, ptr %call812, i64 2
-  %206 = load float, ptr %arrayidx813, align 4
-  %sub814 = fsub float %205, %206
-  %arrayidx815 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 2
-  store float %sub814, ptr %arrayidx815, align 4
-  %arrayidx816 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 1
-  %207 = load float, ptr %arrayidx816, align 4
-  %arrayidx817 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 2
-  %208 = load float, ptr %arrayidx817, align 4
-  %arrayidx819 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 2
-  %209 = load float, ptr %arrayidx819, align 4
-  %arrayidx820 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 1
-  %210 = load float, ptr %arrayidx820, align 4
-  %mul821 = fmul float %209, %210
-  %neg822 = fneg float %mul821
-  %211 = call float @llvm.fmuladd.f32(float %207, float %208, float %neg822)
-  %tu_plane = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call823 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane)
-  %arrayidx824 = getelementptr inbounds float, ptr %call823, i64 0
-  store float %211, ptr %arrayidx824, align 4
-  %arrayidx825 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 2
-  %212 = load float, ptr %arrayidx825, align 4
-  %arrayidx826 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 0
-  %213 = load float, ptr %arrayidx826, align 4
-  %arrayidx828 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 0
-  %214 = load float, ptr %arrayidx828, align 4
-  %arrayidx829 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 2
-  %215 = load float, ptr %arrayidx829, align 4
-  %mul830 = fmul float %214, %215
-  %neg831 = fneg float %mul830
-  %216 = call float @llvm.fmuladd.f32(float %212, float %213, float %neg831)
-  %tu_plane832 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call833 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane832)
-  %arrayidx834 = getelementptr inbounds float, ptr %call833, i64 1
-  store float %216, ptr %arrayidx834, align 4
-  %arrayidx835 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 0
-  %217 = load float, ptr %arrayidx835, align 4
-  %arrayidx836 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 1
-  %218 = load float, ptr %arrayidx836, align 4
-  %arrayidx838 = getelementptr inbounds [3 x float], ptr %_dif1754, i64 0, i64 1
-  %219 = load float, ptr %arrayidx838, align 4
-  %arrayidx839 = getelementptr inbounds [3 x float], ptr %_dif2755, i64 0, i64 0
-  %220 = load float, ptr %arrayidx839, align 4
-  %mul840 = fmul float %219, %220
-  %neg841 = fneg float %mul840
-  %221 = call float @llvm.fmuladd.f32(float %217, float %218, float %neg841)
-  %tu_plane842 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call843 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane842)
-  %arrayidx844 = getelementptr inbounds float, ptr %call843, i64 2
-  store float %221, ptr %arrayidx844, align 4
-  %tu_plane847 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call848 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane847)
-  %arrayidx849 = getelementptr inbounds float, ptr %call848, i64 0
-  %222 = load float, ptr %arrayidx849, align 4
-  %tu_plane850 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call851 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane850)
-  %arrayidx852 = getelementptr inbounds float, ptr %call851, i64 0
-  %223 = load float, ptr %arrayidx852, align 4
-  %tu_plane854 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call855 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane854)
-  %arrayidx856 = getelementptr inbounds float, ptr %call855, i64 1
-  %224 = load float, ptr %arrayidx856, align 4
-  %tu_plane857 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call858 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane857)
-  %arrayidx859 = getelementptr inbounds float, ptr %call858, i64 1
-  %225 = load float, ptr %arrayidx859, align 4
-  %mul860 = fmul float %224, %225
-  %226 = call float @llvm.fmuladd.f32(float %222, float %223, float %mul860)
-  %tu_plane861 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call862 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane861)
-  %arrayidx863 = getelementptr inbounds float, ptr %call862, i64 2
-  %227 = load float, ptr %arrayidx863, align 4
-  %tu_plane864 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call865 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane864)
-  %arrayidx866 = getelementptr inbounds float, ptr %call865, i64 2
-  %228 = load float, ptr %arrayidx866, align 4
-  %229 = call float @llvm.fmuladd.f32(float %227, float %228, float %226)
-  store float %229, ptr %_pp846, align 4
-  %230 = load float, ptr %_pp846, align 4
-  %cmp868 = fcmp ole float %230, 0x3E7AD7F2A0000000
-  br i1 %cmp868, label %if.then869, label %if.else870
-
-if.then869:                                       ; preds = %if.end753
-  store float 0x47EFFFFFE0000000, ptr %len845, align 4
-  br label %if.end880
-
-if.else870:                                       ; preds = %if.end753
-  %231 = load float, ptr %_pp846, align 4
-  %mul872 = fmul float %231, 5.000000e-01
-  store float %mul872, ptr %_x871, align 4
-  %232 = load i32, ptr %_pp846, align 4
-  %shr874 = lshr i32 %232, 1
-  %sub875 = sub i32 1597463007, %shr874
-  store i32 %sub875, ptr %_y873, align 4
-  %233 = load float, ptr %_y873, align 4
-  store float %233, ptr %len845, align 4
-  %234 = load float, ptr %len845, align 4
-  %235 = load float, ptr %_x871, align 4
-  %236 = load float, ptr %len845, align 4
-  %mul876 = fmul float %235, %236
-  %237 = load float, ptr %len845, align 4
-  %neg878 = fneg float %mul876
-  %238 = call float @llvm.fmuladd.f32(float %neg878, float %237, float 1.500000e+00)
-  %mul879 = fmul float %234, %238
-  store float %mul879, ptr %len845, align 4
-  br label %if.end880
-
-if.end880:                                        ; preds = %if.else870, %if.then869
-  %239 = load float, ptr %len845, align 4
-  %cmp881 = fcmp olt float %239, 0x47EFFFFFE0000000
-  br i1 %cmp881, label %if.then882, label %if.end895
-
-if.then882:                                       ; preds = %if.end880
-  %240 = load float, ptr %len845, align 4
-  %tu_plane883 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call884 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane883)
-  %arrayidx885 = getelementptr inbounds float, ptr %call884, i64 0
-  %241 = load float, ptr %arrayidx885, align 4
-  %mul886 = fmul float %241, %240
-  store float %mul886, ptr %arrayidx885, align 4
-  %242 = load float, ptr %len845, align 4
-  %tu_plane887 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call888 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane887)
-  %arrayidx889 = getelementptr inbounds float, ptr %call888, i64 1
-  %243 = load float, ptr %arrayidx889, align 4
-  %mul890 = fmul float %243, %242
-  store float %mul890, ptr %arrayidx889, align 4
-  %244 = load float, ptr %len845, align 4
-  %tu_plane891 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call892 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane891)
-  %arrayidx893 = getelementptr inbounds float, ptr %call892, i64 2
-  %245 = load float, ptr %arrayidx893, align 4
-  %mul894 = fmul float %245, %244
-  store float %mul894, ptr %arrayidx893, align 4
-  br label %if.end895
-
-if.end895:                                        ; preds = %if.then882, %if.end880
-  %tu_vertices896 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx897 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices896, i64 0, i64 0
-  %call898 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx897)
-  %arrayidx899 = getelementptr inbounds float, ptr %call898, i64 0
-  %246 = load float, ptr %arrayidx899, align 4
-  %tu_plane900 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call901 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane900)
-  %arrayidx902 = getelementptr inbounds float, ptr %call901, i64 0
-  %247 = load float, ptr %arrayidx902, align 4
-  %tu_vertices904 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx905 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices904, i64 0, i64 0
-  %call906 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx905)
-  %arrayidx907 = getelementptr inbounds float, ptr %call906, i64 1
-  %248 = load float, ptr %arrayidx907, align 4
-  %tu_plane908 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call909 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane908)
-  %arrayidx910 = getelementptr inbounds float, ptr %call909, i64 1
-  %249 = load float, ptr %arrayidx910, align 4
-  %mul911 = fmul float %248, %249
-  %250 = call float @llvm.fmuladd.f32(float %246, float %247, float %mul911)
-  %tu_vertices912 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx913 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices912, i64 0, i64 0
-  %call914 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx913)
-  %arrayidx915 = getelementptr inbounds float, ptr %call914, i64 2
-  %251 = load float, ptr %arrayidx915, align 4
-  %tu_plane916 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call917 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane916)
-  %arrayidx918 = getelementptr inbounds float, ptr %call917, i64 2
-  %252 = load float, ptr %arrayidx918, align 4
-  %253 = call float @llvm.fmuladd.f32(float %251, float %252, float %250)
-  %tu_plane920 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call921 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane920)
-  %arrayidx922 = getelementptr inbounds float, ptr %call921, i64 3
-  store float %253, ptr %arrayidx922, align 4
-  %tu_plane923 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call924 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane923)
-  %arrayidx925 = getelementptr inbounds float, ptr %call924, i64 0
-  %254 = load float, ptr %arrayidx925, align 4
-  %tv_vertices926 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx927 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices926, i64 0, i64 0
-  %call928 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx927)
-  %arrayidx929 = getelementptr inbounds float, ptr %call928, i64 0
-  %255 = load float, ptr %arrayidx929, align 4
-  %tu_plane931 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call932 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane931)
-  %arrayidx933 = getelementptr inbounds float, ptr %call932, i64 1
-  %256 = load float, ptr %arrayidx933, align 4
-  %tv_vertices934 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx935 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices934, i64 0, i64 0
-  %call936 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx935)
-  %arrayidx937 = getelementptr inbounds float, ptr %call936, i64 1
-  %257 = load float, ptr %arrayidx937, align 4
-  %mul938 = fmul float %256, %257
-  %258 = call float @llvm.fmuladd.f32(float %254, float %255, float %mul938)
-  %tu_plane939 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call940 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane939)
-  %arrayidx941 = getelementptr inbounds float, ptr %call940, i64 2
-  %259 = load float, ptr %arrayidx941, align 4
-  %tv_vertices942 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx943 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices942, i64 0, i64 0
-  %call944 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx943)
-  %arrayidx945 = getelementptr inbounds float, ptr %call944, i64 2
-  %260 = load float, ptr %arrayidx945, align 4
-  %261 = call float @llvm.fmuladd.f32(float %259, float %260, float %258)
-  %tu_plane947 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call948 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane947)
-  %arrayidx949 = getelementptr inbounds float, ptr %call948, i64 3
-  %262 = load float, ptr %arrayidx949, align 4
-  %sub950 = fsub float %261, %262
-  %dv = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx951 = getelementptr inbounds [4 x float], ptr %dv, i64 0, i64 0
-  store float %sub950, ptr %arrayidx951, align 4
-  %tu_plane952 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call953 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane952)
-  %arrayidx954 = getelementptr inbounds float, ptr %call953, i64 0
-  %263 = load float, ptr %arrayidx954, align 4
-  %tv_vertices955 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx956 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices955, i64 0, i64 1
-  %call957 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx956)
-  %arrayidx958 = getelementptr inbounds float, ptr %call957, i64 0
-  %264 = load float, ptr %arrayidx958, align 4
-  %tu_plane960 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call961 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane960)
-  %arrayidx962 = getelementptr inbounds float, ptr %call961, i64 1
-  %265 = load float, ptr %arrayidx962, align 4
-  %tv_vertices963 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx964 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices963, i64 0, i64 1
-  %call965 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx964)
-  %arrayidx966 = getelementptr inbounds float, ptr %call965, i64 1
-  %266 = load float, ptr %arrayidx966, align 4
-  %mul967 = fmul float %265, %266
-  %267 = call float @llvm.fmuladd.f32(float %263, float %264, float %mul967)
-  %tu_plane968 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call969 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane968)
-  %arrayidx970 = getelementptr inbounds float, ptr %call969, i64 2
-  %268 = load float, ptr %arrayidx970, align 4
-  %tv_vertices971 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx972 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices971, i64 0, i64 1
-  %call973 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx972)
-  %arrayidx974 = getelementptr inbounds float, ptr %call973, i64 2
-  %269 = load float, ptr %arrayidx974, align 4
-  %270 = call float @llvm.fmuladd.f32(float %268, float %269, float %267)
-  %tu_plane976 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call977 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane976)
-  %arrayidx978 = getelementptr inbounds float, ptr %call977, i64 3
-  %271 = load float, ptr %arrayidx978, align 4
-  %sub979 = fsub float %270, %271
-  %dv980 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx981 = getelementptr inbounds [4 x float], ptr %dv980, i64 0, i64 1
-  store float %sub979, ptr %arrayidx981, align 4
-  %tu_plane982 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call983 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane982)
-  %arrayidx984 = getelementptr inbounds float, ptr %call983, i64 0
-  %272 = load float, ptr %arrayidx984, align 4
-  %tv_vertices985 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx986 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices985, i64 0, i64 2
-  %call987 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx986)
-  %arrayidx988 = getelementptr inbounds float, ptr %call987, i64 0
-  %273 = load float, ptr %arrayidx988, align 4
-  %tu_plane990 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call991 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane990)
-  %arrayidx992 = getelementptr inbounds float, ptr %call991, i64 1
-  %274 = load float, ptr %arrayidx992, align 4
-  %tv_vertices993 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx994 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices993, i64 0, i64 2
-  %call995 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx994)
-  %arrayidx996 = getelementptr inbounds float, ptr %call995, i64 1
-  %275 = load float, ptr %arrayidx996, align 4
-  %mul997 = fmul float %274, %275
-  %276 = call float @llvm.fmuladd.f32(float %272, float %273, float %mul997)
-  %tu_plane998 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call999 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane998)
-  %arrayidx1000 = getelementptr inbounds float, ptr %call999, i64 2
-  %277 = load float, ptr %arrayidx1000, align 4
-  %tv_vertices1001 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arrayidx1002 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices1001, i64 0, i64 2
-  %call1003 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1002)
-  %arrayidx1004 = getelementptr inbounds float, ptr %call1003, i64 2
-  %278 = load float, ptr %arrayidx1004, align 4
-  %279 = call float @llvm.fmuladd.f32(float %277, float %278, float %276)
-  %tu_plane1006 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1007 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1006)
-  %arrayidx1008 = getelementptr inbounds float, ptr %call1007, i64 3
-  %280 = load float, ptr %arrayidx1008, align 4
-  %sub1009 = fsub float %279, %280
-  %dv1010 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1011 = getelementptr inbounds [4 x float], ptr %dv1010, i64 0, i64 2
-  store float %sub1009, ptr %arrayidx1011, align 4
-  %dv1012 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1013 = getelementptr inbounds [4 x float], ptr %dv1012, i64 0, i64 0
-  %281 = load float, ptr %arrayidx1013, align 4
-  %dv1014 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1015 = getelementptr inbounds [4 x float], ptr %dv1014, i64 0, i64 1
-  %282 = load float, ptr %arrayidx1015, align 4
-  %mul1016 = fmul float %281, %282
-  %dv0dv1 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 13
-  store float %mul1016, ptr %dv0dv1, align 4
-  %dv1017 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1018 = getelementptr inbounds [4 x float], ptr %dv1017, i64 0, i64 0
-  %283 = load float, ptr %arrayidx1018, align 4
-  %dv1019 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1020 = getelementptr inbounds [4 x float], ptr %dv1019, i64 0, i64 2
-  %284 = load float, ptr %arrayidx1020, align 4
-  %mul1021 = fmul float %283, %284
-  %dv0dv2 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 14
-  store float %mul1021, ptr %dv0dv2, align 4
-  %dv0dv11022 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 13
-  %285 = load float, ptr %dv0dv11022, align 4
-  %cmp1023 = fcmp ogt float %285, 0.000000e+00
-  br i1 %cmp1023, label %land.lhs.true1024, label %if.else1276
-
-land.lhs.true1024:                                ; preds = %if.end895
-  %dv0dv21025 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 14
-  %286 = load float, ptr %dv0dv21025, align 4
-  %cmp1026 = fcmp ogt float %286, 0.000000e+00
-  br i1 %cmp1026, label %if.then1027, label %if.else1276
-
-if.then1027:                                      ; preds = %land.lhs.true1024
-  %dv1028 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1029 = getelementptr inbounds [4 x float], ptr %dv1028, i64 0, i64 0
-  %287 = load float, ptr %arrayidx1029, align 4
-  %cmp1030 = fcmp olt float %287, 0.000000e+00
-  br i1 %cmp1030, label %if.then1031, label %if.else1229
-
-if.then1031:                                      ; preds = %if.then1027
-  %dv1032 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1033 = getelementptr inbounds [4 x float], ptr %dv1032, i64 0, i64 0
-  %288 = load float, ptr %arrayidx1033, align 4
-  %dv1034 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1035 = getelementptr inbounds [4 x float], ptr %dv1034, i64 0, i64 1
-  %289 = load float, ptr %arrayidx1035, align 4
-  %dv1036 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1037 = getelementptr inbounds [4 x float], ptr %dv1036, i64 0, i64 2
-  %290 = load float, ptr %arrayidx1037, align 4
-  %cmp1038 = fcmp olt float %289, %290
-  br i1 %cmp1038, label %cond.true1039, label %cond.false1042
-
-cond.true1039:                                    ; preds = %if.then1031
-  %dv1040 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1041 = getelementptr inbounds [4 x float], ptr %dv1040, i64 0, i64 2
-  %291 = load float, ptr %arrayidx1041, align 4
-  br label %cond.end1045
-
-cond.false1042:                                   ; preds = %if.then1031
-  %dv1043 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1044 = getelementptr inbounds [4 x float], ptr %dv1043, i64 0, i64 1
-  %292 = load float, ptr %arrayidx1044, align 4
-  br label %cond.end1045
-
-cond.end1045:                                     ; preds = %cond.false1042, %cond.true1039
-  %cond1046 = phi float [ %291, %cond.true1039 ], [ %292, %cond.false1042 ]
-  %cmp1047 = fcmp olt float %288, %cond1046
-  br i1 %cmp1047, label %cond.true1048, label %cond.false1062
-
-cond.true1048:                                    ; preds = %cond.end1045
-  %dv1049 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1050 = getelementptr inbounds [4 x float], ptr %dv1049, i64 0, i64 1
-  %293 = load float, ptr %arrayidx1050, align 4
-  %dv1051 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1052 = getelementptr inbounds [4 x float], ptr %dv1051, i64 0, i64 2
-  %294 = load float, ptr %arrayidx1052, align 4
-  %cmp1053 = fcmp olt float %293, %294
-  br i1 %cmp1053, label %cond.true1054, label %cond.false1057
-
-cond.true1054:                                    ; preds = %cond.true1048
-  %dv1055 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1056 = getelementptr inbounds [4 x float], ptr %dv1055, i64 0, i64 2
-  %295 = load float, ptr %arrayidx1056, align 4
-  br label %cond.end1060
-
-cond.false1057:                                   ; preds = %cond.true1048
-  %dv1058 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1059 = getelementptr inbounds [4 x float], ptr %dv1058, i64 0, i64 1
-  %296 = load float, ptr %arrayidx1059, align 4
-  br label %cond.end1060
-
-cond.end1060:                                     ; preds = %cond.false1057, %cond.true1054
-  %cond1061 = phi float [ %295, %cond.true1054 ], [ %296, %cond.false1057 ]
-  br label %cond.end1065
-
-cond.false1062:                                   ; preds = %cond.end1045
-  %dv1063 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1064 = getelementptr inbounds [4 x float], ptr %dv1063, i64 0, i64 0
-  %297 = load float, ptr %arrayidx1064, align 4
-  br label %cond.end1065
-
-cond.end1065:                                     ; preds = %cond.false1062, %cond.end1060
-  %cond1066 = phi float [ %cond1061, %cond.end1060 ], [ %297, %cond.false1062 ]
-  %distances1067 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1068 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1067)
-  %arrayidx1069 = getelementptr inbounds float, ptr %call1068, i64 1
-  store float %cond1066, ptr %arrayidx1069, align 4
-  %distances1070 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1071 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1070)
-  %arrayidx1072 = getelementptr inbounds float, ptr %call1071, i64 1
-  %298 = load float, ptr %arrayidx1072, align 4
-  %fneg1073 = fneg float %298
-  %distances1074 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1075 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1074)
-  %arrayidx1076 = getelementptr inbounds float, ptr %call1075, i64 1
-  store float %fneg1073, ptr %arrayidx1076, align 4
-  %distances1077 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1078 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1077)
-  %arrayidx1079 = getelementptr inbounds float, ptr %call1078, i64 1
-  %299 = load float, ptr %arrayidx1079, align 4
-  %margin1080 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %300 = load float, ptr %margin1080, align 4
-  %cmp1081 = fcmp ogt float %299, %300
-  br i1 %cmp1081, label %if.then1082, label %if.end1083
-
-if.then1082:                                      ; preds = %cond.end1065
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end1083:                                       ; preds = %cond.end1065
-  %tu_vertices1084 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1085 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1084, i64 0, i64 0
-  %call1086 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1085)
-  %arrayidx1087 = getelementptr inbounds float, ptr %call1086, i64 0
-  %301 = load float, ptr %arrayidx1087, align 4
-  %tu_vertices1088 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1089 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1088, i64 0, i64 1
-  %call1090 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1089)
-  %arrayidx1091 = getelementptr inbounds float, ptr %call1090, i64 0
-  %302 = load float, ptr %arrayidx1091, align 4
-  %add1092 = fadd float %301, %302
-  %tu_vertices1093 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1094 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1093, i64 0, i64 0
-  %call1095 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1094)
-  %arrayidx1096 = getelementptr inbounds float, ptr %call1095, i64 0
-  store float %add1092, ptr %arrayidx1096, align 4
-  %tu_vertices1097 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1098 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1097, i64 0, i64 0
-  %call1099 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1098)
-  %arrayidx1100 = getelementptr inbounds float, ptr %call1099, i64 0
-  %303 = load float, ptr %arrayidx1100, align 4
-  %tu_vertices1101 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1102 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1101, i64 0, i64 1
-  %call1103 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1102)
-  %arrayidx1104 = getelementptr inbounds float, ptr %call1103, i64 0
-  %304 = load float, ptr %arrayidx1104, align 4
-  %sub1105 = fsub float %303, %304
-  %tu_vertices1106 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1107 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1106, i64 0, i64 1
-  %call1108 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1107)
-  %arrayidx1109 = getelementptr inbounds float, ptr %call1108, i64 0
-  store float %sub1105, ptr %arrayidx1109, align 4
-  %tu_vertices1110 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1111 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1110, i64 0, i64 0
-  %call1112 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1111)
-  %arrayidx1113 = getelementptr inbounds float, ptr %call1112, i64 0
-  %305 = load float, ptr %arrayidx1113, align 4
-  %tu_vertices1114 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1115 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1114, i64 0, i64 1
-  %call1116 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1115)
-  %arrayidx1117 = getelementptr inbounds float, ptr %call1116, i64 0
-  %306 = load float, ptr %arrayidx1117, align 4
-  %sub1118 = fsub float %305, %306
-  %tu_vertices1119 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1120 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1119, i64 0, i64 0
-  %call1121 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1120)
-  %arrayidx1122 = getelementptr inbounds float, ptr %call1121, i64 0
-  store float %sub1118, ptr %arrayidx1122, align 4
-  %tu_vertices1123 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1124 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1123, i64 0, i64 0
-  %call1125 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1124)
-  %arrayidx1126 = getelementptr inbounds float, ptr %call1125, i64 1
-  %307 = load float, ptr %arrayidx1126, align 4
-  %tu_vertices1127 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1128 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1127, i64 0, i64 1
-  %call1129 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1128)
-  %arrayidx1130 = getelementptr inbounds float, ptr %call1129, i64 1
-  %308 = load float, ptr %arrayidx1130, align 4
-  %add1131 = fadd float %307, %308
-  %tu_vertices1132 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1133 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1132, i64 0, i64 0
-  %call1134 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1133)
-  %arrayidx1135 = getelementptr inbounds float, ptr %call1134, i64 1
-  store float %add1131, ptr %arrayidx1135, align 4
-  %tu_vertices1136 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1137 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1136, i64 0, i64 0
-  %call1138 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1137)
-  %arrayidx1139 = getelementptr inbounds float, ptr %call1138, i64 1
-  %309 = load float, ptr %arrayidx1139, align 4
-  %tu_vertices1140 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1141 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1140, i64 0, i64 1
-  %call1142 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1141)
-  %arrayidx1143 = getelementptr inbounds float, ptr %call1142, i64 1
-  %310 = load float, ptr %arrayidx1143, align 4
-  %sub1144 = fsub float %309, %310
-  %tu_vertices1145 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1146 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1145, i64 0, i64 1
-  %call1147 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1146)
-  %arrayidx1148 = getelementptr inbounds float, ptr %call1147, i64 1
-  store float %sub1144, ptr %arrayidx1148, align 4
-  %tu_vertices1149 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1150 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1149, i64 0, i64 0
-  %call1151 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1150)
-  %arrayidx1152 = getelementptr inbounds float, ptr %call1151, i64 1
-  %311 = load float, ptr %arrayidx1152, align 4
-  %tu_vertices1153 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1154 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1153, i64 0, i64 1
-  %call1155 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1154)
-  %arrayidx1156 = getelementptr inbounds float, ptr %call1155, i64 1
-  %312 = load float, ptr %arrayidx1156, align 4
-  %sub1157 = fsub float %311, %312
-  %tu_vertices1158 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1159 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1158, i64 0, i64 0
-  %call1160 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1159)
-  %arrayidx1161 = getelementptr inbounds float, ptr %call1160, i64 1
-  store float %sub1157, ptr %arrayidx1161, align 4
-  %tu_vertices1162 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1163 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1162, i64 0, i64 0
-  %call1164 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1163)
-  %arrayidx1165 = getelementptr inbounds float, ptr %call1164, i64 2
-  %313 = load float, ptr %arrayidx1165, align 4
-  %tu_vertices1166 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1167 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1166, i64 0, i64 1
-  %call1168 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1167)
-  %arrayidx1169 = getelementptr inbounds float, ptr %call1168, i64 2
-  %314 = load float, ptr %arrayidx1169, align 4
-  %add1170 = fadd float %313, %314
-  %tu_vertices1171 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1172 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1171, i64 0, i64 0
-  %call1173 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1172)
-  %arrayidx1174 = getelementptr inbounds float, ptr %call1173, i64 2
-  store float %add1170, ptr %arrayidx1174, align 4
-  %tu_vertices1175 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1176 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1175, i64 0, i64 0
-  %call1177 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1176)
-  %arrayidx1178 = getelementptr inbounds float, ptr %call1177, i64 2
-  %315 = load float, ptr %arrayidx1178, align 4
-  %tu_vertices1179 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1180 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1179, i64 0, i64 1
-  %call1181 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1180)
-  %arrayidx1182 = getelementptr inbounds float, ptr %call1181, i64 2
-  %316 = load float, ptr %arrayidx1182, align 4
-  %sub1183 = fsub float %315, %316
-  %tu_vertices1184 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1185 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1184, i64 0, i64 1
-  %call1186 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1185)
-  %arrayidx1187 = getelementptr inbounds float, ptr %call1186, i64 2
-  store float %sub1183, ptr %arrayidx1187, align 4
-  %tu_vertices1188 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1189 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1188, i64 0, i64 0
-  %call1190 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1189)
-  %arrayidx1191 = getelementptr inbounds float, ptr %call1190, i64 2
-  %317 = load float, ptr %arrayidx1191, align 4
-  %tu_vertices1192 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1193 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1192, i64 0, i64 1
-  %call1194 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1193)
-  %arrayidx1195 = getelementptr inbounds float, ptr %call1194, i64 2
-  %318 = load float, ptr %arrayidx1195, align 4
-  %sub1196 = fsub float %317, %318
-  %tu_vertices1197 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1198 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1197, i64 0, i64 0
-  %call1199 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1198)
-  %arrayidx1200 = getelementptr inbounds float, ptr %call1199, i64 2
-  store float %sub1196, ptr %arrayidx1200, align 4
-  %tu_plane1201 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1202 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1201)
-  %arrayidx1203 = getelementptr inbounds float, ptr %call1202, i64 0
-  %319 = load float, ptr %arrayidx1203, align 4
-  %mul1204 = fmul float -1.000000e+00, %319
-  %tu_plane1205 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1206 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1205)
-  %arrayidx1207 = getelementptr inbounds float, ptr %call1206, i64 0
-  store float %mul1204, ptr %arrayidx1207, align 4
-  %tu_plane1208 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1209 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1208)
-  %arrayidx1210 = getelementptr inbounds float, ptr %call1209, i64 1
-  %320 = load float, ptr %arrayidx1210, align 4
-  %mul1211 = fmul float -1.000000e+00, %320
-  %tu_plane1212 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1213 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1212)
-  %arrayidx1214 = getelementptr inbounds float, ptr %call1213, i64 1
-  store float %mul1211, ptr %arrayidx1214, align 4
-  %tu_plane1215 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1216 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1215)
-  %arrayidx1217 = getelementptr inbounds float, ptr %call1216, i64 2
-  %321 = load float, ptr %arrayidx1217, align 4
-  %mul1218 = fmul float -1.000000e+00, %321
-  %tu_plane1219 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1220 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1219)
-  %arrayidx1221 = getelementptr inbounds float, ptr %call1220, i64 2
-  store float %mul1218, ptr %arrayidx1221, align 4
-  %tu_plane1222 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1223 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1222)
-  %arrayidx1224 = getelementptr inbounds float, ptr %call1223, i64 3
-  %322 = load float, ptr %arrayidx1224, align 4
-  %mul1225 = fmul float -1.000000e+00, %322
-  %tu_plane1226 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1227 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1226)
-  %arrayidx1228 = getelementptr inbounds float, ptr %call1227, i64 3
-  store float %mul1225, ptr %arrayidx1228, align 4
-  br label %if.end1275
-
-if.else1229:                                      ; preds = %if.then1027
-  %dv1230 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1231 = getelementptr inbounds [4 x float], ptr %dv1230, i64 0, i64 0
-  %323 = load float, ptr %arrayidx1231, align 4
-  %dv1232 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1233 = getelementptr inbounds [4 x float], ptr %dv1232, i64 0, i64 1
-  %324 = load float, ptr %arrayidx1233, align 4
-  %dv1234 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1235 = getelementptr inbounds [4 x float], ptr %dv1234, i64 0, i64 2
-  %325 = load float, ptr %arrayidx1235, align 4
-  %cmp1236 = fcmp ogt float %324, %325
-  br i1 %cmp1236, label %cond.true1237, label %cond.false1240
-
-cond.true1237:                                    ; preds = %if.else1229
-  %dv1238 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1239 = getelementptr inbounds [4 x float], ptr %dv1238, i64 0, i64 2
-  %326 = load float, ptr %arrayidx1239, align 4
-  br label %cond.end1243
-
-cond.false1240:                                   ; preds = %if.else1229
-  %dv1241 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1242 = getelementptr inbounds [4 x float], ptr %dv1241, i64 0, i64 1
-  %327 = load float, ptr %arrayidx1242, align 4
-  br label %cond.end1243
-
-cond.end1243:                                     ; preds = %cond.false1240, %cond.true1237
-  %cond1244 = phi float [ %326, %cond.true1237 ], [ %327, %cond.false1240 ]
-  %cmp1245 = fcmp ogt float %323, %cond1244
-  br i1 %cmp1245, label %cond.true1246, label %cond.false1260
-
-cond.true1246:                                    ; preds = %cond.end1243
-  %dv1247 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1248 = getelementptr inbounds [4 x float], ptr %dv1247, i64 0, i64 1
-  %328 = load float, ptr %arrayidx1248, align 4
-  %dv1249 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1250 = getelementptr inbounds [4 x float], ptr %dv1249, i64 0, i64 2
-  %329 = load float, ptr %arrayidx1250, align 4
-  %cmp1251 = fcmp ogt float %328, %329
-  br i1 %cmp1251, label %cond.true1252, label %cond.false1255
-
-cond.true1252:                                    ; preds = %cond.true1246
-  %dv1253 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1254 = getelementptr inbounds [4 x float], ptr %dv1253, i64 0, i64 2
-  %330 = load float, ptr %arrayidx1254, align 4
-  br label %cond.end1258
-
-cond.false1255:                                   ; preds = %cond.true1246
-  %dv1256 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1257 = getelementptr inbounds [4 x float], ptr %dv1256, i64 0, i64 1
-  %331 = load float, ptr %arrayidx1257, align 4
-  br label %cond.end1258
-
-cond.end1258:                                     ; preds = %cond.false1255, %cond.true1252
-  %cond1259 = phi float [ %330, %cond.true1252 ], [ %331, %cond.false1255 ]
-  br label %cond.end1263
-
-cond.false1260:                                   ; preds = %cond.end1243
-  %dv1261 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1262 = getelementptr inbounds [4 x float], ptr %dv1261, i64 0, i64 0
-  %332 = load float, ptr %arrayidx1262, align 4
-  br label %cond.end1263
-
-cond.end1263:                                     ; preds = %cond.false1260, %cond.end1258
-  %cond1264 = phi float [ %cond1259, %cond.end1258 ], [ %332, %cond.false1260 ]
-  %distances1265 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1266 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1265)
-  %arrayidx1267 = getelementptr inbounds float, ptr %call1266, i64 1
-  store float %cond1264, ptr %arrayidx1267, align 4
-  %distances1268 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1269 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1268)
-  %arrayidx1270 = getelementptr inbounds float, ptr %call1269, i64 1
-  %333 = load float, ptr %arrayidx1270, align 4
-  %margin1271 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %334 = load float, ptr %margin1271, align 4
-  %cmp1272 = fcmp ogt float %333, %334
-  br i1 %cmp1272, label %if.then1273, label %if.end1274
-
-if.then1273:                                      ; preds = %cond.end1263
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end1274:                                       ; preds = %cond.end1263
-  br label %if.end1275
-
-if.end1275:                                       ; preds = %if.end1274, %if.end1083
-  br label %if.end1524
-
-if.else1276:                                      ; preds = %land.lhs.true1024, %if.end895
-  %dv1277 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1278 = getelementptr inbounds [4 x float], ptr %dv1277, i64 0, i64 0
-  %335 = load float, ptr %arrayidx1278, align 4
-  %dv1279 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1280 = getelementptr inbounds [4 x float], ptr %dv1279, i64 0, i64 1
-  %336 = load float, ptr %arrayidx1280, align 4
-  %add1281 = fadd float %335, %336
-  %dv1282 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1283 = getelementptr inbounds [4 x float], ptr %dv1282, i64 0, i64 2
-  %337 = load float, ptr %arrayidx1283, align 4
-  %add1284 = fadd float %add1281, %337
-  %div1285 = fdiv float %add1284, 3.000000e+00
-  %distances1286 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1287 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1286)
-  %arrayidx1288 = getelementptr inbounds float, ptr %call1287, i64 1
-  store float %div1285, ptr %arrayidx1288, align 4
-  %distances1289 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1290 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1289)
-  %arrayidx1291 = getelementptr inbounds float, ptr %call1290, i64 1
-  %338 = load float, ptr %arrayidx1291, align 4
-  %cmp1292 = fcmp olt float %338, 0.000000e+00
-  br i1 %cmp1292, label %if.then1293, label %if.else1484
-
-if.then1293:                                      ; preds = %if.else1276
-  %tu_vertices1294 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1295 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1294, i64 0, i64 0
-  %call1296 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1295)
-  %arrayidx1297 = getelementptr inbounds float, ptr %call1296, i64 0
-  %339 = load float, ptr %arrayidx1297, align 4
-  %tu_vertices1298 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1299 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1298, i64 0, i64 1
-  %call1300 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1299)
-  %arrayidx1301 = getelementptr inbounds float, ptr %call1300, i64 0
-  %340 = load float, ptr %arrayidx1301, align 4
-  %add1302 = fadd float %339, %340
-  %tu_vertices1303 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1304 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1303, i64 0, i64 0
-  %call1305 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1304)
-  %arrayidx1306 = getelementptr inbounds float, ptr %call1305, i64 0
-  store float %add1302, ptr %arrayidx1306, align 4
-  %tu_vertices1307 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1308 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1307, i64 0, i64 0
-  %call1309 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1308)
-  %arrayidx1310 = getelementptr inbounds float, ptr %call1309, i64 0
-  %341 = load float, ptr %arrayidx1310, align 4
-  %tu_vertices1311 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1312 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1311, i64 0, i64 1
-  %call1313 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1312)
-  %arrayidx1314 = getelementptr inbounds float, ptr %call1313, i64 0
-  %342 = load float, ptr %arrayidx1314, align 4
-  %sub1315 = fsub float %341, %342
-  %tu_vertices1316 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1317 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1316, i64 0, i64 1
-  %call1318 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1317)
-  %arrayidx1319 = getelementptr inbounds float, ptr %call1318, i64 0
-  store float %sub1315, ptr %arrayidx1319, align 4
-  %tu_vertices1320 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1321 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1320, i64 0, i64 0
-  %call1322 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1321)
-  %arrayidx1323 = getelementptr inbounds float, ptr %call1322, i64 0
-  %343 = load float, ptr %arrayidx1323, align 4
-  %tu_vertices1324 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1325 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1324, i64 0, i64 1
-  %call1326 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1325)
-  %arrayidx1327 = getelementptr inbounds float, ptr %call1326, i64 0
-  %344 = load float, ptr %arrayidx1327, align 4
-  %sub1328 = fsub float %343, %344
-  %tu_vertices1329 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1330 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1329, i64 0, i64 0
-  %call1331 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1330)
-  %arrayidx1332 = getelementptr inbounds float, ptr %call1331, i64 0
-  store float %sub1328, ptr %arrayidx1332, align 4
-  %tu_vertices1333 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1334 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1333, i64 0, i64 0
-  %call1335 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1334)
-  %arrayidx1336 = getelementptr inbounds float, ptr %call1335, i64 1
-  %345 = load float, ptr %arrayidx1336, align 4
-  %tu_vertices1337 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1338 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1337, i64 0, i64 1
-  %call1339 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1338)
-  %arrayidx1340 = getelementptr inbounds float, ptr %call1339, i64 1
-  %346 = load float, ptr %arrayidx1340, align 4
-  %add1341 = fadd float %345, %346
-  %tu_vertices1342 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1343 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1342, i64 0, i64 0
-  %call1344 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1343)
-  %arrayidx1345 = getelementptr inbounds float, ptr %call1344, i64 1
-  store float %add1341, ptr %arrayidx1345, align 4
-  %tu_vertices1346 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1347 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1346, i64 0, i64 0
-  %call1348 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1347)
-  %arrayidx1349 = getelementptr inbounds float, ptr %call1348, i64 1
-  %347 = load float, ptr %arrayidx1349, align 4
-  %tu_vertices1350 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1351 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1350, i64 0, i64 1
-  %call1352 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1351)
-  %arrayidx1353 = getelementptr inbounds float, ptr %call1352, i64 1
-  %348 = load float, ptr %arrayidx1353, align 4
-  %sub1354 = fsub float %347, %348
-  %tu_vertices1355 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1356 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1355, i64 0, i64 1
-  %call1357 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1356)
-  %arrayidx1358 = getelementptr inbounds float, ptr %call1357, i64 1
-  store float %sub1354, ptr %arrayidx1358, align 4
-  %tu_vertices1359 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1360 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1359, i64 0, i64 0
-  %call1361 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1360)
-  %arrayidx1362 = getelementptr inbounds float, ptr %call1361, i64 1
-  %349 = load float, ptr %arrayidx1362, align 4
-  %tu_vertices1363 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1364 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1363, i64 0, i64 1
-  %call1365 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1364)
-  %arrayidx1366 = getelementptr inbounds float, ptr %call1365, i64 1
-  %350 = load float, ptr %arrayidx1366, align 4
-  %sub1367 = fsub float %349, %350
-  %tu_vertices1368 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1369 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1368, i64 0, i64 0
-  %call1370 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1369)
-  %arrayidx1371 = getelementptr inbounds float, ptr %call1370, i64 1
-  store float %sub1367, ptr %arrayidx1371, align 4
-  %tu_vertices1372 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1373 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1372, i64 0, i64 0
-  %call1374 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1373)
-  %arrayidx1375 = getelementptr inbounds float, ptr %call1374, i64 2
-  %351 = load float, ptr %arrayidx1375, align 4
-  %tu_vertices1376 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1377 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1376, i64 0, i64 1
-  %call1378 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1377)
-  %arrayidx1379 = getelementptr inbounds float, ptr %call1378, i64 2
-  %352 = load float, ptr %arrayidx1379, align 4
-  %add1380 = fadd float %351, %352
-  %tu_vertices1381 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1382 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1381, i64 0, i64 0
-  %call1383 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1382)
-  %arrayidx1384 = getelementptr inbounds float, ptr %call1383, i64 2
-  store float %add1380, ptr %arrayidx1384, align 4
-  %tu_vertices1385 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1386 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1385, i64 0, i64 0
-  %call1387 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1386)
-  %arrayidx1388 = getelementptr inbounds float, ptr %call1387, i64 2
-  %353 = load float, ptr %arrayidx1388, align 4
-  %tu_vertices1389 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1390 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1389, i64 0, i64 1
-  %call1391 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1390)
-  %arrayidx1392 = getelementptr inbounds float, ptr %call1391, i64 2
-  %354 = load float, ptr %arrayidx1392, align 4
-  %sub1393 = fsub float %353, %354
-  %tu_vertices1394 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1395 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1394, i64 0, i64 1
-  %call1396 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1395)
-  %arrayidx1397 = getelementptr inbounds float, ptr %call1396, i64 2
-  store float %sub1393, ptr %arrayidx1397, align 4
-  %tu_vertices1398 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1399 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1398, i64 0, i64 0
-  %call1400 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1399)
-  %arrayidx1401 = getelementptr inbounds float, ptr %call1400, i64 2
-  %355 = load float, ptr %arrayidx1401, align 4
-  %tu_vertices1402 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1403 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1402, i64 0, i64 1
-  %call1404 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1403)
-  %arrayidx1405 = getelementptr inbounds float, ptr %call1404, i64 2
-  %356 = load float, ptr %arrayidx1405, align 4
-  %sub1406 = fsub float %355, %356
-  %tu_vertices1407 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arrayidx1408 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1407, i64 0, i64 0
-  %call1409 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1408)
-  %arrayidx1410 = getelementptr inbounds float, ptr %call1409, i64 2
-  store float %sub1406, ptr %arrayidx1410, align 4
-  %tu_plane1411 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1412 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1411)
-  %arrayidx1413 = getelementptr inbounds float, ptr %call1412, i64 0
-  %357 = load float, ptr %arrayidx1413, align 4
-  %mul1414 = fmul float -1.000000e+00, %357
-  %tu_plane1415 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1416 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1415)
-  %arrayidx1417 = getelementptr inbounds float, ptr %call1416, i64 0
-  store float %mul1414, ptr %arrayidx1417, align 4
-  %tu_plane1418 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1419 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1418)
-  %arrayidx1420 = getelementptr inbounds float, ptr %call1419, i64 1
-  %358 = load float, ptr %arrayidx1420, align 4
-  %mul1421 = fmul float -1.000000e+00, %358
-  %tu_plane1422 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1423 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1422)
-  %arrayidx1424 = getelementptr inbounds float, ptr %call1423, i64 1
-  store float %mul1421, ptr %arrayidx1424, align 4
-  %tu_plane1425 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1426 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1425)
-  %arrayidx1427 = getelementptr inbounds float, ptr %call1426, i64 2
-  %359 = load float, ptr %arrayidx1427, align 4
-  %mul1428 = fmul float -1.000000e+00, %359
-  %tu_plane1429 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1430 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1429)
-  %arrayidx1431 = getelementptr inbounds float, ptr %call1430, i64 2
-  store float %mul1428, ptr %arrayidx1431, align 4
-  %tu_plane1432 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1433 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1432)
-  %arrayidx1434 = getelementptr inbounds float, ptr %call1433, i64 3
-  %360 = load float, ptr %arrayidx1434, align 4
-  %mul1435 = fmul float -1.000000e+00, %360
-  %tu_plane1436 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %call1437 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1436)
-  %arrayidx1438 = getelementptr inbounds float, ptr %call1437, i64 3
-  store float %mul1435, ptr %arrayidx1438, align 4
-  %dv1439 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1440 = getelementptr inbounds [4 x float], ptr %dv1439, i64 0, i64 0
-  %361 = load float, ptr %arrayidx1440, align 4
-  %dv1441 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1442 = getelementptr inbounds [4 x float], ptr %dv1441, i64 0, i64 1
-  %362 = load float, ptr %arrayidx1442, align 4
-  %dv1443 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1444 = getelementptr inbounds [4 x float], ptr %dv1443, i64 0, i64 2
-  %363 = load float, ptr %arrayidx1444, align 4
-  %cmp1445 = fcmp olt float %362, %363
-  br i1 %cmp1445, label %cond.true1446, label %cond.false1449
-
-cond.true1446:                                    ; preds = %if.then1293
-  %dv1447 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1448 = getelementptr inbounds [4 x float], ptr %dv1447, i64 0, i64 2
-  %364 = load float, ptr %arrayidx1448, align 4
-  br label %cond.end1452
-
-cond.false1449:                                   ; preds = %if.then1293
-  %dv1450 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1451 = getelementptr inbounds [4 x float], ptr %dv1450, i64 0, i64 1
-  %365 = load float, ptr %arrayidx1451, align 4
-  br label %cond.end1452
-
-cond.end1452:                                     ; preds = %cond.false1449, %cond.true1446
-  %cond1453 = phi float [ %364, %cond.true1446 ], [ %365, %cond.false1449 ]
-  %cmp1454 = fcmp olt float %361, %cond1453
-  br i1 %cmp1454, label %cond.true1455, label %cond.false1469
-
-cond.true1455:                                    ; preds = %cond.end1452
-  %dv1456 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1457 = getelementptr inbounds [4 x float], ptr %dv1456, i64 0, i64 1
-  %366 = load float, ptr %arrayidx1457, align 4
-  %dv1458 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1459 = getelementptr inbounds [4 x float], ptr %dv1458, i64 0, i64 2
-  %367 = load float, ptr %arrayidx1459, align 4
-  %cmp1460 = fcmp olt float %366, %367
-  br i1 %cmp1460, label %cond.true1461, label %cond.false1464
-
-cond.true1461:                                    ; preds = %cond.true1455
-  %dv1462 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1463 = getelementptr inbounds [4 x float], ptr %dv1462, i64 0, i64 2
-  %368 = load float, ptr %arrayidx1463, align 4
-  br label %cond.end1467
-
-cond.false1464:                                   ; preds = %cond.true1455
-  %dv1465 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1466 = getelementptr inbounds [4 x float], ptr %dv1465, i64 0, i64 1
-  %369 = load float, ptr %arrayidx1466, align 4
-  br label %cond.end1467
-
-cond.end1467:                                     ; preds = %cond.false1464, %cond.true1461
-  %cond1468 = phi float [ %368, %cond.true1461 ], [ %369, %cond.false1464 ]
-  br label %cond.end1472
-
-cond.false1469:                                   ; preds = %cond.end1452
-  %dv1470 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1471 = getelementptr inbounds [4 x float], ptr %dv1470, i64 0, i64 0
-  %370 = load float, ptr %arrayidx1471, align 4
-  br label %cond.end1472
-
-cond.end1472:                                     ; preds = %cond.false1469, %cond.end1467
-  %cond1473 = phi float [ %cond1468, %cond.end1467 ], [ %370, %cond.false1469 ]
-  %distances1474 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1475 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1474)
-  %arrayidx1476 = getelementptr inbounds float, ptr %call1475, i64 1
-  store float %cond1473, ptr %arrayidx1476, align 4
-  %distances1477 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1478 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1477)
-  %arrayidx1479 = getelementptr inbounds float, ptr %call1478, i64 1
-  %371 = load float, ptr %arrayidx1479, align 4
-  %fneg1480 = fneg float %371
-  %distances1481 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1482 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1481)
-  %arrayidx1483 = getelementptr inbounds float, ptr %call1482, i64 1
-  store float %fneg1480, ptr %arrayidx1483, align 4
-  br label %if.end1523
-
-if.else1484:                                      ; preds = %if.else1276
-  %dv1485 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1486 = getelementptr inbounds [4 x float], ptr %dv1485, i64 0, i64 0
-  %372 = load float, ptr %arrayidx1486, align 4
-  %dv1487 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1488 = getelementptr inbounds [4 x float], ptr %dv1487, i64 0, i64 1
-  %373 = load float, ptr %arrayidx1488, align 4
-  %dv1489 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1490 = getelementptr inbounds [4 x float], ptr %dv1489, i64 0, i64 2
-  %374 = load float, ptr %arrayidx1490, align 4
-  %cmp1491 = fcmp ogt float %373, %374
-  br i1 %cmp1491, label %cond.true1492, label %cond.false1495
-
-cond.true1492:                                    ; preds = %if.else1484
-  %dv1493 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1494 = getelementptr inbounds [4 x float], ptr %dv1493, i64 0, i64 2
-  %375 = load float, ptr %arrayidx1494, align 4
-  br label %cond.end1498
-
-cond.false1495:                                   ; preds = %if.else1484
-  %dv1496 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1497 = getelementptr inbounds [4 x float], ptr %dv1496, i64 0, i64 1
-  %376 = load float, ptr %arrayidx1497, align 4
-  br label %cond.end1498
-
-cond.end1498:                                     ; preds = %cond.false1495, %cond.true1492
-  %cond1499 = phi float [ %375, %cond.true1492 ], [ %376, %cond.false1495 ]
-  %cmp1500 = fcmp ogt float %372, %cond1499
-  br i1 %cmp1500, label %cond.true1501, label %cond.false1515
-
-cond.true1501:                                    ; preds = %cond.end1498
-  %dv1502 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1503 = getelementptr inbounds [4 x float], ptr %dv1502, i64 0, i64 1
-  %377 = load float, ptr %arrayidx1503, align 4
-  %dv1504 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1505 = getelementptr inbounds [4 x float], ptr %dv1504, i64 0, i64 2
-  %378 = load float, ptr %arrayidx1505, align 4
-  %cmp1506 = fcmp ogt float %377, %378
-  br i1 %cmp1506, label %cond.true1507, label %cond.false1510
-
-cond.true1507:                                    ; preds = %cond.true1501
-  %dv1508 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1509 = getelementptr inbounds [4 x float], ptr %dv1508, i64 0, i64 2
-  %379 = load float, ptr %arrayidx1509, align 4
-  br label %cond.end1513
-
-cond.false1510:                                   ; preds = %cond.true1501
-  %dv1511 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1512 = getelementptr inbounds [4 x float], ptr %dv1511, i64 0, i64 1
-  %380 = load float, ptr %arrayidx1512, align 4
-  br label %cond.end1513
-
-cond.end1513:                                     ; preds = %cond.false1510, %cond.true1507
-  %cond1514 = phi float [ %379, %cond.true1507 ], [ %380, %cond.false1510 ]
-  br label %cond.end1518
-
-cond.false1515:                                   ; preds = %cond.end1498
-  %dv1516 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 12
-  %arrayidx1517 = getelementptr inbounds [4 x float], ptr %dv1516, i64 0, i64 0
-  %381 = load float, ptr %arrayidx1517, align 4
-  br label %cond.end1518
-
-cond.end1518:                                     ; preds = %cond.false1515, %cond.end1513
-  %cond1519 = phi float [ %cond1514, %cond.end1513 ], [ %381, %cond.false1515 ]
-  %distances1520 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1521 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1520)
-  %arrayidx1522 = getelementptr inbounds float, ptr %call1521, i64 1
-  store float %cond1519, ptr %arrayidx1522, align 4
-  br label %if.end1523
-
-if.end1523:                                       ; preds = %cond.end1518, %cond.end1472
-  br label %if.end1524
-
-if.end1524:                                       ; preds = %if.end1523, %if.end1275
-  store i32 0, ptr %bl, align 4
-  %distances1525 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1526 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1525)
-  %arrayidx1527 = getelementptr inbounds float, ptr %call1526, i64 0
-  %382 = load float, ptr %arrayidx1527, align 4
-  %distances1528 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1529 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1528)
-  %arrayidx1530 = getelementptr inbounds float, ptr %call1529, i64 1
-  %383 = load float, ptr %arrayidx1530, align 4
-  %cmp1531 = fcmp olt float %382, %383
-  br i1 %cmp1531, label %if.then1532, label %if.end1533
-
-if.then1532:                                      ; preds = %if.end1524
-  store i32 1, ptr %bl, align 4
-  br label %if.end1533
-
-if.end1533:                                       ; preds = %if.then1532, %if.end1524
-  %384 = load i32, ptr %bl, align 4
-  %cmp1534 = icmp eq i32 %384, 2
-  br i1 %cmp1534, label %if.then1535, label %if.end1566
-
-if.then1535:                                      ; preds = %if.end1533
-  %distances1536 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1537 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1536)
-  %arrayidx1538 = getelementptr inbounds float, ptr %call1537, i64 2
-  %385 = load float, ptr %arrayidx1538, align 4
-  %margin1539 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %386 = load float, ptr %margin1539, align 4
-  %cmp1540 = fcmp ogt float %385, %386
-  br i1 %cmp1540, label %if.then1541, label %if.end1542
-
-if.then1541:                                      ; preds = %if.then1535
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end1542:                                       ; preds = %if.then1535
-  %distances1543 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 8
-  %call1544 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %distances1543)
-  %arrayidx1545 = getelementptr inbounds float, ptr %call1544, i64 2
-  %387 = load float, ptr %arrayidx1545, align 4
-  %fneg1546 = fneg float %387
-  %margin1547 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %388 = load float, ptr %margin1547, align 4
-  %add1548 = fadd float %fneg1546, %388
-  %389 = load ptr, ptr %contacts.addr, align 8
-  %m_penetration_depth = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %389, i32 0, i32 0
-  store float %add1548, ptr %m_penetration_depth, align 4
-  %closest_point_v = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 6
-  %390 = load ptr, ptr %contacts.addr, align 8
-  %m_points = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %390, i32 0, i32 3
-  %arrayidx1549 = getelementptr inbounds [16 x %class.btVector3], ptr %m_points, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx1549, ptr align 4 %closest_point_v, i64 16, i1 false)
-  %391 = load ptr, ptr %contacts.addr, align 8
-  %m_point_count = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %391, i32 0, i32 1
-  store i32 1, ptr %m_point_count, align 4
-  %edge_edge_dir = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 7
-  %call1550 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edge_edge_dir)
-  %arrayidx1551 = getelementptr inbounds float, ptr %call1550, i64 0
-  %392 = load float, ptr %arrayidx1551, align 4
-  %393 = load ptr, ptr %contacts.addr, align 8
-  %m_separating_normal = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %393, i32 0, i32 2
-  %call1552 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal)
-  %arrayidx1553 = getelementptr inbounds float, ptr %call1552, i64 0
-  store float %392, ptr %arrayidx1553, align 4
-  %edge_edge_dir1554 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 7
-  %call1555 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edge_edge_dir1554)
-  %arrayidx1556 = getelementptr inbounds float, ptr %call1555, i64 1
-  %394 = load float, ptr %arrayidx1556, align 4
-  %395 = load ptr, ptr %contacts.addr, align 8
-  %m_separating_normal1557 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %395, i32 0, i32 2
-  %call1558 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal1557)
-  %arrayidx1559 = getelementptr inbounds float, ptr %call1558, i64 1
-  store float %394, ptr %arrayidx1559, align 4
-  %edge_edge_dir1560 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 7
-  %call1561 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edge_edge_dir1560)
-  %arrayidx1562 = getelementptr inbounds float, ptr %call1561, i64 2
-  %396 = load float, ptr %arrayidx1562, align 4
-  %397 = load ptr, ptr %contacts.addr, align 8
-  %m_separating_normal1563 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %397, i32 0, i32 2
-  %call1564 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal1563)
-  %arrayidx1565 = getelementptr inbounds float, ptr %call1564, i64 2
-  store float %396, ptr %arrayidx1565, align 4
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end1566:                                       ; preds = %if.end1533
-  %398 = load i32, ptr %bl, align 4
-  %cmp1567 = icmp eq i32 %398, 0
-  br i1 %cmp1567, label %if.then1568, label %if.else1582
-
-if.then1568:                                      ; preds = %if.end1566
-  %tv_plane1569 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %tv_vertices1570 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arraydecay = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices1570, i64 0, i64 0
-  %tu_vertices1571 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arraydecay1572 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1571, i64 0, i64 0
-  %contact_points = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 17
-  %arraydecay1573 = getelementptr inbounds [16 x %class.btVector3], ptr %contact_points, i64 0, i64 0
-  %call1574 = call noundef i32 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_(ptr noundef nonnull align 4 dereferenceable(1012) %this1, ptr noundef nonnull align 4 dereferenceable(16) %tv_plane1569, ptr noundef %arraydecay, ptr noundef %arraydecay1572, ptr noundef %arraydecay1573)
-  store i32 %call1574, ptr %point_count, align 4
-  %399 = load i32, ptr %point_count, align 4
-  %cmp1575 = icmp eq i32 %399, 0
-  br i1 %cmp1575, label %if.then1576, label %if.end1577
-
-if.then1576:                                      ; preds = %if.then1568
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end1577:                                       ; preds = %if.then1568
-  %400 = load ptr, ptr %contacts.addr, align 8
-  %tv_plane1578 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 4
-  %margin1579 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %401 = load float, ptr %margin1579, align 4
-  %contact_points1580 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 17
-  %arraydecay1581 = getelementptr inbounds [16 x %class.btVector3], ptr %contact_points1580, i64 0, i64 0
-  %402 = load i32, ptr %point_count, align 4
-  call void @_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j(ptr noundef nonnull align 4 dereferenceable(280) %400, ptr noundef nonnull align 4 dereferenceable(16) %tv_plane1578, float noundef %401, ptr noundef %arraydecay1581, i32 noundef %402)
-  br label %if.end1600
-
-if.else1582:                                      ; preds = %if.end1566
-  %tu_plane1583 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %tu_vertices1584 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 1
-  %arraydecay1585 = getelementptr inbounds [3 x %class.btVector3], ptr %tu_vertices1584, i64 0, i64 0
-  %tv_vertices1586 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 2
-  %arraydecay1587 = getelementptr inbounds [3 x %class.btVector3], ptr %tv_vertices1586, i64 0, i64 0
-  %contact_points1588 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 17
-  %arraydecay1589 = getelementptr inbounds [16 x %class.btVector3], ptr %contact_points1588, i64 0, i64 0
-  %call1590 = call noundef i32 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_(ptr noundef nonnull align 4 dereferenceable(1012) %this1, ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1583, ptr noundef %arraydecay1585, ptr noundef %arraydecay1587, ptr noundef %arraydecay1589)
-  store i32 %call1590, ptr %point_count, align 4
-  %403 = load i32, ptr %point_count, align 4
-  %cmp1591 = icmp eq i32 %403, 0
-  br i1 %cmp1591, label %if.then1592, label %if.end1593
-
-if.then1592:                                      ; preds = %if.else1582
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end1593:                                       ; preds = %if.else1582
-  %404 = load ptr, ptr %contacts.addr, align 8
-  %tu_plane1594 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 3
-  %margin1595 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 0
-  %405 = load float, ptr %margin1595, align 4
-  %contact_points1596 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 17
-  %arraydecay1597 = getelementptr inbounds [16 x %class.btVector3], ptr %contact_points1596, i64 0, i64 0
-  %406 = load i32, ptr %point_count, align 4
-  call void @_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j(ptr noundef nonnull align 4 dereferenceable(280) %404, ptr noundef nonnull align 4 dereferenceable(16) %tu_plane1594, float noundef %405, ptr noundef %arraydecay1597, i32 noundef %406)
-  store float -1.000000e+00, ptr %ref.tmp, align 4
-  %407 = load ptr, ptr %contacts.addr, align 8
-  %m_separating_normal1598 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %407, i32 0, i32 2
-  %call1599 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal1598, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  br label %if.end1600
-
-if.end1600:                                       ; preds = %if.end1593, %if.end1577
-  %408 = load ptr, ptr %contacts.addr, align 8
-  %m_point_count1601 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %408, i32 0, i32 1
-  %409 = load i32, ptr %m_point_count1601, align 4
-  %cmp1602 = icmp eq i32 %409, 0
-  br i1 %cmp1602, label %if.then1603, label %if.end1604
-
-if.then1603:                                      ; preds = %if.end1600
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end1604:                                       ; preds = %if.end1600
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end1604, %if.then1603, %if.then1592, %if.then1576, %if.end1542, %if.then1541, %if.then1273, %if.then1082, %if.then503, %if.then312
-  %410 = load i1, ptr %retval, align 1
-  ret i1 %410
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA(ptr noundef nonnull align 4 dereferenceable(1012) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, float noundef %8, ptr noundef nonnull align 4 dereferenceable(280) %9) #4 comdat align 2 {
+  %11 = alloca i1, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca float, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca float, align 4
+  %21 = alloca ptr, align 8
+  %22 = alloca [3 x float], align 4
+  %23 = alloca [3 x float], align 4
+  %24 = alloca float, align 4
+  %25 = alloca float, align 4
+  %26 = alloca float, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca [3 x float], align 4
+  %29 = alloca [3 x float], align 4
+  %30 = alloca float, align 4
+  %31 = alloca float, align 4
+  %32 = alloca float, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca i32, align 4
+  %36 = alloca i32, align 4
+  %37 = alloca float, align 4
+  store ptr %0, ptr %12, align 8, !tbaa !19
+  store ptr %1, ptr %13, align 8, !tbaa !21
+  store ptr %2, ptr %14, align 8, !tbaa !21
+  store ptr %3, ptr %15, align 8, !tbaa !21
+  store float %4, ptr %16, align 4, !tbaa !23
+  store ptr %5, ptr %17, align 8, !tbaa !21
+  store ptr %6, ptr %18, align 8, !tbaa !21
+  store ptr %7, ptr %19, align 8, !tbaa !21
+  store float %8, ptr %20, align 4, !tbaa !23
+  store ptr %9, ptr %21, align 8, !tbaa !14
+  %38 = load ptr, ptr %12, align 8
+  %39 = load float, ptr %16, align 4, !tbaa !23
+  %40 = load float, ptr %20, align 4, !tbaa !23
+  %41 = fadd float %39, %40
+  %42 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  store float %41, ptr %42, align 4, !tbaa !24
+  %43 = load ptr, ptr %13, align 8, !tbaa !21
+  %44 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %45 = getelementptr inbounds [3 x %class.btVector3], ptr %44, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %45, ptr align 4 %43, i64 16, i1 false), !tbaa.struct !28
+  %46 = load ptr, ptr %14, align 8, !tbaa !21
+  %47 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %48 = getelementptr inbounds [3 x %class.btVector3], ptr %47, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %48, ptr align 4 %46, i64 16, i1 false), !tbaa.struct !28
+  %49 = load ptr, ptr %15, align 8, !tbaa !21
+  %50 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %51 = getelementptr inbounds [3 x %class.btVector3], ptr %50, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %51, ptr align 4 %49, i64 16, i1 false), !tbaa.struct !28
+  %52 = load ptr, ptr %17, align 8, !tbaa !21
+  %53 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %54 = getelementptr inbounds [3 x %class.btVector3], ptr %53, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %54, ptr align 4 %52, i64 16, i1 false), !tbaa.struct !28
+  %55 = load ptr, ptr %18, align 8, !tbaa !21
+  %56 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %57 = getelementptr inbounds [3 x %class.btVector3], ptr %56, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %57, ptr align 4 %55, i64 16, i1 false), !tbaa.struct !28
+  %58 = load ptr, ptr %19, align 8, !tbaa !21
+  %59 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %60 = getelementptr inbounds [3 x %class.btVector3], ptr %59, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 %58, i64 16, i1 false), !tbaa.struct !28
+  call void @llvm.lifetime.start.p0(i64 12, ptr %22) #8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %23) #8
+  %61 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %62 = getelementptr inbounds [3 x %class.btVector3], ptr %61, i64 0, i64 1
+  %63 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %62)
+  %64 = getelementptr inbounds float, ptr %63, i64 0
+  %65 = load float, ptr %64, align 4, !tbaa !23
+  %66 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %67 = getelementptr inbounds [3 x %class.btVector3], ptr %66, i64 0, i64 0
+  %68 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %67)
+  %69 = getelementptr inbounds float, ptr %68, i64 0
+  %70 = load float, ptr %69, align 4, !tbaa !23
+  %71 = fsub float %65, %70
+  %72 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 0
+  store float %71, ptr %72, align 4, !tbaa !23
+  %73 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %74 = getelementptr inbounds [3 x %class.btVector3], ptr %73, i64 0, i64 1
+  %75 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %74)
+  %76 = getelementptr inbounds float, ptr %75, i64 1
+  %77 = load float, ptr %76, align 4, !tbaa !23
+  %78 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %79 = getelementptr inbounds [3 x %class.btVector3], ptr %78, i64 0, i64 0
+  %80 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %79)
+  %81 = getelementptr inbounds float, ptr %80, i64 1
+  %82 = load float, ptr %81, align 4, !tbaa !23
+  %83 = fsub float %77, %82
+  %84 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 1
+  store float %83, ptr %84, align 4, !tbaa !23
+  %85 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %86 = getelementptr inbounds [3 x %class.btVector3], ptr %85, i64 0, i64 1
+  %87 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %86)
+  %88 = getelementptr inbounds float, ptr %87, i64 2
+  %89 = load float, ptr %88, align 4, !tbaa !23
+  %90 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %91 = getelementptr inbounds [3 x %class.btVector3], ptr %90, i64 0, i64 0
+  %92 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %91)
+  %93 = getelementptr inbounds float, ptr %92, i64 2
+  %94 = load float, ptr %93, align 4, !tbaa !23
+  %95 = fsub float %89, %94
+  %96 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 2
+  store float %95, ptr %96, align 4, !tbaa !23
+  %97 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %98 = getelementptr inbounds [3 x %class.btVector3], ptr %97, i64 0, i64 2
+  %99 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %98)
+  %100 = getelementptr inbounds float, ptr %99, i64 0
+  %101 = load float, ptr %100, align 4, !tbaa !23
+  %102 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %103 = getelementptr inbounds [3 x %class.btVector3], ptr %102, i64 0, i64 0
+  %104 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %103)
+  %105 = getelementptr inbounds float, ptr %104, i64 0
+  %106 = load float, ptr %105, align 4, !tbaa !23
+  %107 = fsub float %101, %106
+  %108 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 0
+  store float %107, ptr %108, align 4, !tbaa !23
+  %109 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %110 = getelementptr inbounds [3 x %class.btVector3], ptr %109, i64 0, i64 2
+  %111 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %110)
+  %112 = getelementptr inbounds float, ptr %111, i64 1
+  %113 = load float, ptr %112, align 4, !tbaa !23
+  %114 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %115 = getelementptr inbounds [3 x %class.btVector3], ptr %114, i64 0, i64 0
+  %116 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %115)
+  %117 = getelementptr inbounds float, ptr %116, i64 1
+  %118 = load float, ptr %117, align 4, !tbaa !23
+  %119 = fsub float %113, %118
+  %120 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 1
+  store float %119, ptr %120, align 4, !tbaa !23
+  %121 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %122 = getelementptr inbounds [3 x %class.btVector3], ptr %121, i64 0, i64 2
+  %123 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %122)
+  %124 = getelementptr inbounds float, ptr %123, i64 2
+  %125 = load float, ptr %124, align 4, !tbaa !23
+  %126 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %127 = getelementptr inbounds [3 x %class.btVector3], ptr %126, i64 0, i64 0
+  %128 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %127)
+  %129 = getelementptr inbounds float, ptr %128, i64 2
+  %130 = load float, ptr %129, align 4, !tbaa !23
+  %131 = fsub float %125, %130
+  %132 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 2
+  store float %131, ptr %132, align 4, !tbaa !23
+  %133 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 1
+  %134 = load float, ptr %133, align 4, !tbaa !23
+  %135 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 2
+  %136 = load float, ptr %135, align 4, !tbaa !23
+  %137 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 2
+  %138 = load float, ptr %137, align 4, !tbaa !23
+  %139 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 1
+  %140 = load float, ptr %139, align 4, !tbaa !23
+  %141 = fmul float %138, %140
+  %142 = fneg float %141
+  %143 = call float @llvm.fmuladd.f32(float %134, float %136, float %142)
+  %144 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %145 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %144)
+  %146 = getelementptr inbounds float, ptr %145, i64 0
+  store float %143, ptr %146, align 4, !tbaa !23
+  %147 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 2
+  %148 = load float, ptr %147, align 4, !tbaa !23
+  %149 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 0
+  %150 = load float, ptr %149, align 4, !tbaa !23
+  %151 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 0
+  %152 = load float, ptr %151, align 4, !tbaa !23
+  %153 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 2
+  %154 = load float, ptr %153, align 4, !tbaa !23
+  %155 = fmul float %152, %154
+  %156 = fneg float %155
+  %157 = call float @llvm.fmuladd.f32(float %148, float %150, float %156)
+  %158 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %159 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %158)
+  %160 = getelementptr inbounds float, ptr %159, i64 1
+  store float %157, ptr %160, align 4, !tbaa !23
+  %161 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 0
+  %162 = load float, ptr %161, align 4, !tbaa !23
+  %163 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 1
+  %164 = load float, ptr %163, align 4, !tbaa !23
+  %165 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 1
+  %166 = load float, ptr %165, align 4, !tbaa !23
+  %167 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 0
+  %168 = load float, ptr %167, align 4, !tbaa !23
+  %169 = fmul float %166, %168
+  %170 = fneg float %169
+  %171 = call float @llvm.fmuladd.f32(float %162, float %164, float %170)
+  %172 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %173 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %172)
+  %174 = getelementptr inbounds float, ptr %173, i64 2
+  store float %171, ptr %174, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #8
+  %175 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %176 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %175)
+  %177 = getelementptr inbounds float, ptr %176, i64 0
+  %178 = load float, ptr %177, align 4, !tbaa !23
+  %179 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %180 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %179)
+  %181 = getelementptr inbounds float, ptr %180, i64 0
+  %182 = load float, ptr %181, align 4, !tbaa !23
+  %183 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %184 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %183)
+  %185 = getelementptr inbounds float, ptr %184, i64 1
+  %186 = load float, ptr %185, align 4, !tbaa !23
+  %187 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %188 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %187)
+  %189 = getelementptr inbounds float, ptr %188, i64 1
+  %190 = load float, ptr %189, align 4, !tbaa !23
+  %191 = fmul float %186, %190
+  %192 = call float @llvm.fmuladd.f32(float %178, float %182, float %191)
+  %193 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %194 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %193)
+  %195 = getelementptr inbounds float, ptr %194, i64 2
+  %196 = load float, ptr %195, align 4, !tbaa !23
+  %197 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %198 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %197)
+  %199 = getelementptr inbounds float, ptr %198, i64 2
+  %200 = load float, ptr %199, align 4, !tbaa !23
+  %201 = call float @llvm.fmuladd.f32(float %196, float %200, float %192)
+  store float %201, ptr %25, align 4, !tbaa !23
+  %202 = load float, ptr %25, align 4, !tbaa !23
+  %203 = fcmp ole float %202, 0x3E7AD7F2A0000000
+  br i1 %203, label %204, label %205
+
+204:                                              ; preds = %10
+  store float 0x47EFFFFFE0000000, ptr %24, align 4, !tbaa !23
+  br label %220
+
+205:                                              ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #8
+  %206 = load float, ptr %25, align 4, !tbaa !23
+  %207 = fmul float %206, 5.000000e-01
+  store float %207, ptr %26, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #8
+  %208 = load i32, ptr %25, align 4, !tbaa !9
+  %209 = lshr i32 %208, 1
+  %210 = sub i32 1597463007, %209
+  store i32 %210, ptr %27, align 4, !tbaa !9
+  %211 = load float, ptr %27, align 4, !tbaa !23
+  store float %211, ptr %24, align 4, !tbaa !23
+  %212 = load float, ptr %24, align 4, !tbaa !23
+  %213 = load float, ptr %26, align 4, !tbaa !23
+  %214 = load float, ptr %24, align 4, !tbaa !23
+  %215 = fmul float %213, %214
+  %216 = load float, ptr %24, align 4, !tbaa !23
+  %217 = fneg float %215
+  %218 = call float @llvm.fmuladd.f32(float %217, float %216, float 1.500000e+00)
+  %219 = fmul float %212, %218
+  store float %219, ptr %24, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #8
+  br label %220
+
+220:                                              ; preds = %205, %204
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #8
+  %221 = load float, ptr %24, align 4, !tbaa !23
+  %222 = fcmp olt float %221, 0x47EFFFFFE0000000
+  br i1 %222, label %223, label %242
+
+223:                                              ; preds = %220
+  %224 = load float, ptr %24, align 4, !tbaa !23
+  %225 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %226 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %225)
+  %227 = getelementptr inbounds float, ptr %226, i64 0
+  %228 = load float, ptr %227, align 4, !tbaa !23
+  %229 = fmul float %228, %224
+  store float %229, ptr %227, align 4, !tbaa !23
+  %230 = load float, ptr %24, align 4, !tbaa !23
+  %231 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %232 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %231)
+  %233 = getelementptr inbounds float, ptr %232, i64 1
+  %234 = load float, ptr %233, align 4, !tbaa !23
+  %235 = fmul float %234, %230
+  store float %235, ptr %233, align 4, !tbaa !23
+  %236 = load float, ptr %24, align 4, !tbaa !23
+  %237 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %238 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %237)
+  %239 = getelementptr inbounds float, ptr %238, i64 2
+  %240 = load float, ptr %239, align 4, !tbaa !23
+  %241 = fmul float %240, %236
+  store float %241, ptr %239, align 4, !tbaa !23
+  br label %242
+
+242:                                              ; preds = %223, %220
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr %22) #8
+  %243 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %244 = getelementptr inbounds [3 x %class.btVector3], ptr %243, i64 0, i64 0
+  %245 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %244)
+  %246 = getelementptr inbounds float, ptr %245, i64 0
+  %247 = load float, ptr %246, align 4, !tbaa !23
+  %248 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %249 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %248)
+  %250 = getelementptr inbounds float, ptr %249, i64 0
+  %251 = load float, ptr %250, align 4, !tbaa !23
+  %252 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %253 = getelementptr inbounds [3 x %class.btVector3], ptr %252, i64 0, i64 0
+  %254 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %253)
+  %255 = getelementptr inbounds float, ptr %254, i64 1
+  %256 = load float, ptr %255, align 4, !tbaa !23
+  %257 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %258 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %257)
+  %259 = getelementptr inbounds float, ptr %258, i64 1
+  %260 = load float, ptr %259, align 4, !tbaa !23
+  %261 = fmul float %256, %260
+  %262 = call float @llvm.fmuladd.f32(float %247, float %251, float %261)
+  %263 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %264 = getelementptr inbounds [3 x %class.btVector3], ptr %263, i64 0, i64 0
+  %265 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %264)
+  %266 = getelementptr inbounds float, ptr %265, i64 2
+  %267 = load float, ptr %266, align 4, !tbaa !23
+  %268 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %269 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %268)
+  %270 = getelementptr inbounds float, ptr %269, i64 2
+  %271 = load float, ptr %270, align 4, !tbaa !23
+  %272 = call float @llvm.fmuladd.f32(float %267, float %271, float %262)
+  %273 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %274 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %273)
+  %275 = getelementptr inbounds float, ptr %274, i64 3
+  store float %272, ptr %275, align 4, !tbaa !23
+  %276 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %277 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %276)
+  %278 = getelementptr inbounds float, ptr %277, i64 0
+  %279 = load float, ptr %278, align 4, !tbaa !23
+  %280 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %281 = getelementptr inbounds [3 x %class.btVector3], ptr %280, i64 0, i64 0
+  %282 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %281)
+  %283 = getelementptr inbounds float, ptr %282, i64 0
+  %284 = load float, ptr %283, align 4, !tbaa !23
+  %285 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %286 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %285)
+  %287 = getelementptr inbounds float, ptr %286, i64 1
+  %288 = load float, ptr %287, align 4, !tbaa !23
+  %289 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %290 = getelementptr inbounds [3 x %class.btVector3], ptr %289, i64 0, i64 0
+  %291 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %290)
+  %292 = getelementptr inbounds float, ptr %291, i64 1
+  %293 = load float, ptr %292, align 4, !tbaa !23
+  %294 = fmul float %288, %293
+  %295 = call float @llvm.fmuladd.f32(float %279, float %284, float %294)
+  %296 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %297 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %296)
+  %298 = getelementptr inbounds float, ptr %297, i64 2
+  %299 = load float, ptr %298, align 4, !tbaa !23
+  %300 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %301 = getelementptr inbounds [3 x %class.btVector3], ptr %300, i64 0, i64 0
+  %302 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %301)
+  %303 = getelementptr inbounds float, ptr %302, i64 2
+  %304 = load float, ptr %303, align 4, !tbaa !23
+  %305 = call float @llvm.fmuladd.f32(float %299, float %304, float %295)
+  %306 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %307 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %306)
+  %308 = getelementptr inbounds float, ptr %307, i64 3
+  %309 = load float, ptr %308, align 4, !tbaa !23
+  %310 = fsub float %305, %309
+  %311 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %312 = getelementptr inbounds [4 x float], ptr %311, i64 0, i64 0
+  store float %310, ptr %312, align 4, !tbaa !23
+  %313 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %314 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %313)
+  %315 = getelementptr inbounds float, ptr %314, i64 0
+  %316 = load float, ptr %315, align 4, !tbaa !23
+  %317 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %318 = getelementptr inbounds [3 x %class.btVector3], ptr %317, i64 0, i64 1
+  %319 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %318)
+  %320 = getelementptr inbounds float, ptr %319, i64 0
+  %321 = load float, ptr %320, align 4, !tbaa !23
+  %322 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %323 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %322)
+  %324 = getelementptr inbounds float, ptr %323, i64 1
+  %325 = load float, ptr %324, align 4, !tbaa !23
+  %326 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %327 = getelementptr inbounds [3 x %class.btVector3], ptr %326, i64 0, i64 1
+  %328 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %327)
+  %329 = getelementptr inbounds float, ptr %328, i64 1
+  %330 = load float, ptr %329, align 4, !tbaa !23
+  %331 = fmul float %325, %330
+  %332 = call float @llvm.fmuladd.f32(float %316, float %321, float %331)
+  %333 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %334 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %333)
+  %335 = getelementptr inbounds float, ptr %334, i64 2
+  %336 = load float, ptr %335, align 4, !tbaa !23
+  %337 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %338 = getelementptr inbounds [3 x %class.btVector3], ptr %337, i64 0, i64 1
+  %339 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %338)
+  %340 = getelementptr inbounds float, ptr %339, i64 2
+  %341 = load float, ptr %340, align 4, !tbaa !23
+  %342 = call float @llvm.fmuladd.f32(float %336, float %341, float %332)
+  %343 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %344 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %343)
+  %345 = getelementptr inbounds float, ptr %344, i64 3
+  %346 = load float, ptr %345, align 4, !tbaa !23
+  %347 = fsub float %342, %346
+  %348 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %349 = getelementptr inbounds [4 x float], ptr %348, i64 0, i64 1
+  store float %347, ptr %349, align 4, !tbaa !23
+  %350 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %351 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %350)
+  %352 = getelementptr inbounds float, ptr %351, i64 0
+  %353 = load float, ptr %352, align 4, !tbaa !23
+  %354 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %355 = getelementptr inbounds [3 x %class.btVector3], ptr %354, i64 0, i64 2
+  %356 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %355)
+  %357 = getelementptr inbounds float, ptr %356, i64 0
+  %358 = load float, ptr %357, align 4, !tbaa !23
+  %359 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %360 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %359)
+  %361 = getelementptr inbounds float, ptr %360, i64 1
+  %362 = load float, ptr %361, align 4, !tbaa !23
+  %363 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %364 = getelementptr inbounds [3 x %class.btVector3], ptr %363, i64 0, i64 2
+  %365 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %364)
+  %366 = getelementptr inbounds float, ptr %365, i64 1
+  %367 = load float, ptr %366, align 4, !tbaa !23
+  %368 = fmul float %362, %367
+  %369 = call float @llvm.fmuladd.f32(float %353, float %358, float %368)
+  %370 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %371 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %370)
+  %372 = getelementptr inbounds float, ptr %371, i64 2
+  %373 = load float, ptr %372, align 4, !tbaa !23
+  %374 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %375 = getelementptr inbounds [3 x %class.btVector3], ptr %374, i64 0, i64 2
+  %376 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %375)
+  %377 = getelementptr inbounds float, ptr %376, i64 2
+  %378 = load float, ptr %377, align 4, !tbaa !23
+  %379 = call float @llvm.fmuladd.f32(float %373, float %378, float %369)
+  %380 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %381 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %380)
+  %382 = getelementptr inbounds float, ptr %381, i64 3
+  %383 = load float, ptr %382, align 4, !tbaa !23
+  %384 = fsub float %379, %383
+  %385 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %386 = getelementptr inbounds [4 x float], ptr %385, i64 0, i64 2
+  store float %384, ptr %386, align 4, !tbaa !23
+  %387 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %388 = getelementptr inbounds [4 x float], ptr %387, i64 0, i64 0
+  %389 = load float, ptr %388, align 4, !tbaa !23
+  %390 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %391 = getelementptr inbounds [4 x float], ptr %390, i64 0, i64 1
+  %392 = load float, ptr %391, align 4, !tbaa !23
+  %393 = fmul float %389, %392
+  %394 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 10
+  store float %393, ptr %394, align 4, !tbaa !29
+  %395 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %396 = getelementptr inbounds [4 x float], ptr %395, i64 0, i64 0
+  %397 = load float, ptr %396, align 4, !tbaa !23
+  %398 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %399 = getelementptr inbounds [4 x float], ptr %398, i64 0, i64 2
+  %400 = load float, ptr %399, align 4, !tbaa !23
+  %401 = fmul float %397, %400
+  %402 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 11
+  store float %401, ptr %402, align 4, !tbaa !30
+  %403 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 10
+  %404 = load float, ptr %403, align 4, !tbaa !29
+  %405 = fcmp ogt float %404, 0.000000e+00
+  br i1 %405, label %406, label %707
+
+406:                                              ; preds = %242
+  %407 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 11
+  %408 = load float, ptr %407, align 4, !tbaa !30
+  %409 = fcmp ogt float %408, 0.000000e+00
+  br i1 %409, label %410, label %707
+
+410:                                              ; preds = %406
+  %411 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %412 = getelementptr inbounds [4 x float], ptr %411, i64 0, i64 0
+  %413 = load float, ptr %412, align 4, !tbaa !23
+  %414 = fcmp olt float %413, 0.000000e+00
+  br i1 %414, label %415, label %648
+
+415:                                              ; preds = %410
+  %416 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %417 = getelementptr inbounds [4 x float], ptr %416, i64 0, i64 0
+  %418 = load float, ptr %417, align 4, !tbaa !23
+  %419 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %420 = getelementptr inbounds [4 x float], ptr %419, i64 0, i64 1
+  %421 = load float, ptr %420, align 4, !tbaa !23
+  %422 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %423 = getelementptr inbounds [4 x float], ptr %422, i64 0, i64 2
+  %424 = load float, ptr %423, align 4, !tbaa !23
+  %425 = fcmp olt float %421, %424
+  br i1 %425, label %426, label %430
+
+426:                                              ; preds = %415
+  %427 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %428 = getelementptr inbounds [4 x float], ptr %427, i64 0, i64 2
+  %429 = load float, ptr %428, align 4, !tbaa !23
+  br label %434
+
+430:                                              ; preds = %415
+  %431 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %432 = getelementptr inbounds [4 x float], ptr %431, i64 0, i64 1
+  %433 = load float, ptr %432, align 4, !tbaa !23
+  br label %434
+
+434:                                              ; preds = %430, %426
+  %435 = phi float [ %429, %426 ], [ %433, %430 ]
+  %436 = fcmp olt float %418, %435
+  br i1 %436, label %437, label %455
+
+437:                                              ; preds = %434
+  %438 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %439 = getelementptr inbounds [4 x float], ptr %438, i64 0, i64 1
+  %440 = load float, ptr %439, align 4, !tbaa !23
+  %441 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %442 = getelementptr inbounds [4 x float], ptr %441, i64 0, i64 2
+  %443 = load float, ptr %442, align 4, !tbaa !23
+  %444 = fcmp olt float %440, %443
+  br i1 %444, label %445, label %449
+
+445:                                              ; preds = %437
+  %446 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %447 = getelementptr inbounds [4 x float], ptr %446, i64 0, i64 2
+  %448 = load float, ptr %447, align 4, !tbaa !23
+  br label %453
+
+449:                                              ; preds = %437
+  %450 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %451 = getelementptr inbounds [4 x float], ptr %450, i64 0, i64 1
+  %452 = load float, ptr %451, align 4, !tbaa !23
+  br label %453
+
+453:                                              ; preds = %449, %445
+  %454 = phi float [ %448, %445 ], [ %452, %449 ]
+  br label %459
+
+455:                                              ; preds = %434
+  %456 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %457 = getelementptr inbounds [4 x float], ptr %456, i64 0, i64 0
+  %458 = load float, ptr %457, align 4, !tbaa !23
+  br label %459
+
+459:                                              ; preds = %455, %453
+  %460 = phi float [ %454, %453 ], [ %458, %455 ]
+  %461 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %462 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %461)
+  %463 = getelementptr inbounds float, ptr %462, i64 0
+  store float %460, ptr %463, align 4, !tbaa !23
+  %464 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %465 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %464)
+  %466 = getelementptr inbounds float, ptr %465, i64 0
+  %467 = load float, ptr %466, align 4, !tbaa !23
+  %468 = fneg float %467
+  %469 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %470 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %469)
+  %471 = getelementptr inbounds float, ptr %470, i64 0
+  store float %468, ptr %471, align 4, !tbaa !23
+  %472 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %473 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %472)
+  %474 = getelementptr inbounds float, ptr %473, i64 0
+  %475 = load float, ptr %474, align 4, !tbaa !23
+  %476 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %477 = load float, ptr %476, align 4, !tbaa !24
+  %478 = fcmp ogt float %475, %477
+  br i1 %478, label %479, label %480
+
+479:                                              ; preds = %459
+  store i1 false, ptr %11, align 1
+  br label %2063
+
+480:                                              ; preds = %459
+  %481 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %482 = getelementptr inbounds [3 x %class.btVector3], ptr %481, i64 0, i64 0
+  %483 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %482)
+  %484 = getelementptr inbounds float, ptr %483, i64 0
+  %485 = load float, ptr %484, align 4, !tbaa !23
+  %486 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %487 = getelementptr inbounds [3 x %class.btVector3], ptr %486, i64 0, i64 1
+  %488 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %487)
+  %489 = getelementptr inbounds float, ptr %488, i64 0
+  %490 = load float, ptr %489, align 4, !tbaa !23
+  %491 = fadd float %485, %490
+  %492 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %493 = getelementptr inbounds [3 x %class.btVector3], ptr %492, i64 0, i64 0
+  %494 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %493)
+  %495 = getelementptr inbounds float, ptr %494, i64 0
+  store float %491, ptr %495, align 4, !tbaa !23
+  %496 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %497 = getelementptr inbounds [3 x %class.btVector3], ptr %496, i64 0, i64 0
+  %498 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %497)
+  %499 = getelementptr inbounds float, ptr %498, i64 0
+  %500 = load float, ptr %499, align 4, !tbaa !23
+  %501 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %502 = getelementptr inbounds [3 x %class.btVector3], ptr %501, i64 0, i64 1
+  %503 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %502)
+  %504 = getelementptr inbounds float, ptr %503, i64 0
+  %505 = load float, ptr %504, align 4, !tbaa !23
+  %506 = fsub float %500, %505
+  %507 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %508 = getelementptr inbounds [3 x %class.btVector3], ptr %507, i64 0, i64 1
+  %509 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %508)
+  %510 = getelementptr inbounds float, ptr %509, i64 0
+  store float %506, ptr %510, align 4, !tbaa !23
+  %511 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %512 = getelementptr inbounds [3 x %class.btVector3], ptr %511, i64 0, i64 0
+  %513 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %512)
+  %514 = getelementptr inbounds float, ptr %513, i64 0
+  %515 = load float, ptr %514, align 4, !tbaa !23
+  %516 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %517 = getelementptr inbounds [3 x %class.btVector3], ptr %516, i64 0, i64 1
+  %518 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %517)
+  %519 = getelementptr inbounds float, ptr %518, i64 0
+  %520 = load float, ptr %519, align 4, !tbaa !23
+  %521 = fsub float %515, %520
+  %522 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %523 = getelementptr inbounds [3 x %class.btVector3], ptr %522, i64 0, i64 0
+  %524 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %523)
+  %525 = getelementptr inbounds float, ptr %524, i64 0
+  store float %521, ptr %525, align 4, !tbaa !23
+  %526 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %527 = getelementptr inbounds [3 x %class.btVector3], ptr %526, i64 0, i64 0
+  %528 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %527)
+  %529 = getelementptr inbounds float, ptr %528, i64 1
+  %530 = load float, ptr %529, align 4, !tbaa !23
+  %531 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %532 = getelementptr inbounds [3 x %class.btVector3], ptr %531, i64 0, i64 1
+  %533 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %532)
+  %534 = getelementptr inbounds float, ptr %533, i64 1
+  %535 = load float, ptr %534, align 4, !tbaa !23
+  %536 = fadd float %530, %535
+  %537 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %538 = getelementptr inbounds [3 x %class.btVector3], ptr %537, i64 0, i64 0
+  %539 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %538)
+  %540 = getelementptr inbounds float, ptr %539, i64 1
+  store float %536, ptr %540, align 4, !tbaa !23
+  %541 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %542 = getelementptr inbounds [3 x %class.btVector3], ptr %541, i64 0, i64 0
+  %543 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %542)
+  %544 = getelementptr inbounds float, ptr %543, i64 1
+  %545 = load float, ptr %544, align 4, !tbaa !23
+  %546 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %547 = getelementptr inbounds [3 x %class.btVector3], ptr %546, i64 0, i64 1
+  %548 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %547)
+  %549 = getelementptr inbounds float, ptr %548, i64 1
+  %550 = load float, ptr %549, align 4, !tbaa !23
+  %551 = fsub float %545, %550
+  %552 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %553 = getelementptr inbounds [3 x %class.btVector3], ptr %552, i64 0, i64 1
+  %554 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %553)
+  %555 = getelementptr inbounds float, ptr %554, i64 1
+  store float %551, ptr %555, align 4, !tbaa !23
+  %556 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %557 = getelementptr inbounds [3 x %class.btVector3], ptr %556, i64 0, i64 0
+  %558 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %557)
+  %559 = getelementptr inbounds float, ptr %558, i64 1
+  %560 = load float, ptr %559, align 4, !tbaa !23
+  %561 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %562 = getelementptr inbounds [3 x %class.btVector3], ptr %561, i64 0, i64 1
+  %563 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %562)
+  %564 = getelementptr inbounds float, ptr %563, i64 1
+  %565 = load float, ptr %564, align 4, !tbaa !23
+  %566 = fsub float %560, %565
+  %567 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %568 = getelementptr inbounds [3 x %class.btVector3], ptr %567, i64 0, i64 0
+  %569 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %568)
+  %570 = getelementptr inbounds float, ptr %569, i64 1
+  store float %566, ptr %570, align 4, !tbaa !23
+  %571 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %572 = getelementptr inbounds [3 x %class.btVector3], ptr %571, i64 0, i64 0
+  %573 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %572)
+  %574 = getelementptr inbounds float, ptr %573, i64 2
+  %575 = load float, ptr %574, align 4, !tbaa !23
+  %576 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %577 = getelementptr inbounds [3 x %class.btVector3], ptr %576, i64 0, i64 1
+  %578 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %577)
+  %579 = getelementptr inbounds float, ptr %578, i64 2
+  %580 = load float, ptr %579, align 4, !tbaa !23
+  %581 = fadd float %575, %580
+  %582 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %583 = getelementptr inbounds [3 x %class.btVector3], ptr %582, i64 0, i64 0
+  %584 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %583)
+  %585 = getelementptr inbounds float, ptr %584, i64 2
+  store float %581, ptr %585, align 4, !tbaa !23
+  %586 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %587 = getelementptr inbounds [3 x %class.btVector3], ptr %586, i64 0, i64 0
+  %588 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %587)
+  %589 = getelementptr inbounds float, ptr %588, i64 2
+  %590 = load float, ptr %589, align 4, !tbaa !23
+  %591 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %592 = getelementptr inbounds [3 x %class.btVector3], ptr %591, i64 0, i64 1
+  %593 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %592)
+  %594 = getelementptr inbounds float, ptr %593, i64 2
+  %595 = load float, ptr %594, align 4, !tbaa !23
+  %596 = fsub float %590, %595
+  %597 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %598 = getelementptr inbounds [3 x %class.btVector3], ptr %597, i64 0, i64 1
+  %599 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %598)
+  %600 = getelementptr inbounds float, ptr %599, i64 2
+  store float %596, ptr %600, align 4, !tbaa !23
+  %601 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %602 = getelementptr inbounds [3 x %class.btVector3], ptr %601, i64 0, i64 0
+  %603 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %602)
+  %604 = getelementptr inbounds float, ptr %603, i64 2
+  %605 = load float, ptr %604, align 4, !tbaa !23
+  %606 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %607 = getelementptr inbounds [3 x %class.btVector3], ptr %606, i64 0, i64 1
+  %608 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %607)
+  %609 = getelementptr inbounds float, ptr %608, i64 2
+  %610 = load float, ptr %609, align 4, !tbaa !23
+  %611 = fsub float %605, %610
+  %612 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %613 = getelementptr inbounds [3 x %class.btVector3], ptr %612, i64 0, i64 0
+  %614 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %613)
+  %615 = getelementptr inbounds float, ptr %614, i64 2
+  store float %611, ptr %615, align 4, !tbaa !23
+  %616 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %617 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %616)
+  %618 = getelementptr inbounds float, ptr %617, i64 0
+  %619 = load float, ptr %618, align 4, !tbaa !23
+  %620 = fmul float -1.000000e+00, %619
+  %621 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %622 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %621)
+  %623 = getelementptr inbounds float, ptr %622, i64 0
+  store float %620, ptr %623, align 4, !tbaa !23
+  %624 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %625 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %624)
+  %626 = getelementptr inbounds float, ptr %625, i64 1
+  %627 = load float, ptr %626, align 4, !tbaa !23
+  %628 = fmul float -1.000000e+00, %627
+  %629 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %630 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %629)
+  %631 = getelementptr inbounds float, ptr %630, i64 1
+  store float %628, ptr %631, align 4, !tbaa !23
+  %632 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %633 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %632)
+  %634 = getelementptr inbounds float, ptr %633, i64 2
+  %635 = load float, ptr %634, align 4, !tbaa !23
+  %636 = fmul float -1.000000e+00, %635
+  %637 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %638 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %637)
+  %639 = getelementptr inbounds float, ptr %638, i64 2
+  store float %636, ptr %639, align 4, !tbaa !23
+  %640 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %641 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %640)
+  %642 = getelementptr inbounds float, ptr %641, i64 3
+  %643 = load float, ptr %642, align 4, !tbaa !23
+  %644 = fmul float -1.000000e+00, %643
+  %645 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %646 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %645)
+  %647 = getelementptr inbounds float, ptr %646, i64 3
+  store float %644, ptr %647, align 4, !tbaa !23
+  br label %706
+
+648:                                              ; preds = %410
+  %649 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %650 = getelementptr inbounds [4 x float], ptr %649, i64 0, i64 0
+  %651 = load float, ptr %650, align 4, !tbaa !23
+  %652 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %653 = getelementptr inbounds [4 x float], ptr %652, i64 0, i64 1
+  %654 = load float, ptr %653, align 4, !tbaa !23
+  %655 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %656 = getelementptr inbounds [4 x float], ptr %655, i64 0, i64 2
+  %657 = load float, ptr %656, align 4, !tbaa !23
+  %658 = fcmp ogt float %654, %657
+  br i1 %658, label %659, label %663
+
+659:                                              ; preds = %648
+  %660 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %661 = getelementptr inbounds [4 x float], ptr %660, i64 0, i64 2
+  %662 = load float, ptr %661, align 4, !tbaa !23
+  br label %667
+
+663:                                              ; preds = %648
+  %664 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %665 = getelementptr inbounds [4 x float], ptr %664, i64 0, i64 1
+  %666 = load float, ptr %665, align 4, !tbaa !23
+  br label %667
+
+667:                                              ; preds = %663, %659
+  %668 = phi float [ %662, %659 ], [ %666, %663 ]
+  %669 = fcmp ogt float %651, %668
+  br i1 %669, label %670, label %688
+
+670:                                              ; preds = %667
+  %671 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %672 = getelementptr inbounds [4 x float], ptr %671, i64 0, i64 1
+  %673 = load float, ptr %672, align 4, !tbaa !23
+  %674 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %675 = getelementptr inbounds [4 x float], ptr %674, i64 0, i64 2
+  %676 = load float, ptr %675, align 4, !tbaa !23
+  %677 = fcmp ogt float %673, %676
+  br i1 %677, label %678, label %682
+
+678:                                              ; preds = %670
+  %679 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %680 = getelementptr inbounds [4 x float], ptr %679, i64 0, i64 2
+  %681 = load float, ptr %680, align 4, !tbaa !23
+  br label %686
+
+682:                                              ; preds = %670
+  %683 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %684 = getelementptr inbounds [4 x float], ptr %683, i64 0, i64 1
+  %685 = load float, ptr %684, align 4, !tbaa !23
+  br label %686
+
+686:                                              ; preds = %682, %678
+  %687 = phi float [ %681, %678 ], [ %685, %682 ]
+  br label %692
+
+688:                                              ; preds = %667
+  %689 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %690 = getelementptr inbounds [4 x float], ptr %689, i64 0, i64 0
+  %691 = load float, ptr %690, align 4, !tbaa !23
+  br label %692
+
+692:                                              ; preds = %688, %686
+  %693 = phi float [ %687, %686 ], [ %691, %688 ]
+  %694 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %695 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %694)
+  %696 = getelementptr inbounds float, ptr %695, i64 0
+  store float %693, ptr %696, align 4, !tbaa !23
+  %697 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %698 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %697)
+  %699 = getelementptr inbounds float, ptr %698, i64 0
+  %700 = load float, ptr %699, align 4, !tbaa !23
+  %701 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %702 = load float, ptr %701, align 4, !tbaa !24
+  %703 = fcmp ogt float %700, %702
+  br i1 %703, label %704, label %705
+
+704:                                              ; preds = %692
+  store i1 false, ptr %11, align 1
+  br label %2063
+
+705:                                              ; preds = %692
+  br label %706
+
+706:                                              ; preds = %705, %480
+  br label %1002
+
+707:                                              ; preds = %406, %242
+  %708 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %709 = getelementptr inbounds [4 x float], ptr %708, i64 0, i64 0
+  %710 = load float, ptr %709, align 4, !tbaa !23
+  %711 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %712 = getelementptr inbounds [4 x float], ptr %711, i64 0, i64 1
+  %713 = load float, ptr %712, align 4, !tbaa !23
+  %714 = fadd float %710, %713
+  %715 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %716 = getelementptr inbounds [4 x float], ptr %715, i64 0, i64 2
+  %717 = load float, ptr %716, align 4, !tbaa !23
+  %718 = fadd float %714, %717
+  %719 = fdiv float %718, 3.000000e+00
+  %720 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %721 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %720)
+  %722 = getelementptr inbounds float, ptr %721, i64 0
+  store float %719, ptr %722, align 4, !tbaa !23
+  %723 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %724 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %723)
+  %725 = getelementptr inbounds float, ptr %724, i64 0
+  %726 = load float, ptr %725, align 4, !tbaa !23
+  %727 = fcmp olt float %726, 0.000000e+00
+  br i1 %727, label %728, label %952
+
+728:                                              ; preds = %707
+  %729 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %730 = getelementptr inbounds [3 x %class.btVector3], ptr %729, i64 0, i64 0
+  %731 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %730)
+  %732 = getelementptr inbounds float, ptr %731, i64 0
+  %733 = load float, ptr %732, align 4, !tbaa !23
+  %734 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %735 = getelementptr inbounds [3 x %class.btVector3], ptr %734, i64 0, i64 1
+  %736 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %735)
+  %737 = getelementptr inbounds float, ptr %736, i64 0
+  %738 = load float, ptr %737, align 4, !tbaa !23
+  %739 = fadd float %733, %738
+  %740 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %741 = getelementptr inbounds [3 x %class.btVector3], ptr %740, i64 0, i64 0
+  %742 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %741)
+  %743 = getelementptr inbounds float, ptr %742, i64 0
+  store float %739, ptr %743, align 4, !tbaa !23
+  %744 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %745 = getelementptr inbounds [3 x %class.btVector3], ptr %744, i64 0, i64 0
+  %746 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %745)
+  %747 = getelementptr inbounds float, ptr %746, i64 0
+  %748 = load float, ptr %747, align 4, !tbaa !23
+  %749 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %750 = getelementptr inbounds [3 x %class.btVector3], ptr %749, i64 0, i64 1
+  %751 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %750)
+  %752 = getelementptr inbounds float, ptr %751, i64 0
+  %753 = load float, ptr %752, align 4, !tbaa !23
+  %754 = fsub float %748, %753
+  %755 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %756 = getelementptr inbounds [3 x %class.btVector3], ptr %755, i64 0, i64 1
+  %757 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %756)
+  %758 = getelementptr inbounds float, ptr %757, i64 0
+  store float %754, ptr %758, align 4, !tbaa !23
+  %759 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %760 = getelementptr inbounds [3 x %class.btVector3], ptr %759, i64 0, i64 0
+  %761 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %760)
+  %762 = getelementptr inbounds float, ptr %761, i64 0
+  %763 = load float, ptr %762, align 4, !tbaa !23
+  %764 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %765 = getelementptr inbounds [3 x %class.btVector3], ptr %764, i64 0, i64 1
+  %766 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %765)
+  %767 = getelementptr inbounds float, ptr %766, i64 0
+  %768 = load float, ptr %767, align 4, !tbaa !23
+  %769 = fsub float %763, %768
+  %770 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %771 = getelementptr inbounds [3 x %class.btVector3], ptr %770, i64 0, i64 0
+  %772 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %771)
+  %773 = getelementptr inbounds float, ptr %772, i64 0
+  store float %769, ptr %773, align 4, !tbaa !23
+  %774 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %775 = getelementptr inbounds [3 x %class.btVector3], ptr %774, i64 0, i64 0
+  %776 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %775)
+  %777 = getelementptr inbounds float, ptr %776, i64 1
+  %778 = load float, ptr %777, align 4, !tbaa !23
+  %779 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %780 = getelementptr inbounds [3 x %class.btVector3], ptr %779, i64 0, i64 1
+  %781 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %780)
+  %782 = getelementptr inbounds float, ptr %781, i64 1
+  %783 = load float, ptr %782, align 4, !tbaa !23
+  %784 = fadd float %778, %783
+  %785 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %786 = getelementptr inbounds [3 x %class.btVector3], ptr %785, i64 0, i64 0
+  %787 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %786)
+  %788 = getelementptr inbounds float, ptr %787, i64 1
+  store float %784, ptr %788, align 4, !tbaa !23
+  %789 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %790 = getelementptr inbounds [3 x %class.btVector3], ptr %789, i64 0, i64 0
+  %791 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %790)
+  %792 = getelementptr inbounds float, ptr %791, i64 1
+  %793 = load float, ptr %792, align 4, !tbaa !23
+  %794 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %795 = getelementptr inbounds [3 x %class.btVector3], ptr %794, i64 0, i64 1
+  %796 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %795)
+  %797 = getelementptr inbounds float, ptr %796, i64 1
+  %798 = load float, ptr %797, align 4, !tbaa !23
+  %799 = fsub float %793, %798
+  %800 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %801 = getelementptr inbounds [3 x %class.btVector3], ptr %800, i64 0, i64 1
+  %802 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %801)
+  %803 = getelementptr inbounds float, ptr %802, i64 1
+  store float %799, ptr %803, align 4, !tbaa !23
+  %804 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %805 = getelementptr inbounds [3 x %class.btVector3], ptr %804, i64 0, i64 0
+  %806 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %805)
+  %807 = getelementptr inbounds float, ptr %806, i64 1
+  %808 = load float, ptr %807, align 4, !tbaa !23
+  %809 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %810 = getelementptr inbounds [3 x %class.btVector3], ptr %809, i64 0, i64 1
+  %811 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %810)
+  %812 = getelementptr inbounds float, ptr %811, i64 1
+  %813 = load float, ptr %812, align 4, !tbaa !23
+  %814 = fsub float %808, %813
+  %815 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %816 = getelementptr inbounds [3 x %class.btVector3], ptr %815, i64 0, i64 0
+  %817 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %816)
+  %818 = getelementptr inbounds float, ptr %817, i64 1
+  store float %814, ptr %818, align 4, !tbaa !23
+  %819 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %820 = getelementptr inbounds [3 x %class.btVector3], ptr %819, i64 0, i64 0
+  %821 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %820)
+  %822 = getelementptr inbounds float, ptr %821, i64 2
+  %823 = load float, ptr %822, align 4, !tbaa !23
+  %824 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %825 = getelementptr inbounds [3 x %class.btVector3], ptr %824, i64 0, i64 1
+  %826 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %825)
+  %827 = getelementptr inbounds float, ptr %826, i64 2
+  %828 = load float, ptr %827, align 4, !tbaa !23
+  %829 = fadd float %823, %828
+  %830 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %831 = getelementptr inbounds [3 x %class.btVector3], ptr %830, i64 0, i64 0
+  %832 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %831)
+  %833 = getelementptr inbounds float, ptr %832, i64 2
+  store float %829, ptr %833, align 4, !tbaa !23
+  %834 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %835 = getelementptr inbounds [3 x %class.btVector3], ptr %834, i64 0, i64 0
+  %836 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %835)
+  %837 = getelementptr inbounds float, ptr %836, i64 2
+  %838 = load float, ptr %837, align 4, !tbaa !23
+  %839 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %840 = getelementptr inbounds [3 x %class.btVector3], ptr %839, i64 0, i64 1
+  %841 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %840)
+  %842 = getelementptr inbounds float, ptr %841, i64 2
+  %843 = load float, ptr %842, align 4, !tbaa !23
+  %844 = fsub float %838, %843
+  %845 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %846 = getelementptr inbounds [3 x %class.btVector3], ptr %845, i64 0, i64 1
+  %847 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %846)
+  %848 = getelementptr inbounds float, ptr %847, i64 2
+  store float %844, ptr %848, align 4, !tbaa !23
+  %849 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %850 = getelementptr inbounds [3 x %class.btVector3], ptr %849, i64 0, i64 0
+  %851 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %850)
+  %852 = getelementptr inbounds float, ptr %851, i64 2
+  %853 = load float, ptr %852, align 4, !tbaa !23
+  %854 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %855 = getelementptr inbounds [3 x %class.btVector3], ptr %854, i64 0, i64 1
+  %856 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %855)
+  %857 = getelementptr inbounds float, ptr %856, i64 2
+  %858 = load float, ptr %857, align 4, !tbaa !23
+  %859 = fsub float %853, %858
+  %860 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %861 = getelementptr inbounds [3 x %class.btVector3], ptr %860, i64 0, i64 0
+  %862 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %861)
+  %863 = getelementptr inbounds float, ptr %862, i64 2
+  store float %859, ptr %863, align 4, !tbaa !23
+  %864 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %865 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %864)
+  %866 = getelementptr inbounds float, ptr %865, i64 0
+  %867 = load float, ptr %866, align 4, !tbaa !23
+  %868 = fmul float -1.000000e+00, %867
+  %869 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %870 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %869)
+  %871 = getelementptr inbounds float, ptr %870, i64 0
+  store float %868, ptr %871, align 4, !tbaa !23
+  %872 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %873 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %872)
+  %874 = getelementptr inbounds float, ptr %873, i64 1
+  %875 = load float, ptr %874, align 4, !tbaa !23
+  %876 = fmul float -1.000000e+00, %875
+  %877 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %878 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %877)
+  %879 = getelementptr inbounds float, ptr %878, i64 1
+  store float %876, ptr %879, align 4, !tbaa !23
+  %880 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %881 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %880)
+  %882 = getelementptr inbounds float, ptr %881, i64 2
+  %883 = load float, ptr %882, align 4, !tbaa !23
+  %884 = fmul float -1.000000e+00, %883
+  %885 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %886 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %885)
+  %887 = getelementptr inbounds float, ptr %886, i64 2
+  store float %884, ptr %887, align 4, !tbaa !23
+  %888 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %889 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %888)
+  %890 = getelementptr inbounds float, ptr %889, i64 3
+  %891 = load float, ptr %890, align 4, !tbaa !23
+  %892 = fmul float -1.000000e+00, %891
+  %893 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %894 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %893)
+  %895 = getelementptr inbounds float, ptr %894, i64 3
+  store float %892, ptr %895, align 4, !tbaa !23
+  %896 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %897 = getelementptr inbounds [4 x float], ptr %896, i64 0, i64 0
+  %898 = load float, ptr %897, align 4, !tbaa !23
+  %899 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %900 = getelementptr inbounds [4 x float], ptr %899, i64 0, i64 1
+  %901 = load float, ptr %900, align 4, !tbaa !23
+  %902 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %903 = getelementptr inbounds [4 x float], ptr %902, i64 0, i64 2
+  %904 = load float, ptr %903, align 4, !tbaa !23
+  %905 = fcmp olt float %901, %904
+  br i1 %905, label %906, label %910
+
+906:                                              ; preds = %728
+  %907 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %908 = getelementptr inbounds [4 x float], ptr %907, i64 0, i64 2
+  %909 = load float, ptr %908, align 4, !tbaa !23
+  br label %914
+
+910:                                              ; preds = %728
+  %911 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %912 = getelementptr inbounds [4 x float], ptr %911, i64 0, i64 1
+  %913 = load float, ptr %912, align 4, !tbaa !23
+  br label %914
+
+914:                                              ; preds = %910, %906
+  %915 = phi float [ %909, %906 ], [ %913, %910 ]
+  %916 = fcmp olt float %898, %915
+  br i1 %916, label %917, label %935
+
+917:                                              ; preds = %914
+  %918 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %919 = getelementptr inbounds [4 x float], ptr %918, i64 0, i64 1
+  %920 = load float, ptr %919, align 4, !tbaa !23
+  %921 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %922 = getelementptr inbounds [4 x float], ptr %921, i64 0, i64 2
+  %923 = load float, ptr %922, align 4, !tbaa !23
+  %924 = fcmp olt float %920, %923
+  br i1 %924, label %925, label %929
+
+925:                                              ; preds = %917
+  %926 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %927 = getelementptr inbounds [4 x float], ptr %926, i64 0, i64 2
+  %928 = load float, ptr %927, align 4, !tbaa !23
+  br label %933
+
+929:                                              ; preds = %917
+  %930 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %931 = getelementptr inbounds [4 x float], ptr %930, i64 0, i64 1
+  %932 = load float, ptr %931, align 4, !tbaa !23
+  br label %933
+
+933:                                              ; preds = %929, %925
+  %934 = phi float [ %928, %925 ], [ %932, %929 ]
+  br label %939
+
+935:                                              ; preds = %914
+  %936 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %937 = getelementptr inbounds [4 x float], ptr %936, i64 0, i64 0
+  %938 = load float, ptr %937, align 4, !tbaa !23
+  br label %939
+
+939:                                              ; preds = %935, %933
+  %940 = phi float [ %934, %933 ], [ %938, %935 ]
+  %941 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %942 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %941)
+  %943 = getelementptr inbounds float, ptr %942, i64 0
+  store float %940, ptr %943, align 4, !tbaa !23
+  %944 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %945 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %944)
+  %946 = getelementptr inbounds float, ptr %945, i64 0
+  %947 = load float, ptr %946, align 4, !tbaa !23
+  %948 = fneg float %947
+  %949 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %950 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %949)
+  %951 = getelementptr inbounds float, ptr %950, i64 0
+  store float %948, ptr %951, align 4, !tbaa !23
+  br label %1001
+
+952:                                              ; preds = %707
+  %953 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %954 = getelementptr inbounds [4 x float], ptr %953, i64 0, i64 0
+  %955 = load float, ptr %954, align 4, !tbaa !23
+  %956 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %957 = getelementptr inbounds [4 x float], ptr %956, i64 0, i64 1
+  %958 = load float, ptr %957, align 4, !tbaa !23
+  %959 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %960 = getelementptr inbounds [4 x float], ptr %959, i64 0, i64 2
+  %961 = load float, ptr %960, align 4, !tbaa !23
+  %962 = fcmp ogt float %958, %961
+  br i1 %962, label %963, label %967
+
+963:                                              ; preds = %952
+  %964 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %965 = getelementptr inbounds [4 x float], ptr %964, i64 0, i64 2
+  %966 = load float, ptr %965, align 4, !tbaa !23
+  br label %971
+
+967:                                              ; preds = %952
+  %968 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %969 = getelementptr inbounds [4 x float], ptr %968, i64 0, i64 1
+  %970 = load float, ptr %969, align 4, !tbaa !23
+  br label %971
+
+971:                                              ; preds = %967, %963
+  %972 = phi float [ %966, %963 ], [ %970, %967 ]
+  %973 = fcmp ogt float %955, %972
+  br i1 %973, label %974, label %992
+
+974:                                              ; preds = %971
+  %975 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %976 = getelementptr inbounds [4 x float], ptr %975, i64 0, i64 1
+  %977 = load float, ptr %976, align 4, !tbaa !23
+  %978 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %979 = getelementptr inbounds [4 x float], ptr %978, i64 0, i64 2
+  %980 = load float, ptr %979, align 4, !tbaa !23
+  %981 = fcmp ogt float %977, %980
+  br i1 %981, label %982, label %986
+
+982:                                              ; preds = %974
+  %983 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %984 = getelementptr inbounds [4 x float], ptr %983, i64 0, i64 2
+  %985 = load float, ptr %984, align 4, !tbaa !23
+  br label %990
+
+986:                                              ; preds = %974
+  %987 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %988 = getelementptr inbounds [4 x float], ptr %987, i64 0, i64 1
+  %989 = load float, ptr %988, align 4, !tbaa !23
+  br label %990
+
+990:                                              ; preds = %986, %982
+  %991 = phi float [ %985, %982 ], [ %989, %986 ]
+  br label %996
+
+992:                                              ; preds = %971
+  %993 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 9
+  %994 = getelementptr inbounds [4 x float], ptr %993, i64 0, i64 0
+  %995 = load float, ptr %994, align 4, !tbaa !23
+  br label %996
+
+996:                                              ; preds = %992, %990
+  %997 = phi float [ %991, %990 ], [ %995, %992 ]
+  %998 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %999 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %998)
+  %1000 = getelementptr inbounds float, ptr %999, i64 0
+  store float %997, ptr %1000, align 4, !tbaa !23
+  br label %1001
+
+1001:                                             ; preds = %996, %939
+  br label %1002
+
+1002:                                             ; preds = %1001, %706
+  call void @llvm.lifetime.start.p0(i64 12, ptr %28) #8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %29) #8
+  %1003 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1004 = getelementptr inbounds [3 x %class.btVector3], ptr %1003, i64 0, i64 1
+  %1005 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1004)
+  %1006 = getelementptr inbounds float, ptr %1005, i64 0
+  %1007 = load float, ptr %1006, align 4, !tbaa !23
+  %1008 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1009 = getelementptr inbounds [3 x %class.btVector3], ptr %1008, i64 0, i64 0
+  %1010 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1009)
+  %1011 = getelementptr inbounds float, ptr %1010, i64 0
+  %1012 = load float, ptr %1011, align 4, !tbaa !23
+  %1013 = fsub float %1007, %1012
+  %1014 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 0
+  store float %1013, ptr %1014, align 4, !tbaa !23
+  %1015 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1016 = getelementptr inbounds [3 x %class.btVector3], ptr %1015, i64 0, i64 1
+  %1017 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1016)
+  %1018 = getelementptr inbounds float, ptr %1017, i64 1
+  %1019 = load float, ptr %1018, align 4, !tbaa !23
+  %1020 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1021 = getelementptr inbounds [3 x %class.btVector3], ptr %1020, i64 0, i64 0
+  %1022 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1021)
+  %1023 = getelementptr inbounds float, ptr %1022, i64 1
+  %1024 = load float, ptr %1023, align 4, !tbaa !23
+  %1025 = fsub float %1019, %1024
+  %1026 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 1
+  store float %1025, ptr %1026, align 4, !tbaa !23
+  %1027 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1028 = getelementptr inbounds [3 x %class.btVector3], ptr %1027, i64 0, i64 1
+  %1029 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1028)
+  %1030 = getelementptr inbounds float, ptr %1029, i64 2
+  %1031 = load float, ptr %1030, align 4, !tbaa !23
+  %1032 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1033 = getelementptr inbounds [3 x %class.btVector3], ptr %1032, i64 0, i64 0
+  %1034 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1033)
+  %1035 = getelementptr inbounds float, ptr %1034, i64 2
+  %1036 = load float, ptr %1035, align 4, !tbaa !23
+  %1037 = fsub float %1031, %1036
+  %1038 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 2
+  store float %1037, ptr %1038, align 4, !tbaa !23
+  %1039 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1040 = getelementptr inbounds [3 x %class.btVector3], ptr %1039, i64 0, i64 2
+  %1041 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1040)
+  %1042 = getelementptr inbounds float, ptr %1041, i64 0
+  %1043 = load float, ptr %1042, align 4, !tbaa !23
+  %1044 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1045 = getelementptr inbounds [3 x %class.btVector3], ptr %1044, i64 0, i64 0
+  %1046 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1045)
+  %1047 = getelementptr inbounds float, ptr %1046, i64 0
+  %1048 = load float, ptr %1047, align 4, !tbaa !23
+  %1049 = fsub float %1043, %1048
+  %1050 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 0
+  store float %1049, ptr %1050, align 4, !tbaa !23
+  %1051 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1052 = getelementptr inbounds [3 x %class.btVector3], ptr %1051, i64 0, i64 2
+  %1053 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1052)
+  %1054 = getelementptr inbounds float, ptr %1053, i64 1
+  %1055 = load float, ptr %1054, align 4, !tbaa !23
+  %1056 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1057 = getelementptr inbounds [3 x %class.btVector3], ptr %1056, i64 0, i64 0
+  %1058 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1057)
+  %1059 = getelementptr inbounds float, ptr %1058, i64 1
+  %1060 = load float, ptr %1059, align 4, !tbaa !23
+  %1061 = fsub float %1055, %1060
+  %1062 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 1
+  store float %1061, ptr %1062, align 4, !tbaa !23
+  %1063 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1064 = getelementptr inbounds [3 x %class.btVector3], ptr %1063, i64 0, i64 2
+  %1065 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1064)
+  %1066 = getelementptr inbounds float, ptr %1065, i64 2
+  %1067 = load float, ptr %1066, align 4, !tbaa !23
+  %1068 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1069 = getelementptr inbounds [3 x %class.btVector3], ptr %1068, i64 0, i64 0
+  %1070 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1069)
+  %1071 = getelementptr inbounds float, ptr %1070, i64 2
+  %1072 = load float, ptr %1071, align 4, !tbaa !23
+  %1073 = fsub float %1067, %1072
+  %1074 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 2
+  store float %1073, ptr %1074, align 4, !tbaa !23
+  %1075 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 1
+  %1076 = load float, ptr %1075, align 4, !tbaa !23
+  %1077 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 2
+  %1078 = load float, ptr %1077, align 4, !tbaa !23
+  %1079 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 2
+  %1080 = load float, ptr %1079, align 4, !tbaa !23
+  %1081 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 1
+  %1082 = load float, ptr %1081, align 4, !tbaa !23
+  %1083 = fmul float %1080, %1082
+  %1084 = fneg float %1083
+  %1085 = call float @llvm.fmuladd.f32(float %1076, float %1078, float %1084)
+  %1086 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1087 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1086)
+  %1088 = getelementptr inbounds float, ptr %1087, i64 0
+  store float %1085, ptr %1088, align 4, !tbaa !23
+  %1089 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 2
+  %1090 = load float, ptr %1089, align 4, !tbaa !23
+  %1091 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 0
+  %1092 = load float, ptr %1091, align 4, !tbaa !23
+  %1093 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 0
+  %1094 = load float, ptr %1093, align 4, !tbaa !23
+  %1095 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 2
+  %1096 = load float, ptr %1095, align 4, !tbaa !23
+  %1097 = fmul float %1094, %1096
+  %1098 = fneg float %1097
+  %1099 = call float @llvm.fmuladd.f32(float %1090, float %1092, float %1098)
+  %1100 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1101 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1100)
+  %1102 = getelementptr inbounds float, ptr %1101, i64 1
+  store float %1099, ptr %1102, align 4, !tbaa !23
+  %1103 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 0
+  %1104 = load float, ptr %1103, align 4, !tbaa !23
+  %1105 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 1
+  %1106 = load float, ptr %1105, align 4, !tbaa !23
+  %1107 = getelementptr inbounds [3 x float], ptr %28, i64 0, i64 1
+  %1108 = load float, ptr %1107, align 4, !tbaa !23
+  %1109 = getelementptr inbounds [3 x float], ptr %29, i64 0, i64 0
+  %1110 = load float, ptr %1109, align 4, !tbaa !23
+  %1111 = fmul float %1108, %1110
+  %1112 = fneg float %1111
+  %1113 = call float @llvm.fmuladd.f32(float %1104, float %1106, float %1112)
+  %1114 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1115 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1114)
+  %1116 = getelementptr inbounds float, ptr %1115, i64 2
+  store float %1113, ptr %1116, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #8
+  %1117 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1118 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1117)
+  %1119 = getelementptr inbounds float, ptr %1118, i64 0
+  %1120 = load float, ptr %1119, align 4, !tbaa !23
+  %1121 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1122 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1121)
+  %1123 = getelementptr inbounds float, ptr %1122, i64 0
+  %1124 = load float, ptr %1123, align 4, !tbaa !23
+  %1125 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1126 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1125)
+  %1127 = getelementptr inbounds float, ptr %1126, i64 1
+  %1128 = load float, ptr %1127, align 4, !tbaa !23
+  %1129 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1130 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1129)
+  %1131 = getelementptr inbounds float, ptr %1130, i64 1
+  %1132 = load float, ptr %1131, align 4, !tbaa !23
+  %1133 = fmul float %1128, %1132
+  %1134 = call float @llvm.fmuladd.f32(float %1120, float %1124, float %1133)
+  %1135 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1136 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1135)
+  %1137 = getelementptr inbounds float, ptr %1136, i64 2
+  %1138 = load float, ptr %1137, align 4, !tbaa !23
+  %1139 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1140 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1139)
+  %1141 = getelementptr inbounds float, ptr %1140, i64 2
+  %1142 = load float, ptr %1141, align 4, !tbaa !23
+  %1143 = call float @llvm.fmuladd.f32(float %1138, float %1142, float %1134)
+  store float %1143, ptr %31, align 4, !tbaa !23
+  %1144 = load float, ptr %31, align 4, !tbaa !23
+  %1145 = fcmp ole float %1144, 0x3E7AD7F2A0000000
+  br i1 %1145, label %1146, label %1147
+
+1146:                                             ; preds = %1002
+  store float 0x47EFFFFFE0000000, ptr %30, align 4, !tbaa !23
+  br label %1162
+
+1147:                                             ; preds = %1002
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #8
+  %1148 = load float, ptr %31, align 4, !tbaa !23
+  %1149 = fmul float %1148, 5.000000e-01
+  store float %1149, ptr %32, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #8
+  %1150 = load i32, ptr %31, align 4, !tbaa !9
+  %1151 = lshr i32 %1150, 1
+  %1152 = sub i32 1597463007, %1151
+  store i32 %1152, ptr %33, align 4, !tbaa !9
+  %1153 = load float, ptr %33, align 4, !tbaa !23
+  store float %1153, ptr %30, align 4, !tbaa !23
+  %1154 = load float, ptr %30, align 4, !tbaa !23
+  %1155 = load float, ptr %32, align 4, !tbaa !23
+  %1156 = load float, ptr %30, align 4, !tbaa !23
+  %1157 = fmul float %1155, %1156
+  %1158 = load float, ptr %30, align 4, !tbaa !23
+  %1159 = fneg float %1157
+  %1160 = call float @llvm.fmuladd.f32(float %1159, float %1158, float 1.500000e+00)
+  %1161 = fmul float %1154, %1160
+  store float %1161, ptr %30, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #8
+  br label %1162
+
+1162:                                             ; preds = %1147, %1146
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #8
+  %1163 = load float, ptr %30, align 4, !tbaa !23
+  %1164 = fcmp olt float %1163, 0x47EFFFFFE0000000
+  br i1 %1164, label %1165, label %1184
+
+1165:                                             ; preds = %1162
+  %1166 = load float, ptr %30, align 4, !tbaa !23
+  %1167 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1168 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1167)
+  %1169 = getelementptr inbounds float, ptr %1168, i64 0
+  %1170 = load float, ptr %1169, align 4, !tbaa !23
+  %1171 = fmul float %1170, %1166
+  store float %1171, ptr %1169, align 4, !tbaa !23
+  %1172 = load float, ptr %30, align 4, !tbaa !23
+  %1173 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1174 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1173)
+  %1175 = getelementptr inbounds float, ptr %1174, i64 1
+  %1176 = load float, ptr %1175, align 4, !tbaa !23
+  %1177 = fmul float %1176, %1172
+  store float %1177, ptr %1175, align 4, !tbaa !23
+  %1178 = load float, ptr %30, align 4, !tbaa !23
+  %1179 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1180 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1179)
+  %1181 = getelementptr inbounds float, ptr %1180, i64 2
+  %1182 = load float, ptr %1181, align 4, !tbaa !23
+  %1183 = fmul float %1182, %1178
+  store float %1183, ptr %1181, align 4, !tbaa !23
+  br label %1184
+
+1184:                                             ; preds = %1165, %1162
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr %28) #8
+  %1185 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1186 = getelementptr inbounds [3 x %class.btVector3], ptr %1185, i64 0, i64 0
+  %1187 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1186)
+  %1188 = getelementptr inbounds float, ptr %1187, i64 0
+  %1189 = load float, ptr %1188, align 4, !tbaa !23
+  %1190 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1191 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1190)
+  %1192 = getelementptr inbounds float, ptr %1191, i64 0
+  %1193 = load float, ptr %1192, align 4, !tbaa !23
+  %1194 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1195 = getelementptr inbounds [3 x %class.btVector3], ptr %1194, i64 0, i64 0
+  %1196 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1195)
+  %1197 = getelementptr inbounds float, ptr %1196, i64 1
+  %1198 = load float, ptr %1197, align 4, !tbaa !23
+  %1199 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1200 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1199)
+  %1201 = getelementptr inbounds float, ptr %1200, i64 1
+  %1202 = load float, ptr %1201, align 4, !tbaa !23
+  %1203 = fmul float %1198, %1202
+  %1204 = call float @llvm.fmuladd.f32(float %1189, float %1193, float %1203)
+  %1205 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1206 = getelementptr inbounds [3 x %class.btVector3], ptr %1205, i64 0, i64 0
+  %1207 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1206)
+  %1208 = getelementptr inbounds float, ptr %1207, i64 2
+  %1209 = load float, ptr %1208, align 4, !tbaa !23
+  %1210 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1211 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1210)
+  %1212 = getelementptr inbounds float, ptr %1211, i64 2
+  %1213 = load float, ptr %1212, align 4, !tbaa !23
+  %1214 = call float @llvm.fmuladd.f32(float %1209, float %1213, float %1204)
+  %1215 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1216 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1215)
+  %1217 = getelementptr inbounds float, ptr %1216, i64 3
+  store float %1214, ptr %1217, align 4, !tbaa !23
+  %1218 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1219 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1218)
+  %1220 = getelementptr inbounds float, ptr %1219, i64 0
+  %1221 = load float, ptr %1220, align 4, !tbaa !23
+  %1222 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1223 = getelementptr inbounds [3 x %class.btVector3], ptr %1222, i64 0, i64 0
+  %1224 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1223)
+  %1225 = getelementptr inbounds float, ptr %1224, i64 0
+  %1226 = load float, ptr %1225, align 4, !tbaa !23
+  %1227 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1228 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1227)
+  %1229 = getelementptr inbounds float, ptr %1228, i64 1
+  %1230 = load float, ptr %1229, align 4, !tbaa !23
+  %1231 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1232 = getelementptr inbounds [3 x %class.btVector3], ptr %1231, i64 0, i64 0
+  %1233 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1232)
+  %1234 = getelementptr inbounds float, ptr %1233, i64 1
+  %1235 = load float, ptr %1234, align 4, !tbaa !23
+  %1236 = fmul float %1230, %1235
+  %1237 = call float @llvm.fmuladd.f32(float %1221, float %1226, float %1236)
+  %1238 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1239 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1238)
+  %1240 = getelementptr inbounds float, ptr %1239, i64 2
+  %1241 = load float, ptr %1240, align 4, !tbaa !23
+  %1242 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1243 = getelementptr inbounds [3 x %class.btVector3], ptr %1242, i64 0, i64 0
+  %1244 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1243)
+  %1245 = getelementptr inbounds float, ptr %1244, i64 2
+  %1246 = load float, ptr %1245, align 4, !tbaa !23
+  %1247 = call float @llvm.fmuladd.f32(float %1241, float %1246, float %1237)
+  %1248 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1249 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1248)
+  %1250 = getelementptr inbounds float, ptr %1249, i64 3
+  %1251 = load float, ptr %1250, align 4, !tbaa !23
+  %1252 = fsub float %1247, %1251
+  %1253 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1254 = getelementptr inbounds [4 x float], ptr %1253, i64 0, i64 0
+  store float %1252, ptr %1254, align 4, !tbaa !23
+  %1255 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1256 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1255)
+  %1257 = getelementptr inbounds float, ptr %1256, i64 0
+  %1258 = load float, ptr %1257, align 4, !tbaa !23
+  %1259 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1260 = getelementptr inbounds [3 x %class.btVector3], ptr %1259, i64 0, i64 1
+  %1261 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1260)
+  %1262 = getelementptr inbounds float, ptr %1261, i64 0
+  %1263 = load float, ptr %1262, align 4, !tbaa !23
+  %1264 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1265 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1264)
+  %1266 = getelementptr inbounds float, ptr %1265, i64 1
+  %1267 = load float, ptr %1266, align 4, !tbaa !23
+  %1268 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1269 = getelementptr inbounds [3 x %class.btVector3], ptr %1268, i64 0, i64 1
+  %1270 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1269)
+  %1271 = getelementptr inbounds float, ptr %1270, i64 1
+  %1272 = load float, ptr %1271, align 4, !tbaa !23
+  %1273 = fmul float %1267, %1272
+  %1274 = call float @llvm.fmuladd.f32(float %1258, float %1263, float %1273)
+  %1275 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1276 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1275)
+  %1277 = getelementptr inbounds float, ptr %1276, i64 2
+  %1278 = load float, ptr %1277, align 4, !tbaa !23
+  %1279 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1280 = getelementptr inbounds [3 x %class.btVector3], ptr %1279, i64 0, i64 1
+  %1281 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1280)
+  %1282 = getelementptr inbounds float, ptr %1281, i64 2
+  %1283 = load float, ptr %1282, align 4, !tbaa !23
+  %1284 = call float @llvm.fmuladd.f32(float %1278, float %1283, float %1274)
+  %1285 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1286 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1285)
+  %1287 = getelementptr inbounds float, ptr %1286, i64 3
+  %1288 = load float, ptr %1287, align 4, !tbaa !23
+  %1289 = fsub float %1284, %1288
+  %1290 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1291 = getelementptr inbounds [4 x float], ptr %1290, i64 0, i64 1
+  store float %1289, ptr %1291, align 4, !tbaa !23
+  %1292 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1293 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1292)
+  %1294 = getelementptr inbounds float, ptr %1293, i64 0
+  %1295 = load float, ptr %1294, align 4, !tbaa !23
+  %1296 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1297 = getelementptr inbounds [3 x %class.btVector3], ptr %1296, i64 0, i64 2
+  %1298 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1297)
+  %1299 = getelementptr inbounds float, ptr %1298, i64 0
+  %1300 = load float, ptr %1299, align 4, !tbaa !23
+  %1301 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1302 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1301)
+  %1303 = getelementptr inbounds float, ptr %1302, i64 1
+  %1304 = load float, ptr %1303, align 4, !tbaa !23
+  %1305 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1306 = getelementptr inbounds [3 x %class.btVector3], ptr %1305, i64 0, i64 2
+  %1307 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1306)
+  %1308 = getelementptr inbounds float, ptr %1307, i64 1
+  %1309 = load float, ptr %1308, align 4, !tbaa !23
+  %1310 = fmul float %1304, %1309
+  %1311 = call float @llvm.fmuladd.f32(float %1295, float %1300, float %1310)
+  %1312 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1313 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1312)
+  %1314 = getelementptr inbounds float, ptr %1313, i64 2
+  %1315 = load float, ptr %1314, align 4, !tbaa !23
+  %1316 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %1317 = getelementptr inbounds [3 x %class.btVector3], ptr %1316, i64 0, i64 2
+  %1318 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1317)
+  %1319 = getelementptr inbounds float, ptr %1318, i64 2
+  %1320 = load float, ptr %1319, align 4, !tbaa !23
+  %1321 = call float @llvm.fmuladd.f32(float %1315, float %1320, float %1311)
+  %1322 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1323 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1322)
+  %1324 = getelementptr inbounds float, ptr %1323, i64 3
+  %1325 = load float, ptr %1324, align 4, !tbaa !23
+  %1326 = fsub float %1321, %1325
+  %1327 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1328 = getelementptr inbounds [4 x float], ptr %1327, i64 0, i64 2
+  store float %1326, ptr %1328, align 4, !tbaa !23
+  %1329 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1330 = getelementptr inbounds [4 x float], ptr %1329, i64 0, i64 0
+  %1331 = load float, ptr %1330, align 4, !tbaa !23
+  %1332 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1333 = getelementptr inbounds [4 x float], ptr %1332, i64 0, i64 1
+  %1334 = load float, ptr %1333, align 4, !tbaa !23
+  %1335 = fmul float %1331, %1334
+  %1336 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 13
+  store float %1335, ptr %1336, align 4, !tbaa !31
+  %1337 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1338 = getelementptr inbounds [4 x float], ptr %1337, i64 0, i64 0
+  %1339 = load float, ptr %1338, align 4, !tbaa !23
+  %1340 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1341 = getelementptr inbounds [4 x float], ptr %1340, i64 0, i64 2
+  %1342 = load float, ptr %1341, align 4, !tbaa !23
+  %1343 = fmul float %1339, %1342
+  %1344 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 14
+  store float %1343, ptr %1344, align 4, !tbaa !32
+  %1345 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 13
+  %1346 = load float, ptr %1345, align 4, !tbaa !31
+  %1347 = fcmp ogt float %1346, 0.000000e+00
+  br i1 %1347, label %1348, label %1649
+
+1348:                                             ; preds = %1184
+  %1349 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 14
+  %1350 = load float, ptr %1349, align 4, !tbaa !32
+  %1351 = fcmp ogt float %1350, 0.000000e+00
+  br i1 %1351, label %1352, label %1649
+
+1352:                                             ; preds = %1348
+  %1353 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1354 = getelementptr inbounds [4 x float], ptr %1353, i64 0, i64 0
+  %1355 = load float, ptr %1354, align 4, !tbaa !23
+  %1356 = fcmp olt float %1355, 0.000000e+00
+  br i1 %1356, label %1357, label %1590
+
+1357:                                             ; preds = %1352
+  %1358 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1359 = getelementptr inbounds [4 x float], ptr %1358, i64 0, i64 0
+  %1360 = load float, ptr %1359, align 4, !tbaa !23
+  %1361 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1362 = getelementptr inbounds [4 x float], ptr %1361, i64 0, i64 1
+  %1363 = load float, ptr %1362, align 4, !tbaa !23
+  %1364 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1365 = getelementptr inbounds [4 x float], ptr %1364, i64 0, i64 2
+  %1366 = load float, ptr %1365, align 4, !tbaa !23
+  %1367 = fcmp olt float %1363, %1366
+  br i1 %1367, label %1368, label %1372
+
+1368:                                             ; preds = %1357
+  %1369 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1370 = getelementptr inbounds [4 x float], ptr %1369, i64 0, i64 2
+  %1371 = load float, ptr %1370, align 4, !tbaa !23
+  br label %1376
+
+1372:                                             ; preds = %1357
+  %1373 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1374 = getelementptr inbounds [4 x float], ptr %1373, i64 0, i64 1
+  %1375 = load float, ptr %1374, align 4, !tbaa !23
+  br label %1376
+
+1376:                                             ; preds = %1372, %1368
+  %1377 = phi float [ %1371, %1368 ], [ %1375, %1372 ]
+  %1378 = fcmp olt float %1360, %1377
+  br i1 %1378, label %1379, label %1397
+
+1379:                                             ; preds = %1376
+  %1380 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1381 = getelementptr inbounds [4 x float], ptr %1380, i64 0, i64 1
+  %1382 = load float, ptr %1381, align 4, !tbaa !23
+  %1383 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1384 = getelementptr inbounds [4 x float], ptr %1383, i64 0, i64 2
+  %1385 = load float, ptr %1384, align 4, !tbaa !23
+  %1386 = fcmp olt float %1382, %1385
+  br i1 %1386, label %1387, label %1391
+
+1387:                                             ; preds = %1379
+  %1388 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1389 = getelementptr inbounds [4 x float], ptr %1388, i64 0, i64 2
+  %1390 = load float, ptr %1389, align 4, !tbaa !23
+  br label %1395
+
+1391:                                             ; preds = %1379
+  %1392 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1393 = getelementptr inbounds [4 x float], ptr %1392, i64 0, i64 1
+  %1394 = load float, ptr %1393, align 4, !tbaa !23
+  br label %1395
+
+1395:                                             ; preds = %1391, %1387
+  %1396 = phi float [ %1390, %1387 ], [ %1394, %1391 ]
+  br label %1401
+
+1397:                                             ; preds = %1376
+  %1398 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1399 = getelementptr inbounds [4 x float], ptr %1398, i64 0, i64 0
+  %1400 = load float, ptr %1399, align 4, !tbaa !23
+  br label %1401
+
+1401:                                             ; preds = %1397, %1395
+  %1402 = phi float [ %1396, %1395 ], [ %1400, %1397 ]
+  %1403 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1404 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1403)
+  %1405 = getelementptr inbounds float, ptr %1404, i64 1
+  store float %1402, ptr %1405, align 4, !tbaa !23
+  %1406 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1407 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1406)
+  %1408 = getelementptr inbounds float, ptr %1407, i64 1
+  %1409 = load float, ptr %1408, align 4, !tbaa !23
+  %1410 = fneg float %1409
+  %1411 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1412 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1411)
+  %1413 = getelementptr inbounds float, ptr %1412, i64 1
+  store float %1410, ptr %1413, align 4, !tbaa !23
+  %1414 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1415 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1414)
+  %1416 = getelementptr inbounds float, ptr %1415, i64 1
+  %1417 = load float, ptr %1416, align 4, !tbaa !23
+  %1418 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %1419 = load float, ptr %1418, align 4, !tbaa !24
+  %1420 = fcmp ogt float %1417, %1419
+  br i1 %1420, label %1421, label %1422
+
+1421:                                             ; preds = %1401
+  store i1 false, ptr %11, align 1
+  br label %2063
+
+1422:                                             ; preds = %1401
+  %1423 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1424 = getelementptr inbounds [3 x %class.btVector3], ptr %1423, i64 0, i64 0
+  %1425 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1424)
+  %1426 = getelementptr inbounds float, ptr %1425, i64 0
+  %1427 = load float, ptr %1426, align 4, !tbaa !23
+  %1428 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1429 = getelementptr inbounds [3 x %class.btVector3], ptr %1428, i64 0, i64 1
+  %1430 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1429)
+  %1431 = getelementptr inbounds float, ptr %1430, i64 0
+  %1432 = load float, ptr %1431, align 4, !tbaa !23
+  %1433 = fadd float %1427, %1432
+  %1434 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1435 = getelementptr inbounds [3 x %class.btVector3], ptr %1434, i64 0, i64 0
+  %1436 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1435)
+  %1437 = getelementptr inbounds float, ptr %1436, i64 0
+  store float %1433, ptr %1437, align 4, !tbaa !23
+  %1438 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1439 = getelementptr inbounds [3 x %class.btVector3], ptr %1438, i64 0, i64 0
+  %1440 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1439)
+  %1441 = getelementptr inbounds float, ptr %1440, i64 0
+  %1442 = load float, ptr %1441, align 4, !tbaa !23
+  %1443 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1444 = getelementptr inbounds [3 x %class.btVector3], ptr %1443, i64 0, i64 1
+  %1445 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1444)
+  %1446 = getelementptr inbounds float, ptr %1445, i64 0
+  %1447 = load float, ptr %1446, align 4, !tbaa !23
+  %1448 = fsub float %1442, %1447
+  %1449 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1450 = getelementptr inbounds [3 x %class.btVector3], ptr %1449, i64 0, i64 1
+  %1451 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1450)
+  %1452 = getelementptr inbounds float, ptr %1451, i64 0
+  store float %1448, ptr %1452, align 4, !tbaa !23
+  %1453 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1454 = getelementptr inbounds [3 x %class.btVector3], ptr %1453, i64 0, i64 0
+  %1455 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1454)
+  %1456 = getelementptr inbounds float, ptr %1455, i64 0
+  %1457 = load float, ptr %1456, align 4, !tbaa !23
+  %1458 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1459 = getelementptr inbounds [3 x %class.btVector3], ptr %1458, i64 0, i64 1
+  %1460 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1459)
+  %1461 = getelementptr inbounds float, ptr %1460, i64 0
+  %1462 = load float, ptr %1461, align 4, !tbaa !23
+  %1463 = fsub float %1457, %1462
+  %1464 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1465 = getelementptr inbounds [3 x %class.btVector3], ptr %1464, i64 0, i64 0
+  %1466 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1465)
+  %1467 = getelementptr inbounds float, ptr %1466, i64 0
+  store float %1463, ptr %1467, align 4, !tbaa !23
+  %1468 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1469 = getelementptr inbounds [3 x %class.btVector3], ptr %1468, i64 0, i64 0
+  %1470 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1469)
+  %1471 = getelementptr inbounds float, ptr %1470, i64 1
+  %1472 = load float, ptr %1471, align 4, !tbaa !23
+  %1473 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1474 = getelementptr inbounds [3 x %class.btVector3], ptr %1473, i64 0, i64 1
+  %1475 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1474)
+  %1476 = getelementptr inbounds float, ptr %1475, i64 1
+  %1477 = load float, ptr %1476, align 4, !tbaa !23
+  %1478 = fadd float %1472, %1477
+  %1479 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1480 = getelementptr inbounds [3 x %class.btVector3], ptr %1479, i64 0, i64 0
+  %1481 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1480)
+  %1482 = getelementptr inbounds float, ptr %1481, i64 1
+  store float %1478, ptr %1482, align 4, !tbaa !23
+  %1483 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1484 = getelementptr inbounds [3 x %class.btVector3], ptr %1483, i64 0, i64 0
+  %1485 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1484)
+  %1486 = getelementptr inbounds float, ptr %1485, i64 1
+  %1487 = load float, ptr %1486, align 4, !tbaa !23
+  %1488 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1489 = getelementptr inbounds [3 x %class.btVector3], ptr %1488, i64 0, i64 1
+  %1490 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1489)
+  %1491 = getelementptr inbounds float, ptr %1490, i64 1
+  %1492 = load float, ptr %1491, align 4, !tbaa !23
+  %1493 = fsub float %1487, %1492
+  %1494 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1495 = getelementptr inbounds [3 x %class.btVector3], ptr %1494, i64 0, i64 1
+  %1496 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1495)
+  %1497 = getelementptr inbounds float, ptr %1496, i64 1
+  store float %1493, ptr %1497, align 4, !tbaa !23
+  %1498 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1499 = getelementptr inbounds [3 x %class.btVector3], ptr %1498, i64 0, i64 0
+  %1500 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1499)
+  %1501 = getelementptr inbounds float, ptr %1500, i64 1
+  %1502 = load float, ptr %1501, align 4, !tbaa !23
+  %1503 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1504 = getelementptr inbounds [3 x %class.btVector3], ptr %1503, i64 0, i64 1
+  %1505 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1504)
+  %1506 = getelementptr inbounds float, ptr %1505, i64 1
+  %1507 = load float, ptr %1506, align 4, !tbaa !23
+  %1508 = fsub float %1502, %1507
+  %1509 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1510 = getelementptr inbounds [3 x %class.btVector3], ptr %1509, i64 0, i64 0
+  %1511 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1510)
+  %1512 = getelementptr inbounds float, ptr %1511, i64 1
+  store float %1508, ptr %1512, align 4, !tbaa !23
+  %1513 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1514 = getelementptr inbounds [3 x %class.btVector3], ptr %1513, i64 0, i64 0
+  %1515 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1514)
+  %1516 = getelementptr inbounds float, ptr %1515, i64 2
+  %1517 = load float, ptr %1516, align 4, !tbaa !23
+  %1518 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1519 = getelementptr inbounds [3 x %class.btVector3], ptr %1518, i64 0, i64 1
+  %1520 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1519)
+  %1521 = getelementptr inbounds float, ptr %1520, i64 2
+  %1522 = load float, ptr %1521, align 4, !tbaa !23
+  %1523 = fadd float %1517, %1522
+  %1524 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1525 = getelementptr inbounds [3 x %class.btVector3], ptr %1524, i64 0, i64 0
+  %1526 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1525)
+  %1527 = getelementptr inbounds float, ptr %1526, i64 2
+  store float %1523, ptr %1527, align 4, !tbaa !23
+  %1528 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1529 = getelementptr inbounds [3 x %class.btVector3], ptr %1528, i64 0, i64 0
+  %1530 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1529)
+  %1531 = getelementptr inbounds float, ptr %1530, i64 2
+  %1532 = load float, ptr %1531, align 4, !tbaa !23
+  %1533 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1534 = getelementptr inbounds [3 x %class.btVector3], ptr %1533, i64 0, i64 1
+  %1535 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1534)
+  %1536 = getelementptr inbounds float, ptr %1535, i64 2
+  %1537 = load float, ptr %1536, align 4, !tbaa !23
+  %1538 = fsub float %1532, %1537
+  %1539 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1540 = getelementptr inbounds [3 x %class.btVector3], ptr %1539, i64 0, i64 1
+  %1541 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1540)
+  %1542 = getelementptr inbounds float, ptr %1541, i64 2
+  store float %1538, ptr %1542, align 4, !tbaa !23
+  %1543 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1544 = getelementptr inbounds [3 x %class.btVector3], ptr %1543, i64 0, i64 0
+  %1545 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1544)
+  %1546 = getelementptr inbounds float, ptr %1545, i64 2
+  %1547 = load float, ptr %1546, align 4, !tbaa !23
+  %1548 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1549 = getelementptr inbounds [3 x %class.btVector3], ptr %1548, i64 0, i64 1
+  %1550 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1549)
+  %1551 = getelementptr inbounds float, ptr %1550, i64 2
+  %1552 = load float, ptr %1551, align 4, !tbaa !23
+  %1553 = fsub float %1547, %1552
+  %1554 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1555 = getelementptr inbounds [3 x %class.btVector3], ptr %1554, i64 0, i64 0
+  %1556 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1555)
+  %1557 = getelementptr inbounds float, ptr %1556, i64 2
+  store float %1553, ptr %1557, align 4, !tbaa !23
+  %1558 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1559 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1558)
+  %1560 = getelementptr inbounds float, ptr %1559, i64 0
+  %1561 = load float, ptr %1560, align 4, !tbaa !23
+  %1562 = fmul float -1.000000e+00, %1561
+  %1563 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1564 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1563)
+  %1565 = getelementptr inbounds float, ptr %1564, i64 0
+  store float %1562, ptr %1565, align 4, !tbaa !23
+  %1566 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1567 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1566)
+  %1568 = getelementptr inbounds float, ptr %1567, i64 1
+  %1569 = load float, ptr %1568, align 4, !tbaa !23
+  %1570 = fmul float -1.000000e+00, %1569
+  %1571 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1572 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1571)
+  %1573 = getelementptr inbounds float, ptr %1572, i64 1
+  store float %1570, ptr %1573, align 4, !tbaa !23
+  %1574 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1575 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1574)
+  %1576 = getelementptr inbounds float, ptr %1575, i64 2
+  %1577 = load float, ptr %1576, align 4, !tbaa !23
+  %1578 = fmul float -1.000000e+00, %1577
+  %1579 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1580 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1579)
+  %1581 = getelementptr inbounds float, ptr %1580, i64 2
+  store float %1578, ptr %1581, align 4, !tbaa !23
+  %1582 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1583 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1582)
+  %1584 = getelementptr inbounds float, ptr %1583, i64 3
+  %1585 = load float, ptr %1584, align 4, !tbaa !23
+  %1586 = fmul float -1.000000e+00, %1585
+  %1587 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1588 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1587)
+  %1589 = getelementptr inbounds float, ptr %1588, i64 3
+  store float %1586, ptr %1589, align 4, !tbaa !23
+  br label %1648
+
+1590:                                             ; preds = %1352
+  %1591 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1592 = getelementptr inbounds [4 x float], ptr %1591, i64 0, i64 0
+  %1593 = load float, ptr %1592, align 4, !tbaa !23
+  %1594 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1595 = getelementptr inbounds [4 x float], ptr %1594, i64 0, i64 1
+  %1596 = load float, ptr %1595, align 4, !tbaa !23
+  %1597 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1598 = getelementptr inbounds [4 x float], ptr %1597, i64 0, i64 2
+  %1599 = load float, ptr %1598, align 4, !tbaa !23
+  %1600 = fcmp ogt float %1596, %1599
+  br i1 %1600, label %1601, label %1605
+
+1601:                                             ; preds = %1590
+  %1602 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1603 = getelementptr inbounds [4 x float], ptr %1602, i64 0, i64 2
+  %1604 = load float, ptr %1603, align 4, !tbaa !23
+  br label %1609
+
+1605:                                             ; preds = %1590
+  %1606 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1607 = getelementptr inbounds [4 x float], ptr %1606, i64 0, i64 1
+  %1608 = load float, ptr %1607, align 4, !tbaa !23
+  br label %1609
+
+1609:                                             ; preds = %1605, %1601
+  %1610 = phi float [ %1604, %1601 ], [ %1608, %1605 ]
+  %1611 = fcmp ogt float %1593, %1610
+  br i1 %1611, label %1612, label %1630
+
+1612:                                             ; preds = %1609
+  %1613 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1614 = getelementptr inbounds [4 x float], ptr %1613, i64 0, i64 1
+  %1615 = load float, ptr %1614, align 4, !tbaa !23
+  %1616 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1617 = getelementptr inbounds [4 x float], ptr %1616, i64 0, i64 2
+  %1618 = load float, ptr %1617, align 4, !tbaa !23
+  %1619 = fcmp ogt float %1615, %1618
+  br i1 %1619, label %1620, label %1624
+
+1620:                                             ; preds = %1612
+  %1621 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1622 = getelementptr inbounds [4 x float], ptr %1621, i64 0, i64 2
+  %1623 = load float, ptr %1622, align 4, !tbaa !23
+  br label %1628
+
+1624:                                             ; preds = %1612
+  %1625 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1626 = getelementptr inbounds [4 x float], ptr %1625, i64 0, i64 1
+  %1627 = load float, ptr %1626, align 4, !tbaa !23
+  br label %1628
+
+1628:                                             ; preds = %1624, %1620
+  %1629 = phi float [ %1623, %1620 ], [ %1627, %1624 ]
+  br label %1634
+
+1630:                                             ; preds = %1609
+  %1631 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1632 = getelementptr inbounds [4 x float], ptr %1631, i64 0, i64 0
+  %1633 = load float, ptr %1632, align 4, !tbaa !23
+  br label %1634
+
+1634:                                             ; preds = %1630, %1628
+  %1635 = phi float [ %1629, %1628 ], [ %1633, %1630 ]
+  %1636 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1637 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1636)
+  %1638 = getelementptr inbounds float, ptr %1637, i64 1
+  store float %1635, ptr %1638, align 4, !tbaa !23
+  %1639 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1640 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1639)
+  %1641 = getelementptr inbounds float, ptr %1640, i64 1
+  %1642 = load float, ptr %1641, align 4, !tbaa !23
+  %1643 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %1644 = load float, ptr %1643, align 4, !tbaa !24
+  %1645 = fcmp ogt float %1642, %1644
+  br i1 %1645, label %1646, label %1647
+
+1646:                                             ; preds = %1634
+  store i1 false, ptr %11, align 1
+  br label %2063
+
+1647:                                             ; preds = %1634
+  br label %1648
+
+1648:                                             ; preds = %1647, %1422
+  br label %1944
+
+1649:                                             ; preds = %1348, %1184
+  %1650 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1651 = getelementptr inbounds [4 x float], ptr %1650, i64 0, i64 0
+  %1652 = load float, ptr %1651, align 4, !tbaa !23
+  %1653 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1654 = getelementptr inbounds [4 x float], ptr %1653, i64 0, i64 1
+  %1655 = load float, ptr %1654, align 4, !tbaa !23
+  %1656 = fadd float %1652, %1655
+  %1657 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1658 = getelementptr inbounds [4 x float], ptr %1657, i64 0, i64 2
+  %1659 = load float, ptr %1658, align 4, !tbaa !23
+  %1660 = fadd float %1656, %1659
+  %1661 = fdiv float %1660, 3.000000e+00
+  %1662 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1663 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1662)
+  %1664 = getelementptr inbounds float, ptr %1663, i64 1
+  store float %1661, ptr %1664, align 4, !tbaa !23
+  %1665 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1666 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1665)
+  %1667 = getelementptr inbounds float, ptr %1666, i64 1
+  %1668 = load float, ptr %1667, align 4, !tbaa !23
+  %1669 = fcmp olt float %1668, 0.000000e+00
+  br i1 %1669, label %1670, label %1894
+
+1670:                                             ; preds = %1649
+  %1671 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1672 = getelementptr inbounds [3 x %class.btVector3], ptr %1671, i64 0, i64 0
+  %1673 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1672)
+  %1674 = getelementptr inbounds float, ptr %1673, i64 0
+  %1675 = load float, ptr %1674, align 4, !tbaa !23
+  %1676 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1677 = getelementptr inbounds [3 x %class.btVector3], ptr %1676, i64 0, i64 1
+  %1678 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1677)
+  %1679 = getelementptr inbounds float, ptr %1678, i64 0
+  %1680 = load float, ptr %1679, align 4, !tbaa !23
+  %1681 = fadd float %1675, %1680
+  %1682 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1683 = getelementptr inbounds [3 x %class.btVector3], ptr %1682, i64 0, i64 0
+  %1684 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1683)
+  %1685 = getelementptr inbounds float, ptr %1684, i64 0
+  store float %1681, ptr %1685, align 4, !tbaa !23
+  %1686 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1687 = getelementptr inbounds [3 x %class.btVector3], ptr %1686, i64 0, i64 0
+  %1688 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1687)
+  %1689 = getelementptr inbounds float, ptr %1688, i64 0
+  %1690 = load float, ptr %1689, align 4, !tbaa !23
+  %1691 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1692 = getelementptr inbounds [3 x %class.btVector3], ptr %1691, i64 0, i64 1
+  %1693 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1692)
+  %1694 = getelementptr inbounds float, ptr %1693, i64 0
+  %1695 = load float, ptr %1694, align 4, !tbaa !23
+  %1696 = fsub float %1690, %1695
+  %1697 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1698 = getelementptr inbounds [3 x %class.btVector3], ptr %1697, i64 0, i64 1
+  %1699 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1698)
+  %1700 = getelementptr inbounds float, ptr %1699, i64 0
+  store float %1696, ptr %1700, align 4, !tbaa !23
+  %1701 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1702 = getelementptr inbounds [3 x %class.btVector3], ptr %1701, i64 0, i64 0
+  %1703 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1702)
+  %1704 = getelementptr inbounds float, ptr %1703, i64 0
+  %1705 = load float, ptr %1704, align 4, !tbaa !23
+  %1706 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1707 = getelementptr inbounds [3 x %class.btVector3], ptr %1706, i64 0, i64 1
+  %1708 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1707)
+  %1709 = getelementptr inbounds float, ptr %1708, i64 0
+  %1710 = load float, ptr %1709, align 4, !tbaa !23
+  %1711 = fsub float %1705, %1710
+  %1712 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1713 = getelementptr inbounds [3 x %class.btVector3], ptr %1712, i64 0, i64 0
+  %1714 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1713)
+  %1715 = getelementptr inbounds float, ptr %1714, i64 0
+  store float %1711, ptr %1715, align 4, !tbaa !23
+  %1716 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1717 = getelementptr inbounds [3 x %class.btVector3], ptr %1716, i64 0, i64 0
+  %1718 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1717)
+  %1719 = getelementptr inbounds float, ptr %1718, i64 1
+  %1720 = load float, ptr %1719, align 4, !tbaa !23
+  %1721 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1722 = getelementptr inbounds [3 x %class.btVector3], ptr %1721, i64 0, i64 1
+  %1723 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1722)
+  %1724 = getelementptr inbounds float, ptr %1723, i64 1
+  %1725 = load float, ptr %1724, align 4, !tbaa !23
+  %1726 = fadd float %1720, %1725
+  %1727 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1728 = getelementptr inbounds [3 x %class.btVector3], ptr %1727, i64 0, i64 0
+  %1729 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1728)
+  %1730 = getelementptr inbounds float, ptr %1729, i64 1
+  store float %1726, ptr %1730, align 4, !tbaa !23
+  %1731 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1732 = getelementptr inbounds [3 x %class.btVector3], ptr %1731, i64 0, i64 0
+  %1733 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1732)
+  %1734 = getelementptr inbounds float, ptr %1733, i64 1
+  %1735 = load float, ptr %1734, align 4, !tbaa !23
+  %1736 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1737 = getelementptr inbounds [3 x %class.btVector3], ptr %1736, i64 0, i64 1
+  %1738 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1737)
+  %1739 = getelementptr inbounds float, ptr %1738, i64 1
+  %1740 = load float, ptr %1739, align 4, !tbaa !23
+  %1741 = fsub float %1735, %1740
+  %1742 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1743 = getelementptr inbounds [3 x %class.btVector3], ptr %1742, i64 0, i64 1
+  %1744 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1743)
+  %1745 = getelementptr inbounds float, ptr %1744, i64 1
+  store float %1741, ptr %1745, align 4, !tbaa !23
+  %1746 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1747 = getelementptr inbounds [3 x %class.btVector3], ptr %1746, i64 0, i64 0
+  %1748 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1747)
+  %1749 = getelementptr inbounds float, ptr %1748, i64 1
+  %1750 = load float, ptr %1749, align 4, !tbaa !23
+  %1751 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1752 = getelementptr inbounds [3 x %class.btVector3], ptr %1751, i64 0, i64 1
+  %1753 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1752)
+  %1754 = getelementptr inbounds float, ptr %1753, i64 1
+  %1755 = load float, ptr %1754, align 4, !tbaa !23
+  %1756 = fsub float %1750, %1755
+  %1757 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1758 = getelementptr inbounds [3 x %class.btVector3], ptr %1757, i64 0, i64 0
+  %1759 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1758)
+  %1760 = getelementptr inbounds float, ptr %1759, i64 1
+  store float %1756, ptr %1760, align 4, !tbaa !23
+  %1761 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1762 = getelementptr inbounds [3 x %class.btVector3], ptr %1761, i64 0, i64 0
+  %1763 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1762)
+  %1764 = getelementptr inbounds float, ptr %1763, i64 2
+  %1765 = load float, ptr %1764, align 4, !tbaa !23
+  %1766 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1767 = getelementptr inbounds [3 x %class.btVector3], ptr %1766, i64 0, i64 1
+  %1768 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1767)
+  %1769 = getelementptr inbounds float, ptr %1768, i64 2
+  %1770 = load float, ptr %1769, align 4, !tbaa !23
+  %1771 = fadd float %1765, %1770
+  %1772 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1773 = getelementptr inbounds [3 x %class.btVector3], ptr %1772, i64 0, i64 0
+  %1774 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1773)
+  %1775 = getelementptr inbounds float, ptr %1774, i64 2
+  store float %1771, ptr %1775, align 4, !tbaa !23
+  %1776 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1777 = getelementptr inbounds [3 x %class.btVector3], ptr %1776, i64 0, i64 0
+  %1778 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1777)
+  %1779 = getelementptr inbounds float, ptr %1778, i64 2
+  %1780 = load float, ptr %1779, align 4, !tbaa !23
+  %1781 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1782 = getelementptr inbounds [3 x %class.btVector3], ptr %1781, i64 0, i64 1
+  %1783 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1782)
+  %1784 = getelementptr inbounds float, ptr %1783, i64 2
+  %1785 = load float, ptr %1784, align 4, !tbaa !23
+  %1786 = fsub float %1780, %1785
+  %1787 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1788 = getelementptr inbounds [3 x %class.btVector3], ptr %1787, i64 0, i64 1
+  %1789 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1788)
+  %1790 = getelementptr inbounds float, ptr %1789, i64 2
+  store float %1786, ptr %1790, align 4, !tbaa !23
+  %1791 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1792 = getelementptr inbounds [3 x %class.btVector3], ptr %1791, i64 0, i64 0
+  %1793 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1792)
+  %1794 = getelementptr inbounds float, ptr %1793, i64 2
+  %1795 = load float, ptr %1794, align 4, !tbaa !23
+  %1796 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1797 = getelementptr inbounds [3 x %class.btVector3], ptr %1796, i64 0, i64 1
+  %1798 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1797)
+  %1799 = getelementptr inbounds float, ptr %1798, i64 2
+  %1800 = load float, ptr %1799, align 4, !tbaa !23
+  %1801 = fsub float %1795, %1800
+  %1802 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %1803 = getelementptr inbounds [3 x %class.btVector3], ptr %1802, i64 0, i64 0
+  %1804 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1803)
+  %1805 = getelementptr inbounds float, ptr %1804, i64 2
+  store float %1801, ptr %1805, align 4, !tbaa !23
+  %1806 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1807 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1806)
+  %1808 = getelementptr inbounds float, ptr %1807, i64 0
+  %1809 = load float, ptr %1808, align 4, !tbaa !23
+  %1810 = fmul float -1.000000e+00, %1809
+  %1811 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1812 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1811)
+  %1813 = getelementptr inbounds float, ptr %1812, i64 0
+  store float %1810, ptr %1813, align 4, !tbaa !23
+  %1814 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1815 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1814)
+  %1816 = getelementptr inbounds float, ptr %1815, i64 1
+  %1817 = load float, ptr %1816, align 4, !tbaa !23
+  %1818 = fmul float -1.000000e+00, %1817
+  %1819 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1820 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1819)
+  %1821 = getelementptr inbounds float, ptr %1820, i64 1
+  store float %1818, ptr %1821, align 4, !tbaa !23
+  %1822 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1823 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1822)
+  %1824 = getelementptr inbounds float, ptr %1823, i64 2
+  %1825 = load float, ptr %1824, align 4, !tbaa !23
+  %1826 = fmul float -1.000000e+00, %1825
+  %1827 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1828 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1827)
+  %1829 = getelementptr inbounds float, ptr %1828, i64 2
+  store float %1826, ptr %1829, align 4, !tbaa !23
+  %1830 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1831 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1830)
+  %1832 = getelementptr inbounds float, ptr %1831, i64 3
+  %1833 = load float, ptr %1832, align 4, !tbaa !23
+  %1834 = fmul float -1.000000e+00, %1833
+  %1835 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %1836 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1835)
+  %1837 = getelementptr inbounds float, ptr %1836, i64 3
+  store float %1834, ptr %1837, align 4, !tbaa !23
+  %1838 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1839 = getelementptr inbounds [4 x float], ptr %1838, i64 0, i64 0
+  %1840 = load float, ptr %1839, align 4, !tbaa !23
+  %1841 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1842 = getelementptr inbounds [4 x float], ptr %1841, i64 0, i64 1
+  %1843 = load float, ptr %1842, align 4, !tbaa !23
+  %1844 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1845 = getelementptr inbounds [4 x float], ptr %1844, i64 0, i64 2
+  %1846 = load float, ptr %1845, align 4, !tbaa !23
+  %1847 = fcmp olt float %1843, %1846
+  br i1 %1847, label %1848, label %1852
+
+1848:                                             ; preds = %1670
+  %1849 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1850 = getelementptr inbounds [4 x float], ptr %1849, i64 0, i64 2
+  %1851 = load float, ptr %1850, align 4, !tbaa !23
+  br label %1856
+
+1852:                                             ; preds = %1670
+  %1853 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1854 = getelementptr inbounds [4 x float], ptr %1853, i64 0, i64 1
+  %1855 = load float, ptr %1854, align 4, !tbaa !23
+  br label %1856
+
+1856:                                             ; preds = %1852, %1848
+  %1857 = phi float [ %1851, %1848 ], [ %1855, %1852 ]
+  %1858 = fcmp olt float %1840, %1857
+  br i1 %1858, label %1859, label %1877
+
+1859:                                             ; preds = %1856
+  %1860 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1861 = getelementptr inbounds [4 x float], ptr %1860, i64 0, i64 1
+  %1862 = load float, ptr %1861, align 4, !tbaa !23
+  %1863 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1864 = getelementptr inbounds [4 x float], ptr %1863, i64 0, i64 2
+  %1865 = load float, ptr %1864, align 4, !tbaa !23
+  %1866 = fcmp olt float %1862, %1865
+  br i1 %1866, label %1867, label %1871
+
+1867:                                             ; preds = %1859
+  %1868 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1869 = getelementptr inbounds [4 x float], ptr %1868, i64 0, i64 2
+  %1870 = load float, ptr %1869, align 4, !tbaa !23
+  br label %1875
+
+1871:                                             ; preds = %1859
+  %1872 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1873 = getelementptr inbounds [4 x float], ptr %1872, i64 0, i64 1
+  %1874 = load float, ptr %1873, align 4, !tbaa !23
+  br label %1875
+
+1875:                                             ; preds = %1871, %1867
+  %1876 = phi float [ %1870, %1867 ], [ %1874, %1871 ]
+  br label %1881
+
+1877:                                             ; preds = %1856
+  %1878 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1879 = getelementptr inbounds [4 x float], ptr %1878, i64 0, i64 0
+  %1880 = load float, ptr %1879, align 4, !tbaa !23
+  br label %1881
+
+1881:                                             ; preds = %1877, %1875
+  %1882 = phi float [ %1876, %1875 ], [ %1880, %1877 ]
+  %1883 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1884 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1883)
+  %1885 = getelementptr inbounds float, ptr %1884, i64 1
+  store float %1882, ptr %1885, align 4, !tbaa !23
+  %1886 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1887 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1886)
+  %1888 = getelementptr inbounds float, ptr %1887, i64 1
+  %1889 = load float, ptr %1888, align 4, !tbaa !23
+  %1890 = fneg float %1889
+  %1891 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1892 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1891)
+  %1893 = getelementptr inbounds float, ptr %1892, i64 1
+  store float %1890, ptr %1893, align 4, !tbaa !23
+  br label %1943
+
+1894:                                             ; preds = %1649
+  %1895 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1896 = getelementptr inbounds [4 x float], ptr %1895, i64 0, i64 0
+  %1897 = load float, ptr %1896, align 4, !tbaa !23
+  %1898 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1899 = getelementptr inbounds [4 x float], ptr %1898, i64 0, i64 1
+  %1900 = load float, ptr %1899, align 4, !tbaa !23
+  %1901 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1902 = getelementptr inbounds [4 x float], ptr %1901, i64 0, i64 2
+  %1903 = load float, ptr %1902, align 4, !tbaa !23
+  %1904 = fcmp ogt float %1900, %1903
+  br i1 %1904, label %1905, label %1909
+
+1905:                                             ; preds = %1894
+  %1906 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1907 = getelementptr inbounds [4 x float], ptr %1906, i64 0, i64 2
+  %1908 = load float, ptr %1907, align 4, !tbaa !23
+  br label %1913
+
+1909:                                             ; preds = %1894
+  %1910 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1911 = getelementptr inbounds [4 x float], ptr %1910, i64 0, i64 1
+  %1912 = load float, ptr %1911, align 4, !tbaa !23
+  br label %1913
+
+1913:                                             ; preds = %1909, %1905
+  %1914 = phi float [ %1908, %1905 ], [ %1912, %1909 ]
+  %1915 = fcmp ogt float %1897, %1914
+  br i1 %1915, label %1916, label %1934
+
+1916:                                             ; preds = %1913
+  %1917 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1918 = getelementptr inbounds [4 x float], ptr %1917, i64 0, i64 1
+  %1919 = load float, ptr %1918, align 4, !tbaa !23
+  %1920 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1921 = getelementptr inbounds [4 x float], ptr %1920, i64 0, i64 2
+  %1922 = load float, ptr %1921, align 4, !tbaa !23
+  %1923 = fcmp ogt float %1919, %1922
+  br i1 %1923, label %1924, label %1928
+
+1924:                                             ; preds = %1916
+  %1925 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1926 = getelementptr inbounds [4 x float], ptr %1925, i64 0, i64 2
+  %1927 = load float, ptr %1926, align 4, !tbaa !23
+  br label %1932
+
+1928:                                             ; preds = %1916
+  %1929 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1930 = getelementptr inbounds [4 x float], ptr %1929, i64 0, i64 1
+  %1931 = load float, ptr %1930, align 4, !tbaa !23
+  br label %1932
+
+1932:                                             ; preds = %1928, %1924
+  %1933 = phi float [ %1927, %1924 ], [ %1931, %1928 ]
+  br label %1938
+
+1934:                                             ; preds = %1913
+  %1935 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 12
+  %1936 = getelementptr inbounds [4 x float], ptr %1935, i64 0, i64 0
+  %1937 = load float, ptr %1936, align 4, !tbaa !23
+  br label %1938
+
+1938:                                             ; preds = %1934, %1932
+  %1939 = phi float [ %1933, %1932 ], [ %1937, %1934 ]
+  %1940 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1941 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1940)
+  %1942 = getelementptr inbounds float, ptr %1941, i64 1
+  store float %1939, ptr %1942, align 4, !tbaa !23
+  br label %1943
+
+1943:                                             ; preds = %1938, %1881
+  br label %1944
+
+1944:                                             ; preds = %1943, %1648
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #8
+  store i32 0, ptr %34, align 4, !tbaa !9
+  %1945 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1946 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1945)
+  %1947 = getelementptr inbounds float, ptr %1946, i64 0
+  %1948 = load float, ptr %1947, align 4, !tbaa !23
+  %1949 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1950 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1949)
+  %1951 = getelementptr inbounds float, ptr %1950, i64 1
+  %1952 = load float, ptr %1951, align 4, !tbaa !23
+  %1953 = fcmp olt float %1948, %1952
+  br i1 %1953, label %1954, label %1955
+
+1954:                                             ; preds = %1944
+  store i32 1, ptr %34, align 4, !tbaa !9
+  br label %1955
+
+1955:                                             ; preds = %1954, %1944
+  %1956 = load i32, ptr %34, align 4, !tbaa !9
+  %1957 = icmp eq i32 %1956, 2
+  br i1 %1957, label %1958, label %2008
+
+1958:                                             ; preds = %1955
+  %1959 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1960 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1959)
+  %1961 = getelementptr inbounds float, ptr %1960, i64 2
+  %1962 = load float, ptr %1961, align 4, !tbaa !23
+  %1963 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %1964 = load float, ptr %1963, align 4, !tbaa !24
+  %1965 = fcmp ogt float %1962, %1964
+  br i1 %1965, label %1966, label %1967
+
+1966:                                             ; preds = %1958
+  store i1 false, ptr %11, align 1
+  store i32 1, ptr %35, align 4
+  br label %2062
+
+1967:                                             ; preds = %1958
+  %1968 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 8
+  %1969 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1968)
+  %1970 = getelementptr inbounds float, ptr %1969, i64 2
+  %1971 = load float, ptr %1970, align 4, !tbaa !23
+  %1972 = fneg float %1971
+  %1973 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %1974 = load float, ptr %1973, align 4, !tbaa !24
+  %1975 = fadd float %1972, %1974
+  %1976 = load ptr, ptr %21, align 8, !tbaa !14
+  %1977 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %1976, i32 0, i32 0
+  store float %1975, ptr %1977, align 4, !tbaa !33
+  %1978 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 6
+  %1979 = load ptr, ptr %21, align 8, !tbaa !14
+  %1980 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %1979, i32 0, i32 3
+  %1981 = getelementptr inbounds [16 x %class.btVector3], ptr %1980, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1981, ptr align 4 %1978, i64 16, i1 false), !tbaa.struct !28
+  %1982 = load ptr, ptr %21, align 8, !tbaa !14
+  %1983 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %1982, i32 0, i32 1
+  store i32 1, ptr %1983, align 4, !tbaa !35
+  %1984 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 7
+  %1985 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1984)
+  %1986 = getelementptr inbounds float, ptr %1985, i64 0
+  %1987 = load float, ptr %1986, align 4, !tbaa !23
+  %1988 = load ptr, ptr %21, align 8, !tbaa !14
+  %1989 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %1988, i32 0, i32 2
+  %1990 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1989)
+  %1991 = getelementptr inbounds float, ptr %1990, i64 0
+  store float %1987, ptr %1991, align 4, !tbaa !23
+  %1992 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 7
+  %1993 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1992)
+  %1994 = getelementptr inbounds float, ptr %1993, i64 1
+  %1995 = load float, ptr %1994, align 4, !tbaa !23
+  %1996 = load ptr, ptr %21, align 8, !tbaa !14
+  %1997 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %1996, i32 0, i32 2
+  %1998 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %1997)
+  %1999 = getelementptr inbounds float, ptr %1998, i64 1
+  store float %1995, ptr %1999, align 4, !tbaa !23
+  %2000 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 7
+  %2001 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %2000)
+  %2002 = getelementptr inbounds float, ptr %2001, i64 2
+  %2003 = load float, ptr %2002, align 4, !tbaa !23
+  %2004 = load ptr, ptr %21, align 8, !tbaa !14
+  %2005 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %2004, i32 0, i32 2
+  %2006 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %2005)
+  %2007 = getelementptr inbounds float, ptr %2006, i64 2
+  store float %2003, ptr %2007, align 4, !tbaa !23
+  store i1 true, ptr %11, align 1
+  store i32 1, ptr %35, align 4
+  br label %2062
+
+2008:                                             ; preds = %1955
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #8
+  %2009 = load i32, ptr %34, align 4, !tbaa !9
+  %2010 = icmp eq i32 %2009, 0
+  br i1 %2010, label %2011, label %2031
+
+2011:                                             ; preds = %2008
+  %2012 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %2013 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %2014 = getelementptr inbounds [3 x %class.btVector3], ptr %2013, i64 0, i64 0
+  %2015 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %2016 = getelementptr inbounds [3 x %class.btVector3], ptr %2015, i64 0, i64 0
+  %2017 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 17
+  %2018 = getelementptr inbounds [16 x %class.btVector3], ptr %2017, i64 0, i64 0
+  %2019 = call noundef i32 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_(ptr noundef nonnull align 4 dereferenceable(1012) %38, ptr noundef nonnull align 4 dereferenceable(16) %2012, ptr noundef %2014, ptr noundef %2016, ptr noundef %2018)
+  store i32 %2019, ptr %36, align 4, !tbaa !9
+  %2020 = load i32, ptr %36, align 4, !tbaa !9
+  %2021 = icmp eq i32 %2020, 0
+  br i1 %2021, label %2022, label %2023
+
+2022:                                             ; preds = %2011
+  store i1 false, ptr %11, align 1
+  store i32 1, ptr %35, align 4
+  br label %2061
+
+2023:                                             ; preds = %2011
+  %2024 = load ptr, ptr %21, align 8, !tbaa !14
+  %2025 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 4
+  %2026 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %2027 = load float, ptr %2026, align 4, !tbaa !24
+  %2028 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 17
+  %2029 = getelementptr inbounds [16 x %class.btVector3], ptr %2028, i64 0, i64 0
+  %2030 = load i32, ptr %36, align 4, !tbaa !9
+  call void @_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j(ptr noundef nonnull align 4 dereferenceable(280) %2024, ptr noundef nonnull align 4 dereferenceable(16) %2025, float noundef %2027, ptr noundef %2029, i32 noundef %2030)
+  br label %2054
+
+2031:                                             ; preds = %2008
+  %2032 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %2033 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 1
+  %2034 = getelementptr inbounds [3 x %class.btVector3], ptr %2033, i64 0, i64 0
+  %2035 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 2
+  %2036 = getelementptr inbounds [3 x %class.btVector3], ptr %2035, i64 0, i64 0
+  %2037 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 17
+  %2038 = getelementptr inbounds [16 x %class.btVector3], ptr %2037, i64 0, i64 0
+  %2039 = call noundef i32 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_(ptr noundef nonnull align 4 dereferenceable(1012) %38, ptr noundef nonnull align 4 dereferenceable(16) %2032, ptr noundef %2034, ptr noundef %2036, ptr noundef %2038)
+  store i32 %2039, ptr %36, align 4, !tbaa !9
+  %2040 = load i32, ptr %36, align 4, !tbaa !9
+  %2041 = icmp eq i32 %2040, 0
+  br i1 %2041, label %2042, label %2043
+
+2042:                                             ; preds = %2031
+  store i1 false, ptr %11, align 1
+  store i32 1, ptr %35, align 4
+  br label %2061
+
+2043:                                             ; preds = %2031
+  %2044 = load ptr, ptr %21, align 8, !tbaa !14
+  %2045 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 3
+  %2046 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 0
+  %2047 = load float, ptr %2046, align 4, !tbaa !24
+  %2048 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %38, i32 0, i32 17
+  %2049 = getelementptr inbounds [16 x %class.btVector3], ptr %2048, i64 0, i64 0
+  %2050 = load i32, ptr %36, align 4, !tbaa !9
+  call void @_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j(ptr noundef nonnull align 4 dereferenceable(280) %2044, ptr noundef nonnull align 4 dereferenceable(16) %2045, float noundef %2047, ptr noundef %2049, i32 noundef %2050)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #8
+  store float -1.000000e+00, ptr %37, align 4, !tbaa !23
+  %2051 = load ptr, ptr %21, align 8, !tbaa !14
+  %2052 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %2051, i32 0, i32 2
+  %2053 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %2052, ptr noundef nonnull align 4 dereferenceable(4) %37)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #8
+  br label %2054
+
+2054:                                             ; preds = %2043, %2023
+  %2055 = load ptr, ptr %21, align 8, !tbaa !14
+  %2056 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %2055, i32 0, i32 1
+  %2057 = load i32, ptr %2056, align 4, !tbaa !35
+  %2058 = icmp eq i32 %2057, 0
+  br i1 %2058, label %2059, label %2060
+
+2059:                                             ; preds = %2054
+  store i1 false, ptr %11, align 1
+  store i32 1, ptr %35, align 4
+  br label %2061
+
+2060:                                             ; preds = %2054
+  store i1 true, ptr %11, align 1
+  store i32 1, ptr %35, align 4
+  br label %2061
+
+2061:                                             ; preds = %2060, %2059, %2042, %2022
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #8
+  br label %2062
+
+2062:                                             ; preds = %2061, %1967, %1966
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #8
+  br label %2063
+
+2063:                                             ; preds = %2062, %1646, %1421, %704, %479
+  %2064 = load i1, ptr %11, align 1
+  ret i1 %2064
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this1)
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %3)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #4
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_(ptr noundef nonnull align 4 dereferenceable(1012) %this, ptr noundef nonnull align 4 dereferenceable(16) %tri_plane, ptr noundef %tripoints, ptr noundef %srcpoints, ptr noundef %clip_points) #2 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %tri_plane.addr = alloca ptr, align 8
-  %tripoints.addr = alloca ptr, align 8
-  %srcpoints.addr = alloca ptr, align 8
-  %clip_points.addr = alloca ptr, align 8
-  %edgeplane = alloca %class.btVector4, align 4
-  %_dif = alloca [3 x float], align 4
-  %len = alloca float, align 4
-  %_pp = alloca float, align 4
-  %_x = alloca float, align 4
-  %_y = alloca i32, align 4
-  %clipped_count = alloca i32, align 4
-  %_dif109 = alloca [3 x float], align 4
-  %len167 = alloca float, align 4
-  %_pp168 = alloca float, align 4
-  %_x187 = alloca float, align 4
-  %_y189 = alloca i32, align 4
-  %_dif236 = alloca [3 x float], align 4
-  %len294 = alloca float, align 4
-  %_pp295 = alloca float, align 4
-  %_x314 = alloca float, align 4
-  %_y316 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %tri_plane, ptr %tri_plane.addr, align 8
-  store ptr %tripoints, ptr %tripoints.addr, align 8
-  store ptr %srcpoints, ptr %srcpoints.addr, align 8
-  store ptr %clip_points, ptr %clip_points.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %0 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %0, i64 1
-  %call = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
-  %arrayidx2 = getelementptr inbounds float, ptr %call, i64 0
-  %1 = load float, ptr %arrayidx2, align 4
-  %2 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx3 = getelementptr inbounds %class.btVector3, ptr %2, i64 0
-  %call4 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3)
-  %arrayidx5 = getelementptr inbounds float, ptr %call4, i64 0
-  %3 = load float, ptr %arrayidx5, align 4
-  %sub = fsub float %1, %3
-  %arrayidx6 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 0
-  store float %sub, ptr %arrayidx6, align 4
-  %4 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx7 = getelementptr inbounds %class.btVector3, ptr %4, i64 1
-  %call8 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7)
-  %arrayidx9 = getelementptr inbounds float, ptr %call8, i64 1
-  %5 = load float, ptr %arrayidx9, align 4
-  %6 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx10 = getelementptr inbounds %class.btVector3, ptr %6, i64 0
-  %call11 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10)
-  %arrayidx12 = getelementptr inbounds float, ptr %call11, i64 1
-  %7 = load float, ptr %arrayidx12, align 4
-  %sub13 = fsub float %5, %7
-  %arrayidx14 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 1
-  store float %sub13, ptr %arrayidx14, align 4
-  %8 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx15 = getelementptr inbounds %class.btVector3, ptr %8, i64 1
-  %call16 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx15)
-  %arrayidx17 = getelementptr inbounds float, ptr %call16, i64 2
-  %9 = load float, ptr %arrayidx17, align 4
-  %10 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx18 = getelementptr inbounds %class.btVector3, ptr %10, i64 0
-  %call19 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx18)
-  %arrayidx20 = getelementptr inbounds float, ptr %call19, i64 2
-  %11 = load float, ptr %arrayidx20, align 4
-  %sub21 = fsub float %9, %11
-  %arrayidx22 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 2
-  store float %sub21, ptr %arrayidx22, align 4
-  %arrayidx23 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 1
-  %12 = load float, ptr %arrayidx23, align 4
-  %13 = load ptr, ptr %tri_plane.addr, align 8
-  %call24 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
-  %arrayidx25 = getelementptr inbounds float, ptr %call24, i64 2
-  %14 = load float, ptr %arrayidx25, align 4
-  %arrayidx26 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 2
-  %15 = load float, ptr %arrayidx26, align 4
-  %16 = load ptr, ptr %tri_plane.addr, align 8
-  %call27 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %16)
-  %arrayidx28 = getelementptr inbounds float, ptr %call27, i64 1
-  %17 = load float, ptr %arrayidx28, align 4
-  %mul29 = fmul float %15, %17
-  %neg = fneg float %mul29
-  %18 = call float @llvm.fmuladd.f32(float %12, float %14, float %neg)
-  %call30 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx31 = getelementptr inbounds float, ptr %call30, i64 0
-  store float %18, ptr %arrayidx31, align 4
-  %arrayidx32 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 2
-  %19 = load float, ptr %arrayidx32, align 4
-  %20 = load ptr, ptr %tri_plane.addr, align 8
-  %call33 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %20)
-  %arrayidx34 = getelementptr inbounds float, ptr %call33, i64 0
-  %21 = load float, ptr %arrayidx34, align 4
-  %arrayidx35 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 0
-  %22 = load float, ptr %arrayidx35, align 4
-  %23 = load ptr, ptr %tri_plane.addr, align 8
-  %call36 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %23)
-  %arrayidx37 = getelementptr inbounds float, ptr %call36, i64 2
-  %24 = load float, ptr %arrayidx37, align 4
-  %mul38 = fmul float %22, %24
-  %neg39 = fneg float %mul38
-  %25 = call float @llvm.fmuladd.f32(float %19, float %21, float %neg39)
-  %call40 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx41 = getelementptr inbounds float, ptr %call40, i64 1
-  store float %25, ptr %arrayidx41, align 4
-  %arrayidx42 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 0
-  %26 = load float, ptr %arrayidx42, align 4
-  %27 = load ptr, ptr %tri_plane.addr, align 8
-  %call43 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %27)
-  %arrayidx44 = getelementptr inbounds float, ptr %call43, i64 1
-  %28 = load float, ptr %arrayidx44, align 4
-  %arrayidx45 = getelementptr inbounds [3 x float], ptr %_dif, i64 0, i64 1
-  %29 = load float, ptr %arrayidx45, align 4
-  %30 = load ptr, ptr %tri_plane.addr, align 8
-  %call46 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %30)
-  %arrayidx47 = getelementptr inbounds float, ptr %call46, i64 0
-  %31 = load float, ptr %arrayidx47, align 4
-  %mul48 = fmul float %29, %31
-  %neg49 = fneg float %mul48
-  %32 = call float @llvm.fmuladd.f32(float %26, float %28, float %neg49)
-  %call50 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx51 = getelementptr inbounds float, ptr %call50, i64 2
-  store float %32, ptr %arrayidx51, align 4
-  %call52 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx53 = getelementptr inbounds float, ptr %call52, i64 0
-  %33 = load float, ptr %arrayidx53, align 4
-  %call54 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx55 = getelementptr inbounds float, ptr %call54, i64 0
-  %34 = load float, ptr %arrayidx55, align 4
-  %call56 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx57 = getelementptr inbounds float, ptr %call56, i64 1
-  %35 = load float, ptr %arrayidx57, align 4
-  %call58 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx59 = getelementptr inbounds float, ptr %call58, i64 1
-  %36 = load float, ptr %arrayidx59, align 4
-  %mul60 = fmul float %35, %36
-  %37 = call float @llvm.fmuladd.f32(float %33, float %34, float %mul60)
-  %call61 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx62 = getelementptr inbounds float, ptr %call61, i64 2
-  %38 = load float, ptr %arrayidx62, align 4
-  %call63 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx64 = getelementptr inbounds float, ptr %call63, i64 2
-  %39 = load float, ptr %arrayidx64, align 4
-  %40 = call float @llvm.fmuladd.f32(float %38, float %39, float %37)
-  store float %40, ptr %_pp, align 4
-  %41 = load float, ptr %_pp, align 4
-  %cmp = fcmp ole float %41, 0x3E7AD7F2A0000000
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_(ptr noundef nonnull align 4 dereferenceable(1012) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 comdat align 2 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca %class.btVector4, align 4
+  %13 = alloca [3 x float], align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca [3 x float], align 4
+  %21 = alloca float, align 4
+  %22 = alloca float, align 4
+  %23 = alloca float, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca [3 x float], align 4
+  %26 = alloca float, align 4
+  %27 = alloca float, align 4
+  %28 = alloca float, align 4
+  %29 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !19
+  store ptr %1, ptr %8, align 8, !tbaa !36
+  store ptr %2, ptr %9, align 8, !tbaa !21
+  store ptr %3, ptr %10, align 8, !tbaa !21
+  store ptr %4, ptr %11, align 8, !tbaa !21
+  %30 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #8
+  call void @_ZN9btVector4C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %13) #8
+  %31 = load ptr, ptr %9, align 8, !tbaa !21
+  %32 = getelementptr inbounds %class.btVector3, ptr %31, i64 1
+  %33 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %32)
+  %34 = getelementptr inbounds float, ptr %33, i64 0
+  %35 = load float, ptr %34, align 4, !tbaa !23
+  %36 = load ptr, ptr %9, align 8, !tbaa !21
+  %37 = getelementptr inbounds %class.btVector3, ptr %36, i64 0
+  %38 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %37)
+  %39 = getelementptr inbounds float, ptr %38, i64 0
+  %40 = load float, ptr %39, align 4, !tbaa !23
+  %41 = fsub float %35, %40
+  %42 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 0
+  store float %41, ptr %42, align 4, !tbaa !23
+  %43 = load ptr, ptr %9, align 8, !tbaa !21
+  %44 = getelementptr inbounds %class.btVector3, ptr %43, i64 1
+  %45 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %44)
+  %46 = getelementptr inbounds float, ptr %45, i64 1
+  %47 = load float, ptr %46, align 4, !tbaa !23
+  %48 = load ptr, ptr %9, align 8, !tbaa !21
+  %49 = getelementptr inbounds %class.btVector3, ptr %48, i64 0
+  %50 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %49)
+  %51 = getelementptr inbounds float, ptr %50, i64 1
+  %52 = load float, ptr %51, align 4, !tbaa !23
+  %53 = fsub float %47, %52
+  %54 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 1
+  store float %53, ptr %54, align 4, !tbaa !23
+  %55 = load ptr, ptr %9, align 8, !tbaa !21
+  %56 = getelementptr inbounds %class.btVector3, ptr %55, i64 1
+  %57 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %56)
+  %58 = getelementptr inbounds float, ptr %57, i64 2
+  %59 = load float, ptr %58, align 4, !tbaa !23
+  %60 = load ptr, ptr %9, align 8, !tbaa !21
+  %61 = getelementptr inbounds %class.btVector3, ptr %60, i64 0
+  %62 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %61)
+  %63 = getelementptr inbounds float, ptr %62, i64 2
+  %64 = load float, ptr %63, align 4, !tbaa !23
+  %65 = fsub float %59, %64
+  %66 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 2
+  store float %65, ptr %66, align 4, !tbaa !23
+  %67 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 1
+  %68 = load float, ptr %67, align 4, !tbaa !23
+  %69 = load ptr, ptr %8, align 8, !tbaa !36
+  %70 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %69)
+  %71 = getelementptr inbounds float, ptr %70, i64 2
+  %72 = load float, ptr %71, align 4, !tbaa !23
+  %73 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 2
+  %74 = load float, ptr %73, align 4, !tbaa !23
+  %75 = load ptr, ptr %8, align 8, !tbaa !36
+  %76 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %75)
+  %77 = getelementptr inbounds float, ptr %76, i64 1
+  %78 = load float, ptr %77, align 4, !tbaa !23
+  %79 = fmul float %74, %78
+  %80 = fneg float %79
+  %81 = call float @llvm.fmuladd.f32(float %68, float %72, float %80)
+  %82 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %83 = getelementptr inbounds float, ptr %82, i64 0
+  store float %81, ptr %83, align 4, !tbaa !23
+  %84 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 2
+  %85 = load float, ptr %84, align 4, !tbaa !23
+  %86 = load ptr, ptr %8, align 8, !tbaa !36
+  %87 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %86)
+  %88 = getelementptr inbounds float, ptr %87, i64 0
+  %89 = load float, ptr %88, align 4, !tbaa !23
+  %90 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 0
+  %91 = load float, ptr %90, align 4, !tbaa !23
+  %92 = load ptr, ptr %8, align 8, !tbaa !36
+  %93 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %92)
+  %94 = getelementptr inbounds float, ptr %93, i64 2
+  %95 = load float, ptr %94, align 4, !tbaa !23
+  %96 = fmul float %91, %95
+  %97 = fneg float %96
+  %98 = call float @llvm.fmuladd.f32(float %85, float %89, float %97)
+  %99 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %100 = getelementptr inbounds float, ptr %99, i64 1
+  store float %98, ptr %100, align 4, !tbaa !23
+  %101 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 0
+  %102 = load float, ptr %101, align 4, !tbaa !23
+  %103 = load ptr, ptr %8, align 8, !tbaa !36
+  %104 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %103)
+  %105 = getelementptr inbounds float, ptr %104, i64 1
+  %106 = load float, ptr %105, align 4, !tbaa !23
+  %107 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 1
+  %108 = load float, ptr %107, align 4, !tbaa !23
+  %109 = load ptr, ptr %8, align 8, !tbaa !36
+  %110 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %109)
+  %111 = getelementptr inbounds float, ptr %110, i64 0
+  %112 = load float, ptr %111, align 4, !tbaa !23
+  %113 = fmul float %108, %112
+  %114 = fneg float %113
+  %115 = call float @llvm.fmuladd.f32(float %102, float %106, float %114)
+  %116 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %117 = getelementptr inbounds float, ptr %116, i64 2
+  store float %115, ptr %117, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %118 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %119 = getelementptr inbounds float, ptr %118, i64 0
+  %120 = load float, ptr %119, align 4, !tbaa !23
+  %121 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %122 = getelementptr inbounds float, ptr %121, i64 0
+  %123 = load float, ptr %122, align 4, !tbaa !23
+  %124 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %125 = getelementptr inbounds float, ptr %124, i64 1
+  %126 = load float, ptr %125, align 4, !tbaa !23
+  %127 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %128 = getelementptr inbounds float, ptr %127, i64 1
+  %129 = load float, ptr %128, align 4, !tbaa !23
+  %130 = fmul float %126, %129
+  %131 = call float @llvm.fmuladd.f32(float %120, float %123, float %130)
+  %132 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %133 = getelementptr inbounds float, ptr %132, i64 2
+  %134 = load float, ptr %133, align 4, !tbaa !23
+  %135 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %136 = getelementptr inbounds float, ptr %135, i64 2
+  %137 = load float, ptr %136, align 4, !tbaa !23
+  %138 = call float @llvm.fmuladd.f32(float %134, float %137, float %131)
+  store float %138, ptr %15, align 4, !tbaa !23
+  %139 = load float, ptr %15, align 4, !tbaa !23
+  %140 = fcmp ole float %139, 0x3E7AD7F2A0000000
+  br i1 %140, label %141, label %142
 
-if.then:                                          ; preds = %entry
-  store float 0x47EFFFFFE0000000, ptr %len, align 4
-  br label %if.end
+141:                                              ; preds = %5
+  store float 0x47EFFFFFE0000000, ptr %14, align 4, !tbaa !23
+  br label %157
 
-if.else:                                          ; preds = %entry
-  %42 = load float, ptr %_pp, align 4
-  %mul = fmul float %42, 5.000000e-01
-  store float %mul, ptr %_x, align 4
-  %43 = load i32, ptr %_pp, align 4
-  %shr = lshr i32 %43, 1
-  %sub65 = sub i32 1597463007, %shr
-  store i32 %sub65, ptr %_y, align 4
-  %44 = load float, ptr %_y, align 4
-  store float %44, ptr %len, align 4
-  %45 = load float, ptr %len, align 4
-  %46 = load float, ptr %_x, align 4
-  %47 = load float, ptr %len, align 4
-  %mul66 = fmul float %46, %47
-  %48 = load float, ptr %len, align 4
-  %neg68 = fneg float %mul66
-  %49 = call float @llvm.fmuladd.f32(float %neg68, float %48, float 1.500000e+00)
-  %mul69 = fmul float %45, %49
-  store float %mul69, ptr %len, align 4
-  br label %if.end
+142:                                              ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %143 = load float, ptr %15, align 4, !tbaa !23
+  %144 = fmul float %143, 5.000000e-01
+  store float %144, ptr %16, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %145 = load i32, ptr %15, align 4, !tbaa !9
+  %146 = lshr i32 %145, 1
+  %147 = sub i32 1597463007, %146
+  store i32 %147, ptr %17, align 4, !tbaa !9
+  %148 = load float, ptr %17, align 4, !tbaa !23
+  store float %148, ptr %14, align 4, !tbaa !23
+  %149 = load float, ptr %14, align 4, !tbaa !23
+  %150 = load float, ptr %16, align 4, !tbaa !23
+  %151 = load float, ptr %14, align 4, !tbaa !23
+  %152 = fmul float %150, %151
+  %153 = load float, ptr %14, align 4, !tbaa !23
+  %154 = fneg float %152
+  %155 = call float @llvm.fmuladd.f32(float %154, float %153, float 1.500000e+00)
+  %156 = fmul float %149, %155
+  store float %156, ptr %14, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  br label %157
 
-if.end:                                           ; preds = %if.else, %if.then
-  %50 = load float, ptr %len, align 4
-  %cmp70 = fcmp olt float %50, 0x47EFFFFFE0000000
-  br i1 %cmp70, label %if.then71, label %if.end81
+157:                                              ; preds = %142, %141
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  %158 = load float, ptr %14, align 4, !tbaa !23
+  %159 = fcmp olt float %158, 0x47EFFFFFE0000000
+  br i1 %159, label %160, label %176
 
-if.then71:                                        ; preds = %if.end
-  %51 = load float, ptr %len, align 4
-  %call72 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx73 = getelementptr inbounds float, ptr %call72, i64 0
-  %52 = load float, ptr %arrayidx73, align 4
-  %mul74 = fmul float %52, %51
-  store float %mul74, ptr %arrayidx73, align 4
-  %53 = load float, ptr %len, align 4
-  %call75 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx76 = getelementptr inbounds float, ptr %call75, i64 1
-  %54 = load float, ptr %arrayidx76, align 4
-  %mul77 = fmul float %54, %53
-  store float %mul77, ptr %arrayidx76, align 4
-  %55 = load float, ptr %len, align 4
-  %call78 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx79 = getelementptr inbounds float, ptr %call78, i64 2
-  %56 = load float, ptr %arrayidx79, align 4
-  %mul80 = fmul float %56, %55
-  store float %mul80, ptr %arrayidx79, align 4
-  br label %if.end81
+160:                                              ; preds = %157
+  %161 = load float, ptr %14, align 4, !tbaa !23
+  %162 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %163 = getelementptr inbounds float, ptr %162, i64 0
+  %164 = load float, ptr %163, align 4, !tbaa !23
+  %165 = fmul float %164, %161
+  store float %165, ptr %163, align 4, !tbaa !23
+  %166 = load float, ptr %14, align 4, !tbaa !23
+  %167 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %168 = getelementptr inbounds float, ptr %167, i64 1
+  %169 = load float, ptr %168, align 4, !tbaa !23
+  %170 = fmul float %169, %166
+  store float %170, ptr %168, align 4, !tbaa !23
+  %171 = load float, ptr %14, align 4, !tbaa !23
+  %172 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %173 = getelementptr inbounds float, ptr %172, i64 2
+  %174 = load float, ptr %173, align 4, !tbaa !23
+  %175 = fmul float %174, %171
+  store float %175, ptr %173, align 4, !tbaa !23
+  br label %176
 
-if.end81:                                         ; preds = %if.then71, %if.end
-  %57 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx82 = getelementptr inbounds %class.btVector3, ptr %57, i64 0
-  %call83 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx82)
-  %arrayidx84 = getelementptr inbounds float, ptr %call83, i64 0
-  %58 = load float, ptr %arrayidx84, align 4
-  %call85 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx86 = getelementptr inbounds float, ptr %call85, i64 0
-  %59 = load float, ptr %arrayidx86, align 4
-  %60 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx88 = getelementptr inbounds %class.btVector3, ptr %60, i64 0
-  %call89 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx88)
-  %arrayidx90 = getelementptr inbounds float, ptr %call89, i64 1
-  %61 = load float, ptr %arrayidx90, align 4
-  %call91 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx92 = getelementptr inbounds float, ptr %call91, i64 1
-  %62 = load float, ptr %arrayidx92, align 4
-  %mul93 = fmul float %61, %62
-  %63 = call float @llvm.fmuladd.f32(float %58, float %59, float %mul93)
-  %64 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx94 = getelementptr inbounds %class.btVector3, ptr %64, i64 0
-  %call95 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx94)
-  %arrayidx96 = getelementptr inbounds float, ptr %call95, i64 2
-  %65 = load float, ptr %arrayidx96, align 4
-  %call97 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx98 = getelementptr inbounds float, ptr %call97, i64 2
-  %66 = load float, ptr %arrayidx98, align 4
-  %67 = call float @llvm.fmuladd.f32(float %65, float %66, float %63)
-  %call100 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx101 = getelementptr inbounds float, ptr %call100, i64 3
-  store float %67, ptr %arrayidx101, align 4
-  %68 = load ptr, ptr %srcpoints.addr, align 8
-  %arrayidx102 = getelementptr inbounds %class.btVector3, ptr %68, i64 0
-  %69 = load ptr, ptr %srcpoints.addr, align 8
-  %arrayidx103 = getelementptr inbounds %class.btVector3, ptr %69, i64 1
-  %70 = load ptr, ptr %srcpoints.addr, align 8
-  %arrayidx104 = getelementptr inbounds %class.btVector3, ptr %70, i64 2
-  %temp_points = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 15
-  %arraydecay = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points, i64 0, i64 0
-  %call105 = call noundef i32 @_Z21PLANE_CLIP_TRIANGLE3DI9btVector39btVector4EjRKT0_RKT_S7_S7_PS5_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx102, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx103, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx104, ptr noundef %arraydecay)
-  store i32 %call105, ptr %clipped_count, align 4
-  %71 = load i32, ptr %clipped_count, align 4
-  %cmp106 = icmp eq i32 %71, 0
-  br i1 %cmp106, label %if.then107, label %if.end108
+176:                                              ; preds = %160, %157
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %177 = load ptr, ptr %9, align 8, !tbaa !21
+  %178 = getelementptr inbounds %class.btVector3, ptr %177, i64 0
+  %179 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %178)
+  %180 = getelementptr inbounds float, ptr %179, i64 0
+  %181 = load float, ptr %180, align 4, !tbaa !23
+  %182 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %183 = getelementptr inbounds float, ptr %182, i64 0
+  %184 = load float, ptr %183, align 4, !tbaa !23
+  %185 = load ptr, ptr %9, align 8, !tbaa !21
+  %186 = getelementptr inbounds %class.btVector3, ptr %185, i64 0
+  %187 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %186)
+  %188 = getelementptr inbounds float, ptr %187, i64 1
+  %189 = load float, ptr %188, align 4, !tbaa !23
+  %190 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %191 = getelementptr inbounds float, ptr %190, i64 1
+  %192 = load float, ptr %191, align 4, !tbaa !23
+  %193 = fmul float %189, %192
+  %194 = call float @llvm.fmuladd.f32(float %181, float %184, float %193)
+  %195 = load ptr, ptr %9, align 8, !tbaa !21
+  %196 = getelementptr inbounds %class.btVector3, ptr %195, i64 0
+  %197 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %196)
+  %198 = getelementptr inbounds float, ptr %197, i64 2
+  %199 = load float, ptr %198, align 4, !tbaa !23
+  %200 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %201 = getelementptr inbounds float, ptr %200, i64 2
+  %202 = load float, ptr %201, align 4, !tbaa !23
+  %203 = call float @llvm.fmuladd.f32(float %199, float %202, float %194)
+  %204 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %205 = getelementptr inbounds float, ptr %204, i64 3
+  store float %203, ptr %205, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 12, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %206 = load ptr, ptr %10, align 8, !tbaa !21
+  %207 = getelementptr inbounds %class.btVector3, ptr %206, i64 0
+  %208 = load ptr, ptr %10, align 8, !tbaa !21
+  %209 = getelementptr inbounds %class.btVector3, ptr %208, i64 1
+  %210 = load ptr, ptr %10, align 8, !tbaa !21
+  %211 = getelementptr inbounds %class.btVector3, ptr %210, i64 2
+  %212 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %30, i32 0, i32 15
+  %213 = getelementptr inbounds [16 x %class.btVector3], ptr %212, i64 0, i64 0
+  %214 = call noundef i32 @_Z21PLANE_CLIP_TRIANGLE3DI9btVector39btVector4EjRKT0_RKT_S7_S7_PS5_(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %207, ptr noundef nonnull align 4 dereferenceable(16) %209, ptr noundef nonnull align 4 dereferenceable(16) %211, ptr noundef %213)
+  store i32 %214, ptr %18, align 4, !tbaa !9
+  %215 = load i32, ptr %18, align 4, !tbaa !9
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %217, label %218
 
-if.then107:                                       ; preds = %if.end81
-  store i32 0, ptr %retval, align 4
-  br label %return
+217:                                              ; preds = %176
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %585
 
-if.end108:                                        ; preds = %if.end81
-  %72 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx110 = getelementptr inbounds %class.btVector3, ptr %72, i64 2
-  %call111 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx110)
-  %arrayidx112 = getelementptr inbounds float, ptr %call111, i64 0
-  %73 = load float, ptr %arrayidx112, align 4
-  %74 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx113 = getelementptr inbounds %class.btVector3, ptr %74, i64 1
-  %call114 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx113)
-  %arrayidx115 = getelementptr inbounds float, ptr %call114, i64 0
-  %75 = load float, ptr %arrayidx115, align 4
-  %sub116 = fsub float %73, %75
-  %arrayidx117 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 0
-  store float %sub116, ptr %arrayidx117, align 4
-  %76 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx118 = getelementptr inbounds %class.btVector3, ptr %76, i64 2
-  %call119 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx118)
-  %arrayidx120 = getelementptr inbounds float, ptr %call119, i64 1
-  %77 = load float, ptr %arrayidx120, align 4
-  %78 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx121 = getelementptr inbounds %class.btVector3, ptr %78, i64 1
-  %call122 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx121)
-  %arrayidx123 = getelementptr inbounds float, ptr %call122, i64 1
-  %79 = load float, ptr %arrayidx123, align 4
-  %sub124 = fsub float %77, %79
-  %arrayidx125 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 1
-  store float %sub124, ptr %arrayidx125, align 4
-  %80 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx126 = getelementptr inbounds %class.btVector3, ptr %80, i64 2
-  %call127 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx126)
-  %arrayidx128 = getelementptr inbounds float, ptr %call127, i64 2
-  %81 = load float, ptr %arrayidx128, align 4
-  %82 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx129 = getelementptr inbounds %class.btVector3, ptr %82, i64 1
-  %call130 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx129)
-  %arrayidx131 = getelementptr inbounds float, ptr %call130, i64 2
-  %83 = load float, ptr %arrayidx131, align 4
-  %sub132 = fsub float %81, %83
-  %arrayidx133 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 2
-  store float %sub132, ptr %arrayidx133, align 4
-  %arrayidx134 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 1
-  %84 = load float, ptr %arrayidx134, align 4
-  %85 = load ptr, ptr %tri_plane.addr, align 8
-  %call135 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %85)
-  %arrayidx136 = getelementptr inbounds float, ptr %call135, i64 2
-  %86 = load float, ptr %arrayidx136, align 4
-  %arrayidx138 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 2
-  %87 = load float, ptr %arrayidx138, align 4
-  %88 = load ptr, ptr %tri_plane.addr, align 8
-  %call139 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %88)
-  %arrayidx140 = getelementptr inbounds float, ptr %call139, i64 1
-  %89 = load float, ptr %arrayidx140, align 4
-  %mul141 = fmul float %87, %89
-  %neg142 = fneg float %mul141
-  %90 = call float @llvm.fmuladd.f32(float %84, float %86, float %neg142)
-  %call143 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx144 = getelementptr inbounds float, ptr %call143, i64 0
-  store float %90, ptr %arrayidx144, align 4
-  %arrayidx145 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 2
-  %91 = load float, ptr %arrayidx145, align 4
-  %92 = load ptr, ptr %tri_plane.addr, align 8
-  %call146 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %92)
-  %arrayidx147 = getelementptr inbounds float, ptr %call146, i64 0
-  %93 = load float, ptr %arrayidx147, align 4
-  %arrayidx149 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 0
-  %94 = load float, ptr %arrayidx149, align 4
-  %95 = load ptr, ptr %tri_plane.addr, align 8
-  %call150 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %95)
-  %arrayidx151 = getelementptr inbounds float, ptr %call150, i64 2
-  %96 = load float, ptr %arrayidx151, align 4
-  %mul152 = fmul float %94, %96
-  %neg153 = fneg float %mul152
-  %97 = call float @llvm.fmuladd.f32(float %91, float %93, float %neg153)
-  %call154 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx155 = getelementptr inbounds float, ptr %call154, i64 1
-  store float %97, ptr %arrayidx155, align 4
-  %arrayidx156 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 0
-  %98 = load float, ptr %arrayidx156, align 4
-  %99 = load ptr, ptr %tri_plane.addr, align 8
-  %call157 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %99)
-  %arrayidx158 = getelementptr inbounds float, ptr %call157, i64 1
-  %100 = load float, ptr %arrayidx158, align 4
-  %arrayidx160 = getelementptr inbounds [3 x float], ptr %_dif109, i64 0, i64 1
-  %101 = load float, ptr %arrayidx160, align 4
-  %102 = load ptr, ptr %tri_plane.addr, align 8
-  %call161 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %102)
-  %arrayidx162 = getelementptr inbounds float, ptr %call161, i64 0
-  %103 = load float, ptr %arrayidx162, align 4
-  %mul163 = fmul float %101, %103
-  %neg164 = fneg float %mul163
-  %104 = call float @llvm.fmuladd.f32(float %98, float %100, float %neg164)
-  %call165 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx166 = getelementptr inbounds float, ptr %call165, i64 2
-  store float %104, ptr %arrayidx166, align 4
-  %call169 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx170 = getelementptr inbounds float, ptr %call169, i64 0
-  %105 = load float, ptr %arrayidx170, align 4
-  %call171 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx172 = getelementptr inbounds float, ptr %call171, i64 0
-  %106 = load float, ptr %arrayidx172, align 4
-  %call174 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx175 = getelementptr inbounds float, ptr %call174, i64 1
-  %107 = load float, ptr %arrayidx175, align 4
-  %call176 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx177 = getelementptr inbounds float, ptr %call176, i64 1
-  %108 = load float, ptr %arrayidx177, align 4
-  %mul178 = fmul float %107, %108
-  %109 = call float @llvm.fmuladd.f32(float %105, float %106, float %mul178)
-  %call179 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx180 = getelementptr inbounds float, ptr %call179, i64 2
-  %110 = load float, ptr %arrayidx180, align 4
-  %call181 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx182 = getelementptr inbounds float, ptr %call181, i64 2
-  %111 = load float, ptr %arrayidx182, align 4
-  %112 = call float @llvm.fmuladd.f32(float %110, float %111, float %109)
-  store float %112, ptr %_pp168, align 4
-  %113 = load float, ptr %_pp168, align 4
-  %cmp184 = fcmp ole float %113, 0x3E7AD7F2A0000000
-  br i1 %cmp184, label %if.then185, label %if.else186
+218:                                              ; preds = %176
+  call void @llvm.lifetime.start.p0(i64 12, ptr %20) #8
+  %219 = load ptr, ptr %9, align 8, !tbaa !21
+  %220 = getelementptr inbounds %class.btVector3, ptr %219, i64 2
+  %221 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %220)
+  %222 = getelementptr inbounds float, ptr %221, i64 0
+  %223 = load float, ptr %222, align 4, !tbaa !23
+  %224 = load ptr, ptr %9, align 8, !tbaa !21
+  %225 = getelementptr inbounds %class.btVector3, ptr %224, i64 1
+  %226 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %225)
+  %227 = getelementptr inbounds float, ptr %226, i64 0
+  %228 = load float, ptr %227, align 4, !tbaa !23
+  %229 = fsub float %223, %228
+  %230 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 0
+  store float %229, ptr %230, align 4, !tbaa !23
+  %231 = load ptr, ptr %9, align 8, !tbaa !21
+  %232 = getelementptr inbounds %class.btVector3, ptr %231, i64 2
+  %233 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %232)
+  %234 = getelementptr inbounds float, ptr %233, i64 1
+  %235 = load float, ptr %234, align 4, !tbaa !23
+  %236 = load ptr, ptr %9, align 8, !tbaa !21
+  %237 = getelementptr inbounds %class.btVector3, ptr %236, i64 1
+  %238 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %237)
+  %239 = getelementptr inbounds float, ptr %238, i64 1
+  %240 = load float, ptr %239, align 4, !tbaa !23
+  %241 = fsub float %235, %240
+  %242 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 1
+  store float %241, ptr %242, align 4, !tbaa !23
+  %243 = load ptr, ptr %9, align 8, !tbaa !21
+  %244 = getelementptr inbounds %class.btVector3, ptr %243, i64 2
+  %245 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %244)
+  %246 = getelementptr inbounds float, ptr %245, i64 2
+  %247 = load float, ptr %246, align 4, !tbaa !23
+  %248 = load ptr, ptr %9, align 8, !tbaa !21
+  %249 = getelementptr inbounds %class.btVector3, ptr %248, i64 1
+  %250 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %249)
+  %251 = getelementptr inbounds float, ptr %250, i64 2
+  %252 = load float, ptr %251, align 4, !tbaa !23
+  %253 = fsub float %247, %252
+  %254 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 2
+  store float %253, ptr %254, align 4, !tbaa !23
+  %255 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 1
+  %256 = load float, ptr %255, align 4, !tbaa !23
+  %257 = load ptr, ptr %8, align 8, !tbaa !36
+  %258 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %257)
+  %259 = getelementptr inbounds float, ptr %258, i64 2
+  %260 = load float, ptr %259, align 4, !tbaa !23
+  %261 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 2
+  %262 = load float, ptr %261, align 4, !tbaa !23
+  %263 = load ptr, ptr %8, align 8, !tbaa !36
+  %264 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %263)
+  %265 = getelementptr inbounds float, ptr %264, i64 1
+  %266 = load float, ptr %265, align 4, !tbaa !23
+  %267 = fmul float %262, %266
+  %268 = fneg float %267
+  %269 = call float @llvm.fmuladd.f32(float %256, float %260, float %268)
+  %270 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %271 = getelementptr inbounds float, ptr %270, i64 0
+  store float %269, ptr %271, align 4, !tbaa !23
+  %272 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 2
+  %273 = load float, ptr %272, align 4, !tbaa !23
+  %274 = load ptr, ptr %8, align 8, !tbaa !36
+  %275 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %274)
+  %276 = getelementptr inbounds float, ptr %275, i64 0
+  %277 = load float, ptr %276, align 4, !tbaa !23
+  %278 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 0
+  %279 = load float, ptr %278, align 4, !tbaa !23
+  %280 = load ptr, ptr %8, align 8, !tbaa !36
+  %281 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %280)
+  %282 = getelementptr inbounds float, ptr %281, i64 2
+  %283 = load float, ptr %282, align 4, !tbaa !23
+  %284 = fmul float %279, %283
+  %285 = fneg float %284
+  %286 = call float @llvm.fmuladd.f32(float %273, float %277, float %285)
+  %287 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %288 = getelementptr inbounds float, ptr %287, i64 1
+  store float %286, ptr %288, align 4, !tbaa !23
+  %289 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 0
+  %290 = load float, ptr %289, align 4, !tbaa !23
+  %291 = load ptr, ptr %8, align 8, !tbaa !36
+  %292 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %291)
+  %293 = getelementptr inbounds float, ptr %292, i64 1
+  %294 = load float, ptr %293, align 4, !tbaa !23
+  %295 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 1
+  %296 = load float, ptr %295, align 4, !tbaa !23
+  %297 = load ptr, ptr %8, align 8, !tbaa !36
+  %298 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %297)
+  %299 = getelementptr inbounds float, ptr %298, i64 0
+  %300 = load float, ptr %299, align 4, !tbaa !23
+  %301 = fmul float %296, %300
+  %302 = fneg float %301
+  %303 = call float @llvm.fmuladd.f32(float %290, float %294, float %302)
+  %304 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %305 = getelementptr inbounds float, ptr %304, i64 2
+  store float %303, ptr %305, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  %306 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %307 = getelementptr inbounds float, ptr %306, i64 0
+  %308 = load float, ptr %307, align 4, !tbaa !23
+  %309 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %310 = getelementptr inbounds float, ptr %309, i64 0
+  %311 = load float, ptr %310, align 4, !tbaa !23
+  %312 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %313 = getelementptr inbounds float, ptr %312, i64 1
+  %314 = load float, ptr %313, align 4, !tbaa !23
+  %315 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %316 = getelementptr inbounds float, ptr %315, i64 1
+  %317 = load float, ptr %316, align 4, !tbaa !23
+  %318 = fmul float %314, %317
+  %319 = call float @llvm.fmuladd.f32(float %308, float %311, float %318)
+  %320 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %321 = getelementptr inbounds float, ptr %320, i64 2
+  %322 = load float, ptr %321, align 4, !tbaa !23
+  %323 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %324 = getelementptr inbounds float, ptr %323, i64 2
+  %325 = load float, ptr %324, align 4, !tbaa !23
+  %326 = call float @llvm.fmuladd.f32(float %322, float %325, float %319)
+  store float %326, ptr %22, align 4, !tbaa !23
+  %327 = load float, ptr %22, align 4, !tbaa !23
+  %328 = fcmp ole float %327, 0x3E7AD7F2A0000000
+  br i1 %328, label %329, label %330
 
-if.then185:                                       ; preds = %if.end108
-  store float 0x47EFFFFFE0000000, ptr %len167, align 4
-  br label %if.end196
+329:                                              ; preds = %218
+  store float 0x47EFFFFFE0000000, ptr %21, align 4, !tbaa !23
+  br label %345
 
-if.else186:                                       ; preds = %if.end108
-  %114 = load float, ptr %_pp168, align 4
-  %mul188 = fmul float %114, 5.000000e-01
-  store float %mul188, ptr %_x187, align 4
-  %115 = load i32, ptr %_pp168, align 4
-  %shr190 = lshr i32 %115, 1
-  %sub191 = sub i32 1597463007, %shr190
-  store i32 %sub191, ptr %_y189, align 4
-  %116 = load float, ptr %_y189, align 4
-  store float %116, ptr %len167, align 4
-  %117 = load float, ptr %len167, align 4
-  %118 = load float, ptr %_x187, align 4
-  %119 = load float, ptr %len167, align 4
-  %mul192 = fmul float %118, %119
-  %120 = load float, ptr %len167, align 4
-  %neg194 = fneg float %mul192
-  %121 = call float @llvm.fmuladd.f32(float %neg194, float %120, float 1.500000e+00)
-  %mul195 = fmul float %117, %121
-  store float %mul195, ptr %len167, align 4
-  br label %if.end196
+330:                                              ; preds = %218
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #8
+  %331 = load float, ptr %22, align 4, !tbaa !23
+  %332 = fmul float %331, 5.000000e-01
+  store float %332, ptr %23, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #8
+  %333 = load i32, ptr %22, align 4, !tbaa !9
+  %334 = lshr i32 %333, 1
+  %335 = sub i32 1597463007, %334
+  store i32 %335, ptr %24, align 4, !tbaa !9
+  %336 = load float, ptr %24, align 4, !tbaa !23
+  store float %336, ptr %21, align 4, !tbaa !23
+  %337 = load float, ptr %21, align 4, !tbaa !23
+  %338 = load float, ptr %23, align 4, !tbaa !23
+  %339 = load float, ptr %21, align 4, !tbaa !23
+  %340 = fmul float %338, %339
+  %341 = load float, ptr %21, align 4, !tbaa !23
+  %342 = fneg float %340
+  %343 = call float @llvm.fmuladd.f32(float %342, float %341, float 1.500000e+00)
+  %344 = fmul float %337, %343
+  store float %344, ptr %21, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #8
+  br label %345
 
-if.end196:                                        ; preds = %if.else186, %if.then185
-  %122 = load float, ptr %len167, align 4
-  %cmp197 = fcmp olt float %122, 0x47EFFFFFE0000000
-  br i1 %cmp197, label %if.then198, label %if.end208
+345:                                              ; preds = %330, %329
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  %346 = load float, ptr %21, align 4, !tbaa !23
+  %347 = fcmp olt float %346, 0x47EFFFFFE0000000
+  br i1 %347, label %348, label %364
 
-if.then198:                                       ; preds = %if.end196
-  %123 = load float, ptr %len167, align 4
-  %call199 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx200 = getelementptr inbounds float, ptr %call199, i64 0
-  %124 = load float, ptr %arrayidx200, align 4
-  %mul201 = fmul float %124, %123
-  store float %mul201, ptr %arrayidx200, align 4
-  %125 = load float, ptr %len167, align 4
-  %call202 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx203 = getelementptr inbounds float, ptr %call202, i64 1
-  %126 = load float, ptr %arrayidx203, align 4
-  %mul204 = fmul float %126, %125
-  store float %mul204, ptr %arrayidx203, align 4
-  %127 = load float, ptr %len167, align 4
-  %call205 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx206 = getelementptr inbounds float, ptr %call205, i64 2
-  %128 = load float, ptr %arrayidx206, align 4
-  %mul207 = fmul float %128, %127
-  store float %mul207, ptr %arrayidx206, align 4
-  br label %if.end208
+348:                                              ; preds = %345
+  %349 = load float, ptr %21, align 4, !tbaa !23
+  %350 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %351 = getelementptr inbounds float, ptr %350, i64 0
+  %352 = load float, ptr %351, align 4, !tbaa !23
+  %353 = fmul float %352, %349
+  store float %353, ptr %351, align 4, !tbaa !23
+  %354 = load float, ptr %21, align 4, !tbaa !23
+  %355 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %356 = getelementptr inbounds float, ptr %355, i64 1
+  %357 = load float, ptr %356, align 4, !tbaa !23
+  %358 = fmul float %357, %354
+  store float %358, ptr %356, align 4, !tbaa !23
+  %359 = load float, ptr %21, align 4, !tbaa !23
+  %360 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %361 = getelementptr inbounds float, ptr %360, i64 2
+  %362 = load float, ptr %361, align 4, !tbaa !23
+  %363 = fmul float %362, %359
+  store float %363, ptr %361, align 4, !tbaa !23
+  br label %364
 
-if.end208:                                        ; preds = %if.then198, %if.end196
-  %129 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx209 = getelementptr inbounds %class.btVector3, ptr %129, i64 1
-  %call210 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx209)
-  %arrayidx211 = getelementptr inbounds float, ptr %call210, i64 0
-  %130 = load float, ptr %arrayidx211, align 4
-  %call212 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx213 = getelementptr inbounds float, ptr %call212, i64 0
-  %131 = load float, ptr %arrayidx213, align 4
-  %132 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx215 = getelementptr inbounds %class.btVector3, ptr %132, i64 1
-  %call216 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx215)
-  %arrayidx217 = getelementptr inbounds float, ptr %call216, i64 1
-  %133 = load float, ptr %arrayidx217, align 4
-  %call218 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx219 = getelementptr inbounds float, ptr %call218, i64 1
-  %134 = load float, ptr %arrayidx219, align 4
-  %mul220 = fmul float %133, %134
-  %135 = call float @llvm.fmuladd.f32(float %130, float %131, float %mul220)
-  %136 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx221 = getelementptr inbounds %class.btVector3, ptr %136, i64 1
-  %call222 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx221)
-  %arrayidx223 = getelementptr inbounds float, ptr %call222, i64 2
-  %137 = load float, ptr %arrayidx223, align 4
-  %call224 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx225 = getelementptr inbounds float, ptr %call224, i64 2
-  %138 = load float, ptr %arrayidx225, align 4
-  %139 = call float @llvm.fmuladd.f32(float %137, float %138, float %135)
-  %call227 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx228 = getelementptr inbounds float, ptr %call227, i64 3
-  store float %139, ptr %arrayidx228, align 4
-  %temp_points229 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 15
-  %arraydecay230 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points229, i64 0, i64 0
-  %140 = load i32, ptr %clipped_count, align 4
-  %temp_points1 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 16
-  %arraydecay231 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points1, i64 0, i64 0
-  %call232 = call noundef i32 @_Z20PLANE_CLIP_POLYGON3DI9btVector39btVector4EjRKT0_PKT_jPS5_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef %arraydecay230, i32 noundef %140, ptr noundef %arraydecay231)
-  store i32 %call232, ptr %clipped_count, align 4
-  %141 = load i32, ptr %clipped_count, align 4
-  %cmp233 = icmp eq i32 %141, 0
-  br i1 %cmp233, label %if.then234, label %if.end235
+364:                                              ; preds = %348, %345
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  %365 = load ptr, ptr %9, align 8, !tbaa !21
+  %366 = getelementptr inbounds %class.btVector3, ptr %365, i64 1
+  %367 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %366)
+  %368 = getelementptr inbounds float, ptr %367, i64 0
+  %369 = load float, ptr %368, align 4, !tbaa !23
+  %370 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %371 = getelementptr inbounds float, ptr %370, i64 0
+  %372 = load float, ptr %371, align 4, !tbaa !23
+  %373 = load ptr, ptr %9, align 8, !tbaa !21
+  %374 = getelementptr inbounds %class.btVector3, ptr %373, i64 1
+  %375 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %374)
+  %376 = getelementptr inbounds float, ptr %375, i64 1
+  %377 = load float, ptr %376, align 4, !tbaa !23
+  %378 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %379 = getelementptr inbounds float, ptr %378, i64 1
+  %380 = load float, ptr %379, align 4, !tbaa !23
+  %381 = fmul float %377, %380
+  %382 = call float @llvm.fmuladd.f32(float %369, float %372, float %381)
+  %383 = load ptr, ptr %9, align 8, !tbaa !21
+  %384 = getelementptr inbounds %class.btVector3, ptr %383, i64 1
+  %385 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %384)
+  %386 = getelementptr inbounds float, ptr %385, i64 2
+  %387 = load float, ptr %386, align 4, !tbaa !23
+  %388 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %389 = getelementptr inbounds float, ptr %388, i64 2
+  %390 = load float, ptr %389, align 4, !tbaa !23
+  %391 = call float @llvm.fmuladd.f32(float %387, float %390, float %382)
+  %392 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %393 = getelementptr inbounds float, ptr %392, i64 3
+  store float %391, ptr %393, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 12, ptr %20) #8
+  %394 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %30, i32 0, i32 15
+  %395 = getelementptr inbounds [16 x %class.btVector3], ptr %394, i64 0, i64 0
+  %396 = load i32, ptr %18, align 4, !tbaa !9
+  %397 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %30, i32 0, i32 16
+  %398 = getelementptr inbounds [16 x %class.btVector3], ptr %397, i64 0, i64 0
+  %399 = call noundef i32 @_Z20PLANE_CLIP_POLYGON3DI9btVector39btVector4EjRKT0_PKT_jPS5_(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef %395, i32 noundef %396, ptr noundef %398)
+  store i32 %399, ptr %18, align 4, !tbaa !9
+  %400 = load i32, ptr %18, align 4, !tbaa !9
+  %401 = icmp eq i32 %400, 0
+  br i1 %401, label %402, label %403
 
-if.then234:                                       ; preds = %if.end208
-  store i32 0, ptr %retval, align 4
-  br label %return
+402:                                              ; preds = %364
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %585
 
-if.end235:                                        ; preds = %if.end208
-  %142 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx237 = getelementptr inbounds %class.btVector3, ptr %142, i64 0
-  %call238 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx237)
-  %arrayidx239 = getelementptr inbounds float, ptr %call238, i64 0
-  %143 = load float, ptr %arrayidx239, align 4
-  %144 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx240 = getelementptr inbounds %class.btVector3, ptr %144, i64 2
-  %call241 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx240)
-  %arrayidx242 = getelementptr inbounds float, ptr %call241, i64 0
-  %145 = load float, ptr %arrayidx242, align 4
-  %sub243 = fsub float %143, %145
-  %arrayidx244 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 0
-  store float %sub243, ptr %arrayidx244, align 4
-  %146 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx245 = getelementptr inbounds %class.btVector3, ptr %146, i64 0
-  %call246 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx245)
-  %arrayidx247 = getelementptr inbounds float, ptr %call246, i64 1
-  %147 = load float, ptr %arrayidx247, align 4
-  %148 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx248 = getelementptr inbounds %class.btVector3, ptr %148, i64 2
-  %call249 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx248)
-  %arrayidx250 = getelementptr inbounds float, ptr %call249, i64 1
-  %149 = load float, ptr %arrayidx250, align 4
-  %sub251 = fsub float %147, %149
-  %arrayidx252 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 1
-  store float %sub251, ptr %arrayidx252, align 4
-  %150 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx253 = getelementptr inbounds %class.btVector3, ptr %150, i64 0
-  %call254 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx253)
-  %arrayidx255 = getelementptr inbounds float, ptr %call254, i64 2
-  %151 = load float, ptr %arrayidx255, align 4
-  %152 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx256 = getelementptr inbounds %class.btVector3, ptr %152, i64 2
-  %call257 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx256)
-  %arrayidx258 = getelementptr inbounds float, ptr %call257, i64 2
-  %153 = load float, ptr %arrayidx258, align 4
-  %sub259 = fsub float %151, %153
-  %arrayidx260 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 2
-  store float %sub259, ptr %arrayidx260, align 4
-  %arrayidx261 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 1
-  %154 = load float, ptr %arrayidx261, align 4
-  %155 = load ptr, ptr %tri_plane.addr, align 8
-  %call262 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %155)
-  %arrayidx263 = getelementptr inbounds float, ptr %call262, i64 2
-  %156 = load float, ptr %arrayidx263, align 4
-  %arrayidx265 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 2
-  %157 = load float, ptr %arrayidx265, align 4
-  %158 = load ptr, ptr %tri_plane.addr, align 8
-  %call266 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %158)
-  %arrayidx267 = getelementptr inbounds float, ptr %call266, i64 1
-  %159 = load float, ptr %arrayidx267, align 4
-  %mul268 = fmul float %157, %159
-  %neg269 = fneg float %mul268
-  %160 = call float @llvm.fmuladd.f32(float %154, float %156, float %neg269)
-  %call270 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx271 = getelementptr inbounds float, ptr %call270, i64 0
-  store float %160, ptr %arrayidx271, align 4
-  %arrayidx272 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 2
-  %161 = load float, ptr %arrayidx272, align 4
-  %162 = load ptr, ptr %tri_plane.addr, align 8
-  %call273 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %162)
-  %arrayidx274 = getelementptr inbounds float, ptr %call273, i64 0
-  %163 = load float, ptr %arrayidx274, align 4
-  %arrayidx276 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 0
-  %164 = load float, ptr %arrayidx276, align 4
-  %165 = load ptr, ptr %tri_plane.addr, align 8
-  %call277 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %165)
-  %arrayidx278 = getelementptr inbounds float, ptr %call277, i64 2
-  %166 = load float, ptr %arrayidx278, align 4
-  %mul279 = fmul float %164, %166
-  %neg280 = fneg float %mul279
-  %167 = call float @llvm.fmuladd.f32(float %161, float %163, float %neg280)
-  %call281 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx282 = getelementptr inbounds float, ptr %call281, i64 1
-  store float %167, ptr %arrayidx282, align 4
-  %arrayidx283 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 0
-  %168 = load float, ptr %arrayidx283, align 4
-  %169 = load ptr, ptr %tri_plane.addr, align 8
-  %call284 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %169)
-  %arrayidx285 = getelementptr inbounds float, ptr %call284, i64 1
-  %170 = load float, ptr %arrayidx285, align 4
-  %arrayidx287 = getelementptr inbounds [3 x float], ptr %_dif236, i64 0, i64 1
-  %171 = load float, ptr %arrayidx287, align 4
-  %172 = load ptr, ptr %tri_plane.addr, align 8
-  %call288 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %172)
-  %arrayidx289 = getelementptr inbounds float, ptr %call288, i64 0
-  %173 = load float, ptr %arrayidx289, align 4
-  %mul290 = fmul float %171, %173
-  %neg291 = fneg float %mul290
-  %174 = call float @llvm.fmuladd.f32(float %168, float %170, float %neg291)
-  %call292 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx293 = getelementptr inbounds float, ptr %call292, i64 2
-  store float %174, ptr %arrayidx293, align 4
-  %call296 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx297 = getelementptr inbounds float, ptr %call296, i64 0
-  %175 = load float, ptr %arrayidx297, align 4
-  %call298 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx299 = getelementptr inbounds float, ptr %call298, i64 0
-  %176 = load float, ptr %arrayidx299, align 4
-  %call301 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx302 = getelementptr inbounds float, ptr %call301, i64 1
-  %177 = load float, ptr %arrayidx302, align 4
-  %call303 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx304 = getelementptr inbounds float, ptr %call303, i64 1
-  %178 = load float, ptr %arrayidx304, align 4
-  %mul305 = fmul float %177, %178
-  %179 = call float @llvm.fmuladd.f32(float %175, float %176, float %mul305)
-  %call306 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx307 = getelementptr inbounds float, ptr %call306, i64 2
-  %180 = load float, ptr %arrayidx307, align 4
-  %call308 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx309 = getelementptr inbounds float, ptr %call308, i64 2
-  %181 = load float, ptr %arrayidx309, align 4
-  %182 = call float @llvm.fmuladd.f32(float %180, float %181, float %179)
-  store float %182, ptr %_pp295, align 4
-  %183 = load float, ptr %_pp295, align 4
-  %cmp311 = fcmp ole float %183, 0x3E7AD7F2A0000000
-  br i1 %cmp311, label %if.then312, label %if.else313
+403:                                              ; preds = %364
+  call void @llvm.lifetime.start.p0(i64 12, ptr %25) #8
+  %404 = load ptr, ptr %9, align 8, !tbaa !21
+  %405 = getelementptr inbounds %class.btVector3, ptr %404, i64 0
+  %406 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %405)
+  %407 = getelementptr inbounds float, ptr %406, i64 0
+  %408 = load float, ptr %407, align 4, !tbaa !23
+  %409 = load ptr, ptr %9, align 8, !tbaa !21
+  %410 = getelementptr inbounds %class.btVector3, ptr %409, i64 2
+  %411 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %410)
+  %412 = getelementptr inbounds float, ptr %411, i64 0
+  %413 = load float, ptr %412, align 4, !tbaa !23
+  %414 = fsub float %408, %413
+  %415 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 0
+  store float %414, ptr %415, align 4, !tbaa !23
+  %416 = load ptr, ptr %9, align 8, !tbaa !21
+  %417 = getelementptr inbounds %class.btVector3, ptr %416, i64 0
+  %418 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %417)
+  %419 = getelementptr inbounds float, ptr %418, i64 1
+  %420 = load float, ptr %419, align 4, !tbaa !23
+  %421 = load ptr, ptr %9, align 8, !tbaa !21
+  %422 = getelementptr inbounds %class.btVector3, ptr %421, i64 2
+  %423 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %422)
+  %424 = getelementptr inbounds float, ptr %423, i64 1
+  %425 = load float, ptr %424, align 4, !tbaa !23
+  %426 = fsub float %420, %425
+  %427 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 1
+  store float %426, ptr %427, align 4, !tbaa !23
+  %428 = load ptr, ptr %9, align 8, !tbaa !21
+  %429 = getelementptr inbounds %class.btVector3, ptr %428, i64 0
+  %430 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %429)
+  %431 = getelementptr inbounds float, ptr %430, i64 2
+  %432 = load float, ptr %431, align 4, !tbaa !23
+  %433 = load ptr, ptr %9, align 8, !tbaa !21
+  %434 = getelementptr inbounds %class.btVector3, ptr %433, i64 2
+  %435 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %434)
+  %436 = getelementptr inbounds float, ptr %435, i64 2
+  %437 = load float, ptr %436, align 4, !tbaa !23
+  %438 = fsub float %432, %437
+  %439 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 2
+  store float %438, ptr %439, align 4, !tbaa !23
+  %440 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 1
+  %441 = load float, ptr %440, align 4, !tbaa !23
+  %442 = load ptr, ptr %8, align 8, !tbaa !36
+  %443 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %442)
+  %444 = getelementptr inbounds float, ptr %443, i64 2
+  %445 = load float, ptr %444, align 4, !tbaa !23
+  %446 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 2
+  %447 = load float, ptr %446, align 4, !tbaa !23
+  %448 = load ptr, ptr %8, align 8, !tbaa !36
+  %449 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %448)
+  %450 = getelementptr inbounds float, ptr %449, i64 1
+  %451 = load float, ptr %450, align 4, !tbaa !23
+  %452 = fmul float %447, %451
+  %453 = fneg float %452
+  %454 = call float @llvm.fmuladd.f32(float %441, float %445, float %453)
+  %455 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %456 = getelementptr inbounds float, ptr %455, i64 0
+  store float %454, ptr %456, align 4, !tbaa !23
+  %457 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 2
+  %458 = load float, ptr %457, align 4, !tbaa !23
+  %459 = load ptr, ptr %8, align 8, !tbaa !36
+  %460 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %459)
+  %461 = getelementptr inbounds float, ptr %460, i64 0
+  %462 = load float, ptr %461, align 4, !tbaa !23
+  %463 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 0
+  %464 = load float, ptr %463, align 4, !tbaa !23
+  %465 = load ptr, ptr %8, align 8, !tbaa !36
+  %466 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %465)
+  %467 = getelementptr inbounds float, ptr %466, i64 2
+  %468 = load float, ptr %467, align 4, !tbaa !23
+  %469 = fmul float %464, %468
+  %470 = fneg float %469
+  %471 = call float @llvm.fmuladd.f32(float %458, float %462, float %470)
+  %472 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %473 = getelementptr inbounds float, ptr %472, i64 1
+  store float %471, ptr %473, align 4, !tbaa !23
+  %474 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 0
+  %475 = load float, ptr %474, align 4, !tbaa !23
+  %476 = load ptr, ptr %8, align 8, !tbaa !36
+  %477 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %476)
+  %478 = getelementptr inbounds float, ptr %477, i64 1
+  %479 = load float, ptr %478, align 4, !tbaa !23
+  %480 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 1
+  %481 = load float, ptr %480, align 4, !tbaa !23
+  %482 = load ptr, ptr %8, align 8, !tbaa !36
+  %483 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %482)
+  %484 = getelementptr inbounds float, ptr %483, i64 0
+  %485 = load float, ptr %484, align 4, !tbaa !23
+  %486 = fmul float %481, %485
+  %487 = fneg float %486
+  %488 = call float @llvm.fmuladd.f32(float %475, float %479, float %487)
+  %489 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %490 = getelementptr inbounds float, ptr %489, i64 2
+  store float %488, ptr %490, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #8
+  %491 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %492 = getelementptr inbounds float, ptr %491, i64 0
+  %493 = load float, ptr %492, align 4, !tbaa !23
+  %494 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %495 = getelementptr inbounds float, ptr %494, i64 0
+  %496 = load float, ptr %495, align 4, !tbaa !23
+  %497 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %498 = getelementptr inbounds float, ptr %497, i64 1
+  %499 = load float, ptr %498, align 4, !tbaa !23
+  %500 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %501 = getelementptr inbounds float, ptr %500, i64 1
+  %502 = load float, ptr %501, align 4, !tbaa !23
+  %503 = fmul float %499, %502
+  %504 = call float @llvm.fmuladd.f32(float %493, float %496, float %503)
+  %505 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %506 = getelementptr inbounds float, ptr %505, i64 2
+  %507 = load float, ptr %506, align 4, !tbaa !23
+  %508 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %509 = getelementptr inbounds float, ptr %508, i64 2
+  %510 = load float, ptr %509, align 4, !tbaa !23
+  %511 = call float @llvm.fmuladd.f32(float %507, float %510, float %504)
+  store float %511, ptr %27, align 4, !tbaa !23
+  %512 = load float, ptr %27, align 4, !tbaa !23
+  %513 = fcmp ole float %512, 0x3E7AD7F2A0000000
+  br i1 %513, label %514, label %515
 
-if.then312:                                       ; preds = %if.end235
-  store float 0x47EFFFFFE0000000, ptr %len294, align 4
-  br label %if.end323
+514:                                              ; preds = %403
+  store float 0x47EFFFFFE0000000, ptr %26, align 4, !tbaa !23
+  br label %530
 
-if.else313:                                       ; preds = %if.end235
-  %184 = load float, ptr %_pp295, align 4
-  %mul315 = fmul float %184, 5.000000e-01
-  store float %mul315, ptr %_x314, align 4
-  %185 = load i32, ptr %_pp295, align 4
-  %shr317 = lshr i32 %185, 1
-  %sub318 = sub i32 1597463007, %shr317
-  store i32 %sub318, ptr %_y316, align 4
-  %186 = load float, ptr %_y316, align 4
-  store float %186, ptr %len294, align 4
-  %187 = load float, ptr %len294, align 4
-  %188 = load float, ptr %_x314, align 4
-  %189 = load float, ptr %len294, align 4
-  %mul319 = fmul float %188, %189
-  %190 = load float, ptr %len294, align 4
-  %neg321 = fneg float %mul319
-  %191 = call float @llvm.fmuladd.f32(float %neg321, float %190, float 1.500000e+00)
-  %mul322 = fmul float %187, %191
-  store float %mul322, ptr %len294, align 4
-  br label %if.end323
+515:                                              ; preds = %403
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #8
+  %516 = load float, ptr %27, align 4, !tbaa !23
+  %517 = fmul float %516, 5.000000e-01
+  store float %517, ptr %28, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #8
+  %518 = load i32, ptr %27, align 4, !tbaa !9
+  %519 = lshr i32 %518, 1
+  %520 = sub i32 1597463007, %519
+  store i32 %520, ptr %29, align 4, !tbaa !9
+  %521 = load float, ptr %29, align 4, !tbaa !23
+  store float %521, ptr %26, align 4, !tbaa !23
+  %522 = load float, ptr %26, align 4, !tbaa !23
+  %523 = load float, ptr %28, align 4, !tbaa !23
+  %524 = load float, ptr %26, align 4, !tbaa !23
+  %525 = fmul float %523, %524
+  %526 = load float, ptr %26, align 4, !tbaa !23
+  %527 = fneg float %525
+  %528 = call float @llvm.fmuladd.f32(float %527, float %526, float 1.500000e+00)
+  %529 = fmul float %522, %528
+  store float %529, ptr %26, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #8
+  br label %530
 
-if.end323:                                        ; preds = %if.else313, %if.then312
-  %192 = load float, ptr %len294, align 4
-  %cmp324 = fcmp olt float %192, 0x47EFFFFFE0000000
-  br i1 %cmp324, label %if.then325, label %if.end335
+530:                                              ; preds = %515, %514
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #8
+  %531 = load float, ptr %26, align 4, !tbaa !23
+  %532 = fcmp olt float %531, 0x47EFFFFFE0000000
+  br i1 %532, label %533, label %549
 
-if.then325:                                       ; preds = %if.end323
-  %193 = load float, ptr %len294, align 4
-  %call326 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx327 = getelementptr inbounds float, ptr %call326, i64 0
-  %194 = load float, ptr %arrayidx327, align 4
-  %mul328 = fmul float %194, %193
-  store float %mul328, ptr %arrayidx327, align 4
-  %195 = load float, ptr %len294, align 4
-  %call329 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx330 = getelementptr inbounds float, ptr %call329, i64 1
-  %196 = load float, ptr %arrayidx330, align 4
-  %mul331 = fmul float %196, %195
-  store float %mul331, ptr %arrayidx330, align 4
-  %197 = load float, ptr %len294, align 4
-  %call332 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx333 = getelementptr inbounds float, ptr %call332, i64 2
-  %198 = load float, ptr %arrayidx333, align 4
-  %mul334 = fmul float %198, %197
-  store float %mul334, ptr %arrayidx333, align 4
-  br label %if.end335
+533:                                              ; preds = %530
+  %534 = load float, ptr %26, align 4, !tbaa !23
+  %535 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %536 = getelementptr inbounds float, ptr %535, i64 0
+  %537 = load float, ptr %536, align 4, !tbaa !23
+  %538 = fmul float %537, %534
+  store float %538, ptr %536, align 4, !tbaa !23
+  %539 = load float, ptr %26, align 4, !tbaa !23
+  %540 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %541 = getelementptr inbounds float, ptr %540, i64 1
+  %542 = load float, ptr %541, align 4, !tbaa !23
+  %543 = fmul float %542, %539
+  store float %543, ptr %541, align 4, !tbaa !23
+  %544 = load float, ptr %26, align 4, !tbaa !23
+  %545 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %546 = getelementptr inbounds float, ptr %545, i64 2
+  %547 = load float, ptr %546, align 4, !tbaa !23
+  %548 = fmul float %547, %544
+  store float %548, ptr %546, align 4, !tbaa !23
+  br label %549
 
-if.end335:                                        ; preds = %if.then325, %if.end323
-  %199 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx336 = getelementptr inbounds %class.btVector3, ptr %199, i64 2
-  %call337 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx336)
-  %arrayidx338 = getelementptr inbounds float, ptr %call337, i64 0
-  %200 = load float, ptr %arrayidx338, align 4
-  %call339 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx340 = getelementptr inbounds float, ptr %call339, i64 0
-  %201 = load float, ptr %arrayidx340, align 4
-  %202 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx342 = getelementptr inbounds %class.btVector3, ptr %202, i64 2
-  %call343 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx342)
-  %arrayidx344 = getelementptr inbounds float, ptr %call343, i64 1
-  %203 = load float, ptr %arrayidx344, align 4
-  %call345 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx346 = getelementptr inbounds float, ptr %call345, i64 1
-  %204 = load float, ptr %arrayidx346, align 4
-  %mul347 = fmul float %203, %204
-  %205 = call float @llvm.fmuladd.f32(float %200, float %201, float %mul347)
-  %206 = load ptr, ptr %tripoints.addr, align 8
-  %arrayidx348 = getelementptr inbounds %class.btVector3, ptr %206, i64 2
-  %call349 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx348)
-  %arrayidx350 = getelementptr inbounds float, ptr %call349, i64 2
-  %207 = load float, ptr %arrayidx350, align 4
-  %call351 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx352 = getelementptr inbounds float, ptr %call351, i64 2
-  %208 = load float, ptr %arrayidx352, align 4
-  %209 = call float @llvm.fmuladd.f32(float %207, float %208, float %205)
-  %call354 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane)
-  %arrayidx355 = getelementptr inbounds float, ptr %call354, i64 3
-  store float %209, ptr %arrayidx355, align 4
-  %temp_points1356 = getelementptr inbounds %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %this1, i32 0, i32 16
-  %arraydecay357 = getelementptr inbounds [16 x %class.btVector3], ptr %temp_points1356, i64 0, i64 0
-  %210 = load i32, ptr %clipped_count, align 4
-  %211 = load ptr, ptr %clip_points.addr, align 8
-  %call358 = call noundef i32 @_Z20PLANE_CLIP_POLYGON3DI9btVector39btVector4EjRKT0_PKT_jPS5_(ptr noundef nonnull align 4 dereferenceable(16) %edgeplane, ptr noundef %arraydecay357, i32 noundef %210, ptr noundef %211)
-  store i32 %call358, ptr %clipped_count, align 4
-  %212 = load i32, ptr %clipped_count, align 4
-  store i32 %212, ptr %retval, align 4
-  br label %return
+549:                                              ; preds = %533, %530
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #8
+  %550 = load ptr, ptr %9, align 8, !tbaa !21
+  %551 = getelementptr inbounds %class.btVector3, ptr %550, i64 2
+  %552 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %551)
+  %553 = getelementptr inbounds float, ptr %552, i64 0
+  %554 = load float, ptr %553, align 4, !tbaa !23
+  %555 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %556 = getelementptr inbounds float, ptr %555, i64 0
+  %557 = load float, ptr %556, align 4, !tbaa !23
+  %558 = load ptr, ptr %9, align 8, !tbaa !21
+  %559 = getelementptr inbounds %class.btVector3, ptr %558, i64 2
+  %560 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %559)
+  %561 = getelementptr inbounds float, ptr %560, i64 1
+  %562 = load float, ptr %561, align 4, !tbaa !23
+  %563 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %564 = getelementptr inbounds float, ptr %563, i64 1
+  %565 = load float, ptr %564, align 4, !tbaa !23
+  %566 = fmul float %562, %565
+  %567 = call float @llvm.fmuladd.f32(float %554, float %557, float %566)
+  %568 = load ptr, ptr %9, align 8, !tbaa !21
+  %569 = getelementptr inbounds %class.btVector3, ptr %568, i64 2
+  %570 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %569)
+  %571 = getelementptr inbounds float, ptr %570, i64 2
+  %572 = load float, ptr %571, align 4, !tbaa !23
+  %573 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %574 = getelementptr inbounds float, ptr %573, i64 2
+  %575 = load float, ptr %574, align 4, !tbaa !23
+  %576 = call float @llvm.fmuladd.f32(float %572, float %575, float %567)
+  %577 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %578 = getelementptr inbounds float, ptr %577, i64 3
+  store float %576, ptr %578, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 12, ptr %25) #8
+  %579 = getelementptr inbounds nuw %class.GIM_TRIANGLE_CALCULATION_CACHE, ptr %30, i32 0, i32 16
+  %580 = getelementptr inbounds [16 x %class.btVector3], ptr %579, i64 0, i64 0
+  %581 = load i32, ptr %18, align 4, !tbaa !9
+  %582 = load ptr, ptr %11, align 8, !tbaa !21
+  %583 = call noundef i32 @_Z20PLANE_CLIP_POLYGON3DI9btVector39btVector4EjRKT0_PKT_jPS5_(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef %580, i32 noundef %581, ptr noundef %582)
+  store i32 %583, ptr %18, align 4, !tbaa !9
+  %584 = load i32, ptr %18, align 4, !tbaa !9
+  store i32 %584, ptr %6, align 4
+  store i32 1, ptr %19, align 4
+  br label %585
 
-return:                                           ; preds = %if.end335, %if.then234, %if.then107
-  %213 = load i32, ptr %retval, align 4
-  ret i32 %213
+585:                                              ; preds = %549, %402, %217
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #8
+  %586 = load i32, ptr %6, align 4
+  ret i32 %586
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j(ptr noundef nonnull align 4 dereferenceable(280) %this, ptr noundef nonnull align 4 dereferenceable(16) %plane, float noundef %margin, ptr noundef %points, i32 noundef %point_count) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %plane.addr = alloca ptr, align 8
-  %margin.addr = alloca float, align 4
-  %points.addr = alloca ptr, align 8
-  %point_count.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  store float %margin, ptr %margin.addr, align 4
-  store ptr %points, ptr %points.addr, align 8
-  store i32 %point_count, ptr %point_count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %plane.addr, align 8
-  %m_separating_normal = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_separating_normal, ptr align 4 %0, i64 16, i1 false)
-  %1 = load ptr, ptr %plane.addr, align 8
-  %2 = load float, ptr %margin.addr, align 4
-  %3 = load ptr, ptr %points.addr, align 8
-  %4 = load i32, ptr %point_count.addr, align 4
-  call void @_ZN25GIM_TRIANGLE_CONTACT_DATA19mergepoints_genericI22DISTANCE_PLANE_3D_FUNC9btVector4EEvRKT0_fPK9btVector3jT_(ptr noundef nonnull align 4 dereferenceable(280) %this1, ptr noundef nonnull align 4 dereferenceable(16) %1, float noundef %2, ptr noundef %3, i32 noundef %4)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j(ptr noundef nonnull align 4 dereferenceable(280) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, float noundef %2, ptr noundef %3, i32 noundef %4) #4 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !14
+  store ptr %1, ptr %7, align 8, !tbaa !36
+  store float %2, ptr %8, align 4, !tbaa !23
+  store ptr %3, ptr %9, align 8, !tbaa !21
+  store i32 %4, ptr %10, align 4, !tbaa !9
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %7, align 8, !tbaa !36
+  %13 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %11, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %12, i64 16, i1 false)
+  %14 = load ptr, ptr %7, align 8, !tbaa !36
+  %15 = load float, ptr %8, align 4, !tbaa !23
+  %16 = load ptr, ptr %9, align 8, !tbaa !21
+  %17 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN25GIM_TRIANGLE_CONTACT_DATA19mergepoints_genericI22DISTANCE_PLANE_3D_FUNC9btVector4EEvRKT0_fPK9btVector3jT_(ptr noundef nonnull align 4 dereferenceable(280) %11, ptr noundef nonnull align 4 dereferenceable(16) %14, float noundef %15, ptr noundef %16, i32 noundef %17)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %s) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %2 = load float, ptr %arrayidx, align 4
-  %mul = fmul float %2, %1
-  store float %mul, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %s.addr, align 8
-  %4 = load float, ptr %3, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  %5 = load float, ptr %arrayidx3, align 4
-  %mul4 = fmul float %5, %4
-  store float %mul4, ptr %arrayidx3, align 4
-  %6 = load ptr, ptr %s.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %m_floats5 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [4 x float], ptr %m_floats5, i64 0, i64 2
-  %8 = load float, ptr %arrayidx6, align 4
-  %mul7 = fmul float %8, %7
-  store float %mul7, ptr %arrayidx6, align 4
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !38
+  %7 = load float, ptr %6, align 4, !tbaa !23
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 0
+  %10 = load float, ptr %9, align 4, !tbaa !23
+  %11 = fmul float %10, %7
+  store float %11, ptr %9, align 4, !tbaa !23
+  %12 = load ptr, ptr %4, align 8, !tbaa !38
+  %13 = load float, ptr %12, align 4, !tbaa !23
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 1
+  %16 = load float, ptr %15, align 4, !tbaa !23
+  %17 = fmul float %16, %13
+  store float %17, ptr %15, align 4, !tbaa !23
+  %18 = load ptr, ptr %4, align 8, !tbaa !38
+  %19 = load float, ptr %18, align 4, !tbaa !23
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  %22 = load float, ptr %21, align 4, !tbaa !23
+  %23 = fmul float %22, %19
+  store float %23, ptr %21, align 4, !tbaa !23
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z21PLANE_CLIP_TRIANGLE3DI9btVector39btVector4EjRKT0_RKT_S7_S7_PS5_(ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef nonnull align 4 dereferenceable(16) %point0, ptr noundef nonnull align 4 dereferenceable(16) %point1, ptr noundef nonnull align 4 dereferenceable(16) %point2, ptr noundef %clipped) #2 comdat {
-entry:
-  %plane.addr = alloca ptr, align 8
-  %point0.addr = alloca ptr, align 8
-  %point1.addr = alloca ptr, align 8
-  %point2.addr = alloca ptr, align 8
-  %clipped.addr = alloca ptr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %point0, ptr %point0.addr, align 8
-  store ptr %point1, ptr %point1.addr, align 8
-  store ptr %point2, ptr %point2.addr, align 8
-  store ptr %clipped, ptr %clipped.addr, align 8
-  %0 = load ptr, ptr %plane.addr, align 8
-  %1 = load ptr, ptr %point0.addr, align 8
-  %2 = load ptr, ptr %point1.addr, align 8
-  %3 = load ptr, ptr %point2.addr, align 8
-  %4 = load ptr, ptr %clipped.addr, align 8
-  %call = call noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %4)
-  ret i32 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_Z21PLANE_CLIP_TRIANGLE3DI9btVector39btVector4EjRKT0_RKT_S7_S7_PS5_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !36
+  store ptr %1, ptr %7, align 8, !tbaa !21
+  store ptr %2, ptr %8, align 8, !tbaa !21
+  store ptr %3, ptr %9, align 8, !tbaa !21
+  store ptr %4, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %6, align 8, !tbaa !36
+  %12 = load ptr, ptr %7, align 8, !tbaa !21
+  %13 = load ptr, ptr %8, align 8, !tbaa !21
+  %14 = load ptr, ptr %9, align 8, !tbaa !21
+  %15 = load ptr, ptr %10, align 8, !tbaa !21
+  %16 = call noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef %15)
+  ret i32 %16
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z20PLANE_CLIP_POLYGON3DI9btVector39btVector4EjRKT0_PKT_jPS5_(ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef %polygon_points, i32 noundef %polygon_point_count, ptr noundef %clipped) #2 comdat {
-entry:
-  %plane.addr = alloca ptr, align 8
-  %polygon_points.addr = alloca ptr, align 8
-  %polygon_point_count.addr = alloca i32, align 4
-  %clipped.addr = alloca ptr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %polygon_points, ptr %polygon_points.addr, align 8
-  store i32 %polygon_point_count, ptr %polygon_point_count.addr, align 4
-  store ptr %clipped, ptr %clipped.addr, align 8
-  %0 = load ptr, ptr %plane.addr, align 8
-  %1 = load ptr, ptr %polygon_points.addr, align 8
-  %2 = load i32, ptr %polygon_point_count.addr, align 4
-  %3 = load ptr, ptr %clipped.addr, align 8
-  %call = call noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  ret i32 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_Z20PLANE_CLIP_POLYGON3DI9btVector39btVector4EjRKT0_PKT_jPS5_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !36
+  store ptr %1, ptr %6, align 8, !tbaa !21
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !21
+  %9 = load ptr, ptr %5, align 8, !tbaa !36
+  %10 = load ptr, ptr %6, align 8, !tbaa !21
+  %11 = load i32, ptr %7, align 4, !tbaa !9
+  %12 = load ptr, ptr %8, align 8, !tbaa !21
+  %13 = call noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef %10, i32 noundef %11, ptr noundef %12)
+  ret i32 %13
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef nonnull align 4 dereferenceable(16) %point0, ptr noundef nonnull align 4 dereferenceable(16) %point1, ptr noundef nonnull align 4 dereferenceable(16) %point2, ptr noundef %clipped) #2 comdat {
-entry:
-  %distance_func = alloca %class.DISTANCE_PLANE_3D_FUNC, align 1
-  %plane.addr = alloca ptr, align 8
-  %point0.addr = alloca ptr, align 8
-  %point1.addr = alloca ptr, align 8
-  %point2.addr = alloca ptr, align 8
-  %clipped.addr = alloca ptr, align 8
-  %clipped_count = alloca i32, align 4
-  %firstdist = alloca float, align 4
-  %olddist = alloca float, align 4
-  %dist = alloca float, align 4
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %point0, ptr %point0.addr, align 8
-  store ptr %point1, ptr %point1.addr, align 8
-  store ptr %point2, ptr %point2.addr, align 8
-  store ptr %clipped, ptr %clipped.addr, align 8
-  store i32 0, ptr %clipped_count, align 4
-  %0 = load ptr, ptr %plane.addr, align 8
-  %1 = load ptr, ptr %point0.addr, align 8
-  %call = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %distance_func, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  store float %call, ptr %firstdist, align 4
-  %2 = load float, ptr %firstdist, align 4
-  %cmp = fcmp ogt float %2, 0x3E80000000000000
-  br i1 %cmp, label %if.end, label %if.then
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %4) #4 comdat {
+  %6 = alloca %class.DISTANCE_PLANE_3D_FUNC, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !36
+  store ptr %1, ptr %8, align 8, !tbaa !21
+  store ptr %2, ptr %9, align 8, !tbaa !21
+  store ptr %3, ptr %10, align 8, !tbaa !21
+  store ptr %4, ptr %11, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  store i32 0, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %16 = load ptr, ptr %7, align 8, !tbaa !36
+  %17 = load ptr, ptr %8, align 8, !tbaa !21
+  %18 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %17)
+  store float %18, ptr %13, align 4, !tbaa !23
+  %19 = load float, ptr %13, align 4, !tbaa !23
+  %20 = fcmp ogt float %19, 0x3E80000000000000
+  br i1 %20, label %54, label %21
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %point0.addr, align 8
-  %call1 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %3)
-  %arrayidx = getelementptr inbounds float, ptr %call1, i64 0
-  %4 = load float, ptr %arrayidx, align 4
-  %5 = load ptr, ptr %clipped.addr, align 8
-  %6 = load i32, ptr %clipped_count, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx2 = getelementptr inbounds %class.btVector3, ptr %5, i64 %idxprom
-  %call3 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx2)
-  %arrayidx4 = getelementptr inbounds float, ptr %call3, i64 0
-  store float %4, ptr %arrayidx4, align 4
-  %7 = load ptr, ptr %point0.addr, align 8
-  %call5 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %7)
-  %arrayidx6 = getelementptr inbounds float, ptr %call5, i64 1
-  %8 = load float, ptr %arrayidx6, align 4
-  %9 = load ptr, ptr %clipped.addr, align 8
-  %10 = load i32, ptr %clipped_count, align 4
-  %idxprom7 = zext i32 %10 to i64
-  %arrayidx8 = getelementptr inbounds %class.btVector3, ptr %9, i64 %idxprom7
-  %call9 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8)
-  %arrayidx10 = getelementptr inbounds float, ptr %call9, i64 1
-  store float %8, ptr %arrayidx10, align 4
-  %11 = load ptr, ptr %point0.addr, align 8
-  %call11 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
-  %arrayidx12 = getelementptr inbounds float, ptr %call11, i64 2
-  %12 = load float, ptr %arrayidx12, align 4
-  %13 = load ptr, ptr %clipped.addr, align 8
-  %14 = load i32, ptr %clipped_count, align 4
-  %idxprom13 = zext i32 %14 to i64
-  %arrayidx14 = getelementptr inbounds %class.btVector3, ptr %13, i64 %idxprom13
-  %call15 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14)
-  %arrayidx16 = getelementptr inbounds float, ptr %call15, i64 2
-  store float %12, ptr %arrayidx16, align 4
-  %15 = load i32, ptr %clipped_count, align 4
-  %inc = add i32 %15, 1
-  store i32 %inc, ptr %clipped_count, align 4
-  br label %if.end
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %8, align 8, !tbaa !21
+  %23 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %22)
+  %24 = getelementptr inbounds float, ptr %23, i64 0
+  %25 = load float, ptr %24, align 4, !tbaa !23
+  %26 = load ptr, ptr %11, align 8, !tbaa !21
+  %27 = load i32, ptr %12, align 4, !tbaa !9
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %class.btVector3, ptr %26, i64 %28
+  %30 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %29)
+  %31 = getelementptr inbounds float, ptr %30, i64 0
+  store float %25, ptr %31, align 4, !tbaa !23
+  %32 = load ptr, ptr %8, align 8, !tbaa !21
+  %33 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %32)
+  %34 = getelementptr inbounds float, ptr %33, i64 1
+  %35 = load float, ptr %34, align 4, !tbaa !23
+  %36 = load ptr, ptr %11, align 8, !tbaa !21
+  %37 = load i32, ptr %12, align 4, !tbaa !9
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %class.btVector3, ptr %36, i64 %38
+  %40 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %39)
+  %41 = getelementptr inbounds float, ptr %40, i64 1
+  store float %35, ptr %41, align 4, !tbaa !23
+  %42 = load ptr, ptr %8, align 8, !tbaa !21
+  %43 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %42)
+  %44 = getelementptr inbounds float, ptr %43, i64 2
+  %45 = load float, ptr %44, align 4, !tbaa !23
+  %46 = load ptr, ptr %11, align 8, !tbaa !21
+  %47 = load i32, ptr %12, align 4, !tbaa !9
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %class.btVector3, ptr %46, i64 %48
+  %50 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %49)
+  %51 = getelementptr inbounds float, ptr %50, i64 2
+  store float %45, ptr %51, align 4, !tbaa !23
+  %52 = load i32, ptr %12, align 4, !tbaa !9
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %12, align 4, !tbaa !9
+  br label %54
 
-if.end:                                           ; preds = %if.then, %entry
-  %16 = load float, ptr %firstdist, align 4
-  store float %16, ptr %olddist, align 4
-  %17 = load ptr, ptr %plane.addr, align 8
-  %18 = load ptr, ptr %point1.addr, align 8
-  %call17 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %distance_func, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %18)
-  store float %call17, ptr %dist, align 4
-  %19 = load ptr, ptr %point0.addr, align 8
-  %20 = load ptr, ptr %point1.addr, align 8
-  %21 = load float, ptr %olddist, align 4
-  %22 = load float, ptr %dist, align 4
-  %23 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %20, float noundef %21, float noundef %22, ptr noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %24 = load float, ptr %dist, align 4
-  store float %24, ptr %olddist, align 4
-  %25 = load ptr, ptr %plane.addr, align 8
-  %26 = load ptr, ptr %point2.addr, align 8
-  %call18 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %distance_func, ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %26)
-  store float %call18, ptr %dist, align 4
-  %27 = load ptr, ptr %point1.addr, align 8
-  %28 = load ptr, ptr %point2.addr, align 8
-  %29 = load float, ptr %olddist, align 4
-  %30 = load float, ptr %dist, align 4
-  %31 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %28, float noundef %29, float noundef %30, ptr noundef %31, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %32 = load float, ptr %dist, align 4
-  store float %32, ptr %olddist, align 4
-  %33 = load ptr, ptr %point2.addr, align 8
-  %34 = load ptr, ptr %point0.addr, align 8
-  %35 = load float, ptr %olddist, align 4
-  %36 = load float, ptr %firstdist, align 4
-  %37 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %34, float noundef %35, float noundef %36, ptr noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %38 = load i32, ptr %clipped_count, align 4
-  ret i32 %38
+54:                                               ; preds = %21, %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %55 = load float, ptr %13, align 4, !tbaa !23
+  store float %55, ptr %14, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %56 = load ptr, ptr %7, align 8, !tbaa !36
+  %57 = load ptr, ptr %9, align 8, !tbaa !21
+  %58 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(16) %57)
+  store float %58, ptr %15, align 4, !tbaa !23
+  %59 = load ptr, ptr %8, align 8, !tbaa !21
+  %60 = load ptr, ptr %9, align 8, !tbaa !21
+  %61 = load float, ptr %14, align 4, !tbaa !23
+  %62 = load float, ptr %15, align 4, !tbaa !23
+  %63 = load ptr, ptr %11, align 8, !tbaa !21
+  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %59, ptr noundef nonnull align 4 dereferenceable(16) %60, float noundef %61, float noundef %62, ptr noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %64 = load float, ptr %15, align 4, !tbaa !23
+  store float %64, ptr %14, align 4, !tbaa !23
+  %65 = load ptr, ptr %7, align 8, !tbaa !36
+  %66 = load ptr, ptr %10, align 8, !tbaa !21
+  %67 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(16) %66)
+  store float %67, ptr %15, align 4, !tbaa !23
+  %68 = load ptr, ptr %9, align 8, !tbaa !21
+  %69 = load ptr, ptr %10, align 8, !tbaa !21
+  %70 = load float, ptr %14, align 4, !tbaa !23
+  %71 = load float, ptr %15, align 4, !tbaa !23
+  %72 = load ptr, ptr %11, align 8, !tbaa !21
+  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) %69, float noundef %70, float noundef %71, ptr noundef %72, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %73 = load float, ptr %15, align 4, !tbaa !23
+  store float %73, ptr %14, align 4, !tbaa !23
+  %74 = load ptr, ptr %10, align 8, !tbaa !21
+  %75 = load ptr, ptr %8, align 8, !tbaa !21
+  %76 = load float, ptr %14, align 4, !tbaa !23
+  %77 = load float, ptr %13, align 4, !tbaa !23
+  %78 = load ptr, ptr %11, align 8, !tbaa !21
+  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %74, ptr noundef nonnull align 4 dereferenceable(16) %75, float noundef %76, float noundef %77, ptr noundef %78, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %79 = load i32, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  ret i32 %79
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef nonnull align 4 dereferenceable(16) %point) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %plane.addr = alloca ptr, align 8
-  %point.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %point, ptr %point.addr, align 8
-  %0 = load ptr, ptr %plane.addr, align 8
-  %call = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
-  %arrayidx = getelementptr inbounds float, ptr %call, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %point.addr, align 8
-  %call2 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %2)
-  %arrayidx3 = getelementptr inbounds float, ptr %call2, i64 0
-  %3 = load float, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %plane.addr, align 8
-  %call4 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %4)
-  %arrayidx5 = getelementptr inbounds float, ptr %call4, i64 1
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %point.addr, align 8
-  %call6 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %6)
-  %arrayidx7 = getelementptr inbounds float, ptr %call6, i64 1
-  %7 = load float, ptr %arrayidx7, align 4
-  %mul8 = fmul float %5, %7
-  %8 = call float @llvm.fmuladd.f32(float %1, float %3, float %mul8)
-  %9 = load ptr, ptr %plane.addr, align 8
-  %call9 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %9)
-  %arrayidx10 = getelementptr inbounds float, ptr %call9, i64 2
-  %10 = load float, ptr %arrayidx10, align 4
-  %11 = load ptr, ptr %point.addr, align 8
-  %call11 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
-  %arrayidx12 = getelementptr inbounds float, ptr %call11, i64 2
-  %12 = load float, ptr %arrayidx12, align 4
-  %13 = call float @llvm.fmuladd.f32(float %10, float %12, float %8)
-  %14 = load ptr, ptr %plane.addr, align 8
-  %call13 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %14)
-  %arrayidx14 = getelementptr inbounds float, ptr %call13, i64 3
-  %15 = load float, ptr %arrayidx14, align 4
-  %sub = fsub float %13, %15
-  ret float %sub
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !40
+  store ptr %1, ptr %5, align 8, !tbaa !36
+  store ptr %2, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %5, align 8, !tbaa !36
+  %8 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %7)
+  %9 = getelementptr inbounds float, ptr %8, i64 0
+  %10 = load float, ptr %9, align 4, !tbaa !23
+  %11 = load ptr, ptr %6, align 8, !tbaa !21
+  %12 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
+  %13 = getelementptr inbounds float, ptr %12, i64 0
+  %14 = load float, ptr %13, align 4, !tbaa !23
+  %15 = load ptr, ptr %5, align 8, !tbaa !36
+  %16 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %15)
+  %17 = getelementptr inbounds float, ptr %16, i64 1
+  %18 = load float, ptr %17, align 4, !tbaa !23
+  %19 = load ptr, ptr %6, align 8, !tbaa !21
+  %20 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %19)
+  %21 = getelementptr inbounds float, ptr %20, i64 1
+  %22 = load float, ptr %21, align 4, !tbaa !23
+  %23 = fmul float %18, %22
+  %24 = call float @llvm.fmuladd.f32(float %10, float %14, float %23)
+  %25 = load ptr, ptr %5, align 8, !tbaa !36
+  %26 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %25)
+  %27 = getelementptr inbounds float, ptr %26, i64 2
+  %28 = load float, ptr %27, align 4, !tbaa !23
+  %29 = load ptr, ptr %6, align 8, !tbaa !21
+  %30 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %29)
+  %31 = getelementptr inbounds float, ptr %30, i64 2
+  %32 = load float, ptr %31, align 4, !tbaa !23
+  %33 = call float @llvm.fmuladd.f32(float %28, float %32, float %24)
+  %34 = load ptr, ptr %5, align 8, !tbaa !36
+  %35 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
+  %36 = getelementptr inbounds float, ptr %35, i64 3
+  %37 = load float, ptr %36, align 4, !tbaa !23
+  %38 = fsub float %33, %37
+  ret float %38
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %point0, ptr noundef nonnull align 4 dereferenceable(16) %point1, float noundef %dist0, float noundef %dist1, ptr noundef %clipped, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count) #1 comdat {
-entry:
-  %point0.addr = alloca ptr, align 8
-  %point1.addr = alloca ptr, align 8
-  %dist0.addr = alloca float, align 4
-  %dist1.addr = alloca float, align 4
-  %clipped.addr = alloca ptr, align 8
-  %clipped_count.addr = alloca ptr, align 8
-  %_prevclassif = alloca i32, align 4
-  %_classif = alloca i32, align 4
-  %blendfactor = alloca float, align 4
-  store ptr %point0, ptr %point0.addr, align 8
-  store ptr %point1, ptr %point1.addr, align 8
-  store float %dist0, ptr %dist0.addr, align 4
-  store float %dist1, ptr %dist1.addr, align 4
-  store ptr %clipped, ptr %clipped.addr, align 8
-  store ptr %clipped_count, ptr %clipped_count.addr, align 8
-  %0 = load float, ptr %dist0.addr, align 4
-  %cmp = fcmp ogt float %0, 0x3E80000000000000
-  %conv = zext i1 %cmp to i32
-  store i32 %conv, ptr %_prevclassif, align 4
-  %1 = load float, ptr %dist1.addr, align 4
-  %cmp1 = fcmp ogt float %1, 0x3E80000000000000
-  %conv2 = zext i1 %cmp1 to i32
-  store i32 %conv2, ptr %_classif, align 4
-  %2 = load i32, ptr %_classif, align 4
-  %3 = load i32, ptr %_prevclassif, align 4
-  %cmp3 = icmp ne i32 %2, %3
-  br i1 %cmp3, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) #5 comdat {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca float, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !21
+  store ptr %1, ptr %8, align 8, !tbaa !21
+  store float %2, ptr %9, align 4, !tbaa !23
+  store float %3, ptr %10, align 4, !tbaa !23
+  store ptr %4, ptr %11, align 8, !tbaa !21
+  store ptr %5, ptr %12, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %16 = load float, ptr %9, align 4, !tbaa !23
+  %17 = fcmp ogt float %16, 0x3E80000000000000
+  %18 = zext i1 %17 to i32
+  store i32 %18, ptr %13, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %19 = load float, ptr %10, align 4, !tbaa !23
+  %20 = fcmp ogt float %19, 0x3E80000000000000
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4, !tbaa !9
+  %22 = load i32, ptr %14, align 4, !tbaa !9
+  %23 = load i32, ptr %13, align 4, !tbaa !9
+  %24 = icmp ne i32 %22, %23
+  br i1 %24, label %25, label %95
 
-if.then:                                          ; preds = %entry
-  %4 = load float, ptr %dist0.addr, align 4
-  %fneg = fneg float %4
-  %5 = load float, ptr %dist1.addr, align 4
-  %6 = load float, ptr %dist0.addr, align 4
-  %sub = fsub float %5, %6
-  %div = fdiv float %fneg, %sub
-  store float %div, ptr %blendfactor, align 4
-  %7 = load float, ptr %blendfactor, align 4
-  %sub4 = fsub float 1.000000e+00, %7
-  %8 = load ptr, ptr %point0.addr, align 8
-  %call = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %8)
-  %arrayidx = getelementptr inbounds float, ptr %call, i64 0
-  %9 = load float, ptr %arrayidx, align 4
-  %10 = load float, ptr %blendfactor, align 4
-  %11 = load ptr, ptr %point1.addr, align 8
-  %call5 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
-  %arrayidx6 = getelementptr inbounds float, ptr %call5, i64 0
-  %12 = load float, ptr %arrayidx6, align 4
-  %mul7 = fmul float %10, %12
-  %13 = call float @llvm.fmuladd.f32(float %sub4, float %9, float %mul7)
-  %14 = load ptr, ptr %clipped.addr, align 8
-  %15 = load ptr, ptr %clipped_count.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %idxprom = zext i32 %16 to i64
-  %arrayidx8 = getelementptr inbounds %class.btVector3, ptr %14, i64 %idxprom
-  %call9 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8)
-  %arrayidx10 = getelementptr inbounds float, ptr %call9, i64 0
-  store float %13, ptr %arrayidx10, align 4
-  %17 = load float, ptr %blendfactor, align 4
-  %sub11 = fsub float 1.000000e+00, %17
-  %18 = load ptr, ptr %point0.addr, align 8
-  %call12 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %18)
-  %arrayidx13 = getelementptr inbounds float, ptr %call12, i64 1
-  %19 = load float, ptr %arrayidx13, align 4
-  %20 = load float, ptr %blendfactor, align 4
-  %21 = load ptr, ptr %point1.addr, align 8
-  %call14 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %21)
-  %arrayidx15 = getelementptr inbounds float, ptr %call14, i64 1
-  %22 = load float, ptr %arrayidx15, align 4
-  %mul16 = fmul float %20, %22
-  %23 = call float @llvm.fmuladd.f32(float %sub11, float %19, float %mul16)
-  %24 = load ptr, ptr %clipped.addr, align 8
-  %25 = load ptr, ptr %clipped_count.addr, align 8
-  %26 = load i32, ptr %25, align 4
-  %idxprom17 = zext i32 %26 to i64
-  %arrayidx18 = getelementptr inbounds %class.btVector3, ptr %24, i64 %idxprom17
-  %call19 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx18)
-  %arrayidx20 = getelementptr inbounds float, ptr %call19, i64 1
-  store float %23, ptr %arrayidx20, align 4
-  %27 = load float, ptr %blendfactor, align 4
-  %sub21 = fsub float 1.000000e+00, %27
-  %28 = load ptr, ptr %point0.addr, align 8
-  %call22 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %28)
-  %arrayidx23 = getelementptr inbounds float, ptr %call22, i64 2
-  %29 = load float, ptr %arrayidx23, align 4
-  %30 = load float, ptr %blendfactor, align 4
-  %31 = load ptr, ptr %point1.addr, align 8
-  %call24 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %31)
-  %arrayidx25 = getelementptr inbounds float, ptr %call24, i64 2
-  %32 = load float, ptr %arrayidx25, align 4
-  %mul26 = fmul float %30, %32
-  %33 = call float @llvm.fmuladd.f32(float %sub21, float %29, float %mul26)
-  %34 = load ptr, ptr %clipped.addr, align 8
-  %35 = load ptr, ptr %clipped_count.addr, align 8
-  %36 = load i32, ptr %35, align 4
-  %idxprom27 = zext i32 %36 to i64
-  %arrayidx28 = getelementptr inbounds %class.btVector3, ptr %34, i64 %idxprom27
-  %call29 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx28)
-  %arrayidx30 = getelementptr inbounds float, ptr %call29, i64 2
-  store float %33, ptr %arrayidx30, align 4
-  %37 = load ptr, ptr %clipped_count.addr, align 8
-  %38 = load i32, ptr %37, align 4
-  %inc = add i32 %38, 1
-  store i32 %inc, ptr %37, align 4
-  br label %if.end
+25:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %26 = load float, ptr %9, align 4, !tbaa !23
+  %27 = fneg float %26
+  %28 = load float, ptr %10, align 4, !tbaa !23
+  %29 = load float, ptr %9, align 4, !tbaa !23
+  %30 = fsub float %28, %29
+  %31 = fdiv float %27, %30
+  store float %31, ptr %15, align 4, !tbaa !23
+  %32 = load float, ptr %15, align 4, !tbaa !23
+  %33 = fsub float 1.000000e+00, %32
+  %34 = load ptr, ptr %7, align 8, !tbaa !21
+  %35 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
+  %36 = getelementptr inbounds float, ptr %35, i64 0
+  %37 = load float, ptr %36, align 4, !tbaa !23
+  %38 = load float, ptr %15, align 4, !tbaa !23
+  %39 = load ptr, ptr %8, align 8, !tbaa !21
+  %40 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %39)
+  %41 = getelementptr inbounds float, ptr %40, i64 0
+  %42 = load float, ptr %41, align 4, !tbaa !23
+  %43 = fmul float %38, %42
+  %44 = call float @llvm.fmuladd.f32(float %33, float %37, float %43)
+  %45 = load ptr, ptr %11, align 8, !tbaa !21
+  %46 = load ptr, ptr %12, align 8, !tbaa !42
+  %47 = load i32, ptr %46, align 4, !tbaa !9
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %class.btVector3, ptr %45, i64 %48
+  %50 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %49)
+  %51 = getelementptr inbounds float, ptr %50, i64 0
+  store float %44, ptr %51, align 4, !tbaa !23
+  %52 = load float, ptr %15, align 4, !tbaa !23
+  %53 = fsub float 1.000000e+00, %52
+  %54 = load ptr, ptr %7, align 8, !tbaa !21
+  %55 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %54)
+  %56 = getelementptr inbounds float, ptr %55, i64 1
+  %57 = load float, ptr %56, align 4, !tbaa !23
+  %58 = load float, ptr %15, align 4, !tbaa !23
+  %59 = load ptr, ptr %8, align 8, !tbaa !21
+  %60 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %59)
+  %61 = getelementptr inbounds float, ptr %60, i64 1
+  %62 = load float, ptr %61, align 4, !tbaa !23
+  %63 = fmul float %58, %62
+  %64 = call float @llvm.fmuladd.f32(float %53, float %57, float %63)
+  %65 = load ptr, ptr %11, align 8, !tbaa !21
+  %66 = load ptr, ptr %12, align 8, !tbaa !42
+  %67 = load i32, ptr %66, align 4, !tbaa !9
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw %class.btVector3, ptr %65, i64 %68
+  %70 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %69)
+  %71 = getelementptr inbounds float, ptr %70, i64 1
+  store float %64, ptr %71, align 4, !tbaa !23
+  %72 = load float, ptr %15, align 4, !tbaa !23
+  %73 = fsub float 1.000000e+00, %72
+  %74 = load ptr, ptr %7, align 8, !tbaa !21
+  %75 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %74)
+  %76 = getelementptr inbounds float, ptr %75, i64 2
+  %77 = load float, ptr %76, align 4, !tbaa !23
+  %78 = load float, ptr %15, align 4, !tbaa !23
+  %79 = load ptr, ptr %8, align 8, !tbaa !21
+  %80 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %79)
+  %81 = getelementptr inbounds float, ptr %80, i64 2
+  %82 = load float, ptr %81, align 4, !tbaa !23
+  %83 = fmul float %78, %82
+  %84 = call float @llvm.fmuladd.f32(float %73, float %77, float %83)
+  %85 = load ptr, ptr %11, align 8, !tbaa !21
+  %86 = load ptr, ptr %12, align 8, !tbaa !42
+  %87 = load i32, ptr %86, align 4, !tbaa !9
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds nuw %class.btVector3, ptr %85, i64 %88
+  %90 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %89)
+  %91 = getelementptr inbounds float, ptr %90, i64 2
+  store float %84, ptr %91, align 4, !tbaa !23
+  %92 = load ptr, ptr %12, align 8, !tbaa !42
+  %93 = load i32, ptr %92, align 4, !tbaa !9
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %92, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  br label %95
 
-if.end:                                           ; preds = %if.then, %entry
-  %39 = load i32, ptr %_classif, align 4
-  %tobool = icmp ne i32 %39, 0
-  br i1 %tobool, label %if.end51, label %if.then31
+95:                                               ; preds = %25, %6
+  %96 = load i32, ptr %14, align 4, !tbaa !9
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %135, label %98
 
-if.then31:                                        ; preds = %if.end
-  %40 = load ptr, ptr %point1.addr, align 8
-  %call32 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %40)
-  %arrayidx33 = getelementptr inbounds float, ptr %call32, i64 0
-  %41 = load float, ptr %arrayidx33, align 4
-  %42 = load ptr, ptr %clipped.addr, align 8
-  %43 = load ptr, ptr %clipped_count.addr, align 8
-  %44 = load i32, ptr %43, align 4
-  %idxprom34 = zext i32 %44 to i64
-  %arrayidx35 = getelementptr inbounds %class.btVector3, ptr %42, i64 %idxprom34
-  %call36 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35)
-  %arrayidx37 = getelementptr inbounds float, ptr %call36, i64 0
-  store float %41, ptr %arrayidx37, align 4
-  %45 = load ptr, ptr %point1.addr, align 8
-  %call38 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %45)
-  %arrayidx39 = getelementptr inbounds float, ptr %call38, i64 1
-  %46 = load float, ptr %arrayidx39, align 4
-  %47 = load ptr, ptr %clipped.addr, align 8
-  %48 = load ptr, ptr %clipped_count.addr, align 8
-  %49 = load i32, ptr %48, align 4
-  %idxprom40 = zext i32 %49 to i64
-  %arrayidx41 = getelementptr inbounds %class.btVector3, ptr %47, i64 %idxprom40
-  %call42 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx41)
-  %arrayidx43 = getelementptr inbounds float, ptr %call42, i64 1
-  store float %46, ptr %arrayidx43, align 4
-  %50 = load ptr, ptr %point1.addr, align 8
-  %call44 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %50)
-  %arrayidx45 = getelementptr inbounds float, ptr %call44, i64 2
-  %51 = load float, ptr %arrayidx45, align 4
-  %52 = load ptr, ptr %clipped.addr, align 8
-  %53 = load ptr, ptr %clipped_count.addr, align 8
-  %54 = load i32, ptr %53, align 4
-  %idxprom46 = zext i32 %54 to i64
-  %arrayidx47 = getelementptr inbounds %class.btVector3, ptr %52, i64 %idxprom46
-  %call48 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx47)
-  %arrayidx49 = getelementptr inbounds float, ptr %call48, i64 2
-  store float %51, ptr %arrayidx49, align 4
-  %55 = load ptr, ptr %clipped_count.addr, align 8
-  %56 = load i32, ptr %55, align 4
-  %inc50 = add i32 %56, 1
-  store i32 %inc50, ptr %55, align 4
-  br label %if.end51
+98:                                               ; preds = %95
+  %99 = load ptr, ptr %8, align 8, !tbaa !21
+  %100 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %99)
+  %101 = getelementptr inbounds float, ptr %100, i64 0
+  %102 = load float, ptr %101, align 4, !tbaa !23
+  %103 = load ptr, ptr %11, align 8, !tbaa !21
+  %104 = load ptr, ptr %12, align 8, !tbaa !42
+  %105 = load i32, ptr %104, align 4, !tbaa !9
+  %106 = zext i32 %105 to i64
+  %107 = getelementptr inbounds nuw %class.btVector3, ptr %103, i64 %106
+  %108 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %107)
+  %109 = getelementptr inbounds float, ptr %108, i64 0
+  store float %102, ptr %109, align 4, !tbaa !23
+  %110 = load ptr, ptr %8, align 8, !tbaa !21
+  %111 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %110)
+  %112 = getelementptr inbounds float, ptr %111, i64 1
+  %113 = load float, ptr %112, align 4, !tbaa !23
+  %114 = load ptr, ptr %11, align 8, !tbaa !21
+  %115 = load ptr, ptr %12, align 8, !tbaa !42
+  %116 = load i32, ptr %115, align 4, !tbaa !9
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr inbounds nuw %class.btVector3, ptr %114, i64 %117
+  %119 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %118)
+  %120 = getelementptr inbounds float, ptr %119, i64 1
+  store float %113, ptr %120, align 4, !tbaa !23
+  %121 = load ptr, ptr %8, align 8, !tbaa !21
+  %122 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %121)
+  %123 = getelementptr inbounds float, ptr %122, i64 2
+  %124 = load float, ptr %123, align 4, !tbaa !23
+  %125 = load ptr, ptr %11, align 8, !tbaa !21
+  %126 = load ptr, ptr %12, align 8, !tbaa !42
+  %127 = load i32, ptr %126, align 4, !tbaa !9
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr inbounds nuw %class.btVector3, ptr %125, i64 %128
+  %130 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %129)
+  %131 = getelementptr inbounds float, ptr %130, i64 2
+  store float %124, ptr %131, align 4, !tbaa !23
+  %132 = load ptr, ptr %12, align 8, !tbaa !42
+  %133 = load i32, ptr %132, align 4, !tbaa !9
+  %134 = add i32 %133, 1
+  store i32 %134, ptr %132, align 4, !tbaa !9
+  br label %135
 
-if.end51:                                         ; preds = %if.then31, %if.end
+135:                                              ; preds = %98, %95
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef %polygon_points, i32 noundef %polygon_point_count, ptr noundef %clipped) #1 comdat {
-entry:
-  %distance_func = alloca %class.DISTANCE_PLANE_3D_FUNC, align 1
-  %plane.addr = alloca ptr, align 8
-  %polygon_points.addr = alloca ptr, align 8
-  %polygon_point_count.addr = alloca i32, align 4
-  %clipped.addr = alloca ptr, align 8
-  %clipped_count = alloca i32, align 4
-  %firstdist = alloca float, align 4
-  %olddist = alloca float, align 4
-  %_i = alloca i32, align 4
-  %dist = alloca float, align 4
-  store ptr %plane, ptr %plane.addr, align 8
-  store ptr %polygon_points, ptr %polygon_points.addr, align 8
-  store i32 %polygon_point_count, ptr %polygon_point_count.addr, align 4
-  store ptr %clipped, ptr %clipped.addr, align 8
-  store i32 0, ptr %clipped_count, align 4
-  %0 = load ptr, ptr %plane.addr, align 8
-  %1 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %1, i64 0
-  %call = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %distance_func, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
-  store float %call, ptr %firstdist, align 4
-  %2 = load float, ptr %firstdist, align 4
-  %cmp = fcmp ogt float %2, 0x3E80000000000000
-  br i1 %cmp, label %if.end, label %if.then
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #5 comdat {
+  %5 = alloca %class.DISTANCE_PLANE_3D_FUNC, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca float, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !36
+  store ptr %1, ptr %7, align 8, !tbaa !21
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store ptr %3, ptr %9, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %15 = load ptr, ptr %6, align 8, !tbaa !36
+  %16 = load ptr, ptr %7, align 8, !tbaa !21
+  %17 = getelementptr inbounds %class.btVector3, ptr %16, i64 0
+  %18 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %17)
+  store float %18, ptr %11, align 4, !tbaa !23
+  %19 = load float, ptr %11, align 4, !tbaa !23
+  %20 = fcmp ogt float %19, 0x3E80000000000000
+  br i1 %20, label %57, label %21
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx1 = getelementptr inbounds %class.btVector3, ptr %3, i64 0
-  %call2 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx1)
-  %arrayidx3 = getelementptr inbounds float, ptr %call2, i64 0
-  %4 = load float, ptr %arrayidx3, align 4
-  %5 = load ptr, ptr %clipped.addr, align 8
-  %6 = load i32, ptr %clipped_count, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx4 = getelementptr inbounds %class.btVector3, ptr %5, i64 %idxprom
-  %call5 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx4)
-  %arrayidx6 = getelementptr inbounds float, ptr %call5, i64 0
-  store float %4, ptr %arrayidx6, align 4
-  %7 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx7 = getelementptr inbounds %class.btVector3, ptr %7, i64 0
-  %call8 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7)
-  %arrayidx9 = getelementptr inbounds float, ptr %call8, i64 1
-  %8 = load float, ptr %arrayidx9, align 4
-  %9 = load ptr, ptr %clipped.addr, align 8
-  %10 = load i32, ptr %clipped_count, align 4
-  %idxprom10 = zext i32 %10 to i64
-  %arrayidx11 = getelementptr inbounds %class.btVector3, ptr %9, i64 %idxprom10
-  %call12 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11)
-  %arrayidx13 = getelementptr inbounds float, ptr %call12, i64 1
-  store float %8, ptr %arrayidx13, align 4
-  %11 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx14 = getelementptr inbounds %class.btVector3, ptr %11, i64 0
-  %call15 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14)
-  %arrayidx16 = getelementptr inbounds float, ptr %call15, i64 2
-  %12 = load float, ptr %arrayidx16, align 4
-  %13 = load ptr, ptr %clipped.addr, align 8
-  %14 = load i32, ptr %clipped_count, align 4
-  %idxprom17 = zext i32 %14 to i64
-  %arrayidx18 = getelementptr inbounds %class.btVector3, ptr %13, i64 %idxprom17
-  %call19 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx18)
-  %arrayidx20 = getelementptr inbounds float, ptr %call19, i64 2
-  store float %12, ptr %arrayidx20, align 4
-  %15 = load i32, ptr %clipped_count, align 4
-  %inc = add i32 %15, 1
-  store i32 %inc, ptr %clipped_count, align 4
-  br label %if.end
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %7, align 8, !tbaa !21
+  %23 = getelementptr inbounds %class.btVector3, ptr %22, i64 0
+  %24 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %23)
+  %25 = getelementptr inbounds float, ptr %24, i64 0
+  %26 = load float, ptr %25, align 4, !tbaa !23
+  %27 = load ptr, ptr %9, align 8, !tbaa !21
+  %28 = load i32, ptr %10, align 4, !tbaa !9
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw %class.btVector3, ptr %27, i64 %29
+  %31 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %30)
+  %32 = getelementptr inbounds float, ptr %31, i64 0
+  store float %26, ptr %32, align 4, !tbaa !23
+  %33 = load ptr, ptr %7, align 8, !tbaa !21
+  %34 = getelementptr inbounds %class.btVector3, ptr %33, i64 0
+  %35 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
+  %36 = getelementptr inbounds float, ptr %35, i64 1
+  %37 = load float, ptr %36, align 4, !tbaa !23
+  %38 = load ptr, ptr %9, align 8, !tbaa !21
+  %39 = load i32, ptr %10, align 4, !tbaa !9
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %class.btVector3, ptr %38, i64 %40
+  %42 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %41)
+  %43 = getelementptr inbounds float, ptr %42, i64 1
+  store float %37, ptr %43, align 4, !tbaa !23
+  %44 = load ptr, ptr %7, align 8, !tbaa !21
+  %45 = getelementptr inbounds %class.btVector3, ptr %44, i64 0
+  %46 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %45)
+  %47 = getelementptr inbounds float, ptr %46, i64 2
+  %48 = load float, ptr %47, align 4, !tbaa !23
+  %49 = load ptr, ptr %9, align 8, !tbaa !21
+  %50 = load i32, ptr %10, align 4, !tbaa !9
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %class.btVector3, ptr %49, i64 %51
+  %53 = call noundef ptr @_ZN9btVector3cvPfEv(ptr noundef nonnull align 4 dereferenceable(16) %52)
+  %54 = getelementptr inbounds float, ptr %53, i64 2
+  store float %48, ptr %54, align 4, !tbaa !23
+  %55 = load i32, ptr %10, align 4, !tbaa !9
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %10, align 4, !tbaa !9
+  br label %57
 
-if.end:                                           ; preds = %if.then, %entry
-  %16 = load float, ptr %firstdist, align 4
-  store float %16, ptr %olddist, align 4
-  store i32 1, ptr %_i, align 4
-  br label %for.cond
+57:                                               ; preds = %21, %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %58 = load float, ptr %11, align 4, !tbaa !23
+  store float %58, ptr %12, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  store i32 1, ptr %13, align 4, !tbaa !9
+  br label %59
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %17 = load i32, ptr %_i, align 4
-  %18 = load i32, ptr %polygon_point_count.addr, align 4
-  %cmp21 = icmp ult i32 %17, %18
-  br i1 %cmp21, label %for.body, label %for.end
+59:                                               ; preds = %84, %57
+  %60 = load i32, ptr %13, align 4, !tbaa !9
+  %61 = load i32, ptr %8, align 4, !tbaa !9
+  %62 = icmp ult i32 %60, %61
+  br i1 %62, label %64, label %63
 
-for.body:                                         ; preds = %for.cond
-  %19 = load ptr, ptr %plane.addr, align 8
-  %20 = load ptr, ptr %polygon_points.addr, align 8
-  %21 = load i32, ptr %_i, align 4
-  %idxprom22 = zext i32 %21 to i64
-  %arrayidx23 = getelementptr inbounds %class.btVector3, ptr %20, i64 %idxprom22
-  %call24 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %distance_func, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx23)
-  store float %call24, ptr %dist, align 4
-  %22 = load ptr, ptr %polygon_points.addr, align 8
-  %23 = load i32, ptr %_i, align 4
-  %sub = sub i32 %23, 1
-  %idxprom25 = zext i32 %sub to i64
-  %arrayidx26 = getelementptr inbounds %class.btVector3, ptr %22, i64 %idxprom25
-  %24 = load ptr, ptr %polygon_points.addr, align 8
-  %25 = load i32, ptr %_i, align 4
-  %idxprom27 = zext i32 %25 to i64
-  %arrayidx28 = getelementptr inbounds %class.btVector3, ptr %24, i64 %idxprom27
-  %26 = load float, ptr %olddist, align 4
-  %27 = load float, ptr %dist, align 4
-  %28 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx26, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx28, float noundef %26, float noundef %27, ptr noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %29 = load float, ptr %dist, align 4
-  store float %29, ptr %olddist, align 4
-  br label %for.inc
+63:                                               ; preds = %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  br label %87
 
-for.inc:                                          ; preds = %for.body
-  %30 = load i32, ptr %_i, align 4
-  %inc29 = add i32 %30, 1
-  store i32 %inc29, ptr %_i, align 4
-  br label %for.cond, !llvm.loop !5
+64:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %65 = load ptr, ptr %6, align 8, !tbaa !36
+  %66 = load ptr, ptr %7, align 8, !tbaa !21
+  %67 = load i32, ptr %13, align 4, !tbaa !9
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw %class.btVector3, ptr %66, i64 %68
+  %70 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(16) %69)
+  store float %70, ptr %14, align 4, !tbaa !23
+  %71 = load ptr, ptr %7, align 8, !tbaa !21
+  %72 = load i32, ptr %13, align 4, !tbaa !9
+  %73 = sub i32 %72, 1
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds nuw %class.btVector3, ptr %71, i64 %74
+  %76 = load ptr, ptr %7, align 8, !tbaa !21
+  %77 = load i32, ptr %13, align 4, !tbaa !9
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw %class.btVector3, ptr %76, i64 %78
+  %80 = load float, ptr %12, align 4, !tbaa !23
+  %81 = load float, ptr %14, align 4, !tbaa !23
+  %82 = load ptr, ptr %9, align 8, !tbaa !21
+  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %75, ptr noundef nonnull align 4 dereferenceable(16) %79, float noundef %80, float noundef %81, ptr noundef %82, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %83 = load float, ptr %14, align 4, !tbaa !23
+  store float %83, ptr %12, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  br label %84
 
-for.end:                                          ; preds = %for.cond
-  %31 = load ptr, ptr %polygon_points.addr, align 8
-  %32 = load i32, ptr %polygon_point_count.addr, align 4
-  %sub30 = sub i32 %32, 1
-  %idxprom31 = zext i32 %sub30 to i64
-  %arrayidx32 = getelementptr inbounds %class.btVector3, ptr %31, i64 %idxprom31
-  %33 = load ptr, ptr %polygon_points.addr, align 8
-  %arrayidx33 = getelementptr inbounds %class.btVector3, ptr %33, i64 0
-  %34 = load float, ptr %olddist, align 4
-  %35 = load float, ptr %firstdist, align 4
-  %36 = load ptr, ptr %clipped.addr, align 8
-  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx32, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx33, float noundef %34, float noundef %35, ptr noundef %36, ptr noundef nonnull align 4 dereferenceable(4) %clipped_count)
-  %37 = load i32, ptr %clipped_count, align 4
-  ret i32 %37
+84:                                               ; preds = %64
+  %85 = load i32, ptr %13, align 4, !tbaa !9
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %13, align 4, !tbaa !9
+  br label %59, !llvm.loop !44
+
+87:                                               ; preds = %63
+  %88 = load ptr, ptr %7, align 8, !tbaa !21
+  %89 = load i32, ptr %8, align 4, !tbaa !9
+  %90 = sub i32 %89, 1
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw %class.btVector3, ptr %88, i64 %91
+  %93 = load ptr, ptr %7, align 8, !tbaa !21
+  %94 = getelementptr inbounds %class.btVector3, ptr %93, i64 0
+  %95 = load float, ptr %12, align 4, !tbaa !23
+  %96 = load float, ptr %11, align 4, !tbaa !23
+  %97 = load ptr, ptr %9, align 8, !tbaa !21
+  call void @_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj(ptr noundef nonnull align 4 dereferenceable(16) %92, ptr noundef nonnull align 4 dereferenceable(16) %94, float noundef %95, float noundef %96, ptr noundef %97, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %98 = load i32, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  ret i32 %98
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN25GIM_TRIANGLE_CONTACT_DATA19mergepoints_genericI22DISTANCE_PLANE_3D_FUNC9btVector4EEvRKT0_fPK9btVector3jT_(ptr noundef nonnull align 4 dereferenceable(280) %this, ptr noundef nonnull align 4 dereferenceable(16) %plane, float noundef %margin, ptr noundef %points, i32 noundef %point_count) #1 comdat align 2 {
-entry:
-  %distance_func = alloca %class.DISTANCE_PLANE_3D_FUNC, align 1
-  %this.addr = alloca ptr, align 8
-  %plane.addr = alloca ptr, align 8
-  %margin.addr = alloca float, align 4
-  %points.addr = alloca ptr, align 8
-  %point_count.addr = alloca i32, align 4
-  %point_indices = alloca [16 x i32], align 16
-  %_k = alloca i32, align 4
-  %_dist = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %plane, ptr %plane.addr, align 8
-  store float %margin, ptr %margin.addr, align 4
-  store ptr %points, ptr %points.addr, align 8
-  store i32 %point_count, ptr %point_count.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_point_count = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 1
-  store i32 0, ptr %m_point_count, align 4
-  %m_penetration_depth = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 0
-  store float -1.000000e+03, ptr %m_penetration_depth, align 4
-  store i32 0, ptr %_k, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN25GIM_TRIANGLE_CONTACT_DATA19mergepoints_genericI22DISTANCE_PLANE_3D_FUNC9btVector4EEvRKT0_fPK9btVector3jT_(ptr noundef nonnull align 4 dereferenceable(280) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, float noundef %2, ptr noundef %3, i32 noundef %4) #5 comdat align 2 {
+  %6 = alloca %class.DISTANCE_PLANE_3D_FUNC, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca [16 x i32], align 16
+  %13 = alloca i32, align 4
+  %14 = alloca float, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !14
+  store ptr %1, ptr %8, align 8, !tbaa !36
+  store float %2, ptr %9, align 4, !tbaa !23
+  store ptr %3, ptr %10, align 8, !tbaa !21
+  store i32 %4, ptr %11, align 4, !tbaa !9
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 1
+  store i32 0, ptr %16, align 4, !tbaa !35
+  %17 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 0
+  store float -1.000000e+03, ptr %17, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 64, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  store i32 0, ptr %13, align 4, !tbaa !9
+  br label %18
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %_k, align 4
-  %1 = load i32, ptr %point_count.addr, align 4
-  %cmp = icmp ult i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+18:                                               ; preds = %63, %5
+  %19 = load i32, ptr %13, align 4, !tbaa !9
+  %20 = load i32, ptr %11, align 4, !tbaa !9
+  %21 = icmp ult i32 %19, %20
+  br i1 %21, label %22, label %66
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %plane.addr, align 8
-  %3 = load ptr, ptr %points.addr, align 8
-  %4 = load i32, ptr %_k, align 4
-  %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %class.btVector3, ptr %3, i64 %idxprom
-  %call = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %distance_func, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
-  %fneg = fneg float %call
-  %5 = load float, ptr %margin.addr, align 4
-  %add = fadd float %fneg, %5
-  store float %add, ptr %_dist, align 4
-  %6 = load float, ptr %_dist, align 4
-  %cmp2 = fcmp oge float %6, 0.000000e+00
-  br i1 %cmp2, label %if.then, label %if.end18
+22:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %23 = load ptr, ptr %8, align 8, !tbaa !36
+  %24 = load ptr, ptr %10, align 8, !tbaa !21
+  %25 = load i32, ptr %13, align 4, !tbaa !9
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw %class.btVector3, ptr %24, i64 %26
+  %28 = call noundef float @_ZN22DISTANCE_PLANE_3D_FUNCclI9btVector39btVector4EEfRKT0_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %27)
+  %29 = fneg float %28
+  %30 = load float, ptr %9, align 4, !tbaa !23
+  %31 = fadd float %29, %30
+  store float %31, ptr %14, align 4, !tbaa !23
+  %32 = load float, ptr %14, align 4, !tbaa !23
+  %33 = fcmp oge float %32, 0.000000e+00
+  br i1 %33, label %34, label %62
 
-if.then:                                          ; preds = %for.body
-  %7 = load float, ptr %_dist, align 4
-  %m_penetration_depth3 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 0
-  %8 = load float, ptr %m_penetration_depth3, align 4
-  %cmp4 = fcmp ogt float %7, %8
-  br i1 %cmp4, label %if.then5, label %if.else
+34:                                               ; preds = %22
+  %35 = load float, ptr %14, align 4, !tbaa !23
+  %36 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 0
+  %37 = load float, ptr %36, align 4, !tbaa !33
+  %38 = fcmp ogt float %35, %37
+  br i1 %38, label %39, label %45
 
-if.then5:                                         ; preds = %if.then
-  %9 = load float, ptr %_dist, align 4
-  %m_penetration_depth6 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 0
-  store float %9, ptr %m_penetration_depth6, align 4
-  %10 = load i32, ptr %_k, align 4
-  %arrayidx7 = getelementptr inbounds [16 x i32], ptr %point_indices, i64 0, i64 0
-  store i32 %10, ptr %arrayidx7, align 16
-  %m_point_count8 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 1
-  store i32 1, ptr %m_point_count8, align 4
-  br label %if.end17
+39:                                               ; preds = %34
+  %40 = load float, ptr %14, align 4, !tbaa !23
+  %41 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 0
+  store float %40, ptr %41, align 4, !tbaa !33
+  %42 = load i32, ptr %13, align 4, !tbaa !9
+  %43 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 0
+  store i32 %42, ptr %43, align 16, !tbaa !9
+  %44 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 1
+  store i32 1, ptr %44, align 4, !tbaa !35
+  br label %61
 
-if.else:                                          ; preds = %if.then
-  %11 = load float, ptr %_dist, align 4
-  %add9 = fadd float %11, 0x3E80000000000000
-  %m_penetration_depth10 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 0
-  %12 = load float, ptr %m_penetration_depth10, align 4
-  %cmp11 = fcmp oge float %add9, %12
-  br i1 %cmp11, label %if.then12, label %if.end
+45:                                               ; preds = %34
+  %46 = load float, ptr %14, align 4, !tbaa !23
+  %47 = fadd float %46, 0x3E80000000000000
+  %48 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 0
+  %49 = load float, ptr %48, align 4, !tbaa !33
+  %50 = fcmp oge float %47, %49
+  br i1 %50, label %51, label %60
 
-if.then12:                                        ; preds = %if.else
-  %13 = load i32, ptr %_k, align 4
-  %m_point_count13 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 1
-  %14 = load i32, ptr %m_point_count13, align 4
-  %idxprom14 = zext i32 %14 to i64
-  %arrayidx15 = getelementptr inbounds [16 x i32], ptr %point_indices, i64 0, i64 %idxprom14
-  store i32 %13, ptr %arrayidx15, align 4
-  %m_point_count16 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 1
-  %15 = load i32, ptr %m_point_count16, align 4
-  %inc = add i32 %15, 1
-  store i32 %inc, ptr %m_point_count16, align 4
-  br label %if.end
+51:                                               ; preds = %45
+  %52 = load i32, ptr %13, align 4, !tbaa !9
+  %53 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 1
+  %54 = load i32, ptr %53, align 4, !tbaa !35
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %55
+  store i32 %52, ptr %56, align 4, !tbaa !9
+  %57 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 1
+  %58 = load i32, ptr %57, align 4, !tbaa !35
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 4, !tbaa !35
+  br label %60
 
-if.end:                                           ; preds = %if.then12, %if.else
-  br label %if.end17
+60:                                               ; preds = %51, %45
+  br label %61
 
-if.end17:                                         ; preds = %if.end, %if.then5
-  br label %if.end18
+61:                                               ; preds = %60, %39
+  br label %62
 
-if.end18:                                         ; preds = %if.end17, %for.body
-  br label %for.inc
+62:                                               ; preds = %61, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  br label %63
 
-for.inc:                                          ; preds = %if.end18
-  %16 = load i32, ptr %_k, align 4
-  %inc19 = add i32 %16, 1
-  store i32 %inc19, ptr %_k, align 4
-  br label %for.cond, !llvm.loop !7
+63:                                               ; preds = %62
+  %64 = load i32, ptr %13, align 4, !tbaa !9
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %13, align 4, !tbaa !9
+  br label %18, !llvm.loop !46
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %_k, align 4
-  br label %for.cond20
+66:                                               ; preds = %18
+  store i32 0, ptr %13, align 4, !tbaa !9
+  br label %67
 
-for.cond20:                                       ; preds = %for.inc30, %for.end
-  %17 = load i32, ptr %_k, align 4
-  %m_point_count21 = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 1
-  %18 = load i32, ptr %m_point_count21, align 4
-  %cmp22 = icmp ult i32 %17, %18
-  br i1 %cmp22, label %for.body23, label %for.end32
+67:                                               ; preds = %84, %66
+  %68 = load i32, ptr %13, align 4, !tbaa !9
+  %69 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 1
+  %70 = load i32, ptr %69, align 4, !tbaa !35
+  %71 = icmp ult i32 %68, %70
+  br i1 %71, label %72, label %87
 
-for.body23:                                       ; preds = %for.cond20
-  %19 = load ptr, ptr %points.addr, align 8
-  %20 = load i32, ptr %_k, align 4
-  %idxprom24 = zext i32 %20 to i64
-  %arrayidx25 = getelementptr inbounds [16 x i32], ptr %point_indices, i64 0, i64 %idxprom24
-  %21 = load i32, ptr %arrayidx25, align 4
-  %idxprom26 = zext i32 %21 to i64
-  %arrayidx27 = getelementptr inbounds %class.btVector3, ptr %19, i64 %idxprom26
-  %m_points = getelementptr inbounds %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %this1, i32 0, i32 3
-  %22 = load i32, ptr %_k, align 4
-  %idxprom28 = zext i32 %22 to i64
-  %arrayidx29 = getelementptr inbounds [16 x %class.btVector3], ptr %m_points, i64 0, i64 %idxprom28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx29, ptr align 4 %arrayidx27, i64 16, i1 false)
-  br label %for.inc30
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %10, align 8, !tbaa !21
+  %74 = load i32, ptr %13, align 4, !tbaa !9
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !9
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw %class.btVector3, ptr %73, i64 %78
+  %80 = getelementptr inbounds nuw %struct.GIM_TRIANGLE_CONTACT_DATA, ptr %15, i32 0, i32 3
+  %81 = load i32, ptr %13, align 4, !tbaa !9
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds nuw [16 x %class.btVector3], ptr %80, i64 0, i64 %82
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %83, ptr align 4 %79, i64 16, i1 false), !tbaa.struct !28
+  br label %84
 
-for.inc30:                                        ; preds = %for.body23
-  %23 = load i32, ptr %_k, align 4
-  %inc31 = add i32 %23, 1
-  store i32 %inc31, ptr %_k, align 4
-  br label %for.cond20, !llvm.loop !8
+84:                                               ; preds = %72
+  %85 = load i32, ptr %13, align 4, !tbaa !9
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %13, align 4, !tbaa !9
+  br label %67, !llvm.loop !47
 
-for.end32:                                        ; preds = %for.cond20
+87:                                               ; preds = %67
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %12) #8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_gim_tri_collision.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS12GIM_TRIANGLE", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS25GIM_TRIANGLE_CONTACT_DATA", !6, i64 0}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"_ZTS12GIM_TRIANGLE", !18, i64 0, !7, i64 4}
+!18 = !{!"float", !7, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS30GIM_TRIANGLE_CALCULATION_CACHE", !6, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS9btVector3", !6, i64 0}
+!23 = !{!18, !18, i64 0}
+!24 = !{!25, !18, i64 0}
+!25 = !{!"_ZTS30GIM_TRIANGLE_CALCULATION_CACHE", !18, i64 0, !7, i64 4, !7, i64 52, !26, i64 100, !26, i64 116, !27, i64 132, !27, i64 148, !27, i64 164, !27, i64 180, !7, i64 196, !18, i64 212, !18, i64 216, !7, i64 220, !18, i64 236, !18, i64 240, !7, i64 244, !7, i64 500, !7, i64 756}
+!26 = !{!"_ZTS9btVector4", !27, i64 0}
+!27 = !{!"_ZTS9btVector3", !7, i64 0}
+!28 = !{i64 0, i64 16, !11}
+!29 = !{!25, !18, i64 212}
+!30 = !{!25, !18, i64 216}
+!31 = !{!25, !18, i64 236}
+!32 = !{!25, !18, i64 240}
+!33 = !{!34, !18, i64 0}
+!34 = !{!"_ZTS25GIM_TRIANGLE_CONTACT_DATA", !18, i64 0, !10, i64 4, !26, i64 8, !7, i64 24}
+!35 = !{!34, !10, i64 4}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS9btVector4", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 float", !6, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS22DISTANCE_PLANE_3D_FUNC", !6, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 int", !6, i64 0}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.mustprogress"}
+!46 = distinct !{!46, !45}
+!47 = distinct !{!47, !45}

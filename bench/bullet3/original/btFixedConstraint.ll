@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
@@ -21,8 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $_ZN18btInfMaskConverterC2Ei = comdat any
 
-$_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv = comdat any
-
 $_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3 = comdat any
 
 $_ZN9btVector3C2ERKfS1_S1_ = comdat any
@@ -33,15 +31,9 @@ $_ZN30btGeneric6DofSpring2Constraint19setLinearLowerLimitERK9btVector3 = comdat 
 
 $_ZN30btGeneric6DofSpring2Constraint19setLinearUpperLimitERK9btVector3 = comdat any
 
-$_ZN30btGeneric6DofSpring2ConstraintD2Ev = comdat any
-
 $_ZN30btGeneric6DofSpring2ConstraintdlEPv = comdat any
 
 $_ZN17btTypedConstraintD2Ev = comdat any
-
-$_ZN17btTypedConstraintD0Ev = comdat any
-
-$_ZN17btTypedConstraint13buildJacobianEv = comdat any
 
 $_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif = comdat any
 
@@ -67,29 +59,12 @@ $_ZNK9btVector39serializeER18btVector3FloatData = comdat any
 
 $_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData = comdat any
 
-$_ZTV17btTypedConstraint = comdat any
-
-$_ZTS17btTypedConstraint = comdat any
-
-$_ZTS13btTypedObject = comdat any
-
-$_ZTI13btTypedObject = comdat any
-
-$_ZTI17btTypedConstraint = comdat any
-
 @_ZL14btInfinityMask = internal global %struct.btInfMaskConverter zeroinitializer, align 4
 @_ZTV17btFixedConstraint = dso_local unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTI17btFixedConstraint, ptr @_ZN17btFixedConstraintD1Ev, ptr @_ZN17btFixedConstraintD0Ev, ptr @_ZN30btGeneric6DofSpring2Constraint13buildJacobianEv, ptr @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif, ptr @_ZN30btGeneric6DofSpring2Constraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E, ptr @_ZN30btGeneric6DofSpring2Constraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E, ptr @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f, ptr @_ZN30btGeneric6DofSpring2Constraint8setParamEifi, ptr @_ZNK30btGeneric6DofSpring2Constraint8getParamEii, ptr @_ZNK30btGeneric6DofSpring2Constraint28calculateSerializeBufferSizeEv, ptr @_ZNK30btGeneric6DofSpring2Constraint9serializeEPvP12btSerializer] }, align 8
-@_ZTV17btTypedConstraint = linkonce_odr dso_local unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTI17btTypedConstraint, ptr @_ZN17btTypedConstraintD2Ev, ptr @_ZN17btTypedConstraintD0Ev, ptr @_ZN17btTypedConstraint13buildJacobianEv, ptr @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv, ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer] }, comdat, align 8
-@_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
-@_ZTS17btTypedConstraint = linkonce_odr dso_local constant [20 x i8] c"17btTypedConstraint\00", comdat, align 1
-@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTS13btTypedObject = linkonce_odr dso_local constant [16 x i8] c"13btTypedObject\00", comdat, align 1
-@_ZTI13btTypedObject = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS13btTypedObject }, comdat, align 8
-@_ZTI17btTypedConstraint = linkonce_odr dso_local constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTS17btTypedConstraint, i32 0, i32 1, ptr @_ZTI13btTypedObject, i64 2050 }, comdat, align 8
+@_ZTI17btFixedConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS17btFixedConstraint, ptr @_ZTI30btGeneric6DofSpring2Constraint }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS17btFixedConstraint = dso_local constant [20 x i8] c"17btFixedConstraint\00", align 1
 @_ZTI30btGeneric6DofSpring2Constraint = external constant ptr
-@_ZTI17btFixedConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS17btFixedConstraint, ptr @_ZTI30btGeneric6DofSpring2Constraint }, align 8
 @.str = private unnamed_addr constant [35 x i8] c"btGeneric6DofSpring2ConstraintData\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_btFixedConstraint.cpp, ptr null }]
 
@@ -98,407 +73,445 @@ $_ZTI17btTypedConstraint = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret i32 64
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17btFixedConstraintC2ER11btRigidBodyS1_RK11btTransformS4_(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB, ptr noundef nonnull align 4 dereferenceable(64) %frameInA, ptr noundef nonnull align 4 dereferenceable(64) %frameInB) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rbA.addr = alloca ptr, align 8
-  %rbB.addr = alloca ptr, align 8
-  %frameInA.addr = alloca ptr, align 8
-  %frameInB.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp4 = alloca float, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp6 = alloca %class.btVector3, align 4
-  %ref.tmp7 = alloca float, align 4
-  %ref.tmp8 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  %ref.tmp12 = alloca %class.btVector3, align 4
-  %ref.tmp13 = alloca float, align 4
-  %ref.tmp14 = alloca float, align 4
-  %ref.tmp15 = alloca float, align 4
-  %ref.tmp18 = alloca %class.btVector3, align 4
-  %ref.tmp19 = alloca float, align 4
-  %ref.tmp20 = alloca float, align 4
-  %ref.tmp21 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rbA, ptr %rbA.addr, align 8
-  store ptr %rbB, ptr %rbB.addr, align 8
-  store ptr %frameInA, ptr %frameInA.addr, align 8
-  store ptr %frameInB, ptr %frameInB.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %rbA.addr, align 8
-  %1 = load ptr, ptr %rbB.addr, align 8
-  %2 = load ptr, ptr %frameInA.addr, align 8
-  %3 = load ptr, ptr %frameInB.addr, align 8
-  call void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef 0)
-  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btFixedConstraint, i32 0, i32 0, i32 2
-  store ptr %4, ptr %this1, align 8
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  store float 0.000000e+00, ptr %ref.tmp4, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN17btFixedConstraintC2ER11btRigidBodyS1_RK11btTransformS4_(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 8 dereferenceable(744) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %class.btVector3, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %class.btVector3, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  %21 = alloca %class.btVector3, align 4
+  %22 = alloca float, align 4
+  %23 = alloca float, align 4
+  %24 = alloca float, align 4
+  %25 = alloca %class.btVector3, align 4
+  %26 = alloca float, align 4
+  %27 = alloca float, align 4
+  %28 = alloca float, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !12
+  store ptr %1, ptr %7, align 8, !tbaa !14
+  store ptr %2, ptr %8, align 8, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !16
+  store ptr %4, ptr %10, align 8, !tbaa !16
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8, !tbaa !14
+  %31 = load ptr, ptr %8, align 8, !tbaa !14
+  %32 = load ptr, ptr %9, align 8, !tbaa !16
+  %33 = load ptr, ptr %10, align 8, !tbaa !16
+  call void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %29, ptr noundef nonnull align 8 dereferenceable(744) %30, ptr noundef nonnull align 8 dereferenceable(744) %31, ptr noundef nonnull align 4 dereferenceable(64) %32, ptr noundef nonnull align 4 dereferenceable(64) %33, i32 noundef 0)
+  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTV17btFixedConstraint, i32 0, i32 0, i32 2), ptr %29, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store float 0.000000e+00, ptr %12, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  store float 0.000000e+00, ptr %13, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  store float 0.000000e+00, ptr %14, align 4, !tbaa !20
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+          to label %34 unwind label %42
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont5 unwind label %lpad
+34:                                               ; preds = %5
+  invoke void @_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %29, ptr noundef nonnull align 4 dereferenceable(16) %11)
+          to label %35 unwind label %42
 
-invoke.cont5:                                     ; preds = %invoke.cont
-  store float 0.000000e+00, ptr %ref.tmp7, align 4
-  store float 0.000000e+00, ptr %ref.tmp8, align 4
-  store float 0.000000e+00, ptr %ref.tmp9, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
-          to label %invoke.cont10 unwind label %lpad
+35:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  store float 0.000000e+00, ptr %18, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  store float 0.000000e+00, ptr %19, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  store float 0.000000e+00, ptr %20, align 4, !tbaa !20
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+          to label %36 unwind label %46
 
-invoke.cont10:                                    ; preds = %invoke.cont5
-  invoke void @_ZN30btGeneric6DofSpring2Constraint20setAngularUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp6)
-          to label %invoke.cont11 unwind label %lpad
+36:                                               ; preds = %35
+  invoke void @_ZN30btGeneric6DofSpring2Constraint20setAngularUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %29, ptr noundef nonnull align 4 dereferenceable(16) %17)
+          to label %37 unwind label %46
 
-invoke.cont11:                                    ; preds = %invoke.cont10
-  store float 0.000000e+00, ptr %ref.tmp13, align 4
-  store float 0.000000e+00, ptr %ref.tmp14, align 4
-  store float 0.000000e+00, ptr %ref.tmp15, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
-          to label %invoke.cont16 unwind label %lpad
+37:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  store float 0.000000e+00, ptr %22, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
+  store float 0.000000e+00, ptr %23, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #10
+  store float 0.000000e+00, ptr %24, align 4, !tbaa !20
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+          to label %38 unwind label %50
 
-invoke.cont16:                                    ; preds = %invoke.cont11
-  invoke void @_ZN30btGeneric6DofSpring2Constraint19setLinearLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp12)
-          to label %invoke.cont17 unwind label %lpad
+38:                                               ; preds = %37
+  invoke void @_ZN30btGeneric6DofSpring2Constraint19setLinearLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %29, ptr noundef nonnull align 4 dereferenceable(16) %21)
+          to label %39 unwind label %50
 
-invoke.cont17:                                    ; preds = %invoke.cont16
-  store float 0.000000e+00, ptr %ref.tmp19, align 4
-  store float 0.000000e+00, ptr %ref.tmp20, align 4
-  store float 0.000000e+00, ptr %ref.tmp21, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21)
-          to label %invoke.cont22 unwind label %lpad
+39:                                               ; preds = %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #10
+  store float 0.000000e+00, ptr %26, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #10
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #10
+  store float 0.000000e+00, ptr %28, align 4, !tbaa !20
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
+          to label %40 unwind label %54
 
-invoke.cont22:                                    ; preds = %invoke.cont17
-  invoke void @_ZN30btGeneric6DofSpring2Constraint19setLinearUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp18)
-          to label %invoke.cont23 unwind label %lpad
+40:                                               ; preds = %39
+  invoke void @_ZN30btGeneric6DofSpring2Constraint19setLinearUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %29, ptr noundef nonnull align 4 dereferenceable(16) %25)
+          to label %41 unwind label %54
 
-invoke.cont23:                                    ; preds = %invoke.cont22
+41:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #10
   ret void
 
-lpad:                                             ; preds = %invoke.cont22, %invoke.cont17, %invoke.cont16, %invoke.cont11, %invoke.cont10, %invoke.cont5, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+42:                                               ; preds = %34, %5
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZN30btGeneric6DofSpring2ConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this1) #8
-  br label %eh.resume
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %15, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #10
+  br label %58
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val24 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val24
+46:                                               ; preds = %36, %35
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %15, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #10
+  br label %58
+
+50:                                               ; preds = %38, %37
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %15, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #10
+  br label %58
+
+54:                                               ; preds = %40, %39
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %15, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #10
+  br label %58
+
+58:                                               ; preds = %54, %50, %46, %42
+  call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %29) #10
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %15, align 8
+  %61 = load i32, ptr %16, align 4
+  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
 }
 
 declare void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484), ptr noundef nonnull align 8 dereferenceable(744), ptr noundef nonnull align 8 dereferenceable(744), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 4 dereferenceable(16) %angularLower) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %angularLower.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %angularLower, ptr %angularLower.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint20setAngularLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %24, %2
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = icmp slt i32 %8, 3
+  br i1 %9, label %11, label %10
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %angularLower.addr, align 8
-  %call = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds float, ptr %call, i64 %idxprom
-  %3 = load float, ptr %arrayidx, align 4
-  %call2 = call noundef float @_Z16btNormalizeAnglef(float noundef %3)
-  %m_angularLimits = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %4 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %4 to i64
-  %arrayidx4 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %idxprom3
-  %m_loLimit = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx4, i32 0, i32 0
-  store float %call2, ptr %m_loLimit, align 8
-  br label %for.inc
+10:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %4, align 8, !tbaa !24
+  %13 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds float, ptr %13, i64 %15
+  %17 = load float, ptr %16, align 4, !tbaa !20
+  %18 = call noundef float @_Z16btNormalizeAnglef(float noundef %17)
+  %19 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %6, i32 0, i32 6
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %19, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %22, i32 0, i32 0
+  store float %18, ptr %23, align 8, !tbaa !26
+  br label %24
 
-for.end:                                          ; preds = %for.cond
+24:                                               ; preds = %11
+  %25 = load i32, ptr %5, align 4, !tbaa !9
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %5, align 4, !tbaa !9
+  br label %7, !llvm.loop !29
+
+27:                                               ; preds = %10
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %_x, ptr noundef nonnull align 4 dereferenceable(4) %_y, ptr noundef nonnull align 4 dereferenceable(4) %_z) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca ptr, align 8
-  %_y.addr = alloca ptr, align 8
-  %_z.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_x, ptr %_x.addr, align 8
-  store ptr %_y, ptr %_y.addr, align 8
-  store ptr %_z, ptr %_z.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %_x.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  store float %1, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %_y.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  store float %3, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %_z.addr, align 8
-  %5 = load float, ptr %4, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  store float %5, ptr %arrayidx5, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx7, align 4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !24
+  store ptr %1, ptr %6, align 8, !tbaa !31
+  store ptr %2, ptr %7, align 8, !tbaa !31
+  store ptr %3, ptr %8, align 8, !tbaa !31
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !31
+  %11 = load float, ptr %10, align 4, !tbaa !20
+  %12 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 0
+  store float %11, ptr %13, align 4, !tbaa !20
+  %14 = load ptr, ptr %7, align 8, !tbaa !31
+  %15 = load float, ptr %14, align 4, !tbaa !20
+  %16 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %17 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 1
+  store float %15, ptr %17, align 4, !tbaa !20
+  %18 = load ptr, ptr %8, align 8, !tbaa !31
+  %19 = load float, ptr %18, align 4, !tbaa !20
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  store float %19, ptr %21, align 4, !tbaa !20
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 3
+  store float 0.000000e+00, ptr %23, align 4, !tbaa !20
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint20setAngularUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 4 dereferenceable(16) %angularUpper) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %angularUpper.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %angularUpper, ptr %angularUpper.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint20setAngularUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %24, %2
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = icmp slt i32 %8, 3
+  br i1 %9, label %11, label %10
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %angularUpper.addr, align 8
-  %call = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds float, ptr %call, i64 %idxprom
-  %3 = load float, ptr %arrayidx, align 4
-  %call2 = call noundef float @_Z16btNormalizeAnglef(float noundef %3)
-  %m_angularLimits = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %4 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %4 to i64
-  %arrayidx4 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %idxprom3
-  %m_hiLimit = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx4, i32 0, i32 1
-  store float %call2, ptr %m_hiLimit, align 4
-  br label %for.inc
+10:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %4, align 8, !tbaa !24
+  %13 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds float, ptr %13, i64 %15
+  %17 = load float, ptr %16, align 4, !tbaa !20
+  %18 = call noundef float @_Z16btNormalizeAnglef(float noundef %17)
+  %19 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %6, i32 0, i32 6
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %19, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %22, i32 0, i32 1
+  store float %18, ptr %23, align 4, !tbaa !33
+  br label %24
 
-for.end:                                          ; preds = %for.cond
+24:                                               ; preds = %11
+  %25 = load i32, ptr %5, align 4, !tbaa !9
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %5, align 4, !tbaa !9
+  br label %7, !llvm.loop !34
+
+27:                                               ; preds = %10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint19setLinearLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 4 dereferenceable(16) %linearLower) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %linearLower.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %linearLower, ptr %linearLower.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %linearLower.addr, align 8
-  %m_linearLimits = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_lowerLimit = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_lowerLimit, ptr align 4 %0, i64 16, i1 false)
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint19setLinearLowerLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %5, i32 0, i32 5
+  %8 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %6, i64 16, i1 false), !tbaa.struct !35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint19setLinearUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 4 dereferenceable(16) %linearUpper) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %linearUpper.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %linearUpper, ptr %linearUpper.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %linearUpper.addr, align 8
-  %m_linearLimits = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_upperLimit = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_upperLimit, ptr align 4 %0, i64 16, i1 false)
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint19setLinearUpperLimitERK9btVector3(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %5, i32 0, i32 5
+  %8 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %6, i64 16, i1 false), !tbaa.struct !35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2ConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #8
+define dso_local void @_ZN17btFixedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %3) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17btFixedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN30btGeneric6DofSpring2ConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this1) #8
+define dso_local void @_ZN17btFixedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17btFixedConstraintD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %3) #10
+  call void @_ZN30btGeneric6DofSpring2ConstraintdlEPv(ptr noundef %3) #10
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17btFixedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN17btFixedConstraintD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this1) #8
-  call void @_ZN30btGeneric6DofSpring2ConstraintdlEPv(ptr noundef %this1) #8
-  ret void
-}
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2ConstraintdlEPv(ptr noundef %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
+          to label %4 unwind label %5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2ConstraintdlEPv(ptr noundef %ptr) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #9
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %1, i32 noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #1 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca float, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !37
+  store ptr %1, ptr %7, align 8, !tbaa !39
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  store float %4, ptr %10, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 1 %ca, i32 noundef %solverBodyA, i32 noundef %solverBodyB, float noundef %timeStep) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ca.addr = alloca ptr, align 8
-  %solverBodyA.addr = alloca i32, align 4
-  %solverBodyB.addr = alloca i32, align 4
-  %timeStep.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ca, ptr %ca.addr, align 8
-  store i32 %solverBodyA, ptr %solverBodyA.addr, align 4
-  store i32 %solverBodyB, ptr %solverBodyB.addr, align 4
-  store float %timeStep, ptr %timeStep.addr, align 4
-  ret void
-}
-
-declare void @__cxa_pure_virtual() unnamed_addr
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %2) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  %.addr2 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  store float %2, ptr %.addr2, align 4
+define linkonce_odr dso_local void @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, float noundef %3) unnamed_addr #1 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %1, ptr %6, align 8, !tbaa !41
+  store ptr %2, ptr %7, align 8, !tbaa !41
+  store float %3, ptr %8, align 4, !tbaa !20
   ret void
 }
 
 declare noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(1484) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
   ret void
 }
 
@@ -510,763 +523,762 @@ declare void @_ZN30btGeneric6DofSpring2Constraint8setParamEifi(ptr noundef nonnu
 
 declare noundef float @_ZNK30btGeneric6DofSpring2Constraint8getParamEii(ptr noundef nonnull align 8 dereferenceable(1484), i32 noundef, i32 noundef) unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK30btGeneric6DofSpring2Constraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(1484) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK30btGeneric6DofSpring2Constraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
   ret i32 656
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK30btGeneric6DofSpring2Constraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dataBuffer.addr = alloca ptr, align 8
-  %serializer.addr = alloca ptr, align 8
-  %dof = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dataBuffer, ptr %dataBuffer.addr, align 8
-  store ptr %serializer, ptr %serializer.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %dataBuffer.addr, align 8
-  store ptr %0, ptr %dof, align 8
-  %1 = load ptr, ptr %dof, align 8
-  %m_typeConstraintData = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %serializer.addr, align 8
-  %call = call noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %m_typeConstraintData, ptr noundef %2)
-  %m_frameInA = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %dof, align 8
-  %m_rbAFrame = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %3, i32 0, i32 1
-  call void @_ZNK11btTransform9serializeER20btTransformFloatData(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %m_rbAFrame)
-  %m_frameInB = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %dof, align 8
-  %m_rbBFrame = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %4, i32 0, i32 2
-  call void @_ZNK11btTransform9serializeER20btTransformFloatData(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %m_rbBFrame)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK30btGeneric6DofSpring2Constraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !36
+  store ptr %2, ptr %6, align 8, !tbaa !43
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !36
+  store ptr %10, ptr %7, align 8, !tbaa !45
+  %11 = load ptr, ptr %7, align 8, !tbaa !45
+  %12 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %6, align 8, !tbaa !43
+  %14 = call noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %12, ptr noundef %13)
+  %15 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8, !tbaa !45
+  %17 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %16, i32 0, i32 1
+  call void @_ZNK11btTransform9serializeER20btTransformFloatData(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 2
+  %19 = load ptr, ptr %7, align 8, !tbaa !45
+  %20 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %19, i32 0, i32 2
+  call void @_ZNK11btTransform9serializeER20btTransformFloatData(ptr noundef nonnull align 4 dereferenceable(64) %18, ptr noundef nonnull align 4 dereferenceable(64) %20)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  store i32 0, ptr %8, align 4, !tbaa !9
+  br label %21
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %5 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %5, 3
-  br i1 %cmp, label %for.body, label %for.end
+21:                                               ; preds = %181, %3
+  %22 = load i32, ptr %8, align 4, !tbaa !9
+  %23 = icmp slt i32 %22, 3
+  br i1 %23, label %24, label %184
 
-for.body:                                         ; preds = %for.cond
-  %m_angularLimits = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %idxprom
-  %m_loLimit = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx, i32 0, i32 0
-  %7 = load float, ptr %m_loLimit, align 8
-  %8 = load ptr, ptr %dof, align 8
-  %m_angularLowerLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %8, i32 0, i32 23
-  %m_floats = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularLowerLimit, i32 0, i32 0
-  %9 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %9 to i64
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 %idxprom2
-  store float %7, ptr %arrayidx3, align 4
-  %m_angularLimits4 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %10 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %10 to i64
-  %arrayidx6 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits4, i64 0, i64 %idxprom5
-  %m_hiLimit = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx6, i32 0, i32 1
-  %11 = load float, ptr %m_hiLimit, align 4
-  %12 = load ptr, ptr %dof, align 8
-  %m_angularUpperLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %12, i32 0, i32 22
-  %m_floats7 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularUpperLimit, i32 0, i32 0
-  %13 = load i32, ptr %i, align 4
-  %idxprom8 = sext i32 %13 to i64
-  %arrayidx9 = getelementptr inbounds [4 x float], ptr %m_floats7, i64 0, i64 %idxprom8
-  store float %11, ptr %arrayidx9, align 4
-  %m_angularLimits10 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %14 = load i32, ptr %i, align 4
-  %idxprom11 = sext i32 %14 to i64
-  %arrayidx12 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits10, i64 0, i64 %idxprom11
-  %m_bounce = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx12, i32 0, i32 2
-  %15 = load float, ptr %m_bounce, align 8
-  %16 = load ptr, ptr %dof, align 8
-  %m_angularBounce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %16, i32 0, i32 24
-  %m_floats13 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularBounce, i32 0, i32 0
-  %17 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %17 to i64
-  %arrayidx15 = getelementptr inbounds [4 x float], ptr %m_floats13, i64 0, i64 %idxprom14
-  store float %15, ptr %arrayidx15, align 4
-  %m_angularLimits16 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %18 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %18 to i64
-  %arrayidx18 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits16, i64 0, i64 %idxprom17
-  %m_stopERP = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx18, i32 0, i32 3
-  %19 = load float, ptr %m_stopERP, align 4
-  %20 = load ptr, ptr %dof, align 8
-  %m_angularStopERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %20, i32 0, i32 25
-  %m_floats19 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularStopERP, i32 0, i32 0
-  %21 = load i32, ptr %i, align 4
-  %idxprom20 = sext i32 %21 to i64
-  %arrayidx21 = getelementptr inbounds [4 x float], ptr %m_floats19, i64 0, i64 %idxprom20
-  store float %19, ptr %arrayidx21, align 4
-  %m_angularLimits22 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %22 = load i32, ptr %i, align 4
-  %idxprom23 = sext i32 %22 to i64
-  %arrayidx24 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits22, i64 0, i64 %idxprom23
-  %m_stopCFM = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx24, i32 0, i32 4
-  %23 = load float, ptr %m_stopCFM, align 8
-  %24 = load ptr, ptr %dof, align 8
-  %m_angularStopCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %24, i32 0, i32 26
-  %m_floats25 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularStopCFM, i32 0, i32 0
-  %25 = load i32, ptr %i, align 4
-  %idxprom26 = sext i32 %25 to i64
-  %arrayidx27 = getelementptr inbounds [4 x float], ptr %m_floats25, i64 0, i64 %idxprom26
-  store float %23, ptr %arrayidx27, align 4
-  %m_angularLimits28 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %26 = load i32, ptr %i, align 4
-  %idxprom29 = sext i32 %26 to i64
-  %arrayidx30 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits28, i64 0, i64 %idxprom29
-  %m_motorERP = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx30, i32 0, i32 5
-  %27 = load float, ptr %m_motorERP, align 4
-  %28 = load ptr, ptr %dof, align 8
-  %m_angularMotorERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %28, i32 0, i32 27
-  %m_floats31 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularMotorERP, i32 0, i32 0
-  %29 = load i32, ptr %i, align 4
-  %idxprom32 = sext i32 %29 to i64
-  %arrayidx33 = getelementptr inbounds [4 x float], ptr %m_floats31, i64 0, i64 %idxprom32
-  store float %27, ptr %arrayidx33, align 4
-  %m_angularLimits34 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %30 = load i32, ptr %i, align 4
-  %idxprom35 = sext i32 %30 to i64
-  %arrayidx36 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits34, i64 0, i64 %idxprom35
-  %m_motorCFM = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx36, i32 0, i32 6
-  %31 = load float, ptr %m_motorCFM, align 8
-  %32 = load ptr, ptr %dof, align 8
-  %m_angularMotorCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %32, i32 0, i32 28
-  %m_floats37 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularMotorCFM, i32 0, i32 0
-  %33 = load i32, ptr %i, align 4
-  %idxprom38 = sext i32 %33 to i64
-  %arrayidx39 = getelementptr inbounds [4 x float], ptr %m_floats37, i64 0, i64 %idxprom38
-  store float %31, ptr %arrayidx39, align 4
-  %m_angularLimits40 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %34 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %34 to i64
-  %arrayidx42 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits40, i64 0, i64 %idxprom41
-  %m_targetVelocity = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx42, i32 0, i32 8
-  %35 = load float, ptr %m_targetVelocity, align 8
-  %36 = load ptr, ptr %dof, align 8
-  %m_angularTargetVelocity = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %36, i32 0, i32 29
-  %m_floats43 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularTargetVelocity, i32 0, i32 0
-  %37 = load i32, ptr %i, align 4
-  %idxprom44 = sext i32 %37 to i64
-  %arrayidx45 = getelementptr inbounds [4 x float], ptr %m_floats43, i64 0, i64 %idxprom44
-  store float %35, ptr %arrayidx45, align 4
-  %m_angularLimits46 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %38 = load i32, ptr %i, align 4
-  %idxprom47 = sext i32 %38 to i64
-  %arrayidx48 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits46, i64 0, i64 %idxprom47
-  %m_maxMotorForce = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx48, i32 0, i32 9
-  %39 = load float, ptr %m_maxMotorForce, align 4
-  %40 = load ptr, ptr %dof, align 8
-  %m_angularMaxMotorForce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %40, i32 0, i32 30
-  %m_floats49 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularMaxMotorForce, i32 0, i32 0
-  %41 = load i32, ptr %i, align 4
-  %idxprom50 = sext i32 %41 to i64
-  %arrayidx51 = getelementptr inbounds [4 x float], ptr %m_floats49, i64 0, i64 %idxprom50
-  store float %39, ptr %arrayidx51, align 4
-  %m_angularLimits52 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %42 = load i32, ptr %i, align 4
-  %idxprom53 = sext i32 %42 to i64
-  %arrayidx54 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits52, i64 0, i64 %idxprom53
-  %m_servoTarget = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx54, i32 0, i32 11
-  %43 = load float, ptr %m_servoTarget, align 4
-  %44 = load ptr, ptr %dof, align 8
-  %m_angularServoTarget = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %44, i32 0, i32 31
-  %m_floats55 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularServoTarget, i32 0, i32 0
-  %45 = load i32, ptr %i, align 4
-  %idxprom56 = sext i32 %45 to i64
-  %arrayidx57 = getelementptr inbounds [4 x float], ptr %m_floats55, i64 0, i64 %idxprom56
-  store float %43, ptr %arrayidx57, align 4
-  %m_angularLimits58 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %46 = load i32, ptr %i, align 4
-  %idxprom59 = sext i32 %46 to i64
-  %arrayidx60 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits58, i64 0, i64 %idxprom59
-  %m_springStiffness = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx60, i32 0, i32 13
-  %47 = load float, ptr %m_springStiffness, align 4
-  %48 = load ptr, ptr %dof, align 8
-  %m_angularSpringStiffness = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %48, i32 0, i32 32
-  %m_floats61 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularSpringStiffness, i32 0, i32 0
-  %49 = load i32, ptr %i, align 4
-  %idxprom62 = sext i32 %49 to i64
-  %arrayidx63 = getelementptr inbounds [4 x float], ptr %m_floats61, i64 0, i64 %idxprom62
-  store float %47, ptr %arrayidx63, align 4
-  %m_angularLimits64 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %50 = load i32, ptr %i, align 4
-  %idxprom65 = sext i32 %50 to i64
-  %arrayidx66 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits64, i64 0, i64 %idxprom65
-  %m_springDamping = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx66, i32 0, i32 15
-  %51 = load float, ptr %m_springDamping, align 4
-  %52 = load ptr, ptr %dof, align 8
-  %m_angularSpringDamping = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %52, i32 0, i32 33
-  %m_floats67 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularSpringDamping, i32 0, i32 0
-  %53 = load i32, ptr %i, align 4
-  %idxprom68 = sext i32 %53 to i64
-  %arrayidx69 = getelementptr inbounds [4 x float], ptr %m_floats67, i64 0, i64 %idxprom68
-  store float %51, ptr %arrayidx69, align 4
-  %m_angularLimits70 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %54 = load i32, ptr %i, align 4
-  %idxprom71 = sext i32 %54 to i64
-  %arrayidx72 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits70, i64 0, i64 %idxprom71
-  %m_equilibriumPoint = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx72, i32 0, i32 17
-  %55 = load float, ptr %m_equilibriumPoint, align 4
-  %56 = load ptr, ptr %dof, align 8
-  %m_angularEquilibriumPoint = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %56, i32 0, i32 34
-  %m_floats73 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularEquilibriumPoint, i32 0, i32 0
-  %57 = load i32, ptr %i, align 4
-  %idxprom74 = sext i32 %57 to i64
-  %arrayidx75 = getelementptr inbounds [4 x float], ptr %m_floats73, i64 0, i64 %idxprom74
-  store float %55, ptr %arrayidx75, align 4
-  br label %for.inc
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %26 = load i32, ptr %8, align 4, !tbaa !9
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %25, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %28, i32 0, i32 0
+  %30 = load float, ptr %29, align 8, !tbaa !26
+  %31 = load ptr, ptr %7, align 8, !tbaa !45
+  %32 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %31, i32 0, i32 23
+  %33 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %32, i32 0, i32 0
+  %34 = load i32, ptr %8, align 4, !tbaa !9
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [4 x float], ptr %33, i64 0, i64 %35
+  store float %30, ptr %36, align 4, !tbaa !20
+  %37 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %38 = load i32, ptr %8, align 4, !tbaa !9
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %37, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %40, i32 0, i32 1
+  %42 = load float, ptr %41, align 4, !tbaa !33
+  %43 = load ptr, ptr %7, align 8, !tbaa !45
+  %44 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %43, i32 0, i32 22
+  %45 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %8, align 4, !tbaa !9
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [4 x float], ptr %45, i64 0, i64 %47
+  store float %42, ptr %48, align 4, !tbaa !20
+  %49 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %50 = load i32, ptr %8, align 4, !tbaa !9
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %49, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %52, i32 0, i32 2
+  %54 = load float, ptr %53, align 8, !tbaa !47
+  %55 = load ptr, ptr %7, align 8, !tbaa !45
+  %56 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %55, i32 0, i32 24
+  %57 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %56, i32 0, i32 0
+  %58 = load i32, ptr %8, align 4, !tbaa !9
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [4 x float], ptr %57, i64 0, i64 %59
+  store float %54, ptr %60, align 4, !tbaa !20
+  %61 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %62 = load i32, ptr %8, align 4, !tbaa !9
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %61, i64 0, i64 %63
+  %65 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %64, i32 0, i32 3
+  %66 = load float, ptr %65, align 4, !tbaa !48
+  %67 = load ptr, ptr %7, align 8, !tbaa !45
+  %68 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %67, i32 0, i32 25
+  %69 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %68, i32 0, i32 0
+  %70 = load i32, ptr %8, align 4, !tbaa !9
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds [4 x float], ptr %69, i64 0, i64 %71
+  store float %66, ptr %72, align 4, !tbaa !20
+  %73 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %74 = load i32, ptr %8, align 4, !tbaa !9
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %73, i64 0, i64 %75
+  %77 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %76, i32 0, i32 4
+  %78 = load float, ptr %77, align 8, !tbaa !49
+  %79 = load ptr, ptr %7, align 8, !tbaa !45
+  %80 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %79, i32 0, i32 26
+  %81 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %80, i32 0, i32 0
+  %82 = load i32, ptr %8, align 4, !tbaa !9
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [4 x float], ptr %81, i64 0, i64 %83
+  store float %78, ptr %84, align 4, !tbaa !20
+  %85 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %86 = load i32, ptr %8, align 4, !tbaa !9
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %85, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %88, i32 0, i32 5
+  %90 = load float, ptr %89, align 4, !tbaa !50
+  %91 = load ptr, ptr %7, align 8, !tbaa !45
+  %92 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %91, i32 0, i32 27
+  %93 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %92, i32 0, i32 0
+  %94 = load i32, ptr %8, align 4, !tbaa !9
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [4 x float], ptr %93, i64 0, i64 %95
+  store float %90, ptr %96, align 4, !tbaa !20
+  %97 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %98 = load i32, ptr %8, align 4, !tbaa !9
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %97, i64 0, i64 %99
+  %101 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %100, i32 0, i32 6
+  %102 = load float, ptr %101, align 8, !tbaa !51
+  %103 = load ptr, ptr %7, align 8, !tbaa !45
+  %104 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %103, i32 0, i32 28
+  %105 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %104, i32 0, i32 0
+  %106 = load i32, ptr %8, align 4, !tbaa !9
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds [4 x float], ptr %105, i64 0, i64 %107
+  store float %102, ptr %108, align 4, !tbaa !20
+  %109 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %110 = load i32, ptr %8, align 4, !tbaa !9
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %109, i64 0, i64 %111
+  %113 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %112, i32 0, i32 8
+  %114 = load float, ptr %113, align 8, !tbaa !52
+  %115 = load ptr, ptr %7, align 8, !tbaa !45
+  %116 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %115, i32 0, i32 29
+  %117 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %116, i32 0, i32 0
+  %118 = load i32, ptr %8, align 4, !tbaa !9
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds [4 x float], ptr %117, i64 0, i64 %119
+  store float %114, ptr %120, align 4, !tbaa !20
+  %121 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %122 = load i32, ptr %8, align 4, !tbaa !9
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %121, i64 0, i64 %123
+  %125 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %124, i32 0, i32 9
+  %126 = load float, ptr %125, align 4, !tbaa !53
+  %127 = load ptr, ptr %7, align 8, !tbaa !45
+  %128 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %127, i32 0, i32 30
+  %129 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %128, i32 0, i32 0
+  %130 = load i32, ptr %8, align 4, !tbaa !9
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds [4 x float], ptr %129, i64 0, i64 %131
+  store float %126, ptr %132, align 4, !tbaa !20
+  %133 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %134 = load i32, ptr %8, align 4, !tbaa !9
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %133, i64 0, i64 %135
+  %137 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %136, i32 0, i32 11
+  %138 = load float, ptr %137, align 4, !tbaa !54
+  %139 = load ptr, ptr %7, align 8, !tbaa !45
+  %140 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %139, i32 0, i32 31
+  %141 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %140, i32 0, i32 0
+  %142 = load i32, ptr %8, align 4, !tbaa !9
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds [4 x float], ptr %141, i64 0, i64 %143
+  store float %138, ptr %144, align 4, !tbaa !20
+  %145 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %146 = load i32, ptr %8, align 4, !tbaa !9
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %145, i64 0, i64 %147
+  %149 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %148, i32 0, i32 13
+  %150 = load float, ptr %149, align 4, !tbaa !55
+  %151 = load ptr, ptr %7, align 8, !tbaa !45
+  %152 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %151, i32 0, i32 32
+  %153 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %152, i32 0, i32 0
+  %154 = load i32, ptr %8, align 4, !tbaa !9
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds [4 x float], ptr %153, i64 0, i64 %155
+  store float %150, ptr %156, align 4, !tbaa !20
+  %157 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %158 = load i32, ptr %8, align 4, !tbaa !9
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %157, i64 0, i64 %159
+  %161 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %160, i32 0, i32 15
+  %162 = load float, ptr %161, align 4, !tbaa !56
+  %163 = load ptr, ptr %7, align 8, !tbaa !45
+  %164 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %163, i32 0, i32 33
+  %165 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %164, i32 0, i32 0
+  %166 = load i32, ptr %8, align 4, !tbaa !9
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds [4 x float], ptr %165, i64 0, i64 %167
+  store float %162, ptr %168, align 4, !tbaa !20
+  %169 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %170 = load i32, ptr %8, align 4, !tbaa !9
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %169, i64 0, i64 %171
+  %173 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %172, i32 0, i32 17
+  %174 = load float, ptr %173, align 4, !tbaa !57
+  %175 = load ptr, ptr %7, align 8, !tbaa !45
+  %176 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %175, i32 0, i32 34
+  %177 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %176, i32 0, i32 0
+  %178 = load i32, ptr %8, align 4, !tbaa !9
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds [4 x float], ptr %177, i64 0, i64 %179
+  store float %174, ptr %180, align 4, !tbaa !20
+  br label %181
 
-for.inc:                                          ; preds = %for.body
-  %58 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %58, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+181:                                              ; preds = %24
+  %182 = load i32, ptr %8, align 4, !tbaa !9
+  %183 = add nsw i32 %182, 1
+  store i32 %183, ptr %8, align 4, !tbaa !9
+  br label %21, !llvm.loop !58
 
-for.end:                                          ; preds = %for.cond
-  %59 = load ptr, ptr %dof, align 8
-  %m_angularLowerLimit76 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %59, i32 0, i32 23
-  %m_floats77 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularLowerLimit76, i32 0, i32 0
-  %arrayidx78 = getelementptr inbounds [4 x float], ptr %m_floats77, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx78, align 4
-  %60 = load ptr, ptr %dof, align 8
-  %m_angularUpperLimit79 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %60, i32 0, i32 22
-  %m_floats80 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularUpperLimit79, i32 0, i32 0
-  %arrayidx81 = getelementptr inbounds [4 x float], ptr %m_floats80, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx81, align 4
-  %61 = load ptr, ptr %dof, align 8
-  %m_angularBounce82 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %61, i32 0, i32 24
-  %m_floats83 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularBounce82, i32 0, i32 0
-  %arrayidx84 = getelementptr inbounds [4 x float], ptr %m_floats83, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx84, align 4
-  %62 = load ptr, ptr %dof, align 8
-  %m_angularStopERP85 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %62, i32 0, i32 25
-  %m_floats86 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularStopERP85, i32 0, i32 0
-  %arrayidx87 = getelementptr inbounds [4 x float], ptr %m_floats86, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx87, align 4
-  %63 = load ptr, ptr %dof, align 8
-  %m_angularStopCFM88 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %63, i32 0, i32 26
-  %m_floats89 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularStopCFM88, i32 0, i32 0
-  %arrayidx90 = getelementptr inbounds [4 x float], ptr %m_floats89, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx90, align 4
-  %64 = load ptr, ptr %dof, align 8
-  %m_angularMotorERP91 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %64, i32 0, i32 27
-  %m_floats92 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularMotorERP91, i32 0, i32 0
-  %arrayidx93 = getelementptr inbounds [4 x float], ptr %m_floats92, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx93, align 4
-  %65 = load ptr, ptr %dof, align 8
-  %m_angularMotorCFM94 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %65, i32 0, i32 28
-  %m_floats95 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularMotorCFM94, i32 0, i32 0
-  %arrayidx96 = getelementptr inbounds [4 x float], ptr %m_floats95, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx96, align 4
-  %66 = load ptr, ptr %dof, align 8
-  %m_angularTargetVelocity97 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %66, i32 0, i32 29
-  %m_floats98 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularTargetVelocity97, i32 0, i32 0
-  %arrayidx99 = getelementptr inbounds [4 x float], ptr %m_floats98, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx99, align 4
-  %67 = load ptr, ptr %dof, align 8
-  %m_angularMaxMotorForce100 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %67, i32 0, i32 30
-  %m_floats101 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularMaxMotorForce100, i32 0, i32 0
-  %arrayidx102 = getelementptr inbounds [4 x float], ptr %m_floats101, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx102, align 4
-  %68 = load ptr, ptr %dof, align 8
-  %m_angularServoTarget103 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %68, i32 0, i32 31
-  %m_floats104 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularServoTarget103, i32 0, i32 0
-  %arrayidx105 = getelementptr inbounds [4 x float], ptr %m_floats104, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx105, align 4
-  %69 = load ptr, ptr %dof, align 8
-  %m_angularSpringStiffness106 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %69, i32 0, i32 32
-  %m_floats107 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularSpringStiffness106, i32 0, i32 0
-  %arrayidx108 = getelementptr inbounds [4 x float], ptr %m_floats107, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx108, align 4
-  %70 = load ptr, ptr %dof, align 8
-  %m_angularSpringDamping109 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %70, i32 0, i32 33
-  %m_floats110 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularSpringDamping109, i32 0, i32 0
-  %arrayidx111 = getelementptr inbounds [4 x float], ptr %m_floats110, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx111, align 4
-  %71 = load ptr, ptr %dof, align 8
-  %m_angularEquilibriumPoint112 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %71, i32 0, i32 34
-  %m_floats113 = getelementptr inbounds %struct.btVector3FloatData, ptr %m_angularEquilibriumPoint112, i32 0, i32 0
-  %arrayidx114 = getelementptr inbounds [4 x float], ptr %m_floats113, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx114, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond115
+184:                                              ; preds = %21
+  %185 = load ptr, ptr %7, align 8, !tbaa !45
+  %186 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %185, i32 0, i32 23
+  %187 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %186, i32 0, i32 0
+  %188 = getelementptr inbounds [4 x float], ptr %187, i64 0, i64 3
+  store float 0.000000e+00, ptr %188, align 4, !tbaa !20
+  %189 = load ptr, ptr %7, align 8, !tbaa !45
+  %190 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %189, i32 0, i32 22
+  %191 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %190, i32 0, i32 0
+  %192 = getelementptr inbounds [4 x float], ptr %191, i64 0, i64 3
+  store float 0.000000e+00, ptr %192, align 4, !tbaa !20
+  %193 = load ptr, ptr %7, align 8, !tbaa !45
+  %194 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %193, i32 0, i32 24
+  %195 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %194, i32 0, i32 0
+  %196 = getelementptr inbounds [4 x float], ptr %195, i64 0, i64 3
+  store float 0.000000e+00, ptr %196, align 4, !tbaa !20
+  %197 = load ptr, ptr %7, align 8, !tbaa !45
+  %198 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %197, i32 0, i32 25
+  %199 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %198, i32 0, i32 0
+  %200 = getelementptr inbounds [4 x float], ptr %199, i64 0, i64 3
+  store float 0.000000e+00, ptr %200, align 4, !tbaa !20
+  %201 = load ptr, ptr %7, align 8, !tbaa !45
+  %202 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %201, i32 0, i32 26
+  %203 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %202, i32 0, i32 0
+  %204 = getelementptr inbounds [4 x float], ptr %203, i64 0, i64 3
+  store float 0.000000e+00, ptr %204, align 4, !tbaa !20
+  %205 = load ptr, ptr %7, align 8, !tbaa !45
+  %206 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %205, i32 0, i32 27
+  %207 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %206, i32 0, i32 0
+  %208 = getelementptr inbounds [4 x float], ptr %207, i64 0, i64 3
+  store float 0.000000e+00, ptr %208, align 4, !tbaa !20
+  %209 = load ptr, ptr %7, align 8, !tbaa !45
+  %210 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %209, i32 0, i32 28
+  %211 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %210, i32 0, i32 0
+  %212 = getelementptr inbounds [4 x float], ptr %211, i64 0, i64 3
+  store float 0.000000e+00, ptr %212, align 4, !tbaa !20
+  %213 = load ptr, ptr %7, align 8, !tbaa !45
+  %214 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %213, i32 0, i32 29
+  %215 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %214, i32 0, i32 0
+  %216 = getelementptr inbounds [4 x float], ptr %215, i64 0, i64 3
+  store float 0.000000e+00, ptr %216, align 4, !tbaa !20
+  %217 = load ptr, ptr %7, align 8, !tbaa !45
+  %218 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %217, i32 0, i32 30
+  %219 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %218, i32 0, i32 0
+  %220 = getelementptr inbounds [4 x float], ptr %219, i64 0, i64 3
+  store float 0.000000e+00, ptr %220, align 4, !tbaa !20
+  %221 = load ptr, ptr %7, align 8, !tbaa !45
+  %222 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %221, i32 0, i32 31
+  %223 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %222, i32 0, i32 0
+  %224 = getelementptr inbounds [4 x float], ptr %223, i64 0, i64 3
+  store float 0.000000e+00, ptr %224, align 4, !tbaa !20
+  %225 = load ptr, ptr %7, align 8, !tbaa !45
+  %226 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %225, i32 0, i32 32
+  %227 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %226, i32 0, i32 0
+  %228 = getelementptr inbounds [4 x float], ptr %227, i64 0, i64 3
+  store float 0.000000e+00, ptr %228, align 4, !tbaa !20
+  %229 = load ptr, ptr %7, align 8, !tbaa !45
+  %230 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %229, i32 0, i32 33
+  %231 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %230, i32 0, i32 0
+  %232 = getelementptr inbounds [4 x float], ptr %231, i64 0, i64 3
+  store float 0.000000e+00, ptr %232, align 4, !tbaa !20
+  %233 = load ptr, ptr %7, align 8, !tbaa !45
+  %234 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %233, i32 0, i32 34
+  %235 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %234, i32 0, i32 0
+  %236 = getelementptr inbounds [4 x float], ptr %235, i64 0, i64 3
+  store float 0.000000e+00, ptr %236, align 4, !tbaa !20
+  store i32 0, ptr %8, align 4, !tbaa !9
+  br label %237
 
-for.cond115:                                      ; preds = %for.inc177, %for.end
-  %72 = load i32, ptr %i, align 4
-  %cmp116 = icmp slt i32 %72, 4
-  br i1 %cmp116, label %for.body117, label %for.end179
+237:                                              ; preds = %341, %184
+  %238 = load i32, ptr %8, align 4, !tbaa !9
+  %239 = icmp slt i32 %238, 4
+  br i1 %239, label %240, label %344
 
-for.body117:                                      ; preds = %for.cond115
-  %73 = load i32, ptr %i, align 4
-  %cmp118 = icmp slt i32 %73, 3
-  br i1 %cmp118, label %cond.true, label %cond.false
+240:                                              ; preds = %237
+  %241 = load i32, ptr %8, align 4, !tbaa !9
+  %242 = icmp slt i32 %241, 3
+  br i1 %242, label %243, label %252
 
-cond.true:                                        ; preds = %for.body117
-  %m_angularLimits119 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %74 = load i32, ptr %i, align 4
-  %idxprom120 = sext i32 %74 to i64
-  %arrayidx121 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits119, i64 0, i64 %idxprom120
-  %m_enableMotor = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx121, i32 0, i32 7
-  %75 = load i8, ptr %m_enableMotor, align 4
-  %tobool = trunc i8 %75 to i1
-  %cond = select i1 %tobool, i32 1, i32 0
-  br label %cond.end
+243:                                              ; preds = %240
+  %244 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %245 = load i32, ptr %8, align 4, !tbaa !9
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %244, i64 0, i64 %246
+  %248 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %247, i32 0, i32 7
+  %249 = load i8, ptr %248, align 4, !tbaa !59, !range !60, !noundef !61
+  %250 = trunc i8 %249 to i1
+  %251 = select i1 %250, i32 1, i32 0
+  br label %253
 
-cond.false:                                       ; preds = %for.body117
-  br label %cond.end
+252:                                              ; preds = %240
+  br label %253
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond122 = phi i32 [ %cond, %cond.true ], [ 0, %cond.false ]
-  %conv = trunc i32 %cond122 to i8
-  %76 = load ptr, ptr %dof, align 8
-  %m_angularEnableMotor = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %76, i32 0, i32 35
-  %77 = load i32, ptr %i, align 4
-  %idxprom123 = sext i32 %77 to i64
-  %arrayidx124 = getelementptr inbounds [4 x i8], ptr %m_angularEnableMotor, i64 0, i64 %idxprom123
-  store i8 %conv, ptr %arrayidx124, align 1
-  %78 = load i32, ptr %i, align 4
-  %cmp125 = icmp slt i32 %78, 3
-  br i1 %cmp125, label %cond.true126, label %cond.false132
+253:                                              ; preds = %252, %243
+  %254 = phi i32 [ %251, %243 ], [ 0, %252 ]
+  %255 = trunc i32 %254 to i8
+  %256 = load ptr, ptr %7, align 8, !tbaa !45
+  %257 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %256, i32 0, i32 35
+  %258 = load i32, ptr %8, align 4, !tbaa !9
+  %259 = sext i32 %258 to i64
+  %260 = getelementptr inbounds [4 x i8], ptr %257, i64 0, i64 %259
+  store i8 %255, ptr %260, align 1, !tbaa !11
+  %261 = load i32, ptr %8, align 4, !tbaa !9
+  %262 = icmp slt i32 %261, 3
+  br i1 %262, label %263, label %272
 
-cond.true126:                                     ; preds = %cond.end
-  %m_angularLimits127 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %79 = load i32, ptr %i, align 4
-  %idxprom128 = sext i32 %79 to i64
-  %arrayidx129 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits127, i64 0, i64 %idxprom128
-  %m_servoMotor = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx129, i32 0, i32 10
-  %80 = load i8, ptr %m_servoMotor, align 8
-  %tobool130 = trunc i8 %80 to i1
-  %cond131 = select i1 %tobool130, i32 1, i32 0
-  br label %cond.end133
+263:                                              ; preds = %253
+  %264 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %265 = load i32, ptr %8, align 4, !tbaa !9
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %264, i64 0, i64 %266
+  %268 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %267, i32 0, i32 10
+  %269 = load i8, ptr %268, align 8, !tbaa !62, !range !60, !noundef !61
+  %270 = trunc i8 %269 to i1
+  %271 = select i1 %270, i32 1, i32 0
+  br label %273
 
-cond.false132:                                    ; preds = %cond.end
-  br label %cond.end133
+272:                                              ; preds = %253
+  br label %273
 
-cond.end133:                                      ; preds = %cond.false132, %cond.true126
-  %cond134 = phi i32 [ %cond131, %cond.true126 ], [ 0, %cond.false132 ]
-  %conv135 = trunc i32 %cond134 to i8
-  %81 = load ptr, ptr %dof, align 8
-  %m_angularServoMotor = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %81, i32 0, i32 36
-  %82 = load i32, ptr %i, align 4
-  %idxprom136 = sext i32 %82 to i64
-  %arrayidx137 = getelementptr inbounds [4 x i8], ptr %m_angularServoMotor, i64 0, i64 %idxprom136
-  store i8 %conv135, ptr %arrayidx137, align 1
-  %83 = load i32, ptr %i, align 4
-  %cmp138 = icmp slt i32 %83, 3
-  br i1 %cmp138, label %cond.true139, label %cond.false145
+273:                                              ; preds = %272, %263
+  %274 = phi i32 [ %271, %263 ], [ 0, %272 ]
+  %275 = trunc i32 %274 to i8
+  %276 = load ptr, ptr %7, align 8, !tbaa !45
+  %277 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %276, i32 0, i32 36
+  %278 = load i32, ptr %8, align 4, !tbaa !9
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds [4 x i8], ptr %277, i64 0, i64 %279
+  store i8 %275, ptr %280, align 1, !tbaa !11
+  %281 = load i32, ptr %8, align 4, !tbaa !9
+  %282 = icmp slt i32 %281, 3
+  br i1 %282, label %283, label %292
 
-cond.true139:                                     ; preds = %cond.end133
-  %m_angularLimits140 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %84 = load i32, ptr %i, align 4
-  %idxprom141 = sext i32 %84 to i64
-  %arrayidx142 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits140, i64 0, i64 %idxprom141
-  %m_enableSpring = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx142, i32 0, i32 12
-  %85 = load i8, ptr %m_enableSpring, align 8
-  %tobool143 = trunc i8 %85 to i1
-  %cond144 = select i1 %tobool143, i32 1, i32 0
-  br label %cond.end146
+283:                                              ; preds = %273
+  %284 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %285 = load i32, ptr %8, align 4, !tbaa !9
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %284, i64 0, i64 %286
+  %288 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %287, i32 0, i32 12
+  %289 = load i8, ptr %288, align 8, !tbaa !63, !range !60, !noundef !61
+  %290 = trunc i8 %289 to i1
+  %291 = select i1 %290, i32 1, i32 0
+  br label %293
 
-cond.false145:                                    ; preds = %cond.end133
-  br label %cond.end146
+292:                                              ; preds = %273
+  br label %293
 
-cond.end146:                                      ; preds = %cond.false145, %cond.true139
-  %cond147 = phi i32 [ %cond144, %cond.true139 ], [ 0, %cond.false145 ]
-  %conv148 = trunc i32 %cond147 to i8
-  %86 = load ptr, ptr %dof, align 8
-  %m_angularEnableSpring = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %86, i32 0, i32 37
-  %87 = load i32, ptr %i, align 4
-  %idxprom149 = sext i32 %87 to i64
-  %arrayidx150 = getelementptr inbounds [4 x i8], ptr %m_angularEnableSpring, i64 0, i64 %idxprom149
-  store i8 %conv148, ptr %arrayidx150, align 1
-  %88 = load i32, ptr %i, align 4
-  %cmp151 = icmp slt i32 %88, 3
-  br i1 %cmp151, label %cond.true152, label %cond.false158
+293:                                              ; preds = %292, %283
+  %294 = phi i32 [ %291, %283 ], [ 0, %292 ]
+  %295 = trunc i32 %294 to i8
+  %296 = load ptr, ptr %7, align 8, !tbaa !45
+  %297 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %296, i32 0, i32 37
+  %298 = load i32, ptr %8, align 4, !tbaa !9
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr inbounds [4 x i8], ptr %297, i64 0, i64 %299
+  store i8 %295, ptr %300, align 1, !tbaa !11
+  %301 = load i32, ptr %8, align 4, !tbaa !9
+  %302 = icmp slt i32 %301, 3
+  br i1 %302, label %303, label %312
 
-cond.true152:                                     ; preds = %cond.end146
-  %m_angularLimits153 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %89 = load i32, ptr %i, align 4
-  %idxprom154 = sext i32 %89 to i64
-  %arrayidx155 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits153, i64 0, i64 %idxprom154
-  %m_springStiffnessLimited = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx155, i32 0, i32 14
-  %90 = load i8, ptr %m_springStiffnessLimited, align 8
-  %tobool156 = trunc i8 %90 to i1
-  %cond157 = select i1 %tobool156, i32 1, i32 0
-  br label %cond.end159
+303:                                              ; preds = %293
+  %304 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %305 = load i32, ptr %8, align 4, !tbaa !9
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %304, i64 0, i64 %306
+  %308 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %307, i32 0, i32 14
+  %309 = load i8, ptr %308, align 8, !tbaa !64, !range !60, !noundef !61
+  %310 = trunc i8 %309 to i1
+  %311 = select i1 %310, i32 1, i32 0
+  br label %313
 
-cond.false158:                                    ; preds = %cond.end146
-  br label %cond.end159
+312:                                              ; preds = %293
+  br label %313
 
-cond.end159:                                      ; preds = %cond.false158, %cond.true152
-  %cond160 = phi i32 [ %cond157, %cond.true152 ], [ 0, %cond.false158 ]
-  %conv161 = trunc i32 %cond160 to i8
-  %91 = load ptr, ptr %dof, align 8
-  %m_angularSpringStiffnessLimited = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %91, i32 0, i32 38
-  %92 = load i32, ptr %i, align 4
-  %idxprom162 = sext i32 %92 to i64
-  %arrayidx163 = getelementptr inbounds [4 x i8], ptr %m_angularSpringStiffnessLimited, i64 0, i64 %idxprom162
-  store i8 %conv161, ptr %arrayidx163, align 1
-  %93 = load i32, ptr %i, align 4
-  %cmp164 = icmp slt i32 %93, 3
-  br i1 %cmp164, label %cond.true165, label %cond.false171
+313:                                              ; preds = %312, %303
+  %314 = phi i32 [ %311, %303 ], [ 0, %312 ]
+  %315 = trunc i32 %314 to i8
+  %316 = load ptr, ptr %7, align 8, !tbaa !45
+  %317 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %316, i32 0, i32 38
+  %318 = load i32, ptr %8, align 4, !tbaa !9
+  %319 = sext i32 %318 to i64
+  %320 = getelementptr inbounds [4 x i8], ptr %317, i64 0, i64 %319
+  store i8 %315, ptr %320, align 1, !tbaa !11
+  %321 = load i32, ptr %8, align 4, !tbaa !9
+  %322 = icmp slt i32 %321, 3
+  br i1 %322, label %323, label %332
 
-cond.true165:                                     ; preds = %cond.end159
-  %m_angularLimits166 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 6
-  %94 = load i32, ptr %i, align 4
-  %idxprom167 = sext i32 %94 to i64
-  %arrayidx168 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits166, i64 0, i64 %idxprom167
-  %m_springDampingLimited = getelementptr inbounds %class.btRotationalLimitMotor2, ptr %arrayidx168, i32 0, i32 16
-  %95 = load i8, ptr %m_springDampingLimited, align 8
-  %tobool169 = trunc i8 %95 to i1
-  %cond170 = select i1 %tobool169, i32 1, i32 0
-  br label %cond.end172
+323:                                              ; preds = %313
+  %324 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 6
+  %325 = load i32, ptr %8, align 4, !tbaa !9
+  %326 = sext i32 %325 to i64
+  %327 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %324, i64 0, i64 %326
+  %328 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %327, i32 0, i32 16
+  %329 = load i8, ptr %328, align 8, !tbaa !65, !range !60, !noundef !61
+  %330 = trunc i8 %329 to i1
+  %331 = select i1 %330, i32 1, i32 0
+  br label %333
 
-cond.false171:                                    ; preds = %cond.end159
-  br label %cond.end172
+332:                                              ; preds = %313
+  br label %333
 
-cond.end172:                                      ; preds = %cond.false171, %cond.true165
-  %cond173 = phi i32 [ %cond170, %cond.true165 ], [ 0, %cond.false171 ]
-  %conv174 = trunc i32 %cond173 to i8
-  %96 = load ptr, ptr %dof, align 8
-  %m_angularSpringDampingLimited = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %96, i32 0, i32 39
-  %97 = load i32, ptr %i, align 4
-  %idxprom175 = sext i32 %97 to i64
-  %arrayidx176 = getelementptr inbounds [4 x i8], ptr %m_angularSpringDampingLimited, i64 0, i64 %idxprom175
-  store i8 %conv174, ptr %arrayidx176, align 1
-  br label %for.inc177
+333:                                              ; preds = %332, %323
+  %334 = phi i32 [ %331, %323 ], [ 0, %332 ]
+  %335 = trunc i32 %334 to i8
+  %336 = load ptr, ptr %7, align 8, !tbaa !45
+  %337 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %336, i32 0, i32 39
+  %338 = load i32, ptr %8, align 4, !tbaa !9
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr inbounds [4 x i8], ptr %337, i64 0, i64 %339
+  store i8 %335, ptr %340, align 1, !tbaa !11
+  br label %341
 
-for.inc177:                                       ; preds = %cond.end172
-  %98 = load i32, ptr %i, align 4
-  %inc178 = add nsw i32 %98, 1
-  store i32 %inc178, ptr %i, align 4
-  br label %for.cond115, !llvm.loop !9
+341:                                              ; preds = %333
+  %342 = load i32, ptr %8, align 4, !tbaa !9
+  %343 = add nsw i32 %342, 1
+  store i32 %343, ptr %8, align 4, !tbaa !9
+  br label %237, !llvm.loop !66
 
-for.end179:                                       ; preds = %for.cond115
-  %m_linearLimits = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_lowerLimit = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits, i32 0, i32 0
-  %99 = load ptr, ptr %dof, align 8
-  %m_linearLowerLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %99, i32 0, i32 4
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_lowerLimit, ptr noundef nonnull align 4 dereferenceable(16) %m_linearLowerLimit)
-  %m_linearLimits180 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_upperLimit = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits180, i32 0, i32 1
-  %100 = load ptr, ptr %dof, align 8
-  %m_linearUpperLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %100, i32 0, i32 3
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_upperLimit, ptr noundef nonnull align 4 dereferenceable(16) %m_linearUpperLimit)
-  %m_linearLimits181 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_bounce182 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits181, i32 0, i32 2
-  %101 = load ptr, ptr %dof, align 8
-  %m_linearBounce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %101, i32 0, i32 5
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_bounce182, ptr noundef nonnull align 4 dereferenceable(16) %m_linearBounce)
-  %m_linearLimits183 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_stopERP184 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits183, i32 0, i32 3
-  %102 = load ptr, ptr %dof, align 8
-  %m_linearStopERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %102, i32 0, i32 6
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_stopERP184, ptr noundef nonnull align 4 dereferenceable(16) %m_linearStopERP)
-  %m_linearLimits185 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_stopCFM186 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits185, i32 0, i32 4
-  %103 = load ptr, ptr %dof, align 8
-  %m_linearStopCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %103, i32 0, i32 7
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_stopCFM186, ptr noundef nonnull align 4 dereferenceable(16) %m_linearStopCFM)
-  %m_linearLimits187 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_motorERP188 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits187, i32 0, i32 5
-  %104 = load ptr, ptr %dof, align 8
-  %m_linearMotorERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %104, i32 0, i32 8
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_motorERP188, ptr noundef nonnull align 4 dereferenceable(16) %m_linearMotorERP)
-  %m_linearLimits189 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_motorCFM190 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits189, i32 0, i32 6
-  %105 = load ptr, ptr %dof, align 8
-  %m_linearMotorCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %105, i32 0, i32 9
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_motorCFM190, ptr noundef nonnull align 4 dereferenceable(16) %m_linearMotorCFM)
-  %m_linearLimits191 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_targetVelocity192 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits191, i32 0, i32 16
-  %106 = load ptr, ptr %dof, align 8
-  %m_linearTargetVelocity = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %106, i32 0, i32 10
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_targetVelocity192, ptr noundef nonnull align 4 dereferenceable(16) %m_linearTargetVelocity)
-  %m_linearLimits193 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_maxMotorForce194 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits193, i32 0, i32 17
-  %107 = load ptr, ptr %dof, align 8
-  %m_linearMaxMotorForce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %107, i32 0, i32 11
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_maxMotorForce194, ptr noundef nonnull align 4 dereferenceable(16) %m_linearMaxMotorForce)
-  %m_linearLimits195 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_servoTarget196 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits195, i32 0, i32 10
-  %108 = load ptr, ptr %dof, align 8
-  %m_linearServoTarget = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %108, i32 0, i32 12
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_servoTarget196, ptr noundef nonnull align 4 dereferenceable(16) %m_linearServoTarget)
-  %m_linearLimits197 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_springStiffness198 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits197, i32 0, i32 11
-  %109 = load ptr, ptr %dof, align 8
-  %m_linearSpringStiffness = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %109, i32 0, i32 13
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_springStiffness198, ptr noundef nonnull align 4 dereferenceable(16) %m_linearSpringStiffness)
-  %m_linearLimits199 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_springDamping200 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits199, i32 0, i32 13
-  %110 = load ptr, ptr %dof, align 8
-  %m_linearSpringDamping = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %110, i32 0, i32 14
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_springDamping200, ptr noundef nonnull align 4 dereferenceable(16) %m_linearSpringDamping)
-  %m_linearLimits201 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_equilibriumPoint202 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits201, i32 0, i32 15
-  %111 = load ptr, ptr %dof, align 8
-  %m_linearEquilibriumPoint = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %111, i32 0, i32 15
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_equilibriumPoint202, ptr noundef nonnull align 4 dereferenceable(16) %m_linearEquilibriumPoint)
-  store i32 0, ptr %i, align 4
-  br label %for.cond203
+344:                                              ; preds = %237
+  %345 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %346 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %345, i32 0, i32 0
+  %347 = load ptr, ptr %7, align 8, !tbaa !45
+  %348 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %347, i32 0, i32 4
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %346, ptr noundef nonnull align 4 dereferenceable(16) %348)
+  %349 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %350 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %349, i32 0, i32 1
+  %351 = load ptr, ptr %7, align 8, !tbaa !45
+  %352 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %351, i32 0, i32 3
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %350, ptr noundef nonnull align 4 dereferenceable(16) %352)
+  %353 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %354 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %353, i32 0, i32 2
+  %355 = load ptr, ptr %7, align 8, !tbaa !45
+  %356 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %355, i32 0, i32 5
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %354, ptr noundef nonnull align 4 dereferenceable(16) %356)
+  %357 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %358 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %357, i32 0, i32 3
+  %359 = load ptr, ptr %7, align 8, !tbaa !45
+  %360 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %359, i32 0, i32 6
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %358, ptr noundef nonnull align 4 dereferenceable(16) %360)
+  %361 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %362 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %361, i32 0, i32 4
+  %363 = load ptr, ptr %7, align 8, !tbaa !45
+  %364 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %363, i32 0, i32 7
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %362, ptr noundef nonnull align 4 dereferenceable(16) %364)
+  %365 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %366 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %365, i32 0, i32 5
+  %367 = load ptr, ptr %7, align 8, !tbaa !45
+  %368 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %367, i32 0, i32 8
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %366, ptr noundef nonnull align 4 dereferenceable(16) %368)
+  %369 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %370 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %369, i32 0, i32 6
+  %371 = load ptr, ptr %7, align 8, !tbaa !45
+  %372 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %371, i32 0, i32 9
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %370, ptr noundef nonnull align 4 dereferenceable(16) %372)
+  %373 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %374 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %373, i32 0, i32 16
+  %375 = load ptr, ptr %7, align 8, !tbaa !45
+  %376 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %375, i32 0, i32 10
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %374, ptr noundef nonnull align 4 dereferenceable(16) %376)
+  %377 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %378 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %377, i32 0, i32 17
+  %379 = load ptr, ptr %7, align 8, !tbaa !45
+  %380 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %379, i32 0, i32 11
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %378, ptr noundef nonnull align 4 dereferenceable(16) %380)
+  %381 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %382 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %381, i32 0, i32 10
+  %383 = load ptr, ptr %7, align 8, !tbaa !45
+  %384 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %383, i32 0, i32 12
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %382, ptr noundef nonnull align 4 dereferenceable(16) %384)
+  %385 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %386 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %385, i32 0, i32 11
+  %387 = load ptr, ptr %7, align 8, !tbaa !45
+  %388 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %387, i32 0, i32 13
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %386, ptr noundef nonnull align 4 dereferenceable(16) %388)
+  %389 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %390 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %389, i32 0, i32 13
+  %391 = load ptr, ptr %7, align 8, !tbaa !45
+  %392 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %391, i32 0, i32 14
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %390, ptr noundef nonnull align 4 dereferenceable(16) %392)
+  %393 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %394 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %393, i32 0, i32 15
+  %395 = load ptr, ptr %7, align 8, !tbaa !45
+  %396 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %395, i32 0, i32 15
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %394, ptr noundef nonnull align 4 dereferenceable(16) %396)
+  store i32 0, ptr %8, align 4, !tbaa !9
+  br label %397
 
-for.cond203:                                      ; preds = %for.inc276, %for.end179
-  %112 = load i32, ptr %i, align 4
-  %cmp204 = icmp slt i32 %112, 4
-  br i1 %cmp204, label %for.body205, label %for.end278
+397:                                              ; preds = %501, %344
+  %398 = load i32, ptr %8, align 4, !tbaa !9
+  %399 = icmp slt i32 %398, 4
+  br i1 %399, label %400, label %504
 
-for.body205:                                      ; preds = %for.cond203
-  %113 = load i32, ptr %i, align 4
-  %cmp206 = icmp slt i32 %113, 3
-  br i1 %cmp206, label %cond.true207, label %cond.false214
+400:                                              ; preds = %397
+  %401 = load i32, ptr %8, align 4, !tbaa !9
+  %402 = icmp slt i32 %401, 3
+  br i1 %402, label %403, label %412
 
-cond.true207:                                     ; preds = %for.body205
-  %m_linearLimits208 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_enableMotor209 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits208, i32 0, i32 7
-  %114 = load i32, ptr %i, align 4
-  %idxprom210 = sext i32 %114 to i64
-  %arrayidx211 = getelementptr inbounds [3 x i8], ptr %m_enableMotor209, i64 0, i64 %idxprom210
-  %115 = load i8, ptr %arrayidx211, align 1
-  %tobool212 = trunc i8 %115 to i1
-  %cond213 = select i1 %tobool212, i32 1, i32 0
-  br label %cond.end215
+403:                                              ; preds = %400
+  %404 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %405 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %404, i32 0, i32 7
+  %406 = load i32, ptr %8, align 4, !tbaa !9
+  %407 = sext i32 %406 to i64
+  %408 = getelementptr inbounds [3 x i8], ptr %405, i64 0, i64 %407
+  %409 = load i8, ptr %408, align 1, !tbaa !67, !range !60, !noundef !61
+  %410 = trunc i8 %409 to i1
+  %411 = select i1 %410, i32 1, i32 0
+  br label %413
 
-cond.false214:                                    ; preds = %for.body205
-  br label %cond.end215
+412:                                              ; preds = %400
+  br label %413
 
-cond.end215:                                      ; preds = %cond.false214, %cond.true207
-  %cond216 = phi i32 [ %cond213, %cond.true207 ], [ 0, %cond.false214 ]
-  %conv217 = trunc i32 %cond216 to i8
-  %116 = load ptr, ptr %dof, align 8
-  %m_linearEnableMotor = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %116, i32 0, i32 16
-  %117 = load i32, ptr %i, align 4
-  %idxprom218 = sext i32 %117 to i64
-  %arrayidx219 = getelementptr inbounds [4 x i8], ptr %m_linearEnableMotor, i64 0, i64 %idxprom218
-  store i8 %conv217, ptr %arrayidx219, align 1
-  %118 = load i32, ptr %i, align 4
-  %cmp220 = icmp slt i32 %118, 3
-  br i1 %cmp220, label %cond.true221, label %cond.false228
+413:                                              ; preds = %412, %403
+  %414 = phi i32 [ %411, %403 ], [ 0, %412 ]
+  %415 = trunc i32 %414 to i8
+  %416 = load ptr, ptr %7, align 8, !tbaa !45
+  %417 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %416, i32 0, i32 16
+  %418 = load i32, ptr %8, align 4, !tbaa !9
+  %419 = sext i32 %418 to i64
+  %420 = getelementptr inbounds [4 x i8], ptr %417, i64 0, i64 %419
+  store i8 %415, ptr %420, align 1, !tbaa !11
+  %421 = load i32, ptr %8, align 4, !tbaa !9
+  %422 = icmp slt i32 %421, 3
+  br i1 %422, label %423, label %432
 
-cond.true221:                                     ; preds = %cond.end215
-  %m_linearLimits222 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_servoMotor223 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits222, i32 0, i32 8
-  %119 = load i32, ptr %i, align 4
-  %idxprom224 = sext i32 %119 to i64
-  %arrayidx225 = getelementptr inbounds [3 x i8], ptr %m_servoMotor223, i64 0, i64 %idxprom224
-  %120 = load i8, ptr %arrayidx225, align 1
-  %tobool226 = trunc i8 %120 to i1
-  %cond227 = select i1 %tobool226, i32 1, i32 0
-  br label %cond.end229
+423:                                              ; preds = %413
+  %424 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %425 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %424, i32 0, i32 8
+  %426 = load i32, ptr %8, align 4, !tbaa !9
+  %427 = sext i32 %426 to i64
+  %428 = getelementptr inbounds [3 x i8], ptr %425, i64 0, i64 %427
+  %429 = load i8, ptr %428, align 1, !tbaa !67, !range !60, !noundef !61
+  %430 = trunc i8 %429 to i1
+  %431 = select i1 %430, i32 1, i32 0
+  br label %433
 
-cond.false228:                                    ; preds = %cond.end215
-  br label %cond.end229
+432:                                              ; preds = %413
+  br label %433
 
-cond.end229:                                      ; preds = %cond.false228, %cond.true221
-  %cond230 = phi i32 [ %cond227, %cond.true221 ], [ 0, %cond.false228 ]
-  %conv231 = trunc i32 %cond230 to i8
-  %121 = load ptr, ptr %dof, align 8
-  %m_linearServoMotor = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %121, i32 0, i32 17
-  %122 = load i32, ptr %i, align 4
-  %idxprom232 = sext i32 %122 to i64
-  %arrayidx233 = getelementptr inbounds [4 x i8], ptr %m_linearServoMotor, i64 0, i64 %idxprom232
-  store i8 %conv231, ptr %arrayidx233, align 1
-  %123 = load i32, ptr %i, align 4
-  %cmp234 = icmp slt i32 %123, 3
-  br i1 %cmp234, label %cond.true235, label %cond.false242
+433:                                              ; preds = %432, %423
+  %434 = phi i32 [ %431, %423 ], [ 0, %432 ]
+  %435 = trunc i32 %434 to i8
+  %436 = load ptr, ptr %7, align 8, !tbaa !45
+  %437 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %436, i32 0, i32 17
+  %438 = load i32, ptr %8, align 4, !tbaa !9
+  %439 = sext i32 %438 to i64
+  %440 = getelementptr inbounds [4 x i8], ptr %437, i64 0, i64 %439
+  store i8 %435, ptr %440, align 1, !tbaa !11
+  %441 = load i32, ptr %8, align 4, !tbaa !9
+  %442 = icmp slt i32 %441, 3
+  br i1 %442, label %443, label %452
 
-cond.true235:                                     ; preds = %cond.end229
-  %m_linearLimits236 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_enableSpring237 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits236, i32 0, i32 9
-  %124 = load i32, ptr %i, align 4
-  %idxprom238 = sext i32 %124 to i64
-  %arrayidx239 = getelementptr inbounds [3 x i8], ptr %m_enableSpring237, i64 0, i64 %idxprom238
-  %125 = load i8, ptr %arrayidx239, align 1
-  %tobool240 = trunc i8 %125 to i1
-  %cond241 = select i1 %tobool240, i32 1, i32 0
-  br label %cond.end243
+443:                                              ; preds = %433
+  %444 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %445 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %444, i32 0, i32 9
+  %446 = load i32, ptr %8, align 4, !tbaa !9
+  %447 = sext i32 %446 to i64
+  %448 = getelementptr inbounds [3 x i8], ptr %445, i64 0, i64 %447
+  %449 = load i8, ptr %448, align 1, !tbaa !67, !range !60, !noundef !61
+  %450 = trunc i8 %449 to i1
+  %451 = select i1 %450, i32 1, i32 0
+  br label %453
 
-cond.false242:                                    ; preds = %cond.end229
-  br label %cond.end243
+452:                                              ; preds = %433
+  br label %453
 
-cond.end243:                                      ; preds = %cond.false242, %cond.true235
-  %cond244 = phi i32 [ %cond241, %cond.true235 ], [ 0, %cond.false242 ]
-  %conv245 = trunc i32 %cond244 to i8
-  %126 = load ptr, ptr %dof, align 8
-  %m_linearEnableSpring = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %126, i32 0, i32 18
-  %127 = load i32, ptr %i, align 4
-  %idxprom246 = sext i32 %127 to i64
-  %arrayidx247 = getelementptr inbounds [4 x i8], ptr %m_linearEnableSpring, i64 0, i64 %idxprom246
-  store i8 %conv245, ptr %arrayidx247, align 1
-  %128 = load i32, ptr %i, align 4
-  %cmp248 = icmp slt i32 %128, 3
-  br i1 %cmp248, label %cond.true249, label %cond.false256
+453:                                              ; preds = %452, %443
+  %454 = phi i32 [ %451, %443 ], [ 0, %452 ]
+  %455 = trunc i32 %454 to i8
+  %456 = load ptr, ptr %7, align 8, !tbaa !45
+  %457 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %456, i32 0, i32 18
+  %458 = load i32, ptr %8, align 4, !tbaa !9
+  %459 = sext i32 %458 to i64
+  %460 = getelementptr inbounds [4 x i8], ptr %457, i64 0, i64 %459
+  store i8 %455, ptr %460, align 1, !tbaa !11
+  %461 = load i32, ptr %8, align 4, !tbaa !9
+  %462 = icmp slt i32 %461, 3
+  br i1 %462, label %463, label %472
 
-cond.true249:                                     ; preds = %cond.end243
-  %m_linearLimits250 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_springStiffnessLimited251 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits250, i32 0, i32 12
-  %129 = load i32, ptr %i, align 4
-  %idxprom252 = sext i32 %129 to i64
-  %arrayidx253 = getelementptr inbounds [3 x i8], ptr %m_springStiffnessLimited251, i64 0, i64 %idxprom252
-  %130 = load i8, ptr %arrayidx253, align 1
-  %tobool254 = trunc i8 %130 to i1
-  %cond255 = select i1 %tobool254, i32 1, i32 0
-  br label %cond.end257
+463:                                              ; preds = %453
+  %464 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %465 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %464, i32 0, i32 12
+  %466 = load i32, ptr %8, align 4, !tbaa !9
+  %467 = sext i32 %466 to i64
+  %468 = getelementptr inbounds [3 x i8], ptr %465, i64 0, i64 %467
+  %469 = load i8, ptr %468, align 1, !tbaa !67, !range !60, !noundef !61
+  %470 = trunc i8 %469 to i1
+  %471 = select i1 %470, i32 1, i32 0
+  br label %473
 
-cond.false256:                                    ; preds = %cond.end243
-  br label %cond.end257
+472:                                              ; preds = %453
+  br label %473
 
-cond.end257:                                      ; preds = %cond.false256, %cond.true249
-  %cond258 = phi i32 [ %cond255, %cond.true249 ], [ 0, %cond.false256 ]
-  %conv259 = trunc i32 %cond258 to i8
-  %131 = load ptr, ptr %dof, align 8
-  %m_linearSpringStiffnessLimited = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %131, i32 0, i32 19
-  %132 = load i32, ptr %i, align 4
-  %idxprom260 = sext i32 %132 to i64
-  %arrayidx261 = getelementptr inbounds [4 x i8], ptr %m_linearSpringStiffnessLimited, i64 0, i64 %idxprom260
-  store i8 %conv259, ptr %arrayidx261, align 1
-  %133 = load i32, ptr %i, align 4
-  %cmp262 = icmp slt i32 %133, 3
-  br i1 %cmp262, label %cond.true263, label %cond.false270
+473:                                              ; preds = %472, %463
+  %474 = phi i32 [ %471, %463 ], [ 0, %472 ]
+  %475 = trunc i32 %474 to i8
+  %476 = load ptr, ptr %7, align 8, !tbaa !45
+  %477 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %476, i32 0, i32 19
+  %478 = load i32, ptr %8, align 4, !tbaa !9
+  %479 = sext i32 %478 to i64
+  %480 = getelementptr inbounds [4 x i8], ptr %477, i64 0, i64 %479
+  store i8 %475, ptr %480, align 1, !tbaa !11
+  %481 = load i32, ptr %8, align 4, !tbaa !9
+  %482 = icmp slt i32 %481, 3
+  br i1 %482, label %483, label %492
 
-cond.true263:                                     ; preds = %cond.end257
-  %m_linearLimits264 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 5
-  %m_springDampingLimited265 = getelementptr inbounds %class.btTranslationalLimitMotor2, ptr %m_linearLimits264, i32 0, i32 14
-  %134 = load i32, ptr %i, align 4
-  %idxprom266 = sext i32 %134 to i64
-  %arrayidx267 = getelementptr inbounds [3 x i8], ptr %m_springDampingLimited265, i64 0, i64 %idxprom266
-  %135 = load i8, ptr %arrayidx267, align 1
-  %tobool268 = trunc i8 %135 to i1
-  %cond269 = select i1 %tobool268, i32 1, i32 0
-  br label %cond.end271
+483:                                              ; preds = %473
+  %484 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 5
+  %485 = getelementptr inbounds nuw %class.btTranslationalLimitMotor2, ptr %484, i32 0, i32 14
+  %486 = load i32, ptr %8, align 4, !tbaa !9
+  %487 = sext i32 %486 to i64
+  %488 = getelementptr inbounds [3 x i8], ptr %485, i64 0, i64 %487
+  %489 = load i8, ptr %488, align 1, !tbaa !67, !range !60, !noundef !61
+  %490 = trunc i8 %489 to i1
+  %491 = select i1 %490, i32 1, i32 0
+  br label %493
 
-cond.false270:                                    ; preds = %cond.end257
-  br label %cond.end271
+492:                                              ; preds = %473
+  br label %493
 
-cond.end271:                                      ; preds = %cond.false270, %cond.true263
-  %cond272 = phi i32 [ %cond269, %cond.true263 ], [ 0, %cond.false270 ]
-  %conv273 = trunc i32 %cond272 to i8
-  %136 = load ptr, ptr %dof, align 8
-  %m_linearSpringDampingLimited = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %136, i32 0, i32 20
-  %137 = load i32, ptr %i, align 4
-  %idxprom274 = sext i32 %137 to i64
-  %arrayidx275 = getelementptr inbounds [4 x i8], ptr %m_linearSpringDampingLimited, i64 0, i64 %idxprom274
-  store i8 %conv273, ptr %arrayidx275, align 1
-  br label %for.inc276
+493:                                              ; preds = %492, %483
+  %494 = phi i32 [ %491, %483 ], [ 0, %492 ]
+  %495 = trunc i32 %494 to i8
+  %496 = load ptr, ptr %7, align 8, !tbaa !45
+  %497 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %496, i32 0, i32 20
+  %498 = load i32, ptr %8, align 4, !tbaa !9
+  %499 = sext i32 %498 to i64
+  %500 = getelementptr inbounds [4 x i8], ptr %497, i64 0, i64 %499
+  store i8 %495, ptr %500, align 1, !tbaa !11
+  br label %501
 
-for.inc276:                                       ; preds = %cond.end271
-  %138 = load i32, ptr %i, align 4
-  %inc277 = add nsw i32 %138, 1
-  store i32 %inc277, ptr %i, align 4
-  br label %for.cond203, !llvm.loop !10
+501:                                              ; preds = %493
+  %502 = load i32, ptr %8, align 4, !tbaa !9
+  %503 = add nsw i32 %502, 1
+  store i32 %503, ptr %8, align 4, !tbaa !9
+  br label %397, !llvm.loop !68
 
-for.end278:                                       ; preds = %for.cond203
-  %m_rotateOrder = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 7
-  %139 = load i32, ptr %m_rotateOrder, align 8
-  %140 = load ptr, ptr %dof, align 8
-  %m_rotateOrder279 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %140, i32 0, i32 40
-  store i32 %139, ptr %m_rotateOrder279, align 4
-  %141 = load ptr, ptr %dof, align 8
-  %m_padding1 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %141, i32 0, i32 21
-  %arrayidx280 = getelementptr inbounds [4 x i8], ptr %m_padding1, i64 0, i64 0
-  store i8 0, ptr %arrayidx280, align 4
-  %142 = load ptr, ptr %dof, align 8
-  %m_padding1281 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %142, i32 0, i32 21
-  %arrayidx282 = getelementptr inbounds [4 x i8], ptr %m_padding1281, i64 0, i64 1
-  store i8 0, ptr %arrayidx282, align 1
-  %143 = load ptr, ptr %dof, align 8
-  %m_padding1283 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %143, i32 0, i32 21
-  %arrayidx284 = getelementptr inbounds [4 x i8], ptr %m_padding1283, i64 0, i64 2
-  store i8 0, ptr %arrayidx284, align 2
-  %144 = load ptr, ptr %dof, align 8
-  %m_padding1285 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %144, i32 0, i32 21
-  %arrayidx286 = getelementptr inbounds [4 x i8], ptr %m_padding1285, i64 0, i64 3
-  store i8 0, ptr %arrayidx286, align 1
+504:                                              ; preds = %397
+  %505 = getelementptr inbounds nuw %class.btGeneric6DofSpring2Constraint, ptr %9, i32 0, i32 7
+  %506 = load i32, ptr %505, align 8, !tbaa !69
+  %507 = load ptr, ptr %7, align 8, !tbaa !45
+  %508 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %507, i32 0, i32 40
+  store i32 %506, ptr %508, align 4, !tbaa !79
+  %509 = load ptr, ptr %7, align 8, !tbaa !45
+  %510 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %509, i32 0, i32 21
+  %511 = getelementptr inbounds [4 x i8], ptr %510, i64 0, i64 0
+  store i8 0, ptr %511, align 4, !tbaa !11
+  %512 = load ptr, ptr %7, align 8, !tbaa !45
+  %513 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %512, i32 0, i32 21
+  %514 = getelementptr inbounds [4 x i8], ptr %513, i64 0, i64 1
+  store i8 0, ptr %514, align 1, !tbaa !11
+  %515 = load ptr, ptr %7, align 8, !tbaa !45
+  %516 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %515, i32 0, i32 21
+  %517 = getelementptr inbounds [4 x i8], ptr %516, i64 0, i64 2
+  store i8 0, ptr %517, align 2, !tbaa !11
+  %518 = load ptr, ptr %7, align 8, !tbaa !45
+  %519 = getelementptr inbounds nuw %struct.btGeneric6DofSpring2ConstraintData, ptr %518, i32 0, i32 21
+  %520 = getelementptr inbounds [4 x i8], ptr %519, i64 0, i64 3
+  store i8 0, ptr %520, align 1, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
   ret ptr @.str
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_Z16btNormalizeAnglef(float noundef %angleInRadians) #2 comdat {
-entry:
-  %retval = alloca float, align 4
-  %angleInRadians.addr = alloca float, align 4
-  store float %angleInRadians, ptr %angleInRadians.addr, align 4
-  %0 = load float, ptr %angleInRadians.addr, align 4
-  %call = call noundef float @_Z6btFmodff(float noundef %0, float noundef 0x401921FB60000000)
-  store float %call, ptr %angleInRadians.addr, align 4
-  %1 = load float, ptr %angleInRadians.addr, align 4
-  %cmp = fcmp olt float %1, 0xC00921FB60000000
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef float @_Z16btNormalizeAnglef(float noundef %0) #6 comdat {
+  %2 = alloca float, align 4
+  %3 = alloca float, align 4
+  store float %0, ptr %3, align 4, !tbaa !20
+  %4 = load float, ptr %3, align 4, !tbaa !20
+  %5 = call noundef float @_Z6btFmodff(float noundef %4, float noundef 0x401921FB60000000)
+  store float %5, ptr %3, align 4, !tbaa !20
+  %6 = load float, ptr %3, align 4, !tbaa !20
+  %7 = fcmp olt float %6, 0xC00921FB60000000
+  br i1 %7, label %8, label %11
 
-if.then:                                          ; preds = %entry
-  %2 = load float, ptr %angleInRadians.addr, align 4
-  %add = fadd float %2, 0x401921FB60000000
-  store float %add, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %1
+  %9 = load float, ptr %3, align 4, !tbaa !20
+  %10 = fadd float %9, 0x401921FB60000000
+  store float %10, ptr %2, align 4
+  br label %19
 
-if.else:                                          ; preds = %entry
-  %3 = load float, ptr %angleInRadians.addr, align 4
-  %cmp1 = fcmp ogt float %3, 0x400921FB60000000
-  br i1 %cmp1, label %if.then2, label %if.else3
+11:                                               ; preds = %1
+  %12 = load float, ptr %3, align 4, !tbaa !20
+  %13 = fcmp ogt float %12, 0x400921FB60000000
+  br i1 %13, label %14, label %17
 
-if.then2:                                         ; preds = %if.else
-  %4 = load float, ptr %angleInRadians.addr, align 4
-  %sub = fsub float %4, 0x401921FB60000000
-  store float %sub, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %11
+  %15 = load float, ptr %3, align 4, !tbaa !20
+  %16 = fsub float %15, 0x401921FB60000000
+  store float %16, ptr %2, align 4
+  br label %19
 
-if.else3:                                         ; preds = %if.else
-  %5 = load float, ptr %angleInRadians.addr, align 4
-  store float %5, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %11
+  %18 = load float, ptr %3, align 4, !tbaa !20
+  store float %18, ptr %2, align 4
+  br label %19
 
-return:                                           ; preds = %if.else3, %if.then2, %if.then
-  %6 = load float, ptr %retval, align 4
-  ret float %6
+19:                                               ; preds = %17, %14, %8
+  %20 = load float, ptr %2, align 4
+  ret float %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_Z6btFmodff(float noundef %x, float noundef %y) #1 comdat {
-entry:
-  %x.addr = alloca float, align 4
-  %y.addr = alloca float, align 4
-  store float %x, ptr %x.addr, align 4
-  store float %y, ptr %y.addr, align 4
-  %0 = load float, ptr %x.addr, align 4
-  %1 = load float, ptr %y.addr, align 4
-  %call = call float @fmodf(float noundef %0, float noundef %1) #8
-  ret float %call
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_Z6btFmodff(float noundef %0, float noundef %1) #5 comdat {
+  %3 = alloca float, align 4
+  %4 = alloca float, align 4
+  store float %0, ptr %3, align 4, !tbaa !20
+  store float %1, ptr %4, align 4, !tbaa !20
+  %5 = load float, ptr %3, align 4, !tbaa !20
+  %6 = load float, ptr %4, align 4, !tbaa !20
+  %7 = call float @fmodf(float noundef %5, float noundef %6) #10, !tbaa !9
+  ret float %7
 }
 
 ; Function Attrs: nounwind
-declare float @fmodf(float noundef, float noundef) #4
+declare float @fmodf(float noundef, float noundef) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) #3
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
-  call void @_ZSt9terminatev() #9
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
+  call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -1274,139 +1286,228 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #7
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK11btTransform9serializeER20btTransformFloatData(ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(64) %dataOut) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dataOut.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dataOut, ptr %dataOut.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_basis = getelementptr inbounds %class.btTransform, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %dataOut.addr, align 8
-  %m_basis2 = getelementptr inbounds %struct.btTransformFloatData, ptr %0, i32 0, i32 0
-  call void @_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData(ptr noundef nonnull align 4 dereferenceable(48) %m_basis, ptr noundef nonnull align 4 dereferenceable(48) %m_basis2)
-  %m_origin = getelementptr inbounds %class.btTransform, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %dataOut.addr, align 8
-  %m_origin3 = getelementptr inbounds %struct.btTransformFloatData, ptr %1, i32 0, i32 1
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %m_origin, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK11btTransform9serializeER20btTransformFloatData(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btTransform, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
+  %8 = getelementptr inbounds nuw %struct.btTransformFloatData, ptr %7, i32 0, i32 0
+  call void @_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData(ptr noundef nonnull align 4 dereferenceable(48) %6, ptr noundef nonnull align 4 dereferenceable(48) %8)
+  %9 = getelementptr inbounds nuw %class.btTransform, ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !87
+  %11 = getelementptr inbounds nuw %struct.btTransformFloatData, ptr %10, i32 0, i32 1
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %11)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %dataOut) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dataOut.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dataOut, ptr %dataOut.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !89
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 4
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %22, %2
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = icmp slt i32 %8, 4
+  br i1 %9, label %11, label %10
 
-for.body:                                         ; preds = %for.cond
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 %idxprom
-  %2 = load float, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %dataOut.addr, align 8
-  %m_floats2 = getelementptr inbounds %struct.btVector3FloatData, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %4 to i64
-  %arrayidx4 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 %idxprom3
-  store float %2, ptr %arrayidx4, align 4
-  br label %for.inc
+10:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %25
 
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %14
+  %16 = load float, ptr %15, align 4, !tbaa !20
+  %17 = load ptr, ptr %4, align 8, !tbaa !89
+  %18 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %5, align 4, !tbaa !9
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [4 x float], ptr %18, i64 0, i64 %20
+  store float %16, ptr %21, align 4, !tbaa !20
+  br label %22
 
-for.end:                                          ; preds = %for.cond
+22:                                               ; preds = %11
+  %23 = load i32, ptr %5, align 4, !tbaa !9
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %5, align 4, !tbaa !9
+  br label %7, !llvm.loop !91
+
+25:                                               ; preds = %10
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(48) %dataOut) #2 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dataOut.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dataOut, ptr %dataOut.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !94
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 0, ptr %5, align 4, !tbaa !9
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 3
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %21, %2
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = icmp slt i32 %8, 3
+  br i1 %9, label %11, label %10
 
-for.body:                                         ; preds = %for.cond
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i64 0, i64 %idxprom
-  %2 = load ptr, ptr %dataOut.addr, align 8
-  %m_el2 = getelementptr inbounds %struct.btMatrix3x3FloatData, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %3 to i64
-  %arrayidx4 = getelementptr inbounds [3 x %struct.btVector3FloatData], ptr %m_el2, i64 0, i64 %idxprom3
-  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx4)
-  br label %for.inc
+10:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %24
 
-for.inc:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !12
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %6, i32 0, i32 0
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 %14
+  %16 = load ptr, ptr %4, align 8, !tbaa !94
+  %17 = getelementptr inbounds nuw %struct.btMatrix3x3FloatData, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds [3 x %struct.btVector3FloatData], ptr %17, i64 0, i64 %19
+  call void @_ZNK9btVector39serializeER18btVector3FloatData(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %20)
+  br label %21
 
-for.end:                                          ; preds = %for.cond
+21:                                               ; preds = %11
+  %22 = load i32, ptr %5, align 4, !tbaa !9
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %5, align 4, !tbaa !9
+  br label %7, !llvm.loop !96
+
+24:                                               ; preds = %10
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_btFixedConstraint.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS17btFixedConstraint", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS11btRigidBody", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS11btTransform", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"vtable pointer", !8, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"float", !7, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS30btGeneric6DofSpring2Constraint", !6, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS9btVector3", !6, i64 0}
+!26 = !{!27, !21, i64 0}
+!27 = !{!"_ZTS23btRotationalLimitMotor2", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20, !21, i64 24, !28, i64 28, !21, i64 32, !21, i64 36, !28, i64 40, !21, i64 44, !28, i64 48, !21, i64 52, !28, i64 56, !21, i64 60, !28, i64 64, !21, i64 68, !21, i64 72, !21, i64 76, !21, i64 80, !10, i64 84}
+!28 = !{!"bool", !7, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 float", !6, i64 0}
+!33 = !{!27, !21, i64 4}
+!34 = distinct !{!34, !30}
+!35 = !{i64 0, i64 16, !11}
+!36 = !{!6, !6, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS17btTypedConstraint", !6, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS20btAlignedObjectArrayI18btSolverConstraintE", !6, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS12btSolverBody", !6, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS12btSerializer", !6, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS34btGeneric6DofSpring2ConstraintData", !6, i64 0}
+!47 = !{!27, !21, i64 8}
+!48 = !{!27, !21, i64 12}
+!49 = !{!27, !21, i64 16}
+!50 = !{!27, !21, i64 20}
+!51 = !{!27, !21, i64 24}
+!52 = !{!27, !21, i64 32}
+!53 = !{!27, !21, i64 36}
+!54 = !{!27, !21, i64 44}
+!55 = !{!27, !21, i64 52}
+!56 = !{!27, !21, i64 60}
+!57 = !{!27, !21, i64 68}
+!58 = distinct !{!58, !30}
+!59 = !{!27, !28, i64 28}
+!60 = !{i8 0, i8 2}
+!61 = !{}
+!62 = !{!27, !28, i64 40}
+!63 = !{!27, !28, i64 48}
+!64 = !{!27, !28, i64 56}
+!65 = !{!27, !28, i64 64}
+!66 = distinct !{!66, !30}
+!67 = !{!28, !28, i64 0}
+!68 = distinct !{!68, !30}
+!69 = !{!70, !78, i64 1256}
+!70 = !{!"_ZTS30btGeneric6DofSpring2Constraint", !71, i64 0, !74, i64 72, !74, i64 136, !7, i64 200, !7, i64 452, !77, i64 704, !7, i64 992, !78, i64 1256, !74, i64 1260, !74, i64 1324, !76, i64 1388, !7, i64 1404, !76, i64 1452, !21, i64 1468, !21, i64 1472, !28, i64 1476, !10, i64 1480}
+!71 = !{!"_ZTS17btTypedConstraint", !72, i64 8, !10, i64 12, !7, i64 16, !21, i64 24, !28, i64 28, !28, i64 29, !10, i64 32, !15, i64 40, !15, i64 48, !21, i64 56, !21, i64 60, !73, i64 64}
+!72 = !{!"_ZTS13btTypedObject", !10, i64 0}
+!73 = !{!"p1 _ZTS15btJointFeedback", !6, i64 0}
+!74 = !{!"_ZTS11btTransform", !75, i64 0, !76, i64 48}
+!75 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!76 = !{!"_ZTS9btVector3", !7, i64 0}
+!77 = !{!"_ZTS26btTranslationalLimitMotor2", !76, i64 0, !76, i64 16, !76, i64 32, !76, i64 48, !76, i64 64, !76, i64 80, !76, i64 96, !7, i64 112, !7, i64 115, !7, i64 118, !76, i64 124, !76, i64 140, !7, i64 156, !76, i64 160, !7, i64 176, !76, i64 180, !76, i64 196, !76, i64 212, !76, i64 228, !76, i64 244, !76, i64 260, !7, i64 276}
+!78 = !{!"_ZTS11RotateOrder", !7, i64 0}
+!79 = !{!80, !10, i64 652}
+!80 = !{!"_ZTS34btGeneric6DofSpring2ConstraintData", !81, i64 0, !84, i64 64, !84, i64 128, !86, i64 192, !86, i64 208, !86, i64 224, !86, i64 240, !86, i64 256, !86, i64 272, !86, i64 288, !86, i64 304, !86, i64 320, !86, i64 336, !86, i64 352, !86, i64 368, !86, i64 384, !7, i64 400, !7, i64 404, !7, i64 408, !7, i64 412, !7, i64 416, !7, i64 420, !86, i64 424, !86, i64 440, !86, i64 456, !86, i64 472, !86, i64 488, !86, i64 504, !86, i64 520, !86, i64 536, !86, i64 552, !86, i64 568, !86, i64 584, !86, i64 600, !86, i64 616, !7, i64 632, !7, i64 636, !7, i64 640, !7, i64 644, !7, i64 648, !10, i64 652}
+!81 = !{!"_ZTS21btTypedConstraintData", !82, i64 0, !82, i64 8, !83, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !21, i64 40, !21, i64 44, !10, i64 48, !10, i64 52, !21, i64 56, !10, i64 60}
+!82 = !{!"p1 _ZTS20btRigidBodyFloatData", !6, i64 0}
+!83 = !{!"p1 omnipotent char", !6, i64 0}
+!84 = !{!"_ZTS20btTransformFloatData", !85, i64 0, !86, i64 48}
+!85 = !{!"_ZTS20btMatrix3x3FloatData", !7, i64 0}
+!86 = !{!"_ZTS18btVector3FloatData", !7, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTS20btTransformFloatData", !6, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTS18btVector3FloatData", !6, i64 0}
+!91 = distinct !{!91, !30}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS11btMatrix3x3", !6, i64 0}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTS20btMatrix3x3FloatData", !6, i64 0}
+!96 = distinct !{!96, !30}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btInfMaskConverter = type { %union.anon }
 %union.anon = type { float }
@@ -14,107 +14,66 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.btSoftBody::Element" = type { ptr }
 %class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray, i32, %class.btVector3, [4 x i8] }>
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
+%class.btAlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btReducedDeformableRigidContactConstraint = type <{ %class.btDeformableRigidContactConstraint, i8, i8, [2 x i8], i32, i32, [4 x i8], ptr, ptr, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btMatrix3x3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8] }>
 %class.btDeformableRigidContactConstraint = type { %class.btDeformableContactConstraint, %class.btVector3, %class.btVector3, float, float, i8, ptr }
 %struct.btContactSolverInfoData = type { float, float, float, float, float, i32, float, float, float, float, float, float, float, float, float, float, i32, float, float, float, float, float, i32, i32, i32, float, float, float, float, i8, i8, i32, i32 }
 %"class.btSoftBody::DeformableRigidContact" = type { %"struct.btSoftBody::sCti", %class.btMatrix3x3, %class.btVector3, float, float, float, %class.btMatrix3x3, [4 x i8], %struct.btMultiBodyJacobianData, %struct.btMultiBodyJacobianData, %struct.btMultiBodyJacobianData, %class.btVector3, %class.btVector3 }
 %"struct.btSoftBody::sCti" = type <{ ptr, %class.btVector3, %class.btVector3, float, %class.btVector3, [4 x i8] }>
-%struct.btMultiBodyJacobianData = type <{ %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.112, ptr, i32, [4 x i8] }>
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
-%class.btAlignedObjectArray.112 = type <{ %class.btAlignedAllocator.113, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.113 = type { i8 }
+%struct.btMultiBodyJacobianData = type <{ %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.56, ptr, i32, [4 x i8] }>
+%class.btAlignedObjectArray.6 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.4 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.56 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %struct.btSolverBody = type { %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, ptr }
-%class.btRigidBody = type { %class.btCollisionObject.base, %class.btMatrix3x3, %class.btVector3, %class.btVector3, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, i8, float, float, float, float, float, float, ptr, %class.btAlignedObjectArray.116, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, i32, i32 }
+%class.btRigidBody = type { %class.btCollisionObject.base, %class.btMatrix3x3, %class.btVector3, %class.btVector3, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, i8, float, float, float, float, float, float, ptr, %class.btAlignedObjectArray.58, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, i32, i32 }
 %class.btCollisionObject.base = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray, i32, %class.btVector3 }>
-%class.btAlignedObjectArray.116 = type <{ %class.btAlignedAllocator.117, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.117 = type { i8 }
+%class.btAlignedObjectArray.58 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btMultiBodyLinkCollider = type <{ %class.btCollisionObject.base, [4 x i8], ptr, i32, [4 x i8] }>
-%class.btMultiBody = type { ptr, ptr, ptr, %class.btVector3, %class.btVector3, %class.btQuaternion, %class.btQuaternion, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8], %class.btAlignedObjectArray.120, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.112, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, i8, i8, i8, i8, i8, float, float, float, ptr, i32, i32, i32, float, float, i8, float, float, i8, i8, i32, i32, i8, i8, i8, i8 }
+%class.btMultiBody = type { ptr, ptr, ptr, %class.btVector3, %class.btVector3, %class.btQuaternion, %class.btQuaternion, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8], %class.btAlignedObjectArray.60, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.56, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, i8, i8, i8, i8, i8, float, float, float, ptr, i32, i32, i32, float, float, i8, float, float, i8, i8, i32, i32, i8, i8, i8, i8 }
 %class.btQuaternion = type { %class.btQuadWord }
 %class.btQuadWord = type { [4 x float] }
-%class.btAlignedObjectArray.120 = type <{ %class.btAlignedAllocator.121, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.121 = type { i8 }
+%class.btAlignedObjectArray.60 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btReducedDeformableNodeRigidContactConstraint = type { %class.btReducedDeformableRigidContactConstraint.base, ptr }
 %class.btReducedDeformableRigidContactConstraint.base = type <{ %class.btDeformableRigidContactConstraint, i8, i8, [2 x i8], i32, i32, [4 x i8], ptr, ptr, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btMatrix3x3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3 }>
 %"class.btSoftBody::DeformableNodeRigidContact" = type { %"class.btSoftBody::DeformableRigidContact", ptr }
-%class.btSoftBody = type { %class.btCollisionObject.base, [4 x i8], %class.btAlignedObjectArray, ptr, %"struct.btSoftBody::Config", %"struct.btSoftBody::SolverState", [4 x i8], %"struct.btSoftBody::Pose", ptr, ptr, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.20, %class.btAlignedObjectArray.24, %class.btAlignedObjectArray.28, %class.btAlignedObjectArray.32, %class.btAlignedObjectArray.36, %class.btAlignedObjectArray.40, %class.btAlignedObjectArray.44, %class.btAlignedObjectArray.44, %class.btAlignedObjectArray.48, %class.btAlignedObjectArray.52, %class.btAlignedObjectArray.56, %class.btAlignedObjectArray.60, %class.btAlignedObjectArray.64, %class.btAlignedObjectArray.68, %class.btAlignedObjectArray.64, %class.btAlignedObjectArray.72, %class.btAlignedObjectArray.76, %class.btAlignedObjectArray.80, float, [2 x %class.btVector3], i8, %struct.btDbvt, %struct.btDbvt, ptr, %struct.btDbvt, %class.btAlignedObjectArray.88, float, float, float, [4 x i8], %class.btAlignedObjectArray.8, float, float, i8, [7 x i8], %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.92, %class.btAlignedObjectArray.96, %class.btAlignedObjectArray.12, i8, i8, [6 x i8], %class.btAlignedObjectArray.100, %class.btVector3, float, i8, [3 x i8], %class.btAlignedObjectArray.104 }
-%"struct.btSoftBody::Config" = type { i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, i32, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.4, float, float }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
+%class.btSoftBody = type { %class.btCollisionObject.base, [4 x i8], %class.btAlignedObjectArray, ptr, %"struct.btSoftBody::Config", %"struct.btSoftBody::SolverState", [4 x i8], %"struct.btSoftBody::Pose", ptr, ptr, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.10, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.14, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.18, %class.btAlignedObjectArray.20, %class.btAlignedObjectArray.22, %class.btAlignedObjectArray.22, %class.btAlignedObjectArray.24, %class.btAlignedObjectArray.26, %class.btAlignedObjectArray.28, %class.btAlignedObjectArray.30, %class.btAlignedObjectArray.32, %class.btAlignedObjectArray.34, %class.btAlignedObjectArray.32, %class.btAlignedObjectArray.36, %class.btAlignedObjectArray.38, %class.btAlignedObjectArray.40, float, [2 x %class.btVector3], i8, %struct.btDbvt, %struct.btDbvt, ptr, %struct.btDbvt, %class.btAlignedObjectArray.44, float, float, float, [4 x i8], %class.btAlignedObjectArray.4, float, float, i8, [7 x i8], %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.46, %class.btAlignedObjectArray.48, %class.btAlignedObjectArray.6, i8, i8, [6 x i8], %class.btAlignedObjectArray.50, %class.btVector3, float, i8, [3 x i8], %class.btAlignedObjectArray.52 }
+%"struct.btSoftBody::Config" = type { i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, i32, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.2, float, float }
+%class.btAlignedObjectArray.0 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %"struct.btSoftBody::SolverState" = type { float, float, float, float, float }
-%"struct.btSoftBody::Pose" = type { i8, i8, float, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.12, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3 }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
-%class.btAlignedObjectArray.20 = type <{ %class.btAlignedAllocator.21, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.21 = type { i8 }
-%class.btAlignedObjectArray.24 = type <{ %class.btAlignedAllocator.25, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.25 = type { i8 }
-%class.btAlignedObjectArray.28 = type <{ %class.btAlignedAllocator.29, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.29 = type { i8 }
-%class.btAlignedObjectArray.32 = type <{ %class.btAlignedAllocator.33, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.33 = type { i8 }
-%class.btAlignedObjectArray.36 = type <{ %class.btAlignedAllocator.37, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.37 = type { i8 }
-%class.btAlignedObjectArray.40 = type <{ %class.btAlignedAllocator.41, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.41 = type { i8 }
-%class.btAlignedObjectArray.44 = type <{ %class.btAlignedAllocator.45, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.45 = type { i8 }
-%class.btAlignedObjectArray.48 = type <{ %class.btAlignedAllocator.49, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.49 = type { i8 }
-%class.btAlignedObjectArray.52 = type <{ %class.btAlignedAllocator.53, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.53 = type { i8 }
-%class.btAlignedObjectArray.56 = type <{ %class.btAlignedAllocator.57, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.57 = type { i8 }
-%class.btAlignedObjectArray.60 = type <{ %class.btAlignedAllocator.61, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.61 = type { i8 }
-%class.btAlignedObjectArray.68 = type <{ %class.btAlignedAllocator.69, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.69 = type { i8 }
-%class.btAlignedObjectArray.64 = type <{ %class.btAlignedAllocator.65, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.65 = type { i8 }
-%class.btAlignedObjectArray.72 = type <{ %class.btAlignedAllocator.73, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.73 = type { i8 }
-%class.btAlignedObjectArray.76 = type <{ %class.btAlignedAllocator.77, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.77 = type { i8 }
-%class.btAlignedObjectArray.80 = type <{ %class.btAlignedAllocator.81, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.81 = type { i8 }
-%struct.btDbvt = type { ptr, ptr, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray.84 }
-%class.btAlignedObjectArray.84 = type <{ %class.btAlignedAllocator.85, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.85 = type { i8 }
-%class.btAlignedObjectArray.88 = type <{ %class.btAlignedAllocator.89, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.89 = type { i8 }
-%class.btAlignedObjectArray.92 = type <{ %class.btAlignedAllocator.93, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.93 = type { i8 }
-%class.btAlignedObjectArray.96 = type <{ %class.btAlignedAllocator.97, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.97 = type { i8 }
-%class.btAlignedObjectArray.100 = type <{ %class.btAlignedAllocator.101, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.101 = type { i8 }
-%class.btAlignedObjectArray.104 = type <{ %class.btAlignedAllocator.105, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.105 = type { i8 }
-%class.btReducedDeformableBody = type { %class.btSoftBody, i8, i8, float, float, [4 x i8], %class.btAlignedObjectArray.108, %class.btAlignedObjectArray.108, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.8, %class.btVector3, %class.btVector3, %class.btAlignedObjectArray.12, %class.btVector3, %class.btVector3, %class.btVector3, float, float, %class.btVector3, %class.btVector3, float, float, %class.btVector3, %class.btVector3, %class.btMatrix3x3, %class.btTransform, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btVector3, float, float, i32, i32, %class.btAlignedObjectArray.108, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.8, %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.104, i32, [4 x i8], %class.btAlignedObjectArray.104 }
-%class.btAlignedObjectArray.108 = type <{ %class.btAlignedAllocator.109, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.109 = type { i8 }
+%"struct.btSoftBody::Pose" = type { i8, i8, float, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.6, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3 }
+%class.btAlignedObjectArray.8 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.10 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.12 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.14 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.16 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.18 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.20 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.22 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.24 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.26 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.28 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.30 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.34 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.32 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.36 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.38 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.40 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%struct.btDbvt = type { ptr, ptr, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray.42 }
+%class.btAlignedObjectArray.42 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.44 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.46 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.48 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.50 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedObjectArray.52 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btReducedDeformableBody = type { %class.btSoftBody, i8, i8, float, float, [4 x i8], %class.btAlignedObjectArray.54, %class.btAlignedObjectArray.54, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.4, %class.btVector3, %class.btVector3, %class.btAlignedObjectArray.6, %class.btVector3, %class.btVector3, %class.btVector3, float, float, %class.btVector3, %class.btVector3, float, float, %class.btVector3, %class.btVector3, %class.btMatrix3x3, %class.btTransform, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btVector3, float, float, i32, i32, %class.btAlignedObjectArray.54, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.6, %class.btAlignedObjectArray.52, i32, [4 x i8], %class.btAlignedObjectArray.52 }
+%class.btAlignedObjectArray.54 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btReducedDeformableFaceRigidContactConstraint = type <{ %class.btReducedDeformableRigidContactConstraint.base, [4 x i8], ptr, i8, [7 x i8] }>
 %"class.btSoftBody::DeformableFaceRigidContact" = type { %"class.btSoftBody::DeformableRigidContact", ptr, %class.btVector3, %class.btVector3, %class.btVector3 }
 %"struct.btSoftBody::Face" = type <{ %"struct.btSoftBody::Feature", [3 x ptr], %class.btVector3, float, [4 x i8], ptr, %class.btVector4, %class.btVector3, %class.btVector3, %class.btVector3, i32, [4 x i8] }>
 %class.btVector4 = type { %class.btVector3 }
-%struct.btMultibodyLink = type { float, %class.btVector3, i32, %class.btQuaternion, %class.btVector3, %class.btVector3, %struct.btSpatialMotionVector, %struct.btSpatialMotionVector, [6 x %struct.btSpatialMotionVector], i32, i32, %class.btQuaternion, %class.btVector3, %class.btQuaternion, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [7 x float], [7 x float], [6 x float], ptr, i32, i32, i32, i32, ptr, %class.btTransform, ptr, ptr, ptr, float, float, float, float, float, float }
-%struct.btSpatialMotionVector = type { %class.btVector3, %class.btVector3 }
-%struct.btMultiBodyLinkColliderFloatData = type { %struct.btCollisionObjectFloatData, ptr, i32, [4 x i8] }
-%struct.btCollisionObjectFloatData = type { ptr, ptr, ptr, ptr, %struct.btTransformFloatData, %struct.btTransformFloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, float, float, float, float, float, float, float, float, float, float, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.btTransformFloatData = type { %struct.btMatrix3x3FloatData, %struct.btVector3FloatData }
-%struct.btMatrix3x3FloatData = type { [3 x %struct.btVector3FloatData] }
-%struct.btVector3FloatData = type { [4 x float] }
 
 $_ZN18btInfMaskConverterC2Ei = comdat any
-
-$_ZNK23btMultiBodyLinkCollider28calculateSerializeBufferSizeEv = comdat any
 
 $_ZN28btDeformableStaticConstraintC2EPN10btSoftBody4NodeERK19btContactSolverInfo = comdat any
 
@@ -141,8 +100,6 @@ $_ZN9btVector3C2Ev = comdat any
 $_ZNK17btCollisionObject14isStaticObjectEv = comdat any
 
 $_ZNK17btCollisionObject15getInternalTypeEv = comdat any
-
-$_ZN34btDeformableRigidContactConstraintD2Ev = comdat any
 
 $_ZmlRK9btVector3S1_ = comdat any
 
@@ -192,18 +149,6 @@ $_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv = comdat any
 
 $_ZNK9btVector3cvPKfEv = comdat any
 
-$_ZN23btMultiBodyLinkColliderD2Ev = comdat any
-
-$_ZN23btMultiBodyLinkColliderD0Ev = comdat any
-
-$_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape = comdat any
-
-$_ZNK23btMultiBodyLinkCollider24checkCollideWithOverrideEPK17btCollisionObject = comdat any
-
-$_ZNK23btMultiBodyLinkCollider9serializeEPvP12btSerializer = comdat any
-
-$_ZN35btReducedDeformableStaticConstraintD2Ev = comdat any
-
 $_ZN35btReducedDeformableStaticConstraintD0Ev = comdat any
 
 $_ZNK28btDeformableStaticConstraint5getVaEv = comdat any
@@ -213,8 +158,6 @@ $_ZNK28btDeformableStaticConstraint5getVbEv = comdat any
 $_ZNK28btDeformableStaticConstraint5getDvEPKN10btSoftBody4NodeE = comdat any
 
 $_ZN28btDeformableStaticConstraint19setPenetrationScaleEf = comdat any
-
-$_ZN41btReducedDeformableRigidContactConstraintD2Ev = comdat any
 
 $_ZN41btReducedDeformableRigidContactConstraintD0Ev = comdat any
 
@@ -226,25 +169,19 @@ $_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3 
 
 $_ZN41btReducedDeformableRigidContactConstraint12warmStartingEv = comdat any
 
-$_ZN45btReducedDeformableNodeRigidContactConstraintD2Ev = comdat any
-
 $_ZN45btReducedDeformableNodeRigidContactConstraintD0Ev = comdat any
 
-$_ZN45btReducedDeformableFaceRigidContactConstraintD2Ev = comdat any
+$_ZN29btDeformableContactConstraintD2Ev = comdat any
 
 $_ZN45btReducedDeformableFaceRigidContactConstraintD0Ev = comdat any
 
 $_ZN29btDeformableContactConstraintC2EbRK9btVector3RK19btContactSolverInfo = comdat any
-
-$_ZN28btDeformableStaticConstraintD2Ev = comdat any
 
 $_ZN28btDeformableStaticConstraintD0Ev = comdat any
 
 $_ZN28btDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo = comdat any
 
 $_ZN28btDeformableStaticConstraint12applyImpulseERK9btVector3 = comdat any
-
-$_ZN29btDeformableContactConstraintD2Ev = comdat any
 
 $_ZN29btDeformableContactConstraintD0Ev = comdat any
 
@@ -270,29 +207,13 @@ $_ZN9btVector3dVERKf = comdat any
 
 $_ZN9btVector3mLERKf = comdat any
 
-$_ZN17btCollisionObjectdlEPv = comdat any
-
-$__clang_call_terminate = comdat any
-
-$_ZNK11btMultiBody16hasSelfCollisionEv = comdat any
-
-$_ZN11btMultiBody7getLinkEi = comdat any
-
-$_ZN20btAlignedObjectArrayI15btMultibodyLinkEixEi = comdat any
-
-$_ZTV23btMultiBodyLinkCollider = comdat any
-
-$_ZTS23btMultiBodyLinkCollider = comdat any
-
-$_ZTI23btMultiBodyLinkCollider = comdat any
+$_ZTI28btDeformableStaticConstraint = comdat any
 
 $_ZTS28btDeformableStaticConstraint = comdat any
 
-$_ZTS29btDeformableContactConstraint = comdat any
-
 $_ZTI29btDeformableContactConstraint = comdat any
 
-$_ZTI28btDeformableStaticConstraint = comdat any
+$_ZTS29btDeformableContactConstraint = comdat any
 
 $_ZTV28btDeformableStaticConstraint = comdat any
 
@@ -301,32 +222,27 @@ $_ZTV29btDeformableContactConstraint = comdat any
 @_ZL14btInfinityMask = internal global %struct.btInfMaskConverter zeroinitializer, align 4
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZTV35btReducedDeformableStaticConstraint = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTI35btReducedDeformableStaticConstraint, ptr @_ZN35btReducedDeformableStaticConstraintD2Ev, ptr @_ZN35btReducedDeformableStaticConstraintD0Ev, ptr @_ZN35btReducedDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK28btDeformableStaticConstraint5getVaEv, ptr @_ZNK28btDeformableStaticConstraint5getVbEv, ptr @_ZNK28btDeformableStaticConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN35btReducedDeformableStaticConstraint12applyImpulseERK9btVector3, ptr @_ZN28btDeformableStaticConstraint19setPenetrationScaleEf] }, align 8
-@_ZTV41btReducedDeformableRigidContactConstraint = dso_local unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTI41btReducedDeformableRigidContactConstraint, ptr @_ZN41btReducedDeformableRigidContactConstraintD2Ev, ptr @_ZN41btReducedDeformableRigidContactConstraintD0Ev, ptr @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN41btReducedDeformableRigidContactConstraint12applyImpulseERK9btVector3, ptr @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf, ptr @__cxa_pure_virtual, ptr @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv, ptr @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3, ptr @_ZN41btReducedDeformableRigidContactConstraint12warmStartingEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
-@_ZTV45btReducedDeformableNodeRigidContactConstraint = dso_local unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTI45btReducedDeformableNodeRigidContactConstraint, ptr @_ZN45btReducedDeformableNodeRigidContactConstraintD2Ev, ptr @_ZN45btReducedDeformableNodeRigidContactConstraintD0Ev, ptr @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint5getVbEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN45btReducedDeformableNodeRigidContactConstraint12applyImpulseERK9btVector3, ptr @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint10getSplitVbEv, ptr @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv, ptr @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3, ptr @_ZN45btReducedDeformableNodeRigidContactConstraint12warmStartingEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVaEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVbEv] }, align 8
-@_ZTV45btReducedDeformableFaceRigidContactConstraint = dso_local unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTI45btReducedDeformableFaceRigidContactConstraint, ptr @_ZN45btReducedDeformableFaceRigidContactConstraintD2Ev, ptr @_ZN45btReducedDeformableFaceRigidContactConstraintD0Ev, ptr @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv, ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint5getVbEv, ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN45btReducedDeformableFaceRigidContactConstraint12applyImpulseERK9btVector3, ptr @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf, ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getSplitVbEv, ptr @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv, ptr @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3, ptr @_ZN41btReducedDeformableRigidContactConstraint12warmStartingEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
-@_ZTV23btMultiBodyLinkCollider = linkonce_odr dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTI23btMultiBodyLinkCollider, ptr @_ZN23btMultiBodyLinkColliderD2Ev, ptr @_ZN23btMultiBodyLinkColliderD0Ev, ptr @_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape, ptr @_ZNK23btMultiBodyLinkCollider24checkCollideWithOverrideEPK17btCollisionObject, ptr @_ZNK23btMultiBodyLinkCollider28calculateSerializeBufferSizeEv, ptr @_ZNK23btMultiBodyLinkCollider9serializeEPvP12btSerializer, ptr @_ZNK17btCollisionObject21serializeSingleObjectEP12btSerializer] }, comdat, align 8
+@_ZTV35btReducedDeformableStaticConstraint = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTI35btReducedDeformableStaticConstraint, ptr @_ZN29btDeformableContactConstraintD2Ev, ptr @_ZN35btReducedDeformableStaticConstraintD0Ev, ptr @_ZN35btReducedDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK28btDeformableStaticConstraint5getVaEv, ptr @_ZNK28btDeformableStaticConstraint5getVbEv, ptr @_ZNK28btDeformableStaticConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN35btReducedDeformableStaticConstraint12applyImpulseERK9btVector3, ptr @_ZN28btDeformableStaticConstraint19setPenetrationScaleEf] }, align 8
+@_ZTV41btReducedDeformableRigidContactConstraint = dso_local unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTI41btReducedDeformableRigidContactConstraint, ptr @_ZN29btDeformableContactConstraintD2Ev, ptr @_ZN41btReducedDeformableRigidContactConstraintD0Ev, ptr @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN41btReducedDeformableRigidContactConstraint12applyImpulseERK9btVector3, ptr @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf, ptr @__cxa_pure_virtual, ptr @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv, ptr @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3, ptr @_ZN41btReducedDeformableRigidContactConstraint12warmStartingEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTV45btReducedDeformableNodeRigidContactConstraint = dso_local unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTI45btReducedDeformableNodeRigidContactConstraint, ptr @_ZN29btDeformableContactConstraintD2Ev, ptr @_ZN45btReducedDeformableNodeRigidContactConstraintD0Ev, ptr @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint5getVbEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN45btReducedDeformableNodeRigidContactConstraint12applyImpulseERK9btVector3, ptr @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint10getSplitVbEv, ptr @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv, ptr @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3, ptr @_ZN45btReducedDeformableNodeRigidContactConstraint12warmStartingEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVaEv, ptr @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVbEv] }, align 8
+@_ZTV45btReducedDeformableFaceRigidContactConstraint = dso_local unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr @_ZTI45btReducedDeformableFaceRigidContactConstraint, ptr @_ZN29btDeformableContactConstraintD2Ev, ptr @_ZN45btReducedDeformableFaceRigidContactConstraintD0Ev, ptr @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv, ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint5getVbEv, ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN45btReducedDeformableFaceRigidContactConstraint12applyImpulseERK9btVector3, ptr @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf, ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getSplitVbEv, ptr @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv, ptr @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3, ptr @_ZN41btReducedDeformableRigidContactConstraint12warmStartingEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTS23btMultiBodyLinkCollider = linkonce_odr dso_local constant [26 x i8] c"23btMultiBodyLinkCollider\00", comdat, align 1
-@_ZTI17btCollisionObject = external constant ptr
-@_ZTI23btMultiBodyLinkCollider = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS23btMultiBodyLinkCollider, ptr @_ZTI17btCollisionObject }, comdat, align 8
+@_ZTI35btReducedDeformableStaticConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS35btReducedDeformableStaticConstraint, ptr @_ZTI28btDeformableStaticConstraint }, align 8
 @_ZTS35btReducedDeformableStaticConstraint = dso_local constant [38 x i8] c"35btReducedDeformableStaticConstraint\00", align 1
+@_ZTI28btDeformableStaticConstraint = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS28btDeformableStaticConstraint, ptr @_ZTI29btDeformableContactConstraint }, comdat, align 8
 @_ZTS28btDeformableStaticConstraint = linkonce_odr dso_local constant [31 x i8] c"28btDeformableStaticConstraint\00", comdat, align 1
+@_ZTI29btDeformableContactConstraint = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS29btDeformableContactConstraint }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTS29btDeformableContactConstraint = linkonce_odr dso_local constant [32 x i8] c"29btDeformableContactConstraint\00", comdat, align 1
-@_ZTI29btDeformableContactConstraint = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS29btDeformableContactConstraint }, comdat, align 8
-@_ZTI28btDeformableStaticConstraint = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS28btDeformableStaticConstraint, ptr @_ZTI29btDeformableContactConstraint }, comdat, align 8
-@_ZTI35btReducedDeformableStaticConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS35btReducedDeformableStaticConstraint, ptr @_ZTI28btDeformableStaticConstraint }, align 8
+@_ZTI41btReducedDeformableRigidContactConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS41btReducedDeformableRigidContactConstraint, ptr @_ZTI34btDeformableRigidContactConstraint }, align 8
 @_ZTS41btReducedDeformableRigidContactConstraint = dso_local constant [44 x i8] c"41btReducedDeformableRigidContactConstraint\00", align 1
 @_ZTI34btDeformableRigidContactConstraint = external constant ptr
-@_ZTI41btReducedDeformableRigidContactConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS41btReducedDeformableRigidContactConstraint, ptr @_ZTI34btDeformableRigidContactConstraint }, align 8
-@_ZTS45btReducedDeformableNodeRigidContactConstraint = dso_local constant [48 x i8] c"45btReducedDeformableNodeRigidContactConstraint\00", align 1
 @_ZTI45btReducedDeformableNodeRigidContactConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS45btReducedDeformableNodeRigidContactConstraint, ptr @_ZTI41btReducedDeformableRigidContactConstraint }, align 8
-@_ZTS45btReducedDeformableFaceRigidContactConstraint = dso_local constant [48 x i8] c"45btReducedDeformableFaceRigidContactConstraint\00", align 1
+@_ZTS45btReducedDeformableNodeRigidContactConstraint = dso_local constant [48 x i8] c"45btReducedDeformableNodeRigidContactConstraint\00", align 1
 @_ZTI45btReducedDeformableFaceRigidContactConstraint = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS45btReducedDeformableFaceRigidContactConstraint, ptr @_ZTI41btReducedDeformableRigidContactConstraint }, align 8
-@_ZTV28btDeformableStaticConstraint = linkonce_odr dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTI28btDeformableStaticConstraint, ptr @_ZN28btDeformableStaticConstraintD2Ev, ptr @_ZN28btDeformableStaticConstraintD0Ev, ptr @_ZN28btDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK28btDeformableStaticConstraint5getVaEv, ptr @_ZNK28btDeformableStaticConstraint5getVbEv, ptr @_ZNK28btDeformableStaticConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN28btDeformableStaticConstraint12applyImpulseERK9btVector3, ptr @_ZN28btDeformableStaticConstraint19setPenetrationScaleEf] }, comdat, align 8
+@_ZTS45btReducedDeformableFaceRigidContactConstraint = dso_local constant [48 x i8] c"45btReducedDeformableFaceRigidContactConstraint\00", align 1
+@_ZTV28btDeformableStaticConstraint = linkonce_odr dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTI28btDeformableStaticConstraint, ptr @_ZN29btDeformableContactConstraintD2Ev, ptr @_ZN28btDeformableStaticConstraintD0Ev, ptr @_ZN28btDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo, ptr @_ZNK28btDeformableStaticConstraint5getVaEv, ptr @_ZNK28btDeformableStaticConstraint5getVbEv, ptr @_ZNK28btDeformableStaticConstraint5getDvEPKN10btSoftBody4NodeE, ptr @_ZN28btDeformableStaticConstraint12applyImpulseERK9btVector3, ptr @_ZN28btDeformableStaticConstraint19setPenetrationScaleEf] }, comdat, align 8
 @_ZTV29btDeformableContactConstraint = linkonce_odr dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTI29btDeformableContactConstraint, ptr @_ZN29btDeformableContactConstraintD2Ev, ptr @_ZN29btDeformableContactConstraintD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
-@.str = private unnamed_addr constant [33 x i8] c"btMultiBodyLinkColliderFloatData\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_btReducedDeformableContactConstraint.cpp, ptr null }]
 
 @_ZN35btReducedDeformableStaticConstraintC1EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, float), ptr @_ZN35btReducedDeformableStaticConstraintC2EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof
@@ -334,38 +250,27 @@ $_ZTV29btDeformableContactConstraint = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) @_ZL14btInfinityMask, i32 noundef 2139095040)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %_mask) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_mask.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %_mask, ptr %_mask.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds %struct.btInfMaskConverter, ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_mask.addr, align 4
-  store i32 %1, ptr %0, align 4
+define linkonce_odr dso_local void @_ZN18btInfMaskConverterC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.btInfMaskConverter, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %7, ptr %6, align 4, !tbaa !11
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK23btMultiBodyLinkCollider28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret i32 304
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #4
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #4
   ret void
 }
 
@@ -378,553 +283,640 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN35btReducedDeformableStaticConstraintC2EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef %rsb, ptr noundef %node, ptr noundef nonnull align 4 dereferenceable(16) %ri, ptr noundef nonnull align 4 dereferenceable(16) %x0, ptr noundef nonnull align 4 dereferenceable(16) %dir, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rsb.addr = alloca ptr, align 8
-  %node.addr = alloca ptr, align 8
-  %ri.addr = alloca ptr, align 8
-  %x0.addr = alloca ptr, align 8
-  %dir.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  %dt.addr = alloca float, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp = alloca %class.btMatrix3x3, align 4
-  %ref.tmp5 = alloca %class.btVector3, align 4
-  %vel_error = alloca float, align 4
-  %ref.tmp13 = alloca %class.btVector3, align 4
-  %pos_error = alloca float, align 4
-  %ref.tmp21 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rsb, ptr %rsb.addr, align 8
-  store ptr %node, ptr %node.addr, align 8
-  store ptr %ri, ptr %ri.addr, align 8
-  store ptr %x0, ptr %x0.addr, align 8
-  store ptr %dir, ptr %dir.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  store float %dt, ptr %dt.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %node.addr, align 8
-  %1 = load ptr, ptr %infoGlobal.addr, align 8
-  call void @_ZN28btDeformableStaticConstraintC2EPN10btSoftBody4NodeERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(128) %1)
-  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV35btReducedDeformableStaticConstraint, i32 0, i32 0, i32 2
-  store ptr %2, ptr %this1, align 8
-  %m_rsb = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %rsb.addr, align 8
-  store ptr %3, ptr %m_rsb, align 8
-  %m_dt = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 2
-  %4 = load float, ptr %dt.addr, align 4
-  store float %4, ptr %m_dt, align 8
-  %m_ri = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %ri.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_ri, ptr align 4 %5, i64 16, i1 false)
-  %m_targetPos = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 4
-  %6 = load ptr, ptr %x0.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_targetPos, ptr align 4 %6, i64 16, i1 false)
-  %m_impulseDirection = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %dir.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_impulseDirection, ptr align 4 %7, i64 16, i1 false)
-  %m_impulseFactorMatrix = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 6
-  invoke void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactorMatrix)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN35btReducedDeformableStaticConstraintC2EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(128) %6, float noundef %7) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca float, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca %class.btMatrix3x3, align 4
+  %20 = alloca %class.btVector3, align 4
+  %21 = alloca float, align 4
+  %22 = alloca %class.btVector3, align 4
+  %23 = alloca float, align 4
+  %24 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !12
+  store ptr %1, ptr %10, align 8, !tbaa !14
+  store ptr %2, ptr %11, align 8, !tbaa !16
+  store ptr %3, ptr %12, align 8, !tbaa !18
+  store ptr %4, ptr %13, align 8, !tbaa !18
+  store ptr %5, ptr %14, align 8, !tbaa !18
+  store ptr %6, ptr %15, align 8, !tbaa !20
+  store float %7, ptr %16, align 4, !tbaa !22
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %11, align 8, !tbaa !16
+  %27 = load ptr, ptr %15, align 8, !tbaa !20
+  call void @_ZN28btDeformableStaticConstraintC2EPN10btSoftBody4NodeERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(128) %27)
+  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV35btReducedDeformableStaticConstraint, i32 0, i32 0, i32 2), ptr %25, align 8, !tbaa !24
+  %28 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 1
+  %29 = load ptr, ptr %10, align 8, !tbaa !14
+  store ptr %29, ptr %28, align 8, !tbaa !26
+  %30 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 2
+  %31 = load float, ptr %16, align 4, !tbaa !22
+  store float %31, ptr %30, align 8, !tbaa !33
+  %32 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 3
+  %33 = load ptr, ptr %12, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 4 %33, i64 16, i1 false), !tbaa.struct !34
+  %34 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 4
+  %35 = load ptr, ptr %13, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 4 %35, i64 16, i1 false), !tbaa.struct !34
+  %36 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 5
+  %37 = load ptr, ptr %14, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %36, ptr align 4 %37, i64 16, i1 false), !tbaa.struct !34
+  %38 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 6
+  invoke void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %38)
+          to label %39 unwind label %107
 
-invoke.cont:                                      ; preds = %entry
-  %m_erp = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 10
-  store float 0x3FC99999A0000000, ptr %m_erp, align 8
-  %m_appliedImpulse = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 9
-  store float 0.000000e+00, ptr %m_appliedImpulse, align 4
-  %8 = load ptr, ptr %rsb.addr, align 8
-  %m_node = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %m_node, align 8
-  %index = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i32 0, i32 13
-  %10 = load i32, ptr %index, align 8
-  %vtable = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
-  %11 = load ptr, ptr %vfn, align 8
-  invoke void %11(ptr sret(%class.btMatrix3x3) align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(3176) %8, i32 noundef %10)
-          to label %invoke.cont2 unwind label %lpad
+39:                                               ; preds = %8
+  %40 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 10
+  store float 0x3FC99999A0000000, ptr %40, align 8, !tbaa !35
+  %41 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 9
+  store float 0.000000e+00, ptr %41, align 4, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 48, ptr %19) #4
+  %42 = load ptr, ptr %10, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw %class.btDeformableStaticConstraint, ptr %25, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !37
+  %45 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %44, i32 0, i32 13
+  %46 = load i32, ptr %45, align 8, !tbaa !38
+  %47 = load ptr, ptr %42, align 8, !tbaa !24
+  %48 = getelementptr inbounds ptr, ptr %47, i64 12
+  %49 = load ptr, ptr %48, align 8
+  invoke void %49(ptr dead_on_unwind writable sret(%class.btMatrix3x3) align 4 %19, ptr noundef nonnull align 8 dereferenceable(3176) %42, i32 noundef %46)
+          to label %50 unwind label %111
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  %m_impulseFactorMatrix3 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 6
-  %call = invoke noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactorMatrix3, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp)
-          to label %invoke.cont4 unwind label %lpad
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 6
+  %52 = invoke noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %51, ptr noundef nonnull align 4 dereferenceable(48) %19)
+          to label %53 unwind label %111
 
-invoke.cont4:                                     ; preds = %invoke.cont2
-  %m_impulseFactorMatrix6 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 6
-  %m_impulseDirection7 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 5
-  %call9 = invoke { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactorMatrix6, ptr noundef nonnull align 4 dereferenceable(16) %m_impulseDirection7)
-          to label %invoke.cont8 unwind label %lpad
+53:                                               ; preds = %50
+  call void @llvm.lifetime.end.p0(i64 48, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #4
+  %54 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 6
+  %55 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 5
+  %56 = invoke { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %54, ptr noundef nonnull align 4 dereferenceable(16) %55)
+          to label %57 unwind label %115
 
-invoke.cont8:                                     ; preds = %invoke.cont4
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp5, i32 0, i32 0
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %13 = extractvalue { <2 x float>, <2 x float> } %call9, 0
-  store <2 x float> %13, ptr %12, align 4
-  %14 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %15 = extractvalue { <2 x float>, <2 x float> } %call9, 1
-  store <2 x float> %15, ptr %14, align 4
-  %m_impulseDirection10 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 5
-  %call12 = invoke noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 4 dereferenceable(16) %m_impulseDirection10)
-          to label %invoke.cont11 unwind label %lpad
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw %class.btVector3, ptr %20, i32 0, i32 0
+  %59 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %58, i32 0, i32 0
+  %60 = extractvalue { <2 x float>, <2 x float> } %56, 0
+  store <2 x float> %60, ptr %59, align 4
+  %61 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %58, i32 0, i32 1
+  %62 = extractvalue { <2 x float>, <2 x float> } %56, 1
+  store <2 x float> %62, ptr %61, align 4
+  %63 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 5
+  %64 = invoke noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %63)
+          to label %65 unwind label %115
 
-invoke.cont11:                                    ; preds = %invoke.cont8
-  %m_impulseFactor = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 7
-  store float %call12, ptr %m_impulseFactor, align 4
-  %m_node14 = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %m_node14, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i32 0, i32 3
-  %call16 = invoke { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_v)
-          to label %invoke.cont15 unwind label %lpad
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 7
+  store float %64, ptr %66, align 4, !tbaa !44
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #4
+  %67 = getelementptr inbounds nuw %class.btDeformableStaticConstraint, ptr %25, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !37
+  %69 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %68, i32 0, i32 3
+  %70 = invoke { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %69)
+          to label %71 unwind label %119
 
-invoke.cont15:                                    ; preds = %invoke.cont11
-  %coerce.dive17 = getelementptr inbounds %class.btVector3, ptr %ref.tmp13, i32 0, i32 0
-  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 0
-  %18 = extractvalue { <2 x float>, <2 x float> } %call16, 0
-  store <2 x float> %18, ptr %17, align 4
-  %19 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 1
-  %20 = extractvalue { <2 x float>, <2 x float> } %call16, 1
-  store <2 x float> %20, ptr %19, align 4
-  %m_impulseDirection18 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 5
-  %call20 = invoke noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(16) %m_impulseDirection18)
-          to label %invoke.cont19 unwind label %lpad
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %73 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %72, i32 0, i32 0
+  %74 = extractvalue { <2 x float>, <2 x float> } %70, 0
+  store <2 x float> %74, ptr %73, align 4
+  %75 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %72, i32 0, i32 1
+  %76 = extractvalue { <2 x float>, <2 x float> } %70, 1
+  store <2 x float> %76, ptr %75, align 4
+  %77 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 5
+  %78 = invoke noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %77)
+          to label %79 unwind label %119
 
-invoke.cont19:                                    ; preds = %invoke.cont15
-  store float %call20, ptr %vel_error, align 4
-  %m_targetPos22 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 4
-  %m_node23 = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %21 = load ptr, ptr %m_node23, align 8
-  %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %21, i32 0, i32 1
-  %call25 = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_targetPos22, ptr noundef nonnull align 4 dereferenceable(16) %m_x)
-          to label %invoke.cont24 unwind label %lpad
+79:                                               ; preds = %71
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #4
+  store float %78, ptr %21, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #4
+  %80 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 4
+  %81 = getelementptr inbounds nuw %class.btDeformableStaticConstraint, ptr %25, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8, !tbaa !37
+  %83 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %82, i32 0, i32 1
+  %84 = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %80, ptr noundef nonnull align 4 dereferenceable(16) %83)
+          to label %85 unwind label %123
 
-invoke.cont24:                                    ; preds = %invoke.cont19
-  %coerce.dive26 = getelementptr inbounds %class.btVector3, ptr %ref.tmp21, i32 0, i32 0
-  %22 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive26, i32 0, i32 0
-  %23 = extractvalue { <2 x float>, <2 x float> } %call25, 0
-  store <2 x float> %23, ptr %22, align 4
-  %24 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive26, i32 0, i32 1
-  %25 = extractvalue { <2 x float>, <2 x float> } %call25, 1
-  store <2 x float> %25, ptr %24, align 4
-  %m_impulseDirection27 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 5
-  %call29 = invoke noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(16) %m_impulseDirection27)
-          to label %invoke.cont28 unwind label %lpad
+85:                                               ; preds = %79
+  %86 = getelementptr inbounds nuw %class.btVector3, ptr %24, i32 0, i32 0
+  %87 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %86, i32 0, i32 0
+  %88 = extractvalue { <2 x float>, <2 x float> } %84, 0
+  store <2 x float> %88, ptr %87, align 4
+  %89 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %86, i32 0, i32 1
+  %90 = extractvalue { <2 x float>, <2 x float> } %84, 1
+  store <2 x float> %90, ptr %89, align 4
+  %91 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 5
+  %92 = invoke noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %91)
+          to label %93 unwind label %123
 
-invoke.cont28:                                    ; preds = %invoke.cont24
-  store float %call29, ptr %pos_error, align 4
-  %26 = load float, ptr %vel_error, align 4
-  %m_erp30 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 10
-  %27 = load float, ptr %m_erp30, align 8
-  %28 = load float, ptr %pos_error, align 4
-  %mul = fmul float %27, %28
-  %m_dt31 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 2
-  %29 = load float, ptr %m_dt31, align 8
-  %div = fdiv float %mul, %29
-  %add = fadd float %26, %div
-  %m_impulseFactor32 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 7
-  %30 = load float, ptr %m_impulseFactor32, align 4
-  %div33 = fdiv float %add, %30
-  %m_rhs = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 8
-  store float %div33, ptr %m_rhs, align 8
+93:                                               ; preds = %85
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #4
+  store float %92, ptr %23, align 4, !tbaa !22
+  %94 = load float, ptr %21, align 4, !tbaa !22
+  %95 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 10
+  %96 = load float, ptr %95, align 8, !tbaa !35
+  %97 = load float, ptr %23, align 4, !tbaa !22
+  %98 = fmul float %96, %97
+  %99 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 2
+  %100 = load float, ptr %99, align 8, !tbaa !33
+  %101 = fdiv float %98, %100
+  %102 = fadd float %94, %101
+  %103 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 7
+  %104 = load float, ptr %103, align 4, !tbaa !44
+  %105 = fdiv float %102, %104
+  %106 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %25, i32 0, i32 8
+  store float %105, ptr %106, align 8, !tbaa !45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
   ret void
 
-lpad:                                             ; preds = %invoke.cont24, %invoke.cont19, %invoke.cont15, %invoke.cont11, %invoke.cont8, %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %31 = landingpad { ptr, i32 }
+107:                                              ; preds = %8
+  %108 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
-  call void @_ZN28btDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #4
-  br label %eh.resume
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %17, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %18, align 4
+  br label %128
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val34 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val34
+111:                                              ; preds = %50, %39
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %17, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 48, ptr %19) #4
+  br label %128
+
+115:                                              ; preds = %57, %53
+  %116 = landingpad { ptr, i32 }
+          cleanup
+  %117 = extractvalue { ptr, i32 } %116, 0
+  store ptr %117, ptr %17, align 8
+  %118 = extractvalue { ptr, i32 } %116, 1
+  store i32 %118, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #4
+  br label %128
+
+119:                                              ; preds = %71, %65
+  %120 = landingpad { ptr, i32 }
+          cleanup
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %17, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #4
+  br label %127
+
+123:                                              ; preds = %85, %79
+  %124 = landingpad { ptr, i32 }
+          cleanup
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %17, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  br label %127
+
+127:                                              ; preds = %123, %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  br label %128
+
+128:                                              ; preds = %127, %115, %111, %107
+  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #4
+  br label %129
+
+129:                                              ; preds = %128
+  %130 = load ptr, ptr %17, align 8
+  %131 = load i32, ptr %18, align 4
+  %132 = insertvalue { ptr, i32 } poison, ptr %130, 0
+  %133 = insertvalue { ptr, i32 } %132, i32 %131, 1
+  resume { ptr, i32 } %133
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraintC2EPN10btSoftBody4NodeERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %node, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %node.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp4 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %node, ptr %node.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  store float 0.000000e+00, ptr %ref.tmp4, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4)
-  %0 = load ptr, ptr %infoGlobal.addr, align 8
-  call void @_ZN29btDeformableContactConstraintC2EbRK9btVector3RK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(40) %this1, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %0)
-  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %m_node = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %node.addr, align 8
-  store ptr %2, ptr %m_node, align 8
+define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraintC2EPN10btSoftBody4NodeERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(128) %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !46
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !20
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store float 0.000000e+00, ptr %8, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  store float 0.000000e+00, ptr %9, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  store float 0.000000e+00, ptr %10, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %12 = load ptr, ptr %6, align 8, !tbaa !20
+  call void @_ZN29btDeformableContactConstraintC2EbRK9btVector3RK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(40) %11, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(128) %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV28btDeformableStaticConstraint, i32 0, i32 0, i32 2), ptr %11, align 8, !tbaa !24
+  %13 = getelementptr inbounds nuw %class.btDeformableStaticConstraint, ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8, !tbaa !16
+  store ptr %14, ptr %13, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
-  br label %arrayctor.loop
+define linkonce_odr dso_local void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [3 x %class.btVector3], ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %class.btVector3, ptr %5, i64 3
+  br label %7
 
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+7:                                                ; preds = %7, %1
+  %8 = phi ptr [ %5, %1 ], [ %9, %7 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %9 = getelementptr inbounds %class.btVector3, ptr %8, i64 1
+  %10 = icmp eq ptr %9, %6
+  br i1 %10, label %11, label %7
 
-arrayctor.cont:                                   ; preds = %arrayctor.loop
+11:                                               ; preds = %7
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(48) %other) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i64 0, i64 0
-  %m_el2 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el2, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx3, ptr align 4 %arrayidx, i64 16, i1 false)
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_el4 = getelementptr inbounds %class.btMatrix3x3, ptr %1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el4, i64 0, i64 1
-  %m_el6 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el6, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx7, ptr align 4 %arrayidx5, i64 16, i1 false)
-  %2 = load ptr, ptr %other.addr, align 8
-  %m_el8 = getelementptr inbounds %class.btMatrix3x3, ptr %2, i32 0, i32 0
-  %arrayidx9 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el8, i64 0, i64 2
-  %m_el10 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el10, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arrayidx11, ptr align 4 %arrayidx9, i64 16, i1 false)
-  ret ptr %this1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !48
+  store ptr %1, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !48
+  %7 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds [3 x %class.btVector3], ptr %7, i64 0, i64 0
+  %9 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds [3 x %class.btVector3], ptr %9, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 %8, i64 16, i1 false), !tbaa.struct !34
+  %11 = load ptr, ptr %4, align 8, !tbaa !48
+  %12 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds [3 x %class.btVector3], ptr %12, i64 0, i64 1
+  %14 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %15 = getelementptr inbounds [3 x %class.btVector3], ptr %14, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %13, i64 16, i1 false), !tbaa.struct !34
+  %16 = load ptr, ptr %4, align 8, !tbaa !48
+  %17 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [3 x %class.btVector3], ptr %17, i64 0, i64 2
+  %19 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %20 = getelementptr inbounds [3 x %class.btVector3], ptr %19, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %18, i64 16, i1 false), !tbaa.struct !34
+  ret ptr %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #10 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !48
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !48
+  %10 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %9, i32 noundef 0)
+  %11 = load ptr, ptr %5, align 8, !tbaa !18
+  %12 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %11)
+  store float %12, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %13 = load ptr, ptr %4, align 8, !tbaa !48
+  %14 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %13, i32 noundef 1)
+  %15 = load ptr, ptr %5, align 8, !tbaa !18
+  %16 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %15)
+  store float %16, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %17 = load ptr, ptr %4, align 8, !tbaa !48
+  %18 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %17, i32 noundef 2)
+  %19 = load ptr, ptr %5, align 8, !tbaa !18
+  %20 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %19)
+  store float %20, ptr %8, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %21 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %22 = load { <2 x float>, <2 x float> }, ptr %21, align 4
+  ret { <2 x float>, <2 x float> } %22
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds [4 x float], ptr %6, i64 0, i64 0
+  %8 = load float, ptr %7, align 4, !tbaa !22
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !22
+  %13 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
+  %15 = load float, ptr %14, align 4, !tbaa !22
+  %16 = load ptr, ptr %4, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  %19 = load float, ptr %18, align 4, !tbaa !22
+  %20 = fmul float %15, %19
+  %21 = call float @llvm.fmuladd.f32(float %8, float %12, float %20)
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 2
+  %24 = load float, ptr %23, align 4, !tbaa !22
+  %25 = load ptr, ptr %4, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds [4 x float], ptr %26, i64 0, i64 2
+  %28 = load float, ptr %27, align 4, !tbaa !22
+  %29 = call float @llvm.fmuladd.f32(float %24, float %28, float %21)
+  ret float %29
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #9 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6)
+  ret float %7
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %0) #10 comdat {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %7 = load ptr, ptr %3, align 8, !tbaa !18
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 0
+  %10 = load float, ptr %9, align 4, !tbaa !22
+  %11 = fneg float %10
+  store float %11, ptr %4, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %12 = load ptr, ptr %3, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw %class.btVector3, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 1
+  %15 = load float, ptr %14, align 4, !tbaa !22
+  %16 = fneg float %15
+  store float %16, ptr %5, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %17 = load ptr, ptr %3, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw %class.btVector3, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds [4 x float], ptr %18, i64 0, i64 2
+  %20 = load float, ptr %19, align 4, !tbaa !22
+  %21 = fneg float %20
+  store float %21, ptr %6, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %23 = load { <2 x float>, <2 x float> }, ptr %22, align 4
+  ret { <2 x float>, <2 x float> } %23
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #10 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !22
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 0
+  %16 = load float, ptr %15, align 4, !tbaa !22
+  %17 = fsub float %12, %16
+  store float %17, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %18 = load ptr, ptr %4, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x float], ptr %19, i64 0, i64 1
+  %21 = load float, ptr %20, align 4, !tbaa !22
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 1
+  %25 = load float, ptr %24, align 4, !tbaa !22
+  %26 = fsub float %21, %25
+  store float %26, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %27 = load ptr, ptr %4, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [4 x float], ptr %28, i64 0, i64 2
+  %30 = load float, ptr %29, align 4, !tbaa !22
+  %31 = load ptr, ptr %5, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x float], ptr %32, i64 0, i64 2
+  %34 = load float, ptr %33, align 4, !tbaa !22
+  %35 = fsub float %30, %34
+  store float %35, ptr %8, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %36 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %37 = load { <2 x float>, <2 x float> }, ptr %36, align 4
+  ret { <2 x float>, <2 x float> } %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %m, ptr noundef nonnull align 4 dereferenceable(16) %v) #6 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %m.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp5 = alloca float, align 4
-  store ptr %m, ptr %m.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %m.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %0, i32 noundef 0)
-  %1 = load ptr, ptr %v.addr, align 8
-  %call1 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %call, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  store float %call1, ptr %ref.tmp, align 4
-  %2 = load ptr, ptr %m.addr, align 8
-  %call3 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %2, i32 noundef 1)
-  %3 = load ptr, ptr %v.addr, align 8
-  %call4 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %call3, ptr noundef nonnull align 4 dereferenceable(16) %3)
-  store float %call4, ptr %ref.tmp2, align 4
-  %4 = load ptr, ptr %m.addr, align 8
-  %call6 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %4, i32 noundef 2)
-  %5 = load ptr, ptr %v.addr, align 8
-  %call7 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %call6, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  store float %call7, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %6 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %6
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %v) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %0 = load float, ptr %arrayidx, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 0
-  %2 = load float, ptr %arrayidx3, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %3 = load float, ptr %arrayidx5, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %5 = load float, ptr %arrayidx7, align 4
-  %mul8 = fmul float %3, %5
-  %6 = call float @llvm.fmuladd.f32(float %0, float %2, float %mul8)
-  %m_floats9 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [4 x float], ptr %m_floats9, i64 0, i64 2
-  %7 = load float, ptr %arrayidx10, align 4
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_floats11 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_floats11, i64 0, i64 2
-  %9 = load float, ptr %arrayidx12, align 4
-  %10 = call float @llvm.fmuladd.f32(float %7, float %9, float %6)
-  ret float %10
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2) #1 comdat {
-entry:
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %1 = load ptr, ptr %v2.addr, align 8
-  %call = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  ret float %call
+define dso_local noundef float @_ZN35btReducedDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull align 4 dereferenceable(128) %1) unnamed_addr #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.btVector3, align 4
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca %class.btVector3, align 4
+  %9 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %10 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #4
+  %11 = call { <2 x float>, <2 x float> } @_ZNK35btReducedDeformableStaticConstraint10getDeltaVaEv(ptr noundef nonnull align 8 dereferenceable(172) %10)
+  %12 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %12, i32 0, i32 0
+  %14 = extractvalue { <2 x float>, <2 x float> } %11, 0
+  store <2 x float> %14, ptr %13, align 4
+  %15 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %12, i32 0, i32 1
+  %16 = extractvalue { <2 x float>, <2 x float> } %11, 1
+  store <2 x float> %16, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %17 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %10, i32 0, i32 5
+  %18 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %17)
+  store float %18, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %19 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %10, i32 0, i32 8
+  %20 = load float, ptr %19, align 8, !tbaa !45
+  %21 = load float, ptr %6, align 4, !tbaa !22
+  %22 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %10, i32 0, i32 7
+  %23 = load float, ptr %22, align 4, !tbaa !44
+  %24 = fdiv float %21, %23
+  %25 = fsub float %20, %24
+  store float %25, ptr %7, align 4, !tbaa !22
+  %26 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %10, i32 0, i32 9
+  %27 = load float, ptr %26, align 4, !tbaa !36
+  %28 = load float, ptr %7, align 4, !tbaa !22
+  %29 = fadd float %27, %28
+  %30 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %10, i32 0, i32 9
+  store float %29, ptr %30, align 4, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #4
+  %31 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %10, i32 0, i32 5
+  %32 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(16) %31)
+  %33 = getelementptr inbounds nuw %class.btVector3, ptr %8, i32 0, i32 0
+  %34 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %33, i32 0, i32 0
+  %35 = extractvalue { <2 x float>, <2 x float> } %32, 0
+  store <2 x float> %35, ptr %34, align 4
+  %36 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %33, i32 0, i32 1
+  %37 = extractvalue { <2 x float>, <2 x float> } %32, 1
+  store <2 x float> %37, ptr %36, align 4
+  %38 = load ptr, ptr %10, align 8, !tbaa !24
+  %39 = getelementptr inbounds ptr, ptr %38, i64 6
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(172) %10, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %41 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %10, i32 0, i32 7
+  %42 = load float, ptr %41, align 4, !tbaa !44
+  %43 = load float, ptr %7, align 4, !tbaa !22
+  %44 = fmul float %42, %43
+  store float %44, ptr %9, align 4, !tbaa !22
+  %45 = load float, ptr %9, align 4, !tbaa !22
+  %46 = load float, ptr %9, align 4, !tbaa !22
+  %47 = fmul float %46, %45
+  store float %47, ptr %9, align 4, !tbaa !22
+  %48 = load float, ptr %9, align 4, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #4
+  ret float %48
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %v) #6 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp1 = alloca float, align 4
-  %ref.tmp5 = alloca float, align 4
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %fneg = fneg float %1
-  store float %fneg, ptr %ref.tmp, align 4
-  %2 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %2, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  %3 = load float, ptr %arrayidx3, align 4
-  %fneg4 = fneg float %3
-  store float %fneg4, ptr %ref.tmp1, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 2
-  %5 = load float, ptr %arrayidx7, align 4
-  %fneg8 = fneg float %5
-  store float %fneg8, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %6 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %6
+define dso_local { <2 x float>, <2 x float> } @_ZNK35btReducedDeformableStaticConstraint10getDeltaVaEv(ptr noundef nonnull align 8 dereferenceable(172) %0) #5 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
+  %7 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %4, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %9 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject30getInterpolationWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %8)
+  %10 = getelementptr inbounds nuw %class.btDeformableStaticConstraint, ptr %4, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %12 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %11, i32 0, i32 13
+  %13 = load i32, ptr %12, align 8, !tbaa !38
+  %14 = call { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr noundef nonnull align 8 dereferenceable(3176) %6, ptr noundef nonnull align 4 dereferenceable(64) %9, i32 noundef %13)
+  %15 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %15, i32 0, i32 0
+  %17 = extractvalue { <2 x float>, <2 x float> } %14, 0
+  store <2 x float> %17, ptr %16, align 4
+  %18 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %15, i32 0, i32 1
+  %19 = extractvalue { <2 x float>, <2 x float> } %14, 1
+  store <2 x float> %19, ptr %18, align 4
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %21 = load { <2 x float>, <2 x float> }, ptr %20, align 4
+  ret { <2 x float>, <2 x float> } %21
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #11 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !50
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8, !tbaa !50
+  %8 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %9 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %9, i32 0, i32 0
+  %11 = extractvalue { <2 x float>, <2 x float> } %8, 0
+  store <2 x float> %11, ptr %10, align 4
+  %12 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %9, i32 0, i32 1
+  %13 = extractvalue { <2 x float>, <2 x float> } %8, 1
+  store <2 x float> %13, ptr %12, align 4
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %15 = load { <2 x float>, <2 x float> }, ptr %14, align 4
+  ret { <2 x float>, <2 x float> } %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2) #6 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %m_floats1 = getelementptr inbounds %class.btVector3, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [4 x float], ptr %m_floats1, i64 0, i64 0
-  %3 = load float, ptr %arrayidx2, align 4
-  %sub = fsub float %1, %3
-  store float %sub, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v1.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %7 = load float, ptr %arrayidx7, align 4
-  %sub8 = fsub float %5, %7
-  store float %sub8, ptr %ref.tmp3, align 4
-  %8 = load ptr, ptr %v1.addr, align 8
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %9 = load float, ptr %arrayidx11, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %10, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 2
-  %11 = load float, ptr %arrayidx13, align 4
-  %sub14 = fsub float %9, %11
-  store float %sub14, ptr %ref.tmp9, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN35btReducedDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #5 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  %deltaVa = alloca %class.btVector3, align 4
-  %deltaV_rel = alloca float, align 4
-  %deltaImpulse = alloca float, align 4
-  %impulse = alloca %class.btVector3, align 4
-  %residualSquare = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZNK35btReducedDeformableStaticConstraint10getDeltaVaEv(ptr noundef nonnull align 8 dereferenceable(172) %this1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %deltaVa, i32 0, i32 0
-  %0 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %1, ptr %0, align 4
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %3, ptr %2, align 4
-  %m_impulseDirection = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 5
-  %call2 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %deltaVa, ptr noundef nonnull align 4 dereferenceable(16) %m_impulseDirection)
-  store float %call2, ptr %deltaV_rel, align 4
-  %m_rhs = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 8
-  %4 = load float, ptr %m_rhs, align 8
-  %5 = load float, ptr %deltaV_rel, align 4
-  %m_impulseFactor = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 7
-  %6 = load float, ptr %m_impulseFactor, align 4
-  %div = fdiv float %5, %6
-  %sub = fsub float %4, %div
-  store float %sub, ptr %deltaImpulse, align 4
-  %m_appliedImpulse = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 9
-  %7 = load float, ptr %m_appliedImpulse, align 4
-  %8 = load float, ptr %deltaImpulse, align 4
-  %add = fadd float %7, %8
-  %m_appliedImpulse3 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 9
-  store float %add, ptr %m_appliedImpulse3, align 4
-  %m_impulseDirection4 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 5
-  %call5 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %deltaImpulse, ptr noundef nonnull align 4 dereferenceable(16) %m_impulseDirection4)
-  %coerce.dive6 = getelementptr inbounds %class.btVector3, ptr %impulse, i32 0, i32 0
-  %9 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive6, i32 0, i32 0
-  %10 = extractvalue { <2 x float>, <2 x float> } %call5, 0
-  store <2 x float> %10, ptr %9, align 4
-  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive6, i32 0, i32 1
-  %12 = extractvalue { <2 x float>, <2 x float> } %call5, 1
-  store <2 x float> %12, ptr %11, align 4
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
-  %13 = load ptr, ptr %vfn, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(172) %this1, ptr noundef nonnull align 4 dereferenceable(16) %impulse)
-  %m_impulseFactor7 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 7
-  %14 = load float, ptr %m_impulseFactor7, align 4
-  %15 = load float, ptr %deltaImpulse, align 4
-  %mul = fmul float %14, %15
-  store float %mul, ptr %residualSquare, align 4
-  %16 = load float, ptr %residualSquare, align 4
-  %17 = load float, ptr %residualSquare, align 4
-  %mul8 = fmul float %17, %16
-  store float %mul8, ptr %residualSquare, align 4
-  %18 = load float, ptr %residualSquare, align 4
-  ret float %18
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK35btReducedDeformableStaticConstraint10getDeltaVaEv(ptr noundef nonnull align 8 dereferenceable(172) %this) #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rsb = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_rsb, align 8
-  %m_rsb2 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_rsb2, align 8
-  %call = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject30getInterpolationWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %1)
-  %m_node = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_node, align 8
-  %index = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i32 0, i32 13
-  %3 = load i32, ptr %index, align 8
-  %call3 = call { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr noundef nonnull align 8 dereferenceable(3176) %0, ptr noundef nonnull align 4 dereferenceable(64) %call, i32 noundef %3)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %5 = extractvalue { <2 x float>, <2 x float> } %call3, 0
-  store <2 x float> %5, ptr %4, align 4
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %7 = extractvalue { <2 x float>, <2 x float> } %call3, 1
-  store <2 x float> %7, ptr %6, align 4
-  %coerce.dive4 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %8 = load { <2 x float>, <2 x float> }, ptr %coerce.dive4, align 4
-  ret { <2 x float>, <2 x float> } %8
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %s, ptr noundef nonnull align 4 dereferenceable(16) %v) #5 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %s.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %3, ptr %2, align 4
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %5, ptr %4, align 4
-  %coerce.dive1 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %6 = load { <2 x float>, <2 x float> }, ptr %coerce.dive1, align 4
-  ret { <2 x float>, <2 x float> } %6
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN35btReducedDeformableStaticConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse) unnamed_addr #6 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %impulse.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %impulse, ptr %impulse.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rsb = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_rsb, align 8
-  %1 = load ptr, ptr %impulse.addr, align 8
-  %m_ri = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 3
-  %m_node = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_node, align 8
-  %index = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i32 0, i32 13
-  %3 = load i32, ptr %index, align 8
-  %m_dt = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %this1, i32 0, i32 2
-  %4 = load float, ptr %m_dt, align 8
-  call void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpulseERK9btVector3S2_if(ptr noundef nonnull align 8 dereferenceable(3176) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %m_ri, i32 noundef %3, float noundef %4)
+define dso_local void @_ZN35btReducedDeformableStaticConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !18
+  %9 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %5, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %class.btDeformableStaticConstraint, ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %12 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %11, i32 0, i32 13
+  %13 = load i32, ptr %12, align 8, !tbaa !38
+  %14 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %5, i32 0, i32 2
+  %15 = load float, ptr %14, align 8, !tbaa !33
+  call void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpulseERK9btVector3S2_if(ptr noundef nonnull align 8 dereferenceable(3176) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef %13, float noundef %15)
   ret void
 }
 
@@ -933,3719 +925,3769 @@ declare void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpulseERK9btV
 declare { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr noundef nonnull align 8 dereferenceable(3176), ptr noundef nonnull align 4 dereferenceable(64), i32 noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject30getInterpolationWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_interpolationWorldTransform = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 2
-  ret ptr %m_interpolationWorldTransform
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject30getInterpolationWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 2
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef %rsb, ptr noundef nonnull align 8 dereferenceable(848) %c, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rsb.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  %dt.addr = alloca float, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rsb, ptr %rsb.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  store float %dt, ptr %dt.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %c.addr, align 8
-  %1 = load ptr, ptr %infoGlobal.addr, align 8
-  call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef nonnull align 8 dereferenceable(848) %0, ptr noundef nonnull align 4 dereferenceable(128) %1)
-  %2 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i32 0, i32 0, i32 2
-  store ptr %2, ptr %this1, align 8
-  %m_rsb = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %rsb.addr, align 8
-  store ptr %3, ptr %m_rsb, align 8
-  %m_dt = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 9
-  %4 = load float, ptr %dt.addr, align 4
-  store float %4, ptr %m_dt, align 8
-  %m_contactNormalA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA)
-          to label %invoke.cont unwind label %lpad
+define dso_local void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(848) %2, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca float, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !54
+  store ptr %1, ptr %7, align 8, !tbaa !14
+  store ptr %2, ptr %8, align 8, !tbaa !56
+  store ptr %3, ptr %9, align 8, !tbaa !20
+  store float %4, ptr %10, align 4, !tbaa !22
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %8, align 8, !tbaa !56
+  %15 = load ptr, ptr %9, align 8, !tbaa !20
+  call void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(848) %14, ptr noundef nonnull align 4 dereferenceable(128) %15)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i32 0, i32 0, i32 2), ptr %13, align 8, !tbaa !24
+  %16 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 7
+  %17 = load ptr, ptr %7, align 8, !tbaa !14
+  store ptr %17, ptr %16, align 8, !tbaa !58
+  %18 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 9
+  %19 = load float, ptr %10, align 4, !tbaa !22
+  store float %19, ptr %18, align 8, !tbaa !62
+  %20 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 26
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %20)
+          to label %21 unwind label %87
 
-invoke.cont:                                      ; preds = %entry
-  %m_contactNormalB = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 27
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalB)
-          to label %invoke.cont2 unwind label %lpad
+21:                                               ; preds = %5
+  %22 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 27
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22)
+          to label %23 unwind label %87
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  %m_contactTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent)
-          to label %invoke.cont3 unwind label %lpad
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 28
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %24)
+          to label %25 unwind label %87
 
-invoke.cont3:                                     ; preds = %invoke.cont2
-  %m_contactTangent2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent2)
-          to label %invoke.cont4 unwind label %lpad
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 29
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %26)
+          to label %27 unwind label %87
 
-invoke.cont4:                                     ; preds = %invoke.cont3
-  %m_relPosA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 30
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_relPosA)
-          to label %invoke.cont5 unwind label %lpad
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 30
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %28)
+          to label %29 unwind label %87
 
-invoke.cont5:                                     ; preds = %invoke.cont4
-  %m_relPosB = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 31
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_relPosB)
-          to label %invoke.cont6 unwind label %lpad
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 31
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %30)
+          to label %31 unwind label %87
 
-invoke.cont6:                                     ; preds = %invoke.cont5
-  %m_impulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  invoke void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor)
-          to label %invoke.cont7 unwind label %lpad
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 32
+  invoke void @_ZN11btMatrix3x3C2Ev(ptr noundef nonnull align 4 dereferenceable(48) %32)
+          to label %33 unwind label %87
 
-invoke.cont7:                                     ; preds = %invoke.cont6
-  %m_bufferVelocityA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 33
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_bufferVelocityA)
-          to label %invoke.cont8 unwind label %lpad
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 33
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %34)
+          to label %35 unwind label %87
 
-invoke.cont8:                                     ; preds = %invoke.cont7
-  %m_bufferVelocityB = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 34
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_bufferVelocityB)
-          to label %invoke.cont9 unwind label %lpad
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 34
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %36)
+          to label %37 unwind label %87
 
-invoke.cont9:                                     ; preds = %invoke.cont8
-  %m_linearComponentNormal = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 35
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_linearComponentNormal)
-          to label %invoke.cont10 unwind label %lpad
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 35
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %38)
+          to label %39 unwind label %87
 
-invoke.cont10:                                    ; preds = %invoke.cont9
-  %m_angularComponentNormal = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 36
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentNormal)
-          to label %invoke.cont11 unwind label %lpad
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 36
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %40)
+          to label %41 unwind label %87
 
-invoke.cont11:                                    ; preds = %invoke.cont10
-  %m_linearComponentTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 37
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_linearComponentTangent)
-          to label %invoke.cont12 unwind label %lpad
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 37
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %42)
+          to label %43 unwind label %87
 
-invoke.cont12:                                    ; preds = %invoke.cont11
-  %m_angularComponentTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 38
-  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentTangent)
-          to label %invoke.cont13 unwind label %lpad
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 38
+  invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %44)
+          to label %45 unwind label %87
 
-invoke.cont13:                                    ; preds = %invoke.cont12
-  %m_nodeQueryIndex = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  store i32 0, ptr %m_nodeQueryIndex, align 4
-  %m_appliedNormalImpulse = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  store float 0.000000e+00, ptr %m_appliedNormalImpulse, align 4
-  %m_appliedTangentImpulse = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 11
-  store float 0.000000e+00, ptr %m_appliedTangentImpulse, align 8
-  %m_rhs = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 18
-  store float 0.000000e+00, ptr %m_rhs, align 4
-  %m_rhs_tangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 19
-  store float 0.000000e+00, ptr %m_rhs_tangent, align 8
-  %5 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_deformable_cfm = getelementptr inbounds %struct.btContactSolverInfoData, ptr %5, i32 0, i32 11
-  %6 = load float, ptr %m_deformable_cfm, align 4
-  %m_cfm = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 21
-  store float %6, ptr %m_cfm, align 8
-  %m_cfm_friction = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 22
-  store float 0.000000e+00, ptr %m_cfm_friction, align 4
-  %7 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_deformable_erp = getelementptr inbounds %struct.btContactSolverInfoData, ptr %7, i32 0, i32 10
-  %8 = load float, ptr %m_deformable_erp, align 4
-  %m_erp = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 23
-  store float %8, ptr %m_erp, align 8
-  %9 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_deformable_erp14 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %9, i32 0, i32 10
-  %10 = load float, ptr %m_deformable_erp14, align 4
-  %m_erp_friction = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 24
-  store float %10, ptr %m_erp_friction, align 4
-  %11 = load ptr, ptr %infoGlobal.addr, align 8
-  %m_friction = getelementptr inbounds %struct.btContactSolverInfoData, ptr %11, i32 0, i32 2
-  %12 = load float, ptr %m_friction, align 4
-  %m_friction15 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 25
-  store float %12, ptr %m_friction15, align 8
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %13 = load ptr, ptr %m_contact, align 8
-  %m_cti = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %13, i32 0, i32 0
-  %m_colObj = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti, i32 0, i32 0
-  %14 = load ptr, ptr %m_colObj, align 8
-  %call = invoke noundef zeroext i1 @_ZNK17btCollisionObject14isStaticObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %14)
-          to label %invoke.cont16 unwind label %lpad
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 4
+  store i32 0, ptr %46, align 4, !tbaa !63
+  %47 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 10
+  store float 0.000000e+00, ptr %47, align 4, !tbaa !64
+  %48 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 11
+  store float 0.000000e+00, ptr %48, align 8, !tbaa !65
+  %49 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 18
+  store float 0.000000e+00, ptr %49, align 4, !tbaa !66
+  %50 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 19
+  store float 0.000000e+00, ptr %50, align 8, !tbaa !67
+  %51 = load ptr, ptr %9, align 8, !tbaa !20
+  %52 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %51, i32 0, i32 11
+  %53 = load float, ptr %52, align 4, !tbaa !68
+  %54 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 21
+  store float %53, ptr %54, align 8, !tbaa !70
+  %55 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 22
+  store float 0.000000e+00, ptr %55, align 4, !tbaa !71
+  %56 = load ptr, ptr %9, align 8, !tbaa !20
+  %57 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %56, i32 0, i32 10
+  %58 = load float, ptr %57, align 4, !tbaa !72
+  %59 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 23
+  store float %58, ptr %59, align 8, !tbaa !73
+  %60 = load ptr, ptr %9, align 8, !tbaa !20
+  %61 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %60, i32 0, i32 10
+  %62 = load float, ptr %61, align 4, !tbaa !72
+  %63 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 24
+  store float %62, ptr %63, align 4, !tbaa !74
+  %64 = load ptr, ptr %9, align 8, !tbaa !20
+  %65 = getelementptr inbounds nuw %struct.btContactSolverInfoData, ptr %64, i32 0, i32 2
+  %66 = load float, ptr %65, align 4, !tbaa !75
+  %67 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 25
+  store float %66, ptr %67, align 8, !tbaa !76
+  %68 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %13, i32 0, i32 6
+  %69 = load ptr, ptr %68, align 8, !tbaa !77
+  %70 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8, !tbaa !78
+  %73 = invoke noundef zeroext i1 @_ZNK17btCollisionObject14isStaticObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %72)
+          to label %74 unwind label %87
 
-invoke.cont16:                                    ; preds = %invoke.cont13
-  %m_collideStatic = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %m_collideStatic, align 8
-  %m_contact17 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %15 = load ptr, ptr %m_contact17, align 8
-  %m_cti18 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %15, i32 0, i32 0
-  %m_colObj19 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti18, i32 0, i32 0
-  %16 = load ptr, ptr %m_colObj19, align 8
-  %call21 = invoke noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %16)
-          to label %invoke.cont20 unwind label %lpad
+74:                                               ; preds = %45
+  %75 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 1
+  %76 = zext i1 %73 to i8
+  store i8 %76, ptr %75, align 8, !tbaa !89
+  %77 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %13, i32 0, i32 6
+  %78 = load ptr, ptr %77, align 8, !tbaa !77
+  %79 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %78, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8, !tbaa !78
+  %82 = invoke noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %81)
+          to label %83 unwind label %87
 
-invoke.cont20:                                    ; preds = %invoke.cont16
-  %cmp = icmp eq i32 %call21, 64
-  %m_collideMultibody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %frombool22 = zext i1 %cmp to i8
-  store i8 %frombool22, ptr %m_collideMultibody, align 1
+83:                                               ; preds = %74
+  %84 = icmp eq i32 %82, 64
+  %85 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %13, i32 0, i32 2
+  %86 = zext i1 %84 to i8
+  store i8 %86, ptr %85, align 1, !tbaa !90
   ret void
 
-lpad:                                             ; preds = %invoke.cont16, %invoke.cont13, %invoke.cont12, %invoke.cont11, %invoke.cont10, %invoke.cont9, %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %17 = landingpad { ptr, i32 }
+87:                                               ; preds = %74, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %5
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
-  call void @_ZN34btDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #4
-  br label %eh.resume
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %11, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %12, align 4
+  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #4
+  br label %91
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val23 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val23
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %11, align 8
+  %93 = load i32, ptr %12, align 4
+  %94 = insertvalue { ptr, i32 } poison, ptr %92, 0
+  %95 = insertvalue { ptr, i32 } %94, i32 %93, 1
+  resume { ptr, i32 } %95
 }
 
 declare void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(848), ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject14isStaticObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_collisionFlags = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 12
-  %0 = load i32, ptr %m_collisionFlags, align 8
-  %and = and i32 %0, 1
-  %cmp = icmp ne i32 %and, 0
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK17btCollisionObject14isStaticObjectEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 12
+  %5 = load i32, ptr %4, align 8, !tbaa !91
+  %6 = and i32 %5, 1
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_internalType = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 24
-  %0 = load i32, ptr %m_internalType, align 8
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN34btDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #4
-  ret void
+define linkonce_odr dso_local noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btCollisionObject, ptr %3, i32 0, i32 24
+  %5 = load i32, ptr %4, align 8, !tbaa !99
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN41btReducedDeformableRigidContactConstraint13setSolverBodyEiR12btSolverBody(ptr noundef nonnull align 8 dereferenceable(436) %this, i32 noundef %bodyId, ptr noundef nonnull align 8 dereferenceable(248) %solver_body) #5 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %bodyId.addr = alloca i32, align 4
-  %solver_body.addr = alloca ptr, align 8
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca %class.btVector3, align 4
-  %torqueAxis = alloca %class.btVector3, align 4
-  %ref.tmp7 = alloca %class.btVector3, align 4
-  %ref.tmp13 = alloca %class.btVector3, align 4
-  %ref.tmp18 = alloca %class.btVector3, align 4
-  %torqueAxisTangent = alloca %class.btVector3, align 4
-  %ref.tmp27 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %bodyId, ptr %bodyId.addr, align 4
-  store ptr %solver_body, ptr %solver_body.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_collideMultibody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %m_collideMultibody, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local void @_ZN41btReducedDeformableRigidContactConstraint13setSolverBodyEiR12btSolverBody(ptr noundef nonnull align 8 dereferenceable(436) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(248) %2) #5 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca %class.btVector3, align 4
+  %9 = alloca %class.btVector3, align 4
+  %10 = alloca %class.btVector3, align 4
+  %11 = alloca %class.btVector3, align 4
+  %12 = alloca %class.btVector3, align 4
+  %13 = alloca %class.btVector3, align 4
+  %14 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !100
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 2
+  %17 = load i8, ptr %16, align 1, !tbaa !90, !range !101, !noundef !102
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %98, label %19
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %bodyId.addr, align 4
-  %m_solverBodyId = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 5
-  store i32 %1, ptr %m_solverBodyId, align 8
-  %2 = load ptr, ptr %solver_body.addr, align 8
-  %m_solverBody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  store ptr %2, ptr %m_solverBody, align 8
-  %m_contactNormalA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp2, i32 0, i32 0
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %4 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %4, ptr %3, align 4
-  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %6 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %6, ptr %5, align 4
-  %m_solverBody3 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %7 = load ptr, ptr %m_solverBody3, align 8
-  %call4 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %7)
-  %call5 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(16) %call4)
-  %coerce.dive6 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive6, i32 0, i32 0
-  %9 = extractvalue { <2 x float>, <2 x float> } %call5, 0
-  store <2 x float> %9, ptr %8, align 4
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive6, i32 0, i32 1
-  %11 = extractvalue { <2 x float>, <2 x float> } %call5, 1
-  store <2 x float> %11, ptr %10, align 4
-  %m_linearComponentNormal = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 35
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_linearComponentNormal, ptr align 4 %ref.tmp, i64 16, i1 false)
-  %m_relPosA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 30
-  %m_contactNormalA8 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call9 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %m_relPosA, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA8)
-  %coerce.dive10 = getelementptr inbounds %class.btVector3, ptr %ref.tmp7, i32 0, i32 0
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive10, i32 0, i32 0
-  %13 = extractvalue { <2 x float>, <2 x float> } %call9, 0
-  store <2 x float> %13, ptr %12, align 4
-  %14 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive10, i32 0, i32 1
-  %15 = extractvalue { <2 x float>, <2 x float> } %call9, 1
-  store <2 x float> %15, ptr %14, align 4
-  %call11 = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp7)
-  %coerce.dive12 = getelementptr inbounds %class.btVector3, ptr %torqueAxis, i32 0, i32 0
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 0
-  %17 = extractvalue { <2 x float>, <2 x float> } %call11, 0
-  store <2 x float> %17, ptr %16, align 4
-  %18 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 1
-  %19 = extractvalue { <2 x float>, <2 x float> } %call11, 1
-  store <2 x float> %19, ptr %18, align 4
-  %m_solverBody14 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %20 = load ptr, ptr %m_solverBody14, align 8
-  %m_originalBody = getelementptr inbounds %struct.btSolverBody, ptr %20, i32 0, i32 12
-  %21 = load ptr, ptr %m_originalBody, align 8
-  %call15 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btRigidBody24getInvInertiaTensorWorldEv(ptr noundef nonnull align 8 dereferenceable(744) %21)
-  %call16 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %call15, ptr noundef nonnull align 4 dereferenceable(16) %torqueAxis)
-  %coerce.dive17 = getelementptr inbounds %class.btVector3, ptr %ref.tmp13, i32 0, i32 0
-  %22 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 0
-  %23 = extractvalue { <2 x float>, <2 x float> } %call16, 0
-  store <2 x float> %23, ptr %22, align 4
-  %24 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 1
-  %25 = extractvalue { <2 x float>, <2 x float> } %call16, 1
-  store <2 x float> %25, ptr %24, align 4
-  %m_angularComponentNormal = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_angularComponentNormal, ptr align 4 %ref.tmp13, i64 16, i1 false)
-  %m_contactTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %m_solverBody19 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %26 = load ptr, ptr %m_solverBody19, align 8
-  %call20 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %26)
-  %call21 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent, ptr noundef nonnull align 4 dereferenceable(16) %call20)
-  %coerce.dive22 = getelementptr inbounds %class.btVector3, ptr %ref.tmp18, i32 0, i32 0
-  %27 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive22, i32 0, i32 0
-  %28 = extractvalue { <2 x float>, <2 x float> } %call21, 0
+19:                                               ; preds = %3
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 5
+  store i32 %20, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %6, align 8, !tbaa !100
+  %23 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 8
+  store ptr %22, ptr %23, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #4
+  %24 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 26
+  %25 = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %24)
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %8, i32 0, i32 0
+  %27 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %26, i32 0, i32 0
+  %28 = extractvalue { <2 x float>, <2 x float> } %25, 0
   store <2 x float> %28, ptr %27, align 4
-  %29 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive22, i32 0, i32 1
-  %30 = extractvalue { <2 x float>, <2 x float> } %call21, 1
+  %29 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %26, i32 0, i32 1
+  %30 = extractvalue { <2 x float>, <2 x float> } %25, 1
   store <2 x float> %30, ptr %29, align 4
-  %m_linearComponentTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 37
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_linearComponentTangent, ptr align 4 %ref.tmp18, i64 16, i1 false)
-  %m_relPosA23 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 30
-  %m_contactTangent24 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %call25 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %m_relPosA23, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent24)
-  %coerce.dive26 = getelementptr inbounds %class.btVector3, ptr %torqueAxisTangent, i32 0, i32 0
-  %31 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive26, i32 0, i32 0
-  %32 = extractvalue { <2 x float>, <2 x float> } %call25, 0
-  store <2 x float> %32, ptr %31, align 4
-  %33 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive26, i32 0, i32 1
-  %34 = extractvalue { <2 x float>, <2 x float> } %call25, 1
-  store <2 x float> %34, ptr %33, align 4
-  %m_solverBody28 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %35 = load ptr, ptr %m_solverBody28, align 8
-  %m_originalBody29 = getelementptr inbounds %struct.btSolverBody, ptr %35, i32 0, i32 12
-  %36 = load ptr, ptr %m_originalBody29, align 8
-  %call30 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btRigidBody24getInvInertiaTensorWorldEv(ptr noundef nonnull align 8 dereferenceable(744) %36)
-  %call31 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %call30, ptr noundef nonnull align 4 dereferenceable(16) %torqueAxisTangent)
-  %coerce.dive32 = getelementptr inbounds %class.btVector3, ptr %ref.tmp27, i32 0, i32 0
-  %37 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive32, i32 0, i32 0
-  %38 = extractvalue { <2 x float>, <2 x float> } %call31, 0
-  store <2 x float> %38, ptr %37, align 4
-  %39 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive32, i32 0, i32 1
-  %40 = extractvalue { <2 x float>, <2 x float> } %call31, 1
-  store <2 x float> %40, ptr %39, align 4
-  %m_angularComponentTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_angularComponentTangent, ptr align 4 %ref.tmp27, i64 16, i1 false)
-  br label %if.end
+  %31 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !104
+  %33 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %32)
+  %34 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %33)
+  %35 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %36 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %35, i32 0, i32 0
+  %37 = extractvalue { <2 x float>, <2 x float> } %34, 0
+  store <2 x float> %37, ptr %36, align 4
+  %38 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %35, i32 0, i32 1
+  %39 = extractvalue { <2 x float>, <2 x float> } %34, 1
+  store <2 x float> %39, ptr %38, align 4
+  %40 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %7, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #4
+  %41 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 30
+  %42 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 26
+  %43 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %42)
+  %44 = getelementptr inbounds nuw %class.btVector3, ptr %10, i32 0, i32 0
+  %45 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %44, i32 0, i32 0
+  %46 = extractvalue { <2 x float>, <2 x float> } %43, 0
+  store <2 x float> %46, ptr %45, align 4
+  %47 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %44, i32 0, i32 1
+  %48 = extractvalue { <2 x float>, <2 x float> } %43, 1
+  store <2 x float> %48, ptr %47, align 4
+  %49 = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %10)
+  %50 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %51 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %50, i32 0, i32 0
+  %52 = extractvalue { <2 x float>, <2 x float> } %49, 0
+  store <2 x float> %52, ptr %51, align 4
+  %53 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %50, i32 0, i32 1
+  %54 = extractvalue { <2 x float>, <2 x float> } %49, 1
+  store <2 x float> %54, ptr %53, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #4
+  %55 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !104
+  %57 = getelementptr inbounds nuw %struct.btSolverBody, ptr %56, i32 0, i32 12
+  %58 = load ptr, ptr %57, align 8, !tbaa !105
+  %59 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btRigidBody24getInvInertiaTensorWorldEv(ptr noundef nonnull align 8 dereferenceable(744) %58)
+  %60 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %59, ptr noundef nonnull align 4 dereferenceable(16) %9)
+  %61 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %62 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %61, i32 0, i32 0
+  %63 = extractvalue { <2 x float>, <2 x float> } %60, 0
+  store <2 x float> %63, ptr %62, align 4
+  %64 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %61, i32 0, i32 1
+  %65 = extractvalue { <2 x float>, <2 x float> } %60, 1
+  store <2 x float> %65, ptr %64, align 4
+  %66 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 36
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %11, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #4
+  %67 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 28
+  %68 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !104
+  %70 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %69)
+  %71 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) %70)
+  %72 = getelementptr inbounds nuw %class.btVector3, ptr %12, i32 0, i32 0
+  %73 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %72, i32 0, i32 0
+  %74 = extractvalue { <2 x float>, <2 x float> } %71, 0
+  store <2 x float> %74, ptr %73, align 4
+  %75 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %72, i32 0, i32 1
+  %76 = extractvalue { <2 x float>, <2 x float> } %71, 1
+  store <2 x float> %76, ptr %75, align 4
+  %77 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %77, ptr align 4 %12, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #4
+  %78 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 30
+  %79 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 28
+  %80 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %78, ptr noundef nonnull align 4 dereferenceable(16) %79)
+  %81 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %82 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %81, i32 0, i32 0
+  %83 = extractvalue { <2 x float>, <2 x float> } %80, 0
+  store <2 x float> %83, ptr %82, align 4
+  %84 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %81, i32 0, i32 1
+  %85 = extractvalue { <2 x float>, <2 x float> } %80, 1
+  store <2 x float> %85, ptr %84, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #4
+  %86 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !104
+  %88 = getelementptr inbounds nuw %struct.btSolverBody, ptr %87, i32 0, i32 12
+  %89 = load ptr, ptr %88, align 8, !tbaa !105
+  %90 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btRigidBody24getInvInertiaTensorWorldEv(ptr noundef nonnull align 8 dereferenceable(744) %89)
+  %91 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %90, ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %92 = getelementptr inbounds nuw %class.btVector3, ptr %14, i32 0, i32 0
+  %93 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %92, i32 0, i32 0
+  %94 = extractvalue { <2 x float>, <2 x float> } %91, 0
+  store <2 x float> %94, ptr %93, align 4
+  %95 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %92, i32 0, i32 1
+  %96 = extractvalue { <2 x float>, <2 x float> } %91, 1
+  store <2 x float> %96, ptr %95, align 4
+  %97 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %15, i32 0, i32 38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %97, ptr align 4 %14, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #4
+  br label %98
 
-if.end:                                           ; preds = %if.then, %entry
+98:                                               ; preds = %19, %3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2) #6 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %m_floats1 = getelementptr inbounds %class.btVector3, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [4 x float], ptr %m_floats1, i64 0, i64 0
-  %3 = load float, ptr %arrayidx2, align 4
-  %mul = fmul float %1, %3
-  store float %mul, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v1.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %7 = load float, ptr %arrayidx7, align 4
-  %mul8 = fmul float %5, %7
-  store float %mul8, ptr %ref.tmp3, align 4
-  %8 = load ptr, ptr %v1.addr, align 8
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %9 = load float, ptr %arrayidx11, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %10, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 2
-  %11 = load float, ptr %arrayidx13, align 4
-  %mul14 = fmul float %9, %11
-  store float %mul14, ptr %ref.tmp9, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #10 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !22
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 0
+  %16 = load float, ptr %15, align 4, !tbaa !22
+  %17 = fmul float %12, %16
+  store float %17, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %18 = load ptr, ptr %4, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x float], ptr %19, i64 0, i64 1
+  %21 = load float, ptr %20, align 4, !tbaa !22
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 1
+  %25 = load float, ptr %24, align 4, !tbaa !22
+  %26 = fmul float %21, %25
+  store float %26, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %27 = load ptr, ptr %4, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [4 x float], ptr %28, i64 0, i64 2
+  %30 = load float, ptr %29, align 4, !tbaa !22
+  %31 = load ptr, ptr %5, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x float], ptr %32, i64 0, i64 2
+  %34 = load float, ptr %33, align 4, !tbaa !22
+  %35 = fmul float %30, %34
+  store float %35, ptr %8, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %36 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %37 = load { <2 x float>, <2 x float> }, ptr %36, align 4
+  ret { <2 x float>, <2 x float> } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_invMass = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 5
-  ret ptr %m_invMass
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK12btSolverBody18internalGetInvMassEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.btSolverBody, ptr %3, i32 0, i32 5
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #10 comdat align 2 {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 1
+  %12 = load float, ptr %11, align 4, !tbaa !22
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 2
+  %16 = load float, ptr %15, align 4, !tbaa !22
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %18 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 2
+  %19 = load float, ptr %18, align 4, !tbaa !22
+  %20 = load ptr, ptr %5, align 8, !tbaa !18
+  %21 = getelementptr inbounds nuw %class.btVector3, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [4 x float], ptr %21, i64 0, i64 1
+  %23 = load float, ptr %22, align 4, !tbaa !22
+  %24 = fmul float %19, %23
+  %25 = fneg float %24
+  %26 = call float @llvm.fmuladd.f32(float %12, float %16, float %25)
+  store float %26, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %27 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %28 = getelementptr inbounds [4 x float], ptr %27, i64 0, i64 2
+  %29 = load float, ptr %28, align 4, !tbaa !22
+  %30 = load ptr, ptr %5, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw %class.btVector3, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds [4 x float], ptr %31, i64 0, i64 0
+  %33 = load float, ptr %32, align 4, !tbaa !22
+  %34 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %35 = getelementptr inbounds [4 x float], ptr %34, i64 0, i64 0
+  %36 = load float, ptr %35, align 4, !tbaa !22
+  %37 = load ptr, ptr %5, align 8, !tbaa !18
+  %38 = getelementptr inbounds nuw %class.btVector3, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds [4 x float], ptr %38, i64 0, i64 2
+  %40 = load float, ptr %39, align 4, !tbaa !22
+  %41 = fmul float %36, %40
+  %42 = fneg float %41
+  %43 = call float @llvm.fmuladd.f32(float %29, float %33, float %42)
+  store float %43, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %44 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %45 = getelementptr inbounds [4 x float], ptr %44, i64 0, i64 0
+  %46 = load float, ptr %45, align 4, !tbaa !22
+  %47 = load ptr, ptr %5, align 8, !tbaa !18
+  %48 = getelementptr inbounds nuw %class.btVector3, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds [4 x float], ptr %48, i64 0, i64 1
+  %50 = load float, ptr %49, align 4, !tbaa !22
+  %51 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %52 = getelementptr inbounds [4 x float], ptr %51, i64 0, i64 1
+  %53 = load float, ptr %52, align 4, !tbaa !22
+  %54 = load ptr, ptr %5, align 8, !tbaa !18
+  %55 = getelementptr inbounds nuw %class.btVector3, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds [4 x float], ptr %55, i64 0, i64 0
+  %57 = load float, ptr %56, align 4, !tbaa !22
+  %58 = fmul float %53, %57
+  %59 = fneg float %58
+  %60 = call float @llvm.fmuladd.f32(float %46, float %50, float %59)
+  store float %60, ptr %8, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %61 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %62 = load { <2 x float>, <2 x float> }, ptr %61, align 4
+  ret { <2 x float>, <2 x float> } %62
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btRigidBody24getInvInertiaTensorWorldEv(ptr noundef nonnull align 8 dereferenceable(744) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btRigidBody, ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %v) #6 comdat align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  %ref.tmp20 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 1
-  %0 = load float, ptr %arrayidx, align 4
-  %1 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 2
-  %2 = load float, ptr %arrayidx3, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  %3 = load float, ptr %arrayidx5, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %5 = load float, ptr %arrayidx7, align 4
-  %mul8 = fmul float %3, %5
-  %neg = fneg float %mul8
-  %6 = call float @llvm.fmuladd.f32(float %0, float %2, float %neg)
-  store float %6, ptr %ref.tmp, align 4
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %7 = load float, ptr %arrayidx11, align 4
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 0
-  %9 = load float, ptr %arrayidx13, align 4
-  %m_floats14 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx15 = getelementptr inbounds [4 x float], ptr %m_floats14, i64 0, i64 0
-  %10 = load float, ptr %arrayidx15, align 4
-  %11 = load ptr, ptr %v.addr, align 8
-  %m_floats16 = getelementptr inbounds %class.btVector3, ptr %11, i32 0, i32 0
-  %arrayidx17 = getelementptr inbounds [4 x float], ptr %m_floats16, i64 0, i64 2
-  %12 = load float, ptr %arrayidx17, align 4
-  %mul18 = fmul float %10, %12
-  %neg19 = fneg float %mul18
-  %13 = call float @llvm.fmuladd.f32(float %7, float %9, float %neg19)
-  store float %13, ptr %ref.tmp9, align 4
-  %m_floats21 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx22 = getelementptr inbounds [4 x float], ptr %m_floats21, i64 0, i64 0
-  %14 = load float, ptr %arrayidx22, align 4
-  %15 = load ptr, ptr %v.addr, align 8
-  %m_floats23 = getelementptr inbounds %class.btVector3, ptr %15, i32 0, i32 0
-  %arrayidx24 = getelementptr inbounds [4 x float], ptr %m_floats23, i64 0, i64 1
-  %16 = load float, ptr %arrayidx24, align 4
-  %m_floats25 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx26 = getelementptr inbounds [4 x float], ptr %m_floats25, i64 0, i64 1
-  %17 = load float, ptr %arrayidx26, align 4
-  %18 = load ptr, ptr %v.addr, align 8
-  %m_floats27 = getelementptr inbounds %class.btVector3, ptr %18, i32 0, i32 0
-  %arrayidx28 = getelementptr inbounds [4 x float], ptr %m_floats27, i64 0, i64 0
-  %19 = load float, ptr %arrayidx28, align 4
-  %mul29 = fmul float %17, %19
-  %neg30 = fneg float %mul29
-  %20 = call float @llvm.fmuladd.f32(float %14, float %16, float %neg30)
-  store float %20, ptr %ref.tmp20, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %21 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
+define dso_local { <2 x float>, <2 x float> } @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(436) %0) unnamed_addr #5 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  %7 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store float 0.000000e+00, ptr %6, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %9 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %8, i32 0, i32 1
+  %10 = load i8, ptr %9, align 8, !tbaa !89, !range !101, !noundef !102
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %19, label %12
+
+12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  %13 = call { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %15 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %14, i32 0, i32 0
+  %16 = extractvalue { <2 x float>, <2 x float> } %13, 0
+  store <2 x float> %16, ptr %15, align 4
+  %17 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %14, i32 0, i32 1
+  %18 = extractvalue { <2 x float>, <2 x float> } %13, 1
+  store <2 x float> %18, ptr %17, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %7, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  br label %19
+
+19:                                               ; preds = %12, %1
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %21 = load { <2 x float>, <2 x float> }, ptr %20, align 4
   ret { <2 x float>, <2 x float> } %21
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btRigidBody24getInvInertiaTensorWorldEv(ptr noundef nonnull align 8 dereferenceable(744) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_invInertiaTensorWorld = getelementptr inbounds %class.btRigidBody, ptr %this1, i32 0, i32 1
-  ret ptr %m_invInertiaTensorWorld
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK41btReducedDeformableRigidContactConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp4 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  %m_collideStatic = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %m_collideStatic, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %call = call { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp4, i32 0, i32 0
-  %1 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %2, ptr %1, align 4
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %4 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %4, ptr %3, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %ref.tmp4, i64 16, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %coerce.dive5 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %5 = load { <2 x float>, <2 x float> }, ptr %coerce.dive5, align 4
-  ret { <2 x float>, <2 x float> } %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %_x, ptr noundef nonnull align 4 dereferenceable(4) %_y, ptr noundef nonnull align 4 dereferenceable(4) %_z) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca ptr, align 8
-  %_y.addr = alloca ptr, align 8
-  %_z.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_x, ptr %_x.addr, align 8
-  store ptr %_y, ptr %_y.addr, align 8
-  store ptr %_z, ptr %_z.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %_x.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  store float %1, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %_y.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  store float %3, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %_z.addr, align 8
-  %5 = load float, ptr %4, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  store float %5, ptr %arrayidx5, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx7, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #9 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !50
+  store ptr %2, ptr %7, align 8, !tbaa !50
+  store ptr %3, ptr %8, align 8, !tbaa !50
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !50
+  %11 = load float, ptr %10, align 4, !tbaa !22
+  %12 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 0
+  store float %11, ptr %13, align 4, !tbaa !22
+  %14 = load ptr, ptr %7, align 8, !tbaa !50
+  %15 = load float, ptr %14, align 4, !tbaa !22
+  %16 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %17 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 1
+  store float %15, ptr %17, align 4, !tbaa !22
+  %18 = load ptr, ptr %8, align 8, !tbaa !50
+  %19 = load float, ptr %18, align 4, !tbaa !22
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  store float %19, ptr %21, align 4, !tbaa !22
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 3
+  store float 0.000000e+00, ptr %23, align 4, !tbaa !22
   ret void
 }
 
 declare { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #5 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  %deltaVa = alloca %class.btVector3, align 4
-  %deltaVb = alloca %class.btVector3, align 4
-  %deltaV_rel = alloca %class.btVector3, align 4
-  %deltaV_rel_normal = alloca float, align 4
-  %deltaImpulse = alloca float, align 4
-  %sum = alloca float, align 4
-  %residualSquare = alloca float, align 4
-  %deltaImpulse_tangent = alloca float, align 4
-  %deltaImpulse_tangent2 = alloca float, align 4
-  %lower_limit = alloca float, align 4
-  %upper_limit = alloca float, align 4
-  %impulse_normal = alloca %class.btVector3, align 4
-  %impulse_tangent = alloca %class.btVector3, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %impulse_tangent2 = alloca %class.btVector3, align 4
-  %ref.tmp35 = alloca %class.btVector3, align 4
-  %impulse = alloca %class.btVector3, align 4
-  %ref.tmp41 = alloca %class.btVector3, align 4
-  %multibodyLinkCol = alloca ptr, align 8
-  %deltaV_normal = alloca ptr, align 8
-  %deltaV_t1 = alloca ptr, align 8
-  %deltaV_t2 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
-  %0 = load ptr, ptr %vfn, align 8
-  %call = call { <2 x float>, <2 x float> } %0(ptr noundef nonnull align 8 dereferenceable(436) %this1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %deltaVa, i32 0, i32 0
-  %1 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %2, ptr %1, align 4
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %4 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %4, ptr %3, align 4
-  %vtable2 = load ptr, ptr %this1, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 13
-  %5 = load ptr, ptr %vfn3, align 8
-  %call4 = call { <2 x float>, <2 x float> } %5(ptr noundef nonnull align 8 dereferenceable(436) %this1)
-  %coerce.dive5 = getelementptr inbounds %class.btVector3, ptr %deltaVb, i32 0, i32 0
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive5, i32 0, i32 0
-  %7 = extractvalue { <2 x float>, <2 x float> } %call4, 0
-  store <2 x float> %7, ptr %6, align 4
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive5, i32 0, i32 1
-  %9 = extractvalue { <2 x float>, <2 x float> } %call4, 1
-  store <2 x float> %9, ptr %8, align 4
-  %call6 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %deltaVa, ptr noundef nonnull align 4 dereferenceable(16) %deltaVb)
-  %coerce.dive7 = getelementptr inbounds %class.btVector3, ptr %deltaV_rel, i32 0, i32 0
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive7, i32 0, i32 0
-  %11 = extractvalue { <2 x float>, <2 x float> } %call6, 0
-  store <2 x float> %11, ptr %10, align 4
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive7, i32 0, i32 1
-  %13 = extractvalue { <2 x float>, <2 x float> } %call6, 1
-  store <2 x float> %13, ptr %12, align 4
-  %m_contactNormalA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call8 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %deltaV_rel, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA)
-  %fneg = fneg float %call8
-  store float %fneg, ptr %deltaV_rel_normal, align 4
-  %m_rhs = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 18
-  %14 = load float, ptr %m_rhs, align 4
-  %m_appliedNormalImpulse = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  %15 = load float, ptr %m_appliedNormalImpulse, align 4
-  %m_cfm = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 21
-  %16 = load float, ptr %m_cfm, align 8
-  %neg = fneg float %15
-  %17 = call float @llvm.fmuladd.f32(float %neg, float %16, float %14)
-  %18 = load float, ptr %deltaV_rel_normal, align 4
-  %m_normalImpulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 13
-  %19 = load float, ptr %m_normalImpulseFactor, align 8
-  %div = fdiv float %18, %19
-  %sub = fsub float %17, %div
-  store float %sub, ptr %deltaImpulse, align 4
-  %m_appliedNormalImpulse9 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  %20 = load float, ptr %m_appliedNormalImpulse9, align 4
-  %21 = load float, ptr %deltaImpulse, align 4
-  %add = fadd float %20, %21
-  store float %add, ptr %sum, align 4
-  %22 = load float, ptr %sum, align 4
-  %cmp = fcmp olt float %22, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local noundef float @_ZN41btReducedDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull align 4 dereferenceable(128) %1) unnamed_addr #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.btVector3, align 4
+  %6 = alloca %class.btVector3, align 4
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca %class.btVector3, align 4
+  %17 = alloca %class.btVector3, align 4
+  %18 = alloca %class.btVector3, align 4
+  %19 = alloca %class.btVector3, align 4
+  %20 = alloca %class.btVector3, align 4
+  %21 = alloca %class.btVector3, align 4
+  %22 = alloca %class.btVector3, align 4
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %27 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #4
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %29 = getelementptr inbounds ptr, ptr %28, i64 12
+  %30 = load ptr, ptr %29, align 8
+  %31 = call { <2 x float>, <2 x float> } %30(ptr noundef nonnull align 8 dereferenceable(436) %27)
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %33 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %32, i32 0, i32 0
+  %34 = extractvalue { <2 x float>, <2 x float> } %31, 0
+  store <2 x float> %34, ptr %33, align 4
+  %35 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %32, i32 0, i32 1
+  %36 = extractvalue { <2 x float>, <2 x float> } %31, 1
+  store <2 x float> %36, ptr %35, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #4
+  %37 = load ptr, ptr %27, align 8, !tbaa !24
+  %38 = getelementptr inbounds ptr, ptr %37, i64 13
+  %39 = load ptr, ptr %38, align 8
+  %40 = call { <2 x float>, <2 x float> } %39(ptr noundef nonnull align 8 dereferenceable(436) %27)
+  %41 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %42 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %41, i32 0, i32 0
+  %43 = extractvalue { <2 x float>, <2 x float> } %40, 0
+  store <2 x float> %43, ptr %42, align 4
+  %44 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %41, i32 0, i32 1
+  %45 = extractvalue { <2 x float>, <2 x float> } %40, 1
+  store <2 x float> %45, ptr %44, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  %46 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6)
+  %47 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %48 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %47, i32 0, i32 0
+  %49 = extractvalue { <2 x float>, <2 x float> } %46, 0
+  store <2 x float> %49, ptr %48, align 4
+  %50 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %47, i32 0, i32 1
+  %51 = extractvalue { <2 x float>, <2 x float> } %46, 1
+  store <2 x float> %51, ptr %50, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %52 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 26
+  %53 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %52)
+  %54 = fneg float %53
+  store float %54, ptr %8, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %55 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 18
+  %56 = load float, ptr %55, align 4, !tbaa !66
+  %57 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 10
+  %58 = load float, ptr %57, align 4, !tbaa !64
+  %59 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 21
+  %60 = load float, ptr %59, align 8, !tbaa !70
+  %61 = fneg float %58
+  %62 = call float @llvm.fmuladd.f32(float %61, float %60, float %56)
+  %63 = load float, ptr %8, align 4, !tbaa !22
+  %64 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 13
+  %65 = load float, ptr %64, align 8, !tbaa !109
+  %66 = fdiv float %63, %65
+  %67 = fsub float %62, %66
+  store float %67, ptr %9, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %68 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 10
+  %69 = load float, ptr %68, align 4, !tbaa !64
+  %70 = load float, ptr %9, align 4, !tbaa !22
+  %71 = fadd float %69, %70
+  store float %71, ptr %10, align 4, !tbaa !22
+  %72 = load float, ptr %10, align 4, !tbaa !22
+  %73 = fcmp olt float %72, 0.000000e+00
+  br i1 %73, label %74, label %79
 
-if.then:                                          ; preds = %entry
-  %m_appliedNormalImpulse10 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  %23 = load float, ptr %m_appliedNormalImpulse10, align 4
-  %fneg11 = fneg float %23
-  store float %fneg11, ptr %deltaImpulse, align 4
-  %m_appliedNormalImpulse12 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  store float 0.000000e+00, ptr %m_appliedNormalImpulse12, align 4
-  br label %if.end
+74:                                               ; preds = %2
+  %75 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 10
+  %76 = load float, ptr %75, align 4, !tbaa !64
+  %77 = fneg float %76
+  store float %77, ptr %9, align 4, !tbaa !22
+  %78 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 10
+  store float 0.000000e+00, ptr %78, align 4, !tbaa !64
+  br label %82
 
-if.else:                                          ; preds = %entry
-  %24 = load float, ptr %sum, align 4
-  %m_appliedNormalImpulse13 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  store float %24, ptr %m_appliedNormalImpulse13, align 4
-  br label %if.end
+79:                                               ; preds = %2
+  %80 = load float, ptr %10, align 4, !tbaa !22
+  %81 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 10
+  store float %80, ptr %81, align 4, !tbaa !64
+  br label %82
 
-if.end:                                           ; preds = %if.else, %if.then
-  %25 = load float, ptr %deltaImpulse, align 4
-  %m_normalImpulseFactor14 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 13
-  %26 = load float, ptr %m_normalImpulseFactor14, align 8
-  %mul = fmul float %25, %26
-  store float %mul, ptr %residualSquare, align 4
-  %27 = load float, ptr %residualSquare, align 4
-  %28 = load float, ptr %residualSquare, align 4
-  %mul15 = fmul float %28, %27
-  store float %mul15, ptr %residualSquare, align 4
-  store float 0.000000e+00, ptr %deltaImpulse_tangent, align 4
-  store float 0.000000e+00, ptr %deltaImpulse_tangent2, align 4
-  %m_appliedNormalImpulse16 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  %29 = load float, ptr %m_appliedNormalImpulse16, align 4
-  %fneg17 = fneg float %29
-  %m_friction = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 25
-  %30 = load float, ptr %m_friction, align 8
-  %mul18 = fmul float %fneg17, %30
-  store float %mul18, ptr %lower_limit, align 4
-  %m_appliedNormalImpulse19 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 10
-  %31 = load float, ptr %m_appliedNormalImpulse19, align 4
-  %m_friction20 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 25
-  %32 = load float, ptr %m_friction20, align 8
-  %mul21 = fmul float %31, %32
-  store float %mul21, ptr %upper_limit, align 4
-  %m_appliedTangentImpulse = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 11
-  %m_rhs_tangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 19
-  %33 = load float, ptr %m_rhs_tangent, align 8
-  %m_tangentImpulseFactorInv = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 16
-  %34 = load float, ptr %m_tangentImpulseFactorInv, align 4
-  %m_contactTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %35 = load float, ptr %lower_limit, align 4
-  %36 = load float, ptr %upper_limit, align 4
-  call void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr noundef nonnull align 8 dereferenceable(436) %this1, ptr noundef nonnull align 4 dereferenceable(4) %deltaImpulse_tangent, ptr noundef nonnull align 4 dereferenceable(4) %m_appliedTangentImpulse, float noundef %33, float noundef %34, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent, float noundef %35, float noundef %36, ptr noundef nonnull align 4 dereferenceable(16) %deltaV_rel)
-  %m_collideMultibody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %37 = load i8, ptr %m_collideMultibody, align 1
-  %tobool = trunc i8 %37 to i1
-  br i1 %tobool, label %if.then22, label %if.end23
+82:                                               ; preds = %79, %74
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %83 = load float, ptr %9, align 4, !tbaa !22
+  %84 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 13
+  %85 = load float, ptr %84, align 8, !tbaa !109
+  %86 = fmul float %83, %85
+  store float %86, ptr %11, align 4, !tbaa !22
+  %87 = load float, ptr %11, align 4, !tbaa !22
+  %88 = load float, ptr %11, align 4, !tbaa !22
+  %89 = fmul float %88, %87
+  store float %89, ptr %11, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  store float 0.000000e+00, ptr %12, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  store float 0.000000e+00, ptr %13, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  %90 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 10
+  %91 = load float, ptr %90, align 4, !tbaa !64
+  %92 = fneg float %91
+  %93 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 25
+  %94 = load float, ptr %93, align 8, !tbaa !76
+  %95 = fmul float %92, %94
+  store float %95, ptr %14, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %96 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 10
+  %97 = load float, ptr %96, align 4, !tbaa !64
+  %98 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 25
+  %99 = load float, ptr %98, align 8, !tbaa !76
+  %100 = fmul float %97, %99
+  store float %100, ptr %15, align 4, !tbaa !22
+  %101 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 11
+  %102 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 19
+  %103 = load float, ptr %102, align 8, !tbaa !67
+  %104 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 16
+  %105 = load float, ptr %104, align 4, !tbaa !110
+  %106 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 28
+  %107 = load float, ptr %14, align 4, !tbaa !22
+  %108 = load float, ptr %15, align 4, !tbaa !22
+  call void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr noundef nonnull align 8 dereferenceable(436) %27, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %101, float noundef %103, float noundef %105, ptr noundef nonnull align 4 dereferenceable(16) %106, float noundef %107, float noundef %108, ptr noundef nonnull align 4 dereferenceable(16) %7)
+  %109 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 2
+  %110 = load i8, ptr %109, align 1, !tbaa !90, !range !101, !noundef !102
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %121
 
-if.then22:                                        ; preds = %if.end
-  %m_appliedTangentImpulse2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 12
-  %m_rhs_tangent2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 20
-  %38 = load float, ptr %m_rhs_tangent2, align 4
-  %m_tangentImpulseFactorInv2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 17
-  %39 = load float, ptr %m_tangentImpulseFactorInv2, align 8
-  %m_contactTangent2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  %40 = load float, ptr %lower_limit, align 4
-  %41 = load float, ptr %upper_limit, align 4
-  call void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr noundef nonnull align 8 dereferenceable(436) %this1, ptr noundef nonnull align 4 dereferenceable(4) %deltaImpulse_tangent2, ptr noundef nonnull align 4 dereferenceable(4) %m_appliedTangentImpulse2, float noundef %38, float noundef %39, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent2, float noundef %40, float noundef %41, ptr noundef nonnull align 4 dereferenceable(16) %deltaV_rel)
-  br label %if.end23
+112:                                              ; preds = %82
+  %113 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 12
+  %114 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 20
+  %115 = load float, ptr %114, align 4, !tbaa !111
+  %116 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 17
+  %117 = load float, ptr %116, align 8, !tbaa !112
+  %118 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 29
+  %119 = load float, ptr %14, align 4, !tbaa !22
+  %120 = load float, ptr %15, align 4, !tbaa !22
+  call void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr noundef nonnull align 8 dereferenceable(436) %27, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %113, float noundef %115, float noundef %117, ptr noundef nonnull align 4 dereferenceable(16) %118, float noundef %119, float noundef %120, ptr noundef nonnull align 4 dereferenceable(16) %7)
+  br label %121
 
-if.end23:                                         ; preds = %if.then22, %if.end
-  %m_collideStatic = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %42 = load i8, ptr %m_collideStatic, align 8
-  %tobool24 = trunc i8 %42 to i1
-  br i1 %tobool24, label %if.end26, label %if.then25
+121:                                              ; preds = %112, %82
+  %122 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 1
+  %123 = load i8, ptr %122, align 8, !tbaa !89, !range !101, !noundef !102
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %126, label %125
 
-if.then25:                                        ; preds = %if.end23
-  br label %if.end26
+125:                                              ; preds = %121
+  br label %126
 
-if.end26:                                         ; preds = %if.then25, %if.end23
-  %m_contactNormalA27 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call28 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %deltaImpulse, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA27)
-  %coerce.dive29 = getelementptr inbounds %class.btVector3, ptr %impulse_normal, i32 0, i32 0
-  %43 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive29, i32 0, i32 0
-  %44 = extractvalue { <2 x float>, <2 x float> } %call28, 0
-  store <2 x float> %44, ptr %43, align 4
-  %45 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive29, i32 0, i32 1
-  %46 = extractvalue { <2 x float>, <2 x float> } %call28, 1
-  store <2 x float> %46, ptr %45, align 4
-  %m_contactTangent30 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %call31 = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent30)
-  %coerce.dive32 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %47 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive32, i32 0, i32 0
-  %48 = extractvalue { <2 x float>, <2 x float> } %call31, 0
-  store <2 x float> %48, ptr %47, align 4
-  %49 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive32, i32 0, i32 1
-  %50 = extractvalue { <2 x float>, <2 x float> } %call31, 1
-  store <2 x float> %50, ptr %49, align 4
-  %call33 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %deltaImpulse_tangent, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
-  %coerce.dive34 = getelementptr inbounds %class.btVector3, ptr %impulse_tangent, i32 0, i32 0
-  %51 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive34, i32 0, i32 0
-  %52 = extractvalue { <2 x float>, <2 x float> } %call33, 0
-  store <2 x float> %52, ptr %51, align 4
-  %53 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive34, i32 0, i32 1
-  %54 = extractvalue { <2 x float>, <2 x float> } %call33, 1
-  store <2 x float> %54, ptr %53, align 4
-  %m_contactTangent236 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  %call37 = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent236)
-  %coerce.dive38 = getelementptr inbounds %class.btVector3, ptr %ref.tmp35, i32 0, i32 0
-  %55 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive38, i32 0, i32 0
-  %56 = extractvalue { <2 x float>, <2 x float> } %call37, 0
-  store <2 x float> %56, ptr %55, align 4
-  %57 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive38, i32 0, i32 1
-  %58 = extractvalue { <2 x float>, <2 x float> } %call37, 1
-  store <2 x float> %58, ptr %57, align 4
-  %call39 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %deltaImpulse_tangent2, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp35)
-  %coerce.dive40 = getelementptr inbounds %class.btVector3, ptr %impulse_tangent2, i32 0, i32 0
-  %59 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive40, i32 0, i32 0
-  %60 = extractvalue { <2 x float>, <2 x float> } %call39, 0
-  store <2 x float> %60, ptr %59, align 4
-  %61 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive40, i32 0, i32 1
-  %62 = extractvalue { <2 x float>, <2 x float> } %call39, 1
-  store <2 x float> %62, ptr %61, align 4
-  %call42 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %impulse_normal, ptr noundef nonnull align 4 dereferenceable(16) %impulse_tangent)
-  %coerce.dive43 = getelementptr inbounds %class.btVector3, ptr %ref.tmp41, i32 0, i32 0
-  %63 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive43, i32 0, i32 0
-  %64 = extractvalue { <2 x float>, <2 x float> } %call42, 0
-  store <2 x float> %64, ptr %63, align 4
-  %65 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive43, i32 0, i32 1
-  %66 = extractvalue { <2 x float>, <2 x float> } %call42, 1
-  store <2 x float> %66, ptr %65, align 4
-  %call44 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp41, ptr noundef nonnull align 4 dereferenceable(16) %impulse_tangent2)
-  %coerce.dive45 = getelementptr inbounds %class.btVector3, ptr %impulse, i32 0, i32 0
-  %67 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive45, i32 0, i32 0
-  %68 = extractvalue { <2 x float>, <2 x float> } %call44, 0
-  store <2 x float> %68, ptr %67, align 4
-  %69 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive45, i32 0, i32 1
-  %70 = extractvalue { <2 x float>, <2 x float> } %call44, 1
-  store <2 x float> %70, ptr %69, align 4
-  %vtable46 = load ptr, ptr %this1, align 8
-  %vfn47 = getelementptr inbounds ptr, ptr %vtable46, i64 6
-  %71 = load ptr, ptr %vfn47, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(436) %this1, ptr noundef nonnull align 4 dereferenceable(16) %impulse)
-  %m_collideStatic48 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %72 = load i8, ptr %m_collideStatic48, align 8
-  %tobool49 = trunc i8 %72 to i1
-  br i1 %tobool49, label %if.end76, label %if.then50
+126:                                              ; preds = %125, %121
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #4
+  %127 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 26
+  %128 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(16) %127)
+  %129 = getelementptr inbounds nuw %class.btVector3, ptr %16, i32 0, i32 0
+  %130 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %129, i32 0, i32 0
+  %131 = extractvalue { <2 x float>, <2 x float> } %128, 0
+  store <2 x float> %131, ptr %130, align 4
+  %132 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %129, i32 0, i32 1
+  %133 = extractvalue { <2 x float>, <2 x float> } %128, 1
+  store <2 x float> %133, ptr %132, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #4
+  %134 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 28
+  %135 = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %134)
+  %136 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %137 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %136, i32 0, i32 0
+  %138 = extractvalue { <2 x float>, <2 x float> } %135, 0
+  store <2 x float> %138, ptr %137, align 4
+  %139 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %136, i32 0, i32 1
+  %140 = extractvalue { <2 x float>, <2 x float> } %135, 1
+  store <2 x float> %140, ptr %139, align 4
+  %141 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(16) %18)
+  %142 = getelementptr inbounds nuw %class.btVector3, ptr %17, i32 0, i32 0
+  %143 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %142, i32 0, i32 0
+  %144 = extractvalue { <2 x float>, <2 x float> } %141, 0
+  store <2 x float> %144, ptr %143, align 4
+  %145 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %142, i32 0, i32 1
+  %146 = extractvalue { <2 x float>, <2 x float> } %141, 1
+  store <2 x float> %146, ptr %145, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #4
+  %147 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 29
+  %148 = call { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %147)
+  %149 = getelementptr inbounds nuw %class.btVector3, ptr %20, i32 0, i32 0
+  %150 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %149, i32 0, i32 0
+  %151 = extractvalue { <2 x float>, <2 x float> } %148, 0
+  store <2 x float> %151, ptr %150, align 4
+  %152 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %149, i32 0, i32 1
+  %153 = extractvalue { <2 x float>, <2 x float> } %148, 1
+  store <2 x float> %153, ptr %152, align 4
+  %154 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(16) %20)
+  %155 = getelementptr inbounds nuw %class.btVector3, ptr %19, i32 0, i32 0
+  %156 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %155, i32 0, i32 0
+  %157 = extractvalue { <2 x float>, <2 x float> } %154, 0
+  store <2 x float> %157, ptr %156, align 4
+  %158 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %155, i32 0, i32 1
+  %159 = extractvalue { <2 x float>, <2 x float> } %154, 1
+  store <2 x float> %159, ptr %158, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #4
+  %160 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %17)
+  %161 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %162 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %161, i32 0, i32 0
+  %163 = extractvalue { <2 x float>, <2 x float> } %160, 0
+  store <2 x float> %163, ptr %162, align 4
+  %164 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %161, i32 0, i32 1
+  %165 = extractvalue { <2 x float>, <2 x float> } %160, 1
+  store <2 x float> %165, ptr %164, align 4
+  %166 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %19)
+  %167 = getelementptr inbounds nuw %class.btVector3, ptr %21, i32 0, i32 0
+  %168 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %167, i32 0, i32 0
+  %169 = extractvalue { <2 x float>, <2 x float> } %166, 0
+  store <2 x float> %169, ptr %168, align 4
+  %170 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %167, i32 0, i32 1
+  %171 = extractvalue { <2 x float>, <2 x float> } %166, 1
+  store <2 x float> %171, ptr %170, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #4
+  %172 = load ptr, ptr %27, align 8, !tbaa !24
+  %173 = getelementptr inbounds ptr, ptr %172, i64 6
+  %174 = load ptr, ptr %173, align 8
+  call void %174(ptr noundef nonnull align 8 dereferenceable(436) %27, ptr noundef nonnull align 4 dereferenceable(16) %21)
+  %175 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 1
+  %176 = load i8, ptr %175, align 8, !tbaa !89, !range !101, !noundef !102
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %240, label %178
 
-if.then50:                                        ; preds = %if.end26
-  %m_collideMultibody51 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %73 = load i8, ptr %m_collideMultibody51, align 1
-  %tobool52 = trunc i8 %73 to i1
-  br i1 %tobool52, label %if.else55, label %if.then53
+178:                                              ; preds = %126
+  %179 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 2
+  %180 = load i8, ptr %179, align 1, !tbaa !90, !range !101, !noundef !102
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %193, label %182
 
-if.then53:                                        ; preds = %if.then50
-  %m_solverBody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %74 = load ptr, ptr %m_solverBody, align 8
-  %m_linearComponentNormal = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 35
-  %m_angularComponentNormal = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 36
-  %75 = load float, ptr %deltaImpulse, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %74, ptr noundef nonnull align 4 dereferenceable(16) %m_linearComponentNormal, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentNormal, float noundef %75)
-  %m_solverBody54 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %76 = load ptr, ptr %m_solverBody54, align 8
-  %m_linearComponentTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 37
-  %m_angularComponentTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 38
-  %77 = load float, ptr %deltaImpulse_tangent, align 4
-  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %76, ptr noundef nonnull align 4 dereferenceable(16) %m_linearComponentTangent, ptr noundef nonnull align 4 dereferenceable(16) %m_angularComponentTangent, float noundef %77)
-  br label %if.end75
+182:                                              ; preds = %178
+  %183 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 8
+  %184 = load ptr, ptr %183, align 8, !tbaa !104
+  %185 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 35
+  %186 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 36
+  %187 = load float, ptr %9, align 4, !tbaa !22
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %184, ptr noundef nonnull align 4 dereferenceable(16) %185, ptr noundef nonnull align 4 dereferenceable(16) %186, float noundef %187)
+  %188 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 8
+  %189 = load ptr, ptr %188, align 8, !tbaa !104
+  %190 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 37
+  %191 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %27, i32 0, i32 38
+  %192 = load float, ptr %12, align 4, !tbaa !22
+  call void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %189, ptr noundef nonnull align 4 dereferenceable(16) %190, ptr noundef nonnull align 4 dereferenceable(16) %191, float noundef %192)
+  br label %239
 
-if.else55:                                        ; preds = %if.then50
-  store ptr null, ptr %multibodyLinkCol, align 8
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %78 = load ptr, ptr %m_contact, align 8
-  %m_cti = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %78, i32 0, i32 0
-  %m_colObj = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti, i32 0, i32 0
-  %79 = load ptr, ptr %m_colObj, align 8
-  %call56 = call noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %79)
-  store ptr %call56, ptr %multibodyLinkCol, align 8
-  %80 = load ptr, ptr %multibodyLinkCol, align 8
-  %tobool57 = icmp ne ptr %80, null
-  br i1 %tobool57, label %if.then58, label %if.end74
+193:                                              ; preds = %178
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #4
+  store ptr null, ptr %23, align 8, !tbaa !113
+  %194 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %27, i32 0, i32 6
+  %195 = load ptr, ptr %194, align 8, !tbaa !77
+  %196 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %195, i32 0, i32 0
+  %197 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %196, i32 0, i32 0
+  %198 = load ptr, ptr %197, align 8, !tbaa !78
+  %199 = call noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %198)
+  store ptr %199, ptr %23, align 8, !tbaa !113
+  %200 = load ptr, ptr %23, align 8, !tbaa !113
+  %201 = icmp ne ptr %200, null
+  br i1 %201, label %202, label %238
 
-if.then58:                                        ; preds = %if.else55
-  %m_contact59 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %81 = load ptr, ptr %m_contact59, align 8
-  %jacobianData_normal = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %81, i32 0, i32 8
-  %m_deltaVelocitiesUnitImpulse = getelementptr inbounds %struct.btMultiBodyJacobianData, ptr %jacobianData_normal, i32 0, i32 1
-  %call60 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaVelocitiesUnitImpulse, i32 noundef 0)
-  store ptr %call60, ptr %deltaV_normal, align 8
-  %82 = load ptr, ptr %multibodyLinkCol, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %82, i32 0, i32 2
-  %83 = load ptr, ptr %m_multiBody, align 8
-  %84 = load ptr, ptr %deltaV_normal, align 8
-  %85 = load float, ptr %deltaImpulse, align 4
-  %fneg61 = fneg float %85
-  call void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %83, ptr noundef %84, float noundef %fneg61)
-  %call62 = call noundef float @_ZNK9btVector34normEv(ptr noundef nonnull align 4 dereferenceable(16) %impulse_tangent)
-  %cmp63 = fcmp ogt float %call62, 0x3E80000000000000
-  br i1 %cmp63, label %if.then64, label %if.end73
+202:                                              ; preds = %193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #4
+  %203 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %27, i32 0, i32 6
+  %204 = load ptr, ptr %203, align 8, !tbaa !77
+  %205 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %204, i32 0, i32 8
+  %206 = getelementptr inbounds nuw %struct.btMultiBodyJacobianData, ptr %205, i32 0, i32 1
+  %207 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %206, i32 noundef 0)
+  store ptr %207, ptr %24, align 8, !tbaa !50
+  %208 = load ptr, ptr %23, align 8, !tbaa !113
+  %209 = getelementptr inbounds nuw %class.btMultiBodyLinkCollider, ptr %208, i32 0, i32 2
+  %210 = load ptr, ptr %209, align 8, !tbaa !115
+  %211 = load ptr, ptr %24, align 8, !tbaa !50
+  %212 = load float, ptr %9, align 4, !tbaa !22
+  %213 = fneg float %212
+  call void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %210, ptr noundef %211, float noundef %213)
+  %214 = call noundef float @_ZNK9btVector34normEv(ptr noundef nonnull align 4 dereferenceable(16) %17)
+  %215 = fcmp ogt float %214, 0x3E80000000000000
+  br i1 %215, label %216, label %237
 
-if.then64:                                        ; preds = %if.then58
-  %m_contact65 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %86 = load ptr, ptr %m_contact65, align 8
-  %jacobianData_t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %86, i32 0, i32 9
-  %m_deltaVelocitiesUnitImpulse66 = getelementptr inbounds %struct.btMultiBodyJacobianData, ptr %jacobianData_t1, i32 0, i32 1
-  %call67 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaVelocitiesUnitImpulse66, i32 noundef 0)
-  store ptr %call67, ptr %deltaV_t1, align 8
-  %87 = load ptr, ptr %multibodyLinkCol, align 8
-  %m_multiBody68 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %87, i32 0, i32 2
-  %88 = load ptr, ptr %m_multiBody68, align 8
-  %89 = load ptr, ptr %deltaV_t1, align 8
-  %90 = load float, ptr %deltaImpulse_tangent, align 4
-  call void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %88, ptr noundef %89, float noundef %90)
-  %m_contact69 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %91 = load ptr, ptr %m_contact69, align 8
-  %jacobianData_t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %91, i32 0, i32 10
-  %m_deltaVelocitiesUnitImpulse70 = getelementptr inbounds %struct.btMultiBodyJacobianData, ptr %jacobianData_t2, i32 0, i32 1
-  %call71 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaVelocitiesUnitImpulse70, i32 noundef 0)
-  store ptr %call71, ptr %deltaV_t2, align 8
-  %92 = load ptr, ptr %multibodyLinkCol, align 8
-  %m_multiBody72 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %92, i32 0, i32 2
-  %93 = load ptr, ptr %m_multiBody72, align 8
-  %94 = load ptr, ptr %deltaV_t2, align 8
-  %95 = load float, ptr %deltaImpulse_tangent2, align 4
-  call void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %93, ptr noundef %94, float noundef %95)
-  br label %if.end73
+216:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #4
+  %217 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %27, i32 0, i32 6
+  %218 = load ptr, ptr %217, align 8, !tbaa !77
+  %219 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %218, i32 0, i32 9
+  %220 = getelementptr inbounds nuw %struct.btMultiBodyJacobianData, ptr %219, i32 0, i32 1
+  %221 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %220, i32 noundef 0)
+  store ptr %221, ptr %25, align 8, !tbaa !50
+  %222 = load ptr, ptr %23, align 8, !tbaa !113
+  %223 = getelementptr inbounds nuw %class.btMultiBodyLinkCollider, ptr %222, i32 0, i32 2
+  %224 = load ptr, ptr %223, align 8, !tbaa !115
+  %225 = load ptr, ptr %25, align 8, !tbaa !50
+  %226 = load float, ptr %12, align 4, !tbaa !22
+  call void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %224, ptr noundef %225, float noundef %226)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #4
+  %227 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %27, i32 0, i32 6
+  %228 = load ptr, ptr %227, align 8, !tbaa !77
+  %229 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %228, i32 0, i32 10
+  %230 = getelementptr inbounds nuw %struct.btMultiBodyJacobianData, ptr %229, i32 0, i32 1
+  %231 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %230, i32 noundef 0)
+  store ptr %231, ptr %26, align 8, !tbaa !50
+  %232 = load ptr, ptr %23, align 8, !tbaa !113
+  %233 = getelementptr inbounds nuw %class.btMultiBodyLinkCollider, ptr %232, i32 0, i32 2
+  %234 = load ptr, ptr %233, align 8, !tbaa !115
+  %235 = load ptr, ptr %26, align 8, !tbaa !50
+  %236 = load float, ptr %13, align 4, !tbaa !22
+  call void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %234, ptr noundef %235, float noundef %236)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #4
+  br label %237
 
-if.end73:                                         ; preds = %if.then64, %if.then58
-  br label %if.end74
+237:                                              ; preds = %216, %202
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #4
+  br label %238
 
-if.end74:                                         ; preds = %if.end73, %if.else55
-  br label %if.end75
+238:                                              ; preds = %237, %193
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #4
+  br label %239
 
-if.end75:                                         ; preds = %if.end74, %if.then53
-  br label %if.end76
+239:                                              ; preds = %238, %182
+  br label %240
 
-if.end76:                                         ; preds = %if.end75, %if.end26
-  %96 = load float, ptr %residualSquare, align 4
-  ret float %96
+240:                                              ; preds = %239, %126
+  %241 = load float, ptr %11, align 4, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #4
+  ret float %241
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull align 4 dereferenceable(4) %deltaImpulse_tangent, ptr noundef nonnull align 4 dereferenceable(4) %appliedImpulse, float noundef %rhs_tangent, float noundef %tangentImpulseFactorInv, ptr noundef nonnull align 4 dereferenceable(16) %tangent, float noundef %lower_limit, float noundef %upper_limit, ptr noundef nonnull align 4 dereferenceable(16) %deltaV_rel) #6 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %deltaImpulse_tangent.addr = alloca ptr, align 8
-  %appliedImpulse.addr = alloca ptr, align 8
-  %rhs_tangent.addr = alloca float, align 4
-  %tangentImpulseFactorInv.addr = alloca float, align 4
-  %tangent.addr = alloca ptr, align 8
-  %lower_limit.addr = alloca float, align 4
-  %upper_limit.addr = alloca float, align 4
-  %deltaV_rel.addr = alloca ptr, align 8
-  %deltaV_rel_tangent = alloca float, align 4
-  %impulse_changed = alloca float, align 4
-  %sum = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %deltaImpulse_tangent, ptr %deltaImpulse_tangent.addr, align 8
-  store ptr %appliedImpulse, ptr %appliedImpulse.addr, align 8
-  store float %rhs_tangent, ptr %rhs_tangent.addr, align 4
-  store float %tangentImpulseFactorInv, ptr %tangentImpulseFactorInv.addr, align 4
-  store ptr %tangent, ptr %tangent.addr, align 8
-  store float %lower_limit, ptr %lower_limit.addr, align 4
-  store float %upper_limit, ptr %upper_limit.addr, align 4
-  store ptr %deltaV_rel, ptr %deltaV_rel.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %deltaV_rel.addr, align 8
-  %1 = load ptr, ptr %tangent.addr, align 8
-  %call = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1)
-  store float %call, ptr %deltaV_rel_tangent, align 4
-  %2 = load float, ptr %deltaV_rel_tangent, align 4
-  %3 = load float, ptr %tangentImpulseFactorInv.addr, align 4
-  %mul = fmul float %2, %3
-  store float %mul, ptr %impulse_changed, align 4
-  %4 = load float, ptr %rhs_tangent.addr, align 4
-  %m_cfm_friction = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 22
-  %5 = load float, ptr %m_cfm_friction, align 4
-  %6 = load ptr, ptr %appliedImpulse.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %neg = fneg float %5
-  %8 = call float @llvm.fmuladd.f32(float %neg, float %7, float %4)
-  %9 = load float, ptr %impulse_changed, align 4
-  %sub = fsub float %8, %9
-  %10 = load ptr, ptr %deltaImpulse_tangent.addr, align 8
-  store float %sub, ptr %10, align 4
-  %11 = load ptr, ptr %appliedImpulse.addr, align 8
-  %12 = load float, ptr %11, align 4
-  %13 = load ptr, ptr %deltaImpulse_tangent.addr, align 8
-  %14 = load float, ptr %13, align 4
-  %add = fadd float %12, %14
-  store float %add, ptr %sum, align 4
-  %15 = load float, ptr %sum, align 4
-  %16 = load float, ptr %upper_limit.addr, align 4
-  %cmp = fcmp ogt float %15, %16
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, float noundef %3, float noundef %4, ptr noundef nonnull align 4 dereferenceable(16) %5, float noundef %6, float noundef %7, ptr noundef nonnull align 4 dereferenceable(16) %8) #6 align 2 {
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  %21 = alloca float, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !54
+  store ptr %1, ptr %11, align 8, !tbaa !50
+  store ptr %2, ptr %12, align 8, !tbaa !50
+  store float %3, ptr %13, align 4, !tbaa !22
+  store float %4, ptr %14, align 4, !tbaa !22
+  store ptr %5, ptr %15, align 8, !tbaa !18
+  store float %6, ptr %16, align 4, !tbaa !22
+  store float %7, ptr %17, align 4, !tbaa !22
+  store ptr %8, ptr %18, align 8, !tbaa !18
+  %22 = load ptr, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  %23 = load ptr, ptr %18, align 8, !tbaa !18
+  %24 = load ptr, ptr %15, align 8, !tbaa !18
+  %25 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %24)
+  store float %25, ptr %19, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  %26 = load float, ptr %19, align 4, !tbaa !22
+  %27 = load float, ptr %14, align 4, !tbaa !22
+  %28 = fmul float %26, %27
+  store float %28, ptr %20, align 4, !tbaa !22
+  %29 = load float, ptr %13, align 4, !tbaa !22
+  %30 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %22, i32 0, i32 22
+  %31 = load float, ptr %30, align 4, !tbaa !71
+  %32 = load ptr, ptr %12, align 8, !tbaa !50
+  %33 = load float, ptr %32, align 4, !tbaa !22
+  %34 = fneg float %31
+  %35 = call float @llvm.fmuladd.f32(float %34, float %33, float %29)
+  %36 = load float, ptr %20, align 4, !tbaa !22
+  %37 = fsub float %35, %36
+  %38 = load ptr, ptr %11, align 8, !tbaa !50
+  store float %37, ptr %38, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  %39 = load ptr, ptr %12, align 8, !tbaa !50
+  %40 = load float, ptr %39, align 4, !tbaa !22
+  %41 = load ptr, ptr %11, align 8, !tbaa !50
+  %42 = load float, ptr %41, align 4, !tbaa !22
+  %43 = fadd float %40, %42
+  store float %43, ptr %21, align 4, !tbaa !22
+  %44 = load float, ptr %21, align 4, !tbaa !22
+  %45 = load float, ptr %17, align 4, !tbaa !22
+  %46 = fcmp ogt float %44, %45
+  br i1 %46, label %47, label %55
 
-if.then:                                          ; preds = %entry
-  %17 = load float, ptr %upper_limit.addr, align 4
-  %18 = load ptr, ptr %appliedImpulse.addr, align 8
-  %19 = load float, ptr %18, align 4
-  %sub3 = fsub float %17, %19
-  %20 = load ptr, ptr %deltaImpulse_tangent.addr, align 8
-  store float %sub3, ptr %20, align 4
-  %21 = load float, ptr %upper_limit.addr, align 4
-  %22 = load ptr, ptr %appliedImpulse.addr, align 8
-  store float %21, ptr %22, align 4
-  br label %if.end8
+47:                                               ; preds = %9
+  %48 = load float, ptr %17, align 4, !tbaa !22
+  %49 = load ptr, ptr %12, align 8, !tbaa !50
+  %50 = load float, ptr %49, align 4, !tbaa !22
+  %51 = fsub float %48, %50
+  %52 = load ptr, ptr %11, align 8, !tbaa !50
+  store float %51, ptr %52, align 4, !tbaa !22
+  %53 = load float, ptr %17, align 4, !tbaa !22
+  %54 = load ptr, ptr %12, align 8, !tbaa !50
+  store float %53, ptr %54, align 4, !tbaa !22
+  br label %71
 
-if.else:                                          ; preds = %entry
-  %23 = load float, ptr %sum, align 4
-  %24 = load float, ptr %lower_limit.addr, align 4
-  %cmp4 = fcmp olt float %23, %24
-  br i1 %cmp4, label %if.then5, label %if.else7
+55:                                               ; preds = %9
+  %56 = load float, ptr %21, align 4, !tbaa !22
+  %57 = load float, ptr %16, align 4, !tbaa !22
+  %58 = fcmp olt float %56, %57
+  br i1 %58, label %59, label %67
 
-if.then5:                                         ; preds = %if.else
-  %25 = load float, ptr %lower_limit.addr, align 4
-  %26 = load ptr, ptr %appliedImpulse.addr, align 8
-  %27 = load float, ptr %26, align 4
-  %sub6 = fsub float %25, %27
-  %28 = load ptr, ptr %deltaImpulse_tangent.addr, align 8
-  store float %sub6, ptr %28, align 4
-  %29 = load float, ptr %lower_limit.addr, align 4
-  %30 = load ptr, ptr %appliedImpulse.addr, align 8
-  store float %29, ptr %30, align 4
-  br label %if.end
+59:                                               ; preds = %55
+  %60 = load float, ptr %16, align 4, !tbaa !22
+  %61 = load ptr, ptr %12, align 8, !tbaa !50
+  %62 = load float, ptr %61, align 4, !tbaa !22
+  %63 = fsub float %60, %62
+  %64 = load ptr, ptr %11, align 8, !tbaa !50
+  store float %63, ptr %64, align 4, !tbaa !22
+  %65 = load float, ptr %16, align 4, !tbaa !22
+  %66 = load ptr, ptr %12, align 8, !tbaa !50
+  store float %65, ptr %66, align 4, !tbaa !22
+  br label %70
 
-if.else7:                                         ; preds = %if.else
-  %31 = load float, ptr %sum, align 4
-  %32 = load ptr, ptr %appliedImpulse.addr, align 8
-  store float %31, ptr %32, align 4
-  br label %if.end
+67:                                               ; preds = %55
+  %68 = load float, ptr %21, align 4, !tbaa !22
+  %69 = load ptr, ptr %12, align 8, !tbaa !50
+  store float %68, ptr %69, align 4, !tbaa !22
+  br label %70
 
-if.end:                                           ; preds = %if.else7, %if.then5
-  br label %if.end8
+70:                                               ; preds = %67, %59
+  br label %71
 
-if.end8:                                          ; preds = %if.end, %if.then
+71:                                               ; preds = %70, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v1, ptr noundef nonnull align 4 dereferenceable(16) %v2) #6 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v1.addr = alloca ptr, align 8
-  %v2.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  store ptr %v1, ptr %v1.addr, align 8
-  store ptr %v2, ptr %v2.addr, align 8
-  %0 = load ptr, ptr %v1.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %v2.addr, align 8
-  %m_floats1 = getelementptr inbounds %class.btVector3, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [4 x float], ptr %m_floats1, i64 0, i64 0
-  %3 = load float, ptr %arrayidx2, align 4
-  %add = fadd float %1, %3
-  store float %add, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v1.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %v2.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %7 = load float, ptr %arrayidx7, align 4
-  %add8 = fadd float %5, %7
-  store float %add8, ptr %ref.tmp3, align 4
-  %8 = load ptr, ptr %v1.addr, align 8
-  %m_floats10 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m_floats10, i64 0, i64 2
-  %9 = load float, ptr %arrayidx11, align 4
-  %10 = load ptr, ptr %v2.addr, align 8
-  %m_floats12 = getelementptr inbounds %class.btVector3, ptr %10, i32 0, i32 0
-  %arrayidx13 = getelementptr inbounds [4 x float], ptr %m_floats12, i64 0, i64 2
-  %11 = load float, ptr %arrayidx13, align 4
-  %add14 = fadd float %9, %11
-  store float %add14, ptr %ref.tmp9, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #10 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !22
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 0
+  %16 = load float, ptr %15, align 4, !tbaa !22
+  %17 = fadd float %12, %16
+  store float %17, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %18 = load ptr, ptr %4, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x float], ptr %19, i64 0, i64 1
+  %21 = load float, ptr %20, align 4, !tbaa !22
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 1
+  %25 = load float, ptr %24, align 4, !tbaa !22
+  %26 = fadd float %21, %25
+  store float %26, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %27 = load ptr, ptr %4, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [4 x float], ptr %28, i64 0, i64 2
+  %30 = load float, ptr %29, align 4, !tbaa !22
+  %31 = load ptr, ptr %5, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x float], ptr %32, i64 0, i64 2
+  %34 = load float, ptr %33, align 4, !tbaa !22
+  %35 = fadd float %30, %34
+  store float %35, ptr %8, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %36 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %37 = load { <2 x float>, <2 x float> }, ptr %36, align 4
+  ret { <2 x float>, <2 x float> } %37
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 4 dereferenceable(16) %linearComponent, ptr noundef nonnull align 4 dereferenceable(16) %angularComponent, float noundef %impulseMagnitude) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %linearComponent.addr = alloca ptr, align 8
-  %angularComponent.addr = alloca ptr, align 8
-  %impulseMagnitude.addr = alloca float, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca %class.btVector3, align 4
-  %ref.tmp6 = alloca %class.btVector3, align 4
-  %ref.tmp7 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %linearComponent, ptr %linearComponent.addr, align 8
-  store ptr %angularComponent, ptr %angularComponent.addr, align 8
-  store float %impulseMagnitude, ptr %impulseMagnitude.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_originalBody = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 12
-  %0 = load ptr, ptr %m_originalBody, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef %3) #11 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca float, align 4
+  %9 = alloca %class.btVector3, align 4
+  %10 = alloca %class.btVector3, align 4
+  %11 = alloca %class.btVector3, align 4
+  %12 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !100
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store ptr %2, ptr %7, align 8, !tbaa !18
+  store float %3, ptr %8, align 4, !tbaa !22
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 12
+  %15 = load ptr, ptr %14, align 8, !tbaa !105
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %50
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %linearComponent.addr, align 8
-  %call = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %impulseMagnitude.addr)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp2, i32 0, i32 0
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %3, ptr %2, align 4
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %5, ptr %4, align 4
-  %m_linearFactor = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 4
-  %call3 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(16) %m_linearFactor)
-  %coerce.dive4 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive4, i32 0, i32 0
-  %7 = extractvalue { <2 x float>, <2 x float> } %call3, 0
-  store <2 x float> %7, ptr %6, align 4
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive4, i32 0, i32 1
-  %9 = extractvalue { <2 x float>, <2 x float> } %call3, 1
-  store <2 x float> %9, ptr %8, align 4
-  %m_deltaLinearVelocity = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 1
-  %call5 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %m_deltaLinearVelocity, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
-  %10 = load ptr, ptr %angularComponent.addr, align 8
-  %m_angularFactor = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 3
-  %call8 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %impulseMagnitude.addr, ptr noundef nonnull align 4 dereferenceable(16) %m_angularFactor)
-  %coerce.dive9 = getelementptr inbounds %class.btVector3, ptr %ref.tmp7, i32 0, i32 0
-  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive9, i32 0, i32 0
-  %12 = extractvalue { <2 x float>, <2 x float> } %call8, 0
-  store <2 x float> %12, ptr %11, align 4
-  %13 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive9, i32 0, i32 1
-  %14 = extractvalue { <2 x float>, <2 x float> } %call8, 1
-  store <2 x float> %14, ptr %13, align 4
-  %call10 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp7)
-  %coerce.dive11 = getelementptr inbounds %class.btVector3, ptr %ref.tmp6, i32 0, i32 0
-  %15 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 0
-  %16 = extractvalue { <2 x float>, <2 x float> } %call10, 0
-  store <2 x float> %16, ptr %15, align 4
-  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive11, i32 0, i32 1
-  %18 = extractvalue { <2 x float>, <2 x float> } %call10, 1
-  store <2 x float> %18, ptr %17, align 4
-  %m_deltaAngularVelocity = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 2
-  %call12 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %m_deltaAngularVelocity, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp6)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %colObj) #1 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %colObj.addr = alloca ptr, align 8
-  store ptr %colObj, ptr %colObj.addr, align 8
-  %0 = load ptr, ptr %colObj.addr, align 8
-  %call = call noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %0)
-  %and = and i32 %call, 64
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %colObj.addr, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds float, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef %delta_vee, float noundef %multiplier) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %delta_vee.addr = alloca ptr, align 8
-  %multiplier.addr = alloca float, align 4
-  %dof = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %delta_vee, ptr %delta_vee.addr, align 8
-  store float %multiplier, ptr %multiplier.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %dof, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %dof, align 4
-  %call = call noundef i32 @_ZNK11btMultiBody10getNumDofsEv(ptr noundef nonnull align 8 dereferenceable(640) %this1)
-  %add = add nsw i32 6, %call
-  %cmp = icmp slt i32 %0, %add
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %delta_vee.addr, align 8
-  %2 = load i32, ptr %dof, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds float, ptr %1, i64 %idxprom
-  %3 = load float, ptr %arrayidx, align 4
-  %4 = load float, ptr %multiplier.addr, align 4
-  %m_deltaV = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 16
-  %5 = load i32, ptr %dof, align 4
-  %call2 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaV, i32 noundef %5)
-  %6 = load float, ptr %call2, align 4
-  %7 = call float @llvm.fmuladd.f32(float %3, float %4, float %6)
-  store float %7, ptr %call2, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %dof, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %dof, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_ZNK9btVector34normEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %this1)
-  ret float %call
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody26DeformableNodeRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %rsb, ptr noundef nonnull align 8 dereferenceable(856) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rsb.addr = alloca ptr, align 8
-  %contact.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  %dt.addr = alloca float, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp19 = alloca %class.btVector3, align 4
-  %ref.tmp20 = alloca float, align 4
-  %ref.tmp21 = alloca float, align 4
-  %ref.tmp22 = alloca float, align 4
-  %ref.tmp26 = alloca %class.btVector3, align 4
-  %ref.tmp36 = alloca %class.btMatrix3x3, align 4
-  %ref.tmp43 = alloca %class.btMatrix3x3, align 4
-  %ref.tmp44 = alloca %class.btMatrix3x3, align 4
-  %ref.tmp55 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rsb, ptr %rsb.addr, align 8
-  store ptr %contact, ptr %contact.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  store float %dt, ptr %dt.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %rsb.addr, align 8
-  %1 = load ptr, ptr %contact.addr, align 8
-  %2 = load ptr, ptr %infoGlobal.addr, align 8
-  %3 = load float, ptr %dt.addr, align 4
-  call void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(436) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %3)
-  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2
-  store ptr %4, ptr %this1, align 8
-  %m_node = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %contact.addr, align 8
-  %m_node2 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %m_node2, align 8
-  store ptr %6, ptr %m_node, align 8
-  %7 = load ptr, ptr %contact.addr, align 8
-  %m_cti = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %7, i32 0, i32 0
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti, i32 0, i32 1
-  %m_contactNormalA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_contactNormalA, ptr align 8 %m_normal, i64 16, i1 false)
-  %8 = load ptr, ptr %contact.addr, align 8
-  %m_cti3 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %8, i32 0, i32 0
-  %m_normal4 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti3, i32 0, i32 1
-  %call = invoke { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_normal4)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %9 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %10 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %10, ptr %9, align 4
-  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %12 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %12, ptr %11, align 4
-  %m_contactNormalB = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 27
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_contactNormalB, ptr align 4 %ref.tmp, i64 16, i1 false)
-  %13 = load ptr, ptr %contact.addr, align 8
-  %m_node5 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %m_node5, align 8
-  %index = getelementptr inbounds %"struct.btSoftBody::Node", ptr %14, i32 0, i32 13
-  %15 = load i32, ptr %index, align 8
-  %16 = load ptr, ptr %rsb.addr, align 8
-  %m_nodes = getelementptr inbounds %class.btSoftBody, ptr %16, i32 0, i32 11
-  %call7 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes)
-          to label %invoke.cont6 unwind label %lpad
-
-invoke.cont6:                                     ; preds = %invoke.cont
-  %cmp = icmp slt i32 %15, %call7
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %invoke.cont6
-  %17 = load ptr, ptr %contact.addr, align 8
-  %m_node8 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %m_node8, align 8
-  %index9 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i32 0, i32 13
-  %19 = load i32, ptr %index9, align 8
-  %m_nodeQueryIndex = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  store i32 %19, ptr %m_nodeQueryIndex, align 4
-  br label %if.end
-
-lpad:                                             ; preds = %invoke.cont62, %invoke.cont58, %if.end54, %invoke.cont50, %invoke.cont49, %if.else42, %invoke.cont39, %if.then35, %invoke.cont30, %invoke.cont28, %if.end25, %if.else18, %if.end, %invoke.cont, %entry
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  call void @_ZN41btReducedDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this1) #4
-  br label %eh.resume
-
-if.else:                                          ; preds = %invoke.cont6
-  %m_node10 = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %23 = load ptr, ptr %m_node10, align 8
-  %index11 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %23, i32 0, i32 13
-  %24 = load i32, ptr %index11, align 8
-  %25 = load ptr, ptr %rsb.addr, align 8
-  %m_nodeIndexOffset = getelementptr inbounds %class.btReducedDeformableBody, ptr %25, i32 0, i32 48
-  %26 = load i32, ptr %m_nodeIndexOffset, align 8
-  %sub = sub nsw i32 %24, %26
-  %m_nodeQueryIndex12 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  store i32 %sub, ptr %m_nodeQueryIndex12, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %27 = load ptr, ptr %m_contact, align 8
-  %m_cti13 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %27, i32 0, i32 0
-  %m_colObj = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti13, i32 0, i32 0
-  %28 = load ptr, ptr %m_colObj, align 8
-  %call15 = invoke noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %28)
-          to label %invoke.cont14 unwind label %lpad
-
-invoke.cont14:                                    ; preds = %if.end
-  %cmp16 = icmp eq i32 %call15, 2
-  br i1 %cmp16, label %if.then17, label %if.else18
-
-if.then17:                                        ; preds = %invoke.cont14
-  %29 = load ptr, ptr %contact.addr, align 8
-  %m_c1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %29, i32 0, i32 2
-  %m_relPosA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_relPosA, ptr align 8 %m_c1, i64 16, i1 false)
-  br label %if.end25
-
-if.else18:                                        ; preds = %invoke.cont14
-  store float 0.000000e+00, ptr %ref.tmp20, align 4
-  store float 0.000000e+00, ptr %ref.tmp21, align 4
-  store float 0.000000e+00, ptr %ref.tmp22, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22)
-          to label %invoke.cont23 unwind label %lpad
-
-invoke.cont23:                                    ; preds = %if.else18
-  %m_relPosA24 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_relPosA24, ptr align 4 %ref.tmp19, i64 16, i1 false)
-  br label %if.end25
-
-if.end25:                                         ; preds = %invoke.cont23, %if.then17
-  %m_node27 = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %30 = load ptr, ptr %m_node27, align 8
-  %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %30, i32 0, i32 1
-  %m_rsb = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 7
-  %31 = load ptr, ptr %m_rsb, align 8
-  %call29 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN23btReducedDeformableBody17getRigidTransformEv(ptr noundef nonnull align 8 dereferenceable(3176) %31)
-          to label %invoke.cont28 unwind label %lpad
-
-invoke.cont28:                                    ; preds = %if.end25
-  %call31 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %call29)
-          to label %invoke.cont30 unwind label %lpad
-
-invoke.cont30:                                    ; preds = %invoke.cont28
-  %call33 = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_x, ptr noundef nonnull align 4 dereferenceable(16) %call31)
-          to label %invoke.cont32 unwind label %lpad
-
-invoke.cont32:                                    ; preds = %invoke.cont30
-  %coerce.dive34 = getelementptr inbounds %class.btVector3, ptr %ref.tmp26, i32 0, i32 0
-  %32 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive34, i32 0, i32 0
-  %33 = extractvalue { <2 x float>, <2 x float> } %call33, 0
-  store <2 x float> %33, ptr %32, align 4
-  %34 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive34, i32 0, i32 1
-  %35 = extractvalue { <2 x float>, <2 x float> } %call33, 1
-  store <2 x float> %35, ptr %34, align 4
-  %m_relPosB = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 31
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_relPosB, ptr align 4 %ref.tmp26, i64 16, i1 false)
-  %m_collideStatic = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %36 = load i8, ptr %m_collideStatic, align 8
-  %tobool = trunc i8 %36 to i1
-  br i1 %tobool, label %if.then35, label %if.else42
-
-if.then35:                                        ; preds = %invoke.cont32
-  %m_rsb37 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 7
-  %37 = load ptr, ptr %m_rsb37, align 8
-  %m_nodeQueryIndex38 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  %38 = load i32, ptr %m_nodeQueryIndex38, align 4
-  %vtable = load ptr, ptr %37, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
-  %39 = load ptr, ptr %vfn, align 8
-  invoke void %39(ptr sret(%class.btMatrix3x3) align 4 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(3176) %37, i32 noundef %38)
-          to label %invoke.cont39 unwind label %lpad
-
-invoke.cont39:                                    ; preds = %if.then35
-  %m_impulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  %call41 = invoke noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp36)
-          to label %invoke.cont40 unwind label %lpad
-
-invoke.cont40:                                    ; preds = %invoke.cont39
-  br label %if.end54
-
-if.else42:                                        ; preds = %invoke.cont32
-  %m_rsb45 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 7
-  %40 = load ptr, ptr %m_rsb45, align 8
-  %m_nodeQueryIndex46 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  %41 = load i32, ptr %m_nodeQueryIndex46, align 4
-  %vtable47 = load ptr, ptr %40, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 12
-  %42 = load ptr, ptr %vfn48, align 8
-  invoke void %42(ptr sret(%class.btMatrix3x3) align 4 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(3176) %40, i32 noundef %41)
-          to label %invoke.cont49 unwind label %lpad
-
-invoke.cont49:                                    ; preds = %if.else42
-  %43 = load ptr, ptr %contact.addr, align 8
-  %m_c0 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %43, i32 0, i32 1
-  invoke void @_ZplRK11btMatrix3x3S1_(ptr sret(%class.btMatrix3x3) align 4 %ref.tmp43, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp44, ptr noundef nonnull align 4 dereferenceable(48) %m_c0)
-          to label %invoke.cont50 unwind label %lpad
-
-invoke.cont50:                                    ; preds = %invoke.cont49
-  %m_impulseFactor51 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  %call53 = invoke noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor51, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp43)
-          to label %invoke.cont52 unwind label %lpad
-
-invoke.cont52:                                    ; preds = %invoke.cont50
-  br label %if.end54
-
-if.end54:                                         ; preds = %invoke.cont52, %invoke.cont40
-  %m_impulseFactor56 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  %m_contactNormalA57 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call59 = invoke { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor56, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA57)
-          to label %invoke.cont58 unwind label %lpad
-
-invoke.cont58:                                    ; preds = %if.end54
-  %coerce.dive60 = getelementptr inbounds %class.btVector3, ptr %ref.tmp55, i32 0, i32 0
-  %44 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive60, i32 0, i32 0
-  %45 = extractvalue { <2 x float>, <2 x float> } %call59, 0
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #4
+  %18 = load ptr, ptr %6, align 8, !tbaa !18
+  %19 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %20, i32 0, i32 0
+  %22 = extractvalue { <2 x float>, <2 x float> } %19, 0
+  store <2 x float> %22, ptr %21, align 4
+  %23 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %20, i32 0, i32 1
+  %24 = extractvalue { <2 x float>, <2 x float> } %19, 1
+  store <2 x float> %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 4
+  %26 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %25)
+  %27 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %28 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %27, i32 0, i32 0
+  %29 = extractvalue { <2 x float>, <2 x float> } %26, 0
+  store <2 x float> %29, ptr %28, align 4
+  %30 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %27, i32 0, i32 1
+  %31 = extractvalue { <2 x float>, <2 x float> } %26, 1
+  store <2 x float> %31, ptr %30, align 4
+  %32 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 1
+  %33 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #4
+  %34 = load ptr, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #4
+  %35 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 3
+  %36 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(16) %35)
+  %37 = getelementptr inbounds nuw %class.btVector3, ptr %12, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %37, i32 0, i32 0
+  %39 = extractvalue { <2 x float>, <2 x float> } %36, 0
+  store <2 x float> %39, ptr %38, align 4
+  %40 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %37, i32 0, i32 1
+  %41 = extractvalue { <2 x float>, <2 x float> } %36, 1
+  store <2 x float> %41, ptr %40, align 4
+  %42 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %43 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %44 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %43, i32 0, i32 0
+  %45 = extractvalue { <2 x float>, <2 x float> } %42, 0
   store <2 x float> %45, ptr %44, align 4
-  %46 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive60, i32 0, i32 1
-  %47 = extractvalue { <2 x float>, <2 x float> } %call59, 1
+  %46 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %43, i32 0, i32 1
+  %47 = extractvalue { <2 x float>, <2 x float> } %42, 1
   store <2 x float> %47, ptr %46, align 4
-  %m_contactNormalA61 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call63 = invoke noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp55, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA61)
-          to label %invoke.cont62 unwind label %lpad
+  %48 = getelementptr inbounds nuw %struct.btSolverBody, ptr %13, i32 0, i32 2
+  %49 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %11)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #4
+  br label %50
 
-invoke.cont62:                                    ; preds = %invoke.cont58
-  %m_normalImpulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 13
-  store float %call63, ptr %m_normalImpulseFactor, align 8
-  %m_tangentImpulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 14
-  store float 0.000000e+00, ptr %m_tangentImpulseFactor, align 4
-  %vtable64 = load ptr, ptr %this1, align 8
-  %vfn65 = getelementptr inbounds ptr, ptr %vtable64, i64 11
-  %48 = load ptr, ptr %vfn65, align 8
-  invoke void %48(ptr noundef nonnull align 8 dereferenceable(448) %this1)
-          to label %invoke.cont66 unwind label %lpad
-
-invoke.cont66:                                    ; preds = %invoke.cont62
+50:                                               ; preds = %17, %4
   ret void
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val67 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.btAlignedObjectArray.20, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
+define linkonce_odr dso_local noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  %4 = load ptr, ptr %3, align 8, !tbaa !52
+  %5 = call noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %4)
+  %6 = and i32 %5, 64
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !52
+  store ptr %9, ptr %2, align 8
+  br label %11
+
+10:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %11
+
+11:                                               ; preds = %10, %8
+  %12 = load ptr, ptr %2, align 8
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !120
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds float, ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef %1, float noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !121
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  store float %2, ptr %6, align 4, !tbaa !22
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  store i32 0, ptr %7, align 4, !tbaa !9
+  br label %9
+
+9:                                                ; preds = %27, %3
+  %10 = load i32, ptr %7, align 4, !tbaa !9
+  %11 = call noundef i32 @_ZNK11btMultiBody10getNumDofsEv(ptr noundef nonnull align 8 dereferenceable(640) %8)
+  %12 = add nsw i32 6, %11
+  %13 = icmp slt i32 %10, %12
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  br label %30
+
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %5, align 8, !tbaa !50
+  %17 = load i32, ptr %7, align 4, !tbaa !9
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds float, ptr %16, i64 %18
+  %20 = load float, ptr %19, align 4, !tbaa !22
+  %21 = load float, ptr %6, align 4, !tbaa !22
+  %22 = getelementptr inbounds nuw %class.btMultiBody, ptr %8, i32 0, i32 16
+  %23 = load i32, ptr %7, align 4, !tbaa !9
+  %24 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %22, i32 noundef %23)
+  %25 = load float, ptr %24, align 4, !tbaa !22
+  %26 = call float @llvm.fmuladd.f32(float %20, float %21, float %25)
+  store float %26, ptr %24, align 4, !tbaa !22
+  br label %27
+
+27:                                               ; preds = %15
+  %28 = load i32, ptr %7, align 4, !tbaa !9
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %7, align 4, !tbaa !9
+  br label %9, !llvm.loop !122
+
+30:                                               ; preds = %14
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef float @_ZNK9btVector34normEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %3)
+  ret float %4
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody26DeformableNodeRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca float, align 4
+  %11 = alloca %class.btVector3, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %class.btVector3, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca %class.btVector3, align 4
+  %19 = alloca %class.btMatrix3x3, align 4
+  %20 = alloca %class.btMatrix3x3, align 4
+  %21 = alloca %class.btMatrix3x3, align 4
+  %22 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !124
+  store ptr %1, ptr %7, align 8, !tbaa !14
+  store ptr %2, ptr %8, align 8, !tbaa !126
+  store ptr %3, ptr %9, align 8, !tbaa !20
+  store float %4, ptr %10, align 4, !tbaa !22
+  %23 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %7, align 8, !tbaa !14
+  %25 = load ptr, ptr %8, align 8, !tbaa !126
+  %26 = load ptr, ptr %9, align 8, !tbaa !20
+  %27 = load float, ptr %10, align 4, !tbaa !22
+  call void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(436) %23, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(848) %25, ptr noundef nonnull align 4 dereferenceable(128) %26, float noundef %27)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i32 0, i32 0, i32 2), ptr %23, align 8, !tbaa !24
+  %28 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %23, i32 0, i32 1
+  %29 = load ptr, ptr %8, align 8, !tbaa !126
+  %30 = getelementptr inbounds nuw %"class.btSoftBody::DeformableNodeRigidContact", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !128
+  store ptr %31, ptr %28, align 8, !tbaa !130
+  %32 = load ptr, ptr %8, align 8, !tbaa !126
+  %33 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %33, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %35, ptr align 8 %34, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #4
+  %36 = load ptr, ptr %8, align 8, !tbaa !126
+  %37 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %37, i32 0, i32 1
+  %39 = invoke { <2 x float>, <2 x float> } @_ZngRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %38)
+          to label %40 unwind label %64
+
+40:                                               ; preds = %5
+  %41 = getelementptr inbounds nuw %class.btVector3, ptr %11, i32 0, i32 0
+  %42 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %41, i32 0, i32 0
+  %43 = extractvalue { <2 x float>, <2 x float> } %39, 0
+  store <2 x float> %43, ptr %42, align 4
+  %44 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %41, i32 0, i32 1
+  %45 = extractvalue { <2 x float>, <2 x float> } %39, 1
+  store <2 x float> %45, ptr %44, align 4
+  %46 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %11, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #4
+  %47 = load ptr, ptr %8, align 8, !tbaa !126
+  %48 = getelementptr inbounds nuw %"class.btSoftBody::DeformableNodeRigidContact", ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !128
+  %50 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %49, i32 0, i32 13
+  %51 = load i32, ptr %50, align 8, !tbaa !38
+  %52 = load ptr, ptr %7, align 8, !tbaa !14
+  %53 = getelementptr inbounds nuw %class.btSoftBody, ptr %52, i32 0, i32 11
+  %54 = invoke noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %53)
+          to label %55 unwind label %68
+
+55:                                               ; preds = %40
+  %56 = icmp slt i32 %51, %54
+  br i1 %56, label %57, label %72
+
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %8, align 8, !tbaa !126
+  %59 = getelementptr inbounds nuw %"class.btSoftBody::DeformableNodeRigidContact", ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !128
+  %61 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %60, i32 0, i32 13
+  %62 = load i32, ptr %61, align 8, !tbaa !38
+  %63 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 4
+  store i32 %62, ptr %63, align 4, !tbaa !63
+  br label %82
+
+64:                                               ; preds = %5
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %12, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #4
+  br label %185
+
+68:                                               ; preds = %174, %82, %40
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %12, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %13, align 4
+  br label %185
+
+72:                                               ; preds = %55
+  %73 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %23, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8, !tbaa !130
+  %75 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %74, i32 0, i32 13
+  %76 = load i32, ptr %75, align 8, !tbaa !38
+  %77 = load ptr, ptr %7, align 8, !tbaa !14
+  %78 = getelementptr inbounds nuw %class.btReducedDeformableBody, ptr %77, i32 0, i32 48
+  %79 = load i32, ptr %78, align 8, !tbaa !132
+  %80 = sub nsw i32 %76, %79
+  %81 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 4
+  store i32 %80, ptr %81, align 4, !tbaa !63
+  br label %82
+
+82:                                               ; preds = %72, %57
+  %83 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %23, i32 0, i32 6
+  %84 = load ptr, ptr %83, align 8, !tbaa !77
+  %85 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8, !tbaa !78
+  %88 = invoke noundef i32 @_ZNK17btCollisionObject15getInternalTypeEv(ptr noundef nonnull align 8 dereferenceable(372) %87)
+          to label %89 unwind label %68
+
+89:                                               ; preds = %82
+  %90 = icmp eq i32 %88, 2
+  br i1 %90, label %91, label %95
+
+91:                                               ; preds = %89
+  %92 = load ptr, ptr %8, align 8, !tbaa !126
+  %93 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %92, i32 0, i32 2
+  %94 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %94, ptr align 8 %93, i64 16, i1 false), !tbaa.struct !34
+  br label %102
+
+95:                                               ; preds = %89
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  store float 0.000000e+00, ptr %16, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  store float 0.000000e+00, ptr %17, align 4, !tbaa !22
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+          to label %96 unwind label %98
+
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %97, ptr align 4 %14, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #4
+  br label %102
+
+98:                                               ; preds = %95
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %12, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #4
+  br label %185
+
+102:                                              ; preds = %96, %91
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #4
+  %103 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %23, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8, !tbaa !130
+  %105 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 7
+  %107 = load ptr, ptr %106, align 8, !tbaa !58
+  %108 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZN23btReducedDeformableBody17getRigidTransformEv(ptr noundef nonnull align 8 dereferenceable(3176) %107)
+          to label %109 unwind label %135
+
+109:                                              ; preds = %102
+  %110 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %108)
+          to label %111 unwind label %135
+
+111:                                              ; preds = %109
+  %112 = invoke { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %105, ptr noundef nonnull align 4 dereferenceable(16) %110)
+          to label %113 unwind label %135
+
+113:                                              ; preds = %111
+  %114 = getelementptr inbounds nuw %class.btVector3, ptr %18, i32 0, i32 0
+  %115 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %114, i32 0, i32 0
+  %116 = extractvalue { <2 x float>, <2 x float> } %112, 0
+  store <2 x float> %116, ptr %115, align 4
+  %117 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %114, i32 0, i32 1
+  %118 = extractvalue { <2 x float>, <2 x float> } %112, 1
+  store <2 x float> %118, ptr %117, align 4
+  %119 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 31
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %119, ptr align 4 %18, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #4
+  %120 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 1
+  %121 = load i8, ptr %120, align 8, !tbaa !89, !range !101, !noundef !102
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %123, label %143
+
+123:                                              ; preds = %113
+  call void @llvm.lifetime.start.p0(i64 48, ptr %19) #4
+  %124 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 7
+  %125 = load ptr, ptr %124, align 8, !tbaa !58
+  %126 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 4
+  %127 = load i32, ptr %126, align 4, !tbaa !63
+  %128 = load ptr, ptr %125, align 8, !tbaa !24
+  %129 = getelementptr inbounds ptr, ptr %128, i64 12
+  %130 = load ptr, ptr %129, align 8
+  invoke void %130(ptr dead_on_unwind writable sret(%class.btMatrix3x3) align 4 %19, ptr noundef nonnull align 8 dereferenceable(3176) %125, i32 noundef %127)
+          to label %131 unwind label %139
+
+131:                                              ; preds = %123
+  %132 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 32
+  %133 = invoke noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %132, ptr noundef nonnull align 4 dereferenceable(48) %19)
+          to label %134 unwind label %139
+
+134:                                              ; preds = %131
+  call void @llvm.lifetime.end.p0(i64 48, ptr %19) #4
+  br label %162
+
+135:                                              ; preds = %111, %109, %102
+  %136 = landingpad { ptr, i32 }
+          cleanup
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %12, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #4
+  br label %185
+
+139:                                              ; preds = %131, %123
+  %140 = landingpad { ptr, i32 }
+          cleanup
+  %141 = extractvalue { ptr, i32 } %140, 0
+  store ptr %141, ptr %12, align 8
+  %142 = extractvalue { ptr, i32 } %140, 1
+  store i32 %142, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 48, ptr %19) #4
+  br label %185
+
+143:                                              ; preds = %113
+  call void @llvm.lifetime.start.p0(i64 48, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 48, ptr %21) #4
+  %144 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 7
+  %145 = load ptr, ptr %144, align 8, !tbaa !58
+  %146 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 4
+  %147 = load i32, ptr %146, align 4, !tbaa !63
+  %148 = load ptr, ptr %145, align 8, !tbaa !24
+  %149 = getelementptr inbounds ptr, ptr %148, i64 12
+  %150 = load ptr, ptr %149, align 8
+  invoke void %150(ptr dead_on_unwind writable sret(%class.btMatrix3x3) align 4 %21, ptr noundef nonnull align 8 dereferenceable(3176) %145, i32 noundef %147)
+          to label %151 unwind label %158
+
+151:                                              ; preds = %143
+  %152 = load ptr, ptr %8, align 8, !tbaa !126
+  %153 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %152, i32 0, i32 1
+  invoke void @_ZplRK11btMatrix3x3S1_(ptr dead_on_unwind writable sret(%class.btMatrix3x3) align 4 %20, ptr noundef nonnull align 4 dereferenceable(48) %21, ptr noundef nonnull align 4 dereferenceable(48) %153)
+          to label %154 unwind label %158
+
+154:                                              ; preds = %151
+  %155 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 32
+  %156 = invoke noundef nonnull align 4 dereferenceable(48) ptr @_ZN11btMatrix3x3aSERKS_(ptr noundef nonnull align 4 dereferenceable(48) %155, ptr noundef nonnull align 4 dereferenceable(48) %20)
+          to label %157 unwind label %158
+
+157:                                              ; preds = %154
+  call void @llvm.lifetime.end.p0(i64 48, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 48, ptr %20) #4
+  br label %162
+
+158:                                              ; preds = %154, %151, %143
+  %159 = landingpad { ptr, i32 }
+          cleanup
+  %160 = extractvalue { ptr, i32 } %159, 0
+  store ptr %160, ptr %12, align 8
+  %161 = extractvalue { ptr, i32 } %159, 1
+  store i32 %161, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 48, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 48, ptr %20) #4
+  br label %185
+
+162:                                              ; preds = %157, %134
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #4
+  %163 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 32
+  %164 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 26
+  %165 = invoke { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %163, ptr noundef nonnull align 4 dereferenceable(16) %164)
+          to label %166 unwind label %181
+
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %168 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %167, i32 0, i32 0
+  %169 = extractvalue { <2 x float>, <2 x float> } %165, 0
+  store <2 x float> %169, ptr %168, align 4
+  %170 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %167, i32 0, i32 1
+  %171 = extractvalue { <2 x float>, <2 x float> } %165, 1
+  store <2 x float> %171, ptr %170, align 4
+  %172 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 26
+  %173 = invoke noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %172)
+          to label %174 unwind label %181
+
+174:                                              ; preds = %166
+  %175 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 13
+  store float %173, ptr %175, align 8, !tbaa !109
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #4
+  %176 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %23, i32 0, i32 14
+  store float 0.000000e+00, ptr %176, align 4, !tbaa !216
+  %177 = load ptr, ptr %23, align 8, !tbaa !24
+  %178 = getelementptr inbounds ptr, ptr %177, i64 11
+  %179 = load ptr, ptr %178, align 8
+  invoke void %179(ptr noundef nonnull align 8 dereferenceable(448) %23)
+          to label %180 unwind label %68
+
+180:                                              ; preds = %174
+  ret void
+
+181:                                              ; preds = %166, %162
+  %182 = landingpad { ptr, i32 }
+          cleanup
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %12, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #4
+  br label %185
+
+185:                                              ; preds = %181, %158, %139, %135, %98, %68, %64
+  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %23) #4
+  br label %186
+
+186:                                              ; preds = %185
+  %187 = load ptr, ptr %12, align 8
+  %188 = load i32, ptr %13, align 4
+  %189 = insertvalue { ptr, i32 } poison, ptr %187, 0
+  %190 = insertvalue { ptr, i32 } %189, i32 %188, 1
+  resume { ptr, i32 } %190
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !217
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btAlignedObjectArray.10, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !219
+  ret i32 %5
 }
 
 declare noundef nonnull align 4 dereferenceable(64) ptr @_ZN23btReducedDeformableBody17getRigidTransformEv(ptr noundef nonnull align 8 dereferenceable(3176)) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_origin = getelementptr inbounds %class.btTransform, ptr %this1, i32 0, i32 1
-  ret ptr %m_origin
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !220
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btTransform, ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZplRK11btMatrix3x3S1_(ptr noalias sret(%class.btMatrix3x3) align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(48) %m1, ptr noundef nonnull align 4 dereferenceable(48) %m2) #6 comdat {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %m1.addr = alloca ptr, align 8
-  %m2.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp5 = alloca float, align 4
-  %ref.tmp13 = alloca float, align 4
-  %ref.tmp21 = alloca float, align 4
-  %ref.tmp29 = alloca float, align 4
-  %ref.tmp37 = alloca float, align 4
-  %ref.tmp45 = alloca float, align 4
-  %ref.tmp53 = alloca float, align 4
-  %ref.tmp61 = alloca float, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %m1, ptr %m1.addr, align 8
-  store ptr %m2, ptr %m2.addr, align 8
-  %0 = load ptr, ptr %m1.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %0, i32 noundef 0)
-  %call1 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call)
-  %arrayidx = getelementptr inbounds float, ptr %call1, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %m2.addr, align 8
-  %call2 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %2, i32 noundef 0)
-  %call3 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call2)
-  %arrayidx4 = getelementptr inbounds float, ptr %call3, i64 0
-  %3 = load float, ptr %arrayidx4, align 4
-  %add = fadd float %1, %3
-  store float %add, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %m1.addr, align 8
-  %call6 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %4, i32 noundef 0)
-  %call7 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call6)
-  %arrayidx8 = getelementptr inbounds float, ptr %call7, i64 1
-  %5 = load float, ptr %arrayidx8, align 4
-  %6 = load ptr, ptr %m2.addr, align 8
-  %call9 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %6, i32 noundef 0)
-  %call10 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call9)
-  %arrayidx11 = getelementptr inbounds float, ptr %call10, i64 1
-  %7 = load float, ptr %arrayidx11, align 4
-  %add12 = fadd float %5, %7
-  store float %add12, ptr %ref.tmp5, align 4
-  %8 = load ptr, ptr %m1.addr, align 8
-  %call14 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %8, i32 noundef 0)
-  %call15 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call14)
-  %arrayidx16 = getelementptr inbounds float, ptr %call15, i64 2
-  %9 = load float, ptr %arrayidx16, align 4
-  %10 = load ptr, ptr %m2.addr, align 8
-  %call17 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %10, i32 noundef 0)
-  %call18 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call17)
-  %arrayidx19 = getelementptr inbounds float, ptr %call18, i64 2
-  %11 = load float, ptr %arrayidx19, align 4
-  %add20 = fadd float %9, %11
-  store float %add20, ptr %ref.tmp13, align 4
-  %12 = load ptr, ptr %m1.addr, align 8
-  %call22 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %12, i32 noundef 1)
-  %call23 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call22)
-  %arrayidx24 = getelementptr inbounds float, ptr %call23, i64 0
-  %13 = load float, ptr %arrayidx24, align 4
-  %14 = load ptr, ptr %m2.addr, align 8
-  %call25 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %14, i32 noundef 1)
-  %call26 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call25)
-  %arrayidx27 = getelementptr inbounds float, ptr %call26, i64 0
-  %15 = load float, ptr %arrayidx27, align 4
-  %add28 = fadd float %13, %15
-  store float %add28, ptr %ref.tmp21, align 4
-  %16 = load ptr, ptr %m1.addr, align 8
-  %call30 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %16, i32 noundef 1)
-  %call31 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call30)
-  %arrayidx32 = getelementptr inbounds float, ptr %call31, i64 1
-  %17 = load float, ptr %arrayidx32, align 4
-  %18 = load ptr, ptr %m2.addr, align 8
-  %call33 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %18, i32 noundef 1)
-  %call34 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call33)
-  %arrayidx35 = getelementptr inbounds float, ptr %call34, i64 1
-  %19 = load float, ptr %arrayidx35, align 4
-  %add36 = fadd float %17, %19
-  store float %add36, ptr %ref.tmp29, align 4
-  %20 = load ptr, ptr %m1.addr, align 8
-  %call38 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %20, i32 noundef 1)
-  %call39 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call38)
-  %arrayidx40 = getelementptr inbounds float, ptr %call39, i64 2
-  %21 = load float, ptr %arrayidx40, align 4
-  %22 = load ptr, ptr %m2.addr, align 8
-  %call41 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %22, i32 noundef 1)
-  %call42 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call41)
-  %arrayidx43 = getelementptr inbounds float, ptr %call42, i64 2
-  %23 = load float, ptr %arrayidx43, align 4
-  %add44 = fadd float %21, %23
-  store float %add44, ptr %ref.tmp37, align 4
-  %24 = load ptr, ptr %m1.addr, align 8
-  %call46 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %24, i32 noundef 2)
-  %call47 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call46)
-  %arrayidx48 = getelementptr inbounds float, ptr %call47, i64 0
-  %25 = load float, ptr %arrayidx48, align 4
-  %26 = load ptr, ptr %m2.addr, align 8
-  %call49 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %26, i32 noundef 2)
-  %call50 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call49)
-  %arrayidx51 = getelementptr inbounds float, ptr %call50, i64 0
-  %27 = load float, ptr %arrayidx51, align 4
-  %add52 = fadd float %25, %27
-  store float %add52, ptr %ref.tmp45, align 4
-  %28 = load ptr, ptr %m1.addr, align 8
-  %call54 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %28, i32 noundef 2)
-  %call55 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call54)
-  %arrayidx56 = getelementptr inbounds float, ptr %call55, i64 1
-  %29 = load float, ptr %arrayidx56, align 4
-  %30 = load ptr, ptr %m2.addr, align 8
-  %call57 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %30, i32 noundef 2)
-  %call58 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call57)
-  %arrayidx59 = getelementptr inbounds float, ptr %call58, i64 1
-  %31 = load float, ptr %arrayidx59, align 4
-  %add60 = fadd float %29, %31
-  store float %add60, ptr %ref.tmp53, align 4
-  %32 = load ptr, ptr %m1.addr, align 8
-  %call62 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %32, i32 noundef 2)
-  %call63 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call62)
-  %arrayidx64 = getelementptr inbounds float, ptr %call63, i64 2
-  %33 = load float, ptr %arrayidx64, align 4
-  %34 = load ptr, ptr %m2.addr, align 8
-  %call65 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %34, i32 noundef 2)
-  %call66 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %call65)
-  %arrayidx67 = getelementptr inbounds float, ptr %call66, i64 2
-  %35 = load float, ptr %arrayidx67, align 4
-  %add68 = fadd float %33, %35
-  store float %add68, ptr %ref.tmp61, align 4
-  call void @_ZN11btMatrix3x3C2ERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp45, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp53, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp61)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZplRK11btMatrix3x3S1_(ptr dead_on_unwind noalias writable sret(%class.btMatrix3x3) align 4 %0, ptr noundef nonnull align 4 dereferenceable(48) %1, ptr noundef nonnull align 4 dereferenceable(48) %2) #10 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !48
+  store ptr %2, ptr %6, align 8, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %16 = load ptr, ptr %5, align 8, !tbaa !48
+  %17 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %16, i32 noundef 0)
+  %18 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %17)
+  %19 = getelementptr inbounds float, ptr %18, i64 0
+  %20 = load float, ptr %19, align 4, !tbaa !22
+  %21 = load ptr, ptr %6, align 8, !tbaa !48
+  %22 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %21, i32 noundef 0)
+  %23 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %22)
+  %24 = getelementptr inbounds float, ptr %23, i64 0
+  %25 = load float, ptr %24, align 4, !tbaa !22
+  %26 = fadd float %20, %25
+  store float %26, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %27 = load ptr, ptr %5, align 8, !tbaa !48
+  %28 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %27, i32 noundef 0)
+  %29 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %28)
+  %30 = getelementptr inbounds float, ptr %29, i64 1
+  %31 = load float, ptr %30, align 4, !tbaa !22
+  %32 = load ptr, ptr %6, align 8, !tbaa !48
+  %33 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %32, i32 noundef 0)
+  %34 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %33)
+  %35 = getelementptr inbounds float, ptr %34, i64 1
+  %36 = load float, ptr %35, align 4, !tbaa !22
+  %37 = fadd float %31, %36
+  store float %37, ptr %8, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %38 = load ptr, ptr %5, align 8, !tbaa !48
+  %39 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %38, i32 noundef 0)
+  %40 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %39)
+  %41 = getelementptr inbounds float, ptr %40, i64 2
+  %42 = load float, ptr %41, align 4, !tbaa !22
+  %43 = load ptr, ptr %6, align 8, !tbaa !48
+  %44 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %43, i32 noundef 0)
+  %45 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %44)
+  %46 = getelementptr inbounds float, ptr %45, i64 2
+  %47 = load float, ptr %46, align 4, !tbaa !22
+  %48 = fadd float %42, %47
+  store float %48, ptr %9, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %49 = load ptr, ptr %5, align 8, !tbaa !48
+  %50 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %49, i32 noundef 1)
+  %51 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %50)
+  %52 = getelementptr inbounds float, ptr %51, i64 0
+  %53 = load float, ptr %52, align 4, !tbaa !22
+  %54 = load ptr, ptr %6, align 8, !tbaa !48
+  %55 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %54, i32 noundef 1)
+  %56 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %55)
+  %57 = getelementptr inbounds float, ptr %56, i64 0
+  %58 = load float, ptr %57, align 4, !tbaa !22
+  %59 = fadd float %53, %58
+  store float %59, ptr %10, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %60 = load ptr, ptr %5, align 8, !tbaa !48
+  %61 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %60, i32 noundef 1)
+  %62 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %61)
+  %63 = getelementptr inbounds float, ptr %62, i64 1
+  %64 = load float, ptr %63, align 4, !tbaa !22
+  %65 = load ptr, ptr %6, align 8, !tbaa !48
+  %66 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %65, i32 noundef 1)
+  %67 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %66)
+  %68 = getelementptr inbounds float, ptr %67, i64 1
+  %69 = load float, ptr %68, align 4, !tbaa !22
+  %70 = fadd float %64, %69
+  store float %70, ptr %11, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  %71 = load ptr, ptr %5, align 8, !tbaa !48
+  %72 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %71, i32 noundef 1)
+  %73 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %72)
+  %74 = getelementptr inbounds float, ptr %73, i64 2
+  %75 = load float, ptr %74, align 4, !tbaa !22
+  %76 = load ptr, ptr %6, align 8, !tbaa !48
+  %77 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %76, i32 noundef 1)
+  %78 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %77)
+  %79 = getelementptr inbounds float, ptr %78, i64 2
+  %80 = load float, ptr %79, align 4, !tbaa !22
+  %81 = fadd float %75, %80
+  store float %81, ptr %12, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  %82 = load ptr, ptr %5, align 8, !tbaa !48
+  %83 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %82, i32 noundef 2)
+  %84 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %83)
+  %85 = getelementptr inbounds float, ptr %84, i64 0
+  %86 = load float, ptr %85, align 4, !tbaa !22
+  %87 = load ptr, ptr %6, align 8, !tbaa !48
+  %88 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %87, i32 noundef 2)
+  %89 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %88)
+  %90 = getelementptr inbounds float, ptr %89, i64 0
+  %91 = load float, ptr %90, align 4, !tbaa !22
+  %92 = fadd float %86, %91
+  store float %92, ptr %13, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  %93 = load ptr, ptr %5, align 8, !tbaa !48
+  %94 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %93, i32 noundef 2)
+  %95 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %94)
+  %96 = getelementptr inbounds float, ptr %95, i64 1
+  %97 = load float, ptr %96, align 4, !tbaa !22
+  %98 = load ptr, ptr %6, align 8, !tbaa !48
+  %99 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %98, i32 noundef 2)
+  %100 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %99)
+  %101 = getelementptr inbounds float, ptr %100, i64 1
+  %102 = load float, ptr %101, align 4, !tbaa !22
+  %103 = fadd float %97, %102
+  store float %103, ptr %14, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %104 = load ptr, ptr %5, align 8, !tbaa !48
+  %105 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %104, i32 noundef 2)
+  %106 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %105)
+  %107 = getelementptr inbounds float, ptr %106, i64 2
+  %108 = load float, ptr %107, align 4, !tbaa !22
+  %109 = load ptr, ptr %6, align 8, !tbaa !48
+  %110 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %109, i32 noundef 2)
+  %111 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %110)
+  %112 = getelementptr inbounds float, ptr %111, i64 2
+  %113 = load float, ptr %112, align 4, !tbaa !22
+  %114 = fadd float %108, %113
+  store float %114, ptr %15, align 4, !tbaa !22
+  call void @_ZN11btMatrix3x3C2ERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmStartingEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #5 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %va = alloca %class.btVector3, align 4
-  %vb = alloca %class.btVector3, align 4
-  %v_rel = alloca %class.btVector3, align 4
-  %v_tangent = alloca %class.btVector3, align 4
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp8 = alloca float, align 4
-  %ref.tmp16 = alloca %class.btVector3, align 4
-  %ref.tmp17 = alloca float, align 4
-  %ref.tmp18 = alloca float, align 4
-  %ref.tmp19 = alloca float, align 4
-  %ref.tmp21 = alloca %class.btVector3, align 4
-  %ref.tmp25 = alloca %class.btVector3, align 4
-  %ref.tmp38 = alloca %class.btVector3, align 4
-  %ref.tmp49 = alloca %class.btVector3, align 4
-  %velocity_error = alloca float, align 4
-  %position_error = alloca float, align 4
-  %velocity_error74 = alloca float, align 4
-  %velocity_error2 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %0 = load ptr, ptr %vfn, align 8
-  %call = call { <2 x float>, <2 x float> } %0(ptr noundef nonnull align 8 dereferenceable(436) %this1)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %va, i32 0, i32 0
-  %1 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %2, ptr %1, align 4
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %4 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %4, ptr %3, align 4
-  %vtable2 = load ptr, ptr %this1, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
-  %5 = load ptr, ptr %vfn3, align 8
-  %call4 = call { <2 x float>, <2 x float> } %5(ptr noundef nonnull align 8 dereferenceable(448) %this1)
-  %coerce.dive5 = getelementptr inbounds %class.btVector3, ptr %vb, i32 0, i32 0
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive5, i32 0, i32 0
-  %7 = extractvalue { <2 x float>, <2 x float> } %call4, 0
-  store <2 x float> %7, ptr %6, align 4
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive5, i32 0, i32 1
-  %9 = extractvalue { <2 x float>, <2 x float> } %call4, 1
-  store <2 x float> %9, ptr %8, align 4
-  %m_bufferVelocityA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_bufferVelocityA, ptr align 4 %va, i64 16, i1 false)
-  %m_bufferVelocityB = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_bufferVelocityB, ptr align 4 %vb, i64 16, i1 false)
-  %call6 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %vb, ptr noundef nonnull align 4 dereferenceable(16) %va)
-  %coerce.dive7 = getelementptr inbounds %class.btVector3, ptr %v_rel, i32 0, i32 0
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive7, i32 0, i32 0
-  %11 = extractvalue { <2 x float>, <2 x float> } %call6, 0
-  store <2 x float> %11, ptr %10, align 4
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive7, i32 0, i32 1
-  %13 = extractvalue { <2 x float>, <2 x float> } %call6, 1
-  store <2 x float> %13, ptr %12, align 4
-  %m_contactNormalA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call9 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %v_rel, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA)
-  store float %call9, ptr %ref.tmp8, align 4
-  %m_contactNormalA10 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call11 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA10)
-  %coerce.dive12 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %14 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 0
-  %15 = extractvalue { <2 x float>, <2 x float> } %call11, 0
-  store <2 x float> %15, ptr %14, align 4
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 1
-  %17 = extractvalue { <2 x float>, <2 x float> } %call11, 1
-  store <2 x float> %17, ptr %16, align 4
-  %call13 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v_rel, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
-  %coerce.dive14 = getelementptr inbounds %class.btVector3, ptr %v_tangent, i32 0, i32 0
-  %18 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive14, i32 0, i32 0
-  %19 = extractvalue { <2 x float>, <2 x float> } %call13, 0
-  store <2 x float> %19, ptr %18, align 4
-  %20 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive14, i32 0, i32 1
-  %21 = extractvalue { <2 x float>, <2 x float> } %call13, 1
-  store <2 x float> %21, ptr %20, align 4
-  %call15 = call noundef float @_ZNK9btVector34normEv(ptr noundef nonnull align 4 dereferenceable(16) %v_tangent)
-  %cmp = fcmp olt float %call15, 0x3E80000000000000
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store float 0.000000e+00, ptr %ref.tmp17, align 4
-  store float 0.000000e+00, ptr %ref.tmp18, align 4
-  store float 0.000000e+00, ptr %ref.tmp19, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19)
-  %m_contactTangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_contactTangent, ptr align 4 %ref.tmp16, i64 16, i1 false)
-  %m_tangentImpulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 14
-  store float 0.000000e+00, ptr %m_tangentImpulseFactor, align 4
-  %m_tangentImpulseFactorInv = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 16
-  store float 0.000000e+00, ptr %m_tangentImpulseFactorInv, align 4
-  br label %if.end60
-
-if.else:                                          ; preds = %entry
-  %m_collideMultibody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %22 = load i8, ptr %m_collideMultibody, align 1
-  %tobool = trunc i8 %22 to i1
-  br i1 %tobool, label %if.else34, label %if.then20
-
-if.then20:                                        ; preds = %if.else
-  %call22 = call { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %v_tangent)
-  %coerce.dive23 = getelementptr inbounds %class.btVector3, ptr %ref.tmp21, i32 0, i32 0
-  %23 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive23, i32 0, i32 0
-  %24 = extractvalue { <2 x float>, <2 x float> } %call22, 0
-  store <2 x float> %24, ptr %23, align 4
-  %25 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive23, i32 0, i32 1
-  %26 = extractvalue { <2 x float>, <2 x float> } %call22, 1
-  store <2 x float> %26, ptr %25, align 4
-  %m_contactTangent24 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_contactTangent24, ptr align 4 %ref.tmp21, i64 16, i1 false)
-  %m_contactTangent2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  call void @_ZN9btVector37setZeroEv(ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent2)
-  %m_impulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  %m_contactTangent26 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %call27 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent26)
-  %coerce.dive28 = getelementptr inbounds %class.btVector3, ptr %ref.tmp25, i32 0, i32 0
-  %27 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive28, i32 0, i32 0
-  %28 = extractvalue { <2 x float>, <2 x float> } %call27, 0
+define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmStartingEv(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #5 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca %class.btVector3, align 4
+  %5 = alloca %class.btVector3, align 4
+  %6 = alloca %class.btVector3, align 4
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca float, align 4
+  %9 = alloca %class.btVector3, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca %class.btVector3, align 4
+  %14 = alloca %class.btVector3, align 4
+  %15 = alloca %class.btVector3, align 4
+  %16 = alloca %class.btVector3, align 4
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca float, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !124
+  %21 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #4
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %23 = getelementptr inbounds ptr, ptr %22, i64 3
+  %24 = load ptr, ptr %23, align 8
+  %25 = call { <2 x float>, <2 x float> } %24(ptr noundef nonnull align 8 dereferenceable(436) %21)
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %27 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %26, i32 0, i32 0
+  %28 = extractvalue { <2 x float>, <2 x float> } %25, 0
   store <2 x float> %28, ptr %27, align 4
-  %29 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive28, i32 0, i32 1
-  %30 = extractvalue { <2 x float>, <2 x float> } %call27, 1
+  %29 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %26, i32 0, i32 1
+  %30 = extractvalue { <2 x float>, <2 x float> } %25, 1
   store <2 x float> %30, ptr %29, align 4
-  %m_contactTangent29 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %call30 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent29)
-  %m_tangentImpulseFactor31 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 14
-  store float %call30, ptr %m_tangentImpulseFactor31, align 4
-  %m_tangentImpulseFactor32 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 14
-  %31 = load float, ptr %m_tangentImpulseFactor32, align 4
-  %div = fdiv float 1.000000e+00, %31
-  %m_tangentImpulseFactorInv33 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 16
-  store float %div, ptr %m_tangentImpulseFactorInv33, align 4
-  %m_tangentImpulseFactor2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 15
-  store float 0.000000e+00, ptr %m_tangentImpulseFactor2, align 8
-  %m_tangentImpulseFactorInv2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 17
-  store float 0.000000e+00, ptr %m_tangentImpulseFactorInv2, align 8
-  br label %if.end
-
-if.else34:                                        ; preds = %if.else
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %32 = load ptr, ptr %m_contact, align 8
-  %t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %32, i32 0, i32 11
-  %m_contactTangent35 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_contactTangent35, ptr align 8 %t1, i64 16, i1 false)
-  %m_contact36 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %33 = load ptr, ptr %m_contact36, align 8
-  %t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %33, i32 0, i32 12
-  %m_contactTangent237 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_contactTangent237, ptr align 8 %t2, i64 16, i1 false)
-  %m_impulseFactor39 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  %m_contactTangent40 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %call41 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor39, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent40)
-  %coerce.dive42 = getelementptr inbounds %class.btVector3, ptr %ref.tmp38, i32 0, i32 0
-  %34 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive42, i32 0, i32 0
-  %35 = extractvalue { <2 x float>, <2 x float> } %call41, 0
-  store <2 x float> %35, ptr %34, align 4
-  %36 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive42, i32 0, i32 1
-  %37 = extractvalue { <2 x float>, <2 x float> } %call41, 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #4
+  %31 = load ptr, ptr %21, align 8, !tbaa !24
+  %32 = getelementptr inbounds ptr, ptr %31, i64 4
+  %33 = load ptr, ptr %32, align 8
+  %34 = call { <2 x float>, <2 x float> } %33(ptr noundef nonnull align 8 dereferenceable(448) %21)
+  %35 = getelementptr inbounds nuw %class.btVector3, ptr %4, i32 0, i32 0
+  %36 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %35, i32 0, i32 0
+  %37 = extractvalue { <2 x float>, <2 x float> } %34, 0
   store <2 x float> %37, ptr %36, align 4
-  %m_contactTangent43 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %call44 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp38, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent43)
-  %m_tangentImpulseFactor45 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 14
-  store float %call44, ptr %m_tangentImpulseFactor45, align 4
-  %m_tangentImpulseFactor46 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 14
-  %38 = load float, ptr %m_tangentImpulseFactor46, align 4
-  %div47 = fdiv float 1.000000e+00, %38
-  %m_tangentImpulseFactorInv48 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 16
-  store float %div47, ptr %m_tangentImpulseFactorInv48, align 4
-  %m_impulseFactor50 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 32
-  %m_contactTangent251 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  %call52 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %m_impulseFactor50, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent251)
-  %coerce.dive53 = getelementptr inbounds %class.btVector3, ptr %ref.tmp49, i32 0, i32 0
-  %39 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive53, i32 0, i32 0
-  %40 = extractvalue { <2 x float>, <2 x float> } %call52, 0
+  %38 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %35, i32 0, i32 1
+  %39 = extractvalue { <2 x float>, <2 x float> } %34, 1
+  store <2 x float> %39, ptr %38, align 4
+  %40 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %3, i64 16, i1 false), !tbaa.struct !34
+  %41 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %4, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #4
+  %42 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %3)
+  %43 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %44 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %43, i32 0, i32 0
+  %45 = extractvalue { <2 x float>, <2 x float> } %42, 0
+  store <2 x float> %45, ptr %44, align 4
+  %46 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %43, i32 0, i32 1
+  %47 = extractvalue { <2 x float>, <2 x float> } %42, 1
+  store <2 x float> %47, ptr %46, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %48 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 26
+  %49 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %48)
+  store float %49, ptr %8, align 4, !tbaa !22
+  %50 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 26
+  %51 = call { <2 x float>, <2 x float> } @_ZmlRKfRK9btVector3(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(16) %50)
+  %52 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %53 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %52, i32 0, i32 0
+  %54 = extractvalue { <2 x float>, <2 x float> } %51, 0
+  store <2 x float> %54, ptr %53, align 4
+  %55 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %52, i32 0, i32 1
+  %56 = extractvalue { <2 x float>, <2 x float> } %51, 1
+  store <2 x float> %56, ptr %55, align 4
+  %57 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %7)
+  %58 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %59 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %58, i32 0, i32 0
+  %60 = extractvalue { <2 x float>, <2 x float> } %57, 0
+  store <2 x float> %60, ptr %59, align 4
+  %61 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %58, i32 0, i32 1
+  %62 = extractvalue { <2 x float>, <2 x float> } %57, 1
+  store <2 x float> %62, ptr %61, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  %63 = call noundef float @_ZNK9btVector34normEv(ptr noundef nonnull align 4 dereferenceable(16) %6)
+  %64 = fcmp olt float %63, 0x3E80000000000000
+  br i1 %64, label %65, label %69
+
+65:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  store float 0.000000e+00, ptr %10, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  store float 0.000000e+00, ptr %12, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %66 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %9, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #4
+  %67 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 14
+  store float 0.000000e+00, ptr %67, align 4, !tbaa !216
+  %68 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 16
+  store float 0.000000e+00, ptr %68, align 4, !tbaa !110
+  br label %139
+
+69:                                               ; preds = %1
+  %70 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 2
+  %71 = load i8, ptr %70, align 1, !tbaa !90, !range !101, !noundef !102
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %99, label %73
+
+73:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #4
+  %74 = call { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %6)
+  %75 = getelementptr inbounds nuw %class.btVector3, ptr %13, i32 0, i32 0
+  %76 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %75, i32 0, i32 0
+  %77 = extractvalue { <2 x float>, <2 x float> } %74, 0
+  store <2 x float> %77, ptr %76, align 4
+  %78 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %75, i32 0, i32 1
+  %79 = extractvalue { <2 x float>, <2 x float> } %74, 1
+  store <2 x float> %79, ptr %78, align 4
+  %80 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %80, ptr align 4 %13, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #4
+  %81 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 29
+  call void @_ZN9btVector37setZeroEv(ptr noundef nonnull align 4 dereferenceable(16) %81)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #4
+  %82 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 32
+  %83 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  %84 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %82, ptr noundef nonnull align 4 dereferenceable(16) %83)
+  %85 = getelementptr inbounds nuw %class.btVector3, ptr %14, i32 0, i32 0
+  %86 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %85, i32 0, i32 0
+  %87 = extractvalue { <2 x float>, <2 x float> } %84, 0
+  store <2 x float> %87, ptr %86, align 4
+  %88 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %85, i32 0, i32 1
+  %89 = extractvalue { <2 x float>, <2 x float> } %84, 1
+  store <2 x float> %89, ptr %88, align 4
+  %90 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  %91 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %90)
+  %92 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 14
+  store float %91, ptr %92, align 4, !tbaa !216
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #4
+  %93 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 14
+  %94 = load float, ptr %93, align 4, !tbaa !216
+  %95 = fdiv float 1.000000e+00, %94
+  %96 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 16
+  store float %95, ptr %96, align 4, !tbaa !110
+  %97 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 15
+  store float 0.000000e+00, ptr %97, align 8, !tbaa !222
+  %98 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 17
+  store float 0.000000e+00, ptr %98, align 8, !tbaa !112
+  br label %138
+
+99:                                               ; preds = %69
+  %100 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %21, i32 0, i32 6
+  %101 = load ptr, ptr %100, align 8, !tbaa !77
+  %102 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %101, i32 0, i32 11
+  %103 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %103, ptr align 8 %102, i64 16, i1 false), !tbaa.struct !34
+  %104 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %21, i32 0, i32 6
+  %105 = load ptr, ptr %104, align 8, !tbaa !77
+  %106 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %105, i32 0, i32 12
+  %107 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %107, ptr align 8 %106, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #4
+  %108 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 32
+  %109 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  %110 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %108, ptr noundef nonnull align 4 dereferenceable(16) %109)
+  %111 = getelementptr inbounds nuw %class.btVector3, ptr %15, i32 0, i32 0
+  %112 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %111, i32 0, i32 0
+  %113 = extractvalue { <2 x float>, <2 x float> } %110, 0
+  store <2 x float> %113, ptr %112, align 4
+  %114 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %111, i32 0, i32 1
+  %115 = extractvalue { <2 x float>, <2 x float> } %110, 1
+  store <2 x float> %115, ptr %114, align 4
+  %116 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  %117 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %116)
+  %118 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 14
+  store float %117, ptr %118, align 4, !tbaa !216
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #4
+  %119 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 14
+  %120 = load float, ptr %119, align 4, !tbaa !216
+  %121 = fdiv float 1.000000e+00, %120
+  %122 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 16
+  store float %121, ptr %122, align 4, !tbaa !110
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #4
+  %123 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 32
+  %124 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 29
+  %125 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %123, ptr noundef nonnull align 4 dereferenceable(16) %124)
+  %126 = getelementptr inbounds nuw %class.btVector3, ptr %16, i32 0, i32 0
+  %127 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %126, i32 0, i32 0
+  %128 = extractvalue { <2 x float>, <2 x float> } %125, 0
+  store <2 x float> %128, ptr %127, align 4
+  %129 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %126, i32 0, i32 1
+  %130 = extractvalue { <2 x float>, <2 x float> } %125, 1
+  store <2 x float> %130, ptr %129, align 4
+  %131 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 29
+  %132 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %131)
+  %133 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 15
+  store float %132, ptr %133, align 8, !tbaa !222
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #4
+  %134 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 15
+  %135 = load float, ptr %134, align 8, !tbaa !222
+  %136 = fdiv float 1.000000e+00, %135
+  %137 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 17
+  store float %136, ptr %137, align 8, !tbaa !112
+  br label %138
+
+138:                                              ; preds = %99, %73
+  br label %139
+
+139:                                              ; preds = %138, %65
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  %140 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 26
+  %141 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %140)
+  store float %141, ptr %17, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  store float 0.000000e+00, ptr %18, align 4, !tbaa !22
+  %142 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %21, i32 0, i32 3
+  %143 = load float, ptr %142, align 8, !tbaa !223
+  %144 = fcmp ogt float %143, 0.000000e+00
+  br i1 %144, label %145, label %153
+
+145:                                              ; preds = %139
+  %146 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %21, i32 0, i32 3
+  %147 = load float, ptr %146, align 8, !tbaa !223
+  %148 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 9
+  %149 = load float, ptr %148, align 8, !tbaa !62
+  %150 = fdiv float %147, %149
+  %151 = load float, ptr %17, align 4, !tbaa !22
+  %152 = fadd float %151, %150
+  store float %152, ptr %17, align 4, !tbaa !22
+  br label %162
+
+153:                                              ; preds = %139
+  %154 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %21, i32 0, i32 3
+  %155 = load float, ptr %154, align 8, !tbaa !223
+  %156 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 23
+  %157 = load float, ptr %156, align 8, !tbaa !73
+  %158 = fmul float %155, %157
+  %159 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 9
+  %160 = load float, ptr %159, align 8, !tbaa !62
+  %161 = fdiv float %158, %160
+  store float %161, ptr %18, align 4, !tbaa !22
+  br label %162
+
+162:                                              ; preds = %153, %145
+  %163 = load float, ptr %17, align 4, !tbaa !22
+  %164 = load float, ptr %18, align 4, !tbaa !22
+  %165 = fadd float %163, %164
+  %166 = fneg float %165
+  %167 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 13
+  %168 = load float, ptr %167, align 8, !tbaa !109
+  %169 = fdiv float %166, %168
+  %170 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 18
+  store float %169, ptr %170, align 4, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  %171 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 28
+  %172 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %171)
+  store float %172, ptr %19, align 4, !tbaa !22
+  %173 = load float, ptr %19, align 4, !tbaa !22
+  %174 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 16
+  %175 = load float, ptr %174, align 4, !tbaa !110
+  %176 = fmul float %173, %175
+  %177 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 19
+  store float %176, ptr %177, align 8, !tbaa !67
+  %178 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 2
+  %179 = load i8, ptr %178, align 1, !tbaa !90, !range !101, !noundef !102
+  %180 = trunc i8 %179 to i1
+  br i1 %180, label %181, label %189
+
+181:                                              ; preds = %162
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  %182 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 29
+  %183 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %182)
+  store float %183, ptr %20, align 4, !tbaa !22
+  %184 = load float, ptr %20, align 4, !tbaa !22
+  %185 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 17
+  %186 = load float, ptr %185, align 8, !tbaa !112
+  %187 = fmul float %184, %186
+  %188 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %21, i32 0, i32 20
+  store float %187, ptr %188, align 4, !tbaa !111
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  br label %189
+
+189:                                              ; preds = %181, %162
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #4
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #10 comdat align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %5, i64 16, i1 false), !tbaa.struct !34
+  %6 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %6, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #4
+  %7 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %8 = load { <2 x float>, <2 x float> }, ptr %7, align 4
+  ret { <2 x float>, <2 x float> } %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector37setZeroEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca float, align 4
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %6 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !22
+  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getVbEv(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #1 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !130
+  %7 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %6, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 8 %7, i64 16, i1 false), !tbaa.struct !34
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %9 = load { <2 x float>, <2 x float> }, ptr %8, align 4
+  ret { <2 x float>, <2 x float> } %9
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVaEv(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #5 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca %class.btVector3, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca float, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca %class.btVector3, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca %class.btVector3, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  %22 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store float 0.000000e+00, ptr %6, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %23 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %22, i32 0, i32 1
+  %24 = load i8, ptr %23, align 8, !tbaa !89, !range !101, !noundef !102
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %182, label %26
+
+26:                                               ; preds = %1
+  %27 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %22, i32 0, i32 2
+  %28 = load i8, ptr %27, align 1, !tbaa !90, !range !101, !noundef !102
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %50, label %30
+
+30:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  %31 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %22, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !104
+  %33 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody30internalGetDeltaLinearVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %32)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #4
+  %34 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %22, i32 0, i32 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !104
+  %36 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody31internalGetDeltaAngularVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %35)
+  %37 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %22, i32 0, i32 30
+  %38 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %37)
+  %39 = getelementptr inbounds nuw %class.btVector3, ptr %8, i32 0, i32 0
+  %40 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %39, i32 0, i32 0
+  %41 = extractvalue { <2 x float>, <2 x float> } %38, 0
+  store <2 x float> %41, ptr %40, align 4
+  %42 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %39, i32 0, i32 1
+  %43 = extractvalue { <2 x float>, <2 x float> } %38, 1
+  store <2 x float> %43, ptr %42, align 4
+  %44 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %45 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %46 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %45, i32 0, i32 0
+  %47 = extractvalue { <2 x float>, <2 x float> } %44, 0
+  store <2 x float> %47, ptr %46, align 4
+  %48 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %45, i32 0, i32 1
+  %49 = extractvalue { <2 x float>, <2 x float> } %44, 1
+  store <2 x float> %49, ptr %48, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %7, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  br label %181
+
+50:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  store ptr null, ptr %9, align 8, !tbaa !113
+  %51 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %22, i32 0, i32 6
+  %52 = load ptr, ptr %51, align 8, !tbaa !77
+  %53 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %52, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !78
+  %56 = call noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %55)
+  store ptr %56, ptr %9, align 8, !tbaa !113
+  %57 = load ptr, ptr %9, align 8, !tbaa !113
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %180
+
+59:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %60 = load ptr, ptr %9, align 8, !tbaa !113
+  %61 = getelementptr inbounds nuw %class.btMultiBodyLinkCollider, ptr %60, i32 0, i32 2
+  %62 = load ptr, ptr %61, align 8, !tbaa !115
+  %63 = call noundef i32 @_ZNK11btMultiBody10getNumDofsEv(ptr noundef nonnull align 8 dereferenceable(640) %62)
+  %64 = add nsw i32 %63, 6
+  store i32 %64, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %65 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %22, i32 0, i32 6
+  %66 = load ptr, ptr %65, align 8, !tbaa !77
+  %67 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %66, i32 0, i32 8
+  %68 = getelementptr inbounds nuw %struct.btMultiBodyJacobianData, ptr %67, i32 0, i32 0
+  %69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %68, i32 noundef 0)
+  store ptr %69, ptr %11, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %70 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %22, i32 0, i32 6
+  %71 = load ptr, ptr %70, align 8, !tbaa !77
+  %72 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %71, i32 0, i32 9
+  %73 = getelementptr inbounds nuw %struct.btMultiBodyJacobianData, ptr %72, i32 0, i32 0
+  %74 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %73, i32 noundef 0)
+  store ptr %74, ptr %12, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %75 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %22, i32 0, i32 6
+  %76 = load ptr, ptr %75, align 8, !tbaa !77
+  %77 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %76, i32 0, i32 10
+  %78 = getelementptr inbounds nuw %struct.btMultiBodyJacobianData, ptr %77, i32 0, i32 0
+  %79 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %78, i32 noundef 0)
+  store ptr %79, ptr %13, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %80 = load ptr, ptr %9, align 8, !tbaa !113
+  %81 = getelementptr inbounds nuw %class.btMultiBodyLinkCollider, ptr %80, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8, !tbaa !115
+  %83 = call noundef ptr @_ZNK11btMultiBody22getDeltaVelocityVectorEv(ptr noundef nonnull align 8 dereferenceable(640) %82)
+  store ptr %83, ptr %14, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  store i32 0, ptr %16, align 4, !tbaa !9
+  br label %84
+
+84:                                               ; preds = %102, %59
+  %85 = load i32, ptr %16, align 4, !tbaa !9
+  %86 = load i32, ptr %10, align 4, !tbaa !9
+  %87 = icmp slt i32 %85, %86
+  br i1 %87, label %89, label %88
+
+88:                                               ; preds = %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  br label %105
+
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %14, align 8, !tbaa !50
+  %91 = load i32, ptr %16, align 4, !tbaa !9
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds float, ptr %90, i64 %92
+  %94 = load float, ptr %93, align 4, !tbaa !22
+  %95 = load ptr, ptr %11, align 8, !tbaa !50
+  %96 = load i32, ptr %16, align 4, !tbaa !9
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds float, ptr %95, i64 %97
+  %99 = load float, ptr %98, align 4, !tbaa !22
+  %100 = load float, ptr %15, align 4, !tbaa !22
+  %101 = call float @llvm.fmuladd.f32(float %94, float %99, float %100)
+  store float %101, ptr %15, align 4, !tbaa !22
+  br label %102
+
+102:                                              ; preds = %89
+  %103 = load i32, ptr %16, align 4, !tbaa !9
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %16, align 4, !tbaa !9
+  br label %84, !llvm.loop !224
+
+105:                                              ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #4
+  %106 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %22, i32 0, i32 6
+  %107 = load ptr, ptr %106, align 8, !tbaa !77
+  %108 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds nuw %"struct.btSoftBody::sCti", ptr %108, i32 0, i32 1
+  %110 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %111 = getelementptr inbounds nuw %class.btVector3, ptr %17, i32 0, i32 0
+  %112 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %111, i32 0, i32 0
+  %113 = extractvalue { <2 x float>, <2 x float> } %110, 0
+  store <2 x float> %113, ptr %112, align 4
+  %114 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %111, i32 0, i32 1
+  %115 = extractvalue { <2 x float>, <2 x float> } %110, 1
+  store <2 x float> %115, ptr %114, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %17, i64 16, i1 false), !tbaa.struct !34
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #4
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  store i32 0, ptr %18, align 4, !tbaa !9
+  br label %116
+
+116:                                              ; preds = %134, %105
+  %117 = load i32, ptr %18, align 4, !tbaa !9
+  %118 = load i32, ptr %10, align 4, !tbaa !9
+  %119 = icmp slt i32 %117, %118
+  br i1 %119, label %121, label %120
+
+120:                                              ; preds = %116
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  br label %137
+
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %14, align 8, !tbaa !50
+  %123 = load i32, ptr %18, align 4, !tbaa !9
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds float, ptr %122, i64 %124
+  %126 = load float, ptr %125, align 4, !tbaa !22
+  %127 = load ptr, ptr %12, align 8, !tbaa !50
+  %128 = load i32, ptr %18, align 4, !tbaa !9
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds float, ptr %127, i64 %129
+  %131 = load float, ptr %130, align 4, !tbaa !22
+  %132 = load float, ptr %15, align 4, !tbaa !22
+  %133 = call float @llvm.fmuladd.f32(float %126, float %131, float %132)
+  store float %133, ptr %15, align 4, !tbaa !22
+  br label %134
+
+134:                                              ; preds = %121
+  %135 = load i32, ptr %18, align 4, !tbaa !9
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %18, align 4, !tbaa !9
+  br label %116, !llvm.loop !225
+
+137:                                              ; preds = %120
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #4
+  %138 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %22, i32 0, i32 6
+  %139 = load ptr, ptr %138, align 8, !tbaa !77
+  %140 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %139, i32 0, i32 11
+  %141 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %140, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %142 = getelementptr inbounds nuw %class.btVector3, ptr %19, i32 0, i32 0
+  %143 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %142, i32 0, i32 0
+  %144 = extractvalue { <2 x float>, <2 x float> } %141, 0
+  store <2 x float> %144, ptr %143, align 4
+  %145 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %142, i32 0, i32 1
+  %146 = extractvalue { <2 x float>, <2 x float> } %141, 1
+  store <2 x float> %146, ptr %145, align 4
+  %147 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %19)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #4
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  store i32 0, ptr %20, align 4, !tbaa !9
+  br label %148
+
+148:                                              ; preds = %166, %137
+  %149 = load i32, ptr %20, align 4, !tbaa !9
+  %150 = load i32, ptr %10, align 4, !tbaa !9
+  %151 = icmp slt i32 %149, %150
+  br i1 %151, label %153, label %152
+
+152:                                              ; preds = %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  br label %169
+
+153:                                              ; preds = %148
+  %154 = load ptr, ptr %14, align 8, !tbaa !50
+  %155 = load i32, ptr %20, align 4, !tbaa !9
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds float, ptr %154, i64 %156
+  %158 = load float, ptr %157, align 4, !tbaa !22
+  %159 = load ptr, ptr %13, align 8, !tbaa !50
+  %160 = load i32, ptr %20, align 4, !tbaa !9
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds float, ptr %159, i64 %161
+  %163 = load float, ptr %162, align 4, !tbaa !22
+  %164 = load float, ptr %15, align 4, !tbaa !22
+  %165 = call float @llvm.fmuladd.f32(float %158, float %163, float %164)
+  store float %165, ptr %15, align 4, !tbaa !22
+  br label %166
+
+166:                                              ; preds = %153
+  %167 = load i32, ptr %20, align 4, !tbaa !9
+  %168 = add nsw i32 %167, 1
+  store i32 %168, ptr %20, align 4, !tbaa !9
+  br label %148, !llvm.loop !226
+
+169:                                              ; preds = %152
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #4
+  %170 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %22, i32 0, i32 6
+  %171 = load ptr, ptr %170, align 8, !tbaa !77
+  %172 = getelementptr inbounds nuw %"class.btSoftBody::DeformableRigidContact", ptr %171, i32 0, i32 12
+  %173 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %172, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %174 = getelementptr inbounds nuw %class.btVector3, ptr %21, i32 0, i32 0
+  %175 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %174, i32 0, i32 0
+  %176 = extractvalue { <2 x float>, <2 x float> } %173, 0
+  store <2 x float> %176, ptr %175, align 4
+  %177 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %174, i32 0, i32 1
+  %178 = extractvalue { <2 x float>, <2 x float> } %173, 1
+  store <2 x float> %178, ptr %177, align 4
+  %179 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %21)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  br label %180
+
+180:                                              ; preds = %169, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  br label %181
+
+181:                                              ; preds = %180, %30
+  br label %182
+
+182:                                              ; preds = %181, %1
+  %183 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %184 = load { <2 x float>, <2 x float> }, ptr %183, align 4
+  ret { <2 x float>, <2 x float> } %184
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody30internalGetDeltaLinearVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.btSolverBody, ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody31internalGetDeltaAngularVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.btSolverBody, ptr %3, i32 0, i32 2
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK11btMultiBody10getNumDofsEv(ptr noundef nonnull align 8 dereferenceable(640) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btMultiBody, ptr %3, i32 0, i32 43
+  %5 = load i32, ptr %4, align 4, !tbaa !227
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK11btMultiBody22getDeltaVelocityVectorEv(ptr noundef nonnull align 8 dereferenceable(640) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btMultiBody, ptr %3, i32 0, i32 16
+  %5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %4, i32 noundef 0)
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #10 comdat {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !22
+  %13 = load ptr, ptr %5, align 8, !tbaa !50
+  %14 = load float, ptr %13, align 4, !tbaa !22
+  %15 = fmul float %12, %14
+  store float %15, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %16 = load ptr, ptr %4, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [4 x float], ptr %17, i64 0, i64 1
+  %19 = load float, ptr %18, align 4, !tbaa !22
+  %20 = load ptr, ptr %5, align 8, !tbaa !50
+  %21 = load float, ptr %20, align 4, !tbaa !22
+  %22 = fmul float %19, %21
+  store float %22, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %23 = load ptr, ptr %4, align 8, !tbaa !18
+  %24 = getelementptr inbounds nuw %class.btVector3, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [4 x float], ptr %24, i64 0, i64 2
+  %26 = load float, ptr %25, align 4, !tbaa !22
+  %27 = load ptr, ptr %5, align 8, !tbaa !50
+  %28 = load float, ptr %27, align 4, !tbaa !22
+  %29 = fmul float %26, %28
+  store float %29, ptr %8, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %30 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %31 = load { <2 x float>, <2 x float> }, ptr %30, align 4
+  ret { <2 x float>, <2 x float> } %31
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds [4 x float], ptr %7, i64 0, i64 0
+  %9 = load float, ptr %8, align 4, !tbaa !22
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 0
+  %12 = load float, ptr %11, align 4, !tbaa !22
+  %13 = fadd float %12, %9
+  store float %13, ptr %11, align 4, !tbaa !22
+  %14 = load ptr, ptr %4, align 8, !tbaa !18
+  %15 = getelementptr inbounds nuw %class.btVector3, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 1
+  %17 = load float, ptr %16, align 4, !tbaa !22
+  %18 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds [4 x float], ptr %18, i64 0, i64 1
+  %20 = load float, ptr %19, align 4, !tbaa !22
+  %21 = fadd float %20, %17
+  store float %21, ptr %19, align 4, !tbaa !22
+  %22 = load ptr, ptr %4, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x float], ptr %23, i64 0, i64 2
+  %25 = load float, ptr %24, align 4, !tbaa !22
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %27 = getelementptr inbounds [4 x float], ptr %26, i64 0, i64 2
+  %28 = load float, ptr %27, align 4, !tbaa !22
+  %29 = fadd float %28, %25
+  store float %29, ptr %27, align 4, !tbaa !22
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVbEv(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #5 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %4, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8, !tbaa !58
+  %7 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %4, i32 0, i32 7
+  %8 = load ptr, ptr %7, align 8, !tbaa !58
+  %9 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject30getInterpolationWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %8)
+  %10 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %4, i32 0, i32 4
+  %11 = load i32, ptr %10, align 4, !tbaa !63
+  %12 = call { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr noundef nonnull align 8 dereferenceable(3176) %6, ptr noundef nonnull align 4 dereferenceable(64) %9, i32 noundef %11)
+  %13 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %14 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %13, i32 0, i32 0
+  %15 = extractvalue { <2 x float>, <2 x float> } %12, 0
+  store <2 x float> %15, ptr %14, align 4
+  %16 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %13, i32 0, i32 1
+  %17 = extractvalue { <2 x float>, <2 x float> } %12, 1
+  store <2 x float> %17, ptr %16, align 4
+  %18 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %19 = load { <2 x float>, <2 x float> }, ptr %18, align 4
+  ret { <2 x float>, <2 x float> } %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getSplitVbEv(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #1 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !130
+  %7 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %6, i32 0, i32 14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %7, i64 16, i1 false), !tbaa.struct !34
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %9 = load { <2 x float>, <2 x float> }, ptr %8, align 4
+  ret { <2 x float>, <2 x float> } %9
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !124
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %6, i32 0, i32 2
+  %9 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %10 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %10, i32 0, i32 0
+  %12 = extractvalue { <2 x float>, <2 x float> } %9, 0
+  store <2 x float> %12, ptr %11, align 4
+  %13 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %10, i32 0, i32 1
+  %14 = extractvalue { <2 x float>, <2 x float> } %9, 1
+  store <2 x float> %14, ptr %13, align 4
+  %15 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %16 = load { <2 x float>, <2 x float> }, ptr %15, align 4
+  ret { <2 x float>, <2 x float> } %16
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %5, i32 0, i32 7
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
+  %8 = load ptr, ptr %4, align 8, !tbaa !18
+  %9 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %5, i32 0, i32 31
+  %10 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %5, i32 0, i32 4
+  %11 = load i32, ptr %10, align 4, !tbaa !63
+  %12 = getelementptr inbounds nuw %class.btReducedDeformableRigidContactConstraint, ptr %5, i32 0, i32 9
+  %13 = load float, ptr %12, align 8, !tbaa !62
+  call void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpulseERK9btVector3S2_if(ptr noundef nonnull align 8 dereferenceable(3176) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef %11, float noundef %13)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody26DeformableFaceRigidContactERK19btContactSolverInfofb(ptr noundef nonnull align 8 dereferenceable(449) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(904) %2, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %4, i1 noundef zeroext %5) unnamed_addr #6 align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca float, align 4
+  %12 = alloca i8, align 1
+  store ptr %0, ptr %7, align 8, !tbaa !235
+  store ptr %1, ptr %8, align 8, !tbaa !14
+  store ptr %2, ptr %9, align 8, !tbaa !237
+  store ptr %3, ptr %10, align 8, !tbaa !20
+  store float %4, ptr %11, align 4, !tbaa !22
+  %13 = zext i1 %5 to i8
+  store i8 %13, ptr %12, align 1, !tbaa !238
+  %14 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !14
+  %16 = load ptr, ptr %9, align 8, !tbaa !237
+  %17 = load ptr, ptr %10, align 8, !tbaa !20
+  %18 = load float, ptr %11, align 4, !tbaa !22
+  call void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(436) %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(848) %16, ptr noundef nonnull align 4 dereferenceable(128) %17, float noundef %18)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTV45btReducedDeformableFaceRigidContactConstraint, i32 0, i32 0, i32 2), ptr %14, align 8, !tbaa !24
+  %19 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %14, i32 0, i32 2
+  %20 = load ptr, ptr %9, align 8, !tbaa !237
+  %21 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !239
+  store ptr %22, ptr %19, align 8, !tbaa !241
+  %23 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %14, i32 0, i32 3
+  %24 = load i8, ptr %12, align 1, !tbaa !238, !range !101, !noundef !102
+  %25 = trunc i8 %24 to i1
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %23, align 8, !tbaa !243
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getVbEv(ptr noundef nonnull align 8 dereferenceable(449) %0) unnamed_addr #5 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.btVector3, align 4
+  %6 = alloca %class.btVector3, align 4
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !235
+  %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %10 = call noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %9)
+  store ptr %10, ptr %4, align 8, !tbaa !237
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #4
+  %11 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !241
+  %13 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds [3 x ptr], ptr %13, i64 0, i64 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %4, align 8, !tbaa !237
+  %18 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %17, i32 0, i32 3
+  %19 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %18)
+  %20 = getelementptr inbounds float, ptr %19, i64 0
+  %21 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %23 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %22, i32 0, i32 0
+  %24 = extractvalue { <2 x float>, <2 x float> } %21, 0
+  store <2 x float> %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %22, i32 0, i32 1
+  %26 = extractvalue { <2 x float>, <2 x float> } %21, 1
+  store <2 x float> %26, ptr %25, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  %27 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !241
+  %29 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %28, i32 0, i32 1
+  %30 = getelementptr inbounds [3 x ptr], ptr %29, i64 0, i64 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %32 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %4, align 8, !tbaa !237
+  %34 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %33, i32 0, i32 3
+  %35 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
+  %36 = getelementptr inbounds float, ptr %35, i64 1
+  %37 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(4) %36)
+  %38 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %39 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %38, i32 0, i32 0
+  %40 = extractvalue { <2 x float>, <2 x float> } %37, 0
   store <2 x float> %40, ptr %39, align 4
-  %41 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive53, i32 0, i32 1
-  %42 = extractvalue { <2 x float>, <2 x float> } %call52, 1
+  %41 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %38, i32 0, i32 1
+  %42 = extractvalue { <2 x float>, <2 x float> } %37, 1
   store <2 x float> %42, ptr %41, align 4
-  %m_contactTangent254 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  %call55 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp49, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent254)
-  %m_tangentImpulseFactor256 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 15
-  store float %call55, ptr %m_tangentImpulseFactor256, align 8
-  %m_tangentImpulseFactor257 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 15
-  %43 = load float, ptr %m_tangentImpulseFactor257, align 8
-  %div58 = fdiv float 1.000000e+00, %43
-  %m_tangentImpulseFactorInv259 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 17
-  store float %div58, ptr %m_tangentImpulseFactorInv259, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else34, %if.then20
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.end, %if.then
-  %m_contactNormalA61 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 26
-  %call62 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v_rel, ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormalA61)
-  store float %call62, ptr %velocity_error, align 4
-  store float 0.000000e+00, ptr %position_error, align 4
-  %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 3
-  %44 = load float, ptr %m_penetration, align 8
-  %cmp63 = fcmp ogt float %44, 0.000000e+00
-  br i1 %cmp63, label %if.then64, label %if.else67
-
-if.then64:                                        ; preds = %if.end60
-  %m_penetration65 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 3
-  %45 = load float, ptr %m_penetration65, align 8
-  %m_dt = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 9
-  %46 = load float, ptr %m_dt, align 8
-  %div66 = fdiv float %45, %46
-  %47 = load float, ptr %velocity_error, align 4
-  %add = fadd float %47, %div66
-  store float %add, ptr %velocity_error, align 4
-  br label %if.end71
-
-if.else67:                                        ; preds = %if.end60
-  %m_penetration68 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 3
-  %48 = load float, ptr %m_penetration68, align 8
-  %m_erp = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 23
-  %49 = load float, ptr %m_erp, align 8
-  %mul = fmul float %48, %49
-  %m_dt69 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 9
-  %50 = load float, ptr %m_dt69, align 8
-  %div70 = fdiv float %mul, %50
-  store float %div70, ptr %position_error, align 4
-  br label %if.end71
-
-if.end71:                                         ; preds = %if.else67, %if.then64
-  %51 = load float, ptr %velocity_error, align 4
-  %52 = load float, ptr %position_error, align 4
-  %add72 = fadd float %51, %52
-  %fneg = fneg float %add72
-  %m_normalImpulseFactor = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 13
-  %53 = load float, ptr %m_normalImpulseFactor, align 8
-  %div73 = fdiv float %fneg, %53
-  %m_rhs = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 18
-  store float %div73, ptr %m_rhs, align 4
-  %m_contactTangent75 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 28
-  %call76 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v_rel, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent75)
-  store float %call76, ptr %velocity_error74, align 4
-  %54 = load float, ptr %velocity_error74, align 4
-  %m_tangentImpulseFactorInv77 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 16
-  %55 = load float, ptr %m_tangentImpulseFactorInv77, align 4
-  %mul78 = fmul float %54, %55
-  %m_rhs_tangent = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 19
-  store float %mul78, ptr %m_rhs_tangent, align 8
-  %m_collideMultibody79 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %56 = load i8, ptr %m_collideMultibody79, align 1
-  %tobool80 = trunc i8 %56 to i1
-  br i1 %tobool80, label %if.then81, label %if.end86
-
-if.then81:                                        ; preds = %if.end71
-  %m_contactTangent282 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 29
-  %call83 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %v_rel, ptr noundef nonnull align 4 dereferenceable(16) %m_contactTangent282)
-  store float %call83, ptr %velocity_error2, align 4
-  %57 = load float, ptr %velocity_error2, align 4
-  %m_tangentImpulseFactorInv284 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 17
-  %58 = load float, ptr %m_tangentImpulseFactorInv284, align 8
-  %mul85 = fmul float %57, %58
-  %m_rhs_tangent2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 20
-  store float %mul85, ptr %m_rhs_tangent2, align 4
-  br label %if.end86
-
-if.end86:                                         ; preds = %if.then81, %if.end71
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #6 comdat align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %nrm = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %nrm, ptr align 4 %this1, i64 16, i1 false)
-  %call = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %nrm)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %call, i64 16, i1 false)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %0 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %0
+  %43 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
+  %44 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %45 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %44, i32 0, i32 0
+  %46 = extractvalue { <2 x float>, <2 x float> } %43, 0
+  store <2 x float> %46, ptr %45, align 4
+  %47 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %44, i32 0, i32 1
+  %48 = extractvalue { <2 x float>, <2 x float> } %43, 1
+  store <2 x float> %48, ptr %47, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #4
+  %49 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8, !tbaa !241
+  %51 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds [3 x ptr], ptr %51, i64 0, i64 2
+  %53 = load ptr, ptr %52, align 8, !tbaa !16
+  %54 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %4, align 8, !tbaa !237
+  %56 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %55, i32 0, i32 3
+  %57 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %56)
+  %58 = getelementptr inbounds float, ptr %57, i64 2
+  %59 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %54, ptr noundef nonnull align 4 dereferenceable(4) %58)
+  %60 = getelementptr inbounds nuw %class.btVector3, ptr %8, i32 0, i32 0
+  %61 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %60, i32 0, i32 0
+  %62 = extractvalue { <2 x float>, <2 x float> } %59, 0
+  store <2 x float> %62, ptr %61, align 4
+  %63 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %60, i32 0, i32 1
+  %64 = extractvalue { <2 x float>, <2 x float> } %59, 1
+  store <2 x float> %64, ptr %63, align 4
+  %65 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %66 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %67 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %66, i32 0, i32 0
+  %68 = extractvalue { <2 x float>, <2 x float> } %65, 0
+  store <2 x float> %68, ptr %67, align 4
+  %69 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %66, i32 0, i32 1
+  %70 = extractvalue { <2 x float>, <2 x float> } %65, 1
+  store <2 x float> %70, ptr %69, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %71 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %72 = load { <2 x float>, <2 x float> }, ptr %71, align 4
+  ret { <2 x float>, <2 x float> } %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector37setZeroEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %this1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  ret void
+define linkonce_odr dso_local noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !235
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getVbEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_node = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_node, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 8 %m_v, i64 16, i1 false)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %1 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 0
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVaEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  %ref.tmp6 = alloca %class.btVector3, align 4
-  %ref.tmp7 = alloca %class.btVector3, align 4
-  %multibodyLinkCol = alloca ptr, align 8
-  %ndof = alloca i32, align 4
-  %J_n = alloca ptr, align 8
-  %J_t1 = alloca ptr, align 8
-  %J_t2 = alloca ptr, align 8
-  %local_dv = alloca ptr, align 8
-  %vel = alloca float, align 4
-  %k = alloca i32, align 4
-  %ref.tmp29 = alloca %class.btVector3, align 4
-  %k34 = alloca i32, align 4
-  %ref.tmp45 = alloca %class.btVector3, align 4
-  %k50 = alloca i32, align 4
-  %ref.tmp61 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  %m_collideStatic = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %m_collideStatic, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end67, label %if.then
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint10getSplitVbEv(ptr noundef nonnull align 8 dereferenceable(449) %0) unnamed_addr #5 align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.btVector3, align 4
+  %6 = alloca %class.btVector3, align 4
+  %7 = alloca %class.btVector3, align 4
+  %8 = alloca %class.btVector3, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !235
+  %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %10 = call noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %9)
+  store ptr %10, ptr %4, align 8, !tbaa !237
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #4
+  %11 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !241
+  %13 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds [3 x ptr], ptr %13, i64 0, i64 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %4, align 8, !tbaa !237
+  %18 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %17, i32 0, i32 3
+  %19 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %18)
+  %20 = getelementptr inbounds float, ptr %19, i64 0
+  %21 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %23 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %22, i32 0, i32 0
+  %24 = extractvalue { <2 x float>, <2 x float> } %21, 0
+  store <2 x float> %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %22, i32 0, i32 1
+  %26 = extractvalue { <2 x float>, <2 x float> } %21, 1
+  store <2 x float> %26, ptr %25, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  %27 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !241
+  %29 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %28, i32 0, i32 1
+  %30 = getelementptr inbounds [3 x ptr], ptr %29, i64 0, i64 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %32 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %31, i32 0, i32 14
+  %33 = load ptr, ptr %4, align 8, !tbaa !237
+  %34 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %33, i32 0, i32 3
+  %35 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
+  %36 = getelementptr inbounds float, ptr %35, i64 1
+  %37 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(4) %36)
+  %38 = getelementptr inbounds nuw %class.btVector3, ptr %7, i32 0, i32 0
+  %39 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %38, i32 0, i32 0
+  %40 = extractvalue { <2 x float>, <2 x float> } %37, 0
+  store <2 x float> %40, ptr %39, align 4
+  %41 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %38, i32 0, i32 1
+  %42 = extractvalue { <2 x float>, <2 x float> } %37, 1
+  store <2 x float> %42, ptr %41, align 4
+  %43 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
+  %44 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %45 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %44, i32 0, i32 0
+  %46 = extractvalue { <2 x float>, <2 x float> } %43, 0
+  store <2 x float> %46, ptr %45, align 4
+  %47 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %44, i32 0, i32 1
+  %48 = extractvalue { <2 x float>, <2 x float> } %43, 1
+  store <2 x float> %48, ptr %47, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #4
+  %49 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8, !tbaa !241
+  %51 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %50, i32 0, i32 1
+  %52 = getelementptr inbounds [3 x ptr], ptr %51, i64 0, i64 2
+  %53 = load ptr, ptr %52, align 8, !tbaa !16
+  %54 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %53, i32 0, i32 14
+  %55 = load ptr, ptr %4, align 8, !tbaa !237
+  %56 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %55, i32 0, i32 3
+  %57 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %56)
+  %58 = getelementptr inbounds float, ptr %57, i64 2
+  %59 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %54, ptr noundef nonnull align 4 dereferenceable(4) %58)
+  %60 = getelementptr inbounds nuw %class.btVector3, ptr %8, i32 0, i32 0
+  %61 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %60, i32 0, i32 0
+  %62 = extractvalue { <2 x float>, <2 x float> } %59, 0
+  store <2 x float> %62, ptr %61, align 4
+  %63 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %60, i32 0, i32 1
+  %64 = extractvalue { <2 x float>, <2 x float> } %59, 1
+  store <2 x float> %64, ptr %63, align 4
+  %65 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %66 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %67 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %66, i32 0, i32 0
+  %68 = extractvalue { <2 x float>, <2 x float> } %65, 0
+  store <2 x float> %68, ptr %67, align 4
+  %69 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %66, i32 0, i32 1
+  %70 = extractvalue { <2 x float>, <2 x float> } %65, 1
+  store <2 x float> %70, ptr %69, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %71 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %72 = load { <2 x float>, <2 x float> }, ptr %71, align 4
+  ret { <2 x float>, <2 x float> } %72
+}
 
-if.then:                                          ; preds = %entry
-  %m_collideMultibody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %m_collideMultibody, align 1
-  %tobool4 = trunc i8 %1 to i1
-  br i1 %tobool4, label %if.else, label %if.then5
+; Function Attrs: mustprogress uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull align 8 dereferenceable(449) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %class.btVector3, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !235
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #4
+  %10 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %9, i32 0, i32 2
+  %12 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %11)
+  %13 = getelementptr inbounds nuw %class.btVector3, ptr %6, i32 0, i32 0
+  %14 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %13, i32 0, i32 0
+  %15 = extractvalue { <2 x float>, <2 x float> } %12, 0
+  store <2 x float> %15, ptr %14, align 4
+  %16 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %13, i32 0, i32 1
+  %17 = extractvalue { <2 x float>, <2 x float> } %12, 1
+  store <2 x float> %17, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %18 = call noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %9)
+  store ptr %18, ptr %7, align 8, !tbaa !237
+  %19 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !241
+  %21 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds [3 x ptr], ptr %21, i64 0, i64 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !16
+  %24 = load ptr, ptr %5, align 8, !tbaa !16
+  %25 = icmp eq ptr %23, %24
+  br i1 %25, label %26, label %37
 
-if.then5:                                         ; preds = %if.then
-  %m_solverBody = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %m_solverBody, align 8
-  %call = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody30internalGetDeltaLinearVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %2)
-  %m_solverBody8 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %m_solverBody8, align 8
-  %call9 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody31internalGetDeltaAngularVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %3)
-  %m_relPosA = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 30
-  %call10 = call { <2 x float>, <2 x float> } @_ZNK9btVector35crossERKS_(ptr noundef nonnull align 4 dereferenceable(16) %call9, ptr noundef nonnull align 4 dereferenceable(16) %m_relPosA)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp7, i32 0, i32 0
-  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %5 = extractvalue { <2 x float>, <2 x float> } %call10, 0
-  store <2 x float> %5, ptr %4, align 4
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %7 = extractvalue { <2 x float>, <2 x float> } %call10, 1
-  store <2 x float> %7, ptr %6, align 4
-  %call11 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %call, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp7)
-  %coerce.dive12 = getelementptr inbounds %class.btVector3, ptr %ref.tmp6, i32 0, i32 0
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 0
-  %9 = extractvalue { <2 x float>, <2 x float> } %call11, 0
-  store <2 x float> %9, ptr %8, align 4
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive12, i32 0, i32 1
-  %11 = extractvalue { <2 x float>, <2 x float> } %call11, 1
-  store <2 x float> %11, ptr %10, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %ref.tmp6, i64 16, i1 false)
-  br label %if.end66
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %7, align 8, !tbaa !237
+  %28 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %27, i32 0, i32 4
+  %29 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %28)
+  %30 = getelementptr inbounds float, ptr %29, i64 0
+  %31 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %30)
+  %32 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %33 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %32, i32 0, i32 0
+  %34 = extractvalue { <2 x float>, <2 x float> } %31, 0
+  store <2 x float> %34, ptr %33, align 4
+  %35 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %32, i32 0, i32 1
+  %36 = extractvalue { <2 x float>, <2 x float> } %31, 1
+  store <2 x float> %36, ptr %35, align 4
+  store i32 1, ptr %8, align 4
+  br label %67
 
-if.else:                                          ; preds = %if.then
-  store ptr null, ptr %multibodyLinkCol, align 8
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %12 = load ptr, ptr %m_contact, align 8
-  %m_cti = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %12, i32 0, i32 0
-  %m_colObj = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti, i32 0, i32 0
-  %13 = load ptr, ptr %m_colObj, align 8
-  %call13 = call noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %13)
-  store ptr %call13, ptr %multibodyLinkCol, align 8
-  %14 = load ptr, ptr %multibodyLinkCol, align 8
-  %tobool14 = icmp ne ptr %14, null
-  br i1 %tobool14, label %if.then15, label %if.end
+37:                                               ; preds = %2
+  %38 = getelementptr inbounds nuw %class.btReducedDeformableFaceRigidContactConstraint, ptr %9, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8, !tbaa !241
+  %40 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds [3 x ptr], ptr %40, i64 0, i64 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !16
+  %43 = load ptr, ptr %5, align 8, !tbaa !16
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %45, label %56
 
-if.then15:                                        ; preds = %if.else
-  %15 = load ptr, ptr %multibodyLinkCol, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %m_multiBody, align 8
-  %call16 = call noundef i32 @_ZNK11btMultiBody10getNumDofsEv(ptr noundef nonnull align 8 dereferenceable(640) %16)
-  %add = add nsw i32 %call16, 6
-  store i32 %add, ptr %ndof, align 4
-  %m_contact17 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %17 = load ptr, ptr %m_contact17, align 8
-  %jacobianData_normal = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %17, i32 0, i32 8
-  %m_jacobians = getelementptr inbounds %struct.btMultiBodyJacobianData, ptr %jacobianData_normal, i32 0, i32 0
-  %call18 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_jacobians, i32 noundef 0)
-  store ptr %call18, ptr %J_n, align 8
-  %m_contact19 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %18 = load ptr, ptr %m_contact19, align 8
-  %jacobianData_t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %18, i32 0, i32 9
-  %m_jacobians20 = getelementptr inbounds %struct.btMultiBodyJacobianData, ptr %jacobianData_t1, i32 0, i32 0
-  %call21 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_jacobians20, i32 noundef 0)
-  store ptr %call21, ptr %J_t1, align 8
-  %m_contact22 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %19 = load ptr, ptr %m_contact22, align 8
-  %jacobianData_t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %19, i32 0, i32 10
-  %m_jacobians23 = getelementptr inbounds %struct.btMultiBodyJacobianData, ptr %jacobianData_t2, i32 0, i32 0
-  %call24 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_jacobians23, i32 noundef 0)
-  store ptr %call24, ptr %J_t2, align 8
-  %20 = load ptr, ptr %multibodyLinkCol, align 8
-  %m_multiBody25 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %m_multiBody25, align 8
-  %call26 = call noundef ptr @_ZNK11btMultiBody22getDeltaVelocityVectorEv(ptr noundef nonnull align 8 dereferenceable(640) %21)
-  store ptr %call26, ptr %local_dv, align 8
-  store float 0.000000e+00, ptr %vel, align 4
-  store i32 0, ptr %k, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then15
-  %22 = load i32, ptr %k, align 4
-  %23 = load i32, ptr %ndof, align 4
-  %cmp = icmp slt i32 %22, %23
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %24 = load ptr, ptr %local_dv, align 8
-  %25 = load i32, ptr %k, align 4
-  %idxprom = sext i32 %25 to i64
-  %arrayidx = getelementptr inbounds float, ptr %24, i64 %idxprom
-  %26 = load float, ptr %arrayidx, align 4
-  %27 = load ptr, ptr %J_n, align 8
-  %28 = load i32, ptr %k, align 4
-  %idxprom27 = sext i32 %28 to i64
-  %arrayidx28 = getelementptr inbounds float, ptr %27, i64 %idxprom27
-  %29 = load float, ptr %arrayidx28, align 4
-  %30 = load float, ptr %vel, align 4
-  %31 = call float @llvm.fmuladd.f32(float %26, float %29, float %30)
-  store float %31, ptr %vel, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %32 = load i32, ptr %k, align 4
-  %inc = add nsw i32 %32, 1
-  store i32 %inc, ptr %k, align 4
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
-  %m_contact30 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %33 = load ptr, ptr %m_contact30, align 8
-  %m_cti31 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %33, i32 0, i32 0
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti31, i32 0, i32 1
-  %call32 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_normal, ptr noundef nonnull align 4 dereferenceable(4) %vel)
-  %coerce.dive33 = getelementptr inbounds %class.btVector3, ptr %ref.tmp29, i32 0, i32 0
-  %34 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive33, i32 0, i32 0
-  %35 = extractvalue { <2 x float>, <2 x float> } %call32, 0
-  store <2 x float> %35, ptr %34, align 4
-  %36 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive33, i32 0, i32 1
-  %37 = extractvalue { <2 x float>, <2 x float> } %call32, 1
-  store <2 x float> %37, ptr %36, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %ref.tmp29, i64 16, i1 false)
-  store float 0.000000e+00, ptr %vel, align 4
-  store i32 0, ptr %k34, align 4
-  br label %for.cond35
-
-for.cond35:                                       ; preds = %for.inc42, %for.end
-  %38 = load i32, ptr %k34, align 4
-  %39 = load i32, ptr %ndof, align 4
-  %cmp36 = icmp slt i32 %38, %39
-  br i1 %cmp36, label %for.body37, label %for.end44
-
-for.body37:                                       ; preds = %for.cond35
-  %40 = load ptr, ptr %local_dv, align 8
-  %41 = load i32, ptr %k34, align 4
-  %idxprom38 = sext i32 %41 to i64
-  %arrayidx39 = getelementptr inbounds float, ptr %40, i64 %idxprom38
-  %42 = load float, ptr %arrayidx39, align 4
-  %43 = load ptr, ptr %J_t1, align 8
-  %44 = load i32, ptr %k34, align 4
-  %idxprom40 = sext i32 %44 to i64
-  %arrayidx41 = getelementptr inbounds float, ptr %43, i64 %idxprom40
-  %45 = load float, ptr %arrayidx41, align 4
-  %46 = load float, ptr %vel, align 4
-  %47 = call float @llvm.fmuladd.f32(float %42, float %45, float %46)
-  store float %47, ptr %vel, align 4
-  br label %for.inc42
-
-for.inc42:                                        ; preds = %for.body37
-  %48 = load i32, ptr %k34, align 4
-  %inc43 = add nsw i32 %48, 1
-  store i32 %inc43, ptr %k34, align 4
-  br label %for.cond35, !llvm.loop !8
-
-for.end44:                                        ; preds = %for.cond35
-  %m_contact46 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %49 = load ptr, ptr %m_contact46, align 8
-  %t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %49, i32 0, i32 11
-  %call47 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %t1, ptr noundef nonnull align 4 dereferenceable(4) %vel)
-  %coerce.dive48 = getelementptr inbounds %class.btVector3, ptr %ref.tmp45, i32 0, i32 0
-  %50 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive48, i32 0, i32 0
-  %51 = extractvalue { <2 x float>, <2 x float> } %call47, 0
-  store <2 x float> %51, ptr %50, align 4
-  %52 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive48, i32 0, i32 1
-  %53 = extractvalue { <2 x float>, <2 x float> } %call47, 1
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %7, align 8, !tbaa !237
+  %47 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %46, i32 0, i32 4
+  %48 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %47)
+  %49 = getelementptr inbounds float, ptr %48, i64 1
+  %50 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %49)
+  %51 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %52 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %51, i32 0, i32 0
+  %53 = extractvalue { <2 x float>, <2 x float> } %50, 0
   store <2 x float> %53, ptr %52, align 4
-  %call49 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp45)
-  store float 0.000000e+00, ptr %vel, align 4
-  store i32 0, ptr %k50, align 4
-  br label %for.cond51
+  %54 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %51, i32 0, i32 1
+  %55 = extractvalue { <2 x float>, <2 x float> } %50, 1
+  store <2 x float> %55, ptr %54, align 4
+  store i32 1, ptr %8, align 4
+  br label %67
 
-for.cond51:                                       ; preds = %for.inc58, %for.end44
-  %54 = load i32, ptr %k50, align 4
-  %55 = load i32, ptr %ndof, align 4
-  %cmp52 = icmp slt i32 %54, %55
-  br i1 %cmp52, label %for.body53, label %for.end60
+56:                                               ; preds = %37
+  %57 = load ptr, ptr %7, align 8, !tbaa !237
+  %58 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %57, i32 0, i32 4
+  %59 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %58)
+  %60 = getelementptr inbounds float, ptr %59, i64 2
+  %61 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %60)
+  %62 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %63 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %62, i32 0, i32 0
+  %64 = extractvalue { <2 x float>, <2 x float> } %61, 0
+  store <2 x float> %64, ptr %63, align 4
+  %65 = getelementptr inbounds nuw { <2 x float>, <2 x float> }, ptr %62, i32 0, i32 1
+  %66 = extractvalue { <2 x float>, <2 x float> } %61, 1
+  store <2 x float> %66, ptr %65, align 4
+  store i32 1, ptr %8, align 4
+  br label %67
 
-for.body53:                                       ; preds = %for.cond51
-  %56 = load ptr, ptr %local_dv, align 8
-  %57 = load i32, ptr %k50, align 4
-  %idxprom54 = sext i32 %57 to i64
-  %arrayidx55 = getelementptr inbounds float, ptr %56, i64 %idxprom54
-  %58 = load float, ptr %arrayidx55, align 4
-  %59 = load ptr, ptr %J_t2, align 8
-  %60 = load i32, ptr %k50, align 4
-  %idxprom56 = sext i32 %60 to i64
-  %arrayidx57 = getelementptr inbounds float, ptr %59, i64 %idxprom56
-  %61 = load float, ptr %arrayidx57, align 4
-  %62 = load float, ptr %vel, align 4
-  %63 = call float @llvm.fmuladd.f32(float %58, float %61, float %62)
-  store float %63, ptr %vel, align 4
-  br label %for.inc58
-
-for.inc58:                                        ; preds = %for.body53
-  %64 = load i32, ptr %k50, align 4
-  %inc59 = add nsw i32 %64, 1
-  store i32 %inc59, ptr %k50, align 4
-  br label %for.cond51, !llvm.loop !9
-
-for.end60:                                        ; preds = %for.cond51
-  %m_contact62 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %65 = load ptr, ptr %m_contact62, align 8
-  %t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %65, i32 0, i32 12
-  %call63 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %t2, ptr noundef nonnull align 4 dereferenceable(4) %vel)
-  %coerce.dive64 = getelementptr inbounds %class.btVector3, ptr %ref.tmp61, i32 0, i32 0
-  %66 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive64, i32 0, i32 0
-  %67 = extractvalue { <2 x float>, <2 x float> } %call63, 0
-  store <2 x float> %67, ptr %66, align 4
-  %68 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive64, i32 0, i32 1
-  %69 = extractvalue { <2 x float>, <2 x float> } %call63, 1
-  store <2 x float> %69, ptr %68, align 4
-  %call65 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp61)
-  br label %if.end
-
-if.end:                                           ; preds = %for.end60, %if.else
-  br label %if.end66
-
-if.end66:                                         ; preds = %if.end, %if.then5
-  br label %if.end67
-
-if.end67:                                         ; preds = %if.end66, %entry
-  %coerce.dive68 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %70 = load { <2 x float>, <2 x float> }, ptr %coerce.dive68, align 4
-  ret { <2 x float>, <2 x float> } %70
+67:                                               ; preds = %56, %45, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #4
+  %68 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %69 = load { <2 x float>, <2 x float> }, ptr %68, align 4
+  ret { <2 x float>, <2 x float> } %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody30internalGetDeltaLinearVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_deltaLinearVelocity = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 1
-  ret ptr %m_deltaLinearVelocity
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN12btSolverBody31internalGetDeltaAngularVelocityEv(ptr noundef nonnull align 8 dereferenceable(248) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_deltaAngularVelocity = getelementptr inbounds %struct.btSolverBody, ptr %this1, i32 0, i32 2
-  ret ptr %m_deltaAngularVelocity
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK11btMultiBody10getNumDofsEv(ptr noundef nonnull align 8 dereferenceable(640) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_dofCount = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 43
-  %0 = load i32, ptr %m_dofCount, align 4
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK11btMultiBody22getDeltaVelocityVectorEv(ptr noundef nonnull align 8 dereferenceable(640) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_deltaV = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 16
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaV, i32 noundef 0)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(4) %s) #6 comdat {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %v.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp1 = alloca float, align 4
-  %ref.tmp5 = alloca float, align 4
-  store ptr %v, ptr %v.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %mul = fmul float %1, %3
-  store float %mul, ptr %ref.tmp, align 4
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %4, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  %5 = load float, ptr %arrayidx3, align 4
-  %6 = load ptr, ptr %s.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %mul4 = fmul float %5, %7
-  store float %mul4, ptr %ref.tmp1, align 4
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %8, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 2
-  %9 = load float, ptr %arrayidx7, align 4
-  %10 = load ptr, ptr %s.addr, align 8
-  %11 = load float, ptr %10, align 4
-  %mul8 = fmul float %9, %11
-  store float %mul8, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %12 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %12
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %v) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %0, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %1 = load float, ptr %arrayidx, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 0
-  %2 = load float, ptr %arrayidx3, align 4
-  %add = fadd float %2, %1
-  store float %add, ptr %arrayidx3, align 4
-  %3 = load ptr, ptr %v.addr, align 8
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %3, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 1
-  %4 = load float, ptr %arrayidx5, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 1
-  %5 = load float, ptr %arrayidx7, align 4
-  %add8 = fadd float %5, %4
-  store float %add8, ptr %arrayidx7, align 4
-  %6 = load ptr, ptr %v.addr, align 8
-  %m_floats9 = getelementptr inbounds %class.btVector3, ptr %6, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [4 x float], ptr %m_floats9, i64 0, i64 2
-  %7 = load float, ptr %arrayidx10, align 4
-  %m_floats11 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_floats11, i64 0, i64 2
-  %8 = load float, ptr %arrayidx12, align 4
-  %add13 = fadd float %8, %7
-  store float %add13, ptr %arrayidx12, align 4
-  ret ptr %this1
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getDeltaVbEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rsb = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %m_rsb, align 8
-  %m_rsb2 = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 7
-  %1 = load ptr, ptr %m_rsb2, align 8
-  %call = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject30getInterpolationWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %1)
-  %m_nodeQueryIndex = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %m_nodeQueryIndex, align 4
-  %call3 = call { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr noundef nonnull align 8 dereferenceable(3176) %0, ptr noundef nonnull align 4 dereferenceable(64) %call, i32 noundef %2)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %4 = extractvalue { <2 x float>, <2 x float> } %call3, 0
-  store <2 x float> %4, ptr %3, align 4
-  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %6 = extractvalue { <2 x float>, <2 x float> } %call3, 1
-  store <2 x float> %6, ptr %5, align 4
-  %coerce.dive4 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %7 = load { <2 x float>, <2 x float> }, ptr %coerce.dive4, align 4
-  ret { <2 x float>, <2 x float> } %7
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getSplitVbEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_node = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_node, align 8
-  %m_splitv = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i32 0, i32 14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %m_splitv, i64 16, i1 false)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %1 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %1
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %node) unnamed_addr #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %node.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %node, ptr %node.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %call = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_total_normal_dv, ptr noundef nonnull align 4 dereferenceable(16) %m_total_tangent_dv)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %0 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %1, ptr %0, align 4
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %3, ptr %2, align 4
-  %coerce.dive2 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %4 = load { <2 x float>, <2 x float> }, ptr %coerce.dive2, align 4
-  ret { <2 x float>, <2 x float> } %4
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse) unnamed_addr #6 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %impulse.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %impulse, ptr %impulse.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_rsb = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %m_rsb, align 8
-  %1 = load ptr, ptr %impulse.addr, align 8
-  %m_relPosB = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 31
-  %m_nodeQueryIndex = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %m_nodeQueryIndex, align 4
-  %m_dt = getelementptr inbounds %class.btReducedDeformableRigidContactConstraint, ptr %this1, i32 0, i32 9
-  %3 = load float, ptr %m_dt, align 8
-  call void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpulseERK9btVector3S2_if(ptr noundef nonnull align 8 dereferenceable(3176) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %m_relPosB, i32 noundef %2, float noundef %3)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody26DeformableFaceRigidContactERK19btContactSolverInfofb(ptr noundef nonnull align 8 dereferenceable(449) %this, ptr noundef %rsb, ptr noundef nonnull align 8 dereferenceable(904) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt, i1 noundef zeroext %useStrainLimiting) unnamed_addr #6 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rsb.addr = alloca ptr, align 8
-  %contact.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  %dt.addr = alloca float, align 4
-  %useStrainLimiting.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rsb, ptr %rsb.addr, align 8
-  store ptr %contact, ptr %contact.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  store float %dt, ptr %dt.addr, align 4
-  %frombool = zext i1 %useStrainLimiting to i8
-  store i8 %frombool, ptr %useStrainLimiting.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %rsb.addr, align 8
-  %1 = load ptr, ptr %contact.addr, align 8
-  %2 = load ptr, ptr %infoGlobal.addr, align 8
-  %3 = load float, ptr %dt.addr, align 4
-  call void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btReducedDeformableBodyRKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfof(ptr noundef nonnull align 8 dereferenceable(436) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %3)
-  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV45btReducedDeformableFaceRigidContactConstraint, i32 0, i32 0, i32 2
-  store ptr %4, ptr %this1, align 8
-  %m_face = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %contact.addr, align 8
-  %m_face2 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %m_face2, align 8
-  store ptr %6, ptr %m_face, align 8
-  %m_useStrainLimiting = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 3
-  %7 = load i8, ptr %useStrainLimiting.addr, align 1
-  %tobool = trunc i8 %7 to i1
-  %frombool3 = zext i1 %tobool to i8
-  store i8 %frombool3, ptr %m_useStrainLimiting, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getVbEv(ptr noundef nonnull align 8 dereferenceable(449) %this) unnamed_addr #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %contact = alloca ptr, align 8
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca %class.btVector3, align 4
-  %ref.tmp6 = alloca %class.btVector3, align 4
-  %ref.tmp18 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %this1)
-  store ptr %call, ptr %contact, align 8
-  %m_face = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %0, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr %m_n, i64 0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i32 0, i32 3
-  %2 = load ptr, ptr %contact, align 8
-  %m_bary = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %2, i32 0, i32 3
-  %call3 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_bary)
-  %arrayidx4 = getelementptr inbounds float, ptr %call3, i64 0
-  %call5 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_v, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx4)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp2, i32 0, i32 0
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %4 = extractvalue { <2 x float>, <2 x float> } %call5, 0
-  store <2 x float> %4, ptr %3, align 4
-  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %6 = extractvalue { <2 x float>, <2 x float> } %call5, 1
-  store <2 x float> %6, ptr %5, align 4
-  %m_face7 = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %m_face7, align 8
-  %m_n8 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i32 0, i32 1
-  %arrayidx9 = getelementptr inbounds [3 x ptr], ptr %m_n8, i64 0, i64 1
-  %8 = load ptr, ptr %arrayidx9, align 8
-  %m_v10 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %contact, align 8
-  %m_bary11 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %9, i32 0, i32 3
-  %call12 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_bary11)
-  %arrayidx13 = getelementptr inbounds float, ptr %call12, i64 1
-  %call14 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_v10, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx13)
-  %coerce.dive15 = getelementptr inbounds %class.btVector3, ptr %ref.tmp6, i32 0, i32 0
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive15, i32 0, i32 0
-  %11 = extractvalue { <2 x float>, <2 x float> } %call14, 0
-  store <2 x float> %11, ptr %10, align 4
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive15, i32 0, i32 1
-  %13 = extractvalue { <2 x float>, <2 x float> } %call14, 1
-  store <2 x float> %13, ptr %12, align 4
-  %call16 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp6)
-  %coerce.dive17 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %14 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 0
-  %15 = extractvalue { <2 x float>, <2 x float> } %call16, 0
-  store <2 x float> %15, ptr %14, align 4
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 1
-  %17 = extractvalue { <2 x float>, <2 x float> } %call16, 1
-  store <2 x float> %17, ptr %16, align 4
-  %m_face19 = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %18 = load ptr, ptr %m_face19, align 8
-  %m_n20 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %18, i32 0, i32 1
-  %arrayidx21 = getelementptr inbounds [3 x ptr], ptr %m_n20, i64 0, i64 2
-  %19 = load ptr, ptr %arrayidx21, align 8
-  %m_v22 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %19, i32 0, i32 3
-  %20 = load ptr, ptr %contact, align 8
-  %m_bary23 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %20, i32 0, i32 3
-  %call24 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_bary23)
-  %arrayidx25 = getelementptr inbounds float, ptr %call24, i64 2
-  %call26 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_v22, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx25)
-  %coerce.dive27 = getelementptr inbounds %class.btVector3, ptr %ref.tmp18, i32 0, i32 0
-  %21 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive27, i32 0, i32 0
-  %22 = extractvalue { <2 x float>, <2 x float> } %call26, 0
-  store <2 x float> %22, ptr %21, align 4
-  %23 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive27, i32 0, i32 1
-  %24 = extractvalue { <2 x float>, <2 x float> } %call26, 1
-  store <2 x float> %24, ptr %23, align 4
-  %call28 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp18)
-  %coerce.dive29 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %25 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive29, i32 0, i32 0
-  %26 = extractvalue { <2 x float>, <2 x float> } %call28, 0
-  store <2 x float> %26, ptr %25, align 4
-  %27 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive29, i32 0, i32 1
-  %28 = extractvalue { <2 x float>, <2 x float> } %call28, 1
-  store <2 x float> %28, ptr %27, align 4
-  %coerce.dive30 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %29 = load { <2 x float>, <2 x float> }, ptr %coerce.dive30, align 4
-  ret { <2 x float>, <2 x float> } %29
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %m_contact, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  ret ptr %arrayidx
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint10getSplitVbEv(ptr noundef nonnull align 8 dereferenceable(449) %this) unnamed_addr #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %contact = alloca ptr, align 8
-  %ref.tmp = alloca %class.btVector3, align 4
-  %ref.tmp2 = alloca %class.btVector3, align 4
-  %ref.tmp6 = alloca %class.btVector3, align 4
-  %ref.tmp18 = alloca %class.btVector3, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %this1)
-  store ptr %call, ptr %contact, align 8
-  %m_face = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %0, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr %m_n, i64 0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  %m_splitv = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i32 0, i32 14
-  %2 = load ptr, ptr %contact, align 8
-  %m_bary = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %2, i32 0, i32 3
-  %call3 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_bary)
-  %arrayidx4 = getelementptr inbounds float, ptr %call3, i64 0
-  %call5 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_splitv, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx4)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %ref.tmp2, i32 0, i32 0
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %4 = extractvalue { <2 x float>, <2 x float> } %call5, 0
-  store <2 x float> %4, ptr %3, align 4
-  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %6 = extractvalue { <2 x float>, <2 x float> } %call5, 1
-  store <2 x float> %6, ptr %5, align 4
-  %m_face7 = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %m_face7, align 8
-  %m_n8 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i32 0, i32 1
-  %arrayidx9 = getelementptr inbounds [3 x ptr], ptr %m_n8, i64 0, i64 1
-  %8 = load ptr, ptr %arrayidx9, align 8
-  %m_splitv10 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i32 0, i32 14
-  %9 = load ptr, ptr %contact, align 8
-  %m_bary11 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %9, i32 0, i32 3
-  %call12 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_bary11)
-  %arrayidx13 = getelementptr inbounds float, ptr %call12, i64 1
-  %call14 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_splitv10, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx13)
-  %coerce.dive15 = getelementptr inbounds %class.btVector3, ptr %ref.tmp6, i32 0, i32 0
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive15, i32 0, i32 0
-  %11 = extractvalue { <2 x float>, <2 x float> } %call14, 0
-  store <2 x float> %11, ptr %10, align 4
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive15, i32 0, i32 1
-  %13 = extractvalue { <2 x float>, <2 x float> } %call14, 1
-  store <2 x float> %13, ptr %12, align 4
-  %call16 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp6)
-  %coerce.dive17 = getelementptr inbounds %class.btVector3, ptr %ref.tmp, i32 0, i32 0
-  %14 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 0
-  %15 = extractvalue { <2 x float>, <2 x float> } %call16, 0
-  store <2 x float> %15, ptr %14, align 4
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive17, i32 0, i32 1
-  %17 = extractvalue { <2 x float>, <2 x float> } %call16, 1
-  store <2 x float> %17, ptr %16, align 4
-  %m_face19 = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %18 = load ptr, ptr %m_face19, align 8
-  %m_n20 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %18, i32 0, i32 1
-  %arrayidx21 = getelementptr inbounds [3 x ptr], ptr %m_n20, i64 0, i64 2
-  %19 = load ptr, ptr %arrayidx21, align 8
-  %m_splitv22 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %19, i32 0, i32 14
-  %20 = load ptr, ptr %contact, align 8
-  %m_bary23 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %20, i32 0, i32 3
-  %call24 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_bary23)
-  %arrayidx25 = getelementptr inbounds float, ptr %call24, i64 2
-  %call26 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_splitv22, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx25)
-  %coerce.dive27 = getelementptr inbounds %class.btVector3, ptr %ref.tmp18, i32 0, i32 0
-  %21 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive27, i32 0, i32 0
-  %22 = extractvalue { <2 x float>, <2 x float> } %call26, 0
-  store <2 x float> %22, ptr %21, align 4
-  %23 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive27, i32 0, i32 1
-  %24 = extractvalue { <2 x float>, <2 x float> } %call26, 1
-  store <2 x float> %24, ptr %23, align 4
-  %call28 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp18)
-  %coerce.dive29 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %25 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive29, i32 0, i32 0
-  %26 = extractvalue { <2 x float>, <2 x float> } %call28, 0
-  store <2 x float> %26, ptr %25, align 4
-  %27 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive29, i32 0, i32 1
-  %28 = extractvalue { <2 x float>, <2 x float> } %call28, 1
-  store <2 x float> %28, ptr %27, align 4
-  %coerce.dive30 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %29 = load { <2 x float>, <2 x float> }, ptr %coerce.dive30, align 4
-  ret { <2 x float>, <2 x float> } %29
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull align 8 dereferenceable(449) %this, ptr noundef %node) unnamed_addr #5 align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %node.addr = alloca ptr, align 8
-  %face_dv = alloca %class.btVector3, align 4
-  %contact = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %node, ptr %node.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 1
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %call = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_total_normal_dv, ptr noundef nonnull align 4 dereferenceable(16) %m_total_tangent_dv)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %face_dv, i32 0, i32 0
-  %0 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %1, ptr %0, align 4
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %3, ptr %2, align 4
-  %call2 = call noundef ptr @_ZNK45btReducedDeformableFaceRigidContactConstraint10getContactEv(ptr noundef nonnull align 8 dereferenceable(449) %this1)
-  store ptr %call2, ptr %contact, align 8
-  %m_face = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %4, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr %m_n, i64 0, i64 0
-  %5 = load ptr, ptr %arrayidx, align 8
-  %6 = load ptr, ptr %node.addr, align 8
-  %cmp = icmp eq ptr %5, %6
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %contact, align 8
-  %m_weights = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %7, i32 0, i32 4
-  %call3 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_weights)
-  %arrayidx4 = getelementptr inbounds float, ptr %call3, i64 0
-  %call5 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %face_dv, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx4)
-  %coerce.dive6 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %8 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive6, i32 0, i32 0
-  %9 = extractvalue { <2 x float>, <2 x float> } %call5, 0
-  store <2 x float> %9, ptr %8, align 4
-  %10 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive6, i32 0, i32 1
-  %11 = extractvalue { <2 x float>, <2 x float> } %call5, 1
-  store <2 x float> %11, ptr %10, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %m_face7 = getelementptr inbounds %class.btReducedDeformableFaceRigidContactConstraint, ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %m_face7, align 8
-  %m_n8 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %12, i32 0, i32 1
-  %arrayidx9 = getelementptr inbounds [3 x ptr], ptr %m_n8, i64 0, i64 1
-  %13 = load ptr, ptr %arrayidx9, align 8
-  %14 = load ptr, ptr %node.addr, align 8
-  %cmp10 = icmp eq ptr %13, %14
-  br i1 %cmp10, label %if.then11, label %if.end17
-
-if.then11:                                        ; preds = %if.end
-  %15 = load ptr, ptr %contact, align 8
-  %m_weights12 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %15, i32 0, i32 4
-  %call13 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_weights12)
-  %arrayidx14 = getelementptr inbounds float, ptr %call13, i64 1
-  %call15 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %face_dv, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx14)
-  %coerce.dive16 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive16, i32 0, i32 0
-  %17 = extractvalue { <2 x float>, <2 x float> } %call15, 0
-  store <2 x float> %17, ptr %16, align 4
-  %18 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive16, i32 0, i32 1
-  %19 = extractvalue { <2 x float>, <2 x float> } %call15, 1
-  store <2 x float> %19, ptr %18, align 4
-  br label %return
-
-if.end17:                                         ; preds = %if.end
-  %20 = load ptr, ptr %contact, align 8
-  %m_weights18 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %20, i32 0, i32 4
-  %call19 = call noundef ptr @_ZNK9btVector3cvPKfEv(ptr noundef nonnull align 4 dereferenceable(16) %m_weights18)
-  %arrayidx20 = getelementptr inbounds float, ptr %call19, i64 2
-  %call21 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %face_dv, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx20)
-  %coerce.dive22 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %21 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive22, i32 0, i32 0
-  %22 = extractvalue { <2 x float>, <2 x float> } %call21, 0
-  store <2 x float> %22, ptr %21, align 4
-  %23 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive22, i32 0, i32 1
-  %24 = extractvalue { <2 x float>, <2 x float> } %call21, 1
-  store <2 x float> %24, ptr %23, align 4
-  br label %return
-
-return:                                           ; preds = %if.end17, %if.then11, %if.then
-  %coerce.dive23 = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %25 = load { <2 x float>, <2 x float> }, ptr %coerce.dive23, align 4
-  ret { <2 x float>, <2 x float> } %25
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(449) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %impulse.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %impulse, ptr %impulse.addr, align 8
+define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(449) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !235
+  store ptr %1, ptr %4, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23btMultiBodyLinkColliderD2Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23btMultiBodyLinkColliderD0Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN23btMultiBodyLinkColliderD2Ev(ptr noundef nonnull align 8 dereferenceable(388) %this1) #4
-  call void @_ZN17btCollisionObjectdlEPv(ptr noundef %this1) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape(ptr noundef nonnull align 8 dereferenceable(372) %this, ptr noundef %collisionShape) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %collisionShape.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %collisionShape, ptr %collisionShape.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_updateRevision = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 36
-  %0 = load i32, ptr %m_updateRevision, align 8
-  %inc = add nsw i32 %0, 1
-  store i32 %inc, ptr %m_updateRevision, align 8
-  %1 = load ptr, ptr %collisionShape.addr, align 8
-  %m_collisionShape = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 9
-  store ptr %1, ptr %m_collisionShape, align 8
-  %2 = load ptr, ptr %collisionShape.addr, align 8
-  %m_rootCollisionShape = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 11
-  store ptr %2, ptr %m_rootCollisionShape, align 8
+define linkonce_odr dso_local void @_ZN35btReducedDeformableStaticConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(172) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 176) #15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK23btMultiBodyLinkCollider24checkCollideWithOverrideEPK17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %co) unnamed_addr #6 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %co.addr = alloca ptr, align 8
-  %other = alloca ptr, align 8
-  %link = alloca ptr, align 8
-  %parent_of_this = alloca i32, align 4
-  %otherLink = alloca ptr, align 8
-  %parent_of_other = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %co, ptr %co.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %co.addr, align 8
-  %call = call noundef ptr @_ZN23btMultiBodyLinkCollider6upcastEPK17btCollisionObject(ptr noundef %0)
-  store ptr %call, ptr %other, align 8
-  %1 = load ptr, ptr %other, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %other, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %m_multiBody, align 8
-  %m_multiBody2 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %m_multiBody2, align 8
-  %cmp = icmp ne ptr %3, %4
-  br i1 %cmp, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %m_multiBody5 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %m_multiBody5, align 8
-  %call6 = call noundef zeroext i1 @_ZNK11btMultiBody16hasSelfCollisionEv(ptr noundef nonnull align 8 dereferenceable(640) %5)
-  br i1 %call6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %if.end4
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end8:                                          ; preds = %if.end4
-  %m_link = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %6 = load i32, ptr %m_link, align 8
-  %cmp9 = icmp sge i32 %6, 0
-  br i1 %cmp9, label %if.then10, label %if.end37
-
-if.then10:                                        ; preds = %if.end8
-  %m_multiBody11 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %m_multiBody11, align 8
-  %m_link12 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %8 = load i32, ptr %m_link12, align 8
-  %call13 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %7, i32 noundef %8)
-  store ptr %call13, ptr %link, align 8
-  %9 = load ptr, ptr %link, align 8
-  %m_flags = getelementptr inbounds %struct.btMultibodyLink, ptr %9, i32 0, i32 23
-  %10 = load i32, ptr %m_flags, align 8
-  %and = and i32 %10, 2
-  %tobool14 = icmp ne i32 %and, 0
-  br i1 %tobool14, label %if.then15, label %if.else
-
-if.then15:                                        ; preds = %if.then10
-  %m_link16 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %11 = load i32, ptr %m_link16, align 8
-  store i32 %11, ptr %parent_of_this, align 4
-  br label %while.body
-
-while.body:                                       ; preds = %if.end25, %if.then15
-  %12 = load i32, ptr %parent_of_this, align 4
-  %cmp17 = icmp eq i32 %12, -1
-  br i1 %cmp17, label %if.then18, label %if.end19
-
-if.then18:                                        ; preds = %while.body
-  br label %while.end
-
-if.end19:                                         ; preds = %while.body
-  %m_multiBody20 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %13 = load ptr, ptr %m_multiBody20, align 8
-  %14 = load i32, ptr %parent_of_this, align 4
-  %call21 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %13, i32 noundef %14)
-  %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %call21, i32 0, i32 2
-  %15 = load i32, ptr %m_parent, align 4
-  store i32 %15, ptr %parent_of_this, align 4
-  %16 = load i32, ptr %parent_of_this, align 4
-  %17 = load ptr, ptr %other, align 8
-  %m_link22 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %m_link22, align 8
-  %cmp23 = icmp eq i32 %16, %18
-  br i1 %cmp23, label %if.then24, label %if.end25
-
-if.then24:                                        ; preds = %if.end19
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end25:                                         ; preds = %if.end19
-  br label %while.body, !llvm.loop !10
-
-while.end:                                        ; preds = %if.then18
-  br label %if.end36
-
-if.else:                                          ; preds = %if.then10
-  %19 = load ptr, ptr %link, align 8
-  %m_flags26 = getelementptr inbounds %struct.btMultibodyLink, ptr %19, i32 0, i32 23
-  %20 = load i32, ptr %m_flags26, align 8
-  %and27 = and i32 %20, 1
-  %tobool28 = icmp ne i32 %and27, 0
-  br i1 %tobool28, label %if.then29, label %if.end35
-
-if.then29:                                        ; preds = %if.else
-  %21 = load ptr, ptr %link, align 8
-  %m_parent30 = getelementptr inbounds %struct.btMultibodyLink, ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %m_parent30, align 4
-  %23 = load ptr, ptr %other, align 8
-  %m_link31 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %23, i32 0, i32 3
-  %24 = load i32, ptr %m_link31, align 8
-  %cmp32 = icmp eq i32 %22, %24
-  br i1 %cmp32, label %if.then33, label %if.end34
-
-if.then33:                                        ; preds = %if.then29
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end34:                                         ; preds = %if.then29
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end34, %if.else
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.end35, %while.end
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end36, %if.end8
-  %25 = load ptr, ptr %other, align 8
-  %m_link38 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %25, i32 0, i32 3
-  %26 = load i32, ptr %m_link38, align 8
-  %cmp39 = icmp sge i32 %26, 0
-  br i1 %cmp39, label %if.then40, label %if.end73
-
-if.then40:                                        ; preds = %if.end37
-  %27 = load ptr, ptr %other, align 8
-  %m_multiBody41 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %27, i32 0, i32 2
-  %28 = load ptr, ptr %m_multiBody41, align 8
-  %29 = load ptr, ptr %other, align 8
-  %m_link42 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %29, i32 0, i32 3
-  %30 = load i32, ptr %m_link42, align 8
-  %call43 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %28, i32 noundef %30)
-  store ptr %call43, ptr %otherLink, align 8
-  %31 = load ptr, ptr %otherLink, align 8
-  %m_flags44 = getelementptr inbounds %struct.btMultibodyLink, ptr %31, i32 0, i32 23
-  %32 = load i32, ptr %m_flags44, align 8
-  %and45 = and i32 %32, 2
-  %tobool46 = icmp ne i32 %and45, 0
-  br i1 %tobool46, label %if.then47, label %if.else61
-
-if.then47:                                        ; preds = %if.then40
-  %33 = load ptr, ptr %other, align 8
-  %m_link48 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %33, i32 0, i32 3
-  %34 = load i32, ptr %m_link48, align 8
-  store i32 %34, ptr %parent_of_other, align 4
-  br label %while.body49
-
-while.body49:                                     ; preds = %if.end59, %if.then47
-  %35 = load i32, ptr %parent_of_other, align 4
-  %cmp50 = icmp eq i32 %35, -1
-  br i1 %cmp50, label %if.then51, label %if.end52
-
-if.then51:                                        ; preds = %while.body49
-  br label %while.end60
-
-if.end52:                                         ; preds = %while.body49
-  %m_multiBody53 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %36 = load ptr, ptr %m_multiBody53, align 8
-  %37 = load i32, ptr %parent_of_other, align 4
-  %call54 = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %36, i32 noundef %37)
-  %m_parent55 = getelementptr inbounds %struct.btMultibodyLink, ptr %call54, i32 0, i32 2
-  %38 = load i32, ptr %m_parent55, align 4
-  store i32 %38, ptr %parent_of_other, align 4
-  %39 = load i32, ptr %parent_of_other, align 4
-  %m_link56 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %40 = load i32, ptr %m_link56, align 8
-  %cmp57 = icmp eq i32 %39, %40
-  br i1 %cmp57, label %if.then58, label %if.end59
-
-if.then58:                                        ; preds = %if.end52
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end59:                                         ; preds = %if.end52
-  br label %while.body49, !llvm.loop !11
-
-while.end60:                                      ; preds = %if.then51
-  br label %if.end72
-
-if.else61:                                        ; preds = %if.then40
-  %41 = load ptr, ptr %otherLink, align 8
-  %m_flags62 = getelementptr inbounds %struct.btMultibodyLink, ptr %41, i32 0, i32 23
-  %42 = load i32, ptr %m_flags62, align 8
-  %and63 = and i32 %42, 1
-  %tobool64 = icmp ne i32 %and63, 0
-  br i1 %tobool64, label %if.then65, label %if.end71
-
-if.then65:                                        ; preds = %if.else61
-  %43 = load ptr, ptr %otherLink, align 8
-  %m_parent66 = getelementptr inbounds %struct.btMultibodyLink, ptr %43, i32 0, i32 2
-  %44 = load i32, ptr %m_parent66, align 4
-  %m_link67 = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %45 = load i32, ptr %m_link67, align 8
-  %cmp68 = icmp eq i32 %44, %45
-  br i1 %cmp68, label %if.then69, label %if.end70
-
-if.then69:                                        ; preds = %if.then65
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end70:                                         ; preds = %if.then65
-  br label %if.end71
-
-if.end71:                                         ; preds = %if.end70, %if.else61
-  br label %if.end72
-
-if.end72:                                         ; preds = %if.end71, %while.end60
-  br label %if.end73
-
-if.end73:                                         ; preds = %if.end72, %if.end37
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end73, %if.then69, %if.then58, %if.then33, %if.then24, %if.then7, %if.then3, %if.then
-  %46 = load i1, ptr %retval, align 1
-  ret i1 %46
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK28btDeformableStaticConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store float 0.000000e+00, ptr %6, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %7 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %8 = load { <2 x float>, <2 x float> }, ptr %7, align 4
+  ret { <2 x float>, <2 x float> } %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK23btMultiBodyLinkCollider9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dataBuffer.addr = alloca ptr, align 8
-  %serializer.addr = alloca ptr, align 8
-  %dataOut = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %dataBuffer, ptr %dataBuffer.addr, align 8
-  store ptr %serializer, ptr %serializer.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %dataBuffer.addr, align 8
-  store ptr %0, ptr %dataOut, align 8
-  %1 = load ptr, ptr %dataOut, align 8
-  %m_colObjData = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %serializer.addr, align 8
-  %call = call noundef ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372) %this1, ptr noundef %m_colObjData, ptr noundef %2)
-  %m_link = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %m_link, align 8
-  %4 = load ptr, ptr %dataOut, align 8
-  %m_link2 = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %4, i32 0, i32 2
-  store i32 %3, ptr %m_link2, align 8
-  %5 = load ptr, ptr %serializer.addr, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %m_multiBody, align 8
-  %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %7 = load ptr, ptr %vfn, align 8
-  %call3 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
-  %8 = load ptr, ptr %dataOut, align 8
-  %m_multiBody4 = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %8, i32 0, i32 1
-  store ptr %call3, ptr %m_multiBody4, align 8
-  %9 = load ptr, ptr %dataOut, align 8
-  %m_padding = getelementptr inbounds %struct.btMultiBodyLinkColliderFloatData, ptr %9, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [4 x i8], ptr %m_padding, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %arraydecay, i8 0, i64 4, i1 false)
-  ret ptr @.str
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK28btDeformableStaticConstraint5getVbEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca %class.btVector3, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store float 0.000000e+00, ptr %6, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %7 = getelementptr inbounds nuw %class.btVector3, ptr %2, i32 0, i32 0
+  %8 = load { <2 x float>, <2 x float> }, ptr %7, align 4
+  ret { <2 x float>, <2 x float> } %8
 }
 
-declare void @_ZNK17btCollisionObject21serializeSingleObjectEP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372), ptr noundef) unnamed_addr #2
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK28btDeformableStaticConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca %class.btVector3, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !46
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store float 0.000000e+00, ptr %6, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  store float 0.000000e+00, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store float 0.000000e+00, ptr %8, align 4, !tbaa !22
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %9 = getelementptr inbounds nuw %class.btVector3, ptr %3, i32 0, i32 0
+  %10 = load { <2 x float>, <2 x float> }, ptr %9, align 4
+  ret { <2 x float>, <2 x float> } %10
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN35btReducedDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN28btDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #4
+define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraint19setPenetrationScaleEf(ptr noundef nonnull align 8 dereferenceable(48) %0, float noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store float %1, ptr %4, align 4, !tbaa !22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN35btReducedDeformableStaticConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(172) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN35btReducedDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK28btDeformableStaticConstraint5getVaEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %0 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK28btDeformableStaticConstraint5getVbEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %0 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK28btDeformableStaticConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %n) unnamed_addr #6 comdat align 2 {
-entry:
-  %retval = alloca %class.btVector3, align 4
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  %ref.tmp2 = alloca float, align 4
-  %ref.tmp3 = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %n, ptr %n.addr, align 8
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  store float 0.000000e+00, ptr %ref.tmp2, align 4
-  store float 0.000000e+00, ptr %ref.tmp3, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3)
-  %coerce.dive = getelementptr inbounds %class.btVector3, ptr %retval, i32 0, i32 0
-  %0 = load { <2 x float>, <2 x float> }, ptr %coerce.dive, align 4
-  ret { <2 x float>, <2 x float> } %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraint19setPenetrationScaleEf(ptr noundef nonnull align 8 dereferenceable(48) %this, float noundef %scale) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %scale.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %scale, ptr %scale.addr, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN34btDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #14
+define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(436) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  call void @llvm.trap() #16
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %impulse.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %impulse, ptr %impulse.addr, align 8
+define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf(ptr noundef nonnull align 8 dereferenceable(96) %this, float noundef %scale) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %scale.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %scale, ptr %scale.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load float, ptr %scale.addr, align 4
-  %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this1, i32 0, i32 3
-  %1 = load float, ptr %m_penetration, align 8
-  %mul = fmul float %1, %0
-  store float %mul, ptr %m_penetration, align 8
+define linkonce_odr dso_local void @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf(ptr noundef nonnull align 8 dereferenceable(96) %0, float noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !244
+  store float %1, ptr %4, align 4, !tbaa !22
+  %5 = load ptr, ptr %3, align 8
+  %6 = load float, ptr %4, align 4, !tbaa !22
+  %7 = getelementptr inbounds nuw %class.btDeformableRigidContactConstraint, ptr %5, i32 0, i32 3
+  %8 = load float, ptr %7, align 8, !tbaa !223
+  %9 = fmul float %8, %6
+  store float %9, ptr %7, align 8, !tbaa !223
   ret void
 }
 
 declare { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %impulse.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %impulse, ptr %impulse.addr, align 8
+define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraint17applySplitImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraint12warmStartingEv(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstraint12warmStartingEv(ptr noundef nonnull align 8 dereferenceable(436) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN41btReducedDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this1) #4
+define linkonce_odr dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !124
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 448) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN45btReducedDeformableNodeRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #13
+define linkonce_odr dso_local void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !246
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(449) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN41btReducedDeformableRigidContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this1) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(449) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #14
+define linkonce_odr dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(449) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !235
+  call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN29btDeformableContactConstraintC2EbRK9btVector3RK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext %isStatic, ptr noundef nonnull align 4 dereferenceable(16) %normal, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %isStatic.addr = alloca i8, align 1
-  %normal.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %frombool = zext i1 %isStatic to i8
-  store i8 %frombool, ptr %isStatic.addr, align 1
-  store ptr %normal, ptr %normal.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_static = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %isStatic.addr, align 1
-  %tobool = trunc i8 %1 to i1
-  %frombool2 = zext i1 %tobool to i8
-  store i8 %frombool2, ptr %m_static, align 8
-  %m_infoGlobal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %infoGlobal.addr, align 8
-  store ptr %2, ptr %m_infoGlobal, align 8
-  %m_normal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %normal.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_normal, ptr align 4 %3, i64 16, i1 false)
+define linkonce_odr dso_local void @_ZN29btDeformableContactConstraintC2EbRK9btVector3RK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(128) %3) unnamed_addr #1 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !246
+  %9 = zext i1 %1 to i8
+  store i8 %9, ptr %6, align 1, !tbaa !238
+  store ptr %2, ptr %7, align 8, !tbaa !18
+  store ptr %3, ptr %8, align 8, !tbaa !20
+  %10 = load ptr, ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i32 0, i32 0, i32 2), ptr %10, align 8, !tbaa !24
+  %11 = getelementptr inbounds nuw %class.btDeformableContactConstraint, ptr %10, i32 0, i32 1
+  %12 = load i8, ptr %6, align 1, !tbaa !238, !range !101, !noundef !102
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %11, align 8, !tbaa !248
+  %15 = getelementptr inbounds nuw %class.btDeformableContactConstraint, ptr %10, i32 0, i32 2
+  %16 = load ptr, ptr %8, align 8, !tbaa !20
+  store ptr %16, ptr %15, align 8, !tbaa !249
+  %17 = getelementptr inbounds nuw %class.btDeformableContactConstraint, ptr %10, i32 0, i32 3
+  %18 = load ptr, ptr %7, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 4 %18, i64 16, i1 false), !tbaa.struct !34
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #4
+define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 48) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN28btDeformableStaticConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #13
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZN28btDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %infoGlobal.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %infoGlobal, ptr %infoGlobal.addr, align 8
+define linkonce_odr dso_local noundef float @_ZN28btDeformableStaticConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(128) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !20
   ret float 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %impulse.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %impulse, ptr %impulse.addr, align 8
+define linkonce_odr dso_local void @_ZN28btDeformableStaticConstraint12applyImpulseERK9btVector3(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN29btDeformableContactConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN29btDeformableContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #14
+define linkonce_odr dso_local void @_ZN29btDeformableContactConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !246
+  call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #13
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #14
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %this, i32 noundef %i) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %i.addr, align 4
-  %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i64 0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btMatrix3x3ixEi(ptr noundef nonnull align 4 dereferenceable(48) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !48
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds [3 x %class.btVector3], ptr %6, i64 0, i64 %8
+  ret ptr %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds float, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN20btAlignedObjectArrayIfEixEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.btAlignedObjectArray.6, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !120
+  %8 = load i32, ptr %4, align 4, !tbaa !9
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds float, ptr %7, i64 %9
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this1)
-  %call2 = call noundef float @_Z6btSqrtf(float noundef %call)
-  ret float %call2
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %3)
+  %5 = call noundef float @_Z6btSqrtf(float noundef %4)
+  ret float %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_Z6btSqrtf(float noundef %y) #1 comdat {
-entry:
-  %y.addr = alloca float, align 4
-  store float %y, ptr %y.addr, align 4
-  %0 = load float, ptr %y.addr, align 4
-  %call = call float @sqrtf(float noundef %0) #4
-  ret float %call
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_Z6btSqrtf(float noundef %0) #9 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !22
+  %3 = load float, ptr %2, align 4, !tbaa !22
+  %4 = call float @sqrtf(float noundef %3) #4, !tbaa !9
+  ret float %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %this1, ptr noundef nonnull align 4 dereferenceable(16) %this1)
-  ret float %call
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef float @_ZNK9btVector37length2Ev(ptr noundef nonnull align 4 dereferenceable(16) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef float @_ZNK9btVector33dotERKS_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %3)
+  ret float %4
 }
 
 ; Function Attrs: nounwind
 declare float @sqrtf(float noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11btMatrix3x3C2ERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %xx, ptr noundef nonnull align 4 dereferenceable(4) %xy, ptr noundef nonnull align 4 dereferenceable(4) %xz, ptr noundef nonnull align 4 dereferenceable(4) %yx, ptr noundef nonnull align 4 dereferenceable(4) %yy, ptr noundef nonnull align 4 dereferenceable(4) %yz, ptr noundef nonnull align 4 dereferenceable(4) %zx, ptr noundef nonnull align 4 dereferenceable(4) %zy, ptr noundef nonnull align 4 dereferenceable(4) %zz) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %xx.addr = alloca ptr, align 8
-  %xy.addr = alloca ptr, align 8
-  %xz.addr = alloca ptr, align 8
-  %yx.addr = alloca ptr, align 8
-  %yy.addr = alloca ptr, align 8
-  %yz.addr = alloca ptr, align 8
-  %zx.addr = alloca ptr, align 8
-  %zy.addr = alloca ptr, align 8
-  %zz.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %xx, ptr %xx.addr, align 8
-  store ptr %xy, ptr %xy.addr, align 8
-  store ptr %xz, ptr %xz.addr, align 8
-  store ptr %yx, ptr %yx.addr, align 8
-  store ptr %yy, ptr %yy.addr, align 8
-  store ptr %yz, ptr %yz.addr, align 8
-  store ptr %zx, ptr %zx.addr, align 8
-  store ptr %zy, ptr %zy.addr, align 8
-  store ptr %zz, ptr %zz.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
-  br label %arrayctor.loop
+define linkonce_odr dso_local void @_ZN11btMatrix3x3C2ERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9) unnamed_addr #6 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !48
+  store ptr %1, ptr %12, align 8, !tbaa !50
+  store ptr %2, ptr %13, align 8, !tbaa !50
+  store ptr %3, ptr %14, align 8, !tbaa !50
+  store ptr %4, ptr %15, align 8, !tbaa !50
+  store ptr %5, ptr %16, align 8, !tbaa !50
+  store ptr %6, ptr %17, align 8, !tbaa !50
+  store ptr %7, ptr %18, align 8, !tbaa !50
+  store ptr %8, ptr %19, align 8, !tbaa !50
+  store ptr %9, ptr %20, align 8, !tbaa !50
+  %21 = load ptr, ptr %11, align 8
+  %22 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds [3 x %class.btVector3], ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds %class.btVector3, ptr %23, i64 3
+  br label %25
 
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %arrayctor.loop ]
-  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %arrayctor.cur)
-  %arrayctor.next = getelementptr inbounds %class.btVector3, ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+25:                                               ; preds = %25, %10
+  %26 = phi ptr [ %23, %10 ], [ %27, %25 ]
+  call void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %26)
+  %27 = getelementptr inbounds %class.btVector3, ptr %26, i64 1
+  %28 = icmp eq ptr %27, %24
+  br i1 %28, label %29, label %25
 
-arrayctor.cont:                                   ; preds = %arrayctor.loop
-  %0 = load ptr, ptr %xx.addr, align 8
-  %1 = load ptr, ptr %xy.addr, align 8
-  %2 = load ptr, ptr %xz.addr, align 8
-  %3 = load ptr, ptr %yx.addr, align 8
-  %4 = load ptr, ptr %yy.addr, align 8
-  %5 = load ptr, ptr %yz.addr, align 8
-  %6 = load ptr, ptr %zx.addr, align 8
-  %7 = load ptr, ptr %zy.addr, align 8
-  %8 = load ptr, ptr %zz.addr, align 8
-  call void @_ZN11btMatrix3x38setValueERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %12, align 8, !tbaa !50
+  %31 = load ptr, ptr %13, align 8, !tbaa !50
+  %32 = load ptr, ptr %14, align 8, !tbaa !50
+  %33 = load ptr, ptr %15, align 8, !tbaa !50
+  %34 = load ptr, ptr %16, align 8, !tbaa !50
+  %35 = load ptr, ptr %17, align 8, !tbaa !50
+  %36 = load ptr, ptr %18, align 8, !tbaa !50
+  %37 = load ptr, ptr %19, align 8, !tbaa !50
+  %38 = load ptr, ptr %20, align 8, !tbaa !50
+  call void @_ZN11btMatrix3x38setValueERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %21, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN11btMatrix3x38setValueERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %xx, ptr noundef nonnull align 4 dereferenceable(4) %xy, ptr noundef nonnull align 4 dereferenceable(4) %xz, ptr noundef nonnull align 4 dereferenceable(4) %yx, ptr noundef nonnull align 4 dereferenceable(4) %yy, ptr noundef nonnull align 4 dereferenceable(4) %yz, ptr noundef nonnull align 4 dereferenceable(4) %zx, ptr noundef nonnull align 4 dereferenceable(4) %zy, ptr noundef nonnull align 4 dereferenceable(4) %zz) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %xx.addr = alloca ptr, align 8
-  %xy.addr = alloca ptr, align 8
-  %xz.addr = alloca ptr, align 8
-  %yx.addr = alloca ptr, align 8
-  %yy.addr = alloca ptr, align 8
-  %yz.addr = alloca ptr, align 8
-  %zx.addr = alloca ptr, align 8
-  %zy.addr = alloca ptr, align 8
-  %zz.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %xx, ptr %xx.addr, align 8
-  store ptr %xy, ptr %xy.addr, align 8
-  store ptr %xz, ptr %xz.addr, align 8
-  store ptr %yx, ptr %yx.addr, align 8
-  store ptr %yy, ptr %yy.addr, align 8
-  store ptr %yz, ptr %yz.addr, align 8
-  store ptr %zx, ptr %zx.addr, align 8
-  store ptr %zy, ptr %zy.addr, align 8
-  store ptr %zz, ptr %zz.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_el = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [3 x %class.btVector3], ptr %m_el, i64 0, i64 0
-  %0 = load ptr, ptr %xx.addr, align 8
-  %1 = load ptr, ptr %xy.addr, align 8
-  %2 = load ptr, ptr %xz.addr, align 8
-  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %m_el2 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el2, i64 0, i64 1
-  %3 = load ptr, ptr %yx.addr, align 8
-  %4 = load ptr, ptr %yy.addr, align 8
-  %5 = load ptr, ptr %yz.addr, align 8
-  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %m_el4 = getelementptr inbounds %class.btMatrix3x3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [3 x %class.btVector3], ptr %m_el4, i64 0, i64 2
-  %6 = load ptr, ptr %zx.addr, align 8
-  %7 = load ptr, ptr %zy.addr, align 8
-  %8 = load ptr, ptr %zz.addr, align 8
-  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+define linkonce_odr dso_local void @_ZN11btMatrix3x38setValueERKfS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9) #6 comdat align 2 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !48
+  store ptr %1, ptr %12, align 8, !tbaa !50
+  store ptr %2, ptr %13, align 8, !tbaa !50
+  store ptr %3, ptr %14, align 8, !tbaa !50
+  store ptr %4, ptr %15, align 8, !tbaa !50
+  store ptr %5, ptr %16, align 8, !tbaa !50
+  store ptr %6, ptr %17, align 8, !tbaa !50
+  store ptr %7, ptr %18, align 8, !tbaa !50
+  store ptr %8, ptr %19, align 8, !tbaa !50
+  store ptr %9, ptr %20, align 8, !tbaa !50
+  %21 = load ptr, ptr %11, align 8
+  %22 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds [3 x %class.btVector3], ptr %22, i64 0, i64 0
+  %24 = load ptr, ptr %12, align 8, !tbaa !50
+  %25 = load ptr, ptr %13, align 8, !tbaa !50
+  %26 = load ptr, ptr %14, align 8, !tbaa !50
+  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
+  %27 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %21, i32 0, i32 0
+  %28 = getelementptr inbounds [3 x %class.btVector3], ptr %27, i64 0, i64 1
+  %29 = load ptr, ptr %15, align 8, !tbaa !50
+  %30 = load ptr, ptr %16, align 8, !tbaa !50
+  %31 = load ptr, ptr %17, align 8, !tbaa !50
+  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  %32 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %21, i32 0, i32 0
+  %33 = getelementptr inbounds [3 x %class.btVector3], ptr %32, i64 0, i64 2
+  %34 = load ptr, ptr %18, align 8, !tbaa !50
+  %35 = load ptr, ptr %19, align 8, !tbaa !50
+  %36 = load ptr, ptr %20, align 8, !tbaa !50
+  call void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(4) %34, ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef nonnull align 4 dereferenceable(4) %36)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %_x, ptr noundef nonnull align 4 dereferenceable(4) %_y, ptr noundef nonnull align 4 dereferenceable(4) %_z) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_x.addr = alloca ptr, align 8
-  %_y.addr = alloca ptr, align 8
-  %_z.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_x, ptr %_x.addr, align 8
-  store ptr %_y, ptr %_y.addr, align 8
-  store ptr %_z, ptr %_z.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %_x.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  store float %1, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %_y.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  store float %3, ptr %arrayidx3, align 4
-  %4 = load ptr, ptr %_z.addr, align 8
-  %5 = load float, ptr %4, align 4
-  %m_floats4 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx5 = getelementptr inbounds [4 x float], ptr %m_floats4, i64 0, i64 2
-  store float %5, ptr %arrayidx5, align 4
-  %m_floats6 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx7 = getelementptr inbounds [4 x float], ptr %m_floats6, i64 0, i64 3
-  store float 0.000000e+00, ptr %arrayidx7, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN9btVector38setValueERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #9 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !50
+  store ptr %2, ptr %7, align 8, !tbaa !50
+  store ptr %3, ptr %8, align 8, !tbaa !50
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !50
+  %11 = load float, ptr %10, align 4, !tbaa !22
+  %12 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 0
+  store float %11, ptr %13, align 4, !tbaa !22
+  %14 = load ptr, ptr %7, align 8, !tbaa !50
+  %15 = load float, ptr %14, align 4, !tbaa !22
+  %16 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %17 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 1
+  store float %15, ptr %17, align 4, !tbaa !22
+  %18 = load ptr, ptr %8, align 8, !tbaa !50
+  %19 = load float, ptr %18, align 4, !tbaa !22
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  store float %19, ptr %21, align 4, !tbaa !22
+  %22 = getelementptr inbounds nuw %class.btVector3, ptr %9, i32 0, i32 0
+  %23 = getelementptr inbounds [4 x float], ptr %22, i64 0, i64 3
+  store float 0.000000e+00, ptr %23, align 4, !tbaa !22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %this1)
-  store float %call, ptr %ref.tmp, align 4
-  %call2 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %this1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  ret ptr %call2
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector39normalizeEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca float, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  %5 = call noundef float @_ZNK9btVector36lengthEv(ptr noundef nonnull align 4 dereferenceable(16) %4)
+  store float %5, ptr %3, align 4, !tbaa !22
+  %6 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %s) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %ref.tmp = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %div = fdiv float 1.000000e+00, %1
-  store float %div, ptr %ref.tmp, align 4
-  %call = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %this1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3dVERKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #10 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !50
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %7 = load ptr, ptr %4, align 8, !tbaa !50
+  %8 = load float, ptr %7, align 4, !tbaa !22
+  %9 = fdiv float 1.000000e+00, %8
+  store float %9, ptr %5, align 4, !tbaa !22
+  %10 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %s) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %m_floats = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [4 x float], ptr %m_floats, i64 0, i64 0
-  %2 = load float, ptr %arrayidx, align 4
-  %mul = fmul float %2, %1
-  store float %mul, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %s.addr, align 8
-  %4 = load float, ptr %3, align 4
-  %m_floats2 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_floats2, i64 0, i64 1
-  %5 = load float, ptr %arrayidx3, align 4
-  %mul4 = fmul float %5, %4
-  store float %mul4, ptr %arrayidx3, align 4
-  %6 = load ptr, ptr %s.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %m_floats5 = getelementptr inbounds %class.btVector3, ptr %this1, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [4 x float], ptr %m_floats5, i64 0, i64 2
-  %8 = load float, ptr %arrayidx6, align 4
-  %mul7 = fmul float %8, %7
-  store float %mul7, ptr %arrayidx6, align 4
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3mLERKf(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !50
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !50
+  %7 = load float, ptr %6, align 4, !tbaa !22
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 0
+  %10 = load float, ptr %9, align 4, !tbaa !22
+  %11 = fmul float %10, %7
+  store float %11, ptr %9, align 4, !tbaa !22
+  %12 = load ptr, ptr %4, align 8, !tbaa !50
+  %13 = load float, ptr %12, align 4, !tbaa !22
+  %14 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %15 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 1
+  %16 = load float, ptr %15, align 4, !tbaa !22
+  %17 = fmul float %16, %13
+  store float %17, ptr %15, align 4, !tbaa !22
+  %18 = load ptr, ptr %4, align 8, !tbaa !50
+  %19 = load float, ptr %18, align 4, !tbaa !22
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds [4 x float], ptr %20, i64 0, i64 2
+  %22 = load float, ptr %21, align 4, !tbaa !22
+  %23 = fmul float %22, %19
+  store float %23, ptr %21, align 4, !tbaa !22
+  ret ptr %5
 }
-
-; Function Attrs: nounwind
-declare void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372)) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btCollisionObjectdlEPv(ptr noundef %ptr) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #14
-  unreachable
-}
-
-declare void @_Z21btAlignedFreeInternalPv(ptr noundef) #2
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #4
-  call void @_ZSt9terminatev() #14
-  unreachable
-}
-
-declare ptr @__cxa_begin_catch(ptr)
-
-declare void @_ZSt9terminatev()
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK11btMultiBody16hasSelfCollisionEv(ptr noundef nonnull align 8 dereferenceable(640) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_hasSelfCollision = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 41
-  %0 = load i8, ptr %m_hasSelfCollision, align 8
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(688) ptr @_ZN11btMultiBody7getLinkEi(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %index) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_links = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 14
-  %0 = load i32, ptr %index.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(688) ptr @_ZN20btAlignedObjectArrayI15btMultibodyLinkEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_links, i32 noundef %0)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(688) ptr @_ZN20btAlignedObjectArrayI15btMultibodyLinkEixEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.120, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %struct.btMultibodyLink, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
-
-declare noundef ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372), ptr noundef, ptr noundef) unnamed_addr #2
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_btReducedDeformableContactConstraint.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   call void @__cxx_global_var_init.1()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18btInfMaskConverter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS35btReducedDeformableStaticConstraint", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS23btReducedDeformableBody", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN10btSoftBody4NodeE", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS9btVector3", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS19btContactSolverInfo", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"float", !7, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !8, i64 0}
+!26 = !{!27, !15, i64 48}
+!27 = !{!"_ZTS35btReducedDeformableStaticConstraint", !28, i64 0, !15, i64 48, !23, i64 56, !31, i64 60, !31, i64 76, !31, i64 92, !32, i64 108, !23, i64 156, !23, i64 160, !23, i64 164, !23, i64 168}
+!28 = !{!"_ZTS28btDeformableStaticConstraint", !29, i64 0, !17, i64 40}
+!29 = !{!"_ZTS29btDeformableContactConstraint", !30, i64 8, !21, i64 16, !31, i64 24}
+!30 = !{!"bool", !7, i64 0}
+!31 = !{!"_ZTS9btVector3", !7, i64 0}
+!32 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!33 = !{!27, !23, i64 56}
+!34 = !{i64 0, i64 16, !11}
+!35 = !{!27, !23, i64 168}
+!36 = !{!27, !23, i64 164}
+!37 = !{!28, !17, i64 40}
+!38 = !{!39, !10, i64 136}
+!39 = !{!"_ZTSN10btSoftBody4NodeE", !40, i64 0, !31, i64 16, !31, i64 32, !31, i64 48, !31, i64 64, !31, i64 80, !31, i64 96, !23, i64 112, !23, i64 116, !43, i64 120, !10, i64 128, !10, i64 132, !10, i64 136, !31, i64 140, !32, i64 156, !32, i64 204}
+!40 = !{!"_ZTSN10btSoftBody7FeatureE", !41, i64 0, !42, i64 8}
+!41 = !{!"_ZTSN10btSoftBody7ElementE", !6, i64 0}
+!42 = !{!"p1 _ZTSN10btSoftBody8MaterialE", !6, i64 0}
+!43 = !{!"p1 _ZTS10btDbvtNode", !6, i64 0}
+!44 = !{!27, !23, i64 156}
+!45 = !{!27, !23, i64 160}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS28btDeformableStaticConstraint", !6, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS11btMatrix3x3", !6, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 float", !6, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS17btCollisionObject", !6, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS41btReducedDeformableRigidContactConstraint", !6, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSN10btSoftBody22DeformableRigidContactE", !6, i64 0}
+!58 = !{!59, !15, i64 112}
+!59 = !{!"_ZTS41btReducedDeformableRigidContactConstraint", !60, i64 0, !30, i64 96, !30, i64 97, !10, i64 100, !10, i64 104, !15, i64 112, !61, i64 120, !23, i64 128, !23, i64 132, !23, i64 136, !23, i64 140, !23, i64 144, !23, i64 148, !23, i64 152, !23, i64 156, !23, i64 160, !23, i64 164, !23, i64 168, !23, i64 172, !23, i64 176, !23, i64 180, !23, i64 184, !23, i64 188, !23, i64 192, !31, i64 196, !31, i64 212, !31, i64 228, !31, i64 244, !31, i64 260, !31, i64 276, !32, i64 292, !31, i64 340, !31, i64 356, !31, i64 372, !31, i64 388, !31, i64 404, !31, i64 420}
+!60 = !{!"_ZTS34btDeformableRigidContactConstraint", !29, i64 0, !31, i64 40, !31, i64 56, !23, i64 72, !23, i64 76, !30, i64 80, !57, i64 88}
+!61 = !{!"p1 _ZTS12btSolverBody", !6, i64 0}
+!62 = !{!59, !23, i64 128}
+!63 = !{!59, !10, i64 100}
+!64 = !{!59, !23, i64 132}
+!65 = !{!59, !23, i64 136}
+!66 = !{!59, !23, i64 164}
+!67 = !{!59, !23, i64 168}
+!68 = !{!69, !23, i64 44}
+!69 = !{!"_ZTS23btContactSolverInfoData", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !23, i64 16, !10, i64 20, !23, i64 24, !23, i64 28, !23, i64 32, !23, i64 36, !23, i64 40, !23, i64 44, !23, i64 48, !23, i64 52, !23, i64 56, !23, i64 60, !10, i64 64, !23, i64 68, !23, i64 72, !23, i64 76, !23, i64 80, !23, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !23, i64 100, !23, i64 104, !23, i64 108, !23, i64 112, !30, i64 116, !30, i64 117, !10, i64 120, !10, i64 124}
+!70 = !{!59, !23, i64 176}
+!71 = !{!59, !23, i64 180}
+!72 = !{!69, !23, i64 40}
+!73 = !{!59, !23, i64 184}
+!74 = !{!59, !23, i64 188}
+!75 = !{!69, !23, i64 8}
+!76 = !{!59, !23, i64 192}
+!77 = !{!60, !57, i64 88}
+!78 = !{!79, !53, i64 0}
+!79 = !{!"_ZTSN10btSoftBody22DeformableRigidContactE", !80, i64 0, !32, i64 64, !31, i64 112, !23, i64 128, !23, i64 132, !23, i64 136, !32, i64 140, !81, i64 192, !81, i64 400, !81, i64 608, !31, i64 816, !31, i64 832}
+!80 = !{!"_ZTSN10btSoftBody4sCtiE", !53, i64 0, !31, i64 8, !31, i64 24, !23, i64 40, !31, i64 44}
+!81 = !{!"_ZTS23btMultiBodyJacobianData", !82, i64 0, !82, i64 32, !82, i64 64, !82, i64 96, !84, i64 128, !86, i64 160, !88, i64 192, !10, i64 200}
+!82 = !{!"_ZTS20btAlignedObjectArrayIfE", !83, i64 0, !10, i64 4, !10, i64 8, !51, i64 16, !30, i64 24}
+!83 = !{!"_ZTS18btAlignedAllocatorIfLj16EE"}
+!84 = !{!"_ZTS20btAlignedObjectArrayI9btVector3E", !85, i64 0, !10, i64 4, !10, i64 8, !19, i64 16, !30, i64 24}
+!85 = !{!"_ZTS18btAlignedAllocatorI9btVector3Lj16EE"}
+!86 = !{!"_ZTS20btAlignedObjectArrayI11btMatrix3x3E", !87, i64 0, !10, i64 4, !10, i64 8, !49, i64 16, !30, i64 24}
+!87 = !{!"_ZTS18btAlignedAllocatorI11btMatrix3x3Lj16EE"}
+!88 = !{!"p1 _ZTS20btAlignedObjectArrayI12btSolverBodyE", !6, i64 0}
+!89 = !{!59, !30, i64 96}
+!90 = !{!59, !30, i64 97}
+!91 = !{!92, !10, i64 224}
+!92 = !{!"_ZTS17btCollisionObject", !93, i64 8, !93, i64 72, !31, i64 136, !31, i64 152, !31, i64 168, !10, i64 184, !23, i64 188, !94, i64 192, !95, i64 200, !6, i64 208, !95, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !23, i64 244, !23, i64 248, !23, i64 252, !23, i64 256, !23, i64 260, !23, i64 264, !23, i64 268, !10, i64 272, !6, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !23, i64 300, !23, i64 304, !23, i64 308, !10, i64 312, !96, i64 320, !10, i64 352, !31, i64 356}
+!93 = !{!"_ZTS11btTransform", !32, i64 0, !31, i64 48}
+!94 = !{!"p1 _ZTS17btBroadphaseProxy", !6, i64 0}
+!95 = !{!"p1 _ZTS16btCollisionShape", !6, i64 0}
+!96 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !97, i64 0, !10, i64 4, !10, i64 8, !98, i64 16, !30, i64 24}
+!97 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!98 = !{!"p2 _ZTS17btCollisionObject", !6, i64 0}
+!99 = !{!92, !10, i64 272}
+!100 = !{!61, !61, i64 0}
+!101 = !{i8 0, i8 2}
+!102 = !{}
+!103 = !{!59, !10, i64 104}
+!104 = !{!59, !61, i64 120}
+!105 = !{!106, !107, i64 240}
+!106 = !{!"_ZTS12btSolverBody", !93, i64 0, !31, i64 64, !31, i64 80, !31, i64 96, !31, i64 112, !31, i64 128, !31, i64 144, !31, i64 160, !31, i64 176, !31, i64 192, !31, i64 208, !31, i64 224, !107, i64 240}
+!107 = !{!"p1 _ZTS11btRigidBody", !6, i64 0}
+!108 = !{!107, !107, i64 0}
+!109 = !{!59, !23, i64 144}
+!110 = !{!59, !23, i64 156}
+!111 = !{!59, !23, i64 172}
+!112 = !{!59, !23, i64 160}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p1 _ZTS23btMultiBodyLinkCollider", !6, i64 0}
+!115 = !{!116, !117, i64 376}
+!116 = !{!"_ZTS23btMultiBodyLinkCollider", !92, i64 0, !117, i64 376, !10, i64 384}
+!117 = !{!"p1 _ZTS11btMultiBody", !6, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTS20btAlignedObjectArrayIfE", !6, i64 0}
+!120 = !{!82, !51, i64 16}
+!121 = !{!117, !117, i64 0}
+!122 = distinct !{!122, !123}
+!123 = !{!"llvm.loop.mustprogress"}
+!124 = !{!125, !125, i64 0}
+!125 = !{!"p1 _ZTS45btReducedDeformableNodeRigidContactConstraint", !6, i64 0}
+!126 = !{!127, !127, i64 0}
+!127 = !{!"p1 _ZTSN10btSoftBody26DeformableNodeRigidContactE", !6, i64 0}
+!128 = !{!129, !17, i64 848}
+!129 = !{!"_ZTSN10btSoftBody26DeformableNodeRigidContactE", !79, i64 0, !17, i64 848}
+!130 = !{!131, !17, i64 440}
+!131 = !{!"_ZTS45btReducedDeformableNodeRigidContactConstraint", !59, i64 0, !17, i64 440}
+!132 = !{!133, !10, i64 3136}
+!133 = !{!"_ZTS23btReducedDeformableBody", !134, i64 0, !30, i64 2064, !30, i64 2065, !23, i64 2068, !23, i64 2072, !214, i64 2080, !214, i64 2112, !82, i64 2144, !82, i64 2176, !84, i64 2208, !31, i64 2240, !31, i64 2256, !82, i64 2272, !31, i64 2304, !31, i64 2320, !31, i64 2336, !23, i64 2352, !23, i64 2356, !31, i64 2360, !31, i64 2376, !23, i64 2392, !23, i64 2396, !31, i64 2400, !31, i64 2416, !32, i64 2432, !93, i64 2480, !32, i64 2544, !32, i64 2592, !32, i64 2640, !31, i64 2688, !23, i64 2704, !23, i64 2708, !10, i64 2712, !10, i64 2716, !214, i64 2720, !82, i64 2752, !82, i64 2784, !82, i64 2816, !82, i64 2848, !82, i64 2880, !82, i64 2912, !82, i64 2944, !82, i64 2976, !82, i64 3008, !84, i64 3040, !82, i64 3072, !211, i64 3104, !10, i64 3136, !211, i64 3144}
+!134 = !{!"_ZTS10btSoftBody", !92, i64 0, !96, i64 376, !135, i64 408, !136, i64 416, !142, i64 624, !143, i64 648, !6, i64 880, !144, i64 888, !145, i64 896, !148, i64 928, !150, i64 960, !153, i64 992, !156, i64 1024, !159, i64 1056, !162, i64 1088, !165, i64 1120, !165, i64 1152, !168, i64 1184, !171, i64 1216, !174, i64 1248, !177, i64 1280, !179, i64 1312, !182, i64 1344, !179, i64 1376, !185, i64 1408, !188, i64 1440, !191, i64 1472, !23, i64 1504, !7, i64 1508, !30, i64 1540, !194, i64 1544, !194, i64 1608, !198, i64 1672, !194, i64 1680, !199, i64 1744, !23, i64 1776, !23, i64 1780, !23, i64 1784, !84, i64 1792, !23, i64 1824, !23, i64 1828, !30, i64 1832, !84, i64 1840, !202, i64 1872, !205, i64 1904, !82, i64 1936, !30, i64 1968, !30, i64 1969, !208, i64 1976, !31, i64 2008, !23, i64 2024, !30, i64 2028, !211, i64 2032}
+!135 = !{!"p1 _ZTS16btSoftBodySolver", !6, i64 0}
+!136 = !{!"_ZTSN10btSoftBody6ConfigE", !137, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !23, i64 16, !23, i64 20, !23, i64 24, !23, i64 28, !23, i64 32, !23, i64 36, !23, i64 40, !23, i64 44, !23, i64 48, !23, i64 52, !23, i64 56, !23, i64 60, !23, i64 64, !23, i64 68, !23, i64 72, !23, i64 76, !23, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !10, i64 100, !138, i64 104, !140, i64 136, !140, i64 168, !23, i64 200, !23, i64 204}
+!137 = !{!"_ZTSN10btSoftBody10eAeroModel1_E", !7, i64 0}
+!138 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8eVSolver1_EE", !139, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !30, i64 24}
+!139 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8eVSolver1_ELj16EE"}
+!140 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8ePSolver1_EE", !141, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !30, i64 24}
+!141 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8ePSolver1_ELj16EE"}
+!142 = !{!"_ZTSN10btSoftBody11SolverStateE", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !23, i64 16}
+!143 = !{!"_ZTSN10btSoftBody4PoseE", !30, i64 0, !30, i64 1, !23, i64 4, !84, i64 8, !82, i64 40, !31, i64 72, !32, i64 88, !32, i64 136, !32, i64 184}
+!144 = !{!"p1 _ZTS19btSoftBodyWorldInfo", !6, i64 0}
+!145 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NoteEE", !146, i64 0, !10, i64 4, !10, i64 8, !147, i64 16, !30, i64 24}
+!146 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NoteELj16EE"}
+!147 = !{!"p1 _ZTSN10btSoftBody4NoteE", !6, i64 0}
+!148 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !149, i64 0, !10, i64 4, !10, i64 8, !17, i64 16, !30, i64 24}
+!149 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NodeELj16EE"}
+!150 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody10RenderNodeEE", !151, i64 0, !10, i64 4, !10, i64 8, !152, i64 16, !30, i64 24}
+!151 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody10RenderNodeELj16EE"}
+!152 = !{!"p1 _ZTSN10btSoftBody10RenderNodeE", !6, i64 0}
+!153 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4LinkEE", !154, i64 0, !10, i64 4, !10, i64 8, !155, i64 16, !30, i64 24}
+!154 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4LinkELj16EE"}
+!155 = !{!"p1 _ZTSN10btSoftBody4LinkE", !6, i64 0}
+!156 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4FaceEE", !157, i64 0, !10, i64 4, !10, i64 8, !158, i64 16, !30, i64 24}
+!157 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4FaceELj16EE"}
+!158 = !{!"p1 _ZTSN10btSoftBody4FaceE", !6, i64 0}
+!159 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody10RenderFaceEE", !160, i64 0, !10, i64 4, !10, i64 8, !161, i64 16, !30, i64 24}
+!160 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody10RenderFaceELj16EE"}
+!161 = !{!"p1 _ZTSN10btSoftBody10RenderFaceE", !6, i64 0}
+!162 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody5TetraEE", !163, i64 0, !10, i64 4, !10, i64 8, !164, i64 16, !30, i64 24}
+!163 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody5TetraELj16EE"}
+!164 = !{!"p1 _ZTSN10btSoftBody5TetraE", !6, i64 0}
+!165 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody12TetraScratchEE", !166, i64 0, !10, i64 4, !10, i64 8, !167, i64 16, !30, i64 24}
+!166 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody12TetraScratchELj16EE"}
+!167 = !{!"p1 _ZTSN10btSoftBody12TetraScratchE", !6, i64 0}
+!168 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody6AnchorEE", !169, i64 0, !10, i64 4, !10, i64 8, !170, i64 16, !30, i64 24}
+!169 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody6AnchorELj16EE"}
+!170 = !{!"p1 _ZTSN10btSoftBody6AnchorE", !6, i64 0}
+!171 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE", !172, i64 0, !10, i64 4, !10, i64 8, !173, i64 16, !30, i64 24}
+!172 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody25DeformableNodeRigidAnchorELj16EE"}
+!173 = !{!"p1 _ZTSN10btSoftBody25DeformableNodeRigidAnchorE", !6, i64 0}
+!174 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8RContactEE", !175, i64 0, !10, i64 4, !10, i64 8, !176, i64 16, !30, i64 24}
+!175 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8RContactELj16EE"}
+!176 = !{!"p1 _ZTSN10btSoftBody8RContactE", !6, i64 0}
+!177 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE", !178, i64 0, !10, i64 4, !10, i64 8, !127, i64 16, !30, i64 24}
+!178 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody26DeformableNodeRigidContactELj16EE"}
+!179 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE", !180, i64 0, !10, i64 4, !10, i64 8, !181, i64 16, !30, i64 24}
+!180 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody25DeformableFaceNodeContactELj16EE"}
+!181 = !{!"p1 _ZTSN10btSoftBody25DeformableFaceNodeContactE", !6, i64 0}
+!182 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE", !183, i64 0, !10, i64 4, !10, i64 8, !184, i64 16, !30, i64 24}
+!183 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody26DeformableFaceRigidContactELj16EE"}
+!184 = !{!"p1 _ZTSN10btSoftBody26DeformableFaceRigidContactE", !6, i64 0}
+!185 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8SContactEE", !186, i64 0, !10, i64 4, !10, i64 8, !187, i64 16, !30, i64 24}
+!186 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8SContactELj16EE"}
+!187 = !{!"p1 _ZTSN10btSoftBody8SContactE", !6, i64 0}
+!188 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody5JointEE", !189, i64 0, !10, i64 4, !10, i64 8, !190, i64 16, !30, i64 24}
+!189 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody5JointELj16EE"}
+!190 = !{!"p2 _ZTSN10btSoftBody5JointE", !6, i64 0}
+!191 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody8MaterialEE", !192, i64 0, !10, i64 4, !10, i64 8, !193, i64 16, !30, i64 24}
+!192 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody8MaterialELj16EE"}
+!193 = !{!"p2 _ZTSN10btSoftBody8MaterialE", !6, i64 0}
+!194 = !{!"_ZTS6btDbvt", !43, i64 0, !43, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !195, i64 32}
+!195 = !{!"_ZTS20btAlignedObjectArrayIN6btDbvt6sStkNNEE", !196, i64 0, !10, i64 4, !10, i64 8, !197, i64 16, !30, i64 24}
+!196 = !{!"_ZTS18btAlignedAllocatorIN6btDbvt6sStkNNELj16EE"}
+!197 = !{!"p1 _ZTSN6btDbvt6sStkNNE", !6, i64 0}
+!198 = !{!"p1 _ZTS11btDbvntNode", !6, i64 0}
+!199 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody7ClusterEE", !200, i64 0, !10, i64 4, !10, i64 8, !201, i64 16, !30, i64 24}
+!200 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody7ClusterELj16EE"}
+!201 = !{!"p2 _ZTSN10btSoftBody7ClusterE", !6, i64 0}
+!202 = !{!"_ZTS20btAlignedObjectArrayI9btVector4E", !203, i64 0, !10, i64 4, !10, i64 8, !204, i64 16, !30, i64 24}
+!203 = !{!"_ZTS18btAlignedAllocatorI9btVector4Lj16EE"}
+!204 = !{!"p1 _ZTS9btVector4", !6, i64 0}
+!205 = !{!"_ZTS20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEE", !206, i64 0, !10, i64 4, !10, i64 8, !207, i64 16, !30, i64 24}
+!206 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIPKN10btSoftBody4NodeEELj16EE"}
+!207 = !{!"p1 _ZTS20btAlignedObjectArrayIPKN10btSoftBody4NodeEE", !6, i64 0}
+!208 = !{!"_ZTS20btAlignedObjectArrayIbE", !209, i64 0, !10, i64 4, !10, i64 8, !210, i64 16, !30, i64 24}
+!209 = !{!"_ZTS18btAlignedAllocatorIbLj16EE"}
+!210 = !{!"p1 bool", !6, i64 0}
+!211 = !{!"_ZTS20btAlignedObjectArrayIiE", !212, i64 0, !10, i64 4, !10, i64 8, !213, i64 16, !30, i64 24}
+!212 = !{!"_ZTS18btAlignedAllocatorIiLj16EE"}
+!213 = !{!"p1 int", !6, i64 0}
+!214 = !{!"_ZTS20btAlignedObjectArrayIS_IfEE", !215, i64 0, !10, i64 4, !10, i64 8, !119, i64 16, !30, i64 24}
+!215 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIfELj16EE"}
+!216 = !{!59, !23, i64 148}
+!217 = !{!218, !218, i64 0}
+!218 = !{!"p1 _ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !6, i64 0}
+!219 = !{!148, !10, i64 4}
+!220 = !{!221, !221, i64 0}
+!221 = !{!"p1 _ZTS11btTransform", !6, i64 0}
+!222 = !{!59, !23, i64 152}
+!223 = !{!60, !23, i64 72}
+!224 = distinct !{!224, !123}
+!225 = distinct !{!225, !123}
+!226 = distinct !{!226, !123}
+!227 = !{!228, !10, i64 628}
+!228 = !{!"_ZTS11btMultiBody", !114, i64 8, !229, i64 16, !31, i64 24, !31, i64 40, !230, i64 56, !230, i64 72, !23, i64 88, !31, i64 92, !31, i64 108, !31, i64 124, !31, i64 140, !31, i64 156, !232, i64 176, !82, i64 208, !82, i64 240, !82, i64 272, !84, i64 304, !86, i64 336, !32, i64 368, !32, i64 416, !32, i64 464, !32, i64 512, !30, i64 560, !30, i64 561, !30, i64 562, !30, i64 563, !30, i64 564, !23, i64 568, !23, i64 572, !23, i64 576, !6, i64 584, !10, i64 592, !10, i64 596, !10, i64 600, !23, i64 604, !23, i64 608, !30, i64 612, !23, i64 616, !23, i64 620, !30, i64 624, !30, i64 625, !10, i64 628, !10, i64 632, !30, i64 636, !30, i64 637, !30, i64 638, !30, i64 639}
+!229 = !{!"p1 omnipotent char", !6, i64 0}
+!230 = !{!"_ZTS12btQuaternion", !231, i64 0}
+!231 = !{!"_ZTS10btQuadWord", !7, i64 0}
+!232 = !{!"_ZTS20btAlignedObjectArrayI15btMultibodyLinkE", !233, i64 0, !10, i64 4, !10, i64 8, !234, i64 16, !30, i64 24}
+!233 = !{!"_ZTS18btAlignedAllocatorI15btMultibodyLinkLj16EE"}
+!234 = !{!"p1 _ZTS15btMultibodyLink", !6, i64 0}
+!235 = !{!236, !236, i64 0}
+!236 = !{!"p1 _ZTS45btReducedDeformableFaceRigidContactConstraint", !6, i64 0}
+!237 = !{!184, !184, i64 0}
+!238 = !{!30, !30, i64 0}
+!239 = !{!240, !158, i64 848}
+!240 = !{!"_ZTSN10btSoftBody26DeformableFaceRigidContactE", !79, i64 0, !158, i64 848, !31, i64 856, !31, i64 872, !31, i64 888}
+!241 = !{!242, !158, i64 440}
+!242 = !{!"_ZTS45btReducedDeformableFaceRigidContactConstraint", !59, i64 0, !158, i64 440, !30, i64 448}
+!243 = !{!242, !30, i64 448}
+!244 = !{!245, !245, i64 0}
+!245 = !{!"p1 _ZTS34btDeformableRigidContactConstraint", !6, i64 0}
+!246 = !{!247, !247, i64 0}
+!247 = !{!"p1 _ZTS29btDeformableContactConstraint", !6, i64 0}
+!248 = !{!29, !30, i64 8}
+!249 = !{!29, !21, i64 16}

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/bullet3/original/btConvex2dConvex2dAlgorithm.ll'
 source_filename = "bench/bullet3/original/btConvex2dConvex2dAlgorithm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput" = type { %class.btTransform, %class.btTransform, float }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
@@ -36,31 +36,31 @@ $_ZN12btConvexCast10CastResult13reportFailureEii = comdat any
 
 $_ZN12btConvexCast10CastResultD0Ev = comdat any
 
-$_ZTS30btCollisionAlgorithmCreateFunc = comdat any
-
 $_ZTI30btCollisionAlgorithmCreateFunc = comdat any
+
+$_ZTS30btCollisionAlgorithmCreateFunc = comdat any
 
 $_ZTVN12btConvexCast10CastResultE = comdat any
 
-$_ZTSN12btConvexCast10CastResultE = comdat any
-
 $_ZTIN12btConvexCast10CastResultE = comdat any
+
+$_ZTSN12btConvexCast10CastResultE = comdat any
 
 @_ZTVN27btConvex2dConvex2dAlgorithm10CreateFuncE = dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN27btConvex2dConvex2dAlgorithm10CreateFuncE, ptr @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncD2Ev, ptr @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncD0Ev, ptr @_ZN27btConvex2dConvex2dAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_] }, align 8
 @_ZTV27btConvex2dConvex2dAlgorithm = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTI27btConvex2dConvex2dAlgorithm, ptr @_ZN27btConvex2dConvex2dAlgorithmD2Ev, ptr @_ZN27btConvex2dConvex2dAlgorithmD0Ev, ptr @_ZN27btConvex2dConvex2dAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult, ptr @_ZN27btConvex2dConvex2dAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult, ptr @_ZN27btConvex2dConvex2dAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE] }, align 8
+@_ZTIN27btConvex2dConvex2dAlgorithm10CreateFuncE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN27btConvex2dConvex2dAlgorithm10CreateFuncE, ptr @_ZTI30btCollisionAlgorithmCreateFunc }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN27btConvex2dConvex2dAlgorithm10CreateFuncE = dso_local constant [44 x i8] c"N27btConvex2dConvex2dAlgorithm10CreateFuncE\00", align 1
+@_ZTI30btCollisionAlgorithmCreateFunc = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS30btCollisionAlgorithmCreateFunc }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTS30btCollisionAlgorithmCreateFunc = linkonce_odr dso_local constant [33 x i8] c"30btCollisionAlgorithmCreateFunc\00", comdat, align 1
-@_ZTI30btCollisionAlgorithmCreateFunc = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS30btCollisionAlgorithmCreateFunc }, comdat, align 8
-@_ZTIN27btConvex2dConvex2dAlgorithm10CreateFuncE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN27btConvex2dConvex2dAlgorithm10CreateFuncE, ptr @_ZTI30btCollisionAlgorithmCreateFunc }, align 8
+@_ZTI27btConvex2dConvex2dAlgorithm = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS27btConvex2dConvex2dAlgorithm, ptr @_ZTI30btActivatingCollisionAlgorithm }, align 8
 @_ZTS27btConvex2dConvex2dAlgorithm = dso_local constant [30 x i8] c"27btConvex2dConvex2dAlgorithm\00", align 1
 @_ZTI30btActivatingCollisionAlgorithm = external constant ptr
-@_ZTI27btConvex2dConvex2dAlgorithm = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS27btConvex2dConvex2dAlgorithm, ptr @_ZTI30btActivatingCollisionAlgorithm }, align 8
 @_ZTV13btSphereShape = external unnamed_addr constant { [25 x ptr] }, align 8
 @_ZTVN12btConvexCast10CastResultE = linkonce_odr dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN12btConvexCast10CastResultE, ptr @_ZN12btConvexCast10CastResult9DebugDrawEf, ptr @_ZN12btConvexCast10CastResult15drawCoordSystemERK11btTransform, ptr @_ZN12btConvexCast10CastResult13reportFailureEii, ptr @_ZN12btConvexCast10CastResultD2Ev, ptr @_ZN12btConvexCast10CastResultD0Ev] }, comdat, align 8
-@_ZTSN12btConvexCast10CastResultE = linkonce_odr dso_local constant [29 x i8] c"N12btConvexCast10CastResultE\00", comdat, align 1
 @_ZTIN12btConvexCast10CastResultE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN12btConvexCast10CastResultE }, comdat, align 8
+@_ZTSN12btConvexCast10CastResultE = linkonce_odr dso_local constant [29 x i8] c"N12btConvexCast10CastResultE\00", comdat, align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncC1EP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncC2EP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver
@@ -69,96 +69,91 @@ $_ZTIN12btConvexCast10CastResultE = comdat any
 @_ZN27btConvex2dConvex2dAlgorithmD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN27btConvex2dConvex2dAlgorithmD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncC2EP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 9), (16, 32)) %this, ptr noundef %simplexSolver, ptr noundef %pdSolver) unnamed_addr #0 align 2 {
-entry:
-  %m_swapped.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 0, ptr %m_swapped.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27btConvex2dConvex2dAlgorithm10CreateFuncE, i64 16), ptr %this, align 8
-  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %simplexSolver, ptr %m_simplexSolver, align 8
-  %m_pdSolver = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %pdSolver, ptr %m_pdSolver, align 8
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncC2EP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 9), (16, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN27btConvex2dConvex2dAlgorithm10CreateFuncE, i64 16), ptr %0, align 8, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %6, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
-entry:
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #14
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithmC2EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolverii(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %mf, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, ptr noundef %simplexSolver, ptr noundef %pdSolver, i32 %0, i32 %1) unnamed_addr #4 align 2 {
-entry:
-  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %this, align 8
-  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %simplexSolver, ptr %m_simplexSolver, align 8
-  %m_pdSolver = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %pdSolver, ptr %m_pdSolver, align 8
-  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i8 0, ptr %m_ownManifold, align 8
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr %mf, ptr %m_manifoldPtr, align 8
-  %m_lowLevelOfDetail = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i8 0, ptr %m_lowLevelOfDetail, align 8
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithmC2EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolverii(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 %7, i32 %8) unnamed_addr #4 align 2 {
+  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4)
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %0, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %5, ptr %10, align 8, !tbaa !18
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %6, ptr %11, align 8, !tbaa !24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %12, align 8, !tbaa !25
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %1, ptr %13, align 8, !tbaa !26
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 0, ptr %14, align 8, !tbaa !27
   ret void
 }
 
 declare void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load i8, ptr %m_ownManifold, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end5
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %0, align 8, !tbaa !9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load i8, ptr %2, align 8, !tbaa !25, !range !28, !noundef !29
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %14
 
-if.then:                                          ; preds = %entry
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %if.end5, label %if.then3
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %14, label %8
 
-if.then3:                                         ; preds = %if.then
-  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %m_dispatcher, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %3 = load ptr, ptr %vfn, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %1)
-          to label %if.end5 unwind label %terminate.lpad
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %13 = load ptr, ptr %12, align 8
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %7)
+          to label %14 unwind label %15
 
-if.end5:                                          ; preds = %if.then, %if.then3, %entry
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
+14:                                               ; preds = %5, %8, %1
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   ret void
 
-terminate.lpad:                                   ; preds = %if.then3
-  %4 = landingpad { ptr, i32 }
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #15
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #16
   unreachable
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -171,171 +166,175 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load i8, ptr %m_ownManifold.i, align 8
-  %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %0, align 8, !tbaa !9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load i8, ptr %2, align 8, !tbaa !25, !range !28, !noundef !29
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit
 
-if.then.i:                                        ; preds = %entry
-  %m_manifoldPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load ptr, ptr %m_manifoldPtr.i, align 8
-  %tobool2.not.i = icmp eq ptr %1, null
-  br i1 %tobool2.not.i, label %_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit, label %if.then3.i
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit, label %8
 
-if.then3.i:                                       ; preds = %if.then.i
-  %m_dispatcher.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %m_dispatcher.i, align 8
-  %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
-  %3 = load ptr, ptr %vfn.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %1)
-          to label %_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit unwind label %terminate.lpad.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %13 = load ptr, ptr %12, align 8
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %7)
+          to label %_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit unwind label %14
 
-terminate.lpad.i:                                 ; preds = %if.then3.i
-  %4 = landingpad { ptr, i32 }
+14:                                               ; preds = %8
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #15
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #16
   unreachable
 
-_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit:        ; preds = %entry, %if.then.i, %if.then3.i
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+_ZN27btConvex2dConvex2dAlgorithmD2Ev.exit:        ; preds = %1, %5, %8
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm19setLowLevelOfDetailEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((48, 49)) %this, i1 noundef zeroext %useLowLevel) local_unnamed_addr #0 align 2 {
-entry:
-  %frombool = zext i1 %useLowLevel to i8
-  %m_lowLevelOfDetail = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i8 %frombool, ptr %m_lowLevelOfDetail, align 8
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm19setLowLevelOfDetailEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+  %3 = zext i1 %1 to i8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 %3, ptr %4, align 8, !tbaa !27
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(none) %body0Wrap, ptr noundef readonly captures(none) %body1Wrap, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %dispatchInfo, ptr noundef initializes((8, 16)) %resultOut) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %input = alloca %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", align 4
-  %gjkPairDetector = alloca %class.btGjkPairDetector, align 8
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %3, ptr noundef initializes((8, 16)) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", align 4
+  %7 = alloca %class.btGjkPairDetector, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %22
 
-if.then:                                          ; preds = %entry
-  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %m_dispatcher, align 8
-  %m_collisionObject.i = getelementptr inbounds nuw i8, ptr %body0Wrap, i64 16
-  %2 = load ptr, ptr %m_collisionObject.i, align 8
-  %m_collisionObject.i11 = getelementptr inbounds nuw i8, ptr %body1Wrap, i64 16
-  %3 = load ptr, ptr %m_collisionObject.i11, align 8
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %4 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3)
-  store ptr %call3, ptr %m_manifoldPtr, align 8
-  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i8 1, ptr %m_ownManifold, align 8
-  br label %if.end
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %17 = load ptr, ptr %12, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %14, ptr noundef %16)
+  store ptr %20, ptr %8, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %21, align 8, !tbaa !25
+  br label %22
 
-if.end:                                           ; preds = %if.then, %entry
-  %5 = phi ptr [ %call3, %if.then ], [ %0, %entry ]
-  %m_manifoldPtr.i = getelementptr inbounds nuw i8, ptr %resultOut, i64 8
-  store ptr %5, ptr %m_manifoldPtr.i, align 8
-  %m_shape.i = getelementptr inbounds nuw i8, ptr %body0Wrap, i64 8
-  %6 = load ptr, ptr %m_shape.i, align 8
-  %m_shape.i12 = getelementptr inbounds nuw i8, ptr %body1Wrap, i64 8
-  %7 = load ptr, ptr %m_shape.i12, align 8
-  %m_maximumDistanceSquared.i = getelementptr inbounds nuw i8, ptr %input, i64 128
-  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %8 = load ptr, ptr %m_simplexSolver, align 8
-  %m_pdSolver = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %9 = load ptr, ptr %m_pdSolver, align 8
-  call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %gjkPairDetector, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
-  %m_minkowskiA.i = getelementptr inbounds nuw i8, ptr %gjkPairDetector, i64 40
-  store ptr %6, ptr %m_minkowskiA.i, align 8
-  %m_minkowskiB.i = getelementptr inbounds nuw i8, ptr %gjkPairDetector, i64 48
-  store ptr %7, ptr %m_minkowskiB.i, align 8
-  %vtable9 = load ptr, ptr %6, align 8
-  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 96
-  %10 = load ptr, ptr %vfn10, align 8
-  %call12 = call noundef float %10(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %vtable13 = load ptr, ptr %7, align 8
-  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 96
-  %11 = load ptr, ptr %vfn14, align 8
-  %call16 = call noundef float %11(ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %12 = load ptr, ptr %m_manifoldPtr, align 8
-  %call19 = call noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %12)
-  %add = fadd float %call12, %call16
-  %add20 = fadd float %add, %call19
-  %mul = fmul float %add20, %add20
-  store float %mul, ptr %m_maximumDistanceSquared.i, align 4
-  %m_worldTransform.i = getelementptr inbounds nuw i8, ptr %body0Wrap, i64 24
-  %13 = load ptr, ptr %m_worldTransform.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %13, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %input, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin.i = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %m_origin3.i = getelementptr inbounds nuw i8, ptr %input, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
-  %m_worldTransform.i13 = getelementptr inbounds nuw i8, ptr %body1Wrap, i64 24
-  %14 = load ptr, ptr %m_worldTransform.i13, align 8
-  %m_transformB = getelementptr inbounds nuw i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %14, i64 16, i1 false)
-  %arrayidx5.i.i14 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %arrayidx7.i.i15 = getelementptr inbounds nuw i8, ptr %input, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i15, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i14, i64 16, i1 false)
-  %arrayidx9.i.i16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %arrayidx11.i.i17 = getelementptr inbounds nuw i8, ptr %input, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i17, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i16, i64 16, i1 false)
-  %m_origin.i18 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %m_origin3.i19 = getelementptr inbounds nuw i8, ptr %input, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i19, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i18, i64 16, i1 false)
-  %m_debugDraw = getelementptr inbounds nuw i8, ptr %dispatchInfo, i64 24
-  %15 = load ptr, ptr %m_debugDraw, align 8
-  call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %gjkPairDetector, ptr noundef nonnull align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %resultOut, ptr noundef %15, i1 noundef zeroext false)
-  %m_ownManifold35 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %16 = load i8, ptr %m_ownManifold35, align 8
-  %tobool36 = trunc i8 %16 to i1
-  br i1 %tobool36, label %if.then37, label %if.end38
+22:                                               ; preds = %10, %5
+  %23 = phi ptr [ %20, %10 ], [ %9, %5 ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %23, ptr %24, align 8, !tbaa !37
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %6) #15
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #15
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %7, ptr noundef %26, ptr noundef %28, ptr noundef %31, ptr noundef %33)
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %26, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store ptr %28, ptr %35, align 8, !tbaa !47
+  %36 = load ptr, ptr %26, align 8, !tbaa !9
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
+  %38 = load ptr, ptr %37, align 8
+  %39 = call noundef float %38(ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %40 = load ptr, ptr %28, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
+  %42 = load ptr, ptr %41, align 8
+  %43 = call noundef float %42(ptr noundef nonnull align 8 dereferenceable(32) %28)
+  %44 = load ptr, ptr %8, align 8, !tbaa !26
+  %45 = call noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %44)
+  %46 = fadd float %39, %43
+  %47 = fadd float %46, %45
+  %48 = fmul float %47, %47
+  store float %48, ptr %29, align 4, !tbaa !48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(64) %50, i64 16, i1 false), !tbaa.struct !53
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !53
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, ptr noundef nonnull align 4 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !53
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !53
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %58 = load ptr, ptr %57, align 8, !tbaa !52
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %59, ptr noundef nonnull align 4 dereferenceable(64) %58, i64 16, i1 false), !tbaa.struct !53
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %61, ptr noundef nonnull align 4 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !53
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, ptr noundef nonnull align 4 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !53
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !53
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %67 = load ptr, ptr %66, align 8, !tbaa !55
+  call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %7, ptr noundef nonnull align 4 dereferenceable(132) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %67, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %6) #15
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %69 = load i8, ptr %68, align 8, !tbaa !25, !range !28, !noundef !29
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %71, label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
-if.then37:                                        ; preds = %if.end
-  %17 = load ptr, ptr %m_manifoldPtr.i, align 8
-  %m_cachedPoints.i.i = getelementptr inbounds nuw i8, ptr %17, i64 856
-  %18 = load i32, ptr %m_cachedPoints.i.i, align 8
-  %tobool.not.i = icmp eq i32 %18, 0
-  br i1 %tobool.not.i, label %if.end38, label %if.end.i
+71:                                               ; preds = %22
+  %72 = load ptr, ptr %24, align 8, !tbaa !37
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 856
+  %74 = load i32, ptr %73, align 8, !tbaa !58
+  %.not.i = icmp eq i32 %74, 0
+  br i1 %.not.i, label %_ZN16btManifoldResult20refreshContactPointsEv.exit, label %.sink.split.i
 
-if.end.i:                                         ; preds = %if.then37
-  %m_body0.i.i = getelementptr inbounds nuw i8, ptr %17, i64 840
-  %19 = load ptr, ptr %m_body0.i.i, align 8
-  %m_body0Wrap.i = getelementptr inbounds nuw i8, ptr %resultOut, i64 16
-  %20 = load ptr, ptr %m_body0Wrap.i, align 8
-  %m_collisionObject.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %21 = load ptr, ptr %m_collisionObject.i.i, align 8
-  %cmp.not.i = icmp eq ptr %19, %21
-  %m_body1Wrap17.i = getelementptr inbounds nuw i8, ptr %resultOut, i64 24
-  %22 = load ptr, ptr %m_body1Wrap17.i, align 8
-  %m_collisionObject.i6.i = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %23 = load ptr, ptr %m_collisionObject.i6.i, align 8
-  %. = select i1 %cmp.not.i, ptr %23, ptr %21
-  %.21 = select i1 %cmp.not.i, ptr %21, ptr %23
-  %m_worldTransform.i5.sink.i = getelementptr inbounds nuw i8, ptr %.21, i64 8
-  %m_worldTransform.i7.i = getelementptr inbounds nuw i8, ptr %., i64 8
-  call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %17, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)
-  br label %if.end38
+.sink.split.i:                                    ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 840
+  %76 = load ptr, ptr %75, align 8, !tbaa !61
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !62
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !31
+  %.not1.i = icmp eq ptr %76, %80
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %82 = load ptr, ptr %81, align 8, !tbaa !63
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !31
+  %. = select i1 %.not1.i, ptr %84, ptr %80
+  %.22 = select i1 %.not1.i, ptr %80, ptr %84
+  %.sink.i = getelementptr inbounds nuw i8, ptr %.22, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %., i64 8
+  call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %72, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %85)
+  br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
-if.end38:                                         ; preds = %if.end.i, %if.then37, %if.end
+_ZN16btManifoldResult20refreshContactPointsEv.exit: ; preds = %.sink.split.i, %71, %22
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 declare void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
@@ -343,478 +342,601 @@ declare noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv
 
 declare void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef nonnull align 4 dereferenceable(132), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i1 noundef zeroext) unnamed_addr #5
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN27btConvex2dConvex2dAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %col0, ptr noundef %col1, ptr nonnull readnone align 8 captures(none) %dispatchInfo, ptr readnone captures(none) %resultOut) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %sphere1 = alloca %class.btSphereShape, align 8
-  %result = alloca %"struct.btConvexCast::CastResult", align 8
-  %voronoiSimplex = alloca %class.btVoronoiSimplexSolver, align 4
-  %ccd1 = alloca %class.btGjkConvexCast, align 8
-  %sphere0 = alloca %class.btSphereShape, align 8
-  %result59 = alloca %"struct.btConvexCast::CastResult", align 8
-  %voronoiSimplex62 = alloca %class.btVoronoiSimplexSolver, align 4
-  %ccd165 = alloca %class.btGjkConvexCast, align 8
-  %m_interpolationWorldTransform.i = getelementptr inbounds nuw i8, ptr %col0, i64 72
-  %m_origin.i = getelementptr inbounds nuw i8, ptr %col0, i64 120
-  %m_worldTransform.i = getelementptr inbounds nuw i8, ptr %col0, i64 8
-  %m_origin.i39 = getelementptr inbounds nuw i8, ptr %col0, i64 56
-  %0 = load float, ptr %m_origin.i, align 4
-  %1 = load float, ptr %m_origin.i39, align 4
-  %sub.i = fsub float %0, %1
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %col0, i64 124
-  %2 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %col0, i64 60
-  %3 = load float, ptr %arrayidx7.i, align 4
-  %sub8.i = fsub float %2, %3
-  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %col0, i64 128
-  %4 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %col0, i64 64
-  %5 = load float, ptr %arrayidx13.i, align 4
-  %sub14.i = fsub float %4, %5
-  %mul8.i.i = fmul float %sub8.i, %sub8.i
-  %6 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul8.i.i)
-  %7 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %6)
-  %m_interpolationWorldTransform.i40 = getelementptr inbounds nuw i8, ptr %col1, i64 72
-  %m_worldTransform.i42 = getelementptr inbounds nuw i8, ptr %col1, i64 8
-  %m_ccdMotionThreshold.i = getelementptr inbounds nuw i8, ptr %col0, i64 308
-  %8 = load float, ptr %m_ccdMotionThreshold.i, align 4
-  %mul.i = fmul float %8, %8
-  %cmp = fcmp olt float %7, %mul.i
-  br i1 %cmp, label %land.lhs.true, label %invoke.cont21
+define dso_local noundef float @_ZN27btConvex2dConvex2dAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr nonnull readnone align 8 captures(none) %3, ptr readnone captures(none) %4) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %class.btSphereShape, align 8
+  %7 = alloca %"struct.btConvexCast::CastResult", align 8
+  %8 = alloca %class.btVoronoiSimplexSolver, align 4
+  %9 = alloca %class.btGjkConvexCast, align 8
+  %10 = alloca %class.btSphereShape, align 8
+  %11 = alloca %"struct.btConvexCast::CastResult", align 8
+  %12 = alloca %class.btVoronoiSimplexSolver, align 4
+  %13 = alloca %class.btGjkConvexCast, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %18 = load float, ptr %15, align 4, !tbaa !64
+  %19 = load float, ptr %17, align 4, !tbaa !64
+  %20 = fsub float %18, %19
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %22 = load float, ptr %21, align 4, !tbaa !64
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %24 = load float, ptr %23, align 4, !tbaa !64
+  %25 = fsub float %22, %24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %27 = load float, ptr %26, align 4, !tbaa !64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %29 = load float, ptr %28, align 4, !tbaa !64
+  %30 = fsub float %27, %29
+  %31 = fmul float %25, %25
+  %32 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %31)
+  %33 = tail call noundef float @llvm.fmuladd.f32(float %30, float %30, float %32)
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 308
+  %37 = load float, ptr %36, align 4, !tbaa !65
+  %38 = fmul float %37, %37
+  %39 = fcmp olt float %33, %38
+  br i1 %39, label %40, label %63
 
-land.lhs.true:                                    ; preds = %entry
-  %arrayidx11.i48 = getelementptr inbounds nuw i8, ptr %col1, i64 128
-  %9 = load float, ptr %arrayidx11.i48, align 4
-  %arrayidx13.i49 = getelementptr inbounds nuw i8, ptr %col1, i64 64
-  %10 = load float, ptr %arrayidx13.i49, align 4
-  %sub14.i50 = fsub float %9, %10
-  %m_origin.i41 = getelementptr inbounds nuw i8, ptr %col1, i64 120
-  %11 = load float, ptr %m_origin.i41, align 4
-  %m_origin.i43 = getelementptr inbounds nuw i8, ptr %col1, i64 56
-  %12 = load float, ptr %m_origin.i43, align 4
-  %sub.i44 = fsub float %11, %12
-  %arrayidx5.i45 = getelementptr inbounds nuw i8, ptr %col1, i64 124
-  %13 = load float, ptr %arrayidx5.i45, align 4
-  %arrayidx7.i46 = getelementptr inbounds nuw i8, ptr %col1, i64 60
-  %14 = load float, ptr %arrayidx7.i46, align 4
-  %sub8.i47 = fsub float %13, %14
-  %mul8.i.i57 = fmul float %sub8.i47, %sub8.i47
-  %15 = tail call float @llvm.fmuladd.f32(float %sub.i44, float %sub.i44, float %mul8.i.i57)
-  %16 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i50, float %sub14.i50, float %15)
-  %m_ccdMotionThreshold.i59 = getelementptr inbounds nuw i8, ptr %col1, i64 308
-  %17 = load float, ptr %m_ccdMotionThreshold.i59, align 4
-  %mul.i60 = fmul float %17, %17
-  %cmp17 = fcmp olt float %16, %mul.i60
-  br i1 %cmp17, label %return, label %invoke.cont21
+40:                                               ; preds = %5
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %42 = load float, ptr %41, align 4, !tbaa !64
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %44 = load float, ptr %43, align 4, !tbaa !64
+  %45 = fsub float %42, %44
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %47 = load float, ptr %46, align 4, !tbaa !64
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %49 = load float, ptr %48, align 4, !tbaa !64
+  %50 = fsub float %47, %49
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 124
+  %52 = load float, ptr %51, align 4, !tbaa !64
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %54 = load float, ptr %53, align 4, !tbaa !64
+  %55 = fsub float %52, %54
+  %56 = fmul float %55, %55
+  %57 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %56)
+  %58 = tail call noundef float @llvm.fmuladd.f32(float %45, float %45, float %57)
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 308
+  %60 = load float, ptr %59, align 4, !tbaa !65
+  %61 = fmul float %60, %60
+  %62 = fcmp olt float %58, %61
+  br i1 %62, label %148, label %63
 
-invoke.cont21:                                    ; preds = %land.lhs.true, %entry
-  %m_collisionShape.i = getelementptr inbounds nuw i8, ptr %col0, i64 200
-  %18 = load ptr, ptr %m_collisionShape.i, align 8
-  %m_ccdSweptSphereRadius.i = getelementptr inbounds nuw i8, ptr %col1, i64 304
-  %19 = load float, ptr %m_ccdSweptSphereRadius.i, align 8
-  call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere1)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %sphere1, align 8
-  %m_shapeType.i = getelementptr inbounds nuw i8, ptr %sphere1, i64 8
-  store i32 8, ptr %m_shapeType.i, align 8
-  %m_localScaling.i = getelementptr inbounds nuw i8, ptr %sphere1, i64 32
-  store float 1.000000e+00, ptr %m_localScaling.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %sphere1, i64 36
-  store float 1.000000e+00, ptr %arrayidx3.i.i, align 4
-  %arrayidx5.i.i61 = getelementptr inbounds nuw i8, ptr %sphere1, i64 40
-  store float 1.000000e+00, ptr %arrayidx5.i.i61, align 8
-  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %sphere1, i64 44
-  %m_implicitShapeDimensions.i = getelementptr inbounds nuw i8, ptr %sphere1, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i.i, i8 0, i64 20, i1 false)
-  store float %19, ptr %m_implicitShapeDimensions.i, align 8
-  %m_collisionMargin.i = getelementptr inbounds nuw i8, ptr %sphere1, i64 64
-  store float %19, ptr %m_collisionMargin.i, align 8
-  %m_padding.i = getelementptr inbounds nuw i8, ptr %sphere1, i64 68
-  store float 0.000000e+00, ptr %m_padding.i, align 4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %result, align 8
-  %m_fraction.i = getelementptr inbounds nuw i8, ptr %result, i64 168
-  store float 0x43ABC16D60000000, ptr %m_fraction.i, align 8
-  %m_debugDrawer.i = getelementptr inbounds nuw i8, ptr %result, i64 176
-  store ptr null, ptr %m_debugDrawer.i, align 8
-  %m_allowedPenetration.i = getelementptr inbounds nuw i8, ptr %result, i64 184
-  store float 0.000000e+00, ptr %m_allowedPenetration.i, align 8
-  %m_subSimplexCastMaxIterations.i = getelementptr inbounds nuw i8, ptr %result, i64 188
-  store i32 32, ptr %m_subSimplexCastMaxIterations.i, align 4
-  %m_subSimplexCastEpsilon.i = getelementptr inbounds nuw i8, ptr %result, i64 192
-  store float 0x3F1A36E2E0000000, ptr %m_subSimplexCastEpsilon.i, align 8
-  %m_equalVertexThreshold.i = getelementptr inbounds nuw i8, ptr %voronoiSimplex, i64 308
-  store float 0x3F1A36E2E0000000, ptr %m_equalVertexThreshold.i, align 4
-  %m_usedVertices.i.i = getelementptr inbounds nuw i8, ptr %voronoiSimplex, i64 332
-  store i8 0, ptr %m_usedVertices.i.i, align 4
-  invoke void @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull align 8 dereferenceable(32) %ccd1, ptr noundef %18, ptr noundef nonnull %sphere1, ptr noundef nonnull %voronoiSimplex)
-          to label %invoke.cont22 unwind label %lpad20
+63:                                               ; preds = %40, %5
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %65 = load ptr, ptr %64, align 8, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #15
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 304
+  %67 = load float, ptr %66, align 8, !tbaa !72
+  call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %6, align 8, !tbaa !9
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 8, ptr %68, align 8, !tbaa !73
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store float 1.000000e+00, ptr %69, align 8, !tbaa !64
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store float 1.000000e+00, ptr %70, align 4, !tbaa !64
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store float 1.000000e+00, ptr %71, align 8, !tbaa !64
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %72, i8 0, i64 20, i1 false)
+  store float %67, ptr %73, align 8, !tbaa !64
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store float %67, ptr %74, align 8, !tbaa !75
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 68
+  store float 0.000000e+00, ptr %75, align 4, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %7, align 8, !tbaa !9
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  store float 0x43ABC16D60000000, ptr %76, align 8, !tbaa !79
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  store ptr null, ptr %77, align 8, !tbaa !81
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  store float 0.000000e+00, ptr %78, align 8, !tbaa !82
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 188
+  store i32 32, ptr %79, align 4, !tbaa !83
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  store float 0x3F1A36E2E0000000, ptr %80, align 8, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %8) #15
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 308
+  store float 0x3F1A36E2E0000000, ptr %81, align 4, !tbaa !85
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 332
+  store i8 0, ptr %82, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15
+  invoke void @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %65, ptr noundef nonnull %6, ptr noundef nonnull %8)
+          to label %83 unwind label %92
 
-invoke.cont22:                                    ; preds = %invoke.cont21
-  %call33 = invoke noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE(ptr noundef nonnull align 8 dereferenceable(32) %ccd1, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i42, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform.i40, ptr noundef nonnull align 8 dereferenceable(196) %result)
-          to label %invoke.cont32 unwind label %lpad23
+83:                                               ; preds = %63
+  %84 = invoke noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %35, ptr noundef nonnull align 4 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(196) %7)
+          to label %85 unwind label %94
 
-invoke.cont32:                                    ; preds = %invoke.cont22
-  br i1 %call33, label %if.then34, label %invoke.cont64
+85:                                               ; preds = %83
+  br i1 %84, label %86, label %104
 
-if.then34:                                        ; preds = %invoke.cont32
-  %m_hitFraction.i = getelementptr inbounds nuw i8, ptr %col0, i64 300
-  %20 = load float, ptr %m_hitFraction.i, align 4
-  %21 = load float, ptr %m_fraction.i, align 8
-  %cmp37 = fcmp ogt float %20, %21
-  br i1 %cmp37, label %if.then38, label %if.end41
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 300
+  %88 = load float, ptr %87, align 4, !tbaa !90
+  %89 = load float, ptr %76, align 8, !tbaa !79
+  %90 = fcmp ogt float %88, %89
+  br i1 %90, label %91, label %96
 
-if.then38:                                        ; preds = %if.then34
-  store float %21, ptr %m_hitFraction.i, align 4
-  br label %if.end41
+91:                                               ; preds = %86
+  store float %89, ptr %87, align 4, !tbaa !90
+  br label %96
 
-lpad20:                                           ; preds = %invoke.cont21
-  %22 = landingpad { ptr, i32 }
+92:                                               ; preds = %63
+  %93 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %133
 
-lpad23:                                           ; preds = %invoke.cont22
-  %23 = landingpad { ptr, i32 }
+94:                                               ; preds = %83
+  %95 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd1) #14
-  br label %eh.resume
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
+  br label %133
 
-if.end41:                                         ; preds = %if.then38, %if.then34
-  %m_hitFraction.i67 = getelementptr inbounds nuw i8, ptr %col1, i64 300
-  %24 = load float, ptr %m_hitFraction.i67, align 4
-  %cmp45 = fcmp ogt float %24, %21
-  br i1 %cmp45, label %if.then46, label %if.end49
+96:                                               ; preds = %91, %86
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 300
+  %98 = load float, ptr %97, align 4, !tbaa !90
+  %99 = fcmp ogt float %98, %89
+  br i1 %99, label %100, label %101
 
-if.then46:                                        ; preds = %if.end41
-  store float %21, ptr %m_hitFraction.i67, align 4
-  br label %if.end49
+100:                                              ; preds = %96
+  store float %89, ptr %97, align 4, !tbaa !90
+  br label %101
 
-if.end49:                                         ; preds = %if.then46, %if.end41
-  %cmp51 = fcmp olt float %21, 1.000000e+00
-  br i1 %cmp51, label %if.then52, label %invoke.cont64
+101:                                              ; preds = %100, %96
+  %102 = fcmp olt float %89, 1.000000e+00
+  br i1 %102, label %103, label %104
 
-if.then52:                                        ; preds = %if.end49
-  br label %invoke.cont64
+103:                                              ; preds = %101
+  br label %104
 
-invoke.cont64:                                    ; preds = %if.end49, %if.then52, %invoke.cont32
-  %resultFraction.0 = phi float [ %21, %if.then52 ], [ 1.000000e+00, %if.end49 ], [ 1.000000e+00, %invoke.cont32 ]
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd1) #14
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere1) #14
-  %m_collisionShape.i69 = getelementptr inbounds nuw i8, ptr %col1, i64 200
-  %25 = load ptr, ptr %m_collisionShape.i69, align 8
-  %m_ccdSweptSphereRadius.i70 = getelementptr inbounds nuw i8, ptr %col0, i64 304
-  %26 = load float, ptr %m_ccdSweptSphereRadius.i70, align 8
-  call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %sphere0, align 8
-  %m_shapeType.i71 = getelementptr inbounds nuw i8, ptr %sphere0, i64 8
-  store i32 8, ptr %m_shapeType.i71, align 8
-  %m_localScaling.i72 = getelementptr inbounds nuw i8, ptr %sphere0, i64 32
-  store float 1.000000e+00, ptr %m_localScaling.i72, align 8
-  %arrayidx3.i.i73 = getelementptr inbounds nuw i8, ptr %sphere0, i64 36
-  store float 1.000000e+00, ptr %arrayidx3.i.i73, align 4
-  %arrayidx5.i.i74 = getelementptr inbounds nuw i8, ptr %sphere0, i64 40
-  store float 1.000000e+00, ptr %arrayidx5.i.i74, align 8
-  %arrayidx7.i.i75 = getelementptr inbounds nuw i8, ptr %sphere0, i64 44
-  %m_implicitShapeDimensions.i76 = getelementptr inbounds nuw i8, ptr %sphere0, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i.i75, i8 0, i64 20, i1 false)
-  store float %26, ptr %m_implicitShapeDimensions.i76, align 8
-  %m_collisionMargin.i77 = getelementptr inbounds nuw i8, ptr %sphere0, i64 64
-  store float %26, ptr %m_collisionMargin.i77, align 8
-  %m_padding.i78 = getelementptr inbounds nuw i8, ptr %sphere0, i64 68
-  store float 0.000000e+00, ptr %m_padding.i78, align 4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %result59, align 8
-  %m_fraction.i79 = getelementptr inbounds nuw i8, ptr %result59, i64 168
-  store float 0x43ABC16D60000000, ptr %m_fraction.i79, align 8
-  %m_debugDrawer.i80 = getelementptr inbounds nuw i8, ptr %result59, i64 176
-  store ptr null, ptr %m_debugDrawer.i80, align 8
-  %m_allowedPenetration.i81 = getelementptr inbounds nuw i8, ptr %result59, i64 184
-  store float 0.000000e+00, ptr %m_allowedPenetration.i81, align 8
-  %m_subSimplexCastMaxIterations.i82 = getelementptr inbounds nuw i8, ptr %result59, i64 188
-  store i32 32, ptr %m_subSimplexCastMaxIterations.i82, align 4
-  %m_subSimplexCastEpsilon.i83 = getelementptr inbounds nuw i8, ptr %result59, i64 192
-  store float 0x3F1A36E2E0000000, ptr %m_subSimplexCastEpsilon.i83, align 8
-  %m_equalVertexThreshold.i84 = getelementptr inbounds nuw i8, ptr %voronoiSimplex62, i64 308
-  store float 0x3F1A36E2E0000000, ptr %m_equalVertexThreshold.i84, align 4
-  %m_usedVertices.i.i85 = getelementptr inbounds nuw i8, ptr %voronoiSimplex62, i64 332
-  store i8 0, ptr %m_usedVertices.i.i85, align 4
-  invoke void @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull align 8 dereferenceable(32) %ccd165, ptr noundef nonnull %sphere0, ptr noundef %25, ptr noundef nonnull %voronoiSimplex62)
-          to label %invoke.cont66 unwind label %lpad63
+104:                                              ; preds = %101, %103, %85
+  %.044 = phi float [ %89, %103 ], [ 1.000000e+00, %101 ], [ 1.000000e+00, %85 ]
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #15
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #15
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %106 = load ptr, ptr %105, align 8, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #15
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %108 = load float, ptr %107, align 8, !tbaa !72
+  call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10)
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %10, align 8, !tbaa !9
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 8, ptr %109, align 8, !tbaa !73
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store float 1.000000e+00, ptr %110, align 8, !tbaa !64
+  %111 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  store float 1.000000e+00, ptr %111, align 4, !tbaa !64
+  %112 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store float 1.000000e+00, ptr %112, align 8, !tbaa !64
+  %113 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %113, i8 0, i64 20, i1 false)
+  store float %108, ptr %114, align 8, !tbaa !64
+  %115 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store float %108, ptr %115, align 8, !tbaa !75
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 68
+  store float 0.000000e+00, ptr %116, align 4, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %11) #15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %11, align 8, !tbaa !9
+  %117 = getelementptr inbounds nuw i8, ptr %11, i64 168
+  store float 0x43ABC16D60000000, ptr %117, align 8, !tbaa !79
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 176
+  store ptr null, ptr %118, align 8, !tbaa !81
+  %119 = getelementptr inbounds nuw i8, ptr %11, i64 184
+  store float 0.000000e+00, ptr %119, align 8, !tbaa !82
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 188
+  store i32 32, ptr %120, align 4, !tbaa !83
+  %121 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  store float 0x3F1A36E2E0000000, ptr %121, align 8, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %12) #15
+  %122 = getelementptr inbounds nuw i8, ptr %12, i64 308
+  store float 0x3F1A36E2E0000000, ptr %122, align 4, !tbaa !85
+  %123 = getelementptr inbounds nuw i8, ptr %12, i64 332
+  store i8 0, ptr %123, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #15
+  invoke void @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %10, ptr noundef %106, ptr noundef nonnull %12)
+          to label %124 unwind label %134
 
-invoke.cont66:                                    ; preds = %invoke.cont64
-  %call77 = invoke noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE(ptr noundef nonnull align 8 dereferenceable(32) %ccd165, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i42, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform.i40, ptr noundef nonnull align 8 dereferenceable(196) %result59)
-          to label %invoke.cont76 unwind label %lpad67
+124:                                              ; preds = %104
+  %125 = invoke noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %35, ptr noundef nonnull align 4 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(196) %11)
+          to label %126 unwind label %136
 
-invoke.cont76:                                    ; preds = %invoke.cont66
-  br i1 %call77, label %if.then78, label %if.end100
+126:                                              ; preds = %124
+  br i1 %125, label %127, label %146
 
-if.then78:                                        ; preds = %invoke.cont76
-  %m_hitFraction.i92 = getelementptr inbounds nuw i8, ptr %col0, i64 300
-  %27 = load float, ptr %m_hitFraction.i92, align 4
-  %28 = load float, ptr %m_fraction.i79, align 8
-  %cmp82 = fcmp ogt float %27, %28
-  br i1 %cmp82, label %if.then83, label %if.end86
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 300
+  %129 = load float, ptr %128, align 4, !tbaa !90
+  %130 = load float, ptr %117, align 8, !tbaa !79
+  %131 = fcmp ogt float %129, %130
+  br i1 %131, label %132, label %138
 
-if.then83:                                        ; preds = %if.then78
-  store float %28, ptr %m_hitFraction.i92, align 4
-  br label %if.end86
+132:                                              ; preds = %127
+  store float %130, ptr %128, align 4, !tbaa !90
+  br label %138
 
-lpad63:                                           ; preds = %invoke.cont64
-  %29 = landingpad { ptr, i32 }
+133:                                              ; preds = %94, %92
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #15
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #15
+  br label %149
+
+134:                                              ; preds = %104
+  %135 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %147
 
-lpad67:                                           ; preds = %invoke.cont66
-  %30 = landingpad { ptr, i32 }
+136:                                              ; preds = %124
+  %137 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd165) #14
-  br label %eh.resume
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
+  br label %147
 
-if.end86:                                         ; preds = %if.then83, %if.then78
-  %m_hitFraction.i94 = getelementptr inbounds nuw i8, ptr %col1, i64 300
-  %31 = load float, ptr %m_hitFraction.i94, align 4
-  %cmp90 = fcmp ogt float %31, %28
-  br i1 %cmp90, label %if.then91, label %if.end94
+138:                                              ; preds = %132, %127
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 300
+  %140 = load float, ptr %139, align 4, !tbaa !90
+  %141 = fcmp ogt float %140, %130
+  br i1 %141, label %142, label %143
 
-if.then91:                                        ; preds = %if.end86
-  store float %28, ptr %m_hitFraction.i94, align 4
-  br label %if.end94
+142:                                              ; preds = %138
+  store float %130, ptr %139, align 4, !tbaa !90
+  br label %143
 
-if.end94:                                         ; preds = %if.then91, %if.end86
-  %cmp96 = fcmp ogt float %resultFraction.0, %28
-  br i1 %cmp96, label %if.then97, label %if.end100
+143:                                              ; preds = %142, %138
+  %144 = fcmp ogt float %.044, %130
+  br i1 %144, label %145, label %146
 
-if.then97:                                        ; preds = %if.end94
-  br label %if.end100
+145:                                              ; preds = %143
+  br label %146
 
-if.end100:                                        ; preds = %if.end94, %if.then97, %invoke.cont76
-  %resultFraction.1 = phi float [ %28, %if.then97 ], [ %resultFraction.0, %if.end94 ], [ %resultFraction.0, %invoke.cont76 ]
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd165) #14
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0) #14
-  br label %return
+146:                                              ; preds = %143, %145, %126
+  %.145 = phi float [ %130, %145 ], [ %.044, %143 ], [ %.044, %126 ]
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %11) #15
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #15
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #15
+  br label %148
 
-return:                                           ; preds = %land.lhs.true, %if.end100
-  %retval.0 = phi float [ %resultFraction.1, %if.end100 ], [ 1.000000e+00, %land.lhs.true ]
-  ret float %retval.0
+147:                                              ; preds = %136, %134
+  %.pn55 = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %11) #15
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #15
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #15
+  br label %149
 
-eh.resume:                                        ; preds = %lpad67, %lpad63, %lpad23, %lpad20
-  %sphere0.sink = phi ptr [ %sphere1, %lpad20 ], [ %sphere1, %lpad23 ], [ %sphere0, %lpad63 ], [ %sphere0, %lpad67 ]
-  %.pn35.pn.pn = phi { ptr, i32 } [ %22, %lpad20 ], [ %23, %lpad23 ], [ %29, %lpad63 ], [ %30, %lpad67 ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0.sink) #14
-  resume { ptr, i32 } %.pn35.pn.pn
+148:                                              ; preds = %40, %146
+  %.0 = phi float [ %.145, %146 ], [ 1.000000e+00, %40 ]
+  ret float %.0
+
+149:                                              ; preds = %147, %133
+  %.pn55.pn.pn.pn = phi { ptr, i32 } [ %.pn55, %147 ], [ %.pn, %133 ]
+  resume { ptr, i32 } %.pn55.pn.pn.pn
 }
 
 declare void @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 declare noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(196)) unnamed_addr #5
 
+; Function Attrs: nounwind
+declare void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12btConvexCast10CastResultD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %this) unnamed_addr #2 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN12btConvexCast10CastResultD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #2 comdat align 2 {
   ret void
 }
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN27btConvex2dConvex2dAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap) unnamed_addr #4 comdat align 2 {
-entry:
-  %0 = load ptr, ptr %ci, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
-  %1 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 56)
-  %m_manifold = getelementptr inbounds nuw i8, ptr %ci, i64 8
-  %2 = load ptr, ptr %m_manifold, align 8
-  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %3 = load ptr, ptr %m_simplexSolver, align 8
-  %m_pdSolver = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %4 = load ptr, ptr %m_pdSolver, align 8
-  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(49) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %call, align 8
-  %m_simplexSolver.i = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr %3, ptr %m_simplexSolver.i, align 8
-  %m_pdSolver.i = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store ptr %4, ptr %m_pdSolver.i, align 8
-  %m_ownManifold.i = getelementptr inbounds nuw i8, ptr %call, i64 32
-  store i8 0, ptr %m_ownManifold.i, align 8
-  %m_manifoldPtr.i = getelementptr inbounds nuw i8, ptr %call, i64 40
-  store ptr %2, ptr %m_manifoldPtr.i, align 8
-  %m_lowLevelOfDetail.i = getelementptr inbounds nuw i8, ptr %call, i64 48
-  store i8 0, ptr %m_lowLevelOfDetail.i, align 8
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN27btConvex2dConvex2dAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray) unnamed_addr #4 comdat align 2 {
-entry:
-  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
-  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load i8, ptr %m_ownManifold, align 8
-  %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 4
-  %2 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 8
-  %3 = load i32, ptr %m_capacity.i.i, align 8
-  %cmp.i = icmp eq i32 %2, %3
-  br i1 %cmp.i, label %if.then.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
-
-if.then.i:                                        ; preds = %if.then
-  %tobool.not.i.i = icmp eq i32 %2, 0
-  %mul.i.i = shl nsw i32 %2, 1
-  %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
-  %cmp.i.i = icmp slt i32 %2, %cond.i.i
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
-
-if.then.i.i:                                      ; preds = %if.then.i
-  %tobool.not.i.i.i = icmp eq i32 %cond.i.i, 0
-  br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %conv.i.i.i.i = sext i32 %cond.i.i to i64
-  %mul.i.i.i.i = shl nsw i64 %conv.i.i.i.i, 3
-  %call.i.i.i.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i.i, i32 noundef 16)
-  %.pre.i = load i32, ptr %m_size.i.i, align 4
-  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
-  %4 = phi i32 [ %.pre.i, %if.then.i.i.i ], [ %2, %if.then.i.i ]
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i ], [ null, %if.then.i.i ]
-  %cmp4.i.i.i = icmp sgt i32 %4, 0
-  br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-
-for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
-  %wide.trip.count.i.i.i = zext nneg i32 %4 to i64
-  br label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
-  %5 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
-  %6 = load ptr, ptr %arrayidx3.i.i.i, align 8
-  store ptr %6, ptr %arrayidx.i.i.i, align 8
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !5
-
-_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
-  %7 = load ptr, ptr %m_data.i5.i.i, align 8
-  %tobool.not.i6.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i6.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %if.then.i7.i.i
-
-if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 24
-  %8 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %tobool2.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
-
-if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %7)
-  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
-
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 24
-  store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
-  store i32 %cond.i.i, ptr %m_capacity.i.i, align 8
-  %.pre2.i = load i32, ptr %m_size.i.i, align 4
-  %.pre = load ptr, ptr %m_manifoldPtr, align 8
-  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
-
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %if.then, %if.then.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
-  %9 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %0, %if.then.i ], [ %0, %if.then ]
-  %10 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %2, %if.then.i ], [ %2, %if.then ]
-  %m_data.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
-  %11 = load ptr, ptr %m_data.i, align 8
-  %idxprom.i = sext i32 %10 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom.i
-  store ptr %9, ptr %arrayidx.i, align 8
-  %12 = load i32, ptr %m_size.i.i, align 4
-  %inc.i = add nsw i32 %12, 1
-  store i32 %inc.i, ptr %m_size.i.i, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
-
-declare void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #11
-
-declare void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN27btConvex2dConvex2dAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 comdat align 2 {
+  %5 = load ptr, ptr %1, align 8, !tbaa !91
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 56)
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !93
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(49) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3)
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %9, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %13, ptr %16, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %15, ptr %17, align 8, !tbaa !24
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i8 0, ptr %18, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store ptr %11, ptr %19, align 8, !tbaa !26
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store i8 0, ptr %20, align 8, !tbaa !27
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN27btConvex2dConvex2dAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) unnamed_addr #4 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %44, label %5
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load i8, ptr %6, align 8, !tbaa !25, !range !28, !noundef !29
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %9, label %44
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !94
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i32, ptr %12, align 8, !tbaa !98
+  %14 = icmp eq i32 %11, %13
+  br i1 %14, label %15, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+
+15:                                               ; preds = %9
+  %.not.i.i = icmp eq i32 %11, 0
+  %16 = shl nsw i32 %11, 1
+  %17 = select i1 %.not.i.i, i32 1, i32 %16
+  %18 = icmp slt i32 %11, %17
+  br i1 %18, label %19, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+
+19:                                               ; preds = %15
+  %.not.i.i.i = icmp eq i32 %17, 0
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i, label %20
+
+20:                                               ; preds = %19
+  %21 = sext i32 %17 to i64
+  %22 = shl nsw i64 %21, 3
+  %23 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %22, i32 noundef 16)
+  %.pre.i = load i32, ptr %10, align 4, !tbaa !94
+  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
+
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %20, %19
+  %24 = phi i32 [ %.pre.i, %20 ], [ %11, %19 ]
+  %.0.i.i.i = phi ptr [ %23, %20 ], [ null, %19 ]
+  %25 = icmp sgt i32 %24, 0
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !99
+  br i1 %25, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
+  %wide.trip.count.i.i.i = zext nneg i32 %24 to i64
+  br label %28
+
+28:                                               ; preds = %28, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %28 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i.i
+  %31 = load ptr, ptr %30, align 8, !tbaa !100
+  store ptr %31, ptr %29, align 8, !tbaa !100
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %28, !llvm.loop !101
+
+_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
+  %.not.i5.i.i = icmp eq ptr %27, null
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
+
+_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %28, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load i8, ptr %32, align 8, !tbaa !103, !range !28, !noundef !29
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+
+35:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %27)
+  %.pre2.pre.pre.i = load i32, ptr %10, align 4, !tbaa !94
+  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %35, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  %.pre2.i = phi i32 [ %24, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %35 ], [ %24, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 1, ptr %36, align 8, !tbaa !103
+  store ptr %.0.i.i.i, ptr %26, align 8, !tbaa !99
+  store i32 %17, ptr %12, align 8, !tbaa !98
+  %.pre = load ptr, ptr %3, align 8, !tbaa !100
+  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %9, %15, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %37 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %4, %15 ], [ %4, %9 ]
+  %38 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %11, %15 ], [ %11, %9 ]
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !99
+  %41 = sext i32 %38 to i64
+  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  store ptr %37, ptr %42, align 8, !tbaa !100
+  %43 = add nsw i32 %38, 1
+  store i32 %43, ptr %10, align 4, !tbaa !94
+  br label %44
+
+44:                                               ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %5, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+
+declare void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(64)) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #12
+
+declare void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #5
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12btConvexCast10CastResult9DebugDrawEf(ptr noundef nonnull align 8 dereferenceable(196) %this, float noundef %fraction) unnamed_addr #2 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN12btConvexCast10CastResult9DebugDrawEf(ptr noundef nonnull align 8 dereferenceable(196) %0, float noundef %1) unnamed_addr #2 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12btConvexCast10CastResult15drawCoordSystemERK11btTransform(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(64) %trans) unnamed_addr #2 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN12btConvexCast10CastResult15drawCoordSystemERK11btTransform(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 4 dereferenceable(64) %1) unnamed_addr #2 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12btConvexCast10CastResult13reportFailureEii(ptr noundef nonnull align 8 dereferenceable(196) %this, i32 noundef %errNo, i32 noundef %numIterations) unnamed_addr #2 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN12btConvexCast10CastResult13reportFailureEii(ptr noundef nonnull align 8 dereferenceable(196) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN12btConvexCast10CastResultD0Ev(ptr noundef nonnull align 8 dereferenceable(196) %this) unnamed_addr #2 comdat align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+define linkonce_odr dso_local void @_ZN12btConvexCast10CastResultD0Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #2 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 200) #14
   ret void
 }
-
-; Function Attrs: nounwind
-declare void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nofree noreturn }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !6, i64 8}
+!5 = !{!"_ZTS30btCollisionAlgorithmCreateFunc", !6, i64 8}
+!6 = !{!"bool", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"vtable pointer", !8, i64 0}
+!11 = !{!12, !15, i64 24}
+!12 = !{!"_ZTSN27btConvex2dConvex2dAlgorithm10CreateFuncE", !5, i64 0, !13, i64 16, !15, i64 24, !16, i64 32, !16, i64 36}
+!13 = !{!"p1 _ZTS30btConvexPenetrationDepthSolver", !14, i64 0}
+!14 = !{!"any pointer", !7, i64 0}
+!15 = !{!"p1 _ZTS22btVoronoiSimplexSolver", !14, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = !{!12, !13, i64 16}
+!18 = !{!19, !15, i64 16}
+!19 = !{!"_ZTS27btConvex2dConvex2dAlgorithm", !20, i64 0, !15, i64 16, !13, i64 24, !6, i64 32, !23, i64 40, !6, i64 48}
+!20 = !{!"_ZTS30btActivatingCollisionAlgorithm", !21, i64 0}
+!21 = !{!"_ZTS20btCollisionAlgorithm", !22, i64 8}
+!22 = !{!"p1 _ZTS12btDispatcher", !14, i64 0}
+!23 = !{!"p1 _ZTS20btPersistentManifold", !14, i64 0}
+!24 = !{!19, !13, i64 24}
+!25 = !{!19, !6, i64 32}
+!26 = !{!19, !23, i64 40}
+!27 = !{!19, !6, i64 48}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = !{!21, !22, i64 8}
+!31 = !{!32, !35, i64 16}
+!32 = !{!"_ZTS24btCollisionObjectWrapper", !33, i64 0, !34, i64 8, !35, i64 16, !36, i64 24, !36, i64 32, !16, i64 40, !16, i64 44}
+!33 = !{!"p1 _ZTS24btCollisionObjectWrapper", !14, i64 0}
+!34 = !{!"p1 _ZTS16btCollisionShape", !14, i64 0}
+!35 = !{!"p1 _ZTS17btCollisionObject", !14, i64 0}
+!36 = !{!"p1 _ZTS11btTransform", !14, i64 0}
+!37 = !{!38, !23, i64 8}
+!38 = !{!"_ZTS16btManifoldResult", !39, i64 0, !23, i64 8, !33, i64 16, !33, i64 24, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !40, i64 48}
+!39 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface6ResultE"}
+!40 = !{!"float", !7, i64 0}
+!41 = !{!32, !34, i64 8}
+!42 = !{!43, !46, i64 40}
+!43 = !{!"_ZTS17btGjkPairDetector", !44, i64 0, !45, i64 8, !13, i64 24, !15, i64 32, !46, i64 40, !46, i64 48, !16, i64 56, !16, i64 60, !40, i64 64, !40, i64 68, !6, i64 72, !40, i64 76, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !16, i64 96}
+!44 = !{!"_ZTS36btDiscreteCollisionDetectorInterface"}
+!45 = !{!"_ZTS9btVector3", !7, i64 0}
+!46 = !{!"p1 _ZTS13btConvexShape", !14, i64 0}
+!47 = !{!43, !46, i64 48}
+!48 = !{!49, !40, i64 128}
+!49 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface17ClosestPointInputE", !50, i64 0, !50, i64 64, !40, i64 128}
+!50 = !{!"_ZTS11btTransform", !51, i64 0, !45, i64 48}
+!51 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!52 = !{!32, !36, i64 24}
+!53 = !{i64 0, i64 16, !54}
+!54 = !{!7, !7, i64 0}
+!55 = !{!56, !57, i64 24}
+!56 = !{!"_ZTS16btDispatcherInfo", !40, i64 0, !16, i64 4, !16, i64 8, !40, i64 12, !6, i64 16, !57, i64 24, !6, i64 32, !6, i64 33, !6, i64 34, !40, i64 36, !6, i64 40, !40, i64 44, !6, i64 48}
+!57 = !{!"p1 _ZTS12btIDebugDraw", !14, i64 0}
+!58 = !{!59, !16, i64 856}
+!59 = !{!"_ZTS20btPersistentManifold", !60, i64 0, !7, i64 8, !35, i64 840, !35, i64 848, !16, i64 856, !40, i64 860, !40, i64 864, !16, i64 868, !16, i64 872, !16, i64 876}
+!60 = !{!"_ZTS13btTypedObject", !16, i64 0}
+!61 = !{!59, !35, i64 840}
+!62 = !{!38, !33, i64 16}
+!63 = !{!38, !33, i64 24}
+!64 = !{!40, !40, i64 0}
+!65 = !{!66, !40, i64 308}
+!66 = !{!"_ZTS17btCollisionObject", !50, i64 8, !50, i64 72, !45, i64 136, !45, i64 152, !45, i64 168, !16, i64 184, !40, i64 188, !67, i64 192, !34, i64 200, !14, i64 208, !34, i64 216, !16, i64 224, !16, i64 228, !16, i64 232, !16, i64 236, !16, i64 240, !40, i64 244, !40, i64 248, !40, i64 252, !40, i64 256, !40, i64 260, !40, i64 264, !40, i64 268, !16, i64 272, !14, i64 280, !16, i64 288, !16, i64 292, !16, i64 296, !40, i64 300, !40, i64 304, !40, i64 308, !16, i64 312, !68, i64 320, !16, i64 352, !45, i64 356}
+!67 = !{!"p1 _ZTS17btBroadphaseProxy", !14, i64 0}
+!68 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !69, i64 0, !16, i64 4, !16, i64 8, !70, i64 16, !6, i64 24}
+!69 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!70 = !{!"p2 _ZTS17btCollisionObject", !14, i64 0}
+!71 = !{!66, !34, i64 200}
+!72 = !{!66, !40, i64 304}
+!73 = !{!74, !16, i64 8}
+!74 = !{!"_ZTS16btCollisionShape", !16, i64 8, !14, i64 16, !16, i64 24, !16, i64 28}
+!75 = !{!76, !40, i64 64}
+!76 = !{!"_ZTS21btConvexInternalShape", !77, i64 0, !45, i64 32, !45, i64 48, !40, i64 64, !40, i64 68}
+!77 = !{!"_ZTS13btConvexShape", !74, i64 0}
+!78 = !{!76, !40, i64 68}
+!79 = !{!80, !40, i64 168}
+!80 = !{!"_ZTSN12btConvexCast10CastResultE", !50, i64 8, !50, i64 72, !45, i64 136, !45, i64 152, !40, i64 168, !57, i64 176, !40, i64 184, !16, i64 188, !40, i64 192}
+!81 = !{!80, !57, i64 176}
+!82 = !{!80, !40, i64 184}
+!83 = !{!80, !16, i64 188}
+!84 = !{!80, !40, i64 192}
+!85 = !{!86, !40, i64 308}
+!86 = !{!"_ZTS22btVoronoiSimplexSolver", !16, i64 0, !7, i64 4, !7, i64 84, !7, i64 164, !45, i64 244, !45, i64 260, !45, i64 276, !45, i64 292, !40, i64 308, !6, i64 312, !87, i64 316, !6, i64 356}
+!87 = !{!"_ZTS25btSubSimplexClosestResult", !45, i64 0, !88, i64 16, !7, i64 20, !6, i64 36}
+!88 = !{!"_ZTS15btUsageBitfield", !89, i64 0, !89, i64 0, !89, i64 0, !89, i64 0, !89, i64 0, !89, i64 0, !89, i64 0, !89, i64 0}
+!89 = !{!"short", !7, i64 0}
+!90 = !{!66, !40, i64 300}
+!91 = !{!92, !22, i64 0}
+!92 = !{!"_ZTS36btCollisionAlgorithmConstructionInfo", !22, i64 0, !23, i64 8}
+!93 = !{!92, !23, i64 8}
+!94 = !{!95, !16, i64 4}
+!95 = !{!"_ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !96, i64 0, !16, i64 4, !16, i64 8, !97, i64 16, !6, i64 24}
+!96 = !{!"_ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE"}
+!97 = !{!"p2 _ZTS20btPersistentManifold", !14, i64 0}
+!98 = !{!95, !16, i64 8}
+!99 = !{!95, !97, i64 16}
+!100 = !{!23, !23, i64 0}
+!101 = distinct !{!101, !102}
+!102 = !{!"llvm.loop.mustprogress"}
+!103 = !{!95, !6, i64 24}

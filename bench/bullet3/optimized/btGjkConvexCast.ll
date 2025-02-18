@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/bullet3/original/btGjkConvexCast.ll'
 source_filename = "bench/bullet3/original/btGjkConvexCast.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.btPointCollector = type <{ %"struct.btDiscreteCollisionDetectorInterface::Result", %class.btVector3, %class.btVector3, float, i8, [3 x i8] }>
 %"struct.btDiscreteCollisionDetectorInterface::Result" = type { ptr }
@@ -12,9 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
 
-$_ZN16btPointCollectorD2Ev = comdat any
-
-$_ZN15btGjkConvexCastD2Ev = comdat any
+$_ZN36btDiscreteCollisionDetectorInterface6ResultD2Ev = comdat any
 
 $_ZN15btGjkConvexCastD0Ev = comdat any
 
@@ -28,281 +26,293 @@ $_ZN16btPointCollector15addContactPointERK9btVector3S2_f = comdat any
 
 $_ZTV16btPointCollector = comdat any
 
-$_ZTS16btPointCollector = comdat any
+$_ZTI16btPointCollector = comdat any
 
-$_ZTSN36btDiscreteCollisionDetectorInterface6ResultE = comdat any
+$_ZTS16btPointCollector = comdat any
 
 $_ZTIN36btDiscreteCollisionDetectorInterface6ResultE = comdat any
 
-$_ZTI16btPointCollector = comdat any
+$_ZTSN36btDiscreteCollisionDetectorInterface6ResultE = comdat any
 
-@_ZTV15btGjkConvexCast = dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI15btGjkConvexCast, ptr @_ZN15btGjkConvexCastD2Ev, ptr @_ZN15btGjkConvexCastD0Ev, ptr @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE] }, align 8
+@_ZTV15btGjkConvexCast = dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI15btGjkConvexCast, ptr @_ZN12btConvexCastD2Ev, ptr @_ZN15btGjkConvexCastD0Ev, ptr @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE] }, align 8
+@_ZTI15btGjkConvexCast = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS15btGjkConvexCast, ptr @_ZTI12btConvexCast }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS15btGjkConvexCast = dso_local constant [18 x i8] c"15btGjkConvexCast\00", align 1
 @_ZTI12btConvexCast = external constant ptr
-@_ZTI15btGjkConvexCast = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS15btGjkConvexCast, ptr @_ZTI12btConvexCast }, align 8
-@_ZTV16btPointCollector = linkonce_odr dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTI16btPointCollector, ptr @_ZN16btPointCollectorD2Ev, ptr @_ZN16btPointCollectorD0Ev, ptr @_ZN16btPointCollector20setShapeIdentifiersAEii, ptr @_ZN16btPointCollector20setShapeIdentifiersBEii, ptr @_ZN16btPointCollector15addContactPointERK9btVector3S2_f] }, comdat, align 8
+@_ZTV16btPointCollector = linkonce_odr dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTI16btPointCollector, ptr @_ZN36btDiscreteCollisionDetectorInterface6ResultD2Ev, ptr @_ZN16btPointCollectorD0Ev, ptr @_ZN16btPointCollector20setShapeIdentifiersAEii, ptr @_ZN16btPointCollector20setShapeIdentifiersBEii, ptr @_ZN16btPointCollector15addContactPointERK9btVector3S2_f] }, comdat, align 8
+@_ZTI16btPointCollector = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS16btPointCollector, ptr @_ZTIN36btDiscreteCollisionDetectorInterface6ResultE }, comdat, align 8
 @_ZTS16btPointCollector = linkonce_odr dso_local constant [19 x i8] c"16btPointCollector\00", comdat, align 1
+@_ZTIN36btDiscreteCollisionDetectorInterface6ResultE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN36btDiscreteCollisionDetectorInterface6ResultE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN36btDiscreteCollisionDetectorInterface6ResultE = linkonce_odr dso_local constant [48 x i8] c"N36btDiscreteCollisionDetectorInterface6ResultE\00", comdat, align 1
-@_ZTIN36btDiscreteCollisionDetectorInterface6ResultE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN36btDiscreteCollisionDetectorInterface6ResultE }, comdat, align 8
-@_ZTI16btPointCollector = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS16btPointCollector, ptr @_ZTIN36btDiscreteCollisionDetectorInterface6ResultE }, comdat, align 8
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 @_ZN15btGjkConvexCastC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolver = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %convexA, ptr noundef %convexB, ptr noundef %simplexSolver) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btGjkConvexCast, i64 16), ptr %this, align 8
-  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %simplexSolver, ptr %m_simplexSolver, align 8
-  %m_convexA = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %convexA, ptr %m_convexA, align 8
-  %m_convexB = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %convexB, ptr %m_convexB, align 8
+define dso_local void @_ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV15btGjkConvexCast, i64 16), ptr %0, align 8, !tbaa !4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %3, ptr %5, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %6, align 8, !tbaa !14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %2, ptr %7, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %fromA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %toA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %fromB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %toB, ptr noundef nonnull align 8 dereferenceable(196) %result) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %c.sroa.0 = alloca [4 x float], align 4
-  %pointCollector = alloca %struct.btPointCollector, align 8
-  %gjk = alloca %class.btGjkPairDetector, align 8
-  %input = alloca %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", align 4
-  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m_simplexSolver, align 8
-  tail call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %0)
-  %m_origin.i = getelementptr inbounds nuw i8, ptr %toA, i64 48
-  %m_origin.i28 = getelementptr inbounds nuw i8, ptr %fromA, i64 48
-  %1 = load float, ptr %m_origin.i, align 4
-  %2 = load float, ptr %m_origin.i28, align 4
-  %sub.i = fsub float %1, %2
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %toA, i64 52
-  %3 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %fromA, i64 52
-  %4 = load float, ptr %arrayidx7.i, align 4
-  %sub8.i = fsub float %3, %4
-  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %toA, i64 56
-  %5 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %fromA, i64 56
-  %6 = load float, ptr %arrayidx13.i, align 4
-  %sub14.i = fsub float %5, %6
-  %m_origin.i29 = getelementptr inbounds nuw i8, ptr %toB, i64 48
-  %m_origin.i30 = getelementptr inbounds nuw i8, ptr %fromB, i64 48
-  %7 = load float, ptr %m_origin.i29, align 4
-  %8 = load float, ptr %m_origin.i30, align 4
-  %sub.i31 = fsub float %7, %8
-  %arrayidx5.i32 = getelementptr inbounds nuw i8, ptr %toB, i64 52
-  %9 = load float, ptr %arrayidx5.i32, align 4
-  %arrayidx7.i33 = getelementptr inbounds nuw i8, ptr %fromB, i64 52
-  %10 = load float, ptr %arrayidx7.i33, align 4
-  %sub8.i34 = fsub float %9, %10
-  %arrayidx11.i35 = getelementptr inbounds nuw i8, ptr %toB, i64 56
-  %11 = load float, ptr %arrayidx11.i35, align 4
-  %arrayidx13.i36 = getelementptr inbounds nuw i8, ptr %fromB, i64 56
-  %12 = load float, ptr %arrayidx13.i36, align 4
-  %sub14.i37 = fsub float %11, %12
-  %sub.i48 = fsub float %sub.i, %sub.i31
-  %sub8.i51 = fsub float %sub8.i, %sub8.i34
-  %sub14.i54 = fsub float %sub14.i, %sub14.i37
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %pointCollector, align 8
-  %m_distance.i = getelementptr inbounds nuw i8, ptr %pointCollector, i64 40
-  store float 0x43ABC16D60000000, ptr %m_distance.i, align 8
-  %m_hasResult.i = getelementptr inbounds nuw i8, ptr %pointCollector, i64 44
-  store i8 0, ptr %m_hasResult.i, align 4
-  %m_convexA = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %13 = load ptr, ptr %m_convexA, align 8
-  %m_convexB = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_convexB, align 8
-  %15 = load ptr, ptr %m_simplexSolver, align 8
-  call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %gjk, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef null)
-  %m_maximumDistanceSquared.i = getelementptr inbounds nuw i8, ptr %input, i64 128
-  store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %fromA, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %fromA, i64 16
-  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %fromA, i64 32
-  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %input, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin3.i = getelementptr inbounds nuw i8, ptr %input, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i28, i64 16, i1 false)
-  %m_transformB = getelementptr inbounds nuw i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %fromB, i64 16, i1 false)
-  %arrayidx5.i.i61 = getelementptr inbounds nuw i8, ptr %fromB, i64 16
-  %arrayidx7.i.i62 = getelementptr inbounds nuw i8, ptr %input, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i62, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i61, i64 16, i1 false)
-  %arrayidx9.i.i63 = getelementptr inbounds nuw i8, ptr %fromB, i64 32
-  %arrayidx11.i.i64 = getelementptr inbounds nuw i8, ptr %input, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i64, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i63, i64 16, i1 false)
-  %m_origin3.i66 = getelementptr inbounds nuw i8, ptr %input, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i66, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i30, i64 16, i1 false)
-  call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %gjk, ptr noundef nonnull align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %pointCollector, ptr noundef null, i1 noundef zeroext false)
-  %16 = load i8, ptr %m_hasResult.i, align 4
-  %tobool = trunc i8 %16 to i1
-  %m_pointInWorld = getelementptr inbounds nuw i8, ptr %pointCollector, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, i64 16, i1 false)
-  br i1 %tobool, label %if.then, label %cleanup
+define dso_local noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(196) %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %.sroa.079 = alloca [4 x float], align 4
+  %7 = alloca %struct.btPointCollector, align 8
+  %8 = alloca %class.btGjkPairDetector, align 8
+  %9 = alloca %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", align 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !7
+  tail call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %11)
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %14 = load float, ptr %12, align 4, !tbaa !16
+  %15 = load float, ptr %13, align 4, !tbaa !16
+  %16 = fsub float %14, %15
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %18 = load float, ptr %17, align 4, !tbaa !16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %20 = load float, ptr %19, align 4, !tbaa !16
+  %21 = fsub float %18, %20
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %23 = load float, ptr %22, align 4, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %25 = load float, ptr %24, align 4, !tbaa !16
+  %26 = fsub float %23, %25
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %29 = load float, ptr %27, align 4, !tbaa !16
+  %30 = load float, ptr %28, align 4, !tbaa !16
+  %31 = fsub float %29, %30
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %33 = load float, ptr %32, align 4, !tbaa !16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %35 = load float, ptr %34, align 4, !tbaa !16
+  %36 = fsub float %33, %35
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %38 = load float, ptr %37, align 4, !tbaa !16
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %40 = load float, ptr %39, align 4, !tbaa !16
+  %41 = fsub float %38, %40
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.079)
+  %42 = fsub float %16, %31
+  %43 = fsub float %21, %36
+  %44 = fsub float %26, %41
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #10
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %7, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store float 0x43ABC16D60000000, ptr %45, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  store i8 0, ptr %46, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8) #10
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = load ptr, ptr %47, align 8, !tbaa !14
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !15
+  %51 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %8, ptr noundef %48, ptr noundef %50, ptr noundef %51, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %9) #10
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  store float 0x43ABC16D60000000, ptr %52, align 4, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 16, i1 false), !tbaa.struct !28
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, ptr noundef nonnull align 4 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !28
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !28
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !28
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %58, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 16, i1 false), !tbaa.struct !28
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull align 4 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !28
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !28
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !28
+  call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %8, ptr noundef nonnull align 4 dereferenceable(132) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null, i1 noundef zeroext false)
+  %64 = load i8, ptr %46, align 4, !tbaa !23, !range !30, !noundef !31
+  %65 = trunc nuw i8 %64 to i1
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.079, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false), !tbaa.struct !28
+  br i1 %65, label %67, label %.thread
 
-if.then:                                          ; preds = %entry
-  %17 = load float, ptr %m_distance.i, align 8
-  %m_normalOnBInWorld = getelementptr inbounds nuw i8, ptr %pointCollector, i64 8
-  %n.sroa.0.0.copyload = load float, ptr %m_normalOnBInWorld, align 8
-  %n.sroa.8.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds nuw i8, ptr %pointCollector, i64 12
-  %n.sroa.8.0.copyload = load float, ptr %n.sroa.8.0.m_normalOnBInWorld.sroa_idx, align 4
-  %n.sroa.11.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds nuw i8, ptr %pointCollector, i64 16
-  %n.sroa.11.0.copyload = load float, ptr %n.sroa.11.0.m_normalOnBInWorld.sroa_idx, align 8
-  %n.sroa.14.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds nuw i8, ptr %pointCollector, i64 20
-  %n.sroa.14.0.copyload = load float, ptr %n.sroa.14.0.m_normalOnBInWorld.sroa_idx, align 4
-  %cmp135 = fcmp ogt float %17, 0x3F50624DE0000000
-  br i1 %cmp135, label %while.body.lr.ph, label %while.end
+67:                                               ; preds = %6
+  %68 = load float, ptr %45, align 8, !tbaa !18
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.082.0.copyload = load float, ptr %69, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 4
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.14.0.copyload = load float, ptr %.sroa.14.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %.sroa.17.0.copyload = load float, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !29
+  %70 = fcmp ogt float %68, 0x3F50624DE0000000
+  br i1 %70, label %.lr.ph, label %._crit_edge
 
-while.body.lr.ph:                                 ; preds = %if.then
-  %arrayidx13.i74 = getelementptr inbounds nuw i8, ptr %input, i64 52
-  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %input, i64 56
-  %arrayidx13.i83 = getelementptr inbounds nuw i8, ptr %input, i64 116
-  %arrayidx20.i87 = getelementptr inbounds nuw i8, ptr %input, i64 120
-  br label %while.body
+.lr.ph:                                           ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 116
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  br label %75
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end65
-  %lambda.0141 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %sub, %if.end65 ]
-  %dist.0140 = phi float [ %17, %while.body.lr.ph ], [ %40, %if.end65 ]
-  %numIter.0139 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end65 ]
-  %n.sroa.11.0138 = phi float [ %n.sroa.11.0.copyload, %while.body.lr.ph ], [ %n.sroa.11.0.copyload115, %if.end65 ]
-  %n.sroa.8.0137 = phi float [ %n.sroa.8.0.copyload, %while.body.lr.ph ], [ %n.sroa.8.0.copyload108, %if.end65 ]
-  %n.sroa.0.0136 = phi float [ %n.sroa.0.0.copyload, %while.body.lr.ph ], [ %n.sroa.0.0.copyload102, %if.end65 ]
-  %inc = add nuw nsw i32 %numIter.0139, 1
-  %exitcond = icmp eq i32 %numIter.0139, 32
-  br i1 %exitcond, label %cleanup, label %if.end
+75:                                               ; preds = %.lr.ph, %121
+  %.047150 = phi float [ %68, %.lr.ph ], [ %117, %121 ]
+  %.053149 = phi i32 [ 0, %.lr.ph ], [ %76, %121 ]
+  %.054148 = phi float [ 0.000000e+00, %.lr.ph ], [ %82, %121 ]
+  %.sroa.14.0147 = phi float [ %.sroa.14.0.copyload, %.lr.ph ], [ %.sroa.14.0.copyload102, %121 ]
+  %.sroa.11.0146 = phi float [ %.sroa.11.0.copyload, %.lr.ph ], [ %.sroa.11.0.copyload93, %121 ]
+  %.sroa.082.0145 = phi float [ %.sroa.082.0.copyload, %.lr.ph ], [ %.sroa.082.0.copyload86, %121 ]
+  %76 = add nuw nsw i32 %.053149, 1
+  %exitcond = icmp eq i32 %.053149, 32
+  br i1 %exitcond, label %.thread, label %77
 
-if.end:                                           ; preds = %while.body
-  %mul8.i = fmul float %sub8.i51, %n.sroa.8.0137
-  %18 = call float @llvm.fmuladd.f32(float %sub.i48, float %n.sroa.0.0136, float %mul8.i)
-  %19 = call noundef float @llvm.fmuladd.f32(float %sub14.i54, float %n.sroa.11.0138, float %18)
-  %div = fdiv float %dist.0140, %19
-  %sub = fsub float %lambda.0141, %div
-  %cmp30 = fcmp ule float %sub, 1.000000e+00
-  %cmp33 = fcmp uge float %sub, 0.000000e+00
-  %or.cond.not124 = and i1 %cmp30, %cmp33
-  %cmp36 = fcmp ugt float %sub, %lambda.0141
-  %or.cond27 = and i1 %cmp36, %or.cond.not124
-  br i1 %or.cond27, label %if.end38, label %cleanup
+77:                                               ; preds = %75
+  %78 = fmul float %43, %.sroa.11.0146
+  %79 = call float @llvm.fmuladd.f32(float %42, float %.sroa.082.0145, float %78)
+  %80 = call noundef float @llvm.fmuladd.f32(float %44, float %.sroa.14.0147, float %79)
+  %81 = fdiv float %.047150, %80
+  %82 = fsub float %.054148, %81
+  %83 = fcmp ule float %82, 1.000000e+00
+  %84 = fcmp uge float %82, 0.000000e+00
+  %or.cond.not134 = and i1 %83, %84
+  %85 = fcmp ugt float %82, %.054148
+  %or.cond60 = and i1 %85, %or.cond.not134
+  br i1 %or.cond60, label %86, label %.thread
 
-if.end38:                                         ; preds = %if.end
-  %vtable = load ptr, ptr %result, align 8
-  %20 = load ptr, ptr %vtable, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(196) %result, float noundef %sub)
-  %sub.i72 = fsub float 1.000000e+00, %sub
-  %21 = load float, ptr %m_origin.i28, align 4
-  %22 = load float, ptr %m_origin.i, align 4
-  %mul4.i = fmul float %sub, %22
-  %23 = call float @llvm.fmuladd.f32(float %sub.i72, float %21, float %mul4.i)
-  store float %23, ptr %m_origin3.i, align 4
-  %24 = load float, ptr %arrayidx7.i, align 4
-  %25 = load float, ptr %arrayidx5.i, align 4
-  %mul11.i = fmul float %sub, %25
-  %26 = call float @llvm.fmuladd.f32(float %sub.i72, float %24, float %mul11.i)
-  store float %26, ptr %arrayidx13.i74, align 4
-  %27 = load float, ptr %arrayidx13.i, align 4
-  %28 = load float, ptr %arrayidx11.i, align 4
-  %mul18.i = fmul float %sub, %28
-  %29 = call float @llvm.fmuladd.f32(float %sub.i72, float %27, float %mul18.i)
-  store float %29, ptr %arrayidx20.i, align 4
-  %30 = load float, ptr %m_origin.i30, align 4
-  %31 = load float, ptr %m_origin.i29, align 4
-  %mul4.i79 = fmul float %sub, %31
-  %32 = call float @llvm.fmuladd.f32(float %sub.i72, float %30, float %mul4.i79)
-  store float %32, ptr %m_origin3.i66, align 4
-  %33 = load float, ptr %arrayidx7.i33, align 4
-  %34 = load float, ptr %arrayidx5.i32, align 4
-  %mul11.i82 = fmul float %sub, %34
-  %35 = call float @llvm.fmuladd.f32(float %sub.i72, float %33, float %mul11.i82)
-  store float %35, ptr %arrayidx13.i83, align 4
-  %36 = load float, ptr %arrayidx13.i36, align 4
-  %37 = load float, ptr %arrayidx11.i35, align 4
-  %mul18.i86 = fmul float %sub, %37
-  %38 = call float @llvm.fmuladd.f32(float %sub.i72, float %36, float %mul18.i86)
-  store float %38, ptr %arrayidx20.i87, align 4
-  call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %gjk, ptr noundef nonnull align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %pointCollector, ptr noundef null, i1 noundef zeroext false)
-  %39 = load i8, ptr %m_hasResult.i, align 4
-  %tobool58 = trunc i8 %39 to i1
-  br i1 %tobool58, label %if.then59, label %cleanup
+86:                                               ; preds = %77
+  %87 = load ptr, ptr %5, align 8, !tbaa !4
+  %88 = load ptr, ptr %87, align 8
+  call void %88(ptr noundef nonnull align 8 dereferenceable(196) %5, float noundef %82)
+  %89 = fsub float 1.000000e+00, %82
+  %90 = load float, ptr %13, align 4, !tbaa !16
+  %91 = load float, ptr %12, align 4, !tbaa !16
+  %92 = fmul float %82, %91
+  %93 = call float @llvm.fmuladd.f32(float %89, float %90, float %92)
+  store float %93, ptr %57, align 4, !tbaa !16
+  %94 = load float, ptr %19, align 4, !tbaa !16
+  %95 = load float, ptr %17, align 4, !tbaa !16
+  %96 = fmul float %82, %95
+  %97 = call float @llvm.fmuladd.f32(float %89, float %94, float %96)
+  store float %97, ptr %71, align 4, !tbaa !16
+  %98 = load float, ptr %24, align 4, !tbaa !16
+  %99 = load float, ptr %22, align 4, !tbaa !16
+  %100 = fmul float %82, %99
+  %101 = call float @llvm.fmuladd.f32(float %89, float %98, float %100)
+  store float %101, ptr %72, align 4, !tbaa !16
+  %102 = load float, ptr %28, align 4, !tbaa !16
+  %103 = load float, ptr %27, align 4, !tbaa !16
+  %104 = fmul float %82, %103
+  %105 = call float @llvm.fmuladd.f32(float %89, float %102, float %104)
+  store float %105, ptr %63, align 4, !tbaa !16
+  %106 = load float, ptr %34, align 4, !tbaa !16
+  %107 = load float, ptr %32, align 4, !tbaa !16
+  %108 = fmul float %82, %107
+  %109 = call float @llvm.fmuladd.f32(float %89, float %106, float %108)
+  store float %109, ptr %73, align 4, !tbaa !16
+  %110 = load float, ptr %39, align 4, !tbaa !16
+  %111 = load float, ptr %37, align 4, !tbaa !16
+  %112 = fmul float %82, %111
+  %113 = call float @llvm.fmuladd.f32(float %89, float %110, float %112)
+  store float %113, ptr %74, align 4, !tbaa !16
+  call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %8, ptr noundef nonnull align 4 dereferenceable(132) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null, i1 noundef zeroext false)
+  %114 = load i8, ptr %46, align 4, !tbaa !23, !range !30, !noundef !31
+  %115 = trunc nuw i8 %114 to i1
+  br i1 %115, label %116, label %.thread
 
-if.then59:                                        ; preds = %if.end38
-  %40 = load float, ptr %m_distance.i, align 8
-  %cmp61 = fcmp olt float %40, 0.000000e+00
-  br i1 %cmp61, label %if.then62, label %if.end65
+116:                                              ; preds = %86
+  %117 = load float, ptr %45, align 8, !tbaa !18
+  %118 = fcmp olt float %117, 0.000000e+00
+  br i1 %118, label %119, label %121
 
-if.then62:                                        ; preds = %if.then59
-  %m_fraction = getelementptr inbounds nuw i8, ptr %result, i64 168
-  store float %sub, ptr %m_fraction, align 8
-  %n.sroa.0.0.copyload100 = load float, ptr %m_normalOnBInWorld, align 8
-  %n.sroa.8.0.copyload105 = load float, ptr %n.sroa.8.0.m_normalOnBInWorld.sroa_idx, align 4
-  %n.sroa.11.0.copyload112 = load float, ptr %n.sroa.11.0.m_normalOnBInWorld.sroa_idx, align 8
-  %n.sroa.14.0.copyload119 = load float, ptr %n.sroa.14.0.m_normalOnBInWorld.sroa_idx, align 4
-  br label %cleanup.sink.split
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  store float %82, ptr %120, align 8, !tbaa !32
+  %.sroa.082.0.copyload84 = load float, ptr %69, align 8
+  %.sroa.11.0.copyload89 = load float, ptr %.sroa.11.0..sroa_idx, align 4
+  %.sroa.14.0.copyload98 = load float, ptr %.sroa.14.0..sroa_idx, align 8
+  %.sroa.17.0.copyload107 = load float, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !29
+  br label %.thread.sink.split
 
-if.end65:                                         ; preds = %if.then59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, i64 16, i1 false)
-  %n.sroa.0.0.copyload102 = load float, ptr %m_normalOnBInWorld, align 8
-  %n.sroa.8.0.copyload108 = load float, ptr %n.sroa.8.0.m_normalOnBInWorld.sroa_idx, align 4
-  %n.sroa.11.0.copyload115 = load float, ptr %n.sroa.11.0.m_normalOnBInWorld.sroa_idx, align 8
-  %cmp = fcmp ogt float %40, 0x3F50624DE0000000
-  br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !5
+121:                                              ; preds = %116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.079, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false), !tbaa.struct !28
+  %.sroa.082.0.copyload86 = load float, ptr %69, align 8
+  %.sroa.11.0.copyload93 = load float, ptr %.sroa.11.0..sroa_idx, align 4
+  %.sroa.14.0.copyload102 = load float, ptr %.sroa.14.0..sroa_idx, align 8
+  %122 = fcmp ogt float %117, 0x3F50624DE0000000
+  br i1 %122, label %75, label %._crit_edge.loopexit, !llvm.loop !36
 
-while.end.loopexit:                               ; preds = %if.end65
-  %n.sroa.14.0.copyload122 = load float, ptr %n.sroa.14.0.m_normalOnBInWorld.sroa_idx, align 4
-  br label %while.end
+._crit_edge.loopexit:                             ; preds = %121
+  %.sroa.17.0.copyload111 = load float, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !29
+  br label %._crit_edge
 
-while.end:                                        ; preds = %while.end.loopexit, %if.then
-  %n.sroa.0.0.lcssa = phi float [ %n.sroa.0.0.copyload, %if.then ], [ %n.sroa.0.0.copyload102, %while.end.loopexit ]
-  %n.sroa.8.0.lcssa = phi float [ %n.sroa.8.0.copyload, %if.then ], [ %n.sroa.8.0.copyload108, %while.end.loopexit ]
-  %n.sroa.11.0.lcssa = phi float [ %n.sroa.11.0.copyload, %if.then ], [ %n.sroa.11.0.copyload115, %while.end.loopexit ]
-  %n.sroa.14.0.lcssa = phi float [ %n.sroa.14.0.copyload, %if.then ], [ %n.sroa.14.0.copyload122, %while.end.loopexit ]
-  %lambda.0.lcssa = phi float [ 0.000000e+00, %if.then ], [ %sub, %while.end.loopexit ]
-  %mul8.i90 = fmul float %sub8.i51, %n.sroa.8.0.lcssa
-  %41 = call float @llvm.fmuladd.f32(float %n.sroa.0.0.lcssa, float %sub.i48, float %mul8.i90)
-  %42 = call noundef float @llvm.fmuladd.f32(float %n.sroa.11.0.lcssa, float %sub14.i54, float %41)
-  %m_allowedPenetration = getelementptr inbounds nuw i8, ptr %result, i64 184
-  %43 = load float, ptr %m_allowedPenetration, align 8
-  %fneg = fneg float %43
-  %cmp72 = fcmp ult float %42, %fneg
-  br i1 %cmp72, label %if.end74, label %cleanup
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %67
+  %.sroa.082.0.lcssa = phi float [ %.sroa.082.0.copyload, %67 ], [ %.sroa.082.0.copyload86, %._crit_edge.loopexit ]
+  %.sroa.11.0.lcssa = phi float [ %.sroa.11.0.copyload, %67 ], [ %.sroa.11.0.copyload93, %._crit_edge.loopexit ]
+  %.sroa.14.0.lcssa = phi float [ %.sroa.14.0.copyload, %67 ], [ %.sroa.14.0.copyload102, %._crit_edge.loopexit ]
+  %.sroa.17.0.lcssa = phi float [ %.sroa.17.0.copyload, %67 ], [ %.sroa.17.0.copyload111, %._crit_edge.loopexit ]
+  %.054.lcssa = phi float [ 0.000000e+00, %67 ], [ %82, %._crit_edge.loopexit ]
+  %123 = fmul float %43, %.sroa.11.0.lcssa
+  %124 = call float @llvm.fmuladd.f32(float %.sroa.082.0.lcssa, float %42, float %123)
+  %125 = call noundef float @llvm.fmuladd.f32(float %.sroa.14.0.lcssa, float %44, float %124)
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %127 = load float, ptr %126, align 8, !tbaa !38
+  %128 = fneg float %127
+  %129 = fcmp ult float %125, %128
+  br i1 %129, label %130, label %.thread
 
-if.end74:                                         ; preds = %while.end
-  %m_fraction75 = getelementptr inbounds nuw i8, ptr %result, i64 168
-  store float %lambda.0.lcssa, ptr %m_fraction75, align 8
-  br label %cleanup.sink.split
+130:                                              ; preds = %._crit_edge
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  store float %.054.lcssa, ptr %131, align 8, !tbaa !32
+  br label %.thread.sink.split
 
-cleanup.sink.split:                               ; preds = %if.then62, %if.end74
-  %n.sroa.0.0.lcssa.sink = phi float [ %n.sroa.0.0.lcssa, %if.end74 ], [ %n.sroa.0.0.copyload100, %if.then62 ]
-  %n.sroa.8.0.lcssa.sink = phi float [ %n.sroa.8.0.lcssa, %if.end74 ], [ %n.sroa.8.0.copyload105, %if.then62 ]
-  %n.sroa.11.0.lcssa.sink = phi float [ %n.sroa.11.0.lcssa, %if.end74 ], [ %n.sroa.11.0.copyload112, %if.then62 ]
-  %n.sroa.14.0.lcssa.sink = phi float [ %n.sroa.14.0.lcssa, %if.end74 ], [ %n.sroa.14.0.copyload119, %if.then62 ]
-  %c.sroa.0.sink = phi ptr [ %c.sroa.0, %if.end74 ], [ %m_pointInWorld, %if.then62 ]
-  %m_normal76 = getelementptr inbounds nuw i8, ptr %result, i64 136
-  store float %n.sroa.0.0.lcssa.sink, ptr %m_normal76, align 8
-  %n.sroa.8.0.m_normal76.sroa_idx = getelementptr inbounds nuw i8, ptr %result, i64 140
-  store float %n.sroa.8.0.lcssa.sink, ptr %n.sroa.8.0.m_normal76.sroa_idx, align 4
-  %n.sroa.11.0.m_normal76.sroa_idx = getelementptr inbounds nuw i8, ptr %result, i64 144
-  store float %n.sroa.11.0.lcssa.sink, ptr %n.sroa.11.0.m_normal76.sroa_idx, align 8
-  %n.sroa.14.0.m_normal76.sroa_idx = getelementptr inbounds nuw i8, ptr %result, i64 148
-  store float %n.sroa.14.0.lcssa.sink, ptr %n.sroa.14.0.m_normal76.sroa_idx, align 4
-  %m_hitPoint77 = getelementptr inbounds nuw i8, ptr %result, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_hitPoint77, ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0.sink, i64 16, i1 false)
-  br label %cleanup
+.thread.sink.split:                               ; preds = %130, %119
+  %.sroa.082.0.copyload84.sink = phi float [ %.sroa.082.0.copyload84, %119 ], [ %.sroa.082.0.lcssa, %130 ]
+  %.sroa.11.0.copyload89.sink = phi float [ %.sroa.11.0.copyload89, %119 ], [ %.sroa.11.0.lcssa, %130 ]
+  %.sroa.14.0.copyload98.sink = phi float [ %.sroa.14.0.copyload98, %119 ], [ %.sroa.14.0.lcssa, %130 ]
+  %.sroa.17.0.copyload107.sink = phi float [ %.sroa.17.0.copyload107, %119 ], [ %.sroa.17.0.lcssa, %130 ]
+  %.sink157 = phi ptr [ %66, %119 ], [ %.sroa.079, %130 ]
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  store float %.sroa.082.0.copyload84.sink, ptr %132, align 8
+  %.sroa.11.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  store float %.sroa.11.0.copyload89.sink, ptr %.sroa.11.0..sroa_idx90, align 4
+  %.sroa.14.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  store float %.sroa.14.0.copyload98.sink, ptr %.sroa.14.0..sroa_idx99, align 8
+  %.sroa.17.0..sroa_idx108 = getelementptr inbounds nuw i8, ptr %5, i64 148
+  store float %.sroa.17.0.copyload107.sink, ptr %.sroa.17.0..sroa_idx108, align 4, !tbaa !29
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %.sink157, i64 16, i1 false)
+  br label %.thread
 
-cleanup:                                          ; preds = %if.end38, %if.end, %while.body, %cleanup.sink.split, %entry, %while.end
-  %retval.0 = phi i1 [ false, %while.end ], [ false, %entry ], [ true, %cleanup.sink.split ], [ false, %while.body ], [ false, %if.end ], [ false, %if.end38 ]
-  ret i1 %retval.0
+.thread:                                          ; preds = %86, %77, %75, %.thread.sink.split, %6, %._crit_edge
+  %.3 = phi i1 [ false, %._crit_edge ], [ false, %6 ], [ true, %.thread.sink.split ], [ false, %75 ], [ false, %77 ], [ false, %86 ]
+  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.079)
+  ret i1 %.3
 }
 
 declare void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357)) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
@@ -311,93 +321,114 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef nonnull align 4 dereferenceable(132), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btPointCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #4 comdat align 2 {
-entry:
+define linkonce_odr dso_local void @_ZN36btDiscreteCollisionDetectorInterface6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN15btGjkConvexCastD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #11
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN16btPointCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN15btGjkConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+define linkonce_odr dso_local void @_ZN16btPointCollector20setShapeIdentifiersAEii(ptr noundef nonnull align 8 dereferenceable(45) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN15btGjkConvexCastD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  tail call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
+define linkonce_odr dso_local void @_ZN16btPointCollector20setShapeIdentifiersBEii(ptr noundef nonnull align 8 dereferenceable(45) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btPointCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
-  ret void
-}
+define linkonce_odr dso_local void @_ZN16btPointCollector15addContactPointERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef %3) unnamed_addr #5 comdat align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = load float, ptr %5, align 8, !tbaa !18
+  %7 = fcmp olt float %3, %6
+  br i1 %7, label %8, label %12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btPointCollector20setShapeIdentifiersAEii(ptr noundef nonnull align 8 dereferenceable(45) %this, i32 noundef %partId0, i32 noundef %index0) unnamed_addr #4 comdat align 2 {
-entry:
-  ret void
-}
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i8 1, ptr %9, align 4, !tbaa !23
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !28
+  store float %3, ptr %5, align 8, !tbaa !18
+  br label %12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btPointCollector20setShapeIdentifiersBEii(ptr noundef nonnull align 8 dereferenceable(45) %this, i32 noundef %partId1, i32 noundef %index1) unnamed_addr #4 comdat align 2 {
-entry:
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btPointCollector15addContactPointERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalOnBInWorld, ptr noundef nonnull align 4 dereferenceable(16) %pointInWorld, float noundef %depth) unnamed_addr #4 comdat align 2 {
-entry:
-  %m_distance = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %0 = load float, ptr %m_distance, align 8
-  %cmp = fcmp olt float %depth, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %m_hasResult = getelementptr inbounds nuw i8, ptr %this, i64 44
-  store i8 1, ptr %m_hasResult, align 4
-  %m_normalOnBInWorld = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normalOnBInWorld, ptr noundef nonnull align 4 dereferenceable(16) %normalOnBInWorld, i64 16, i1 false)
-  %m_pointInWorld = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, ptr noundef nonnull align 4 dereferenceable(16) %pointInWorld, i64 16, i1 false)
-  store float %depth, ptr %m_distance, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+12:                                               ; preds = %8, %4
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #9
 
-; Function Attrs: nounwind
-declare void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"vtable pointer", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !10, i64 8}
+!8 = !{!"_ZTS15btGjkConvexCast", !9, i64 0, !10, i64 8, !13, i64 16, !13, i64 24}
+!9 = !{!"_ZTS12btConvexCast"}
+!10 = !{!"p1 _ZTS22btVoronoiSimplexSolver", !11, i64 0}
+!11 = !{!"any pointer", !12, i64 0}
+!12 = !{!"omnipotent char", !6, i64 0}
+!13 = !{!"p1 _ZTS13btConvexShape", !11, i64 0}
+!14 = !{!8, !13, i64 16}
+!15 = !{!8, !13, i64 24}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"float", !12, i64 0}
+!18 = !{!19, !17, i64 40}
+!19 = !{!"_ZTS16btPointCollector", !20, i64 0, !21, i64 8, !21, i64 24, !17, i64 40, !22, i64 44}
+!20 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface6ResultE"}
+!21 = !{!"_ZTS9btVector3", !12, i64 0}
+!22 = !{!"bool", !12, i64 0}
+!23 = !{!19, !22, i64 44}
+!24 = !{!25, !17, i64 128}
+!25 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface17ClosestPointInputE", !26, i64 0, !26, i64 64, !17, i64 128}
+!26 = !{!"_ZTS11btTransform", !27, i64 0, !21, i64 48}
+!27 = !{!"_ZTS11btMatrix3x3", !12, i64 0}
+!28 = !{i64 0, i64 16, !29}
+!29 = !{!12, !12, i64 0}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{!33, !17, i64 168}
+!33 = !{!"_ZTSN12btConvexCast10CastResultE", !26, i64 8, !26, i64 72, !21, i64 136, !21, i64 152, !17, i64 168, !34, i64 176, !17, i64 184, !35, i64 188, !17, i64 192}
+!34 = !{!"p1 _ZTS12btIDebugDraw", !11, i64 0}
+!35 = !{!"int", !12, i64 0}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!33, !17, i64 184}
