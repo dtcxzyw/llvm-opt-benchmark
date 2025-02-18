@@ -1,0 +1,1685 @@
+; ModuleID = 'bench/openssl/original/m_sigver.ll'
+source_filename = "bench/openssl/original/m_sigver.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/evp/m_sigver.c\00", align 1
+@__func__.EVP_DigestSignUpdate = private unnamed_addr constant [21 x i8] c"EVP_DigestSignUpdate\00", align 1
+@__func__.EVP_DigestVerifyUpdate = private unnamed_addr constant [23 x i8] c"EVP_DigestVerifyUpdate\00", align 1
+@__func__.EVP_DigestSignFinal = private unnamed_addr constant [20 x i8] c"EVP_DigestSignFinal\00", align 1
+@__func__.EVP_DigestSign = private unnamed_addr constant [15 x i8] c"EVP_DigestSign\00", align 1
+@__func__.EVP_DigestVerifyFinal = private unnamed_addr constant [22 x i8] c"EVP_DigestVerifyFinal\00", align 1
+@__func__.EVP_DigestVerify = private unnamed_addr constant [17 x i8] c"EVP_DigestVerify\00", align 1
+@__func__.do_sigver_init = private unnamed_addr constant [15 x i8] c"do_sigver_init\00", align 1
+@.str.1 = private unnamed_addr constant [6 x i8] c"UNDEF\00", align 1
+@__func__.update = private unnamed_addr constant [7 x i8] c"update\00", align 1
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 2) i32 @EVP_DigestSignInit_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+  %8 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef %5, i32 noundef 0, ptr noundef %6)
+  ret i32 %8
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 2) %8, ptr noundef %9) unnamed_addr #0 {
+  %11 = alloca ptr, align 8
+  %12 = alloca [80 x i8], align 16
+  %13 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  store ptr null, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %12, i8 0, i64 80, i1 false)
+  %14 = tail call i32 @evp_md_ctx_free_algctx(ptr noundef %0) #6
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %274, label %15
+
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = load ptr, ptr %16, align 8, !tbaa !8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %.thread, label %19
+
+19:                                               ; preds = %15
+  %20 = icmp eq ptr %6, null
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %19
+  %22 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %4, ptr noundef %7, ptr noundef %5) #6
+  br label %25
+
+23:                                               ; preds = %19
+  %24 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef %7, ptr noundef nonnull %6) #6
+  br label %25
+
+25:                                               ; preds = %21, %23
+  %storemerge = phi ptr [ %24, %23 ], [ %22, %21 ]
+  store ptr %storemerge, ptr %16, align 8, !tbaa !8
+  %26 = icmp eq ptr %storemerge, null
+  br i1 %26, label %274, label %.thread
+
+.thread:                                          ; preds = %15, %25
+  tail call void @EVP_MD_CTX_clear_flags(ptr noundef nonnull %0, i32 noundef 2048) #6
+  %27 = load ptr, ptr %16, align 8, !tbaa !8
+  %28 = tail call i32 @ERR_set_mark() #6
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !14
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %.loopexit, label %32
+
+32:                                               ; preds = %.thread
+  %.not205 = icmp eq ptr %7, null
+  %or.cond227 = and i1 %.not205, %18
+  br i1 %or.cond227, label %33, label %44
+
+33:                                               ; preds = %32
+  %34 = load i32, ptr %27, align 8, !tbaa !24
+  %.not206 = icmp eq i32 %8, 0
+  %35 = select i1 %.not206, i32 128, i32 256
+  %.not207 = icmp eq i32 %34, %35
+  br i1 %.not207, label %36, label %44
+
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %44, label %40
+
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %43 = icmp ne ptr %42, null
+  br label %44
+
+44:                                               ; preds = %40, %33, %36, %32
+  %.0171 = phi ptr [ null, %32 ], [ null, %33 ], [ null, %36 ], [ %38, %40 ]
+  %45 = phi i1 [ false, %32 ], [ false, %33 ], [ false, %36 ], [ %43, %40 ]
+  %46 = icmp eq ptr %5, null
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !26
+  br label %50
+
+50:                                               ; preds = %47, %44
+  %.0183 = phi ptr [ %49, %47 ], [ %5, %44 ]
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 136
+  %52 = load ptr, ptr %51, align 8, !tbaa !27
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %56
+
+54:                                               ; preds = %50
+  %55 = tail call i32 @ERR_clear_last_mark() #6
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @__func__.do_sigver_init) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 154, ptr noundef null) #6
+  br label %175
+
+56:                                               ; preds = %50
+  br i1 %45, label %63, label %57
+
+57:                                               ; preds = %56
+  tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %27) #6
+  %58 = load ptr, ptr %51, align 8, !tbaa !27
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
+  %60 = load ptr, ptr %59, align 8, !tbaa !28
+  %61 = icmp eq ptr %60, null
+  %.pre = load ptr, ptr %29, align 8, !tbaa !14
+  %62 = icmp eq ptr %60, %.pre
+  %or.cond271 = select i1 %61, i1 true, i1 %62
+  br i1 %or.cond271, label %.critedge, label %73, !prof !37
+
+63:                                               ; preds = %56
+  %64 = icmp eq ptr %3, null
+  %65 = icmp eq ptr %2, null
+  %or.cond = and i1 %65, %64
+  br i1 %or.cond, label %66, label %canon_mdname.exit
+
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %0, align 8, !tbaa !38
+  %68 = tail call ptr @EVP_MD_get0_name(ptr noundef %67) #6
+  %.not.i = icmp eq ptr %68, null
+  br i1 %.not.i, label %72, label %69
+
+69:                                               ; preds = %66
+  %70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(6) @.str.1) #7
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %canon_mdname.exit, label %72
+
+72:                                               ; preds = %69, %66
+  br label %canon_mdname.exit
+
+73:                                               ; preds = %57
+  %74 = tail call i32 @ERR_clear_last_mark() #6
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 105, ptr noundef nonnull @__func__.do_sigver_init) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786691, ptr noundef null) #6
+  br label %175
+
+.critedge:                                        ; preds = %57
+  %75 = tail call ptr @evp_keymgmt_util_query_operation_name(ptr noundef %.pre, i32 noundef 12) #6
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %79, label %.preheader
+
+.preheader:                                       ; preds = %.critedge
+  %77 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  br label %81
+
+79:                                               ; preds = %.critedge
+  %80 = tail call i32 @ERR_clear_last_mark() #6
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 112, ptr noundef nonnull @__func__.do_sigver_init) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %175
+
+81:                                               ; preds = %.preheader, %106
+  %switch = phi i1 [ true, %.preheader ], [ false, %106 ]
+  %.3174268 = phi ptr [ %.0171, %.preheader ], [ %.5.ph, %106 ]
+  call void @EVP_SIGNATURE_free(ptr noundef %.3174268) #6
+  %82 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @EVP_KEYMGMT_free(ptr noundef %82) #6
+  br i1 %switch, label %83, label %89
+
+83:                                               ; preds = %81
+  %84 = load ptr, ptr %78, align 8, !tbaa !39
+  %85 = load ptr, ptr %77, align 8, !tbaa !26
+  %86 = call ptr @EVP_SIGNATURE_fetch(ptr noundef %84, ptr noundef nonnull %75, ptr noundef %85) #6
+  %.not209 = icmp eq ptr %86, null
+  br i1 %.not209, label %106, label %87
+
+87:                                               ; preds = %83
+  %88 = call ptr @EVP_SIGNATURE_get0_provider(ptr noundef nonnull %86) #6
+  br label %95
+
+89:                                               ; preds = %81
+  %90 = load ptr, ptr %29, align 8, !tbaa !14
+  %91 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %90) #6
+  %92 = load ptr, ptr %77, align 8, !tbaa !26
+  %93 = call ptr @evp_signature_fetch_from_prov(ptr noundef %91, ptr noundef nonnull %75, ptr noundef %92) #6
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %.loopexit, label %95
+
+95:                                               ; preds = %89, %87
+  %.4.ph = phi ptr [ %86, %87 ], [ %93, %89 ]
+  %.1169.ph = phi ptr [ %88, %87 ], [ %91, %89 ]
+  %96 = load ptr, ptr %29, align 8, !tbaa !14
+  %97 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %96) #6
+  %98 = load ptr, ptr %77, align 8, !tbaa !26
+  %99 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1169.ph, ptr noundef %97, ptr noundef %98) #6
+  store ptr %99, ptr %11, align 8, !tbaa !3
+  %.not210 = icmp eq ptr %99, null
+  br i1 %.not210, label %.thread239, label %100
+
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %51, align 8, !tbaa !27
+  %102 = load ptr, ptr %78, align 8, !tbaa !39
+  %103 = load ptr, ptr %77, align 8, !tbaa !26
+  %104 = call ptr @evp_pkey_export_to_provider(ptr noundef %101, ptr noundef %102, ptr noundef nonnull %11, ptr noundef %103) #6
+  %.pr = load ptr, ptr %11, align 8, !tbaa !3
+  %105 = icmp eq ptr %.pr, null
+  br i1 %105, label %.thread239, label %106
+
+.thread239:                                       ; preds = %95, %100
+  %.3241 = phi ptr [ %104, %100 ], [ null, %95 ]
+  call void @EVP_KEYMGMT_free(ptr noundef %99) #6
+  br label %106
+
+106:                                              ; preds = %.thread239, %100, %83
+  %.5.ph = phi ptr [ null, %83 ], [ %.4.ph, %100 ], [ %.4.ph, %.thread239 ]
+  %.2167.ph = phi ptr [ null, %83 ], [ %104, %100 ], [ %.3241, %.thread239 ]
+  %107 = icmp eq ptr %.2167.ph, null
+  %108 = select i1 %switch, i1 %107, i1 false
+  br i1 %108, label %81, label %109, !llvm.loop !40
+
+109:                                              ; preds = %106
+  br i1 %107, label %110, label %112
+
+110:                                              ; preds = %109
+  call void @EVP_SIGNATURE_free(ptr noundef %.5.ph) #6
+  %111 = call i32 @ERR_clear_last_mark() #6
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %175
+
+112:                                              ; preds = %109
+  %113 = call i32 @ERR_pop_to_mark() #6
+  %114 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store ptr %.5.ph, ptr %114, align 8, !tbaa !25
+  %.not208 = icmp eq i32 %8, 0
+  %115 = select i1 %.not208, i32 128, i32 256
+  store i32 %115, ptr %27, align 8, !tbaa !24
+  %116 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 40
+  %117 = load ptr, ptr %116, align 8, !tbaa !42
+  %118 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 24
+  %119 = load ptr, ptr %118, align 8, !tbaa !45
+  %120 = call ptr @ossl_provider_ctx(ptr noundef %119) #6
+  %121 = call ptr %117(ptr noundef %120, ptr noundef %.0183) #6
+  %122 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  store ptr %121, ptr %122, align 8, !tbaa !25
+  %123 = icmp eq ptr %121, null
+  br i1 %123, label %124, label %canon_mdname.exit
+
+124:                                              ; preds = %112
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 201, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %175
+
+canon_mdname.exit:                                ; preds = %72, %69, %112, %63
+  %.0180 = phi ptr [ %3, %63 ], [ %3, %112 ], [ %68, %72 ], [ null, %69 ]
+  %.2173 = phi ptr [ %.0171, %63 ], [ %.5.ph, %112 ], [ %.0171, %72 ], [ %.0171, %69 ]
+  %.0165 = phi ptr [ null, %63 ], [ %.2167.ph, %112 ], [ null, %72 ], [ null, %69 ]
+  %.not211 = icmp eq ptr %1, null
+  br i1 %.not211, label %126, label %125
+
+125:                                              ; preds = %canon_mdname.exit
+  store ptr %27, ptr %1, align 8, !tbaa !46
+  br label %126
+
+126:                                              ; preds = %125, %canon_mdname.exit
+  %.not212 = icmp eq ptr %2, null
+  br i1 %.not212, label %135, label %127
+
+127:                                              ; preds = %126
+  store ptr %2, ptr %0, align 8, !tbaa !38
+  %128 = icmp eq ptr %.0180, null
+  br i1 %128, label %129, label %canon_mdname.exit230
+
+129:                                              ; preds = %127
+  %130 = call ptr @EVP_MD_get0_name(ptr noundef nonnull %2) #6
+  %.not.i228 = icmp eq ptr %130, null
+  br i1 %.not.i228, label %134, label %131
+
+131:                                              ; preds = %129
+  %132 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %130, ptr noundef nonnull dereferenceable(6) @.str.1) #7
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %canon_mdname.exit230, label %134
+
+134:                                              ; preds = %131, %129
+  br label %canon_mdname.exit230
+
+135:                                              ; preds = %126
+  %136 = icmp ne ptr %.0180, null
+  %or.cond3 = or i1 %45, %136
+  br i1 %or.cond3, label %canon_mdname.exit233, label %137
+
+137:                                              ; preds = %135
+  %138 = load ptr, ptr %11, align 8, !tbaa !3
+  %139 = call i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef %138, ptr noundef %.0165, ptr noundef nonnull %12, i64 noundef 80) #6
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %141, label %canon_mdname.exit230
+
+141:                                              ; preds = %137
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %12, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
+  %142 = icmp eq i32 %bcmp, 0
+  br i1 %142, label %canon_mdname.exit230, label %canon_mdname.exit233.thread253
+
+canon_mdname.exit233:                             ; preds = %135
+  %.not213 = icmp eq ptr %.0180, null
+  br i1 %.not213, label %canon_mdname.exit230, label %canon_mdname.exit233.thread253
+
+canon_mdname.exit233.thread253:                   ; preds = %141, %canon_mdname.exit233
+  %.2182256 = phi ptr [ %.0180, %canon_mdname.exit233 ], [ %12, %141 ]
+  call void @evp_md_ctx_clear_digest(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0) #6
+  %143 = call i32 @ERR_set_mark() #6
+  %144 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %145 = load ptr, ptr %144, align 8, !tbaa !39
+  %146 = call ptr @EVP_MD_fetch(ptr noundef %145, ptr noundef nonnull %.2182256, ptr noundef %.0183) #6
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %146, ptr %147, align 8, !tbaa !47
+  %.not214 = icmp eq ptr %146, null
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not214, label %150, label %149
+
+149:                                              ; preds = %canon_mdname.exit233.thread253
+  store ptr %146, ptr %0, align 8, !tbaa !38
+  store ptr %146, ptr %148, align 8, !tbaa !48
+  br label %155
+
+150:                                              ; preds = %canon_mdname.exit233.thread253
+  %151 = call ptr @EVP_get_digestbyname(ptr noundef nonnull %.2182256) #6
+  store ptr %151, ptr %148, align 8, !tbaa !48
+  store ptr %151, ptr %0, align 8, !tbaa !38
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %153, label %155
+
+153:                                              ; preds = %150
+  %154 = call i32 @ERR_clear_last_mark() #6
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 246, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %175
+
+155:                                              ; preds = %150, %149
+  %156 = call i32 @ERR_pop_to_mark() #6
+  br label %canon_mdname.exit230
+
+canon_mdname.exit230:                             ; preds = %141, %137, %134, %131, %canon_mdname.exit233, %155, %127
+  %.1181 = phi ptr [ %.0180, %127 ], [ %.2182256, %155 ], [ null, %canon_mdname.exit233 ], [ %130, %134 ], [ null, %131 ], [ null, %137 ], [ null, %141 ]
+  %.not215 = icmp eq i32 %8, 0
+  br i1 %.not215, label %162, label %157
+
+157:                                              ; preds = %canon_mdname.exit230
+  %158 = getelementptr inbounds nuw i8, ptr %.2173, i64 176
+  %159 = load ptr, ptr %158, align 8, !tbaa !49
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %167
+
+161:                                              ; preds = %157
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %175
+
+162:                                              ; preds = %canon_mdname.exit230
+  %163 = getelementptr inbounds nuw i8, ptr %.2173, i64 144
+  %164 = load ptr, ptr %163, align 8, !tbaa !50
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %166, label %167
+
+166:                                              ; preds = %162
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 263, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %175
+
+167:                                              ; preds = %162, %157
+  %.sink272 = phi ptr [ %159, %157 ], [ %164, %162 ]
+  %168 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %169 = load ptr, ptr %168, align 8, !tbaa !25
+  %170 = call i32 %.sink272(ptr noundef %169, ptr noundef %.1181, ptr noundef %.0165, ptr noundef %9) #6
+  %171 = icmp sgt i32 %170, 0
+  %172 = icmp ne ptr %.1181, null
+  %or.cond5 = or i1 %172, %171
+  br i1 %or.cond5, label %268, label %173
+
+173:                                              ; preds = %167
+  br i1 %.not212, label %174, label %175
+
+174:                                              ; preds = %173
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 158, ptr noundef null) #6
+  br label %175
+
+175:                                              ; preds = %173, %174, %166, %161, %153, %124, %110, %79, %73, %54
+  call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %27) #6
+  store i32 0, ptr %27, align 8, !tbaa !24
+  %176 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @EVP_KEYMGMT_free(ptr noundef %176) #6
+  br label %274
+
+.loopexit:                                        ; preds = %89, %.thread
+  %177 = call i32 @ERR_pop_to_mark() #6
+  %178 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @EVP_KEYMGMT_free(ptr noundef %178) #6
+  store ptr null, ptr %11, align 8, !tbaa !3
+  %179 = icmp eq ptr %2, null
+  %180 = icmp ne ptr %3, null
+  %or.cond7 = and i1 %179, %180
+  br i1 %or.cond7, label %181, label %185
+
+181:                                              ; preds = %.loopexit
+  %182 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %183 = load ptr, ptr %182, align 8, !tbaa !39
+  %184 = call ptr @evp_get_digestbyname_ex(ptr noundef %183, ptr noundef nonnull %3) #6
+  br label %185
+
+185:                                              ; preds = %181, %.loopexit
+  %.0176 = phi ptr [ %184, %181 ], [ %2, %.loopexit ]
+  %186 = load ptr, ptr %16, align 8, !tbaa !8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 120
+  %188 = load ptr, ptr %187, align 8, !tbaa !51
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %190, label %191
+
+190:                                              ; preds = %185
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
+  br label %274
+
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 4
+  %193 = load i32, ptr %192, align 4, !tbaa !52
+  %194 = and i32 %193, 4
+  %.not216 = icmp eq i32 %194, 0
+  %195 = icmp eq ptr %.0176, null
+  %or.cond264 = select i1 %.not216, i1 %195, i1 false
+  br i1 %or.cond264, label %196, label %.thread257
+
+196:                                              ; preds = %191
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  %197 = call i32 @EVP_PKEY_get_default_digest_nid(ptr noundef %7, ptr noundef nonnull %13) #6
+  %198 = icmp sgt i32 %197, 0
+  br i1 %198, label %199, label %.thread259
+
+.thread259:                                       ; preds = %196
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  br label %204
+
+199:                                              ; preds = %196
+  %200 = load i32, ptr %13, align 4, !tbaa !54
+  %201 = call ptr @OBJ_nid2sn(i32 noundef %200) #6
+  %202 = call ptr @EVP_get_digestbyname(ptr noundef %201) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %204, label %.thread257
+
+204:                                              ; preds = %.thread259, %199
+  call void @ERR_new() #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 311, ptr noundef nonnull @__func__.do_sigver_init) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 158, ptr noundef null) #6
+  br label %274
+
+.thread257:                                       ; preds = %199, %191
+  %.1177 = phi ptr [ %.0176, %191 ], [ %202, %199 ]
+  %.not217 = icmp eq i32 %8, 0
+  %205 = load ptr, ptr %16, align 8, !tbaa !8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 120
+  %207 = load ptr, ptr %206, align 8, !tbaa !51
+  br i1 %.not217, label %224, label %208
+
+208:                                              ; preds = %.thread257
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 128
+  %210 = load ptr, ptr %209, align 8, !tbaa !55
+  %.not220 = icmp eq ptr %210, null
+  br i1 %.not220, label %216, label %211
+
+211:                                              ; preds = %208
+  %212 = call i32 %210(ptr noundef nonnull %205, ptr noundef nonnull %0) #6
+  %213 = icmp slt i32 %212, 1
+  br i1 %213, label %274, label %214
+
+214:                                              ; preds = %211
+  %215 = load ptr, ptr %16, align 8, !tbaa !8
+  store i32 256, ptr %215, align 8, !tbaa !24
+  br label %240
+
+216:                                              ; preds = %208
+  %217 = getelementptr inbounds nuw i8, ptr %207, i64 216
+  %218 = load ptr, ptr %217, align 8, !tbaa !56
+  %.not221 = icmp eq ptr %218, null
+  br i1 %.not221, label %221, label %219
+
+219:                                              ; preds = %216
+  store i32 32, ptr %205, align 8, !tbaa !24
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr @update, ptr %220, align 8, !tbaa !57
+  br label %240
+
+221:                                              ; preds = %216
+  %222 = call i32 @EVP_PKEY_verify_init(ptr noundef nonnull %205) #6
+  %223 = icmp slt i32 %222, 1
+  br i1 %223, label %274, label %240
+
+224:                                              ; preds = %.thread257
+  %225 = getelementptr inbounds nuw i8, ptr %207, i64 112
+  %226 = load ptr, ptr %225, align 8, !tbaa !58
+  %.not218 = icmp eq ptr %226, null
+  br i1 %.not218, label %232, label %227
+
+227:                                              ; preds = %224
+  %228 = call i32 %226(ptr noundef nonnull %205, ptr noundef nonnull %0) #6
+  %229 = icmp slt i32 %228, 1
+  br i1 %229, label %274, label %230
+
+230:                                              ; preds = %227
+  %231 = load ptr, ptr %16, align 8, !tbaa !8
+  store i32 128, ptr %231, align 8, !tbaa !24
+  br label %240
+
+232:                                              ; preds = %224
+  %233 = getelementptr inbounds nuw i8, ptr %207, i64 208
+  %234 = load ptr, ptr %233, align 8, !tbaa !59
+  %.not219 = icmp eq ptr %234, null
+  br i1 %.not219, label %237, label %235
+
+235:                                              ; preds = %232
+  store i32 16, ptr %205, align 8, !tbaa !24
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr @update, ptr %236, align 8, !tbaa !57
+  br label %240
+
+237:                                              ; preds = %232
+  %238 = call i32 @EVP_PKEY_sign_init(ptr noundef nonnull %205) #6
+  %239 = icmp slt i32 %238, 1
+  br i1 %239, label %274, label %240
+
+240:                                              ; preds = %230, %237, %235, %214, %221, %219
+  %241 = load ptr, ptr %16, align 8, !tbaa !8
+  %242 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef %241, ptr noundef %.1177) #6
+  %243 = icmp slt i32 %242, 1
+  br i1 %243, label %274, label %244
+
+244:                                              ; preds = %240
+  %.not222 = icmp eq ptr %1, null
+  %.pre270 = load ptr, ptr %16, align 8, !tbaa !8
+  br i1 %.not222, label %246, label %245
+
+245:                                              ; preds = %244
+  store ptr %.pre270, ptr %1, align 8, !tbaa !46
+  br label %246
+
+246:                                              ; preds = %245, %244
+  %247 = getelementptr inbounds nuw i8, ptr %.pre270, i64 120
+  %248 = load ptr, ptr %247, align 8, !tbaa !51
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  %250 = load i32, ptr %249, align 4, !tbaa !52
+  %251 = and i32 %250, 4
+  %.not223 = icmp eq i32 %251, 0
+  br i1 %.not223, label %252, label %274
+
+252:                                              ; preds = %246
+  %253 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %0, ptr noundef %.1177, ptr noundef %6) #6
+  %.not224 = icmp eq i32 %253, 0
+  br i1 %.not224, label %274, label %254
+
+254:                                              ; preds = %252
+  %255 = load ptr, ptr %16, align 8, !tbaa !8
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 160
+  %257 = load i8, ptr %256, align 8
+  %258 = and i8 %257, -2
+  store i8 %258, ptr %256, align 8
+  %259 = load ptr, ptr %16, align 8, !tbaa !8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 120
+  %261 = load ptr, ptr %260, align 8, !tbaa !51
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 248
+  %263 = load ptr, ptr %262, align 8, !tbaa !60
+  %.not225 = icmp eq ptr %263, null
+  br i1 %.not225, label %.thread262, label %264
+
+264:                                              ; preds = %254
+  %265 = getelementptr inbounds nuw i8, ptr %259, i64 160
+  %266 = load i8, ptr %265, align 8
+  %267 = or i8 %266, 1
+  store i8 %267, ptr %265, align 8
+  br label %.thread262
+
+268:                                              ; preds = %167
+  br i1 %171, label %.thread262, label %272
+
+.thread262:                                       ; preds = %254, %264, %268
+  %269 = call i32 @evp_pkey_ctx_use_cached_data(ptr noundef nonnull %27) #6
+  %270 = icmp sgt i32 %269, 0
+  %271 = zext i1 %270 to i32
+  br label %272
+
+272:                                              ; preds = %.thread262, %268
+  %.2 = phi i32 [ %271, %.thread262 ], [ 0, %268 ]
+  %273 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @EVP_KEYMGMT_free(ptr noundef %273) #6
+  br label %274
+
+274:                                              ; preds = %252, %246, %240, %237, %227, %221, %211, %25, %10, %272, %204, %190, %175
+  %.0175 = phi i32 [ 0, %190 ], [ %.2, %272 ], [ 0, %204 ], [ 0, %175 ], [ 0, %10 ], [ 0, %25 ], [ 0, %211 ], [ 0, %221 ], [ 0, %227 ], [ 0, %237 ], [ 0, %240 ], [ 1, %246 ], [ 0, %252 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  ret i32 %.0175
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %4, i32 noundef 0, ptr noundef null)
+  ret i32 %6
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 2) i32 @EVP_DigestVerifyInit_ex(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+  %8 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef %5, i32 noundef 1, ptr noundef %6)
+  ret i32 %8
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call fastcc i32 @do_sigver_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %4, i32 noundef 1, ptr noundef null)
+  ret i32 %6
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @EVP_DigestSignUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i64, ptr %6, align 8, !tbaa !61
+  %8 = and i64 %7, 2048
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %10, label %9
+
+9:                                                ; preds = %3
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 401, ptr noundef nonnull @__func__.EVP_DigestSignUpdate) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #6
+  br label %43
+
+10:                                               ; preds = %3
+  %cond = icmp eq ptr %5, null
+  br i1 %cond, label %41, label %11
+
+11:                                               ; preds = %10
+  %12 = load i32, ptr %5, align 8, !tbaa !24
+  %.not24 = icmp eq i32 %12, 128
+  br i1 %.not24, label %13, label %28
+
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %28, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %28, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 152
+  %23 = load ptr, ptr %22, align 8, !tbaa !62
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %21
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 412, ptr noundef nonnull @__func__.EVP_DigestSignUpdate) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786689, ptr noundef null) #6
+  br label %43
+
+26:                                               ; preds = %21
+  %27 = tail call i32 %23(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %2) #6
+  br label %43
+
+28:                                               ; preds = %17, %13, %11
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %30 = load i8, ptr %29, align 8
+  %31 = and i8 %30, 1
+  %.not26 = icmp eq i8 %31, 0
+  br i1 %.not26, label %38, label %32
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %34 = load ptr, ptr %33, align 8, !tbaa !51
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 248
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
+  %37 = tail call i32 %36(ptr noundef nonnull %5, ptr noundef nonnull %0) #6
+  %.not27 = icmp eq i32 %37, 0
+  br i1 %.not27, label %43, label %._crit_edge
+
+._crit_edge:                                      ; preds = %32
+  %.pre = load i8, ptr %29, align 8
+  br label %38
+
+38:                                               ; preds = %._crit_edge, %28
+  %39 = phi i8 [ %.pre, %._crit_edge ], [ %30, %28 ]
+  %40 = and i8 %39, -2
+  store i8 %40, ptr %29, align 8
+  br label %41
+
+41:                                               ; preds = %10, %38
+  %42 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
+  br label %43
+
+43:                                               ; preds = %32, %41, %26, %25, %9
+  %.0 = phi i32 [ 0, %9 ], [ %42, %41 ], [ 0, %25 ], [ %27, %26 ], [ 0, %32 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @ERR_new() local_unnamed_addr #2
+
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @EVP_DigestVerifyUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i64, ptr %6, align 8, !tbaa !61
+  %8 = and i64 %7, 2048
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %10, label %9
+
+9:                                                ; preds = %3
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 436, ptr noundef nonnull @__func__.EVP_DigestVerifyUpdate) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 189, ptr noundef null) #6
+  br label %43
+
+10:                                               ; preds = %3
+  %cond = icmp eq ptr %5, null
+  br i1 %cond, label %41, label %11
+
+11:                                               ; preds = %10
+  %12 = load i32, ptr %5, align 8, !tbaa !24
+  %.not24 = icmp eq i32 %12, 256
+  br i1 %.not24, label %13, label %28
+
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %28, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %28, label %21
+
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 184
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %21
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 447, ptr noundef nonnull @__func__.EVP_DigestVerifyUpdate) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786689, ptr noundef null) #6
+  br label %43
+
+26:                                               ; preds = %21
+  %27 = tail call i32 %23(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %2) #6
+  br label %43
+
+28:                                               ; preds = %17, %13, %11
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %30 = load i8, ptr %29, align 8
+  %31 = and i8 %30, 1
+  %.not26 = icmp eq i8 %31, 0
+  br i1 %.not26, label %38, label %32
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %34 = load ptr, ptr %33, align 8, !tbaa !51
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 248
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
+  %37 = tail call i32 %36(ptr noundef nonnull %5, ptr noundef nonnull %0) #6
+  %.not27 = icmp eq i32 %37, 0
+  br i1 %.not27, label %43, label %._crit_edge
+
+._crit_edge:                                      ; preds = %32
+  %.pre = load i8, ptr %29, align 8
+  br label %38
+
+38:                                               ; preds = %._crit_edge, %28
+  %39 = phi i8 [ %.pre, %._crit_edge ], [ %30, %28 ]
+  %40 = and i8 %39, -2
+  store i8 %40, ptr %29, align 8
+  br label %41
+
+41:                                               ; preds = %10, %38
+  %42 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
+  br label %43
+
+43:                                               ; preds = %32, %41, %26, %25, %9
+  %.0 = phi i32 [ 0, %9 ], [ %42, %41 ], [ 0, %25 ], [ %27, %26 ], [ 0, %32 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca [64 x i8], align 16
+  %5 = alloca i32, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load i64, ptr %8, align 8, !tbaa !61
+  %10 = and i64 %9, 2048
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %12, label %11
+
+11:                                               ; preds = %3
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 474, ptr noundef nonnull @__func__.EVP_DigestSignFinal) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #6
+  br label %142
+
+12:                                               ; preds = %3
+  %13 = icmp eq ptr %7, null
+  br i1 %13, label %.critedge, label %14
+
+14:                                               ; preds = %12
+  %15 = load i32, ptr %7, align 8, !tbaa !24
+  %.not119 = icmp eq i32 %15, 128
+  br i1 %.not119, label %16, label %51
+
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %51, label %20
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %51, label %24
+
+24:                                               ; preds = %20
+  %25 = icmp ne ptr %1, null
+  %26 = and i64 %9, 512
+  %27 = icmp eq i64 %26, 0
+  %or.cond133 = and i1 %25, %27
+  br i1 %or.cond133, label %.thread, label %35
+
+.thread:                                          ; preds = %24
+  %28 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %7) #6
+  %.not120 = icmp eq ptr %28, null
+  %spec.select134 = select i1 %.not120, ptr %7, ptr %28
+  %29 = getelementptr inbounds nuw i8, ptr %spec.select134, i64 40
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 160
+  %32 = load ptr, ptr %31, align 8, !tbaa !64
+  %33 = getelementptr inbounds nuw i8, ptr %spec.select134, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  br label %40
+
+35:                                               ; preds = %24
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 160
+  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %38 = icmp eq ptr %1, null
+  br i1 %38, label %.thread141, label %40
+
+.thread141:                                       ; preds = %35
+  %39 = tail call i32 %37(ptr noundef nonnull %18, ptr noundef null, ptr noundef %2, i64 noundef 0) #6
+  br label %49
+
+40:                                               ; preds = %35, %.thread
+  %41 = phi ptr [ %34, %.thread ], [ %18, %35 ]
+  %42 = phi ptr [ %32, %.thread ], [ %37, %35 ]
+  %.0105139 = phi ptr [ %28, %.thread ], [ null, %35 ]
+  %43 = load i64, ptr %2, align 8, !tbaa !65
+  %44 = tail call i32 %42(ptr noundef %41, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %43) #6
+  %45 = icmp eq ptr %.0105139, null
+  %or.cond = and i1 %25, %45
+  br i1 %or.cond, label %46, label %49
+
+46:                                               ; preds = %40
+  %47 = load i64, ptr %8, align 8, !tbaa !61
+  %48 = or i64 %47, 2048
+  store i64 %48, ptr %8, align 8, !tbaa !61
+  br label %142
+
+49:                                               ; preds = %.thread141, %40
+  %50 = phi i32 [ %39, %.thread141 ], [ %44, %40 ]
+  %.0105140144 = phi ptr [ null, %.thread141 ], [ %.0105139, %40 ]
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %.0105140144) #6
+  br label %142
+
+51:                                               ; preds = %20, %16, %14
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %53 = load ptr, ptr %52, align 8, !tbaa !51
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.critedge, label %55
+
+.critedge:                                        ; preds = %12, %51
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @__func__.EVP_DigestSignFinal) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %142
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %57 = load i8, ptr %56, align 8
+  %58 = and i8 %57, 1
+  %.not121 = icmp eq i8 %58, 0
+  br i1 %.not121, label %63, label %59
+
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 248
+  %61 = load ptr, ptr %60, align 8, !tbaa !60
+  %62 = tail call i32 %61(ptr noundef nonnull %7, ptr noundef nonnull %0) #6
+  %.not122 = icmp eq i32 %62, 0
+  br i1 %.not122, label %142, label %._crit_edge
+
+._crit_edge:                                      ; preds = %59
+  %.pre = load i8, ptr %56, align 8
+  %.pre155 = load ptr, ptr %52, align 8, !tbaa !51
+  br label %63
+
+63:                                               ; preds = %._crit_edge, %55
+  %64 = phi ptr [ %.pre155, %._crit_edge ], [ %53, %55 ]
+  %65 = phi i8 [ %.pre, %._crit_edge ], [ %57, %55 ]
+  %66 = and i8 %65, -2
+  store i8 %66, ptr %56, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !52
+  %69 = and i32 %68, 4
+  %.not123 = icmp eq i32 %69, 0
+  br i1 %.not123, label %94, label %70
+
+70:                                               ; preds = %63
+  %71 = icmp eq ptr %1, null
+  br i1 %71, label %72, label %76
+
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 120
+  %74 = load ptr, ptr %73, align 8, !tbaa !66
+  %75 = tail call i32 %74(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef nonnull %0) #6
+  br label %142
+
+76:                                               ; preds = %70
+  %77 = load i64, ptr %8, align 8, !tbaa !61
+  %78 = and i64 %77, 512
+  %.not131 = icmp eq i64 %78, 0
+  br i1 %.not131, label %85, label %79
+
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %64, i64 120
+  %81 = load ptr, ptr %80, align 8, !tbaa !66
+  %82 = tail call i32 %81(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %0) #6
+  %83 = load i64, ptr %8, align 8, !tbaa !61
+  %84 = or i64 %83, 2048
+  store i64 %84, ptr %8, align 8, !tbaa !61
+  br label %142
+
+85:                                               ; preds = %76
+  %86 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %7) #6
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %142, label %88
+
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 120
+  %90 = load ptr, ptr %89, align 8, !tbaa !51
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 120
+  %92 = load ptr, ptr %91, align 8, !tbaa !66
+  %93 = tail call i32 %92(ptr noundef nonnull %86, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %0) #6
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %86) #6
+  br label %142
+
+94:                                               ; preds = %63
+  %95 = getelementptr inbounds nuw i8, ptr %64, i64 120
+  %96 = load ptr, ptr %95, align 8, !tbaa !66
+  %.not124 = icmp eq ptr %96, null
+  %.not125 = icmp eq ptr %1, null
+  br i1 %.not125, label %129, label %97
+
+97:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !54
+  %98 = load i64, ptr %8, align 8, !tbaa !61
+  %99 = and i64 %98, 512
+  %.not127 = icmp eq i64 %99, 0
+  br i1 %.not127, label %104, label %100
+
+100:                                              ; preds = %97
+  br i1 %.not124, label %102, label %.thread148
+
+.thread148:                                       ; preds = %100
+  %101 = tail call i32 %96(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %0) #6
+  br label %.thread152
+
+102:                                              ; preds = %100
+  %103 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  br label %122
+
+104:                                              ; preds = %97
+  %105 = tail call ptr @EVP_MD_CTX_new() #6
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.thread152, label %107
+
+107:                                              ; preds = %104
+  %108 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %105, ptr noundef nonnull %0) #6
+  %.not128 = icmp eq i32 %108, 0
+  br i1 %.not128, label %109, label %110
+
+109:                                              ; preds = %107
+  tail call void @EVP_MD_CTX_free(ptr noundef nonnull %105) #6
+  br label %.thread152
+
+110:                                              ; preds = %107
+  br i1 %.not124, label %119, label %111
+
+111:                                              ; preds = %110
+  %112 = getelementptr inbounds nuw i8, ptr %105, i64 40
+  %113 = load ptr, ptr %112, align 8, !tbaa !8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 120
+  %115 = load ptr, ptr %114, align 8, !tbaa !51
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
+  %117 = load ptr, ptr %116, align 8, !tbaa !66
+  %118 = tail call i32 %117(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %105) #6
+  br label %121
+
+119:                                              ; preds = %110
+  %120 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %105, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  br label %121
+
+121:                                              ; preds = %111, %119
+  %.3109 = phi i32 [ %118, %111 ], [ %120, %119 ]
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %105) #6
+  br label %122
+
+122:                                              ; preds = %121, %102
+  %.1107 = phi i32 [ %103, %102 ], [ %.3109, %121 ]
+  %123 = icmp ne i32 %.1107, 0
+  %or.cond5 = select i1 %.not124, i1 %123, i1 false
+  br i1 %or.cond5, label %124, label %.thread152
+
+.thread152:                                       ; preds = %122, %.thread148, %109, %104
+  %.3.ph = phi i32 [ %101, %.thread148 ], [ %.1107, %122 ], [ 0, %109 ], [ 0, %104 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  br label %142
+
+124:                                              ; preds = %122
+  %125 = load i32, ptr %5, align 4, !tbaa !54
+  %126 = zext i32 %125 to i64
+  %127 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %126) #6
+  %128 = icmp sgt i32 %127, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  br i1 %128, label %.critedge136, label %142
+
+129:                                              ; preds = %94
+  br i1 %.not124, label %133, label %130
+
+130:                                              ; preds = %129
+  %131 = tail call i32 %96(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef nonnull %0) #6
+  %132 = icmp slt i32 %131, 1
+  br i1 %132, label %142, label %.critedge136
+
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %135 = load ptr, ptr %134, align 8, !tbaa !48
+  %136 = tail call i32 @EVP_MD_get_size(ptr noundef %135) #6
+  %137 = icmp slt i32 %136, 1
+  br i1 %137, label %142, label %138
+
+138:                                              ; preds = %133
+  %139 = zext nneg i32 %136 to i64
+  %140 = tail call i32 @EVP_PKEY_sign(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef null, i64 noundef %139) #6
+  %141 = icmp slt i32 %140, 1
+  br i1 %141, label %142, label %.critedge136
+
+.critedge136:                                     ; preds = %138, %130, %124
+  br label %142
+
+142:                                              ; preds = %.thread152, %138, %133, %130, %79, %88, %85, %59, %46, %49, %124, %.critedge136, %72, %.critedge, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %75, %72 ], [ 1, %.critedge136 ], [ 0, %124 ], [ %50, %49 ], [ %44, %46 ], [ 0, %59 ], [ 0, %85 ], [ %82, %79 ], [ %93, %88 ], [ 0, %130 ], [ 0, %133 ], [ 0, %138 ], [ %.3.ph, %.thread152 ]
+  ret i32 %.0
+}
+
+declare ptr @EVP_PKEY_CTX_dup(ptr noundef) local_unnamed_addr #2
+
+declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
+
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
+
+declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
+
+declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define i32 @EVP_DigestSign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %5
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 579, ptr noundef nonnull @__func__.EVP_DigestSign) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %49
+
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load i64, ptr %11, align 8, !tbaa !61
+  %13 = and i64 %12, 2048
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %15, label %14
+
+14:                                               ; preds = %10
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 584, ptr noundef nonnull @__func__.EVP_DigestSign) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #6
+  br label %49
+
+15:                                               ; preds = %10
+  %16 = load i32, ptr %7, align 8, !tbaa !24
+  %17 = icmp eq i32 %16, 128
+  br i1 %17, label %18, label %35
+
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %.not38 = icmp eq ptr %21, null
+  br i1 %.not38, label %35, label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %19, align 8, !tbaa !25
+  %.not39 = icmp eq ptr %23, null
+  br i1 %.not39, label %35, label %24
+
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 168
+  %26 = load ptr, ptr %25, align 8, !tbaa !67
+  %.not42 = icmp eq ptr %26, null
+  br i1 %.not42, label %43, label %27
+
+27:                                               ; preds = %24
+  %.not44 = icmp eq ptr %1, null
+  br i1 %.not44, label %.thread, label %28
+
+28:                                               ; preds = %27
+  %29 = or disjoint i64 %12, 2048
+  store i64 %29, ptr %11, align 8, !tbaa !61
+  %30 = load i64, ptr %2, align 8, !tbaa !65
+  %.pn.pre = load ptr, ptr %19, align 8, !tbaa !25
+  %.in.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pn.pre, i64 168
+  %.pre = load ptr, ptr %.in.phi.trans.insert, align 8, !tbaa !67
+  %.pre46 = load ptr, ptr %20, align 8, !tbaa !25
+  br label %.thread
+
+.thread:                                          ; preds = %27, %28
+  %31 = phi ptr [ %.pre46, %28 ], [ %21, %27 ]
+  %32 = phi ptr [ %.pre, %28 ], [ %26, %27 ]
+  %33 = phi i64 [ %30, %28 ], [ 0, %27 ]
+  %34 = tail call i32 %32(ptr noundef %31, ptr noundef %1, ptr noundef %2, i64 noundef %33, ptr noundef %3, i64 noundef %4) #6
+  br label %49
+
+35:                                               ; preds = %22, %18, %15
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %37 = load ptr, ptr %36, align 8, !tbaa !51
+  %.not40 = icmp eq ptr %37, null
+  br i1 %.not40, label %43, label %38
+
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 208
+  %40 = load ptr, ptr %39, align 8, !tbaa !59
+  %.not41 = icmp eq ptr %40, null
+  br i1 %.not41, label %43, label %41
+
+41:                                               ; preds = %38
+  %42 = tail call i32 %40(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #6
+  br label %49
+
+43:                                               ; preds = %35, %38, %24
+  %.not43 = icmp eq ptr %1, null
+  br i1 %.not43, label %.split, label %45
+
+.split:                                           ; preds = %43
+  %44 = tail call i32 @EVP_DigestSignFinal(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2)
+  br label %49
+
+45:                                               ; preds = %43
+  %46 = tail call i32 @EVP_DigestSignUpdate(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4)
+  %47 = icmp slt i32 %46, 1
+  br i1 %47, label %49, label %.split32
+
+.split32:                                         ; preds = %45
+  %48 = tail call i32 @EVP_DigestSignFinal(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
+  br label %49
+
+49:                                               ; preds = %.split, %.split32, %45, %41, %.thread, %14, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %14 ], [ %34, %.thread ], [ %42, %41 ], [ 0, %45 ], [ %44, %.split ], [ %48, %.split32 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca [64 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  store i32 0, ptr %4, align 4, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load i64, ptr %8, align 8, !tbaa !61
+  %10 = and i64 %9, 2048
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %12, label %11
+
+11:                                               ; preds = %3
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 620, ptr noundef nonnull @__func__.EVP_DigestVerifyFinal) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #6
+  br label %.thread
+
+12:                                               ; preds = %3
+  %13 = icmp eq ptr %7, null
+  br i1 %13, label %.critedge, label %14
+
+14:                                               ; preds = %12
+  %15 = load i32, ptr %7, align 8, !tbaa !24
+  %.not65 = icmp eq i32 %15, 256
+  br i1 %.not65, label %16, label %41
+
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %41, label %20
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %41, label %24
+
+24:                                               ; preds = %20
+  %25 = and i64 %9, 512
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %30, label %.thread84
+
+.thread84:                                        ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 192
+  %28 = load ptr, ptr %27, align 8, !tbaa !68
+  %29 = tail call i32 %28(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %2) #6
+  br label %36
+
+30:                                               ; preds = %24
+  %31 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %7) #6
+  %.not66 = icmp eq ptr %31, null
+  %spec.select74 = select i1 %.not66, ptr %7, ptr %31
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %spec.select74, i64 40
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
+  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %spec.select74, i64 48
+  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8, !tbaa !25
+  %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 192
+  %33 = load ptr, ptr %32, align 8, !tbaa !68
+  %34 = tail call i32 %33(ptr noundef %.pre81, ptr noundef %1, i64 noundef %2) #6
+  %35 = icmp eq ptr %31, null
+  br i1 %35, label %36, label %40
+
+36:                                               ; preds = %.thread84, %30
+  %37 = phi i32 [ %29, %.thread84 ], [ %34, %30 ]
+  %38 = load i64, ptr %8, align 8, !tbaa !61
+  %39 = or i64 %38, 2048
+  store i64 %39, ptr %8, align 8, !tbaa !61
+  br label %.thread
+
+40:                                               ; preds = %30
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %31) #6
+  br label %.thread
+
+41:                                               ; preds = %20, %16, %14
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %43 = load ptr, ptr %42, align 8, !tbaa !51
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.critedge, label %45
+
+.critedge:                                        ; preds = %12, %41
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 646, ptr noundef nonnull @__func__.EVP_DigestVerifyFinal) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %.thread
+
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %47 = load i8, ptr %46, align 8
+  %48 = and i8 %47, 1
+  %.not67 = icmp eq i8 %48, 0
+  br i1 %.not67, label %53, label %49
+
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 248
+  %51 = load ptr, ptr %50, align 8, !tbaa !60
+  %52 = tail call i32 %51(ptr noundef nonnull %7, ptr noundef nonnull %0) #6
+  %.not68 = icmp eq i32 %52, 0
+  br i1 %.not68, label %.thread, label %._crit_edge
+
+._crit_edge:                                      ; preds = %49
+  %.pre82 = load i8, ptr %46, align 8
+  %.pre83 = load ptr, ptr %42, align 8, !tbaa !51
+  br label %53
+
+53:                                               ; preds = %._crit_edge, %45
+  %54 = phi ptr [ %.pre83, %._crit_edge ], [ %43, %45 ]
+  %55 = phi i8 [ %.pre82, %._crit_edge ], [ %47, %45 ]
+  %56 = and i8 %55, -2
+  store i8 %56, ptr %46, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 136
+  %58 = load ptr, ptr %57, align 8, !tbaa !69
+  %.not69 = icmp eq ptr %58, null
+  %59 = load i64, ptr %8, align 8, !tbaa !61
+  %60 = and i64 %59, 512
+  %.not70 = icmp eq i64 %60, 0
+  br i1 %.not70, label %68, label %61
+
+61:                                               ; preds = %53
+  br i1 %.not69, label %66, label %.thread77
+
+.thread77:                                        ; preds = %61
+  %62 = trunc i64 %2 to i32
+  %63 = tail call i32 %58(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %62, ptr noundef nonnull %0) #6
+  %64 = load i64, ptr %8, align 8, !tbaa !61
+  %65 = or i64 %64, 2048
+  store i64 %65, ptr %8, align 8, !tbaa !61
+  br label %.thread
+
+66:                                               ; preds = %61
+  %67 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #6
+  br label %87
+
+68:                                               ; preds = %53
+  %69 = tail call ptr @EVP_MD_CTX_new() #6
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.thread, label %71
+
+71:                                               ; preds = %68
+  %72 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %69, ptr noundef nonnull %0) #6
+  %.not71 = icmp eq i32 %72, 0
+  br i1 %.not71, label %73, label %74
+
+73:                                               ; preds = %71
+  tail call void @EVP_MD_CTX_free(ptr noundef nonnull %69) #6
+  br label %.thread
+
+74:                                               ; preds = %71
+  br i1 %.not69, label %84, label %75
+
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %77 = load ptr, ptr %76, align 8, !tbaa !8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 120
+  %79 = load ptr, ptr %78, align 8, !tbaa !51
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
+  %81 = load ptr, ptr %80, align 8, !tbaa !69
+  %82 = trunc i64 %2 to i32
+  %83 = tail call i32 %81(ptr noundef %77, ptr noundef %1, i32 noundef %82, ptr noundef nonnull %69) #6
+  br label %86
+
+84:                                               ; preds = %74
+  %85 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %69, ptr noundef nonnull %5, ptr noundef nonnull %4) #6
+  br label %86
+
+86:                                               ; preds = %75, %84
+  %.2 = phi i32 [ %83, %75 ], [ %85, %84 ]
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %69) #6
+  br label %87
+
+87:                                               ; preds = %86, %66
+  %.058 = phi i32 [ %67, %66 ], [ %.2, %86 ]
+  %88 = icmp ne i32 %.058, 0
+  %or.cond = select i1 %.not69, i1 %88, i1 false
+  br i1 %or.cond, label %89, label %.thread
+
+89:                                               ; preds = %87
+  %90 = load i32, ptr %4, align 4, !tbaa !54
+  %91 = zext i32 %90 to i64
+  %92 = call i32 @EVP_PKEY_verify(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef %91) #6
+  br label %.thread
+
+.thread:                                          ; preds = %68, %73, %.thread77, %87, %49, %36, %40, %89, %.critedge, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %92, %89 ], [ %34, %40 ], [ %37, %36 ], [ 0, %49 ], [ %.058, %87 ], [ %63, %.thread77 ], [ -1, %73 ], [ -1, %68 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  ret i32 %.0
+}
+
+declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define i32 @EVP_DigestVerify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %5
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 692, ptr noundef nonnull @__func__.EVP_DigestVerify) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
+  br label %47
+
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load i64, ptr %11, align 8, !tbaa !61
+  %13 = and i64 %12, 2048
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %15, label %14
+
+14:                                               ; preds = %10
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 697, ptr noundef nonnull @__func__.EVP_DigestVerify) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #6
+  br label %47
+
+15:                                               ; preds = %10
+  %16 = load i32, ptr %7, align 8, !tbaa !24
+  %17 = icmp eq i32 %16, 256
+  br i1 %17, label %18, label %34
+
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %.not32 = icmp eq ptr %21, null
+  br i1 %.not32, label %34, label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %19, align 8, !tbaa !25
+  %.not33 = icmp eq ptr %23, null
+  br i1 %.not33, label %34, label %24
+
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 200
+  %26 = load ptr, ptr %25, align 8, !tbaa !70
+  %.not36 = icmp eq ptr %26, null
+  br i1 %.not36, label %42, label %27
+
+27:                                               ; preds = %24
+  %28 = or disjoint i64 %12, 2048
+  store i64 %28, ptr %11, align 8, !tbaa !61
+  %29 = load ptr, ptr %19, align 8, !tbaa !25
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 200
+  %31 = load ptr, ptr %30, align 8, !tbaa !70
+  %32 = load ptr, ptr %20, align 8, !tbaa !25
+  %33 = tail call i32 %31(ptr noundef %32, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6
+  br label %47
+
+34:                                               ; preds = %22, %18, %15
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
+  %.not34 = icmp eq ptr %36, null
+  br i1 %.not34, label %42, label %37
+
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 216
+  %39 = load ptr, ptr %38, align 8, !tbaa !56
+  %.not35 = icmp eq ptr %39, null
+  br i1 %.not35, label %42, label %40
+
+40:                                               ; preds = %37
+  %41 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6
+  br label %47
+
+42:                                               ; preds = %34, %37, %24
+  %43 = tail call i32 @EVP_DigestVerifyUpdate(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4)
+  %44 = icmp slt i32 %43, 1
+  br i1 %44, label %47, label %45
+
+45:                                               ; preds = %42
+  %46 = tail call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
+  br label %47
+
+47:                                               ; preds = %42, %45, %40, %27, %14, %9
+  %.0 = phi i32 [ -1, %9 ], [ 0, %14 ], [ %33, %27 ], [ %46, %45 ], [ %41, %40 ], [ -1, %42 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+declare i32 @evp_md_ctx_free_algctx(ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @EVP_MD_CTX_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @ERR_set_mark() local_unnamed_addr #2
+
+declare i32 @ERR_clear_last_mark() local_unnamed_addr #2
+
+declare void @evp_pkey_ctx_free_old_ops(ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #2
+
+declare ptr @evp_keymgmt_util_query_operation_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @EVP_SIGNATURE_free(ptr noundef) local_unnamed_addr #2
+
+declare void @EVP_KEYMGMT_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_SIGNATURE_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_SIGNATURE_get0_provider(ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_KEYMGMT_get0_provider(ptr noundef) local_unnamed_addr #2
+
+declare ptr @evp_signature_fetch_from_prov(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @evp_keymgmt_fetch_from_prov(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_KEYMGMT_get0_name(ptr noundef) local_unnamed_addr #2
+
+declare ptr @evp_pkey_export_to_provider(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
+
+declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #2
+
+declare i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @evp_md_ctx_clear_digest(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #2
+
+declare ptr @evp_get_digestbyname_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @EVP_PKEY_get_default_digest_nid(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @update(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #0 {
+  tail call void @ERR_new() #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 21, ptr noundef nonnull @__func__.update) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 177, ptr noundef null) #6
+  ret i32 0
+}
+
+declare i32 @EVP_PKEY_verify_init(ptr noundef) local_unnamed_addr #2
+
+declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #2
+
+declare i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @evp_pkey_ctx_use_cached_data(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS14evp_keymgmt_st", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !13, i64 40}
+!9 = !{!"evp_md_ctx_st", !10, i64 0, !10, i64 8, !11, i64 16, !12, i64 24, !5, i64 32, !13, i64 40, !5, i64 48, !5, i64 56, !10, i64 64}
+!10 = !{!"p1 _ZTS9evp_md_st", !5, i64 0}
+!11 = !{!"p1 _ZTS9engine_st", !5, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!"p1 _ZTS15evp_pkey_ctx_st", !5, i64 0}
+!14 = !{!15, !4, i64 32}
+!15 = !{!"evp_pkey_ctx_st", !16, i64 0, !17, i64 8, !18, i64 16, !18, i64 24, !4, i64 32, !6, i64 40, !19, i64 56, !5, i64 88, !5, i64 96, !20, i64 104, !16, i64 112, !16, i64 116, !21, i64 120, !11, i64 128, !22, i64 136, !22, i64 144, !5, i64 152, !16, i64 160, !23, i64 168}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
+!18 = !{!"p1 omnipotent char", !5, i64 0}
+!19 = !{!"", !18, i64 0, !5, i64 8, !12, i64 16, !16, i64 24}
+!20 = !{!"p1 int", !5, i64 0}
+!21 = !{!"p1 _ZTS18evp_pkey_method_st", !5, i64 0}
+!22 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
+!23 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
+!24 = !{!15, !16, i64 0}
+!25 = !{!6, !6, i64 0}
+!26 = !{!15, !18, i64 16}
+!27 = !{!15, !22, i64 136}
+!28 = !{!29, !4, i64 96}
+!29 = !{!"evp_pkey_st", !16, i64 0, !16, i64 4, !30, i64 8, !11, i64 16, !11, i64 24, !6, i64 32, !6, i64 40, !31, i64 48, !5, i64 56, !32, i64 64, !16, i64 72, !16, i64 76, !33, i64 80, !4, i64 96, !5, i64 104, !12, i64 112, !35, i64 120, !12, i64 128, !36, i64 136}
+!30 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !5, i64 0}
+!31 = !{!"", !6, i64 0}
+!32 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !5, i64 0}
+!33 = !{!"crypto_ex_data_st", !17, i64 0, !34, i64 8}
+!34 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
+!35 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !5, i64 0}
+!36 = !{!"", !16, i64 0, !16, i64 4, !16, i64 8}
+!37 = !{!"branch_weights", i32 4001, i32 1}
+!38 = !{!9, !10, i64 0}
+!39 = !{!15, !17, i64 8}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = !{!43, !5, i64 40}
+!43 = !{!"evp_signature_st", !16, i64 0, !18, i64 8, !18, i64 16, !44, i64 24, !31, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288}
+!44 = !{!"p1 _ZTS16ossl_provider_st", !5, i64 0}
+!45 = !{!43, !44, i64 24}
+!46 = !{!13, !13, i64 0}
+!47 = !{!9, !10, i64 64}
+!48 = !{!9, !10, i64 8}
+!49 = !{!43, !5, i64 176}
+!50 = !{!43, !5, i64 144}
+!51 = !{!15, !21, i64 120}
+!52 = !{!53, !16, i64 4}
+!53 = !{!"evp_pkey_method_st", !16, i64 0, !16, i64 4, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248}
+!54 = !{!16, !16, i64 0}
+!55 = !{!53, !5, i64 128}
+!56 = !{!53, !5, i64 216}
+!57 = !{!9, !5, i64 48}
+!58 = !{!53, !5, i64 112}
+!59 = !{!53, !5, i64 208}
+!60 = !{!53, !5, i64 248}
+!61 = !{!9, !12, i64 24}
+!62 = !{!43, !5, i64 152}
+!63 = !{!43, !5, i64 184}
+!64 = !{!43, !5, i64 160}
+!65 = !{!12, !12, i64 0}
+!66 = !{!53, !5, i64 120}
+!67 = !{!43, !5, i64 168}
+!68 = !{!43, !5, i64 192}
+!69 = !{!53, !5, i64 136}
+!70 = !{!43, !5, i64 200}

@@ -1,0 +1,770 @@
+; ModuleID = 'bench/openssl/original/servername_test.ll'
+source_filename = "bench/openssl/original/servername_test.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [34 x i8] c"../openssl/test/servername_test.c\00", align 1
+@.str.1 = private unnamed_addr constant [28 x i8] c"Error parsing test options\0A\00", align 1
+@.str.2 = private unnamed_addr constant [28 x i8] c"cert = test_get_argument(0)\00", align 1
+@cert = internal unnamed_addr global ptr null, align 8
+@.str.3 = private unnamed_addr constant [31 x i8] c"privkey = test_get_argument(1)\00", align 1
+@privkey = internal unnamed_addr global ptr null, align 8
+@.str.4 = private unnamed_addr constant [16 x i8] c"test_servername\00", align 1
+@sni_test_fns = internal unnamed_addr constant [3 x ptr] [ptr @client_setup_sni_before_state, ptr @client_setup_sni_after_state, ptr @server_setup_sni], align 16
+@.str.5 = private unnamed_addr constant [4 x i8] c"ctx\00", align 1
+@.str.7 = private unnamed_addr constant [4 x i8] c"con\00", align 1
+@.str.8 = private unnamed_addr constant [5 x i8] c"rbio\00", align 1
+@.str.9 = private unnamed_addr constant [5 x i8] c"wbio\00", align 1
+@.str.10 = private unnamed_addr constant [17 x i8] c"SSL_connect(con)\00", align 1
+@.str.11 = private unnamed_addr constant [2 x i8] c"0\00", align 1
+@.str.12 = private unnamed_addr constant [43 x i8] c"get_sni_from_client_hello(wbio, &hostname)\00", align 1
+@.str.13 = private unnamed_addr constant [9 x i8] c"hostname\00", align 1
+@.str.14 = private unnamed_addr constant [5 x i8] c"host\00", align 1
+@.str.15 = private unnamed_addr constant [11 x i8] c"dummy-host\00", align 1
+@.str.16 = private unnamed_addr constant [44 x i8] c"len = BIO_get_mem_data(bio, (char **)&data)\00", align 1
+@.str.17 = private unnamed_addr constant [33 x i8] c"PACKET_buf_init(&pkt, data, len)\00", align 1
+@.str.18 = private unnamed_addr constant [44 x i8] c"PACKET_forward(&pkt, SSL3_HM_HEADER_LENGTH)\00", align 1
+@.str.19 = private unnamed_addr constant [60 x i8] c"PACKET_forward(&pkt, CLIENT_VERSION_LEN + SSL3_RANDOM_SIZE)\00", align 1
+@.str.20 = private unnamed_addr constant [42 x i8] c"PACKET_get_length_prefixed_1(&pkt, &pkt2)\00", align 1
+@.str.21 = private unnamed_addr constant [42 x i8] c"PACKET_get_length_prefixed_2(&pkt, &pkt2)\00", align 1
+@.str.22 = private unnamed_addr constant [41 x i8] c"PACKET_as_length_prefixed_2(&pkt, &pkt2)\00", align 1
+@.str.23 = private unnamed_addr constant [31 x i8] c"PACKET_get_net_2(&pkt2, &type)\00", align 1
+@.str.24 = private unnamed_addr constant [43 x i8] c"PACKET_get_length_prefixed_2(&pkt2, &pkt3)\00", align 1
+@.str.25 = private unnamed_addr constant [43 x i8] c"PACKET_get_length_prefixed_2(&pkt3, &pkt4)\00", align 1
+@.str.26 = private unnamed_addr constant [24 x i8] c"PACKET_remaining(&pkt4)\00", align 1
+@.str.27 = private unnamed_addr constant [36 x i8] c"PACKET_get_1(&pkt4, &servname_type)\00", align 1
+@.str.28 = private unnamed_addr constant [14 x i8] c"servname_type\00", align 1
+@.str.29 = private unnamed_addr constant [26 x i8] c"TLSEXT_NAMETYPE_host_name\00", align 1
+@.str.30 = private unnamed_addr constant [43 x i8] c"PACKET_get_length_prefixed_2(&pkt4, &pkt5)\00", align 1
+@.str.31 = private unnamed_addr constant [24 x i8] c"PACKET_remaining(&pkt5)\00", align 1
+@.str.32 = private unnamed_addr constant [24 x i8] c"TLSEXT_MAXLEN_host_name\00", align 1
+@.str.33 = private unnamed_addr constant [33 x i8] c"PACKET_contains_zero_byte(&pkt5)\00", align 1
+@.str.34 = private unnamed_addr constant [27 x i8] c"PACKET_strndup(&pkt5, sni)\00", align 1
+@.str.35 = private unnamed_addr constant [37 x i8] c"../openssl/include/internal/packet.h\00", align 1
+@.str.36 = private unnamed_addr constant [114 x i8] c"create_ssl_ctx_pair(NULL, TLS_server_method(), TLS_client_method(), TLS1_VERSION, 0, &sctx, &cctx, cert, privkey)\00", align 1
+@.str.37 = private unnamed_addr constant [67 x i8] c"create_ssl_objects(sctx, cctx, &serverssl, &clientssl, NULL, NULL)\00", align 1
+@.str.38 = private unnamed_addr constant [60 x i8] c"create_ssl_connection(serverssl, clientssl, SSL_ERROR_NONE)\00", align 1
+@.str.39 = private unnamed_addr constant [57 x i8] c"SSL_get_servername(serverssl, TLSEXT_NAMETYPE_host_name)\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
+  %1 = tail call i32 @test_skip_common_options() #5
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %2, label %3
+
+2:                                                ; preds = %0
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @.str.1) #5
+  br label %10
+
+3:                                                ; preds = %0
+  %4 = tail call ptr @test_get_argument(i64 noundef 0) #5
+  store ptr %4, ptr @cert, align 8, !tbaa !4
+  %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @.str.2, ptr noundef %4) #5
+  %.not1 = icmp eq i32 %5, 0
+  br i1 %.not1, label %10, label %6
+
+6:                                                ; preds = %3
+  %7 = tail call ptr @test_get_argument(i64 noundef 1) #5
+  store ptr %7, ptr @privkey, align 8, !tbaa !4
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 263, ptr noundef nonnull @.str.3, ptr noundef %7) #5
+  %.not2 = icmp eq i32 %8, 0
+  br i1 %.not2, label %10, label %9
+
+9:                                                ; preds = %6
+  tail call void @add_all_tests(ptr noundef nonnull @.str.4, ptr noundef nonnull @test_servername, i32 noundef 3, i32 noundef 1) #5
+  br label %10
+
+10:                                               ; preds = %3, %6, %9, %2
+  %.0 = phi i32 [ 1, %9 ], [ 0, %2 ], [ 0, %6 ], [ 0, %3 ]
+  ret i32 %.0
+}
+
+declare i32 @test_skip_common_options() local_unnamed_addr #1
+
+declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #1
+
+declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @test_servername(i32 noundef %0) #0 {
+  %2 = sext i32 %0 to i64
+  %3 = getelementptr inbounds [3 x ptr], ptr @sni_test_fns, i64 0, i64 %2
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = tail call i32 %4() #5
+  ret i32 %5
+}
+
+; Function Attrs: nounwind uwtable
+define internal range(i32 0, 2) i32 @client_setup_sni_before_state() #0 {
+  %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
+  store ptr null, ptr %1, align 8, !tbaa !4
+  %2 = tail call ptr @TLS_method() #5
+  %3 = tail call ptr @SSL_CTX_new(ptr noundef %2) #5
+  %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @.str.5, ptr noundef %3) #5
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %28, label %5
+
+5:                                                ; preds = %0
+  %6 = tail call ptr @SSL_new(ptr noundef %3) #5
+  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @.str.7, ptr noundef %6) #5
+  %.not18 = icmp eq i32 %7, 0
+  br i1 %.not18, label %28, label %8
+
+8:                                                ; preds = %5
+  %9 = tail call i64 @SSL_ctrl(ptr noundef %6, i32 noundef 55, i64 noundef 0, ptr noundef nonnull @.str.15) #5
+  %10 = tail call ptr @BIO_s_mem() #5
+  %11 = tail call ptr @BIO_new(ptr noundef %10) #5
+  %12 = tail call ptr @BIO_s_mem() #5
+  %13 = tail call ptr @BIO_new(ptr noundef %12) #5
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.8, ptr noundef %11) #5
+  %.not19 = icmp eq i32 %14, 0
+  br i1 %.not19, label %17, label %15
+
+15:                                               ; preds = %8
+  %16 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.9, ptr noundef %13) #5
+  %.not20 = icmp eq i32 %16, 0
+  br i1 %.not20, label %17, label %20
+
+17:                                               ; preds = %15, %8
+  %18 = tail call i32 @BIO_free(ptr noundef %11) #5
+  %19 = tail call i32 @BIO_free(ptr noundef %13) #5
+  br label %28
+
+20:                                               ; preds = %15
+  tail call void @SSL_set_bio(ptr noundef %6, ptr noundef %11, ptr noundef %13) #5
+  %21 = tail call i32 @SSL_connect(ptr noundef %6) #5
+  %22 = tail call i32 @test_int_le(ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %21, i32 noundef 0) #5
+  %.not21 = icmp eq i32 %22, 0
+  br i1 %.not21, label %28, label %23
+
+23:                                               ; preds = %20
+  %24 = call fastcc i32 @get_sni_from_client_hello(ptr noundef %13, ptr noundef %1)
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 135, ptr noundef nonnull @.str.12, i32 noundef %24) #5
+  %.not22 = icmp eq i32 %25, 0
+  %.pre = load ptr, ptr %1, align 8, !tbaa !4
+  br i1 %.not22, label %28, label %26
+
+26:                                               ; preds = %23
+  %27 = tail call i32 @test_str_eq(ptr noundef nonnull @.str, i32 noundef 138, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %.pre, ptr noundef nonnull @.str.15) #5
+  %.not23 = icmp ne i32 %27, 0
+  %spec.select = zext i1 %.not23 to i32
+  br label %28
+
+28:                                               ; preds = %26, %23, %20, %5, %0, %17
+  %29 = phi ptr [ %.pre, %23 ], [ null, %20 ], [ null, %17 ], [ null, %5 ], [ null, %0 ], [ %.pre, %26 ]
+  %.016 = phi ptr [ %6, %23 ], [ %6, %20 ], [ %6, %17 ], [ %6, %5 ], [ null, %0 ], [ %6, %26 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
+  tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 143) #5
+  tail call void @SSL_free(ptr noundef %.016) #5
+  tail call void @SSL_CTX_free(ptr noundef %3) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal range(i32 0, 2) i32 @client_setup_sni_after_state() #0 {
+  %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
+  store ptr null, ptr %1, align 8, !tbaa !4
+  %2 = tail call ptr @TLS_method() #5
+  %3 = tail call ptr @SSL_CTX_new(ptr noundef %2) #5
+  %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @.str.5, ptr noundef %3) #5
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %28, label %5
+
+5:                                                ; preds = %0
+  %6 = tail call ptr @SSL_new(ptr noundef %3) #5
+  %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @.str.7, ptr noundef %6) #5
+  %.not19 = icmp eq i32 %7, 0
+  br i1 %.not19, label %28, label %8
+
+8:                                                ; preds = %5
+  %9 = tail call ptr @BIO_s_mem() #5
+  %10 = tail call ptr @BIO_new(ptr noundef %9) #5
+  %11 = tail call ptr @BIO_s_mem() #5
+  %12 = tail call ptr @BIO_new(ptr noundef %11) #5
+  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @.str.8, ptr noundef %10) #5
+  %.not20 = icmp eq i32 %13, 0
+  br i1 %.not20, label %16, label %14
+
+14:                                               ; preds = %8
+  %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @.str.9, ptr noundef %12) #5
+  %.not21 = icmp eq i32 %15, 0
+  br i1 %.not21, label %16, label %19
+
+16:                                               ; preds = %14, %8
+  %17 = tail call i32 @BIO_free(ptr noundef %10) #5
+  %18 = tail call i32 @BIO_free(ptr noundef %12) #5
+  br label %28
+
+19:                                               ; preds = %14
+  tail call void @SSL_set_bio(ptr noundef %6, ptr noundef %10, ptr noundef %12) #5
+  tail call void @SSL_set_connect_state(ptr noundef %6) #5
+  %20 = tail call i64 @SSL_ctrl(ptr noundef %6, i32 noundef 55, i64 noundef 0, ptr noundef nonnull @.str.15) #5
+  %21 = tail call i32 @SSL_connect(ptr noundef %6) #5
+  %22 = tail call i32 @test_int_le(ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %21, i32 noundef 0) #5
+  %.not22 = icmp eq i32 %22, 0
+  br i1 %.not22, label %28, label %23
+
+23:                                               ; preds = %19
+  %24 = call fastcc i32 @get_sni_from_client_hello(ptr noundef %12, ptr noundef %1)
+  %25 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 188, ptr noundef nonnull @.str.12, i32 noundef %24) #5
+  %.not23 = icmp eq i32 %25, 0
+  %.pre = load ptr, ptr %1, align 8, !tbaa !4
+  br i1 %.not23, label %28, label %26
+
+26:                                               ; preds = %23
+  %27 = tail call i32 @test_str_eq(ptr noundef nonnull @.str, i32 noundef 191, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %.pre, ptr noundef nonnull @.str.15) #5
+  %.not24 = icmp ne i32 %27, 0
+  %spec.select = zext i1 %.not24 to i32
+  br label %28
+
+28:                                               ; preds = %26, %23, %19, %5, %0, %16
+  %29 = phi ptr [ %.pre, %23 ], [ null, %19 ], [ null, %16 ], [ null, %5 ], [ null, %0 ], [ %.pre, %26 ]
+  %.017 = phi ptr [ %6, %23 ], [ %6, %19 ], [ %6, %16 ], [ %6, %5 ], [ null, %0 ], [ %6, %26 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
+  tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 196) #5
+  tail call void @SSL_free(ptr noundef %.017) #5
+  tail call void @SSL_CTX_free(ptr noundef %3) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal range(i32 0, 2) i32 @server_setup_sni() #0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
+  store ptr null, ptr %1, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  store ptr null, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  store ptr null, ptr %3, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  store ptr null, ptr %4, align 8, !tbaa !12
+  %5 = tail call ptr @TLS_server_method() #5
+  %6 = tail call ptr @TLS_client_method() #5
+  %7 = load ptr, ptr @cert, align 8, !tbaa !4
+  %8 = load ptr, ptr @privkey, align 8, !tbaa !4
+  %9 = call i32 @create_ssl_ctx_pair(ptr noundef null, ptr noundef %5, ptr noundef %6, i32 noundef 769, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef %7, ptr noundef %8) #5
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
+  %12 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 211, ptr noundef nonnull @.str.36, i32 noundef %11) #5
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %31, label %13
+
+13:                                               ; preds = %0
+  %14 = load ptr, ptr %2, align 8, !tbaa !10
+  %15 = load ptr, ptr %1, align 8, !tbaa !10
+  %16 = call i32 @create_ssl_objects(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #5
+  %17 = icmp ne i32 %16, 0
+  %18 = zext i1 %17 to i32
+  %19 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 213, ptr noundef nonnull @.str.37, i32 noundef %18) #5
+  %.not1 = icmp eq i32 %19, 0
+  %.pre5 = load ptr, ptr %4, align 8, !tbaa !12
+  br i1 %.not1, label %31, label %20
+
+20:                                               ; preds = %13
+  %21 = call i64 @SSL_ctrl(ptr noundef %.pre5, i32 noundef 55, i64 noundef 0, ptr noundef nonnull @.str.15) #5
+  %22 = load ptr, ptr %4, align 8, !tbaa !12
+  %23 = load ptr, ptr %3, align 8, !tbaa !12
+  %24 = call i32 @create_ssl_connection(ptr noundef %22, ptr noundef %23, i32 noundef 0) #5
+  %25 = icmp ne i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %27 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @.str.38, i32 noundef %26) #5
+  %.not2 = icmp eq i32 %27, 0
+  %.pre4 = load ptr, ptr %4, align 8, !tbaa !12
+  br i1 %.not2, label %31, label %28
+
+28:                                               ; preds = %20
+  %29 = call ptr @SSL_get_servername(ptr noundef %.pre4, i32 noundef 0) #5
+  %30 = call i32 @test_ptr_null(ptr noundef nonnull @.str, i32 noundef 223, ptr noundef nonnull @.str.39, ptr noundef %29) #5
+  %.not3 = icmp ne i32 %30, 0
+  %spec.select = zext i1 %.not3 to i32
+  %.pre = load ptr, ptr %4, align 8, !tbaa !12
+  br label %31
+
+31:                                               ; preds = %28, %20, %0, %13
+  %32 = phi ptr [ %.pre4, %20 ], [ %.pre5, %13 ], [ null, %0 ], [ %.pre, %28 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %13 ], [ 0, %0 ], [ %spec.select, %28 ]
+  call void @SSL_free(ptr noundef %32) #5
+  %33 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @SSL_free(ptr noundef %33) #5
+  %34 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @SSL_CTX_free(ptr noundef %34) #5
+  %35 = load ptr, ptr %1, align 8, !tbaa !10
+  call void @SSL_CTX_free(ptr noundef %35) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #1
+
+declare ptr @TLS_method() local_unnamed_addr #1
+
+declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @SSL_new(ptr noundef) local_unnamed_addr #1
+
+declare i64 @SSL_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
+
+declare ptr @BIO_s_mem() local_unnamed_addr #1
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
+
+declare void @SSL_set_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @SSL_connect(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @get_sni_from_client_hello(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  %4 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %3) #5
+  %5 = call i32 @test_long_ge(ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.11, i64 noundef %4, i64 noundef 0) #5
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %PACKET_forward.exit.thread, label %6
+
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = icmp slt i64 %4, 0
+  br i1 %8, label %PACKET_buf_init.exit.thread, label %PACKET_buf_init.exit
+
+PACKET_buf_init.exit:                             ; preds = %6
+  %9 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @.str.17, i32 noundef 1) #5
+  %.not3 = icmp eq i32 %9, 0
+  %10 = icmp samesign ult i64 %4, 5
+  %or.cond = select i1 %.not3, i1 true, i1 %10
+  br i1 %or.cond, label %PACKET_forward.exit.thread, label %PACKET_forward.exit31
+
+PACKET_buf_init.exit.thread:                      ; preds = %6
+  %11 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @.str.17, i32 noundef 0) #5
+  br label %PACKET_forward.exit.thread
+
+PACKET_forward.exit31:                            ; preds = %PACKET_buf_init.exit
+  %12 = add nsw i64 %4, -5
+  %13 = icmp samesign ugt i64 %12, 3
+  %.0.i30 = zext i1 %13 to i32
+  %14 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.18, i32 noundef %.0.i30) #5
+  %.not5 = icmp eq i32 %14, 0
+  br i1 %.not5, label %PACKET_forward.exit.thread, label %PACKET_forward.exit34
+
+PACKET_forward.exit34:                            ; preds = %PACKET_forward.exit31
+  %15 = add nsw i64 %4, -9
+  %.sroa.18.2 = select i1 %13, i64 %15, i64 %12
+  %.sroa.079.2.v = select i1 %13, i64 9, i64 5
+  %.sroa.079.2 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.079.2.v
+  %16 = icmp ugt i64 %.sroa.18.2, 33
+  %17 = add nsw i64 %.sroa.18.2, -34
+  %.sroa.079.3.idx = select i1 %16, i64 34, i64 0
+  %.sroa.079.3 = getelementptr inbounds nuw i8, ptr %.sroa.079.2, i64 %.sroa.079.3.idx
+  %.sroa.18.3 = select i1 %16, i64 %17, i64 %.sroa.18.2
+  %.0.i33 = zext i1 %16 to i32
+  %18 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.19, i32 noundef %.0.i33) #5
+  %.not6 = icmp eq i32 %18, 0
+  br i1 %.not6, label %PACKET_forward.exit.thread, label %19
+
+19:                                               ; preds = %PACKET_forward.exit34
+  %.not.i.i.i = icmp eq i64 %.sroa.18.3, 0
+  br i1 %.not.i.i.i, label %PACKET_get_length_prefixed_1.exit.thread, label %20
+
+20:                                               ; preds = %19
+  %21 = load i8, ptr %.sroa.079.3, align 1, !tbaa !14
+  %22 = add nsw i64 %.sroa.18.3, -1
+  %23 = zext i8 %21 to i64
+  %24 = icmp samesign ult i64 %22, %23
+  br i1 %24, label %PACKET_get_length_prefixed_1.exit, label %25
+
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.079.3, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %23
+  %28 = sub nuw nsw i64 %22, %23
+  br label %PACKET_get_length_prefixed_1.exit
+
+PACKET_get_length_prefixed_1.exit:                ; preds = %20, %25
+  %.sroa.079.4 = phi ptr [ %.sroa.079.3, %20 ], [ %27, %25 ]
+  %.sroa.18.4 = phi i64 [ %.sroa.18.3, %20 ], [ %28, %25 ]
+  %.sroa.076.1 = phi ptr [ null, %20 ], [ %26, %25 ]
+  %.sroa.11.1 = phi i64 [ 0, %20 ], [ %23, %25 ]
+  %.0.i35 = phi i32 [ 0, %20 ], [ 1, %25 ]
+  %29 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef %.0.i35) #5
+  %.not7 = icmp eq i32 %29, 0
+  br i1 %.not7, label %PACKET_forward.exit.thread, label %31
+
+PACKET_get_length_prefixed_1.exit.thread:         ; preds = %19
+  %30 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef 0) #5
+  %.not7107 = icmp eq i32 %30, 0
+  br i1 %.not7107, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit.thread
+
+31:                                               ; preds = %PACKET_get_length_prefixed_1.exit
+  %32 = icmp samesign ult i64 %.sroa.18.4, 2
+  br i1 %32, label %PACKET_get_length_prefixed_2.exit, label %33
+
+33:                                               ; preds = %31
+  %34 = load i8, ptr %.sroa.079.4, align 1, !tbaa !14
+  %35 = zext i8 %34 to i64
+  %36 = shl nuw nsw i64 %35, 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.079.4, i64 1
+  %38 = load i8, ptr %37, align 1, !tbaa !14
+  %39 = zext i8 %38 to i64
+  %40 = or disjoint i64 %36, %39
+  %41 = add nsw i64 %.sroa.18.4, -2
+  %42 = icmp samesign ult i64 %41, %40
+  br i1 %42, label %PACKET_get_length_prefixed_2.exit, label %43
+
+43:                                               ; preds = %33
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.079.4, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %40
+  %46 = sub nuw nsw i64 %41, %40
+  br label %PACKET_get_length_prefixed_2.exit
+
+PACKET_get_length_prefixed_2.exit:                ; preds = %31, %33, %43
+  %.sroa.079.5 = phi ptr [ %.sroa.079.4, %31 ], [ %.sroa.079.4, %33 ], [ %45, %43 ]
+  %.sroa.18.5 = phi i64 [ %.sroa.18.4, %31 ], [ %.sroa.18.4, %33 ], [ %46, %43 ]
+  %.sroa.076.2 = phi ptr [ %.sroa.076.1, %31 ], [ %.sroa.076.1, %33 ], [ %44, %43 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %31 ], [ %.sroa.11.1, %33 ], [ %40, %43 ]
+  %.0.i39 = phi i32 [ 0, %31 ], [ 0, %33 ], [ 1, %43 ]
+  %47 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef %.0.i39) #5
+  %.not8 = icmp eq i32 %47, 0
+  br i1 %.not8, label %PACKET_forward.exit.thread, label %49
+
+PACKET_get_length_prefixed_2.exit.thread:         ; preds = %PACKET_get_length_prefixed_1.exit.thread
+  %48 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef 0) #5
+  %.not8121 = icmp eq i32 %48, 0
+  br i1 %.not8121, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_1.exit45
+
+49:                                               ; preds = %PACKET_get_length_prefixed_2.exit
+  %.not.i.i.i42 = icmp eq i64 %.sroa.18.5, 0
+  br i1 %.not.i.i.i42, label %PACKET_get_length_prefixed_1.exit45, label %50
+
+50:                                               ; preds = %49
+  %51 = load i8, ptr %.sroa.079.5, align 1, !tbaa !14
+  %52 = add nsw i64 %.sroa.18.5, -1
+  %53 = zext i8 %51 to i64
+  %54 = icmp samesign ult i64 %52, %53
+  br i1 %54, label %PACKET_get_length_prefixed_1.exit45, label %55
+
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.079.5, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %53
+  %58 = sub nuw nsw i64 %52, %53
+  br label %PACKET_get_length_prefixed_1.exit45
+
+PACKET_get_length_prefixed_1.exit45:              ; preds = %PACKET_get_length_prefixed_2.exit.thread, %49, %50, %55
+  %.sroa.079.6 = phi ptr [ %.sroa.079.5, %49 ], [ %.sroa.079.5, %50 ], [ %57, %55 ], [ %.sroa.079.3, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.sroa.18.6 = phi i64 [ 0, %49 ], [ %.sroa.18.5, %50 ], [ %58, %55 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.sroa.076.3 = phi ptr [ %.sroa.076.2, %49 ], [ %.sroa.076.2, %50 ], [ %56, %55 ], [ null, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.sroa.11.3 = phi i64 [ %.sroa.11.2, %49 ], [ %.sroa.11.2, %50 ], [ %53, %55 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.0.i44 = phi i32 [ 0, %49 ], [ 0, %50 ], [ 1, %55 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %59 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @.str.20, i32 noundef %.0.i44) #5
+  %.not9 = icmp eq i32 %59, 0
+  br i1 %.not9, label %PACKET_forward.exit.thread, label %60
+
+60:                                               ; preds = %PACKET_get_length_prefixed_1.exit45
+  %61 = icmp samesign ult i64 %.sroa.18.6, 2
+  br i1 %61, label %PACKET_as_length_prefixed_2.exit, label %62
+
+62:                                               ; preds = %60
+  %63 = load i8, ptr %.sroa.079.6, align 1, !tbaa !14
+  %64 = zext i8 %63 to i64
+  %65 = shl nuw nsw i64 %64, 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.079.6, i64 1
+  %67 = load i8, ptr %66, align 1, !tbaa !14
+  %68 = zext i8 %67 to i64
+  %69 = or disjoint i64 %65, %68
+  %70 = add nsw i64 %.sroa.18.6, -2
+  %.not5.i = icmp eq i64 %70, %69
+  br i1 %.not5.i, label %71, label %PACKET_as_length_prefixed_2.exit
+
+71:                                               ; preds = %62
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.079.6, i64 2
+  br label %PACKET_as_length_prefixed_2.exit
+
+PACKET_as_length_prefixed_2.exit:                 ; preds = %60, %62, %71
+  %.sroa.076.4 = phi ptr [ %.sroa.076.3, %60 ], [ %72, %71 ], [ %.sroa.076.3, %62 ]
+  %.sroa.11.4 = phi i64 [ %.sroa.11.3, %60 ], [ %69, %71 ], [ %.sroa.11.3, %62 ]
+  %.0.i49 = phi i32 [ 0, %60 ], [ 1, %71 ], [ 0, %62 ]
+  %73 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.22, i32 noundef %.0.i49) #5
+  %.not10 = icmp eq i32 %73, 0
+  br i1 %.not10, label %PACKET_forward.exit.thread, label %.preheader
+
+.preheader:                                       ; preds = %PACKET_as_length_prefixed_2.exit, %102
+  %.sroa.076.0 = phi ptr [ %.sroa.076.6, %102 ], [ %.sroa.076.4, %PACKET_as_length_prefixed_2.exit ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.6, %102 ], [ %.sroa.11.4, %PACKET_as_length_prefixed_2.exit ]
+  %.sroa.074.0 = phi ptr [ %.sroa.074.1, %102 ], [ null, %PACKET_as_length_prefixed_2.exit ]
+  %.sroa.675.0 = phi i64 [ %.sroa.675.1, %102 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
+  %.088 = phi i32 [ %.1139144, %102 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
+  switch i64 %.sroa.11.0, label %PACKET_get_net_2.exit [
+    i64 0, label %PACKET_forward.exit.thread
+    i64 1, label %PACKET_get_net_2.exit.thread
+  ]
+
+PACKET_get_net_2.exit:                            ; preds = %.preheader
+  %74 = load i8, ptr %.sroa.076.0, align 1, !tbaa !14
+  %75 = zext i8 %74 to i32
+  %76 = shl nuw nsw i32 %75, 8
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 1
+  %78 = load i8, ptr %77, align 1, !tbaa !14
+  %79 = zext i8 %78 to i32
+  %80 = or disjoint i32 %76, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 2
+  %82 = add i64 %.sroa.11.0, -2
+  %83 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 1) #5
+  %.not12 = icmp eq i32 %83, 0
+  br i1 %.not12, label %PACKET_forward.exit.thread, label %85
+
+PACKET_get_net_2.exit.thread:                     ; preds = %.preheader
+  %84 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 0) #5
+  %.not12136 = icmp eq i32 %84, 0
+  br i1 %.not12136, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit55
+
+85:                                               ; preds = %PACKET_get_net_2.exit
+  %86 = icmp ult i64 %82, 2
+  br i1 %86, label %PACKET_get_length_prefixed_2.exit55, label %87
+
+87:                                               ; preds = %85
+  %88 = load i8, ptr %81, align 1, !tbaa !14
+  %89 = zext i8 %88 to i64
+  %90 = shl nuw nsw i64 %89, 8
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 3
+  %92 = load i8, ptr %91, align 1, !tbaa !14
+  %93 = zext i8 %92 to i64
+  %94 = or disjoint i64 %90, %93
+  %95 = add i64 %.sroa.11.0, -4
+  %96 = icmp ult i64 %95, %94
+  br i1 %96, label %PACKET_get_length_prefixed_2.exit55, label %97
+
+97:                                               ; preds = %87
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %94
+  %100 = sub nuw i64 %95, %94
+  br label %PACKET_get_length_prefixed_2.exit55
+
+PACKET_get_length_prefixed_2.exit55:              ; preds = %PACKET_get_net_2.exit.thread, %85, %87, %97
+  %.1139144 = phi i32 [ %80, %85 ], [ %80, %87 ], [ %80, %97 ], [ %.088, %PACKET_get_net_2.exit.thread ]
+  %.sroa.076.6 = phi ptr [ %81, %85 ], [ %81, %87 ], [ %99, %97 ], [ %.sroa.076.0, %PACKET_get_net_2.exit.thread ]
+  %.sroa.11.6 = phi i64 [ %82, %85 ], [ %82, %87 ], [ %100, %97 ], [ 1, %PACKET_get_net_2.exit.thread ]
+  %.sroa.074.1 = phi ptr [ %.sroa.074.0, %85 ], [ %.sroa.074.0, %87 ], [ %98, %97 ], [ %.sroa.074.0, %PACKET_get_net_2.exit.thread ]
+  %.sroa.675.1 = phi i64 [ %.sroa.675.0, %85 ], [ %.sroa.675.0, %87 ], [ %94, %97 ], [ %.sroa.675.0, %PACKET_get_net_2.exit.thread ]
+  %.0.i54 = phi i32 [ 0, %85 ], [ 0, %87 ], [ 1, %97 ], [ 0, %PACKET_get_net_2.exit.thread ]
+  %101 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @.str.24, i32 noundef %.0.i54) #5
+  %.not13 = icmp eq i32 %101, 0
+  br i1 %.not13, label %PACKET_forward.exit.thread, label %102
+
+102:                                              ; preds = %PACKET_get_length_prefixed_2.exit55
+  %103 = icmp eq i32 %.1139144, 0
+  br i1 %103, label %104, label %.preheader, !llvm.loop !15
+
+104:                                              ; preds = %102
+  %105 = icmp ult i64 %.sroa.675.1, 2
+  br i1 %105, label %PACKET_get_length_prefixed_2.exit60, label %106
+
+106:                                              ; preds = %104
+  %107 = load i8, ptr %.sroa.074.1, align 1, !tbaa !14
+  %108 = zext i8 %107 to i64
+  %109 = shl nuw nsw i64 %108, 8
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.074.1, i64 1
+  %111 = load i8, ptr %110, align 1, !tbaa !14
+  %112 = zext i8 %111 to i64
+  %113 = or disjoint i64 %109, %112
+  %114 = add nsw i64 %.sroa.675.1, -2
+  %115 = icmp ult i64 %114, %113
+  br i1 %115, label %PACKET_get_length_prefixed_2.exit60, label %116
+
+116:                                              ; preds = %106
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.074.1, i64 2
+  br label %PACKET_get_length_prefixed_2.exit60
+
+PACKET_get_length_prefixed_2.exit60:              ; preds = %104, %106, %116
+  %.sroa.071.0 = phi ptr [ null, %104 ], [ null, %106 ], [ %117, %116 ]
+  %.sroa.8.0 = phi i64 [ 0, %104 ], [ 0, %106 ], [ %113, %116 ]
+  %.0.i59 = phi i32 [ 0, %104 ], [ 0, %106 ], [ 1, %116 ]
+  %118 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @.str.25, i32 noundef %.0.i59) #5
+  %.not14 = icmp eq i32 %118, 0
+  br i1 %.not14, label %PACKET_forward.exit.thread, label %119
+
+119:                                              ; preds = %PACKET_get_length_prefixed_2.exit60
+  %120 = trunc nuw nsw i64 %.sroa.8.0 to i32
+  %121 = call i32 @test_uint_ne(ptr noundef nonnull @.str, i32 noundef 81, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.11, i32 noundef %120, i32 noundef 0) #5
+  %.not15 = icmp eq i32 %121, 0
+  br i1 %.not15, label %PACKET_forward.exit.thread, label %122
+
+122:                                              ; preds = %119
+  %.not.i.i = icmp eq i64 %.sroa.8.0, 0
+  br i1 %.not.i.i, label %PACKET_get_1.exit, label %123
+
+123:                                              ; preds = %122
+  %124 = load i8, ptr %.sroa.071.0, align 1, !tbaa !14
+  %125 = zext i8 %124 to i32
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.071.0, i64 1
+  %127 = add nsw i64 %.sroa.8.0, -1
+  br label %PACKET_get_1.exit
+
+PACKET_get_1.exit:                                ; preds = %122, %123
+  %.sroa.071.1 = phi ptr [ %.sroa.071.0, %122 ], [ %126, %123 ]
+  %.sroa.8.1 = phi i64 [ 0, %122 ], [ %127, %123 ]
+  %.089 = phi i32 [ 0, %122 ], [ %125, %123 ]
+  %.0.i62 = phi i32 [ 0, %122 ], [ 1, %123 ]
+  %128 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 82, ptr noundef nonnull @.str.27, i32 noundef %.0.i62) #5
+  %.not16 = icmp eq i32 %128, 0
+  br i1 %.not16, label %PACKET_forward.exit.thread, label %129
+
+129:                                              ; preds = %PACKET_get_1.exit
+  %130 = call i32 @test_uint_eq(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %.089, i32 noundef 0) #5
+  %.not17 = icmp eq i32 %130, 0
+  br i1 %.not17, label %PACKET_forward.exit.thread, label %131
+
+131:                                              ; preds = %129
+  %132 = icmp samesign ult i64 %.sroa.8.1, 2
+  br i1 %132, label %PACKET_get_length_prefixed_2.exit67, label %133
+
+133:                                              ; preds = %131
+  %134 = load i8, ptr %.sroa.071.1, align 1, !tbaa !14
+  %135 = zext i8 %134 to i64
+  %136 = shl nuw nsw i64 %135, 8
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.071.1, i64 1
+  %138 = load i8, ptr %137, align 1, !tbaa !14
+  %139 = zext i8 %138 to i64
+  %140 = or disjoint i64 %136, %139
+  %141 = add nsw i64 %.sroa.8.1, -2
+  %142 = icmp samesign ult i64 %141, %140
+  br i1 %142, label %PACKET_get_length_prefixed_2.exit67, label %143
+
+143:                                              ; preds = %133
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.071.1, i64 2
+  br label %PACKET_get_length_prefixed_2.exit67
+
+PACKET_get_length_prefixed_2.exit67:              ; preds = %131, %133, %143
+  %.sroa.0.0 = phi ptr [ null, %131 ], [ null, %133 ], [ %144, %143 ]
+  %.sroa.6.0 = phi i64 [ 0, %131 ], [ 0, %133 ], [ %140, %143 ]
+  %.0.i66 = phi i32 [ 0, %131 ], [ 0, %133 ], [ 1, %143 ]
+  %145 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @.str.30, i32 noundef %.0.i66) #5
+  %.not18 = icmp eq i32 %145, 0
+  br i1 %.not18, label %PACKET_forward.exit.thread, label %146
+
+146:                                              ; preds = %PACKET_get_length_prefixed_2.exit67
+  %147 = trunc nuw nsw i64 %.sroa.6.0 to i32
+  %148 = call i32 @test_uint_le(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %147, i32 noundef 255) #5
+  %.not19 = icmp eq i32 %148, 0
+  br i1 %.not19, label %PACKET_forward.exit.thread, label %149
+
+149:                                              ; preds = %146
+  %150 = call ptr @memchr(ptr noundef readonly %.sroa.0.0, i32 noundef 0, i64 noundef %.sroa.6.0) #6
+  %151 = icmp ne ptr %150, null
+  %152 = zext i1 %151 to i32
+  %153 = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 86, ptr noundef nonnull @.str.33, i32 noundef %152) #5
+  %.not20 = icmp eq i32 %153, 0
+  br i1 %.not20, label %PACKET_forward.exit.thread, label %154
+
+154:                                              ; preds = %149
+  %155 = call fastcc i32 @PACKET_strndup(ptr %.sroa.0.0, i64 %.sroa.6.0, ptr noundef %1)
+  %156 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.34, i32 noundef %155) #5
+  %.not21 = icmp ne i32 %156, 0
+  %spec.select = zext i1 %.not21 to i32
+  br label %PACKET_forward.exit.thread
+
+PACKET_forward.exit.thread:                       ; preds = %.preheader, %PACKET_get_net_2.exit, %PACKET_get_length_prefixed_2.exit55, %PACKET_get_net_2.exit.thread, %PACKET_get_length_prefixed_2.exit.thread, %PACKET_get_length_prefixed_1.exit.thread, %PACKET_buf_init.exit.thread, %154, %PACKET_get_length_prefixed_2.exit60, %119, %PACKET_get_1.exit, %129, %PACKET_get_length_prefixed_2.exit67, %146, %149, %2, %PACKET_buf_init.exit, %PACKET_forward.exit31, %PACKET_forward.exit34, %PACKET_get_length_prefixed_1.exit, %PACKET_get_length_prefixed_2.exit, %PACKET_get_length_prefixed_1.exit45, %PACKET_as_length_prefixed_2.exit
+  %.0 = phi i32 [ 0, %149 ], [ 0, %146 ], [ 0, %PACKET_get_length_prefixed_2.exit67 ], [ 0, %129 ], [ 0, %PACKET_get_1.exit ], [ 0, %119 ], [ 0, %PACKET_get_length_prefixed_2.exit60 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit45 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %PACKET_forward.exit34 ], [ 0, %PACKET_forward.exit31 ], [ 0, %PACKET_buf_init.exit ], [ 0, %2 ], [ %spec.select, %154 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit55 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  ret i32 %.0
+}
+
+declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @SSL_free(ptr noundef) local_unnamed_addr #1
+
+declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+declare i32 @test_long_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @test_uint_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @test_uint_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @PACKET_strndup(ptr %.0.val, i64 %.8.val, ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !4
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.35, i32 noundef 483) #5
+  %3 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %.0.val, i64 noundef %.8.val, ptr noundef nonnull @.str.35, i32 noundef 486) #5
+  store ptr %3, ptr %0, align 8, !tbaa !4
+  %4 = icmp ne ptr %3, null
+  %5 = zext i1 %4 to i32
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+
+declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @SSL_set_connect_state(ptr noundef) local_unnamed_addr #1
+
+declare i32 @create_ssl_ctx_pair(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @TLS_server_method() local_unnamed_addr #1
+
+declare ptr @TLS_client_method() local_unnamed_addr #1
+
+declare i32 @create_ssl_objects(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @create_ssl_connection(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @SSL_get_servername(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!6, !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
+!14 = !{!7, !7, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}

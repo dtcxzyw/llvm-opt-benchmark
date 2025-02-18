@@ -1,0 +1,1141 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.PROV_ML_DSA_CTX = type { ptr, ptr, [255 x i8], i64, [32 x i8], i64, i32, i32, i32, [256 x i8], i64, i32 }
+%struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
+%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
+
+@ossl_ml_dsa_44_signature_functions = constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @ml_dsa_44_newctx }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @ml_dsa_sign_msg_init }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @ml_dsa_sign }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @ml_dsa_verify_msg_init }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @ml_dsa_verify }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_signverify_init }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_sign }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_signverify_init }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_verify }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @ml_dsa_freectx }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @ml_dsa_set_ctx_params }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @ml_dsa_settable_ctx_params }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @ml_dsa_get_ctx_params }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @ml_dsa_gettable_ctx_params }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @ml_dsa_dupctx }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@ossl_ml_dsa_65_signature_functions = constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @ml_dsa_65_newctx }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @ml_dsa_sign_msg_init }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @ml_dsa_sign }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @ml_dsa_verify_msg_init }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @ml_dsa_verify }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_signverify_init }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_sign }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_signverify_init }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_verify }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @ml_dsa_freectx }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @ml_dsa_set_ctx_params }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @ml_dsa_settable_ctx_params }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @ml_dsa_get_ctx_params }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @ml_dsa_gettable_ctx_params }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @ml_dsa_dupctx }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@ossl_ml_dsa_87_signature_functions = constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @ml_dsa_87_newctx }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @ml_dsa_sign_msg_init }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @ml_dsa_sign }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @ml_dsa_verify_msg_init }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @ml_dsa_verify }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_signverify_init }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_sign }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_signverify_init }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @ml_dsa_digest_verify }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @ml_dsa_freectx }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @ml_dsa_set_ctx_params }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @ml_dsa_settable_ctx_params }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @ml_dsa_get_ctx_params }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @ml_dsa_gettable_ctx_params }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @ml_dsa_dupctx }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str = private unnamed_addr constant [60 x i8] c"../openssl/providers/implementations/signature/ml_dsa_sig.c\00", align 1
+@.str.1 = private unnamed_addr constant [17 x i8] c"ML_DSA Sign Init\00", align 1
+@__func__.ml_dsa_signverify_msg_init = private unnamed_addr constant [27 x i8] c"ml_dsa_signverify_msg_init\00", align 1
+@.str.2 = private unnamed_addr constant [19 x i8] c"ML_DSA Verify Init\00", align 1
+@__func__.ml_dsa_digest_signverify_init = private unnamed_addr constant [30 x i8] c"ml_dsa_digest_signverify_init\00", align 1
+@.str.3 = private unnamed_addr constant [52 x i8] c"Explicit digest not supported for ML-DSA operations\00", align 1
+@.str.4 = private unnamed_addr constant [15 x i8] c"context-string\00", align 1
+@.str.5 = private unnamed_addr constant [13 x i8] c"test-entropy\00", align 1
+@__func__.ml_dsa_set_ctx_params = private unnamed_addr constant [22 x i8] c"ml_dsa_set_ctx_params\00", align 1
+@.str.6 = private unnamed_addr constant [14 x i8] c"deterministic\00", align 1
+@.str.7 = private unnamed_addr constant [17 x i8] c"message-encoding\00", align 1
+@.str.8 = private unnamed_addr constant [3 x i8] c"mu\00", align 1
+@ml_dsa_settable_ctx_params.settable_ctx_params = internal constant [6 x { ptr, i32, [4 x i8], ptr, i64, i64 }] [{ ptr, i32, [4 x i8], ptr, i64, i64 } { ptr @.str.4, i32 5, [4 x i8] zeroinitializer, ptr null, i64 0, i64 -1 }, { ptr, i32, [4 x i8], ptr, i64, i64 } { ptr @.str.5, i32 5, [4 x i8] zeroinitializer, ptr null, i64 0, i64 -1 }, { ptr, i32, [4 x i8], ptr, i64, i64 } { ptr @.str.6, i32 1, [4 x i8] zeroinitializer, ptr null, i64 4, i64 -1 }, { ptr, i32, [4 x i8], ptr, i64, i64 } { ptr @.str.8, i32 1, [4 x i8] zeroinitializer, ptr null, i64 4, i64 -1 }, { ptr, i32, [4 x i8], ptr, i64, i64 } { ptr @.str.7, i32 1, [4 x i8] zeroinitializer, ptr null, i64 4, i64 -1 }, { ptr, i32, [4 x i8], ptr, i64, i64 } zeroinitializer], align 16
+@.str.9 = private unnamed_addr constant [13 x i8] c"algorithm-id\00", align 1
+@known_gettable_ctx_params = internal constant [2 x { ptr, i32, [4 x i8], ptr, i64, i64 }] [{ ptr, i32, [4 x i8], ptr, i64, i64 } { ptr @.str.9, i32 5, [4 x i8] zeroinitializer, ptr null, i64 0, i64 -1 }, { ptr, i32, [4 x i8], ptr, i64, i64 } zeroinitializer], align 16
+
+; Function Attrs: nounwind uwtable
+define internal ptr @ml_dsa_44_newctx(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = call ptr @ml_dsa_newctx(ptr noundef %5, i32 noundef 1457, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_sign_msg_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %6, align 8, !tbaa !9
+  %10 = call i32 @ml_dsa_signverify_msg_init(ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef 16, ptr noundef @.str.1)
+  ret i32 %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca [32 x i8], align 16
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store ptr %2, ptr %10, align 8, !tbaa !11
+  store i64 %3, ptr %11, align 8, !tbaa !13
+  store ptr %4, ptr %12, align 8, !tbaa !7
+  store i64 %5, ptr %13, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  store i32 0, ptr %14, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %19 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %19, ptr %15, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  store ptr null, ptr %17, align 8, !tbaa !7
+  %20 = call i32 @ossl_prov_is_running()
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %6
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %86
+
+23:                                               ; preds = %6
+  %24 = load ptr, ptr %9, align 8, !tbaa !7
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %54
+
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %15, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %27, i32 0, i32 5
+  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %15, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %32, i32 0, i32 4
+  %34 = getelementptr inbounds [32 x i8], ptr %33, i64 0, i64 0
+  store ptr %34, ptr %17, align 8, !tbaa !7
+  br label %53
+
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
+  store ptr %36, ptr %17, align 8, !tbaa !7
+  %37 = load ptr, ptr %15, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %37, i32 0, i32 7
+  %39 = load i32, ptr %38, align 4, !tbaa !21
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %17, align 8, !tbaa !7
+  call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 32, i1 false)
+  br label %52
+
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %15, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
+  %47 = load ptr, ptr %17, align 8, !tbaa !7
+  %48 = call i32 @RAND_priv_bytes_ex(ptr noundef %46, ptr noundef %47, i64 noundef 32, i32 noundef 0)
+  %49 = icmp sle i32 %48, 0
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %43
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %86
+
+51:                                               ; preds = %43
+  br label %52
+
+52:                                               ; preds = %51, %41
+  br label %53
+
+53:                                               ; preds = %52, %31
+  br label %54
+
+54:                                               ; preds = %53, %23
+  %55 = load ptr, ptr %15, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !23
+  %58 = load ptr, ptr %15, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %58, i32 0, i32 11
+  %60 = load i32, ptr %59, align 8, !tbaa !24
+  %61 = load ptr, ptr %12, align 8, !tbaa !7
+  %62 = load i64, ptr %13, align 8, !tbaa !13
+  %63 = load ptr, ptr %15, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %63, i32 0, i32 2
+  %65 = getelementptr inbounds [255 x i8], ptr %64, i64 0, i64 0
+  %66 = load ptr, ptr %15, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %66, i32 0, i32 3
+  %68 = load i64, ptr %67, align 8, !tbaa !25
+  %69 = load ptr, ptr %17, align 8, !tbaa !7
+  %70 = load ptr, ptr %15, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %70, i32 0, i32 6
+  %72 = load i32, ptr %71, align 8, !tbaa !26
+  %73 = load ptr, ptr %9, align 8, !tbaa !7
+  %74 = load ptr, ptr %10, align 8, !tbaa !11
+  %75 = load i64, ptr %11, align 8, !tbaa !13
+  %76 = call i32 @ossl_ml_dsa_sign(ptr noundef %57, i32 noundef %60, ptr noundef %61, i64 noundef %62, ptr noundef %65, i64 noundef %68, ptr noundef %69, i64 noundef 32, i32 noundef %72, ptr noundef %73, ptr noundef %74, i64 noundef %75)
+  store i32 %76, ptr %14, align 4, !tbaa !15
+  %77 = load ptr, ptr %17, align 8, !tbaa !7
+  %78 = load ptr, ptr %15, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %78, i32 0, i32 4
+  %80 = getelementptr inbounds [32 x i8], ptr %79, i64 0, i64 0
+  %81 = icmp ne ptr %77, %80
+  br i1 %81, label %82, label %84
+
+82:                                               ; preds = %54
+  %83 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
+  call void @OPENSSL_cleanse(ptr noundef %83, i64 noundef 32)
+  br label %84
+
+84:                                               ; preds = %82, %54
+  %85 = load i32, ptr %14, align 4, !tbaa !15
+  store i32 %85, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %86
+
+86:                                               ; preds = %84, %50, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  %87 = load i32, ptr %7, align 4
+  ret i32 %87
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_verify_msg_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %6, align 8, !tbaa !9
+  %10 = call i32 @ml_dsa_signverify_msg_init(ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef 32, ptr noundef @.str.2)
+  ret i32 %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !7
+  store i64 %2, ptr %9, align 8, !tbaa !13
+  store ptr %3, ptr %10, align 8, !tbaa !7
+  store i64 %4, ptr %11, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %14 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %14, ptr %12, align 8, !tbaa !3
+  %15 = call i32 @ossl_prov_is_running()
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %39
+
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %12, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
+  %22 = load ptr, ptr %12, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %22, i32 0, i32 11
+  %24 = load i32, ptr %23, align 8, !tbaa !24
+  %25 = load ptr, ptr %10, align 8, !tbaa !7
+  %26 = load i64, ptr %11, align 8, !tbaa !13
+  %27 = load ptr, ptr %12, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %27, i32 0, i32 2
+  %29 = getelementptr inbounds [255 x i8], ptr %28, i64 0, i64 0
+  %30 = load ptr, ptr %12, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %30, i32 0, i32 3
+  %32 = load i64, ptr %31, align 8, !tbaa !25
+  %33 = load ptr, ptr %12, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %33, i32 0, i32 6
+  %35 = load i32, ptr %34, align 8, !tbaa !26
+  %36 = load ptr, ptr %8, align 8, !tbaa !7
+  %37 = load i64, ptr %9, align 8, !tbaa !13
+  %38 = call i32 @ossl_ml_dsa_verify(ptr noundef %21, i32 noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef %29, i64 noundef %32, i32 noundef %35, ptr noundef %36, i64 noundef %37)
+  store i32 %38, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %39
+
+39:                                               ; preds = %18, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %40 = load i32, ptr %6, align 4
+  ret i32 %40
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_digest_signverify_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !7
+  store ptr %2, ptr %8, align 8, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %12, ptr %10, align 8, !tbaa !3
+  %13 = load ptr, ptr %7, align 8, !tbaa !7
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %22
+
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %7, align 8, !tbaa !7
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !27
+  %19 = sext i8 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %15
+  call void @ERR_new()
+  call void @ERR_set_debug(ptr noundef @.str, i32 noundef 163, ptr noundef @__func__.ml_dsa_digest_signverify_init)
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef @.str.3)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
+
+22:                                               ; preds = %15, %4
+  %23 = load ptr, ptr %10, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %23, i32 0, i32 11
+  store i32 0, ptr %24, align 8, !tbaa !24
+  %25 = load ptr, ptr %8, align 8, !tbaa !3
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %36
+
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %10, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !23
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %36
+
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %10, align 8, !tbaa !3
+  %34 = load ptr, ptr %9, align 8, !tbaa !9
+  %35 = call i32 @ml_dsa_set_ctx_params(ptr noundef %33, ptr noundef %34)
+  store i32 %35, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
+
+36:                                               ; preds = %27, %22
+  %37 = load ptr, ptr %6, align 8, !tbaa !3
+  %38 = load ptr, ptr %8, align 8, !tbaa !3
+  %39 = load ptr, ptr %9, align 8, !tbaa !9
+  %40 = call i32 @ml_dsa_signverify_msg_init(ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef 16, ptr noundef @.str.1)
+  store i32 %40, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %41
+
+41:                                               ; preds = %36, %32, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %42 = load i32, ptr %5, align 4
+  ret i32 %42
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_digest_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !7
+  store ptr %2, ptr %9, align 8, !tbaa !11
+  store i64 %3, ptr %10, align 8, !tbaa !13
+  store ptr %4, ptr %11, align 8, !tbaa !7
+  store i64 %5, ptr %12, align 8, !tbaa !13
+  %13 = load ptr, ptr %7, align 8, !tbaa !3
+  %14 = load ptr, ptr %8, align 8, !tbaa !7
+  %15 = load ptr, ptr %9, align 8, !tbaa !11
+  %16 = load i64, ptr %10, align 8, !tbaa !13
+  %17 = load ptr, ptr %11, align 8, !tbaa !7
+  %18 = load i64, ptr %12, align 8, !tbaa !13
+  %19 = call i32 @ml_dsa_sign(ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, ptr noundef %17, i64 noundef %18)
+  ret i32 %19
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_digest_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !7
+  store i64 %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !7
+  store i64 %4, ptr %10, align 8, !tbaa !13
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = load ptr, ptr %7, align 8, !tbaa !7
+  %13 = load i64, ptr %8, align 8, !tbaa !13
+  %14 = load ptr, ptr %9, align 8, !tbaa !7
+  %15 = load i64, ptr %10, align 8, !tbaa !13
+  %16 = call i32 @ml_dsa_verify(ptr noundef %11, ptr noundef %12, i64 noundef %13, ptr noundef %14, i64 noundef %15)
+  ret i32 %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @ml_dsa_freectx(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %4, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %5, i32 0, i32 4
+  %7 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 0
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %8, i32 0, i32 5
+  %10 = load i64, ptr %9, align 8, !tbaa !17
+  call void @OPENSSL_cleanse(ptr noundef %7, i64 noundef %10)
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %11, ptr noundef @.str, i32 noundef 64)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %11, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %107
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8, !tbaa !9
+  %17 = call i32 @ossl_param_is_empty(ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %15
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %107
+
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %5, align 8, !tbaa !9
+  %22 = call ptr @OSSL_PARAM_locate_const(ptr noundef %21, ptr noundef @.str.4)
+  store ptr %22, ptr %7, align 8, !tbaa !9
+  %23 = load ptr, ptr %7, align 8, !tbaa !9
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %41
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %26, i32 0, i32 2
+  %28 = getelementptr inbounds [255 x i8], ptr %27, i64 0, i64 0
+  store ptr %28, ptr %9, align 8, !tbaa !3
+  %29 = load ptr, ptr %7, align 8, !tbaa !9
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %30, i32 0, i32 3
+  %32 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef %29, ptr noundef %9, i64 noundef 255, ptr noundef %31)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %25
+  %35 = load ptr, ptr %6, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %35, i32 0, i32 3
+  store i64 0, ptr %36, align 8, !tbaa !25
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %38
+
+37:                                               ; preds = %25
+  store i32 0, ptr %8, align 4
+  br label %38
+
+38:                                               ; preds = %37, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  %39 = load i32, ptr %8, align 4
+  switch i32 %39, label %107 [
+    i32 0, label %40
+  ]
+
+40:                                               ; preds = %38
+  br label %41
+
+41:                                               ; preds = %40, %20
+  %42 = load ptr, ptr %5, align 8, !tbaa !9
+  %43 = call ptr @OSSL_PARAM_locate_const(ptr noundef %42, ptr noundef @.str.5)
+  store ptr %43, ptr %7, align 8, !tbaa !9
+  %44 = load ptr, ptr %7, align 8, !tbaa !9
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %70
+
+46:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %47 = load ptr, ptr %6, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %47, i32 0, i32 4
+  %49 = getelementptr inbounds [32 x i8], ptr %48, i64 0, i64 0
+  store ptr %49, ptr %10, align 8, !tbaa !3
+  %50 = load ptr, ptr %6, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %50, i32 0, i32 5
+  store i64 0, ptr %51, align 8, !tbaa !17
+  %52 = load ptr, ptr %7, align 8, !tbaa !9
+  %53 = load ptr, ptr %6, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %53, i32 0, i32 5
+  %55 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef %52, ptr noundef %10, i64 noundef 32, ptr noundef %54)
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %58, label %57
+
+57:                                               ; preds = %46
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %67
+
+58:                                               ; preds = %46
+  %59 = load ptr, ptr %6, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %59, i32 0, i32 5
+  %61 = load i64, ptr %60, align 8, !tbaa !17
+  %62 = icmp ne i64 %61, 32
+  br i1 %62, label %63, label %66
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %6, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %64, i32 0, i32 5
+  store i64 0, ptr %65, align 8, !tbaa !17
+  call void @ERR_new()
+  call void @ERR_set_debug(ptr noundef @.str, i32 noundef 268, ptr noundef @__func__.ml_dsa_set_ctx_params)
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 154, ptr noundef null)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %67
+
+66:                                               ; preds = %58
+  store i32 0, ptr %8, align 4
+  br label %67
+
+67:                                               ; preds = %66, %63, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %68 = load i32, ptr %8, align 4
+  switch i32 %68, label %107 [
+    i32 0, label %69
+  ]
+
+69:                                               ; preds = %67
+  br label %70
+
+70:                                               ; preds = %69, %41
+  %71 = load ptr, ptr %5, align 8, !tbaa !9
+  %72 = call ptr @OSSL_PARAM_locate_const(ptr noundef %71, ptr noundef @.str.6)
+  store ptr %72, ptr %7, align 8, !tbaa !9
+  %73 = load ptr, ptr %7, align 8, !tbaa !9
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %82
+
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %7, align 8, !tbaa !9
+  %77 = load ptr, ptr %6, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %77, i32 0, i32 7
+  %79 = call i32 @OSSL_PARAM_get_int(ptr noundef %76, ptr noundef %78)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %82, label %81
+
+81:                                               ; preds = %75
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %107
+
+82:                                               ; preds = %75, %70
+  %83 = load ptr, ptr %5, align 8, !tbaa !9
+  %84 = call ptr @OSSL_PARAM_locate_const(ptr noundef %83, ptr noundef @.str.7)
+  store ptr %84, ptr %7, align 8, !tbaa !9
+  %85 = load ptr, ptr %7, align 8, !tbaa !9
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %94
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %7, align 8, !tbaa !9
+  %89 = load ptr, ptr %6, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %89, i32 0, i32 6
+  %91 = call i32 @OSSL_PARAM_get_int(ptr noundef %88, ptr noundef %90)
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %94, label %93
+
+93:                                               ; preds = %87
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %107
+
+94:                                               ; preds = %87, %82
+  %95 = load ptr, ptr %5, align 8, !tbaa !9
+  %96 = call ptr @OSSL_PARAM_locate_const(ptr noundef %95, ptr noundef @.str.8)
+  store ptr %96, ptr %7, align 8, !tbaa !9
+  %97 = load ptr, ptr %7, align 8, !tbaa !9
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %106
+
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %7, align 8, !tbaa !9
+  %101 = load ptr, ptr %6, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %101, i32 0, i32 11
+  %103 = call i32 @OSSL_PARAM_get_int(ptr noundef %100, ptr noundef %102)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %106, label %105
+
+105:                                              ; preds = %99
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %107
+
+106:                                              ; preds = %99, %94
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %107
+
+107:                                              ; preds = %106, %105, %93, %81, %67, %38, %19, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %108 = load i32, ptr %3, align 4
+  ret i32 %108
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @ml_dsa_settable_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  ret ptr @ml_dsa_settable_ctx_params.settable_ctx_params
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_get_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %9, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %38
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !9
+  %15 = call ptr @OSSL_PARAM_locate(ptr noundef %14, ptr noundef @.str.9)
+  store ptr %15, ptr %7, align 8, !tbaa !9
+  %16 = load ptr, ptr %7, align 8, !tbaa !9
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %37
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %7, align 8, !tbaa !9
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %20, i32 0, i32 10
+  %22 = load i64, ptr %21, align 8, !tbaa !28
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %18
+  br label %29
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %26, i32 0, i32 9
+  %28 = getelementptr inbounds [256 x i8], ptr %27, i64 0, i64 0
+  br label %29
+
+29:                                               ; preds = %25, %24
+  %30 = phi ptr [ null, %24 ], [ %28, %25 ]
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %31, i32 0, i32 10
+  %33 = load i64, ptr %32, align 8, !tbaa !28
+  %34 = call i32 @OSSL_PARAM_set_octet_string(ptr noundef %19, ptr noundef %30, i64 noundef %33)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %37, label %36
+
+36:                                               ; preds = %29
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %38
+
+37:                                               ; preds = %29, %13
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %38
+
+38:                                               ; preds = %37, %36, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %39 = load i32, ptr %3, align 4
+  ret i32 %39
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @ml_dsa_gettable_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  ret ptr @known_gettable_ctx_params
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @ml_dsa_dupctx(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %6, ptr %4, align 8, !tbaa !3
+  %7 = call i32 @ossl_prov_is_running()
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %13
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = call noalias ptr @CRYPTO_memdup(ptr noundef %11, i64 noundef 608, ptr noundef @.str, i32 noundef 95)
+  store ptr %12, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %13
+
+13:                                               ; preds = %10, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @ml_dsa_65_newctx(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = call ptr @ml_dsa_newctx(ptr noundef %5, i32 noundef 1458, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @ml_dsa_87_newctx(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
+  %7 = call ptr @ml_dsa_newctx(ptr noundef %5, i32 noundef 1459, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @ml_dsa_newctx(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !15
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %10 = call i32 @ossl_prov_is_running()
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %29
+
+13:                                               ; preds = %3
+  %14 = call noalias ptr @CRYPTO_zalloc(i64 noundef 608, ptr noundef @.str, i32 noundef 74)
+  store ptr %14, ptr %8, align 8, !tbaa !3
+  %15 = load ptr, ptr %8, align 8, !tbaa !3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %13
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %29
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %19)
+  %21 = load ptr, ptr %8, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8, !tbaa !22
+  %23 = load ptr, ptr %8, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %23, i32 0, i32 6
+  store i32 1, ptr %24, align 8, !tbaa !26
+  %25 = load i32, ptr %6, align 4, !tbaa !15
+  %26 = load ptr, ptr %8, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %26, i32 0, i32 8
+  store i32 %25, ptr %27, align 8, !tbaa !29
+  %28 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %28, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %29
+
+29:                                               ; preds = %18, %17, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %30 = load ptr, ptr %4, align 8
+  ret ptr %30
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @ossl_prov_is_running() #2
+
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) #2
+
+declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ml_dsa_signverify_msg_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !9
+  store i32 %3, ptr %10, align 4, !tbaa !15
+  store ptr %4, ptr %11, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %15 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %15, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %16 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %16, ptr %13, align 8, !tbaa !30
+  %17 = call i32 @ossl_prov_is_running()
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %5
+  %20 = load ptr, ptr %12, align 8, !tbaa !3
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %19, %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %57
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %8, align 8, !tbaa !3
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %32
+
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %12, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
+  call void @ERR_new()
+  call void @ERR_set_debug(ptr noundef @.str, i32 noundef 136, ptr noundef @__func__.ml_dsa_signverify_msg_init)
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 114, ptr noundef null)
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %57
+
+32:                                               ; preds = %26, %23
+  %33 = load ptr, ptr %13, align 8, !tbaa !30
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %39
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %8, align 8, !tbaa !3
+  %37 = load ptr, ptr %12, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %37, i32 0, i32 0
+  store ptr %36, ptr %38, align 8, !tbaa !23
+  br label %39
+
+39:                                               ; preds = %35, %32
+  %40 = load ptr, ptr %12, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !23
+  %43 = load ptr, ptr %12, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %43, i32 0, i32 8
+  %45 = load i32, ptr %44, align 8, !tbaa !29
+  %46 = call i32 @ossl_ml_dsa_key_matches(ptr noundef %42, i32 noundef %45)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %49, label %48
+
+48:                                               ; preds = %39
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %57
+
+49:                                               ; preds = %39
+  %50 = load ptr, ptr %12, align 8, !tbaa !3
+  %51 = call i32 @set_alg_id_buffer(ptr noundef %50)
+  %52 = load ptr, ptr %12, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %52, i32 0, i32 11
+  store i32 0, ptr %53, align 8, !tbaa !24
+  %54 = load ptr, ptr %12, align 8, !tbaa !3
+  %55 = load ptr, ptr %9, align 8, !tbaa !9
+  %56 = call i32 @ml_dsa_set_ctx_params(ptr noundef %54, ptr noundef %55)
+  store i32 %56, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %57
+
+57:                                               ; preds = %49, %48, %31, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %58 = load i32, ptr %6, align 4
+  ret i32 %58
+}
+
+declare void @ERR_new() #2
+
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) #2
+
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) #2
+
+declare i32 @ossl_ml_dsa_key_matches(ptr noundef, i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @set_alg_id_buffer(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.wpacket_st, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 56, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  store ptr null, ptr %5, align 8, !tbaa !7
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %6, i32 0, i32 10
+  store i64 0, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %8, i32 0, i32 9
+  %10 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 0
+  %11 = call i32 @WPACKET_init_der(ptr noundef %4, ptr noundef %10, i64 noundef 256)
+  store i32 %11, ptr %3, align 4, !tbaa !15
+  %12 = load i32, ptr %3, align 4, !tbaa !15
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %20
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %18 = call i32 @ossl_DER_w_algorithmIdentifier_ML_DSA(ptr noundef %4, i32 noundef -1, ptr noundef %17)
+  %19 = icmp ne i32 %18, 0
+  br label %20
+
+20:                                               ; preds = %14, %1
+  %21 = phi i1 [ false, %1 ], [ %19, %14 ]
+  %22 = zext i1 %21 to i32
+  store i32 %22, ptr %3, align 4, !tbaa !15
+  %23 = load i32, ptr %3, align 4, !tbaa !15
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %33
+
+25:                                               ; preds = %20
+  %26 = call i32 @WPACKET_finish(ptr noundef %4)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %33
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %2, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %29, i32 0, i32 10
+  %31 = call i32 @WPACKET_get_total_written(ptr noundef %4, ptr noundef %30)
+  %32 = call ptr @WPACKET_get_curr(ptr noundef %4)
+  store ptr %32, ptr %5, align 8, !tbaa !7
+  br label %33
+
+33:                                               ; preds = %28, %25, %20
+  call void @WPACKET_cleanup(ptr noundef %4)
+  %34 = load ptr, ptr %5, align 8, !tbaa !7
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %49
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %2, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %37, i32 0, i32 10
+  %39 = load i64, ptr %38, align 8, !tbaa !28
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %49
+
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %2, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %42, i32 0, i32 9
+  %44 = getelementptr inbounds [256 x i8], ptr %43, i64 0, i64 0
+  %45 = load ptr, ptr %5, align 8, !tbaa !7
+  %46 = load ptr, ptr %2, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.PROV_ML_DSA_CTX, ptr %46, i32 0, i32 10
+  %48 = load i64, ptr %47, align 8, !tbaa !28
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 1 %45, i64 %48, i1 false)
+  br label %49
+
+49:                                               ; preds = %41, %36, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 56, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
+  ret i32 1
+}
+
+declare i32 @WPACKET_init_der(ptr noundef, ptr noundef, i64 noundef) #2
+
+declare i32 @ossl_DER_w_algorithmIdentifier_ML_DSA(ptr noundef, i32 noundef, ptr noundef) #2
+
+declare i32 @WPACKET_finish(ptr noundef) #2
+
+declare i32 @WPACKET_get_total_written(ptr noundef, ptr noundef) #2
+
+declare ptr @WPACKET_get_curr(ptr noundef) #2
+
+declare void @WPACKET_cleanup(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+declare i32 @RAND_priv_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+
+declare i32 @ossl_ml_dsa_sign(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) #2
+
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) #2
+
+declare i32 @ossl_ml_dsa_verify(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) #2
+
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ossl_param_is_empty(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %10, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = icmp eq ptr %8, null
+  br label %10
+
+10:                                               ; preds = %5, %1
+  %11 = phi i1 [ true, %1 ], [ %9, %5 ]
+  %12 = zext i1 %11 to i32
+  ret i32 %12
+}
+
+declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) #2
+
+declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+
+declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) #2
+
+declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) #2
+
+declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) #2
+
+declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS13ossl_param_st", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 long", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!18, !14, i64 312}
+!18 = !{!"", !19, i64 0, !20, i64 8, !5, i64 16, !14, i64 272, !5, i64 280, !14, i64 312, !16, i64 320, !16, i64 324, !16, i64 328, !5, i64 332, !14, i64 592, !16, i64 600}
+!19 = !{!"p1 _ZTS13ml_dsa_key_st", !4, i64 0}
+!20 = !{!"p1 _ZTS15ossl_lib_ctx_st", !4, i64 0}
+!21 = !{!18, !16, i64 324}
+!22 = !{!18, !20, i64 8}
+!23 = !{!18, !19, i64 0}
+!24 = !{!18, !16, i64 600}
+!25 = !{!18, !14, i64 272}
+!26 = !{!18, !16, i64 320}
+!27 = !{!5, !5, i64 0}
+!28 = !{!18, !14, i64 592}
+!29 = !{!18, !16, i64 328}
+!30 = !{!19, !19, i64 0}
+!31 = !{!32, !8, i64 0}
+!32 = !{!"ossl_param_st", !8, i64 0, !16, i64 8, !4, i64 16, !14, i64 24, !14, i64 32}

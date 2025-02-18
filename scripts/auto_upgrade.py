@@ -45,6 +45,7 @@ supported_project = [
     "openmpi",
     "oniguruma",
     "openblas",
+    "openssl",
 ]
 
 modify_only = [
