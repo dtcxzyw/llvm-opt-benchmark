@@ -1,8 +1,10 @@
 #!/bin/bash
 
-mkdir -p bench_build
+rm -rf original
+mkdir original
+export DUMP_PREFIX=$(pwd)/original
+rm -rf bench_build
+mkdir bench_build
 cd bench_build
-../../../scripts/configure_cmake.sh ../OpenBLAS -DBUILD_SHARED_LIBS=ON -DBUILD_TESTING=OFF -DC_LAPACK=ON -DBUILD_DOUBLE=ON
+../../../scripts/configure_cmake.sh ../OpenBLAS -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DC_LAPACK=ON -DBUILD_DOUBLE=ON -DBUILD_TESTING=OFF -DCMAKE_C_FLAGS="-Wl,--unresolved-symbols=ignore-all"
 cmake --build . -j
-cd ..
-find bench_build/ -name "*.o" ! -name "test_*.o" -exec ../../scripts/extract_bc.sh {} \;

@@ -7,84 +7,84 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = icmp slt i64 %0, 1
   %9 = icmp slt i64 %1, 1
-  %10 = or i1 %8, %9
-  br i1 %10, label %.loopexit, label %11
+  %or.cond = or i1 %8, %9
+  br i1 %or.cond, label %.loopexit, label %10
 
-11:                                               ; preds = %7
-  %12 = fcmp oeq double %2, 0.000000e+00
-  br i1 %12, label %.preheader, label %24
+10:                                               ; preds = %7
+  %11 = fcmp oeq double %2, 0.000000e+00
+  br i1 %11, label %.lr.ph.us73, label %18
 
-.preheader:                                       ; preds = %11, %21
-  %13 = phi i64 [ %22, %21 ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %13
-  br label %15
+.lr.ph.us73:                                      ; preds = %10, %._crit_edge.us74
+  %.04971.us = phi i64 [ %17, %._crit_edge.us74 ], [ 0, %10 ]
+  %12 = getelementptr inbounds nuw double, ptr %5, i64 %.04971.us
+  br label %13
 
-15:                                               ; preds = %.preheader, %15
-  %16 = phi i64 [ %19, %15 ], [ 0, %.preheader ]
-  %17 = mul nsw i64 %16, %6
-  %18 = getelementptr inbounds double, ptr %14, i64 %17
-  store double 0.000000e+00, ptr %18, align 8, !tbaa !3
-  %19 = add nuw nsw i64 %16, 1
-  %20 = icmp eq i64 %19, %0
-  br i1 %20, label %21, label %15, !llvm.loop !7
+13:                                               ; preds = %.lr.ph.us73, %13
+  %.04770.us = phi i64 [ 0, %.lr.ph.us73 ], [ %16, %13 ]
+  %14 = mul nsw i64 %.04770.us, %6
+  %15 = getelementptr inbounds double, ptr %12, i64 %14
+  store double 0.000000e+00, ptr %15, align 8, !tbaa !3
+  %16 = add nuw nsw i64 %.04770.us, 1
+  %exitcond83.not = icmp eq i64 %16, %0
+  br i1 %exitcond83.not, label %._crit_edge.us74, label %13, !llvm.loop !7
 
-21:                                               ; preds = %15
-  %22 = add nuw nsw i64 %13, 1
-  %23 = icmp eq i64 %22, %1
-  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !10
+._crit_edge.us74:                                 ; preds = %13
+  %17 = add nuw nsw i64 %.04971.us, 1
+  %exitcond84.not = icmp eq i64 %17, %1
+  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.us73, !llvm.loop !9
 
-24:                                               ; preds = %11
-  %25 = fcmp oeq double %2, 1.000000e+00
-  br i1 %25, label %.preheader6, label %.preheader8
+18:                                               ; preds = %10
+  %19 = fcmp oeq double %2, 1.000000e+00
+  br i1 %19, label %.lr.ph.us68, label %.lr.ph.us
 
-.preheader6:                                      ; preds = %24, %37
-  %26 = phi ptr [ %38, %37 ], [ %3, %24 ]
-  %27 = phi i64 [ %39, %37 ], [ 0, %24 ]
-  %28 = getelementptr inbounds nuw double, ptr %5, i64 %27
-  br label %29
+.lr.ph.us:                                        ; preds = %18, %._crit_edge.us
+  %.162.us = phi ptr [ %28, %._crit_edge.us ], [ %3, %18 ]
+  %.25161.us = phi i64 [ %29, %._crit_edge.us ], [ 0, %18 ]
+  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.25161.us
+  br label %21
 
-29:                                               ; preds = %.preheader6, %29
-  %30 = phi i64 [ %35, %29 ], [ 0, %.preheader6 ]
-  %31 = getelementptr inbounds nuw double, ptr %26, i64 %30
-  %32 = load double, ptr %31, align 8, !tbaa !3
-  %33 = mul nsw i64 %30, %6
-  %34 = getelementptr inbounds double, ptr %28, i64 %33
-  store double %32, ptr %34, align 8, !tbaa !3
-  %35 = add nuw nsw i64 %30, 1
-  %36 = icmp eq i64 %35, %0
-  br i1 %36, label %37, label %29, !llvm.loop !11
+21:                                               ; preds = %.lr.ph.us, %21
+  %.260.us = phi i64 [ 0, %.lr.ph.us ], [ %27, %21 ]
+  %22 = getelementptr inbounds nuw double, ptr %.162.us, i64 %.260.us
+  %23 = load double, ptr %22, align 8, !tbaa !3
+  %24 = fmul double %2, %23
+  %25 = mul nsw i64 %.260.us, %6
+  %26 = getelementptr inbounds double, ptr %20, i64 %25
+  store double %24, ptr %26, align 8, !tbaa !3
+  %27 = add nuw nsw i64 %.260.us, 1
+  %exitcond.not = icmp eq i64 %27, %0
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !10
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds double, ptr %26, i64 %4
-  %39 = add nuw nsw i64 %27, 1
-  %40 = icmp eq i64 %39, %1
-  br i1 %40, label %.loopexit, label %.preheader6, !llvm.loop !12
+._crit_edge.us:                                   ; preds = %21
+  %28 = getelementptr inbounds double, ptr %.162.us, i64 %4
+  %29 = add nuw nsw i64 %.25161.us, 1
+  %exitcond80.not = icmp eq i64 %29, %1
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !11
 
-.preheader8:                                      ; preds = %24, %53
-  %41 = phi ptr [ %54, %53 ], [ %3, %24 ]
-  %42 = phi i64 [ %55, %53 ], [ 0, %24 ]
-  %43 = getelementptr inbounds nuw double, ptr %5, i64 %42
-  br label %44
+.lr.ph.us68:                                      ; preds = %18, %._crit_edge.us69
+  %.066.us = phi ptr [ %37, %._crit_edge.us69 ], [ %3, %18 ]
+  %.15065.us = phi i64 [ %38, %._crit_edge.us69 ], [ 0, %18 ]
+  %30 = getelementptr inbounds nuw double, ptr %5, i64 %.15065.us
+  br label %31
 
-44:                                               ; preds = %.preheader8, %44
-  %45 = phi i64 [ %51, %44 ], [ 0, %.preheader8 ]
-  %46 = getelementptr inbounds nuw double, ptr %41, i64 %45
-  %47 = load double, ptr %46, align 8, !tbaa !3
-  %48 = fmul double %2, %47
-  %49 = mul nsw i64 %45, %6
-  %50 = getelementptr inbounds double, ptr %43, i64 %49
-  store double %48, ptr %50, align 8, !tbaa !3
-  %51 = add nuw nsw i64 %45, 1
-  %52 = icmp eq i64 %51, %0
-  br i1 %52, label %53, label %44, !llvm.loop !13
+31:                                               ; preds = %.lr.ph.us68, %31
+  %.14864.us = phi i64 [ 0, %.lr.ph.us68 ], [ %36, %31 ]
+  %32 = getelementptr inbounds nuw double, ptr %.066.us, i64 %.14864.us
+  %33 = load double, ptr %32, align 8, !tbaa !3
+  %34 = mul nsw i64 %.14864.us, %6
+  %35 = getelementptr inbounds double, ptr %30, i64 %34
+  store double %33, ptr %35, align 8, !tbaa !3
+  %36 = add nuw nsw i64 %.14864.us, 1
+  %exitcond81.not = icmp eq i64 %36, %0
+  br i1 %exitcond81.not, label %._crit_edge.us69, label %31, !llvm.loop !12
 
-53:                                               ; preds = %44
-  %54 = getelementptr inbounds double, ptr %41, i64 %4
-  %55 = add nuw nsw i64 %42, 1
-  %56 = icmp eq i64 %55, %1
-  br i1 %56, label %.loopexit, label %.preheader8, !llvm.loop !14
+._crit_edge.us69:                                 ; preds = %31
+  %37 = getelementptr inbounds double, ptr %.066.us, i64 %4
+  %38 = add nuw nsw i64 %.15065.us, 1
+  %exitcond82.not = icmp eq i64 %38, %1
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.us68, !llvm.loop !13
 
-.loopexit:                                        ; preds = %53, %37, %21, %7
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us69, %._crit_edge.us74, %7
   ret i32 0
 }
 
@@ -99,11 +99,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

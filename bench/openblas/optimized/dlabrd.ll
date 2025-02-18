@@ -19,720 +19,714 @@ define void @dlabrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #4
   %17 = load i32, ptr %4, align 4, !tbaa !3
-  %18 = xor i32 %17, -1
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds double, ptr %3, i64 %19
-  %21 = getelementptr inbounds i8, ptr %5, i64 -8
-  %22 = getelementptr inbounds i8, ptr %6, i64 -8
-  %23 = getelementptr inbounds i8, ptr %7, i64 -8
-  %24 = getelementptr inbounds i8, ptr %8, i64 -8
-  %25 = load i32, ptr %10, align 4, !tbaa !3
-  %26 = xor i32 %25, -1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds double, ptr %9, i64 %27
-  %29 = load i32, ptr %12, align 4, !tbaa !3
-  %30 = xor i32 %29, -1
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds double, ptr %11, i64 %31
-  %33 = load i32, ptr %0, align 4, !tbaa !3
+  %narrow = xor i32 %17, -1
+  %18 = sext i32 %narrow to i64
+  %19 = getelementptr inbounds double, ptr %3, i64 %18
+  %20 = getelementptr inbounds i8, ptr %5, i64 -8
+  %21 = getelementptr inbounds i8, ptr %6, i64 -8
+  %22 = getelementptr inbounds i8, ptr %7, i64 -8
+  %23 = getelementptr inbounds i8, ptr %8, i64 -8
+  %24 = load i32, ptr %10, align 4, !tbaa !3
+  %narrow352 = xor i32 %24, -1
+  %25 = sext i32 %narrow352 to i64
+  %26 = getelementptr inbounds double, ptr %9, i64 %25
+  %27 = load i32, ptr %12, align 4, !tbaa !3
+  %narrow353 = xor i32 %27, -1
+  %28 = sext i32 %narrow353 to i64
+  %29 = getelementptr inbounds double, ptr %11, i64 %28
+  %30 = load i32, ptr %0, align 4, !tbaa !3
+  %31 = icmp slt i32 %30, 1
+  br i1 %31, label %.loopexit, label %32
+
+32:                                               ; preds = %13
+  %33 = load i32, ptr %1, align 4, !tbaa !3
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %.loopexit, label %35
 
-35:                                               ; preds = %13
-  %36 = load i32, ptr %1, align 4, !tbaa !3
-  %37 = icmp slt i32 %36, 1
-  br i1 %37, label %.loopexit, label %38
-
-38:                                               ; preds = %35
-  %39 = icmp samesign ult i32 %33, %36
-  %40 = load i32, ptr %2, align 4, !tbaa !3
-  %41 = getelementptr i8, ptr %20, i64 8
+35:                                               ; preds = %32
+  %.not = icmp samesign ult i32 %30, %33
+  %36 = load i32, ptr %2, align 4, !tbaa !3
+  %invariant.gep406 = getelementptr i8, ptr %19, i64 8
   store i32 1, ptr %16, align 4, !tbaa !3
-  %42 = icmp slt i32 %40, 1
-  br i1 %39, label %308, label %43
+  %.not354444 = icmp slt i32 %36, 1
+  br i1 %.not, label %280, label %37
 
-43:                                               ; preds = %38
-  %44 = getelementptr i8, ptr %32, i64 8
-  %45 = getelementptr i8, ptr %28, i64 8
-  br i1 %42, label %.loopexit, label %46
+37:                                               ; preds = %35
+  %invariant.gep374 = getelementptr i8, ptr %29, i64 8
+  %invariant.op = add i32 %27, 1
+  %invariant.gep390 = getelementptr i8, ptr %26, i64 8
+  %invariant.op392 = add i32 %17, 1
+  %invariant.op400 = add i32 %24, 1
+  br i1 %.not354444, label %.loopexit, label %.lr.ph
 
-46:                                               ; preds = %43
-  %47 = add i32 %17, 1
-  %invariant.op = add i32 %29, 1
-  %invariant.op25 = add i32 %25, 1
-  br label %48
-
-48:                                               ; preds = %304, %46
-  %49 = phi i32 [ 1, %46 ], [ %306, %304 ]
+.lr.ph:                                           ; preds = %37, %277
+  %storemerge357405 = phi i32 [ %279, %277 ], [ 1, %37 ]
+  %38 = load i32, ptr %0, align 4, !tbaa !3
+  %reass.sub = sub i32 %38, %storemerge357405
+  %39 = add i32 %reass.sub, 1
+  store i32 %39, ptr %14, align 4, !tbaa !3
+  %40 = add nsw i32 %storemerge357405, -1
+  store i32 %40, ptr %15, align 4, !tbaa !3
+  %41 = add nsw i32 %storemerge357405, %17
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds double, ptr %19, i64 %42
+  %44 = add nsw i32 %storemerge357405, %27
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds double, ptr %29, i64 %45
+  %47 = mul i32 %storemerge357405, %invariant.op392
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds double, ptr %19, i64 %48
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %43, ptr noundef nonnull %4, ptr noundef %46, ptr noundef nonnull %12, ptr noundef nonnull @c_b5, ptr noundef %49, ptr noundef nonnull @c__1) #4
   %50 = load i32, ptr %0, align 4, !tbaa !3
-  %reass.sub = sub i32 %50, %49
-  %51 = add i32 %reass.sub, 1
-  store i32 %51, ptr %14, align 4, !tbaa !3
-  %52 = add nsw i32 %49, -1
-  store i32 %52, ptr %15, align 4, !tbaa !3
-  %53 = add nsw i32 %49, %17
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %20, i64 %54
-  %56 = add nsw i32 %49, %29
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %32, i64 %57
-  %59 = mul i32 %49, %47
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds double, ptr %20, i64 %60
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %55, ptr noundef nonnull %4, ptr noundef %58, ptr noundef nonnull %12, ptr noundef nonnull @c_b5, ptr noundef %61, ptr noundef nonnull @c__1) #4
-  %62 = load i32, ptr %0, align 4, !tbaa !3
-  %63 = load i32, ptr %16, align 4, !tbaa !3
-  %64 = add i32 %62, 1
-  %65 = sub i32 %64, %63
-  store i32 %65, ptr %14, align 4, !tbaa !3
-  %66 = add nsw i32 %63, -1
-  store i32 %66, ptr %15, align 4, !tbaa !3
-  %67 = add nsw i32 %63, %25
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds double, ptr %28, i64 %68
-  %70 = mul nsw i32 %63, %17
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr double, ptr %41, i64 %71
-  %73 = add nsw i32 %70, %63
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds double, ptr %20, i64 %74
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %69, ptr noundef nonnull %10, ptr noundef %72, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %75, ptr noundef nonnull @c__1) #4
-  %76 = load i32, ptr %0, align 4, !tbaa !3
+  %51 = load i32, ptr %16, align 4, !tbaa !3
+  %52 = add i32 %50, 1
+  %53 = sub i32 %52, %51
+  store i32 %53, ptr %14, align 4, !tbaa !3
+  %54 = add nsw i32 %51, -1
+  store i32 %54, ptr %15, align 4, !tbaa !3
+  %55 = add nsw i32 %51, %24
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds double, ptr %26, i64 %56
+  %58 = mul nsw i32 %51, %17
+  %59 = sext i32 %58 to i64
+  %gep = getelementptr double, ptr %invariant.gep406, i64 %59
+  %60 = add nsw i32 %58, %51
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds double, ptr %19, i64 %61
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %57, ptr noundef nonnull %10, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %62, ptr noundef nonnull @c__1) #4
+  %63 = load i32, ptr %0, align 4, !tbaa !3
+  %64 = load i32, ptr %16, align 4, !tbaa !3
+  %65 = add i32 %63, 1
+  %66 = sub i32 %65, %64
+  store i32 %66, ptr %14, align 4, !tbaa !3
+  %67 = add nsw i32 %64, 1
+  store i32 %67, ptr %15, align 4, !tbaa !3
+  %68 = mul i32 %64, %invariant.op392
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds double, ptr %19, i64 %69
+  %.not359.not = icmp slt i32 %64, %63
+  %. = select i1 %.not359.not, i32 %67, i32 %63
+  %71 = mul nsw i32 %64, %17
+  %72 = add nsw i32 %., %71
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds double, ptr %19, i64 %73
+  %75 = sext i32 %64 to i64
+  %76 = getelementptr inbounds double, ptr %22, i64 %75
+  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %70, ptr noundef %74, ptr noundef nonnull @c__1, ptr noundef nonnull %76) #4
   %77 = load i32, ptr %16, align 4, !tbaa !3
-  %78 = add i32 %76, 1
-  %79 = sub i32 %78, %77
-  store i32 %79, ptr %14, align 4, !tbaa !3
-  %80 = add nsw i32 %77, 1
-  store i32 %80, ptr %15, align 4, !tbaa !3
-  %81 = mul i32 %77, %47
-  %82 = sext i32 %81 to i64
+  %78 = mul i32 %77, %invariant.op392
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds double, ptr %19, i64 %79
+  %81 = load double, ptr %80, align 8, !tbaa !7
+  %82 = sext i32 %77 to i64
   %83 = getelementptr inbounds double, ptr %20, i64 %82
-  %84 = icmp slt i32 %77, %76
-  %85 = select i1 %84, i32 %80, i32 %76
-  %86 = mul nsw i32 %77, %17
-  %87 = add nsw i32 %85, %86
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds double, ptr %20, i64 %88
-  %90 = sext i32 %77 to i64
-  %91 = getelementptr inbounds double, ptr %23, i64 %90
-  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %83, ptr noundef %89, ptr noundef nonnull @c__1, ptr noundef nonnull %91) #4
-  %92 = load i32, ptr %16, align 4, !tbaa !3
-  %93 = mul i32 %92, %47
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds double, ptr %20, i64 %94
-  %96 = load double, ptr %95, align 8, !tbaa !7
-  %97 = sext i32 %92 to i64
-  %98 = getelementptr inbounds double, ptr %21, i64 %97
-  store double %96, ptr %98, align 8, !tbaa !7
-  %99 = load i32, ptr %1, align 4, !tbaa !3
-  %100 = icmp slt i32 %92, %99
-  br i1 %100, label %101, label %304
+  store double %81, ptr %83, align 8, !tbaa !7
+  %84 = load i32, ptr %1, align 4, !tbaa !3
+  %85 = icmp slt i32 %77, %84
+  br i1 %85, label %86, label %277
 
-101:                                              ; preds = %48
-  store double 1.000000e+00, ptr %95, align 8, !tbaa !7
-  %102 = load i32, ptr %0, align 4, !tbaa !3
-  %reass.sub41 = sub i32 %102, %92
-  %103 = add i32 %reass.sub41, 1
-  store i32 %103, ptr %14, align 4, !tbaa !3
-  %104 = sub nsw i32 %99, %92
-  store i32 %104, ptr %15, align 4, !tbaa !3
-  %105 = add nsw i32 %92, 1
-  %106 = mul nsw i32 %105, %17
-  %107 = add nsw i32 %106, %92
+86:                                               ; preds = %.lr.ph
+  store double 1.000000e+00, ptr %80, align 8, !tbaa !7
+  %87 = load i32, ptr %0, align 4, !tbaa !3
+  %reass.sub447 = sub i32 %87, %77
+  %88 = add i32 %reass.sub447, 1
+  store i32 %88, ptr %14, align 4, !tbaa !3
+  %89 = sub nsw i32 %84, %77
+  store i32 %89, ptr %15, align 4, !tbaa !3
+  %90 = add nsw i32 %77, 1
+  %91 = mul nsw i32 %90, %17
+  %92 = add nsw i32 %91, %77
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds double, ptr %19, i64 %93
+  %95 = mul nsw i32 %77, %27
+  %96 = add nsw i32 %90, %95
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds double, ptr %29, i64 %97
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %94, ptr noundef nonnull %4, ptr noundef nonnull %80, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %98, ptr noundef nonnull @c__1) #4
+  %99 = load i32, ptr %0, align 4, !tbaa !3
+  %100 = load i32, ptr %16, align 4, !tbaa !3
+  %101 = add i32 %99, 1
+  %102 = sub i32 %101, %100
+  store i32 %102, ptr %14, align 4, !tbaa !3
+  %103 = add nsw i32 %100, -1
+  store i32 %103, ptr %15, align 4, !tbaa !3
+  %104 = add nsw i32 %100, %17
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds double, ptr %19, i64 %105
+  %107 = mul i32 %100, %invariant.op392
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds double, ptr %20, i64 %108
-  %110 = mul nsw i32 %92, %29
-  %111 = add nsw i32 %105, %110
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds double, ptr %32, i64 %112
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %109, ptr noundef nonnull %4, ptr noundef nonnull %95, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %113, ptr noundef nonnull @c__1) #4
-  %114 = load i32, ptr %0, align 4, !tbaa !3
-  %115 = load i32, ptr %16, align 4, !tbaa !3
-  %116 = add i32 %114, 1
-  %117 = sub i32 %116, %115
-  store i32 %117, ptr %14, align 4, !tbaa !3
-  %118 = add nsw i32 %115, -1
-  store i32 %118, ptr %15, align 4, !tbaa !3
-  %119 = add nsw i32 %115, %17
+  %109 = getelementptr inbounds double, ptr %19, i64 %108
+  %110 = mul nsw i32 %100, %27
+  %111 = sext i32 %110 to i64
+  %gep375 = getelementptr double, ptr %invariant.gep374, i64 %111
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %106, ptr noundef nonnull %4, ptr noundef %109, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %gep375, ptr noundef nonnull @c__1) #4
+  %112 = load i32, ptr %1, align 4, !tbaa !3
+  %113 = load i32, ptr %16, align 4, !tbaa !3
+  %114 = sub nsw i32 %112, %113
+  store i32 %114, ptr %14, align 4, !tbaa !3
+  %115 = add nsw i32 %113, -1
+  store i32 %115, ptr %15, align 4, !tbaa !3
+  %116 = add nsw i32 %113, 1
+  %.reass = add i32 %113, %invariant.op
+  %117 = sext i32 %.reass to i64
+  %118 = getelementptr inbounds double, ptr %29, i64 %117
+  %119 = mul nsw i32 %113, %27
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds double, ptr %20, i64 %120
-  %122 = mul i32 %115, %47
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds double, ptr %20, i64 %123
-  %125 = mul nsw i32 %115, %29
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr double, ptr %44, i64 %126
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %121, ptr noundef nonnull %4, ptr noundef %124, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %127, ptr noundef nonnull @c__1) #4
-  %128 = load i32, ptr %1, align 4, !tbaa !3
-  %129 = load i32, ptr %16, align 4, !tbaa !3
-  %130 = sub nsw i32 %128, %129
-  store i32 %130, ptr %14, align 4, !tbaa !3
-  %131 = add nsw i32 %129, -1
-  store i32 %131, ptr %15, align 4, !tbaa !3
-  %132 = add nsw i32 %129, 1
-  %.reass = add i32 %129, %invariant.op
-  %133 = sext i32 %.reass to i64
-  %134 = getelementptr inbounds double, ptr %32, i64 %133
-  %135 = mul nsw i32 %129, %29
+  %gep377 = getelementptr double, ptr %invariant.gep374, i64 %120
+  %121 = add nsw i32 %116, %119
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds double, ptr %29, i64 %122
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %118, ptr noundef nonnull %12, ptr noundef %gep377, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %123, ptr noundef nonnull @c__1) #4
+  %124 = load i32, ptr %0, align 4, !tbaa !3
+  %125 = load i32, ptr %16, align 4, !tbaa !3
+  %126 = add i32 %124, 1
+  %127 = sub i32 %126, %125
+  store i32 %127, ptr %14, align 4, !tbaa !3
+  %128 = add nsw i32 %125, -1
+  store i32 %128, ptr %15, align 4, !tbaa !3
+  %129 = add nsw i32 %125, %24
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds double, ptr %26, i64 %130
+  %132 = mul i32 %125, %invariant.op392
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds double, ptr %19, i64 %133
+  %135 = mul nsw i32 %125, %27
   %136 = sext i32 %135 to i64
-  %137 = getelementptr double, ptr %44, i64 %136
-  %138 = add nsw i32 %132, %135
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds double, ptr %32, i64 %139
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %134, ptr noundef nonnull %12, ptr noundef %137, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %140, ptr noundef nonnull @c__1) #4
-  %141 = load i32, ptr %0, align 4, !tbaa !3
-  %142 = load i32, ptr %16, align 4, !tbaa !3
-  %143 = add i32 %141, 1
-  %144 = sub i32 %143, %142
-  store i32 %144, ptr %14, align 4, !tbaa !3
-  %145 = add nsw i32 %142, -1
-  store i32 %145, ptr %15, align 4, !tbaa !3
-  %146 = add nsw i32 %142, %25
+  %gep379 = getelementptr double, ptr %invariant.gep374, i64 %136
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %131, ptr noundef nonnull %10, ptr noundef %134, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %gep379, ptr noundef nonnull @c__1) #4
+  %137 = load i32, ptr %16, align 4, !tbaa !3
+  %138 = add nsw i32 %137, -1
+  store i32 %138, ptr %14, align 4, !tbaa !3
+  %139 = load i32, ptr %1, align 4, !tbaa !3
+  %140 = sub nsw i32 %139, %137
+  store i32 %140, ptr %15, align 4, !tbaa !3
+  %141 = add nsw i32 %137, 1
+  %142 = mul nsw i32 %141, %17
+  %143 = sext i32 %142 to i64
+  %gep381 = getelementptr double, ptr %invariant.gep406, i64 %143
+  %144 = mul nsw i32 %137, %27
+  %145 = sext i32 %144 to i64
+  %gep383 = getelementptr double, ptr %invariant.gep374, i64 %145
+  %146 = add nsw i32 %141, %144
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds double, ptr %28, i64 %147
-  %149 = mul i32 %142, %47
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds double, ptr %20, i64 %150
-  %152 = mul nsw i32 %142, %29
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr double, ptr %44, i64 %153
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %148, ptr noundef nonnull %10, ptr noundef %151, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %154, ptr noundef nonnull @c__1) #4
-  %155 = load i32, ptr %16, align 4, !tbaa !3
-  %156 = add nsw i32 %155, -1
-  store i32 %156, ptr %14, align 4, !tbaa !3
-  %157 = load i32, ptr %1, align 4, !tbaa !3
-  %158 = sub nsw i32 %157, %155
-  store i32 %158, ptr %15, align 4, !tbaa !3
-  %159 = add nsw i32 %155, 1
-  %160 = mul nsw i32 %159, %17
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr double, ptr %41, i64 %161
-  %163 = mul nsw i32 %155, %29
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr double, ptr %44, i64 %164
-  %166 = add nsw i32 %159, %163
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds double, ptr %32, i64 %167
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %162, ptr noundef nonnull %4, ptr noundef %165, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %168, ptr noundef nonnull @c__1) #4
-  %169 = load i32, ptr %1, align 4, !tbaa !3
-  %170 = load i32, ptr %16, align 4, !tbaa !3
-  %171 = sub nsw i32 %169, %170
-  store i32 %171, ptr %14, align 4, !tbaa !3
-  %172 = sext i32 %170 to i64
-  %173 = getelementptr inbounds double, ptr %23, i64 %172
-  %174 = add nsw i32 %170, 1
-  %175 = mul nsw i32 %170, %29
-  %176 = add nsw i32 %174, %175
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds double, ptr %32, i64 %177
-  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %173, ptr noundef %178, ptr noundef nonnull @c__1) #4
-  %179 = load i32, ptr %1, align 4, !tbaa !3
-  %180 = load i32, ptr %16, align 4, !tbaa !3
-  %181 = sub nsw i32 %179, %180
-  store i32 %181, ptr %14, align 4, !tbaa !3
-  %182 = add nsw i32 %180, 1
-  %.reass20 = add i32 %180, %invariant.op
-  %183 = sext i32 %.reass20 to i64
-  %184 = getelementptr inbounds double, ptr %32, i64 %183
-  %185 = add nsw i32 %180, %17
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds double, ptr %20, i64 %186
-  %188 = mul nsw i32 %182, %17
-  %189 = add nsw i32 %188, %180
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds double, ptr %20, i64 %190
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b4, ptr noundef %184, ptr noundef nonnull %12, ptr noundef %187, ptr noundef nonnull %4, ptr noundef nonnull @c_b5, ptr noundef %191, ptr noundef nonnull %4) #4
-  %192 = load i32, ptr %16, align 4, !tbaa !3
-  %193 = add nsw i32 %192, -1
-  store i32 %193, ptr %14, align 4, !tbaa !3
-  %194 = load i32, ptr %1, align 4, !tbaa !3
-  %195 = sub nsw i32 %194, %192
-  store i32 %195, ptr %15, align 4, !tbaa !3
-  %196 = add nsw i32 %192, 1
-  %197 = mul nsw i32 %196, %17
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr double, ptr %41, i64 %198
-  %200 = add nsw i32 %192, %25
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds double, ptr %28, i64 %201
-  %203 = add nsw i32 %197, %192
+  %148 = getelementptr inbounds double, ptr %29, i64 %147
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %gep381, ptr noundef nonnull %4, ptr noundef %gep383, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %148, ptr noundef nonnull @c__1) #4
+  %149 = load i32, ptr %1, align 4, !tbaa !3
+  %150 = load i32, ptr %16, align 4, !tbaa !3
+  %151 = sub nsw i32 %149, %150
+  store i32 %151, ptr %14, align 4, !tbaa !3
+  %152 = sext i32 %150 to i64
+  %153 = getelementptr inbounds double, ptr %22, i64 %152
+  %154 = add nsw i32 %150, 1
+  %155 = mul nsw i32 %150, %27
+  %156 = add nsw i32 %154, %155
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds double, ptr %29, i64 %157
+  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %153, ptr noundef %158, ptr noundef nonnull @c__1) #4
+  %159 = load i32, ptr %1, align 4, !tbaa !3
+  %160 = load i32, ptr %16, align 4, !tbaa !3
+  %161 = sub nsw i32 %159, %160
+  store i32 %161, ptr %14, align 4, !tbaa !3
+  %162 = add nsw i32 %160, 1
+  %.reass385 = add i32 %160, %invariant.op
+  %163 = sext i32 %.reass385 to i64
+  %164 = getelementptr inbounds double, ptr %29, i64 %163
+  %165 = add nsw i32 %160, %17
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds double, ptr %19, i64 %166
+  %168 = mul nsw i32 %162, %17
+  %169 = add nsw i32 %168, %160
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds double, ptr %19, i64 %170
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b4, ptr noundef %164, ptr noundef nonnull %12, ptr noundef %167, ptr noundef nonnull %4, ptr noundef nonnull @c_b5, ptr noundef %171, ptr noundef nonnull %4) #4
+  %172 = load i32, ptr %16, align 4, !tbaa !3
+  %173 = add nsw i32 %172, -1
+  store i32 %173, ptr %14, align 4, !tbaa !3
+  %174 = load i32, ptr %1, align 4, !tbaa !3
+  %175 = sub nsw i32 %174, %172
+  store i32 %175, ptr %15, align 4, !tbaa !3
+  %176 = add nsw i32 %172, 1
+  %177 = mul nsw i32 %176, %17
+  %178 = sext i32 %177 to i64
+  %gep387 = getelementptr double, ptr %invariant.gep406, i64 %178
+  %179 = add nsw i32 %172, %24
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr inbounds double, ptr %26, i64 %180
+  %182 = add nsw i32 %177, %172
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds double, ptr %19, i64 %183
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %gep387, ptr noundef nonnull %4, ptr noundef %181, ptr noundef nonnull %10, ptr noundef nonnull @c_b5, ptr noundef %184, ptr noundef nonnull %4) #4
+  %185 = load i32, ptr %1, align 4, !tbaa !3
+  %186 = load i32, ptr %16, align 4, !tbaa !3
+  %187 = sub nsw i32 %185, %186
+  store i32 %187, ptr %14, align 4, !tbaa !3
+  %188 = add nsw i32 %186, 2
+  store i32 %188, ptr %15, align 4, !tbaa !3
+  %189 = add nsw i32 %186, 1
+  %190 = mul nsw i32 %189, %17
+  %191 = add nsw i32 %190, %186
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds double, ptr %19, i64 %192
+  %.361 = call i32 @llvm.smin.i32(i32 %188, i32 %185)
+  %194 = mul nsw i32 %.361, %17
+  %195 = add nsw i32 %194, %186
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds double, ptr %19, i64 %196
+  %198 = sext i32 %186 to i64
+  %199 = getelementptr inbounds double, ptr %23, i64 %198
+  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %193, ptr noundef %197, ptr noundef nonnull %4, ptr noundef nonnull %199) #4
+  %200 = load i32, ptr %16, align 4, !tbaa !3
+  %201 = add nsw i32 %200, 1
+  %202 = mul nsw i32 %201, %17
+  %203 = add nsw i32 %202, %200
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds double, ptr %20, i64 %204
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %199, ptr noundef nonnull %4, ptr noundef %202, ptr noundef nonnull %10, ptr noundef nonnull @c_b5, ptr noundef %205, ptr noundef nonnull %4) #4
-  %206 = load i32, ptr %1, align 4, !tbaa !3
-  %207 = load i32, ptr %16, align 4, !tbaa !3
-  %208 = sub nsw i32 %206, %207
-  store i32 %208, ptr %14, align 4, !tbaa !3
-  %209 = add nsw i32 %207, 2
-  store i32 %209, ptr %15, align 4, !tbaa !3
-  %210 = add nsw i32 %207, 1
-  %211 = mul nsw i32 %210, %17
-  %212 = add nsw i32 %211, %207
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds double, ptr %20, i64 %213
-  %215 = call i32 @llvm.smin.i32(i32 %209, i32 %206)
-  %216 = mul nsw i32 %215, %17
-  %217 = add nsw i32 %216, %207
+  %205 = getelementptr inbounds double, ptr %19, i64 %204
+  %206 = load double, ptr %205, align 8, !tbaa !7
+  %207 = sext i32 %200 to i64
+  %208 = getelementptr inbounds double, ptr %21, i64 %207
+  store double %206, ptr %208, align 8, !tbaa !7
+  store double 1.000000e+00, ptr %205, align 8, !tbaa !7
+  %209 = load i32, ptr %0, align 4, !tbaa !3
+  %210 = sub nsw i32 %209, %200
+  store i32 %210, ptr %14, align 4, !tbaa !3
+  %211 = load i32, ptr %1, align 4, !tbaa !3
+  %212 = sub nsw i32 %211, %200
+  store i32 %212, ptr %15, align 4, !tbaa !3
+  %213 = add nsw i32 %202, %201
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds double, ptr %19, i64 %214
+  %216 = mul nsw i32 %200, %24
+  %217 = add nsw i32 %201, %216
   %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds double, ptr %20, i64 %218
-  %220 = sext i32 %207 to i64
-  %221 = getelementptr inbounds double, ptr %24, i64 %220
-  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %214, ptr noundef %219, ptr noundef nonnull %4, ptr noundef nonnull %221) #4
-  %222 = load i32, ptr %16, align 4, !tbaa !3
-  %223 = add nsw i32 %222, 1
-  %224 = mul nsw i32 %223, %17
-  %225 = add nsw i32 %224, %222
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds double, ptr %20, i64 %226
-  %228 = load double, ptr %227, align 8, !tbaa !7
-  %229 = sext i32 %222 to i64
-  %230 = getelementptr inbounds double, ptr %22, i64 %229
-  store double %228, ptr %230, align 8, !tbaa !7
-  store double 1.000000e+00, ptr %227, align 8, !tbaa !7
-  %231 = load i32, ptr %0, align 4, !tbaa !3
-  %232 = sub nsw i32 %231, %222
-  store i32 %232, ptr %14, align 4, !tbaa !3
-  %233 = load i32, ptr %1, align 4, !tbaa !3
-  %234 = sub nsw i32 %233, %222
-  store i32 %234, ptr %15, align 4, !tbaa !3
-  %235 = add nsw i32 %224, %223
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds double, ptr %20, i64 %236
-  %238 = mul nsw i32 %222, %25
-  %239 = add nsw i32 %223, %238
-  %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds double, ptr %28, i64 %240
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %237, ptr noundef nonnull %4, ptr noundef nonnull %227, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %241, ptr noundef nonnull @c__1) #4
-  %242 = load i32, ptr %1, align 4, !tbaa !3
+  %219 = getelementptr inbounds double, ptr %26, i64 %218
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %215, ptr noundef nonnull %4, ptr noundef nonnull %205, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %219, ptr noundef nonnull @c__1) #4
+  %220 = load i32, ptr %1, align 4, !tbaa !3
+  %221 = load i32, ptr %16, align 4, !tbaa !3
+  %222 = sub nsw i32 %220, %221
+  store i32 %222, ptr %14, align 4, !tbaa !3
+  %223 = add nsw i32 %221, 1
+  %.reass389 = add i32 %221, %invariant.op
+  %224 = sext i32 %.reass389 to i64
+  %225 = getelementptr inbounds double, ptr %29, i64 %224
+  %226 = mul nsw i32 %223, %17
+  %227 = add nsw i32 %226, %221
+  %228 = sext i32 %227 to i64
+  %229 = getelementptr inbounds double, ptr %19, i64 %228
+  %230 = mul nsw i32 %221, %24
+  %231 = sext i32 %230 to i64
+  %gep391 = getelementptr double, ptr %invariant.gep390, i64 %231
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b5, ptr noundef %225, ptr noundef nonnull %12, ptr noundef %229, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %gep391, ptr noundef nonnull @c__1) #4
+  %232 = load i32, ptr %0, align 4, !tbaa !3
+  %233 = load i32, ptr %16, align 4, !tbaa !3
+  %234 = sub nsw i32 %232, %233
+  store i32 %234, ptr %14, align 4, !tbaa !3
+  %235 = add nsw i32 %233, 1
+  %.reass393 = add i32 %233, %invariant.op392
+  %236 = sext i32 %.reass393 to i64
+  %237 = getelementptr inbounds double, ptr %19, i64 %236
+  %238 = mul nsw i32 %233, %24
+  %239 = sext i32 %238 to i64
+  %gep395 = getelementptr double, ptr %invariant.gep390, i64 %239
+  %240 = add nsw i32 %235, %238
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr inbounds double, ptr %26, i64 %241
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b4, ptr noundef %237, ptr noundef nonnull %4, ptr noundef %gep395, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %242, ptr noundef nonnull @c__1) #4
   %243 = load i32, ptr %16, align 4, !tbaa !3
-  %244 = sub nsw i32 %242, %243
+  %244 = add nsw i32 %243, -1
   store i32 %244, ptr %14, align 4, !tbaa !3
-  %245 = add nsw i32 %243, 1
-  %.reass22 = add i32 %243, %invariant.op
-  %246 = sext i32 %.reass22 to i64
-  %247 = getelementptr inbounds double, ptr %32, i64 %246
-  %248 = mul nsw i32 %245, %17
-  %249 = add nsw i32 %248, %243
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds double, ptr %20, i64 %250
-  %252 = mul nsw i32 %243, %25
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr double, ptr %45, i64 %253
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b5, ptr noundef %247, ptr noundef nonnull %12, ptr noundef %251, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %254, ptr noundef nonnull @c__1) #4
+  %245 = load i32, ptr %1, align 4, !tbaa !3
+  %246 = sub nsw i32 %245, %243
+  store i32 %246, ptr %15, align 4, !tbaa !3
+  %247 = add nsw i32 %243, 1
+  %248 = mul nsw i32 %247, %17
+  %249 = sext i32 %248 to i64
+  %gep397 = getelementptr double, ptr %invariant.gep406, i64 %249
+  %250 = add nsw i32 %248, %243
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds double, ptr %19, i64 %251
+  %253 = mul nsw i32 %243, %24
+  %254 = sext i32 %253 to i64
+  %gep399 = getelementptr double, ptr %invariant.gep390, i64 %254
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %gep397, ptr noundef nonnull %4, ptr noundef %252, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %gep399, ptr noundef nonnull @c__1) #4
   %255 = load i32, ptr %0, align 4, !tbaa !3
   %256 = load i32, ptr %16, align 4, !tbaa !3
   %257 = sub nsw i32 %255, %256
   store i32 %257, ptr %14, align 4, !tbaa !3
-  %258 = add nsw i32 %256, 1
-  %.reass24 = add i32 %256, %47
-  %259 = sext i32 %.reass24 to i64
-  %260 = getelementptr inbounds double, ptr %20, i64 %259
-  %261 = mul nsw i32 %256, %25
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr double, ptr %45, i64 %262
-  %264 = add nsw i32 %258, %261
+  %258 = add nsw i32 %256, -1
+  store i32 %258, ptr %15, align 4, !tbaa !3
+  %259 = add nsw i32 %256, 1
+  %.reass401 = add i32 %256, %invariant.op400
+  %260 = sext i32 %.reass401 to i64
+  %261 = getelementptr inbounds double, ptr %26, i64 %260
+  %262 = mul nsw i32 %256, %24
+  %263 = sext i32 %262 to i64
+  %gep403 = getelementptr double, ptr %invariant.gep390, i64 %263
+  %264 = add nsw i32 %259, %262
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds double, ptr %28, i64 %265
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b4, ptr noundef %260, ptr noundef nonnull %4, ptr noundef %263, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %266, ptr noundef nonnull @c__1) #4
-  %267 = load i32, ptr %16, align 4, !tbaa !3
-  %268 = add nsw i32 %267, -1
-  store i32 %268, ptr %14, align 4, !tbaa !3
-  %269 = load i32, ptr %1, align 4, !tbaa !3
-  %270 = sub nsw i32 %269, %267
-  store i32 %270, ptr %15, align 4, !tbaa !3
-  %271 = add nsw i32 %267, 1
-  %272 = mul nsw i32 %271, %17
-  %273 = sext i32 %272 to i64
-  %274 = getelementptr double, ptr %41, i64 %273
-  %275 = add nsw i32 %272, %267
-  %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds double, ptr %20, i64 %276
-  %278 = mul nsw i32 %267, %25
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr double, ptr %45, i64 %279
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %274, ptr noundef nonnull %4, ptr noundef %277, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %280, ptr noundef nonnull @c__1) #4
-  %281 = load i32, ptr %0, align 4, !tbaa !3
-  %282 = load i32, ptr %16, align 4, !tbaa !3
-  %283 = sub nsw i32 %281, %282
-  store i32 %283, ptr %14, align 4, !tbaa !3
-  %284 = add nsw i32 %282, -1
-  store i32 %284, ptr %15, align 4, !tbaa !3
-  %285 = add nsw i32 %282, 1
-  %.reass26 = add i32 %282, %invariant.op25
-  %286 = sext i32 %.reass26 to i64
-  %287 = getelementptr inbounds double, ptr %28, i64 %286
-  %288 = mul nsw i32 %282, %25
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr double, ptr %45, i64 %289
-  %291 = add nsw i32 %285, %288
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds double, ptr %28, i64 %292
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %287, ptr noundef nonnull %10, ptr noundef %290, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %293, ptr noundef nonnull @c__1) #4
-  %294 = load i32, ptr %0, align 4, !tbaa !3
-  %295 = load i32, ptr %16, align 4, !tbaa !3
-  %296 = sub nsw i32 %294, %295
-  store i32 %296, ptr %14, align 4, !tbaa !3
-  %297 = sext i32 %295 to i64
-  %298 = getelementptr inbounds double, ptr %24, i64 %297
-  %299 = add nsw i32 %295, 1
-  %300 = mul nsw i32 %295, %25
-  %301 = add nsw i32 %299, %300
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds double, ptr %28, i64 %302
-  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %298, ptr noundef %303, ptr noundef nonnull @c__1) #4
+  %266 = getelementptr inbounds double, ptr %26, i64 %265
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %261, ptr noundef nonnull %10, ptr noundef %gep403, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %266, ptr noundef nonnull @c__1) #4
+  %267 = load i32, ptr %0, align 4, !tbaa !3
+  %268 = load i32, ptr %16, align 4, !tbaa !3
+  %269 = sub nsw i32 %267, %268
+  store i32 %269, ptr %14, align 4, !tbaa !3
+  %270 = sext i32 %268 to i64
+  %271 = getelementptr inbounds double, ptr %23, i64 %270
+  %272 = add nsw i32 %268, 1
+  %273 = mul nsw i32 %268, %24
+  %274 = add nsw i32 %272, %273
+  %275 = sext i32 %274 to i64
+  %276 = getelementptr inbounds double, ptr %26, i64 %275
+  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %271, ptr noundef %276, ptr noundef nonnull @c__1) #4
   %.pre = load i32, ptr %16, align 4, !tbaa !3
-  br label %304
+  br label %277
 
-304:                                              ; preds = %101, %48
-  %305 = phi i32 [ %.pre, %101 ], [ %92, %48 ]
-  %306 = add nsw i32 %305, 1
-  store i32 %306, ptr %16, align 4, !tbaa !3
-  %307 = icmp slt i32 %305, %40
-  br i1 %307, label %48, label %.loopexit, !llvm.loop !9
+277:                                              ; preds = %.lr.ph, %86
+  %278 = phi i32 [ %77, %.lr.ph ], [ %.pre, %86 ]
+  %279 = add nsw i32 %278, 1
+  store i32 %279, ptr %16, align 4, !tbaa !3
+  %.not358.not = icmp slt i32 %278, %36
+  br i1 %.not358.not, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
-308:                                              ; preds = %38
-  %309 = getelementptr i8, ptr %28, i64 8
-  %310 = getelementptr i8, ptr %32, i64 8
-  br i1 %42, label %.loopexit, label %311
+280:                                              ; preds = %35
+  %invariant.gep408 = getelementptr i8, ptr %26, i64 8
+  %invariant.op410 = add i32 %17, 1
+  %invariant.op418 = add i32 %24, 1
+  %invariant.gep430 = getelementptr i8, ptr %29, i64 8
+  %invariant.op432 = add i32 %27, 1
+  br i1 %.not354444, label %.loopexit, label %.lr.ph446
 
-311:                                              ; preds = %308
-  %312 = add i32 %17, 1
-  %invariant.op29 = add i32 %25, 1
-  %invariant.op37 = add i32 %29, 1
-  br label %313
+.lr.ph446:                                        ; preds = %280, %519
+  %storemerge445 = phi i32 [ %521, %519 ], [ 1, %280 ]
+  %281 = load i32, ptr %1, align 4, !tbaa !3
+  %reass.sub448 = sub i32 %281, %storemerge445
+  %282 = add i32 %reass.sub448, 1
+  store i32 %282, ptr %14, align 4, !tbaa !3
+  %283 = add nsw i32 %storemerge445, -1
+  store i32 %283, ptr %15, align 4, !tbaa !3
+  %284 = add nsw i32 %storemerge445, %27
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr inbounds double, ptr %29, i64 %285
+  %287 = add nsw i32 %storemerge445, %17
+  %288 = sext i32 %287 to i64
+  %289 = getelementptr inbounds double, ptr %19, i64 %288
+  %290 = mul i32 %storemerge445, %invariant.op410
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds double, ptr %19, i64 %291
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %286, ptr noundef nonnull %12, ptr noundef %289, ptr noundef nonnull %4, ptr noundef nonnull @c_b5, ptr noundef %292, ptr noundef nonnull %4) #4
+  %293 = load i32, ptr %16, align 4, !tbaa !3
+  %294 = add nsw i32 %293, -1
+  store i32 %294, ptr %14, align 4, !tbaa !3
+  %295 = load i32, ptr %1, align 4, !tbaa !3
+  %reass.sub449 = sub i32 %295, %293
+  %296 = add i32 %reass.sub449, 1
+  store i32 %296, ptr %15, align 4, !tbaa !3
+  %297 = mul nsw i32 %293, %17
+  %298 = sext i32 %297 to i64
+  %gep407 = getelementptr double, ptr %invariant.gep406, i64 %298
+  %299 = add nsw i32 %293, %24
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds double, ptr %26, i64 %300
+  %302 = add nsw i32 %297, %293
+  %303 = sext i32 %302 to i64
+  %304 = getelementptr inbounds double, ptr %19, i64 %303
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %gep407, ptr noundef nonnull %4, ptr noundef %301, ptr noundef nonnull %10, ptr noundef nonnull @c_b5, ptr noundef %304, ptr noundef nonnull %4) #4
+  %305 = load i32, ptr %1, align 4, !tbaa !3
+  %306 = load i32, ptr %16, align 4, !tbaa !3
+  %307 = add i32 %305, 1
+  %308 = sub i32 %307, %306
+  store i32 %308, ptr %14, align 4, !tbaa !3
+  %309 = add nsw i32 %306, 1
+  store i32 %309, ptr %15, align 4, !tbaa !3
+  %310 = mul i32 %306, %invariant.op410
+  %311 = sext i32 %310 to i64
+  %312 = getelementptr inbounds double, ptr %19, i64 %311
+  %.not355.not = icmp slt i32 %306, %305
+  %.362 = select i1 %.not355.not, i32 %309, i32 %305
+  %313 = mul nsw i32 %.362, %17
+  %314 = add nsw i32 %313, %306
+  %315 = sext i32 %314 to i64
+  %316 = getelementptr inbounds double, ptr %19, i64 %315
+  %317 = sext i32 %306 to i64
+  %318 = getelementptr inbounds double, ptr %23, i64 %317
+  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %312, ptr noundef %316, ptr noundef nonnull %4, ptr noundef nonnull %318) #4
+  %319 = load i32, ptr %16, align 4, !tbaa !3
+  %320 = mul i32 %319, %invariant.op410
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds double, ptr %19, i64 %321
+  %323 = load double, ptr %322, align 8, !tbaa !7
+  %324 = sext i32 %319 to i64
+  %325 = getelementptr inbounds double, ptr %20, i64 %324
+  store double %323, ptr %325, align 8, !tbaa !7
+  %326 = load i32, ptr %0, align 4, !tbaa !3
+  %327 = icmp slt i32 %319, %326
+  br i1 %327, label %328, label %519
 
-313:                                              ; preds = %568, %311
-  %314 = phi i32 [ 1, %311 ], [ %570, %568 ]
-  %315 = load i32, ptr %1, align 4, !tbaa !3
-  %reass.sub42 = sub i32 %315, %314
-  %316 = add i32 %reass.sub42, 1
-  store i32 %316, ptr %14, align 4, !tbaa !3
-  %317 = add nsw i32 %314, -1
-  store i32 %317, ptr %15, align 4, !tbaa !3
-  %318 = add nsw i32 %314, %29
-  %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds double, ptr %32, i64 %319
-  %321 = add nsw i32 %314, %17
-  %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds double, ptr %20, i64 %322
-  %324 = mul i32 %314, %312
-  %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds double, ptr %20, i64 %325
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %320, ptr noundef nonnull %12, ptr noundef %323, ptr noundef nonnull %4, ptr noundef nonnull @c_b5, ptr noundef %326, ptr noundef nonnull %4) #4
-  %327 = load i32, ptr %16, align 4, !tbaa !3
-  %328 = add nsw i32 %327, -1
-  store i32 %328, ptr %14, align 4, !tbaa !3
-  %329 = load i32, ptr %1, align 4, !tbaa !3
-  %reass.sub43 = sub i32 %329, %327
-  %330 = add i32 %reass.sub43, 1
-  store i32 %330, ptr %15, align 4, !tbaa !3
-  %331 = mul nsw i32 %327, %17
-  %332 = sext i32 %331 to i64
-  %333 = getelementptr double, ptr %41, i64 %332
-  %334 = add nsw i32 %327, %25
+328:                                              ; preds = %.lr.ph446
+  store double 1.000000e+00, ptr %322, align 8, !tbaa !7
+  %329 = sub nsw i32 %326, %319
+  store i32 %329, ptr %14, align 4, !tbaa !3
+  %330 = load i32, ptr %1, align 4, !tbaa !3
+  %reass.sub450 = sub i32 %330, %319
+  %331 = add i32 %reass.sub450, 1
+  store i32 %331, ptr %15, align 4, !tbaa !3
+  %332 = add nsw i32 %319, 1
+  %333 = mul nsw i32 %319, %17
+  %334 = add nsw i32 %332, %333
   %335 = sext i32 %334 to i64
-  %336 = getelementptr inbounds double, ptr %28, i64 %335
-  %337 = add nsw i32 %331, %327
+  %336 = getelementptr inbounds double, ptr %19, i64 %335
+  %337 = add nsw i32 %333, %319
   %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds double, ptr %20, i64 %338
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %333, ptr noundef nonnull %4, ptr noundef %336, ptr noundef nonnull %10, ptr noundef nonnull @c_b5, ptr noundef %339, ptr noundef nonnull %4) #4
-  %340 = load i32, ptr %1, align 4, !tbaa !3
-  %341 = load i32, ptr %16, align 4, !tbaa !3
-  %342 = add i32 %340, 1
-  %343 = sub i32 %342, %341
-  store i32 %343, ptr %14, align 4, !tbaa !3
-  %344 = add nsw i32 %341, 1
-  store i32 %344, ptr %15, align 4, !tbaa !3
-  %345 = mul i32 %341, %312
-  %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds double, ptr %20, i64 %346
-  %348 = icmp slt i32 %341, %340
-  %349 = select i1 %348, i32 %344, i32 %340
-  %350 = mul nsw i32 %349, %17
-  %351 = add nsw i32 %350, %341
-  %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds double, ptr %20, i64 %352
-  %354 = sext i32 %341 to i64
-  %355 = getelementptr inbounds double, ptr %24, i64 %354
-  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %347, ptr noundef %353, ptr noundef nonnull %4, ptr noundef nonnull %355) #4
-  %356 = load i32, ptr %16, align 4, !tbaa !3
-  %357 = mul i32 %356, %312
-  %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds double, ptr %20, i64 %358
-  %360 = load double, ptr %359, align 8, !tbaa !7
-  %361 = sext i32 %356 to i64
-  %362 = getelementptr inbounds double, ptr %21, i64 %361
-  store double %360, ptr %362, align 8, !tbaa !7
-  %363 = load i32, ptr %0, align 4, !tbaa !3
-  %364 = icmp slt i32 %356, %363
-  br i1 %364, label %365, label %568
-
-365:                                              ; preds = %313
-  store double 1.000000e+00, ptr %359, align 8, !tbaa !7
-  %366 = sub nsw i32 %363, %356
-  store i32 %366, ptr %14, align 4, !tbaa !3
-  %367 = load i32, ptr %1, align 4, !tbaa !3
-  %reass.sub44 = sub i32 %367, %356
-  %368 = add i32 %reass.sub44, 1
-  store i32 %368, ptr %15, align 4, !tbaa !3
-  %369 = add nsw i32 %356, 1
-  %370 = mul nsw i32 %356, %17
-  %371 = add nsw i32 %369, %370
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds double, ptr %20, i64 %372
-  %374 = add nsw i32 %370, %356
-  %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds double, ptr %20, i64 %375
-  %377 = mul nsw i32 %356, %25
-  %378 = add nsw i32 %369, %377
+  %339 = getelementptr inbounds double, ptr %19, i64 %338
+  %340 = mul nsw i32 %319, %24
+  %341 = add nsw i32 %332, %340
+  %342 = sext i32 %341 to i64
+  %343 = getelementptr inbounds double, ptr %26, i64 %342
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %336, ptr noundef nonnull %4, ptr noundef %339, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %343, ptr noundef nonnull @c__1) #4
+  %344 = load i32, ptr %1, align 4, !tbaa !3
+  %345 = load i32, ptr %16, align 4, !tbaa !3
+  %346 = add i32 %344, 1
+  %347 = sub i32 %346, %345
+  store i32 %347, ptr %14, align 4, !tbaa !3
+  %348 = add nsw i32 %345, -1
+  store i32 %348, ptr %15, align 4, !tbaa !3
+  %349 = add nsw i32 %345, %27
+  %350 = sext i32 %349 to i64
+  %351 = getelementptr inbounds double, ptr %29, i64 %350
+  %352 = mul i32 %345, %invariant.op410
+  %353 = sext i32 %352 to i64
+  %354 = getelementptr inbounds double, ptr %19, i64 %353
+  %355 = mul nsw i32 %345, %24
+  %356 = sext i32 %355 to i64
+  %gep409 = getelementptr double, ptr %invariant.gep408, i64 %356
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %351, ptr noundef nonnull %12, ptr noundef %354, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %gep409, ptr noundef nonnull @c__1) #4
+  %357 = load i32, ptr %0, align 4, !tbaa !3
+  %358 = load i32, ptr %16, align 4, !tbaa !3
+  %359 = sub nsw i32 %357, %358
+  store i32 %359, ptr %14, align 4, !tbaa !3
+  %360 = add nsw i32 %358, -1
+  store i32 %360, ptr %15, align 4, !tbaa !3
+  %361 = add nsw i32 %358, 1
+  %.reass411 = add i32 %358, %invariant.op410
+  %362 = sext i32 %.reass411 to i64
+  %363 = getelementptr inbounds double, ptr %19, i64 %362
+  %364 = mul nsw i32 %358, %24
+  %365 = sext i32 %364 to i64
+  %gep413 = getelementptr double, ptr %invariant.gep408, i64 %365
+  %366 = add nsw i32 %361, %364
+  %367 = sext i32 %366 to i64
+  %368 = getelementptr inbounds double, ptr %26, i64 %367
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %gep413, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %368, ptr noundef nonnull @c__1) #4
+  %369 = load i32, ptr %16, align 4, !tbaa !3
+  %370 = add nsw i32 %369, -1
+  store i32 %370, ptr %14, align 4, !tbaa !3
+  %371 = load i32, ptr %1, align 4, !tbaa !3
+  %reass.sub451 = sub i32 %371, %369
+  %372 = add i32 %reass.sub451, 1
+  store i32 %372, ptr %15, align 4, !tbaa !3
+  %373 = mul nsw i32 %369, %17
+  %374 = sext i32 %373 to i64
+  %gep415 = getelementptr double, ptr %invariant.gep406, i64 %374
+  %375 = add nsw i32 %373, %369
+  %376 = sext i32 %375 to i64
+  %377 = getelementptr inbounds double, ptr %19, i64 %376
+  %378 = mul nsw i32 %369, %24
   %379 = sext i32 %378 to i64
-  %380 = getelementptr inbounds double, ptr %28, i64 %379
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %373, ptr noundef nonnull %4, ptr noundef %376, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %380, ptr noundef nonnull @c__1) #4
-  %381 = load i32, ptr %1, align 4, !tbaa !3
-  %382 = load i32, ptr %16, align 4, !tbaa !3
-  %383 = add i32 %381, 1
-  %384 = sub i32 %383, %382
-  store i32 %384, ptr %14, align 4, !tbaa !3
-  %385 = add nsw i32 %382, -1
-  store i32 %385, ptr %15, align 4, !tbaa !3
-  %386 = add nsw i32 %382, %29
-  %387 = sext i32 %386 to i64
-  %388 = getelementptr inbounds double, ptr %32, i64 %387
-  %389 = mul i32 %382, %312
+  %gep417 = getelementptr double, ptr %invariant.gep408, i64 %379
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %gep415, ptr noundef nonnull %4, ptr noundef %377, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %gep417, ptr noundef nonnull @c__1) #4
+  %380 = load i32, ptr %0, align 4, !tbaa !3
+  %381 = load i32, ptr %16, align 4, !tbaa !3
+  %382 = sub nsw i32 %380, %381
+  store i32 %382, ptr %14, align 4, !tbaa !3
+  %383 = add nsw i32 %381, -1
+  store i32 %383, ptr %15, align 4, !tbaa !3
+  %384 = add nsw i32 %381, 1
+  %.reass419 = add i32 %381, %invariant.op418
+  %385 = sext i32 %.reass419 to i64
+  %386 = getelementptr inbounds double, ptr %26, i64 %385
+  %387 = mul nsw i32 %381, %24
+  %388 = sext i32 %387 to i64
+  %gep421 = getelementptr double, ptr %invariant.gep408, i64 %388
+  %389 = add nsw i32 %384, %387
   %390 = sext i32 %389 to i64
-  %391 = getelementptr inbounds double, ptr %20, i64 %390
-  %392 = mul nsw i32 %382, %25
-  %393 = sext i32 %392 to i64
-  %394 = getelementptr double, ptr %309, i64 %393
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %388, ptr noundef nonnull %12, ptr noundef %391, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %394, ptr noundef nonnull @c__1) #4
-  %395 = load i32, ptr %0, align 4, !tbaa !3
-  %396 = load i32, ptr %16, align 4, !tbaa !3
-  %397 = sub nsw i32 %395, %396
-  store i32 %397, ptr %14, align 4, !tbaa !3
-  %398 = add nsw i32 %396, -1
-  store i32 %398, ptr %15, align 4, !tbaa !3
-  %399 = add nsw i32 %396, 1
-  %.reass28 = add i32 %396, %312
-  %400 = sext i32 %.reass28 to i64
-  %401 = getelementptr inbounds double, ptr %20, i64 %400
-  %402 = mul nsw i32 %396, %25
-  %403 = sext i32 %402 to i64
-  %404 = getelementptr double, ptr %309, i64 %403
-  %405 = add nsw i32 %399, %402
-  %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds double, ptr %28, i64 %406
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %401, ptr noundef nonnull %4, ptr noundef %404, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %407, ptr noundef nonnull @c__1) #4
-  %408 = load i32, ptr %16, align 4, !tbaa !3
-  %409 = add nsw i32 %408, -1
-  store i32 %409, ptr %14, align 4, !tbaa !3
-  %410 = load i32, ptr %1, align 4, !tbaa !3
-  %reass.sub45 = sub i32 %410, %408
-  %411 = add i32 %reass.sub45, 1
-  store i32 %411, ptr %15, align 4, !tbaa !3
-  %412 = mul nsw i32 %408, %17
-  %413 = sext i32 %412 to i64
-  %414 = getelementptr double, ptr %41, i64 %413
-  %415 = add nsw i32 %412, %408
-  %416 = sext i32 %415 to i64
-  %417 = getelementptr inbounds double, ptr %20, i64 %416
-  %418 = mul nsw i32 %408, %25
-  %419 = sext i32 %418 to i64
-  %420 = getelementptr double, ptr %309, i64 %419
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %414, ptr noundef nonnull %4, ptr noundef %417, ptr noundef nonnull %4, ptr noundef nonnull @c_b16, ptr noundef %420, ptr noundef nonnull @c__1) #4
-  %421 = load i32, ptr %0, align 4, !tbaa !3
-  %422 = load i32, ptr %16, align 4, !tbaa !3
-  %423 = sub nsw i32 %421, %422
-  store i32 %423, ptr %14, align 4, !tbaa !3
-  %424 = add nsw i32 %422, -1
-  store i32 %424, ptr %15, align 4, !tbaa !3
-  %425 = add nsw i32 %422, 1
-  %.reass30 = add i32 %422, %invariant.op29
-  %426 = sext i32 %.reass30 to i64
-  %427 = getelementptr inbounds double, ptr %28, i64 %426
-  %428 = mul nsw i32 %422, %25
-  %429 = sext i32 %428 to i64
-  %430 = getelementptr double, ptr %309, i64 %429
-  %431 = add nsw i32 %425, %428
-  %432 = sext i32 %431 to i64
-  %433 = getelementptr inbounds double, ptr %28, i64 %432
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %427, ptr noundef nonnull %10, ptr noundef %430, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %433, ptr noundef nonnull @c__1) #4
-  %434 = load i32, ptr %0, align 4, !tbaa !3
-  %435 = load i32, ptr %16, align 4, !tbaa !3
-  %436 = sub nsw i32 %434, %435
-  store i32 %436, ptr %14, align 4, !tbaa !3
-  %437 = sext i32 %435 to i64
-  %438 = getelementptr inbounds double, ptr %24, i64 %437
-  %439 = add nsw i32 %435, 1
-  %440 = mul nsw i32 %435, %25
-  %441 = add nsw i32 %439, %440
-  %442 = sext i32 %441 to i64
-  %443 = getelementptr inbounds double, ptr %28, i64 %442
-  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %438, ptr noundef %443, ptr noundef nonnull @c__1) #4
-  %444 = load i32, ptr %0, align 4, !tbaa !3
-  %445 = load i32, ptr %16, align 4, !tbaa !3
-  %446 = sub nsw i32 %444, %445
-  store i32 %446, ptr %14, align 4, !tbaa !3
-  %447 = add nsw i32 %445, -1
-  store i32 %447, ptr %15, align 4, !tbaa !3
-  %448 = add nsw i32 %445, 1
-  %.reass32 = add i32 %445, %312
-  %449 = sext i32 %.reass32 to i64
-  %450 = getelementptr inbounds double, ptr %20, i64 %449
-  %451 = add nsw i32 %445, %29
-  %452 = sext i32 %451 to i64
-  %453 = getelementptr inbounds double, ptr %32, i64 %452
-  %454 = mul nsw i32 %445, %17
-  %455 = add nsw i32 %448, %454
-  %456 = sext i32 %455 to i64
-  %457 = getelementptr inbounds double, ptr %20, i64 %456
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %450, ptr noundef nonnull %4, ptr noundef %453, ptr noundef nonnull %12, ptr noundef nonnull @c_b5, ptr noundef %457, ptr noundef nonnull @c__1) #4
-  %458 = load i32, ptr %0, align 4, !tbaa !3
-  %459 = load i32, ptr %16, align 4, !tbaa !3
-  %460 = sub nsw i32 %458, %459
-  store i32 %460, ptr %14, align 4, !tbaa !3
-  %461 = add nsw i32 %459, 1
-  %.reass34 = add i32 %459, %invariant.op29
-  %462 = sext i32 %.reass34 to i64
-  %463 = getelementptr inbounds double, ptr %28, i64 %462
-  %464 = mul nsw i32 %459, %17
-  %465 = sext i32 %464 to i64
-  %466 = getelementptr double, ptr %41, i64 %465
-  %467 = add nsw i32 %461, %464
-  %468 = sext i32 %467 to i64
-  %469 = getelementptr inbounds double, ptr %20, i64 %468
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b4, ptr noundef %463, ptr noundef nonnull %10, ptr noundef %466, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %469, ptr noundef nonnull @c__1) #4
-  %470 = load i32, ptr %0, align 4, !tbaa !3
-  %471 = load i32, ptr %16, align 4, !tbaa !3
-  %472 = sub nsw i32 %470, %471
-  store i32 %472, ptr %14, align 4, !tbaa !3
-  %473 = add nsw i32 %471, 2
-  store i32 %473, ptr %15, align 4, !tbaa !3
-  %474 = add nsw i32 %471, 1
-  %475 = mul nsw i32 %471, %17
-  %476 = add nsw i32 %474, %475
-  %477 = sext i32 %476 to i64
-  %478 = getelementptr inbounds double, ptr %20, i64 %477
-  %479 = call i32 @llvm.smin.i32(i32 %473, i32 %470)
-  %480 = add nsw i32 %479, %475
-  %481 = sext i32 %480 to i64
-  %482 = getelementptr inbounds double, ptr %20, i64 %481
-  %483 = sext i32 %471 to i64
-  %484 = getelementptr inbounds double, ptr %23, i64 %483
-  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %478, ptr noundef %482, ptr noundef nonnull @c__1, ptr noundef nonnull %484) #4
-  %485 = load i32, ptr %16, align 4, !tbaa !3
-  %486 = add nsw i32 %485, 1
-  %487 = mul nsw i32 %485, %17
-  %488 = add nsw i32 %486, %487
-  %489 = sext i32 %488 to i64
-  %490 = getelementptr inbounds double, ptr %20, i64 %489
-  %491 = load double, ptr %490, align 8, !tbaa !7
-  %492 = sext i32 %485 to i64
-  %493 = getelementptr inbounds double, ptr %22, i64 %492
-  store double %491, ptr %493, align 8, !tbaa !7
-  store double 1.000000e+00, ptr %490, align 8, !tbaa !7
-  %494 = load i32, ptr %0, align 4, !tbaa !3
-  %495 = sub nsw i32 %494, %485
-  store i32 %495, ptr %14, align 4, !tbaa !3
-  %496 = load i32, ptr %1, align 4, !tbaa !3
-  %497 = sub nsw i32 %496, %485
-  store i32 %497, ptr %15, align 4, !tbaa !3
-  %498 = mul i32 %486, %312
-  %499 = sext i32 %498 to i64
-  %500 = getelementptr inbounds double, ptr %20, i64 %499
-  %501 = mul nsw i32 %485, %29
-  %502 = add nsw i32 %486, %501
+  %391 = getelementptr inbounds double, ptr %26, i64 %390
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %386, ptr noundef nonnull %10, ptr noundef %gep421, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %391, ptr noundef nonnull @c__1) #4
+  %392 = load i32, ptr %0, align 4, !tbaa !3
+  %393 = load i32, ptr %16, align 4, !tbaa !3
+  %394 = sub nsw i32 %392, %393
+  store i32 %394, ptr %14, align 4, !tbaa !3
+  %395 = sext i32 %393 to i64
+  %396 = getelementptr inbounds double, ptr %23, i64 %395
+  %397 = add nsw i32 %393, 1
+  %398 = mul nsw i32 %393, %24
+  %399 = add nsw i32 %397, %398
+  %400 = sext i32 %399 to i64
+  %401 = getelementptr inbounds double, ptr %26, i64 %400
+  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %396, ptr noundef %401, ptr noundef nonnull @c__1) #4
+  %402 = load i32, ptr %0, align 4, !tbaa !3
+  %403 = load i32, ptr %16, align 4, !tbaa !3
+  %404 = sub nsw i32 %402, %403
+  store i32 %404, ptr %14, align 4, !tbaa !3
+  %405 = add nsw i32 %403, -1
+  store i32 %405, ptr %15, align 4, !tbaa !3
+  %406 = add nsw i32 %403, 1
+  %.reass423 = add i32 %403, %invariant.op410
+  %407 = sext i32 %.reass423 to i64
+  %408 = getelementptr inbounds double, ptr %19, i64 %407
+  %409 = add nsw i32 %403, %27
+  %410 = sext i32 %409 to i64
+  %411 = getelementptr inbounds double, ptr %29, i64 %410
+  %412 = mul nsw i32 %403, %17
+  %413 = add nsw i32 %406, %412
+  %414 = sext i32 %413 to i64
+  %415 = getelementptr inbounds double, ptr %19, i64 %414
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %408, ptr noundef nonnull %4, ptr noundef %411, ptr noundef nonnull %12, ptr noundef nonnull @c_b5, ptr noundef %415, ptr noundef nonnull @c__1) #4
+  %416 = load i32, ptr %0, align 4, !tbaa !3
+  %417 = load i32, ptr %16, align 4, !tbaa !3
+  %418 = sub nsw i32 %416, %417
+  store i32 %418, ptr %14, align 4, !tbaa !3
+  %419 = add nsw i32 %417, 1
+  %.reass425 = add i32 %417, %invariant.op418
+  %420 = sext i32 %.reass425 to i64
+  %421 = getelementptr inbounds double, ptr %26, i64 %420
+  %422 = mul nsw i32 %417, %17
+  %423 = sext i32 %422 to i64
+  %gep427 = getelementptr double, ptr %invariant.gep406, i64 %423
+  %424 = add nsw i32 %419, %422
+  %425 = sext i32 %424 to i64
+  %426 = getelementptr inbounds double, ptr %19, i64 %425
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b4, ptr noundef %421, ptr noundef nonnull %10, ptr noundef %gep427, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %426, ptr noundef nonnull @c__1) #4
+  %427 = load i32, ptr %0, align 4, !tbaa !3
+  %428 = load i32, ptr %16, align 4, !tbaa !3
+  %429 = sub nsw i32 %427, %428
+  store i32 %429, ptr %14, align 4, !tbaa !3
+  %430 = add nsw i32 %428, 2
+  store i32 %430, ptr %15, align 4, !tbaa !3
+  %431 = add nsw i32 %428, 1
+  %432 = mul nsw i32 %428, %17
+  %433 = add nsw i32 %431, %432
+  %434 = sext i32 %433 to i64
+  %435 = getelementptr inbounds double, ptr %19, i64 %434
+  %.363 = call i32 @llvm.smin.i32(i32 %430, i32 %427)
+  %436 = add nsw i32 %.363, %432
+  %437 = sext i32 %436 to i64
+  %438 = getelementptr inbounds double, ptr %19, i64 %437
+  %439 = sext i32 %428 to i64
+  %440 = getelementptr inbounds double, ptr %22, i64 %439
+  call void @dlarfg_(ptr noundef nonnull %14, ptr noundef %435, ptr noundef %438, ptr noundef nonnull @c__1, ptr noundef nonnull %440) #4
+  %441 = load i32, ptr %16, align 4, !tbaa !3
+  %442 = add nsw i32 %441, 1
+  %443 = mul nsw i32 %441, %17
+  %444 = add nsw i32 %442, %443
+  %445 = sext i32 %444 to i64
+  %446 = getelementptr inbounds double, ptr %19, i64 %445
+  %447 = load double, ptr %446, align 8, !tbaa !7
+  %448 = sext i32 %441 to i64
+  %449 = getelementptr inbounds double, ptr %21, i64 %448
+  store double %447, ptr %449, align 8, !tbaa !7
+  store double 1.000000e+00, ptr %446, align 8, !tbaa !7
+  %450 = load i32, ptr %0, align 4, !tbaa !3
+  %451 = sub nsw i32 %450, %441
+  store i32 %451, ptr %14, align 4, !tbaa !3
+  %452 = load i32, ptr %1, align 4, !tbaa !3
+  %453 = sub nsw i32 %452, %441
+  store i32 %453, ptr %15, align 4, !tbaa !3
+  %454 = mul i32 %442, %invariant.op410
+  %455 = sext i32 %454 to i64
+  %456 = getelementptr inbounds double, ptr %19, i64 %455
+  %457 = mul nsw i32 %441, %27
+  %458 = add nsw i32 %442, %457
+  %459 = sext i32 %458 to i64
+  %460 = getelementptr inbounds double, ptr %29, i64 %459
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %456, ptr noundef nonnull %4, ptr noundef nonnull %446, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %460, ptr noundef nonnull @c__1) #4
+  %461 = load i32, ptr %0, align 4, !tbaa !3
+  %462 = load i32, ptr %16, align 4, !tbaa !3
+  %463 = sub nsw i32 %461, %462
+  store i32 %463, ptr %14, align 4, !tbaa !3
+  %464 = add nsw i32 %462, -1
+  store i32 %464, ptr %15, align 4, !tbaa !3
+  %465 = add nsw i32 %462, 1
+  %.reass429 = add i32 %462, %invariant.op410
+  %466 = sext i32 %.reass429 to i64
+  %467 = getelementptr inbounds double, ptr %19, i64 %466
+  %468 = mul nsw i32 %462, %17
+  %469 = add nsw i32 %465, %468
+  %470 = sext i32 %469 to i64
+  %471 = getelementptr inbounds double, ptr %19, i64 %470
+  %472 = mul nsw i32 %462, %27
+  %473 = sext i32 %472 to i64
+  %gep431 = getelementptr double, ptr %invariant.gep430, i64 %473
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %467, ptr noundef nonnull %4, ptr noundef %471, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %gep431, ptr noundef nonnull @c__1) #4
+  %474 = load i32, ptr %1, align 4, !tbaa !3
+  %475 = load i32, ptr %16, align 4, !tbaa !3
+  %476 = sub nsw i32 %474, %475
+  store i32 %476, ptr %14, align 4, !tbaa !3
+  %477 = add nsw i32 %475, -1
+  store i32 %477, ptr %15, align 4, !tbaa !3
+  %478 = add nsw i32 %475, 1
+  %.reass433 = add i32 %475, %invariant.op432
+  %479 = sext i32 %.reass433 to i64
+  %480 = getelementptr inbounds double, ptr %29, i64 %479
+  %481 = mul nsw i32 %475, %27
+  %482 = sext i32 %481 to i64
+  %gep435 = getelementptr double, ptr %invariant.gep430, i64 %482
+  %483 = add nsw i32 %478, %481
+  %484 = sext i32 %483 to i64
+  %485 = getelementptr inbounds double, ptr %29, i64 %484
+  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %480, ptr noundef nonnull %12, ptr noundef %gep435, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %485, ptr noundef nonnull @c__1) #4
+  %486 = load i32, ptr %0, align 4, !tbaa !3
+  %487 = load i32, ptr %16, align 4, !tbaa !3
+  %488 = sub nsw i32 %486, %487
+  store i32 %488, ptr %14, align 4, !tbaa !3
+  %489 = add nsw i32 %487, 1
+  %.reass437 = add i32 %487, %invariant.op418
+  %490 = sext i32 %.reass437 to i64
+  %491 = getelementptr inbounds double, ptr %26, i64 %490
+  %492 = mul nsw i32 %487, %17
+  %493 = add nsw i32 %489, %492
+  %494 = sext i32 %493 to i64
+  %495 = getelementptr inbounds double, ptr %19, i64 %494
+  %496 = mul nsw i32 %487, %27
+  %497 = sext i32 %496 to i64
+  %gep439 = getelementptr double, ptr %invariant.gep430, i64 %497
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b5, ptr noundef %491, ptr noundef nonnull %10, ptr noundef %495, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %gep439, ptr noundef nonnull @c__1) #4
+  %498 = load i32, ptr %1, align 4, !tbaa !3
+  %499 = load i32, ptr %16, align 4, !tbaa !3
+  %500 = sub nsw i32 %498, %499
+  store i32 %500, ptr %14, align 4, !tbaa !3
+  %501 = add nsw i32 %499, 1
+  %502 = mul nsw i32 %501, %17
   %503 = sext i32 %502 to i64
-  %504 = getelementptr inbounds double, ptr %32, i64 %503
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %500, ptr noundef nonnull %4, ptr noundef nonnull %490, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %504, ptr noundef nonnull @c__1) #4
-  %505 = load i32, ptr %0, align 4, !tbaa !3
-  %506 = load i32, ptr %16, align 4, !tbaa !3
-  %507 = sub nsw i32 %505, %506
-  store i32 %507, ptr %14, align 4, !tbaa !3
-  %508 = add nsw i32 %506, -1
-  store i32 %508, ptr %15, align 4, !tbaa !3
-  %509 = add nsw i32 %506, 1
-  %.reass36 = add i32 %506, %312
-  %510 = sext i32 %.reass36 to i64
-  %511 = getelementptr inbounds double, ptr %20, i64 %510
-  %512 = mul nsw i32 %506, %17
-  %513 = add nsw i32 %509, %512
-  %514 = sext i32 %513 to i64
-  %515 = getelementptr inbounds double, ptr %20, i64 %514
-  %516 = mul nsw i32 %506, %29
+  %gep441 = getelementptr double, ptr %invariant.gep406, i64 %503
+  %504 = mul nsw i32 %499, %27
+  %505 = sext i32 %504 to i64
+  %gep443 = getelementptr double, ptr %invariant.gep430, i64 %505
+  %506 = add nsw i32 %501, %504
+  %507 = sext i32 %506 to i64
+  %508 = getelementptr inbounds double, ptr %29, i64 %507
+  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull @c_b4, ptr noundef %gep441, ptr noundef nonnull %4, ptr noundef %gep443, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %508, ptr noundef nonnull @c__1) #4
+  %509 = load i32, ptr %1, align 4, !tbaa !3
+  %510 = load i32, ptr %16, align 4, !tbaa !3
+  %511 = sub nsw i32 %509, %510
+  store i32 %511, ptr %14, align 4, !tbaa !3
+  %512 = sext i32 %510 to i64
+  %513 = getelementptr inbounds double, ptr %22, i64 %512
+  %514 = add nsw i32 %510, 1
+  %515 = mul nsw i32 %510, %27
+  %516 = add nsw i32 %514, %515
   %517 = sext i32 %516 to i64
-  %518 = getelementptr double, ptr %310, i64 %517
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b5, ptr noundef %511, ptr noundef nonnull %4, ptr noundef %515, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %518, ptr noundef nonnull @c__1) #4
-  %519 = load i32, ptr %1, align 4, !tbaa !3
-  %520 = load i32, ptr %16, align 4, !tbaa !3
-  %521 = sub nsw i32 %519, %520
-  store i32 %521, ptr %14, align 4, !tbaa !3
-  %522 = add nsw i32 %520, -1
-  store i32 %522, ptr %15, align 4, !tbaa !3
-  %523 = add nsw i32 %520, 1
-  %.reass38 = add i32 %520, %invariant.op37
-  %524 = sext i32 %.reass38 to i64
-  %525 = getelementptr inbounds double, ptr %32, i64 %524
-  %526 = mul nsw i32 %520, %29
-  %527 = sext i32 %526 to i64
-  %528 = getelementptr double, ptr %310, i64 %527
-  %529 = add nsw i32 %523, %526
-  %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds double, ptr %32, i64 %530
-  call void @dgemv_(ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b4, ptr noundef %525, ptr noundef nonnull %12, ptr noundef %528, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %531, ptr noundef nonnull @c__1) #4
-  %532 = load i32, ptr %0, align 4, !tbaa !3
-  %533 = load i32, ptr %16, align 4, !tbaa !3
-  %534 = sub nsw i32 %532, %533
-  store i32 %534, ptr %14, align 4, !tbaa !3
-  %535 = add nsw i32 %533, 1
-  %.reass40 = add i32 %533, %invariant.op29
-  %536 = sext i32 %.reass40 to i64
-  %537 = getelementptr inbounds double, ptr %28, i64 %536
-  %538 = mul nsw i32 %533, %17
-  %539 = add nsw i32 %535, %538
-  %540 = sext i32 %539 to i64
-  %541 = getelementptr inbounds double, ptr %20, i64 %540
-  %542 = mul nsw i32 %533, %29
-  %543 = sext i32 %542 to i64
-  %544 = getelementptr double, ptr %310, i64 %543
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull @c_b5, ptr noundef %537, ptr noundef nonnull %10, ptr noundef %541, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %544, ptr noundef nonnull @c__1) #4
-  %545 = load i32, ptr %1, align 4, !tbaa !3
-  %546 = load i32, ptr %16, align 4, !tbaa !3
-  %547 = sub nsw i32 %545, %546
-  store i32 %547, ptr %14, align 4, !tbaa !3
-  %548 = add nsw i32 %546, 1
-  %549 = mul nsw i32 %548, %17
-  %550 = sext i32 %549 to i64
-  %551 = getelementptr double, ptr %41, i64 %550
-  %552 = mul nsw i32 %546, %29
-  %553 = sext i32 %552 to i64
-  %554 = getelementptr double, ptr %310, i64 %553
-  %555 = add nsw i32 %548, %552
-  %556 = sext i32 %555 to i64
-  %557 = getelementptr inbounds double, ptr %32, i64 %556
-  call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull @c_b4, ptr noundef %551, ptr noundef nonnull %4, ptr noundef %554, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b5, ptr noundef %557, ptr noundef nonnull @c__1) #4
-  %558 = load i32, ptr %1, align 4, !tbaa !3
-  %559 = load i32, ptr %16, align 4, !tbaa !3
-  %560 = sub nsw i32 %558, %559
-  store i32 %560, ptr %14, align 4, !tbaa !3
-  %561 = sext i32 %559 to i64
-  %562 = getelementptr inbounds double, ptr %23, i64 %561
-  %563 = add nsw i32 %559, 1
-  %564 = mul nsw i32 %559, %29
-  %565 = add nsw i32 %563, %564
-  %566 = sext i32 %565 to i64
-  %567 = getelementptr inbounds double, ptr %32, i64 %566
-  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %562, ptr noundef %567, ptr noundef nonnull @c__1) #4
-  %.pre47 = load i32, ptr %16, align 4, !tbaa !3
-  br label %568
+  %518 = getelementptr inbounds double, ptr %29, i64 %517
+  call void @dscal_(ptr noundef nonnull %14, ptr noundef nonnull %513, ptr noundef %518, ptr noundef nonnull @c__1) #4
+  %.pre453 = load i32, ptr %16, align 4, !tbaa !3
+  br label %519
 
-568:                                              ; preds = %365, %313
-  %569 = phi i32 [ %.pre47, %365 ], [ %356, %313 ]
-  %570 = add nsw i32 %569, 1
-  store i32 %570, ptr %16, align 4, !tbaa !3
-  %571 = icmp slt i32 %569, %40
-  br i1 %571, label %313, label %.loopexit, !llvm.loop !12
+519:                                              ; preds = %.lr.ph446, %328
+  %520 = phi i32 [ %319, %.lr.ph446 ], [ %.pre453, %328 ]
+  %521 = add nsw i32 %520, 1
+  store i32 %521, ptr %16, align 4, !tbaa !3
+  %.not354.not = icmp slt i32 %520, %36
+  br i1 %.not354.not, label %.lr.ph446, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %304, %568, %308, %43, %35, %13
+.loopexit:                                        ; preds = %277, %519, %37, %280, %13, %32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
@@ -751,13 +745,13 @@ declare void @dscal_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
@@ -771,7 +765,6 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !10, !11}
+!11 = distinct !{!11, !10}

@@ -11,15 +11,15 @@ define double @z_abs(ptr noundef readonly captures(none) %0) local_unnamed_addr 
   %5 = tail call double @llvm.fabs.f64(double %2)
   %6 = tail call double @llvm.fabs.f64(double %4)
   %7 = fcmp ogt double %6, %5
-  %8 = select i1 %7, double %6, double %5
-  %9 = select i1 %7, double %5, double %6
-  %10 = fcmp oeq double %9, 0.000000e+00
-  %11 = fdiv double %9, %8
-  %12 = tail call double @llvm.fmuladd.f64(double %11, double %11, double 1.000000e+00)
-  %sqrt = tail call double @llvm.sqrt.f64(double %12)
-  %13 = fmul double %8, %sqrt
-  %14 = select i1 %10, double %8, double %13
-  ret double %14
+  %.018 = select i1 %7, double %6, double %5
+  %.0 = select i1 %7, double %5, double %6
+  %8 = fcmp oeq double %.0, 0.000000e+00
+  %9 = fdiv double %.0, %.018
+  %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double 1.000000e+00)
+  %sqrt = tail call double @llvm.sqrt.f64(double %10)
+  %11 = fmul double %.018, %sqrt
+  %.019 = select i1 %8, double %.018, double %11
+  ret double %.019
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

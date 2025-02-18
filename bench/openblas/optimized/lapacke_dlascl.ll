@@ -8,134 +8,134 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @LAPACKE_dlascl(i32 noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = add i32 %0, -103
-  %12 = icmp ult i32 %11, -2
-  br i1 %12, label %13, label %14
+  %or.cond = icmp ult i32 %11, -2
+  br i1 %or.cond, label %12, label %13
+
+12:                                               ; preds = %10
+  tail call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -1) #2
+  br label %71
 
 13:                                               ; preds = %10
-  tail call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef -1) #2
-  br label %84
+  %14 = tail call i32 @LAPACKE_get_nancheck() #2
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %69, label %15
 
-14:                                               ; preds = %10
-  %15 = tail call i32 @LAPACKE_get_nancheck() #2
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %82, label %17
-
-17:                                               ; preds = %14
-  switch i8 %1, label %82 [
-    i8 71, label %18
-    i8 76, label %21
-    i8 85, label %35
-    i8 72, label %49
-    i8 66, label %64
-    i8 81, label %67
-    i8 90, label %70
+15:                                               ; preds = %13
+  switch i8 %1, label %69 [
+    i8 71, label %16
+    i8 76, label %18
+    i8 85, label %30
+    i8 72, label %42
+    i8 66, label %55
+    i8 81, label %57
+    i8 90, label %59
   ]
 
-18:                                               ; preds = %17
-  %19 = tail call i32 @LAPACKE_dge_nancheck(i32 noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) #2
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %82, label %84
+16:                                               ; preds = %15
+  %17 = tail call i32 @LAPACKE_dge_nancheck(i32 noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) #2
+  %.not101 = icmp eq i32 %17, 0
+  br i1 %.not101, label %69, label %71
 
-21:                                               ; preds = %17
+18:                                               ; preds = %15
   %switch = icmp eq i32 %0, 102
-  %22 = add nsw i32 %6, -1
-  br i1 %switch, label %23, label %27
+  %19 = add nsw i32 %6, -1
+  br i1 %switch, label %20, label %23
 
-23:                                               ; preds = %21
-  %24 = add nsw i32 %9, 1
-  %25 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef %22, i32 noundef 0, ptr noundef %8, i32 noundef %24) #2
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %82, label %84
+20:                                               ; preds = %18
+  %21 = add nsw i32 %9, 1
+  %22 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef %19, i32 noundef 0, ptr noundef %8, i32 noundef %21) #2
+  %.not99 = icmp eq i32 %22, 0
+  br i1 %.not99, label %69, label %71
 
-27:                                               ; preds = %21
-  %28 = sext i32 %6 to i64
-  %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds double, ptr %8, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = add nsw i32 %9, 1
-  %33 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %7, i32 noundef %6, i32 noundef 0, i32 noundef %22, ptr noundef nonnull %31, i32 noundef %32) #2
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %82, label %84
+23:                                               ; preds = %18
+  %24 = sext i32 %6 to i64
+  %25 = sub nsw i64 0, %24
+  %26 = getelementptr inbounds double, ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = add nsw i32 %9, 1
+  %29 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %7, i32 noundef %6, i32 noundef 0, i32 noundef %19, ptr noundef nonnull %27, i32 noundef %28) #2
+  %.not100 = icmp eq i32 %29, 0
+  br i1 %.not100, label %69, label %71
 
-35:                                               ; preds = %17
-  %switch5 = icmp eq i32 %0, 102
-  %36 = add nsw i32 %7, -1
-  br i1 %switch5, label %37, label %45
+30:                                               ; preds = %15
+  %switch106 = icmp eq i32 %0, 102
+  %31 = add nsw i32 %7, -1
+  br i1 %switch106, label %32, label %39
 
-37:                                               ; preds = %35
-  %38 = sext i32 %7 to i64
-  %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds double, ptr %8, i64 %39
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = add nsw i32 %9, 1
-  %43 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef %36, ptr noundef nonnull %41, i32 noundef %42) #2
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %82, label %84
+32:                                               ; preds = %30
+  %33 = sext i32 %7 to i64
+  %34 = sub nsw i64 0, %33
+  %35 = getelementptr inbounds double, ptr %8, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = add nsw i32 %9, 1
+  %38 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef %31, ptr noundef nonnull %36, i32 noundef %37) #2
+  %.not97 = icmp eq i32 %38, 0
+  br i1 %.not97, label %69, label %71
 
-45:                                               ; preds = %35
-  %46 = add nsw i32 %9, 1
-  %47 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %7, i32 noundef %6, i32 noundef %36, i32 noundef 0, ptr noundef %8, i32 noundef %46) #2
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %82, label %84
+39:                                               ; preds = %30
+  %40 = add nsw i32 %9, 1
+  %41 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %7, i32 noundef %6, i32 noundef %31, i32 noundef 0, ptr noundef %8, i32 noundef %40) #2
+  %.not98 = icmp eq i32 %41, 0
+  br i1 %.not98, label %69, label %71
 
-49:                                               ; preds = %17
-  %switch8 = icmp eq i32 %0, 102
-  %50 = add nsw i32 %7, -1
-  br i1 %switch8, label %51, label %59
+42:                                               ; preds = %15
+  %switch109 = icmp eq i32 %0, 102
+  %43 = add nsw i32 %7, -1
+  br i1 %switch109, label %44, label %51
 
-51:                                               ; preds = %49
-  %52 = sext i32 %7 to i64
-  %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds double, ptr %8, i64 %53
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = add nsw i32 %9, 1
-  %57 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef 1, i32 noundef %50, ptr noundef nonnull %55, i32 noundef %56) #2
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %82, label %84
+44:                                               ; preds = %42
+  %45 = sext i32 %7 to i64
+  %46 = sub nsw i64 0, %45
+  %47 = getelementptr inbounds double, ptr %8, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = add nsw i32 %9, 1
+  %50 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef 1, i32 noundef %43, ptr noundef nonnull %48, i32 noundef %49) #2
+  %.not95 = icmp eq i32 %50, 0
+  br i1 %.not95, label %69, label %71
 
-59:                                               ; preds = %49
-  %60 = getelementptr inbounds i8, ptr %8, i64 -8
-  %61 = add nsw i32 %9, 1
-  %62 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %7, i32 noundef %6, i32 noundef %50, i32 noundef 1, ptr noundef nonnull %60, i32 noundef %61) #2
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %82, label %84
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds i8, ptr %8, i64 -8
+  %53 = add nsw i32 %9, 1
+  %54 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %7, i32 noundef %6, i32 noundef %43, i32 noundef 1, ptr noundef nonnull %52, i32 noundef %53) #2
+  %.not96 = icmp eq i32 %54, 0
+  br i1 %.not96, label %69, label %71
 
-64:                                               ; preds = %17
-  %65 = tail call i32 @LAPACKE_dsb_nancheck(i32 noundef %0, i8 noundef signext 76, i32 noundef %7, i32 noundef %2, ptr noundef %8, i32 noundef %9) #2
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %82, label %84
+55:                                               ; preds = %15
+  %56 = tail call i32 @LAPACKE_dsb_nancheck(i32 noundef %0, i8 noundef signext 76, i32 noundef %7, i32 noundef %2, ptr noundef %8, i32 noundef %9) #2
+  %.not94 = icmp eq i32 %56, 0
+  br i1 %.not94, label %69, label %71
 
-67:                                               ; preds = %17
-  %68 = tail call i32 @LAPACKE_dsb_nancheck(i32 noundef %0, i8 noundef signext 85, i32 noundef %7, i32 noundef %3, ptr noundef %8, i32 noundef %9) #2
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %82, label %84
+57:                                               ; preds = %15
+  %58 = tail call i32 @LAPACKE_dsb_nancheck(i32 noundef %0, i8 noundef signext 85, i32 noundef %7, i32 noundef %3, ptr noundef %8, i32 noundef %9) #2
+  %.not93 = icmp eq i32 %58, 0
+  br i1 %.not93, label %69, label %71
 
-70:                                               ; preds = %17
-  %switch11 = icmp eq i32 %0, 102
-  br i1 %switch11, label %71, label %76
+59:                                               ; preds = %15
+  %switch112 = icmp eq i32 %0, 102
+  br i1 %switch112, label %60, label %64
 
-71:                                               ; preds = %70
-  %72 = sext i32 %2 to i64
-  %73 = getelementptr inbounds double, ptr %8, i64 %72
-  %74 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef %2, i32 noundef %3, ptr noundef %73, i32 noundef %9) #2
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %82, label %84
+60:                                               ; preds = %59
+  %61 = sext i32 %2 to i64
+  %62 = getelementptr inbounds double, ptr %8, i64 %61
+  %63 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 102, i32 noundef %6, i32 noundef %7, i32 noundef %2, i32 noundef %3, ptr noundef %62, i32 noundef %9) #2
+  %.not91 = icmp eq i32 %63, 0
+  br i1 %.not91, label %69, label %71
 
-76:                                               ; preds = %70
-  %77 = mul nsw i32 %9, %2
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %8, i64 %78
-  %80 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 101, i32 noundef %6, i32 noundef %7, i32 noundef %2, i32 noundef %3, ptr noundef %79, i32 noundef %9) #2
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %84
+64:                                               ; preds = %59
+  %65 = mul nsw i32 %9, %2
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds double, ptr %8, i64 %66
+  %68 = tail call i32 @LAPACKE_dgb_nancheck(i32 noundef 101, i32 noundef %6, i32 noundef %7, i32 noundef %2, i32 noundef %3, ptr noundef %67, i32 noundef %9) #2
+  %.not92 = icmp eq i32 %68, 0
+  br i1 %.not92, label %69, label %71
 
-82:                                               ; preds = %71, %51, %37, %23, %76, %67, %64, %59, %45, %27, %18, %17, %14
-  %83 = tail call i32 @LAPACKE_dlascl_work(i32 noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) #2
-  br label %84
+69:                                               ; preds = %60, %44, %32, %20, %15, %16, %23, %39, %51, %55, %57, %64, %13
+  %70 = tail call i32 @LAPACKE_dlascl_work(i32 noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) #2
+  br label %71
 
-84:                                               ; preds = %82, %76, %71, %67, %64, %59, %51, %45, %37, %27, %23, %18, %13
-  %85 = phi i32 [ -1, %13 ], [ %83, %82 ], [ -9, %18 ], [ -9, %23 ], [ -9, %27 ], [ -9, %37 ], [ -9, %45 ], [ -9, %51 ], [ -9, %59 ], [ -9, %64 ], [ -9, %67 ], [ -9, %71 ], [ -9, %76 ]
-  ret i32 %85
+71:                                               ; preds = %64, %60, %57, %55, %51, %44, %39, %32, %23, %20, %16, %69, %12
+  %.0 = phi i32 [ -1, %12 ], [ %70, %69 ], [ -9, %16 ], [ -9, %20 ], [ -9, %23 ], [ -9, %32 ], [ -9, %39 ], [ -9, %44 ], [ -9, %51 ], [ -9, %55 ], [ -9, %57 ], [ -9, %60 ], [ -9, %64 ]
+  ret i32 %.0
 }
 
 declare void @LAPACKE_xerbla(ptr noundef, i32 noundef) local_unnamed_addr #1

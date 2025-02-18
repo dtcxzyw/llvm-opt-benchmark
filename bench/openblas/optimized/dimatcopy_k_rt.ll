@@ -7,43 +7,43 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @dimatcopy_k_rt(i64 noundef %0, i64 noundef %1, double noundef %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i64 %0, 1
   %7 = icmp slt i64 %1, 1
-  %8 = or i1 %6, %7
-  br i1 %8, label %.loopexit2, label %.preheader1
+  %or.cond = or i1 %6, %7
+  br i1 %or.cond, label %.loopexit, label %.preheader
 
-.preheader1:                                      ; preds = %5, %.loopexit
-  %9 = phi i64 [ %16, %.loopexit ], [ 0, %5 ]
-  %10 = phi ptr [ %28, %.loopexit ], [ %3, %5 ]
-  %11 = getelementptr inbounds nuw double, ptr %3, i64 %9
-  %12 = mul nsw i64 %9, %4
-  %13 = getelementptr inbounds double, ptr %11, i64 %12
-  %14 = load double, ptr %13, align 8, !tbaa !3
-  %15 = fmul double %2, %14
-  store double %15, ptr %13, align 8, !tbaa !3
-  %16 = add nuw nsw i64 %9, 1
-  %17 = icmp slt i64 %16, %1
-  br i1 %17, label %.preheader, label %.loopexit
+.preheader:                                       ; preds = %5, %._crit_edge
+  %.03440 = phi i64 [ %13, %._crit_edge ], [ 0, %5 ]
+  %.03539 = phi ptr [ %23, %._crit_edge ], [ %3, %5 ]
+  %8 = getelementptr inbounds nuw double, ptr %3, i64 %.03440
+  %9 = mul nsw i64 %.03440, %4
+  %10 = getelementptr inbounds double, ptr %8, i64 %9
+  %11 = load double, ptr %10, align 8, !tbaa !3
+  %12 = fmul double %2, %11
+  store double %12, ptr %10, align 8, !tbaa !3
+  %13 = add nuw nsw i64 %.03440, 1
+  %14 = icmp slt i64 %13, %1
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
-.preheader:                                       ; preds = %.preheader1, %.preheader
-  %18 = phi i64 [ %26, %.preheader ], [ %16, %.preheader1 ]
-  %19 = mul nsw i64 %18, %4
-  %20 = getelementptr inbounds double, ptr %11, i64 %19
-  %21 = load double, ptr %20, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw double, ptr %10, i64 %18
-  %23 = load double, ptr %22, align 8, !tbaa !3
-  %24 = fmul double %2, %23
-  store double %24, ptr %20, align 8, !tbaa !3
-  %25 = fmul double %2, %21
-  store double %25, ptr %22, align 8, !tbaa !3
-  %26 = add nuw nsw i64 %18, 1
-  %27 = icmp eq i64 %26, %1
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !7
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.03638 = phi i64 [ %22, %.lr.ph ], [ %13, %.preheader ]
+  %15 = mul nsw i64 %.03638, %4
+  %16 = getelementptr inbounds double, ptr %8, i64 %15
+  %17 = load double, ptr %16, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw double, ptr %.03539, i64 %.03638
+  %19 = load double, ptr %18, align 8, !tbaa !3
+  %20 = fmul double %2, %19
+  store double %20, ptr %16, align 8, !tbaa !3
+  %21 = fmul double %2, %17
+  store double %21, ptr %18, align 8, !tbaa !3
+  %22 = add nuw nsw i64 %.03638, 1
+  %exitcond.not = icmp eq i64 %22, %1
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.preheader, %.preheader1
-  %28 = getelementptr inbounds double, ptr %10, i64 %4
-  %29 = icmp eq i64 %16, %0
-  br i1 %29, label %.loopexit2, label %.preheader1, !llvm.loop !10
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  %23 = getelementptr inbounds double, ptr %.03539, i64 %4
+  %exitcond41.not = icmp eq i64 %13, %0
+  br i1 %exitcond41.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit2:                                       ; preds = %.loopexit, %5
+.loopexit:                                        ; preds = %._crit_edge, %5
   ret i32 0
 }
 
@@ -58,7 +58,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

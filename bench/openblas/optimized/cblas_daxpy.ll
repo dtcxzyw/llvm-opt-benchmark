@@ -11,59 +11,64 @@ define void @cblas_daxpy(i32 noundef %0, double noundef %1, ptr noundef %2, i32 
   store double %1, ptr %7, align 8, !tbaa !3
   %8 = icmp slt i32 %0, 1
   %9 = fcmp oeq double %1, 0.000000e+00
-  %10 = or i1 %8, %9
-  br i1 %10, label %49, label %11
+  %or.cond40 = or i1 %8, %9
+  br i1 %or.cond40, label %43, label %10
 
-11:                                               ; preds = %6
-  %12 = or i32 %5, %3
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %20
+10:                                               ; preds = %6
+  %11 = or i32 %5, %3
+  %or.cond = icmp eq i32 %11, 0
+  br i1 %or.cond, label %12, label %18
 
-14:                                               ; preds = %11
-  %15 = uitofp nneg i32 %0 to double
-  %16 = fmul double %1, %15
-  %17 = load double, ptr %2, align 8, !tbaa !3
-  %18 = load double, ptr %4, align 8, !tbaa !3
-  %19 = tail call double @llvm.fmuladd.f64(double %16, double %17, double %18)
-  store double %19, ptr %4, align 8, !tbaa !3
-  br label %49
+12:                                               ; preds = %10
+  %13 = uitofp nneg i32 %0 to double
+  %14 = fmul double %1, %13
+  %15 = load double, ptr %2, align 8, !tbaa !3
+  %16 = load double, ptr %4, align 8, !tbaa !3
+  %17 = tail call double @llvm.fmuladd.f64(double %14, double %15, double %16)
+  store double %17, ptr %4, align 8, !tbaa !3
+  br label %43
 
-20:                                               ; preds = %11
-  %21 = icmp eq i32 %5, 0
-  %22 = icmp eq i32 %3, 0
-  %23 = icmp slt i32 %3, 0
-  %24 = add nsw i32 %0, -1
-  %25 = mul nsw i32 %3, %24
-  %26 = sext i32 %25 to i64
-  %27 = sub nsw i64 0, %26
-  %28 = select i1 %23, i64 %27, i64 0
-  %29 = getelementptr inbounds double, ptr %2, i64 %28
-  %30 = icmp slt i32 %5, 0
-  %31 = mul nsw i32 %5, %24
-  %32 = sext i32 %31 to i64
-  %33 = sub nsw i64 0, %32
-  %34 = select i1 %30, i64 %33, i64 0
-  %35 = getelementptr inbounds double, ptr %4, i64 %34
-  %36 = or i1 %22, %21
-  %37 = icmp samesign ult i32 %0, 10001
-  %38 = or i1 %37, %36
-  %39 = load i32, ptr @blas_cpu_number, align 4
-  %40 = icmp eq i32 %39, 1
-  %41 = select i1 %38, i1 true, i1 %40
-  %42 = zext nneg i32 %0 to i64
-  %43 = sext i32 %3 to i64
-  %44 = sext i32 %5 to i64
-  br i1 %41, label %45, label %47
+18:                                               ; preds = %10
+  %19 = icmp eq i32 %5, 0
+  %20 = icmp eq i32 %3, 0
+  %21 = icmp slt i32 %3, 0
+  %22 = add nsw i32 %0, -1
+  %23 = mul nsw i32 %3, %22
+  %24 = sext i32 %23 to i64
+  %25 = sub nsw i64 0, %24
+  %.034.idx = select i1 %21, i64 %25, i64 0
+  %.034 = getelementptr inbounds nuw double, ptr %2, i64 %.034.idx
+  %26 = icmp slt i32 %5, 0
+  %27 = mul nsw i32 %5, %22
+  %28 = sext i32 %27 to i64
+  %29 = sub nsw i64 0, %28
+  %.035.idx = select i1 %26, i64 %29, i64 0
+  %.035 = getelementptr inbounds nuw double, ptr %4, i64 %.035.idx
+  %or.cond3 = or i1 %20, %19
+  %30 = icmp samesign ult i32 %0, 10001
+  %or.cond5 = or i1 %30, %or.cond3
+  br i1 %or.cond5, label %.thread, label %31
 
-45:                                               ; preds = %20
-  %46 = tail call i32 @daxpy_k(i64 noundef %42, i64 noundef 0, i64 noundef 0, double noundef %1, ptr noundef %29, i64 noundef %43, ptr noundef %35, i64 noundef %44, ptr noundef null, i64 noundef 0) #3
-  br label %49
+31:                                               ; preds = %18
+  %32 = load i32, ptr @blas_cpu_number, align 4, !tbaa !7
+  %33 = icmp eq i32 %32, 1
+  br i1 %33, label %.thread, label %38
 
-47:                                               ; preds = %20
-  %48 = call i32 @blas_level1_thread(i32 noundef 3, i64 noundef %42, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %29, i64 noundef %43, ptr noundef %35, i64 noundef %44, ptr noundef null, i64 noundef 0, ptr noundef nonnull @daxpy_k, i32 noundef %39) #3
-  br label %49
+.thread:                                          ; preds = %18, %31
+  %34 = zext nneg i32 %0 to i64
+  %35 = sext i32 %3 to i64
+  %36 = sext i32 %5 to i64
+  %37 = tail call i32 @daxpy_k(i64 noundef %34, i64 noundef 0, i64 noundef 0, double noundef %1, ptr noundef %.034, i64 noundef %35, ptr noundef %.035, i64 noundef %36, ptr noundef null, i64 noundef 0) #3
+  br label %43
 
-49:                                               ; preds = %47, %45, %14, %6
+38:                                               ; preds = %31
+  %39 = zext nneg i32 %0 to i64
+  %40 = sext i32 %3 to i64
+  %41 = sext i32 %5 to i64
+  %42 = call i32 @blas_level1_thread(i32 noundef 3, i64 noundef %39, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %.034, i64 noundef %40, ptr noundef %.035, i64 noundef %41, ptr noundef null, i64 noundef 0, ptr noundef nonnull @daxpy_k, i32 noundef %32) #3
+  br label %43
+
+43:                                               ; preds = %.thread, %38, %6, %12
   ret void
 }
 
@@ -88,3 +93,5 @@ attributes #3 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}

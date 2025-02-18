@@ -5,64 +5,64 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @dtpmv_NLN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = icmp eq i64 %3, 1
-  br i1 %6, label %9, label %7
+  %.not = icmp eq i64 %3, 1
+  br i1 %.not, label %8, label %6
 
-7:                                                ; preds = %5
-  %8 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef 1) #2
-  br label %9
+6:                                                ; preds = %5
+  %7 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef 1) #2
+  br label %8
 
-9:                                                ; preds = %7, %5
-  %10 = phi ptr [ %4, %7 ], [ %2, %5 ]
-  %11 = icmp sgt i64 %0, 0
-  br i1 %11, label %12, label %.loopexit
+8:                                                ; preds = %6, %5
+  %.0 = phi ptr [ %4, %6 ], [ %2, %5 ]
+  %9 = icmp sgt i64 %0, 0
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
-12:                                               ; preds = %9
-  %13 = add nuw nsw i64 %0, 1
-  %14 = mul nuw nsw i64 %13, %0
-  %15 = lshr i64 %14, 1
-  %16 = getelementptr double, ptr %1, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = getelementptr double, ptr %10, i64 %0
-  br label %19
+.lr.ph:                                           ; preds = %8
+  %10 = add nuw nsw i64 %0, 1
+  %11 = mul nuw nsw i64 %10, %0
+  %12 = lshr i64 %11, 1
+  %13 = getelementptr double, ptr %1, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -8
+  %15 = getelementptr double, ptr %.0, i64 %0
+  br label %16
 
-19:                                               ; preds = %._crit_edge, %12
-  %20 = phi i64 [ 0, %12 ], [ %37, %._crit_edge ]
-  %21 = phi ptr [ %17, %12 ], [ %36, %._crit_edge ]
-  %22 = icmp eq i64 %20, 0
-  br i1 %22, label %._crit_edge, label %23
+16:                                               ; preds = %.lr.ph, %._crit_edge40
+  %.03239 = phi i64 [ 0, %.lr.ph ], [ %31, %._crit_edge40 ]
+  %.03338 = phi ptr [ %14, %.lr.ph ], [ %30, %._crit_edge40 ]
+  %.not37 = icmp eq i64 %.03239, 0
+  br i1 %.not37, label %._crit_edge40, label %17
 
-23:                                               ; preds = %19
-  %24 = xor i64 %20, -1
-  %25 = getelementptr double, ptr %18, i64 %24
-  %26 = load double, ptr %25, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %28 = sub nsw i64 0, %20
-  %29 = getelementptr inbounds double, ptr %18, i64 %28
-  %30 = tail call i32 @daxpy_k(i64 noundef %20, i64 noundef 0, i64 noundef 0, double noundef %26, ptr noundef nonnull %27, i64 noundef 1, ptr noundef nonnull %29, i64 noundef 1, ptr noundef null, i64 noundef 0) #2
-  br label %._crit_edge
+17:                                               ; preds = %16
+  %18 = xor i64 %.03239, -1
+  %19 = getelementptr double, ptr %15, i64 %18
+  %20 = load double, ptr %19, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %.03338, i64 8
+  %22 = sub nsw i64 0, %.03239
+  %23 = getelementptr inbounds double, ptr %15, i64 %22
+  %24 = tail call i32 @daxpy_k(i64 noundef %.03239, i64 noundef 0, i64 noundef 0, double noundef %20, ptr noundef nonnull %21, i64 noundef 1, ptr noundef nonnull %23, i64 noundef 1, ptr noundef null, i64 noundef 0) #2
+  br label %._crit_edge40
 
-._crit_edge:                                      ; preds = %19, %23
-  %.pre-phi = phi i64 [ %24, %23 ], [ -1, %19 ]
-  %31 = load double, ptr %21, align 8, !tbaa !3
-  %32 = getelementptr double, ptr %18, i64 %.pre-phi
-  %33 = load double, ptr %32, align 8, !tbaa !3
-  %34 = fmul double %31, %33
-  store double %34, ptr %32, align 8, !tbaa !3
-  %35 = sub nuw nsw i64 -2, %20
-  %36 = getelementptr inbounds double, ptr %21, i64 %35
-  %37 = add nuw nsw i64 %20, 1
-  %38 = icmp eq i64 %37, %0
-  br i1 %38, label %.loopexit, label %19, !llvm.loop !7
+._crit_edge40:                                    ; preds = %16, %17
+  %.pre-phi = phi i64 [ %18, %17 ], [ -1, %16 ]
+  %25 = load double, ptr %.03338, align 8, !tbaa !3
+  %26 = getelementptr double, ptr %15, i64 %.pre-phi
+  %27 = load double, ptr %26, align 8, !tbaa !3
+  %28 = fmul double %25, %27
+  store double %28, ptr %26, align 8, !tbaa !3
+  %29 = sub nuw nsw i64 -2, %.03239
+  %30 = getelementptr inbounds double, ptr %.03338, i64 %29
+  %31 = add nuw nsw i64 %.03239, 1
+  %exitcond.not = icmp eq i64 %31, %0
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !7
 
-.loopexit:                                        ; preds = %._crit_edge, %9
-  br i1 %6, label %41, label %39
+._crit_edge:                                      ; preds = %._crit_edge40, %8
+  br i1 %.not, label %34, label %32
 
-39:                                               ; preds = %.loopexit
-  %40 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
-  br label %41
+32:                                               ; preds = %._crit_edge
+  %33 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
+  br label %34
 
-41:                                               ; preds = %39, %.loopexit
+34:                                               ; preds = %32, %._crit_edge
   ret i32 0
 }
 
@@ -83,6 +83,5 @@ attributes #2 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}

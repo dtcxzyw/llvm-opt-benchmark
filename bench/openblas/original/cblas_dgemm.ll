@@ -1,288 +1,805 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.blas_arg_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64, i64, i64, ptr, i64 }
+%struct.blas_arg_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64, i64, i64, ptr, i64, ptr, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"DGEMM \00", align 1
-@gemm_small_kernel_b0 = internal unnamed_addr constant [8 x i64] [i64 ptrtoint (ptr @dgemm_small_kernel_b0_nn to i64), i64 ptrtoint (ptr @dgemm_small_kernel_b0_tn to i64), i64 0, i64 0, i64 ptrtoint (ptr @dgemm_small_kernel_b0_nt to i64), i64 ptrtoint (ptr @dgemm_small_kernel_b0_tt to i64), i64 0, i64 0], align 16
-@gemm_small_kernel = internal unnamed_addr constant [8 x i64] [i64 ptrtoint (ptr @dgemm_small_kernel_nn to i64), i64 ptrtoint (ptr @dgemm_small_kernel_tn to i64), i64 0, i64 0, i64 ptrtoint (ptr @dgemm_small_kernel_nt to i64), i64 ptrtoint (ptr @dgemm_small_kernel_tt to i64), i64 0, i64 0], align 16
-@gemm = internal unnamed_addr constant [32 x ptr] [ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt], align 16
-@blas_cpu_number = external local_unnamed_addr global i32, align 4
+@gemm_small_kernel_b0 = internal global [8 x i64] [i64 ptrtoint (ptr @dgemm_small_kernel_b0_nn to i64), i64 ptrtoint (ptr @dgemm_small_kernel_b0_tn to i64), i64 0, i64 0, i64 ptrtoint (ptr @dgemm_small_kernel_b0_nt to i64), i64 ptrtoint (ptr @dgemm_small_kernel_b0_tt to i64), i64 0, i64 0], align 16
+@gemm_small_kernel = internal global [8 x i64] [i64 ptrtoint (ptr @dgemm_small_kernel_nn to i64), i64 ptrtoint (ptr @dgemm_small_kernel_tn to i64), i64 0, i64 0, i64 ptrtoint (ptr @dgemm_small_kernel_nt to i64), i64 ptrtoint (ptr @dgemm_small_kernel_tt to i64), i64 0, i64 0], align 16
+@gemm = internal global [32 x ptr] [ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nn, ptr @dgemm_tn, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_nt, ptr @dgemm_tt, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nn, ptr @dgemm_thread_tn, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt, ptr @dgemm_thread_nt, ptr @dgemm_thread_tt], align 16
+@blas_cpu_number = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @cblas_dgemm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, double noundef %11, ptr noundef %12, i32 noundef %13) local_unnamed_addr #0 {
-  %15 = alloca double, align 8
-  %16 = alloca double, align 8
-  %17 = alloca %struct.blas_arg_t, align 8
+define void @cblas_dgemm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, double noundef %11, ptr noundef %12, i32 noundef %13) #0 {
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  store double %6, ptr %15, align 8, !tbaa !3
-  store double %11, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #3
-  %19 = getelementptr inbounds i8, ptr %17, i64 32
-  store ptr %15, ptr %19, align 8, !tbaa !7
-  %20 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr %16, ptr %20, align 8, !tbaa !11
-  store i32 0, ptr %18, align 4, !tbaa !12
-  %21 = icmp eq i32 %0, 102
-  br i1 %21, label %22, label %75
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca double, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca ptr, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca double, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i32, align 4
+  %29 = alloca %struct.blas_arg_t, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca double, align 8
+  %39 = alloca i32, align 4
+  store i32 %0, ptr %15, align 4, !tbaa !3
+  store i32 %1, ptr %16, align 4, !tbaa !3
+  store i32 %2, ptr %17, align 4, !tbaa !3
+  store i32 %3, ptr %18, align 4, !tbaa !3
+  store i32 %4, ptr %19, align 4, !tbaa !3
+  store i32 %5, ptr %20, align 4, !tbaa !3
+  store double %6, ptr %21, align 8, !tbaa !7
+  store ptr %7, ptr %22, align 8, !tbaa !9
+  store i32 %8, ptr %23, align 4, !tbaa !3
+  store ptr %9, ptr %24, align 8, !tbaa !9
+  store i32 %10, ptr %25, align 4, !tbaa !3
+  store double %11, ptr %26, align 8, !tbaa !7
+  store ptr %12, ptr %27, align 8, !tbaa !9
+  store i32 %13, ptr %28, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 136, ptr %29) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #4
+  %40 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 4
+  store ptr %21, ptr %40, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 5
+  store ptr %26, ptr %41, align 8, !tbaa !15
+  store i32 -1, ptr %30, align 4, !tbaa !3
+  store i32 -1, ptr %31, align 4, !tbaa !3
+  store i32 0, ptr %34, align 4, !tbaa !3
+  %42 = load i32, ptr %15, align 4, !tbaa !3
+  %43 = icmp eq i32 %42, 102
+  br i1 %43, label %44, label %167
 
-22:                                               ; preds = %14
-  %23 = sext i32 %3 to i64
-  %24 = getelementptr inbounds i8, ptr %17, i64 48
-  store i64 %23, ptr %24, align 8, !tbaa !14
-  %25 = sext i32 %4 to i64
-  %26 = getelementptr inbounds i8, ptr %17, i64 56
-  store i64 %25, ptr %26, align 8, !tbaa !15
-  %27 = sext i32 %5 to i64
-  %28 = getelementptr inbounds i8, ptr %17, i64 64
-  store i64 %27, ptr %28, align 8, !tbaa !16
-  store ptr %7, ptr %17, align 8, !tbaa !17
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %9, ptr %29, align 8, !tbaa !18
-  %30 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr %12, ptr %30, align 8, !tbaa !19
-  %31 = sext i32 %8 to i64
-  %32 = getelementptr inbounds i8, ptr %17, i64 72
-  store i64 %31, ptr %32, align 8, !tbaa !20
-  %33 = sext i32 %10 to i64
-  %34 = getelementptr inbounds i8, ptr %17, i64 80
-  store i64 %33, ptr %34, align 8, !tbaa !21
-  %35 = sext i32 %13 to i64
-  %36 = getelementptr inbounds i8, ptr %17, i64 88
-  store i64 %35, ptr %36, align 8, !tbaa !22
-  %37 = icmp ne i32 %1, 111
-  %38 = sext i1 %37 to i32
-  %39 = icmp eq i32 %1, 112
-  %40 = select i1 %39, i32 1, i32 %38
-  %41 = icmp eq i32 %1, 114
-  %42 = select i1 %41, i32 0, i32 %40
-  %43 = icmp eq i32 %1, 113
-  %44 = select i1 %43, i32 1, i32 %42
-  %45 = icmp ne i32 %2, 111
-  %46 = sext i1 %45 to i32
-  %47 = icmp eq i32 %2, 112
-  %48 = select i1 %47, i32 1, i32 %46
-  %49 = icmp eq i32 %2, 114
-  %50 = select i1 %49, i32 0, i32 %48
-  %51 = icmp eq i32 %2, 113
-  %52 = select i1 %51, i32 1, i32 %50
-  %53 = and i32 %44, 1
-  %54 = icmp eq i32 %53, 0
-  %55 = select i1 %54, i64 %23, i64 %27
-  %56 = and i32 %52, 1
-  %57 = icmp eq i32 %56, 0
-  %58 = select i1 %57, i64 %27, i64 %25
-  %59 = icmp slt i32 %13, %3
-  %60 = select i1 %59, i32 13, i32 -1
-  %61 = icmp sgt i64 %58, %33
-  %62 = select i1 %61, i32 10, i32 %60
-  %63 = icmp sgt i64 %55, %31
-  %64 = select i1 %63, i32 8, i32 %62
-  %65 = icmp slt i32 %5, 0
-  %66 = select i1 %65, i32 5, i32 %64
-  %67 = icmp slt i32 %4, 0
-  %68 = select i1 %67, i32 4, i32 %66
-  %69 = icmp slt i32 %3, 0
-  %70 = select i1 %69, i32 3, i32 %68
-  %71 = icmp slt i32 %52, 0
-  %72 = select i1 %71, i32 2, i32 %70
-  %73 = icmp slt i32 %44, 0
-  %74 = select i1 %73, i32 1, i32 %72
-  store i32 %74, ptr %18, align 4
-  br label %75
+44:                                               ; preds = %14
+  %45 = load i32, ptr %18, align 4, !tbaa !3
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  store i64 %46, ptr %47, align 8, !tbaa !16
+  %48 = load i32, ptr %19, align 4, !tbaa !3
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  store i64 %49, ptr %50, align 8, !tbaa !17
+  %51 = load i32, ptr %20, align 4, !tbaa !3
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  store i64 %52, ptr %53, align 8, !tbaa !18
+  %54 = load ptr, ptr %22, align 8, !tbaa !9
+  %55 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 0
+  store ptr %54, ptr %55, align 8, !tbaa !19
+  %56 = load ptr, ptr %24, align 8, !tbaa !9
+  %57 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 1
+  store ptr %56, ptr %57, align 8, !tbaa !20
+  %58 = load ptr, ptr %27, align 8, !tbaa !9
+  %59 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 2
+  store ptr %58, ptr %59, align 8, !tbaa !21
+  %60 = load i32, ptr %23, align 4, !tbaa !3
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 9
+  store i64 %61, ptr %62, align 8, !tbaa !22
+  %63 = load i32, ptr %25, align 4, !tbaa !3
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 10
+  store i64 %64, ptr %65, align 8, !tbaa !23
+  %66 = load i32, ptr %28, align 4, !tbaa !3
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 11
+  store i64 %67, ptr %68, align 8, !tbaa !24
+  %69 = load i32, ptr %16, align 4, !tbaa !3
+  %70 = icmp eq i32 %69, 111
+  br i1 %70, label %71, label %72
 
-75:                                               ; preds = %22, %14
-  %76 = phi i32 [ %52, %22 ], [ -1, %14 ]
-  %77 = phi i32 [ %44, %22 ], [ -1, %14 ]
-  %78 = icmp eq i32 %0, 101
-  br i1 %78, label %79, label %132
+71:                                               ; preds = %44
+  store i32 0, ptr %30, align 4, !tbaa !3
+  br label %72
 
-79:                                               ; preds = %75
-  %80 = sext i32 %4 to i64
-  %81 = getelementptr inbounds i8, ptr %17, i64 48
-  store i64 %80, ptr %81, align 8, !tbaa !14
-  %82 = sext i32 %3 to i64
-  %83 = getelementptr inbounds i8, ptr %17, i64 56
-  store i64 %82, ptr %83, align 8, !tbaa !15
-  %84 = sext i32 %5 to i64
-  %85 = getelementptr inbounds i8, ptr %17, i64 64
-  store i64 %84, ptr %85, align 8, !tbaa !16
-  store ptr %9, ptr %17, align 8, !tbaa !17
-  %86 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %7, ptr %86, align 8, !tbaa !18
-  %87 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr %12, ptr %87, align 8, !tbaa !19
-  %88 = sext i32 %10 to i64
-  %89 = getelementptr inbounds i8, ptr %17, i64 72
-  store i64 %88, ptr %89, align 8, !tbaa !20
-  %90 = sext i32 %8 to i64
-  %91 = getelementptr inbounds i8, ptr %17, i64 80
-  store i64 %90, ptr %91, align 8, !tbaa !21
-  %92 = sext i32 %13 to i64
-  %93 = getelementptr inbounds i8, ptr %17, i64 88
-  store i64 %92, ptr %93, align 8, !tbaa !22
-  %94 = icmp eq i32 %2, 111
-  %95 = select i1 %94, i32 0, i32 %77
-  %96 = icmp eq i32 %2, 112
-  %97 = select i1 %96, i32 1, i32 %95
-  %98 = icmp eq i32 %2, 114
-  %99 = select i1 %98, i32 0, i32 %97
-  %100 = icmp eq i32 %2, 113
-  %101 = select i1 %100, i32 1, i32 %99
-  %102 = icmp eq i32 %1, 111
-  %103 = select i1 %102, i32 0, i32 %76
-  %104 = icmp eq i32 %1, 112
-  %105 = select i1 %104, i32 1, i32 %103
-  %106 = icmp eq i32 %1, 114
-  %107 = select i1 %106, i32 0, i32 %105
-  %108 = icmp eq i32 %1, 113
-  %109 = select i1 %108, i32 1, i32 %107
-  %110 = and i32 %101, 1
-  %111 = icmp eq i32 %110, 0
-  %112 = select i1 %111, i64 %80, i64 %84
-  %113 = and i32 %109, 1
-  %114 = icmp eq i32 %113, 0
-  %115 = select i1 %114, i64 %84, i64 %82
-  %116 = icmp slt i32 %13, %4
-  %117 = select i1 %116, i32 13, i32 -1
-  %118 = icmp sgt i64 %115, %90
-  %119 = select i1 %118, i32 10, i32 %117
-  %120 = icmp sgt i64 %112, %88
-  %121 = select i1 %120, i32 8, i32 %119
-  %122 = icmp slt i32 %5, 0
-  %123 = select i1 %122, i32 5, i32 %121
-  %124 = icmp slt i32 %3, 0
-  %125 = select i1 %124, i32 4, i32 %123
-  %126 = icmp slt i32 %4, 0
-  %127 = select i1 %126, i32 3, i32 %125
-  %128 = icmp slt i32 %109, 0
-  %129 = select i1 %128, i32 2, i32 %127
-  %130 = icmp slt i32 %101, 0
-  %131 = select i1 %130, i32 1, i32 %129
-  store i32 %131, ptr %18, align 4
-  br label %132
+72:                                               ; preds = %71, %44
+  %73 = load i32, ptr %16, align 4, !tbaa !3
+  %74 = icmp eq i32 %73, 112
+  br i1 %74, label %75, label %76
 
-132:                                              ; preds = %79, %75
-  %133 = phi i32 [ %109, %79 ], [ %76, %75 ]
-  %134 = phi i32 [ %101, %79 ], [ %77, %75 ]
-  %135 = load i32, ptr %18, align 4, !tbaa !12
-  %136 = icmp sgt i32 %135, -1
-  br i1 %136, label %137, label %139
+75:                                               ; preds = %72
+  store i32 1, ptr %30, align 4, !tbaa !3
+  br label %76
 
-137:                                              ; preds = %132
-  %138 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %18, i32 noundef 7) #3
+76:                                               ; preds = %75, %72
+  %77 = load i32, ptr %16, align 4, !tbaa !3
+  %78 = icmp eq i32 %77, 114
+  br i1 %78, label %79, label %80
+
+79:                                               ; preds = %76
+  store i32 0, ptr %30, align 4, !tbaa !3
+  br label %80
+
+80:                                               ; preds = %79, %76
+  %81 = load i32, ptr %16, align 4, !tbaa !3
+  %82 = icmp eq i32 %81, 113
+  br i1 %82, label %83, label %84
+
+83:                                               ; preds = %80
+  store i32 1, ptr %30, align 4, !tbaa !3
+  br label %84
+
+84:                                               ; preds = %83, %80
+  %85 = load i32, ptr %17, align 4, !tbaa !3
+  %86 = icmp eq i32 %85, 111
+  br i1 %86, label %87, label %88
+
+87:                                               ; preds = %84
+  store i32 0, ptr %31, align 4, !tbaa !3
+  br label %88
+
+88:                                               ; preds = %87, %84
+  %89 = load i32, ptr %17, align 4, !tbaa !3
+  %90 = icmp eq i32 %89, 112
+  br i1 %90, label %91, label %92
+
+91:                                               ; preds = %88
+  store i32 1, ptr %31, align 4, !tbaa !3
+  br label %92
+
+92:                                               ; preds = %91, %88
+  %93 = load i32, ptr %17, align 4, !tbaa !3
+  %94 = icmp eq i32 %93, 114
+  br i1 %94, label %95, label %96
+
+95:                                               ; preds = %92
+  store i32 0, ptr %31, align 4, !tbaa !3
+  br label %96
+
+96:                                               ; preds = %95, %92
+  %97 = load i32, ptr %17, align 4, !tbaa !3
+  %98 = icmp eq i32 %97, 113
+  br i1 %98, label %99, label %100
+
+99:                                               ; preds = %96
+  store i32 1, ptr %31, align 4, !tbaa !3
+  br label %100
+
+100:                                              ; preds = %99, %96
+  %101 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %102 = load i64, ptr %101, align 8, !tbaa !16
+  %103 = trunc i64 %102 to i32
+  store i32 %103, ptr %32, align 4, !tbaa !3
+  %104 = load i32, ptr %30, align 4, !tbaa !3
+  %105 = and i32 %104, 1
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %111
+
+107:                                              ; preds = %100
+  %108 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %109 = load i64, ptr %108, align 8, !tbaa !18
+  %110 = trunc i64 %109 to i32
+  store i32 %110, ptr %32, align 4, !tbaa !3
+  br label %111
+
+111:                                              ; preds = %107, %100
+  %112 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %113 = load i64, ptr %112, align 8, !tbaa !18
+  %114 = trunc i64 %113 to i32
+  store i32 %114, ptr %33, align 4, !tbaa !3
+  %115 = load i32, ptr %31, align 4, !tbaa !3
+  %116 = and i32 %115, 1
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %122
+
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %120 = load i64, ptr %119, align 8, !tbaa !17
+  %121 = trunc i64 %120 to i32
+  store i32 %121, ptr %33, align 4, !tbaa !3
+  br label %122
+
+122:                                              ; preds = %118, %111
+  store i32 -1, ptr %34, align 4, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 11
+  %124 = load i64, ptr %123, align 8, !tbaa !24
+  %125 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %126 = load i64, ptr %125, align 8, !tbaa !16
+  %127 = icmp slt i64 %124, %126
+  br i1 %127, label %128, label %129
+
+128:                                              ; preds = %122
+  store i32 13, ptr %34, align 4, !tbaa !3
+  br label %129
+
+129:                                              ; preds = %128, %122
+  %130 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 10
+  %131 = load i64, ptr %130, align 8, !tbaa !23
+  %132 = load i32, ptr %33, align 4, !tbaa !3
+  %133 = sext i32 %132 to i64
+  %134 = icmp slt i64 %131, %133
+  br i1 %134, label %135, label %136
+
+135:                                              ; preds = %129
+  store i32 10, ptr %34, align 4, !tbaa !3
+  br label %136
+
+136:                                              ; preds = %135, %129
+  %137 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 9
+  %138 = load i64, ptr %137, align 8, !tbaa !22
+  %139 = load i32, ptr %32, align 4, !tbaa !3
+  %140 = sext i32 %139 to i64
+  %141 = icmp slt i64 %138, %140
+  br i1 %141, label %142, label %143
+
+142:                                              ; preds = %136
+  store i32 8, ptr %34, align 4, !tbaa !3
+  br label %143
+
+143:                                              ; preds = %142, %136
+  %144 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %145 = load i64, ptr %144, align 8, !tbaa !18
+  %146 = icmp slt i64 %145, 0
+  br i1 %146, label %147, label %148
+
+147:                                              ; preds = %143
+  store i32 5, ptr %34, align 4, !tbaa !3
+  br label %148
+
+148:                                              ; preds = %147, %143
+  %149 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %150 = load i64, ptr %149, align 8, !tbaa !17
+  %151 = icmp slt i64 %150, 0
+  br i1 %151, label %152, label %153
+
+152:                                              ; preds = %148
+  store i32 4, ptr %34, align 4, !tbaa !3
+  br label %153
+
+153:                                              ; preds = %152, %148
+  %154 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %155 = load i64, ptr %154, align 8, !tbaa !16
+  %156 = icmp slt i64 %155, 0
+  br i1 %156, label %157, label %158
+
+157:                                              ; preds = %153
+  store i32 3, ptr %34, align 4, !tbaa !3
+  br label %158
+
+158:                                              ; preds = %157, %153
+  %159 = load i32, ptr %31, align 4, !tbaa !3
+  %160 = icmp slt i32 %159, 0
+  br i1 %160, label %161, label %162
+
+161:                                              ; preds = %158
+  store i32 2, ptr %34, align 4, !tbaa !3
+  br label %162
+
+162:                                              ; preds = %161, %158
+  %163 = load i32, ptr %30, align 4, !tbaa !3
+  %164 = icmp slt i32 %163, 0
+  br i1 %164, label %165, label %166
+
+165:                                              ; preds = %162
+  store i32 1, ptr %34, align 4, !tbaa !3
+  br label %166
+
+166:                                              ; preds = %165, %162
+  br label %167
+
+167:                                              ; preds = %166, %14
+  %168 = load i32, ptr %15, align 4, !tbaa !3
+  %169 = icmp eq i32 %168, 101
+  br i1 %169, label %170, label %293
+
+170:                                              ; preds = %167
+  %171 = load i32, ptr %19, align 4, !tbaa !3
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  store i64 %172, ptr %173, align 8, !tbaa !16
+  %174 = load i32, ptr %18, align 4, !tbaa !3
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  store i64 %175, ptr %176, align 8, !tbaa !17
+  %177 = load i32, ptr %20, align 4, !tbaa !3
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  store i64 %178, ptr %179, align 8, !tbaa !18
+  %180 = load ptr, ptr %24, align 8, !tbaa !9
+  %181 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 0
+  store ptr %180, ptr %181, align 8, !tbaa !19
+  %182 = load ptr, ptr %22, align 8, !tbaa !9
+  %183 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 1
+  store ptr %182, ptr %183, align 8, !tbaa !20
+  %184 = load ptr, ptr %27, align 8, !tbaa !9
+  %185 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 2
+  store ptr %184, ptr %185, align 8, !tbaa !21
+  %186 = load i32, ptr %25, align 4, !tbaa !3
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 9
+  store i64 %187, ptr %188, align 8, !tbaa !22
+  %189 = load i32, ptr %23, align 4, !tbaa !3
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 10
+  store i64 %190, ptr %191, align 8, !tbaa !23
+  %192 = load i32, ptr %28, align 4, !tbaa !3
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 11
+  store i64 %193, ptr %194, align 8, !tbaa !24
+  %195 = load i32, ptr %17, align 4, !tbaa !3
+  %196 = icmp eq i32 %195, 111
+  br i1 %196, label %197, label %198
+
+197:                                              ; preds = %170
+  store i32 0, ptr %30, align 4, !tbaa !3
+  br label %198
+
+198:                                              ; preds = %197, %170
+  %199 = load i32, ptr %17, align 4, !tbaa !3
+  %200 = icmp eq i32 %199, 112
+  br i1 %200, label %201, label %202
+
+201:                                              ; preds = %198
+  store i32 1, ptr %30, align 4, !tbaa !3
+  br label %202
+
+202:                                              ; preds = %201, %198
+  %203 = load i32, ptr %17, align 4, !tbaa !3
+  %204 = icmp eq i32 %203, 114
+  br i1 %204, label %205, label %206
+
+205:                                              ; preds = %202
+  store i32 0, ptr %30, align 4, !tbaa !3
+  br label %206
+
+206:                                              ; preds = %205, %202
+  %207 = load i32, ptr %17, align 4, !tbaa !3
+  %208 = icmp eq i32 %207, 113
+  br i1 %208, label %209, label %210
+
+209:                                              ; preds = %206
+  store i32 1, ptr %30, align 4, !tbaa !3
+  br label %210
+
+210:                                              ; preds = %209, %206
+  %211 = load i32, ptr %16, align 4, !tbaa !3
+  %212 = icmp eq i32 %211, 111
+  br i1 %212, label %213, label %214
+
+213:                                              ; preds = %210
+  store i32 0, ptr %31, align 4, !tbaa !3
   br label %214
 
-139:                                              ; preds = %132
-  %140 = getelementptr inbounds i8, ptr %17, i64 48
-  %141 = load i64, ptr %140, align 8, !tbaa !14
-  %142 = icmp eq i64 %141, 0
-  %143 = getelementptr inbounds i8, ptr %17, i64 56
-  %144 = load i64, ptr %143, align 8
-  %145 = icmp eq i64 %144, 0
-  %146 = select i1 %142, i1 true, i1 %145
-  br i1 %146, label %214, label %147
+214:                                              ; preds = %213, %210
+  %215 = load i32, ptr %16, align 4, !tbaa !3
+  %216 = icmp eq i32 %215, 112
+  br i1 %216, label %217, label %218
 
-147:                                              ; preds = %139
-  %148 = getelementptr inbounds i8, ptr %17, i64 64
-  %149 = load i64, ptr %148, align 8, !tbaa !16
-  %150 = call i32 @dgemm_small_matrix_permit(i32 noundef %134, i32 noundef %133, i64 noundef %141, i64 noundef %144, i64 noundef %149, double noundef %6, double noundef %11) #3
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %185, label %152
+217:                                              ; preds = %214
+  store i32 1, ptr %31, align 4, !tbaa !3
+  br label %218
 
-152:                                              ; preds = %147
-  %153 = load ptr, ptr %20, align 8, !tbaa !11
-  %154 = load double, ptr %153, align 8, !tbaa !3
-  %155 = fcmp oeq double %154, 0.000000e+00
-  %156 = shl nsw i32 %133, 2
-  %157 = or i32 %156, %134
-  %158 = sext i32 %157 to i64
-  %159 = load i64, ptr %140, align 8, !tbaa !14
-  %160 = load i64, ptr %143, align 8, !tbaa !15
-  %161 = load i64, ptr %148, align 8, !tbaa !16
-  %162 = load ptr, ptr %17, align 8, !tbaa !17
-  %163 = getelementptr inbounds i8, ptr %17, i64 72
-  %164 = load i64, ptr %163, align 8, !tbaa !20
-  %165 = load ptr, ptr %19, align 8, !tbaa !7
-  %166 = load double, ptr %165, align 8, !tbaa !3
-  %167 = getelementptr inbounds i8, ptr %17, i64 8
-  %168 = load ptr, ptr %167, align 8, !tbaa !18
-  %169 = getelementptr inbounds i8, ptr %17, i64 80
-  %170 = load i64, ptr %169, align 8, !tbaa !21
-  %171 = getelementptr inbounds i8, ptr %17, i64 16
-  %172 = load ptr, ptr %171, align 8, !tbaa !19
-  %173 = getelementptr inbounds i8, ptr %17, i64 88
-  %174 = load i64, ptr %173, align 8, !tbaa !22
-  br i1 %155, label %175, label %180
+218:                                              ; preds = %217, %214
+  %219 = load i32, ptr %16, align 4, !tbaa !3
+  %220 = icmp eq i32 %219, 114
+  br i1 %220, label %221, label %222
 
-175:                                              ; preds = %152
-  %176 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %158
-  %177 = load i64, ptr %176, align 8, !tbaa !23
-  %178 = inttoptr i64 %177 to ptr
-  %179 = call i32 %178(i64 noundef %159, i64 noundef %160, i64 noundef %161, ptr noundef %162, i64 noundef %164, double noundef %166, ptr noundef %168, i64 noundef %170, ptr noundef %172, i64 noundef %174) #3
-  br label %214
+221:                                              ; preds = %218
+  store i32 0, ptr %31, align 4, !tbaa !3
+  br label %222
 
-180:                                              ; preds = %152
-  %181 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %158
-  %182 = load i64, ptr %181, align 8, !tbaa !23
-  %183 = inttoptr i64 %182 to ptr
-  %184 = call i32 %183(i64 noundef %159, i64 noundef %160, i64 noundef %161, ptr noundef %162, i64 noundef %164, double noundef %166, ptr noundef %168, i64 noundef %170, double noundef %154, ptr noundef %172, i64 noundef %174) #3
-  br label %214
+222:                                              ; preds = %221, %218
+  %223 = load i32, ptr %16, align 4, !tbaa !3
+  %224 = icmp eq i32 %223, 113
+  br i1 %224, label %225, label %226
 
-185:                                              ; preds = %147
-  %186 = call ptr @blas_memory_alloc(i32 noundef 0) #3
-  %187 = ptrtoint ptr %186 to i64
-  %188 = add nsw i64 %187, 589824
-  %189 = inttoptr i64 %188 to ptr
-  %190 = load i64, ptr %140, align 8, !tbaa !14
-  %191 = sitofp i64 %190 to double
-  %192 = load i64, ptr %143, align 8, !tbaa !15
-  %193 = sitofp i64 %192 to double
-  %194 = fmul double %191, %193
-  %195 = load i64, ptr %148, align 8, !tbaa !16
-  %196 = sitofp i64 %195 to double
-  %197 = fmul double %194, %196
-  %198 = fcmp ugt double %197, 2.621440e+05
-  %199 = load i32, ptr @blas_cpu_number, align 4
-  %200 = sext i32 %199 to i64
-  %201 = select i1 %198, i64 %200, i64 1
-  %202 = getelementptr inbounds i8, ptr %17, i64 112
-  store i64 %201, ptr %202, align 8, !tbaa !24
-  %203 = getelementptr inbounds i8, ptr %17, i64 104
-  store ptr null, ptr %203, align 8, !tbaa !25
-  %204 = icmp eq i64 %201, 1
-  %205 = shl nsw i32 %133, 2
-  %206 = or i32 %134, %205
-  %207 = or i32 %206, 16
-  %208 = or i32 %205, %134
-  %209 = select i1 %204, i32 %208, i32 %207
-  %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %210
-  %212 = load ptr, ptr %211, align 8, !tbaa !26
-  %213 = call i32 %212(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %186, ptr noundef %189, i64 noundef 0) #3
-  call void @blas_memory_free(ptr noundef %186) #3
-  br label %214
+225:                                              ; preds = %222
+  store i32 1, ptr %31, align 4, !tbaa !3
+  br label %226
 
-214:                                              ; preds = %185, %180, %175, %139, %137
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %17) #3
+226:                                              ; preds = %225, %222
+  %227 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %228 = load i64, ptr %227, align 8, !tbaa !16
+  %229 = trunc i64 %228 to i32
+  store i32 %229, ptr %32, align 4, !tbaa !3
+  %230 = load i32, ptr %30, align 4, !tbaa !3
+  %231 = and i32 %230, 1
+  %232 = icmp ne i32 %231, 0
+  br i1 %232, label %233, label %237
+
+233:                                              ; preds = %226
+  %234 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %235 = load i64, ptr %234, align 8, !tbaa !18
+  %236 = trunc i64 %235 to i32
+  store i32 %236, ptr %32, align 4, !tbaa !3
+  br label %237
+
+237:                                              ; preds = %233, %226
+  %238 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %239 = load i64, ptr %238, align 8, !tbaa !18
+  %240 = trunc i64 %239 to i32
+  store i32 %240, ptr %33, align 4, !tbaa !3
+  %241 = load i32, ptr %31, align 4, !tbaa !3
+  %242 = and i32 %241, 1
+  %243 = icmp ne i32 %242, 0
+  br i1 %243, label %244, label %248
+
+244:                                              ; preds = %237
+  %245 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %246 = load i64, ptr %245, align 8, !tbaa !17
+  %247 = trunc i64 %246 to i32
+  store i32 %247, ptr %33, align 4, !tbaa !3
+  br label %248
+
+248:                                              ; preds = %244, %237
+  store i32 -1, ptr %34, align 4, !tbaa !3
+  %249 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 11
+  %250 = load i64, ptr %249, align 8, !tbaa !24
+  %251 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %252 = load i64, ptr %251, align 8, !tbaa !16
+  %253 = icmp slt i64 %250, %252
+  br i1 %253, label %254, label %255
+
+254:                                              ; preds = %248
+  store i32 13, ptr %34, align 4, !tbaa !3
+  br label %255
+
+255:                                              ; preds = %254, %248
+  %256 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 10
+  %257 = load i64, ptr %256, align 8, !tbaa !23
+  %258 = load i32, ptr %33, align 4, !tbaa !3
+  %259 = sext i32 %258 to i64
+  %260 = icmp slt i64 %257, %259
+  br i1 %260, label %261, label %262
+
+261:                                              ; preds = %255
+  store i32 10, ptr %34, align 4, !tbaa !3
+  br label %262
+
+262:                                              ; preds = %261, %255
+  %263 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 9
+  %264 = load i64, ptr %263, align 8, !tbaa !22
+  %265 = load i32, ptr %32, align 4, !tbaa !3
+  %266 = sext i32 %265 to i64
+  %267 = icmp slt i64 %264, %266
+  br i1 %267, label %268, label %269
+
+268:                                              ; preds = %262
+  store i32 8, ptr %34, align 4, !tbaa !3
+  br label %269
+
+269:                                              ; preds = %268, %262
+  %270 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %271 = load i64, ptr %270, align 8, !tbaa !18
+  %272 = icmp slt i64 %271, 0
+  br i1 %272, label %273, label %274
+
+273:                                              ; preds = %269
+  store i32 5, ptr %34, align 4, !tbaa !3
+  br label %274
+
+274:                                              ; preds = %273, %269
+  %275 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %276 = load i64, ptr %275, align 8, !tbaa !17
+  %277 = icmp slt i64 %276, 0
+  br i1 %277, label %278, label %279
+
+278:                                              ; preds = %274
+  store i32 4, ptr %34, align 4, !tbaa !3
+  br label %279
+
+279:                                              ; preds = %278, %274
+  %280 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %281 = load i64, ptr %280, align 8, !tbaa !16
+  %282 = icmp slt i64 %281, 0
+  br i1 %282, label %283, label %284
+
+283:                                              ; preds = %279
+  store i32 3, ptr %34, align 4, !tbaa !3
+  br label %284
+
+284:                                              ; preds = %283, %279
+  %285 = load i32, ptr %31, align 4, !tbaa !3
+  %286 = icmp slt i32 %285, 0
+  br i1 %286, label %287, label %288
+
+287:                                              ; preds = %284
+  store i32 2, ptr %34, align 4, !tbaa !3
+  br label %288
+
+288:                                              ; preds = %287, %284
+  %289 = load i32, ptr %30, align 4, !tbaa !3
+  %290 = icmp slt i32 %289, 0
+  br i1 %290, label %291, label %292
+
+291:                                              ; preds = %288
+  store i32 1, ptr %34, align 4, !tbaa !3
+  br label %292
+
+292:                                              ; preds = %291, %288
+  br label %293
+
+293:                                              ; preds = %292, %167
+  %294 = load i32, ptr %34, align 4, !tbaa !3
+  %295 = icmp sge i32 %294, 0
+  br i1 %295, label %296, label %298
+
+296:                                              ; preds = %293
+  %297 = call i32 @xerbla_(ptr noundef @.str, ptr noundef %34, i32 noundef 7)
+  store i32 1, ptr %39, align 4
+  br label %450
+
+298:                                              ; preds = %293
+  %299 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %300 = load i64, ptr %299, align 8, !tbaa !16
+  %301 = icmp eq i64 %300, 0
+  br i1 %301, label %306, label %302
+
+302:                                              ; preds = %298
+  %303 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %304 = load i64, ptr %303, align 8, !tbaa !17
+  %305 = icmp eq i64 %304, 0
+  br i1 %305, label %306, label %307
+
+306:                                              ; preds = %302, %298
+  store i32 1, ptr %39, align 4
+  br label %450
+
+307:                                              ; preds = %302
+  %308 = load i32, ptr %30, align 4, !tbaa !3
+  %309 = load i32, ptr %31, align 4, !tbaa !3
+  %310 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %311 = load i64, ptr %310, align 8, !tbaa !16
+  %312 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %313 = load i64, ptr %312, align 8, !tbaa !17
+  %314 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %315 = load i64, ptr %314, align 8, !tbaa !18
+  %316 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 4
+  %317 = load ptr, ptr %316, align 8, !tbaa !12
+  %318 = load double, ptr %317, align 8, !tbaa !7
+  %319 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 5
+  %320 = load ptr, ptr %319, align 8, !tbaa !15
+  %321 = load double, ptr %320, align 8, !tbaa !7
+  %322 = call i32 @dgemm_small_matrix_permit(i32 noundef %308, i32 noundef %309, i64 noundef %311, i64 noundef %313, i64 noundef %315, double noundef %318, double noundef %321)
+  %323 = icmp ne i32 %322, 0
+  br i1 %323, label %324, label %395
+
+324:                                              ; preds = %307
+  %325 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 5
+  %326 = load ptr, ptr %325, align 8, !tbaa !15
+  %327 = load double, ptr %326, align 8, !tbaa !7
+  %328 = fcmp oeq double %327, 0.000000e+00
+  br i1 %328, label %329, label %360
+
+329:                                              ; preds = %324
+  %330 = load i32, ptr %31, align 4, !tbaa !3
+  %331 = shl i32 %330, 2
+  %332 = load i32, ptr %30, align 4, !tbaa !3
+  %333 = or i32 %331, %332
+  %334 = sext i32 %333 to i64
+  %335 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %334
+  %336 = load i64, ptr %335, align 8, !tbaa !25
+  %337 = inttoptr i64 %336 to ptr
+  %338 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %339 = load i64, ptr %338, align 8, !tbaa !16
+  %340 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %341 = load i64, ptr %340, align 8, !tbaa !17
+  %342 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %343 = load i64, ptr %342, align 8, !tbaa !18
+  %344 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 0
+  %345 = load ptr, ptr %344, align 8, !tbaa !19
+  %346 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 9
+  %347 = load i64, ptr %346, align 8, !tbaa !22
+  %348 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 4
+  %349 = load ptr, ptr %348, align 8, !tbaa !12
+  %350 = load double, ptr %349, align 8, !tbaa !7
+  %351 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 1
+  %352 = load ptr, ptr %351, align 8, !tbaa !20
+  %353 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 10
+  %354 = load i64, ptr %353, align 8, !tbaa !23
+  %355 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 2
+  %356 = load ptr, ptr %355, align 8, !tbaa !21
+  %357 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 11
+  %358 = load i64, ptr %357, align 8, !tbaa !24
+  %359 = call i32 %337(i64 noundef %339, i64 noundef %341, i64 noundef %343, ptr noundef %345, i64 noundef %347, double noundef %350, ptr noundef %352, i64 noundef %354, ptr noundef %356, i64 noundef %358)
+  br label %394
+
+360:                                              ; preds = %324
+  %361 = load i32, ptr %31, align 4, !tbaa !3
+  %362 = shl i32 %361, 2
+  %363 = load i32, ptr %30, align 4, !tbaa !3
+  %364 = or i32 %362, %363
+  %365 = sext i32 %364 to i64
+  %366 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %365
+  %367 = load i64, ptr %366, align 8, !tbaa !25
+  %368 = inttoptr i64 %367 to ptr
+  %369 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %370 = load i64, ptr %369, align 8, !tbaa !16
+  %371 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %372 = load i64, ptr %371, align 8, !tbaa !17
+  %373 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %374 = load i64, ptr %373, align 8, !tbaa !18
+  %375 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 0
+  %376 = load ptr, ptr %375, align 8, !tbaa !19
+  %377 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 9
+  %378 = load i64, ptr %377, align 8, !tbaa !22
+  %379 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 4
+  %380 = load ptr, ptr %379, align 8, !tbaa !12
+  %381 = load double, ptr %380, align 8, !tbaa !7
+  %382 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 1
+  %383 = load ptr, ptr %382, align 8, !tbaa !20
+  %384 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 10
+  %385 = load i64, ptr %384, align 8, !tbaa !23
+  %386 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 5
+  %387 = load ptr, ptr %386, align 8, !tbaa !15
+  %388 = load double, ptr %387, align 8, !tbaa !7
+  %389 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 2
+  %390 = load ptr, ptr %389, align 8, !tbaa !21
+  %391 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 11
+  %392 = load i64, ptr %391, align 8, !tbaa !24
+  %393 = call i32 %368(i64 noundef %370, i64 noundef %372, i64 noundef %374, ptr noundef %376, i64 noundef %378, double noundef %381, ptr noundef %383, i64 noundef %385, double noundef %388, ptr noundef %390, i64 noundef %392)
+  br label %394
+
+394:                                              ; preds = %360, %329
+  store i32 1, ptr %39, align 4
+  br label %450
+
+395:                                              ; preds = %307
+  %396 = call ptr @blas_memory_alloc(i32 noundef 0)
+  store ptr %396, ptr %35, align 8, !tbaa !9
+  %397 = load ptr, ptr %35, align 8, !tbaa !9
+  %398 = ptrtoint ptr %397 to i64
+  %399 = add nsw i64 %398, 0
+  %400 = inttoptr i64 %399 to ptr
+  store ptr %400, ptr %36, align 8, !tbaa !9
+  %401 = load ptr, ptr %36, align 8, !tbaa !9
+  %402 = ptrtoint ptr %401 to i64
+  %403 = add nsw i64 %402, 589824
+  %404 = add nsw i64 %403, 0
+  %405 = inttoptr i64 %404 to ptr
+  store ptr %405, ptr %37, align 8, !tbaa !9
+  %406 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 6
+  %407 = load i64, ptr %406, align 8, !tbaa !16
+  %408 = sitofp i64 %407 to double
+  %409 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 7
+  %410 = load i64, ptr %409, align 8, !tbaa !17
+  %411 = sitofp i64 %410 to double
+  %412 = fmul double %408, %411
+  %413 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 8
+  %414 = load i64, ptr %413, align 8, !tbaa !18
+  %415 = sitofp i64 %414 to double
+  %416 = fmul double %412, %415
+  store double %416, ptr %38, align 8, !tbaa !7
+  %417 = load double, ptr %38, align 8, !tbaa !7
+  %418 = call i32 @get_gemm_optimal_nthreads(double noundef %417)
+  %419 = sext i32 %418 to i64
+  %420 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 14
+  store i64 %419, ptr %420, align 8, !tbaa !26
+  %421 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 13
+  store ptr null, ptr %421, align 8, !tbaa !27
+  %422 = getelementptr inbounds nuw %struct.blas_arg_t, ptr %29, i32 0, i32 14
+  %423 = load i64, ptr %422, align 8, !tbaa !26
+  %424 = icmp eq i64 %423, 1
+  br i1 %424, label %425, label %436
+
+425:                                              ; preds = %395
+  %426 = load i32, ptr %31, align 4, !tbaa !3
+  %427 = shl i32 %426, 2
+  %428 = load i32, ptr %30, align 4, !tbaa !3
+  %429 = or i32 %427, %428
+  %430 = sext i32 %429 to i64
+  %431 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %430
+  %432 = load ptr, ptr %431, align 8, !tbaa !28
+  %433 = load ptr, ptr %36, align 8, !tbaa !9
+  %434 = load ptr, ptr %37, align 8, !tbaa !9
+  %435 = call i32 %432(ptr noundef %29, ptr noundef null, ptr noundef null, ptr noundef %433, ptr noundef %434, i64 noundef 0)
+  br label %448
+
+436:                                              ; preds = %395
+  %437 = load i32, ptr %31, align 4, !tbaa !3
+  %438 = shl i32 %437, 2
+  %439 = or i32 16, %438
+  %440 = load i32, ptr %30, align 4, !tbaa !3
+  %441 = or i32 %439, %440
+  %442 = sext i32 %441 to i64
+  %443 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %442
+  %444 = load ptr, ptr %443, align 8, !tbaa !28
+  %445 = load ptr, ptr %36, align 8, !tbaa !9
+  %446 = load ptr, ptr %37, align 8, !tbaa !9
+  %447 = call i32 %444(ptr noundef %29, ptr noundef null, ptr noundef null, ptr noundef %445, ptr noundef %446, i64 noundef 0)
+  br label %448
+
+448:                                              ; preds = %436, %425
+  %449 = load ptr, ptr %35, align 8, !tbaa !9
+  call void @blas_memory_free(ptr noundef %449)
+  store i32 1, ptr %39, align 4
+  br label %450
+
+450:                                              ; preds = %448, %394, %306, %296
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 136, ptr %29) #4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @xerbla_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @xerbla_(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @dgemm_small_matrix_permit(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @dgemm_small_matrix_permit(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, double noundef) #2
 
-declare ptr @blas_memory_alloc(i32 noundef) local_unnamed_addr #2
+declare ptr @blas_memory_alloc(i32 noundef) #2
 
-declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @get_gemm_optimal_nthreads(double noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca double, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store double %0, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %6 = call i32 @num_cpu_avail(i32 noundef 3)
+  store i32 %6, ptr %4, align 4, !tbaa !3
+  %7 = load double, ptr %3, align 8, !tbaa !7
+  %8 = fcmp ole double %7, 2.621440e+05
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %22
+
+10:                                               ; preds = %1
+  %11 = load double, ptr %3, align 8, !tbaa !7
+  %12 = load i32, ptr %4, align 4, !tbaa !3
+  %13 = sitofp i32 %12 to double
+  %14 = fdiv double %11, %13
+  %15 = fcmp olt double %14, 2.621440e+05
+  br i1 %15, label %16, label %20
+
+16:                                               ; preds = %10
+  %17 = load double, ptr %3, align 8, !tbaa !7
+  %18 = fdiv double %17, 2.621440e+05
+  %19 = fptosi double %18 to i32
+  store i32 %19, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %22
+
+20:                                               ; preds = %10
+  %21 = load i32, ptr %4, align 4, !tbaa !3
+  store i32 %21, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %22
+
+22:                                               ; preds = %20, %16, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
+}
+
+declare void @blas_memory_free(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @dgemm_small_kernel_b0_nn(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
 
@@ -299,6 +816,29 @@ declare i32 @dgemm_small_kernel_tn(i64 noundef, i64 noundef, i64 noundef, ptr no
 declare i32 @dgemm_small_kernel_nt(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, i64 noundef) #2
 
 declare i32 @dgemm_small_kernel_tt(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @num_cpu_avail(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  %4 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
+  %5 = icmp eq i32 %4, 1
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  store i32 1, ptr %2, align 4
+  br label %9
+
+7:                                                ; preds = %1
+  %8 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
+  store i32 %8, ptr %2, align 4
+  br label %9
+
+9:                                                ; preds = %7, %6
+  %10 = load i32, ptr %2, align 4
+  ret i32 %10
+}
 
 declare i32 @dgemm_nn(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
@@ -319,7 +859,8 @@ declare i32 @dgemm_thread_tt(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { nounwind }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -327,26 +868,28 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!4, !4, i64 0}
-!4 = !{!"double", !5, i64 0}
+!4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !9, i64 32}
-!8 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !9, i64 104, !10, i64 112}
-!9 = !{!"any pointer", !5, i64 0}
-!10 = !{!"long", !5, i64 0}
-!11 = !{!8, !9, i64 40}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !5, i64 0}
-!14 = !{!8, !10, i64 48}
-!15 = !{!8, !10, i64 56}
-!16 = !{!8, !10, i64 64}
-!17 = !{!8, !9, i64 0}
-!18 = !{!8, !9, i64 8}
-!19 = !{!8, !9, i64 16}
-!20 = !{!8, !10, i64 72}
-!21 = !{!8, !10, i64 80}
-!22 = !{!8, !10, i64 88}
-!23 = !{!10, !10, i64 0}
-!24 = !{!8, !10, i64 112}
-!25 = !{!8, !9, i64 104}
-!26 = !{!9, !9, i64 0}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"double", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 double", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !11, i64 32}
+!13 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !11, i64 104, !14, i64 112, !11, i64 120, !4, i64 128}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!13, !11, i64 40}
+!16 = !{!13, !14, i64 48}
+!17 = !{!13, !14, i64 56}
+!18 = !{!13, !14, i64 64}
+!19 = !{!13, !11, i64 0}
+!20 = !{!13, !11, i64 8}
+!21 = !{!13, !11, i64 16}
+!22 = !{!13, !14, i64 72}
+!23 = !{!13, !14, i64 80}
+!24 = !{!13, !14, i64 88}
+!25 = !{!14, !14, i64 0}
+!26 = !{!13, !14, i64 112}
+!27 = !{!13, !11, i64 104}
+!28 = !{!11, !11, i64 0}

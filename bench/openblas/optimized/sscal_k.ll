@@ -5,208 +5,317 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3, ptr noundef captures(none) %4, i64 noundef %5, ptr noundef readnone captures(none) %6, i64 noundef %7, ptr noundef readnone captures(none) %8, i64 noundef %9) local_unnamed_addr #0 {
-  %11 = icmp eq i64 %5, 1
-  br i1 %11, label %75, label %12
+  %11 = icmp eq i64 %9, 1
+  %12 = fcmp oeq float %3, 0.000000e+00
+  %or.cond = and i1 %12, %11
+  %.not93 = icmp eq i64 %5, 1
+  br i1 %or.cond, label %13, label %52
 
-12:                                               ; preds = %10
-  %13 = fcmp oeq float %3, 0.000000e+00
-  br i1 %13, label %14, label %41
+13:                                               ; preds = %10
+  br i1 %.not93, label %26, label %14
 
-14:                                               ; preds = %12
-  %15 = and i64 %0, -2
-  %16 = icmp sgt i64 %0, 1
-  br i1 %16, label %17, label %23
+14:                                               ; preds = %13
+  %15 = icmp sgt i64 %0, 7
+  br i1 %15, label %16, label %19
 
-17:                                               ; preds = %14
-  %18 = shl nsw i64 %5, 1
-  %19 = add nsw i64 %15, -1
-  br label %27
+16:                                               ; preds = %14
+  %17 = and i64 %0, 9223372036854775800
+  tail call fastcc void @sscal_kernel_inc_8(i64 noundef %17, float %3, ptr noundef %4, i64 noundef %5)
+  %18 = mul nsw i64 %5, %17
+  br label %19
 
-20:                                               ; preds = %27
-  %21 = and i64 %19, -2
-  %22 = add nuw i64 %21, 2
-  br label %23
+19:                                               ; preds = %16, %14
+  %.080 = phi i64 [ %17, %16 ], [ 0, %14 ]
+  %.0 = phi i64 [ %18, %16 ], [ 0, %14 ]
+  %20 = icmp slt i64 %.080, %0
+  br i1 %20, label %.lr.ph133, label %.loopexit
 
-23:                                               ; preds = %20, %14
-  %24 = phi i64 [ 0, %14 ], [ %22, %20 ]
-  %25 = phi i64 [ 0, %14 ], [ %32, %20 ]
-  %26 = icmp slt i64 %24, %0
-  br i1 %26, label %.preheader15, label %.loopexit
+.lr.ph133:                                        ; preds = %19, %.lr.ph133
+  %.1132 = phi i64 [ %24, %.lr.ph133 ], [ %.0, %19 ]
+  %.181131 = phi i64 [ %25, %.lr.ph133 ], [ %.080, %19 ]
+  %21 = getelementptr inbounds float, ptr %4, i64 %.1132
+  %22 = load float, ptr %21, align 4, !tbaa !3
+  %23 = fmul float %3, %22
+  store float %23, ptr %21, align 4, !tbaa !3
+  %24 = add nsw i64 %.1132, %5
+  %25 = add nuw nsw i64 %.181131, 1
+  %exitcond146.not = icmp eq i64 %25, %0
+  br i1 %exitcond146.not, label %.loopexit, label %.lr.ph133, !llvm.loop !7
 
-27:                                               ; preds = %27, %17
-  %28 = phi i64 [ 0, %17 ], [ %32, %27 ]
-  %29 = phi i64 [ 0, %17 ], [ %33, %27 ]
-  %30 = getelementptr inbounds float, ptr %4, i64 %28
-  store float 0.000000e+00, ptr %30, align 4, !tbaa !3
-  %31 = getelementptr float, ptr %30, i64 %5
-  store float 0.000000e+00, ptr %31, align 4, !tbaa !3
-  %32 = add nsw i64 %28, %18
-  %33 = add nuw nsw i64 %29, 2
-  %34 = icmp slt i64 %33, %15
-  br i1 %34, label %27, label %20, !llvm.loop !7
+26:                                               ; preds = %13
+  %27 = and i64 %0, -16
+  %28 = icmp sgt i64 %0, 15
+  br i1 %28, label %29, label %sscal_kernel_16.exit
 
-.preheader15:                                     ; preds = %23, %.preheader15
-  %35 = phi i64 [ %38, %.preheader15 ], [ %25, %23 ]
-  %36 = phi i64 [ %39, %.preheader15 ], [ %24, %23 ]
-  %37 = getelementptr inbounds float, ptr %4, i64 %35
-  store float 0.000000e+00, ptr %37, align 4, !tbaa !3
-  %38 = add nsw i64 %35, %5
-  %39 = add nuw nsw i64 %36, 1
-  %40 = icmp eq i64 %39, %0
-  br i1 %40, label %.loopexit, label %.preheader15, !llvm.loop !10
+29:                                               ; preds = %26
+  %30 = insertelement <4 x float> poison, float %3, i64 0
+  %31 = shufflevector <4 x float> %30, <4 x float> poison, <16 x i32> zeroinitializer
+  %32 = and i64 %0, 9223372036854775776
+  %.not.i = icmp eq i64 %32, 0
+  br i1 %.not.i, label %.lr.ph3.i.preheader, label %.lr.ph.i
 
-41:                                               ; preds = %12
-  %42 = icmp sgt i64 %0, 7
-  br i1 %42, label %43, label %63
+.lr.ph3.i.preheader:                              ; preds = %.preheader.i, %29
+  %indvars.iv5.i.ph = phi i64 [ 0, %29 ], [ %33, %.preheader.i ]
+  br label %.lr.ph3.i
 
-43:                                               ; preds = %41
-  %44 = and i64 %0, 9223372036854775800
-  %.idx.i = shl nsw i64 %5, 3
-  %.idx1.i = mul nsw i64 %5, 12
-  %.idx2.i = shl nsw i64 %5, 4
-  br label %45
+.preheader.i:                                     ; preds = %.lr.ph.i
+  %33 = and i64 %indvars.iv.next.i, 4294967264
+  %34 = icmp samesign ugt i64 %27, %33
+  br i1 %34, label %.lr.ph3.i.preheader, label %sscal_kernel_16.exit
 
-45:                                               ; preds = %45, %43
-  %46 = phi ptr [ %4, %43 ], [ %59, %45 ]
-  %47 = phi i64 [ 0, %43 ], [ %60, %45 ]
-  %48 = load float, ptr %46, align 4, !tbaa !3
+.lr.ph.i:                                         ; preds = %29, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %29 ]
+  %35 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %36 = load <16 x float>, ptr %35, align 1, !tbaa !9
+  %37 = or disjoint i64 %indvars.iv.i, 16
+  %38 = getelementptr inbounds nuw float, ptr %4, i64 %37
+  %39 = load <16 x float>, ptr %38, align 1, !tbaa !9
+  %40 = fmul <16 x float> %31, %36
+  %41 = fmul <16 x float> %31, %39
+  store <16 x float> %40, ptr %35, align 1, !tbaa !9
+  store <16 x float> %41, ptr %38, align 1, !tbaa !9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 32
+  %42 = icmp samesign ugt i64 %32, %indvars.iv.next.i
+  br i1 %42, label %.lr.ph.i, label %.preheader.i, !llvm.loop !10
+
+.lr.ph3.i:                                        ; preds = %.lr.ph3.i.preheader, %.lr.ph3.i
+  %indvars.iv5.i = phi i64 [ %indvars.iv.next6.i, %.lr.ph3.i ], [ %indvars.iv5.i.ph, %.lr.ph3.i.preheader ]
+  %43 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv5.i
+  %44 = load <16 x float>, ptr %43, align 1, !tbaa !9
+  %45 = fmul <16 x float> %31, %44
+  store <16 x float> %45, ptr %43, align 1, !tbaa !9
+  %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 16
+  %46 = icmp samesign ugt i64 %27, %indvars.iv.next6.i
+  br i1 %46, label %.lr.ph3.i, label %sscal_kernel_16.exit, !llvm.loop !11
+
+sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.preheader.i, %26
+  %.not138 = icmp eq i64 %27, %0
+  br i1 %.not138, label %.loopexit, label %.lr.ph135
+
+.lr.ph135:                                        ; preds = %sscal_kernel_16.exit, %.lr.ph135
+  %.2134 = phi i64 [ %50, %.lr.ph135 ], [ %27, %sscal_kernel_16.exit ]
+  %47 = getelementptr inbounds float, ptr %4, i64 %.2134
+  %48 = load float, ptr %47, align 4, !tbaa !3
   %49 = fmul float %3, %48
-  %50 = getelementptr inbounds float, ptr %46, i64 %5
-  %51 = load float, ptr %50, align 4, !tbaa !3
-  %52 = fmul float %3, %51
-  %53 = getelementptr inbounds i8, ptr %46, i64 %.idx.i
-  %54 = load float, ptr %53, align 4, !tbaa !3
-  %55 = fmul float %3, %54
-  %56 = getelementptr inbounds i8, ptr %46, i64 %.idx1.i
-  %57 = load float, ptr %56, align 4, !tbaa !3
-  %58 = fmul float %3, %57
-  store float %49, ptr %46, align 4, !tbaa !3
-  store float %52, ptr %50, align 4, !tbaa !3
-  store float %55, ptr %53, align 4, !tbaa !3
-  store float %58, ptr %56, align 4, !tbaa !3
-  %59 = getelementptr inbounds i8, ptr %46, i64 %.idx2.i
-  %60 = add nuw nsw i64 %47, 4
-  %61 = icmp samesign ult i64 %60, %44
-  br i1 %61, label %45, label %sscal_kernel_inc_8.exit, !llvm.loop !11
+  store float %49, ptr %47, align 4, !tbaa !3
+  %50 = add nsw i64 %.2134, 1
+  %51 = icmp slt i64 %50, %0
+  br i1 %51, label %.lr.ph135, label %.loopexit, !llvm.loop !12
 
-sscal_kernel_inc_8.exit:                          ; preds = %45
-  %62 = mul nsw i64 %5, %44
-  br label %63
+52:                                               ; preds = %10
+  br i1 %.not93, label %83, label %53
 
-63:                                               ; preds = %sscal_kernel_inc_8.exit, %41
-  %64 = phi i64 [ %44, %sscal_kernel_inc_8.exit ], [ 0, %41 ]
-  %65 = phi i64 [ %62, %sscal_kernel_inc_8.exit ], [ 0, %41 ]
-  %66 = icmp slt i64 %64, %0
-  br i1 %66, label %.preheader17, label %.loopexit
+53:                                               ; preds = %52
+  br i1 %12, label %54, label %71
 
-.preheader17:                                     ; preds = %63, %.preheader17
-  %67 = phi i64 [ %72, %.preheader17 ], [ %65, %63 ]
-  %68 = phi i64 [ %73, %.preheader17 ], [ %64, %63 ]
-  %69 = getelementptr inbounds float, ptr %4, i64 %67
-  %70 = load float, ptr %69, align 4, !tbaa !3
-  %71 = fmul float %3, %70
-  store float %71, ptr %69, align 4, !tbaa !3
-  %72 = add nsw i64 %67, %5
-  %73 = add nuw nsw i64 %68, 1
-  %74 = icmp eq i64 %73, %0
-  br i1 %74, label %.loopexit, label %.preheader17, !llvm.loop !12
+54:                                               ; preds = %53
+  %55 = and i64 %0, -2
+  %56 = icmp sgt i64 %0, 1
+  br i1 %56, label %.lr.ph122, label %.preheader
 
-75:                                               ; preds = %10
-  %76 = and i64 %0, -16
-  %77 = icmp sgt i64 %0, 15
-  br i1 %77, label %78, label %.loopexit13
+.lr.ph122:                                        ; preds = %54
+  %57 = shl nsw i64 %5, 1
+  %58 = add nsw i64 %55, -1
+  %59 = and i64 %58, -2
+  br label %62
 
-78:                                               ; preds = %75
-  %79 = fcmp oeq float %3, 0.000000e+00
-  br i1 %79, label %80, label %85
+.preheader.loopexit:                              ; preds = %62
+  %60 = add i64 %59, 2
+  br label %.preheader
 
-80:                                               ; preds = %78
-  %81 = shl i64 %76, 2
-  %82 = add i64 %81, -4
-  %83 = and i64 %82, -64
-  %84 = add i64 %83, 64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %84, i1 false), !tbaa !13
-  br label %.loopexit13
+.preheader:                                       ; preds = %.preheader.loopexit, %54
+  %.282.lcssa = phi i64 [ 0, %54 ], [ %60, %.preheader.loopexit ]
+  %.3.lcssa = phi i64 [ 0, %54 ], [ %65, %.preheader.loopexit ]
+  %61 = icmp slt i64 %.282.lcssa, %0
+  br i1 %61, label %.lr.ph126, label %.loopexit
 
-85:                                               ; preds = %78
-  %86 = insertelement <4 x float> poison, float %3, i64 0
-  %87 = shufflevector <4 x float> %86, <4 x float> poison, <16 x i32> zeroinitializer
-  %88 = and i64 %0, 9223372036854775776
-  %.not = icmp eq i64 %88, 0
-  br i1 %.not, label %91, label %.preheader14
+62:                                               ; preds = %.lr.ph122, %62
+  %.3121 = phi i64 [ 0, %.lr.ph122 ], [ %65, %62 ]
+  %.282120 = phi i64 [ 0, %.lr.ph122 ], [ %66, %62 ]
+  %63 = getelementptr inbounds float, ptr %4, i64 %.3121
+  store float 0.000000e+00, ptr %63, align 4, !tbaa !3
+  %64 = getelementptr float, ptr %63, i64 %5
+  store float 0.000000e+00, ptr %64, align 4, !tbaa !3
+  %65 = add nsw i64 %.3121, %57
+  %66 = add nuw nsw i64 %.282120, 2
+  %67 = icmp slt i64 %66, %55
+  br i1 %67, label %62, label %.preheader.loopexit, !llvm.loop !13
 
-89:                                               ; preds = %.preheader14
-  %90 = and i64 %102, 4294967264
-  br label %91
+.lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
+  %.4125 = phi i64 [ %69, %.lr.ph126 ], [ %.3.lcssa, %.preheader ]
+  %.383124 = phi i64 [ %70, %.lr.ph126 ], [ %.282.lcssa, %.preheader ]
+  %68 = getelementptr inbounds float, ptr %4, i64 %.4125
+  store float 0.000000e+00, ptr %68, align 4, !tbaa !3
+  %69 = add nsw i64 %.4125, %5
+  %70 = add nuw nsw i64 %.383124, 1
+  %exitcond145.not = icmp eq i64 %70, %0
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph126, !llvm.loop !14
 
-91:                                               ; preds = %89, %85
-  %92 = phi i64 [ 0, %85 ], [ %90, %89 ]
-  %93 = icmp slt i64 %92, %76
-  br i1 %93, label %.preheader12, label %.loopexit13
+71:                                               ; preds = %53
+  %72 = icmp sgt i64 %0, 7
+  br i1 %72, label %73, label %76
 
-.preheader14:                                     ; preds = %85, %.preheader14
-  %94 = phi i64 [ %102, %.preheader14 ], [ 0, %85 ]
-  %95 = getelementptr inbounds nuw float, ptr %4, i64 %94
-  %96 = load <16 x float>, ptr %95, align 1, !tbaa !13
-  %97 = or disjoint i64 %94, 16
-  %98 = getelementptr inbounds nuw float, ptr %4, i64 %97
-  %99 = load <16 x float>, ptr %98, align 1, !tbaa !13
-  %100 = fmul <16 x float> %87, %96
-  %101 = fmul <16 x float> %87, %99
-  store <16 x float> %100, ptr %95, align 1, !tbaa !13
-  store <16 x float> %101, ptr %98, align 1, !tbaa !13
-  %102 = add nuw nsw i64 %94, 32
-  %103 = icmp samesign ugt i64 %88, %102
-  br i1 %103, label %.preheader14, label %89, !llvm.loop !14
+73:                                               ; preds = %71
+  %74 = and i64 %0, 9223372036854775800
+  tail call fastcc void @sscal_kernel_inc_8(i64 noundef %74, float %3, ptr noundef %4, i64 noundef %5)
+  %75 = mul nsw i64 %5, %74
+  br label %76
 
-.preheader12:                                     ; preds = %91, %.preheader12
-  %104 = phi i64 [ %108, %.preheader12 ], [ %92, %91 ]
-  %105 = getelementptr inbounds nuw float, ptr %4, i64 %104
-  %106 = load <16 x float>, ptr %105, align 1, !tbaa !13
-  %107 = fmul <16 x float> %87, %106
-  store <16 x float> %107, ptr %105, align 1, !tbaa !13
-  %108 = add nuw nsw i64 %104, 16
-  %109 = icmp slt i64 %108, %76
-  br i1 %109, label %.preheader12, label %.loopexit13, !llvm.loop !15
+76:                                               ; preds = %73, %71
+  %.484 = phi i64 [ %74, %73 ], [ 0, %71 ]
+  %.5 = phi i64 [ %75, %73 ], [ 0, %71 ]
+  %77 = icmp slt i64 %.484, %0
+  br i1 %77, label %.lr.ph, label %.loopexit
 
-.loopexit13:                                      ; preds = %.preheader12, %91, %80, %75
-  %110 = fcmp oeq float %3, 0.000000e+00
-  %.not11 = icmp eq i64 %76, %0
-  br i1 %110, label %112, label %111
+.lr.ph:                                           ; preds = %76, %.lr.ph
+  %.6119 = phi i64 [ %81, %.lr.ph ], [ %.5, %76 ]
+  %.585118 = phi i64 [ %82, %.lr.ph ], [ %.484, %76 ]
+  %78 = getelementptr inbounds float, ptr %4, i64 %.6119
+  %79 = load float, ptr %78, align 4, !tbaa !3
+  %80 = fmul float %3, %79
+  store float %80, ptr %78, align 4, !tbaa !3
+  %81 = add nsw i64 %.6119, %5
+  %82 = add nuw nsw i64 %.585118, 1
+  %exitcond.not = icmp eq i64 %82, %0
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
-111:                                              ; preds = %.loopexit13
-  br i1 %.not11, label %.loopexit, label %.preheader
+83:                                               ; preds = %52
+  %84 = and i64 %0, -16
+  %85 = icmp sgt i64 %0, 15
+  br i1 %12, label %86, label %98
 
-112:                                              ; preds = %.loopexit13
-  br i1 %.not11, label %.loopexit, label %113
+86:                                               ; preds = %83
+  br i1 %85, label %87, label %92
 
-113:                                              ; preds = %112
-  %114 = shl i64 %0, 2
-  %115 = and i64 %114, -64
-  %116 = getelementptr i8, ptr %4, i64 %115
-  %117 = and i64 %114, 60
-  tail call void @llvm.memset.p0.i64(ptr align 4 %116, i8 0, i64 %117, i1 false), !tbaa !3
+87:                                               ; preds = %86
+  %88 = shl i64 %84, 2
+  %89 = add i64 %88, -4
+  %90 = and i64 %89, -64
+  %91 = add i64 %90, 64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %91, i1 false), !tbaa !9
+  br label %92
+
+92:                                               ; preds = %87, %86
+  %.not137 = icmp eq i64 %84, %0
+  br i1 %.not137, label %.loopexit, label %.lr.ph130.preheader
+
+.lr.ph130.preheader:                              ; preds = %92
+  %93 = shl i64 %0, 2
+  %94 = and i64 %93, -64
+  %scevgep = getelementptr i8, ptr %4, i64 %94
+  %95 = or disjoint i64 %84, 1
+  %smax = tail call i64 @llvm.smax.i64(i64 %0, i64 %95)
+  %96 = shl i64 %smax, 2
+  %97 = sub i64 %96, %94
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %97, i1 false), !tbaa !3
   br label %.loopexit
 
-.preheader:                                       ; preds = %111, %.preheader
-  %118 = phi i64 [ %122, %.preheader ], [ %76, %111 ]
-  %119 = getelementptr inbounds float, ptr %4, i64 %118
-  %120 = load float, ptr %119, align 4, !tbaa !3
-  %121 = fmul float %3, %120
-  store float %121, ptr %119, align 4, !tbaa !3
-  %122 = add nsw i64 %118, 1
-  %123 = icmp eq i64 %122, %0
-  br i1 %123, label %.loopexit, label %.preheader, !llvm.loop !16
+98:                                               ; preds = %83
+  br i1 %85, label %99, label %sscal_kernel_16.exit107
 
-.loopexit:                                        ; preds = %.preheader17, %.preheader15, %.preheader, %113, %112, %111, %63, %23
+99:                                               ; preds = %98
+  %100 = insertelement <4 x float> poison, float %3, i64 0
+  %101 = shufflevector <4 x float> %100, <4 x float> poison, <16 x i32> zeroinitializer
+  %102 = and i64 %0, 9223372036854775776
+  %.not.i97 = icmp eq i64 %102, 0
+  br i1 %.not.i97, label %.lr.ph3.i104.preheader, label %.lr.ph.i98
+
+.lr.ph3.i104.preheader:                           ; preds = %.preheader.i101, %99
+  %indvars.iv5.i105.ph = phi i64 [ 0, %99 ], [ %103, %.preheader.i101 ]
+  br label %.lr.ph3.i104
+
+.preheader.i101:                                  ; preds = %.lr.ph.i98
+  %103 = and i64 %indvars.iv.next.i100, 4294967264
+  %104 = icmp samesign ugt i64 %84, %103
+  br i1 %104, label %.lr.ph3.i104.preheader, label %sscal_kernel_16.exit107
+
+.lr.ph.i98:                                       ; preds = %99, %.lr.ph.i98
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %99 ]
+  %105 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i99
+  %106 = load <16 x float>, ptr %105, align 1, !tbaa !9
+  %107 = or disjoint i64 %indvars.iv.i99, 16
+  %108 = getelementptr inbounds nuw float, ptr %4, i64 %107
+  %109 = load <16 x float>, ptr %108, align 1, !tbaa !9
+  %110 = fmul <16 x float> %101, %106
+  %111 = fmul <16 x float> %101, %109
+  store <16 x float> %110, ptr %105, align 1, !tbaa !9
+  store <16 x float> %111, ptr %108, align 1, !tbaa !9
+  %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 32
+  %112 = icmp samesign ugt i64 %102, %indvars.iv.next.i100
+  br i1 %112, label %.lr.ph.i98, label %.preheader.i101, !llvm.loop !10
+
+.lr.ph3.i104:                                     ; preds = %.lr.ph3.i104.preheader, %.lr.ph3.i104
+  %indvars.iv5.i105 = phi i64 [ %indvars.iv.next6.i106, %.lr.ph3.i104 ], [ %indvars.iv5.i105.ph, %.lr.ph3.i104.preheader ]
+  %113 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv5.i105
+  %114 = load <16 x float>, ptr %113, align 1, !tbaa !9
+  %115 = fmul <16 x float> %101, %114
+  store <16 x float> %115, ptr %113, align 1, !tbaa !9
+  %indvars.iv.next6.i106 = add nuw nsw i64 %indvars.iv5.i105, 16
+  %116 = icmp samesign ugt i64 %84, %indvars.iv.next6.i106
+  br i1 %116, label %.lr.ph3.i104, label %sscal_kernel_16.exit107, !llvm.loop !11
+
+sscal_kernel_16.exit107:                          ; preds = %.lr.ph3.i104, %.preheader.i101, %98
+  %.not136 = icmp eq i64 %84, %0
+  br i1 %.not136, label %.loopexit, label %.lr.ph128
+
+.lr.ph128:                                        ; preds = %sscal_kernel_16.exit107, %.lr.ph128
+  %.8127 = phi i64 [ %120, %.lr.ph128 ], [ %84, %sscal_kernel_16.exit107 ]
+  %117 = getelementptr inbounds float, ptr %4, i64 %.8127
+  %118 = load float, ptr %117, align 4, !tbaa !3
+  %119 = fmul float %3, %118
+  store float %119, ptr %117, align 4, !tbaa !3
+  %120 = add nsw i64 %.8127, 1
+  %121 = icmp slt i64 %120, %0
+  br i1 %121, label %.lr.ph128, label %.loopexit, !llvm.loop !16
+
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph126, %.lr.ph128, %.lr.ph133, %.lr.ph135, %.lr.ph130.preheader, %76, %.preheader, %sscal_kernel_16.exit107, %92, %19, %sscal_kernel_16.exit
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @sscal_kernel_inc_8(i64 noundef range(i64 1, -9223372036854775808) %0, float %.0.val, ptr noundef captures(none) %1, i64 noundef range(i64 2, 1) %2) unnamed_addr #1 {
+  %.idx = shl nsw i64 %2, 3
+  %.idx31 = mul nsw i64 %2, 12
+  %.idx32 = shl nsw i64 %2, 4
+  br label %4
+
+4:                                                ; preds = %3, %4
+  %.02 = phi ptr [ %1, %3 ], [ %16, %4 ]
+  %.0301 = phi i64 [ 0, %3 ], [ %17, %4 ]
+  %5 = load float, ptr %.02, align 4, !tbaa !3
+  %6 = fmul float %.0.val, %5
+  %7 = getelementptr inbounds float, ptr %.02, i64 %2
+  %8 = load float, ptr %7, align 4, !tbaa !3
+  %9 = fmul float %.0.val, %8
+  %10 = getelementptr inbounds i8, ptr %.02, i64 %.idx
+  %11 = load float, ptr %10, align 4, !tbaa !3
+  %12 = fmul float %.0.val, %11
+  %13 = getelementptr inbounds i8, ptr %.02, i64 %.idx31
+  %14 = load float, ptr %13, align 4, !tbaa !3
+  %15 = fmul float %.0.val, %14
+  store float %6, ptr %.02, align 4, !tbaa !3
+  store float %9, ptr %7, align 4, !tbaa !3
+  store float %12, ptr %10, align 4, !tbaa !3
+  store float %15, ptr %13, align 4, !tbaa !3
+  %16 = getelementptr inbounds i8, ptr %.02, i64 %.idx32
+  %17 = add nuw nsw i64 %.0301, 4
+  %18 = icmp samesign ult i64 %17, %0
+  br i1 %18, label %4, label %19, !llvm.loop !17
+
+19:                                               ; preds = %4
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -217,13 +326,14 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !4 = !{!"float", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

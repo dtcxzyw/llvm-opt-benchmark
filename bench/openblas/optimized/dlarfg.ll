@@ -22,7 +22,7 @@ define void @dlarfg_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 
 12:                                               ; preds = %5
   store double 0.000000e+00, ptr %4, align 8, !tbaa !7
-  br label %79
+  br label %68
 
 13:                                               ; preds = %5
   %14 = add nsw i32 %10, -1
@@ -34,102 +34,102 @@ define void @dlarfg_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 
 17:                                               ; preds = %13
   store double 0.000000e+00, ptr %4, align 8, !tbaa !7
-  br label %79
+  br label %68
 
 18:                                               ; preds = %13
   %19 = call double @dlapy2_(ptr noundef %1, ptr noundef nonnull %8) #3
   %20 = load double, ptr %1, align 8, !tbaa !7
   %21 = fcmp ult double %20, 0.000000e+00
   %22 = fcmp oge double %19, 0.000000e+00
-  %23 = fneg double %19
-  %24 = xor i1 %22, %21
-  %25 = select i1 %24, double %19, double %23
-  %26 = fneg double %25
-  %27 = call double @dlamch_(ptr noundef nonnull @.str) #3
-  %28 = call double @dlamch_(ptr noundef nonnull @.str.1) #3
-  %29 = fdiv double %27, %28
-  %30 = fcmp ole double %25, 0.000000e+00
-  %31 = select i1 %30, double %26, double %25
-  %32 = fcmp olt double %31, %29
-  br i1 %32, label %33, label %._crit_edge
+  %.neg = fneg double %19
+  %23 = xor i1 %22, %21
+  %24 = select i1 %23, double %19, double %.neg
+  %25 = fneg double %24
+  %26 = call double @dlamch_(ptr noundef nonnull @.str) #3
+  %27 = call double @dlamch_(ptr noundef nonnull @.str.1) #3
+  %28 = fdiv double %26, %27
+  %29 = fcmp ole double %24, 0.000000e+00
+  %30 = select i1 %29, double %25, double %24
+  %31 = fcmp olt double %30, %28
+  br i1 %31, label %32, label %._crit_edge56
 
-._crit_edge:                                      ; preds = %18
+._crit_edge56:                                    ; preds = %18
   %.pre = load double, ptr %1, align 8, !tbaa !7
-  br label %61
+  br label %57
 
-33:                                               ; preds = %18
-  %34 = fdiv double 1.000000e+00, %29
-  store double %34, ptr %9, align 8, !tbaa !7
-  br label %35
+32:                                               ; preds = %18
+  %33 = fdiv double 1.000000e+00, %28
+  store double %33, ptr %9, align 8, !tbaa !7
+  br label %34
 
-35:                                               ; preds = %35, %33
-  %36 = phi double [ %26, %33 ], [ %42, %35 ]
-  %37 = phi i32 [ 0, %33 ], [ %38, %35 ]
-  %38 = add nuw nsw i32 %37, 1
-  %39 = load i32, ptr %0, align 4, !tbaa !3
-  %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %6, align 4, !tbaa !3
+34:                                               ; preds = %34, %32
+  %.148 = phi double [ %25, %32 ], [ %39, %34 ]
+  %.1 = phi i32 [ 0, %32 ], [ %35, %34 ]
+  %35 = add nuw nsw i32 %.1, 1
+  %36 = load i32, ptr %0, align 4, !tbaa !3
+  %37 = add nsw i32 %36, -1
+  store i32 %37, ptr %6, align 4, !tbaa !3
   call void @dscal_(ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3) #3
-  %41 = load double, ptr %9, align 8, !tbaa !7
-  %42 = fmul double %36, %41
-  %43 = load double, ptr %1, align 8, !tbaa !7
-  %44 = fmul double %41, %43
-  store double %44, ptr %1, align 8, !tbaa !7
-  %45 = fcmp oge double %42, 0.000000e+00
-  %46 = fneg double %42
-  %47 = select i1 %45, double %42, double %46
-  %48 = fcmp olt double %47, %29
-  %49 = icmp samesign ult i32 %37, 19
-  %50 = select i1 %48, i1 %49, i1 false
-  br i1 %50, label %35, label %51
+  %38 = load double, ptr %9, align 8, !tbaa !7
+  %39 = fmul double %.148, %38
+  %40 = load double, ptr %1, align 8, !tbaa !7
+  %41 = fmul double %38, %40
+  store double %41, ptr %1, align 8, !tbaa !7
+  %42 = fcmp oge double %39, 0.000000e+00
+  %43 = fneg double %39
+  %44 = select i1 %42, double %39, double %43
+  %45 = fcmp olt double %44, %28
+  %46 = icmp samesign ult i32 %.1, 19
+  %or.cond = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond, label %34, label %47
 
-51:                                               ; preds = %35
-  %52 = load i32, ptr %0, align 4, !tbaa !3
-  %53 = add nsw i32 %52, -1
-  store i32 %53, ptr %6, align 4, !tbaa !3
-  %54 = call double @dnrm2_(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3) #3
-  store double %54, ptr %8, align 8, !tbaa !7
-  %55 = call double @dlapy2_(ptr noundef nonnull %1, ptr noundef nonnull %8) #3
-  %56 = load double, ptr %1, align 8, !tbaa !7
-  %57 = fcmp ult double %56, 0.000000e+00
-  %58 = fcmp oge double %55, 0.000000e+00
-  %59 = xor i1 %58, %57
-  %.neg = fneg double %55
-  %60 = select i1 %59, double %.neg, double %55
-  br label %61
+47:                                               ; preds = %34
+  %48 = load i32, ptr %0, align 4, !tbaa !3
+  %49 = add nsw i32 %48, -1
+  store i32 %49, ptr %6, align 4, !tbaa !3
+  %50 = call double @dnrm2_(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3) #3
+  store double %50, ptr %8, align 8, !tbaa !7
+  %51 = call double @dlapy2_(ptr noundef nonnull %1, ptr noundef nonnull %8) #3
+  %52 = load double, ptr %1, align 8, !tbaa !7
+  %53 = fcmp ult double %52, 0.000000e+00
+  %54 = fcmp oge double %51, 0.000000e+00
+  %55 = xor i1 %54, %53
+  %.neg58 = fneg double %51
+  %56 = select i1 %55, double %.neg58, double %51
+  br label %57
 
-61:                                               ; preds = %._crit_edge, %51
-  %62 = phi double [ %56, %51 ], [ %.pre, %._crit_edge ]
-  %63 = phi double [ %60, %51 ], [ %26, %._crit_edge ]
-  %64 = phi i32 [ %38, %51 ], [ 0, %._crit_edge ]
-  %65 = fsub double %63, %62
-  %66 = fdiv double %65, %63
-  store double %66, ptr %4, align 8, !tbaa !7
-  %67 = load i32, ptr %0, align 4, !tbaa !3
-  %68 = add nsw i32 %67, -1
-  store i32 %68, ptr %6, align 4, !tbaa !3
-  %69 = load double, ptr %1, align 8, !tbaa !7
-  %70 = fsub double %69, %63
-  %71 = fdiv double 1.000000e+00, %70
-  store double %71, ptr %7, align 8, !tbaa !7
+57:                                               ; preds = %._crit_edge56, %47
+  %58 = phi double [ %52, %47 ], [ %.pre, %._crit_edge56 ]
+  %.047 = phi double [ %56, %47 ], [ %25, %._crit_edge56 ]
+  %.0 = phi i32 [ %35, %47 ], [ 0, %._crit_edge56 ]
+  %59 = fsub double %.047, %58
+  %60 = fdiv double %59, %.047
+  store double %60, ptr %4, align 8, !tbaa !7
+  %61 = load i32, ptr %0, align 4, !tbaa !3
+  %62 = add nsw i32 %61, -1
+  store i32 %62, ptr %6, align 4, !tbaa !3
+  %63 = load double, ptr %1, align 8, !tbaa !7
+  %64 = fsub double %63, %.047
+  %65 = fdiv double 1.000000e+00, %64
+  store double %65, ptr %7, align 8, !tbaa !7
   call void @dscal_(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3) #3
-  %72 = icmp eq i32 %64, 0
-  br i1 %72, label %.loopexit, label %.preheader
+  %.not52 = icmp eq i32 %.0, 0
+  br i1 %.not52, label %._crit_edge, label %.lr.ph
 
-.preheader:                                       ; preds = %61, %.preheader
-  %73 = phi i32 [ %76, %.preheader ], [ 1, %61 ]
-  %74 = phi double [ %75, %.preheader ], [ %63, %61 ]
-  %75 = fmul double %29, %74
-  %76 = add nuw nsw i32 %73, 1
-  %77 = icmp eq i32 %73, %64
-  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !9
+.lr.ph:                                           ; preds = %57, %.lr.ph
+  %.04654 = phi i32 [ %67, %.lr.ph ], [ 1, %57 ]
+  %.253 = phi double [ %66, %.lr.ph ], [ %.047, %57 ]
+  %66 = fmul double %28, %.253
+  %67 = add nuw nsw i32 %.04654, 1
+  %exitcond.not = icmp eq i32 %.04654, %.0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.preheader, %61
-  %78 = phi double [ %63, %61 ], [ %75, %.preheader ]
-  store double %78, ptr %1, align 8, !tbaa !7
-  br label %79
+._crit_edge:                                      ; preds = %.lr.ph, %57
+  %.2.lcssa = phi double [ %.047, %57 ], [ %66, %.lr.ph ]
+  store double %.2.lcssa, ptr %1, align 8, !tbaa !7
+  br label %68
 
-79:                                               ; preds = %.loopexit, %17, %12
+68:                                               ; preds = %17, %._crit_edge, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
@@ -167,6 +167,5 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unroll.disable"}

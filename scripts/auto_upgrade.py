@@ -44,6 +44,7 @@ supported_project = [
     "nuklear",
     "openmpi",
     "oniguruma",
+    "openblas",
 ]
 
 modify_only = [
@@ -55,6 +56,7 @@ modify_only = [
     "libsodium",
     "openmpi",
     "oniguruma",
+    "openblas",
 ]
 
 

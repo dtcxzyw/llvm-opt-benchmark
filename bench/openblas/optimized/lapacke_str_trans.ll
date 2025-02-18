@@ -7,145 +7,147 @@ target triple = "x86_64-pc-linux-gnu"
 define void @LAPACKE_str_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %4, null
   %10 = icmp eq ptr %6, null
-  %11 = or i1 %9, %10
-  br i1 %11, label %.loopexit7, label %12
+  %or.cond = or i1 %9, %10
+  br i1 %or.cond, label %.loopexit81, label %11
 
-12:                                               ; preds = %8
-  %13 = icmp eq i32 %0, 102
-  %14 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 117) #3
-  %15 = icmp ne i32 %0, 101
-  %16 = xor i1 %13, %15
-  br i1 %16, label %.loopexit7, label %17
+11:                                               ; preds = %8
+  %12 = icmp eq i32 %0, 102
+  %13 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 117) #3
+  %14 = icmp ne i32 %0, 101
+  %or.cond3 = xor i1 %12, %14
+  br i1 %or.cond3, label %.loopexit81, label %15
 
-17:                                               ; preds = %12
-  %18 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 108) #3
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %23, label %20
+15:                                               ; preds = %11
+  %16 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 108) #3
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %20, label %18
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 117) #3
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit7, label %23
+18:                                               ; preds = %15
+  %19 = tail call i32 @LAPACKE_lsame(i8 noundef signext %1, i8 noundef signext 117) #3
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %.loopexit81, label %20
 
-23:                                               ; preds = %20, %17
-  %24 = icmp ne i32 %14, 0
-  br i1 %24, label %28, label %25
+20:                                               ; preds = %18, %15
+  %.not76 = icmp ne i32 %13, 0
+  br i1 %.not76, label %23, label %21
 
-25:                                               ; preds = %23
-  %26 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 110) #3
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.loopexit7, label %28
+21:                                               ; preds = %20
+  %22 = tail call i32 @LAPACKE_lsame(i8 noundef signext %2, i8 noundef signext 110) #3
+  %.not77 = icmp eq i32 %22, 0
+  br i1 %.not77, label %.loopexit81, label %23
 
-28:                                               ; preds = %25, %23
-  %29 = zext i1 %24 to i32
-  %30 = xor i1 %13, %19
-  br i1 %30, label %43, label %31
+23:                                               ; preds = %21, %20
+  %. = zext i1 %.not76 to i32
+  %24 = xor i1 %12, %17
+  br i1 %24, label %.preheader80, label %.preheader82
 
-31:                                               ; preds = %28
-  %32 = sub nsw i32 %3, %29
-  %33 = tail call i32 @llvm.smin.i32(i32 %32, i32 %7)
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %.loopexit7
+.preheader82:                                     ; preds = %23
+  %25 = sub nsw i32 %3, %.
+  %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 %7)
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph86, label %.loopexit81
 
-35:                                               ; preds = %31
-  %36 = tail call i32 @llvm.smin.i32(i32 %3, i32 %5)
-  %37 = zext i1 %24 to i64
-  %38 = sext i32 %7 to i64
-  %39 = sext i32 %36 to i64
-  %40 = sext i32 %5 to i64
-  %41 = zext nneg i32 %33 to i64
-  %42 = sub nsw i64 %39, %37
-  br label %76
+.lr.ph86:                                         ; preds = %.preheader82
+  %28 = tail call i32 @llvm.smin.i32(i32 %3, i32 %5)
+  %29 = zext i1 %.not76 to i64
+  %30 = sext i32 %7 to i64
+  %.neg118 = sext i1 %.not76 to i64
+  %31 = sext i32 %28 to i64
+  %32 = sext i32 %5 to i64
+  %wide.trip.count97 = zext nneg i32 %26 to i64
+  %invariant.op = add nsw i64 %.neg118, %31
+  %wide.trip.count = zext i32 %28 to i64
+  br label %45
 
-43:                                               ; preds = %28
-  %44 = tail call i32 @llvm.smin.i32(i32 %3, i32 %7)
-  %45 = icmp sgt i32 %44, %29
-  br i1 %45, label %46, label %.loopexit7
+.preheader80:                                     ; preds = %23
+  %33 = tail call i32 @llvm.smin.i32(i32 %3, i32 %7)
+  %34 = icmp sgt i32 %33, %.
+  br i1 %34, label %.preheader.preheader, label %.loopexit81
 
-46:                                               ; preds = %43
-  %47 = sext i32 %7 to i64
-  %48 = zext i1 %24 to i64
-  %49 = sext i1 %24 to i64
-  %50 = sext i32 %5 to i64
-  %51 = zext nneg i32 %44 to i64
-  br label %54
+.preheader.preheader:                             ; preds = %.preheader80
+  %35 = sext i32 %7 to i64
+  %36 = zext i1 %.not76 to i64
+  %.neg = sext i1 %.not76 to i64
+  %37 = sext i32 %5 to i64
+  %wide.trip.count109 = zext nneg i32 %33 to i64
+  br label %.preheader
 
-.loopexit:                                        ; preds = %68, %54
-  %52 = add nuw i32 %56, 1
-  %53 = icmp eq i64 %57, %51
-  br i1 %53, label %.loopexit7, label %54, !llvm.loop !3
+.loopexit:                                        ; preds = %42, %.preheader
+  %indvars.iv.next103 = add nuw i32 %indvars.iv102, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
+  br i1 %exitcond110.not, label %.loopexit81, label %.preheader, !llvm.loop !3
 
-54:                                               ; preds = %.loopexit, %46
-  %55 = phi i64 [ %48, %46 ], [ %57, %.loopexit ]
-  %56 = phi i32 [ 1, %46 ], [ %52, %.loopexit ]
-  %57 = add nuw nsw i64 %55, 1
-  %58 = add i64 %57, %49
-  %59 = trunc i64 %58 to i32
-  %60 = tail call i32 @llvm.smin.i32(i32 %59, i32 %5)
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %62, label %.loopexit
+.preheader:                                       ; preds = %.preheader.preheader, %.loopexit
+  %indvars.iv106 = phi i64 [ %36, %.preheader.preheader ], [ %indvars.iv.next107, %.loopexit ]
+  %indvars.iv102 = phi i32 [ 1, %.preheader.preheader ], [ %indvars.iv.next103, %.loopexit ]
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %38 = add i64 %indvars.iv.next107, %.neg
+  %39 = trunc nuw nsw i64 %38 to i32
+  %.79 = tail call i32 @llvm.smin.i32(i32 %39, i32 %5)
+  %40 = icmp sgt i32 %.79, 0
+  br i1 %40, label %.lr.ph88, label %.loopexit
 
-62:                                               ; preds = %54
-  %63 = tail call i32 @llvm.smin.i32(i32 %5, i32 %56)
-  %64 = mul nsw i64 %55, %50
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr float, ptr %4, i64 %64
-  %67 = getelementptr float, ptr %6, i64 %55
-  br label %68
+.lr.ph88:                                         ; preds = %.preheader
+  %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 %indvars.iv102)
+  %41 = mul nsw i64 %indvars.iv106, %37
+  %wide.trip.count104 = zext i32 %smin to i64
+  %invariant.gep114 = getelementptr float, ptr %4, i64 %41
+  %invariant.gep116 = getelementptr float, ptr %6, i64 %indvars.iv106
+  br label %42
 
-68:                                               ; preds = %68, %62
-  %69 = phi i64 [ 0, %62 ], [ %74, %68 ]
-  %70 = getelementptr float, ptr %66, i64 %69
-  %71 = load float, ptr %70, align 4, !tbaa !6
-  %72 = mul nsw i64 %69, %47
-  %73 = getelementptr float, ptr %67, i64 %72
-  store float %71, ptr %73, align 4, !tbaa !6
-  %74 = add nuw nsw i64 %69, 1
-  %75 = icmp eq i64 %74, %65
-  br i1 %75, label %.loopexit, label %68, !llvm.loop !10
+42:                                               ; preds = %.lr.ph88, %42
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %42 ]
+  %gep115 = getelementptr float, ptr %invariant.gep114, i64 %indvars.iv99
+  %43 = load float, ptr %gep115, align 4, !tbaa !5
+  %44 = mul nsw i64 %indvars.iv99, %35
+  %gep117 = getelementptr float, ptr %invariant.gep116, i64 %44
+  store float %43, ptr %gep117, align 4, !tbaa !5
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
+  br i1 %exitcond105.not, label %.loopexit, label %42, !llvm.loop !9
 
-76:                                               ; preds = %.loopexit8, %35
-  %77 = phi i64 [ 0, %35 ], [ %92, %.loopexit8 ]
-  %78 = phi i64 [ %37, %35 ], [ %93, %.loopexit8 ]
-  %79 = icmp slt i64 %77, %42
-  br i1 %79, label %80, label %.loopexit8
+45:                                               ; preds = %.lr.ph86, %._crit_edge
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next95, %._crit_edge ]
+  %indvars.iv = phi i64 [ %29, %.lr.ph86 ], [ %indvars.iv.next, %._crit_edge ]
+  %46 = icmp slt i64 %indvars.iv94, %invariant.op
+  br i1 %46, label %.lr.ph, label %._crit_edge
 
-80:                                               ; preds = %76
-  %81 = mul nsw i64 %77, %40
-  %82 = getelementptr float, ptr %4, i64 %81
-  %83 = getelementptr float, ptr %6, i64 %77
-  br label %84
+.lr.ph:                                           ; preds = %45
+  %47 = mul nsw i64 %indvars.iv94, %32
+  %invariant.gep = getelementptr float, ptr %4, i64 %47
+  %invariant.gep112 = getelementptr float, ptr %6, i64 %indvars.iv94
+  br label %48
 
-84:                                               ; preds = %84, %80
-  %85 = phi i64 [ %78, %80 ], [ %90, %84 ]
-  %86 = getelementptr float, ptr %82, i64 %85
-  %87 = load float, ptr %86, align 4, !tbaa !6
-  %88 = mul nsw i64 %85, %38
-  %89 = getelementptr float, ptr %83, i64 %88
-  store float %87, ptr %89, align 4, !tbaa !6
-  %90 = add nuw nsw i64 %85, 1
-  %91 = icmp slt i64 %90, %39
-  br i1 %91, label %84, label %.loopexit8, !llvm.loop !11
+48:                                               ; preds = %.lr.ph, %48
+  %indvars.iv91 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next92, %48 ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv91
+  %49 = load float, ptr %gep, align 4, !tbaa !5
+  %50 = mul nsw i64 %indvars.iv91, %30
+  %gep113 = getelementptr float, ptr %invariant.gep112, i64 %50
+  store float %49, ptr %gep113, align 4, !tbaa !5
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !10
 
-.loopexit8:                                       ; preds = %84, %76
-  %92 = add nuw nsw i64 %77, 1
-  %93 = add nuw nsw i64 %78, 1
-  %94 = icmp eq i64 %92, %41
-  br i1 %94, label %.loopexit7, label %76, !llvm.loop !12
+._crit_edge:                                      ; preds = %48, %45
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
+  br i1 %exitcond98.not, label %.loopexit81, label %45, !llvm.loop !11
 
-.loopexit7:                                       ; preds = %.loopexit8, %.loopexit, %43, %31, %25, %20, %12, %8
+.loopexit81:                                      ; preds = %._crit_edge, %.loopexit, %.preheader82, %.preheader80, %18, %21, %11, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @LAPACKE_lsame(i8 noundef signext, i8 noundef signext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #2
 
 attributes #0 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
@@ -153,13 +155,12 @@ attributes #3 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.unroll.disable"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"float", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"float", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

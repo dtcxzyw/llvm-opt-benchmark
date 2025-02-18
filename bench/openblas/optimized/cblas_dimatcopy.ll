@@ -11,227 +11,228 @@ define void @cblas_dimatcopy(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   store i32 -1, ptr %9, align 4, !tbaa !3
-  %10 = icmp eq i32 %0, 102
-  %11 = icmp eq i32 %0, 101
-  %12 = icmp ne i32 %1, 111
-  %13 = icmp ne i32 %1, 114
-  %14 = and i1 %12, %13
-  %15 = sext i1 %14 to i32
-  %16 = and i32 %1, -2
-  %17 = icmp ne i32 %16, 112
-  %18 = select i1 %17, i32 %15, i32 1
-  br i1 %10, label %19, label %31
+  %.not239 = icmp eq i32 %0, 102
+  %.not = icmp eq i32 %0, 101
+  %10 = icmp ne i32 %1, 111
+  %11 = icmp ne i32 %1, 114
+  %or.cond.not = and i1 %10, %11
+  %.0133 = sext i1 %or.cond.not to i32
+  %12 = and i32 %1, -2
+  %or.cond3 = icmp ne i32 %12, 112
+  %.1134 = select i1 %or.cond3, i32 %.0133, i32 1
+  br i1 %.not239, label %13, label %20
 
-19:                                               ; preds = %8
-  switch i32 %18, label %.thread [
-    i32 0, label %20
-    i32 1, label %28
+13:                                               ; preds = %8
+  switch i32 %.1134, label %.thread259 [
+    i32 0, label %14
+    i32 1, label %19
   ]
 
-20:                                               ; preds = %19
-  %21 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %22 = icmp sgt i32 %21, %7
-  br i1 %22, label %23, label %24
+14:                                               ; preds = %13
+  %spec.select228 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %15 = icmp slt i32 %7, %spec.select228
+  br i1 %15, label %16, label %17
 
-23:                                               ; preds = %20
+16:                                               ; preds = %14
   store i32 8, ptr %9, align 4, !tbaa !3
-  br label %24
+  br label %17
 
-24:                                               ; preds = %23, %20
-  %.pr8 = phi i32 [ 8, %23 ], [ -1, %20 ]
-  %25 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %26 = icmp sle i32 %25, %7
-  %27 = or i1 %17, %26
-  br i1 %27, label %.thread, label %.thread.sink.split
+17:                                               ; preds = %16, %14
+  %.pr258 = phi i32 [ 8, %16 ], [ -1, %14 ]
+  %spec.select229 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  %18 = icmp sge i32 %7, %spec.select229
+  %or.cond.not248 = or i1 %18, %or.cond3
+  br i1 %or.cond.not248, label %.thread259, label %.thread259.sink.split
 
-28:                                               ; preds = %19
-  %29 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %30 = icmp sgt i32 %29, %7
-  br i1 %30, label %.thread.sink.split, label %.thread
+19:                                               ; preds = %13
+  %spec.select229.old = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  %.old = icmp slt i32 %7, %spec.select229.old
+  br i1 %.old, label %.thread259.sink.split, label %.thread259
 
-31:                                               ; preds = %8
-  br i1 %11, label %32, label %.thread
+20:                                               ; preds = %8
+  br i1 %.not, label %21, label %.thread259
 
-32:                                               ; preds = %31
-  switch i32 %18, label %.thread [
-    i32 0, label %33
-    i32 1, label %41
+21:                                               ; preds = %20
+  switch i32 %.1134, label %.thread259 [
+    i32 0, label %22
+    i32 1, label %27
   ]
 
-33:                                               ; preds = %32
-  %34 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %35 = icmp sgt i32 %34, %7
-  br i1 %35, label %36, label %37
+22:                                               ; preds = %21
+  %spec.select230 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  %23 = icmp slt i32 %7, %spec.select230
+  br i1 %23, label %24, label %25
 
-36:                                               ; preds = %33
+24:                                               ; preds = %22
   store i32 8, ptr %9, align 4, !tbaa !3
-  br label %37
+  br label %25
 
-37:                                               ; preds = %36, %33
-  %.pr7 = phi i32 [ 8, %36 ], [ -1, %33 ]
-  %38 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %39 = icmp sle i32 %38, %7
-  %40 = or i1 %17, %39
-  br i1 %40, label %.thread, label %.thread.sink.split
+25:                                               ; preds = %24, %22
+  %.pr256 = phi i32 [ 8, %24 ], [ -1, %22 ]
+  %spec.select231 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %26 = icmp sge i32 %7, %spec.select231
+  %or.cond242.not = or i1 %26, %or.cond3
+  br i1 %or.cond242.not, label %.thread259, label %.thread259.sink.split
+
+27:                                               ; preds = %21
+  %spec.select231.old = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %.old241 = icmp slt i32 %7, %spec.select231.old
+  br i1 %.old241, label %.thread259.sink.split, label %.thread259
+
+.thread259.sink.split:                            ; preds = %27, %25, %19, %17
+  store i32 8, ptr %9, align 4, !tbaa !3
+  br label %.thread259
+
+.thread259:                                       ; preds = %.thread259.sink.split, %19, %17, %13, %21, %25, %27, %20
+  %.pr255 = phi i32 [ -1, %21 ], [ %.pr256, %25 ], [ -1, %27 ], [ -1, %20 ], [ -1, %19 ], [ %.pr258, %17 ], [ -1, %13 ], [ 8, %.thread259.sink.split ]
+  %spec.select232 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %28 = icmp slt i32 %6, %spec.select232
+  %or.cond244.not.not = and i1 %.not239, %28
+  %spec.select233 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  %29 = icmp slt i32 %6, %spec.select233
+  %or.cond246.not.not = and i1 %.not, %29
+  %30 = or i1 %or.cond244.not.not, %or.cond246.not.not
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %.thread259
+  store i32 7, ptr %9, align 4, !tbaa !3
+  br label %32
+
+32:                                               ; preds = %.thread259, %31
+  %.pr = phi i32 [ %.pr255, %.thread259 ], [ 7, %31 ]
+  %33 = or i32 %3, %2
+  %34 = icmp slt i32 %33, 0
+  %35 = and i1 %or.cond3, %or.cond.not
+  %36 = or i1 %35, %34
+  %37 = add i32 %0, -103
+  %38 = icmp ult i32 %37, -2
+  %39 = or i1 %38, %36
+  br i1 %39, label %.thread, label %41
+
+.thread:                                          ; preds = %32
+  %40 = icmp slt i32 %2, 0
+  %spec.select234 = select i1 %40, i32 3, i32 4
+  %spec.select235 = select i1 %35, i32 2, i32 %spec.select234
+  %spec.select236 = select i1 %38, i32 1, i32 %spec.select235
+  store i32 %spec.select236, ptr %9, align 4, !tbaa !3
+  br label %43
 
 41:                                               ; preds = %32
-  %42 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %43 = icmp sgt i32 %42, %7
-  br i1 %43, label %.thread.sink.split, label %.thread
+  %42 = icmp sgt i32 %.pr, -1
+  br i1 %42, label %43, label %45
 
-.thread.sink.split:                               ; preds = %37, %41, %24, %28
-  store i32 8, ptr %9, align 4, !tbaa !3
-  br label %.thread
+43:                                               ; preds = %.thread, %41
+  %44 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %9, i32 noundef 10) #8
+  br label %104
 
-.thread:                                          ; preds = %.thread.sink.split, %19, %24, %28, %41, %37, %32, %31
-  %.pr6 = phi i32 [ -1, %19 ], [ %.pr8, %24 ], [ -1, %28 ], [ -1, %41 ], [ %.pr7, %37 ], [ -1, %32 ], [ -1, %31 ], [ 8, %.thread.sink.split ]
-  %44 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %45 = icmp sgt i32 %44, %6
-  %46 = and i1 %10, %45
-  %47 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
-  %48 = icmp sgt i32 %47, %6
-  %49 = and i1 %11, %48
-  %50 = or i1 %46, %49
-  br i1 %50, label %51, label %52
+45:                                               ; preds = %41
+  %46 = icmp eq i32 %2, 0
+  %47 = icmp eq i32 %3, 0
+  %or.cond237 = or i1 %46, %47
+  br i1 %or.cond237, label %104, label %48
 
-51:                                               ; preds = %.thread
-  store i32 7, ptr %9, align 4, !tbaa !3
-  br label %52
+48:                                               ; preds = %45
+  %49 = icmp eq i32 %6, %7
+  br i1 %49, label %50, label %76
 
-52:                                               ; preds = %51, %.thread
-  %.pr = phi i32 [ 7, %51 ], [ %.pr6, %.thread ]
-  %53 = or i32 %3, %2
-  %54 = icmp slt i32 %53, 0
-  %55 = and i1 %17, %14
-  %56 = or i1 %55, %54
-  %57 = add i32 %0, -103
-  %58 = icmp ult i32 %57, -2
-  %59 = or i1 %58, %56
-  br i1 %59, label %.thread4, label %64
+50:                                               ; preds = %48
+  %51 = icmp eq i32 %.1134, 0
+  br i1 %.not239, label %52, label %64
 
-.thread4:                                         ; preds = %52
-  %60 = icmp slt i32 %2, 0
-  %61 = select i1 %60, i32 3, i32 4
-  %62 = select i1 %55, i32 2, i32 %61
-  %63 = select i1 %58, i32 1, i32 %62
-  store i32 %63, ptr %9, align 4, !tbaa !3
-  br label %66
+52:                                               ; preds = %50
+  br i1 %51, label %53, label %58
 
-64:                                               ; preds = %52
-  %65 = icmp sgt i32 %.pr, -1
-  br i1 %65, label %66, label %68
+53:                                               ; preds = %52
+  %54 = zext nneg i32 %2 to i64
+  %55 = zext nneg i32 %3 to i64
+  %56 = sext i32 %7 to i64
+  %57 = tail call i32 @dimatcopy_k_cn(i64 noundef %54, i64 noundef %55, double noundef %4, ptr noundef %5, i64 noundef %56) #8
+  br label %104
 
-66:                                               ; preds = %.thread4, %64
-  %67 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %9, i32 noundef 10) #8
-  br label %130
+58:                                               ; preds = %52
+  %59 = icmp eq i32 %2, %3
+  br i1 %59, label %60, label %76
 
-68:                                               ; preds = %64
-  %69 = icmp eq i32 %2, 0
-  %70 = icmp eq i32 %3, 0
-  %71 = or i1 %69, %70
-  br i1 %71, label %130, label %72
+60:                                               ; preds = %58
+  %61 = zext nneg i32 %3 to i64
+  %62 = sext i32 %7 to i64
+  %63 = tail call i32 @dimatcopy_k_ct(i64 noundef %61, i64 noundef %61, double noundef %4, ptr noundef %5, i64 noundef %62) #8
+  br label %104
 
-72:                                               ; preds = %68
-  %73 = icmp eq i32 %6, %7
-  br i1 %73, label %74, label %100
+64:                                               ; preds = %50
+  br i1 %51, label %65, label %70
 
-74:                                               ; preds = %72
-  %75 = icmp eq i32 %18, 0
-  br i1 %10, label %76, label %88
+65:                                               ; preds = %64
+  %66 = zext nneg i32 %2 to i64
+  %67 = zext nneg i32 %3 to i64
+  %68 = sext i32 %7 to i64
+  %69 = tail call i32 @dimatcopy_k_rn(i64 noundef %66, i64 noundef %67, double noundef %4, ptr noundef %5, i64 noundef %68) #8
+  br label %104
 
-76:                                               ; preds = %74
-  br i1 %75, label %77, label %82
+70:                                               ; preds = %64
+  %71 = icmp eq i32 %2, %3
+  br i1 %71, label %72, label %76
 
-77:                                               ; preds = %76
-  %78 = sext i32 %2 to i64
-  %79 = sext i32 %3 to i64
-  %80 = sext i32 %7 to i64
-  %81 = tail call i32 @dimatcopy_k_cn(i64 noundef %78, i64 noundef %79, double noundef %4, ptr noundef %5, i64 noundef %80) #8
-  br label %130
+72:                                               ; preds = %70
+  %73 = zext nneg i32 %3 to i64
+  %74 = sext i32 %7 to i64
+  %75 = tail call i32 @dimatcopy_k_rt(i64 noundef %73, i64 noundef %73, double noundef %4, ptr noundef %5, i64 noundef %74) #8
+  br label %104
+
+76:                                               ; preds = %58, %70, %48
+  %77 = sext i32 %7 to i64
+  %. = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
+  %78 = zext nneg i32 %. to i64
+  %79 = mul nsw i64 %77, %78
+  %.0135 = shl i64 %79, 3
+  %80 = tail call noalias ptr @malloc(i64 noundef %.0135) #9
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %83
 
 82:                                               ; preds = %76
-  %83 = icmp eq i32 %2, %3
-  br i1 %83, label %84, label %100
-
-84:                                               ; preds = %82
-  %85 = sext i32 %2 to i64
-  %86 = sext i32 %7 to i64
-  %87 = tail call i32 @dimatcopy_k_ct(i64 noundef %85, i64 noundef %85, double noundef %4, ptr noundef %5, i64 noundef %86) #8
-  br label %130
-
-88:                                               ; preds = %74
-  br i1 %75, label %89, label %94
-
-89:                                               ; preds = %88
-  %90 = sext i32 %2 to i64
-  %91 = sext i32 %3 to i64
-  %92 = sext i32 %7 to i64
-  %93 = tail call i32 @dimatcopy_k_rn(i64 noundef %90, i64 noundef %91, double noundef %4, ptr noundef %5, i64 noundef %92) #8
-  br label %130
-
-94:                                               ; preds = %88
-  %95 = icmp eq i32 %2, %3
-  br i1 %95, label %96, label %100
-
-96:                                               ; preds = %94
-  %97 = sext i32 %2 to i64
-  %98 = sext i32 %7 to i64
-  %99 = tail call i32 @dimatcopy_k_rt(i64 noundef %97, i64 noundef %97, double noundef %4, ptr noundef %5, i64 noundef %98) #8
-  br label %130
-
-100:                                              ; preds = %94, %82, %72
-  %101 = sext i32 %7 to i64
-  %102 = tail call i32 @llvm.smax.i32(i32 %2, i32 %3)
-  %103 = sext i32 %102 to i64
-  %104 = shl nsw i64 %103, 3
-  %105 = mul i64 %104, %101
-  %106 = tail call noalias ptr @malloc(i64 noundef %105) #9
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %108, label %110
-
-108:                                              ; preds = %100
-  %109 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
-110:                                              ; preds = %100
-  %111 = icmp eq i32 %18, 0
-  %112 = sext i32 %2 to i64
-  %113 = sext i32 %3 to i64
-  %114 = sext i32 %6 to i64
-  br i1 %10, label %115, label %122
+83:                                               ; preds = %76
+  %84 = icmp eq i32 %.1134, 0
+  %85 = zext nneg i32 %2 to i64
+  %86 = zext nneg i32 %3 to i64
+  %87 = sext i32 %6 to i64
+  %88 = sext i32 %7 to i64
+  br i1 %.not239, label %89, label %96
 
-115:                                              ; preds = %110
-  br i1 %111, label %116, label %119
+89:                                               ; preds = %83
+  br i1 %84, label %90, label %93
 
-116:                                              ; preds = %115
-  %117 = tail call i32 @domatcopy_k_cn(i64 noundef %112, i64 noundef %113, double noundef %4, ptr noundef %5, i64 noundef %114, ptr noundef nonnull %106, i64 noundef %112) #8
-  %118 = tail call i32 @domatcopy_k_cn(i64 noundef %112, i64 noundef %113, double noundef 1.000000e+00, ptr noundef nonnull %106, i64 noundef %112, ptr noundef %5, i64 noundef %101) #8
-  br label %129
+90:                                               ; preds = %89
+  %91 = tail call i32 @domatcopy_k_cn(i64 noundef %85, i64 noundef %86, double noundef %4, ptr noundef %5, i64 noundef %87, ptr noundef nonnull %80, i64 noundef %85) #8
+  %92 = tail call i32 @domatcopy_k_cn(i64 noundef %85, i64 noundef %86, double noundef 1.000000e+00, ptr noundef nonnull %80, i64 noundef %85, ptr noundef %5, i64 noundef %88) #8
+  br label %103
 
-119:                                              ; preds = %115
-  %120 = tail call i32 @domatcopy_k_ct(i64 noundef %112, i64 noundef %113, double noundef %4, ptr noundef %5, i64 noundef %114, ptr noundef nonnull %106, i64 noundef %113) #8
-  %121 = tail call i32 @domatcopy_k_cn(i64 noundef %113, i64 noundef %112, double noundef 1.000000e+00, ptr noundef nonnull %106, i64 noundef %113, ptr noundef %5, i64 noundef %101) #8
-  br label %129
+93:                                               ; preds = %89
+  %94 = tail call i32 @domatcopy_k_ct(i64 noundef %85, i64 noundef %86, double noundef %4, ptr noundef %5, i64 noundef %87, ptr noundef nonnull %80, i64 noundef %86) #8
+  %95 = tail call i32 @domatcopy_k_cn(i64 noundef %86, i64 noundef %85, double noundef 1.000000e+00, ptr noundef nonnull %80, i64 noundef %86, ptr noundef %5, i64 noundef %88) #8
+  br label %103
 
-122:                                              ; preds = %110
-  br i1 %111, label %123, label %126
+96:                                               ; preds = %83
+  br i1 %84, label %97, label %100
 
-123:                                              ; preds = %122
-  %124 = tail call i32 @domatcopy_k_rn(i64 noundef %112, i64 noundef %113, double noundef %4, ptr noundef %5, i64 noundef %114, ptr noundef nonnull %106, i64 noundef %113) #8
-  %125 = tail call i32 @domatcopy_k_rn(i64 noundef %112, i64 noundef %113, double noundef 1.000000e+00, ptr noundef nonnull %106, i64 noundef %113, ptr noundef %5, i64 noundef %101) #8
-  br label %129
+97:                                               ; preds = %96
+  %98 = tail call i32 @domatcopy_k_rn(i64 noundef %85, i64 noundef %86, double noundef %4, ptr noundef %5, i64 noundef %87, ptr noundef nonnull %80, i64 noundef %86) #8
+  %99 = tail call i32 @domatcopy_k_rn(i64 noundef %85, i64 noundef %86, double noundef 1.000000e+00, ptr noundef nonnull %80, i64 noundef %86, ptr noundef %5, i64 noundef %88) #8
+  br label %103
 
-126:                                              ; preds = %122
-  %127 = tail call i32 @domatcopy_k_rt(i64 noundef %112, i64 noundef %113, double noundef %4, ptr noundef %5, i64 noundef %114, ptr noundef nonnull %106, i64 noundef %112) #8
-  %128 = tail call i32 @domatcopy_k_rn(i64 noundef %113, i64 noundef %112, double noundef 1.000000e+00, ptr noundef nonnull %106, i64 noundef %112, ptr noundef %5, i64 noundef %101) #8
-  br label %129
+100:                                              ; preds = %96
+  %101 = tail call i32 @domatcopy_k_rt(i64 noundef %85, i64 noundef %86, double noundef %4, ptr noundef %5, i64 noundef %87, ptr noundef nonnull %80, i64 noundef %85) #8
+  %102 = tail call i32 @domatcopy_k_rn(i64 noundef %86, i64 noundef %85, double noundef 1.000000e+00, ptr noundef nonnull %80, i64 noundef %85, ptr noundef %5, i64 noundef %88) #8
+  br label %103
 
-129:                                              ; preds = %126, %123, %119, %116
-  tail call void @free(ptr noundef nonnull %106) #8
-  br label %130
+103:                                              ; preds = %97, %100, %90, %93
+  tail call void @free(ptr noundef nonnull %80) #8
+  br label %104
 
-130:                                              ; preds = %129, %96, %89, %84, %77, %68, %66
+104:                                              ; preds = %45, %103, %72, %65, %60, %53, %43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   ret void
 }
@@ -272,8 +273,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -282,7 +286,7 @@ attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #6 = { nofree nounwind }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { cold noreturn nounwind }

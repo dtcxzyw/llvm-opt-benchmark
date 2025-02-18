@@ -16,4 +16,5 @@ automake --force-missing --add-missing
 autoconf
 ./configure
 make -j
+git checkout .
 git clean -fdx
