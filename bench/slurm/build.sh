@@ -12,4 +12,5 @@ export CXXFLAGS=$OPTIMIZATION
 autoconf
 ./configure
 make -j
+git checkout .
 git clean -fdx

@@ -58,6 +58,7 @@ supported_project = [
     "spike",
     "ruby",
     "slurm",
+    "sqlite",
 ]
 
 modify_only = [
