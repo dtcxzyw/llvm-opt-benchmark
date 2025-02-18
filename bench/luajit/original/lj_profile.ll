@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ProfileState = type { ptr, ptr, ptr, %struct.SBuf, i32, i32, i32, %struct.sigaction }
 %struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__sigset_t = type { [16 x i64] }
 %struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
 %struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
+%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [39 x %struct.GCRef] }
 %struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
 %struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
 %struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
@@ -34,601 +34,679 @@ target triple = "x86_64-unknown-linux-gnu"
 @profile_state = internal global %struct.ProfileState zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_profile_interpreter(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %ps = alloca ptr, align 8
-  %g = alloca ptr, align 8
-  %mask = alloca i8, align 1
-  %samples = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  store ptr @profile_state, ptr %ps, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %0, i32 0, i32 5
-  %ptr64 = getelementptr inbounds %struct.MRef, ptr %glref, i32 0, i32 0
-  %1 = load i64, ptr %ptr64, align 8
-  %2 = inttoptr i64 %1 to ptr
-  store ptr %2, ptr %g, align 8
-  %3 = load ptr, ptr %g, align 8
-  %hookmask = getelementptr inbounds %struct.global_State, ptr %3, i32 0, i32 5
-  %4 = load i8, ptr %hookmask, align 1
-  %conv = zext i8 %4 to i32
-  %and = and i32 %conv, -129
-  %conv1 = trunc i32 %and to i8
-  store i8 %conv1, ptr %mask, align 1
-  %5 = load i8, ptr %mask, align 1
-  %conv2 = zext i8 %5 to i32
-  %and3 = and i32 %conv2, 32
-  %tobool = icmp ne i32 %and3, 0
-  br i1 %tobool, label %if.end, label %if.then
+define hidden void @lj_profile_interpreter(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  store ptr @profile_state, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.lua_State, ptr %7, i32 0, i32 5
+  %9 = getelementptr inbounds nuw %struct.MRef, ptr %8, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !11
+  %11 = inttoptr i64 %10 to ptr
+  store ptr %11, ptr %4, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #5
+  %12 = load ptr, ptr %4, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw %struct.global_State, ptr %12, i32 0, i32 5
+  %14 = load i8, ptr %13, align 1, !tbaa !20
+  %15 = zext i8 %14 to i32
+  %16 = and i32 %15, -129
+  %17 = trunc i32 %16 to i8
+  store i8 %17, ptr %5, align 1, !tbaa !31
+  %18 = load i8, ptr %5, align 1, !tbaa !31
+  %19 = zext i8 %18 to i32
+  %20 = and i32 %19, 32
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %51, label %22
 
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %ps, align 8
-  %samples4 = getelementptr inbounds %struct.ProfileState, ptr %6, i32 0, i32 5
-  %7 = load i32, ptr %samples4, align 4
-  store i32 %7, ptr %samples, align 4
-  %8 = load ptr, ptr %ps, align 8
-  %samples5 = getelementptr inbounds %struct.ProfileState, ptr %8, i32 0, i32 5
-  store i32 0, ptr %samples5, align 4
-  %9 = load ptr, ptr %g, align 8
-  %hookmask6 = getelementptr inbounds %struct.global_State, ptr %9, i32 0, i32 5
-  store i8 32, ptr %hookmask6, align 1
-  %10 = load ptr, ptr %g, align 8
-  call void @lj_dispatch_update(ptr noundef %10)
-  %11 = load ptr, ptr %ps, align 8
-  %cb = getelementptr inbounds %struct.ProfileState, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %cb, align 8
-  %13 = load ptr, ptr %ps, align 8
-  %data = getelementptr inbounds %struct.ProfileState, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %data, align 8
-  %15 = load ptr, ptr %L.addr, align 8
-  %16 = load i32, ptr %samples, align 4
-  %17 = load ptr, ptr %ps, align 8
-  %vmstate = getelementptr inbounds %struct.ProfileState, ptr %17, i32 0, i32 6
-  %18 = load i32, ptr %vmstate, align 8
-  call void %12(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef %18)
-  %19 = load ptr, ptr %g, align 8
-  %hookmask7 = getelementptr inbounds %struct.global_State, ptr %19, i32 0, i32 5
-  %20 = load i8, ptr %hookmask7, align 1
-  %conv8 = zext i8 %20 to i32
-  %and9 = and i32 %conv8, 128
-  %21 = load i8, ptr %mask, align 1
-  %conv10 = zext i8 %21 to i32
-  %or = or i32 %conv10, %and9
-  %conv11 = trunc i32 %or to i8
-  store i8 %conv11, ptr %mask, align 1
-  br label %if.end
+22:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %23 = load ptr, ptr %3, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.ProfileState, ptr %23, i32 0, i32 5
+  %25 = load i32, ptr %24, align 4, !tbaa !32
+  store i32 %25, ptr %6, align 4, !tbaa !36
+  %26 = load ptr, ptr %3, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw %struct.ProfileState, ptr %26, i32 0, i32 5
+  store i32 0, ptr %27, align 4, !tbaa !32
+  %28 = load ptr, ptr %4, align 8, !tbaa !18
+  %29 = getelementptr inbounds nuw %struct.global_State, ptr %28, i32 0, i32 5
+  store i8 32, ptr %29, align 1, !tbaa !20
+  %30 = load ptr, ptr %4, align 8, !tbaa !18
+  call void @lj_dispatch_update(ptr noundef %30)
+  %31 = load ptr, ptr %3, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.ProfileState, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !37
+  %34 = load ptr, ptr %3, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.ProfileState, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !38
+  %37 = load ptr, ptr %2, align 8, !tbaa !4
+  %38 = load i32, ptr %6, align 4, !tbaa !36
+  %39 = load ptr, ptr %3, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw %struct.ProfileState, ptr %39, i32 0, i32 6
+  %41 = load i32, ptr %40, align 8, !tbaa !39
+  call void %33(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %41)
+  %42 = load ptr, ptr %4, align 8, !tbaa !18
+  %43 = getelementptr inbounds nuw %struct.global_State, ptr %42, i32 0, i32 5
+  %44 = load i8, ptr %43, align 1, !tbaa !20
+  %45 = zext i8 %44 to i32
+  %46 = and i32 %45, 128
+  %47 = load i8, ptr %5, align 1, !tbaa !31
+  %48 = zext i8 %47 to i32
+  %49 = or i32 %48, %46
+  %50 = trunc i32 %49 to i8
+  store i8 %50, ptr %5, align 1, !tbaa !31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  br label %51
 
-if.end:                                           ; preds = %if.then, %entry
-  %22 = load i8, ptr %mask, align 1
-  %23 = load ptr, ptr %g, align 8
-  %hookmask12 = getelementptr inbounds %struct.global_State, ptr %23, i32 0, i32 5
-  store i8 %22, ptr %hookmask12, align 1
-  %24 = load ptr, ptr %g, align 8
-  call void @lj_dispatch_update(ptr noundef %24)
+51:                                               ; preds = %22, %1
+  %52 = load i8, ptr %5, align 1, !tbaa !31
+  %53 = load ptr, ptr %4, align 8, !tbaa !18
+  %54 = getelementptr inbounds nuw %struct.global_State, ptr %53, i32 0, i32 5
+  store i8 %52, ptr %54, align 1, !tbaa !20
+  %55 = load ptr, ptr %4, align 8, !tbaa !18
+  call void @lj_dispatch_update(ptr noundef %55)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret void
 }
 
-declare hidden void @lj_dispatch_update(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare hidden void @lj_dispatch_update(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaJIT_profile_start(ptr noundef %L, ptr noundef %mode, ptr noundef %cb, ptr noundef %data) #0 {
-entry:
-  %L.addr.i = alloca ptr, align 8
-  %sb.addr.i = alloca ptr, align 8
-  %L.addr = alloca ptr, align 8
-  %mode.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %ps = alloca ptr, align 8
-  %interval = alloca i32, align 4
-  %m = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %mode, ptr %mode.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store ptr @profile_state, ptr %ps, align 8
-  store i32 10, ptr %interval, align 4
-  br label %while.cond
+define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !40
+  store ptr %2, ptr %7, align 8, !tbaa !41
+  store ptr %3, ptr %8, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store ptr @profile_state, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 10, ptr %10, align 4, !tbaa !36
+  br label %13
 
-while.cond:                                       ; preds = %sw.epilog, %entry
-  %0 = load ptr, ptr %mode.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %while.body, label %while.end13
+13:                                               ; preds = %63, %4
+  %14 = load ptr, ptr %6, align 8, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !31
+  %16 = icmp ne i8 %15, 0
+  br i1 %16, label %17, label %64
 
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %mode.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %2, i32 1
-  store ptr %incdec.ptr, ptr %mode.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = sext i8 %3 to i32
-  store i32 %conv, ptr %m, align 4
-  %4 = load i32, ptr %m, align 4
-  switch i32 %4, label %sw.default [
-    i32 105, label %sw.bb
-    i32 108, label %sw.bb12
-    i32 102, label %sw.bb12
+17:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %18 = load ptr, ptr %6, align 8, !tbaa !40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i32 1
+  store ptr %19, ptr %6, align 8, !tbaa !40
+  %20 = load i8, ptr %18, align 1, !tbaa !31
+  %21 = sext i8 %20 to i32
+  store i32 %21, ptr %11, align 4, !tbaa !36
+  %22 = load i32, ptr %11, align 4, !tbaa !36
+  switch i32 %22, label %62 [
+    i32 105, label %23
+    i32 108, label %50
+    i32 102, label %50
   ]
 
-sw.bb:                                            ; preds = %while.body
-  store i32 0, ptr %interval, align 4
-  br label %while.cond1
+23:                                               ; preds = %17
+  store i32 0, ptr %10, align 4, !tbaa !36
+  br label %24
 
-while.cond1:                                      ; preds = %while.body7, %sw.bb
-  %5 = load ptr, ptr %mode.addr, align 8
-  %6 = load i8, ptr %5, align 1
-  %conv2 = sext i8 %6 to i32
-  %cmp = icmp sge i32 %conv2, 48
-  br i1 %cmp, label %land.rhs, label %land.end
+24:                                               ; preds = %36, %23
+  %25 = load ptr, ptr %6, align 8, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !31
+  %27 = sext i8 %26 to i32
+  %28 = icmp sge i32 %27, 48
+  br i1 %28, label %29, label %34
 
-land.rhs:                                         ; preds = %while.cond1
-  %7 = load ptr, ptr %mode.addr, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv4 = sext i8 %8 to i32
-  %cmp5 = icmp sle i32 %conv4, 57
-  br label %land.end
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %6, align 8, !tbaa !40
+  %31 = load i8, ptr %30, align 1, !tbaa !31
+  %32 = sext i8 %31 to i32
+  %33 = icmp sle i32 %32, 57
+  br label %34
 
-land.end:                                         ; preds = %land.rhs, %while.cond1
-  %9 = phi i1 [ false, %while.cond1 ], [ %cmp5, %land.rhs ]
-  br i1 %9, label %while.body7, label %while.end
+34:                                               ; preds = %29, %24
+  %35 = phi i1 [ false, %24 ], [ %33, %29 ]
+  br i1 %35, label %36, label %45
 
-while.body7:                                      ; preds = %land.end
-  %10 = load i32, ptr %interval, align 4
-  %mul = mul nsw i32 %10, 10
-  %11 = load ptr, ptr %mode.addr, align 8
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %11, i32 1
-  store ptr %incdec.ptr8, ptr %mode.addr, align 8
-  %12 = load i8, ptr %11, align 1
-  %conv9 = sext i8 %12 to i32
-  %sub = sub nsw i32 %conv9, 48
-  %add = add nsw i32 %mul, %sub
-  store i32 %add, ptr %interval, align 4
-  br label %while.cond1, !llvm.loop !4
+36:                                               ; preds = %34
+  %37 = load i32, ptr %10, align 4, !tbaa !36
+  %38 = mul nsw i32 %37, 10
+  %39 = load ptr, ptr %6, align 8, !tbaa !40
+  %40 = getelementptr inbounds nuw i8, ptr %39, i32 1
+  store ptr %40, ptr %6, align 8, !tbaa !40
+  %41 = load i8, ptr %39, align 1, !tbaa !31
+  %42 = sext i8 %41 to i32
+  %43 = sub nsw i32 %42, 48
+  %44 = add nsw i32 %38, %43
+  store i32 %44, ptr %10, align 4, !tbaa !36
+  br label %24, !llvm.loop !42
 
-while.end:                                        ; preds = %land.end
-  %13 = load i32, ptr %interval, align 4
-  %cmp10 = icmp sle i32 %13, 0
-  br i1 %cmp10, label %if.then, label %if.end
+45:                                               ; preds = %34
+  %46 = load i32, ptr %10, align 4, !tbaa !36
+  %47 = icmp sle i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then:                                          ; preds = %while.end
-  store i32 1, ptr %interval, align 4
-  br label %if.end
+48:                                               ; preds = %45
+  store i32 1, ptr %10, align 4, !tbaa !36
+  br label %49
 
-if.end:                                           ; preds = %if.then, %while.end
-  br label %sw.epilog
+49:                                               ; preds = %48, %45
+  br label %63
 
-sw.bb12:                                          ; preds = %while.body, %while.body
-  %14 = load i32, ptr %m, align 4
-  %15 = load ptr, ptr %L.addr, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %15, i32 0, i32 5
-  %ptr64 = getelementptr inbounds %struct.MRef, ptr %glref, i32 0, i32 0
-  %16 = load i64, ptr %ptr64, align 8
-  %17 = inttoptr i64 %16 to ptr
-  %add.ptr = getelementptr inbounds i8, ptr %17, i64 -96
-  %J = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 2
-  %prof_mode = getelementptr inbounds %struct.jit_State, ptr %J, i32 0, i32 64
-  store i32 %14, ptr %prof_mode, align 4
-  %18 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lj_trace_flushall(ptr noundef %18)
-  br label %sw.epilog
+50:                                               ; preds = %17, %17
+  %51 = load i32, ptr %11, align 4, !tbaa !36
+  %52 = load ptr, ptr %5, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw %struct.lua_State, ptr %52, i32 0, i32 5
+  %54 = getelementptr inbounds nuw %struct.MRef, ptr %53, i32 0, i32 0
+  %55 = load i64, ptr %54, align 8, !tbaa !11
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds i8, ptr %56, i64 -96
+  %58 = getelementptr inbounds nuw %struct.GG_State, ptr %57, i32 0, i32 2
+  %59 = getelementptr inbounds nuw %struct.jit_State, ptr %58, i32 0, i32 64
+  store i32 %51, ptr %59, align 4, !tbaa !44
+  %60 = load ptr, ptr %5, align 8, !tbaa !4
+  %61 = call i32 @lj_trace_flushall(ptr noundef %60)
+  br label %63
 
-sw.default:                                       ; preds = %while.body
-  br label %sw.epilog
+62:                                               ; preds = %17
+  br label %63
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb12, %if.end
-  br label %while.cond, !llvm.loop !6
+63:                                               ; preds = %62, %50, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  br label %13, !llvm.loop !58
 
-while.end13:                                      ; preds = %while.cond
-  %19 = load ptr, ptr %ps, align 8
-  %g = getelementptr inbounds %struct.ProfileState, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %g, align 8
-  %tobool14 = icmp ne ptr %20, null
-  br i1 %tobool14, label %if.then15, label %if.end20
+64:                                               ; preds = %13
+  %65 = load ptr, ptr %9, align 8, !tbaa !9
+  %66 = getelementptr inbounds nuw %struct.ProfileState, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %77
 
-if.then15:                                        ; preds = %while.end13
-  %21 = load ptr, ptr %L.addr, align 8
-  call void @luaJIT_profile_stop(ptr noundef %21)
-  %22 = load ptr, ptr %ps, align 8
-  %g16 = getelementptr inbounds %struct.ProfileState, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %g16, align 8
-  %tobool17 = icmp ne ptr %23, null
-  br i1 %tobool17, label %if.then18, label %if.end19
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @luaJIT_profile_stop(ptr noundef %70)
+  %71 = load ptr, ptr %9, align 8, !tbaa !9
+  %72 = getelementptr inbounds nuw %struct.ProfileState, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !59
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %76
 
-if.then18:                                        ; preds = %if.then15
-  br label %return
+75:                                               ; preds = %69
+  store i32 1, ptr %12, align 4
+  br label %100
 
-if.end19:                                         ; preds = %if.then15
-  br label %if.end20
+76:                                               ; preds = %69
+  br label %77
 
-if.end20:                                         ; preds = %if.end19, %while.end13
-  %24 = load ptr, ptr %L.addr, align 8
-  %glref21 = getelementptr inbounds %struct.lua_State, ptr %24, i32 0, i32 5
-  %ptr6422 = getelementptr inbounds %struct.MRef, ptr %glref21, i32 0, i32 0
-  %25 = load i64, ptr %ptr6422, align 8
-  %26 = inttoptr i64 %25 to ptr
-  %27 = load ptr, ptr %ps, align 8
-  %g23 = getelementptr inbounds %struct.ProfileState, ptr %27, i32 0, i32 0
-  store ptr %26, ptr %g23, align 8
-  %28 = load i32, ptr %interval, align 4
-  %29 = load ptr, ptr %ps, align 8
-  %interval24 = getelementptr inbounds %struct.ProfileState, ptr %29, i32 0, i32 4
-  store i32 %28, ptr %interval24, align 8
-  %30 = load ptr, ptr %cb.addr, align 8
-  %31 = load ptr, ptr %ps, align 8
-  %cb25 = getelementptr inbounds %struct.ProfileState, ptr %31, i32 0, i32 1
-  store ptr %30, ptr %cb25, align 8
-  %32 = load ptr, ptr %data.addr, align 8
-  %33 = load ptr, ptr %ps, align 8
-  %data26 = getelementptr inbounds %struct.ProfileState, ptr %33, i32 0, i32 2
-  store ptr %32, ptr %data26, align 8
-  %34 = load ptr, ptr %ps, align 8
-  %samples = getelementptr inbounds %struct.ProfileState, ptr %34, i32 0, i32 5
-  store i32 0, ptr %samples, align 4
-  %35 = load ptr, ptr %L.addr, align 8
-  %36 = load ptr, ptr %ps, align 8
-  %sb = getelementptr inbounds %struct.ProfileState, ptr %36, i32 0, i32 3
-  store ptr %35, ptr %L.addr.i, align 8
-  store ptr %sb, ptr %sb.addr.i, align 8
-  %37 = load ptr, ptr %L.addr.i, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %39 = load ptr, ptr %sb.addr.i, align 8
-  %L1.i = getelementptr inbounds %struct.SBuf, ptr %39, i32 0, i32 3
-  store i64 %38, ptr %L1.i, align 8
-  %40 = load ptr, ptr %sb.addr.i, align 8
-  %b.i = getelementptr inbounds %struct.SBuf, ptr %40, i32 0, i32 2
-  store ptr null, ptr %b.i, align 8
-  %41 = load ptr, ptr %sb.addr.i, align 8
-  %e.i = getelementptr inbounds %struct.SBuf, ptr %41, i32 0, i32 1
-  store ptr null, ptr %e.i, align 8
-  %42 = load ptr, ptr %sb.addr.i, align 8
-  store ptr null, ptr %42, align 8
-  %43 = load ptr, ptr %ps, align 8
-  call void @profile_timer_start(ptr noundef %43)
-  br label %return
+77:                                               ; preds = %76, %64
+  %78 = load ptr, ptr %5, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw %struct.lua_State, ptr %78, i32 0, i32 5
+  %80 = getelementptr inbounds nuw %struct.MRef, ptr %79, i32 0, i32 0
+  %81 = load i64, ptr %80, align 8, !tbaa !11
+  %82 = inttoptr i64 %81 to ptr
+  %83 = load ptr, ptr %9, align 8, !tbaa !9
+  %84 = getelementptr inbounds nuw %struct.ProfileState, ptr %83, i32 0, i32 0
+  store ptr %82, ptr %84, align 8, !tbaa !59
+  %85 = load i32, ptr %10, align 4, !tbaa !36
+  %86 = load ptr, ptr %9, align 8, !tbaa !9
+  %87 = getelementptr inbounds nuw %struct.ProfileState, ptr %86, i32 0, i32 4
+  store i32 %85, ptr %87, align 8, !tbaa !60
+  %88 = load ptr, ptr %7, align 8, !tbaa !41
+  %89 = load ptr, ptr %9, align 8, !tbaa !9
+  %90 = getelementptr inbounds nuw %struct.ProfileState, ptr %89, i32 0, i32 1
+  store ptr %88, ptr %90, align 8, !tbaa !37
+  %91 = load ptr, ptr %8, align 8, !tbaa !41
+  %92 = load ptr, ptr %9, align 8, !tbaa !9
+  %93 = getelementptr inbounds nuw %struct.ProfileState, ptr %92, i32 0, i32 2
+  store ptr %91, ptr %93, align 8, !tbaa !38
+  %94 = load ptr, ptr %9, align 8, !tbaa !9
+  %95 = getelementptr inbounds nuw %struct.ProfileState, ptr %94, i32 0, i32 5
+  store i32 0, ptr %95, align 4, !tbaa !32
+  %96 = load ptr, ptr %5, align 8, !tbaa !4
+  %97 = load ptr, ptr %9, align 8, !tbaa !9
+  %98 = getelementptr inbounds nuw %struct.ProfileState, ptr %97, i32 0, i32 3
+  call void @lj_buf_init(ptr noundef %96, ptr noundef %98)
+  %99 = load ptr, ptr %9, align 8, !tbaa !9
+  call void @profile_timer_start(ptr noundef %99)
+  store i32 0, ptr %12, align 4
+  br label %100
 
-return:                                           ; preds = %if.end20, %if.then18
+100:                                              ; preds = %77, %75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %101 = load i32, ptr %12, align 4
+  switch i32 %101, label %103 [
+    i32 0, label %102
+    i32 1, label %102
+  ]
+
+102:                                              ; preds = %100, %100
+  ret void
+
+103:                                              ; preds = %100
+  unreachable
+}
+
+declare hidden i32 @lj_trace_flushall(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @luaJIT_profile_stop(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  store ptr @profile_state, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw %struct.ProfileState, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  store ptr %7, ptr %4, align 8, !tbaa !18
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.lua_State, ptr %8, i32 0, i32 5
+  %10 = getelementptr inbounds nuw %struct.MRef, ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !11
+  %12 = inttoptr i64 %11 to ptr
+  %13 = load ptr, ptr %4, align 8, !tbaa !18
+  %14 = icmp eq ptr %12, %13
+  br i1 %14, label %15, label %41
+
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @profile_timer_stop(ptr noundef %16)
+  %17 = load ptr, ptr %4, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw %struct.global_State, ptr %17, i32 0, i32 5
+  %19 = load i8, ptr %18, align 1, !tbaa !20
+  %20 = zext i8 %19 to i32
+  %21 = and i32 %20, -129
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %18, align 1, !tbaa !20
+  %23 = load ptr, ptr %4, align 8, !tbaa !18
+  call void @lj_dispatch_update(ptr noundef %23)
+  %24 = load ptr, ptr %4, align 8, !tbaa !18
+  %25 = getelementptr inbounds i8, ptr %24, i64 -96
+  %26 = getelementptr inbounds nuw %struct.GG_State, ptr %25, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.jit_State, ptr %26, i32 0, i32 64
+  store i32 0, ptr %27, align 4, !tbaa !44
+  %28 = load ptr, ptr %2, align 8, !tbaa !4
+  %29 = call i32 @lj_trace_flushall(ptr noundef %28)
+  %30 = load ptr, ptr %4, align 8, !tbaa !18
+  %31 = load ptr, ptr %3, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.ProfileState, ptr %31, i32 0, i32 3
+  call void @lj_buf_free(ptr noundef %30, ptr noundef %32)
+  %33 = load ptr, ptr %3, align 8, !tbaa !9
+  %34 = getelementptr inbounds nuw %struct.ProfileState, ptr %33, i32 0, i32 3
+  %35 = getelementptr inbounds nuw %struct.SBuf, ptr %34, i32 0, i32 1
+  store ptr null, ptr %35, align 8, !tbaa !61
+  %36 = load ptr, ptr %3, align 8, !tbaa !9
+  %37 = getelementptr inbounds nuw %struct.ProfileState, ptr %36, i32 0, i32 3
+  %38 = getelementptr inbounds nuw %struct.SBuf, ptr %37, i32 0, i32 0
+  store ptr null, ptr %38, align 8, !tbaa !62
+  %39 = load ptr, ptr %3, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw %struct.ProfileState, ptr %39, i32 0, i32 0
+  store ptr null, ptr %40, align 8, !tbaa !59
+  br label %41
+
+41:                                               ; preds = %15, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret void
 }
 
-declare hidden i32 @lj_trace_flushall(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local void @luaJIT_profile_stop(ptr noundef %L) #0 {
-entry:
-  %g.addr.i6 = alloca ptr, align 8
-  %p.addr.i = alloca ptr, align 8
-  %osize.addr.i = alloca i64, align 8
-  %g.addr.i = alloca ptr, align 8
-  %sb.addr.i = alloca ptr, align 8
-  %L.addr = alloca ptr, align 8
-  %ps = alloca ptr, align 8
-  %g = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr @profile_state, ptr %ps, align 8
-  %0 = load ptr, ptr %ps, align 8
-  %g1 = getelementptr inbounds %struct.ProfileState, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %g1, align 8
-  store ptr %1, ptr %g, align 8
-  %2 = load ptr, ptr %L.addr, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %2, i32 0, i32 5
-  %ptr64 = getelementptr inbounds %struct.MRef, ptr %glref, i32 0, i32 0
-  %3 = load i64, ptr %ptr64, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = load ptr, ptr %g, align 8
-  %cmp = icmp eq ptr %4, %5
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %ps, align 8
-  call void @profile_timer_stop(ptr noundef %6)
-  %7 = load ptr, ptr %g, align 8
-  %hookmask = getelementptr inbounds %struct.global_State, ptr %7, i32 0, i32 5
-  %8 = load i8, ptr %hookmask, align 1
-  %conv = zext i8 %8 to i32
-  %and = and i32 %conv, -129
-  %conv2 = trunc i32 %and to i8
-  store i8 %conv2, ptr %hookmask, align 1
-  %9 = load ptr, ptr %g, align 8
-  call void @lj_dispatch_update(ptr noundef %9)
-  %10 = load ptr, ptr %g, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %10, i64 -96
-  %J = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 2
-  %prof_mode = getelementptr inbounds %struct.jit_State, ptr %J, i32 0, i32 64
-  store i32 0, ptr %prof_mode, align 4
-  %11 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lj_trace_flushall(ptr noundef %11)
-  %12 = load ptr, ptr %g, align 8
-  %13 = load ptr, ptr %ps, align 8
-  %sb = getelementptr inbounds %struct.ProfileState, ptr %13, i32 0, i32 3
-  store ptr %12, ptr %g.addr.i, align 8
-  store ptr %sb, ptr %sb.addr.i, align 8
-  %14 = load ptr, ptr %g.addr.i, align 8
-  %15 = load ptr, ptr %sb.addr.i, align 8
-  %b.i = getelementptr inbounds %struct.SBuf, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %b.i, align 8
-  %17 = load ptr, ptr %sb.addr.i, align 8
-  %e.i = getelementptr inbounds %struct.SBuf, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %e.i, align 8
-  %19 = load ptr, ptr %sb.addr.i, align 8
-  %b1.i = getelementptr inbounds %struct.SBuf, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %b1.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %conv2.i = zext i32 %conv.i to i64
-  store ptr %14, ptr %g.addr.i6, align 8
-  store ptr %16, ptr %p.addr.i, align 8
-  store i64 %conv2.i, ptr %osize.addr.i, align 8
-  %21 = load i64, ptr %osize.addr.i, align 8
-  %22 = load ptr, ptr %g.addr.i6, align 8
-  %gc.i = getelementptr inbounds %struct.global_State, ptr %22, i32 0, i32 2
-  %23 = load i64, ptr %gc.i, align 8
-  %sub.i = sub i64 %23, %21
-  store i64 %sub.i, ptr %gc.i, align 8
-  %24 = load ptr, ptr %g.addr.i6, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %g.addr.i6, align 8
-  %allocd.i = getelementptr inbounds %struct.global_State, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %allocd.i, align 8
-  %28 = load ptr, ptr %p.addr.i, align 8
-  %29 = load i64, ptr %osize.addr.i, align 8
-  %call.i = call ptr %25(ptr noundef %27, ptr noundef %28, i64 noundef %29, i64 noundef 0) #3
-  %30 = load ptr, ptr %ps, align 8
-  %sb3 = getelementptr inbounds %struct.ProfileState, ptr %30, i32 0, i32 3
-  %e = getelementptr inbounds %struct.SBuf, ptr %sb3, i32 0, i32 1
-  store ptr null, ptr %e, align 8
-  %31 = load ptr, ptr %ps, align 8
-  %sb4 = getelementptr inbounds %struct.ProfileState, ptr %31, i32 0, i32 3
-  %w = getelementptr inbounds %struct.SBuf, ptr %sb4, i32 0, i32 0
-  store ptr null, ptr %w, align 8
-  %32 = load ptr, ptr %ps, align 8
-  %g5 = getelementptr inbounds %struct.ProfileState, ptr %32, i32 0, i32 0
-  store ptr null, ptr %g5, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lj_buf_init(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = ptrtoint ptr %5 to i64
+  %7 = load ptr, ptr %4, align 8, !tbaa !63
+  %8 = getelementptr inbounds nuw %struct.SBuf, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds nuw %struct.MRef, ptr %8, i32 0, i32 0
+  store i64 %6, ptr %9, align 8, !tbaa !65
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  %11 = getelementptr inbounds nuw %struct.SBuf, ptr %10, i32 0, i32 2
+  store ptr null, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %4, align 8, !tbaa !63
+  %13 = getelementptr inbounds nuw %struct.SBuf, ptr %12, i32 0, i32 1
+  store ptr null, ptr %13, align 8, !tbaa !67
+  %14 = load ptr, ptr %4, align 8, !tbaa !63
+  %15 = getelementptr inbounds nuw %struct.SBuf, ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !68
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @profile_timer_start(ptr noundef %ps) #0 {
-entry:
-  %ps.addr = alloca ptr, align 8
-  %interval = alloca i32, align 4
-  %tm = alloca %struct.itimerval, align 8
-  %sa = alloca %struct.sigaction, align 8
-  store ptr %ps, ptr %ps.addr, align 8
-  %0 = load ptr, ptr %ps.addr, align 8
-  %interval1 = getelementptr inbounds %struct.ProfileState, ptr %0, i32 0, i32 4
-  %1 = load i32, ptr %interval1, align 8
-  store i32 %1, ptr %interval, align 4
-  %2 = load i32, ptr %interval, align 4
-  %div = sdiv i32 %2, 1000
-  %conv = sext i32 %div to i64
-  %it_interval = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 0
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %it_interval, i32 0, i32 0
-  store i64 %conv, ptr %tv_sec, align 8
-  %it_value = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 1
-  %tv_sec2 = getelementptr inbounds %struct.timeval, ptr %it_value, i32 0, i32 0
-  store i64 %conv, ptr %tv_sec2, align 8
-  %3 = load i32, ptr %interval, align 4
-  %rem = srem i32 %3, 1000
-  %mul = mul nsw i32 %rem, 1000
-  %conv3 = sext i32 %mul to i64
-  %it_interval4 = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 0
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %it_interval4, i32 0, i32 1
-  store i64 %conv3, ptr %tv_usec, align 8
-  %it_value5 = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 1
-  %tv_usec6 = getelementptr inbounds %struct.timeval, ptr %it_value5, i32 0, i32 1
-  store i64 %conv3, ptr %tv_usec6, align 8
-  %call = call i32 @setitimer(i32 noundef 2, ptr noundef %tm, ptr noundef null) #3
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 2
-  store i32 268435456, ptr %sa_flags, align 8
-  %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 0
-  store ptr @profile_signal, ptr %__sigaction_handler, align 8
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %sa, i32 0, i32 1
-  %call7 = call i32 @sigemptyset(ptr noundef %sa_mask) #3
-  %4 = load ptr, ptr %ps.addr, align 8
-  %oldsa = getelementptr inbounds %struct.ProfileState, ptr %4, i32 0, i32 7
-  %call8 = call i32 @sigaction(i32 noundef 27, ptr noundef %sa, ptr noundef %oldsa) #3
+define internal void @profile_timer_start(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.itimerval, align 8
+  %5 = alloca %struct.sigaction, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.ProfileState, ptr %6, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8, !tbaa !60
+  store i32 %8, ptr %3, align 4, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 152, ptr %5) #5
+  %9 = load i32, ptr %3, align 4, !tbaa !36
+  %10 = sdiv i32 %9, 1000
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds nuw %struct.itimerval, ptr %4, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.timeval, ptr %12, i32 0, i32 0
+  store i64 %11, ptr %13, align 8, !tbaa !69
+  %14 = getelementptr inbounds nuw %struct.itimerval, ptr %4, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.timeval, ptr %14, i32 0, i32 0
+  store i64 %11, ptr %15, align 8, !tbaa !72
+  %16 = load i32, ptr %3, align 4, !tbaa !36
+  %17 = srem i32 %16, 1000
+  %18 = mul nsw i32 %17, 1000
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds nuw %struct.itimerval, ptr %4, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.timeval, ptr %20, i32 0, i32 1
+  store i64 %19, ptr %21, align 8, !tbaa !73
+  %22 = getelementptr inbounds nuw %struct.itimerval, ptr %4, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.timeval, ptr %22, i32 0, i32 1
+  store i64 %19, ptr %23, align 8, !tbaa !74
+  %24 = call i32 @setitimer(i32 noundef 2, ptr noundef %4, ptr noundef null) #5
+  %25 = getelementptr inbounds nuw %struct.sigaction, ptr %5, i32 0, i32 2
+  store i32 268435456, ptr %25, align 8, !tbaa !75
+  %26 = getelementptr inbounds nuw %struct.sigaction, ptr %5, i32 0, i32 0
+  store ptr @profile_signal, ptr %26, align 8, !tbaa !31
+  %27 = getelementptr inbounds nuw %struct.sigaction, ptr %5, i32 0, i32 1
+  %28 = call i32 @sigemptyset(ptr noundef %27) #5
+  %29 = load ptr, ptr %2, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %struct.ProfileState, ptr %29, i32 0, i32 7
+  %31 = call i32 @sigaction(i32 noundef 27, ptr noundef %5, ptr noundef %30) #5
+  call void @llvm.lifetime.end.p0(i64 152, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @profile_timer_stop(ptr noundef %ps) #0 {
-entry:
-  %ps.addr = alloca ptr, align 8
-  %tm = alloca %struct.itimerval, align 8
-  store ptr %ps, ptr %ps.addr, align 8
-  %it_interval = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 0
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %it_interval, i32 0, i32 0
-  store i64 0, ptr %tv_sec, align 8
-  %it_value = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 1
-  %tv_sec1 = getelementptr inbounds %struct.timeval, ptr %it_value, i32 0, i32 0
-  store i64 0, ptr %tv_sec1, align 8
-  %it_interval2 = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 0
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %it_interval2, i32 0, i32 1
-  store i64 0, ptr %tv_usec, align 8
-  %it_value3 = getelementptr inbounds %struct.itimerval, ptr %tm, i32 0, i32 1
-  %tv_usec4 = getelementptr inbounds %struct.timeval, ptr %it_value3, i32 0, i32 1
-  store i64 0, ptr %tv_usec4, align 8
-  %call = call i32 @setitimer(i32 noundef 2, ptr noundef %tm, ptr noundef null) #3
-  %0 = load ptr, ptr %ps.addr, align 8
-  %oldsa = getelementptr inbounds %struct.ProfileState, ptr %0, i32 0, i32 7
-  %call5 = call i32 @sigaction(i32 noundef 27, ptr noundef %oldsa, ptr noundef null) #3
+define internal void @profile_timer_stop(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.itimerval, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #5
+  %4 = getelementptr inbounds nuw %struct.itimerval, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.timeval, ptr %4, i32 0, i32 0
+  store i64 0, ptr %5, align 8, !tbaa !69
+  %6 = getelementptr inbounds nuw %struct.itimerval, ptr %3, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct.timeval, ptr %6, i32 0, i32 0
+  store i64 0, ptr %7, align 8, !tbaa !72
+  %8 = getelementptr inbounds nuw %struct.itimerval, ptr %3, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.timeval, ptr %8, i32 0, i32 1
+  store i64 0, ptr %9, align 8, !tbaa !73
+  %10 = getelementptr inbounds nuw %struct.itimerval, ptr %3, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.timeval, ptr %10, i32 0, i32 1
+  store i64 0, ptr %11, align 8, !tbaa !74
+  %12 = call i32 @setitimer(i32 noundef 2, ptr noundef %3, ptr noundef null) #5
+  %13 = load ptr, ptr %2, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.ProfileState, ptr %13, i32 0, i32 7
+  %15 = call i32 @sigaction(i32 noundef 27, ptr noundef %14, ptr noundef null) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #5
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lj_buf_free(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !63
+  %7 = getelementptr inbounds nuw %struct.SBuf, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !66
+  %9 = load ptr, ptr %4, align 8, !tbaa !63
+  %10 = getelementptr inbounds nuw %struct.SBuf, ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %12 = load ptr, ptr %4, align 8, !tbaa !63
+  %13 = getelementptr inbounds nuw %struct.SBuf, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %15 = ptrtoint ptr %11 to i64
+  %16 = ptrtoint ptr %14 to i64
+  %17 = sub i64 %15, %16
+  %18 = trunc i64 %17 to i32
+  %19 = zext i32 %18 to i64
+  call void @lj_mem_free(ptr noundef %5, ptr noundef %8, i64 noundef %19)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaJIT_profile_dumpstack(ptr noundef %L, ptr noundef %fmt, i32 noundef %depth, ptr noundef %len) #0 {
-entry:
-  %sb.addr.i = alloca ptr, align 8
-  %L.addr = alloca ptr, align 8
-  %fmt.addr = alloca ptr, align 8
-  %depth.addr = alloca i32, align 4
-  %len.addr = alloca ptr, align 8
-  %ps = alloca ptr, align 8
-  %sb = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %fmt, ptr %fmt.addr, align 8
-  store i32 %depth, ptr %depth.addr, align 4
-  store ptr %len, ptr %len.addr, align 8
-  store ptr @profile_state, ptr %ps, align 8
-  %0 = load ptr, ptr %ps, align 8
-  %sb1 = getelementptr inbounds %struct.ProfileState, ptr %0, i32 0, i32 3
-  store ptr %sb1, ptr %sb, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %3 = load ptr, ptr %sb, align 8
-  %L2 = getelementptr inbounds %struct.SBuf, ptr %3, i32 0, i32 3
-  %ptr64 = getelementptr inbounds %struct.MRef, ptr %L2, i32 0, i32 0
-  store i64 %2, ptr %ptr64, align 8
-  %4 = load ptr, ptr %sb, align 8
-  store ptr %4, ptr %sb.addr.i, align 8
-  %5 = load ptr, ptr %sb.addr.i, align 8
-  %b.i = getelementptr inbounds %struct.SBuf, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %b.i, align 8
-  %7 = load ptr, ptr %sb.addr.i, align 8
-  store ptr %6, ptr %7, align 8
-  %8 = load ptr, ptr %L.addr, align 8
-  %9 = load ptr, ptr %sb, align 8
-  %10 = load ptr, ptr %fmt.addr, align 8
-  %11 = load i32, ptr %depth.addr, align 4
-  call void @lj_debug_dumpstack(ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11)
-  %12 = load ptr, ptr %sb, align 8
-  %w = getelementptr inbounds %struct.SBuf, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %w, align 8
-  %14 = load ptr, ptr %sb, align 8
-  %b = getelementptr inbounds %struct.SBuf, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %b, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  %conv3 = zext i32 %conv to i64
-  %16 = load ptr, ptr %len.addr, align 8
-  store i64 %conv3, ptr %16, align 8
-  %17 = load ptr, ptr %sb, align 8
-  %b4 = getelementptr inbounds %struct.SBuf, ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %b4, align 8
-  ret ptr %18
+define dso_local ptr @luaJIT_profile_dumpstack(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !40
+  store i32 %2, ptr %7, align 4, !tbaa !36
+  store ptr %3, ptr %8, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store ptr @profile_state, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %11 = load ptr, ptr %9, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.ProfileState, ptr %11, i32 0, i32 3
+  store ptr %12, ptr %10, align 8, !tbaa !63
+  %13 = load ptr, ptr %5, align 8, !tbaa !4
+  %14 = ptrtoint ptr %13 to i64
+  %15 = load ptr, ptr %10, align 8, !tbaa !63
+  %16 = getelementptr inbounds nuw %struct.SBuf, ptr %15, i32 0, i32 3
+  %17 = getelementptr inbounds nuw %struct.MRef, ptr %16, i32 0, i32 0
+  store i64 %14, ptr %17, align 8, !tbaa !65
+  %18 = load ptr, ptr %10, align 8, !tbaa !63
+  call void @lj_buf_reset(ptr noundef %18)
+  %19 = load ptr, ptr %5, align 8, !tbaa !4
+  %20 = load ptr, ptr %10, align 8, !tbaa !63
+  %21 = load ptr, ptr %6, align 8, !tbaa !40
+  %22 = load i32, ptr %7, align 4, !tbaa !36
+  call void @lj_debug_dumpstack(ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22)
+  %23 = load ptr, ptr %10, align 8, !tbaa !63
+  %24 = getelementptr inbounds nuw %struct.SBuf, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !68
+  %26 = load ptr, ptr %10, align 8, !tbaa !63
+  %27 = getelementptr inbounds nuw %struct.SBuf, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !66
+  %29 = ptrtoint ptr %25 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = trunc i64 %31 to i32
+  %33 = zext i32 %32 to i64
+  %34 = load ptr, ptr %8, align 8, !tbaa !76
+  store i64 %33, ptr %34, align 8, !tbaa !78
+  %35 = load ptr, ptr %10, align 8, !tbaa !63
+  %36 = getelementptr inbounds nuw %struct.SBuf, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  ret ptr %37
 }
 
-declare hidden void @lj_debug_dumpstack(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lj_buf_reset(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %4 = getelementptr inbounds nuw %struct.SBuf, ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %6 = load ptr, ptr %2, align 8, !tbaa !63
+  %7 = getelementptr inbounds nuw %struct.SBuf, ptr %6, i32 0, i32 0
+  store ptr %5, ptr %7, align 8, !tbaa !68
+  ret void
+}
+
+declare hidden void @lj_debug_dumpstack(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @setitimer(i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @setitimer(i32 noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @profile_signal(i32 noundef %sig) #0 {
-entry:
-  %sig.addr = alloca i32, align 4
-  store i32 %sig, ptr %sig.addr, align 4
+define internal void @profile_signal(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !36
   call void @profile_trigger(ptr noundef @profile_state)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) #2
+declare i32 @sigemptyset(ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @profile_trigger(ptr noundef %ps) #0 {
-entry:
-  %ps.addr = alloca ptr, align 8
-  %g = alloca ptr, align 8
-  %mask = alloca i8, align 1
-  %st = alloca i32, align 4
-  store ptr %ps, ptr %ps.addr, align 8
-  %0 = load ptr, ptr %ps.addr, align 8
-  %g1 = getelementptr inbounds %struct.ProfileState, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %g1, align 8
-  store ptr %1, ptr %g, align 8
-  %2 = load ptr, ptr %ps.addr, align 8
-  %samples = getelementptr inbounds %struct.ProfileState, ptr %2, i32 0, i32 5
-  %3 = load i32, ptr %samples, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %samples, align 4
-  %4 = load ptr, ptr %g, align 8
-  %hookmask = getelementptr inbounds %struct.global_State, ptr %4, i32 0, i32 5
-  %5 = load i8, ptr %hookmask, align 1
-  store i8 %5, ptr %mask, align 1
-  %6 = load i8, ptr %mask, align 1
-  %conv = zext i8 %6 to i32
-  %and = and i32 %conv, 224
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
+define internal void @profile_trigger(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.ProfileState, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !59
+  store ptr %8, ptr %3, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #5
+  %9 = load ptr, ptr %2, align 8, !tbaa !9
+  %10 = getelementptr inbounds nuw %struct.ProfileState, ptr %9, i32 0, i32 5
+  %11 = load i32, ptr %10, align 4, !tbaa !32
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %10, align 4, !tbaa !32
+  %13 = load ptr, ptr %3, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %struct.global_State, ptr %13, i32 0, i32 5
+  %15 = load i8, ptr %14, align 1, !tbaa !20
+  store i8 %15, ptr %4, align 1, !tbaa !31
+  %16 = load i8, ptr %4, align 1, !tbaa !31
+  %17 = zext i8 %16 to i32
+  %18 = and i32 %17, 224
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %54, label %20
 
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %g, align 8
-  %vmstate = getelementptr inbounds %struct.global_State, ptr %7, i32 0, i32 9
-  %8 = load volatile i32, ptr %vmstate, align 8
-  store i32 %8, ptr %st, align 4
-  %9 = load i32, ptr %st, align 4
-  %cmp = icmp sge i32 %9, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+20:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  %21 = load ptr, ptr %3, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw %struct.global_State, ptr %21, i32 0, i32 9
+  %23 = load volatile i32, ptr %22, align 8, !tbaa !79
+  store i32 %23, ptr %5, align 4, !tbaa !36
+  %24 = load i32, ptr %5, align 4, !tbaa !36
+  %25 = icmp sge i32 %24, 0
+  br i1 %25, label %26, label %27
 
-cond.true:                                        ; preds = %if.then
-  br label %cond.end16
+26:                                               ; preds = %20
+  br label %43
 
-cond.false:                                       ; preds = %if.then
-  %10 = load i32, ptr %st, align 4
-  %cmp3 = icmp eq i32 %10, -1
-  br i1 %cmp3, label %cond.true5, label %cond.false6
+27:                                               ; preds = %20
+  %28 = load i32, ptr %5, align 4, !tbaa !36
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %30, label %31
 
-cond.true5:                                       ; preds = %cond.false
-  br label %cond.end14
+30:                                               ; preds = %27
+  br label %41
 
-cond.false6:                                      ; preds = %cond.false
-  %11 = load i32, ptr %st, align 4
-  %cmp7 = icmp eq i32 %11, -2
-  br i1 %cmp7, label %cond.true9, label %cond.false10
+31:                                               ; preds = %27
+  %32 = load i32, ptr %5, align 4, !tbaa !36
+  %33 = icmp eq i32 %32, -2
+  br i1 %33, label %34, label %35
 
-cond.true9:                                       ; preds = %cond.false6
-  br label %cond.end
+34:                                               ; preds = %31
+  br label %39
 
-cond.false10:                                     ; preds = %cond.false6
-  %12 = load i32, ptr %st, align 4
-  %cmp11 = icmp eq i32 %12, -3
-  %cond = select i1 %cmp11, i32 71, i32 74
-  br label %cond.end
+35:                                               ; preds = %31
+  %36 = load i32, ptr %5, align 4, !tbaa !36
+  %37 = icmp eq i32 %36, -3
+  %38 = select i1 %37, i32 71, i32 74
+  br label %39
 
-cond.end:                                         ; preds = %cond.false10, %cond.true9
-  %cond13 = phi i32 [ 67, %cond.true9 ], [ %cond, %cond.false10 ]
-  br label %cond.end14
+39:                                               ; preds = %35, %34
+  %40 = phi i32 [ 67, %34 ], [ %38, %35 ]
+  br label %41
 
-cond.end14:                                       ; preds = %cond.end, %cond.true5
-  %cond15 = phi i32 [ 73, %cond.true5 ], [ %cond13, %cond.end ]
-  br label %cond.end16
+41:                                               ; preds = %39, %30
+  %42 = phi i32 [ 73, %30 ], [ %40, %39 ]
+  br label %43
 
-cond.end16:                                       ; preds = %cond.end14, %cond.true
-  %cond17 = phi i32 [ 78, %cond.true ], [ %cond15, %cond.end14 ]
-  %13 = load ptr, ptr %ps.addr, align 8
-  %vmstate18 = getelementptr inbounds %struct.ProfileState, ptr %13, i32 0, i32 6
-  store i32 %cond17, ptr %vmstate18, align 8
-  %14 = load i8, ptr %mask, align 1
-  %conv19 = zext i8 %14 to i32
-  %or = or i32 %conv19, 128
-  %conv20 = trunc i32 %or to i8
-  %15 = load ptr, ptr %g, align 8
-  %hookmask21 = getelementptr inbounds %struct.global_State, ptr %15, i32 0, i32 5
-  store i8 %conv20, ptr %hookmask21, align 1
-  %16 = load ptr, ptr %g, align 8
-  call void @lj_dispatch_update(ptr noundef %16)
-  br label %if.end
+43:                                               ; preds = %41, %26
+  %44 = phi i32 [ 78, %26 ], [ %42, %41 ]
+  %45 = load ptr, ptr %2, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.ProfileState, ptr %45, i32 0, i32 6
+  store i32 %44, ptr %46, align 8, !tbaa !39
+  %47 = load i8, ptr %4, align 1, !tbaa !31
+  %48 = zext i8 %47 to i32
+  %49 = or i32 %48, 128
+  %50 = trunc i32 %49 to i8
+  %51 = load ptr, ptr %3, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw %struct.global_State, ptr %51, i32 0, i32 5
+  store i8 %50, ptr %52, align 1, !tbaa !20
+  %53 = load ptr, ptr %3, align 8, !tbaa !18
+  call void @lj_dispatch_update(ptr noundef %53)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  br label %54
 
-if.end:                                           ; preds = %cond.end16, %entry
+54:                                               ; preds = %43, %1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lj_mem_free(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !41
+  store i64 %2, ptr %6, align 8, !tbaa !78
+  %7 = load i64, ptr %6, align 8, !tbaa !78
+  %8 = load ptr, ptr %4, align 8, !tbaa !18
+  %9 = getelementptr inbounds nuw %struct.global_State, ptr %8, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.GCState, ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !80
+  %12 = sub i64 %11, %7
+  store i64 %12, ptr %10, align 8, !tbaa !80
+  %13 = load ptr, ptr %4, align 8, !tbaa !18
+  %14 = getelementptr inbounds nuw %struct.global_State, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !81
+  %16 = load ptr, ptr %4, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw %struct.global_State, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !82
+  %19 = load ptr, ptr %5, align 8, !tbaa !41
+  %20 = load i64, ptr %6, align 8, !tbaa !78
+  %21 = call ptr %15(ptr noundef %18, ptr noundef %19, i64 noundef %20, i64 noundef 0)
   ret void
 }
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -636,6 +714,82 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS9lua_State", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS12ProfileState", !6, i64 0}
+!11 = !{!12, !14, i64 16}
+!12 = !{!"lua_State", !13, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !15, i64 16, !13, i64 24, !16, i64 32, !16, i64 40, !15, i64 48, !15, i64 56, !13, i64 64, !13, i64 72, !6, i64 80, !17, i64 88}
+!13 = !{!"GCRef", !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!"MRef", !14, i64 0}
+!16 = !{!"p1 _ZTS6TValue", !6, i64 0}
+!17 = !{!"int", !7, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS12global_State", !6, i64 0}
+!20 = !{!21, !7, i64 145}
+!21 = !{!"global_State", !6, i64 0, !6, i64 8, !22, i64 16, !23, i64 120, !7, i64 144, !7, i64 145, !7, i64 146, !7, i64 147, !24, i64 152, !17, i64 184, !13, i64 192, !26, i64 200, !7, i64 232, !7, i64 240, !28, i64 248, !7, i64 272, !29, i64 280, !17, i64 328, !17, i64 332, !6, i64 336, !6, i64 344, !6, i64 352, !17, i64 360, !17, i64 364, !13, i64 368, !15, i64 376, !15, i64 384, !30, i64 392, !7, i64 424}
+!22 = !{!"GCState", !14, i64 0, !14, i64 8, !7, i64 16, !7, i64 17, !7, i64 18, !7, i64 19, !17, i64 20, !13, i64 24, !15, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !14, i64 72, !14, i64 80, !17, i64 88, !17, i64 92, !15, i64 96}
+!23 = !{!"GCstr", !13, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !17, i64 12, !17, i64 16, !17, i64 20}
+!24 = !{!"StrInternState", !25, i64 0, !17, i64 8, !17, i64 12, !17, i64 16, !7, i64 20, !7, i64 21, !7, i64 22, !7, i64 23, !14, i64 24}
+!25 = !{!"p1 _ZTS5GCRef", !6, i64 0}
+!26 = !{!"SBuf", !27, i64 0, !27, i64 8, !27, i64 16, !15, i64 24}
+!27 = !{!"p1 omnipotent char", !6, i64 0}
+!28 = !{!"Node", !7, i64 0, !7, i64 8, !15, i64 16}
+!29 = !{!"GCupval", !13, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 16, !15, i64 32, !17, i64 40}
+!30 = !{!"PRNGState", !7, i64 0}
+!31 = !{!7, !7, i64 0}
+!32 = !{!33, !17, i64 60}
+!33 = !{!"ProfileState", !19, i64 0, !6, i64 8, !6, i64 16, !26, i64 24, !17, i64 56, !17, i64 60, !17, i64 64, !34, i64 72}
+!34 = !{!"sigaction", !7, i64 0, !35, i64 8, !17, i64 136, !6, i64 144}
+!35 = !{!"", !7, i64 0}
+!36 = !{!17, !17, i64 0}
+!37 = !{!33, !6, i64 8}
+!38 = !{!33, !6, i64 16}
+!39 = !{!33, !17, i64 64}
+!40 = !{!27, !27, i64 0}
+!41 = !{!6, !6, i64 0}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = !{!45, !17, i64 3940}
+!45 = !{!"GG_State", !12, i64 0, !21, i64 96, !46, i64 832, !7, i64 3944, !7, i64 4072, !7, i64 6016}
+!46 = !{!"jit_State", !47, i64 0, !52, i64 120, !5, i64 128, !51, i64 136, !53, i64 144, !54, i64 152, !51, i64 160, !17, i64 168, !17, i64 172, !17, i64 176, !7, i64 180, !7, i64 181, !55, i64 182, !7, i64 183, !56, i64 184, !51, i64 224, !17, i64 232, !17, i64 236, !17, i64 240, !17, i64 244, !17, i64 248, !17, i64 252, !17, i64 256, !7, i64 260, !7, i64 264, !7, i64 304, !49, i64 328, !17, i64 336, !17, i64 340, !17, i64 344, !17, i64 348, !50, i64 352, !51, i64 360, !17, i64 368, !17, i64 372, !7, i64 376, !25, i64 384, !17, i64 392, !17, i64 396, !48, i64 400, !7, i64 402, !7, i64 604, !7, i64 1636, !7, i64 1696, !7, i64 1824, !17, i64 2848, !7, i64 2852, !17, i64 2980, !57, i64 2984, !51, i64 3008, !17, i64 3016, !17, i64 3020, !17, i64 3024, !51, i64 3032, !17, i64 3040, !17, i64 3044, !27, i64 3048, !27, i64 3056, !27, i64 3064, !14, i64 3072, !14, i64 3080, !7, i64 3088, !54, i64 3096, !17, i64 3104, !17, i64 3108}
+!47 = !{!"GCtrace", !13, i64 0, !7, i64 8, !7, i64 9, !48, i64 10, !17, i64 12, !17, i64 16, !13, i64 24, !49, i64 32, !17, i64 40, !17, i64 44, !50, i64 48, !51, i64 56, !13, i64 64, !15, i64 72, !17, i64 80, !17, i64 84, !27, i64 88, !17, i64 96, !48, i64 100, !48, i64 102, !48, i64 104, !48, i64 106, !48, i64 108, !48, i64 110, !48, i64 112, !7, i64 114, !7, i64 115, !7, i64 116, !7, i64 117}
+!48 = !{!"short", !7, i64 0}
+!49 = !{!"p1 _ZTS5IRIns", !6, i64 0}
+!50 = !{!"p1 _ZTS8SnapShot", !6, i64 0}
+!51 = !{!"p1 int", !6, i64 0}
+!52 = !{!"p1 _ZTS7GCtrace", !6, i64 0}
+!53 = !{!"p1 _ZTS6GCfunc", !6, i64 0}
+!54 = !{!"p1 _ZTS7GCproto", !6, i64 0}
+!55 = !{!"IRType1", !7, i64 0}
+!56 = !{!"FoldState", !7, i64 0, !7, i64 8, !7, i64 24}
+!57 = !{!"ScEvEntry", !15, i64 0, !48, i64 8, !48, i64 10, !48, i64 12, !48, i64 14, !55, i64 16, !7, i64 17}
+!58 = distinct !{!58, !43}
+!59 = !{!33, !19, i64 0}
+!60 = !{!33, !17, i64 56}
+!61 = !{!33, !27, i64 32}
+!62 = !{!33, !27, i64 24}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS4SBuf", !6, i64 0}
+!65 = !{!26, !14, i64 24}
+!66 = !{!26, !27, i64 16}
+!67 = !{!26, !27, i64 8}
+!68 = !{!26, !27, i64 0}
+!69 = !{!70, !14, i64 0}
+!70 = !{!"itimerval", !71, i64 0, !71, i64 16}
+!71 = !{!"timeval", !14, i64 0, !14, i64 8}
+!72 = !{!70, !14, i64 16}
+!73 = !{!70, !14, i64 8}
+!74 = !{!70, !14, i64 24}
+!75 = !{!34, !17, i64 136}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 long", !6, i64 0}
+!78 = !{!14, !14, i64 0}
+!79 = !{!21, !17, i64 184}
+!80 = !{!21, !14, i64 16}
+!81 = !{!21, !6, i64 0}
+!82 = !{!21, !6, i64 8}

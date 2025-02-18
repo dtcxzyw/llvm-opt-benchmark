@@ -1,352 +1,361 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden double @lj_vm_foldarith(double noundef %x, double noundef %y, i32 noundef %op) #0 {
-entry:
-  %retval = alloca double, align 8
-  %x.addr = alloca double, align 8
-  %y.addr = alloca double, align 8
-  %op.addr = alloca i32, align 4
-  store double %x, ptr %x.addr, align 8
-  store double %y, ptr %y.addr, align 8
-  store i32 %op, ptr %op.addr, align 4
-  %0 = load i32, ptr %op.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb3
-    i32 4, label %sw.bb4
-    i32 5, label %sw.bb6
-    i32 6, label %sw.bb8
-    i32 7, label %sw.bb9
-    i32 8, label %sw.bb10
-    i32 9, label %sw.bb12
-    i32 10, label %sw.bb14
+define hidden double @lj_vm_foldarith(double noundef %0, double noundef %1, i32 noundef %2) #0 {
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca i32, align 4
+  store double %0, ptr %5, align 8, !tbaa !4
+  store double %1, ptr %6, align 8, !tbaa !4
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  %8 = load i32, ptr %7, align 4, !tbaa !8
+  switch i32 %8, label %66 [
+    i32 0, label %9
+    i32 1, label %13
+    i32 2, label %17
+    i32 3, label %21
+    i32 4, label %25
+    i32 5, label %31
+    i32 6, label %35
+    i32 7, label %38
+    i32 8, label %41
+    i32 9, label %46
+    i32 10, label %56
   ]
 
-sw.bb:                                            ; preds = %entry
-  %1 = load double, ptr %x.addr, align 8
-  %2 = load double, ptr %y.addr, align 8
-  %add = fadd double %1, %2
-  store double %add, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %3
+  %10 = load double, ptr %5, align 8, !tbaa !4
+  %11 = load double, ptr %6, align 8, !tbaa !4
+  %12 = fadd double %10, %11
+  store double %12, ptr %4, align 8
+  br label %68
 
-sw.bb1:                                           ; preds = %entry
-  %3 = load double, ptr %x.addr, align 8
-  %4 = load double, ptr %y.addr, align 8
-  %sub = fsub double %3, %4
-  store double %sub, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %3
+  %14 = load double, ptr %5, align 8, !tbaa !4
+  %15 = load double, ptr %6, align 8, !tbaa !4
+  %16 = fsub double %14, %15
+  store double %16, ptr %4, align 8
+  br label %68
 
-sw.bb2:                                           ; preds = %entry
-  %5 = load double, ptr %x.addr, align 8
-  %6 = load double, ptr %y.addr, align 8
-  %mul = fmul double %5, %6
-  store double %mul, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %3
+  %18 = load double, ptr %5, align 8, !tbaa !4
+  %19 = load double, ptr %6, align 8, !tbaa !4
+  %20 = fmul double %18, %19
+  store double %20, ptr %4, align 8
+  br label %68
 
-sw.bb3:                                           ; preds = %entry
-  %7 = load double, ptr %x.addr, align 8
-  %8 = load double, ptr %y.addr, align 8
-  %div = fdiv double %7, %8
-  store double %div, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %3
+  %22 = load double, ptr %5, align 8, !tbaa !4
+  %23 = load double, ptr %6, align 8, !tbaa !4
+  %24 = fdiv double %22, %23
+  store double %24, ptr %4, align 8
+  br label %68
 
-sw.bb4:                                           ; preds = %entry
-  %9 = load double, ptr %x.addr, align 8
-  %10 = load double, ptr %x.addr, align 8
-  %11 = load double, ptr %y.addr, align 8
-  %call = call double @lj_vm_floormul(double noundef %10, double noundef %11)
-  %sub5 = fsub double %9, %call
-  store double %sub5, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %3
+  %26 = load double, ptr %5, align 8, !tbaa !4
+  %27 = load double, ptr %5, align 8, !tbaa !4
+  %28 = load double, ptr %6, align 8, !tbaa !4
+  %29 = call double @lj_vm_floormul(double noundef %27, double noundef %28)
+  %30 = fsub double %26, %29
+  store double %30, ptr %4, align 8
+  br label %68
 
-sw.bb6:                                           ; preds = %entry
-  %12 = load double, ptr %x.addr, align 8
-  %13 = load double, ptr %y.addr, align 8
-  %call7 = call double @pow(double noundef %12, double noundef %13) #5
-  store double %call7, ptr %retval, align 8
-  br label %return
+31:                                               ; preds = %3
+  %32 = load double, ptr %5, align 8, !tbaa !4
+  %33 = load double, ptr %6, align 8, !tbaa !4
+  %34 = call double @pow(double noundef %32, double noundef %33) #7, !tbaa !8
+  store double %34, ptr %4, align 8
+  br label %68
 
-sw.bb8:                                           ; preds = %entry
-  %14 = load double, ptr %x.addr, align 8
-  %fneg = fneg double %14
-  store double %fneg, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %3
+  %36 = load double, ptr %5, align 8, !tbaa !4
+  %37 = fneg double %36
+  store double %37, ptr %4, align 8
+  br label %68
 
-sw.bb9:                                           ; preds = %entry
-  %15 = load double, ptr %x.addr, align 8
-  %16 = call double @llvm.fabs.f64(double %15)
-  store double %16, ptr %retval, align 8
-  br label %return
+38:                                               ; preds = %3
+  %39 = load double, ptr %5, align 8, !tbaa !4
+  %40 = call double @llvm.fabs.f64(double %39)
+  store double %40, ptr %4, align 8
+  br label %68
 
-sw.bb10:                                          ; preds = %entry
-  %17 = load double, ptr %x.addr, align 8
-  %18 = load double, ptr %y.addr, align 8
-  %conv = fptosi double %18 to i32
-  %call11 = call double @ldexp(double noundef %17, i32 noundef %conv) #5
-  store double %call11, ptr %retval, align 8
-  br label %return
+41:                                               ; preds = %3
+  %42 = load double, ptr %5, align 8, !tbaa !4
+  %43 = load double, ptr %6, align 8, !tbaa !4
+  %44 = fptosi double %43 to i32
+  %45 = call double @ldexp(double noundef %42, i32 noundef %44) #7, !tbaa !8
+  store double %45, ptr %4, align 8
+  br label %68
 
-sw.bb12:                                          ; preds = %entry
-  %19 = load double, ptr %x.addr, align 8
-  %20 = load double, ptr %y.addr, align 8
-  %cmp = fcmp olt double %19, %20
-  br i1 %cmp, label %cond.true, label %cond.false
+46:                                               ; preds = %3
+  %47 = load double, ptr %5, align 8, !tbaa !4
+  %48 = load double, ptr %6, align 8, !tbaa !4
+  %49 = fcmp olt double %47, %48
+  br i1 %49, label %50, label %52
 
-cond.true:                                        ; preds = %sw.bb12
-  %21 = load double, ptr %x.addr, align 8
-  br label %cond.end
+50:                                               ; preds = %46
+  %51 = load double, ptr %5, align 8, !tbaa !4
+  br label %54
 
-cond.false:                                       ; preds = %sw.bb12
-  %22 = load double, ptr %y.addr, align 8
-  br label %cond.end
+52:                                               ; preds = %46
+  %53 = load double, ptr %6, align 8, !tbaa !4
+  br label %54
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi double [ %21, %cond.true ], [ %22, %cond.false ]
-  store double %cond, ptr %retval, align 8
-  br label %return
+54:                                               ; preds = %52, %50
+  %55 = phi double [ %51, %50 ], [ %53, %52 ]
+  store double %55, ptr %4, align 8
+  br label %68
 
-sw.bb14:                                          ; preds = %entry
-  %23 = load double, ptr %x.addr, align 8
-  %24 = load double, ptr %y.addr, align 8
-  %cmp15 = fcmp ogt double %23, %24
-  br i1 %cmp15, label %cond.true17, label %cond.false18
+56:                                               ; preds = %3
+  %57 = load double, ptr %5, align 8, !tbaa !4
+  %58 = load double, ptr %6, align 8, !tbaa !4
+  %59 = fcmp ogt double %57, %58
+  br i1 %59, label %60, label %62
 
-cond.true17:                                      ; preds = %sw.bb14
-  %25 = load double, ptr %x.addr, align 8
-  br label %cond.end19
+60:                                               ; preds = %56
+  %61 = load double, ptr %5, align 8, !tbaa !4
+  br label %64
 
-cond.false18:                                     ; preds = %sw.bb14
-  %26 = load double, ptr %y.addr, align 8
-  br label %cond.end19
+62:                                               ; preds = %56
+  %63 = load double, ptr %6, align 8, !tbaa !4
+  br label %64
 
-cond.end19:                                       ; preds = %cond.false18, %cond.true17
-  %cond20 = phi double [ %25, %cond.true17 ], [ %26, %cond.false18 ]
-  store double %cond20, ptr %retval, align 8
-  br label %return
+64:                                               ; preds = %62, %60
+  %65 = phi double [ %61, %60 ], [ %63, %62 ]
+  store double %65, ptr %4, align 8
+  br label %68
 
-sw.default:                                       ; preds = %entry
-  %27 = load double, ptr %x.addr, align 8
-  store double %27, ptr %retval, align 8
-  br label %return
+66:                                               ; preds = %3
+  %67 = load double, ptr %5, align 8, !tbaa !4
+  store double %67, ptr %4, align 8
+  br label %68
 
-return:                                           ; preds = %sw.default, %cond.end19, %cond.end, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb6, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %28 = load double, ptr %retval, align 8
+68:                                               ; preds = %66, %64, %54, %41, %38, %35, %31, %25, %21, %17, %13, %9
+  %69 = load double, ptr %4, align 8
+  ret double %69
+}
+
+; Function Attrs: noinline nounwind uwtable
+define internal double @lj_vm_floormul(double noundef %0, double noundef %1) #1 {
+  %3 = alloca double, align 8
+  %4 = alloca double, align 8
+  store double %0, ptr %3, align 8, !tbaa !4
+  store double %1, ptr %4, align 8, !tbaa !4
+  %5 = load double, ptr %3, align 8, !tbaa !4
+  %6 = load double, ptr %4, align 8, !tbaa !4
+  %7 = fdiv double %5, %6
+  %8 = call double @lj_vm_floor(double noundef %7)
+  %9 = load double, ptr %4, align 8, !tbaa !4
+  %10 = fmul double %8, %9
+  ret double %10
+}
+
+; Function Attrs: nounwind
+declare double @pow(double noundef, double noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #3
+
+; Function Attrs: nounwind
+declare double @ldexp(double noundef, i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @lj_vm_modi(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %8 = load i32, ptr %3, align 4, !tbaa !8
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %2
+  %11 = load i32, ptr %3, align 4, !tbaa !8
+  %12 = xor i32 %11, -1
+  %13 = add i32 %12, 1
+  br label %16
+
+14:                                               ; preds = %2
+  %15 = load i32, ptr %3, align 4, !tbaa !8
+  br label %16
+
+16:                                               ; preds = %14, %10
+  %17 = phi i32 [ %13, %10 ], [ %15, %14 ]
+  store i32 %17, ptr %6, align 4, !tbaa !8
+  %18 = load i32, ptr %4, align 4, !tbaa !8
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %16
+  %21 = load i32, ptr %4, align 4, !tbaa !8
+  %22 = xor i32 %21, -1
+  %23 = add i32 %22, 1
+  br label %26
+
+24:                                               ; preds = %16
+  %25 = load i32, ptr %4, align 4, !tbaa !8
+  br label %26
+
+26:                                               ; preds = %24, %20
+  %27 = phi i32 [ %23, %20 ], [ %25, %24 ]
+  store i32 %27, ptr %7, align 4, !tbaa !8
+  %28 = load i32, ptr %6, align 4, !tbaa !8
+  %29 = load i32, ptr %7, align 4, !tbaa !8
+  %30 = urem i32 %28, %29
+  store i32 %30, ptr %5, align 4, !tbaa !8
+  %31 = load i32, ptr %5, align 4, !tbaa !8
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %42
+
+33:                                               ; preds = %26
+  %34 = load i32, ptr %3, align 4, !tbaa !8
+  %35 = load i32, ptr %4, align 4, !tbaa !8
+  %36 = xor i32 %34, %35
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %38, label %42
+
+38:                                               ; preds = %33
+  %39 = load i32, ptr %5, align 4, !tbaa !8
+  %40 = load i32, ptr %7, align 4, !tbaa !8
+  %41 = sub i32 %39, %40
+  store i32 %41, ptr %5, align 4, !tbaa !8
+  br label %42
+
+42:                                               ; preds = %38, %33, %26
+  %43 = load i32, ptr %5, align 4, !tbaa !8
+  %44 = load i32, ptr %4, align 4, !tbaa !8
+  %45 = xor i32 %43, %44
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %51
+
+47:                                               ; preds = %42
+  %48 = load i32, ptr %5, align 4, !tbaa !8
+  %49 = xor i32 %48, -1
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %5, align 4, !tbaa !8
+  br label %51
+
+51:                                               ; preds = %47, %42
+  %52 = load i32, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  ret i32 %52
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nounwind uwtable
+define hidden double @lj_vm_foldfpm(double noundef %0, i32 noundef %1) #0 {
+  %3 = alloca double, align 8
+  %4 = alloca double, align 8
+  %5 = alloca i32, align 4
+  store double %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  switch i32 %6, label %25 [
+    i32 0, label %7
+    i32 1, label %10
+    i32 2, label %13
+    i32 3, label %16
+    i32 4, label %19
+    i32 5, label %22
+  ]
+
+7:                                                ; preds = %2
+  %8 = load double, ptr %4, align 8, !tbaa !4
+  %9 = call double @lj_vm_floor(double noundef %8)
+  store double %9, ptr %3, align 8
+  br label %27
+
+10:                                               ; preds = %2
+  %11 = load double, ptr %4, align 8, !tbaa !4
+  %12 = call double @lj_vm_ceil(double noundef %11)
+  store double %12, ptr %3, align 8
+  br label %27
+
+13:                                               ; preds = %2
+  %14 = load double, ptr %4, align 8, !tbaa !4
+  %15 = call double @lj_vm_trunc(double noundef %14)
+  store double %15, ptr %3, align 8
+  br label %27
+
+16:                                               ; preds = %2
+  %17 = load double, ptr %4, align 8, !tbaa !4
+  %18 = call double @sqrt(double noundef %17) #7, !tbaa !8
+  store double %18, ptr %3, align 8
+  br label %27
+
+19:                                               ; preds = %2
+  %20 = load double, ptr %4, align 8, !tbaa !4
+  %21 = call double @log(double noundef %20) #7, !tbaa !8
+  store double %21, ptr %3, align 8
+  br label %27
+
+22:                                               ; preds = %2
+  %23 = load double, ptr %4, align 8, !tbaa !4
+  %24 = call double @log2(double noundef %23) #7, !tbaa !8
+  store double %24, ptr %3, align 8
+  br label %27
+
+25:                                               ; preds = %2
+  br label %26
+
+26:                                               ; preds = %25
+  store double 0.000000e+00, ptr %3, align 8
+  br label %27
+
+27:                                               ; preds = %26, %22, %19, %16, %13, %10, %7
+  %28 = load double, ptr %3, align 8
   ret double %28
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @lj_vm_floormul(double noundef %x, double noundef %y) #0 {
-entry:
-  %x.addr = alloca double, align 8
-  %y.addr = alloca double, align 8
-  store double %x, ptr %x.addr, align 8
-  store double %y, ptr %y.addr, align 8
-  %0 = load double, ptr %x.addr, align 8
-  %1 = load double, ptr %y.addr, align 8
-  %div = fdiv double %0, %1
-  %call = call double @lj_vm_floor(double noundef %div)
-  %2 = load double, ptr %y.addr, align 8
-  %mul = fmul double %call, %2
-  ret double %mul
-}
+declare hidden double @lj_vm_floor(double noundef) #5
+
+declare hidden double @lj_vm_ceil(double noundef) #5
+
+declare hidden double @lj_vm_trunc(double noundef) #5
 
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @sqrt(double noundef) #2
 
 ; Function Attrs: nounwind
-declare double @ldexp(double noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @lj_vm_modi(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  %y = alloca i32, align 4
-  %ua = alloca i32, align 4
-  %ub = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load i32, ptr %a.addr, align 4
-  %not = xor i32 %1, -1
-  %add = add i32 %not, 1
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %2 = load i32, ptr %a.addr, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %add, %cond.true ], [ %2, %cond.false ]
-  store i32 %cond, ptr %ua, align 4
-  %3 = load i32, ptr %b.addr, align 4
-  %cmp1 = icmp slt i32 %3, 0
-  br i1 %cmp1, label %cond.true2, label %cond.false5
-
-cond.true2:                                       ; preds = %cond.end
-  %4 = load i32, ptr %b.addr, align 4
-  %not3 = xor i32 %4, -1
-  %add4 = add i32 %not3, 1
-  br label %cond.end6
-
-cond.false5:                                      ; preds = %cond.end
-  %5 = load i32, ptr %b.addr, align 4
-  br label %cond.end6
-
-cond.end6:                                        ; preds = %cond.false5, %cond.true2
-  %cond7 = phi i32 [ %add4, %cond.true2 ], [ %5, %cond.false5 ]
-  store i32 %cond7, ptr %ub, align 4
-  %6 = load i32, ptr %ua, align 4
-  %7 = load i32, ptr %ub, align 4
-  %rem = urem i32 %6, %7
-  store i32 %rem, ptr %y, align 4
-  %8 = load i32, ptr %y, align 4
-  %cmp8 = icmp ne i32 %8, 0
-  br i1 %cmp8, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %cond.end6
-  %9 = load i32, ptr %a.addr, align 4
-  %10 = load i32, ptr %b.addr, align 4
-  %xor = xor i32 %9, %10
-  %cmp9 = icmp slt i32 %xor, 0
-  br i1 %cmp9, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %11 = load i32, ptr %y, align 4
-  %12 = load i32, ptr %ub, align 4
-  %sub = sub i32 %11, %12
-  store i32 %sub, ptr %y, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true, %cond.end6
-  %13 = load i32, ptr %y, align 4
-  %14 = load i32, ptr %b.addr, align 4
-  %xor10 = xor i32 %13, %14
-  %cmp11 = icmp slt i32 %xor10, 0
-  br i1 %cmp11, label %if.then12, label %if.end15
-
-if.then12:                                        ; preds = %if.end
-  %15 = load i32, ptr %y, align 4
-  %not13 = xor i32 %15, -1
-  %add14 = add i32 %not13, 1
-  store i32 %add14, ptr %y, align 4
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then12, %if.end
-  %16 = load i32, ptr %y, align 4
-  ret i32 %16
-}
-
-; Function Attrs: nounwind uwtable
-define hidden double @lj_vm_foldfpm(double noundef %x, i32 noundef %fpm) #0 {
-entry:
-  %retval = alloca double, align 8
-  %x.addr = alloca double, align 8
-  %fpm.addr = alloca i32, align 4
-  store double %x, ptr %x.addr, align 8
-  store i32 %fpm, ptr %fpm.addr, align 4
-  %0 = load i32, ptr %fpm.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-  ]
-
-sw.bb:                                            ; preds = %entry
-  %1 = load double, ptr %x.addr, align 8
-  %call = call double @lj_vm_floor(double noundef %1)
-  store double %call, ptr %retval, align 8
-  br label %return
-
-sw.bb1:                                           ; preds = %entry
-  %2 = load double, ptr %x.addr, align 8
-  %call2 = call double @lj_vm_ceil(double noundef %2)
-  store double %call2, ptr %retval, align 8
-  br label %return
-
-sw.bb3:                                           ; preds = %entry
-  %3 = load double, ptr %x.addr, align 8
-  %call4 = call double @lj_vm_trunc(double noundef %3)
-  store double %call4, ptr %retval, align 8
-  br label %return
-
-sw.bb5:                                           ; preds = %entry
-  %4 = load double, ptr %x.addr, align 8
-  %call6 = call double @sqrt(double noundef %4) #5
-  store double %call6, ptr %retval, align 8
-  br label %return
-
-sw.bb7:                                           ; preds = %entry
-  %5 = load double, ptr %x.addr, align 8
-  %call8 = call double @log(double noundef %5) #5
-  store double %call8, ptr %retval, align 8
-  br label %return
-
-sw.bb9:                                           ; preds = %entry
-  %6 = load double, ptr %x.addr, align 8
-  %call10 = call double @log2(double noundef %6) #5
-  store double %call10, ptr %retval, align 8
-  br label %return
-
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default
-  store double 0.000000e+00, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %7 = load double, ptr %retval, align 8
-  ret double %7
-}
-
-declare hidden double @lj_vm_floor(double noundef) #3
-
-declare hidden double @lj_vm_ceil(double noundef) #3
-
-declare hidden double @lj_vm_trunc(double noundef) #3
+declare double @log(double noundef) #2
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #1
-
-; Function Attrs: nounwind
-declare double @log(double noundef) #1
-
-; Function Attrs: nounwind
-declare double @log2(double noundef) #1
+declare double @log2(double noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_vm_errno() #0 {
-entry:
-  %call = call ptr @__errno_location() #6
-  %0 = load i32, ptr %call, align 4
-  ret i32 %0
+  %1 = call ptr @__errno_location() #8
+  %2 = load i32, ptr %1, align 4, !tbaa !8
+  ret i32 %2
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(none) }
+attributes #1 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -354,3 +363,9 @@ attributes #6 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"double", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}

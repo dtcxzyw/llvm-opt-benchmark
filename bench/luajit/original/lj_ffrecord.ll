@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.GCRef = type { i64 }
 %struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.GCfuncC = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.MRef, ptr, [1 x %union.TValue] }
 %struct.RecordIndex = type { %union.TValue, %union.TValue, %union.TValue, %union.TValue, ptr, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.GG_State = type { %struct.lua_State, %struct.global_State, %struct.jit_State, [64 x i16], [243 x ptr], [57 x i32] }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
+%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [39 x %struct.GCRef] }
 %struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
 %struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
 %struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
@@ -42,13210 +42,8758 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [24 x i8] c"store to dead GC object\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_ffrecord_select_mode(ptr noundef %J, i32 noundef %tr, ptr noundef %tv) #0 {
-entry:
-  %J.addr.i48 = alloca ptr, align 8
-  %ot.addr.i49 = alloca i16, align 2
-  %a.addr.i50 = alloca i16, align 2
-  %b.addr.i51 = alloca i16, align 2
-  %J.addr.i39 = alloca ptr, align 8
-  %ot.addr.i40 = alloca i16, align 2
-  %a.addr.i41 = alloca i16, align 2
-  %b.addr.i42 = alloca i16, align 2
-  %J.addr.i30 = alloca ptr, align 8
-  %ot.addr.i31 = alloca i16, align 2
-  %a.addr.i32 = alloca i16, align 2
-  %b.addr.i33 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %retval = alloca i32, align 4
-  %J.addr = alloca ptr, align 8
-  %tr.addr = alloca i32, align 4
-  %tv.addr = alloca ptr, align 8
-  %trptr = alloca i32, align 4
-  %trchar = alloca i32, align 4
-  %start = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store i32 %tr, ptr %tr.addr, align 4
-  store ptr %tv, ptr %tv.addr, align 8
-  %0 = load i32, ptr %tr.addr, align 4
-  %and = and i32 %0, 520093696
-  %cmp = icmp eq i32 %and, 67108864
-  br i1 %cmp, label %land.lhs.true, label %if.else24
+define hidden i32 @lj_ffrecord_select_mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !11
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = and i32 %11, 520093696
+  %13 = icmp eq i32 %12, 67108864
+  br i1 %13, label %14, label %70
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %tv.addr, align 8
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %gcptr64, align 8
-  %and1 = and i64 %2, 140737488355327
-  %3 = inttoptr i64 %and1 to ptr
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %3, i64 1
-  %4 = load i8, ptr %add.ptr, align 1
-  %conv = sext i8 %4 to i32
-  %cmp2 = icmp eq i32 %conv, 35
-  br i1 %cmp2, label %if.then, label %if.else24
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %7, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.GCRef, ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !13
+  %18 = and i64 %17, 140737488355327
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds %struct.GCstr, ptr %19, i64 1
+  %21 = load i8, ptr %20, align 1, !tbaa !13
+  %22 = sext i8 %21 to i32
+  %23 = icmp eq i32 %22, 35
+  br i1 %23, label %24, label %70
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr %tv.addr, align 8
-  %gcptr644 = getelementptr inbounds %struct.GCRef, ptr %5, i32 0, i32 0
-  %6 = load i64, ptr %gcptr644, align 8
-  %and5 = and i64 %6, 140737488355327
-  %7 = inttoptr i64 %and5 to ptr
-  %len = getelementptr inbounds %struct.GCstr, ptr %7, i32 0, i32 7
-  %8 = load i32, ptr %len, align 4
-  %cmp6 = icmp eq i32 %8, 1
-  br i1 %cmp6, label %if.then8, label %if.else
+24:                                               ; preds = %14
+  %25 = load ptr, ptr %7, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.GCRef, ptr %25, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8, !tbaa !13
+  %28 = and i64 %27, 140737488355327
+  %29 = inttoptr i64 %28 to ptr
+  %30 = getelementptr inbounds nuw %struct.GCstr, ptr %29, i32 0, i32 7
+  %31 = load i32, ptr %30, align 4, !tbaa !13
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %33, label %47
 
-if.then8:                                         ; preds = %if.then
-  %9 = load ptr, ptr %J.addr, align 8
-  %10 = load i32, ptr %tr.addr, align 4
-  %conv9 = trunc i32 %10 to i16
-  %11 = load ptr, ptr %J.addr, align 8
-  %12 = load ptr, ptr %tv.addr, align 8
-  %gcptr6410 = getelementptr inbounds %struct.GCRef, ptr %12, i32 0, i32 0
-  %13 = load i64, ptr %gcptr6410, align 8
-  %and11 = and i64 %13, 140737488355327
-  %14 = inttoptr i64 %and11 to ptr
-  %call = call i32 @lj_ir_kgc(ptr noundef %11, ptr noundef %14, i32 noundef 4)
-  %conv12 = trunc i32 %call to i16
-  store ptr %9, ptr %J.addr.i48, align 8
-  store i16 2180, ptr %ot.addr.i49, align 2
-  store i16 %conv9, ptr %a.addr.i50, align 2
-  store i16 %conv12, ptr %b.addr.i51, align 2
-  %15 = load i16, ptr %ot.addr.i49, align 2
-  %16 = load ptr, ptr %J.addr.i48, align 8
-  %fold.i52 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  %ot1.i53 = getelementptr inbounds %struct.anon.2, ptr %fold.i52, i32 0, i32 2
-  store i16 %15, ptr %ot1.i53, align 4
-  %17 = load i16, ptr %a.addr.i50, align 2
-  %18 = load ptr, ptr %J.addr.i48, align 8
-  %fold2.i54 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  store i16 %17, ptr %fold2.i54, align 8
-  %19 = load i16, ptr %b.addr.i51, align 2
-  %20 = load ptr, ptr %J.addr.i48, align 8
-  %fold4.i55 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %op2.i56 = getelementptr inbounds %struct.anon.2, ptr %fold4.i55, i32 0, i32 1
-  store i16 %19, ptr %op2.i56, align 2
-  %21 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_opt_fold(ptr noundef %21)
-  br label %if.end
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %5, align 8, !tbaa !4
+  %35 = load i32, ptr %6, align 4, !tbaa !9
+  %36 = trunc i32 %35 to i16
+  %37 = load ptr, ptr %5, align 8, !tbaa !4
+  %38 = load ptr, ptr %7, align 8, !tbaa !11
+  %39 = getelementptr inbounds nuw %struct.GCRef, ptr %38, i32 0, i32 0
+  %40 = load i64, ptr %39, align 8, !tbaa !13
+  %41 = and i64 %40, 140737488355327
+  %42 = inttoptr i64 %41 to ptr
+  %43 = call i32 @lj_ir_kgc(ptr noundef %37, ptr noundef %42, i32 noundef 4)
+  %44 = trunc i32 %43 to i16
+  call void @lj_ir_set_(ptr noundef %34, i16 noundef zeroext 2180, i16 noundef zeroext %36, i16 noundef zeroext %44)
+  %45 = load ptr, ptr %5, align 8, !tbaa !4
+  %46 = call i32 @lj_opt_fold(ptr noundef %45)
+  br label %69
 
-if.else:                                          ; preds = %if.then
-  %22 = load ptr, ptr %J.addr, align 8
-  %23 = load i32, ptr %tr.addr, align 4
-  %conv14 = trunc i32 %23 to i16
-  %24 = load ptr, ptr %J.addr, align 8
-  %call15 = call i32 @lj_ir_kint(ptr noundef %24, i32 noundef 0)
-  %conv16 = trunc i32 %call15 to i16
-  store ptr %22, ptr %J.addr.i39, align 8
-  store i16 16393, ptr %ot.addr.i40, align 2
-  store i16 %conv14, ptr %a.addr.i41, align 2
-  store i16 %conv16, ptr %b.addr.i42, align 2
-  %25 = load i16, ptr %ot.addr.i40, align 2
-  %26 = load ptr, ptr %J.addr.i39, align 8
-  %fold.i43 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 14
-  %ot1.i44 = getelementptr inbounds %struct.anon.2, ptr %fold.i43, i32 0, i32 2
-  store i16 %25, ptr %ot1.i44, align 4
-  %27 = load i16, ptr %a.addr.i41, align 2
-  %28 = load ptr, ptr %J.addr.i39, align 8
-  %fold2.i45 = getelementptr inbounds %struct.jit_State, ptr %28, i32 0, i32 14
-  store i16 %27, ptr %fold2.i45, align 8
-  %29 = load i16, ptr %b.addr.i42, align 2
-  %30 = load ptr, ptr %J.addr.i39, align 8
-  %fold4.i46 = getelementptr inbounds %struct.jit_State, ptr %30, i32 0, i32 14
-  %op2.i47 = getelementptr inbounds %struct.anon.2, ptr %fold4.i46, i32 0, i32 1
-  store i16 %29, ptr %op2.i47, align 2
-  %31 = load ptr, ptr %J.addr, align 8
-  %call17 = call i32 @lj_opt_fold(ptr noundef %31)
-  store i32 %call17, ptr %trptr, align 4
-  %32 = load ptr, ptr %J.addr, align 8
-  %33 = load i32, ptr %trptr, align 4
-  %conv18 = trunc i32 %33 to i16
-  store ptr %32, ptr %J.addr.i30, align 8
-  store i16 17936, ptr %ot.addr.i31, align 2
-  store i16 %conv18, ptr %a.addr.i32, align 2
-  store i16 1, ptr %b.addr.i33, align 2
-  %34 = load i16, ptr %ot.addr.i31, align 2
-  %35 = load ptr, ptr %J.addr.i30, align 8
-  %fold.i34 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %ot1.i35 = getelementptr inbounds %struct.anon.2, ptr %fold.i34, i32 0, i32 2
-  store i16 %34, ptr %ot1.i35, align 4
-  %36 = load i16, ptr %a.addr.i32, align 2
-  %37 = load ptr, ptr %J.addr.i30, align 8
-  %fold2.i36 = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  store i16 %36, ptr %fold2.i36, align 8
-  %38 = load i16, ptr %b.addr.i33, align 2
-  %39 = load ptr, ptr %J.addr.i30, align 8
-  %fold4.i37 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %op2.i38 = getelementptr inbounds %struct.anon.2, ptr %fold4.i37, i32 0, i32 1
-  store i16 %38, ptr %op2.i38, align 2
-  %40 = load ptr, ptr %J.addr, align 8
-  %call19 = call i32 @lj_opt_fold(ptr noundef %40)
-  store i32 %call19, ptr %trchar, align 4
-  %41 = load ptr, ptr %J.addr, align 8
-  %42 = load i32, ptr %trchar, align 4
-  %conv20 = trunc i32 %42 to i16
-  %43 = load ptr, ptr %J.addr, align 8
-  %call21 = call i32 @lj_ir_kint(ptr noundef %43, i32 noundef 35)
-  %conv22 = trunc i32 %call21 to i16
-  store ptr %41, ptr %J.addr.i, align 8
-  store i16 2195, ptr %ot.addr.i, align 2
-  store i16 %conv20, ptr %a.addr.i, align 2
-  store i16 %conv22, ptr %b.addr.i, align 2
-  %44 = load i16, ptr %ot.addr.i, align 2
-  %45 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %44, ptr %ot1.i, align 4
-  %46 = load i16, ptr %a.addr.i, align 2
-  %47 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 14
-  store i16 %46, ptr %fold2.i, align 8
-  %48 = load i16, ptr %b.addr.i, align 2
-  %49 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %48, ptr %op2.i, align 2
-  %50 = load ptr, ptr %J.addr, align 8
-  %call23 = call i32 @lj_opt_fold(ptr noundef %50)
-  br label %if.end
+47:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %48 = load ptr, ptr %5, align 8, !tbaa !4
+  %49 = load i32, ptr %6, align 4, !tbaa !9
+  %50 = trunc i32 %49 to i16
+  %51 = load ptr, ptr %5, align 8, !tbaa !4
+  %52 = call i32 @lj_ir_kint(ptr noundef %51, i32 noundef 0)
+  %53 = trunc i32 %52 to i16
+  call void @lj_ir_set_(ptr noundef %48, i16 noundef zeroext 16393, i16 noundef zeroext %50, i16 noundef zeroext %53)
+  %54 = load ptr, ptr %5, align 8, !tbaa !4
+  %55 = call i32 @lj_opt_fold(ptr noundef %54)
+  store i32 %55, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %56 = load ptr, ptr %5, align 8, !tbaa !4
+  %57 = load i32, ptr %8, align 4, !tbaa !9
+  %58 = trunc i32 %57 to i16
+  call void @lj_ir_set_(ptr noundef %56, i16 noundef zeroext 17936, i16 noundef zeroext %58, i16 noundef zeroext 1)
+  %59 = load ptr, ptr %5, align 8, !tbaa !4
+  %60 = call i32 @lj_opt_fold(ptr noundef %59)
+  store i32 %60, ptr %9, align 4, !tbaa !9
+  %61 = load ptr, ptr %5, align 8, !tbaa !4
+  %62 = load i32, ptr %9, align 4, !tbaa !9
+  %63 = trunc i32 %62 to i16
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = call i32 @lj_ir_kint(ptr noundef %64, i32 noundef 35)
+  %66 = trunc i32 %65 to i16
+  call void @lj_ir_set_(ptr noundef %61, i16 noundef zeroext 2195, i16 noundef zeroext %63, i16 noundef zeroext %66)
+  %67 = load ptr, ptr %5, align 8, !tbaa !4
+  %68 = call i32 @lj_opt_fold(ptr noundef %67)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %69
 
-if.end:                                           ; preds = %if.else, %if.then8
-  store i32 0, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %47, %33
+  store i32 0, ptr %4, align 4
+  br label %80
 
-if.else24:                                        ; preds = %land.lhs.true, %entry
-  %51 = load ptr, ptr %J.addr, align 8
-  %52 = load ptr, ptr %tv.addr, align 8
-  %call25 = call i32 @argv2int(ptr noundef %51, ptr noundef %52)
-  store i32 %call25, ptr %start, align 4
-  %53 = load i32, ptr %start, align 4
-  %cmp26 = icmp eq i32 %53, 0
-  br i1 %cmp26, label %if.then28, label %if.end29
+70:                                               ; preds = %14, %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %71 = load ptr, ptr %5, align 8, !tbaa !4
+  %72 = load ptr, ptr %7, align 8, !tbaa !11
+  %73 = call i32 @argv2int(ptr noundef %71, ptr noundef %72)
+  store i32 %73, ptr %10, align 4, !tbaa !9
+  %74 = load i32, ptr %10, align 4, !tbaa !9
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %78
 
-if.then28:                                        ; preds = %if.else24
-  %54 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %54, i32 noundef 11) #6
+76:                                               ; preds = %70
+  %77 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %77, i32 noundef 11) #10
   unreachable
 
-if.end29:                                         ; preds = %if.else24
-  %55 = load i32, ptr %start, align 4
-  store i32 %55, ptr %retval, align 4
-  br label %return
+78:                                               ; preds = %70
+  %79 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %79, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  br label %80
 
-return:                                           ; preds = %if.end29, %if.end
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+80:                                               ; preds = %78, %69
+  %81 = load i32, ptr %4, align 4
+  ret i32 %81
 }
 
-declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lj_ir_set_(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i16, align 2
+  %7 = alloca i16, align 2
+  %8 = alloca i16, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i16 %1, ptr %6, align 2, !tbaa !14
+  store i16 %2, ptr %7, align 2, !tbaa !14
+  store i16 %3, ptr %8, align 2, !tbaa !14
+  %9 = load i16, ptr %6, align 2, !tbaa !14
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.jit_State, ptr %10, i32 0, i32 14
+  %12 = getelementptr inbounds nuw %struct.FoldState, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.anon.2, ptr %12, i32 0, i32 2
+  store i16 %9, ptr %13, align 4, !tbaa !13
+  %14 = load i16, ptr %7, align 2, !tbaa !14
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 14
+  %17 = getelementptr inbounds nuw %struct.FoldState, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.anon.2, ptr %17, i32 0, i32 0
+  store i16 %14, ptr %18, align 8, !tbaa !13
+  %19 = load i16, ptr %8, align 2, !tbaa !14
+  %20 = load ptr, ptr %5, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 14
+  %22 = getelementptr inbounds nuw %struct.FoldState, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.anon.2, ptr %22, i32 0, i32 1
+  store i16 %19, ptr %23, align 2, !tbaa !13
+  ret void
+}
 
-declare hidden i32 @lj_opt_fold(ptr noundef) #1
+declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) #1
+declare hidden i32 @lj_opt_fold(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @argv2int(ptr noundef %J, ptr noundef %o) #0 {
-entry:
-  %o.addr.i = alloca ptr, align 8
-  %J.addr = alloca ptr, align 8
-  %o.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %o, ptr %o.addr, align 8
-  %0 = load ptr, ptr %o.addr, align 8
-  store ptr %0, ptr %o.addr.i, align 8
-  %1 = load ptr, ptr %o.addr.i, align 8
-  %2 = load i64, ptr %1, align 8
-  %shr.i = ashr i64 %2, 47
-  %conv.i = trunc i64 %shr.i to i32
-  %cmp.i = icmp ule i32 %conv.i, -14
-  br i1 %cmp.i, label %lj_strscan_numberobj.exit, label %lor.rhs.i
+define internal i32 @argv2int(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %6 = call i32 @lj_strscan_numberobj(ptr noundef %5)
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %10, label %8
 
-lor.rhs.i:                                        ; preds = %entry
-  %3 = load ptr, ptr %o.addr.i, align 8
-  %4 = load i64, ptr %3, align 8
-  %shr2.i = ashr i64 %4, 47
-  %conv3.i = trunc i64 %shr2.i to i32
-  %cmp4.i = icmp eq i32 %conv3.i, -5
-  br i1 %cmp4.i, label %land.rhs.i, label %land.end.i
-
-land.rhs.i:                                       ; preds = %lor.rhs.i
-  %5 = load ptr, ptr %o.addr.i, align 8
-  %6 = load i64, ptr %5, align 8
-  %and.i = and i64 %6, 140737488355327
-  %7 = inttoptr i64 %and.i to ptr
-  %8 = load ptr, ptr %o.addr.i, align 8
-  %call.i = call i32 @lj_strscan_num(ptr noundef %7, ptr noundef %8) #7
-  %tobool.i = icmp ne i32 %call.i, 0
-  br label %land.end.i
-
-land.end.i:                                       ; preds = %land.rhs.i, %lor.rhs.i
-  %9 = phi i1 [ false, %lor.rhs.i ], [ %tobool.i, %land.rhs.i ]
-  br label %lj_strscan_numberobj.exit
-
-lj_strscan_numberobj.exit:                        ; preds = %land.end.i, %entry
-  %10 = phi i1 [ true, %entry ], [ %9, %land.end.i ]
-  %lor.ext.i = zext i1 %10 to i32
-  %tobool = icmp ne i32 %lor.ext.i, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lj_strscan_numberobj.exit
-  %11 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %11, i32 noundef 11) #6
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %9, i32 noundef 11) #10
   unreachable
 
-if.end:                                           ; preds = %lj_strscan_numberobj.exit
-  %12 = load ptr, ptr %o.addr, align 8
-  %13 = load double, ptr %12, align 8
-  %conv = fptosi double %13 to i32
-  ret i32 %conv
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !11
+  %12 = load double, ptr %11, align 8, !tbaa !13
+  %13 = fptosi double %12 to i32
+  ret i32 %13
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_trace_err(ptr noundef, i32 noundef) #2
+declare hidden void @lj_trace_err(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_ffrecord_func(ptr noundef %J) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd = alloca %struct.RecordFFData, align 8
-  %m = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %fn = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 4
-  %1 = load ptr, ptr %fn, align 8
-  %call = call i32 @recdef_lookup(ptr noundef %1)
-  store i32 %call, ptr %m, align 4
-  %2 = load i32, ptr %m, align 4
-  %and = and i32 %2, 255
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %rd, i32 0, i32 2
-  store i32 %and, ptr %data, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %rd, i32 0, i32 1
-  store i64 1, ptr %nres, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %L, align 8
-  %base = getelementptr inbounds %struct.lua_State, ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %base, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %rd, i32 0, i32 0
-  store ptr %5, ptr %argv, align 8
-  %6 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %base1, align 8
-  %8 = load ptr, ptr %J.addr, align 8
-  %maxslot = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 8
-  %9 = load i32, ptr %maxslot, align 4
-  %idxprom = zext i32 %9 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %7, i64 %idxprom
-  store i32 0, ptr %arrayidx, align 4
-  %10 = load i32, ptr %m, align 4
-  %shr = lshr i32 %10, 8
-  %idxprom2 = zext i32 %shr to i64
-  %arrayidx3 = getelementptr inbounds [76 x ptr], ptr @recff_func, i64 0, i64 %idxprom2
-  %11 = load ptr, ptr %arrayidx3, align 8
-  %12 = load ptr, ptr %J.addr, align 8
-  call void %11(ptr noundef %12, ptr noundef %rd)
-  %nres4 = getelementptr inbounds %struct.RecordFFData, ptr %rd, i32 0, i32 1
-  %13 = load i64, ptr %nres4, align 8
-  %cmp = icmp sge i64 %13, 0
-  br i1 %cmp, label %if.then, label %if.end9
+define hidden void @lj_ffrecord_func(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.RecordFFData, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.jit_State, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = call i32 @recdef_lookup(ptr noundef %7)
+  store i32 %8, ptr %4, align 4, !tbaa !9
+  %9 = load i32, ptr %4, align 4, !tbaa !9
+  %10 = and i32 %9, 255
+  %11 = getelementptr inbounds nuw %struct.RecordFFData, ptr %3, i32 0, i32 2
+  store i32 %10, ptr %11, align 8, !tbaa !34
+  %12 = getelementptr inbounds nuw %struct.RecordFFData, ptr %3, i32 0, i32 1
+  store i64 1, ptr %12, align 8, !tbaa !36
+  %13 = load ptr, ptr %2, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.jit_State, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %16 = getelementptr inbounds nuw %struct.lua_State, ptr %15, i32 0, i32 7
+  %17 = load ptr, ptr %16, align 8, !tbaa !38
+  %18 = getelementptr inbounds nuw %struct.RecordFFData, ptr %3, i32 0, i32 0
+  store ptr %17, ptr %18, align 8, !tbaa !40
+  %19 = load ptr, ptr %2, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.jit_State, ptr %19, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %22 = load ptr, ptr %2, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 8
+  %24 = load i32, ptr %23, align 4, !tbaa !42
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %21, i64 %25
+  store i32 0, ptr %26, align 4, !tbaa !9
+  %27 = load i32, ptr %4, align 4, !tbaa !9
+  %28 = lshr i32 %27, 8
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw [76 x ptr], ptr @recff_func, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !43
+  %32 = load ptr, ptr %2, align 8, !tbaa !4
+  call void %31(ptr noundef %32, ptr noundef %3)
+  %33 = getelementptr inbounds nuw %struct.RecordFFData, ptr %3, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8, !tbaa !36
+  %35 = icmp sge i64 %34, 0
+  br i1 %35, label %36, label %48
 
-if.then:                                          ; preds = %entry
-  %14 = load ptr, ptr %J.addr, align 8
-  %postproc = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 34
-  %15 = load i32, ptr %postproc, align 4
-  %cmp5 = icmp eq i32 %15, 0
-  br i1 %cmp5, label %if.then6, label %if.end
+36:                                               ; preds = %1
+  %37 = load ptr, ptr %2, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.jit_State, ptr %37, i32 0, i32 34
+  %39 = load i32, ptr %38, align 4, !tbaa !44
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %44
 
-if.then6:                                         ; preds = %if.then
-  %16 = load ptr, ptr %J.addr, align 8
-  %postproc7 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 34
-  store i32 6, ptr %postproc7, align 4
-  br label %if.end
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %2, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.jit_State, ptr %42, i32 0, i32 34
+  store i32 6, ptr %43, align 4, !tbaa !44
+  br label %44
 
-if.end:                                           ; preds = %if.then6, %if.then
-  %17 = load ptr, ptr %J.addr, align 8
-  %nres8 = getelementptr inbounds %struct.RecordFFData, ptr %rd, i32 0, i32 1
-  %18 = load i64, ptr %nres8, align 8
-  call void @lj_record_ret(ptr noundef %17, i32 noundef 0, i64 noundef %18)
-  br label %if.end9
+44:                                               ; preds = %41, %36
+  %45 = load ptr, ptr %2, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.RecordFFData, ptr %3, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8, !tbaa !36
+  call void @lj_record_ret(ptr noundef %45, i32 noundef 0, i64 noundef %47)
+  br label %48
 
-if.end9:                                          ; preds = %if.end, %entry
+48:                                               ; preds = %44, %1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recdef_lookup(ptr noundef %fn) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fn.addr = alloca ptr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %fn.addr, align 8
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %0, i32 0, i32 3
-  %1 = load i8, ptr %ffid, align 2
-  %conv = zext i8 %1 to i64
-  %cmp = icmp ult i64 %conv, 223
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @recdef_lookup(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  %4 = load ptr, ptr %3, align 8, !tbaa !45
+  %5 = getelementptr inbounds nuw %struct.GCfuncC, ptr %4, i32 0, i32 3
+  %6 = load i8, ptr %5, align 2, !tbaa !13
+  %7 = zext i8 %6 to i64
+  %8 = icmp ult i64 %7, 223
+  br i1 %8, label %9, label %17
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %fn.addr, align 8
-  %ffid2 = getelementptr inbounds %struct.GCfuncC, ptr %2, i32 0, i32 3
-  %3 = load i8, ptr %ffid2, align 2
-  %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds [223 x i16], ptr @recff_idmap, i64 0, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv3 = zext i16 %4 to i32
-  store i32 %conv3, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !45
+  %11 = getelementptr inbounds nuw %struct.GCfuncC, ptr %10, i32 0, i32 3
+  %12 = load i8, ptr %11, align 2, !tbaa !13
+  %13 = zext i8 %12 to i64
+  %14 = getelementptr inbounds nuw [223 x i16], ptr @recff_idmap, i64 0, i64 %13
+  %15 = load i16, ptr %14, align 2, !tbaa !14
+  %16 = zext i16 %15 to i32
+  store i32 %16, ptr %2, align 4
+  br label %18
 
-if.else:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %18
 
-return:                                           ; preds = %if.else, %if.then
-  %5 = load i32, ptr %retval, align 4
+18:                                               ; preds = %17, %9
+  %19 = load i32, ptr %2, align 4
+  ret i32 %19
+}
+
+declare hidden void @lj_record_ret(ptr noundef, i32 noundef, i64 noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @lj_strscan_numberobj(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = load i64, ptr %3, align 8, !tbaa !13
+  %5 = ashr i64 %4, 47
+  %6 = trunc i64 %5 to i32
+  %7 = icmp ule i32 %6, -14
+  br i1 %7, label %25, label %8
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !11
+  %10 = load i64, ptr %9, align 8, !tbaa !13
+  %11 = ashr i64 %10, 47
+  %12 = trunc i64 %11 to i32
+  %13 = icmp eq i32 %12, -5
+  br i1 %13, label %14, label %23
+
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %2, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.GCRef, ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !13
+  %18 = and i64 %17, 140737488355327
+  %19 = inttoptr i64 %18 to ptr
+  %20 = load ptr, ptr %2, align 8, !tbaa !11
+  %21 = call i32 @lj_strscan_num(ptr noundef %19, ptr noundef %20)
+  %22 = icmp ne i32 %21, 0
+  br label %23
+
+23:                                               ; preds = %14, %8
+  %24 = phi i1 [ false, %8 ], [ %22, %14 ]
+  br label %25
+
+25:                                               ; preds = %23, %1
+  %26 = phi i1 [ true, %1 ], [ %24, %23 ]
+  %27 = zext i1 %26 to i32
+  ret i32 %27
+}
+
+declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_nyi(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.GCtrace, ptr %8, i32 0, i32 4
+  %10 = load i32, ptr %9, align 4, !tbaa !48
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.jit_State, ptr %11, i32 0, i32 42
+  %13 = getelementptr inbounds [15 x i32], ptr %12, i64 0, i64 5
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  %15 = add i32 %14, 32768
+  %16 = icmp ult i32 %10, %15
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lj_trace_err_info(ptr noundef %18, i32 noundef 1) #10
+  unreachable
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 21
+  %22 = load i32, ptr %21, align 4, !tbaa !49
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %73
+
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.jit_State, ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw %struct.lua_State, ptr %27, i32 0, i32 7
+  %29 = load ptr, ptr %28, align 8, !tbaa !38
+  %30 = getelementptr inbounds %union.TValue, ptr %29, i64 -1
+  %31 = load i64, ptr %30, align 8, !tbaa !13
+  %32 = and i64 %31, 3
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %34, label %73
+
+34:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %35 = load ptr, ptr %3, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.jit_State, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !37
+  %38 = getelementptr inbounds nuw %struct.lua_State, ptr %37, i32 0, i32 7
+  %39 = load ptr, ptr %38, align 8, !tbaa !38
+  %40 = getelementptr inbounds %union.TValue, ptr %39, i64 -1
+  %41 = load i64, ptr %40, align 8, !tbaa !13
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load i32, ptr %42, align 4, !tbaa !9
+  %44 = and i32 %43, 255
+  store i32 %44, ptr %5, align 4, !tbaa !9
+  %45 = load i32, ptr %5, align 4, !tbaa !9
+  %46 = icmp eq i32 %45, 65
+  br i1 %46, label %69, label %47
+
+47:                                               ; preds = %34
+  %48 = load i32, ptr %5, align 4, !tbaa !9
+  %49 = icmp eq i32 %48, 67
+  br i1 %49, label %69, label %50
+
+50:                                               ; preds = %47
+  %51 = load i32, ptr %5, align 4, !tbaa !9
+  %52 = icmp eq i32 %51, 73
+  br i1 %52, label %69, label %53
+
+53:                                               ; preds = %50
+  %54 = load i32, ptr %5, align 4, !tbaa !9
+  %55 = icmp eq i32 %54, 63
+  br i1 %55, label %69, label %56
+
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %3, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.jit_State, ptr %57, i32 0, i32 4
+  %59 = load ptr, ptr %58, align 8, !tbaa !16
+  %60 = getelementptr inbounds nuw %struct.GCfuncC, ptr %59, i32 0, i32 3
+  %61 = load i8, ptr %60, align 2, !tbaa !13
+  %62 = zext i8 %61 to i32
+  switch i32 %62, label %64 [
+    i32 19, label %63
+    i32 139, label %63
+    i32 145, label %63
+  ]
+
+63:                                               ; preds = %56, %56, %56
+  br label %68
+
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @recff_stitch(ptr noundef %65)
+  %66 = load ptr, ptr %4, align 8, !tbaa !46
+  %67 = getelementptr inbounds nuw %struct.RecordFFData, ptr %66, i32 0, i32 1
+  store i64 -1, ptr %67, align 8, !tbaa !36
+  store i32 1, ptr %6, align 4
+  br label %70
+
+68:                                               ; preds = %63
+  br label %69
+
+69:                                               ; preds = %68, %53, %50, %47, %34
+  store i32 0, ptr %6, align 4
+  br label %70
+
+70:                                               ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %71 = load i32, ptr %6, align 4
+  switch i32 %71, label %78 [
+    i32 0, label %72
+    i32 1, label %77
+  ]
+
+72:                                               ; preds = %70
+  br label %73
+
+73:                                               ; preds = %72, %24, %19
+  %74 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lj_record_stop(ptr noundef %74, i32 noundef 7, i32 noundef 0)
+  %75 = load ptr, ptr %4, align 8, !tbaa !46
+  %76 = getelementptr inbounds nuw %struct.RecordFFData, ptr %75, i32 0, i32 1
+  store i64 -1, ptr %76, align 8, !tbaa !36
+  br label %77
+
+77:                                               ; preds = %70, %73
+  ret void
+
+78:                                               ; preds = %70
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_assert(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.jit_State, ptr %5, i32 0, i32 8
+  %7 = load i32, ptr %6, align 4, !tbaa !42
+  %8 = zext i32 %7 to i64
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = getelementptr inbounds nuw %struct.RecordFFData, ptr %9, i32 0, i32 1
+  store i64 %8, ptr %10, align 8, !tbaa !36
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_type(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %4, align 8, !tbaa !46
+  %7 = getelementptr inbounds nuw %struct.RecordFFData, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %9 = getelementptr inbounds %union.TValue, ptr %8, i64 0
+  %10 = load i64, ptr %9, align 8, !tbaa !13
+  %11 = ashr i64 %10, 47
+  %12 = trunc i64 %11 to i32
+  %13 = icmp ule i32 %12, -14
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  store i32 13, ptr %5, align 4, !tbaa !9
+  br label %24
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !46
+  %17 = getelementptr inbounds nuw %struct.RecordFFData, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %19 = getelementptr inbounds %union.TValue, ptr %18, i64 0
+  %20 = load i64, ptr %19, align 8, !tbaa !13
+  %21 = ashr i64 %20, 47
+  %22 = trunc i64 %21 to i32
+  %23 = xor i32 %22, -1
+  store i32 %23, ptr %5, align 4, !tbaa !9
+  br label %24
+
+24:                                               ; preds = %15, %14
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw %struct.jit_State, ptr %26, i32 0, i32 4
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
+  %29 = getelementptr inbounds nuw %struct.GCfuncC, ptr %28, i32 0, i32 9
+  %30 = load i32, ptr %5, align 4, !tbaa !9
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw [1 x %union.TValue], ptr %29, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw %struct.GCRef, ptr %32, i32 0, i32 0
+  %34 = load i64, ptr %33, align 8, !tbaa !13
+  %35 = and i64 %34, 140737488355327
+  %36 = inttoptr i64 %35 to ptr
+  %37 = call i32 @lj_ir_kgc(ptr noundef %25, ptr noundef %36, i32 noundef 4)
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.jit_State, ptr %38, i32 0, i32 6
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %41 = getelementptr inbounds i32, ptr %40, i64 0
+  store i32 %37, ptr %41, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_next(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.RecordIndex, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = getelementptr inbounds i32, ptr %11, i64 0
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %13, ptr %5, align 4, !tbaa !9
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = and i32 %14, 520093696
+  %16 = icmp eq i32 %15, 184549376
+  br i1 %16, label %17, label %121
+
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 72, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 6
+  store i32 %18, ptr %19, align 8, !tbaa !50
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds i32, ptr %22, i64 1
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = and i32 %24, 520093696
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %36
+
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = call i32 @lj_ir_kint(ptr noundef %28, i32 noundef 0)
+  %30 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 7
+  store i32 %29, ptr %30, align 4, !tbaa !53
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds i8, ptr %31, i64 -832
+  %33 = getelementptr inbounds nuw %struct.GG_State, ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.global_State, ptr %33, i32 0, i32 14
+  %35 = getelementptr inbounds nuw %struct.Node, ptr %34, i32 0, i32 0
+  store ptr %35, ptr %7, align 8, !tbaa !11
+  br label %53
+
+36:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.jit_State, ptr %38, i32 0, i32 6
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %41 = getelementptr inbounds i32, ptr %40, i64 1
+  %42 = load i32, ptr %41, align 4, !tbaa !9
+  %43 = call i32 @recff_tmpref(ptr noundef %37, i32 noundef %42, i32 noundef 1)
+  store i32 %43, ptr %8, align 4, !tbaa !9
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = load i32, ptr %5, align 4, !tbaa !9
+  %46 = load i32, ptr %8, align 4, !tbaa !9
+  %47 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %44, i32 noundef 36, i32 noundef %45, i32 noundef %46)
+  %48 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 7
+  store i32 %47, ptr %48, align 4, !tbaa !53
+  %49 = load ptr, ptr %4, align 8, !tbaa !46
+  %50 = getelementptr inbounds nuw %struct.RecordFFData, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !40
+  %52 = getelementptr inbounds %union.TValue, ptr %51, i64 1
+  store ptr %52, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %53
+
+53:                                               ; preds = %36, %27
+  %54 = load ptr, ptr %3, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.jit_State, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !37
+  %57 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 0
+  %58 = load ptr, ptr %4, align 8, !tbaa !46
+  %59 = getelementptr inbounds nuw %struct.RecordFFData, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !40
+  %61 = getelementptr inbounds %union.TValue, ptr %60, i64 0
+  call void @copyTV(ptr noundef %56, ptr noundef %57, ptr noundef %61)
+  %62 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %struct.GCRef, ptr %62, i32 0, i32 0
+  %64 = load i64, ptr %63, align 8, !tbaa !13
+  %65 = and i64 %64, 140737488355327
+  %66 = inttoptr i64 %65 to ptr
+  %67 = load ptr, ptr %7, align 8, !tbaa !11
+  %68 = call i32 @lj_tab_keyindex(ptr noundef %66, ptr noundef %67)
+  %69 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 1
+  %70 = getelementptr inbounds nuw %struct.anon.0, ptr %69, i32 0, i32 0
+  store i32 %68, ptr %70, align 8, !tbaa !13
+  %71 = load ptr, ptr %3, align 8, !tbaa !4
+  %72 = getelementptr inbounds nuw %struct.jit_State, ptr %71, i32 0, i32 21
+  %73 = load i32, ptr %72, align 4, !tbaa !49
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %99
+
+75:                                               ; preds = %53
+  %76 = load ptr, ptr %3, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw %struct.jit_State, ptr %76, i32 0, i32 2
+  %78 = load ptr, ptr %77, align 8, !tbaa !37
+  %79 = getelementptr inbounds nuw %struct.lua_State, ptr %78, i32 0, i32 7
+  %80 = load ptr, ptr %79, align 8, !tbaa !38
+  %81 = getelementptr inbounds %union.TValue, ptr %80, i64 -1
+  %82 = load i64, ptr %81, align 8, !tbaa !13
+  %83 = and i64 %82, 3
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %99
+
+85:                                               ; preds = %75
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = getelementptr inbounds nuw %struct.jit_State, ptr %86, i32 0, i32 2
+  %88 = load ptr, ptr %87, align 8, !tbaa !37
+  %89 = getelementptr inbounds nuw %struct.lua_State, ptr %88, i32 0, i32 7
+  %90 = load ptr, ptr %89, align 8, !tbaa !38
+  %91 = getelementptr inbounds %union.TValue, ptr %90, i64 -1
+  %92 = load i64, ptr %91, align 8, !tbaa !13
+  %93 = inttoptr i64 %92 to ptr
+  %94 = getelementptr inbounds i32, ptr %93, i64 -1
+  %95 = load i32, ptr %94, align 4, !tbaa !9
+  %96 = lshr i32 %95, 24
+  %97 = sub i32 %96, 1
+  %98 = icmp ult i32 %97, 2
+  br label %99
+
+99:                                               ; preds = %85, %75, %53
+  %100 = phi i1 [ false, %75 ], [ false, %53 ], [ %98, %85 ]
+  %101 = zext i1 %100 to i32
+  %102 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 11
+  store i32 %101, ptr %102, align 4, !tbaa !54
+  %103 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 10
+  store i32 0, ptr %103, align 8, !tbaa !55
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = call i32 @lj_record_next(ptr noundef %104, ptr noundef %6)
+  %106 = sext i32 %105 to i64
+  %107 = load ptr, ptr %4, align 8, !tbaa !46
+  %108 = getelementptr inbounds nuw %struct.RecordFFData, ptr %107, i32 0, i32 1
+  store i64 %106, ptr %108, align 8, !tbaa !36
+  %109 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 7
+  %110 = load i32, ptr %109, align 4, !tbaa !53
+  %111 = load ptr, ptr %3, align 8, !tbaa !4
+  %112 = getelementptr inbounds nuw %struct.jit_State, ptr %111, i32 0, i32 6
+  %113 = load ptr, ptr %112, align 8, !tbaa !41
+  %114 = getelementptr inbounds i32, ptr %113, i64 0
+  store i32 %110, ptr %114, align 4, !tbaa !9
+  %115 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 8
+  %116 = load i32, ptr %115, align 8, !tbaa !56
+  %117 = load ptr, ptr %3, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw %struct.jit_State, ptr %117, i32 0, i32 6
+  %119 = load ptr, ptr %118, align 8, !tbaa !41
+  %120 = getelementptr inbounds i32, ptr %119, i64 1
+  store i32 %116, ptr %120, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr %6) #9
+  br label %121
+
+121:                                              ; preds = %99, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_xpairs(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = getelementptr inbounds i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = and i32 %11, 520093696
+  %13 = icmp eq i32 %12, 167772160
+  br i1 %13, label %14, label %23
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = load ptr, ptr %4, align 8, !tbaa !46
+  %17 = load ptr, ptr %4, align 8, !tbaa !46
+  %18 = getelementptr inbounds nuw %struct.RecordFFData, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !34
+  %20 = add i32 20, %19
+  %21 = call i32 @recff_metacall(ptr noundef %15, ptr noundef %16, i32 noundef %20)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %65, label %23
+
+23:                                               ; preds = %14, %2
+  %24 = load i32, ptr %5, align 4, !tbaa !9
+  %25 = and i32 %24, 520093696
+  %26 = icmp eq i32 %25, 184549376
+  br i1 %26, label %27, label %64
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 4
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %32 = getelementptr inbounds nuw %struct.GCfuncC, ptr %31, i32 0, i32 9
+  %33 = getelementptr inbounds [1 x %union.TValue], ptr %32, i64 0, i64 0
+  %34 = getelementptr inbounds nuw %struct.GCRef, ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %34, align 8, !tbaa !13
+  %36 = and i64 %35, 140737488355327
+  %37 = inttoptr i64 %36 to ptr
+  %38 = call i32 @lj_ir_kgc(ptr noundef %28, ptr noundef %37, i32 noundef 8)
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.jit_State, ptr %39, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
+  %42 = getelementptr inbounds i32, ptr %41, i64 0
+  store i32 %38, ptr %42, align 4, !tbaa !9
+  %43 = load i32, ptr %5, align 4, !tbaa !9
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw %struct.jit_State, ptr %44, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8, !tbaa !41
+  %47 = getelementptr inbounds i32, ptr %46, i64 1
+  store i32 %43, ptr %47, align 4, !tbaa !9
+  %48 = load ptr, ptr %4, align 8, !tbaa !46
+  %49 = getelementptr inbounds nuw %struct.RecordFFData, ptr %48, i32 0, i32 2
+  %50 = load i32, ptr %49, align 8, !tbaa !34
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %55
+
+52:                                               ; preds = %27
+  %53 = load ptr, ptr %3, align 8, !tbaa !4
+  %54 = call i32 @lj_ir_kint(ptr noundef %53, i32 noundef 0)
+  br label %56
+
+55:                                               ; preds = %27
+  br label %56
+
+56:                                               ; preds = %55, %52
+  %57 = phi i32 [ %54, %52 ], [ 32767, %55 ]
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw %struct.jit_State, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8, !tbaa !41
+  %61 = getelementptr inbounds i32, ptr %60, i64 2
+  store i32 %57, ptr %61, align 4, !tbaa !9
+  %62 = load ptr, ptr %4, align 8, !tbaa !46
+  %63 = getelementptr inbounds nuw %struct.RecordFFData, ptr %62, i32 0, i32 1
+  store i64 3, ptr %63, align 8, !tbaa !36
+  br label %64
+
+64:                                               ; preds = %56, %23
+  br label %65
+
+65:                                               ; preds = %64, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_ipairs_aux(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.RecordIndex, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 72, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = getelementptr inbounds i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  store i32 %10, ptr %11, align 8, !tbaa !50
+  %12 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  %13 = load i32, ptr %12, align 8, !tbaa !50
+  %14 = and i32 %13, 520093696
+  %15 = icmp eq i32 %14, 184549376
+  br i1 %15, label %16, label %88
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !46
+  %18 = getelementptr inbounds nuw %struct.RecordFFData, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !40
+  %20 = getelementptr inbounds %union.TValue, ptr %19, i64 1
+  %21 = load i64, ptr %20, align 8, !tbaa !13
+  %22 = ashr i64 %21, 47
+  %23 = trunc i64 %22 to i32
+  %24 = icmp ule i32 %23, -14
+  br i1 %24, label %27, label %25
+
+25:                                               ; preds = %16
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %26, i32 noundef 11) #10
+  unreachable
+
+27:                                               ; preds = %16
+  %28 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 1
+  %29 = load ptr, ptr %4, align 8, !tbaa !46
+  %30 = getelementptr inbounds nuw %struct.RecordFFData, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %32 = getelementptr inbounds %union.TValue, ptr %31, i64 1
+  %33 = call i32 @numberVint(ptr noundef %32)
+  %34 = add nsw i32 %33, 1
+  call void @setintV(ptr noundef %28, i32 noundef %34)
+  %35 = load ptr, ptr %3, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.jit_State, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !37
+  %38 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 0
+  %39 = load ptr, ptr %4, align 8, !tbaa !46
+  %40 = getelementptr inbounds nuw %struct.RecordFFData, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !40
+  %42 = getelementptr inbounds %union.TValue, ptr %41, i64 0
+  %43 = getelementptr inbounds nuw %struct.GCRef, ptr %42, i32 0, i32 0
+  %44 = load i64, ptr %43, align 8, !tbaa !13
+  %45 = and i64 %44, 140737488355327
+  %46 = inttoptr i64 %45 to ptr
+  call void @settabV(ptr noundef %37, ptr noundef %38, ptr noundef %46)
+  %47 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 8
+  store i32 0, ptr %47, align 8, !tbaa !56
+  %48 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 11
+  store i32 0, ptr %48, align 4, !tbaa !54
+  %49 = load ptr, ptr %3, align 8, !tbaa !4
+  %50 = load ptr, ptr %3, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.jit_State, ptr %50, i32 0, i32 6
+  %52 = load ptr, ptr %51, align 8, !tbaa !41
+  %53 = getelementptr inbounds i32, ptr %52, i64 1
+  %54 = load i32, ptr %53, align 4, !tbaa !9
+  %55 = call i32 @lj_opt_narrow_toint(ptr noundef %49, i32 noundef %54)
+  %56 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  store i32 %55, ptr %56, align 4, !tbaa !53
+  %57 = load ptr, ptr %3, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  %59 = load i32, ptr %58, align 4, !tbaa !53
+  %60 = trunc i32 %59 to i16
+  %61 = load ptr, ptr %3, align 8, !tbaa !4
+  %62 = call i32 @lj_ir_kint(ptr noundef %61, i32 noundef 1)
+  %63 = trunc i32 %62 to i16
+  call void @lj_ir_set_(ptr noundef %57, i16 noundef zeroext 10515, i16 noundef zeroext %60, i16 noundef zeroext %63)
+  %64 = load ptr, ptr %3, align 8, !tbaa !4
+  %65 = call i32 @lj_opt_fold(ptr noundef %64)
+  %66 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  store i32 %65, ptr %66, align 4, !tbaa !53
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.jit_State, ptr %67, i32 0, i32 6
+  %69 = load ptr, ptr %68, align 8, !tbaa !41
+  %70 = getelementptr inbounds i32, ptr %69, i64 0
+  store i32 %65, ptr %70, align 4, !tbaa !9
+  %71 = load ptr, ptr %3, align 8, !tbaa !4
+  %72 = call i32 @lj_record_idx(ptr noundef %71, ptr noundef %5)
+  %73 = load ptr, ptr %3, align 8, !tbaa !4
+  %74 = getelementptr inbounds nuw %struct.jit_State, ptr %73, i32 0, i32 6
+  %75 = load ptr, ptr %74, align 8, !tbaa !41
+  %76 = getelementptr inbounds i32, ptr %75, i64 1
+  store i32 %72, ptr %76, align 4, !tbaa !9
+  %77 = load ptr, ptr %3, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw %struct.jit_State, ptr %77, i32 0, i32 6
+  %79 = load ptr, ptr %78, align 8, !tbaa !41
+  %80 = getelementptr inbounds i32, ptr %79, i64 1
+  %81 = load i32, ptr %80, align 4, !tbaa !9
+  %82 = and i32 %81, 520093696
+  %83 = icmp eq i32 %82, 0
+  %84 = select i1 %83, i32 0, i32 2
+  %85 = sext i32 %84 to i64
+  %86 = load ptr, ptr %4, align 8, !tbaa !46
+  %87 = getelementptr inbounds nuw %struct.RecordFFData, ptr %86, i32 0, i32 1
+  store i64 %85, ptr %87, align 8, !tbaa !36
+  br label %88
+
+88:                                               ; preds = %27, %2
+  call void @llvm.lifetime.end.p0(i64 72, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_getmetatable(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.RecordIndex, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds i32, ptr %9, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %11, ptr %5, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %43
+
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 72, ptr %6) #9
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 6
+  store i32 %15, ptr %16, align 8, !tbaa !50
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.jit_State, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %20 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 0
+  %21 = load ptr, ptr %4, align 8, !tbaa !46
+  %22 = getelementptr inbounds nuw %struct.RecordFFData, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !40
+  %24 = getelementptr inbounds %union.TValue, ptr %23, i64 0
+  call void @copyTV(ptr noundef %19, ptr noundef %20, ptr noundef %24)
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = call i32 @lj_record_mm_lookup(ptr noundef %25, ptr noundef %6, i32 noundef 17)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %35
+
+28:                                               ; preds = %14
+  %29 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 10
+  %30 = load i32, ptr %29, align 8, !tbaa !55
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.jit_State, ptr %31, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  %34 = getelementptr inbounds i32, ptr %33, i64 0
+  store i32 %30, ptr %34, align 4, !tbaa !9
+  br label %42
+
+35:                                               ; preds = %14
+  %36 = getelementptr inbounds nuw %struct.RecordIndex, ptr %6, i32 0, i32 9
+  %37 = load i32, ptr %36, align 4, !tbaa !57
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.jit_State, ptr %38, i32 0, i32 6
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %41 = getelementptr inbounds i32, ptr %40, i64 0
+  store i32 %37, ptr %41, align 4, !tbaa !9
+  br label %42
+
+42:                                               ; preds = %35, %28
+  call void @llvm.lifetime.end.p0(i64 72, ptr %6) #9
+  br label %43
+
+43:                                               ; preds = %42, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_setmetatable(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %struct.RecordIndex, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.jit_State, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %13 = getelementptr inbounds i32, ptr %12, i64 0
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %14, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 1
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  store i32 %19, ptr %6, align 4, !tbaa !9
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = and i32 %20, 520093696
+  %22 = icmp eq i32 %21, 184549376
+  br i1 %22, label %23, label %86
+
+23:                                               ; preds = %2
+  %24 = load i32, ptr %6, align 4, !tbaa !9
+  %25 = and i32 %24, 520093696
+  %26 = icmp eq i32 %25, 184549376
+  br i1 %26, label %34, label %27
+
+27:                                               ; preds = %23
+  %28 = load i32, ptr %6, align 4, !tbaa !9
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %86
+
+30:                                               ; preds = %27
+  %31 = load i32, ptr %6, align 4, !tbaa !9
+  %32 = and i32 %31, 520093696
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %86
+
+34:                                               ; preds = %30, %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 72, ptr %9) #9
+  %35 = load i32, ptr %5, align 4, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.RecordIndex, ptr %9, i32 0, i32 6
+  store i32 %35, ptr %36, align 8, !tbaa !50
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.jit_State, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %40 = getelementptr inbounds nuw %struct.RecordIndex, ptr %9, i32 0, i32 0
+  %41 = load ptr, ptr %4, align 8, !tbaa !46
+  %42 = getelementptr inbounds nuw %struct.RecordFFData, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !40
+  %44 = getelementptr inbounds %union.TValue, ptr %43, i64 0
+  call void @copyTV(ptr noundef %39, ptr noundef %40, ptr noundef %44)
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = call i32 @lj_record_mm_lookup(ptr noundef %45, ptr noundef %9, i32 noundef 17)
+  %47 = load ptr, ptr %3, align 8, !tbaa !4
+  %48 = load i32, ptr %5, align 4, !tbaa !9
+  %49 = trunc i32 %48 to i16
+  call void @lj_ir_set_(ptr noundef %47, i16 noundef zeroext 15881, i16 noundef zeroext %49, i16 noundef zeroext 5)
+  %50 = load ptr, ptr %3, align 8, !tbaa !4
+  %51 = call i32 @lj_opt_fold(ptr noundef %50)
+  store i32 %51, ptr %7, align 4, !tbaa !9
+  %52 = load i32, ptr %6, align 4, !tbaa !9
+  %53 = and i32 %52, 520093696
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %58
+
+55:                                               ; preds = %34
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = call i32 @lj_ir_knull(ptr noundef %56, i32 noundef 11)
+  br label %60
+
+58:                                               ; preds = %34
+  %59 = load i32, ptr %6, align 4, !tbaa !9
+  br label %60
+
+60:                                               ; preds = %58, %55
+  %61 = phi i32 [ %57, %55 ], [ %59, %58 ]
+  store i32 %61, ptr %8, align 4, !tbaa !9
+  %62 = load ptr, ptr %3, align 8, !tbaa !4
+  %63 = load i32, ptr %7, align 4, !tbaa !9
+  %64 = trunc i32 %63 to i16
+  %65 = load i32, ptr %8, align 4, !tbaa !9
+  %66 = trunc i32 %65 to i16
+  call void @lj_ir_set_(ptr noundef %62, i16 noundef zeroext 19723, i16 noundef zeroext %64, i16 noundef zeroext %66)
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = call i32 @lj_opt_fold(ptr noundef %67)
+  %69 = load i32, ptr %6, align 4, !tbaa !9
+  %70 = and i32 %69, 520093696
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %78, label %72
+
+72:                                               ; preds = %60
+  %73 = load ptr, ptr %3, align 8, !tbaa !4
+  %74 = load i32, ptr %5, align 4, !tbaa !9
+  %75 = trunc i32 %74 to i16
+  call void @lj_ir_set_(ptr noundef %73, i16 noundef zeroext 22528, i16 noundef zeroext %75, i16 noundef zeroext 0)
+  %76 = load ptr, ptr %3, align 8, !tbaa !4
+  %77 = call i32 @lj_opt_fold(ptr noundef %76)
+  br label %78
+
+78:                                               ; preds = %72, %60
+  %79 = load i32, ptr %5, align 4, !tbaa !9
+  %80 = load ptr, ptr %3, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.jit_State, ptr %80, i32 0, i32 6
+  %82 = load ptr, ptr %81, align 8, !tbaa !41
+  %83 = getelementptr inbounds i32, ptr %82, i64 0
+  store i32 %79, ptr %83, align 4, !tbaa !9
+  %84 = load ptr, ptr %3, align 8, !tbaa !4
+  %85 = getelementptr inbounds nuw %struct.jit_State, ptr %84, i32 0, i32 11
+  store i8 1, ptr %85, align 1, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 72, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  br label %86
+
+86:                                               ; preds = %78, %30, %27, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_getfenv(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.jit_State, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %11 = getelementptr inbounds i32, ptr %10, i64 0
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = and i32 %13, 520093696
+  %15 = icmp eq i32 %14, 318767104
+  br i1 %15, label %16, label %45
+
+16:                                               ; preds = %2
+  %17 = load i32, ptr %5, align 4, !tbaa !9
+  %18 = trunc i32 %17 to i16
+  %19 = zext i16 %18 to i32
+  %20 = icmp slt i32 %19, 32768
+  br i1 %20, label %21, label %45
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.GCtrace, ptr %23, i32 0, i32 7
+  %25 = load ptr, ptr %24, align 8, !tbaa !59
+  %26 = load i32, ptr %5, align 4, !tbaa !9
+  %27 = trunc i32 %26 to i16
+  %28 = zext i16 %27 to i64
+  %29 = getelementptr inbounds nuw %union.IRIns, ptr %25, i64 %28
+  %30 = load i32, ptr %29, align 8, !tbaa !13
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %45
+
+32:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %33 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lj_ir_set_(ptr noundef %33, i16 noundef zeroext 16646, i16 noundef zeroext 0, i16 noundef zeroext 0)
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = call i32 @lj_opt_fold(ptr noundef %34)
+  store i32 %35, ptr %6, align 4, !tbaa !9
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = load i32, ptr %6, align 4, !tbaa !9
+  %38 = trunc i32 %37 to i16
+  call void @lj_ir_set_(ptr noundef %36, i16 noundef zeroext 17675, i16 noundef zeroext %38, i16 noundef zeroext 4)
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = call i32 @lj_opt_fold(ptr noundef %39)
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.jit_State, ptr %41, i32 0, i32 6
+  %43 = load ptr, ptr %42, align 8, !tbaa !41
+  %44 = getelementptr inbounds i32, ptr %43, i64 0
+  store i32 %40, ptr %44, align 4, !tbaa !9
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  br label %48
+
+45:                                               ; preds = %21, %16, %2
+  %46 = load ptr, ptr %3, align 8, !tbaa !4
+  %47 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %46, ptr noundef %47)
+  store i32 0, ptr %7, align 4
+  br label %48
+
+48:                                               ; preds = %45, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %49 = load i32, ptr %7, align 4
+  switch i32 %49, label %51 [
+    i32 0, label %50
+    i32 1, label %50
+  ]
+
+50:                                               ; preds = %48, %48
+  ret void
+
+51:                                               ; preds = %48
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_rawget(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.RecordIndex, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 72, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = getelementptr inbounds i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  store i32 %10, ptr %11, align 8, !tbaa !50
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw %struct.jit_State, ptr %12, i32 0, i32 6
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
+  %15 = getelementptr inbounds i32, ptr %14, i64 1
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  store i32 %16, ptr %17, align 4, !tbaa !53
+  %18 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  %19 = load i32, ptr %18, align 8, !tbaa !50
+  %20 = and i32 %19, 520093696
+  %21 = icmp eq i32 %20, 184549376
+  br i1 %21, label %22, label %55
+
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  %24 = load i32, ptr %23, align 4, !tbaa !53
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %55
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 8
+  store i32 0, ptr %27, align 8, !tbaa !56
+  %28 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 11
+  store i32 0, ptr %28, align 4, !tbaa !54
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !37
+  %32 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 0
+  %33 = load ptr, ptr %4, align 8, !tbaa !46
+  %34 = getelementptr inbounds nuw %struct.RecordFFData, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !40
+  %36 = getelementptr inbounds %union.TValue, ptr %35, i64 0
+  %37 = getelementptr inbounds nuw %struct.GCRef, ptr %36, i32 0, i32 0
+  %38 = load i64, ptr %37, align 8, !tbaa !13
+  %39 = and i64 %38, 140737488355327
+  %40 = inttoptr i64 %39 to ptr
+  call void @settabV(ptr noundef %31, ptr noundef %32, ptr noundef %40)
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.jit_State, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8, !tbaa !37
+  %44 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 1
+  %45 = load ptr, ptr %4, align 8, !tbaa !46
+  %46 = getelementptr inbounds nuw %struct.RecordFFData, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !40
+  %48 = getelementptr inbounds %union.TValue, ptr %47, i64 1
+  call void @copyTV(ptr noundef %43, ptr noundef %44, ptr noundef %48)
+  %49 = load ptr, ptr %3, align 8, !tbaa !4
+  %50 = call i32 @lj_record_idx(ptr noundef %49, ptr noundef %5)
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw %struct.jit_State, ptr %51, i32 0, i32 6
+  %53 = load ptr, ptr %52, align 8, !tbaa !41
+  %54 = getelementptr inbounds i32, ptr %53, i64 0
+  store i32 %50, ptr %54, align 4, !tbaa !9
+  br label %55
+
+55:                                               ; preds = %26, %22, %2
+  call void @llvm.lifetime.end.p0(i64 72, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_rawset(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.RecordIndex, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 72, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = getelementptr inbounds i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  store i32 %10, ptr %11, align 8, !tbaa !50
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw %struct.jit_State, ptr %12, i32 0, i32 6
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
+  %15 = getelementptr inbounds i32, ptr %14, i64 1
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  store i32 %16, ptr %17, align 4, !tbaa !53
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw %struct.jit_State, ptr %18, i32 0, i32 6
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %21 = getelementptr inbounds i32, ptr %20, i64 2
+  %22 = load i32, ptr %21, align 4, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 8
+  store i32 %22, ptr %23, align 8, !tbaa !56
+  %24 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  %25 = load i32, ptr %24, align 8, !tbaa !50
+  %26 = and i32 %25, 520093696
+  %27 = icmp eq i32 %26, 184549376
+  br i1 %27, label %28, label %68
+
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  %30 = load i32, ptr %29, align 4, !tbaa !53
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %68
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 8
+  %34 = load i32, ptr %33, align 8, !tbaa !56
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %68
+
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 11
+  store i32 0, ptr %37, align 4, !tbaa !54
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.jit_State, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  %41 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 0
+  %42 = load ptr, ptr %4, align 8, !tbaa !46
+  %43 = getelementptr inbounds nuw %struct.RecordFFData, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !40
+  %45 = getelementptr inbounds %union.TValue, ptr %44, i64 0
+  %46 = getelementptr inbounds nuw %struct.GCRef, ptr %45, i32 0, i32 0
+  %47 = load i64, ptr %46, align 8, !tbaa !13
+  %48 = and i64 %47, 140737488355327
+  %49 = inttoptr i64 %48 to ptr
+  call void @settabV(ptr noundef %40, ptr noundef %41, ptr noundef %49)
+  %50 = load ptr, ptr %3, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.jit_State, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8, !tbaa !37
+  %53 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 1
+  %54 = load ptr, ptr %4, align 8, !tbaa !46
+  %55 = getelementptr inbounds nuw %struct.RecordFFData, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !40
+  %57 = getelementptr inbounds %union.TValue, ptr %56, i64 1
+  call void @copyTV(ptr noundef %52, ptr noundef %53, ptr noundef %57)
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw %struct.jit_State, ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8, !tbaa !37
+  %61 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 2
+  %62 = load ptr, ptr %4, align 8, !tbaa !46
+  %63 = getelementptr inbounds nuw %struct.RecordFFData, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !40
+  %65 = getelementptr inbounds %union.TValue, ptr %64, i64 2
+  call void @copyTV(ptr noundef %60, ptr noundef %61, ptr noundef %65)
+  %66 = load ptr, ptr %3, align 8, !tbaa !4
+  %67 = call i32 @lj_record_idx(ptr noundef %66, ptr noundef %5)
+  br label %68
+
+68:                                               ; preds = %36, %32, %28, %2
+  call void @llvm.lifetime.end.p0(i64 72, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_rawequal(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.jit_State, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %11 = getelementptr inbounds i32, ptr %10, i64 0
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.jit_State, ptr %13, i32 0, i32 6
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %16 = getelementptr inbounds i32, ptr %15, i64 1
+  %17 = load i32, ptr %16, align 4, !tbaa !9
+  store i32 %17, ptr %6, align 4, !tbaa !9
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %43
+
+20:                                               ; preds = %2
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %43
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = load i32, ptr %5, align 4, !tbaa !9
+  %26 = load i32, ptr %6, align 4, !tbaa !9
+  %27 = load ptr, ptr %4, align 8, !tbaa !46
+  %28 = getelementptr inbounds nuw %struct.RecordFFData, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !40
+  %30 = getelementptr inbounds %union.TValue, ptr %29, i64 0
+  %31 = load ptr, ptr %4, align 8, !tbaa !46
+  %32 = getelementptr inbounds nuw %struct.RecordFFData, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !40
+  %34 = getelementptr inbounds %union.TValue, ptr %33, i64 1
+  %35 = call i32 @lj_record_objcmp(ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef %30, ptr noundef %34)
+  store i32 %35, ptr %7, align 4, !tbaa !9
+  %36 = load i32, ptr %7, align 4, !tbaa !9
+  %37 = icmp ne i32 %36, 0
+  %38 = select i1 %37, i32 16809982, i32 33587197
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.jit_State, ptr %39, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
+  %42 = getelementptr inbounds i32, ptr %41, i64 0
+  store i32 %38, ptr %42, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  br label %43
+
+43:                                               ; preds = %23, %20, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_select(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.jit_State, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %13 = getelementptr inbounds i32, ptr %12, i64 0
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %14, ptr %5, align 4, !tbaa !9
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %104
+
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = load i32, ptr %5, align 4, !tbaa !9
+  %20 = load ptr, ptr %4, align 8, !tbaa !46
+  %21 = getelementptr inbounds nuw %struct.RecordFFData, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !40
+  %23 = getelementptr inbounds %union.TValue, ptr %22, i64 0
+  %24 = call i32 @lj_ffrecord_select_mode(ptr noundef %18, i32 noundef %19, ptr noundef %23)
+  %25 = sext i32 %24 to i64
+  store i64 %25, ptr %6, align 8, !tbaa !60
+  %26 = load i64, ptr %6, align 8, !tbaa !60
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %39
+
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load ptr, ptr %3, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.jit_State, ptr %30, i32 0, i32 8
+  %32 = load i32, ptr %31, align 4, !tbaa !42
+  %33 = sub i32 %32, 1
+  %34 = call i32 @lj_ir_kint(ptr noundef %29, i32 noundef %33)
+  %35 = load ptr, ptr %3, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.jit_State, ptr %35, i32 0, i32 6
+  %37 = load ptr, ptr %36, align 8, !tbaa !41
+  %38 = getelementptr inbounds i32, ptr %37, i64 0
+  store i32 %34, ptr %38, align 4, !tbaa !9
+  br label %100
+
+39:                                               ; preds = %17
+  %40 = load i32, ptr %5, align 4, !tbaa !9
+  %41 = trunc i32 %40 to i16
+  %42 = zext i16 %41 to i32
+  %43 = icmp slt i32 %42, 32768
+  br i1 %43, label %44, label %96
+
+44:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.jit_State, ptr %45, i32 0, i32 8
+  %47 = load i32, ptr %46, align 4, !tbaa !42
+  %48 = zext i32 %47 to i64
+  store i64 %48, ptr %7, align 8, !tbaa !60
+  %49 = load i64, ptr %6, align 8, !tbaa !60
+  %50 = icmp slt i64 %49, 0
+  br i1 %50, label %51, label %55
+
+51:                                               ; preds = %44
+  %52 = load i64, ptr %7, align 8, !tbaa !60
+  %53 = load i64, ptr %6, align 8, !tbaa !60
+  %54 = add nsw i64 %53, %52
+  store i64 %54, ptr %6, align 8, !tbaa !60
+  br label %62
+
+55:                                               ; preds = %44
+  %56 = load i64, ptr %6, align 8, !tbaa !60
+  %57 = load i64, ptr %7, align 8, !tbaa !60
+  %58 = icmp sgt i64 %56, %57
+  br i1 %58, label %59, label %61
+
+59:                                               ; preds = %55
+  %60 = load i64, ptr %7, align 8, !tbaa !60
+  store i64 %60, ptr %6, align 8, !tbaa !60
+  br label %61
+
+61:                                               ; preds = %59, %55
+  br label %62
+
+62:                                               ; preds = %61, %51
+  %63 = load i64, ptr %6, align 8, !tbaa !60
+  %64 = icmp sge i64 %63, 1
+  br i1 %64, label %65, label %95
+
+65:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %66 = load i64, ptr %7, align 8, !tbaa !60
+  %67 = load i64, ptr %6, align 8, !tbaa !60
+  %68 = sub nsw i64 %66, %67
+  %69 = load ptr, ptr %4, align 8, !tbaa !46
+  %70 = getelementptr inbounds nuw %struct.RecordFFData, ptr %69, i32 0, i32 1
+  store i64 %68, ptr %70, align 8, !tbaa !36
+  store i64 0, ptr %8, align 8, !tbaa !60
+  br label %71
+
+71:                                               ; preds = %91, %65
+  %72 = load i64, ptr %8, align 8, !tbaa !60
+  %73 = load i64, ptr %7, align 8, !tbaa !60
+  %74 = load i64, ptr %6, align 8, !tbaa !60
+  %75 = sub nsw i64 %73, %74
+  %76 = icmp slt i64 %72, %75
+  br i1 %76, label %77, label %94
+
+77:                                               ; preds = %71
+  %78 = load ptr, ptr %3, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw %struct.jit_State, ptr %78, i32 0, i32 6
+  %80 = load ptr, ptr %79, align 8, !tbaa !41
+  %81 = load i64, ptr %6, align 8, !tbaa !60
+  %82 = load i64, ptr %8, align 8, !tbaa !60
+  %83 = add nsw i64 %81, %82
+  %84 = getelementptr inbounds i32, ptr %80, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !9
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = getelementptr inbounds nuw %struct.jit_State, ptr %86, i32 0, i32 6
+  %88 = load ptr, ptr %87, align 8, !tbaa !41
+  %89 = load i64, ptr %8, align 8, !tbaa !60
+  %90 = getelementptr inbounds i32, ptr %88, i64 %89
+  store i32 %85, ptr %90, align 4, !tbaa !9
+  br label %91
+
+91:                                               ; preds = %77
+  %92 = load i64, ptr %8, align 8, !tbaa !60
+  %93 = add nsw i64 %92, 1
+  store i64 %93, ptr %8, align 8, !tbaa !60
+  br label %71, !llvm.loop !61
+
+94:                                               ; preds = %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  br label %95
+
+95:                                               ; preds = %94, %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  br label %99
+
+96:                                               ; preds = %39
+  %97 = load ptr, ptr %3, align 8, !tbaa !4
+  %98 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %97, ptr noundef %98)
+  store i32 1, ptr %9, align 4
+  br label %101
+
+99:                                               ; preds = %95
+  br label %100
+
+100:                                              ; preds = %99, %28
+  store i32 0, ptr %9, align 4
+  br label %101
+
+101:                                              ; preds = %100, %96
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %102 = load i32, ptr %9, align 4
+  switch i32 %102, label %105 [
+    i32 0, label %103
+  ]
+
+103:                                              ; preds = %101
+  br label %104
+
+104:                                              ; preds = %103, %2
+  store i32 0, ptr %9, align 4
+  br label %105
+
+105:                                              ; preds = %104, %101
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %106 = load i32, ptr %9, align 4
+  switch i32 %106, label %108 [
+    i32 0, label %107
+    i32 1, label %107
+  ]
+
+107:                                              ; preds = %105, %105
+  ret void
+
+108:                                              ; preds = %105
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_tonumber(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %union.TValue, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = getelementptr inbounds i32, ptr %11, i64 0
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %13, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.jit_State, ptr %14, i32 0, i32 6
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %17 = getelementptr inbounds i32, ptr %16, i64 1
+  %18 = load i32, ptr %17, align 4, !tbaa !9
+  store i32 %18, ptr %6, align 4, !tbaa !9
+  %19 = load i32, ptr %5, align 4, !tbaa !9
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %48
+
+21:                                               ; preds = %2
+  %22 = load i32, ptr %6, align 4, !tbaa !9
+  %23 = and i32 %22, 520093696
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %48, label %25
+
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = load i32, ptr %6, align 4, !tbaa !9
+  %28 = call i32 @lj_opt_narrow_toint(ptr noundef %26, i32 noundef %27)
+  store i32 %28, ptr %6, align 4, !tbaa !9
+  %29 = load i32, ptr %6, align 4, !tbaa !9
+  %30 = trunc i32 %29 to i16
+  %31 = zext i16 %30 to i32
+  %32 = icmp slt i32 %31, 32768
+  br i1 %32, label %33, label %44
+
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.jit_State, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.GCtrace, ptr %35, i32 0, i32 7
+  %37 = load ptr, ptr %36, align 8, !tbaa !59
+  %38 = load i32, ptr %6, align 4, !tbaa !9
+  %39 = trunc i32 %38 to i16
+  %40 = zext i16 %39 to i64
+  %41 = getelementptr inbounds nuw %union.IRIns, ptr %37, i64 %40
+  %42 = load i32, ptr %41, align 8, !tbaa !13
+  %43 = icmp ne i32 %42, 10
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %33, %25
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %45, ptr noundef %46)
+  store i32 1, ptr %7, align 4
+  br label %101
+
+47:                                               ; preds = %33
+  br label %48
+
+48:                                               ; preds = %47, %21, %2
+  %49 = load i32, ptr %5, align 4, !tbaa !9
+  %50 = lshr i32 %49, 24
+  %51 = and i32 %50, 31
+  %52 = sub i32 %51, 14
+  %53 = icmp ule i32 %52, 5
+  br i1 %53, label %58, label %54
+
+54:                                               ; preds = %48
+  %55 = load i32, ptr %5, align 4, !tbaa !9
+  %56 = and i32 %55, 520093696
+  %57 = icmp eq i32 %56, 67108864
+  br i1 %57, label %58, label %86
+
+58:                                               ; preds = %54, %48
+  %59 = load i32, ptr %5, align 4, !tbaa !9
+  %60 = and i32 %59, 520093696
+  %61 = icmp eq i32 %60, 67108864
+  br i1 %61, label %62, label %85
+
+62:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %63 = load ptr, ptr %4, align 8, !tbaa !46
+  %64 = getelementptr inbounds nuw %struct.RecordFFData, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8, !tbaa !40
+  %66 = getelementptr inbounds %union.TValue, ptr %65, i64 0
+  %67 = getelementptr inbounds nuw %struct.GCRef, ptr %66, i32 0, i32 0
+  %68 = load i64, ptr %67, align 8, !tbaa !13
+  %69 = and i64 %68, 140737488355327
+  %70 = inttoptr i64 %69 to ptr
+  %71 = call i32 @lj_strscan_num(ptr noundef %70, ptr noundef %8)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %76, label %73
+
+73:                                               ; preds = %62
+  %74 = load ptr, ptr %3, align 8, !tbaa !4
+  %75 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %74, ptr noundef %75)
+  store i32 1, ptr %7, align 4
+  br label %82
+
+76:                                               ; preds = %62
+  %77 = load ptr, ptr %3, align 8, !tbaa !4
+  %78 = load i32, ptr %5, align 4, !tbaa !9
+  %79 = trunc i32 %78 to i16
+  call void @lj_ir_set_(ptr noundef %77, i16 noundef zeroext 24206, i16 noundef zeroext %79, i16 noundef zeroext 0)
+  %80 = load ptr, ptr %3, align 8, !tbaa !4
+  %81 = call i32 @lj_opt_fold(ptr noundef %80)
+  store i32 %81, ptr %5, align 4, !tbaa !9
+  store i32 0, ptr %7, align 4
+  br label %82
+
+82:                                               ; preds = %76, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  %83 = load i32, ptr %7, align 4
+  switch i32 %83, label %101 [
+    i32 0, label %84
+  ]
+
+84:                                               ; preds = %82
+  br label %85
+
+85:                                               ; preds = %84, %58
+  br label %95
+
+86:                                               ; preds = %54
+  %87 = load i32, ptr %5, align 4, !tbaa !9
+  %88 = and i32 %87, 520093696
+  %89 = icmp eq i32 %88, 167772160
+  br i1 %89, label %90, label %93
+
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @lj_crecord_tonumber(ptr noundef %91, ptr noundef %92)
+  store i32 1, ptr %7, align 4
+  br label %101
+
+93:                                               ; preds = %86
+  store i32 32767, ptr %5, align 4, !tbaa !9
+  br label %94
+
+94:                                               ; preds = %93
+  br label %95
+
+95:                                               ; preds = %94, %85
+  %96 = load i32, ptr %5, align 4, !tbaa !9
+  %97 = load ptr, ptr %3, align 8, !tbaa !4
+  %98 = getelementptr inbounds nuw %struct.jit_State, ptr %97, i32 0, i32 6
+  %99 = load ptr, ptr %98, align 8, !tbaa !41
+  %100 = getelementptr inbounds i32, ptr %99, i64 0
+  store i32 %96, ptr %100, align 4, !tbaa !9
+  store i32 0, ptr %7, align 4
+  br label %101
+
+101:                                              ; preds = %95, %90, %82, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %102 = load i32, ptr %7, align 4
+  switch i32 %102, label %104 [
+    i32 0, label %103
+    i32 1, label %103
+  ]
+
+103:                                              ; preds = %101, %101
+  ret void
+
+104:                                              ; preds = %101
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_tostring(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds i32, ptr %9, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %11, ptr %5, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = and i32 %12, 520093696
+  %14 = icmp eq i32 %13, 67108864
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %2
+  br label %72
+
+16:                                               ; preds = %2
+  %17 = load i32, ptr %5, align 4, !tbaa !9
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %71
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = load ptr, ptr %4, align 8, !tbaa !46
+  %22 = call i32 @recff_metacall(ptr noundef %20, ptr noundef %21, i32 noundef 18)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %71, label %24
+
+24:                                               ; preds = %19
+  %25 = load i32, ptr %5, align 4, !tbaa !9
+  %26 = lshr i32 %25, 24
+  %27 = and i32 %26, 31
+  %28 = sub i32 %27, 14
+  %29 = icmp ule i32 %28, 5
+  br i1 %29, label %30, label %45
+
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  %33 = trunc i32 %32 to i16
+  %34 = load i32, ptr %5, align 4, !tbaa !9
+  %35 = and i32 %34, 520093696
+  %36 = icmp eq i32 %35, 234881024
+  %37 = select i1 %36, i32 1, i32 0
+  %38 = trunc i32 %37 to i16
+  call void @lj_ir_set_(ptr noundef %31, i16 noundef zeroext 23812, i16 noundef zeroext %33, i16 noundef zeroext %38)
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = call i32 @lj_opt_fold(ptr noundef %39)
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.jit_State, ptr %41, i32 0, i32 6
+  %43 = load ptr, ptr %42, align 8, !tbaa !41
+  %44 = getelementptr inbounds i32, ptr %43, i64 0
+  store i32 %40, ptr %44, align 4, !tbaa !9
+  br label %70
+
+45:                                               ; preds = %24
+  %46 = load i32, ptr %5, align 4, !tbaa !9
+  %47 = lshr i32 %46, 24
+  %48 = and i32 %47, 31
+  %49 = sub i32 %48, 0
+  %50 = icmp ule i32 %49, 2
+  br i1 %50, label %51, label %66
+
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %3, align 8, !tbaa !4
+  %53 = load ptr, ptr %3, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw %struct.jit_State, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8, !tbaa !37
+  %56 = load ptr, ptr %4, align 8, !tbaa !46
+  %57 = getelementptr inbounds nuw %struct.RecordFFData, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  %59 = getelementptr inbounds %union.TValue, ptr %58, i64 0
+  %60 = call ptr @lj_strfmt_obj(ptr noundef %55, ptr noundef %59)
+  %61 = call i32 @lj_ir_kgc(ptr noundef %52, ptr noundef %60, i32 noundef 4)
+  %62 = load ptr, ptr %3, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw %struct.jit_State, ptr %62, i32 0, i32 6
+  %64 = load ptr, ptr %63, align 8, !tbaa !41
+  %65 = getelementptr inbounds i32, ptr %64, i64 0
+  store i32 %61, ptr %65, align 4, !tbaa !9
+  br label %69
+
+66:                                               ; preds = %45
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %67, ptr noundef %68)
+  store i32 1, ptr %6, align 4
+  br label %73
+
+69:                                               ; preds = %51
+  br label %70
+
+70:                                               ; preds = %69, %30
+  br label %71
+
+71:                                               ; preds = %70, %19, %16
+  br label %72
+
+72:                                               ; preds = %71, %15
+  store i32 0, ptr %6, align 4
+  br label %73
+
+73:                                               ; preds = %72, %66
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %74 = load i32, ptr %6, align 4
+  switch i32 %74, label %76 [
+    i32 0, label %75
+    i32 1, label %75
+  ]
+
+75:                                               ; preds = %73, %73
+  ret void
+
+76:                                               ; preds = %73
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_pcall(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.jit_State, ptr %5, i32 0, i32 8
+  %7 = load i32, ptr %6, align 4, !tbaa !42
+  %8 = icmp uge i32 %7, 1
+  br i1 %8, label %9, label %32
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.jit_State, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %13 = getelementptr inbounds i32, ptr %12, i64 1
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.jit_State, ptr %14, i32 0, i32 6
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.jit_State, ptr %17, i32 0, i32 8
+  %19 = load i32, ptr %18, align 4, !tbaa !42
+  %20 = zext i32 %19 to i64
+  %21 = mul i64 4, %20
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %16, i64 %21, i1 false)
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.jit_State, ptr %23, i32 0, i32 8
+  %25 = load i32, ptr %24, align 4, !tbaa !42
+  %26 = sub i32 %25, 1
+  %27 = zext i32 %26 to i64
+  call void @lj_record_call(ptr noundef %22, i32 noundef 0, i64 noundef %27)
+  %28 = load ptr, ptr %4, align 8, !tbaa !46
+  %29 = getelementptr inbounds nuw %struct.RecordFFData, ptr %28, i32 0, i32 1
+  store i64 -1, ptr %29, align 8, !tbaa !36
+  %30 = load ptr, ptr %3, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.jit_State, ptr %30, i32 0, i32 11
+  store i8 1, ptr %31, align 1, !tbaa !58
+  br label %32
+
+32:                                               ; preds = %9, %2
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_xpcall(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.TValue, align 8
+  %6 = alloca %union.TValue, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 8
+  %11 = load i32, ptr %10, align 4, !tbaa !42
+  %12 = icmp uge i32 %11, 2
+  br i1 %12, label %13, label %106
+
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.jit_State, ptr %14, i32 0, i32 6
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %17 = getelementptr inbounds i32, ptr %16, i64 0
+  %18 = load i32, ptr %17, align 4, !tbaa !9
+  store i32 %18, ptr %7, align 4, !tbaa !9
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.jit_State, ptr %19, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %22 = getelementptr inbounds i32, ptr %21, i64 1
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.jit_State, ptr %24, i32 0, i32 6
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
+  %27 = getelementptr inbounds i32, ptr %26, i64 0
+  store i32 %23, ptr %27, align 4, !tbaa !9
+  %28 = load i32, ptr %7, align 4, !tbaa !9
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %32 = getelementptr inbounds i32, ptr %31, i64 1
+  store i32 %28, ptr %32, align 4, !tbaa !9
+  %33 = load ptr, ptr %3, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw %struct.jit_State, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !37
+  %36 = load ptr, ptr %4, align 8, !tbaa !46
+  %37 = getelementptr inbounds nuw %struct.RecordFFData, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !40
+  %39 = getelementptr inbounds %union.TValue, ptr %38, i64 0
+  call void @copyTV(ptr noundef %35, ptr noundef %5, ptr noundef %39)
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.jit_State, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !37
+  %43 = load ptr, ptr %4, align 8, !tbaa !46
+  %44 = getelementptr inbounds nuw %struct.RecordFFData, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !40
+  %46 = getelementptr inbounds %union.TValue, ptr %45, i64 1
+  call void @copyTV(ptr noundef %42, ptr noundef %6, ptr noundef %46)
+  %47 = load ptr, ptr %3, align 8, !tbaa !4
+  %48 = getelementptr inbounds nuw %struct.jit_State, ptr %47, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8, !tbaa !37
+  %50 = load ptr, ptr %4, align 8, !tbaa !46
+  %51 = getelementptr inbounds nuw %struct.RecordFFData, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !40
+  %53 = getelementptr inbounds %union.TValue, ptr %52, i64 0
+  call void @copyTV(ptr noundef %49, ptr noundef %53, ptr noundef %6)
+  %54 = load ptr, ptr %3, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.jit_State, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !37
+  %57 = load ptr, ptr %4, align 8, !tbaa !46
+  %58 = getelementptr inbounds nuw %struct.RecordFFData, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !40
+  %60 = getelementptr inbounds %union.TValue, ptr %59, i64 1
+  call void @copyTV(ptr noundef %56, ptr noundef %60, ptr noundef %5)
+  %61 = load ptr, ptr %3, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.jit_State, ptr %61, i32 0, i32 6
+  %63 = load ptr, ptr %62, align 8, !tbaa !41
+  %64 = getelementptr inbounds i32, ptr %63, i64 2
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw %struct.jit_State, ptr %65, i32 0, i32 6
+  %67 = load ptr, ptr %66, align 8, !tbaa !41
+  %68 = getelementptr inbounds i32, ptr %67, i64 1
+  %69 = load ptr, ptr %3, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.jit_State, ptr %69, i32 0, i32 8
+  %71 = load i32, ptr %70, align 4, !tbaa !42
+  %72 = sub i32 %71, 1
+  %73 = zext i32 %72 to i64
+  %74 = mul i64 4, %73
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %64, ptr align 4 %68, i64 %74, i1 false)
+  %75 = load ptr, ptr %3, align 8, !tbaa !4
+  %76 = getelementptr inbounds nuw %struct.jit_State, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8, !tbaa !37
+  %78 = load ptr, ptr %3, align 8, !tbaa !4
+  %79 = call i32 @lj_vm_cpcall(ptr noundef %77, ptr noundef null, ptr noundef %78, ptr noundef @recff_xpcall_cp)
+  store i32 %79, ptr %8, align 4, !tbaa !9
+  %80 = load ptr, ptr %3, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.jit_State, ptr %80, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8, !tbaa !37
+  %83 = load ptr, ptr %4, align 8, !tbaa !46
+  %84 = getelementptr inbounds nuw %struct.RecordFFData, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8, !tbaa !40
+  %86 = getelementptr inbounds %union.TValue, ptr %85, i64 0
+  call void @copyTV(ptr noundef %82, ptr noundef %86, ptr noundef %5)
+  %87 = load ptr, ptr %3, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw %struct.jit_State, ptr %87, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8, !tbaa !37
+  %90 = load ptr, ptr %4, align 8, !tbaa !46
+  %91 = getelementptr inbounds nuw %struct.RecordFFData, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8, !tbaa !40
+  %93 = getelementptr inbounds %union.TValue, ptr %92, i64 1
+  call void @copyTV(ptr noundef %89, ptr noundef %93, ptr noundef %6)
+  %94 = load i32, ptr %8, align 4, !tbaa !9
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %101
+
+96:                                               ; preds = %13
+  %97 = load ptr, ptr %3, align 8, !tbaa !4
+  %98 = getelementptr inbounds nuw %struct.jit_State, ptr %97, i32 0, i32 2
+  %99 = load ptr, ptr %98, align 8, !tbaa !37
+  %100 = load i32, ptr %8, align 4, !tbaa !9
+  call void @lj_err_throw(ptr noundef %99, i32 noundef %100) #10
+  unreachable
+
+101:                                              ; preds = %13
+  %102 = load ptr, ptr %4, align 8, !tbaa !46
+  %103 = getelementptr inbounds nuw %struct.RecordFFData, ptr %102, i32 0, i32 1
+  store i64 -1, ptr %103, align 8, !tbaa !36
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = getelementptr inbounds nuw %struct.jit_State, ptr %104, i32 0, i32 11
+  store i8 1, ptr %105, align 1, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  br label %106
+
+106:                                              ; preds = %101, %2
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_abs(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds i32, ptr %9, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = call i32 @lj_ir_tonum(ptr noundef %6, i32 noundef %11)
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = trunc i32 %14 to i16
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.jit_State, ptr %17, i32 0, i32 24
+  %19 = getelementptr inbounds [5 x %union.TValue], ptr %18, i64 0, i64 0
+  %20 = ptrtoint ptr %19 to i64
+  %21 = add nsw i64 %20, 15
+  %22 = and i64 %21, -16
+  %23 = inttoptr i64 %22 to ptr
+  %24 = ptrtoint ptr %23 to i64
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = getelementptr inbounds i8, ptr %25, i64 -832
+  %27 = ptrtoint ptr %26 to i64
+  %28 = sub i64 %24, %27
+  %29 = call i32 @lj_ir_ggfload(ptr noundef %16, i32 noundef 14, i64 noundef %28)
+  %30 = trunc i32 %29 to i16
+  call void @lj_ir_set_(ptr noundef %13, i16 noundef zeroext 12302, i16 noundef zeroext %15, i16 noundef zeroext %30)
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = call i32 @lj_opt_fold(ptr noundef %31)
+  %33 = load ptr, ptr %3, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw %struct.jit_State, ptr %33, i32 0, i32 6
+  %35 = load ptr, ptr %34, align 8, !tbaa !41
+  %36 = getelementptr inbounds i32, ptr %35, i64 0
+  store i32 %32, ptr %36, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_round(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = getelementptr inbounds i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = lshr i32 %11, 24
+  %13 = and i32 %12, 31
+  %14 = sub i32 %13, 15
+  %15 = icmp ule i32 %14, 4
+  br i1 %15, label %33, label %16
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = load i32, ptr %5, align 4, !tbaa !9
+  %20 = call i32 @lj_ir_tonum(ptr noundef %18, i32 noundef %19)
+  %21 = trunc i32 %20 to i16
+  %22 = load ptr, ptr %4, align 8, !tbaa !46
+  %23 = getelementptr inbounds nuw %struct.RecordFFData, ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 8, !tbaa !34
+  %25 = trunc i32 %24 to i16
+  call void @lj_ir_set_(ptr noundef %17, i16 noundef zeroext 13326, i16 noundef zeroext %21, i16 noundef zeroext %25)
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = call i32 @lj_opt_fold(ptr noundef %26)
+  store i32 %27, ptr %5, align 4, !tbaa !9
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %32 = getelementptr inbounds i32, ptr %31, i64 0
+  store i32 %28, ptr %32, align 4, !tbaa !9
+  br label %33
+
+33:                                               ; preds = %16, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_unary(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds i32, ptr %9, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = call i32 @lj_ir_tonum(ptr noundef %6, i32 noundef %11)
+  %13 = trunc i32 %12 to i16
+  %14 = load ptr, ptr %4, align 8, !tbaa !46
+  %15 = getelementptr inbounds nuw %struct.RecordFFData, ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 8, !tbaa !34
+  %17 = trunc i32 %16 to i16
+  call void @lj_ir_set_(ptr noundef %5, i16 noundef zeroext 13326, i16 noundef zeroext %13, i16 noundef zeroext %17)
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = call i32 @lj_opt_fold(ptr noundef %18)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds i32, ptr %22, i64 0
+  store i32 %19, ptr %23, align 4, !tbaa !9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_call(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds i32, ptr %9, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = call i32 @lj_ir_tonum(ptr noundef %6, i32 noundef %11)
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = trunc i32 %14 to i16
+  %16 = load ptr, ptr %4, align 8, !tbaa !46
+  %17 = getelementptr inbounds nuw %struct.RecordFFData, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8, !tbaa !34
+  %19 = trunc i32 %18 to i16
+  call void @lj_ir_set_(ptr noundef %13, i16 noundef zeroext 24334, i16 noundef zeroext %15, i16 noundef zeroext %19)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = call i32 @lj_opt_fold(ptr noundef %20)
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %25 = getelementptr inbounds i32, ptr %24, i64 0
+  store i32 %21, ptr %25, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_log(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = getelementptr inbounds i32, ptr %11, i64 0
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = call i32 @lj_ir_tonum(ptr noundef %8, i32 noundef %13)
+  store i32 %14, ptr %5, align 4, !tbaa !9
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 1
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %58
+
+21:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  store i32 5, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.jit_State, ptr %23, i32 0, i32 6
+  %25 = load ptr, ptr %24, align 8, !tbaa !41
+  %26 = getelementptr inbounds i32, ptr %25, i64 1
+  %27 = load i32, ptr %26, align 4, !tbaa !9
+  %28 = call i32 @lj_ir_tonum(ptr noundef %22, i32 noundef %27)
+  store i32 %28, ptr %7, align 4, !tbaa !9
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load i32, ptr %5, align 4, !tbaa !9
+  %31 = trunc i32 %30 to i16
+  %32 = load i32, ptr %6, align 4, !tbaa !9
+  %33 = trunc i32 %32 to i16
+  call void @lj_ir_set_(ptr noundef %29, i16 noundef zeroext 13326, i16 noundef zeroext %31, i16 noundef zeroext %33)
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = call i32 @lj_opt_fold(ptr noundef %34)
+  store i32 %35, ptr %5, align 4, !tbaa !9
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = load i32, ptr %7, align 4, !tbaa !9
+  %38 = trunc i32 %37 to i16
+  %39 = load i32, ptr %6, align 4, !tbaa !9
+  %40 = trunc i32 %39 to i16
+  call void @lj_ir_set_(ptr noundef %36, i16 noundef zeroext 13326, i16 noundef zeroext %38, i16 noundef zeroext %40)
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = call i32 @lj_opt_fold(ptr noundef %41)
+  store i32 %42, ptr %7, align 4, !tbaa !9
+  %43 = load ptr, ptr %3, align 8, !tbaa !4
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = call i32 @lj_ir_knum_u64(ptr noundef %44, i64 noundef 4607182418800017408)
+  %46 = trunc i32 %45 to i16
+  %47 = load i32, ptr %7, align 4, !tbaa !9
+  %48 = trunc i32 %47 to i16
+  call void @lj_ir_set_(ptr noundef %43, i16 noundef zeroext 11278, i16 noundef zeroext %46, i16 noundef zeroext %48)
+  %49 = load ptr, ptr %3, align 8, !tbaa !4
+  %50 = call i32 @lj_opt_fold(ptr noundef %49)
+  store i32 %50, ptr %7, align 4, !tbaa !9
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = load i32, ptr %5, align 4, !tbaa !9
+  %53 = trunc i32 %52 to i16
+  %54 = load i32, ptr %7, align 4, !tbaa !9
+  %55 = trunc i32 %54 to i16
+  call void @lj_ir_set_(ptr noundef %51, i16 noundef zeroext 11022, i16 noundef zeroext %53, i16 noundef zeroext %55)
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = call i32 @lj_opt_fold(ptr noundef %56)
+  store i32 %57, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  br label %64
+
+58:                                               ; preds = %2
+  %59 = load ptr, ptr %3, align 8, !tbaa !4
+  %60 = load i32, ptr %5, align 4, !tbaa !9
+  %61 = trunc i32 %60 to i16
+  call void @lj_ir_set_(ptr noundef %59, i16 noundef zeroext 13326, i16 noundef zeroext %61, i16 noundef zeroext 4)
+  %62 = load ptr, ptr %3, align 8, !tbaa !4
+  %63 = call i32 @lj_opt_fold(ptr noundef %62)
+  store i32 %63, ptr %5, align 4, !tbaa !9
+  br label %64
+
+64:                                               ; preds = %58, %21
+  %65 = load i32, ptr %5, align 4, !tbaa !9
+  %66 = load ptr, ptr %3, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw %struct.jit_State, ptr %66, i32 0, i32 6
+  %68 = load ptr, ptr %67, align 8, !tbaa !41
+  %69 = getelementptr inbounds i32, ptr %68, i64 0
+  store i32 %65, ptr %69, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_atan2(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.jit_State, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %11 = getelementptr inbounds i32, ptr %10, i64 0
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %13 = call i32 @lj_ir_tonum(ptr noundef %7, i32 noundef %12)
+  store i32 %13, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 1
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = call i32 @lj_ir_tonum(ptr noundef %14, i32 noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = load i32, ptr %5, align 4, !tbaa !9
+  %23 = load i32, ptr %6, align 4, !tbaa !9
+  %24 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %21, i32 noundef 66, i32 noundef %22, i32 noundef %23)
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.jit_State, ptr %25, i32 0, i32 6
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %28 = getelementptr inbounds i32, ptr %27, i64 0
+  store i32 %24, ptr %28, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_pow(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = getelementptr inbounds i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.jit_State, ptr %11, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %14 = getelementptr inbounds i32, ptr %13, i64 1
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = load ptr, ptr %4, align 8, !tbaa !46
+  %17 = getelementptr inbounds nuw %struct.RecordFFData, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %19 = getelementptr inbounds %union.TValue, ptr %18, i64 0
+  %20 = load ptr, ptr %4, align 8, !tbaa !46
+  %21 = getelementptr inbounds nuw %struct.RecordFFData, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !40
+  %23 = getelementptr inbounds %union.TValue, ptr %22, i64 1
+  %24 = call i32 @lj_opt_narrow_arith(ptr noundef %5, i32 noundef %10, i32 noundef %15, ptr noundef %19, ptr noundef %23, i32 noundef 46)
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.jit_State, ptr %25, i32 0, i32 6
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %28 = getelementptr inbounds i32, ptr %27, i64 0
+  store i32 %24, ptr %28, align 4, !tbaa !9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_ldexp(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.jit_State, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %11 = getelementptr inbounds i32, ptr %10, i64 0
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %13 = call i32 @lj_ir_tonum(ptr noundef %7, i32 noundef %12)
+  store i32 %13, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 1
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = call i32 @lj_ir_tonum(ptr noundef %14, i32 noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = load i32, ptr %5, align 4, !tbaa !9
+  %23 = trunc i32 %22 to i16
+  %24 = load i32, ptr %6, align 4, !tbaa !9
+  %25 = trunc i32 %24 to i16
+  call void @lj_ir_set_(ptr noundef %21, i16 noundef zeroext 12558, i16 noundef zeroext %23, i16 noundef zeroext %25)
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = call i32 @lj_opt_fold(ptr noundef %26)
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.jit_State, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = getelementptr inbounds i32, ptr %30, i64 0
+  store i32 %27, ptr %31, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_minmax(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.jit_State, ptr %11, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %14 = getelementptr inbounds i32, ptr %13, i64 0
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = call i32 @lj_ir_tonumber(ptr noundef %10, i32 noundef %15)
+  store i32 %16, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %17 = load ptr, ptr %4, align 8, !tbaa !46
+  %18 = getelementptr inbounds nuw %struct.RecordFFData, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !34
+  store i32 %19, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 1, ptr %7, align 4, !tbaa !9
+  br label %20
+
+20:                                               ; preds = %88, %2
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.jit_State, ptr %21, i32 0, i32 6
+  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  %24 = load i32, ptr %7, align 4, !tbaa !9
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %27 = load i32, ptr %26, align 4, !tbaa !9
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %91
+
+29:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %30 = load ptr, ptr %3, align 8, !tbaa !4
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.jit_State, ptr %31, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  %34 = load i32, ptr %7, align 4, !tbaa !9
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !9
+  %38 = call i32 @lj_ir_tonumber(ptr noundef %30, i32 noundef %37)
+  store i32 %38, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  store i32 19, ptr %9, align 4, !tbaa !9
+  %39 = load i32, ptr %5, align 4, !tbaa !9
+  %40 = lshr i32 %39, 24
+  %41 = and i32 %40, 31
+  %42 = sub i32 %41, 15
+  %43 = icmp ule i32 %42, 4
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %29
+  %45 = load i32, ptr %8, align 4, !tbaa !9
+  %46 = lshr i32 %45, 24
+  %47 = and i32 %46, 31
+  %48 = sub i32 %47, 15
+  %49 = icmp ule i32 %48, 4
+  br i1 %49, label %75, label %50
+
+50:                                               ; preds = %44, %29
+  %51 = load i32, ptr %5, align 4, !tbaa !9
+  %52 = lshr i32 %51, 24
+  %53 = and i32 %52, 31
+  %54 = sub i32 %53, 15
+  %55 = icmp ule i32 %54, 4
+  br i1 %55, label %56, label %62
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %3, align 8, !tbaa !4
+  %58 = load i32, ptr %5, align 4, !tbaa !9
+  %59 = trunc i32 %58 to i16
+  call void @lj_ir_set_(ptr noundef %57, i16 noundef zeroext 23310, i16 noundef zeroext %59, i16 noundef zeroext 467)
+  %60 = load ptr, ptr %3, align 8, !tbaa !4
+  %61 = call i32 @lj_opt_fold(ptr noundef %60)
+  store i32 %61, ptr %5, align 4, !tbaa !9
+  br label %62
+
+62:                                               ; preds = %56, %50
+  %63 = load i32, ptr %8, align 4, !tbaa !9
+  %64 = lshr i32 %63, 24
+  %65 = and i32 %64, 31
+  %66 = sub i32 %65, 15
+  %67 = icmp ule i32 %66, 4
+  br i1 %67, label %68, label %74
+
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %3, align 8, !tbaa !4
+  %70 = load i32, ptr %8, align 4, !tbaa !9
+  %71 = trunc i32 %70 to i16
+  call void @lj_ir_set_(ptr noundef %69, i16 noundef zeroext 23310, i16 noundef zeroext %71, i16 noundef zeroext 467)
+  %72 = load ptr, ptr %3, align 8, !tbaa !4
+  %73 = call i32 @lj_opt_fold(ptr noundef %72)
+  store i32 %73, ptr %8, align 4, !tbaa !9
+  br label %74
+
+74:                                               ; preds = %68, %62
+  store i32 14, ptr %9, align 4, !tbaa !9
+  br label %75
+
+75:                                               ; preds = %74, %44
+  %76 = load ptr, ptr %3, align 8, !tbaa !4
+  %77 = load i32, ptr %6, align 4, !tbaa !9
+  %78 = shl i32 %77, 8
+  %79 = load i32, ptr %9, align 4, !tbaa !9
+  %80 = or i32 %78, %79
+  %81 = trunc i32 %80 to i16
+  %82 = load i32, ptr %5, align 4, !tbaa !9
+  %83 = trunc i32 %82 to i16
+  %84 = load i32, ptr %8, align 4, !tbaa !9
+  %85 = trunc i32 %84 to i16
+  call void @lj_ir_set_(ptr noundef %76, i16 noundef zeroext %81, i16 noundef zeroext %83, i16 noundef zeroext %85)
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = call i32 @lj_opt_fold(ptr noundef %86)
+  store i32 %87, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %88
+
+88:                                               ; preds = %75
+  %89 = load i32, ptr %7, align 4, !tbaa !9
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %7, align 4, !tbaa !9
+  br label %20, !llvm.loop !63
+
+91:                                               ; preds = %20
+  %92 = load i32, ptr %5, align 4, !tbaa !9
+  %93 = load ptr, ptr %3, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw %struct.jit_State, ptr %93, i32 0, i32 6
+  %95 = load ptr, ptr %94, align 8, !tbaa !41
+  %96 = getelementptr inbounds i32, ptr %95, i64 0
+  store i32 %92, ptr %96, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_math_random(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.jit_State, ptr %10, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
+  %13 = getelementptr inbounds nuw %struct.GCfuncC, ptr %12, i32 0, i32 9
+  %14 = getelementptr inbounds [1 x %union.TValue], ptr %13, i64 0, i64 0
+  %15 = getelementptr inbounds nuw %struct.GCRef, ptr %14, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8, !tbaa !13
+  %17 = and i64 %16, 140737488355327
+  %18 = inttoptr i64 %17 to ptr
+  store ptr %18, ptr %5, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = load ptr, ptr %5, align 8, !tbaa !64
+  %21 = call i32 @lj_ir_kgc(ptr noundef %19, ptr noundef %20, i32 noundef 12)
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = load ptr, ptr %5, align 8, !tbaa !64
+  %25 = getelementptr inbounds %struct.GCudata, ptr %24, i64 1
+  %26 = call i32 @lj_ir_kptr_(ptr noundef %23, i32 noundef 25, ptr noundef %25)
+  %27 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %22, i32 noundef 43, i32 noundef %26)
+  store i32 %27, ptr %6, align 4, !tbaa !9
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = call i32 @lj_ir_knum_u64(ptr noundef %28, i64 noundef 4607182418800017408)
+  store i32 %29, ptr %7, align 4, !tbaa !9
+  %30 = load ptr, ptr %3, align 8, !tbaa !4
+  %31 = load i32, ptr %6, align 4, !tbaa !9
+  %32 = trunc i32 %31 to i16
+  %33 = load i32, ptr %7, align 4, !tbaa !9
+  %34 = trunc i32 %33 to i16
+  call void @lj_ir_set_(ptr noundef %30, i16 noundef zeroext 10766, i16 noundef zeroext %32, i16 noundef zeroext %34)
+  %35 = load ptr, ptr %3, align 8, !tbaa !4
+  %36 = call i32 @lj_opt_fold(ptr noundef %35)
+  store i32 %36, ptr %6, align 4, !tbaa !9
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.jit_State, ptr %37, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8, !tbaa !41
+  %40 = getelementptr inbounds i32, ptr %39, i64 0
+  %41 = load i32, ptr %40, align 4, !tbaa !9
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %119
+
+43:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.jit_State, ptr %45, i32 0, i32 6
+  %47 = load ptr, ptr %46, align 8, !tbaa !41
+  %48 = getelementptr inbounds i32, ptr %47, i64 0
+  %49 = load i32, ptr %48, align 4, !tbaa !9
+  %50 = call i32 @lj_ir_tonum(ptr noundef %44, i32 noundef %49)
+  store i32 %50, ptr %8, align 4, !tbaa !9
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw %struct.jit_State, ptr %51, i32 0, i32 6
+  %53 = load ptr, ptr %52, align 8, !tbaa !41
+  %54 = getelementptr inbounds i32, ptr %53, i64 1
+  %55 = load i32, ptr %54, align 4, !tbaa !9
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %98
+
+57:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = load ptr, ptr %3, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw %struct.jit_State, ptr %59, i32 0, i32 6
+  %61 = load ptr, ptr %60, align 8, !tbaa !41
+  %62 = getelementptr inbounds i32, ptr %61, i64 1
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  %64 = call i32 @lj_ir_tonum(ptr noundef %58, i32 noundef %63)
+  store i32 %64, ptr %9, align 4, !tbaa !9
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  %66 = load i32, ptr %9, align 4, !tbaa !9
+  %67 = trunc i32 %66 to i16
+  %68 = load i32, ptr %8, align 4, !tbaa !9
+  %69 = trunc i32 %68 to i16
+  call void @lj_ir_set_(ptr noundef %65, i16 noundef zeroext 10766, i16 noundef zeroext %67, i16 noundef zeroext %69)
+  %70 = load ptr, ptr %3, align 8, !tbaa !4
+  %71 = call i32 @lj_opt_fold(ptr noundef %70)
+  store i32 %71, ptr %9, align 4, !tbaa !9
+  %72 = load ptr, ptr %3, align 8, !tbaa !4
+  %73 = load i32, ptr %9, align 4, !tbaa !9
+  %74 = trunc i32 %73 to i16
+  %75 = load i32, ptr %7, align 4, !tbaa !9
+  %76 = trunc i32 %75 to i16
+  call void @lj_ir_set_(ptr noundef %72, i16 noundef zeroext 10510, i16 noundef zeroext %74, i16 noundef zeroext %76)
+  %77 = load ptr, ptr %3, align 8, !tbaa !4
+  %78 = call i32 @lj_opt_fold(ptr noundef %77)
+  store i32 %78, ptr %9, align 4, !tbaa !9
+  %79 = load ptr, ptr %3, align 8, !tbaa !4
+  %80 = load i32, ptr %6, align 4, !tbaa !9
+  %81 = trunc i32 %80 to i16
+  %82 = load i32, ptr %9, align 4, !tbaa !9
+  %83 = trunc i32 %82 to i16
+  call void @lj_ir_set_(ptr noundef %79, i16 noundef zeroext 11022, i16 noundef zeroext %81, i16 noundef zeroext %83)
+  %84 = load ptr, ptr %3, align 8, !tbaa !4
+  %85 = call i32 @lj_opt_fold(ptr noundef %84)
+  store i32 %85, ptr %6, align 4, !tbaa !9
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = load i32, ptr %6, align 4, !tbaa !9
+  %88 = trunc i32 %87 to i16
+  call void @lj_ir_set_(ptr noundef %86, i16 noundef zeroext 13326, i16 noundef zeroext %88, i16 noundef zeroext 0)
+  %89 = load ptr, ptr %3, align 8, !tbaa !4
+  %90 = call i32 @lj_opt_fold(ptr noundef %89)
+  store i32 %90, ptr %6, align 4, !tbaa !9
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = load i32, ptr %6, align 4, !tbaa !9
+  %93 = trunc i32 %92 to i16
+  %94 = load i32, ptr %8, align 4, !tbaa !9
+  %95 = trunc i32 %94 to i16
+  call void @lj_ir_set_(ptr noundef %91, i16 noundef zeroext 10510, i16 noundef zeroext %93, i16 noundef zeroext %95)
+  %96 = load ptr, ptr %3, align 8, !tbaa !4
+  %97 = call i32 @lj_opt_fold(ptr noundef %96)
+  store i32 %97, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  br label %118
+
+98:                                               ; preds = %43
+  %99 = load ptr, ptr %3, align 8, !tbaa !4
+  %100 = load i32, ptr %6, align 4, !tbaa !9
+  %101 = trunc i32 %100 to i16
+  %102 = load i32, ptr %8, align 4, !tbaa !9
+  %103 = trunc i32 %102 to i16
+  call void @lj_ir_set_(ptr noundef %99, i16 noundef zeroext 11022, i16 noundef zeroext %101, i16 noundef zeroext %103)
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = call i32 @lj_opt_fold(ptr noundef %104)
+  store i32 %105, ptr %6, align 4, !tbaa !9
+  %106 = load ptr, ptr %3, align 8, !tbaa !4
+  %107 = load i32, ptr %6, align 4, !tbaa !9
+  %108 = trunc i32 %107 to i16
+  call void @lj_ir_set_(ptr noundef %106, i16 noundef zeroext 13326, i16 noundef zeroext %108, i16 noundef zeroext 0)
+  %109 = load ptr, ptr %3, align 8, !tbaa !4
+  %110 = call i32 @lj_opt_fold(ptr noundef %109)
+  store i32 %110, ptr %6, align 4, !tbaa !9
+  %111 = load ptr, ptr %3, align 8, !tbaa !4
+  %112 = load i32, ptr %6, align 4, !tbaa !9
+  %113 = trunc i32 %112 to i16
+  %114 = load i32, ptr %7, align 4, !tbaa !9
+  %115 = trunc i32 %114 to i16
+  call void @lj_ir_set_(ptr noundef %111, i16 noundef zeroext 10510, i16 noundef zeroext %113, i16 noundef zeroext %115)
+  %116 = load ptr, ptr %3, align 8, !tbaa !4
+  %117 = call i32 @lj_opt_fold(ptr noundef %116)
+  store i32 %117, ptr %6, align 4, !tbaa !9
+  br label %118
+
+118:                                              ; preds = %98, %57
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %119
+
+119:                                              ; preds = %118, %2
+  %120 = load i32, ptr %6, align 4, !tbaa !9
+  %121 = load ptr, ptr %3, align 8, !tbaa !4
+  %122 = getelementptr inbounds nuw %struct.jit_State, ptr %121, i32 0, i32 6
+  %123 = load ptr, ptr %122, align 8, !tbaa !41
+  %124 = getelementptr inbounds i32, ptr %123, i64 0
+  store i32 %120, ptr %124, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_bit_tobit(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds i32, ptr %9, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %11, ptr %5, align 4, !tbaa !9
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = and i32 %12, 520093696
+  %14 = icmp eq i32 %13, 167772160
+  br i1 %14, label %15, label %18
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_bit64_tobit(ptr noundef %16, ptr noundef %17)
+  store i32 1, ptr %6, align 4
+  br label %26
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = call i32 @lj_opt_narrow_tobit(ptr noundef %19, i32 noundef %20)
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %25 = getelementptr inbounds i32, ptr %24, i64 0
+  store i32 %21, ptr %25, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4
+  br label %26
+
+26:                                               ; preds = %18, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %27 = load i32, ptr %6, align 4
+  switch i32 %27, label %29 [
+    i32 0, label %28
+    i32 1, label %28
+  ]
+
+28:                                               ; preds = %26, %26
+  ret void
+
+29:                                               ; preds = %26
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_bit_unary(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !46
+  %7 = call i32 @recff_bit64_unary(ptr noundef %5, ptr noundef %6)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  br label %32
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = load ptr, ptr %4, align 8, !tbaa !46
+  %13 = getelementptr inbounds nuw %struct.RecordFFData, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %13, align 8, !tbaa !34
+  %15 = shl i32 %14, 8
+  %16 = or i32 %15, 19
+  %17 = trunc i32 %16 to i16
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.jit_State, ptr %19, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %22 = getelementptr inbounds i32, ptr %21, i64 0
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = call i32 @lj_opt_narrow_tobit(ptr noundef %18, i32 noundef %23)
+  %25 = trunc i32 %24 to i16
+  call void @lj_ir_set_(ptr noundef %11, i16 noundef zeroext %17, i16 noundef zeroext %25, i16 noundef zeroext 0)
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = call i32 @lj_opt_fold(ptr noundef %26)
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.jit_State, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = getelementptr inbounds i32, ptr %30, i64 0
+  store i32 %27, ptr %31, align 4, !tbaa !9
+  br label %32
+
+32:                                               ; preds = %10, %9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_bit_shift(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = call i32 @recff_bit64_shift(ptr noundef %8, ptr noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %2
+  br label %65
+
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 0
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = call i32 @lj_opt_narrow_tobit(ptr noundef %14, i32 noundef %19)
+  store i32 %20, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %25 = getelementptr inbounds i32, ptr %24, i64 1
+  %26 = load i32, ptr %25, align 4, !tbaa !9
+  %27 = call i32 @lj_opt_narrow_tobit(ptr noundef %21, i32 noundef %26)
+  store i32 %27, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %28 = load ptr, ptr %4, align 8, !tbaa !46
+  %29 = getelementptr inbounds nuw %struct.RecordFFData, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8, !tbaa !34
+  store i32 %30, ptr %7, align 4, !tbaa !9
+  %31 = load i32, ptr %7, align 4, !tbaa !9
+  %32 = icmp ult i32 %31, 39
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %13
+  br i1 true, label %49, label %35
+
+34:                                               ; preds = %13
+  br i1 true, label %49, label %35
+
+35:                                               ; preds = %34, %33
+  %36 = load i32, ptr %6, align 4, !tbaa !9
+  %37 = trunc i32 %36 to i16
+  %38 = zext i16 %37 to i32
+  %39 = icmp slt i32 %38, 32768
+  br i1 %39, label %49, label %40
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = load i32, ptr %6, align 4, !tbaa !9
+  %43 = trunc i32 %42 to i16
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = call i32 @lj_ir_kint(ptr noundef %44, i32 noundef 31)
+  %46 = trunc i32 %45 to i16
+  call void @lj_ir_set_(ptr noundef %41, i16 noundef zeroext 8467, i16 noundef zeroext %43, i16 noundef zeroext %46)
+  %47 = load ptr, ptr %3, align 8, !tbaa !4
+  %48 = call i32 @lj_opt_fold(ptr noundef %47)
+  store i32 %48, ptr %6, align 4, !tbaa !9
+  br label %49
+
+49:                                               ; preds = %40, %35, %34, %33
+  %50 = load ptr, ptr %3, align 8, !tbaa !4
+  %51 = load i32, ptr %7, align 4, !tbaa !9
+  %52 = shl i32 %51, 8
+  %53 = or i32 %52, 19
+  %54 = trunc i32 %53 to i16
+  %55 = load i32, ptr %5, align 4, !tbaa !9
+  %56 = trunc i32 %55 to i16
+  %57 = load i32, ptr %6, align 4, !tbaa !9
+  %58 = trunc i32 %57 to i16
+  call void @lj_ir_set_(ptr noundef %50, i16 noundef zeroext %54, i16 noundef zeroext %56, i16 noundef zeroext %58)
+  %59 = load ptr, ptr %3, align 8, !tbaa !4
+  %60 = call i32 @lj_opt_fold(ptr noundef %59)
+  %61 = load ptr, ptr %3, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.jit_State, ptr %61, i32 0, i32 6
+  %63 = load ptr, ptr %62, align 8, !tbaa !41
+  %64 = getelementptr inbounds i32, ptr %63, i64 0
+  store i32 %60, ptr %64, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  br label %65
+
+65:                                               ; preds = %49, %12
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_bit_nary(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = call i32 @recff_bit64_nary(ptr noundef %8, ptr noundef %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %2
+  br label %62
+
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 0
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = call i32 @lj_opt_narrow_tobit(ptr noundef %14, i32 noundef %19)
+  store i32 %20, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %21 = load ptr, ptr %4, align 8, !tbaa !46
+  %22 = getelementptr inbounds nuw %struct.RecordFFData, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8, !tbaa !34
+  %24 = shl i32 %23, 8
+  %25 = or i32 %24, 19
+  store i32 %25, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 1, ptr %7, align 4, !tbaa !9
+  br label %26
+
+26:                                               ; preds = %53, %13
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw %struct.jit_State, ptr %27, i32 0, i32 6
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %30 = load i32, ptr %7, align 4, !tbaa !9
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %56
+
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = load i32, ptr %6, align 4, !tbaa !9
+  %38 = trunc i32 %37 to i16
+  %39 = load i32, ptr %5, align 4, !tbaa !9
+  %40 = trunc i32 %39 to i16
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.jit_State, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %43, align 8, !tbaa !41
+  %45 = load i32, ptr %7, align 4, !tbaa !9
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !9
+  %49 = call i32 @lj_opt_narrow_tobit(ptr noundef %41, i32 noundef %48)
+  %50 = trunc i32 %49 to i16
+  call void @lj_ir_set_(ptr noundef %36, i16 noundef zeroext %38, i16 noundef zeroext %40, i16 noundef zeroext %50)
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = call i32 @lj_opt_fold(ptr noundef %51)
+  store i32 %52, ptr %5, align 4, !tbaa !9
+  br label %53
+
+53:                                               ; preds = %35
+  %54 = load i32, ptr %7, align 4, !tbaa !9
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %7, align 4, !tbaa !9
+  br label %26, !llvm.loop !66
+
+56:                                               ; preds = %26
+  %57 = load i32, ptr %5, align 4, !tbaa !9
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw %struct.jit_State, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8, !tbaa !41
+  %61 = getelementptr inbounds i32, ptr %60, i64 0
+  store i32 %57, ptr %61, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  br label %62
+
+62:                                               ; preds = %56, %12
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_bit_tohex(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = call i32 @recff_bufhdr(ptr noundef %7)
+  store i32 %8, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = load ptr, ptr %4, align 8, !tbaa !46
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = call i32 @recff_bit64_tohex(ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  store i32 %12, ptr %6, align 4, !tbaa !9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load i32, ptr %6, align 4, !tbaa !9
+  %15 = trunc i32 %14 to i16
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  %17 = trunc i32 %16 to i16
+  call void @lj_ir_set_(ptr noundef %13, i16 noundef zeroext 22404, i16 noundef zeroext %15, i16 noundef zeroext %17)
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = call i32 @lj_opt_fold(ptr noundef %18)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds i32, ptr %22, i64 0
+  store i32 %19, ptr %23, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_string_range(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds i32, ptr %22, i64 0
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = call i32 @lj_ir_tostr(ptr noundef %19, i32 noundef %24)
+  store i32 %25, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = load i32, ptr %5, align 4, !tbaa !9
+  %28 = trunc i32 %27 to i16
+  call void @lj_ir_set_(ptr noundef %26, i16 noundef zeroext 17683, i16 noundef zeroext %28, i16 noundef zeroext 0)
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = call i32 @lj_opt_fold(ptr noundef %29)
+  store i32 %30, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = call i32 @lj_ir_kint(ptr noundef %31, i32 noundef 0)
+  store i32 %32, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %33 = load ptr, ptr %3, align 8, !tbaa !4
+  %34 = load ptr, ptr %4, align 8, !tbaa !46
+  %35 = getelementptr inbounds nuw %struct.RecordFFData, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  %37 = getelementptr inbounds %union.TValue, ptr %36, i64 0
+  %38 = call ptr @argv2str(ptr noundef %33, ptr noundef %37)
+  store ptr %38, ptr %10, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %39 = load ptr, ptr %4, align 8, !tbaa !46
+  %40 = getelementptr inbounds nuw %struct.RecordFFData, ptr %39, i32 0, i32 2
+  %41 = load i32, ptr %40, align 8, !tbaa !34
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %79
+
+43:                                               ; preds = %2
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = load ptr, ptr %4, align 8, !tbaa !46
+  %46 = getelementptr inbounds nuw %struct.RecordFFData, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !40
+  %48 = getelementptr inbounds %union.TValue, ptr %47, i64 1
+  %49 = call i32 @argv2int(ptr noundef %44, ptr noundef %48)
+  store i32 %49, ptr %11, align 4, !tbaa !9
+  %50 = load ptr, ptr %3, align 8, !tbaa !4
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw %struct.jit_State, ptr %51, i32 0, i32 6
+  %53 = load ptr, ptr %52, align 8, !tbaa !41
+  %54 = getelementptr inbounds i32, ptr %53, i64 1
+  %55 = load i32, ptr %54, align 4, !tbaa !9
+  %56 = call i32 @lj_opt_narrow_toint(ptr noundef %50, i32 noundef %55)
+  store i32 %56, ptr %8, align 4, !tbaa !9
+  %57 = load ptr, ptr %3, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.jit_State, ptr %57, i32 0, i32 6
+  %59 = load ptr, ptr %58, align 8, !tbaa !41
+  %60 = getelementptr inbounds i32, ptr %59, i64 2
+  %61 = load i32, ptr %60, align 4, !tbaa !9
+  store i32 %61, ptr %9, align 4, !tbaa !9
+  %62 = load i32, ptr %9, align 4, !tbaa !9
+  %63 = and i32 %62, 520093696
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %68
+
+65:                                               ; preds = %43
+  %66 = load ptr, ptr %3, align 8, !tbaa !4
+  %67 = call i32 @lj_ir_kint(ptr noundef %66, i32 noundef -1)
+  store i32 %67, ptr %9, align 4, !tbaa !9
+  store i32 -1, ptr %12, align 4, !tbaa !9
+  br label %78
+
+68:                                               ; preds = %43
+  %69 = load ptr, ptr %3, align 8, !tbaa !4
+  %70 = load i32, ptr %9, align 4, !tbaa !9
+  %71 = call i32 @lj_opt_narrow_toint(ptr noundef %69, i32 noundef %70)
+  store i32 %71, ptr %9, align 4, !tbaa !9
+  %72 = load ptr, ptr %3, align 8, !tbaa !4
+  %73 = load ptr, ptr %4, align 8, !tbaa !46
+  %74 = getelementptr inbounds nuw %struct.RecordFFData, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8, !tbaa !40
+  %76 = getelementptr inbounds %union.TValue, ptr %75, i64 2
+  %77 = call i32 @argv2int(ptr noundef %72, ptr noundef %76)
+  store i32 %77, ptr %12, align 4, !tbaa !9
+  br label %78
+
+78:                                               ; preds = %68, %65
+  br label %137
+
+79:                                               ; preds = %2
+  %80 = load ptr, ptr %3, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.jit_State, ptr %80, i32 0, i32 6
+  %82 = load ptr, ptr %81, align 8, !tbaa !41
+  %83 = getelementptr inbounds i32, ptr %82, i64 1
+  %84 = load i32, ptr %83, align 4, !tbaa !9
+  %85 = and i32 %84, 520093696
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %90
+
+87:                                               ; preds = %79
+  store i32 1, ptr %11, align 4, !tbaa !9
+  %88 = load ptr, ptr %3, align 8, !tbaa !4
+  %89 = call i32 @lj_ir_kint(ptr noundef %88, i32 noundef 1)
+  store i32 %89, ptr %8, align 4, !tbaa !9
+  br label %104
+
+90:                                               ; preds = %79
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = load ptr, ptr %4, align 8, !tbaa !46
+  %93 = getelementptr inbounds nuw %struct.RecordFFData, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8, !tbaa !40
+  %95 = getelementptr inbounds %union.TValue, ptr %94, i64 1
+  %96 = call i32 @argv2int(ptr noundef %91, ptr noundef %95)
+  store i32 %96, ptr %11, align 4, !tbaa !9
+  %97 = load ptr, ptr %3, align 8, !tbaa !4
+  %98 = load ptr, ptr %3, align 8, !tbaa !4
+  %99 = getelementptr inbounds nuw %struct.jit_State, ptr %98, i32 0, i32 6
+  %100 = load ptr, ptr %99, align 8, !tbaa !41
+  %101 = getelementptr inbounds i32, ptr %100, i64 1
+  %102 = load i32, ptr %101, align 4, !tbaa !9
+  %103 = call i32 @lj_opt_narrow_toint(ptr noundef %97, i32 noundef %102)
+  store i32 %103, ptr %8, align 4, !tbaa !9
+  br label %104
+
+104:                                              ; preds = %90, %87
+  %105 = load ptr, ptr %3, align 8, !tbaa !4
+  %106 = getelementptr inbounds nuw %struct.jit_State, ptr %105, i32 0, i32 6
+  %107 = load ptr, ptr %106, align 8, !tbaa !41
+  %108 = getelementptr inbounds i32, ptr %107, i64 1
+  %109 = load i32, ptr %108, align 4, !tbaa !9
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %111, label %133
+
+111:                                              ; preds = %104
+  %112 = load ptr, ptr %3, align 8, !tbaa !4
+  %113 = getelementptr inbounds nuw %struct.jit_State, ptr %112, i32 0, i32 6
+  %114 = load ptr, ptr %113, align 8, !tbaa !41
+  %115 = getelementptr inbounds i32, ptr %114, i64 2
+  %116 = load i32, ptr %115, align 4, !tbaa !9
+  %117 = and i32 %116, 520093696
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %133, label %119
+
+119:                                              ; preds = %111
+  %120 = load ptr, ptr %3, align 8, !tbaa !4
+  %121 = load ptr, ptr %3, align 8, !tbaa !4
+  %122 = getelementptr inbounds nuw %struct.jit_State, ptr %121, i32 0, i32 6
+  %123 = load ptr, ptr %122, align 8, !tbaa !41
+  %124 = getelementptr inbounds i32, ptr %123, i64 2
+  %125 = load i32, ptr %124, align 4, !tbaa !9
+  %126 = call i32 @lj_opt_narrow_toint(ptr noundef %120, i32 noundef %125)
+  store i32 %126, ptr %9, align 4, !tbaa !9
+  %127 = load ptr, ptr %3, align 8, !tbaa !4
+  %128 = load ptr, ptr %4, align 8, !tbaa !46
+  %129 = getelementptr inbounds nuw %struct.RecordFFData, ptr %128, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8, !tbaa !40
+  %131 = getelementptr inbounds %union.TValue, ptr %130, i64 2
+  %132 = call i32 @argv2int(ptr noundef %127, ptr noundef %131)
+  store i32 %132, ptr %12, align 4, !tbaa !9
+  br label %136
+
+133:                                              ; preds = %111, %104
+  %134 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %134, ptr %9, align 4, !tbaa !9
+  %135 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %135, ptr %12, align 4, !tbaa !9
+  br label %136
+
+136:                                              ; preds = %133, %119
+  br label %137
+
+137:                                              ; preds = %136, %78
+  %138 = load i32, ptr %12, align 4, !tbaa !9
+  %139 = icmp slt i32 %138, 0
+  br i1 %139, label %140, label %168
+
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %3, align 8, !tbaa !4
+  %142 = load i32, ptr %9, align 4, !tbaa !9
+  %143 = trunc i32 %142 to i16
+  %144 = load i32, ptr %7, align 4, !tbaa !9
+  %145 = trunc i32 %144 to i16
+  call void @lj_ir_set_(ptr noundef %141, i16 noundef zeroext 147, i16 noundef zeroext %143, i16 noundef zeroext %145)
+  %146 = load ptr, ptr %3, align 8, !tbaa !4
+  %147 = call i32 @lj_opt_fold(ptr noundef %146)
+  %148 = load ptr, ptr %3, align 8, !tbaa !4
+  %149 = load ptr, ptr %3, align 8, !tbaa !4
+  %150 = load i32, ptr %6, align 4, !tbaa !9
+  %151 = trunc i32 %150 to i16
+  %152 = load i32, ptr %9, align 4, !tbaa !9
+  %153 = trunc i32 %152 to i16
+  call void @lj_ir_set_(ptr noundef %149, i16 noundef zeroext 10515, i16 noundef zeroext %151, i16 noundef zeroext %153)
+  %154 = load ptr, ptr %3, align 8, !tbaa !4
+  %155 = call i32 @lj_opt_fold(ptr noundef %154)
+  %156 = trunc i32 %155 to i16
+  %157 = load ptr, ptr %3, align 8, !tbaa !4
+  %158 = call i32 @lj_ir_kint(ptr noundef %157, i32 noundef 1)
+  %159 = trunc i32 %158 to i16
+  call void @lj_ir_set_(ptr noundef %148, i16 noundef zeroext 10515, i16 noundef zeroext %156, i16 noundef zeroext %159)
+  %160 = load ptr, ptr %3, align 8, !tbaa !4
+  %161 = call i32 @lj_opt_fold(ptr noundef %160)
+  store i32 %161, ptr %9, align 4, !tbaa !9
+  %162 = load i32, ptr %12, align 4, !tbaa !9
+  %163 = load ptr, ptr %10, align 8, !tbaa !67
+  %164 = getelementptr inbounds nuw %struct.GCstr, ptr %163, i32 0, i32 7
+  %165 = load i32, ptr %164, align 4, !tbaa !69
+  %166 = add nsw i32 %162, %165
+  %167 = add nsw i32 %166, 1
+  store i32 %167, ptr %12, align 4, !tbaa !9
+  br label %195
+
+168:                                              ; preds = %137
+  %169 = load i32, ptr %12, align 4, !tbaa !9
+  %170 = load ptr, ptr %10, align 8, !tbaa !67
+  %171 = getelementptr inbounds nuw %struct.GCstr, ptr %170, i32 0, i32 7
+  %172 = load i32, ptr %171, align 4, !tbaa !69
+  %173 = icmp ule i32 %169, %172
+  br i1 %173, label %174, label %182
+
+174:                                              ; preds = %168
+  %175 = load ptr, ptr %3, align 8, !tbaa !4
+  %176 = load i32, ptr %9, align 4, !tbaa !9
+  %177 = trunc i32 %176 to i16
+  %178 = load i32, ptr %6, align 4, !tbaa !9
+  %179 = trunc i32 %178 to i16
+  call void @lj_ir_set_(ptr noundef %175, i16 noundef zeroext 1683, i16 noundef zeroext %177, i16 noundef zeroext %179)
+  %180 = load ptr, ptr %3, align 8, !tbaa !4
+  %181 = call i32 @lj_opt_fold(ptr noundef %180)
+  br label %194
+
+182:                                              ; preds = %168
+  %183 = load ptr, ptr %3, align 8, !tbaa !4
+  %184 = load i32, ptr %9, align 4, !tbaa !9
+  %185 = trunc i32 %184 to i16
+  %186 = load i32, ptr %6, align 4, !tbaa !9
+  %187 = trunc i32 %186 to i16
+  call void @lj_ir_set_(ptr noundef %183, i16 noundef zeroext 1939, i16 noundef zeroext %185, i16 noundef zeroext %187)
+  %188 = load ptr, ptr %3, align 8, !tbaa !4
+  %189 = call i32 @lj_opt_fold(ptr noundef %188)
+  %190 = load ptr, ptr %10, align 8, !tbaa !67
+  %191 = getelementptr inbounds nuw %struct.GCstr, ptr %190, i32 0, i32 7
+  %192 = load i32, ptr %191, align 4, !tbaa !69
+  store i32 %192, ptr %12, align 4, !tbaa !9
+  %193 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %193, ptr %9, align 4, !tbaa !9
+  br label %194
+
+194:                                              ; preds = %182, %174
+  br label %195
+
+195:                                              ; preds = %194, %140
+  %196 = load ptr, ptr %3, align 8, !tbaa !4
+  %197 = load ptr, ptr %10, align 8, !tbaa !67
+  %198 = load i32, ptr %8, align 4, !tbaa !9
+  %199 = load i32, ptr %6, align 4, !tbaa !9
+  %200 = load i32, ptr %7, align 4, !tbaa !9
+  %201 = call i32 @recff_string_start(ptr noundef %196, ptr noundef %197, ptr noundef %11, i32 noundef %198, i32 noundef %199, i32 noundef %200)
+  store i32 %201, ptr %8, align 4, !tbaa !9
+  %202 = load ptr, ptr %4, align 8, !tbaa !46
+  %203 = getelementptr inbounds nuw %struct.RecordFFData, ptr %202, i32 0, i32 2
+  %204 = load i32, ptr %203, align 8, !tbaa !34
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %206, label %263
+
+206:                                              ; preds = %195
+  %207 = load i32, ptr %12, align 4, !tbaa !9
+  %208 = load i32, ptr %11, align 4, !tbaa !9
+  %209 = sub nsw i32 %207, %208
+  %210 = icmp sge i32 %209, 0
+  br i1 %210, label %211, label %244
+
+211:                                              ; preds = %206
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  %212 = load ptr, ptr %3, align 8, !tbaa !4
+  %213 = load i32, ptr %9, align 4, !tbaa !9
+  %214 = trunc i32 %213 to i16
+  %215 = load i32, ptr %8, align 4, !tbaa !9
+  %216 = trunc i32 %215 to i16
+  call void @lj_ir_set_(ptr noundef %212, i16 noundef zeroext 10771, i16 noundef zeroext %214, i16 noundef zeroext %216)
+  %217 = load ptr, ptr %3, align 8, !tbaa !4
+  %218 = call i32 @lj_opt_fold(ptr noundef %217)
+  store i32 %218, ptr %14, align 4, !tbaa !9
+  %219 = load ptr, ptr %3, align 8, !tbaa !4
+  %220 = load i32, ptr %14, align 4, !tbaa !9
+  %221 = trunc i32 %220 to i16
+  %222 = load i32, ptr %7, align 4, !tbaa !9
+  %223 = trunc i32 %222 to i16
+  call void @lj_ir_set_(ptr noundef %219, i16 noundef zeroext 403, i16 noundef zeroext %221, i16 noundef zeroext %223)
+  %224 = load ptr, ptr %3, align 8, !tbaa !4
+  %225 = call i32 @lj_opt_fold(ptr noundef %224)
+  %226 = load ptr, ptr %3, align 8, !tbaa !4
+  %227 = load i32, ptr %5, align 4, !tbaa !9
+  %228 = trunc i32 %227 to i16
+  %229 = load i32, ptr %8, align 4, !tbaa !9
+  %230 = trunc i32 %229 to i16
+  call void @lj_ir_set_(ptr noundef %226, i16 noundef zeroext 16393, i16 noundef zeroext %228, i16 noundef zeroext %230)
+  %231 = load ptr, ptr %3, align 8, !tbaa !4
+  %232 = call i32 @lj_opt_fold(ptr noundef %231)
+  store i32 %232, ptr %13, align 4, !tbaa !9
+  %233 = load ptr, ptr %3, align 8, !tbaa !4
+  %234 = load i32, ptr %13, align 4, !tbaa !9
+  %235 = trunc i32 %234 to i16
+  %236 = load i32, ptr %14, align 4, !tbaa !9
+  %237 = trunc i32 %236 to i16
+  call void @lj_ir_set_(ptr noundef %233, i16 noundef zeroext 20228, i16 noundef zeroext %235, i16 noundef zeroext %237)
+  %238 = load ptr, ptr %3, align 8, !tbaa !4
+  %239 = call i32 @lj_opt_fold(ptr noundef %238)
+  %240 = load ptr, ptr %3, align 8, !tbaa !4
+  %241 = getelementptr inbounds nuw %struct.jit_State, ptr %240, i32 0, i32 6
+  %242 = load ptr, ptr %241, align 8, !tbaa !41
+  %243 = getelementptr inbounds i32, ptr %242, i64 0
+  store i32 %239, ptr %243, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  br label %262
+
+244:                                              ; preds = %206
+  %245 = load ptr, ptr %3, align 8, !tbaa !4
+  %246 = load i32, ptr %9, align 4, !tbaa !9
+  %247 = trunc i32 %246 to i16
+  %248 = load i32, ptr %8, align 4, !tbaa !9
+  %249 = trunc i32 %248 to i16
+  call void @lj_ir_set_(ptr noundef %245, i16 noundef zeroext 147, i16 noundef zeroext %247, i16 noundef zeroext %249)
+  %250 = load ptr, ptr %3, align 8, !tbaa !4
+  %251 = call i32 @lj_opt_fold(ptr noundef %250)
+  %252 = load ptr, ptr %3, align 8, !tbaa !4
+  %253 = load ptr, ptr %3, align 8, !tbaa !4
+  %254 = getelementptr inbounds i8, ptr %253, i64 -832
+  %255 = getelementptr inbounds nuw %struct.GG_State, ptr %254, i32 0, i32 1
+  %256 = getelementptr inbounds nuw %struct.global_State, ptr %255, i32 0, i32 3
+  %257 = call i32 @lj_ir_kgc(ptr noundef %252, ptr noundef %256, i32 noundef 4)
+  %258 = load ptr, ptr %3, align 8, !tbaa !4
+  %259 = getelementptr inbounds nuw %struct.jit_State, ptr %258, i32 0, i32 6
+  %260 = load ptr, ptr %259, align 8, !tbaa !41
+  %261 = getelementptr inbounds i32, ptr %260, i64 0
+  store i32 %257, ptr %261, align 4, !tbaa !9
+  br label %262
+
+262:                                              ; preds = %244, %211
+  br label %348
+
+263:                                              ; preds = %195
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  %264 = load i32, ptr %12, align 4, !tbaa !9
+  %265 = load i32, ptr %11, align 4, !tbaa !9
+  %266 = sub nsw i32 %264, %265
+  %267 = sext i32 %266 to i64
+  store i64 %267, ptr %16, align 8, !tbaa !60
+  %268 = load i64, ptr %16, align 8, !tbaa !60
+  %269 = icmp sgt i64 %268, 0
+  br i1 %269, label %270, label %337
+
+270:                                              ; preds = %263
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  %271 = load ptr, ptr %3, align 8, !tbaa !4
+  %272 = load i32, ptr %9, align 4, !tbaa !9
+  %273 = trunc i32 %272 to i16
+  %274 = load i32, ptr %8, align 4, !tbaa !9
+  %275 = trunc i32 %274 to i16
+  call void @lj_ir_set_(ptr noundef %271, i16 noundef zeroext 10771, i16 noundef zeroext %273, i16 noundef zeroext %275)
+  %276 = load ptr, ptr %3, align 8, !tbaa !4
+  %277 = call i32 @lj_opt_fold(ptr noundef %276)
+  store i32 %277, ptr %17, align 4, !tbaa !9
+  %278 = load ptr, ptr %3, align 8, !tbaa !4
+  %279 = load i32, ptr %17, align 4, !tbaa !9
+  %280 = trunc i32 %279 to i16
+  %281 = load ptr, ptr %3, align 8, !tbaa !4
+  %282 = load i64, ptr %16, align 8, !tbaa !60
+  %283 = trunc i64 %282 to i32
+  %284 = call i32 @lj_ir_kint(ptr noundef %281, i32 noundef %283)
+  %285 = trunc i32 %284 to i16
+  call void @lj_ir_set_(ptr noundef %278, i16 noundef zeroext 2195, i16 noundef zeroext %280, i16 noundef zeroext %285)
+  %286 = load ptr, ptr %3, align 8, !tbaa !4
+  %287 = call i32 @lj_opt_fold(ptr noundef %286)
+  %288 = load ptr, ptr %3, align 8, !tbaa !4
+  %289 = getelementptr inbounds nuw %struct.jit_State, ptr %288, i32 0, i32 9
+  %290 = load i32, ptr %289, align 8, !tbaa !71
+  %291 = zext i32 %290 to i64
+  %292 = load i64, ptr %16, align 8, !tbaa !60
+  %293 = add nsw i64 %291, %292
+  %294 = icmp sgt i64 %293, 250
+  br i1 %294, label %295, label %297
+
+295:                                              ; preds = %270
+  %296 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lj_trace_err_info(ptr noundef %296, i32 noundef 3) #10
+  unreachable
+
+297:                                              ; preds = %270
+  %298 = load i64, ptr %16, align 8, !tbaa !60
+  %299 = load ptr, ptr %4, align 8, !tbaa !46
+  %300 = getelementptr inbounds nuw %struct.RecordFFData, ptr %299, i32 0, i32 1
+  store i64 %298, ptr %300, align 8, !tbaa !36
+  store i64 0, ptr %15, align 8, !tbaa !60
+  br label %301
+
+301:                                              ; preds = %333, %297
+  %302 = load i64, ptr %15, align 8, !tbaa !60
+  %303 = load i64, ptr %16, align 8, !tbaa !60
+  %304 = icmp slt i64 %302, %303
+  br i1 %304, label %305, label %336
+
+305:                                              ; preds = %301
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  %306 = load ptr, ptr %3, align 8, !tbaa !4
+  %307 = load i32, ptr %8, align 4, !tbaa !9
+  %308 = trunc i32 %307 to i16
+  %309 = load ptr, ptr %3, align 8, !tbaa !4
+  %310 = load i64, ptr %15, align 8, !tbaa !60
+  %311 = trunc i64 %310 to i32
+  %312 = call i32 @lj_ir_kint(ptr noundef %309, i32 noundef %311)
+  %313 = trunc i32 %312 to i16
+  call void @lj_ir_set_(ptr noundef %306, i16 noundef zeroext 10515, i16 noundef zeroext %308, i16 noundef zeroext %313)
+  %314 = load ptr, ptr %3, align 8, !tbaa !4
+  %315 = call i32 @lj_opt_fold(ptr noundef %314)
+  store i32 %315, ptr %18, align 4, !tbaa !9
+  %316 = load ptr, ptr %3, align 8, !tbaa !4
+  %317 = load i32, ptr %5, align 4, !tbaa !9
+  %318 = trunc i32 %317 to i16
+  %319 = load i32, ptr %18, align 4, !tbaa !9
+  %320 = trunc i32 %319 to i16
+  call void @lj_ir_set_(ptr noundef %316, i16 noundef zeroext 16393, i16 noundef zeroext %318, i16 noundef zeroext %320)
+  %321 = load ptr, ptr %3, align 8, !tbaa !4
+  %322 = call i32 @lj_opt_fold(ptr noundef %321)
+  store i32 %322, ptr %18, align 4, !tbaa !9
+  %323 = load ptr, ptr %3, align 8, !tbaa !4
+  %324 = load i32, ptr %18, align 4, !tbaa !9
+  %325 = trunc i32 %324 to i16
+  call void @lj_ir_set_(ptr noundef %323, i16 noundef zeroext 17936, i16 noundef zeroext %325, i16 noundef zeroext 1)
+  %326 = load ptr, ptr %3, align 8, !tbaa !4
+  %327 = call i32 @lj_opt_fold(ptr noundef %326)
+  %328 = load ptr, ptr %3, align 8, !tbaa !4
+  %329 = getelementptr inbounds nuw %struct.jit_State, ptr %328, i32 0, i32 6
+  %330 = load ptr, ptr %329, align 8, !tbaa !41
+  %331 = load i64, ptr %15, align 8, !tbaa !60
+  %332 = getelementptr inbounds i32, ptr %330, i64 %331
+  store i32 %327, ptr %332, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  br label %333
+
+333:                                              ; preds = %305
+  %334 = load i64, ptr %15, align 8, !tbaa !60
+  %335 = add nsw i64 %334, 1
+  store i64 %335, ptr %15, align 8, !tbaa !60
+  br label %301, !llvm.loop !72
+
+336:                                              ; preds = %301
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  br label %347
+
+337:                                              ; preds = %263
+  %338 = load ptr, ptr %3, align 8, !tbaa !4
+  %339 = load i32, ptr %9, align 4, !tbaa !9
+  %340 = trunc i32 %339 to i16
+  %341 = load i32, ptr %8, align 4, !tbaa !9
+  %342 = trunc i32 %341 to i16
+  call void @lj_ir_set_(ptr noundef %338, i16 noundef zeroext 659, i16 noundef zeroext %340, i16 noundef zeroext %342)
+  %343 = load ptr, ptr %3, align 8, !tbaa !4
+  %344 = call i32 @lj_opt_fold(ptr noundef %343)
+  %345 = load ptr, ptr %4, align 8, !tbaa !46
+  %346 = getelementptr inbounds nuw %struct.RecordFFData, ptr %345, i32 0, i32 1
+  store i64 0, ptr %346, align 8, !tbaa !36
+  br label %347
+
+347:                                              ; preds = %337, %336
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  br label %348
+
+348:                                              ; preds = %347, %262
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_string_char(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = call i32 @lj_ir_kint(ptr noundef %10, i32 noundef 255)
+  store i32 %11, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  store i32 0, ptr %6, align 4, !tbaa !9
+  br label %12
+
+12:                                               ; preds = %49, %2
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.jit_State, ptr %13, i32 0, i32 6
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %16 = load i32, ptr %6, align 4, !tbaa !9
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %52
+
+21:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.jit_State, ptr %23, i32 0, i32 6
+  %25 = load ptr, ptr %24, align 8, !tbaa !41
+  %26 = load i32, ptr %6, align 4, !tbaa !9
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !9
+  %30 = call i32 @lj_opt_narrow_toint(ptr noundef %22, i32 noundef %29)
+  store i32 %30, ptr %7, align 4, !tbaa !9
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = load i32, ptr %7, align 4, !tbaa !9
+  %33 = trunc i32 %32 to i16
+  %34 = load i32, ptr %5, align 4, !tbaa !9
+  %35 = trunc i32 %34 to i16
+  call void @lj_ir_set_(ptr noundef %31, i16 noundef zeroext 1683, i16 noundef zeroext %33, i16 noundef zeroext %35)
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = call i32 @lj_opt_fold(ptr noundef %36)
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = load i32, ptr %7, align 4, !tbaa !9
+  %40 = trunc i32 %39 to i16
+  call void @lj_ir_set_(ptr noundef %38, i16 noundef zeroext 23812, i16 noundef zeroext %40, i16 noundef zeroext 2)
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = call i32 @lj_opt_fold(ptr noundef %41)
+  %43 = load ptr, ptr %3, align 8, !tbaa !4
+  %44 = getelementptr inbounds nuw %struct.jit_State, ptr %43, i32 0, i32 6
+  %45 = load ptr, ptr %44, align 8, !tbaa !41
+  %46 = load i32, ptr %6, align 4, !tbaa !9
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %45, i64 %47
+  store i32 %42, ptr %48, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  br label %49
+
+49:                                               ; preds = %21
+  %50 = load i32, ptr %6, align 4, !tbaa !9
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %6, align 4, !tbaa !9
+  br label %12, !llvm.loop !73
+
+52:                                               ; preds = %12
+  %53 = load i32, ptr %6, align 4, !tbaa !9
+  %54 = icmp ugt i32 %53, 1
+  br i1 %54, label %55, label %97
+
+55:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = call i32 @recff_bufhdr(ptr noundef %56)
+  store i32 %57, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %58 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %58, ptr %9, align 4, !tbaa !9
+  store i32 0, ptr %6, align 4, !tbaa !9
+  br label %59
+
+59:                                               ; preds = %82, %55
+  %60 = load ptr, ptr %3, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.jit_State, ptr %60, i32 0, i32 6
+  %62 = load ptr, ptr %61, align 8, !tbaa !41
+  %63 = load i32, ptr %6, align 4, !tbaa !9
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !9
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %85
+
+68:                                               ; preds = %59
+  %69 = load ptr, ptr %3, align 8, !tbaa !4
+  %70 = load i32, ptr %9, align 4, !tbaa !9
+  %71 = trunc i32 %70 to i16
+  %72 = load ptr, ptr %3, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw %struct.jit_State, ptr %72, i32 0, i32 6
+  %74 = load ptr, ptr %73, align 8, !tbaa !41
+  %75 = load i32, ptr %6, align 4, !tbaa !9
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw i32, ptr %74, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !9
+  %79 = trunc i32 %78 to i16
+  call void @lj_ir_set_(ptr noundef %69, i16 noundef zeroext 22153, i16 noundef zeroext %71, i16 noundef zeroext %79)
+  %80 = load ptr, ptr %3, align 8, !tbaa !4
+  %81 = call i32 @lj_opt_fold(ptr noundef %80)
+  store i32 %81, ptr %9, align 4, !tbaa !9
+  br label %82
+
+82:                                               ; preds = %68
+  %83 = load i32, ptr %6, align 4, !tbaa !9
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %6, align 4, !tbaa !9
+  br label %59, !llvm.loop !74
+
+85:                                               ; preds = %59
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = load i32, ptr %9, align 4, !tbaa !9
+  %88 = trunc i32 %87 to i16
+  %89 = load i32, ptr %8, align 4, !tbaa !9
+  %90 = trunc i32 %89 to i16
+  call void @lj_ir_set_(ptr noundef %86, i16 noundef zeroext 22404, i16 noundef zeroext %88, i16 noundef zeroext %90)
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = call i32 @lj_opt_fold(ptr noundef %91)
+  %93 = load ptr, ptr %3, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw %struct.jit_State, ptr %93, i32 0, i32 6
+  %95 = load ptr, ptr %94, align 8, !tbaa !41
+  %96 = getelementptr inbounds i32, ptr %95, i64 0
+  store i32 %92, ptr %96, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %112
+
+97:                                               ; preds = %52
+  %98 = load i32, ptr %6, align 4, !tbaa !9
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %111
+
+100:                                              ; preds = %97
+  %101 = load ptr, ptr %3, align 8, !tbaa !4
+  %102 = load ptr, ptr %3, align 8, !tbaa !4
+  %103 = getelementptr inbounds i8, ptr %102, i64 -832
+  %104 = getelementptr inbounds nuw %struct.GG_State, ptr %103, i32 0, i32 1
+  %105 = getelementptr inbounds nuw %struct.global_State, ptr %104, i32 0, i32 3
+  %106 = call i32 @lj_ir_kgc(ptr noundef %101, ptr noundef %105, i32 noundef 4)
+  %107 = load ptr, ptr %3, align 8, !tbaa !4
+  %108 = getelementptr inbounds nuw %struct.jit_State, ptr %107, i32 0, i32 6
+  %109 = load ptr, ptr %108, align 8, !tbaa !41
+  %110 = getelementptr inbounds i32, ptr %109, i64 0
+  store i32 %106, ptr %110, align 4, !tbaa !9
+  br label %111
+
+111:                                              ; preds = %100, %97
+  br label %112
+
+112:                                              ; preds = %111, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_string_rep(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 0
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = call i32 @lj_ir_tostr(ptr noundef %14, i32 noundef %19)
+  store i32 %20, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %25 = getelementptr inbounds i32, ptr %24, i64 1
+  %26 = load i32, ptr %25, align 4, !tbaa !9
+  %27 = call i32 @lj_opt_narrow_toint(ptr noundef %21, i32 noundef %26)
+  store i32 %27, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  store i32 0, ptr %9, align 4, !tbaa !9
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.jit_State, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = getelementptr inbounds i32, ptr %30, i64 2
+  %32 = load i32, ptr %31, align 4, !tbaa !9
+  %33 = and i32 %32, 520093696
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %90, label %35
+
+35:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.jit_State, ptr %37, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8, !tbaa !41
+  %40 = getelementptr inbounds i32, ptr %39, i64 2
+  %41 = load i32, ptr %40, align 4, !tbaa !9
+  %42 = call i32 @lj_ir_tostr(ptr noundef %36, i32 noundef %41)
+  store i32 %42, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %43 = load ptr, ptr %3, align 8, !tbaa !4
+  %44 = load ptr, ptr %4, align 8, !tbaa !46
+  %45 = getelementptr inbounds nuw %struct.RecordFFData, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !40
+  %47 = getelementptr inbounds %union.TValue, ptr %46, i64 1
+  %48 = call i32 @argv2int(ptr noundef %43, ptr noundef %47)
+  store i32 %48, ptr %11, align 4, !tbaa !9
+  %49 = load ptr, ptr %3, align 8, !tbaa !4
+  %50 = load i32, ptr %11, align 4, !tbaa !9
+  %51 = icmp sgt i32 %50, 1
+  %52 = select i1 %51, i32 3, i32 2
+  %53 = shl i32 %52, 8
+  %54 = or i32 %53, 147
+  %55 = trunc i32 %54 to i16
+  %56 = load i32, ptr %6, align 4, !tbaa !9
+  %57 = trunc i32 %56 to i16
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = call i32 @lj_ir_kint(ptr noundef %58, i32 noundef 1)
+  %60 = trunc i32 %59 to i16
+  call void @lj_ir_set_(ptr noundef %49, i16 noundef zeroext %55, i16 noundef zeroext %57, i16 noundef zeroext %60)
+  %61 = load ptr, ptr %3, align 8, !tbaa !4
+  %62 = call i32 @lj_opt_fold(ptr noundef %61)
+  %63 = load i32, ptr %11, align 4, !tbaa !9
+  %64 = icmp sgt i32 %63, 1
+  br i1 %64, label %65, label %89
+
+65:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %66 = load ptr, ptr %3, align 8, !tbaa !4
+  %67 = call i32 @recff_bufhdr(ptr noundef %66)
+  store i32 %67, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  %68 = load ptr, ptr %3, align 8, !tbaa !4
+  %69 = load i32, ptr %12, align 4, !tbaa !9
+  %70 = trunc i32 %69 to i16
+  %71 = load i32, ptr %10, align 4, !tbaa !9
+  %72 = trunc i32 %71 to i16
+  call void @lj_ir_set_(ptr noundef %68, i16 noundef zeroext 22153, i16 noundef zeroext %70, i16 noundef zeroext %72)
+  %73 = load ptr, ptr %3, align 8, !tbaa !4
+  %74 = call i32 @lj_opt_fold(ptr noundef %73)
+  store i32 %74, ptr %13, align 4, !tbaa !9
+  %75 = load ptr, ptr %3, align 8, !tbaa !4
+  %76 = load i32, ptr %13, align 4, !tbaa !9
+  %77 = trunc i32 %76 to i16
+  %78 = load i32, ptr %5, align 4, !tbaa !9
+  %79 = trunc i32 %78 to i16
+  call void @lj_ir_set_(ptr noundef %75, i16 noundef zeroext 22153, i16 noundef zeroext %77, i16 noundef zeroext %79)
+  %80 = load ptr, ptr %3, align 8, !tbaa !4
+  %81 = call i32 @lj_opt_fold(ptr noundef %80)
+  store i32 %81, ptr %13, align 4, !tbaa !9
+  %82 = load ptr, ptr %3, align 8, !tbaa !4
+  %83 = load i32, ptr %13, align 4, !tbaa !9
+  %84 = trunc i32 %83 to i16
+  %85 = load i32, ptr %12, align 4, !tbaa !9
+  %86 = trunc i32 %85 to i16
+  call void @lj_ir_set_(ptr noundef %82, i16 noundef zeroext 22404, i16 noundef zeroext %84, i16 noundef zeroext %86)
+  %87 = load ptr, ptr %3, align 8, !tbaa !4
+  %88 = call i32 @lj_opt_fold(ptr noundef %87)
+  store i32 %88, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  br label %89
+
+89:                                               ; preds = %65, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  br label %90
+
+90:                                               ; preds = %89, %2
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = call i32 @recff_bufhdr(ptr noundef %91)
+  store i32 %92, ptr %7, align 4, !tbaa !9
+  store i32 %92, ptr %8, align 4, !tbaa !9
+  %93 = load i32, ptr %9, align 4, !tbaa !9
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %95, label %112
+
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %3, align 8, !tbaa !4
+  %97 = load i32, ptr %8, align 4, !tbaa !9
+  %98 = trunc i32 %97 to i16
+  %99 = load i32, ptr %5, align 4, !tbaa !9
+  %100 = trunc i32 %99 to i16
+  call void @lj_ir_set_(ptr noundef %96, i16 noundef zeroext 22153, i16 noundef zeroext %98, i16 noundef zeroext %100)
+  %101 = load ptr, ptr %3, align 8, !tbaa !4
+  %102 = call i32 @lj_opt_fold(ptr noundef %101)
+  store i32 %102, ptr %8, align 4, !tbaa !9
+  %103 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %103, ptr %5, align 4, !tbaa !9
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = load i32, ptr %6, align 4, !tbaa !9
+  %106 = trunc i32 %105 to i16
+  %107 = load ptr, ptr %3, align 8, !tbaa !4
+  %108 = call i32 @lj_ir_kint(ptr noundef %107, i32 noundef -1)
+  %109 = trunc i32 %108 to i16
+  call void @lj_ir_set_(ptr noundef %104, i16 noundef zeroext 10515, i16 noundef zeroext %106, i16 noundef zeroext %109)
+  %110 = load ptr, ptr %3, align 8, !tbaa !4
+  %111 = call i32 @lj_opt_fold(ptr noundef %110)
+  store i32 %111, ptr %6, align 4, !tbaa !9
+  br label %112
+
+112:                                              ; preds = %95, %90
+  %113 = load ptr, ptr %3, align 8, !tbaa !4
+  %114 = load i32, ptr %8, align 4, !tbaa !9
+  %115 = load i32, ptr %5, align 4, !tbaa !9
+  %116 = load i32, ptr %6, align 4, !tbaa !9
+  %117 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %113, i32 noundef 22, i32 noundef %114, i32 noundef %115, i32 noundef %116)
+  store i32 %117, ptr %8, align 4, !tbaa !9
+  %118 = load ptr, ptr %3, align 8, !tbaa !4
+  %119 = load i32, ptr %8, align 4, !tbaa !9
+  %120 = trunc i32 %119 to i16
+  %121 = load i32, ptr %7, align 4, !tbaa !9
+  %122 = trunc i32 %121 to i16
+  call void @lj_ir_set_(ptr noundef %118, i16 noundef zeroext 22404, i16 noundef zeroext %120, i16 noundef zeroext %122)
+  %123 = load ptr, ptr %3, align 8, !tbaa !4
+  %124 = call i32 @lj_opt_fold(ptr noundef %123)
+  %125 = load ptr, ptr %3, align 8, !tbaa !4
+  %126 = getelementptr inbounds nuw %struct.jit_State, ptr %125, i32 0, i32 6
+  %127 = load ptr, ptr %126, align 8, !tbaa !41
+  %128 = getelementptr inbounds i32, ptr %127, i64 0
+  store i32 %124, ptr %128, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_string_op(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = getelementptr inbounds i32, ptr %11, i64 0
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = call i32 @lj_ir_tostr(ptr noundef %8, i32 noundef %13)
+  store i32 %14, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = call i32 @recff_bufhdr(ptr noundef %15)
+  store i32 %16, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load ptr, ptr %4, align 8, !tbaa !46
+  %19 = getelementptr inbounds nuw %struct.RecordFFData, ptr %18, i32 0, i32 2
+  %20 = load i32, ptr %19, align 8, !tbaa !34
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = load i32, ptr %5, align 4, !tbaa !9
+  %23 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %17, i32 noundef %20, i32 noundef %21, i32 noundef %22)
+  store i32 %23, ptr %7, align 4, !tbaa !9
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = load i32, ptr %7, align 4, !tbaa !9
+  %26 = trunc i32 %25 to i16
+  %27 = load i32, ptr %6, align 4, !tbaa !9
+  %28 = trunc i32 %27 to i16
+  call void @lj_ir_set_(ptr noundef %24, i16 noundef zeroext 22404, i16 noundef zeroext %26, i16 noundef zeroext %28)
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = call i32 @lj_opt_fold(ptr noundef %29)
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.jit_State, ptr %31, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  %34 = getelementptr inbounds i32, ptr %33, i64 0
+  store i32 %30, ptr %34, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_string_find(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %25 = getelementptr inbounds i32, ptr %24, i64 0
+  %26 = load i32, ptr %25, align 4, !tbaa !9
+  %27 = call i32 @lj_ir_tostr(ptr noundef %21, i32 noundef %26)
+  store i32 %27, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %32 = getelementptr inbounds i32, ptr %31, i64 1
+  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %34 = call i32 @lj_ir_tostr(ptr noundef %28, i32 noundef %33)
+  store i32 %34, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %35 = load ptr, ptr %3, align 8, !tbaa !4
+  %36 = load i32, ptr %5, align 4, !tbaa !9
+  %37 = trunc i32 %36 to i16
+  call void @lj_ir_set_(ptr noundef %35, i16 noundef zeroext 17683, i16 noundef zeroext %37, i16 noundef zeroext 0)
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = call i32 @lj_opt_fold(ptr noundef %38)
+  store i32 %39, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = call i32 @lj_ir_kint(ptr noundef %40, i32 noundef 0)
+  store i32 %41, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = load ptr, ptr %4, align 8, !tbaa !46
+  %44 = getelementptr inbounds nuw %struct.RecordFFData, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !40
+  %46 = getelementptr inbounds %union.TValue, ptr %45, i64 0
+  %47 = call ptr @argv2str(ptr noundef %42, ptr noundef %46)
+  store ptr %47, ptr %10, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %48 = load ptr, ptr %3, align 8, !tbaa !4
+  %49 = load ptr, ptr %4, align 8, !tbaa !46
+  %50 = getelementptr inbounds nuw %struct.RecordFFData, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !40
+  %52 = getelementptr inbounds %union.TValue, ptr %51, i64 1
+  %53 = call ptr @argv2str(ptr noundef %48, ptr noundef %52)
+  store ptr %53, ptr %11, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %54 = load ptr, ptr %3, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.jit_State, ptr %54, i32 0, i32 11
+  store i8 1, ptr %55, align 1, !tbaa !58
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = getelementptr inbounds nuw %struct.jit_State, ptr %56, i32 0, i32 6
+  %58 = load ptr, ptr %57, align 8, !tbaa !41
+  %59 = getelementptr inbounds i32, ptr %58, i64 2
+  %60 = load i32, ptr %59, align 4, !tbaa !9
+  %61 = and i32 %60, 520093696
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %66
+
+63:                                               ; preds = %2
+  %64 = load ptr, ptr %3, align 8, !tbaa !4
+  %65 = call i32 @lj_ir_kint(ptr noundef %64, i32 noundef 1)
+  store i32 %65, ptr %9, align 4, !tbaa !9
+  store i32 1, ptr %12, align 4, !tbaa !9
+  br label %80
+
+66:                                               ; preds = %2
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = load ptr, ptr %3, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw %struct.jit_State, ptr %68, i32 0, i32 6
+  %70 = load ptr, ptr %69, align 8, !tbaa !41
+  %71 = getelementptr inbounds i32, ptr %70, i64 2
+  %72 = load i32, ptr %71, align 4, !tbaa !9
+  %73 = call i32 @lj_opt_narrow_toint(ptr noundef %67, i32 noundef %72)
+  store i32 %73, ptr %9, align 4, !tbaa !9
+  %74 = load ptr, ptr %3, align 8, !tbaa !4
+  %75 = load ptr, ptr %4, align 8, !tbaa !46
+  %76 = getelementptr inbounds nuw %struct.RecordFFData, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8, !tbaa !40
+  %78 = getelementptr inbounds %union.TValue, ptr %77, i64 2
+  %79 = call i32 @argv2int(ptr noundef %74, ptr noundef %78)
+  store i32 %79, ptr %12, align 4, !tbaa !9
+  br label %80
+
+80:                                               ; preds = %66, %63
+  %81 = load ptr, ptr %3, align 8, !tbaa !4
+  %82 = load ptr, ptr %10, align 8, !tbaa !67
+  %83 = load i32, ptr %9, align 4, !tbaa !9
+  %84 = load i32, ptr %7, align 4, !tbaa !9
+  %85 = load i32, ptr %8, align 4, !tbaa !9
+  %86 = call i32 @recff_string_start(ptr noundef %81, ptr noundef %82, ptr noundef %12, i32 noundef %83, i32 noundef %84, i32 noundef %85)
+  store i32 %86, ptr %9, align 4, !tbaa !9
+  %87 = load i32, ptr %12, align 4, !tbaa !9
+  %88 = load ptr, ptr %10, align 8, !tbaa !67
+  %89 = getelementptr inbounds nuw %struct.GCstr, ptr %88, i32 0, i32 7
+  %90 = load i32, ptr %89, align 4, !tbaa !69
+  %91 = icmp ule i32 %87, %90
+  br i1 %91, label %92, label %100
+
+92:                                               ; preds = %80
+  %93 = load ptr, ptr %3, align 8, !tbaa !4
+  %94 = load i32, ptr %9, align 4, !tbaa !9
+  %95 = trunc i32 %94 to i16
+  %96 = load i32, ptr %7, align 4, !tbaa !9
+  %97 = trunc i32 %96 to i16
+  call void @lj_ir_set_(ptr noundef %93, i16 noundef zeroext 1683, i16 noundef zeroext %95, i16 noundef zeroext %97)
+  %98 = load ptr, ptr %3, align 8, !tbaa !4
+  %99 = call i32 @lj_opt_fold(ptr noundef %98)
+  br label %112
+
+100:                                              ; preds = %80
+  %101 = load ptr, ptr %3, align 8, !tbaa !4
+  %102 = load i32, ptr %9, align 4, !tbaa !9
+  %103 = trunc i32 %102 to i16
+  %104 = load i32, ptr %7, align 4, !tbaa !9
+  %105 = trunc i32 %104 to i16
+  call void @lj_ir_set_(ptr noundef %101, i16 noundef zeroext 1939, i16 noundef zeroext %103, i16 noundef zeroext %105)
+  %106 = load ptr, ptr %3, align 8, !tbaa !4
+  %107 = call i32 @lj_opt_fold(ptr noundef %106)
+  %108 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %108, ptr %9, align 4, !tbaa !9
+  %109 = load ptr, ptr %10, align 8, !tbaa !67
+  %110 = getelementptr inbounds nuw %struct.GCstr, ptr %109, i32 0, i32 7
+  %111 = load i32, ptr %110, align 4, !tbaa !69
+  store i32 %111, ptr %12, align 4, !tbaa !9
+  br label %112
+
+112:                                              ; preds = %100, %92
+  %113 = load ptr, ptr %3, align 8, !tbaa !4
+  %114 = getelementptr inbounds nuw %struct.jit_State, ptr %113, i32 0, i32 6
+  %115 = load ptr, ptr %114, align 8, !tbaa !41
+  %116 = getelementptr inbounds i32, ptr %115, i64 2
+  %117 = load i32, ptr %116, align 4, !tbaa !9
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %129
+
+119:                                              ; preds = %112
+  %120 = load ptr, ptr %3, align 8, !tbaa !4
+  %121 = getelementptr inbounds nuw %struct.jit_State, ptr %120, i32 0, i32 6
+  %122 = load ptr, ptr %121, align 8, !tbaa !41
+  %123 = getelementptr inbounds i32, ptr %122, i64 3
+  %124 = load i32, ptr %123, align 4, !tbaa !9
+  %125 = lshr i32 %124, 24
+  %126 = and i32 %125, 31
+  %127 = sub i32 %126, 0
+  %128 = icmp ule i32 %127, 1
+  br i1 %128, label %129, label %143
+
+129:                                              ; preds = %119, %112
+  %130 = load ptr, ptr %3, align 8, !tbaa !4
+  %131 = load i32, ptr %6, align 4, !tbaa !9
+  %132 = trunc i32 %131 to i16
+  %133 = load ptr, ptr %3, align 8, !tbaa !4
+  %134 = load ptr, ptr %11, align 8, !tbaa !67
+  %135 = call i32 @lj_ir_kgc(ptr noundef %133, ptr noundef %134, i32 noundef 4)
+  %136 = trunc i32 %135 to i16
+  call void @lj_ir_set_(ptr noundef %130, i16 noundef zeroext 2180, i16 noundef zeroext %132, i16 noundef zeroext %136)
+  %137 = load ptr, ptr %3, align 8, !tbaa !4
+  %138 = call i32 @lj_opt_fold(ptr noundef %137)
+  %139 = load ptr, ptr %11, align 8, !tbaa !67
+  %140 = call i32 @lj_str_haspattern(ptr noundef %139)
+  %141 = icmp ne i32 %140, 0
+  %142 = xor i1 %141, true
+  br i1 %142, label %143, label %254
+
+143:                                              ; preds = %129, %119
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  %144 = load ptr, ptr %3, align 8, !tbaa !4
+  %145 = load i32, ptr %5, align 4, !tbaa !9
+  %146 = trunc i32 %145 to i16
+  %147 = load i32, ptr %9, align 4, !tbaa !9
+  %148 = trunc i32 %147 to i16
+  call void @lj_ir_set_(ptr noundef %144, i16 noundef zeroext 16393, i16 noundef zeroext %146, i16 noundef zeroext %148)
+  %149 = load ptr, ptr %3, align 8, !tbaa !4
+  %150 = call i32 @lj_opt_fold(ptr noundef %149)
+  store i32 %150, ptr %13, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  %151 = load ptr, ptr %3, align 8, !tbaa !4
+  %152 = load i32, ptr %6, align 4, !tbaa !9
+  %153 = trunc i32 %152 to i16
+  %154 = load i32, ptr %8, align 4, !tbaa !9
+  %155 = trunc i32 %154 to i16
+  call void @lj_ir_set_(ptr noundef %151, i16 noundef zeroext 16393, i16 noundef zeroext %153, i16 noundef zeroext %155)
+  %156 = load ptr, ptr %3, align 8, !tbaa !4
+  %157 = call i32 @lj_opt_fold(ptr noundef %156)
+  store i32 %157, ptr %14, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #9
+  %158 = load ptr, ptr %3, align 8, !tbaa !4
+  %159 = load i32, ptr %7, align 4, !tbaa !9
+  %160 = trunc i32 %159 to i16
+  %161 = load i32, ptr %9, align 4, !tbaa !9
+  %162 = trunc i32 %161 to i16
+  call void @lj_ir_set_(ptr noundef %158, i16 noundef zeroext 10771, i16 noundef zeroext %160, i16 noundef zeroext %162)
+  %163 = load ptr, ptr %3, align 8, !tbaa !4
+  %164 = call i32 @lj_opt_fold(ptr noundef %163)
+  store i32 %164, ptr %15, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #9
+  %165 = load ptr, ptr %3, align 8, !tbaa !4
+  %166 = load i32, ptr %6, align 4, !tbaa !9
+  %167 = trunc i32 %166 to i16
+  call void @lj_ir_set_(ptr noundef %165, i16 noundef zeroext 17683, i16 noundef zeroext %167, i16 noundef zeroext 0)
+  %168 = load ptr, ptr %3, align 8, !tbaa !4
+  %169 = call i32 @lj_opt_fold(ptr noundef %168)
+  store i32 %169, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  %170 = load ptr, ptr %3, align 8, !tbaa !4
+  %171 = load i32, ptr %13, align 4, !tbaa !9
+  %172 = load i32, ptr %14, align 4, !tbaa !9
+  %173 = load i32, ptr %15, align 4, !tbaa !9
+  %174 = load i32, ptr %16, align 4, !tbaa !9
+  %175 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %170, i32 noundef 1, i32 noundef %171, i32 noundef %172, i32 noundef %173, i32 noundef %174)
+  store i32 %175, ptr %17, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  %176 = load ptr, ptr %3, align 8, !tbaa !4
+  %177 = call i32 @lj_ir_kptr_(ptr noundef %176, i32 noundef 26, ptr noundef null)
+  store i32 %177, ptr %18, align 4, !tbaa !9
+  %178 = load ptr, ptr %10, align 8, !tbaa !67
+  %179 = getelementptr inbounds %struct.GCstr, ptr %178, i64 1
+  %180 = load i32, ptr %12, align 4, !tbaa !9
+  %181 = zext i32 %180 to i64
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 %181
+  %183 = load ptr, ptr %11, align 8, !tbaa !67
+  %184 = getelementptr inbounds %struct.GCstr, ptr %183, i64 1
+  %185 = load ptr, ptr %10, align 8, !tbaa !67
+  %186 = getelementptr inbounds nuw %struct.GCstr, ptr %185, i32 0, i32 7
+  %187 = load i32, ptr %186, align 4, !tbaa !69
+  %188 = load i32, ptr %12, align 4, !tbaa !9
+  %189 = sub i32 %187, %188
+  %190 = load ptr, ptr %11, align 8, !tbaa !67
+  %191 = getelementptr inbounds nuw %struct.GCstr, ptr %190, i32 0, i32 7
+  %192 = load i32, ptr %191, align 4, !tbaa !69
+  %193 = call ptr @lj_str_find(ptr noundef %182, ptr noundef %184, i32 noundef %189, i32 noundef %192)
+  %194 = icmp ne ptr %193, null
+  br i1 %194, label %195, label %241
+
+195:                                              ; preds = %143
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  %196 = load ptr, ptr %3, align 8, !tbaa !4
+  %197 = load i32, ptr %17, align 4, !tbaa !9
+  %198 = trunc i32 %197 to i16
+  %199 = load i32, ptr %18, align 4, !tbaa !9
+  %200 = trunc i32 %199 to i16
+  call void @lj_ir_set_(ptr noundef %196, i16 noundef zeroext 2441, i16 noundef zeroext %198, i16 noundef zeroext %200)
+  %201 = load ptr, ptr %3, align 8, !tbaa !4
+  %202 = call i32 @lj_opt_fold(ptr noundef %201)
+  %203 = load ptr, ptr %3, align 8, !tbaa !4
+  %204 = load ptr, ptr %3, align 8, !tbaa !4
+  %205 = load i32, ptr %17, align 4, !tbaa !9
+  %206 = trunc i32 %205 to i16
+  %207 = load i32, ptr %13, align 4, !tbaa !9
+  %208 = trunc i32 %207 to i16
+  call void @lj_ir_set_(ptr noundef %204, i16 noundef zeroext 10771, i16 noundef zeroext %206, i16 noundef zeroext %208)
+  %209 = load ptr, ptr %3, align 8, !tbaa !4
+  %210 = call i32 @lj_opt_fold(ptr noundef %209)
+  %211 = trunc i32 %210 to i16
+  %212 = load i32, ptr %9, align 4, !tbaa !9
+  %213 = trunc i32 %212 to i16
+  call void @lj_ir_set_(ptr noundef %203, i16 noundef zeroext 10515, i16 noundef zeroext %211, i16 noundef zeroext %213)
+  %214 = load ptr, ptr %3, align 8, !tbaa !4
+  %215 = call i32 @lj_opt_fold(ptr noundef %214)
+  store i32 %215, ptr %19, align 4, !tbaa !9
+  %216 = load ptr, ptr %3, align 8, !tbaa !4
+  %217 = load i32, ptr %19, align 4, !tbaa !9
+  %218 = trunc i32 %217 to i16
+  %219 = load ptr, ptr %3, align 8, !tbaa !4
+  %220 = call i32 @lj_ir_kint(ptr noundef %219, i32 noundef 1)
+  %221 = trunc i32 %220 to i16
+  call void @lj_ir_set_(ptr noundef %216, i16 noundef zeroext 10515, i16 noundef zeroext %218, i16 noundef zeroext %221)
+  %222 = load ptr, ptr %3, align 8, !tbaa !4
+  %223 = call i32 @lj_opt_fold(ptr noundef %222)
+  %224 = load ptr, ptr %3, align 8, !tbaa !4
+  %225 = getelementptr inbounds nuw %struct.jit_State, ptr %224, i32 0, i32 6
+  %226 = load ptr, ptr %225, align 8, !tbaa !41
+  %227 = getelementptr inbounds i32, ptr %226, i64 0
+  store i32 %223, ptr %227, align 4, !tbaa !9
+  %228 = load ptr, ptr %3, align 8, !tbaa !4
+  %229 = load i32, ptr %19, align 4, !tbaa !9
+  %230 = trunc i32 %229 to i16
+  %231 = load i32, ptr %16, align 4, !tbaa !9
+  %232 = trunc i32 %231 to i16
+  call void @lj_ir_set_(ptr noundef %228, i16 noundef zeroext 10515, i16 noundef zeroext %230, i16 noundef zeroext %232)
+  %233 = load ptr, ptr %3, align 8, !tbaa !4
+  %234 = call i32 @lj_opt_fold(ptr noundef %233)
+  %235 = load ptr, ptr %3, align 8, !tbaa !4
+  %236 = getelementptr inbounds nuw %struct.jit_State, ptr %235, i32 0, i32 6
+  %237 = load ptr, ptr %236, align 8, !tbaa !41
+  %238 = getelementptr inbounds i32, ptr %237, i64 1
+  store i32 %234, ptr %238, align 4, !tbaa !9
+  %239 = load ptr, ptr %4, align 8, !tbaa !46
+  %240 = getelementptr inbounds nuw %struct.RecordFFData, ptr %239, i32 0, i32 1
+  store i64 2, ptr %240, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  br label %253
+
+241:                                              ; preds = %143
+  %242 = load ptr, ptr %3, align 8, !tbaa !4
+  %243 = load i32, ptr %17, align 4, !tbaa !9
+  %244 = trunc i32 %243 to i16
+  %245 = load i32, ptr %18, align 4, !tbaa !9
+  %246 = trunc i32 %245 to i16
+  call void @lj_ir_set_(ptr noundef %242, i16 noundef zeroext 2185, i16 noundef zeroext %244, i16 noundef zeroext %246)
+  %247 = load ptr, ptr %3, align 8, !tbaa !4
+  %248 = call i32 @lj_opt_fold(ptr noundef %247)
+  %249 = load ptr, ptr %3, align 8, !tbaa !4
+  %250 = getelementptr inbounds nuw %struct.jit_State, ptr %249, i32 0, i32 6
+  %251 = load ptr, ptr %250, align 8, !tbaa !41
+  %252 = getelementptr inbounds i32, ptr %251, i64 0
+  store i32 32767, ptr %252, align 4, !tbaa !9
+  br label %253
+
+253:                                              ; preds = %241, %195
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  br label %257
+
+254:                                              ; preds = %129
+  %255 = load ptr, ptr %3, align 8, !tbaa !4
+  %256 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %255, ptr noundef %256)
+  store i32 1, ptr %20, align 4
+  br label %258
+
+257:                                              ; preds = %253
+  store i32 0, ptr %20, align 4
+  br label %258
+
+258:                                              ; preds = %257, %254
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %259 = load i32, ptr %20, align 4
+  switch i32 %259, label %261 [
+    i32 0, label %260
+    i32 1, label %260
+  ]
+
+260:                                              ; preds = %258, %258
+  ret void
+
+261:                                              ; preds = %258
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_string_format(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !46
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = call i32 @recff_bufhdr(ptr noundef %7)
+  call void @recff_format(ptr noundef %5, ptr noundef %6, i32 noundef %8, i32 noundef 0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_table_insert(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.RecordIndex, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 72, ptr %5) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = getelementptr inbounds i32, ptr %11, i64 0
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  store i32 %13, ptr %14, align 8, !tbaa !50
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 1
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 8
+  store i32 %19, ptr %20, align 8, !tbaa !56
+  %21 = load ptr, ptr %4, align 8, !tbaa !46
+  %22 = getelementptr inbounds nuw %struct.RecordFFData, ptr %21, i32 0, i32 1
+  store i64 0, ptr %22, align 8, !tbaa !36
+  %23 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  %24 = load i32, ptr %23, align 8, !tbaa !50
+  %25 = and i32 %24, 520093696
+  %26 = icmp eq i32 %25, 184549376
+  br i1 %26, label %27, label %78
+
+27:                                               ; preds = %2
+  %28 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 8
+  %29 = load i32, ptr %28, align 8, !tbaa !56
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %78
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %3, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw %struct.jit_State, ptr %32, i32 0, i32 6
+  %34 = load ptr, ptr %33, align 8, !tbaa !41
+  %35 = getelementptr inbounds i32, ptr %34, i64 2
+  %36 = load i32, ptr %35, align 4, !tbaa !9
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %74, label %38
+
+38:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 6
+  %41 = load i32, ptr %40, align 8, !tbaa !50
+  %42 = trunc i32 %41 to i16
+  call void @lj_ir_set_(ptr noundef %39, i16 noundef zeroext 18707, i16 noundef zeroext %42, i16 noundef zeroext 32767)
+  %43 = load ptr, ptr %3, align 8, !tbaa !4
+  %44 = call i32 @lj_opt_fold(ptr noundef %43)
+  store i32 %44, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %45 = load ptr, ptr %4, align 8, !tbaa !46
+  %46 = getelementptr inbounds nuw %struct.RecordFFData, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !40
+  %48 = getelementptr inbounds %union.TValue, ptr %47, i64 0
+  %49 = getelementptr inbounds nuw %struct.GCRef, ptr %48, i32 0, i32 0
+  %50 = load i64, ptr %49, align 8, !tbaa !13
+  %51 = and i64 %50, 140737488355327
+  %52 = inttoptr i64 %51 to ptr
+  store ptr %52, ptr %7, align 8, !tbaa !75
+  %53 = load ptr, ptr %3, align 8, !tbaa !4
+  %54 = load i32, ptr %6, align 4, !tbaa !9
+  %55 = trunc i32 %54 to i16
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = call i32 @lj_ir_kint(ptr noundef %56, i32 noundef 1)
+  %58 = trunc i32 %57 to i16
+  call void @lj_ir_set_(ptr noundef %53, i16 noundef zeroext 10515, i16 noundef zeroext %55, i16 noundef zeroext %58)
+  %59 = load ptr, ptr %3, align 8, !tbaa !4
+  %60 = call i32 @lj_opt_fold(ptr noundef %59)
+  %61 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 7
+  store i32 %60, ptr %61, align 4, !tbaa !53
+  %62 = load ptr, ptr %3, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw %struct.jit_State, ptr %62, i32 0, i32 2
+  %64 = load ptr, ptr %63, align 8, !tbaa !37
+  %65 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 0
+  %66 = load ptr, ptr %7, align 8, !tbaa !75
+  call void @settabV(ptr noundef %64, ptr noundef %65, ptr noundef %66)
+  %67 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 1
+  %68 = load ptr, ptr %7, align 8, !tbaa !75
+  %69 = call i32 @lj_tab_len(ptr noundef %68)
+  %70 = add i32 %69, 1
+  call void @setintV(ptr noundef %67, i32 noundef %70)
+  %71 = getelementptr inbounds nuw %struct.RecordIndex, ptr %5, i32 0, i32 11
+  store i32 0, ptr %71, align 4, !tbaa !54
+  %72 = load ptr, ptr %3, align 8, !tbaa !4
+  %73 = call i32 @lj_record_idx(ptr noundef %72, ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  br label %77
+
+74:                                               ; preds = %31
+  %75 = load ptr, ptr %3, align 8, !tbaa !4
+  %76 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %75, ptr noundef %76)
+  store i32 1, ptr %8, align 4
+  br label %79
+
+77:                                               ; preds = %38
+  br label %78
+
+78:                                               ; preds = %77, %27, %2
+  store i32 0, ptr %8, align 4
+  br label %79
+
+79:                                               ; preds = %78, %74
+  call void @llvm.lifetime.end.p0(i64 72, ptr %5) #9
+  %80 = load i32, ptr %8, align 4
+  switch i32 %80, label %82 [
+    i32 0, label %81
+    i32 1, label %81
+  ]
+
+81:                                               ; preds = %79, %79
+  ret void
+
+82:                                               ; preds = %79
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_table_concat(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.jit_State, ptr %11, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %14 = getelementptr inbounds i32, ptr %13, i64 0
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %15, ptr %5, align 4, !tbaa !9
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  %17 = and i32 %16, 520093696
+  %18 = icmp eq i32 %17, 184549376
+  br i1 %18, label %19, label %132
+
+19:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds i32, ptr %22, i64 1
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = and i32 %24, 520093696
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %35, label %27
+
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %32 = getelementptr inbounds i32, ptr %31, i64 1
+  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %34 = call i32 @lj_ir_tostr(ptr noundef %28, i32 noundef %33)
+  br label %38
+
+35:                                               ; preds = %19
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = call i32 @lj_ir_knull(ptr noundef %36, i32 noundef 4)
+  br label %38
+
+38:                                               ; preds = %35, %27
+  %39 = phi i32 [ %34, %27 ], [ %37, %35 ]
+  store i32 %39, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.jit_State, ptr %40, i32 0, i32 6
+  %42 = load ptr, ptr %41, align 8, !tbaa !41
+  %43 = getelementptr inbounds i32, ptr %42, i64 1
+  %44 = load i32, ptr %43, align 4, !tbaa !9
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %62
+
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %3, align 8, !tbaa !4
+  %48 = getelementptr inbounds nuw %struct.jit_State, ptr %47, i32 0, i32 6
+  %49 = load ptr, ptr %48, align 8, !tbaa !41
+  %50 = getelementptr inbounds i32, ptr %49, i64 2
+  %51 = load i32, ptr %50, align 4, !tbaa !9
+  %52 = and i32 %51, 520093696
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %62, label %54
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %3, align 8, !tbaa !4
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = getelementptr inbounds nuw %struct.jit_State, ptr %56, i32 0, i32 6
+  %58 = load ptr, ptr %57, align 8, !tbaa !41
+  %59 = getelementptr inbounds i32, ptr %58, i64 2
+  %60 = load i32, ptr %59, align 4, !tbaa !9
+  %61 = call i32 @lj_opt_narrow_toint(ptr noundef %55, i32 noundef %60)
+  br label %65
+
+62:                                               ; preds = %46, %38
+  %63 = load ptr, ptr %3, align 8, !tbaa !4
+  %64 = call i32 @lj_ir_kint(ptr noundef %63, i32 noundef 1)
+  br label %65
+
+65:                                               ; preds = %62, %54
+  %66 = phi i32 [ %61, %54 ], [ %64, %62 ]
+  store i32 %66, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.jit_State, ptr %67, i32 0, i32 6
+  %69 = load ptr, ptr %68, align 8, !tbaa !41
+  %70 = getelementptr inbounds i32, ptr %69, i64 1
+  %71 = load i32, ptr %70, align 4, !tbaa !9
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %96
+
+73:                                               ; preds = %65
+  %74 = load ptr, ptr %3, align 8, !tbaa !4
+  %75 = getelementptr inbounds nuw %struct.jit_State, ptr %74, i32 0, i32 6
+  %76 = load ptr, ptr %75, align 8, !tbaa !41
+  %77 = getelementptr inbounds i32, ptr %76, i64 2
+  %78 = load i32, ptr %77, align 4, !tbaa !9
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %96
+
+80:                                               ; preds = %73
+  %81 = load ptr, ptr %3, align 8, !tbaa !4
+  %82 = getelementptr inbounds nuw %struct.jit_State, ptr %81, i32 0, i32 6
+  %83 = load ptr, ptr %82, align 8, !tbaa !41
+  %84 = getelementptr inbounds i32, ptr %83, i64 3
+  %85 = load i32, ptr %84, align 4, !tbaa !9
+  %86 = and i32 %85, 520093696
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %96, label %88
+
+88:                                               ; preds = %80
+  %89 = load ptr, ptr %3, align 8, !tbaa !4
+  %90 = load ptr, ptr %3, align 8, !tbaa !4
+  %91 = getelementptr inbounds nuw %struct.jit_State, ptr %90, i32 0, i32 6
+  %92 = load ptr, ptr %91, align 8, !tbaa !41
+  %93 = getelementptr inbounds i32, ptr %92, i64 3
+  %94 = load i32, ptr %93, align 4, !tbaa !9
+  %95 = call i32 @lj_opt_narrow_toint(ptr noundef %89, i32 noundef %94)
+  br label %102
+
+96:                                               ; preds = %80, %73, %65
+  %97 = load ptr, ptr %3, align 8, !tbaa !4
+  %98 = load i32, ptr %5, align 4, !tbaa !9
+  %99 = trunc i32 %98 to i16
+  call void @lj_ir_set_(ptr noundef %97, i16 noundef zeroext 18707, i16 noundef zeroext %99, i16 noundef zeroext 32767)
+  %100 = load ptr, ptr %3, align 8, !tbaa !4
+  %101 = call i32 @lj_opt_fold(ptr noundef %100)
+  br label %102
+
+102:                                              ; preds = %96, %88
+  %103 = phi i32 [ %95, %88 ], [ %101, %96 ]
+  store i32 %103, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = call i32 @recff_bufhdr(ptr noundef %104)
+  store i32 %105, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %106 = load ptr, ptr %3, align 8, !tbaa !4
+  %107 = load i32, ptr %9, align 4, !tbaa !9
+  %108 = load i32, ptr %5, align 4, !tbaa !9
+  %109 = load i32, ptr %6, align 4, !tbaa !9
+  %110 = load i32, ptr %7, align 4, !tbaa !9
+  %111 = load i32, ptr %8, align 4, !tbaa !9
+  %112 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %106, i32 noundef 23, i32 noundef %107, i32 noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef %111)
+  store i32 %112, ptr %10, align 4, !tbaa !9
+  %113 = load ptr, ptr %3, align 8, !tbaa !4
+  %114 = load i32, ptr %10, align 4, !tbaa !9
+  %115 = trunc i32 %114 to i16
+  %116 = load ptr, ptr %3, align 8, !tbaa !4
+  %117 = call i32 @lj_ir_kptr_(ptr noundef %116, i32 noundef 25, ptr noundef null)
+  %118 = trunc i32 %117 to i16
+  call void @lj_ir_set_(ptr noundef %113, i16 noundef zeroext 2441, i16 noundef zeroext %115, i16 noundef zeroext %118)
+  %119 = load ptr, ptr %3, align 8, !tbaa !4
+  %120 = call i32 @lj_opt_fold(ptr noundef %119)
+  %121 = load ptr, ptr %3, align 8, !tbaa !4
+  %122 = load i32, ptr %10, align 4, !tbaa !9
+  %123 = trunc i32 %122 to i16
+  %124 = load i32, ptr %9, align 4, !tbaa !9
+  %125 = trunc i32 %124 to i16
+  call void @lj_ir_set_(ptr noundef %121, i16 noundef zeroext 22404, i16 noundef zeroext %123, i16 noundef zeroext %125)
+  %126 = load ptr, ptr %3, align 8, !tbaa !4
+  %127 = call i32 @lj_opt_fold(ptr noundef %126)
+  %128 = load ptr, ptr %3, align 8, !tbaa !4
+  %129 = getelementptr inbounds nuw %struct.jit_State, ptr %128, i32 0, i32 6
+  %130 = load ptr, ptr %129, align 8, !tbaa !41
+  %131 = getelementptr inbounds i32, ptr %130, i64 0
+  store i32 %127, ptr %131, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  br label %132
+
+132:                                              ; preds = %102, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_table_new(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.jit_State, ptr %11, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %14 = getelementptr inbounds i32, ptr %13, i64 0
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = call i32 @lj_opt_narrow_toint(ptr noundef %10, i32 noundef %15)
+  store i32 %16, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw %struct.jit_State, ptr %18, i32 0, i32 6
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %21 = getelementptr inbounds i32, ptr %20, i64 1
+  %22 = load i32, ptr %21, align 4, !tbaa !9
+  %23 = call i32 @lj_opt_narrow_toint(ptr noundef %17, i32 noundef %22)
+  store i32 %23, ptr %6, align 4, !tbaa !9
+  %24 = load i32, ptr %5, align 4, !tbaa !9
+  %25 = trunc i32 %24 to i16
+  %26 = zext i16 %25 to i32
+  %27 = icmp slt i32 %26, 32768
+  br i1 %27, label %28, label %110
+
+28:                                               ; preds = %2
+  %29 = load i32, ptr %6, align 4, !tbaa !9
+  %30 = trunc i32 %29 to i16
+  %31 = zext i16 %30 to i32
+  %32 = icmp slt i32 %31, 32768
+  br i1 %32, label %33, label %110
+
+33:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.jit_State, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.GCtrace, ptr %35, i32 0, i32 7
+  %37 = load ptr, ptr %36, align 8, !tbaa !59
+  %38 = load i32, ptr %5, align 4, !tbaa !9
+  %39 = trunc i32 %38 to i16
+  %40 = zext i16 %39 to i64
+  %41 = getelementptr inbounds nuw %union.IRIns, ptr %37, i64 %40
+  %42 = load i32, ptr %41, align 8, !tbaa !13
+  store i32 %42, ptr %7, align 4, !tbaa !9
+  %43 = load i32, ptr %7, align 4, !tbaa !9
+  %44 = icmp slt i32 %43, 32767
+  br i1 %44, label %45, label %106
+
+45:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %46 = load ptr, ptr %3, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.jit_State, ptr %46, i32 0, i32 0
+  %48 = getelementptr inbounds nuw %struct.GCtrace, ptr %47, i32 0, i32 7
+  %49 = load ptr, ptr %48, align 8, !tbaa !59
+  %50 = load i32, ptr %6, align 4, !tbaa !9
+  %51 = trunc i32 %50 to i16
+  %52 = zext i16 %51 to i64
+  %53 = getelementptr inbounds nuw %union.IRIns, ptr %49, i64 %52
+  %54 = load i32, ptr %53, align 8, !tbaa !13
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %84
+
+56:                                               ; preds = %45
+  %57 = load ptr, ptr %3, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.jit_State, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.GCtrace, ptr %58, i32 0, i32 7
+  %60 = load ptr, ptr %59, align 8, !tbaa !59
+  %61 = load i32, ptr %6, align 4, !tbaa !9
+  %62 = trunc i32 %61 to i16
+  %63 = zext i16 %62 to i64
+  %64 = getelementptr inbounds nuw %union.IRIns, ptr %60, i64 %63
+  %65 = load i32, ptr %64, align 8, !tbaa !13
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %68
+
+67:                                               ; preds = %56
+  br label %82
+
+68:                                               ; preds = %56
+  %69 = load ptr, ptr %3, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.jit_State, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.GCtrace, ptr %70, i32 0, i32 7
+  %72 = load ptr, ptr %71, align 8, !tbaa !59
+  %73 = load i32, ptr %6, align 4, !tbaa !9
+  %74 = trunc i32 %73 to i16
+  %75 = zext i16 %74 to i64
+  %76 = getelementptr inbounds nuw %union.IRIns, ptr %72, i64 %75
+  %77 = load i32, ptr %76, align 8, !tbaa !13
+  %78 = sub nsw i32 %77, 1
+  %79 = call i32 @llvm.ctlz.i32(i32 %78, i1 true)
+  %80 = xor i32 %79, 31
+  %81 = add i32 1, %80
+  br label %82
+
+82:                                               ; preds = %68, %67
+  %83 = phi i32 [ 1, %67 ], [ %81, %68 ]
+  br label %85
+
+84:                                               ; preds = %45
+  br label %85
+
+85:                                               ; preds = %84, %82
+  %86 = phi i32 [ %83, %82 ], [ 0, %84 ]
+  store i32 %86, ptr %8, align 4, !tbaa !9
+  %87 = load i32, ptr %7, align 4, !tbaa !9
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %89, label %92
+
+89:                                               ; preds = %85
+  %90 = load i32, ptr %7, align 4, !tbaa !9
+  %91 = add nsw i32 %90, 1
+  br label %93
+
+92:                                               ; preds = %85
+  br label %93
+
+93:                                               ; preds = %92, %89
+  %94 = phi i32 [ %91, %89 ], [ 0, %92 ]
+  store i32 %94, ptr %7, align 4, !tbaa !9
+  %95 = load ptr, ptr %3, align 8, !tbaa !4
+  %96 = load i32, ptr %7, align 4, !tbaa !9
+  %97 = trunc i32 %96 to i16
+  %98 = load i32, ptr %8, align 4, !tbaa !9
+  %99 = trunc i32 %98 to i16
+  call void @lj_ir_set_(ptr noundef %95, i16 noundef zeroext 20875, i16 noundef zeroext %97, i16 noundef zeroext %99)
+  %100 = load ptr, ptr %3, align 8, !tbaa !4
+  %101 = call i32 @lj_opt_fold(ptr noundef %100)
+  %102 = load ptr, ptr %3, align 8, !tbaa !4
+  %103 = getelementptr inbounds nuw %struct.jit_State, ptr %102, i32 0, i32 6
+  %104 = load ptr, ptr %103, align 8, !tbaa !41
+  %105 = getelementptr inbounds i32, ptr %104, i64 0
+  store i32 %101, ptr %105, align 4, !tbaa !9
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %107
+
+106:                                              ; preds = %33
+  store i32 0, ptr %9, align 4
+  br label %107
+
+107:                                              ; preds = %106, %93
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  %108 = load i32, ptr %9, align 4
+  switch i32 %108, label %119 [
+    i32 0, label %109
+  ]
+
+109:                                              ; preds = %107
+  br label %110
+
+110:                                              ; preds = %109, %28, %2
+  %111 = load ptr, ptr %3, align 8, !tbaa !4
+  %112 = load i32, ptr %5, align 4, !tbaa !9
+  %113 = load i32, ptr %6, align 4, !tbaa !9
+  %114 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %111, i32 noundef 31, i32 noundef %112, i32 noundef %113)
+  %115 = load ptr, ptr %3, align 8, !tbaa !4
+  %116 = getelementptr inbounds nuw %struct.jit_State, ptr %115, i32 0, i32 6
+  %117 = load ptr, ptr %116, align 8, !tbaa !41
+  %118 = getelementptr inbounds i32, ptr %117, i64 0
+  store i32 %114, ptr %118, align 4, !tbaa !9
+  store i32 0, ptr %9, align 4
+  br label %119
+
+119:                                              ; preds = %110, %107
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %120 = load i32, ptr %9, align 4
+  switch i32 %120, label %122 [
+    i32 0, label %121
+    i32 1, label %121
+  ]
+
+121:                                              ; preds = %119, %119
+  ret void
+
+122:                                              ; preds = %119
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_table_clear(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %9 = getelementptr inbounds i32, ptr %8, i64 0
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = and i32 %11, 520093696
+  %13 = icmp eq i32 %12, 184549376
+  br i1 %13, label %14, label %22
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !46
+  %16 = getelementptr inbounds nuw %struct.RecordFFData, ptr %15, i32 0, i32 1
+  store i64 0, ptr %16, align 8, !tbaa !36
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  %19 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %17, i32 noundef 34, i32 noundef %18)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 11
+  store i8 1, ptr %21, align 1, !tbaa !58
+  br label %22
+
+22:                                               ; preds = %14, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_io_write(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load ptr, ptr %4, align 8, !tbaa !46
+  %18 = getelementptr inbounds nuw %struct.RecordFFData, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !34
+  %20 = call i32 @recff_io_fp(ptr noundef %16, ptr noundef %5, i32 noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = call i32 @lj_ir_kint(ptr noundef %21, i32 noundef 0)
+  store i32 %22, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = call i32 @lj_ir_kint(ptr noundef %23, i32 noundef 1)
+  store i32 %24, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %25 = load ptr, ptr %4, align 8, !tbaa !46
+  %26 = getelementptr inbounds nuw %struct.RecordFFData, ptr %25, i32 0, i32 2
+  %27 = load i32, ptr %26, align 8, !tbaa !34
+  %28 = icmp eq i32 %27, 0
+  %29 = select i1 %28, i32 1, i32 0
+  %30 = sext i32 %29 to i64
+  store i64 %30, ptr %9, align 8, !tbaa !60
+  br label %31
+
+31:                                               ; preds = %145, %2
+  %32 = load ptr, ptr %3, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw %struct.jit_State, ptr %32, i32 0, i32 6
+  %34 = load ptr, ptr %33, align 8, !tbaa !41
+  %35 = load i64, ptr %9, align 8, !tbaa !60
+  %36 = getelementptr inbounds i32, ptr %34, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !9
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %148
+
+39:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.jit_State, ptr %41, i32 0, i32 6
+  %43 = load ptr, ptr %42, align 8, !tbaa !41
+  %44 = load i64, ptr %9, align 8, !tbaa !60
+  %45 = getelementptr inbounds i32, ptr %43, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !9
+  %47 = call i32 @lj_ir_tostr(ptr noundef %40, i32 noundef %46)
+  store i32 %47, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %48 = load ptr, ptr %3, align 8, !tbaa !4
+  %49 = load i32, ptr %10, align 4, !tbaa !9
+  %50 = trunc i32 %49 to i16
+  %51 = load i32, ptr %7, align 4, !tbaa !9
+  %52 = trunc i32 %51 to i16
+  call void @lj_ir_set_(ptr noundef %48, i16 noundef zeroext 16393, i16 noundef zeroext %50, i16 noundef zeroext %52)
+  %53 = load ptr, ptr %3, align 8, !tbaa !4
+  %54 = call i32 @lj_opt_fold(ptr noundef %53)
+  store i32 %54, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %55 = load ptr, ptr %3, align 8, !tbaa !4
+  %56 = load i32, ptr %10, align 4, !tbaa !9
+  %57 = trunc i32 %56 to i16
+  call void @lj_ir_set_(ptr noundef %55, i16 noundef zeroext 17683, i16 noundef zeroext %57, i16 noundef zeroext 0)
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = call i32 @lj_opt_fold(ptr noundef %58)
+  store i32 %59, ptr %12, align 4, !tbaa !9
+  %60 = load i32, ptr %12, align 4, !tbaa !9
+  %61 = trunc i32 %60 to i16
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 32768
+  br i1 %63, label %64, label %125
+
+64:                                               ; preds = %39
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw %struct.jit_State, ptr %65, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %struct.GCtrace, ptr %66, i32 0, i32 7
+  %68 = load ptr, ptr %67, align 8, !tbaa !59
+  %69 = load i32, ptr %12, align 4, !tbaa !9
+  %70 = trunc i32 %69 to i16
+  %71 = zext i16 %70 to i64
+  %72 = getelementptr inbounds nuw %union.IRIns, ptr %68, i64 %71
+  %73 = load i32, ptr %72, align 8, !tbaa !13
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %75, label %125
+
+75:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  %76 = load ptr, ptr %3, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw %struct.jit_State, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.GCtrace, ptr %77, i32 0, i32 7
+  %79 = load ptr, ptr %78, align 8, !tbaa !59
+  %80 = load i32, ptr %10, align 4, !tbaa !9
+  %81 = trunc i32 %80 to i16
+  %82 = zext i16 %81 to i64
+  %83 = getelementptr inbounds nuw %union.IRIns, ptr %79, i64 %82
+  store ptr %83, ptr %13, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  %84 = load ptr, ptr %13, align 8, !tbaa !76
+  %85 = getelementptr inbounds nuw %struct.anon.3, ptr %84, i32 0, i32 2
+  %86 = load i8, ptr %85, align 1, !tbaa !13
+  %87 = zext i8 %86 to i32
+  %88 = icmp eq i32 %87, 93
+  br i1 %88, label %89, label %100
+
+89:                                               ; preds = %75
+  %90 = load ptr, ptr %13, align 8, !tbaa !76
+  %91 = getelementptr inbounds nuw %struct.anon.2, ptr %90, i32 0, i32 1
+  %92 = load i16, ptr %91, align 2, !tbaa !13
+  %93 = zext i16 %92 to i32
+  %94 = icmp eq i32 %93, 2
+  br i1 %94, label %95, label %100
+
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %13, align 8, !tbaa !76
+  %97 = getelementptr inbounds nuw %struct.anon.2, ptr %96, i32 0, i32 0
+  %98 = load i16, ptr %97, align 8, !tbaa !13
+  %99 = zext i16 %98 to i32
+  br label %106
+
+100:                                              ; preds = %89, %75
+  %101 = load ptr, ptr %3, align 8, !tbaa !4
+  %102 = load i32, ptr %11, align 4, !tbaa !9
+  %103 = trunc i32 %102 to i16
+  call void @lj_ir_set_(ptr noundef %101, i16 noundef zeroext 17936, i16 noundef zeroext %103, i16 noundef zeroext 1)
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = call i32 @lj_opt_fold(ptr noundef %104)
+  br label %106
+
+106:                                              ; preds = %100, %95
+  %107 = phi i32 [ %99, %95 ], [ %105, %100 ]
+  store i32 %107, ptr %14, align 4, !tbaa !9
+  %108 = load ptr, ptr %3, align 8, !tbaa !4
+  %109 = load i32, ptr %14, align 4, !tbaa !9
+  %110 = load i32, ptr %6, align 4, !tbaa !9
+  %111 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %108, i32 noundef 56, i32 noundef %109, i32 noundef %110)
+  store i32 %111, ptr %14, align 4, !tbaa !9
+  %112 = load ptr, ptr %3, align 8, !tbaa !4
+  %113 = call i64 @results_wanted(ptr noundef %112)
+  %114 = icmp ne i64 %113, 0
+  br i1 %114, label %115, label %124
+
+115:                                              ; preds = %106
+  %116 = load ptr, ptr %3, align 8, !tbaa !4
+  %117 = load i32, ptr %14, align 4, !tbaa !9
+  %118 = trunc i32 %117 to i16
+  %119 = load ptr, ptr %3, align 8, !tbaa !4
+  %120 = call i32 @lj_ir_kint(ptr noundef %119, i32 noundef -1)
+  %121 = trunc i32 %120 to i16
+  call void @lj_ir_set_(ptr noundef %116, i16 noundef zeroext 2451, i16 noundef zeroext %118, i16 noundef zeroext %121)
+  %122 = load ptr, ptr %3, align 8, !tbaa !4
+  %123 = call i32 @lj_opt_fold(ptr noundef %122)
+  br label %124
+
+124:                                              ; preds = %115, %106
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  br label %144
+
+125:                                              ; preds = %64, %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #9
+  %126 = load ptr, ptr %3, align 8, !tbaa !4
+  %127 = load i32, ptr %11, align 4, !tbaa !9
+  %128 = load i32, ptr %8, align 4, !tbaa !9
+  %129 = load i32, ptr %12, align 4, !tbaa !9
+  %130 = load i32, ptr %6, align 4, !tbaa !9
+  %131 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %126, i32 noundef 57, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %130)
+  store i32 %131, ptr %15, align 4, !tbaa !9
+  %132 = load ptr, ptr %3, align 8, !tbaa !4
+  %133 = call i64 @results_wanted(ptr noundef %132)
+  %134 = icmp ne i64 %133, 0
+  br i1 %134, label %135, label %143
+
+135:                                              ; preds = %125
+  %136 = load ptr, ptr %3, align 8, !tbaa !4
+  %137 = load i32, ptr %15, align 4, !tbaa !9
+  %138 = trunc i32 %137 to i16
+  %139 = load i32, ptr %12, align 4, !tbaa !9
+  %140 = trunc i32 %139 to i16
+  call void @lj_ir_set_(ptr noundef %136, i16 noundef zeroext 2195, i16 noundef zeroext %138, i16 noundef zeroext %140)
+  %141 = load ptr, ptr %3, align 8, !tbaa !4
+  %142 = call i32 @lj_opt_fold(ptr noundef %141)
+  br label %143
+
+143:                                              ; preds = %135, %125
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #9
+  br label %144
+
+144:                                              ; preds = %143, %124
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  br label %145
+
+145:                                              ; preds = %144
+  %146 = load i64, ptr %9, align 8, !tbaa !60
+  %147 = add nsw i64 %146, 1
+  store i64 %147, ptr %9, align 8, !tbaa !60
+  br label %31, !llvm.loop !77
+
+148:                                              ; preds = %31
+  %149 = load ptr, ptr %3, align 8, !tbaa !4
+  %150 = getelementptr inbounds nuw %struct.jit_State, ptr %149, i32 0, i32 6
+  %151 = load ptr, ptr %150, align 8, !tbaa !41
+  %152 = getelementptr inbounds i32, ptr %151, i64 0
+  store i32 33587197, ptr %152, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_io_flush(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = getelementptr inbounds nuw %struct.RecordFFData, ptr %9, i32 0, i32 2
+  %11 = load i32, ptr %10, align 8, !tbaa !34
+  %12 = call i32 @recff_io_fp(ptr noundef %8, ptr noundef %5, i32 noundef %11)
+  store i32 %12, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load i32, ptr %6, align 4, !tbaa !9
+  %15 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %13, i32 noundef 58, i32 noundef %14)
+  store i32 %15, ptr %7, align 4, !tbaa !9
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = call i64 @results_wanted(ptr noundef %16)
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %28
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = load i32, ptr %7, align 4, !tbaa !9
+  %22 = trunc i32 %21 to i16
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = call i32 @lj_ir_kint(ptr noundef %23, i32 noundef 0)
+  %25 = trunc i32 %24 to i16
+  call void @lj_ir_set_(ptr noundef %20, i16 noundef zeroext 2195, i16 noundef zeroext %22, i16 noundef zeroext %25)
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = call i32 @lj_opt_fold(ptr noundef %26)
+  br label %28
+
+28:                                               ; preds = %19, %2
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %32 = getelementptr inbounds i32, ptr %31, i64 0
+  store i32 33587197, ptr %32, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = getelementptr inbounds i32, ptr %11, i64 0
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %13, ptr %7, align 4, !tbaa !9
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = and i32 %14, 520093696
+  %16 = icmp eq i32 %15, 184549376
+  br i1 %16, label %17, label %35
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !46
+  %19 = getelementptr inbounds nuw %struct.RecordFFData, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %21 = getelementptr inbounds %union.TValue, ptr %20, i64 0
+  %22 = getelementptr inbounds nuw %struct.GCRef, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !13
+  %24 = and i64 %23, 140737488355327
+  %25 = inttoptr i64 %24 to ptr
+  %26 = getelementptr inbounds nuw %struct.GCtab, ptr %25, i32 0, i32 7
+  %27 = getelementptr inbounds nuw %struct.GCRef, ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !13
+  %29 = inttoptr i64 %28 to ptr
+  store ptr %29, ptr %5, align 8, !tbaa !75
+  %30 = load ptr, ptr %3, align 8, !tbaa !4
+  %31 = load i32, ptr %7, align 4, !tbaa !9
+  %32 = trunc i32 %31 to i16
+  call void @lj_ir_set_(ptr noundef %30, i16 noundef zeroext 17675, i16 noundef zeroext %32, i16 noundef zeroext 5)
+  %33 = load ptr, ptr %3, align 8, !tbaa !4
+  %34 = call i32 @lj_opt_fold(ptr noundef %33)
+  store i32 %34, ptr %6, align 4, !tbaa !9
+  br label %102
+
+35:                                               ; preds = %2
+  %36 = load i32, ptr %7, align 4, !tbaa !9
+  %37 = and i32 %36, 520093696
+  %38 = icmp eq i32 %37, 201326592
+  br i1 %38, label %39, label %57
+
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %4, align 8, !tbaa !46
+  %41 = getelementptr inbounds nuw %struct.RecordFFData, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !40
+  %43 = getelementptr inbounds %union.TValue, ptr %42, i64 0
+  %44 = getelementptr inbounds nuw %struct.GCRef, ptr %43, i32 0, i32 0
+  %45 = load i64, ptr %44, align 8, !tbaa !13
+  %46 = and i64 %45, 140737488355327
+  %47 = inttoptr i64 %46 to ptr
+  %48 = getelementptr inbounds nuw %struct.GCudata, ptr %47, i32 0, i32 7
+  %49 = getelementptr inbounds nuw %struct.GCRef, ptr %48, i32 0, i32 0
+  %50 = load i64, ptr %49, align 8, !tbaa !13
+  %51 = inttoptr i64 %50 to ptr
+  store ptr %51, ptr %5, align 8, !tbaa !75
+  %52 = load ptr, ptr %3, align 8, !tbaa !4
+  %53 = load i32, ptr %7, align 4, !tbaa !9
+  %54 = trunc i32 %53 to i16
+  call void @lj_ir_set_(ptr noundef %52, i16 noundef zeroext 17675, i16 noundef zeroext %54, i16 noundef zeroext 11)
+  %55 = load ptr, ptr %3, align 8, !tbaa !4
+  %56 = call i32 @lj_opt_fold(ptr noundef %55)
+  store i32 %56, ptr %6, align 4, !tbaa !9
+  br label %101
+
+57:                                               ; preds = %35
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = getelementptr inbounds i8, ptr %58, i64 -832
+  %60 = getelementptr inbounds nuw %struct.GG_State, ptr %59, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.global_State, ptr %60, i32 0, i32 28
+  %62 = load ptr, ptr %4, align 8, !tbaa !46
+  %63 = getelementptr inbounds nuw %struct.RecordFFData, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !40
+  %65 = getelementptr inbounds %union.TValue, ptr %64, i64 0
+  %66 = load i64, ptr %65, align 8, !tbaa !13
+  %67 = ashr i64 %66, 47
+  %68 = trunc i64 %67 to i32
+  %69 = icmp ule i32 %68, -14
+  br i1 %69, label %70, label %71
+
+70:                                               ; preds = %57
+  br label %80
+
+71:                                               ; preds = %57
+  %72 = load ptr, ptr %4, align 8, !tbaa !46
+  %73 = getelementptr inbounds nuw %struct.RecordFFData, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !40
+  %75 = getelementptr inbounds %union.TValue, ptr %74, i64 0
+  %76 = load i64, ptr %75, align 8, !tbaa !13
+  %77 = ashr i64 %76, 47
+  %78 = trunc i64 %77 to i32
+  %79 = xor i32 %78, -1
+  br label %80
+
+80:                                               ; preds = %71, %70
+  %81 = phi i32 [ 13, %70 ], [ %79, %71 ]
+  %82 = add i32 22, %81
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %61, i64 0, i64 %83
+  %85 = getelementptr inbounds nuw %struct.GCRef, ptr %84, i32 0, i32 0
+  %86 = load i64, ptr %85, align 8, !tbaa !78
+  %87 = inttoptr i64 %86 to ptr
+  store ptr %87, ptr %5, align 8, !tbaa !75
+  %88 = load ptr, ptr %5, align 8, !tbaa !75
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %94
+
+90:                                               ; preds = %80
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = load ptr, ptr %5, align 8, !tbaa !75
+  %93 = call i32 @lj_ir_kgc(ptr noundef %91, ptr noundef %92, i32 noundef 11)
+  br label %95
+
+94:                                               ; preds = %80
+  br label %95
+
+95:                                               ; preds = %94, %90
+  %96 = phi i32 [ %93, %90 ], [ 32767, %94 ]
+  %97 = load ptr, ptr %3, align 8, !tbaa !4
+  %98 = getelementptr inbounds nuw %struct.jit_State, ptr %97, i32 0, i32 6
+  %99 = load ptr, ptr %98, align 8, !tbaa !41
+  %100 = getelementptr inbounds i32, ptr %99, i64 0
+  store i32 %96, ptr %100, align 4, !tbaa !9
+  store i32 1, ptr %8, align 4
+  br label %128
+
+101:                                              ; preds = %39
+  br label %102
+
+102:                                              ; preds = %101, %17
+  %103 = load ptr, ptr %3, align 8, !tbaa !4
+  %104 = load ptr, ptr %5, align 8, !tbaa !75
+  %105 = icmp ne ptr %104, null
+  %106 = select i1 %105, i32 9, i32 8
+  %107 = shl i32 %106, 8
+  %108 = or i32 %107, 139
+  %109 = trunc i32 %108 to i16
+  %110 = load i32, ptr %6, align 4, !tbaa !9
+  %111 = trunc i32 %110 to i16
+  %112 = load ptr, ptr %3, align 8, !tbaa !4
+  %113 = call i32 @lj_ir_knull(ptr noundef %112, i32 noundef 11)
+  %114 = trunc i32 %113 to i16
+  call void @lj_ir_set_(ptr noundef %103, i16 noundef zeroext %109, i16 noundef zeroext %111, i16 noundef zeroext %114)
+  %115 = load ptr, ptr %3, align 8, !tbaa !4
+  %116 = call i32 @lj_opt_fold(ptr noundef %115)
+  %117 = load ptr, ptr %5, align 8, !tbaa !75
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %121
+
+119:                                              ; preds = %102
+  %120 = load i32, ptr %6, align 4, !tbaa !9
+  br label %122
+
+121:                                              ; preds = %102
+  br label %122
+
+122:                                              ; preds = %121, %119
+  %123 = phi i32 [ %120, %119 ], [ 32767, %121 ]
+  %124 = load ptr, ptr %3, align 8, !tbaa !4
+  %125 = getelementptr inbounds nuw %struct.jit_State, ptr %124, i32 0, i32 6
+  %126 = load ptr, ptr %125, align 8, !tbaa !41
+  %127 = getelementptr inbounds i32, ptr %126, i64 0
+  store i32 %123, ptr %127, align 4, !tbaa !9
+  store i32 0, ptr %8, align 4
+  br label %128
+
+128:                                              ; preds = %122, %95
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  %129 = load i32, ptr %8, align 4
+  switch i32 %129, label %131 [
+    i32 0, label %130
+    i32 1, label %130
+  ]
+
+130:                                              ; preds = %128, %128
+  ret void
+
+131:                                              ; preds = %128
+  unreachable
+}
+
+declare hidden void @recff_cdata_index(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_cdata_arith(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_cdata_call(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_clib_index(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_new(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_typeof(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_istype(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_xof(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_errno(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_string(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_copy(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_fill(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_abi(ptr noundef, ptr noundef) #2
+
+declare hidden void @recff_ffi_gc(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_reset(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load ptr, ptr %4, align 8, !tbaa !46
+  %15 = call i32 @recff_sbufx_check(ptr noundef %13, ptr noundef %14, i64 noundef 0)
+  store i32 %15, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %16 = load ptr, ptr %4, align 8, !tbaa !46
+  %17 = getelementptr inbounds nuw %struct.RecordFFData, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %19 = getelementptr inbounds %union.TValue, ptr %18, i64 0
+  %20 = getelementptr inbounds nuw %struct.GCRef, ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8, !tbaa !13
+  %22 = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds %struct.GCudata, ptr %23, i64 1
+  store ptr %24, ptr %6, align 8, !tbaa !79
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %25 = load ptr, ptr %6, align 8, !tbaa !79
+  %26 = getelementptr inbounds nuw %struct.SBufExt, ptr %25, i32 0, i32 3
+  %27 = getelementptr inbounds nuw %struct.MRef, ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !81
+  %29 = and i64 %28, 2
+  %30 = trunc i64 %29 to i32
+  store i32 %30, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  %33 = call i32 @recff_sbufx_get_L(ptr noundef %31, i32 noundef %32)
+  store i32 %33, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = load i32, ptr %8, align 4, !tbaa !9
+  %36 = trunc i32 %35 to i16
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = call i32 @lj_ir_kint64(ptr noundef %37, i64 noundef 2)
+  %39 = trunc i32 %38 to i16
+  call void @lj_ir_set_(ptr noundef %34, i16 noundef zeroext 8469, i16 noundef zeroext %36, i16 noundef zeroext %39)
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = call i32 @lj_opt_fold(ptr noundef %40)
+  store i32 %41, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = call i32 @lj_ir_kint64(ptr noundef %42, i64 noundef 0)
+  store i32 %43, ptr %10, align 4, !tbaa !9
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = load i32, ptr %7, align 4, !tbaa !9
+  %46 = icmp ne i32 %45, 0
+  %47 = select i1 %46, i32 9, i32 8
+  %48 = shl i32 %47, 8
+  %49 = or i32 %48, 149
+  %50 = trunc i32 %49 to i16
+  %51 = load i32, ptr %9, align 4, !tbaa !9
+  %52 = trunc i32 %51 to i16
+  %53 = load i32, ptr %10, align 4, !tbaa !9
+  %54 = trunc i32 %53 to i16
+  call void @lj_ir_set_(ptr noundef %44, i16 noundef zeroext %50, i16 noundef zeroext %52, i16 noundef zeroext %54)
+  %55 = load ptr, ptr %3, align 8, !tbaa !4
+  %56 = call i32 @lj_opt_fold(ptr noundef %55)
+  %57 = load i32, ptr %7, align 4, !tbaa !9
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %96
+
+59:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %60 = load ptr, ptr %3, align 8, !tbaa !4
+  %61 = call i32 @lj_ir_kint64(ptr noundef %60, i64 noundef 0)
+  store i32 %61, ptr %11, align 4, !tbaa !9
+  %62 = load ptr, ptr %3, align 8, !tbaa !4
+  %63 = load i32, ptr %8, align 4, !tbaa !9
+  %64 = trunc i32 %63 to i16
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  %66 = call i32 @lj_ir_kint64(ptr noundef %65, i64 noundef 2)
+  %67 = trunc i32 %66 to i16
+  call void @lj_ir_set_(ptr noundef %62, i16 noundef zeroext 8981, i16 noundef zeroext %64, i16 noundef zeroext %67)
+  %68 = load ptr, ptr %3, align 8, !tbaa !4
+  %69 = call i32 @lj_opt_fold(ptr noundef %68)
+  store i32 %69, ptr %8, align 4, !tbaa !9
+  %70 = load ptr, ptr %3, align 8, !tbaa !4
+  %71 = load i32, ptr %5, align 4, !tbaa !9
+  %72 = load i32, ptr %11, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %70, i32 noundef %71, i32 noundef 14, i32 noundef %72)
+  %73 = load ptr, ptr %3, align 8, !tbaa !4
+  %74 = load i32, ptr %5, align 4, !tbaa !9
+  %75 = load i32, ptr %11, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %73, i32 noundef %74, i32 noundef 15, i32 noundef %75)
+  %76 = load ptr, ptr %3, align 8, !tbaa !4
+  %77 = load i32, ptr %5, align 4, !tbaa !9
+  %78 = load i32, ptr %11, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %76, i32 noundef %77, i32 noundef 16, i32 noundef %78)
+  %79 = load ptr, ptr %3, align 8, !tbaa !4
+  %80 = load i32, ptr %5, align 4, !tbaa !9
+  %81 = load i32, ptr %8, align 4, !tbaa !9
+  call void @recff_sbufx_set_L(ptr noundef %79, i32 noundef %80, i32 noundef %81)
+  %82 = load ptr, ptr %3, align 8, !tbaa !4
+  %83 = load ptr, ptr %3, align 8, !tbaa !4
+  %84 = load i32, ptr %5, align 4, !tbaa !9
+  %85 = trunc i32 %84 to i16
+  call void @lj_ir_set_(ptr noundef %83, i16 noundef zeroext 15881, i16 noundef zeroext %85, i16 noundef zeroext 18)
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = call i32 @lj_opt_fold(ptr noundef %86)
+  %88 = trunc i32 %87 to i16
+  %89 = load i32, ptr %10, align 4, !tbaa !9
+  %90 = trunc i32 %89 to i16
+  call void @lj_ir_set_(ptr noundef %82, i16 noundef zeroext 19721, i16 noundef zeroext %88, i16 noundef zeroext %90)
+  %91 = load ptr, ptr %3, align 8, !tbaa !4
+  %92 = call i32 @lj_opt_fold(ptr noundef %91)
+  %93 = load ptr, ptr %3, align 8, !tbaa !4
+  %94 = load i32, ptr %5, align 4, !tbaa !9
+  %95 = load i32, ptr %11, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %93, i32 noundef %94, i32 noundef 19, i32 noundef %95)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  br label %106
+
+96:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %97 = load ptr, ptr %3, align 8, !tbaa !4
+  %98 = load i32, ptr %5, align 4, !tbaa !9
+  %99 = call i32 @recff_sbufx_get_ptr(ptr noundef %97, i32 noundef %98, i32 noundef 16)
+  store i32 %99, ptr %12, align 4, !tbaa !9
+  %100 = load ptr, ptr %3, align 8, !tbaa !4
+  %101 = load i32, ptr %5, align 4, !tbaa !9
+  %102 = load i32, ptr %12, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %100, i32 noundef %101, i32 noundef 14, i32 noundef %102)
+  %103 = load ptr, ptr %3, align 8, !tbaa !4
+  %104 = load i32, ptr %5, align 4, !tbaa !9
+  %105 = load i32, ptr %12, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %103, i32 noundef %104, i32 noundef 19, i32 noundef %105)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  br label %106
+
+106:                                              ; preds = %96, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_skip(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load ptr, ptr %4, align 8, !tbaa !46
+  %12 = call i32 @recff_sbufx_check(ptr noundef %10, ptr noundef %11, i64 noundef 0)
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = call i32 @recff_sbufx_get_ptr(ptr noundef %13, i32 noundef %14, i32 noundef 19)
+  store i32 %15, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load i32, ptr %5, align 4, !tbaa !9
+  %18 = call i32 @recff_sbufx_get_ptr(ptr noundef %16, i32 noundef %17, i32 noundef 14)
+  store i32 %18, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = load i32, ptr %6, align 4, !tbaa !9
+  %21 = load i32, ptr %7, align 4, !tbaa !9
+  %22 = call i32 @recff_sbufx_len(ptr noundef %19, i32 noundef %20, i32 noundef %21)
+  store i32 %22, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %23 = load ptr, ptr %3, align 8, !tbaa !4
+  %24 = load ptr, ptr %4, align 8, !tbaa !46
+  %25 = call i32 @recff_sbufx_checkint(ptr noundef %23, ptr noundef %24, i64 noundef 1)
+  store i32 %25, ptr %9, align 4, !tbaa !9
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = load i32, ptr %8, align 4, !tbaa !9
+  %28 = trunc i32 %27 to i16
+  %29 = load i32, ptr %9, align 4, !tbaa !9
+  %30 = trunc i32 %29 to i16
+  call void @lj_ir_set_(ptr noundef %26, i16 noundef zeroext 12819, i16 noundef zeroext %28, i16 noundef zeroext %30)
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = call i32 @lj_opt_fold(ptr noundef %31)
+  store i32 %32, ptr %8, align 4, !tbaa !9
+  %33 = load ptr, ptr %3, align 8, !tbaa !4
+  %34 = load i32, ptr %6, align 4, !tbaa !9
+  %35 = trunc i32 %34 to i16
+  %36 = load i32, ptr %8, align 4, !tbaa !9
+  %37 = trunc i32 %36 to i16
+  call void @lj_ir_set_(ptr noundef %33, i16 noundef zeroext 10505, i16 noundef zeroext %35, i16 noundef zeroext %37)
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = call i32 @lj_opt_fold(ptr noundef %38)
+  store i32 %39, ptr %6, align 4, !tbaa !9
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = load i32, ptr %5, align 4, !tbaa !9
+  %42 = load i32, ptr %6, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %40, i32 noundef %41, i32 noundef 19, i32 noundef %42)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_set(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load ptr, ptr %4, align 8, !tbaa !46
+  %15 = call i32 @recff_sbufx_check(ptr noundef %13, ptr noundef %14, i64 noundef 0)
+  store i32 %15, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load i32, ptr %5, align 4, !tbaa !9
+  %18 = call i32 @recff_sbufx_write(ptr noundef %16, i32 noundef %17)
+  store i32 %18, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.jit_State, ptr %19, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %22 = getelementptr inbounds i32, ptr %21, i64 1
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  store i32 %23, ptr %7, align 4, !tbaa !9
+  %24 = load i32, ptr %7, align 4, !tbaa !9
+  %25 = and i32 %24, 520093696
+  %26 = icmp eq i32 %25, 67108864
+  br i1 %26, label %27, label %81
+
+27:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = load i32, ptr %7, align 4, !tbaa !9
+  %30 = trunc i32 %29 to i16
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = call i32 @lj_ir_kint(ptr noundef %31, i32 noundef 0)
+  %33 = trunc i32 %32 to i16
+  call void @lj_ir_set_(ptr noundef %28, i16 noundef zeroext 16393, i16 noundef zeroext %30, i16 noundef zeroext %33)
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = call i32 @lj_opt_fold(ptr noundef %34)
+  store i32 %35, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = load i32, ptr %7, align 4, !tbaa !9
+  %38 = trunc i32 %37 to i16
+  call void @lj_ir_set_(ptr noundef %36, i16 noundef zeroext 17683, i16 noundef zeroext %38, i16 noundef zeroext 0)
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = call i32 @lj_opt_fold(ptr noundef %39)
+  store i32 %40, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.jit_State, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.GCtrace, ptr %42, i32 0, i32 7
+  %44 = load ptr, ptr %43, align 8, !tbaa !59
+  %45 = load i32, ptr %8, align 4, !tbaa !9
+  %46 = trunc i32 %45 to i16
+  %47 = zext i16 %46 to i64
+  %48 = getelementptr inbounds nuw %union.IRIns, ptr %44, i64 %47
+  store ptr %48, ptr %10, align 8, !tbaa !76
+  %49 = load ptr, ptr %10, align 8, !tbaa !76
+  %50 = getelementptr inbounds nuw %struct.anon.3, ptr %49, i32 0, i32 2
+  %51 = load i8, ptr %50, align 1, !tbaa !13
+  %52 = zext i8 %51 to i32
+  %53 = icmp eq i32 %52, 64
+  br i1 %53, label %54, label %59
+
+54:                                               ; preds = %27
+  %55 = load ptr, ptr %10, align 8, !tbaa !76
+  %56 = getelementptr inbounds nuw %struct.anon.2, ptr %55, i32 0, i32 0
+  %57 = load i16, ptr %56, align 8, !tbaa !13
+  %58 = zext i16 %57 to i32
+  store i32 %58, ptr %7, align 4, !tbaa !9
+  br label %74
+
+59:                                               ; preds = %27
+  %60 = load i32, ptr %7, align 4, !tbaa !9
+  %61 = trunc i32 %60 to i16
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 32768
+  br i1 %63, label %73, label %64
+
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  %66 = load i32, ptr %7, align 4, !tbaa !9
+  %67 = trunc i32 %66 to i16
+  %68 = load ptr, ptr %3, align 8, !tbaa !4
+  %69 = call i32 @lj_ir_kint64(ptr noundef %68, i64 noundef 24)
+  %70 = trunc i32 %69 to i16
+  call void @lj_ir_set_(ptr noundef %65, i16 noundef zeroext 10505, i16 noundef zeroext %67, i16 noundef zeroext %70)
+  %71 = load ptr, ptr %3, align 8, !tbaa !4
+  %72 = call i32 @lj_opt_fold(ptr noundef %71)
+  store i32 %72, ptr %8, align 4, !tbaa !9
+  br label %73
+
+73:                                               ; preds = %64, %59
+  br label %74
+
+74:                                               ; preds = %73, %54
+  %75 = load ptr, ptr %3, align 8, !tbaa !4
+  %76 = load i32, ptr %6, align 4, !tbaa !9
+  %77 = load i32, ptr %8, align 4, !tbaa !9
+  %78 = load i32, ptr %9, align 4, !tbaa !9
+  %79 = load i32, ptr %7, align 4, !tbaa !9
+  %80 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %75, i32 noundef 24, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %79)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %103
+
+81:                                               ; preds = %2
+  %82 = load i32, ptr %7, align 4, !tbaa !9
+  %83 = and i32 %82, 520093696
+  %84 = icmp eq i32 %83, 167772160
+  br i1 %84, label %85, label %102
+
+85:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %86 = load ptr, ptr %3, align 8, !tbaa !4
+  %87 = load i32, ptr %7, align 4, !tbaa !9
+  %88 = load ptr, ptr %4, align 8, !tbaa !46
+  %89 = getelementptr inbounds nuw %struct.RecordFFData, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8, !tbaa !40
+  %91 = getelementptr inbounds %union.TValue, ptr %90, i64 1
+  %92 = call i32 @lj_crecord_topcvoid(ptr noundef %86, i32 noundef %87, ptr noundef %91)
+  store i32 %92, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %93 = load ptr, ptr %3, align 8, !tbaa !4
+  %94 = load ptr, ptr %4, align 8, !tbaa !46
+  %95 = call i32 @recff_sbufx_checkint(ptr noundef %93, ptr noundef %94, i64 noundef 2)
+  store i32 %95, ptr %12, align 4, !tbaa !9
+  %96 = load ptr, ptr %3, align 8, !tbaa !4
+  %97 = load i32, ptr %6, align 4, !tbaa !9
+  %98 = load i32, ptr %11, align 4, !tbaa !9
+  %99 = load i32, ptr %12, align 4, !tbaa !9
+  %100 = load i32, ptr %7, align 4, !tbaa !9
+  %101 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %96, i32 noundef 24, i32 noundef %97, i32 noundef %98, i32 noundef %99, i32 noundef %100)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  br label %102
+
+102:                                              ; preds = %85, %81
+  br label %103
+
+103:                                              ; preds = %102, %74
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_put(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %4, align 8, !tbaa !46
+  %16 = call i32 @recff_sbufx_check(ptr noundef %14, ptr noundef %15, i64 noundef 0)
+  store i32 %16, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load i32, ptr %5, align 4, !tbaa !9
+  %19 = call i32 @recff_sbufx_write(ptr noundef %17, i32 noundef %18)
+  store i32 %19, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds i32, ptr %22, i64 1
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %2
+  store i32 1, ptr %9, align 4
+  br label %135
+
+27:                                               ; preds = %2
+  store i64 1, ptr %8, align 8, !tbaa !60
+  br label %28
+
+28:                                               ; preds = %53, %27
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.jit_State, ptr %29, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %32 = load i64, ptr %8, align 8, !tbaa !60
+  %33 = getelementptr inbounds i32, ptr %31, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !9
+  store i32 %34, ptr %7, align 4, !tbaa !9
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %56
+
+36:                                               ; preds = %28
+  %37 = load i32, ptr %7, align 4, !tbaa !9
+  %38 = and i32 %37, 520093696
+  %39 = icmp eq i32 %38, 201326592
+  br i1 %39, label %40, label %52
+
+40:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = load ptr, ptr %4, align 8, !tbaa !46
+  %43 = load i64, ptr %8, align 8, !tbaa !60
+  %44 = call i32 @recff_sbufx_check(ptr noundef %41, ptr noundef %42, i64 noundef %43)
+  store i32 %44, ptr %10, align 4, !tbaa !9
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = load i32, ptr %5, align 4, !tbaa !9
+  %47 = trunc i32 %46 to i16
+  %48 = load i32, ptr %10, align 4, !tbaa !9
+  %49 = trunc i32 %48 to i16
+  call void @lj_ir_set_(ptr noundef %45, i16 noundef zeroext 2441, i16 noundef zeroext %47, i16 noundef zeroext %49)
+  %50 = load ptr, ptr %3, align 8, !tbaa !4
+  %51 = call i32 @lj_opt_fold(ptr noundef %50)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  br label %52
+
+52:                                               ; preds = %40, %36
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load i64, ptr %8, align 8, !tbaa !60
+  %55 = add nsw i64 %54, 1
+  store i64 %55, ptr %8, align 8, !tbaa !60
+  br label %28, !llvm.loop !83
+
+56:                                               ; preds = %28
+  store i64 1, ptr %8, align 8, !tbaa !60
+  br label %57
+
+57:                                               ; preds = %126, %56
+  %58 = load ptr, ptr %3, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw %struct.jit_State, ptr %58, i32 0, i32 6
+  %60 = load ptr, ptr %59, align 8, !tbaa !41
+  %61 = load i64, ptr %8, align 8, !tbaa !60
+  %62 = getelementptr inbounds i32, ptr %60, i64 %61
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  store i32 %63, ptr %7, align 4, !tbaa !9
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %129
+
+65:                                               ; preds = %57
+  %66 = load i32, ptr %7, align 4, !tbaa !9
+  %67 = and i32 %66, 520093696
+  %68 = icmp eq i32 %67, 67108864
+  br i1 %68, label %69, label %77
+
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %3, align 8, !tbaa !4
+  %71 = load i32, ptr %6, align 4, !tbaa !9
+  %72 = trunc i32 %71 to i16
+  %73 = load i32, ptr %7, align 4, !tbaa !9
+  %74 = trunc i32 %73 to i16
+  call void @lj_ir_set_(ptr noundef %70, i16 noundef zeroext 22153, i16 noundef zeroext %72, i16 noundef zeroext %74)
+  %75 = load ptr, ptr %3, align 8, !tbaa !4
+  %76 = call i32 @lj_opt_fold(ptr noundef %75)
+  store i32 %76, ptr %6, align 4, !tbaa !9
+  br label %125
+
+77:                                               ; preds = %65
+  %78 = load i32, ptr %7, align 4, !tbaa !9
+  %79 = lshr i32 %78, 24
+  %80 = and i32 %79, 31
+  %81 = sub i32 %80, 14
+  %82 = icmp ule i32 %81, 5
+  br i1 %82, label %83, label %100
+
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %3, align 8, !tbaa !4
+  %85 = load i32, ptr %6, align 4, !tbaa !9
+  %86 = trunc i32 %85 to i16
+  %87 = load ptr, ptr %3, align 8, !tbaa !4
+  %88 = load i32, ptr %7, align 4, !tbaa !9
+  %89 = trunc i32 %88 to i16
+  %90 = load i32, ptr %7, align 4, !tbaa !9
+  %91 = and i32 %90, 520093696
+  %92 = icmp eq i32 %91, 234881024
+  %93 = select i1 %92, i32 1, i32 0
+  %94 = trunc i32 %93 to i16
+  call void @lj_ir_set_(ptr noundef %87, i16 noundef zeroext 23812, i16 noundef zeroext %89, i16 noundef zeroext %94)
+  %95 = load ptr, ptr %3, align 8, !tbaa !4
+  %96 = call i32 @lj_opt_fold(ptr noundef %95)
+  %97 = trunc i32 %96 to i16
+  call void @lj_ir_set_(ptr noundef %84, i16 noundef zeroext 22153, i16 noundef zeroext %86, i16 noundef zeroext %97)
+  %98 = load ptr, ptr %3, align 8, !tbaa !4
+  %99 = call i32 @lj_opt_fold(ptr noundef %98)
+  store i32 %99, ptr %6, align 4, !tbaa !9
+  br label %124
+
+100:                                              ; preds = %77
+  %101 = load i32, ptr %7, align 4, !tbaa !9
+  %102 = and i32 %101, 520093696
+  %103 = icmp eq i32 %102, 201326592
+  br i1 %103, label %104, label %120
+
+104:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %105 = load ptr, ptr %3, align 8, !tbaa !4
+  %106 = load i32, ptr %7, align 4, !tbaa !9
+  %107 = call i32 @recff_sbufx_get_ptr(ptr noundef %105, i32 noundef %106, i32 noundef 19)
+  store i32 %107, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %108 = load ptr, ptr %3, align 8, !tbaa !4
+  %109 = load i32, ptr %7, align 4, !tbaa !9
+  %110 = call i32 @recff_sbufx_get_ptr(ptr noundef %108, i32 noundef %109, i32 noundef 14)
+  store i32 %110, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  %111 = load ptr, ptr %3, align 8, !tbaa !4
+  %112 = load i32, ptr %11, align 4, !tbaa !9
+  %113 = load i32, ptr %12, align 4, !tbaa !9
+  %114 = call i32 @recff_sbufx_len(ptr noundef %111, i32 noundef %112, i32 noundef %113)
+  store i32 %114, ptr %13, align 4, !tbaa !9
+  %115 = load ptr, ptr %3, align 8, !tbaa !4
+  %116 = load i32, ptr %6, align 4, !tbaa !9
+  %117 = load i32, ptr %11, align 4, !tbaa !9
+  %118 = load i32, ptr %13, align 4, !tbaa !9
+  %119 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %115, i32 noundef 16, i32 noundef %116, i32 noundef %117, i32 noundef %118)
+  store i32 %119, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  br label %123
+
+120:                                              ; preds = %100
+  %121 = load ptr, ptr %3, align 8, !tbaa !4
+  %122 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %121, ptr noundef %122)
+  br label %123
+
+123:                                              ; preds = %120, %104
+  br label %124
+
+124:                                              ; preds = %123, %83
+  br label %125
+
+125:                                              ; preds = %124, %69
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load i64, ptr %8, align 8, !tbaa !60
+  %128 = add nsw i64 %127, 1
+  store i64 %128, ptr %8, align 8, !tbaa !60
+  br label %57, !llvm.loop !84
+
+129:                                              ; preds = %57
+  %130 = load ptr, ptr %3, align 8, !tbaa !4
+  %131 = load i32, ptr %6, align 4, !tbaa !9
+  %132 = trunc i32 %131 to i16
+  call void @lj_ir_set_(ptr noundef %130, i16 noundef zeroext 4608, i16 noundef zeroext %132, i16 noundef zeroext 0)
+  %133 = load ptr, ptr %3, align 8, !tbaa !4
+  %134 = call i32 @lj_opt_fold(ptr noundef %133)
+  store i32 0, ptr %9, align 4
+  br label %135
+
+135:                                              ; preds = %129, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %136 = load i32, ptr %9, align 4
+  switch i32 %136, label %138 [
+    i32 0, label %137
+    i32 1, label %137
+  ]
+
+137:                                              ; preds = %135, %135
+  ret void
+
+138:                                              ; preds = %135
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_putf(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = load ptr, ptr %4, align 8, !tbaa !46
+  %9 = call i32 @recff_sbufx_check(ptr noundef %7, ptr noundef %8, i64 noundef 0)
+  store i32 %9, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = call i32 @recff_sbufx_write(ptr noundef %10, i32 noundef %11)
+  store i32 %12, ptr %6, align 4, !tbaa !9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load ptr, ptr %4, align 8, !tbaa !46
+  %15 = load i32, ptr %6, align 4, !tbaa !9
+  call void @recff_format(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_get(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = load ptr, ptr %4, align 8, !tbaa !46
+  %14 = call i32 @recff_sbufx_check(ptr noundef %12, ptr noundef %13, i64 noundef 0)
+  store i32 %14, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = load i32, ptr %5, align 4, !tbaa !9
+  %17 = call i32 @recff_sbufx_get_ptr(ptr noundef %15, i32 noundef %16, i32 noundef 19)
+  store i32 %17, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = load i32, ptr %5, align 4, !tbaa !9
+  %20 = call i32 @recff_sbufx_get_ptr(ptr noundef %18, i32 noundef %19, i32 noundef 14)
+  store i32 %20, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.jit_State, ptr %21, i32 0, i32 6
+  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  %24 = getelementptr inbounds i32, ptr %23, i64 1
+  %25 = load i32, ptr %24, align 4, !tbaa !9
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %36, label %27
+
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.jit_State, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = getelementptr inbounds i32, ptr %30, i64 1
+  store i32 32767, ptr %31, align 4, !tbaa !9
+  %32 = load ptr, ptr %3, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw %struct.jit_State, ptr %32, i32 0, i32 6
+  %34 = load ptr, ptr %33, align 8, !tbaa !41
+  %35 = getelementptr inbounds i32, ptr %34, i64 2
+  store i32 0, ptr %35, align 4, !tbaa !9
+  br label %36
+
+36:                                               ; preds = %27, %2
+  store i64 0, ptr %9, align 8, !tbaa !60
+  br label %37
+
+37:                                               ; preds = %63, %36
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.jit_State, ptr %38, i32 0, i32 6
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %41 = load i64, ptr %9, align 8, !tbaa !60
+  %42 = add nsw i64 %41, 1
+  %43 = getelementptr inbounds i32, ptr %40, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !9
+  store i32 %44, ptr %8, align 4, !tbaa !9
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %66
+
+46:                                               ; preds = %37
+  %47 = load i32, ptr %8, align 4, !tbaa !9
+  %48 = and i32 %47, 520093696
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %62, label %50
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = load ptr, ptr %4, align 8, !tbaa !46
+  %53 = load i64, ptr %9, align 8, !tbaa !60
+  %54 = add nsw i64 %53, 1
+  %55 = call i32 @recff_sbufx_checkint(ptr noundef %51, ptr noundef %52, i64 noundef %54)
+  %56 = load ptr, ptr %3, align 8, !tbaa !4
+  %57 = getelementptr inbounds nuw %struct.jit_State, ptr %56, i32 0, i32 6
+  %58 = load ptr, ptr %57, align 8, !tbaa !41
+  %59 = load i64, ptr %9, align 8, !tbaa !60
+  %60 = add nsw i64 %59, 1
+  %61 = getelementptr inbounds i32, ptr %58, i64 %60
+  store i32 %55, ptr %61, align 4, !tbaa !9
+  br label %62
+
+62:                                               ; preds = %50, %46
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load i64, ptr %9, align 8, !tbaa !60
+  %65 = add nsw i64 %64, 1
+  store i64 %65, ptr %9, align 8, !tbaa !60
+  br label %37, !llvm.loop !85
+
+66:                                               ; preds = %37
+  store i64 0, ptr %9, align 8, !tbaa !60
+  br label %67
+
+67:                                               ; preds = %130, %66
+  %68 = load ptr, ptr %3, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw %struct.jit_State, ptr %68, i32 0, i32 6
+  %70 = load ptr, ptr %69, align 8, !tbaa !41
+  %71 = load i64, ptr %9, align 8, !tbaa !60
+  %72 = add nsw i64 %71, 1
+  %73 = getelementptr inbounds i32, ptr %70, i64 %72
+  %74 = load i32, ptr %73, align 4, !tbaa !9
+  store i32 %74, ptr %8, align 4, !tbaa !9
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %133
+
+76:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %77 = load ptr, ptr %3, align 8, !tbaa !4
+  %78 = load i32, ptr %6, align 4, !tbaa !9
+  %79 = load i32, ptr %7, align 4, !tbaa !9
+  %80 = call i32 @recff_sbufx_len(ptr noundef %77, i32 noundef %78, i32 noundef %79)
+  store i32 %80, ptr %10, align 4, !tbaa !9
+  %81 = load i32, ptr %8, align 4, !tbaa !9
+  %82 = and i32 %81, 520093696
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %98
+
+84:                                               ; preds = %76
+  %85 = load ptr, ptr %3, align 8, !tbaa !4
+  %86 = load i32, ptr %6, align 4, !tbaa !9
+  %87 = trunc i32 %86 to i16
+  %88 = load i32, ptr %10, align 4, !tbaa !9
+  %89 = trunc i32 %88 to i16
+  call void @lj_ir_set_(ptr noundef %85, i16 noundef zeroext 20484, i16 noundef zeroext %87, i16 noundef zeroext %89)
+  %90 = load ptr, ptr %3, align 8, !tbaa !4
+  %91 = call i32 @lj_opt_fold(ptr noundef %90)
+  %92 = load ptr, ptr %3, align 8, !tbaa !4
+  %93 = getelementptr inbounds nuw %struct.jit_State, ptr %92, i32 0, i32 6
+  %94 = load ptr, ptr %93, align 8, !tbaa !41
+  %95 = load i64, ptr %9, align 8, !tbaa !60
+  %96 = getelementptr inbounds i32, ptr %94, i64 %95
+  store i32 %91, ptr %96, align 4, !tbaa !9
+  %97 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %97, ptr %6, align 4, !tbaa !9
+  br label %126
+
+98:                                               ; preds = %76
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %99 = load ptr, ptr %3, align 8, !tbaa !4
+  %100 = load i32, ptr %10, align 4, !tbaa !9
+  %101 = trunc i32 %100 to i16
+  %102 = load i32, ptr %8, align 4, !tbaa !9
+  %103 = trunc i32 %102 to i16
+  call void @lj_ir_set_(ptr noundef %99, i16 noundef zeroext 12819, i16 noundef zeroext %101, i16 noundef zeroext %103)
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = call i32 @lj_opt_fold(ptr noundef %104)
+  store i32 %105, ptr %10, align 4, !tbaa !9
+  %106 = load ptr, ptr %3, align 8, !tbaa !4
+  %107 = load i32, ptr %6, align 4, !tbaa !9
+  %108 = trunc i32 %107 to i16
+  %109 = load i32, ptr %10, align 4, !tbaa !9
+  %110 = trunc i32 %109 to i16
+  call void @lj_ir_set_(ptr noundef %106, i16 noundef zeroext 10505, i16 noundef zeroext %108, i16 noundef zeroext %110)
+  %111 = load ptr, ptr %3, align 8, !tbaa !4
+  %112 = call i32 @lj_opt_fold(ptr noundef %111)
+  store i32 %112, ptr %11, align 4, !tbaa !9
+  %113 = load ptr, ptr %3, align 8, !tbaa !4
+  %114 = load i32, ptr %6, align 4, !tbaa !9
+  %115 = trunc i32 %114 to i16
+  %116 = load i32, ptr %10, align 4, !tbaa !9
+  %117 = trunc i32 %116 to i16
+  call void @lj_ir_set_(ptr noundef %113, i16 noundef zeroext 20484, i16 noundef zeroext %115, i16 noundef zeroext %117)
+  %118 = load ptr, ptr %3, align 8, !tbaa !4
+  %119 = call i32 @lj_opt_fold(ptr noundef %118)
+  %120 = load ptr, ptr %3, align 8, !tbaa !4
+  %121 = getelementptr inbounds nuw %struct.jit_State, ptr %120, i32 0, i32 6
+  %122 = load ptr, ptr %121, align 8, !tbaa !41
+  %123 = load i64, ptr %9, align 8, !tbaa !60
+  %124 = getelementptr inbounds i32, ptr %122, i64 %123
+  store i32 %119, ptr %124, align 4, !tbaa !9
+  %125 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %125, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  br label %126
+
+126:                                              ; preds = %98, %84
+  %127 = load ptr, ptr %3, align 8, !tbaa !4
+  %128 = load i32, ptr %5, align 4, !tbaa !9
+  %129 = load i32, ptr %6, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %127, i32 noundef %128, i32 noundef 19, i32 noundef %129)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  br label %130
+
+130:                                              ; preds = %126
+  %131 = load i64, ptr %9, align 8, !tbaa !60
+  %132 = add nsw i64 %131, 1
+  store i64 %132, ptr %9, align 8, !tbaa !60
+  br label %67, !llvm.loop !86
+
+133:                                              ; preds = %67
+  %134 = load i64, ptr %9, align 8, !tbaa !60
+  %135 = load ptr, ptr %4, align 8, !tbaa !46
+  %136 = getelementptr inbounds nuw %struct.RecordFFData, ptr %135, i32 0, i32 1
+  store i64 %134, ptr %136, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_putcdata(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = load ptr, ptr %4, align 8, !tbaa !46
+  %11 = call i32 @recff_sbufx_check(ptr noundef %9, ptr noundef %10, i64 noundef 0)
+  store i32 %11, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = call i32 @recff_sbufx_write(ptr noundef %12, i32 noundef %13)
+  store i32 %14, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.jit_State, ptr %16, i32 0, i32 6
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %19 = getelementptr inbounds i32, ptr %18, i64 1
+  %20 = load i32, ptr %19, align 4, !tbaa !9
+  %21 = load ptr, ptr %4, align 8, !tbaa !46
+  %22 = getelementptr inbounds nuw %struct.RecordFFData, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !40
+  %24 = getelementptr inbounds %union.TValue, ptr %23, i64 1
+  %25 = call i32 @lj_crecord_topcvoid(ptr noundef %15, i32 noundef %20, ptr noundef %24)
+  store i32 %25, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = load ptr, ptr %4, align 8, !tbaa !46
+  %28 = call i32 @recff_sbufx_checkint(ptr noundef %26, ptr noundef %27, i64 noundef 2)
+  store i32 %28, ptr %8, align 4, !tbaa !9
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load i32, ptr %6, align 4, !tbaa !9
+  %31 = load i32, ptr %7, align 4, !tbaa !9
+  %32 = load i32, ptr %8, align 4, !tbaa !9
+  %33 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %29, i32 noundef 16, i32 noundef %30, i32 noundef %31, i32 noundef %32)
+  store i32 %33, ptr %6, align 4, !tbaa !9
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = load i32, ptr %6, align 4, !tbaa !9
+  %36 = trunc i32 %35 to i16
+  call void @lj_ir_set_(ptr noundef %34, i16 noundef zeroext 4608, i16 noundef zeroext %36, i16 noundef zeroext 0)
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = call i32 @lj_opt_fold(ptr noundef %37)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_reserve(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = call i32 @recff_sbufx_check(ptr noundef %8, ptr noundef %9, i64 noundef 0)
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = call i32 @recff_sbufx_write(ptr noundef %11, i32 noundef %12)
+  store i32 %13, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %4, align 8, !tbaa !46
+  %16 = call i32 @recff_sbufx_checkint(ptr noundef %14, ptr noundef %15, i64 noundef 1)
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load i32, ptr %6, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %17, i32 noundef 25, i32 noundef %18, i32 noundef %19)
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.jit_State, ptr %21, i32 0, i32 6
+  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  %24 = getelementptr inbounds i32, ptr %23, i64 1
+  store i32 %20, ptr %24, align 4, !tbaa !9
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = load i32, ptr %5, align 4, !tbaa !9
+  %28 = call i32 @recff_sbufx_get_ptr(ptr noundef %26, i32 noundef %27, i32 noundef 14)
+  %29 = call i32 @lj_crecord_topuint8(ptr noundef %25, i32 noundef %28)
+  %30 = load ptr, ptr %3, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.jit_State, ptr %30, i32 0, i32 6
+  %32 = load ptr, ptr %31, align 8, !tbaa !41
+  %33 = getelementptr inbounds i32, ptr %32, i64 0
+  store i32 %29, ptr %33, align 4, !tbaa !9
+  %34 = load ptr, ptr %4, align 8, !tbaa !46
+  %35 = getelementptr inbounds nuw %struct.RecordFFData, ptr %34, i32 0, i32 1
+  store i64 2, ptr %35, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_commit(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load ptr, ptr %4, align 8, !tbaa !46
+  %12 = call i32 @recff_sbufx_check(ptr noundef %10, ptr noundef %11, i64 noundef 0)
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load ptr, ptr %4, align 8, !tbaa !46
+  %15 = call i32 @recff_sbufx_checkint(ptr noundef %13, ptr noundef %14, i64 noundef 1)
+  store i32 %15, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = load i32, ptr %5, align 4, !tbaa !9
+  %18 = call i32 @recff_sbufx_get_ptr(ptr noundef %16, i32 noundef %17, i32 noundef 14)
+  store i32 %18, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = call i32 @recff_sbufx_get_ptr(ptr noundef %19, i32 noundef %20, i32 noundef 15)
+  store i32 %21, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load i32, ptr %8, align 4, !tbaa !9
+  %24 = trunc i32 %23 to i16
+  %25 = load i32, ptr %7, align 4, !tbaa !9
+  %26 = trunc i32 %25 to i16
+  call void @lj_ir_set_(ptr noundef %22, i16 noundef zeroext 10773, i16 noundef zeroext %24, i16 noundef zeroext %26)
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = call i32 @lj_opt_fold(ptr noundef %27)
+  store i32 %28, ptr %9, align 4, !tbaa !9
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load i32, ptr %9, align 4, !tbaa !9
+  %31 = trunc i32 %30 to i16
+  call void @lj_ir_set_(ptr noundef %29, i16 noundef zeroext 23315, i16 noundef zeroext %31, i16 noundef zeroext 4725)
+  %32 = load ptr, ptr %3, align 8, !tbaa !4
+  %33 = call i32 @lj_opt_fold(ptr noundef %32)
+  store i32 %33, ptr %9, align 4, !tbaa !9
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = load i32, ptr %6, align 4, !tbaa !9
+  %36 = trunc i32 %35 to i16
+  %37 = load i32, ptr %9, align 4, !tbaa !9
+  %38 = trunc i32 %37 to i16
+  call void @lj_ir_set_(ptr noundef %34, i16 noundef zeroext 1683, i16 noundef zeroext %36, i16 noundef zeroext %38)
+  %39 = load ptr, ptr %3, align 8, !tbaa !4
+  %40 = call i32 @lj_opt_fold(ptr noundef %39)
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = load i32, ptr %7, align 4, !tbaa !9
+  %43 = trunc i32 %42 to i16
+  %44 = load i32, ptr %6, align 4, !tbaa !9
+  %45 = trunc i32 %44 to i16
+  call void @lj_ir_set_(ptr noundef %41, i16 noundef zeroext 10505, i16 noundef zeroext %43, i16 noundef zeroext %45)
+  %46 = load ptr, ptr %3, align 8, !tbaa !4
+  %47 = call i32 @lj_opt_fold(ptr noundef %46)
+  store i32 %47, ptr %7, align 4, !tbaa !9
+  %48 = load ptr, ptr %3, align 8, !tbaa !4
+  %49 = load i32, ptr %5, align 4, !tbaa !9
+  %50 = load i32, ptr %7, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %48, i32 noundef %49, i32 noundef 14, i32 noundef %50)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_ref(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = call i32 @recff_sbufx_check(ptr noundef %8, ptr noundef %9, i64 noundef 0)
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = call i32 @recff_sbufx_get_ptr(ptr noundef %11, i32 noundef %12, i32 noundef 19)
+  store i32 %13, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = call i32 @recff_sbufx_get_ptr(ptr noundef %14, i32 noundef %15, i32 noundef 14)
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load i32, ptr %6, align 4, !tbaa !9
+  %19 = call i32 @lj_crecord_topuint8(ptr noundef %17, i32 noundef %18)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.jit_State, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8, !tbaa !41
+  %23 = getelementptr inbounds i32, ptr %22, i64 0
+  store i32 %19, ptr %23, align 4, !tbaa !9
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = load i32, ptr %6, align 4, !tbaa !9
+  %26 = load i32, ptr %7, align 4, !tbaa !9
+  %27 = call i32 @recff_sbufx_len(ptr noundef %24, i32 noundef %25, i32 noundef %26)
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.jit_State, ptr %28, i32 0, i32 6
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = getelementptr inbounds i32, ptr %30, i64 1
+  store i32 %27, ptr %31, align 4, !tbaa !9
+  %32 = load ptr, ptr %4, align 8, !tbaa !46
+  %33 = getelementptr inbounds nuw %struct.RecordFFData, ptr %32, i32 0, i32 1
+  store i64 2, ptr %33, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_encode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = call i32 @recff_sbufx_check(ptr noundef %8, ptr noundef %9, i64 noundef 0)
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = call i32 @recff_sbufx_write(ptr noundef %11, i32 noundef %12)
+  store i32 %13, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.jit_State, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = getelementptr inbounds i32, ptr %17, i64 1
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = call i32 @recff_tmpref(ptr noundef %14, i32 noundef %19, i32 noundef 1)
+  store i32 %20, ptr %7, align 4, !tbaa !9
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = load i32, ptr %6, align 4, !tbaa !9
+  %23 = load i32, ptr %7, align 4, !tbaa !9
+  %24 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %21, i32 noundef 26, i32 noundef %22, i32 noundef %23)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method_decode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = load ptr, ptr %4, align 8, !tbaa !46
+  %12 = call i32 @recff_sbufx_check(ptr noundef %10, ptr noundef %11, i64 noundef 0)
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = call i32 @recff_sbufx_write(ptr noundef %13, i32 noundef %14)
+  store i32 %15, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = call i32 @recff_tmpref(ptr noundef %16, i32 noundef 32767, i32 noundef 2)
+  store i32 %17, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = load i32, ptr %6, align 4, !tbaa !9
+  %20 = load i32, ptr %7, align 4, !tbaa !9
+  %21 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %18, i32 noundef 27, i32 noundef %19, i32 noundef %20)
+  store i32 %21, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %22 = load ptr, ptr %4, align 8, !tbaa !46
+  %23 = getelementptr inbounds nuw %struct.RecordFFData, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !40
+  %25 = getelementptr inbounds %union.TValue, ptr %24, i64 0
+  %26 = getelementptr inbounds nuw %struct.GCRef, ptr %25, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8, !tbaa !13
+  %28 = and i64 %27, 140737488355327
+  %29 = inttoptr i64 %28 to ptr
+  %30 = getelementptr inbounds %struct.GCudata, ptr %29, i64 1
+  %31 = call i32 @lj_serialize_peektype(ptr noundef %30)
+  store i32 %31, ptr %9, align 4, !tbaa !9
+  %32 = load ptr, ptr %3, align 8, !tbaa !4
+  %33 = load i32, ptr %7, align 4, !tbaa !9
+  %34 = load i32, ptr %9, align 4, !tbaa !9
+  %35 = call i32 @lj_record_vload(ptr noundef %32, i32 noundef %33, i32 noundef 0, i32 noundef %34)
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.jit_State, ptr %36, i32 0, i32 6
+  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  %39 = getelementptr inbounds i32, ptr %38, i64 0
+  store i32 %35, ptr %39, align 4, !tbaa !9
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = load i32, ptr %5, align 4, !tbaa !9
+  %42 = load i32, ptr %8, align 4, !tbaa !9
+  call void @recff_sbufx_set_ptr(ptr noundef %40, i32 noundef %41, i32 noundef 19, i32 noundef %42)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method___tostring(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = call i32 @recff_sbufx_check(ptr noundef %8, ptr noundef %9, i64 noundef 0)
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = call i32 @recff_sbufx_get_ptr(ptr noundef %11, i32 noundef %12, i32 noundef 19)
+  store i32 %13, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = call i32 @recff_sbufx_get_ptr(ptr noundef %14, i32 noundef %15, i32 noundef 14)
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load i32, ptr %6, align 4, !tbaa !9
+  %19 = trunc i32 %18 to i16
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = load i32, ptr %7, align 4, !tbaa !9
+  %23 = call i32 @recff_sbufx_len(ptr noundef %20, i32 noundef %21, i32 noundef %22)
+  %24 = trunc i32 %23 to i16
+  call void @lj_ir_set_(ptr noundef %17, i16 noundef zeroext 20484, i16 noundef zeroext %19, i16 noundef zeroext %24)
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = call i32 @lj_opt_fold(ptr noundef %25)
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw %struct.jit_State, ptr %27, i32 0, i32 6
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %30 = getelementptr inbounds i32, ptr %29, i64 0
+  store i32 %26, ptr %30, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_method___len(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !46
+  %10 = call i32 @recff_sbufx_check(ptr noundef %8, ptr noundef %9, i64 noundef 0)
+  store i32 %10, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = load i32, ptr %5, align 4, !tbaa !9
+  %13 = call i32 @recff_sbufx_get_ptr(ptr noundef %11, i32 noundef %12, i32 noundef 19)
+  store i32 %13, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = call i32 @recff_sbufx_get_ptr(ptr noundef %14, i32 noundef %15, i32 noundef 14)
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = load i32, ptr %6, align 4, !tbaa !9
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = call i32 @recff_sbufx_len(ptr noundef %17, i32 noundef %18, i32 noundef %19)
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.jit_State, ptr %21, i32 0, i32 6
+  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  %24 = getelementptr inbounds i32, ptr %23, i64 0
+  store i32 %20, ptr %24, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_encode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.jit_State, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %10 = getelementptr inbounds i32, ptr %9, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = call i32 @recff_tmpref(ptr noundef %6, i32 noundef %11, i32 noundef 1)
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %13, i32 noundef 28, i32 noundef %14)
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.jit_State, ptr %16, i32 0, i32 6
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %19 = getelementptr inbounds i32, ptr %18, i64 0
+  store i32 %15, ptr %19, align 4, !tbaa !9
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.jit_State, ptr %21, i32 0, i32 6
+  %23 = load ptr, ptr %22, align 8, !tbaa !41
+  %24 = getelementptr inbounds i32, ptr %23, i64 0
+  %25 = load i32, ptr %24, align 4, !tbaa !9
+  %26 = trunc i32 %25 to i16
+  call void @lj_ir_set_(ptr noundef %20, i16 noundef zeroext 4608, i16 noundef zeroext %26, i16 noundef zeroext 0)
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = call i32 @lj_opt_fold(ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_buffer_decode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.SBufExt, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %10 = load ptr, ptr %4, align 8, !tbaa !46
+  %11 = getelementptr inbounds nuw %struct.RecordFFData, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %13 = getelementptr inbounds %union.TValue, ptr %12, i64 0
+  %14 = load i64, ptr %13, align 8, !tbaa !13
+  %15 = ashr i64 %14, 47
+  %16 = trunc i64 %15 to i32
+  %17 = icmp eq i32 %16, -5
+  br i1 %17, label %18, label %59
+
+18:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %19 = load ptr, ptr %4, align 8, !tbaa !46
+  %20 = getelementptr inbounds nuw %struct.RecordFFData, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  %22 = getelementptr inbounds %union.TValue, ptr %21, i64 0
+  %23 = getelementptr inbounds nuw %struct.GCRef, ptr %22, i32 0, i32 0
+  %24 = load i64, ptr %23, align 8, !tbaa !13
+  %25 = and i64 %24, 140737488355327
+  %26 = inttoptr i64 %25 to ptr
+  store ptr %26, ptr %5, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 72, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = call i32 @recff_tmpref(ptr noundef %27, i32 noundef 32767, i32 noundef 2)
+  store i32 %28, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load i32, ptr %8, align 4, !tbaa !9
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.jit_State, ptr %31, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  %34 = getelementptr inbounds i32, ptr %33, i64 0
+  %35 = load i32, ptr %34, align 4, !tbaa !9
+  %36 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %29, i32 noundef 29, i32 noundef %30, i32 noundef %35)
+  store i32 %36, ptr %9, align 4, !tbaa !9
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = load i32, ptr %9, align 4, !tbaa !9
+  %39 = trunc i32 %38 to i16
+  call void @lj_ir_set_(ptr noundef %37, i16 noundef zeroext 4608, i16 noundef zeroext %39, i16 noundef zeroext 0)
+  %40 = load ptr, ptr %3, align 8, !tbaa !4
+  %41 = call i32 @lj_opt_fold(ptr noundef %40)
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 72, i1 false)
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.jit_State, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8, !tbaa !37
+  %45 = load ptr, ptr %5, align 8, !tbaa !67
+  %46 = getelementptr inbounds %struct.GCstr, ptr %45, i64 1
+  %47 = load ptr, ptr %5, align 8, !tbaa !67
+  %48 = getelementptr inbounds nuw %struct.GCstr, ptr %47, i32 0, i32 7
+  %49 = load i32, ptr %48, align 4, !tbaa !69
+  call void @lj_bufx_set_cow(ptr noundef %44, ptr noundef %6, ptr noundef %46, i32 noundef %49)
+  %50 = call i32 @lj_serialize_peektype(ptr noundef %6)
+  store i32 %50, ptr %7, align 4, !tbaa !9
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = load i32, ptr %8, align 4, !tbaa !9
+  %53 = load i32, ptr %7, align 4, !tbaa !9
+  %54 = call i32 @lj_record_vload(ptr noundef %51, i32 noundef %52, i32 noundef 0, i32 noundef %53)
+  %55 = load ptr, ptr %3, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw %struct.jit_State, ptr %55, i32 0, i32 6
+  %57 = load ptr, ptr %56, align 8, !tbaa !41
+  %58 = getelementptr inbounds i32, ptr %57, i64 0
+  store i32 %54, ptr %58, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  br label %59
+
+59:                                               ; preds = %18, %2
+  ret void
+}
+
+; Function Attrs: noreturn
+declare hidden void @lj_trace_err_info(ptr noundef, i32 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal void @recff_stitch(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  store ptr @lj_cont_stitch, ptr %3, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.jit_State, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  store ptr %13, ptr %4, align 8, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %14 = load ptr, ptr %4, align 8, !tbaa !87
+  %15 = getelementptr inbounds nuw %struct.lua_State, ptr %14, i32 0, i32 7
+  %16 = load ptr, ptr %15, align 8, !tbaa !38
+  store ptr %16, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %17 = load ptr, ptr %2, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.jit_State, ptr %17, i32 0, i32 8
+  %19 = load i32, ptr %18, align 4, !tbaa !42
+  %20 = add i32 %19, 1
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %22 = load ptr, ptr %5, align 8, !tbaa !11
+  %23 = getelementptr inbounds %union.TValue, ptr %22, i64 1
+  %24 = getelementptr inbounds %union.TValue, ptr %23, i64 1
+  store ptr %24, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %25 = load ptr, ptr %5, align 8, !tbaa !11
+  %26 = getelementptr inbounds %union.TValue, ptr %25, i64 -1
+  %27 = load i64, ptr %26, align 8, !tbaa !13
+  %28 = inttoptr i64 %27 to ptr
+  store ptr %28, ptr %8, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %29 = load ptr, ptr %5, align 8, !tbaa !11
+  %30 = getelementptr inbounds %union.TValue, ptr %29, i64 -1
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds %union.TValue, ptr %31, i64 -1
+  %33 = load i64, ptr %32, align 8, !tbaa !13
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr inbounds i32, ptr %34, i64 -1
+  %36 = load i32, ptr %35, align 4, !tbaa !9
+  %37 = lshr i32 %36, 8
+  %38 = and i32 %37, 255
+  %39 = add i32 2, %38
+  %40 = zext i32 %39 to i64
+  %41 = sub i64 0, %40
+  %42 = getelementptr inbounds %union.TValue, ptr %30, i64 %41
+  store ptr %42, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %43 = load ptr, ptr %5, align 8, !tbaa !11
+  %44 = getelementptr inbounds %union.TValue, ptr %43, i64 1
+  %45 = load ptr, ptr %5, align 8, !tbaa !11
+  %46 = getelementptr inbounds %union.TValue, ptr %45, i64 -2
+  %47 = load i32, ptr %6, align 4, !tbaa !9
+  %48 = zext i32 %47 to i64
+  %49 = mul i64 8, %48
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %46, i64 %49, i1 false)
+  %50 = load ptr, ptr %7, align 8, !tbaa !11
+  %51 = load ptr, ptr %9, align 8, !tbaa !11
+  %52 = ptrtoint ptr %50 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = add nsw i64 %54, 2
+  %56 = load ptr, ptr %7, align 8, !tbaa !11
+  store i64 %55, ptr %56, align 8, !tbaa !13
+  %57 = load ptr, ptr %3, align 8, !tbaa !43
+  %58 = ptrtoint ptr %57 to i64
+  %59 = load ptr, ptr %5, align 8, !tbaa !11
+  %60 = getelementptr inbounds %union.TValue, ptr %59, i64 -1
+  store i64 %58, ptr %60, align 8, !tbaa !13
+  %61 = load ptr, ptr %8, align 8, !tbaa !88
+  %62 = ptrtoint ptr %61 to i64
+  %63 = load ptr, ptr %5, align 8, !tbaa !11
+  store i64 %62, ptr %63, align 8, !tbaa !13
+  %64 = load ptr, ptr %5, align 8, !tbaa !11
+  %65 = getelementptr inbounds %union.TValue, ptr %64, i64 -1
+  %66 = getelementptr inbounds %union.TValue, ptr %65, i64 -1
+  store i64 -1, ptr %66, align 8, !tbaa !13
+  %67 = load ptr, ptr %4, align 8, !tbaa !87
+  %68 = getelementptr inbounds nuw %struct.lua_State, ptr %67, i32 0, i32 7
+  %69 = load ptr, ptr %68, align 8, !tbaa !38
+  %70 = getelementptr inbounds %union.TValue, ptr %69, i64 3
+  store ptr %70, ptr %68, align 8, !tbaa !38
+  %71 = load ptr, ptr %4, align 8, !tbaa !87
+  %72 = getelementptr inbounds nuw %struct.lua_State, ptr %71, i32 0, i32 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !89
+  %74 = getelementptr inbounds %union.TValue, ptr %73, i64 3
+  store ptr %74, ptr %72, align 8, !tbaa !89
+  %75 = load ptr, ptr %2, align 8, !tbaa !4
+  %76 = getelementptr inbounds nuw %struct.jit_State, ptr %75, i32 0, i32 6
+  %77 = load ptr, ptr %76, align 8, !tbaa !41
+  %78 = getelementptr inbounds i32, ptr %77, i64 1
+  %79 = load ptr, ptr %2, align 8, !tbaa !4
+  %80 = getelementptr inbounds nuw %struct.jit_State, ptr %79, i32 0, i32 6
+  %81 = load ptr, ptr %80, align 8, !tbaa !41
+  %82 = getelementptr inbounds i32, ptr %81, i64 -2
+  %83 = load i32, ptr %6, align 4, !tbaa !9
+  %84 = zext i32 %83 to i64
+  %85 = mul i64 4, %84
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %78, ptr align 4 %82, i64 %85, i1 false)
+  %86 = load ptr, ptr %2, align 8, !tbaa !4
+  %87 = getelementptr inbounds nuw %struct.jit_State, ptr %86, i32 0, i32 6
+  %88 = load ptr, ptr %87, align 8, !tbaa !41
+  %89 = getelementptr inbounds i32, ptr %88, i64 2
+  store i32 65536, ptr %89, align 4, !tbaa !9
+  %90 = load ptr, ptr %2, align 8, !tbaa !4
+  %91 = load ptr, ptr %3, align 8, !tbaa !43
+  %92 = ptrtoint ptr %91 to i64
+  %93 = call i32 @lj_ir_k64(ptr noundef %90, i32 noundef 28, i64 noundef %92)
+  %94 = load ptr, ptr %2, align 8, !tbaa !4
+  %95 = getelementptr inbounds nuw %struct.jit_State, ptr %94, i32 0, i32 6
+  %96 = load ptr, ptr %95, align 8, !tbaa !41
+  %97 = getelementptr inbounds i32, ptr %96, i64 -1
+  store i32 %93, ptr %97, align 4, !tbaa !9
+  %98 = load ptr, ptr %2, align 8, !tbaa !4
+  %99 = load ptr, ptr %8, align 8, !tbaa !88
+  %100 = ptrtoint ptr %99 to i64
+  %101 = call i32 @lj_ir_k64(ptr noundef %98, i32 noundef 28, i64 noundef %100)
+  %102 = or i32 %101, 131072
+  %103 = load ptr, ptr %2, align 8, !tbaa !4
+  %104 = getelementptr inbounds nuw %struct.jit_State, ptr %103, i32 0, i32 6
+  %105 = load ptr, ptr %104, align 8, !tbaa !41
+  %106 = getelementptr inbounds i32, ptr %105, i64 0
+  store i32 %102, ptr %106, align 4, !tbaa !9
+  %107 = load ptr, ptr %2, align 8, !tbaa !4
+  %108 = call i32 @lj_ir_ktrace(ptr noundef %107)
+  %109 = load ptr, ptr %2, align 8, !tbaa !4
+  %110 = getelementptr inbounds nuw %struct.jit_State, ptr %109, i32 0, i32 6
+  %111 = load ptr, ptr %110, align 8, !tbaa !41
+  %112 = getelementptr inbounds i32, ptr %111, i64 -2
+  store i32 %108, ptr %112, align 4, !tbaa !9
+  %113 = trunc i32 %108 to i16
+  %114 = load ptr, ptr %2, align 8, !tbaa !4
+  %115 = getelementptr inbounds nuw %struct.jit_State, ptr %114, i32 0, i32 39
+  store i16 %113, ptr %115, align 8, !tbaa !90
+  %116 = load ptr, ptr %2, align 8, !tbaa !4
+  %117 = getelementptr inbounds nuw %struct.jit_State, ptr %116, i32 0, i32 6
+  %118 = load ptr, ptr %117, align 8, !tbaa !41
+  %119 = getelementptr inbounds i32, ptr %118, i64 3
+  store ptr %119, ptr %117, align 8, !tbaa !41
+  %120 = load ptr, ptr %2, align 8, !tbaa !4
+  %121 = getelementptr inbounds nuw %struct.jit_State, ptr %120, i32 0, i32 9
+  %122 = load i32, ptr %121, align 8, !tbaa !71
+  %123 = add i32 %122, 3
+  store i32 %123, ptr %121, align 8, !tbaa !71
+  %124 = load ptr, ptr %2, align 8, !tbaa !4
+  %125 = getelementptr inbounds nuw %struct.jit_State, ptr %124, i32 0, i32 21
+  %126 = load i32, ptr %125, align 4, !tbaa !49
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %125, align 4, !tbaa !49
+  %128 = load ptr, ptr %4, align 8, !tbaa !87
+  %129 = load ptr, ptr %2, align 8, !tbaa !4
+  %130 = call i32 @lj_vm_cpcall(ptr noundef %128, ptr noundef null, ptr noundef %129, ptr noundef @rec_stop_stitch_cp)
+  store i32 %130, ptr %10, align 4, !tbaa !9
+  %131 = load ptr, ptr %5, align 8, !tbaa !11
+  %132 = getelementptr inbounds %union.TValue, ptr %131, i64 -2
+  %133 = load ptr, ptr %5, align 8, !tbaa !11
+  %134 = getelementptr inbounds %union.TValue, ptr %133, i64 1
+  %135 = load i32, ptr %6, align 4, !tbaa !9
+  %136 = zext i32 %135 to i64
+  %137 = mul i64 8, %136
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %132, ptr align 8 %134, i64 %137, i1 false)
+  %138 = load ptr, ptr %8, align 8, !tbaa !88
+  %139 = ptrtoint ptr %138 to i64
+  %140 = load ptr, ptr %5, align 8, !tbaa !11
+  %141 = getelementptr inbounds %union.TValue, ptr %140, i64 -1
+  store i64 %139, ptr %141, align 8, !tbaa !13
+  %142 = load ptr, ptr %4, align 8, !tbaa !87
+  %143 = getelementptr inbounds nuw %struct.lua_State, ptr %142, i32 0, i32 7
+  %144 = load ptr, ptr %143, align 8, !tbaa !38
+  %145 = getelementptr inbounds %union.TValue, ptr %144, i64 -3
+  store ptr %145, ptr %143, align 8, !tbaa !38
+  %146 = load ptr, ptr %4, align 8, !tbaa !87
+  %147 = getelementptr inbounds nuw %struct.lua_State, ptr %146, i32 0, i32 8
+  %148 = load ptr, ptr %147, align 8, !tbaa !89
+  %149 = getelementptr inbounds %union.TValue, ptr %148, i64 -3
+  store ptr %149, ptr %147, align 8, !tbaa !89
+  %150 = load i32, ptr %10, align 4, !tbaa !9
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %173
+
+152:                                              ; preds = %1
+  %153 = load i32, ptr %10, align 4, !tbaa !9
+  %154 = icmp eq i32 %153, 2
+  br i1 %154, label %155, label %165
+
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %4, align 8, !tbaa !87
+  %157 = load ptr, ptr %4, align 8, !tbaa !87
+  %158 = getelementptr inbounds nuw %struct.lua_State, ptr %157, i32 0, i32 8
+  %159 = load ptr, ptr %158, align 8, !tbaa !89
+  %160 = getelementptr inbounds %union.TValue, ptr %159, i64 -1
+  %161 = load ptr, ptr %4, align 8, !tbaa !87
+  %162 = getelementptr inbounds nuw %struct.lua_State, ptr %161, i32 0, i32 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !89
+  %164 = getelementptr inbounds %union.TValue, ptr %163, i64 2
+  call void @copyTV(ptr noundef %156, ptr noundef %160, ptr noundef %164)
+  br label %170
+
+165:                                              ; preds = %152
+  %166 = load ptr, ptr %4, align 8, !tbaa !87
+  %167 = getelementptr inbounds nuw %struct.lua_State, ptr %166, i32 0, i32 8
+  %168 = load ptr, ptr %167, align 8, !tbaa !89
+  %169 = getelementptr inbounds %union.TValue, ptr %168, i64 -1
+  call void @setintV(ptr noundef %169, i32 noundef 0)
+  br label %170
+
+170:                                              ; preds = %165, %155
+  %171 = load ptr, ptr %4, align 8, !tbaa !87
+  %172 = load i32, ptr %10, align 4, !tbaa !9
+  call void @lj_err_throw(ptr noundef %171, i32 noundef %172) #10
+  unreachable
+
+173:                                              ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  ret void
+}
+
+declare hidden void @lj_record_stop(ptr noundef, i32 noundef, i32 noundef) #2
+
+declare hidden void @lj_cont_stitch() #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+
+declare hidden i32 @lj_ir_k64(ptr noundef, i32 noundef, i64 noundef) #2
+
+declare hidden i32 @lj_ir_ktrace(ptr noundef) #2
+
+declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal ptr @rec_stop_stitch_cp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !43
+  store ptr %2, ptr %6, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %8 = load ptr, ptr %6, align 8, !tbaa !43
+  store ptr %8, ptr %7, align 8, !tbaa !4
+  %9 = load ptr, ptr %7, align 8, !tbaa !4
+  call void @lj_record_stop(ptr noundef %9, i32 noundef 8, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  ret ptr null
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @copyTV(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %5, align 8, !tbaa !11
+  %8 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !91
+  %9 = load ptr, ptr %4, align 8, !tbaa !87
+  %10 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @checklivetv(ptr noundef %9, ptr noundef %10, ptr noundef @.str)
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @setintV(ptr noundef %0, i32 noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %6 = sitofp i32 %5 to double
+  %7 = load ptr, ptr %3, align 8, !tbaa !11
+  store double %6, ptr %7, align 8, !tbaa !13
+  ret void
+}
+
+; Function Attrs: noreturn
+declare hidden void @lj_err_throw(ptr noundef, i32 noundef) #4
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @checklivetv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !92
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @recff_tmpref(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = lshr i32 %7, 24
+  %9 = and i32 %8, 31
+  %10 = sub i32 %9, 15
+  %11 = icmp ule i32 %10, 4
+  br i1 %11, label %12, label %18
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = trunc i32 %14 to i16
+  call void @lj_ir_set_(ptr noundef %13, i16 noundef zeroext 23310, i16 noundef zeroext %15, i16 noundef zeroext 467)
+  %16 = load ptr, ptr %4, align 8, !tbaa !4
+  %17 = call i32 @lj_opt_fold(ptr noundef %16)
+  store i32 %17, ptr %5, align 4, !tbaa !9
+  br label %18
+
+18:                                               ; preds = %12, %3
+  %19 = load ptr, ptr %4, align 8, !tbaa !4
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = trunc i32 %20 to i16
+  %22 = load i32, ptr %6, align 4, !tbaa !9
+  %23 = trunc i32 %22 to i16
+  call void @lj_ir_set_(ptr noundef %19, i16 noundef zeroext 16137, i16 noundef zeroext %21, i16 noundef zeroext %23)
+  %24 = load ptr, ptr %4, align 8, !tbaa !4
+  %25 = call i32 @lj_opt_fold(ptr noundef %24)
+  ret i32 %25
+}
+
+declare hidden i32 @lj_ir_call(ptr noundef, i32 noundef, ...) #2
+
+declare hidden i32 @lj_tab_keyindex(ptr noundef, ptr noundef) #2
+
+declare hidden i32 @lj_record_next(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @recff_metacall(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.RecordIndex, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %union.TValue, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !46
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 72, ptr %8) #9
+  %12 = load ptr, ptr %5, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw %struct.jit_State, ptr %12, i32 0, i32 6
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
+  %15 = getelementptr inbounds i32, ptr %14, i64 0
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.RecordIndex, ptr %8, i32 0, i32 6
+  store i32 %16, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %5, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw %struct.jit_State, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  %21 = getelementptr inbounds nuw %struct.RecordIndex, ptr %8, i32 0, i32 0
+  %22 = load ptr, ptr %6, align 8, !tbaa !46
+  %23 = getelementptr inbounds nuw %struct.RecordFFData, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !40
+  %25 = getelementptr inbounds %union.TValue, ptr %24, i64 0
+  call void @copyTV(ptr noundef %20, ptr noundef %21, ptr noundef %25)
+  %26 = load ptr, ptr %5, align 8, !tbaa !4
+  %27 = load i32, ptr %7, align 4, !tbaa !9
+  %28 = call i32 @lj_record_mm_lookup(ptr noundef %26, ptr noundef %8, i32 noundef %27)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %94
+
+30:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %31 = load ptr, ptr %5, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.jit_State, ptr %31, i32 0, i32 6
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  %34 = getelementptr inbounds i32, ptr %33, i64 0
+  %35 = load i32, ptr %34, align 4, !tbaa !9
+  %36 = load ptr, ptr %5, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.jit_State, ptr %36, i32 0, i32 6
+  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  %39 = getelementptr inbounds i32, ptr %38, i64 2
+  store i32 %35, ptr %39, align 4, !tbaa !9
+  %40 = getelementptr inbounds nuw %struct.RecordIndex, ptr %8, i32 0, i32 10
+  %41 = load i32, ptr %40, align 8, !tbaa !55
+  %42 = load ptr, ptr %5, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.jit_State, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %43, align 8, !tbaa !41
+  %45 = getelementptr inbounds i32, ptr %44, i64 0
+  store i32 %41, ptr %45, align 4, !tbaa !9
+  %46 = load ptr, ptr %5, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.jit_State, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !37
+  %49 = load ptr, ptr %6, align 8, !tbaa !46
+  %50 = getelementptr inbounds nuw %struct.RecordFFData, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !40
+  %52 = getelementptr inbounds %union.TValue, ptr %51, i64 0
+  call void @copyTV(ptr noundef %48, ptr noundef %10, ptr noundef %52)
+  %53 = load ptr, ptr %5, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw %struct.jit_State, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8, !tbaa !37
+  %56 = load ptr, ptr %6, align 8, !tbaa !46
+  %57 = getelementptr inbounds nuw %struct.RecordFFData, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  %59 = getelementptr inbounds %union.TValue, ptr %58, i64 2
+  %60 = load ptr, ptr %6, align 8, !tbaa !46
+  %61 = getelementptr inbounds nuw %struct.RecordFFData, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !40
+  %63 = getelementptr inbounds %union.TValue, ptr %62, i64 0
+  call void @copyTV(ptr noundef %55, ptr noundef %59, ptr noundef %63)
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw %struct.jit_State, ptr %64, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8, !tbaa !37
+  %67 = load ptr, ptr %6, align 8, !tbaa !46
+  %68 = getelementptr inbounds nuw %struct.RecordFFData, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8, !tbaa !40
+  %70 = getelementptr inbounds %union.TValue, ptr %69, i64 0
+  %71 = getelementptr inbounds nuw %struct.RecordIndex, ptr %8, i32 0, i32 3
+  call void @copyTV(ptr noundef %66, ptr noundef %70, ptr noundef %71)
+  %72 = load ptr, ptr %5, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw %struct.jit_State, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8, !tbaa !37
+  %75 = load ptr, ptr %5, align 8, !tbaa !4
+  %76 = call i32 @lj_vm_cpcall(ptr noundef %74, ptr noundef null, ptr noundef %75, ptr noundef @recff_metacall_cp)
+  store i32 %76, ptr %9, align 4, !tbaa !9
+  %77 = load ptr, ptr %5, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw %struct.jit_State, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  %80 = load ptr, ptr %6, align 8, !tbaa !46
+  %81 = getelementptr inbounds nuw %struct.RecordFFData, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !40
+  %83 = getelementptr inbounds %union.TValue, ptr %82, i64 0
+  call void @copyTV(ptr noundef %79, ptr noundef %83, ptr noundef %10)
+  %84 = load i32, ptr %9, align 4, !tbaa !9
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %91
+
+86:                                               ; preds = %30
+  %87 = load ptr, ptr %5, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw %struct.jit_State, ptr %87, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8, !tbaa !37
+  %90 = load i32, ptr %9, align 4, !tbaa !9
+  call void @lj_err_throw(ptr noundef %89, i32 noundef %90) #10
+  unreachable
+
+91:                                               ; preds = %30
+  %92 = load ptr, ptr %6, align 8, !tbaa !46
+  %93 = getelementptr inbounds nuw %struct.RecordFFData, ptr %92, i32 0, i32 1
+  store i64 -1, ptr %93, align 8, !tbaa !36
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  br label %95
+
+94:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %95
+
+95:                                               ; preds = %94, %91
+  call void @llvm.lifetime.end.p0(i64 72, ptr %8) #9
+  %96 = load i32, ptr %4, align 4
+  ret i32 %96
+}
+
+declare hidden i32 @lj_record_mm_lookup(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal ptr @recff_metacall_cp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !43
+  store ptr %2, ptr %6, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %8 = load ptr, ptr %6, align 8, !tbaa !43
+  store ptr %8, ptr %7, align 8, !tbaa !4
+  %9 = load ptr, ptr %7, align 8, !tbaa !4
+  call void @lj_record_tailcall(ptr noundef %9, i32 noundef 0, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  ret ptr null
+}
+
+declare hidden void @lj_record_tailcall(ptr noundef, i32 noundef, i64 noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @numberVint(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = load double, ptr %3, align 8, !tbaa !13
+  %5 = fptosi double %4 to i32
   ret i32 %5
 }
 
-declare hidden void @lj_record_ret(ptr noundef, i32 noundef, i64 noundef) #1
-
-declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_nyi(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %op = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %cur = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 0
-  %nins = getelementptr inbounds %struct.GCtrace, ptr %cur, i32 0, i32 4
-  %1 = load i32, ptr %nins, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %param = getelementptr inbounds %struct.jit_State, ptr %2, i32 0, i32 42
-  %arrayidx = getelementptr inbounds [15 x i32], ptr %param, i64 0, i64 5
-  %3 = load i32, ptr %arrayidx, align 4
-  %add = add i32 %3, 32768
-  %cmp = icmp ult i32 %1, %add
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err_info(ptr noundef %4, i32 noundef 1) #6
-  unreachable
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %J.addr, align 8
-  %framedepth = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 21
-  %6 = load i32, ptr %framedepth, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end14
-
-land.lhs.true:                                    ; preds = %if.else
-  %7 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %L, align 8
-  %base = getelementptr inbounds %struct.lua_State, ptr %8, i32 0, i32 7
-  %9 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %9, i64 -1
-  %10 = load i64, ptr %add.ptr, align 8
-  %and = and i64 %10, 3
-  %cmp1 = icmp eq i64 %and, 0
-  br i1 %cmp1, label %if.then2, label %if.end14
-
-if.then2:                                         ; preds = %land.lhs.true
-  %11 = load ptr, ptr %J.addr, align 8
-  %L3 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %L3, align 8
-  %base4 = getelementptr inbounds %struct.lua_State, ptr %12, i32 0, i32 7
-  %13 = load ptr, ptr %base4, align 8
-  %add.ptr5 = getelementptr inbounds %union.TValue, ptr %13, i64 -1
-  %14 = load i64, ptr %add.ptr5, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load i32, ptr %15, align 4
-  %and6 = and i32 %16, 255
-  store i32 %and6, ptr %op, align 4
-  %17 = load i32, ptr %op, align 4
-  %cmp7 = icmp eq i32 %17, 65
-  br i1 %cmp7, label %if.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then2
-  %18 = load i32, ptr %op, align 4
-  %cmp8 = icmp eq i32 %18, 67
-  br i1 %cmp8, label %if.end, label %lor.lhs.false9
-
-lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %19 = load i32, ptr %op, align 4
-  %cmp10 = icmp eq i32 %19, 73
-  br i1 %cmp10, label %if.end, label %lor.lhs.false11
-
-lor.lhs.false11:                                  ; preds = %lor.lhs.false9
-  %20 = load i32, ptr %op, align 4
-  %cmp12 = icmp eq i32 %20, 63
-  br i1 %cmp12, label %if.end, label %if.then13
-
-if.then13:                                        ; preds = %lor.lhs.false11
-  %21 = load ptr, ptr %J.addr, align 8
-  %fn = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 4
-  %22 = load ptr, ptr %fn, align 8
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %22, i32 0, i32 3
-  %23 = load i8, ptr %ffid, align 2
-  %conv = zext i8 %23 to i32
-  switch i32 %conv, label %sw.default [
-    i32 19, label %sw.bb
-    i32 139, label %sw.bb
-    i32 145, label %sw.bb
-  ]
-
-sw.bb:                                            ; preds = %if.then13, %if.then13, %if.then13
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.then13
-  %24 = load ptr, ptr %J.addr, align 8
-  call void @recff_stitch(ptr noundef %24)
-  %25 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %25, i32 0, i32 1
-  store i64 -1, ptr %nres, align 8
-  br label %if.end16
-
-sw.epilog:                                        ; preds = %sw.bb
-  br label %if.end
-
-if.end:                                           ; preds = %sw.epilog, %lor.lhs.false11, %lor.lhs.false9, %lor.lhs.false, %if.then2
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end, %land.lhs.true, %if.else
-  %26 = load ptr, ptr %J.addr, align 8
-  call void @lj_record_stop(ptr noundef %26, i32 noundef 7, i32 noundef 0)
-  %27 = load ptr, ptr %rd.addr, align 8
-  %nres15 = getelementptr inbounds %struct.RecordFFData, ptr %27, i32 0, i32 1
-  store i64 -1, ptr %nres15, align 8
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.end14, %sw.default
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @settabV(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load ptr, ptr %6, align 8, !tbaa !75
+  call void @setgcV(ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef -12)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @recff_assert(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %maxslot = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 8
-  %1 = load i32, ptr %maxslot, align 4
-  %conv = zext i32 %1 to i64
-  %2 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %2, i32 0, i32 1
-  store i64 %conv, ptr %nres, align 8
+declare hidden i32 @lj_opt_narrow_toint(ptr noundef, i32 noundef) #2
+
+declare hidden i32 @lj_record_idx(ptr noundef, ptr noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @setgcV(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !87
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !93
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  %9 = load ptr, ptr %6, align 8, !tbaa !11
+  %10 = load ptr, ptr %7, align 8, !tbaa !93
+  %11 = load i32, ptr %8, align 4, !tbaa !9
+  call void @setgcVraw(ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  %12 = load ptr, ptr %5, align 8, !tbaa !87
+  %13 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @checklivetv(ptr noundef %12, ptr noundef %13, ptr noundef @.str.1)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @recff_type(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %t = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %1, i64 0
-  %2 = load i64, ptr %arrayidx, align 8
-  %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
-  %cmp = icmp ule i32 %conv, -14
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store i32 13, ptr %t, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %rd.addr, align 8
-  %argv2 = getelementptr inbounds %struct.RecordFFData, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %argv2, align 8
-  %arrayidx3 = getelementptr inbounds %union.TValue, ptr %4, i64 0
-  %5 = load i64, ptr %arrayidx3, align 8
-  %shr4 = ashr i64 %5, 47
-  %conv5 = trunc i64 %shr4 to i32
-  %not = xor i32 %conv5, -1
-  store i32 %not, ptr %t, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load ptr, ptr %J.addr, align 8
-  %fn = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 4
-  %8 = load ptr, ptr %fn, align 8
-  %upvalue = getelementptr inbounds %struct.GCfuncC, ptr %8, i32 0, i32 9
-  %9 = load i32, ptr %t, align 4
-  %idxprom = zext i32 %9 to i64
-  %arrayidx6 = getelementptr inbounds [1 x %union.TValue], ptr %upvalue, i64 0, i64 %idxprom
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx6, i32 0, i32 0
-  %10 = load i64, ptr %gcptr64, align 8
-  %and = and i64 %10, 140737488355327
-  %11 = inttoptr i64 %and to ptr
-  %call = call i32 @lj_ir_kgc(ptr noundef %6, ptr noundef %11, i32 noundef 4)
-  %12 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %base, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %13, i64 0
-  store i32 %call, ptr %arrayidx7, align 4
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @setgcVraw(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %5, align 8, !tbaa !93
+  %8 = ptrtoint ptr %7 to i64
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = zext i32 %9 to i64
+  %11 = shl i64 %10, 47
+  %12 = or i64 %8, %11
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.GCRef, ptr %13, i32 0, i32 0
+  store i64 %12, ptr %14, align 8, !tbaa !13
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @recff_next(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %L.addr.i37 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %msg.addr.i = alloca ptr, align 8
-  %L.addr.i = alloca ptr, align 8
-  %o1.addr.i = alloca ptr, align 8
-  %o2.addr.i = alloca ptr, align 8
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tab = alloca i32, align 4
-  %ix = alloca %struct.RecordIndex, align 8
-  %keyv = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tab, align 4
-  %3 = load i32, ptr %tab, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %if.then, label %if.end36
+declare hidden i32 @lj_ir_knull(ptr noundef, i32 noundef) #2
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %tab, align 4
-  %tab1 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %4, ptr %tab1, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base2 = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base2, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx3, align 4
-  %and4 = and i32 %7, 520093696
-  %cmp5 = icmp eq i32 %and4, 0
-  br i1 %cmp5, label %if.then6, label %if.else
+declare hidden i32 @lj_record_objcmp(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-if.then6:                                         ; preds = %if.then
-  %8 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_ir_kint(ptr noundef %8, i32 noundef 0)
-  %key = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  store i32 %call, ptr %key, align 4
-  %9 = load ptr, ptr %J.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 -824
-  %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
-  %nilnode = getelementptr inbounds %struct.global_State, ptr %g, i32 0, i32 14
-  %val = getelementptr inbounds %struct.Node, ptr %nilnode, i32 0, i32 0
-  store ptr %val, ptr %keyv, align 8
-  br label %if.end
+declare hidden void @lj_crecord_tonumber(ptr noundef, ptr noundef) #2
 
-if.else:                                          ; preds = %if.then
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load ptr, ptr %J.addr, align 8
-  %base7 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 6
-  %12 = load ptr, ptr %base7, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %12, i64 1
-  %13 = load i32, ptr %arrayidx8, align 4
-  %call9 = call i32 @recff_tmpref(ptr noundef %10, i32 noundef %13, i32 noundef 1)
-  store i32 %call9, ptr %tmp, align 4
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load i32, ptr %tab, align 4
-  %16 = load i32, ptr %tmp, align 4
-  %call10 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %14, i32 noundef 36, i32 noundef %15, i32 noundef %16)
-  %key11 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  store i32 %call10, ptr %key11, align 4
-  %17 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %argv, align 8
-  %arrayidx12 = getelementptr inbounds %union.TValue, ptr %18, i64 1
-  store ptr %arrayidx12, ptr %keyv, align 8
-  br label %if.end
+declare hidden ptr @lj_strfmt_obj(ptr noundef, ptr noundef) #2
 
-if.end:                                           ; preds = %if.else, %if.then6
-  %19 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %21 = load ptr, ptr %rd.addr, align 8
-  %argv13 = getelementptr inbounds %struct.RecordFFData, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %argv13, align 8
-  %arrayidx14 = getelementptr inbounds %union.TValue, ptr %22, i64 0
-  store ptr %20, ptr %L.addr.i, align 8
-  store ptr %tabv, ptr %o1.addr.i, align 8
-  store ptr %arrayidx14, ptr %o2.addr.i, align 8
-  %23 = load ptr, ptr %o1.addr.i, align 8
-  %24 = load ptr, ptr %o2.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %24, i64 8, i1 false)
-  %25 = load ptr, ptr %L.addr.i, align 8
-  %26 = load ptr, ptr %o1.addr.i, align 8
-  store ptr %25, ptr %L.addr.i37, align 8
-  store ptr %26, ptr %o.addr.i, align 8
-  store ptr @.str, ptr %msg.addr.i, align 8
-  %tabv15 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %tabv15, i32 0, i32 0
-  %27 = load i64, ptr %gcptr64, align 8
-  %and16 = and i64 %27, 140737488355327
-  %28 = inttoptr i64 %and16 to ptr
-  %29 = load ptr, ptr %keyv, align 8
-  %call17 = call i32 @lj_tab_keyindex(ptr noundef %28, ptr noundef %29)
-  %keyv18 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 1
-  %lo = getelementptr inbounds %struct.anon.0, ptr %keyv18, i32 0, i32 0
-  store i32 %call17, ptr %lo, align 8
-  %30 = load ptr, ptr %J.addr, align 8
-  %framedepth = getelementptr inbounds %struct.jit_State, ptr %30, i32 0, i32 21
-  %31 = load i32, ptr %framedepth, align 4
-  %tobool = icmp ne i32 %31, 0
-  br i1 %tobool, label %land.lhs.true, label %land.end
-
-land.lhs.true:                                    ; preds = %if.end
-  %32 = load ptr, ptr %J.addr, align 8
-  %L19 = getelementptr inbounds %struct.jit_State, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %L19, align 8
-  %base20 = getelementptr inbounds %struct.lua_State, ptr %33, i32 0, i32 7
-  %34 = load ptr, ptr %base20, align 8
-  %add.ptr21 = getelementptr inbounds %union.TValue, ptr %34, i64 -1
-  %35 = load i64, ptr %add.ptr21, align 8
-  %and22 = and i64 %35, 3
-  %cmp23 = icmp eq i64 %and22, 0
-  br i1 %cmp23, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %land.lhs.true
-  %36 = load ptr, ptr %J.addr, align 8
-  %L24 = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 2
-  %37 = load ptr, ptr %L24, align 8
-  %base25 = getelementptr inbounds %struct.lua_State, ptr %37, i32 0, i32 7
-  %38 = load ptr, ptr %base25, align 8
-  %add.ptr26 = getelementptr inbounds %union.TValue, ptr %38, i64 -1
-  %39 = load i64, ptr %add.ptr26, align 8
-  %40 = inttoptr i64 %39 to ptr
-  %arrayidx27 = getelementptr inbounds i32, ptr %40, i64 -1
-  %41 = load i32, ptr %arrayidx27, align 4
-  %shr = lshr i32 %41, 24
-  %sub = sub i32 %shr, 1
-  %cmp28 = icmp ult i32 %sub, 2
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %if.end
-  %42 = phi i1 [ false, %land.lhs.true ], [ false, %if.end ], [ %cmp28, %land.rhs ]
-  %land.ext = zext i1 %42 to i32
-  %idxchain = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 11
-  store i32 %land.ext, ptr %idxchain, align 4
-  %mobj = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 10
-  store i32 0, ptr %mobj, align 8
-  %43 = load ptr, ptr %J.addr, align 8
-  %call29 = call i32 @lj_record_next(ptr noundef %43, ptr noundef %ix)
-  %conv = sext i32 %call29 to i64
-  %44 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %44, i32 0, i32 1
-  store i64 %conv, ptr %nres, align 8
-  %key30 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  %45 = load i32, ptr %key30, align 4
-  %46 = load ptr, ptr %J.addr, align 8
-  %base31 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 6
-  %47 = load ptr, ptr %base31, align 8
-  %arrayidx32 = getelementptr inbounds i32, ptr %47, i64 0
-  store i32 %45, ptr %arrayidx32, align 4
-  %val33 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 8
-  %48 = load i32, ptr %val33, align 8
-  %49 = load ptr, ptr %J.addr, align 8
-  %base34 = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 6
-  %50 = load ptr, ptr %base34, align 8
-  %arrayidx35 = getelementptr inbounds i32, ptr %50, i64 1
-  store i32 %48, ptr %arrayidx35, align 4
-  br label %if.end36
-
-if.end36:                                         ; preds = %land.end, %entry
-  ret void
-}
+declare hidden void @lj_record_call(ptr noundef, i32 noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_xpairs(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 167772160
-  br i1 %cmp, label %land.lhs.true, label %if.then
-
-land.lhs.true:                                    ; preds = %entry
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %rd.addr, align 8
-  %6 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %data, align 8
-  %add = add i32 20, %7
-  %call = call i32 @recff_metacall(ptr noundef %4, ptr noundef %5, i32 noundef %add)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end16, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true, %entry
-  %8 = load i32, ptr %tr, align 4
-  %and1 = and i32 %8, 520093696
-  %cmp2 = icmp eq i32 %and1, 184549376
-  br i1 %cmp2, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  %9 = load ptr, ptr %J.addr, align 8
-  %10 = load ptr, ptr %J.addr, align 8
-  %fn = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 4
-  %11 = load ptr, ptr %fn, align 8
-  %upvalue = getelementptr inbounds %struct.GCfuncC, ptr %11, i32 0, i32 9
-  %arrayidx4 = getelementptr inbounds [1 x %union.TValue], ptr %upvalue, i64 0, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx4, i32 0, i32 0
-  %12 = load i64, ptr %gcptr64, align 8
-  %and5 = and i64 %12, 140737488355327
-  %13 = inttoptr i64 %and5 to ptr
-  %call6 = call i32 @lj_ir_kgc(ptr noundef %9, ptr noundef %13, i32 noundef 8)
-  %14 = load ptr, ptr %J.addr, align 8
-  %base7 = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 6
-  %15 = load ptr, ptr %base7, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %15, i64 0
-  store i32 %call6, ptr %arrayidx8, align 4
-  %16 = load i32, ptr %tr, align 4
-  %17 = load ptr, ptr %J.addr, align 8
-  %base9 = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 6
-  %18 = load ptr, ptr %base9, align 8
-  %arrayidx10 = getelementptr inbounds i32, ptr %18, i64 1
-  store i32 %16, ptr %arrayidx10, align 4
-  %19 = load ptr, ptr %rd.addr, align 8
-  %data11 = getelementptr inbounds %struct.RecordFFData, ptr %19, i32 0, i32 2
-  %20 = load i32, ptr %data11, align 8
-  %tobool12 = icmp ne i32 %20, 0
-  br i1 %tobool12, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then3
-  %21 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_ir_kint(ptr noundef %21, i32 noundef 0)
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then3
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call13, %cond.true ], [ 32767, %cond.false ]
-  %22 = load ptr, ptr %J.addr, align 8
-  %base14 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 6
-  %23 = load ptr, ptr %base14, align 8
-  %arrayidx15 = getelementptr inbounds i32, ptr %23, i64 2
-  store i32 %cond, ptr %arrayidx15, align 4
-  %24 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %24, i32 0, i32 1
-  store i64 3, ptr %nres, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %cond.end, %if.then
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.end, %land.lhs.true
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_ipairs_aux(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %o.addr.i38 = alloca ptr, align 8
-  %v.addr.i39 = alloca ptr, align 8
-  %itype.addr.i = alloca i32, align 4
-  %L.addr.i.i = alloca ptr, align 8
-  %o.addr.i.i = alloca ptr, align 8
-  %msg.addr.i.i = alloca ptr, align 8
-  %L.addr.i35 = alloca ptr, align 8
-  %o.addr.i36 = alloca ptr, align 8
-  %v.addr.i37 = alloca ptr, align 8
-  %it.addr.i = alloca i32, align 4
-  %L.addr.i = alloca ptr, align 8
-  %o.addr.i34 = alloca ptr, align 8
-  %v.addr.i = alloca ptr, align 8
-  %o.addr.i32 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %i.addr.i = alloca i32, align 4
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ix = alloca %struct.RecordIndex, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  %tab = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %2, ptr %tab, align 8
-  %tab1 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  %3 = load i32, ptr %tab1, align 8
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %if.then, label %if.end31
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds %union.TValue, ptr %5, i64 1
-  %6 = load i64, ptr %arrayidx2, align 8
-  %shr = ashr i64 %6, 47
-  %conv = trunc i64 %shr to i32
-  %cmp3 = icmp ule i32 %conv, -14
-  br i1 %cmp3, label %if.end, label %if.then5
-
-if.then5:                                         ; preds = %if.then
-  %7 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %7, i32 noundef 11) #6
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  %keyv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 1
-  %8 = load ptr, ptr %rd.addr, align 8
-  %argv6 = getelementptr inbounds %struct.RecordFFData, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %argv6, align 8
-  %arrayidx7 = getelementptr inbounds %union.TValue, ptr %9, i64 1
-  store ptr %arrayidx7, ptr %o.addr.i32, align 8
-  %10 = load ptr, ptr %o.addr.i32, align 8
-  %11 = load double, ptr %10, align 8
-  %conv.i33 = fptosi double %11 to i32
-  %add = add nsw i32 %conv.i33, 1
-  store ptr %keyv, ptr %o.addr.i, align 8
-  store i32 %add, ptr %i.addr.i, align 4
-  %12 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sitofp i32 %12 to double
-  %13 = load ptr, ptr %o.addr.i, align 8
-  store double %conv.i, ptr %13, align 8
-  %14 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %16 = load ptr, ptr %rd.addr, align 8
-  %argv8 = getelementptr inbounds %struct.RecordFFData, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %argv8, align 8
-  %arrayidx9 = getelementptr inbounds %union.TValue, ptr %17, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx9, i32 0, i32 0
-  %18 = load i64, ptr %gcptr64, align 8
-  %and10 = and i64 %18, 140737488355327
-  %19 = inttoptr i64 %and10 to ptr
-  store ptr %15, ptr %L.addr.i, align 8
-  store ptr %tabv, ptr %o.addr.i34, align 8
-  store ptr %19, ptr %v.addr.i, align 8
-  %20 = load ptr, ptr %L.addr.i, align 8
-  %21 = load ptr, ptr %o.addr.i34, align 8
-  %22 = load ptr, ptr %v.addr.i, align 8
-  store ptr %20, ptr %L.addr.i35, align 8
-  store ptr %21, ptr %o.addr.i36, align 8
-  store ptr %22, ptr %v.addr.i37, align 8
-  store i32 -12, ptr %it.addr.i, align 4
-  %23 = load ptr, ptr %o.addr.i36, align 8
-  %24 = load ptr, ptr %v.addr.i37, align 8
-  %25 = load i32, ptr %it.addr.i, align 4
-  store ptr %23, ptr %o.addr.i38, align 8
-  store ptr %24, ptr %v.addr.i39, align 8
-  store i32 %25, ptr %itype.addr.i, align 4
-  %26 = load ptr, ptr %v.addr.i39, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = load i32, ptr %itype.addr.i, align 4
-  %conv.i40 = zext i32 %28 to i64
-  %shl.i = shl i64 %conv.i40, 47
-  %or.i = or i64 %27, %shl.i
-  %29 = load ptr, ptr %o.addr.i38, align 8
-  store i64 %or.i, ptr %29, align 8
-  %30 = load ptr, ptr %L.addr.i35, align 8
-  %31 = load ptr, ptr %o.addr.i36, align 8
-  store ptr %30, ptr %L.addr.i.i, align 8
-  store ptr %31, ptr %o.addr.i.i, align 8
-  store ptr @.str.1, ptr %msg.addr.i.i, align 8
-  %val = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 8
-  store i32 0, ptr %val, align 8
-  %idxchain = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 11
-  store i32 0, ptr %idxchain, align 4
-  %32 = load ptr, ptr %J.addr, align 8
-  %33 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 6
-  %34 = load ptr, ptr %base11, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %34, i64 1
-  %35 = load i32, ptr %arrayidx12, align 4
-  %call13 = call i32 @lj_opt_narrow_toint(ptr noundef %32, i32 noundef %35)
-  %key = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  store i32 %call13, ptr %key, align 4
-  %36 = load ptr, ptr %J.addr, align 8
-  %key14 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  %37 = load i32, ptr %key14, align 4
-  %conv15 = trunc i32 %37 to i16
-  %38 = load ptr, ptr %J.addr, align 8
-  %call16 = call i32 @lj_ir_kint(ptr noundef %38, i32 noundef 1)
-  %conv17 = trunc i32 %call16 to i16
-  store ptr %36, ptr %J.addr.i, align 8
-  store i16 10515, ptr %ot.addr.i, align 2
-  store i16 %conv15, ptr %a.addr.i, align 2
-  store i16 %conv17, ptr %b.addr.i, align 2
-  %39 = load i16, ptr %ot.addr.i, align 2
-  %40 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %40, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %39, ptr %ot1.i, align 4
-  %41 = load i16, ptr %a.addr.i, align 2
-  %42 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %42, i32 0, i32 14
-  store i16 %41, ptr %fold2.i, align 8
-  %43 = load i16, ptr %b.addr.i, align 2
-  %44 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %44, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %43, ptr %op2.i, align 2
-  %45 = load ptr, ptr %J.addr, align 8
-  %call18 = call i32 @lj_opt_fold(ptr noundef %45)
-  %key19 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  store i32 %call18, ptr %key19, align 4
-  %46 = load ptr, ptr %J.addr, align 8
-  %base20 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 6
-  %47 = load ptr, ptr %base20, align 8
-  %arrayidx21 = getelementptr inbounds i32, ptr %47, i64 0
-  store i32 %call18, ptr %arrayidx21, align 4
-  %48 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_record_idx(ptr noundef %48, ptr noundef %ix)
-  %49 = load ptr, ptr %J.addr, align 8
-  %base23 = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 6
-  %50 = load ptr, ptr %base23, align 8
-  %arrayidx24 = getelementptr inbounds i32, ptr %50, i64 1
-  store i32 %call22, ptr %arrayidx24, align 4
-  %51 = load ptr, ptr %J.addr, align 8
-  %base25 = getelementptr inbounds %struct.jit_State, ptr %51, i32 0, i32 6
-  %52 = load ptr, ptr %base25, align 8
-  %arrayidx26 = getelementptr inbounds i32, ptr %52, i64 1
-  %53 = load i32, ptr %arrayidx26, align 4
-  %and27 = and i32 %53, 520093696
-  %cmp28 = icmp eq i32 %and27, 0
-  %cond = select i1 %cmp28, i32 0, i32 2
-  %conv30 = sext i32 %cond to i64
-  %54 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %54, i32 0, i32 1
-  store i64 %conv30, ptr %nres, align 8
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.end, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_getmetatable(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %L.addr.i9 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %msg.addr.i = alloca ptr, align 8
-  %L.addr.i = alloca ptr, align 8
-  %o1.addr.i = alloca ptr, align 8
-  %o2.addr.i = alloca ptr, align 8
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %ix = alloca %struct.RecordIndex, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.then, label %if.end8
-
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %tr, align 4
-  %tab = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %4, ptr %tab, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %7 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %argv, align 8
-  %arrayidx1 = getelementptr inbounds %union.TValue, ptr %8, i64 0
-  store ptr %6, ptr %L.addr.i, align 8
-  store ptr %tabv, ptr %o1.addr.i, align 8
-  store ptr %arrayidx1, ptr %o2.addr.i, align 8
-  %9 = load ptr, ptr %o1.addr.i, align 8
-  %10 = load ptr, ptr %o2.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 8, i1 false)
-  %11 = load ptr, ptr %L.addr.i, align 8
-  %12 = load ptr, ptr %o1.addr.i, align 8
-  store ptr %11, ptr %L.addr.i9, align 8
-  store ptr %12, ptr %o.addr.i, align 8
-  store ptr @.str, ptr %msg.addr.i, align 8
-  %13 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_record_mm_lookup(ptr noundef %13, ptr noundef %ix, i32 noundef 17)
-  %tobool2 = icmp ne i32 %call, 0
-  br i1 %tobool2, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.then
-  %mobj = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 10
-  %14 = load i32, ptr %mobj, align 8
-  %15 = load ptr, ptr %J.addr, align 8
-  %base4 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 6
-  %16 = load ptr, ptr %base4, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %16, i64 0
-  store i32 %14, ptr %arrayidx5, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %mt = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 9
-  %17 = load i32, ptr %mt, align 4
-  %18 = load ptr, ptr %J.addr, align 8
-  %base6 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 6
-  %19 = load ptr, ptr %base6, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %19, i64 0
-  store i32 %17, ptr %arrayidx7, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then3
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.end, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_setmetatable(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %L.addr.i44 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %msg.addr.i = alloca ptr, align 8
-  %L.addr.i = alloca ptr, align 8
-  %o1.addr.i = alloca ptr, align 8
-  %o2.addr.i = alloca ptr, align 8
-  %J.addr.i35 = alloca ptr, align 8
-  %ot.addr.i36 = alloca i16, align 2
-  %a.addr.i37 = alloca i16, align 2
-  %b.addr.i38 = alloca i16, align 2
-  %J.addr.i26 = alloca ptr, align 8
-  %ot.addr.i27 = alloca i16, align 2
-  %a.addr.i28 = alloca i16, align 2
-  %b.addr.i29 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %mt = alloca i32, align 4
-  %fref = alloca i32, align 4
-  %mtref = alloca i32, align 4
-  %ix = alloca %struct.RecordIndex, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %4, i64 1
-  %5 = load i32, ptr %arrayidx2, align 4
-  store i32 %5, ptr %mt, align 4
-  %6 = load i32, ptr %tr, align 4
-  %and = and i32 %6, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %land.lhs.true, label %if.end25
-
-land.lhs.true:                                    ; preds = %entry
-  %7 = load i32, ptr %mt, align 4
-  %and3 = and i32 %7, 520093696
-  %cmp4 = icmp eq i32 %and3, 184549376
-  br i1 %cmp4, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %8 = load i32, ptr %mt, align 4
-  %tobool = icmp ne i32 %8, 0
-  br i1 %tobool, label %land.lhs.true5, label %if.end25
-
-land.lhs.true5:                                   ; preds = %lor.lhs.false
-  %9 = load i32, ptr %mt, align 4
-  %and6 = and i32 %9, 520093696
-  %cmp7 = icmp eq i32 %and6, 0
-  br i1 %cmp7, label %if.then, label %if.end25
-
-if.then:                                          ; preds = %land.lhs.true5, %land.lhs.true
-  %10 = load i32, ptr %tr, align 4
-  %tab = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %10, ptr %tab, align 8
-  %11 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %13 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %argv, align 8
-  %arrayidx8 = getelementptr inbounds %union.TValue, ptr %14, i64 0
-  store ptr %12, ptr %L.addr.i, align 8
-  store ptr %tabv, ptr %o1.addr.i, align 8
-  store ptr %arrayidx8, ptr %o2.addr.i, align 8
-  %15 = load ptr, ptr %o1.addr.i, align 8
-  %16 = load ptr, ptr %o2.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 8, i1 false)
-  %17 = load ptr, ptr %L.addr.i, align 8
-  %18 = load ptr, ptr %o1.addr.i, align 8
-  store ptr %17, ptr %L.addr.i44, align 8
-  store ptr %18, ptr %o.addr.i, align 8
-  store ptr @.str, ptr %msg.addr.i, align 8
-  %19 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_record_mm_lookup(ptr noundef %19, ptr noundef %ix, i32 noundef 17)
-  %20 = load ptr, ptr %J.addr, align 8
-  %21 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %21 to i16
-  store ptr %20, ptr %J.addr.i35, align 8
-  store i16 15881, ptr %ot.addr.i36, align 2
-  store i16 %conv, ptr %a.addr.i37, align 2
-  store i16 5, ptr %b.addr.i38, align 2
-  %22 = load i16, ptr %ot.addr.i36, align 2
-  %23 = load ptr, ptr %J.addr.i35, align 8
-  %fold.i39 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  %ot1.i40 = getelementptr inbounds %struct.anon.2, ptr %fold.i39, i32 0, i32 2
-  store i16 %22, ptr %ot1.i40, align 4
-  %24 = load i16, ptr %a.addr.i37, align 2
-  %25 = load ptr, ptr %J.addr.i35, align 8
-  %fold2.i41 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  store i16 %24, ptr %fold2.i41, align 8
-  %26 = load i16, ptr %b.addr.i38, align 2
-  %27 = load ptr, ptr %J.addr.i35, align 8
-  %fold4.i42 = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 14
-  %op2.i43 = getelementptr inbounds %struct.anon.2, ptr %fold4.i42, i32 0, i32 1
-  store i16 %26, ptr %op2.i43, align 2
-  %28 = load ptr, ptr %J.addr, align 8
-  %call9 = call i32 @lj_opt_fold(ptr noundef %28)
-  store i32 %call9, ptr %fref, align 4
-  %29 = load i32, ptr %mt, align 4
-  %and10 = and i32 %29, 520093696
-  %cmp11 = icmp eq i32 %and10, 0
-  br i1 %cmp11, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then
-  %30 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_ir_knull(ptr noundef %30, i32 noundef 11)
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then
-  %31 = load i32, ptr %mt, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call13, %cond.true ], [ %31, %cond.false ]
-  store i32 %cond, ptr %mtref, align 4
-  %32 = load ptr, ptr %J.addr, align 8
-  %33 = load i32, ptr %fref, align 4
-  %conv14 = trunc i32 %33 to i16
-  %34 = load i32, ptr %mtref, align 4
-  %conv15 = trunc i32 %34 to i16
-  store ptr %32, ptr %J.addr.i26, align 8
-  store i16 19723, ptr %ot.addr.i27, align 2
-  store i16 %conv14, ptr %a.addr.i28, align 2
-  store i16 %conv15, ptr %b.addr.i29, align 2
-  %35 = load i16, ptr %ot.addr.i27, align 2
-  %36 = load ptr, ptr %J.addr.i26, align 8
-  %fold.i30 = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 14
-  %ot1.i31 = getelementptr inbounds %struct.anon.2, ptr %fold.i30, i32 0, i32 2
-  store i16 %35, ptr %ot1.i31, align 4
-  %37 = load i16, ptr %a.addr.i28, align 2
-  %38 = load ptr, ptr %J.addr.i26, align 8
-  %fold2.i32 = getelementptr inbounds %struct.jit_State, ptr %38, i32 0, i32 14
-  store i16 %37, ptr %fold2.i32, align 8
-  %39 = load i16, ptr %b.addr.i29, align 2
-  %40 = load ptr, ptr %J.addr.i26, align 8
-  %fold4.i33 = getelementptr inbounds %struct.jit_State, ptr %40, i32 0, i32 14
-  %op2.i34 = getelementptr inbounds %struct.anon.2, ptr %fold4.i33, i32 0, i32 1
-  store i16 %39, ptr %op2.i34, align 2
-  %41 = load ptr, ptr %J.addr, align 8
-  %call16 = call i32 @lj_opt_fold(ptr noundef %41)
-  %42 = load i32, ptr %mt, align 4
-  %and17 = and i32 %42, 520093696
-  %cmp18 = icmp eq i32 %and17, 0
-  br i1 %cmp18, label %if.end, label %if.then20
-
-if.then20:                                        ; preds = %cond.end
-  %43 = load ptr, ptr %J.addr, align 8
-  %44 = load i32, ptr %tr, align 4
-  %conv21 = trunc i32 %44 to i16
-  store ptr %43, ptr %J.addr.i, align 8
-  store i16 22539, ptr %ot.addr.i, align 2
-  store i16 %conv21, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %45 = load i16, ptr %ot.addr.i, align 2
-  %46 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %45, ptr %ot1.i, align 4
-  %47 = load i16, ptr %a.addr.i, align 2
-  %48 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  store i16 %47, ptr %fold2.i, align 8
-  %49 = load i16, ptr %b.addr.i, align 2
-  %50 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %49, ptr %op2.i, align 2
-  %51 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_opt_fold(ptr noundef %51)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then20, %cond.end
-  %52 = load i32, ptr %tr, align 4
-  %53 = load ptr, ptr %J.addr, align 8
-  %base23 = getelementptr inbounds %struct.jit_State, ptr %53, i32 0, i32 6
-  %54 = load ptr, ptr %base23, align 8
-  %arrayidx24 = getelementptr inbounds i32, ptr %54, i64 0
-  store i32 %52, ptr %arrayidx24, align 4
-  %55 = load ptr, ptr %J.addr, align 8
-  %needsnap = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 11
-  store i8 1, ptr %needsnap, align 1
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end, %land.lhs.true5, %lor.lhs.false, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_getfenv(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i13 = alloca ptr, align 8
-  %ot.addr.i14 = alloca i16, align 2
-  %a.addr.i15 = alloca i16, align 2
-  %b.addr.i16 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %trl = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 318767104
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %4 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %4 to i16
-  %conv1 = zext i16 %conv to i32
-  %cmp2 = icmp slt i32 %conv1, 32768
-  br i1 %cmp2, label %land.lhs.true4, label %if.end
-
-land.lhs.true4:                                   ; preds = %land.lhs.true
-  %5 = load ptr, ptr %J.addr, align 8
-  %cur = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 0
-  %ir = getelementptr inbounds %struct.GCtrace, ptr %cur, i32 0, i32 7
-  %6 = load ptr, ptr %ir, align 8
-  %7 = load i32, ptr %tr, align 4
-  %conv5 = trunc i32 %7 to i16
-  %idxprom = zext i16 %conv5 to i64
-  %arrayidx6 = getelementptr inbounds %union.IRIns, ptr %6, i64 %idxprom
-  %8 = load i32, ptr %arrayidx6, align 8
-  %cmp7 = icmp eq i32 %8, 0
-  br i1 %cmp7, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true4
-  %9 = load ptr, ptr %J.addr, align 8
-  store ptr %9, ptr %J.addr.i13, align 8
-  store i16 16646, ptr %ot.addr.i14, align 2
-  store i16 0, ptr %a.addr.i15, align 2
-  store i16 0, ptr %b.addr.i16, align 2
-  %10 = load i16, ptr %ot.addr.i14, align 2
-  %11 = load ptr, ptr %J.addr.i13, align 8
-  %fold.i17 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 14
-  %ot1.i18 = getelementptr inbounds %struct.anon.2, ptr %fold.i17, i32 0, i32 2
-  store i16 %10, ptr %ot1.i18, align 4
-  %12 = load i16, ptr %a.addr.i15, align 2
-  %13 = load ptr, ptr %J.addr.i13, align 8
-  %fold2.i19 = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  store i16 %12, ptr %fold2.i19, align 8
-  %14 = load i16, ptr %b.addr.i16, align 2
-  %15 = load ptr, ptr %J.addr.i13, align 8
-  %fold4.i20 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  %op2.i21 = getelementptr inbounds %struct.anon.2, ptr %fold4.i20, i32 0, i32 1
-  store i16 %14, ptr %op2.i21, align 2
-  %16 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_opt_fold(ptr noundef %16)
-  store i32 %call, ptr %trl, align 4
-  %17 = load ptr, ptr %J.addr, align 8
-  %18 = load i32, ptr %trl, align 4
-  %conv9 = trunc i32 %18 to i16
-  store ptr %17, ptr %J.addr.i, align 8
-  store i16 17675, ptr %ot.addr.i, align 2
-  store i16 %conv9, ptr %a.addr.i, align 2
-  store i16 4, ptr %b.addr.i, align 2
-  %19 = load i16, ptr %ot.addr.i, align 2
-  %20 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %19, ptr %ot1.i, align 4
-  %21 = load i16, ptr %a.addr.i, align 2
-  %22 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i, align 8
-  %23 = load i16, ptr %b.addr.i, align 2
-  %24 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %23, ptr %op2.i, align 2
-  %25 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_opt_fold(ptr noundef %25)
-  %26 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %base11, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %27, i64 0
-  store i32 %call10, ptr %arrayidx12, align 4
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true, %entry
-  %28 = load ptr, ptr %J.addr, align 8
-  %29 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %28, ptr noundef %29)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_rawget(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %o.addr.i18 = alloca ptr, align 8
-  %v.addr.i19 = alloca ptr, align 8
-  %itype.addr.i = alloca i32, align 4
-  %L.addr.i.i = alloca ptr, align 8
-  %o.addr.i.i = alloca ptr, align 8
-  %msg.addr.i.i = alloca ptr, align 8
-  %L.addr.i15 = alloca ptr, align 8
-  %o.addr.i16 = alloca ptr, align 8
-  %v.addr.i17 = alloca ptr, align 8
-  %it.addr.i = alloca i32, align 4
-  %L.addr.i13 = alloca ptr, align 8
-  %o.addr.i14 = alloca ptr, align 8
-  %v.addr.i = alloca ptr, align 8
-  %L.addr.i12 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %msg.addr.i = alloca ptr, align 8
-  %L.addr.i = alloca ptr, align 8
-  %o1.addr.i = alloca ptr, align 8
-  %o2.addr.i = alloca ptr, align 8
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ix = alloca %struct.RecordIndex, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  %tab = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %2, ptr %tab, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %4, i64 1
-  %5 = load i32, ptr %arrayidx2, align 4
-  %key = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  store i32 %5, ptr %key, align 4
-  %tab3 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  %6 = load i32, ptr %tab3, align 8
-  %and = and i32 %6, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %key4 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  %7 = load i32, ptr %key4, align 4
-  %tobool = icmp ne i32 %7, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %val = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 8
-  store i32 0, ptr %val, align 8
-  %idxchain = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 11
-  store i32 0, ptr %idxchain, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %10 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %argv, align 8
-  %arrayidx5 = getelementptr inbounds %union.TValue, ptr %11, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx5, i32 0, i32 0
-  %12 = load i64, ptr %gcptr64, align 8
-  %and6 = and i64 %12, 140737488355327
-  %13 = inttoptr i64 %and6 to ptr
-  store ptr %9, ptr %L.addr.i13, align 8
-  store ptr %tabv, ptr %o.addr.i14, align 8
-  store ptr %13, ptr %v.addr.i, align 8
-  %14 = load ptr, ptr %L.addr.i13, align 8
-  %15 = load ptr, ptr %o.addr.i14, align 8
-  %16 = load ptr, ptr %v.addr.i, align 8
-  store ptr %14, ptr %L.addr.i15, align 8
-  store ptr %15, ptr %o.addr.i16, align 8
-  store ptr %16, ptr %v.addr.i17, align 8
-  store i32 -12, ptr %it.addr.i, align 4
-  %17 = load ptr, ptr %o.addr.i16, align 8
-  %18 = load ptr, ptr %v.addr.i17, align 8
-  %19 = load i32, ptr %it.addr.i, align 4
-  store ptr %17, ptr %o.addr.i18, align 8
-  store ptr %18, ptr %v.addr.i19, align 8
-  store i32 %19, ptr %itype.addr.i, align 4
-  %20 = load ptr, ptr %v.addr.i19, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = load i32, ptr %itype.addr.i, align 4
-  %conv.i = zext i32 %22 to i64
-  %shl.i = shl i64 %conv.i, 47
-  %or.i = or i64 %21, %shl.i
-  %23 = load ptr, ptr %o.addr.i18, align 8
-  store i64 %or.i, ptr %23, align 8
-  %24 = load ptr, ptr %L.addr.i15, align 8
-  %25 = load ptr, ptr %o.addr.i16, align 8
-  store ptr %24, ptr %L.addr.i.i, align 8
-  store ptr %25, ptr %o.addr.i.i, align 8
-  store ptr @.str.1, ptr %msg.addr.i.i, align 8
-  %26 = load ptr, ptr %J.addr, align 8
-  %L7 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %L7, align 8
-  %keyv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 1
-  %28 = load ptr, ptr %rd.addr, align 8
-  %argv8 = getelementptr inbounds %struct.RecordFFData, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %argv8, align 8
-  %arrayidx9 = getelementptr inbounds %union.TValue, ptr %29, i64 1
-  store ptr %27, ptr %L.addr.i, align 8
-  store ptr %keyv, ptr %o1.addr.i, align 8
-  store ptr %arrayidx9, ptr %o2.addr.i, align 8
-  %30 = load ptr, ptr %o1.addr.i, align 8
-  %31 = load ptr, ptr %o2.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %31, i64 8, i1 false)
-  %32 = load ptr, ptr %L.addr.i, align 8
-  %33 = load ptr, ptr %o1.addr.i, align 8
-  store ptr %32, ptr %L.addr.i12, align 8
-  store ptr %33, ptr %o.addr.i, align 8
-  store ptr @.str, ptr %msg.addr.i, align 8
-  %34 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_record_idx(ptr noundef %34, ptr noundef %ix)
-  %35 = load ptr, ptr %J.addr, align 8
-  %base10 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 6
-  %36 = load ptr, ptr %base10, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %36, i64 0
-  store i32 %call, ptr %arrayidx11, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_rawset(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %o.addr.i30 = alloca ptr, align 8
-  %v.addr.i31 = alloca ptr, align 8
-  %itype.addr.i = alloca i32, align 4
-  %L.addr.i.i = alloca ptr, align 8
-  %o.addr.i.i = alloca ptr, align 8
-  %msg.addr.i.i = alloca ptr, align 8
-  %L.addr.i27 = alloca ptr, align 8
-  %o.addr.i28 = alloca ptr, align 8
-  %v.addr.i29 = alloca ptr, align 8
-  %it.addr.i = alloca i32, align 4
-  %L.addr.i25 = alloca ptr, align 8
-  %o.addr.i26 = alloca ptr, align 8
-  %v.addr.i = alloca ptr, align 8
-  %L.addr.i22 = alloca ptr, align 8
-  %o.addr.i23 = alloca ptr, align 8
-  %msg.addr.i24 = alloca ptr, align 8
-  %L.addr.i21 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %msg.addr.i = alloca ptr, align 8
-  %L.addr.i18 = alloca ptr, align 8
-  %o1.addr.i19 = alloca ptr, align 8
-  %o2.addr.i20 = alloca ptr, align 8
-  %L.addr.i = alloca ptr, align 8
-  %o1.addr.i = alloca ptr, align 8
-  %o2.addr.i = alloca ptr, align 8
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ix = alloca %struct.RecordIndex, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  %tab = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %2, ptr %tab, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %4, i64 1
-  %5 = load i32, ptr %arrayidx2, align 4
-  %key = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  store i32 %5, ptr %key, align 4
-  %6 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %base3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %7, i64 2
-  %8 = load i32, ptr %arrayidx4, align 4
-  %val = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 8
-  store i32 %8, ptr %val, align 8
-  %tab5 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  %9 = load i32, ptr %tab5, align 8
-  %and = and i32 %9, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %key6 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  %10 = load i32, ptr %key6, align 4
-  %tobool = icmp ne i32 %10, 0
-  br i1 %tobool, label %land.lhs.true7, label %if.end
-
-land.lhs.true7:                                   ; preds = %land.lhs.true
-  %val8 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 8
-  %11 = load i32, ptr %val8, align 8
-  %tobool9 = icmp ne i32 %11, 0
-  br i1 %tobool9, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true7
-  %idxchain = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 11
-  store i32 0, ptr %idxchain, align 4
-  %12 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 2
-  %13 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %14 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %argv, align 8
-  %arrayidx10 = getelementptr inbounds %union.TValue, ptr %15, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx10, i32 0, i32 0
-  %16 = load i64, ptr %gcptr64, align 8
-  %and11 = and i64 %16, 140737488355327
-  %17 = inttoptr i64 %and11 to ptr
-  store ptr %13, ptr %L.addr.i25, align 8
-  store ptr %tabv, ptr %o.addr.i26, align 8
-  store ptr %17, ptr %v.addr.i, align 8
-  %18 = load ptr, ptr %L.addr.i25, align 8
-  %19 = load ptr, ptr %o.addr.i26, align 8
-  %20 = load ptr, ptr %v.addr.i, align 8
-  store ptr %18, ptr %L.addr.i27, align 8
-  store ptr %19, ptr %o.addr.i28, align 8
-  store ptr %20, ptr %v.addr.i29, align 8
-  store i32 -12, ptr %it.addr.i, align 4
-  %21 = load ptr, ptr %o.addr.i28, align 8
-  %22 = load ptr, ptr %v.addr.i29, align 8
-  %23 = load i32, ptr %it.addr.i, align 4
-  store ptr %21, ptr %o.addr.i30, align 8
-  store ptr %22, ptr %v.addr.i31, align 8
-  store i32 %23, ptr %itype.addr.i, align 4
-  %24 = load ptr, ptr %v.addr.i31, align 8
-  %25 = ptrtoint ptr %24 to i64
-  %26 = load i32, ptr %itype.addr.i, align 4
-  %conv.i = zext i32 %26 to i64
-  %shl.i = shl i64 %conv.i, 47
-  %or.i = or i64 %25, %shl.i
-  %27 = load ptr, ptr %o.addr.i30, align 8
-  store i64 %or.i, ptr %27, align 8
-  %28 = load ptr, ptr %L.addr.i27, align 8
-  %29 = load ptr, ptr %o.addr.i28, align 8
-  store ptr %28, ptr %L.addr.i.i, align 8
-  store ptr %29, ptr %o.addr.i.i, align 8
-  store ptr @.str.1, ptr %msg.addr.i.i, align 8
-  %30 = load ptr, ptr %J.addr, align 8
-  %L12 = getelementptr inbounds %struct.jit_State, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %L12, align 8
-  %keyv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 1
-  %32 = load ptr, ptr %rd.addr, align 8
-  %argv13 = getelementptr inbounds %struct.RecordFFData, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %argv13, align 8
-  %arrayidx14 = getelementptr inbounds %union.TValue, ptr %33, i64 1
-  store ptr %31, ptr %L.addr.i18, align 8
-  store ptr %keyv, ptr %o1.addr.i19, align 8
-  store ptr %arrayidx14, ptr %o2.addr.i20, align 8
-  %34 = load ptr, ptr %o1.addr.i19, align 8
-  %35 = load ptr, ptr %o2.addr.i20, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 8, i1 false)
-  %36 = load ptr, ptr %L.addr.i18, align 8
-  %37 = load ptr, ptr %o1.addr.i19, align 8
-  store ptr %36, ptr %L.addr.i21, align 8
-  store ptr %37, ptr %o.addr.i, align 8
-  store ptr @.str, ptr %msg.addr.i, align 8
-  %38 = load ptr, ptr %J.addr, align 8
-  %L15 = getelementptr inbounds %struct.jit_State, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %L15, align 8
-  %valv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 2
-  %40 = load ptr, ptr %rd.addr, align 8
-  %argv16 = getelementptr inbounds %struct.RecordFFData, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %argv16, align 8
-  %arrayidx17 = getelementptr inbounds %union.TValue, ptr %41, i64 2
-  store ptr %39, ptr %L.addr.i, align 8
-  store ptr %valv, ptr %o1.addr.i, align 8
-  store ptr %arrayidx17, ptr %o2.addr.i, align 8
-  %42 = load ptr, ptr %o1.addr.i, align 8
-  %43 = load ptr, ptr %o2.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %43, i64 8, i1 false)
-  %44 = load ptr, ptr %L.addr.i, align 8
-  %45 = load ptr, ptr %o1.addr.i, align 8
-  store ptr %44, ptr %L.addr.i22, align 8
-  store ptr %45, ptr %o.addr.i23, align 8
-  store ptr @.str, ptr %msg.addr.i24, align 8
-  %46 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_record_idx(ptr noundef %46, ptr noundef %ix)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true7, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_rawequal(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tra = alloca i32, align 4
-  %trb = alloca i32, align 4
-  %diff = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tra, align 4
-  %3 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %4, i64 1
-  %5 = load i32, ptr %arrayidx2, align 4
-  store i32 %5, ptr %trb, align 4
-  %6 = load i32, ptr %tra, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %7 = load i32, ptr %trb, align 4
-  %tobool3 = icmp ne i32 %7, 0
-  br i1 %tobool3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %tra, align 4
-  %10 = load i32, ptr %trb, align 4
-  %11 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds %union.TValue, ptr %12, i64 0
-  %13 = load ptr, ptr %rd.addr, align 8
-  %argv5 = getelementptr inbounds %struct.RecordFFData, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %argv5, align 8
-  %arrayidx6 = getelementptr inbounds %union.TValue, ptr %14, i64 1
-  %call = call i32 @lj_record_objcmp(ptr noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %arrayidx4, ptr noundef %arrayidx6)
-  store i32 %call, ptr %diff, align 4
-  %15 = load i32, ptr %diff, align 4
-  %tobool7 = icmp ne i32 %15, 0
-  %cond = select i1 %tobool7, i32 16809982, i32 33587197
-  %16 = load ptr, ptr %J.addr, align 8
-  %base8 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 6
-  %17 = load ptr, ptr %base8, align 8
-  %arrayidx9 = getelementptr inbounds i32, ptr %17, i64 0
-  store i32 %cond, ptr %arrayidx9, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_select(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %start = alloca i64, align 8
-  %n = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.then, label %if.end38
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load i32, ptr %tr, align 4
-  %6 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %argv, align 8
-  %arrayidx1 = getelementptr inbounds %union.TValue, ptr %7, i64 0
-  %call = call i32 @lj_ffrecord_select_mode(ptr noundef %4, i32 noundef %5, ptr noundef %arrayidx1)
-  %conv = sext i32 %call to i64
-  store i64 %conv, ptr %start, align 8
-  %8 = load i64, ptr %start, align 8
-  %cmp = icmp eq i64 %8, 0
-  br i1 %cmp, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.then
-  %9 = load ptr, ptr %J.addr, align 8
-  %10 = load ptr, ptr %J.addr, align 8
-  %maxslot = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 8
-  %11 = load i32, ptr %maxslot, align 4
-  %sub = sub i32 %11, 1
-  %call4 = call i32 @lj_ir_kint(ptr noundef %9, i32 noundef %sub)
-  %12 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %13, i64 0
-  store i32 %call4, ptr %arrayidx6, align 4
-  br label %if.end37
-
-if.else:                                          ; preds = %if.then
-  %14 = load i32, ptr %tr, align 4
-  %conv7 = trunc i32 %14 to i16
-  %conv8 = zext i16 %conv7 to i32
-  %cmp9 = icmp slt i32 %conv8, 32768
-  br i1 %cmp9, label %if.then11, label %if.else35
-
-if.then11:                                        ; preds = %if.else
-  %15 = load ptr, ptr %J.addr, align 8
-  %maxslot12 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 8
-  %16 = load i32, ptr %maxslot12, align 4
-  %conv13 = zext i32 %16 to i64
-  store i64 %conv13, ptr %n, align 8
-  %17 = load i64, ptr %start, align 8
-  %cmp14 = icmp slt i64 %17, 0
-  br i1 %cmp14, label %if.then16, label %if.else17
-
-if.then16:                                        ; preds = %if.then11
-  %18 = load i64, ptr %n, align 8
-  %19 = load i64, ptr %start, align 8
-  %add = add nsw i64 %19, %18
-  store i64 %add, ptr %start, align 8
-  br label %if.end21
-
-if.else17:                                        ; preds = %if.then11
-  %20 = load i64, ptr %start, align 8
-  %21 = load i64, ptr %n, align 8
-  %cmp18 = icmp sgt i64 %20, %21
-  br i1 %cmp18, label %if.then20, label %if.end
-
-if.then20:                                        ; preds = %if.else17
-  %22 = load i64, ptr %n, align 8
-  store i64 %22, ptr %start, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then20, %if.else17
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.end, %if.then16
-  %23 = load i64, ptr %start, align 8
-  %cmp22 = icmp sge i64 %23, 1
-  br i1 %cmp22, label %if.then24, label %if.end34
-
-if.then24:                                        ; preds = %if.end21
-  %24 = load i64, ptr %n, align 8
-  %25 = load i64, ptr %start, align 8
-  %sub25 = sub nsw i64 %24, %25
-  %26 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %26, i32 0, i32 1
-  store i64 %sub25, ptr %nres, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then24
-  %27 = load i64, ptr %i, align 8
-  %28 = load i64, ptr %n, align 8
-  %29 = load i64, ptr %start, align 8
-  %sub26 = sub nsw i64 %28, %29
-  %cmp27 = icmp slt i64 %27, %sub26
-  br i1 %cmp27, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %30 = load ptr, ptr %J.addr, align 8
-  %base29 = getelementptr inbounds %struct.jit_State, ptr %30, i32 0, i32 6
-  %31 = load ptr, ptr %base29, align 8
-  %32 = load i64, ptr %start, align 8
-  %33 = load i64, ptr %i, align 8
-  %add30 = add nsw i64 %32, %33
-  %arrayidx31 = getelementptr inbounds i32, ptr %31, i64 %add30
-  %34 = load i32, ptr %arrayidx31, align 4
-  %35 = load ptr, ptr %J.addr, align 8
-  %base32 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 6
-  %36 = load ptr, ptr %base32, align 8
-  %37 = load i64, ptr %i, align 8
-  %arrayidx33 = getelementptr inbounds i32, ptr %36, i64 %37
-  store i32 %34, ptr %arrayidx33, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %38 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %38, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end34
-
-if.end34:                                         ; preds = %for.end, %if.end21
-  br label %if.end36
-
-if.else35:                                        ; preds = %if.else
-  %39 = load ptr, ptr %J.addr, align 8
-  %40 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %39, ptr noundef %40)
-  br label %if.end38
-
-if.end36:                                         ; preds = %if.end34
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end36, %if.then3
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.end37, %if.else35, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_tonumber(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %base1 = alloca i32, align 4
-  %tmp = alloca %union.TValue, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load ptr, ptr %J.addr, align 8
-  %base2 = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base2, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %4, i64 1
-  %5 = load i32, ptr %arrayidx3, align 4
-  store i32 %5, ptr %base1, align 4
-  %6 = load i32, ptr %tr, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end12
-
-land.lhs.true:                                    ; preds = %entry
-  %7 = load i32, ptr %base1, align 4
-  %and = and i32 %7, 520093696
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.end12, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %base1, align 4
-  %call = call i32 @lj_opt_narrow_toint(ptr noundef %8, i32 noundef %9)
-  store i32 %call, ptr %base1, align 4
-  %10 = load i32, ptr %base1, align 4
-  %conv = trunc i32 %10 to i16
-  %conv4 = zext i16 %conv to i32
-  %cmp5 = icmp slt i32 %conv4, 32768
-  br i1 %cmp5, label %lor.lhs.false, label %if.then11
-
-lor.lhs.false:                                    ; preds = %if.then
-  %11 = load ptr, ptr %J.addr, align 8
-  %cur = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 0
-  %ir = getelementptr inbounds %struct.GCtrace, ptr %cur, i32 0, i32 7
-  %12 = load ptr, ptr %ir, align 8
-  %13 = load i32, ptr %base1, align 4
-  %conv7 = trunc i32 %13 to i16
-  %idxprom = zext i16 %conv7 to i64
-  %arrayidx8 = getelementptr inbounds %union.IRIns, ptr %12, i64 %idxprom
-  %14 = load i32, ptr %arrayidx8, align 8
-  %cmp9 = icmp ne i32 %14, 10
-  br i1 %cmp9, label %if.then11, label %if.end
-
-if.then11:                                        ; preds = %lor.lhs.false, %if.then
-  %15 = load ptr, ptr %J.addr, align 8
-  %16 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %15, ptr noundef %16)
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %17 = load i32, ptr %tr, align 4
-  %shr = lshr i32 %17, 24
-  %and13 = and i32 %shr, 31
-  %sub = sub i32 %and13, 14
-  %cmp14 = icmp ule i32 %sub, 5
-  br i1 %cmp14, label %if.then20, label %lor.lhs.false16
-
-lor.lhs.false16:                                  ; preds = %if.end12
-  %18 = load i32, ptr %tr, align 4
-  %and17 = and i32 %18, 520093696
-  %cmp18 = icmp eq i32 %and17, 67108864
-  br i1 %cmp18, label %if.then20, label %if.else
-
-if.then20:                                        ; preds = %lor.lhs.false16, %if.end12
-  %19 = load i32, ptr %tr, align 4
-  %and21 = and i32 %19, 520093696
-  %cmp22 = icmp eq i32 %and21, 67108864
-  br i1 %cmp22, label %if.then24, label %if.end33
-
-if.then24:                                        ; preds = %if.then20
-  %20 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %argv, align 8
-  %arrayidx25 = getelementptr inbounds %union.TValue, ptr %21, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx25, i32 0, i32 0
-  %22 = load i64, ptr %gcptr64, align 8
-  %and26 = and i64 %22, 140737488355327
-  %23 = inttoptr i64 %and26 to ptr
-  %call27 = call i32 @lj_strscan_num(ptr noundef %23, ptr noundef %tmp)
-  %tobool28 = icmp ne i32 %call27, 0
-  br i1 %tobool28, label %if.end30, label %if.then29
-
-if.then29:                                        ; preds = %if.then24
-  %24 = load ptr, ptr %J.addr, align 8
-  %25 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %24, ptr noundef %25)
-  br label %return
-
-if.end30:                                         ; preds = %if.then24
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %tr, align 4
-  %conv31 = trunc i32 %27 to i16
-  store ptr %26, ptr %J.addr.i, align 8
-  store i16 24206, ptr %ot.addr.i, align 2
-  store i16 %conv31, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %28 = load i16, ptr %ot.addr.i, align 2
-  %29 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %28, ptr %ot1.i, align 4
-  %30 = load i16, ptr %a.addr.i, align 2
-  %31 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 14
-  store i16 %30, ptr %fold2.i, align 8
-  %32 = load i16, ptr %b.addr.i, align 2
-  %33 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %32, ptr %op2.i, align 2
-  %34 = load ptr, ptr %J.addr, align 8
-  %call32 = call i32 @lj_opt_fold(ptr noundef %34)
-  store i32 %call32, ptr %tr, align 4
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.end30, %if.then20
-  br label %if.end40
-
-if.else:                                          ; preds = %lor.lhs.false16
-  %35 = load i32, ptr %tr, align 4
-  %and34 = and i32 %35, 520093696
-  %cmp35 = icmp eq i32 %and34, 167772160
-  br i1 %cmp35, label %if.then37, label %if.else38
-
-if.then37:                                        ; preds = %if.else
-  %36 = load ptr, ptr %J.addr, align 8
-  %37 = load ptr, ptr %rd.addr, align 8
-  call void @lj_crecord_tonumber(ptr noundef %36, ptr noundef %37)
-  br label %return
-
-if.else38:                                        ; preds = %if.else
-  store i32 32767, ptr %tr, align 4
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.else38
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.end39, %if.end33
-  %38 = load i32, ptr %tr, align 4
-  %39 = load ptr, ptr %J.addr, align 8
-  %base41 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 6
-  %40 = load ptr, ptr %base41, align 8
-  %arrayidx42 = getelementptr inbounds i32, ptr %40, i64 0
-  store i32 %38, ptr %arrayidx42, align 4
-  br label %return
-
-return:                                           ; preds = %if.end40, %if.then37, %if.then29, %if.then11
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_tostring(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 67108864
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  br label %if.end28
-
-if.else:                                          ; preds = %entry
-  %4 = load i32, ptr %tr, align 4
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end27
-
-land.lhs.true:                                    ; preds = %if.else
-  %5 = load ptr, ptr %J.addr, align 8
-  %6 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_metacall(ptr noundef %5, ptr noundef %6, i32 noundef 18)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.end27, label %if.then2
-
-if.then2:                                         ; preds = %land.lhs.true
-  %7 = load i32, ptr %tr, align 4
-  %shr = lshr i32 %7, 24
-  %and3 = and i32 %shr, 31
-  %sub = sub i32 %and3, 14
-  %cmp4 = icmp ule i32 %sub, 5
-  br i1 %cmp4, label %if.then5, label %if.else13
-
-if.then5:                                         ; preds = %if.then2
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %9 to i16
-  %10 = load i32, ptr %tr, align 4
-  %and6 = and i32 %10, 520093696
-  %cmp7 = icmp eq i32 %and6, 234881024
-  %cond = select i1 %cmp7, i32 1, i32 0
-  %conv9 = trunc i32 %cond to i16
-  store ptr %8, ptr %J.addr.i, align 8
-  store i16 23812, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv9, ptr %b.addr.i, align 2
-  %11 = load i16, ptr %ot.addr.i, align 2
-  %12 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %11, ptr %ot1.i, align 4
-  %13 = load i16, ptr %a.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  store i16 %13, ptr %fold2.i, align 8
-  %15 = load i16, ptr %b.addr.i, align 2
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %15, ptr %op2.i, align 2
-  %17 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_opt_fold(ptr noundef %17)
-  %18 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 6
-  %19 = load ptr, ptr %base11, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %19, i64 0
-  store i32 %call10, ptr %arrayidx12, align 4
-  br label %if.end26
-
-if.else13:                                        ; preds = %if.then2
-  %20 = load i32, ptr %tr, align 4
-  %shr14 = lshr i32 %20, 24
-  %and15 = and i32 %shr14, 31
-  %sub16 = sub i32 %and15, 0
-  %cmp17 = icmp ule i32 %sub16, 2
-  br i1 %cmp17, label %if.then19, label %if.else25
-
-if.then19:                                        ; preds = %if.else13
-  %21 = load ptr, ptr %J.addr, align 8
-  %22 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %L, align 8
-  %24 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %argv, align 8
-  %arrayidx20 = getelementptr inbounds %union.TValue, ptr %25, i64 0
-  %call21 = call ptr @lj_strfmt_obj(ptr noundef %23, ptr noundef %arrayidx20)
-  %call22 = call i32 @lj_ir_kgc(ptr noundef %21, ptr noundef %call21, i32 noundef 4)
-  %26 = load ptr, ptr %J.addr, align 8
-  %base23 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %base23, align 8
-  %arrayidx24 = getelementptr inbounds i32, ptr %27, i64 0
-  store i32 %call22, ptr %arrayidx24, align 4
-  br label %if.end
-
-if.else25:                                        ; preds = %if.else13
-  %28 = load ptr, ptr %J.addr, align 8
-  %29 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %28, ptr noundef %29)
-  br label %if.end28
-
-if.end:                                           ; preds = %if.then19
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end, %if.then5
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end26, %land.lhs.true, %if.else
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.end27, %if.else25, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_pcall(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %maxslot = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 8
-  %1 = load i32, ptr %maxslot, align 4
-  %cmp = icmp uge i32 %1, 1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %2, i32 0, i32 6
-  %3 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %3, i64 1
-  %4 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 6
-  %5 = load ptr, ptr %base1, align 8
-  %6 = load ptr, ptr %J.addr, align 8
-  %maxslot2 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 8
-  %7 = load i32, ptr %maxslot2, align 4
-  %conv = zext i32 %7 to i64
-  %mul = mul i64 4, %conv
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr, ptr align 4 %5, i64 %mul, i1 false)
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load ptr, ptr %J.addr, align 8
-  %maxslot3 = getelementptr inbounds %struct.jit_State, ptr %9, i32 0, i32 8
-  %10 = load i32, ptr %maxslot3, align 4
-  %sub = sub i32 %10, 1
-  %conv4 = zext i32 %sub to i64
-  call void @lj_record_call(ptr noundef %8, i32 noundef 0, i64 noundef %conv4)
-  %11 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %11, i32 0, i32 1
-  store i64 -1, ptr %nres, align 8
-  %12 = load ptr, ptr %J.addr, align 8
-  %needsnap = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 11
-  store i8 1, ptr %needsnap, align 1
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_xpcall(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %L.addr.i59 = alloca ptr, align 8
-  %o.addr.i60 = alloca ptr, align 8
-  %msg.addr.i61 = alloca ptr, align 8
-  %L.addr.i56 = alloca ptr, align 8
-  %o.addr.i57 = alloca ptr, align 8
-  %msg.addr.i58 = alloca ptr, align 8
-  %L.addr.i53 = alloca ptr, align 8
-  %o.addr.i54 = alloca ptr, align 8
-  %msg.addr.i55 = alloca ptr, align 8
-  %L.addr.i50 = alloca ptr, align 8
-  %o.addr.i51 = alloca ptr, align 8
-  %msg.addr.i52 = alloca ptr, align 8
-  %L.addr.i47 = alloca ptr, align 8
-  %o.addr.i48 = alloca ptr, align 8
-  %msg.addr.i49 = alloca ptr, align 8
-  %L.addr.i46 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %msg.addr.i = alloca ptr, align 8
-  %L.addr.i43 = alloca ptr, align 8
-  %o1.addr.i44 = alloca ptr, align 8
-  %o2.addr.i45 = alloca ptr, align 8
-  %L.addr.i40 = alloca ptr, align 8
-  %o1.addr.i41 = alloca ptr, align 8
-  %o2.addr.i42 = alloca ptr, align 8
-  %L.addr.i37 = alloca ptr, align 8
-  %o1.addr.i38 = alloca ptr, align 8
-  %o2.addr.i39 = alloca ptr, align 8
-  %L.addr.i34 = alloca ptr, align 8
-  %o1.addr.i35 = alloca ptr, align 8
-  %o2.addr.i36 = alloca ptr, align 8
-  %L.addr.i31 = alloca ptr, align 8
-  %o1.addr.i32 = alloca ptr, align 8
-  %o2.addr.i33 = alloca ptr, align 8
-  %L.addr.i = alloca ptr, align 8
-  %o1.addr.i = alloca ptr, align 8
-  %o2.addr.i = alloca ptr, align 8
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %argv0 = alloca %union.TValue, align 8
-  %argv1 = alloca %union.TValue, align 8
-  %tmp = alloca i32, align 4
-  %errcode = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %maxslot = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 8
-  %1 = load i32, ptr %maxslot, align 4
-  %cmp = icmp uge i32 %1, 2
-  br i1 %cmp, label %if.then, label %if.end30
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %2, i32 0, i32 6
-  %3 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %3, i64 0
-  %4 = load i32, ptr %arrayidx, align 4
-  store i32 %4, ptr %tmp, align 4
-  %5 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx2, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 6
-  %9 = load ptr, ptr %base3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %9, i64 0
-  store i32 %7, ptr %arrayidx4, align 4
-  %10 = load i32, ptr %tmp, align 4
-  %11 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 6
-  %12 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %12, i64 1
-  store i32 %10, ptr %arrayidx6, align 4
-  %13 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %L, align 8
-  %15 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %argv, align 8
-  %arrayidx7 = getelementptr inbounds %union.TValue, ptr %16, i64 0
-  store ptr %14, ptr %L.addr.i43, align 8
-  store ptr %argv0, ptr %o1.addr.i44, align 8
-  store ptr %arrayidx7, ptr %o2.addr.i45, align 8
-  %17 = load ptr, ptr %o1.addr.i44, align 8
-  %18 = load ptr, ptr %o2.addr.i45, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 8, i1 false)
-  %19 = load ptr, ptr %L.addr.i43, align 8
-  %20 = load ptr, ptr %o1.addr.i44, align 8
-  store ptr %19, ptr %L.addr.i46, align 8
-  store ptr %20, ptr %o.addr.i, align 8
-  store ptr @.str, ptr %msg.addr.i, align 8
-  %21 = load ptr, ptr %J.addr, align 8
-  %L8 = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %L8, align 8
-  %23 = load ptr, ptr %rd.addr, align 8
-  %argv9 = getelementptr inbounds %struct.RecordFFData, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %argv9, align 8
-  %arrayidx10 = getelementptr inbounds %union.TValue, ptr %24, i64 1
-  store ptr %22, ptr %L.addr.i40, align 8
-  store ptr %argv1, ptr %o1.addr.i41, align 8
-  store ptr %arrayidx10, ptr %o2.addr.i42, align 8
-  %25 = load ptr, ptr %o1.addr.i41, align 8
-  %26 = load ptr, ptr %o2.addr.i42, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %26, i64 8, i1 false)
-  %27 = load ptr, ptr %L.addr.i40, align 8
-  %28 = load ptr, ptr %o1.addr.i41, align 8
-  store ptr %27, ptr %L.addr.i47, align 8
-  store ptr %28, ptr %o.addr.i48, align 8
-  store ptr @.str, ptr %msg.addr.i49, align 8
-  %29 = load ptr, ptr %J.addr, align 8
-  %L11 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %L11, align 8
-  %31 = load ptr, ptr %rd.addr, align 8
-  %argv12 = getelementptr inbounds %struct.RecordFFData, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %argv12, align 8
-  %arrayidx13 = getelementptr inbounds %union.TValue, ptr %32, i64 0
-  store ptr %30, ptr %L.addr.i37, align 8
-  store ptr %arrayidx13, ptr %o1.addr.i38, align 8
-  store ptr %argv1, ptr %o2.addr.i39, align 8
-  %33 = load ptr, ptr %o1.addr.i38, align 8
-  %34 = load ptr, ptr %o2.addr.i39, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %34, i64 8, i1 false)
-  %35 = load ptr, ptr %L.addr.i37, align 8
-  %36 = load ptr, ptr %o1.addr.i38, align 8
-  store ptr %35, ptr %L.addr.i50, align 8
-  store ptr %36, ptr %o.addr.i51, align 8
-  store ptr @.str, ptr %msg.addr.i52, align 8
-  %37 = load ptr, ptr %J.addr, align 8
-  %L14 = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 2
-  %38 = load ptr, ptr %L14, align 8
-  %39 = load ptr, ptr %rd.addr, align 8
-  %argv15 = getelementptr inbounds %struct.RecordFFData, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %argv15, align 8
-  %arrayidx16 = getelementptr inbounds %union.TValue, ptr %40, i64 1
-  store ptr %38, ptr %L.addr.i34, align 8
-  store ptr %arrayidx16, ptr %o1.addr.i35, align 8
-  store ptr %argv0, ptr %o2.addr.i36, align 8
-  %41 = load ptr, ptr %o1.addr.i35, align 8
-  %42 = load ptr, ptr %o2.addr.i36, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %42, i64 8, i1 false)
-  %43 = load ptr, ptr %L.addr.i34, align 8
-  %44 = load ptr, ptr %o1.addr.i35, align 8
-  store ptr %43, ptr %L.addr.i53, align 8
-  store ptr %44, ptr %o.addr.i54, align 8
-  store ptr @.str, ptr %msg.addr.i55, align 8
-  %45 = load ptr, ptr %J.addr, align 8
-  %base17 = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 6
-  %46 = load ptr, ptr %base17, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %46, i64 2
-  %47 = load ptr, ptr %J.addr, align 8
-  %base18 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 6
-  %48 = load ptr, ptr %base18, align 8
-  %add.ptr19 = getelementptr inbounds i32, ptr %48, i64 1
-  %49 = load ptr, ptr %J.addr, align 8
-  %maxslot20 = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 8
-  %50 = load i32, ptr %maxslot20, align 4
-  %sub = sub i32 %50, 1
-  %conv = zext i32 %sub to i64
-  %mul = mul i64 4, %conv
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr, ptr align 4 %add.ptr19, i64 %mul, i1 false)
-  %51 = load ptr, ptr %J.addr, align 8
-  %L21 = getelementptr inbounds %struct.jit_State, ptr %51, i32 0, i32 2
-  %52 = load ptr, ptr %L21, align 8
-  %53 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_vm_cpcall(ptr noundef %52, ptr noundef null, ptr noundef %53, ptr noundef @recff_xpcall_cp)
-  store i32 %call, ptr %errcode, align 4
-  %54 = load ptr, ptr %J.addr, align 8
-  %L22 = getelementptr inbounds %struct.jit_State, ptr %54, i32 0, i32 2
-  %55 = load ptr, ptr %L22, align 8
-  %56 = load ptr, ptr %rd.addr, align 8
-  %argv23 = getelementptr inbounds %struct.RecordFFData, ptr %56, i32 0, i32 0
-  %57 = load ptr, ptr %argv23, align 8
-  %arrayidx24 = getelementptr inbounds %union.TValue, ptr %57, i64 0
-  store ptr %55, ptr %L.addr.i31, align 8
-  store ptr %arrayidx24, ptr %o1.addr.i32, align 8
-  store ptr %argv0, ptr %o2.addr.i33, align 8
-  %58 = load ptr, ptr %o1.addr.i32, align 8
-  %59 = load ptr, ptr %o2.addr.i33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %58, ptr align 8 %59, i64 8, i1 false)
-  %60 = load ptr, ptr %L.addr.i31, align 8
-  %61 = load ptr, ptr %o1.addr.i32, align 8
-  store ptr %60, ptr %L.addr.i56, align 8
-  store ptr %61, ptr %o.addr.i57, align 8
-  store ptr @.str, ptr %msg.addr.i58, align 8
-  %62 = load ptr, ptr %J.addr, align 8
-  %L25 = getelementptr inbounds %struct.jit_State, ptr %62, i32 0, i32 2
-  %63 = load ptr, ptr %L25, align 8
-  %64 = load ptr, ptr %rd.addr, align 8
-  %argv26 = getelementptr inbounds %struct.RecordFFData, ptr %64, i32 0, i32 0
-  %65 = load ptr, ptr %argv26, align 8
-  %arrayidx27 = getelementptr inbounds %union.TValue, ptr %65, i64 1
-  store ptr %63, ptr %L.addr.i, align 8
-  store ptr %arrayidx27, ptr %o1.addr.i, align 8
-  store ptr %argv1, ptr %o2.addr.i, align 8
-  %66 = load ptr, ptr %o1.addr.i, align 8
-  %67 = load ptr, ptr %o2.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %66, ptr align 8 %67, i64 8, i1 false)
-  %68 = load ptr, ptr %L.addr.i, align 8
-  %69 = load ptr, ptr %o1.addr.i, align 8
-  store ptr %68, ptr %L.addr.i59, align 8
-  store ptr %69, ptr %o.addr.i60, align 8
-  store ptr @.str, ptr %msg.addr.i61, align 8
-  %70 = load i32, ptr %errcode, align 4
-  %tobool = icmp ne i32 %70, 0
-  br i1 %tobool, label %if.then28, label %if.end
-
-if.then28:                                        ; preds = %if.then
-  %71 = load ptr, ptr %J.addr, align 8
-  %L29 = getelementptr inbounds %struct.jit_State, ptr %71, i32 0, i32 2
-  %72 = load ptr, ptr %L29, align 8
-  %73 = load i32, ptr %errcode, align 4
-  call void @lj_err_throw(ptr noundef %72, i32 noundef %73) #6
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  %74 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %74, i32 0, i32 1
-  store i64 -1, ptr %nres, align 8
-  %75 = load ptr, ptr %J.addr, align 8
-  %needsnap = getelementptr inbounds %struct.jit_State, ptr %75, i32 0, i32 11
-  store i8 1, ptr %needsnap, align 1
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.end, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_abs(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tonum(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %tr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %5 to i16
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load ptr, ptr %J.addr, align 8
-  %ksimd = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 24
-  %arrayidx1 = getelementptr inbounds [5 x %union.TValue], ptr %ksimd, i64 0, i64 0
-  %8 = ptrtoint ptr %arrayidx1 to i64
-  %add = add nsw i64 %8, 15
-  %and = and i64 %add, -16
-  %9 = inttoptr i64 %and to ptr
-  %10 = ptrtoint ptr %9 to i64
-  %11 = load ptr, ptr %J.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 -824
-  %12 = ptrtoint ptr %add.ptr to i64
-  %sub = sub i64 %10, %12
-  %call2 = call i32 @lj_ir_ggfload(ptr noundef %6, i32 noundef 14, i64 noundef %sub)
-  %conv3 = trunc i32 %call2 to i16
-  store ptr %4, ptr %J.addr.i, align 8
-  store i16 12302, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv3, ptr %b.addr.i, align 2
-  %13 = load i16, ptr %ot.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %13, ptr %ot1.i, align 4
-  %15 = load i16, ptr %a.addr.i, align 2
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  store i16 %15, ptr %fold2.i, align 8
-  %17 = load i16, ptr %b.addr.i, align 2
-  %18 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %17, ptr %op2.i, align 2
-  %19 = load ptr, ptr %J.addr, align 8
-  %call4 = call i32 @lj_opt_fold(ptr noundef %19)
-  %20 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 6
-  %21 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %21, i64 0
-  store i32 %call4, ptr %arrayidx6, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_round(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %shr = lshr i32 %3, 24
-  %and = and i32 %shr, 31
-  %sub = sub i32 %and, 15
-  %cmp = icmp ule i32 %sub, 4
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %6 = load i32, ptr %tr, align 4
-  %call = call i32 @lj_ir_tonum(ptr noundef %5, i32 noundef %6)
-  %conv = trunc i32 %call to i16
-  %7 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %data, align 8
-  %conv1 = trunc i32 %8 to i16
-  store ptr %4, ptr %J.addr.i, align 8
-  store i16 13326, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv1, ptr %b.addr.i, align 2
-  %9 = load i16, ptr %ot.addr.i, align 2
-  %10 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %9, ptr %ot1.i, align 4
-  %11 = load i16, ptr %a.addr.i, align 2
-  %12 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  store i16 %11, ptr %fold2.i, align 8
-  %13 = load i16, ptr %b.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %13, ptr %op2.i, align 2
-  %15 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_opt_fold(ptr noundef %15)
-  store i32 %call2, ptr %tr, align 4
-  %16 = load i32, ptr %tr, align 4
-  %17 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 6
-  %18 = load ptr, ptr %base3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %18, i64 0
-  store i32 %16, ptr %arrayidx4, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_unary(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %2 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %2, i32 0, i32 6
-  %3 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %3, i64 0
-  %4 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tonum(ptr noundef %1, i32 noundef %4)
-  %conv = trunc i32 %call to i16
-  %5 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %data, align 8
-  %conv1 = trunc i32 %6 to i16
-  store ptr %0, ptr %J.addr.i, align 8
-  store i16 13326, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv1, ptr %b.addr.i, align 2
-  %7 = load i16, ptr %ot.addr.i, align 2
-  %8 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %7, ptr %ot1.i, align 4
-  %9 = load i16, ptr %a.addr.i, align 2
-  %10 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  store i16 %9, ptr %fold2.i, align 8
-  %11 = load i16, ptr %b.addr.i, align 2
-  %12 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %11, ptr %op2.i, align 2
-  %13 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_opt_fold(ptr noundef %13)
-  %14 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 6
-  %15 = load ptr, ptr %base3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %15, i64 0
-  store i32 %call2, ptr %arrayidx4, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_call(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tonum(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %tr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %5 to i16
-  %6 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %data, align 8
-  %conv1 = trunc i32 %7 to i16
-  store ptr %4, ptr %J.addr.i, align 8
-  store i16 24334, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv1, ptr %b.addr.i, align 2
-  %8 = load i16, ptr %ot.addr.i, align 2
-  %9 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %9, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %8, ptr %ot1.i, align 4
-  %10 = load i16, ptr %a.addr.i, align 2
-  %11 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 14
-  store i16 %10, ptr %fold2.i, align 8
-  %12 = load i16, ptr %b.addr.i, align 2
-  %13 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %12, ptr %op2.i, align 2
-  %14 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_opt_fold(ptr noundef %14)
-  %15 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 6
-  %16 = load ptr, ptr %base3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %16, i64 0
-  store i32 %call2, ptr %arrayidx4, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_log(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i49 = alloca ptr, align 8
-  %ot.addr.i50 = alloca i16, align 2
-  %a.addr.i51 = alloca i16, align 2
-  %b.addr.i52 = alloca i16, align 2
-  %J.addr.i40 = alloca ptr, align 8
-  %ot.addr.i41 = alloca i16, align 2
-  %a.addr.i42 = alloca i16, align 2
-  %b.addr.i43 = alloca i16, align 2
-  %J.addr.i31 = alloca ptr, align 8
-  %ot.addr.i32 = alloca i16, align 2
-  %a.addr.i33 = alloca i16, align 2
-  %b.addr.i34 = alloca i16, align 2
-  %J.addr.i22 = alloca ptr, align 8
-  %ot.addr.i23 = alloca i16, align 2
-  %a.addr.i24 = alloca i16, align 2
-  %b.addr.i25 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %fpm = alloca i32, align 4
-  %trb = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tonum(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %tr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 6
-  %5 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %5, i64 1
-  %6 = load i32, ptr %arrayidx2, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store i32 5, ptr %fpm, align 4
-  %7 = load ptr, ptr %J.addr, align 8
-  %8 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 6
-  %9 = load ptr, ptr %base3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %9, i64 1
-  %10 = load i32, ptr %arrayidx4, align 4
-  %call5 = call i32 @lj_ir_tonum(ptr noundef %7, i32 noundef %10)
-  store i32 %call5, ptr %trb, align 4
-  %11 = load ptr, ptr %J.addr, align 8
-  %12 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %12 to i16
-  %13 = load i32, ptr %fpm, align 4
-  %conv6 = trunc i32 %13 to i16
-  store ptr %11, ptr %J.addr.i49, align 8
-  store i16 13326, ptr %ot.addr.i50, align 2
-  store i16 %conv, ptr %a.addr.i51, align 2
-  store i16 %conv6, ptr %b.addr.i52, align 2
-  %14 = load i16, ptr %ot.addr.i50, align 2
-  %15 = load ptr, ptr %J.addr.i49, align 8
-  %fold.i53 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  %ot1.i54 = getelementptr inbounds %struct.anon.2, ptr %fold.i53, i32 0, i32 2
-  store i16 %14, ptr %ot1.i54, align 4
-  %16 = load i16, ptr %a.addr.i51, align 2
-  %17 = load ptr, ptr %J.addr.i49, align 8
-  %fold2.i55 = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  store i16 %16, ptr %fold2.i55, align 8
-  %18 = load i16, ptr %b.addr.i52, align 2
-  %19 = load ptr, ptr %J.addr.i49, align 8
-  %fold4.i56 = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 14
-  %op2.i57 = getelementptr inbounds %struct.anon.2, ptr %fold4.i56, i32 0, i32 1
-  store i16 %18, ptr %op2.i57, align 2
-  %20 = load ptr, ptr %J.addr, align 8
-  %call7 = call i32 @lj_opt_fold(ptr noundef %20)
-  store i32 %call7, ptr %tr, align 4
-  %21 = load ptr, ptr %J.addr, align 8
-  %22 = load i32, ptr %trb, align 4
-  %conv8 = trunc i32 %22 to i16
-  %23 = load i32, ptr %fpm, align 4
-  %conv9 = trunc i32 %23 to i16
-  store ptr %21, ptr %J.addr.i40, align 8
-  store i16 13326, ptr %ot.addr.i41, align 2
-  store i16 %conv8, ptr %a.addr.i42, align 2
-  store i16 %conv9, ptr %b.addr.i43, align 2
-  %24 = load i16, ptr %ot.addr.i41, align 2
-  %25 = load ptr, ptr %J.addr.i40, align 8
-  %fold.i44 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  %ot1.i45 = getelementptr inbounds %struct.anon.2, ptr %fold.i44, i32 0, i32 2
-  store i16 %24, ptr %ot1.i45, align 4
-  %26 = load i16, ptr %a.addr.i42, align 2
-  %27 = load ptr, ptr %J.addr.i40, align 8
-  %fold2.i46 = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 14
-  store i16 %26, ptr %fold2.i46, align 8
-  %28 = load i16, ptr %b.addr.i43, align 2
-  %29 = load ptr, ptr %J.addr.i40, align 8
-  %fold4.i47 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 14
-  %op2.i48 = getelementptr inbounds %struct.anon.2, ptr %fold4.i47, i32 0, i32 1
-  store i16 %28, ptr %op2.i48, align 2
-  %30 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_opt_fold(ptr noundef %30)
-  store i32 %call10, ptr %trb, align 4
-  %31 = load ptr, ptr %J.addr, align 8
-  %32 = load ptr, ptr %J.addr, align 8
-  %call11 = call i32 @lj_ir_knum_u64(ptr noundef %32, i64 noundef 4607182418800017408)
-  %conv12 = trunc i32 %call11 to i16
-  %33 = load i32, ptr %trb, align 4
-  %conv13 = trunc i32 %33 to i16
-  store ptr %31, ptr %J.addr.i31, align 8
-  store i16 11278, ptr %ot.addr.i32, align 2
-  store i16 %conv12, ptr %a.addr.i33, align 2
-  store i16 %conv13, ptr %b.addr.i34, align 2
-  %34 = load i16, ptr %ot.addr.i32, align 2
-  %35 = load ptr, ptr %J.addr.i31, align 8
-  %fold.i35 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %ot1.i36 = getelementptr inbounds %struct.anon.2, ptr %fold.i35, i32 0, i32 2
-  store i16 %34, ptr %ot1.i36, align 4
-  %36 = load i16, ptr %a.addr.i33, align 2
-  %37 = load ptr, ptr %J.addr.i31, align 8
-  %fold2.i37 = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  store i16 %36, ptr %fold2.i37, align 8
-  %38 = load i16, ptr %b.addr.i34, align 2
-  %39 = load ptr, ptr %J.addr.i31, align 8
-  %fold4.i38 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %op2.i39 = getelementptr inbounds %struct.anon.2, ptr %fold4.i38, i32 0, i32 1
-  store i16 %38, ptr %op2.i39, align 2
-  %40 = load ptr, ptr %J.addr, align 8
-  %call14 = call i32 @lj_opt_fold(ptr noundef %40)
-  store i32 %call14, ptr %trb, align 4
-  %41 = load ptr, ptr %J.addr, align 8
-  %42 = load i32, ptr %tr, align 4
-  %conv15 = trunc i32 %42 to i16
-  %43 = load i32, ptr %trb, align 4
-  %conv16 = trunc i32 %43 to i16
-  store ptr %41, ptr %J.addr.i22, align 8
-  store i16 11022, ptr %ot.addr.i23, align 2
-  store i16 %conv15, ptr %a.addr.i24, align 2
-  store i16 %conv16, ptr %b.addr.i25, align 2
-  %44 = load i16, ptr %ot.addr.i23, align 2
-  %45 = load ptr, ptr %J.addr.i22, align 8
-  %fold.i26 = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 14
-  %ot1.i27 = getelementptr inbounds %struct.anon.2, ptr %fold.i26, i32 0, i32 2
-  store i16 %44, ptr %ot1.i27, align 4
-  %46 = load i16, ptr %a.addr.i24, align 2
-  %47 = load ptr, ptr %J.addr.i22, align 8
-  %fold2.i28 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 14
-  store i16 %46, ptr %fold2.i28, align 8
-  %48 = load i16, ptr %b.addr.i25, align 2
-  %49 = load ptr, ptr %J.addr.i22, align 8
-  %fold4.i29 = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 14
-  %op2.i30 = getelementptr inbounds %struct.anon.2, ptr %fold4.i29, i32 0, i32 1
-  store i16 %48, ptr %op2.i30, align 2
-  %50 = load ptr, ptr %J.addr, align 8
-  %call17 = call i32 @lj_opt_fold(ptr noundef %50)
-  store i32 %call17, ptr %tr, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %51 = load ptr, ptr %J.addr, align 8
-  %52 = load i32, ptr %tr, align 4
-  %conv18 = trunc i32 %52 to i16
-  store ptr %51, ptr %J.addr.i, align 8
-  store i16 13326, ptr %ot.addr.i, align 2
-  store i16 %conv18, ptr %a.addr.i, align 2
-  store i16 4, ptr %b.addr.i, align 2
-  %53 = load i16, ptr %ot.addr.i, align 2
-  %54 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %54, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %53, ptr %ot1.i, align 4
-  %55 = load i16, ptr %a.addr.i, align 2
-  %56 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %56, i32 0, i32 14
-  store i16 %55, ptr %fold2.i, align 8
-  %57 = load i16, ptr %b.addr.i, align 2
-  %58 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %57, ptr %op2.i, align 2
-  %59 = load ptr, ptr %J.addr, align 8
-  %call19 = call i32 @lj_opt_fold(ptr noundef %59)
-  store i32 %call19, ptr %tr, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %60 = load i32, ptr %tr, align 4
-  %61 = load ptr, ptr %J.addr, align 8
-  %base20 = getelementptr inbounds %struct.jit_State, ptr %61, i32 0, i32 6
-  %62 = load ptr, ptr %base20, align 8
-  %arrayidx21 = getelementptr inbounds i32, ptr %62, i64 0
-  store i32 %60, ptr %arrayidx21, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_atan2(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %tr2 = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tonum(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %tr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx2, align 4
-  %call3 = call i32 @lj_ir_tonum(ptr noundef %4, i32 noundef %7)
-  store i32 %call3, ptr %tr2, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %tr, align 4
-  %10 = load i32, ptr %tr2, align 4
-  %call4 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %8, i32 noundef 66, i32 noundef %9, i32 noundef %10)
-  %11 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 6
-  %12 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %12, i64 0
-  store i32 %call4, ptr %arrayidx6, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_pow(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 6
-  %5 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %5, i64 1
-  %6 = load i32, ptr %arrayidx2, align 4
-  %7 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %argv, align 8
-  %arrayidx3 = getelementptr inbounds %union.TValue, ptr %8, i64 0
-  %9 = load ptr, ptr %rd.addr, align 8
-  %argv4 = getelementptr inbounds %struct.RecordFFData, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %argv4, align 8
-  %arrayidx5 = getelementptr inbounds %union.TValue, ptr %10, i64 1
-  %call = call i32 @lj_opt_narrow_arith(ptr noundef %0, i32 noundef %3, i32 noundef %6, ptr noundef %arrayidx3, ptr noundef %arrayidx5, i32 noundef 46)
-  %11 = load ptr, ptr %J.addr, align 8
-  %base6 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 6
-  %12 = load ptr, ptr %base6, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %12, i64 0
-  store i32 %call, ptr %arrayidx7, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_ldexp(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %tr2 = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tonum(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %tr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx2, align 4
-  %call3 = call i32 @lj_ir_tonum(ptr noundef %4, i32 noundef %7)
-  store i32 %call3, ptr %tr2, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %9 to i16
-  %10 = load i32, ptr %tr2, align 4
-  %conv4 = trunc i32 %10 to i16
-  store ptr %8, ptr %J.addr.i, align 8
-  store i16 12558, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv4, ptr %b.addr.i, align 2
-  %11 = load i16, ptr %ot.addr.i, align 2
-  %12 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %11, ptr %ot1.i, align 4
-  %13 = load i16, ptr %a.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  store i16 %13, ptr %fold2.i, align 8
-  %15 = load i16, ptr %b.addr.i, align 2
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %15, ptr %op2.i, align 2
-  %17 = load ptr, ptr %J.addr, align 8
-  %call5 = call i32 @lj_opt_fold(ptr noundef %17)
-  %18 = load ptr, ptr %J.addr, align 8
-  %base6 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 6
-  %19 = load ptr, ptr %base6, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %19, i64 0
-  store i32 %call5, ptr %arrayidx7, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_minmax(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i43 = alloca ptr, align 8
-  %ot.addr.i44 = alloca i16, align 2
-  %a.addr.i45 = alloca i16, align 2
-  %b.addr.i46 = alloca i16, align 2
-  %J.addr.i34 = alloca ptr, align 8
-  %ot.addr.i35 = alloca i16, align 2
-  %a.addr.i36 = alloca i16, align 2
-  %b.addr.i37 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %op = alloca i32, align 4
-  %i = alloca i32, align 4
-  %tr2 = alloca i32, align 4
-  %t = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tonumber(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %tr, align 4
-  %4 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %data, align 8
-  store i32 %5, ptr %op, align 4
-  store i32 1, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %base1, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx2 = getelementptr inbounds i32, ptr %7, i64 %idxprom
-  %9 = load i32, ptr %arrayidx2, align 4
-  %cmp = icmp ne i32 %9, 0
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 6
-  %12 = load ptr, ptr %base3, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom4 = zext i32 %13 to i64
-  %arrayidx5 = getelementptr inbounds i32, ptr %12, i64 %idxprom4
-  %14 = load i32, ptr %arrayidx5, align 4
-  %call6 = call i32 @lj_ir_tonumber(ptr noundef %10, i32 noundef %14)
-  store i32 %call6, ptr %tr2, align 4
-  store i32 19, ptr %t, align 4
-  %15 = load i32, ptr %tr, align 4
-  %shr = lshr i32 %15, 24
-  %and = and i32 %shr, 31
-  %sub = sub i32 %and, 15
-  %cmp7 = icmp ule i32 %sub, 4
-  br i1 %cmp7, label %land.lhs.true, label %if.then
-
-land.lhs.true:                                    ; preds = %for.body
-  %16 = load i32, ptr %tr2, align 4
-  %shr8 = lshr i32 %16, 24
-  %and9 = and i32 %shr8, 31
-  %sub10 = sub i32 %and9, 15
-  %cmp11 = icmp ule i32 %sub10, 4
-  br i1 %cmp11, label %if.end27, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true, %for.body
-  %17 = load i32, ptr %tr, align 4
-  %shr12 = lshr i32 %17, 24
-  %and13 = and i32 %shr12, 31
-  %sub14 = sub i32 %and13, 15
-  %cmp15 = icmp ule i32 %sub14, 4
-  br i1 %cmp15, label %if.then16, label %if.end
-
-if.then16:                                        ; preds = %if.then
-  %18 = load ptr, ptr %J.addr, align 8
-  %19 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %19 to i16
-  store ptr %18, ptr %J.addr.i43, align 8
-  store i16 23310, ptr %ot.addr.i44, align 2
-  store i16 %conv, ptr %a.addr.i45, align 2
-  store i16 467, ptr %b.addr.i46, align 2
-  %20 = load i16, ptr %ot.addr.i44, align 2
-  %21 = load ptr, ptr %J.addr.i43, align 8
-  %fold.i47 = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 14
-  %ot1.i48 = getelementptr inbounds %struct.anon.2, ptr %fold.i47, i32 0, i32 2
-  store i16 %20, ptr %ot1.i48, align 4
-  %22 = load i16, ptr %a.addr.i45, align 2
-  %23 = load ptr, ptr %J.addr.i43, align 8
-  %fold2.i49 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  store i16 %22, ptr %fold2.i49, align 8
-  %24 = load i16, ptr %b.addr.i46, align 2
-  %25 = load ptr, ptr %J.addr.i43, align 8
-  %fold4.i50 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  %op2.i51 = getelementptr inbounds %struct.anon.2, ptr %fold4.i50, i32 0, i32 1
-  store i16 %24, ptr %op2.i51, align 2
-  %26 = load ptr, ptr %J.addr, align 8
-  %call17 = call i32 @lj_opt_fold(ptr noundef %26)
-  store i32 %call17, ptr %tr, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then16, %if.then
-  %27 = load i32, ptr %tr2, align 4
-  %shr18 = lshr i32 %27, 24
-  %and19 = and i32 %shr18, 31
-  %sub20 = sub i32 %and19, 15
-  %cmp21 = icmp ule i32 %sub20, 4
-  br i1 %cmp21, label %if.then23, label %if.end26
-
-if.then23:                                        ; preds = %if.end
-  %28 = load ptr, ptr %J.addr, align 8
-  %29 = load i32, ptr %tr2, align 4
-  %conv24 = trunc i32 %29 to i16
-  store ptr %28, ptr %J.addr.i34, align 8
-  store i16 23310, ptr %ot.addr.i35, align 2
-  store i16 %conv24, ptr %a.addr.i36, align 2
-  store i16 467, ptr %b.addr.i37, align 2
-  %30 = load i16, ptr %ot.addr.i35, align 2
-  %31 = load ptr, ptr %J.addr.i34, align 8
-  %fold.i38 = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 14
-  %ot1.i39 = getelementptr inbounds %struct.anon.2, ptr %fold.i38, i32 0, i32 2
-  store i16 %30, ptr %ot1.i39, align 4
-  %32 = load i16, ptr %a.addr.i36, align 2
-  %33 = load ptr, ptr %J.addr.i34, align 8
-  %fold2.i40 = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  store i16 %32, ptr %fold2.i40, align 8
-  %34 = load i16, ptr %b.addr.i37, align 2
-  %35 = load ptr, ptr %J.addr.i34, align 8
-  %fold4.i41 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %op2.i42 = getelementptr inbounds %struct.anon.2, ptr %fold4.i41, i32 0, i32 1
-  store i16 %34, ptr %op2.i42, align 2
-  %36 = load ptr, ptr %J.addr, align 8
-  %call25 = call i32 @lj_opt_fold(ptr noundef %36)
-  store i32 %call25, ptr %tr2, align 4
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.then23, %if.end
-  store i32 14, ptr %t, align 4
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end26, %land.lhs.true
-  %37 = load ptr, ptr %J.addr, align 8
-  %38 = load i32, ptr %op, align 4
-  %shl = shl i32 %38, 8
-  %39 = load i32, ptr %t, align 4
-  %or = or i32 %shl, %39
-  %conv28 = trunc i32 %or to i16
-  %40 = load i32, ptr %tr, align 4
-  %conv29 = trunc i32 %40 to i16
-  %41 = load i32, ptr %tr2, align 4
-  %conv30 = trunc i32 %41 to i16
-  store ptr %37, ptr %J.addr.i, align 8
-  store i16 %conv28, ptr %ot.addr.i, align 2
-  store i16 %conv29, ptr %a.addr.i, align 2
-  store i16 %conv30, ptr %b.addr.i, align 2
-  %42 = load i16, ptr %ot.addr.i, align 2
-  %43 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %43, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %42, ptr %ot1.i, align 4
-  %44 = load i16, ptr %a.addr.i, align 2
-  %45 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 14
-  store i16 %44, ptr %fold2.i, align 8
-  %46 = load i16, ptr %b.addr.i, align 2
-  %47 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %46, ptr %op2.i, align 2
-  %48 = load ptr, ptr %J.addr, align 8
-  %call31 = call i32 @lj_opt_fold(ptr noundef %48)
-  store i32 %call31, ptr %tr, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end27
-  %49 = load i32, ptr %i, align 4
-  %inc = add i32 %49, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
-
-for.end:                                          ; preds = %for.cond
-  %50 = load i32, ptr %tr, align 4
-  %51 = load ptr, ptr %J.addr, align 8
-  %base32 = getelementptr inbounds %struct.jit_State, ptr %51, i32 0, i32 6
-  %52 = load ptr, ptr %base32, align 8
-  %arrayidx33 = getelementptr inbounds i32, ptr %52, i64 0
-  store i32 %50, ptr %arrayidx33, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_math_random(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i105 = alloca ptr, align 8
-  %ot.addr.i106 = alloca i16, align 2
-  %a.addr.i107 = alloca i16, align 2
-  %b.addr.i108 = alloca i16, align 2
-  %J.addr.i96 = alloca ptr, align 8
-  %ot.addr.i97 = alloca i16, align 2
-  %a.addr.i98 = alloca i16, align 2
-  %b.addr.i99 = alloca i16, align 2
-  %J.addr.i87 = alloca ptr, align 8
-  %ot.addr.i88 = alloca i16, align 2
-  %a.addr.i89 = alloca i16, align 2
-  %b.addr.i90 = alloca i16, align 2
-  %J.addr.i78 = alloca ptr, align 8
-  %ot.addr.i79 = alloca i16, align 2
-  %a.addr.i80 = alloca i16, align 2
-  %b.addr.i81 = alloca i16, align 2
-  %J.addr.i69 = alloca ptr, align 8
-  %ot.addr.i70 = alloca i16, align 2
-  %a.addr.i71 = alloca i16, align 2
-  %b.addr.i72 = alloca i16, align 2
-  %J.addr.i60 = alloca ptr, align 8
-  %ot.addr.i61 = alloca i16, align 2
-  %a.addr.i62 = alloca i16, align 2
-  %b.addr.i63 = alloca i16, align 2
-  %J.addr.i51 = alloca ptr, align 8
-  %ot.addr.i52 = alloca i16, align 2
-  %a.addr.i53 = alloca i16, align 2
-  %b.addr.i54 = alloca i16, align 2
-  %J.addr.i42 = alloca ptr, align 8
-  %ot.addr.i43 = alloca i16, align 2
-  %a.addr.i44 = alloca i16, align 2
-  %b.addr.i45 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %one = alloca i32, align 4
-  %tr1 = alloca i32, align 4
-  %tr2 = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %fn = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 4
-  %1 = load ptr, ptr %fn, align 8
-  %upvalue = getelementptr inbounds %struct.GCfuncC, ptr %1, i32 0, i32 9
-  %arrayidx = getelementptr inbounds [1 x %union.TValue], ptr %upvalue, i64 0, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx, i32 0, i32 0
-  %2 = load i64, ptr %gcptr64, align 8
-  %and = and i64 %2, 140737488355327
-  %3 = inttoptr i64 %and to ptr
-  store ptr %3, ptr %ud, align 8
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %ud, align 8
-  %call = call i32 @lj_ir_kgc(ptr noundef %4, ptr noundef %5, i32 noundef 12)
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load ptr, ptr %J.addr, align 8
-  %8 = load ptr, ptr %ud, align 8
-  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %8, i64 1
-  %call1 = call i32 @lj_ir_kptr_(ptr noundef %7, i32 noundef 25, ptr noundef %add.ptr)
-  %call2 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %6, i32 noundef 43, i32 noundef %call1)
-  store i32 %call2, ptr %tr, align 4
-  %9 = load ptr, ptr %J.addr, align 8
-  %call3 = call i32 @lj_ir_knum_u64(ptr noundef %9, i64 noundef 4607182418800017408)
-  store i32 %call3, ptr %one, align 4
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %11 to i16
-  %12 = load i32, ptr %one, align 4
-  %conv4 = trunc i32 %12 to i16
-  store ptr %10, ptr %J.addr.i105, align 8
-  store i16 10766, ptr %ot.addr.i106, align 2
-  store i16 %conv, ptr %a.addr.i107, align 2
-  store i16 %conv4, ptr %b.addr.i108, align 2
-  %13 = load i16, ptr %ot.addr.i106, align 2
-  %14 = load ptr, ptr %J.addr.i105, align 8
-  %fold.i109 = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %ot1.i110 = getelementptr inbounds %struct.anon.2, ptr %fold.i109, i32 0, i32 2
-  store i16 %13, ptr %ot1.i110, align 4
-  %15 = load i16, ptr %a.addr.i107, align 2
-  %16 = load ptr, ptr %J.addr.i105, align 8
-  %fold2.i111 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  store i16 %15, ptr %fold2.i111, align 8
-  %17 = load i16, ptr %b.addr.i108, align 2
-  %18 = load ptr, ptr %J.addr.i105, align 8
-  %fold4.i112 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %op2.i113 = getelementptr inbounds %struct.anon.2, ptr %fold4.i112, i32 0, i32 1
-  store i16 %17, ptr %op2.i113, align 2
-  %19 = load ptr, ptr %J.addr, align 8
-  %call5 = call i32 @lj_opt_fold(ptr noundef %19)
-  store i32 %call5, ptr %tr, align 4
-  %20 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 6
-  %21 = load ptr, ptr %base, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %21, i64 0
-  %22 = load i32, ptr %arrayidx6, align 4
-  %tobool = icmp ne i32 %22, 0
-  br i1 %tobool, label %if.then, label %if.end39
-
-if.then:                                          ; preds = %entry
-  %23 = load ptr, ptr %J.addr, align 8
-  %24 = load ptr, ptr %J.addr, align 8
-  %base7 = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 6
-  %25 = load ptr, ptr %base7, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %25, i64 0
-  %26 = load i32, ptr %arrayidx8, align 4
-  %call9 = call i32 @lj_ir_tonum(ptr noundef %23, i32 noundef %26)
-  store i32 %call9, ptr %tr1, align 4
-  %27 = load ptr, ptr %J.addr, align 8
-  %base10 = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 6
-  %28 = load ptr, ptr %base10, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %28, i64 1
-  %29 = load i32, ptr %arrayidx11, align 4
-  %tobool12 = icmp ne i32 %29, 0
-  br i1 %tobool12, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %if.then
-  %30 = load ptr, ptr %J.addr, align 8
-  %31 = load ptr, ptr %J.addr, align 8
-  %base14 = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 6
-  %32 = load ptr, ptr %base14, align 8
-  %arrayidx15 = getelementptr inbounds i32, ptr %32, i64 1
-  %33 = load i32, ptr %arrayidx15, align 4
-  %call16 = call i32 @lj_ir_tonum(ptr noundef %30, i32 noundef %33)
-  store i32 %call16, ptr %tr2, align 4
-  %34 = load ptr, ptr %J.addr, align 8
-  %35 = load i32, ptr %tr2, align 4
-  %conv17 = trunc i32 %35 to i16
-  %36 = load i32, ptr %tr1, align 4
-  %conv18 = trunc i32 %36 to i16
-  store ptr %34, ptr %J.addr.i96, align 8
-  store i16 10766, ptr %ot.addr.i97, align 2
-  store i16 %conv17, ptr %a.addr.i98, align 2
-  store i16 %conv18, ptr %b.addr.i99, align 2
-  %37 = load i16, ptr %ot.addr.i97, align 2
-  %38 = load ptr, ptr %J.addr.i96, align 8
-  %fold.i100 = getelementptr inbounds %struct.jit_State, ptr %38, i32 0, i32 14
-  %ot1.i101 = getelementptr inbounds %struct.anon.2, ptr %fold.i100, i32 0, i32 2
-  store i16 %37, ptr %ot1.i101, align 4
-  %39 = load i16, ptr %a.addr.i98, align 2
-  %40 = load ptr, ptr %J.addr.i96, align 8
-  %fold2.i102 = getelementptr inbounds %struct.jit_State, ptr %40, i32 0, i32 14
-  store i16 %39, ptr %fold2.i102, align 8
-  %41 = load i16, ptr %b.addr.i99, align 2
-  %42 = load ptr, ptr %J.addr.i96, align 8
-  %fold4.i103 = getelementptr inbounds %struct.jit_State, ptr %42, i32 0, i32 14
-  %op2.i104 = getelementptr inbounds %struct.anon.2, ptr %fold4.i103, i32 0, i32 1
-  store i16 %41, ptr %op2.i104, align 2
-  %43 = load ptr, ptr %J.addr, align 8
-  %call19 = call i32 @lj_opt_fold(ptr noundef %43)
-  store i32 %call19, ptr %tr2, align 4
-  %44 = load ptr, ptr %J.addr, align 8
-  %45 = load i32, ptr %tr2, align 4
-  %conv20 = trunc i32 %45 to i16
-  %46 = load i32, ptr %one, align 4
-  %conv21 = trunc i32 %46 to i16
-  store ptr %44, ptr %J.addr.i87, align 8
-  store i16 10510, ptr %ot.addr.i88, align 2
-  store i16 %conv20, ptr %a.addr.i89, align 2
-  store i16 %conv21, ptr %b.addr.i90, align 2
-  %47 = load i16, ptr %ot.addr.i88, align 2
-  %48 = load ptr, ptr %J.addr.i87, align 8
-  %fold.i91 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  %ot1.i92 = getelementptr inbounds %struct.anon.2, ptr %fold.i91, i32 0, i32 2
-  store i16 %47, ptr %ot1.i92, align 4
-  %49 = load i16, ptr %a.addr.i89, align 2
-  %50 = load ptr, ptr %J.addr.i87, align 8
-  %fold2.i93 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 14
-  store i16 %49, ptr %fold2.i93, align 8
-  %51 = load i16, ptr %b.addr.i90, align 2
-  %52 = load ptr, ptr %J.addr.i87, align 8
-  %fold4.i94 = getelementptr inbounds %struct.jit_State, ptr %52, i32 0, i32 14
-  %op2.i95 = getelementptr inbounds %struct.anon.2, ptr %fold4.i94, i32 0, i32 1
-  store i16 %51, ptr %op2.i95, align 2
-  %53 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_opt_fold(ptr noundef %53)
-  store i32 %call22, ptr %tr2, align 4
-  %54 = load ptr, ptr %J.addr, align 8
-  %55 = load i32, ptr %tr, align 4
-  %conv23 = trunc i32 %55 to i16
-  %56 = load i32, ptr %tr2, align 4
-  %conv24 = trunc i32 %56 to i16
-  store ptr %54, ptr %J.addr.i78, align 8
-  store i16 11022, ptr %ot.addr.i79, align 2
-  store i16 %conv23, ptr %a.addr.i80, align 2
-  store i16 %conv24, ptr %b.addr.i81, align 2
-  %57 = load i16, ptr %ot.addr.i79, align 2
-  %58 = load ptr, ptr %J.addr.i78, align 8
-  %fold.i82 = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 14
-  %ot1.i83 = getelementptr inbounds %struct.anon.2, ptr %fold.i82, i32 0, i32 2
-  store i16 %57, ptr %ot1.i83, align 4
-  %59 = load i16, ptr %a.addr.i80, align 2
-  %60 = load ptr, ptr %J.addr.i78, align 8
-  %fold2.i84 = getelementptr inbounds %struct.jit_State, ptr %60, i32 0, i32 14
-  store i16 %59, ptr %fold2.i84, align 8
-  %61 = load i16, ptr %b.addr.i81, align 2
-  %62 = load ptr, ptr %J.addr.i78, align 8
-  %fold4.i85 = getelementptr inbounds %struct.jit_State, ptr %62, i32 0, i32 14
-  %op2.i86 = getelementptr inbounds %struct.anon.2, ptr %fold4.i85, i32 0, i32 1
-  store i16 %61, ptr %op2.i86, align 2
-  %63 = load ptr, ptr %J.addr, align 8
-  %call25 = call i32 @lj_opt_fold(ptr noundef %63)
-  store i32 %call25, ptr %tr, align 4
-  %64 = load ptr, ptr %J.addr, align 8
-  %65 = load i32, ptr %tr, align 4
-  %conv26 = trunc i32 %65 to i16
-  store ptr %64, ptr %J.addr.i69, align 8
-  store i16 13326, ptr %ot.addr.i70, align 2
-  store i16 %conv26, ptr %a.addr.i71, align 2
-  store i16 0, ptr %b.addr.i72, align 2
-  %66 = load i16, ptr %ot.addr.i70, align 2
-  %67 = load ptr, ptr %J.addr.i69, align 8
-  %fold.i73 = getelementptr inbounds %struct.jit_State, ptr %67, i32 0, i32 14
-  %ot1.i74 = getelementptr inbounds %struct.anon.2, ptr %fold.i73, i32 0, i32 2
-  store i16 %66, ptr %ot1.i74, align 4
-  %68 = load i16, ptr %a.addr.i71, align 2
-  %69 = load ptr, ptr %J.addr.i69, align 8
-  %fold2.i75 = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 14
-  store i16 %68, ptr %fold2.i75, align 8
-  %70 = load i16, ptr %b.addr.i72, align 2
-  %71 = load ptr, ptr %J.addr.i69, align 8
-  %fold4.i76 = getelementptr inbounds %struct.jit_State, ptr %71, i32 0, i32 14
-  %op2.i77 = getelementptr inbounds %struct.anon.2, ptr %fold4.i76, i32 0, i32 1
-  store i16 %70, ptr %op2.i77, align 2
-  %72 = load ptr, ptr %J.addr, align 8
-  %call27 = call i32 @lj_opt_fold(ptr noundef %72)
-  store i32 %call27, ptr %tr, align 4
-  %73 = load ptr, ptr %J.addr, align 8
-  %74 = load i32, ptr %tr, align 4
-  %conv28 = trunc i32 %74 to i16
-  %75 = load i32, ptr %tr1, align 4
-  %conv29 = trunc i32 %75 to i16
-  store ptr %73, ptr %J.addr.i60, align 8
-  store i16 10510, ptr %ot.addr.i61, align 2
-  store i16 %conv28, ptr %a.addr.i62, align 2
-  store i16 %conv29, ptr %b.addr.i63, align 2
-  %76 = load i16, ptr %ot.addr.i61, align 2
-  %77 = load ptr, ptr %J.addr.i60, align 8
-  %fold.i64 = getelementptr inbounds %struct.jit_State, ptr %77, i32 0, i32 14
-  %ot1.i65 = getelementptr inbounds %struct.anon.2, ptr %fold.i64, i32 0, i32 2
-  store i16 %76, ptr %ot1.i65, align 4
-  %78 = load i16, ptr %a.addr.i62, align 2
-  %79 = load ptr, ptr %J.addr.i60, align 8
-  %fold2.i66 = getelementptr inbounds %struct.jit_State, ptr %79, i32 0, i32 14
-  store i16 %78, ptr %fold2.i66, align 8
-  %80 = load i16, ptr %b.addr.i63, align 2
-  %81 = load ptr, ptr %J.addr.i60, align 8
-  %fold4.i67 = getelementptr inbounds %struct.jit_State, ptr %81, i32 0, i32 14
-  %op2.i68 = getelementptr inbounds %struct.anon.2, ptr %fold4.i67, i32 0, i32 1
-  store i16 %80, ptr %op2.i68, align 2
-  %82 = load ptr, ptr %J.addr, align 8
-  %call30 = call i32 @lj_opt_fold(ptr noundef %82)
-  store i32 %call30, ptr %tr, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %83 = load ptr, ptr %J.addr, align 8
-  %84 = load i32, ptr %tr, align 4
-  %conv31 = trunc i32 %84 to i16
-  %85 = load i32, ptr %tr1, align 4
-  %conv32 = trunc i32 %85 to i16
-  store ptr %83, ptr %J.addr.i51, align 8
-  store i16 11022, ptr %ot.addr.i52, align 2
-  store i16 %conv31, ptr %a.addr.i53, align 2
-  store i16 %conv32, ptr %b.addr.i54, align 2
-  %86 = load i16, ptr %ot.addr.i52, align 2
-  %87 = load ptr, ptr %J.addr.i51, align 8
-  %fold.i55 = getelementptr inbounds %struct.jit_State, ptr %87, i32 0, i32 14
-  %ot1.i56 = getelementptr inbounds %struct.anon.2, ptr %fold.i55, i32 0, i32 2
-  store i16 %86, ptr %ot1.i56, align 4
-  %88 = load i16, ptr %a.addr.i53, align 2
-  %89 = load ptr, ptr %J.addr.i51, align 8
-  %fold2.i57 = getelementptr inbounds %struct.jit_State, ptr %89, i32 0, i32 14
-  store i16 %88, ptr %fold2.i57, align 8
-  %90 = load i16, ptr %b.addr.i54, align 2
-  %91 = load ptr, ptr %J.addr.i51, align 8
-  %fold4.i58 = getelementptr inbounds %struct.jit_State, ptr %91, i32 0, i32 14
-  %op2.i59 = getelementptr inbounds %struct.anon.2, ptr %fold4.i58, i32 0, i32 1
-  store i16 %90, ptr %op2.i59, align 2
-  %92 = load ptr, ptr %J.addr, align 8
-  %call33 = call i32 @lj_opt_fold(ptr noundef %92)
-  store i32 %call33, ptr %tr, align 4
-  %93 = load ptr, ptr %J.addr, align 8
-  %94 = load i32, ptr %tr, align 4
-  %conv34 = trunc i32 %94 to i16
-  store ptr %93, ptr %J.addr.i42, align 8
-  store i16 13326, ptr %ot.addr.i43, align 2
-  store i16 %conv34, ptr %a.addr.i44, align 2
-  store i16 0, ptr %b.addr.i45, align 2
-  %95 = load i16, ptr %ot.addr.i43, align 2
-  %96 = load ptr, ptr %J.addr.i42, align 8
-  %fold.i46 = getelementptr inbounds %struct.jit_State, ptr %96, i32 0, i32 14
-  %ot1.i47 = getelementptr inbounds %struct.anon.2, ptr %fold.i46, i32 0, i32 2
-  store i16 %95, ptr %ot1.i47, align 4
-  %97 = load i16, ptr %a.addr.i44, align 2
-  %98 = load ptr, ptr %J.addr.i42, align 8
-  %fold2.i48 = getelementptr inbounds %struct.jit_State, ptr %98, i32 0, i32 14
-  store i16 %97, ptr %fold2.i48, align 8
-  %99 = load i16, ptr %b.addr.i45, align 2
-  %100 = load ptr, ptr %J.addr.i42, align 8
-  %fold4.i49 = getelementptr inbounds %struct.jit_State, ptr %100, i32 0, i32 14
-  %op2.i50 = getelementptr inbounds %struct.anon.2, ptr %fold4.i49, i32 0, i32 1
-  store i16 %99, ptr %op2.i50, align 2
-  %101 = load ptr, ptr %J.addr, align 8
-  %call35 = call i32 @lj_opt_fold(ptr noundef %101)
-  store i32 %call35, ptr %tr, align 4
-  %102 = load ptr, ptr %J.addr, align 8
-  %103 = load i32, ptr %tr, align 4
-  %conv36 = trunc i32 %103 to i16
-  %104 = load i32, ptr %one, align 4
-  %conv37 = trunc i32 %104 to i16
-  store ptr %102, ptr %J.addr.i, align 8
-  store i16 10510, ptr %ot.addr.i, align 2
-  store i16 %conv36, ptr %a.addr.i, align 2
-  store i16 %conv37, ptr %b.addr.i, align 2
-  %105 = load i16, ptr %ot.addr.i, align 2
-  %106 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %106, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %105, ptr %ot1.i, align 4
-  %107 = load i16, ptr %a.addr.i, align 2
-  %108 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %108, i32 0, i32 14
-  store i16 %107, ptr %fold2.i, align 8
-  %109 = load i16, ptr %b.addr.i, align 2
-  %110 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %110, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %109, ptr %op2.i, align 2
-  %111 = load ptr, ptr %J.addr, align 8
-  %call38 = call i32 @lj_opt_fold(ptr noundef %111)
-  store i32 %call38, ptr %tr, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then13
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.end, %entry
-  %112 = load i32, ptr %tr, align 4
-  %113 = load ptr, ptr %J.addr, align 8
-  %base40 = getelementptr inbounds %struct.jit_State, ptr %113, i32 0, i32 6
-  %114 = load ptr, ptr %base40, align 8
-  %arrayidx41 = getelementptr inbounds i32, ptr %114, i64 0
-  store i32 %112, ptr %arrayidx41, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_bit_tobit(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 167772160
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %rd.addr, align 8
-  call void @recff_bit64_tobit(ptr noundef %4, ptr noundef %5)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load i32, ptr %tr, align 4
-  %call = call i32 @lj_opt_narrow_tobit(ptr noundef %6, i32 noundef %7)
-  %8 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 6
-  %9 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %9, i64 0
-  store i32 %call, ptr %arrayidx2, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_bit_unary(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_bit64_unary(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %data, align 8
-  %shl = shl i32 %4, 8
-  %or = or i32 %shl, 19
-  %conv = trunc i32 %or to i16
-  %5 = load ptr, ptr %J.addr, align 8
-  %6 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %7, i64 0
-  %8 = load i32, ptr %arrayidx, align 4
-  %call1 = call i32 @lj_opt_narrow_tobit(ptr noundef %5, i32 noundef %8)
-  %conv2 = trunc i32 %call1 to i16
-  store ptr %2, ptr %J.addr.i, align 8
-  store i16 %conv, ptr %ot.addr.i, align 2
-  store i16 %conv2, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %9 = load i16, ptr %ot.addr.i, align 2
-  %10 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %9, ptr %ot1.i, align 4
-  %11 = load i16, ptr %a.addr.i, align 2
-  %12 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  store i16 %11, ptr %fold2.i, align 8
-  %13 = load i16, ptr %b.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %13, ptr %op2.i, align 2
-  %15 = load ptr, ptr %J.addr, align 8
-  %call3 = call i32 @lj_opt_fold(ptr noundef %15)
-  %16 = load ptr, ptr %J.addr, align 8
-  %base4 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 6
-  %17 = load ptr, ptr %base4, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %17, i64 0
-  store i32 %call3, ptr %arrayidx5, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_bit_shift(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i20 = alloca ptr, align 8
-  %ot.addr.i21 = alloca i16, align 2
-  %a.addr.i22 = alloca i16, align 2
-  %b.addr.i23 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %tsh = alloca i32, align 4
-  %op = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_bit64_shift(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 0
-  %5 = load i32, ptr %arrayidx, align 4
-  %call1 = call i32 @lj_opt_narrow_tobit(ptr noundef %2, i32 noundef %5)
-  store i32 %call1, ptr %tr, align 4
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load ptr, ptr %J.addr, align 8
-  %base2 = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 6
-  %8 = load ptr, ptr %base2, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %8, i64 1
-  %9 = load i32, ptr %arrayidx3, align 4
-  %call4 = call i32 @lj_opt_narrow_tobit(ptr noundef %6, i32 noundef %9)
-  store i32 %call4, ptr %tsh, align 4
-  %10 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %data, align 8
-  store i32 %11, ptr %op, align 4
-  %12 = load i32, ptr %op, align 4
-  %cmp = icmp ult i32 %12, 39
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end
-  br i1 true, label %if.end13, label %land.lhs.true
-
-cond.false:                                       ; preds = %if.end
-  br i1 true, label %if.end13, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %cond.false, %cond.true
-  %13 = load i32, ptr %tsh, align 4
-  %conv = trunc i32 %13 to i16
-  %conv5 = zext i16 %conv to i32
-  %cmp6 = icmp slt i32 %conv5, 32768
-  br i1 %cmp6, label %if.end13, label %if.then8
-
-if.then8:                                         ; preds = %land.lhs.true
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load i32, ptr %tsh, align 4
-  %conv9 = trunc i32 %15 to i16
-  %16 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_ir_kint(ptr noundef %16, i32 noundef 31)
-  %conv11 = trunc i32 %call10 to i16
-  store ptr %14, ptr %J.addr.i20, align 8
-  store i16 8467, ptr %ot.addr.i21, align 2
-  store i16 %conv9, ptr %a.addr.i22, align 2
-  store i16 %conv11, ptr %b.addr.i23, align 2
-  %17 = load i16, ptr %ot.addr.i21, align 2
-  %18 = load ptr, ptr %J.addr.i20, align 8
-  %fold.i24 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %ot1.i25 = getelementptr inbounds %struct.anon.2, ptr %fold.i24, i32 0, i32 2
-  store i16 %17, ptr %ot1.i25, align 4
-  %19 = load i16, ptr %a.addr.i22, align 2
-  %20 = load ptr, ptr %J.addr.i20, align 8
-  %fold2.i26 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  store i16 %19, ptr %fold2.i26, align 8
-  %21 = load i16, ptr %b.addr.i23, align 2
-  %22 = load ptr, ptr %J.addr.i20, align 8
-  %fold4.i27 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  %op2.i28 = getelementptr inbounds %struct.anon.2, ptr %fold4.i27, i32 0, i32 1
-  store i16 %21, ptr %op2.i28, align 2
-  %23 = load ptr, ptr %J.addr, align 8
-  %call12 = call i32 @lj_opt_fold(ptr noundef %23)
-  store i32 %call12, ptr %tsh, align 4
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then8, %land.lhs.true, %cond.false, %cond.true
-  %24 = load ptr, ptr %J.addr, align 8
-  %25 = load i32, ptr %op, align 4
-  %shl = shl i32 %25, 8
-  %or = or i32 %shl, 19
-  %conv14 = trunc i32 %or to i16
-  %26 = load i32, ptr %tr, align 4
-  %conv15 = trunc i32 %26 to i16
-  %27 = load i32, ptr %tsh, align 4
-  %conv16 = trunc i32 %27 to i16
-  store ptr %24, ptr %J.addr.i, align 8
-  store i16 %conv14, ptr %ot.addr.i, align 2
-  store i16 %conv15, ptr %a.addr.i, align 2
-  store i16 %conv16, ptr %b.addr.i, align 2
-  %28 = load i16, ptr %ot.addr.i, align 2
-  %29 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %28, ptr %ot1.i, align 4
-  %30 = load i16, ptr %a.addr.i, align 2
-  %31 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 14
-  store i16 %30, ptr %fold2.i, align 8
-  %32 = load i16, ptr %b.addr.i, align 2
-  %33 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %32, ptr %op2.i, align 2
-  %34 = load ptr, ptr %J.addr, align 8
-  %call17 = call i32 @lj_opt_fold(ptr noundef %34)
-  %35 = load ptr, ptr %J.addr, align 8
-  %base18 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 6
-  %36 = load ptr, ptr %base18, align 8
-  %arrayidx19 = getelementptr inbounds i32, ptr %36, i64 0
-  store i32 %call17, ptr %arrayidx19, align 4
-  br label %return
-
-return:                                           ; preds = %if.end13, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_bit_nary(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %ot = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_bit64_nary(ptr noundef %0, ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 0
-  %5 = load i32, ptr %arrayidx, align 4
-  %call1 = call i32 @lj_opt_narrow_tobit(ptr noundef %2, i32 noundef %5)
-  store i32 %call1, ptr %tr, align 4
-  %6 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %data, align 8
-  %shl = shl i32 %7, 8
-  %or = or i32 %shl, 19
-  store i32 %or, ptr %ot, align 4
-  store i32 1, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %8 = load ptr, ptr %J.addr, align 8
-  %base2 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 6
-  %9 = load ptr, ptr %base2, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %10 to i64
-  %arrayidx3 = getelementptr inbounds i32, ptr %9, i64 %idxprom
-  %11 = load i32, ptr %arrayidx3, align 4
-  %cmp = icmp ne i32 %11, 0
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %J.addr, align 8
-  %13 = load i32, ptr %ot, align 4
-  %conv = trunc i32 %13 to i16
-  %14 = load i32, ptr %tr, align 4
-  %conv4 = trunc i32 %14 to i16
-  %15 = load ptr, ptr %J.addr, align 8
-  %16 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 6
-  %17 = load ptr, ptr %base5, align 8
-  %18 = load i32, ptr %i, align 4
-  %idxprom6 = zext i32 %18 to i64
-  %arrayidx7 = getelementptr inbounds i32, ptr %17, i64 %idxprom6
-  %19 = load i32, ptr %arrayidx7, align 4
-  %call8 = call i32 @lj_opt_narrow_tobit(ptr noundef %15, i32 noundef %19)
-  %conv9 = trunc i32 %call8 to i16
-  store ptr %12, ptr %J.addr.i, align 8
-  store i16 %conv, ptr %ot.addr.i, align 2
-  store i16 %conv4, ptr %a.addr.i, align 2
-  store i16 %conv9, ptr %b.addr.i, align 2
-  %20 = load i16, ptr %ot.addr.i, align 2
-  %21 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %20, ptr %ot1.i, align 4
-  %22 = load i16, ptr %a.addr.i, align 2
-  %23 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  store i16 %22, ptr %fold2.i, align 8
-  %24 = load i16, ptr %b.addr.i, align 2
-  %25 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %24, ptr %op2.i, align 2
-  %26 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_opt_fold(ptr noundef %26)
-  store i32 %call10, ptr %tr, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %27 = load i32, ptr %i, align 4
-  %inc = add i32 %27, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
-  %28 = load i32, ptr %tr, align 4
-  %29 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 6
-  %30 = load ptr, ptr %base11, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %30, i64 0
-  store i32 %28, ptr %arrayidx12, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_bit_tohex(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %hdr = alloca i32, align 4
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @recff_bufhdr(ptr noundef %0)
-  store i32 %call, ptr %hdr, align 4
-  %1 = load ptr, ptr %J.addr, align 8
-  %2 = load ptr, ptr %rd.addr, align 8
-  %3 = load i32, ptr %hdr, align 4
-  %call1 = call i32 @recff_bit64_tohex(ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %tr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %5 to i16
-  %6 = load i32, ptr %hdr, align 4
-  %conv2 = trunc i32 %6 to i16
-  store ptr %4, ptr %J.addr.i, align 8
-  store i16 22404, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv2, ptr %b.addr.i, align 2
-  %7 = load i16, ptr %ot.addr.i, align 2
-  %8 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %7, ptr %ot1.i, align 4
-  %9 = load i16, ptr %a.addr.i, align 2
-  %10 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  store i16 %9, ptr %fold2.i, align 8
-  %11 = load i16, ptr %b.addr.i, align 2
-  %12 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %11, ptr %op2.i, align 2
-  %13 = load ptr, ptr %J.addr, align 8
-  %call3 = call i32 @lj_opt_fold(ptr noundef %13)
-  %14 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 6
-  %15 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %15, i64 0
-  store i32 %call3, ptr %arrayidx, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_string_range(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i290 = alloca ptr, align 8
-  %ot.addr.i291 = alloca i16, align 2
-  %a.addr.i292 = alloca i16, align 2
-  %b.addr.i293 = alloca i16, align 2
-  %J.addr.i281 = alloca ptr, align 8
-  %ot.addr.i282 = alloca i16, align 2
-  %a.addr.i283 = alloca i16, align 2
-  %b.addr.i284 = alloca i16, align 2
-  %J.addr.i272 = alloca ptr, align 8
-  %ot.addr.i273 = alloca i16, align 2
-  %a.addr.i274 = alloca i16, align 2
-  %b.addr.i275 = alloca i16, align 2
-  %J.addr.i263 = alloca ptr, align 8
-  %ot.addr.i264 = alloca i16, align 2
-  %a.addr.i265 = alloca i16, align 2
-  %b.addr.i266 = alloca i16, align 2
-  %J.addr.i254 = alloca ptr, align 8
-  %ot.addr.i255 = alloca i16, align 2
-  %a.addr.i256 = alloca i16, align 2
-  %b.addr.i257 = alloca i16, align 2
-  %J.addr.i245 = alloca ptr, align 8
-  %ot.addr.i246 = alloca i16, align 2
-  %a.addr.i247 = alloca i16, align 2
-  %b.addr.i248 = alloca i16, align 2
-  %J.addr.i236 = alloca ptr, align 8
-  %ot.addr.i237 = alloca i16, align 2
-  %a.addr.i238 = alloca i16, align 2
-  %b.addr.i239 = alloca i16, align 2
-  %J.addr.i227 = alloca ptr, align 8
-  %ot.addr.i228 = alloca i16, align 2
-  %a.addr.i229 = alloca i16, align 2
-  %b.addr.i230 = alloca i16, align 2
-  %J.addr.i218 = alloca ptr, align 8
-  %ot.addr.i219 = alloca i16, align 2
-  %a.addr.i220 = alloca i16, align 2
-  %b.addr.i221 = alloca i16, align 2
-  %J.addr.i209 = alloca ptr, align 8
-  %ot.addr.i210 = alloca i16, align 2
-  %a.addr.i211 = alloca i16, align 2
-  %b.addr.i212 = alloca i16, align 2
-  %J.addr.i200 = alloca ptr, align 8
-  %ot.addr.i201 = alloca i16, align 2
-  %a.addr.i202 = alloca i16, align 2
-  %b.addr.i203 = alloca i16, align 2
-  %J.addr.i191 = alloca ptr, align 8
-  %ot.addr.i192 = alloca i16, align 2
-  %a.addr.i193 = alloca i16, align 2
-  %b.addr.i194 = alloca i16, align 2
-  %J.addr.i182 = alloca ptr, align 8
-  %ot.addr.i183 = alloca i16, align 2
-  %a.addr.i184 = alloca i16, align 2
-  %b.addr.i185 = alloca i16, align 2
-  %J.addr.i173 = alloca ptr, align 8
-  %ot.addr.i174 = alloca i16, align 2
-  %a.addr.i175 = alloca i16, align 2
-  %b.addr.i176 = alloca i16, align 2
-  %J.addr.i164 = alloca ptr, align 8
-  %ot.addr.i165 = alloca i16, align 2
-  %a.addr.i166 = alloca i16, align 2
-  %b.addr.i167 = alloca i16, align 2
-  %J.addr.i155 = alloca ptr, align 8
-  %ot.addr.i156 = alloca i16, align 2
-  %a.addr.i157 = alloca i16, align 2
-  %b.addr.i158 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %trstr = alloca i32, align 4
-  %trlen = alloca i32, align 4
-  %tr0 = alloca i32, align 4
-  %trstart = alloca i32, align 4
-  %trend = alloca i32, align 4
-  %str = alloca ptr, align 8
-  %start = alloca i32, align 4
-  %end = alloca i32, align 4
-  %trptr = alloca i32, align 4
-  %trslen = alloca i32, align 4
-  %i = alloca i64, align 8
-  %len113 = alloca i64, align 8
-  %trslen119 = alloca i32, align 4
-  %tmp = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tostr(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %trstr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load i32, ptr %trstr, align 4
-  %conv = trunc i32 %5 to i16
-  store ptr %4, ptr %J.addr.i290, align 8
-  store i16 17683, ptr %ot.addr.i291, align 2
-  store i16 %conv, ptr %a.addr.i292, align 2
-  store i16 0, ptr %b.addr.i293, align 2
-  %6 = load i16, ptr %ot.addr.i291, align 2
-  %7 = load ptr, ptr %J.addr.i290, align 8
-  %fold.i294 = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 14
-  %ot1.i295 = getelementptr inbounds %struct.anon.2, ptr %fold.i294, i32 0, i32 2
-  store i16 %6, ptr %ot1.i295, align 4
-  %8 = load i16, ptr %a.addr.i292, align 2
-  %9 = load ptr, ptr %J.addr.i290, align 8
-  %fold2.i296 = getelementptr inbounds %struct.jit_State, ptr %9, i32 0, i32 14
-  store i16 %8, ptr %fold2.i296, align 8
-  %10 = load i16, ptr %b.addr.i293, align 2
-  %11 = load ptr, ptr %J.addr.i290, align 8
-  %fold4.i297 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 14
-  %op2.i298 = getelementptr inbounds %struct.anon.2, ptr %fold4.i297, i32 0, i32 1
-  store i16 %10, ptr %op2.i298, align 2
-  %12 = load ptr, ptr %J.addr, align 8
-  %call1 = call i32 @lj_opt_fold(ptr noundef %12)
-  store i32 %call1, ptr %trlen, align 4
-  %13 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_ir_kint(ptr noundef %13, i32 noundef 0)
-  store i32 %call2, ptr %tr0, align 4
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %argv, align 8
-  %arrayidx3 = getelementptr inbounds %union.TValue, ptr %16, i64 0
-  %call4 = call ptr @argv2str(ptr noundef %14, ptr noundef %arrayidx3)
-  store ptr %call4, ptr %str, align 8
-  %17 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %17, i32 0, i32 2
-  %18 = load i32, ptr %data, align 8
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %if.then, label %if.else20
-
-if.then:                                          ; preds = %entry
-  %19 = load ptr, ptr %J.addr, align 8
-  %20 = load ptr, ptr %rd.addr, align 8
-  %argv5 = getelementptr inbounds %struct.RecordFFData, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %argv5, align 8
-  %arrayidx6 = getelementptr inbounds %union.TValue, ptr %21, i64 1
-  %call7 = call i32 @argv2int(ptr noundef %19, ptr noundef %arrayidx6)
-  store i32 %call7, ptr %start, align 4
-  %22 = load ptr, ptr %J.addr, align 8
-  %23 = load ptr, ptr %J.addr, align 8
-  %base8 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 6
-  %24 = load ptr, ptr %base8, align 8
-  %arrayidx9 = getelementptr inbounds i32, ptr %24, i64 1
-  %25 = load i32, ptr %arrayidx9, align 4
-  %call10 = call i32 @lj_opt_narrow_toint(ptr noundef %22, i32 noundef %25)
-  store i32 %call10, ptr %trstart, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %base11, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %27, i64 2
-  %28 = load i32, ptr %arrayidx12, align 4
-  store i32 %28, ptr %trend, align 4
-  %29 = load i32, ptr %trend, align 4
-  %and = and i32 %29, 520093696
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.then14, label %if.else
-
-if.then14:                                        ; preds = %if.then
-  %30 = load ptr, ptr %J.addr, align 8
-  %call15 = call i32 @lj_ir_kint(ptr noundef %30, i32 noundef -1)
-  store i32 %call15, ptr %trend, align 4
-  store i32 -1, ptr %end, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %31 = load ptr, ptr %J.addr, align 8
-  %32 = load i32, ptr %trend, align 4
-  %call16 = call i32 @lj_opt_narrow_toint(ptr noundef %31, i32 noundef %32)
-  store i32 %call16, ptr %trend, align 4
-  %33 = load ptr, ptr %J.addr, align 8
-  %34 = load ptr, ptr %rd.addr, align 8
-  %argv17 = getelementptr inbounds %struct.RecordFFData, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %argv17, align 8
-  %arrayidx18 = getelementptr inbounds %union.TValue, ptr %35, i64 2
-  %call19 = call i32 @argv2int(ptr noundef %33, ptr noundef %arrayidx18)
-  store i32 %call19, ptr %end, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then14
-  br label %if.end53
-
-if.else20:                                        ; preds = %entry
-  %36 = load ptr, ptr %J.addr, align 8
-  %base21 = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 6
-  %37 = load ptr, ptr %base21, align 8
-  %arrayidx22 = getelementptr inbounds i32, ptr %37, i64 1
-  %38 = load i32, ptr %arrayidx22, align 4
-  %and23 = and i32 %38, 520093696
-  %cmp24 = icmp eq i32 %and23, 0
-  br i1 %cmp24, label %if.then26, label %if.else28
-
-if.then26:                                        ; preds = %if.else20
-  store i32 1, ptr %start, align 4
-  %39 = load ptr, ptr %J.addr, align 8
-  %call27 = call i32 @lj_ir_kint(ptr noundef %39, i32 noundef 1)
-  store i32 %call27, ptr %trstart, align 4
-  br label %if.end35
-
-if.else28:                                        ; preds = %if.else20
-  %40 = load ptr, ptr %J.addr, align 8
-  %41 = load ptr, ptr %rd.addr, align 8
-  %argv29 = getelementptr inbounds %struct.RecordFFData, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %argv29, align 8
-  %arrayidx30 = getelementptr inbounds %union.TValue, ptr %42, i64 1
-  %call31 = call i32 @argv2int(ptr noundef %40, ptr noundef %arrayidx30)
-  store i32 %call31, ptr %start, align 4
-  %43 = load ptr, ptr %J.addr, align 8
-  %44 = load ptr, ptr %J.addr, align 8
-  %base32 = getelementptr inbounds %struct.jit_State, ptr %44, i32 0, i32 6
-  %45 = load ptr, ptr %base32, align 8
-  %arrayidx33 = getelementptr inbounds i32, ptr %45, i64 1
-  %46 = load i32, ptr %arrayidx33, align 4
-  %call34 = call i32 @lj_opt_narrow_toint(ptr noundef %43, i32 noundef %46)
-  store i32 %call34, ptr %trstart, align 4
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.else28, %if.then26
-  %47 = load ptr, ptr %J.addr, align 8
-  %base36 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 6
-  %48 = load ptr, ptr %base36, align 8
-  %arrayidx37 = getelementptr inbounds i32, ptr %48, i64 1
-  %49 = load i32, ptr %arrayidx37, align 4
-  %tobool38 = icmp ne i32 %49, 0
-  br i1 %tobool38, label %land.lhs.true, label %if.else51
-
-land.lhs.true:                                    ; preds = %if.end35
-  %50 = load ptr, ptr %J.addr, align 8
-  %base39 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 6
-  %51 = load ptr, ptr %base39, align 8
-  %arrayidx40 = getelementptr inbounds i32, ptr %51, i64 2
-  %52 = load i32, ptr %arrayidx40, align 4
-  %and41 = and i32 %52, 520093696
-  %cmp42 = icmp eq i32 %and41, 0
-  br i1 %cmp42, label %if.else51, label %if.then44
-
-if.then44:                                        ; preds = %land.lhs.true
-  %53 = load ptr, ptr %J.addr, align 8
-  %54 = load ptr, ptr %J.addr, align 8
-  %base45 = getelementptr inbounds %struct.jit_State, ptr %54, i32 0, i32 6
-  %55 = load ptr, ptr %base45, align 8
-  %arrayidx46 = getelementptr inbounds i32, ptr %55, i64 2
-  %56 = load i32, ptr %arrayidx46, align 4
-  %call47 = call i32 @lj_opt_narrow_toint(ptr noundef %53, i32 noundef %56)
-  store i32 %call47, ptr %trend, align 4
-  %57 = load ptr, ptr %J.addr, align 8
-  %58 = load ptr, ptr %rd.addr, align 8
-  %argv48 = getelementptr inbounds %struct.RecordFFData, ptr %58, i32 0, i32 0
-  %59 = load ptr, ptr %argv48, align 8
-  %arrayidx49 = getelementptr inbounds %union.TValue, ptr %59, i64 2
-  %call50 = call i32 @argv2int(ptr noundef %57, ptr noundef %arrayidx49)
-  store i32 %call50, ptr %end, align 4
-  br label %if.end52
-
-if.else51:                                        ; preds = %land.lhs.true, %if.end35
-  %60 = load i32, ptr %trstart, align 4
-  store i32 %60, ptr %trend, align 4
-  %61 = load i32, ptr %start, align 4
-  store i32 %61, ptr %end, align 4
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.else51, %if.then44
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.end52, %if.end
-  %62 = load i32, ptr %end, align 4
-  %cmp54 = icmp slt i32 %62, 0
-  br i1 %cmp54, label %if.then56, label %if.else68
-
-if.then56:                                        ; preds = %if.end53
-  %63 = load ptr, ptr %J.addr, align 8
-  %64 = load i32, ptr %trend, align 4
-  %conv57 = trunc i32 %64 to i16
-  %65 = load i32, ptr %tr0, align 4
-  %conv58 = trunc i32 %65 to i16
-  store ptr %63, ptr %J.addr.i281, align 8
-  store i16 147, ptr %ot.addr.i282, align 2
-  store i16 %conv57, ptr %a.addr.i283, align 2
-  store i16 %conv58, ptr %b.addr.i284, align 2
-  %66 = load i16, ptr %ot.addr.i282, align 2
-  %67 = load ptr, ptr %J.addr.i281, align 8
-  %fold.i285 = getelementptr inbounds %struct.jit_State, ptr %67, i32 0, i32 14
-  %ot1.i286 = getelementptr inbounds %struct.anon.2, ptr %fold.i285, i32 0, i32 2
-  store i16 %66, ptr %ot1.i286, align 4
-  %68 = load i16, ptr %a.addr.i283, align 2
-  %69 = load ptr, ptr %J.addr.i281, align 8
-  %fold2.i287 = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 14
-  store i16 %68, ptr %fold2.i287, align 8
-  %70 = load i16, ptr %b.addr.i284, align 2
-  %71 = load ptr, ptr %J.addr.i281, align 8
-  %fold4.i288 = getelementptr inbounds %struct.jit_State, ptr %71, i32 0, i32 14
-  %op2.i289 = getelementptr inbounds %struct.anon.2, ptr %fold4.i288, i32 0, i32 1
-  store i16 %70, ptr %op2.i289, align 2
-  %72 = load ptr, ptr %J.addr, align 8
-  %call59 = call i32 @lj_opt_fold(ptr noundef %72)
-  %73 = load ptr, ptr %J.addr, align 8
-  %74 = load ptr, ptr %J.addr, align 8
-  %75 = load i32, ptr %trlen, align 4
-  %conv60 = trunc i32 %75 to i16
-  %76 = load i32, ptr %trend, align 4
-  %conv61 = trunc i32 %76 to i16
-  store ptr %74, ptr %J.addr.i272, align 8
-  store i16 10515, ptr %ot.addr.i273, align 2
-  store i16 %conv60, ptr %a.addr.i274, align 2
-  store i16 %conv61, ptr %b.addr.i275, align 2
-  %77 = load i16, ptr %ot.addr.i273, align 2
-  %78 = load ptr, ptr %J.addr.i272, align 8
-  %fold.i276 = getelementptr inbounds %struct.jit_State, ptr %78, i32 0, i32 14
-  %ot1.i277 = getelementptr inbounds %struct.anon.2, ptr %fold.i276, i32 0, i32 2
-  store i16 %77, ptr %ot1.i277, align 4
-  %79 = load i16, ptr %a.addr.i274, align 2
-  %80 = load ptr, ptr %J.addr.i272, align 8
-  %fold2.i278 = getelementptr inbounds %struct.jit_State, ptr %80, i32 0, i32 14
-  store i16 %79, ptr %fold2.i278, align 8
-  %81 = load i16, ptr %b.addr.i275, align 2
-  %82 = load ptr, ptr %J.addr.i272, align 8
-  %fold4.i279 = getelementptr inbounds %struct.jit_State, ptr %82, i32 0, i32 14
-  %op2.i280 = getelementptr inbounds %struct.anon.2, ptr %fold4.i279, i32 0, i32 1
-  store i16 %81, ptr %op2.i280, align 2
-  %83 = load ptr, ptr %J.addr, align 8
-  %call62 = call i32 @lj_opt_fold(ptr noundef %83)
-  %conv63 = trunc i32 %call62 to i16
-  %84 = load ptr, ptr %J.addr, align 8
-  %call64 = call i32 @lj_ir_kint(ptr noundef %84, i32 noundef 1)
-  %conv65 = trunc i32 %call64 to i16
-  store ptr %73, ptr %J.addr.i263, align 8
-  store i16 10515, ptr %ot.addr.i264, align 2
-  store i16 %conv63, ptr %a.addr.i265, align 2
-  store i16 %conv65, ptr %b.addr.i266, align 2
-  %85 = load i16, ptr %ot.addr.i264, align 2
-  %86 = load ptr, ptr %J.addr.i263, align 8
-  %fold.i267 = getelementptr inbounds %struct.jit_State, ptr %86, i32 0, i32 14
-  %ot1.i268 = getelementptr inbounds %struct.anon.2, ptr %fold.i267, i32 0, i32 2
-  store i16 %85, ptr %ot1.i268, align 4
-  %87 = load i16, ptr %a.addr.i265, align 2
-  %88 = load ptr, ptr %J.addr.i263, align 8
-  %fold2.i269 = getelementptr inbounds %struct.jit_State, ptr %88, i32 0, i32 14
-  store i16 %87, ptr %fold2.i269, align 8
-  %89 = load i16, ptr %b.addr.i266, align 2
-  %90 = load ptr, ptr %J.addr.i263, align 8
-  %fold4.i270 = getelementptr inbounds %struct.jit_State, ptr %90, i32 0, i32 14
-  %op2.i271 = getelementptr inbounds %struct.anon.2, ptr %fold4.i270, i32 0, i32 1
-  store i16 %89, ptr %op2.i271, align 2
-  %91 = load ptr, ptr %J.addr, align 8
-  %call66 = call i32 @lj_opt_fold(ptr noundef %91)
-  store i32 %call66, ptr %trend, align 4
-  %92 = load i32, ptr %end, align 4
-  %93 = load ptr, ptr %str, align 8
-  %len = getelementptr inbounds %struct.GCstr, ptr %93, i32 0, i32 7
-  %94 = load i32, ptr %len, align 4
-  %add = add nsw i32 %92, %94
-  %add67 = add nsw i32 %add, 1
-  store i32 %add67, ptr %end, align 4
-  br label %if.end82
-
-if.else68:                                        ; preds = %if.end53
-  %95 = load i32, ptr %end, align 4
-  %96 = load ptr, ptr %str, align 8
-  %len69 = getelementptr inbounds %struct.GCstr, ptr %96, i32 0, i32 7
-  %97 = load i32, ptr %len69, align 4
-  %cmp70 = icmp ule i32 %95, %97
-  br i1 %cmp70, label %if.then72, label %if.else76
-
-if.then72:                                        ; preds = %if.else68
-  %98 = load ptr, ptr %J.addr, align 8
-  %99 = load i32, ptr %trend, align 4
-  %conv73 = trunc i32 %99 to i16
-  %100 = load i32, ptr %trlen, align 4
-  %conv74 = trunc i32 %100 to i16
-  store ptr %98, ptr %J.addr.i254, align 8
-  store i16 1683, ptr %ot.addr.i255, align 2
-  store i16 %conv73, ptr %a.addr.i256, align 2
-  store i16 %conv74, ptr %b.addr.i257, align 2
-  %101 = load i16, ptr %ot.addr.i255, align 2
-  %102 = load ptr, ptr %J.addr.i254, align 8
-  %fold.i258 = getelementptr inbounds %struct.jit_State, ptr %102, i32 0, i32 14
-  %ot1.i259 = getelementptr inbounds %struct.anon.2, ptr %fold.i258, i32 0, i32 2
-  store i16 %101, ptr %ot1.i259, align 4
-  %103 = load i16, ptr %a.addr.i256, align 2
-  %104 = load ptr, ptr %J.addr.i254, align 8
-  %fold2.i260 = getelementptr inbounds %struct.jit_State, ptr %104, i32 0, i32 14
-  store i16 %103, ptr %fold2.i260, align 8
-  %105 = load i16, ptr %b.addr.i257, align 2
-  %106 = load ptr, ptr %J.addr.i254, align 8
-  %fold4.i261 = getelementptr inbounds %struct.jit_State, ptr %106, i32 0, i32 14
-  %op2.i262 = getelementptr inbounds %struct.anon.2, ptr %fold4.i261, i32 0, i32 1
-  store i16 %105, ptr %op2.i262, align 2
-  %107 = load ptr, ptr %J.addr, align 8
-  %call75 = call i32 @lj_opt_fold(ptr noundef %107)
-  br label %if.end81
-
-if.else76:                                        ; preds = %if.else68
-  %108 = load ptr, ptr %J.addr, align 8
-  %109 = load i32, ptr %trend, align 4
-  %conv77 = trunc i32 %109 to i16
-  %110 = load i32, ptr %trlen, align 4
-  %conv78 = trunc i32 %110 to i16
-  store ptr %108, ptr %J.addr.i245, align 8
-  store i16 1939, ptr %ot.addr.i246, align 2
-  store i16 %conv77, ptr %a.addr.i247, align 2
-  store i16 %conv78, ptr %b.addr.i248, align 2
-  %111 = load i16, ptr %ot.addr.i246, align 2
-  %112 = load ptr, ptr %J.addr.i245, align 8
-  %fold.i249 = getelementptr inbounds %struct.jit_State, ptr %112, i32 0, i32 14
-  %ot1.i250 = getelementptr inbounds %struct.anon.2, ptr %fold.i249, i32 0, i32 2
-  store i16 %111, ptr %ot1.i250, align 4
-  %113 = load i16, ptr %a.addr.i247, align 2
-  %114 = load ptr, ptr %J.addr.i245, align 8
-  %fold2.i251 = getelementptr inbounds %struct.jit_State, ptr %114, i32 0, i32 14
-  store i16 %113, ptr %fold2.i251, align 8
-  %115 = load i16, ptr %b.addr.i248, align 2
-  %116 = load ptr, ptr %J.addr.i245, align 8
-  %fold4.i252 = getelementptr inbounds %struct.jit_State, ptr %116, i32 0, i32 14
-  %op2.i253 = getelementptr inbounds %struct.anon.2, ptr %fold4.i252, i32 0, i32 1
-  store i16 %115, ptr %op2.i253, align 2
-  %117 = load ptr, ptr %J.addr, align 8
-  %call79 = call i32 @lj_opt_fold(ptr noundef %117)
-  %118 = load ptr, ptr %str, align 8
-  %len80 = getelementptr inbounds %struct.GCstr, ptr %118, i32 0, i32 7
-  %119 = load i32, ptr %len80, align 4
-  store i32 %119, ptr %end, align 4
-  %120 = load i32, ptr %trlen, align 4
-  store i32 %120, ptr %trend, align 4
-  br label %if.end81
-
-if.end81:                                         ; preds = %if.else76, %if.then72
-  br label %if.end82
-
-if.end82:                                         ; preds = %if.end81, %if.then56
-  %121 = load ptr, ptr %J.addr, align 8
-  %122 = load ptr, ptr %str, align 8
-  %123 = load i32, ptr %trstart, align 4
-  %124 = load i32, ptr %trlen, align 4
-  %125 = load i32, ptr %tr0, align 4
-  %call83 = call i32 @recff_string_start(ptr noundef %121, ptr noundef %122, ptr noundef %start, i32 noundef %123, i32 noundef %124, i32 noundef %125)
-  store i32 %call83, ptr %trstart, align 4
-  %126 = load ptr, ptr %rd.addr, align 8
-  %data84 = getelementptr inbounds %struct.RecordFFData, ptr %126, i32 0, i32 2
-  %127 = load i32, ptr %data84, align 8
-  %tobool85 = icmp ne i32 %127, 0
-  br i1 %tobool85, label %if.then86, label %if.else112
-
-if.then86:                                        ; preds = %if.end82
-  %128 = load i32, ptr %end, align 4
-  %129 = load i32, ptr %start, align 4
-  %sub = sub nsw i32 %128, %129
-  %cmp87 = icmp sge i32 %sub, 0
-  br i1 %cmp87, label %if.then89, label %if.else104
-
-if.then89:                                        ; preds = %if.then86
-  %130 = load ptr, ptr %J.addr, align 8
-  %131 = load i32, ptr %trend, align 4
-  %conv90 = trunc i32 %131 to i16
-  %132 = load i32, ptr %trstart, align 4
-  %conv91 = trunc i32 %132 to i16
-  store ptr %130, ptr %J.addr.i236, align 8
-  store i16 10771, ptr %ot.addr.i237, align 2
-  store i16 %conv90, ptr %a.addr.i238, align 2
-  store i16 %conv91, ptr %b.addr.i239, align 2
-  %133 = load i16, ptr %ot.addr.i237, align 2
-  %134 = load ptr, ptr %J.addr.i236, align 8
-  %fold.i240 = getelementptr inbounds %struct.jit_State, ptr %134, i32 0, i32 14
-  %ot1.i241 = getelementptr inbounds %struct.anon.2, ptr %fold.i240, i32 0, i32 2
-  store i16 %133, ptr %ot1.i241, align 4
-  %135 = load i16, ptr %a.addr.i238, align 2
-  %136 = load ptr, ptr %J.addr.i236, align 8
-  %fold2.i242 = getelementptr inbounds %struct.jit_State, ptr %136, i32 0, i32 14
-  store i16 %135, ptr %fold2.i242, align 8
-  %137 = load i16, ptr %b.addr.i239, align 2
-  %138 = load ptr, ptr %J.addr.i236, align 8
-  %fold4.i243 = getelementptr inbounds %struct.jit_State, ptr %138, i32 0, i32 14
-  %op2.i244 = getelementptr inbounds %struct.anon.2, ptr %fold4.i243, i32 0, i32 1
-  store i16 %137, ptr %op2.i244, align 2
-  %139 = load ptr, ptr %J.addr, align 8
-  %call92 = call i32 @lj_opt_fold(ptr noundef %139)
-  store i32 %call92, ptr %trslen, align 4
-  %140 = load ptr, ptr %J.addr, align 8
-  %141 = load i32, ptr %trslen, align 4
-  %conv93 = trunc i32 %141 to i16
-  %142 = load i32, ptr %tr0, align 4
-  %conv94 = trunc i32 %142 to i16
-  store ptr %140, ptr %J.addr.i227, align 8
-  store i16 403, ptr %ot.addr.i228, align 2
-  store i16 %conv93, ptr %a.addr.i229, align 2
-  store i16 %conv94, ptr %b.addr.i230, align 2
-  %143 = load i16, ptr %ot.addr.i228, align 2
-  %144 = load ptr, ptr %J.addr.i227, align 8
-  %fold.i231 = getelementptr inbounds %struct.jit_State, ptr %144, i32 0, i32 14
-  %ot1.i232 = getelementptr inbounds %struct.anon.2, ptr %fold.i231, i32 0, i32 2
-  store i16 %143, ptr %ot1.i232, align 4
-  %145 = load i16, ptr %a.addr.i229, align 2
-  %146 = load ptr, ptr %J.addr.i227, align 8
-  %fold2.i233 = getelementptr inbounds %struct.jit_State, ptr %146, i32 0, i32 14
-  store i16 %145, ptr %fold2.i233, align 8
-  %147 = load i16, ptr %b.addr.i230, align 2
-  %148 = load ptr, ptr %J.addr.i227, align 8
-  %fold4.i234 = getelementptr inbounds %struct.jit_State, ptr %148, i32 0, i32 14
-  %op2.i235 = getelementptr inbounds %struct.anon.2, ptr %fold4.i234, i32 0, i32 1
-  store i16 %147, ptr %op2.i235, align 2
-  %149 = load ptr, ptr %J.addr, align 8
-  %call95 = call i32 @lj_opt_fold(ptr noundef %149)
-  %150 = load ptr, ptr %J.addr, align 8
-  %151 = load i32, ptr %trstr, align 4
-  %conv96 = trunc i32 %151 to i16
-  %152 = load i32, ptr %trstart, align 4
-  %conv97 = trunc i32 %152 to i16
-  store ptr %150, ptr %J.addr.i218, align 8
-  store i16 16393, ptr %ot.addr.i219, align 2
-  store i16 %conv96, ptr %a.addr.i220, align 2
-  store i16 %conv97, ptr %b.addr.i221, align 2
-  %153 = load i16, ptr %ot.addr.i219, align 2
-  %154 = load ptr, ptr %J.addr.i218, align 8
-  %fold.i222 = getelementptr inbounds %struct.jit_State, ptr %154, i32 0, i32 14
-  %ot1.i223 = getelementptr inbounds %struct.anon.2, ptr %fold.i222, i32 0, i32 2
-  store i16 %153, ptr %ot1.i223, align 4
-  %155 = load i16, ptr %a.addr.i220, align 2
-  %156 = load ptr, ptr %J.addr.i218, align 8
-  %fold2.i224 = getelementptr inbounds %struct.jit_State, ptr %156, i32 0, i32 14
-  store i16 %155, ptr %fold2.i224, align 8
-  %157 = load i16, ptr %b.addr.i221, align 2
-  %158 = load ptr, ptr %J.addr.i218, align 8
-  %fold4.i225 = getelementptr inbounds %struct.jit_State, ptr %158, i32 0, i32 14
-  %op2.i226 = getelementptr inbounds %struct.anon.2, ptr %fold4.i225, i32 0, i32 1
-  store i16 %157, ptr %op2.i226, align 2
-  %159 = load ptr, ptr %J.addr, align 8
-  %call98 = call i32 @lj_opt_fold(ptr noundef %159)
-  store i32 %call98, ptr %trptr, align 4
-  %160 = load ptr, ptr %J.addr, align 8
-  %161 = load i32, ptr %trptr, align 4
-  %conv99 = trunc i32 %161 to i16
-  %162 = load i32, ptr %trslen, align 4
-  %conv100 = trunc i32 %162 to i16
-  store ptr %160, ptr %J.addr.i209, align 8
-  store i16 20228, ptr %ot.addr.i210, align 2
-  store i16 %conv99, ptr %a.addr.i211, align 2
-  store i16 %conv100, ptr %b.addr.i212, align 2
-  %163 = load i16, ptr %ot.addr.i210, align 2
-  %164 = load ptr, ptr %J.addr.i209, align 8
-  %fold.i213 = getelementptr inbounds %struct.jit_State, ptr %164, i32 0, i32 14
-  %ot1.i214 = getelementptr inbounds %struct.anon.2, ptr %fold.i213, i32 0, i32 2
-  store i16 %163, ptr %ot1.i214, align 4
-  %165 = load i16, ptr %a.addr.i211, align 2
-  %166 = load ptr, ptr %J.addr.i209, align 8
-  %fold2.i215 = getelementptr inbounds %struct.jit_State, ptr %166, i32 0, i32 14
-  store i16 %165, ptr %fold2.i215, align 8
-  %167 = load i16, ptr %b.addr.i212, align 2
-  %168 = load ptr, ptr %J.addr.i209, align 8
-  %fold4.i216 = getelementptr inbounds %struct.jit_State, ptr %168, i32 0, i32 14
-  %op2.i217 = getelementptr inbounds %struct.anon.2, ptr %fold4.i216, i32 0, i32 1
-  store i16 %167, ptr %op2.i217, align 2
-  %169 = load ptr, ptr %J.addr, align 8
-  %call101 = call i32 @lj_opt_fold(ptr noundef %169)
-  %170 = load ptr, ptr %J.addr, align 8
-  %base102 = getelementptr inbounds %struct.jit_State, ptr %170, i32 0, i32 6
-  %171 = load ptr, ptr %base102, align 8
-  %arrayidx103 = getelementptr inbounds i32, ptr %171, i64 0
-  store i32 %call101, ptr %arrayidx103, align 4
-  br label %if.end111
-
-if.else104:                                       ; preds = %if.then86
-  %172 = load ptr, ptr %J.addr, align 8
-  %173 = load i32, ptr %trend, align 4
-  %conv105 = trunc i32 %173 to i16
-  %174 = load i32, ptr %trstart, align 4
-  %conv106 = trunc i32 %174 to i16
-  store ptr %172, ptr %J.addr.i200, align 8
-  store i16 147, ptr %ot.addr.i201, align 2
-  store i16 %conv105, ptr %a.addr.i202, align 2
-  store i16 %conv106, ptr %b.addr.i203, align 2
-  %175 = load i16, ptr %ot.addr.i201, align 2
-  %176 = load ptr, ptr %J.addr.i200, align 8
-  %fold.i204 = getelementptr inbounds %struct.jit_State, ptr %176, i32 0, i32 14
-  %ot1.i205 = getelementptr inbounds %struct.anon.2, ptr %fold.i204, i32 0, i32 2
-  store i16 %175, ptr %ot1.i205, align 4
-  %177 = load i16, ptr %a.addr.i202, align 2
-  %178 = load ptr, ptr %J.addr.i200, align 8
-  %fold2.i206 = getelementptr inbounds %struct.jit_State, ptr %178, i32 0, i32 14
-  store i16 %177, ptr %fold2.i206, align 8
-  %179 = load i16, ptr %b.addr.i203, align 2
-  %180 = load ptr, ptr %J.addr.i200, align 8
-  %fold4.i207 = getelementptr inbounds %struct.jit_State, ptr %180, i32 0, i32 14
-  %op2.i208 = getelementptr inbounds %struct.anon.2, ptr %fold4.i207, i32 0, i32 1
-  store i16 %179, ptr %op2.i208, align 2
-  %181 = load ptr, ptr %J.addr, align 8
-  %call107 = call i32 @lj_opt_fold(ptr noundef %181)
-  %182 = load ptr, ptr %J.addr, align 8
-  %183 = load ptr, ptr %J.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %183, i64 -824
-  %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
-  %strempty = getelementptr inbounds %struct.global_State, ptr %g, i32 0, i32 3
-  %call108 = call i32 @lj_ir_kgc(ptr noundef %182, ptr noundef %strempty, i32 noundef 4)
-  %184 = load ptr, ptr %J.addr, align 8
-  %base109 = getelementptr inbounds %struct.jit_State, ptr %184, i32 0, i32 6
-  %185 = load ptr, ptr %base109, align 8
-  %arrayidx110 = getelementptr inbounds i32, ptr %185, i64 0
-  store i32 %call108, ptr %arrayidx110, align 4
-  br label %if.end111
-
-if.end111:                                        ; preds = %if.else104, %if.then89
-  br label %if.end154
-
-if.else112:                                       ; preds = %if.end82
-  %186 = load i32, ptr %end, align 4
-  %187 = load i32, ptr %start, align 4
-  %sub114 = sub nsw i32 %186, %187
-  %conv115 = sext i32 %sub114 to i64
-  store i64 %conv115, ptr %len113, align 8
-  %188 = load i64, ptr %len113, align 8
-  %cmp116 = icmp sgt i64 %188, 0
-  br i1 %cmp116, label %if.then118, label %if.else148
-
-if.then118:                                       ; preds = %if.else112
-  %189 = load ptr, ptr %J.addr, align 8
-  %190 = load i32, ptr %trend, align 4
-  %conv120 = trunc i32 %190 to i16
-  %191 = load i32, ptr %trstart, align 4
-  %conv121 = trunc i32 %191 to i16
-  store ptr %189, ptr %J.addr.i191, align 8
-  store i16 10771, ptr %ot.addr.i192, align 2
-  store i16 %conv120, ptr %a.addr.i193, align 2
-  store i16 %conv121, ptr %b.addr.i194, align 2
-  %192 = load i16, ptr %ot.addr.i192, align 2
-  %193 = load ptr, ptr %J.addr.i191, align 8
-  %fold.i195 = getelementptr inbounds %struct.jit_State, ptr %193, i32 0, i32 14
-  %ot1.i196 = getelementptr inbounds %struct.anon.2, ptr %fold.i195, i32 0, i32 2
-  store i16 %192, ptr %ot1.i196, align 4
-  %194 = load i16, ptr %a.addr.i193, align 2
-  %195 = load ptr, ptr %J.addr.i191, align 8
-  %fold2.i197 = getelementptr inbounds %struct.jit_State, ptr %195, i32 0, i32 14
-  store i16 %194, ptr %fold2.i197, align 8
-  %196 = load i16, ptr %b.addr.i194, align 2
-  %197 = load ptr, ptr %J.addr.i191, align 8
-  %fold4.i198 = getelementptr inbounds %struct.jit_State, ptr %197, i32 0, i32 14
-  %op2.i199 = getelementptr inbounds %struct.anon.2, ptr %fold4.i198, i32 0, i32 1
-  store i16 %196, ptr %op2.i199, align 2
-  %198 = load ptr, ptr %J.addr, align 8
-  %call122 = call i32 @lj_opt_fold(ptr noundef %198)
-  store i32 %call122, ptr %trslen119, align 4
-  %199 = load ptr, ptr %J.addr, align 8
-  %200 = load i32, ptr %trslen119, align 4
-  %conv123 = trunc i32 %200 to i16
-  %201 = load ptr, ptr %J.addr, align 8
-  %202 = load i64, ptr %len113, align 8
-  %conv124 = trunc i64 %202 to i32
-  %call125 = call i32 @lj_ir_kint(ptr noundef %201, i32 noundef %conv124)
-  %conv126 = trunc i32 %call125 to i16
-  store ptr %199, ptr %J.addr.i182, align 8
-  store i16 2195, ptr %ot.addr.i183, align 2
-  store i16 %conv123, ptr %a.addr.i184, align 2
-  store i16 %conv126, ptr %b.addr.i185, align 2
-  %203 = load i16, ptr %ot.addr.i183, align 2
-  %204 = load ptr, ptr %J.addr.i182, align 8
-  %fold.i186 = getelementptr inbounds %struct.jit_State, ptr %204, i32 0, i32 14
-  %ot1.i187 = getelementptr inbounds %struct.anon.2, ptr %fold.i186, i32 0, i32 2
-  store i16 %203, ptr %ot1.i187, align 4
-  %205 = load i16, ptr %a.addr.i184, align 2
-  %206 = load ptr, ptr %J.addr.i182, align 8
-  %fold2.i188 = getelementptr inbounds %struct.jit_State, ptr %206, i32 0, i32 14
-  store i16 %205, ptr %fold2.i188, align 8
-  %207 = load i16, ptr %b.addr.i185, align 2
-  %208 = load ptr, ptr %J.addr.i182, align 8
-  %fold4.i189 = getelementptr inbounds %struct.jit_State, ptr %208, i32 0, i32 14
-  %op2.i190 = getelementptr inbounds %struct.anon.2, ptr %fold4.i189, i32 0, i32 1
-  store i16 %207, ptr %op2.i190, align 2
-  %209 = load ptr, ptr %J.addr, align 8
-  %call127 = call i32 @lj_opt_fold(ptr noundef %209)
-  %210 = load ptr, ptr %J.addr, align 8
-  %baseslot = getelementptr inbounds %struct.jit_State, ptr %210, i32 0, i32 9
-  %211 = load i32, ptr %baseslot, align 8
-  %conv128 = zext i32 %211 to i64
-  %212 = load i64, ptr %len113, align 8
-  %add129 = add nsw i64 %conv128, %212
-  %cmp130 = icmp sgt i64 %add129, 250
-  br i1 %cmp130, label %if.then132, label %if.end133
-
-if.then132:                                       ; preds = %if.then118
-  %213 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err_info(ptr noundef %213, i32 noundef 3) #6
-  unreachable
-
-if.end133:                                        ; preds = %if.then118
-  %214 = load i64, ptr %len113, align 8
-  %215 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %215, i32 0, i32 1
-  store i64 %214, ptr %nres, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end133
-  %216 = load i64, ptr %i, align 8
-  %217 = load i64, ptr %len113, align 8
-  %cmp134 = icmp slt i64 %216, %217
-  br i1 %cmp134, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %218 = load ptr, ptr %J.addr, align 8
-  %219 = load i32, ptr %trstart, align 4
-  %conv136 = trunc i32 %219 to i16
-  %220 = load ptr, ptr %J.addr, align 8
-  %221 = load i64, ptr %i, align 8
-  %conv137 = trunc i64 %221 to i32
-  %call138 = call i32 @lj_ir_kint(ptr noundef %220, i32 noundef %conv137)
-  %conv139 = trunc i32 %call138 to i16
-  store ptr %218, ptr %J.addr.i173, align 8
-  store i16 10515, ptr %ot.addr.i174, align 2
-  store i16 %conv136, ptr %a.addr.i175, align 2
-  store i16 %conv139, ptr %b.addr.i176, align 2
-  %222 = load i16, ptr %ot.addr.i174, align 2
-  %223 = load ptr, ptr %J.addr.i173, align 8
-  %fold.i177 = getelementptr inbounds %struct.jit_State, ptr %223, i32 0, i32 14
-  %ot1.i178 = getelementptr inbounds %struct.anon.2, ptr %fold.i177, i32 0, i32 2
-  store i16 %222, ptr %ot1.i178, align 4
-  %224 = load i16, ptr %a.addr.i175, align 2
-  %225 = load ptr, ptr %J.addr.i173, align 8
-  %fold2.i179 = getelementptr inbounds %struct.jit_State, ptr %225, i32 0, i32 14
-  store i16 %224, ptr %fold2.i179, align 8
-  %226 = load i16, ptr %b.addr.i176, align 2
-  %227 = load ptr, ptr %J.addr.i173, align 8
-  %fold4.i180 = getelementptr inbounds %struct.jit_State, ptr %227, i32 0, i32 14
-  %op2.i181 = getelementptr inbounds %struct.anon.2, ptr %fold4.i180, i32 0, i32 1
-  store i16 %226, ptr %op2.i181, align 2
-  %228 = load ptr, ptr %J.addr, align 8
-  %call140 = call i32 @lj_opt_fold(ptr noundef %228)
-  store i32 %call140, ptr %tmp, align 4
-  %229 = load ptr, ptr %J.addr, align 8
-  %230 = load i32, ptr %trstr, align 4
-  %conv141 = trunc i32 %230 to i16
-  %231 = load i32, ptr %tmp, align 4
-  %conv142 = trunc i32 %231 to i16
-  store ptr %229, ptr %J.addr.i164, align 8
-  store i16 16393, ptr %ot.addr.i165, align 2
-  store i16 %conv141, ptr %a.addr.i166, align 2
-  store i16 %conv142, ptr %b.addr.i167, align 2
-  %232 = load i16, ptr %ot.addr.i165, align 2
-  %233 = load ptr, ptr %J.addr.i164, align 8
-  %fold.i168 = getelementptr inbounds %struct.jit_State, ptr %233, i32 0, i32 14
-  %ot1.i169 = getelementptr inbounds %struct.anon.2, ptr %fold.i168, i32 0, i32 2
-  store i16 %232, ptr %ot1.i169, align 4
-  %234 = load i16, ptr %a.addr.i166, align 2
-  %235 = load ptr, ptr %J.addr.i164, align 8
-  %fold2.i170 = getelementptr inbounds %struct.jit_State, ptr %235, i32 0, i32 14
-  store i16 %234, ptr %fold2.i170, align 8
-  %236 = load i16, ptr %b.addr.i167, align 2
-  %237 = load ptr, ptr %J.addr.i164, align 8
-  %fold4.i171 = getelementptr inbounds %struct.jit_State, ptr %237, i32 0, i32 14
-  %op2.i172 = getelementptr inbounds %struct.anon.2, ptr %fold4.i171, i32 0, i32 1
-  store i16 %236, ptr %op2.i172, align 2
-  %238 = load ptr, ptr %J.addr, align 8
-  %call143 = call i32 @lj_opt_fold(ptr noundef %238)
-  store i32 %call143, ptr %tmp, align 4
-  %239 = load ptr, ptr %J.addr, align 8
-  %240 = load i32, ptr %tmp, align 4
-  %conv144 = trunc i32 %240 to i16
-  store ptr %239, ptr %J.addr.i155, align 8
-  store i16 17936, ptr %ot.addr.i156, align 2
-  store i16 %conv144, ptr %a.addr.i157, align 2
-  store i16 1, ptr %b.addr.i158, align 2
-  %241 = load i16, ptr %ot.addr.i156, align 2
-  %242 = load ptr, ptr %J.addr.i155, align 8
-  %fold.i159 = getelementptr inbounds %struct.jit_State, ptr %242, i32 0, i32 14
-  %ot1.i160 = getelementptr inbounds %struct.anon.2, ptr %fold.i159, i32 0, i32 2
-  store i16 %241, ptr %ot1.i160, align 4
-  %243 = load i16, ptr %a.addr.i157, align 2
-  %244 = load ptr, ptr %J.addr.i155, align 8
-  %fold2.i161 = getelementptr inbounds %struct.jit_State, ptr %244, i32 0, i32 14
-  store i16 %243, ptr %fold2.i161, align 8
-  %245 = load i16, ptr %b.addr.i158, align 2
-  %246 = load ptr, ptr %J.addr.i155, align 8
-  %fold4.i162 = getelementptr inbounds %struct.jit_State, ptr %246, i32 0, i32 14
-  %op2.i163 = getelementptr inbounds %struct.anon.2, ptr %fold4.i162, i32 0, i32 1
-  store i16 %245, ptr %op2.i163, align 2
-  %247 = load ptr, ptr %J.addr, align 8
-  %call145 = call i32 @lj_opt_fold(ptr noundef %247)
-  %248 = load ptr, ptr %J.addr, align 8
-  %base146 = getelementptr inbounds %struct.jit_State, ptr %248, i32 0, i32 6
-  %249 = load ptr, ptr %base146, align 8
-  %250 = load i64, ptr %i, align 8
-  %arrayidx147 = getelementptr inbounds i32, ptr %249, i64 %250
-  store i32 %call145, ptr %arrayidx147, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %251 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %251, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end153
-
-if.else148:                                       ; preds = %if.else112
-  %252 = load ptr, ptr %J.addr, align 8
-  %253 = load i32, ptr %trend, align 4
-  %conv149 = trunc i32 %253 to i16
-  %254 = load i32, ptr %trstart, align 4
-  %conv150 = trunc i32 %254 to i16
-  store ptr %252, ptr %J.addr.i, align 8
-  store i16 659, ptr %ot.addr.i, align 2
-  store i16 %conv149, ptr %a.addr.i, align 2
-  store i16 %conv150, ptr %b.addr.i, align 2
-  %255 = load i16, ptr %ot.addr.i, align 2
-  %256 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %256, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %255, ptr %ot1.i, align 4
-  %257 = load i16, ptr %a.addr.i, align 2
-  %258 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %258, i32 0, i32 14
-  store i16 %257, ptr %fold2.i, align 8
-  %259 = load i16, ptr %b.addr.i, align 2
-  %260 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %260, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %259, ptr %op2.i, align 2
-  %261 = load ptr, ptr %J.addr, align 8
-  %call151 = call i32 @lj_opt_fold(ptr noundef %261)
-  %262 = load ptr, ptr %rd.addr, align 8
-  %nres152 = getelementptr inbounds %struct.RecordFFData, ptr %262, i32 0, i32 1
-  store i64 0, ptr %nres152, align 8
-  br label %if.end153
-
-if.end153:                                        ; preds = %if.else148, %for.end
-  br label %if.end154
-
-if.end154:                                        ; preds = %if.end153, %if.end111
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_string_char(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i62 = alloca ptr, align 8
-  %ot.addr.i63 = alloca i16, align 2
-  %a.addr.i64 = alloca i16, align 2
-  %b.addr.i65 = alloca i16, align 2
-  %J.addr.i53 = alloca ptr, align 8
-  %ot.addr.i54 = alloca i16, align 2
-  %a.addr.i55 = alloca i16, align 2
-  %b.addr.i56 = alloca i16, align 2
-  %J.addr.i44 = alloca ptr, align 8
-  %ot.addr.i45 = alloca i16, align 2
-  %a.addr.i46 = alloca i16, align 2
-  %b.addr.i47 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %k255 = alloca i32, align 4
-  %i = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %hdr = alloca i32, align 4
-  %tr15 = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_ir_kint(ptr noundef %0, i32 noundef 255)
-  store i32 %call, ptr %k255, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
-  %4 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp ne i32 %4, 0
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %J.addr, align 8
-  %6 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %base1, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom2 = zext i32 %8 to i64
-  %arrayidx3 = getelementptr inbounds i32, ptr %7, i64 %idxprom2
-  %9 = load i32, ptr %arrayidx3, align 4
-  %call4 = call i32 @lj_opt_narrow_toint(ptr noundef %5, i32 noundef %9)
-  store i32 %call4, ptr %tr, align 4
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %11 to i16
-  %12 = load i32, ptr %k255, align 4
-  %conv5 = trunc i32 %12 to i16
-  store ptr %10, ptr %J.addr.i62, align 8
-  store i16 1683, ptr %ot.addr.i63, align 2
-  store i16 %conv, ptr %a.addr.i64, align 2
-  store i16 %conv5, ptr %b.addr.i65, align 2
-  %13 = load i16, ptr %ot.addr.i63, align 2
-  %14 = load ptr, ptr %J.addr.i62, align 8
-  %fold.i66 = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %ot1.i67 = getelementptr inbounds %struct.anon.2, ptr %fold.i66, i32 0, i32 2
-  store i16 %13, ptr %ot1.i67, align 4
-  %15 = load i16, ptr %a.addr.i64, align 2
-  %16 = load ptr, ptr %J.addr.i62, align 8
-  %fold2.i68 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  store i16 %15, ptr %fold2.i68, align 8
-  %17 = load i16, ptr %b.addr.i65, align 2
-  %18 = load ptr, ptr %J.addr.i62, align 8
-  %fold4.i69 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %op2.i70 = getelementptr inbounds %struct.anon.2, ptr %fold4.i69, i32 0, i32 1
-  store i16 %17, ptr %op2.i70, align 2
-  %19 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %19)
-  %20 = load ptr, ptr %J.addr, align 8
-  %21 = load i32, ptr %tr, align 4
-  %conv7 = trunc i32 %21 to i16
-  store ptr %20, ptr %J.addr.i53, align 8
-  store i16 23812, ptr %ot.addr.i54, align 2
-  store i16 %conv7, ptr %a.addr.i55, align 2
-  store i16 2, ptr %b.addr.i56, align 2
-  %22 = load i16, ptr %ot.addr.i54, align 2
-  %23 = load ptr, ptr %J.addr.i53, align 8
-  %fold.i57 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  %ot1.i58 = getelementptr inbounds %struct.anon.2, ptr %fold.i57, i32 0, i32 2
-  store i16 %22, ptr %ot1.i58, align 4
-  %24 = load i16, ptr %a.addr.i55, align 2
-  %25 = load ptr, ptr %J.addr.i53, align 8
-  %fold2.i59 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  store i16 %24, ptr %fold2.i59, align 8
-  %26 = load i16, ptr %b.addr.i56, align 2
-  %27 = load ptr, ptr %J.addr.i53, align 8
-  %fold4.i60 = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 14
-  %op2.i61 = getelementptr inbounds %struct.anon.2, ptr %fold4.i60, i32 0, i32 1
-  store i16 %26, ptr %op2.i61, align 2
-  %28 = load ptr, ptr %J.addr, align 8
-  %call8 = call i32 @lj_opt_fold(ptr noundef %28)
-  %29 = load ptr, ptr %J.addr, align 8
-  %base9 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 6
-  %30 = load ptr, ptr %base9, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom10 = zext i32 %31 to i64
-  %arrayidx11 = getelementptr inbounds i32, ptr %30, i64 %idxprom10
-  store i32 %call8, ptr %arrayidx11, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %32 = load i32, ptr %i, align 4
-  %inc = add i32 %32, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %for.cond
-  %33 = load i32, ptr %i, align 4
-  %cmp12 = icmp ugt i32 %33, 1
-  br i1 %cmp12, label %if.then, label %if.else
-
-if.then:                                          ; preds = %for.end
-  %34 = load ptr, ptr %J.addr, align 8
-  %call14 = call i32 @recff_bufhdr(ptr noundef %34)
-  store i32 %call14, ptr %hdr, align 4
-  %35 = load i32, ptr %hdr, align 4
-  store i32 %35, ptr %tr15, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond16
-
-for.cond16:                                       ; preds = %for.inc29, %if.then
-  %36 = load ptr, ptr %J.addr, align 8
-  %base17 = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 6
-  %37 = load ptr, ptr %base17, align 8
-  %38 = load i32, ptr %i, align 4
-  %idxprom18 = zext i32 %38 to i64
-  %arrayidx19 = getelementptr inbounds i32, ptr %37, i64 %idxprom18
-  %39 = load i32, ptr %arrayidx19, align 4
-  %cmp20 = icmp ne i32 %39, 0
-  br i1 %cmp20, label %for.body22, label %for.end31
-
-for.body22:                                       ; preds = %for.cond16
-  %40 = load ptr, ptr %J.addr, align 8
-  %41 = load i32, ptr %tr15, align 4
-  %conv23 = trunc i32 %41 to i16
-  %42 = load ptr, ptr %J.addr, align 8
-  %base24 = getelementptr inbounds %struct.jit_State, ptr %42, i32 0, i32 6
-  %43 = load ptr, ptr %base24, align 8
-  %44 = load i32, ptr %i, align 4
-  %idxprom25 = zext i32 %44 to i64
-  %arrayidx26 = getelementptr inbounds i32, ptr %43, i64 %idxprom25
-  %45 = load i32, ptr %arrayidx26, align 4
-  %conv27 = trunc i32 %45 to i16
-  store ptr %40, ptr %J.addr.i44, align 8
-  store i16 22153, ptr %ot.addr.i45, align 2
-  store i16 %conv23, ptr %a.addr.i46, align 2
-  store i16 %conv27, ptr %b.addr.i47, align 2
-  %46 = load i16, ptr %ot.addr.i45, align 2
-  %47 = load ptr, ptr %J.addr.i44, align 8
-  %fold.i48 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 14
-  %ot1.i49 = getelementptr inbounds %struct.anon.2, ptr %fold.i48, i32 0, i32 2
-  store i16 %46, ptr %ot1.i49, align 4
-  %48 = load i16, ptr %a.addr.i46, align 2
-  %49 = load ptr, ptr %J.addr.i44, align 8
-  %fold2.i50 = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 14
-  store i16 %48, ptr %fold2.i50, align 8
-  %50 = load i16, ptr %b.addr.i47, align 2
-  %51 = load ptr, ptr %J.addr.i44, align 8
-  %fold4.i51 = getelementptr inbounds %struct.jit_State, ptr %51, i32 0, i32 14
-  %op2.i52 = getelementptr inbounds %struct.anon.2, ptr %fold4.i51, i32 0, i32 1
-  store i16 %50, ptr %op2.i52, align 2
-  %52 = load ptr, ptr %J.addr, align 8
-  %call28 = call i32 @lj_opt_fold(ptr noundef %52)
-  store i32 %call28, ptr %tr15, align 4
-  br label %for.inc29
-
-for.inc29:                                        ; preds = %for.body22
-  %53 = load i32, ptr %i, align 4
-  %inc30 = add i32 %53, 1
-  store i32 %inc30, ptr %i, align 4
-  br label %for.cond16, !llvm.loop !10
-
-for.end31:                                        ; preds = %for.cond16
-  %54 = load ptr, ptr %J.addr, align 8
-  %55 = load i32, ptr %tr15, align 4
-  %conv32 = trunc i32 %55 to i16
-  %56 = load i32, ptr %hdr, align 4
-  %conv33 = trunc i32 %56 to i16
-  store ptr %54, ptr %J.addr.i, align 8
-  store i16 22404, ptr %ot.addr.i, align 2
-  store i16 %conv32, ptr %a.addr.i, align 2
-  store i16 %conv33, ptr %b.addr.i, align 2
-  %57 = load i16, ptr %ot.addr.i, align 2
-  %58 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %57, ptr %ot1.i, align 4
-  %59 = load i16, ptr %a.addr.i, align 2
-  %60 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %60, i32 0, i32 14
-  store i16 %59, ptr %fold2.i, align 8
-  %61 = load i16, ptr %b.addr.i, align 2
-  %62 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %62, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %61, ptr %op2.i, align 2
-  %63 = load ptr, ptr %J.addr, align 8
-  %call34 = call i32 @lj_opt_fold(ptr noundef %63)
-  %64 = load ptr, ptr %J.addr, align 8
-  %base35 = getelementptr inbounds %struct.jit_State, ptr %64, i32 0, i32 6
-  %65 = load ptr, ptr %base35, align 8
-  %arrayidx36 = getelementptr inbounds i32, ptr %65, i64 0
-  store i32 %call34, ptr %arrayidx36, align 4
-  br label %if.end43
-
-if.else:                                          ; preds = %for.end
-  %66 = load i32, ptr %i, align 4
-  %cmp37 = icmp eq i32 %66, 0
-  br i1 %cmp37, label %if.then39, label %if.end
-
-if.then39:                                        ; preds = %if.else
-  %67 = load ptr, ptr %J.addr, align 8
-  %68 = load ptr, ptr %J.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %68, i64 -824
-  %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
-  %strempty = getelementptr inbounds %struct.global_State, ptr %g, i32 0, i32 3
-  %call40 = call i32 @lj_ir_kgc(ptr noundef %67, ptr noundef %strempty, i32 noundef 4)
-  %69 = load ptr, ptr %J.addr, align 8
-  %base41 = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 6
-  %70 = load ptr, ptr %base41, align 8
-  %arrayidx42 = getelementptr inbounds i32, ptr %70, i64 0
-  store i32 %call40, ptr %arrayidx42, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then39, %if.else
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end, %for.end31
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_string_rep(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i91 = alloca ptr, align 8
-  %ot.addr.i92 = alloca i16, align 2
-  %a.addr.i93 = alloca i16, align 2
-  %b.addr.i94 = alloca i16, align 2
-  %J.addr.i82 = alloca ptr, align 8
-  %ot.addr.i83 = alloca i16, align 2
-  %a.addr.i84 = alloca i16, align 2
-  %b.addr.i85 = alloca i16, align 2
-  %J.addr.i73 = alloca ptr, align 8
-  %ot.addr.i74 = alloca i16, align 2
-  %a.addr.i75 = alloca i16, align 2
-  %b.addr.i76 = alloca i16, align 2
-  %J.addr.i64 = alloca ptr, align 8
-  %ot.addr.i65 = alloca i16, align 2
-  %a.addr.i66 = alloca i16, align 2
-  %b.addr.i67 = alloca i16, align 2
-  %J.addr.i55 = alloca ptr, align 8
-  %ot.addr.i56 = alloca i16, align 2
-  %a.addr.i57 = alloca i16, align 2
-  %b.addr.i58 = alloca i16, align 2
-  %J.addr.i46 = alloca ptr, align 8
-  %ot.addr.i47 = alloca i16, align 2
-  %a.addr.i48 = alloca i16, align 2
-  %b.addr.i49 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %str = alloca i32, align 4
-  %rep = alloca i32, align 4
-  %hdr = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %str2 = alloca i32, align 4
-  %sep = alloca i32, align 4
-  %vrep = alloca i32, align 4
-  %hdr2 = alloca i32, align 4
-  %tr2 = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tostr(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %str, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx2, align 4
-  %call3 = call i32 @lj_opt_narrow_toint(ptr noundef %4, i32 noundef %7)
-  store i32 %call3, ptr %rep, align 4
-  store i32 0, ptr %str2, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %base4 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 6
-  %9 = load ptr, ptr %base4, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %9, i64 2
-  %10 = load i32, ptr %arrayidx5, align 4
-  %and = and i32 %10, 520093696
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.end29, label %if.then
-
-if.then:                                          ; preds = %entry
-  %11 = load ptr, ptr %J.addr, align 8
-  %12 = load ptr, ptr %J.addr, align 8
-  %base6 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %base6, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %13, i64 2
-  %14 = load i32, ptr %arrayidx7, align 4
-  %call8 = call i32 @lj_ir_tostr(ptr noundef %11, i32 noundef %14)
-  store i32 %call8, ptr %sep, align 4
-  %15 = load ptr, ptr %J.addr, align 8
-  %16 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %argv, align 8
-  %arrayidx9 = getelementptr inbounds %union.TValue, ptr %17, i64 1
-  %call10 = call i32 @argv2int(ptr noundef %15, ptr noundef %arrayidx9)
-  store i32 %call10, ptr %vrep, align 4
-  %18 = load ptr, ptr %J.addr, align 8
-  %19 = load i32, ptr %vrep, align 4
-  %cmp11 = icmp sgt i32 %19, 1
-  %cond = select i1 %cmp11, i32 3, i32 2
-  %shl = shl i32 %cond, 8
-  %or = or i32 %shl, 147
-  %conv = trunc i32 %or to i16
-  %20 = load i32, ptr %rep, align 4
-  %conv12 = trunc i32 %20 to i16
-  %21 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_ir_kint(ptr noundef %21, i32 noundef 1)
-  %conv14 = trunc i32 %call13 to i16
-  store ptr %18, ptr %J.addr.i91, align 8
-  store i16 %conv, ptr %ot.addr.i92, align 2
-  store i16 %conv12, ptr %a.addr.i93, align 2
-  store i16 %conv14, ptr %b.addr.i94, align 2
-  %22 = load i16, ptr %ot.addr.i92, align 2
-  %23 = load ptr, ptr %J.addr.i91, align 8
-  %fold.i95 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  %ot1.i96 = getelementptr inbounds %struct.anon.2, ptr %fold.i95, i32 0, i32 2
-  store i16 %22, ptr %ot1.i96, align 4
-  %24 = load i16, ptr %a.addr.i93, align 2
-  %25 = load ptr, ptr %J.addr.i91, align 8
-  %fold2.i97 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  store i16 %24, ptr %fold2.i97, align 8
-  %26 = load i16, ptr %b.addr.i94, align 2
-  %27 = load ptr, ptr %J.addr.i91, align 8
-  %fold4.i98 = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 14
-  %op2.i99 = getelementptr inbounds %struct.anon.2, ptr %fold4.i98, i32 0, i32 1
-  store i16 %26, ptr %op2.i99, align 2
-  %28 = load ptr, ptr %J.addr, align 8
-  %call15 = call i32 @lj_opt_fold(ptr noundef %28)
-  %29 = load i32, ptr %vrep, align 4
-  %cmp16 = icmp sgt i32 %29, 1
-  br i1 %cmp16, label %if.then18, label %if.end
-
-if.then18:                                        ; preds = %if.then
-  %30 = load ptr, ptr %J.addr, align 8
-  %call19 = call i32 @recff_bufhdr(ptr noundef %30)
-  store i32 %call19, ptr %hdr2, align 4
-  %31 = load ptr, ptr %J.addr, align 8
-  %32 = load i32, ptr %hdr2, align 4
-  %conv20 = trunc i32 %32 to i16
-  %33 = load i32, ptr %sep, align 4
-  %conv21 = trunc i32 %33 to i16
-  store ptr %31, ptr %J.addr.i82, align 8
-  store i16 22153, ptr %ot.addr.i83, align 2
-  store i16 %conv20, ptr %a.addr.i84, align 2
-  store i16 %conv21, ptr %b.addr.i85, align 2
-  %34 = load i16, ptr %ot.addr.i83, align 2
-  %35 = load ptr, ptr %J.addr.i82, align 8
-  %fold.i86 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %ot1.i87 = getelementptr inbounds %struct.anon.2, ptr %fold.i86, i32 0, i32 2
-  store i16 %34, ptr %ot1.i87, align 4
-  %36 = load i16, ptr %a.addr.i84, align 2
-  %37 = load ptr, ptr %J.addr.i82, align 8
-  %fold2.i88 = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  store i16 %36, ptr %fold2.i88, align 8
-  %38 = load i16, ptr %b.addr.i85, align 2
-  %39 = load ptr, ptr %J.addr.i82, align 8
-  %fold4.i89 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %op2.i90 = getelementptr inbounds %struct.anon.2, ptr %fold4.i89, i32 0, i32 1
-  store i16 %38, ptr %op2.i90, align 2
-  %40 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_opt_fold(ptr noundef %40)
-  store i32 %call22, ptr %tr2, align 4
-  %41 = load ptr, ptr %J.addr, align 8
-  %42 = load i32, ptr %tr2, align 4
-  %conv23 = trunc i32 %42 to i16
-  %43 = load i32, ptr %str, align 4
-  %conv24 = trunc i32 %43 to i16
-  store ptr %41, ptr %J.addr.i73, align 8
-  store i16 22153, ptr %ot.addr.i74, align 2
-  store i16 %conv23, ptr %a.addr.i75, align 2
-  store i16 %conv24, ptr %b.addr.i76, align 2
-  %44 = load i16, ptr %ot.addr.i74, align 2
-  %45 = load ptr, ptr %J.addr.i73, align 8
-  %fold.i77 = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 14
-  %ot1.i78 = getelementptr inbounds %struct.anon.2, ptr %fold.i77, i32 0, i32 2
-  store i16 %44, ptr %ot1.i78, align 4
-  %46 = load i16, ptr %a.addr.i75, align 2
-  %47 = load ptr, ptr %J.addr.i73, align 8
-  %fold2.i79 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 14
-  store i16 %46, ptr %fold2.i79, align 8
-  %48 = load i16, ptr %b.addr.i76, align 2
-  %49 = load ptr, ptr %J.addr.i73, align 8
-  %fold4.i80 = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 14
-  %op2.i81 = getelementptr inbounds %struct.anon.2, ptr %fold4.i80, i32 0, i32 1
-  store i16 %48, ptr %op2.i81, align 2
-  %50 = load ptr, ptr %J.addr, align 8
-  %call25 = call i32 @lj_opt_fold(ptr noundef %50)
-  store i32 %call25, ptr %tr2, align 4
-  %51 = load ptr, ptr %J.addr, align 8
-  %52 = load i32, ptr %tr2, align 4
-  %conv26 = trunc i32 %52 to i16
-  %53 = load i32, ptr %hdr2, align 4
-  %conv27 = trunc i32 %53 to i16
-  store ptr %51, ptr %J.addr.i64, align 8
-  store i16 22404, ptr %ot.addr.i65, align 2
-  store i16 %conv26, ptr %a.addr.i66, align 2
-  store i16 %conv27, ptr %b.addr.i67, align 2
-  %54 = load i16, ptr %ot.addr.i65, align 2
-  %55 = load ptr, ptr %J.addr.i64, align 8
-  %fold.i68 = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 14
-  %ot1.i69 = getelementptr inbounds %struct.anon.2, ptr %fold.i68, i32 0, i32 2
-  store i16 %54, ptr %ot1.i69, align 4
-  %56 = load i16, ptr %a.addr.i66, align 2
-  %57 = load ptr, ptr %J.addr.i64, align 8
-  %fold2.i70 = getelementptr inbounds %struct.jit_State, ptr %57, i32 0, i32 14
-  store i16 %56, ptr %fold2.i70, align 8
-  %58 = load i16, ptr %b.addr.i67, align 2
-  %59 = load ptr, ptr %J.addr.i64, align 8
-  %fold4.i71 = getelementptr inbounds %struct.jit_State, ptr %59, i32 0, i32 14
-  %op2.i72 = getelementptr inbounds %struct.anon.2, ptr %fold4.i71, i32 0, i32 1
-  store i16 %58, ptr %op2.i72, align 2
-  %60 = load ptr, ptr %J.addr, align 8
-  %call28 = call i32 @lj_opt_fold(ptr noundef %60)
-  store i32 %call28, ptr %str2, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then18, %if.then
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.end, %entry
-  %61 = load ptr, ptr %J.addr, align 8
-  %call30 = call i32 @recff_bufhdr(ptr noundef %61)
-  store i32 %call30, ptr %hdr, align 4
-  store i32 %call30, ptr %tr, align 4
-  %62 = load i32, ptr %str2, align 4
-  %tobool = icmp ne i32 %62, 0
-  br i1 %tobool, label %if.then31, label %if.end39
-
-if.then31:                                        ; preds = %if.end29
-  %63 = load ptr, ptr %J.addr, align 8
-  %64 = load i32, ptr %tr, align 4
-  %conv32 = trunc i32 %64 to i16
-  %65 = load i32, ptr %str, align 4
-  %conv33 = trunc i32 %65 to i16
-  store ptr %63, ptr %J.addr.i55, align 8
-  store i16 22153, ptr %ot.addr.i56, align 2
-  store i16 %conv32, ptr %a.addr.i57, align 2
-  store i16 %conv33, ptr %b.addr.i58, align 2
-  %66 = load i16, ptr %ot.addr.i56, align 2
-  %67 = load ptr, ptr %J.addr.i55, align 8
-  %fold.i59 = getelementptr inbounds %struct.jit_State, ptr %67, i32 0, i32 14
-  %ot1.i60 = getelementptr inbounds %struct.anon.2, ptr %fold.i59, i32 0, i32 2
-  store i16 %66, ptr %ot1.i60, align 4
-  %68 = load i16, ptr %a.addr.i57, align 2
-  %69 = load ptr, ptr %J.addr.i55, align 8
-  %fold2.i61 = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 14
-  store i16 %68, ptr %fold2.i61, align 8
-  %70 = load i16, ptr %b.addr.i58, align 2
-  %71 = load ptr, ptr %J.addr.i55, align 8
-  %fold4.i62 = getelementptr inbounds %struct.jit_State, ptr %71, i32 0, i32 14
-  %op2.i63 = getelementptr inbounds %struct.anon.2, ptr %fold4.i62, i32 0, i32 1
-  store i16 %70, ptr %op2.i63, align 2
-  %72 = load ptr, ptr %J.addr, align 8
-  %call34 = call i32 @lj_opt_fold(ptr noundef %72)
-  store i32 %call34, ptr %tr, align 4
-  %73 = load i32, ptr %str2, align 4
-  store i32 %73, ptr %str, align 4
-  %74 = load ptr, ptr %J.addr, align 8
-  %75 = load i32, ptr %rep, align 4
-  %conv35 = trunc i32 %75 to i16
-  %76 = load ptr, ptr %J.addr, align 8
-  %call36 = call i32 @lj_ir_kint(ptr noundef %76, i32 noundef -1)
-  %conv37 = trunc i32 %call36 to i16
-  store ptr %74, ptr %J.addr.i46, align 8
-  store i16 10515, ptr %ot.addr.i47, align 2
-  store i16 %conv35, ptr %a.addr.i48, align 2
-  store i16 %conv37, ptr %b.addr.i49, align 2
-  %77 = load i16, ptr %ot.addr.i47, align 2
-  %78 = load ptr, ptr %J.addr.i46, align 8
-  %fold.i50 = getelementptr inbounds %struct.jit_State, ptr %78, i32 0, i32 14
-  %ot1.i51 = getelementptr inbounds %struct.anon.2, ptr %fold.i50, i32 0, i32 2
-  store i16 %77, ptr %ot1.i51, align 4
-  %79 = load i16, ptr %a.addr.i48, align 2
-  %80 = load ptr, ptr %J.addr.i46, align 8
-  %fold2.i52 = getelementptr inbounds %struct.jit_State, ptr %80, i32 0, i32 14
-  store i16 %79, ptr %fold2.i52, align 8
-  %81 = load i16, ptr %b.addr.i49, align 2
-  %82 = load ptr, ptr %J.addr.i46, align 8
-  %fold4.i53 = getelementptr inbounds %struct.jit_State, ptr %82, i32 0, i32 14
-  %op2.i54 = getelementptr inbounds %struct.anon.2, ptr %fold4.i53, i32 0, i32 1
-  store i16 %81, ptr %op2.i54, align 2
-  %83 = load ptr, ptr %J.addr, align 8
-  %call38 = call i32 @lj_opt_fold(ptr noundef %83)
-  store i32 %call38, ptr %rep, align 4
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.then31, %if.end29
-  %84 = load ptr, ptr %J.addr, align 8
-  %85 = load i32, ptr %tr, align 4
-  %86 = load i32, ptr %str, align 4
-  %87 = load i32, ptr %rep, align 4
-  %call40 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %84, i32 noundef 22, i32 noundef %85, i32 noundef %86, i32 noundef %87)
-  store i32 %call40, ptr %tr, align 4
-  %88 = load ptr, ptr %J.addr, align 8
-  %89 = load i32, ptr %tr, align 4
-  %conv41 = trunc i32 %89 to i16
-  %90 = load i32, ptr %hdr, align 4
-  %conv42 = trunc i32 %90 to i16
-  store ptr %88, ptr %J.addr.i, align 8
-  store i16 22404, ptr %ot.addr.i, align 2
-  store i16 %conv41, ptr %a.addr.i, align 2
-  store i16 %conv42, ptr %b.addr.i, align 2
-  %91 = load i16, ptr %ot.addr.i, align 2
-  %92 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %92, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %91, ptr %ot1.i, align 4
-  %93 = load i16, ptr %a.addr.i, align 2
-  %94 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %94, i32 0, i32 14
-  store i16 %93, ptr %fold2.i, align 8
-  %95 = load i16, ptr %b.addr.i, align 2
-  %96 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %96, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %95, ptr %op2.i, align 2
-  %97 = load ptr, ptr %J.addr, align 8
-  %call43 = call i32 @lj_opt_fold(ptr noundef %97)
-  %98 = load ptr, ptr %J.addr, align 8
-  %base44 = getelementptr inbounds %struct.jit_State, ptr %98, i32 0, i32 6
-  %99 = load ptr, ptr %base44, align 8
-  %arrayidx45 = getelementptr inbounds i32, ptr %99, i64 0
-  store i32 %call43, ptr %arrayidx45, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_string_op(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %str = alloca i32, align 4
-  %hdr = alloca i32, align 4
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tostr(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %str, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %call1 = call i32 @recff_bufhdr(ptr noundef %4)
-  store i32 %call1, ptr %hdr, align 4
-  %5 = load ptr, ptr %J.addr, align 8
-  %6 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %data, align 8
-  %8 = load i32, ptr %hdr, align 4
-  %9 = load i32, ptr %str, align 4
-  %call2 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %5, i32 noundef %7, i32 noundef %8, i32 noundef %9)
-  store i32 %call2, ptr %tr, align 4
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %11 to i16
-  %12 = load i32, ptr %hdr, align 4
-  %conv3 = trunc i32 %12 to i16
-  store ptr %10, ptr %J.addr.i, align 8
-  store i16 22404, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv3, ptr %b.addr.i, align 2
-  %13 = load i16, ptr %ot.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %13, ptr %ot1.i, align 4
-  %15 = load i16, ptr %a.addr.i, align 2
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  store i16 %15, ptr %fold2.i, align 8
-  %17 = load i16, ptr %b.addr.i, align 2
-  %18 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %17, ptr %op2.i, align 2
-  %19 = load ptr, ptr %J.addr, align 8
-  %call4 = call i32 @lj_opt_fold(ptr noundef %19)
-  %20 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 6
-  %21 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %21, i64 0
-  store i32 %call4, ptr %arrayidx6, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_string_find(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i206 = alloca ptr, align 8
-  %ot.addr.i207 = alloca i16, align 2
-  %a.addr.i208 = alloca i16, align 2
-  %b.addr.i209 = alloca i16, align 2
-  %J.addr.i197 = alloca ptr, align 8
-  %ot.addr.i198 = alloca i16, align 2
-  %a.addr.i199 = alloca i16, align 2
-  %b.addr.i200 = alloca i16, align 2
-  %J.addr.i188 = alloca ptr, align 8
-  %ot.addr.i189 = alloca i16, align 2
-  %a.addr.i190 = alloca i16, align 2
-  %b.addr.i191 = alloca i16, align 2
-  %J.addr.i179 = alloca ptr, align 8
-  %ot.addr.i180 = alloca i16, align 2
-  %a.addr.i181 = alloca i16, align 2
-  %b.addr.i182 = alloca i16, align 2
-  %J.addr.i170 = alloca ptr, align 8
-  %ot.addr.i171 = alloca i16, align 2
-  %a.addr.i172 = alloca i16, align 2
-  %b.addr.i173 = alloca i16, align 2
-  %J.addr.i161 = alloca ptr, align 8
-  %ot.addr.i162 = alloca i16, align 2
-  %a.addr.i163 = alloca i16, align 2
-  %b.addr.i164 = alloca i16, align 2
-  %J.addr.i152 = alloca ptr, align 8
-  %ot.addr.i153 = alloca i16, align 2
-  %a.addr.i154 = alloca i16, align 2
-  %b.addr.i155 = alloca i16, align 2
-  %J.addr.i143 = alloca ptr, align 8
-  %ot.addr.i144 = alloca i16, align 2
-  %a.addr.i145 = alloca i16, align 2
-  %b.addr.i146 = alloca i16, align 2
-  %J.addr.i134 = alloca ptr, align 8
-  %ot.addr.i135 = alloca i16, align 2
-  %a.addr.i136 = alloca i16, align 2
-  %b.addr.i137 = alloca i16, align 2
-  %J.addr.i125 = alloca ptr, align 8
-  %ot.addr.i126 = alloca i16, align 2
-  %a.addr.i127 = alloca i16, align 2
-  %b.addr.i128 = alloca i16, align 2
-  %J.addr.i116 = alloca ptr, align 8
-  %ot.addr.i117 = alloca i16, align 2
-  %a.addr.i118 = alloca i16, align 2
-  %b.addr.i119 = alloca i16, align 2
-  %J.addr.i107 = alloca ptr, align 8
-  %ot.addr.i108 = alloca i16, align 2
-  %a.addr.i109 = alloca i16, align 2
-  %b.addr.i110 = alloca i16, align 2
-  %J.addr.i98 = alloca ptr, align 8
-  %ot.addr.i99 = alloca i16, align 2
-  %a.addr.i100 = alloca i16, align 2
-  %b.addr.i101 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %trstr = alloca i32, align 4
-  %trpat = alloca i32, align 4
-  %trlen = alloca i32, align 4
-  %tr0 = alloca i32, align 4
-  %trstart = alloca i32, align 4
-  %str = alloca ptr, align 8
-  %pat = alloca ptr, align 8
-  %start = alloca i32, align 4
-  %trsptr = alloca i32, align 4
-  %trpptr = alloca i32, align 4
-  %trslen = alloca i32, align 4
-  %trplen = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %trp0 = alloca i32, align 4
-  %pos = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tostr(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %trstr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx2, align 4
-  %call3 = call i32 @lj_ir_tostr(ptr noundef %4, i32 noundef %7)
-  store i32 %call3, ptr %trpat, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %trstr, align 4
-  %conv = trunc i32 %9 to i16
-  store ptr %8, ptr %J.addr.i206, align 8
-  store i16 17683, ptr %ot.addr.i207, align 2
-  store i16 %conv, ptr %a.addr.i208, align 2
-  store i16 0, ptr %b.addr.i209, align 2
-  %10 = load i16, ptr %ot.addr.i207, align 2
-  %11 = load ptr, ptr %J.addr.i206, align 8
-  %fold.i210 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 14
-  %ot1.i211 = getelementptr inbounds %struct.anon.2, ptr %fold.i210, i32 0, i32 2
-  store i16 %10, ptr %ot1.i211, align 4
-  %12 = load i16, ptr %a.addr.i208, align 2
-  %13 = load ptr, ptr %J.addr.i206, align 8
-  %fold2.i212 = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  store i16 %12, ptr %fold2.i212, align 8
-  %14 = load i16, ptr %b.addr.i209, align 2
-  %15 = load ptr, ptr %J.addr.i206, align 8
-  %fold4.i213 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  %op2.i214 = getelementptr inbounds %struct.anon.2, ptr %fold4.i213, i32 0, i32 1
-  store i16 %14, ptr %op2.i214, align 2
-  %16 = load ptr, ptr %J.addr, align 8
-  %call4 = call i32 @lj_opt_fold(ptr noundef %16)
-  store i32 %call4, ptr %trlen, align 4
-  %17 = load ptr, ptr %J.addr, align 8
-  %call5 = call i32 @lj_ir_kint(ptr noundef %17, i32 noundef 0)
-  store i32 %call5, ptr %tr0, align 4
-  %18 = load ptr, ptr %J.addr, align 8
-  %19 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds %union.TValue, ptr %20, i64 0
-  %call7 = call ptr @argv2str(ptr noundef %18, ptr noundef %arrayidx6)
-  store ptr %call7, ptr %str, align 8
-  %21 = load ptr, ptr %J.addr, align 8
-  %22 = load ptr, ptr %rd.addr, align 8
-  %argv8 = getelementptr inbounds %struct.RecordFFData, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %argv8, align 8
-  %arrayidx9 = getelementptr inbounds %union.TValue, ptr %23, i64 1
-  %call10 = call ptr @argv2str(ptr noundef %21, ptr noundef %arrayidx9)
-  store ptr %call10, ptr %pat, align 8
-  %24 = load ptr, ptr %J.addr, align 8
-  %needsnap = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 11
-  store i8 1, ptr %needsnap, align 1
-  %25 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 6
-  %26 = load ptr, ptr %base11, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %26, i64 2
-  %27 = load i32, ptr %arrayidx12, align 4
-  %and = and i32 %27, 520093696
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %28 = load ptr, ptr %J.addr, align 8
-  %call14 = call i32 @lj_ir_kint(ptr noundef %28, i32 noundef 1)
-  store i32 %call14, ptr %trstart, align 4
-  store i32 1, ptr %start, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %29 = load ptr, ptr %J.addr, align 8
-  %30 = load ptr, ptr %J.addr, align 8
-  %base15 = getelementptr inbounds %struct.jit_State, ptr %30, i32 0, i32 6
-  %31 = load ptr, ptr %base15, align 8
-  %arrayidx16 = getelementptr inbounds i32, ptr %31, i64 2
-  %32 = load i32, ptr %arrayidx16, align 4
-  %call17 = call i32 @lj_opt_narrow_toint(ptr noundef %29, i32 noundef %32)
-  store i32 %call17, ptr %trstart, align 4
-  %33 = load ptr, ptr %J.addr, align 8
-  %34 = load ptr, ptr %rd.addr, align 8
-  %argv18 = getelementptr inbounds %struct.RecordFFData, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %argv18, align 8
-  %arrayidx19 = getelementptr inbounds %union.TValue, ptr %35, i64 2
-  %call20 = call i32 @argv2int(ptr noundef %33, ptr noundef %arrayidx19)
-  store i32 %call20, ptr %start, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %36 = load ptr, ptr %J.addr, align 8
-  %37 = load ptr, ptr %str, align 8
-  %38 = load i32, ptr %trstart, align 4
-  %39 = load i32, ptr %trlen, align 4
-  %40 = load i32, ptr %tr0, align 4
-  %call21 = call i32 @recff_string_start(ptr noundef %36, ptr noundef %37, ptr noundef %start, i32 noundef %38, i32 noundef %39, i32 noundef %40)
-  store i32 %call21, ptr %trstart, align 4
-  %41 = load i32, ptr %start, align 4
-  %42 = load ptr, ptr %str, align 8
-  %len = getelementptr inbounds %struct.GCstr, ptr %42, i32 0, i32 7
-  %43 = load i32, ptr %len, align 4
-  %cmp22 = icmp ule i32 %41, %43
-  br i1 %cmp22, label %if.then24, label %if.else28
-
-if.then24:                                        ; preds = %if.end
-  %44 = load ptr, ptr %J.addr, align 8
-  %45 = load i32, ptr %trstart, align 4
-  %conv25 = trunc i32 %45 to i16
-  %46 = load i32, ptr %trlen, align 4
-  %conv26 = trunc i32 %46 to i16
-  store ptr %44, ptr %J.addr.i197, align 8
-  store i16 1683, ptr %ot.addr.i198, align 2
-  store i16 %conv25, ptr %a.addr.i199, align 2
-  store i16 %conv26, ptr %b.addr.i200, align 2
-  %47 = load i16, ptr %ot.addr.i198, align 2
-  %48 = load ptr, ptr %J.addr.i197, align 8
-  %fold.i201 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  %ot1.i202 = getelementptr inbounds %struct.anon.2, ptr %fold.i201, i32 0, i32 2
-  store i16 %47, ptr %ot1.i202, align 4
-  %49 = load i16, ptr %a.addr.i199, align 2
-  %50 = load ptr, ptr %J.addr.i197, align 8
-  %fold2.i203 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 14
-  store i16 %49, ptr %fold2.i203, align 8
-  %51 = load i16, ptr %b.addr.i200, align 2
-  %52 = load ptr, ptr %J.addr.i197, align 8
-  %fold4.i204 = getelementptr inbounds %struct.jit_State, ptr %52, i32 0, i32 14
-  %op2.i205 = getelementptr inbounds %struct.anon.2, ptr %fold4.i204, i32 0, i32 1
-  store i16 %51, ptr %op2.i205, align 2
-  %53 = load ptr, ptr %J.addr, align 8
-  %call27 = call i32 @lj_opt_fold(ptr noundef %53)
-  br label %if.end33
-
-if.else28:                                        ; preds = %if.end
-  %54 = load ptr, ptr %J.addr, align 8
-  %55 = load i32, ptr %trstart, align 4
-  %conv29 = trunc i32 %55 to i16
-  %56 = load i32, ptr %trlen, align 4
-  %conv30 = trunc i32 %56 to i16
-  store ptr %54, ptr %J.addr.i188, align 8
-  store i16 1939, ptr %ot.addr.i189, align 2
-  store i16 %conv29, ptr %a.addr.i190, align 2
-  store i16 %conv30, ptr %b.addr.i191, align 2
-  %57 = load i16, ptr %ot.addr.i189, align 2
-  %58 = load ptr, ptr %J.addr.i188, align 8
-  %fold.i192 = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 14
-  %ot1.i193 = getelementptr inbounds %struct.anon.2, ptr %fold.i192, i32 0, i32 2
-  store i16 %57, ptr %ot1.i193, align 4
-  %59 = load i16, ptr %a.addr.i190, align 2
-  %60 = load ptr, ptr %J.addr.i188, align 8
-  %fold2.i194 = getelementptr inbounds %struct.jit_State, ptr %60, i32 0, i32 14
-  store i16 %59, ptr %fold2.i194, align 8
-  %61 = load i16, ptr %b.addr.i191, align 2
-  %62 = load ptr, ptr %J.addr.i188, align 8
-  %fold4.i195 = getelementptr inbounds %struct.jit_State, ptr %62, i32 0, i32 14
-  %op2.i196 = getelementptr inbounds %struct.anon.2, ptr %fold4.i195, i32 0, i32 1
-  store i16 %61, ptr %op2.i196, align 2
-  %63 = load ptr, ptr %J.addr, align 8
-  %call31 = call i32 @lj_opt_fold(ptr noundef %63)
-  %64 = load i32, ptr %trlen, align 4
-  store i32 %64, ptr %trstart, align 4
-  %65 = load ptr, ptr %str, align 8
-  %len32 = getelementptr inbounds %struct.GCstr, ptr %65, i32 0, i32 7
-  %66 = load i32, ptr %len32, align 4
-  store i32 %66, ptr %start, align 4
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.else28, %if.then24
-  %67 = load ptr, ptr %J.addr, align 8
-  %base34 = getelementptr inbounds %struct.jit_State, ptr %67, i32 0, i32 6
-  %68 = load ptr, ptr %base34, align 8
-  %arrayidx35 = getelementptr inbounds i32, ptr %68, i64 2
-  %69 = load i32, ptr %arrayidx35, align 4
-  %tobool = icmp ne i32 %69, 0
-  br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
-
-land.lhs.true:                                    ; preds = %if.end33
-  %70 = load ptr, ptr %J.addr, align 8
-  %base36 = getelementptr inbounds %struct.jit_State, ptr %70, i32 0, i32 6
-  %71 = load ptr, ptr %base36, align 8
-  %arrayidx37 = getelementptr inbounds i32, ptr %71, i64 3
-  %72 = load i32, ptr %arrayidx37, align 4
-  %shr = lshr i32 %72, 24
-  %and38 = and i32 %shr, 31
-  %sub = sub i32 %and38, 0
-  %cmp39 = icmp ule i32 %sub, 1
-  br i1 %cmp39, label %lor.lhs.false, label %if.then47
-
-lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end33
-  %73 = load ptr, ptr %J.addr, align 8
-  %74 = load i32, ptr %trpat, align 4
-  %conv41 = trunc i32 %74 to i16
-  %75 = load ptr, ptr %J.addr, align 8
-  %76 = load ptr, ptr %pat, align 8
-  %call42 = call i32 @lj_ir_kgc(ptr noundef %75, ptr noundef %76, i32 noundef 4)
-  %conv43 = trunc i32 %call42 to i16
-  store ptr %73, ptr %J.addr.i179, align 8
-  store i16 2180, ptr %ot.addr.i180, align 2
-  store i16 %conv41, ptr %a.addr.i181, align 2
-  store i16 %conv43, ptr %b.addr.i182, align 2
-  %77 = load i16, ptr %ot.addr.i180, align 2
-  %78 = load ptr, ptr %J.addr.i179, align 8
-  %fold.i183 = getelementptr inbounds %struct.jit_State, ptr %78, i32 0, i32 14
-  %ot1.i184 = getelementptr inbounds %struct.anon.2, ptr %fold.i183, i32 0, i32 2
-  store i16 %77, ptr %ot1.i184, align 4
-  %79 = load i16, ptr %a.addr.i181, align 2
-  %80 = load ptr, ptr %J.addr.i179, align 8
-  %fold2.i185 = getelementptr inbounds %struct.jit_State, ptr %80, i32 0, i32 14
-  store i16 %79, ptr %fold2.i185, align 8
-  %81 = load i16, ptr %b.addr.i182, align 2
-  %82 = load ptr, ptr %J.addr.i179, align 8
-  %fold4.i186 = getelementptr inbounds %struct.jit_State, ptr %82, i32 0, i32 14
-  %op2.i187 = getelementptr inbounds %struct.anon.2, ptr %fold4.i186, i32 0, i32 1
-  store i16 %81, ptr %op2.i187, align 2
-  %83 = load ptr, ptr %J.addr, align 8
-  %call44 = call i32 @lj_opt_fold(ptr noundef %83)
-  %84 = load ptr, ptr %pat, align 8
-  %call45 = call i32 @lj_str_haspattern(ptr noundef %84)
-  %tobool46 = icmp ne i32 %call45, 0
-  %lnot = xor i1 %tobool46, true
-  br i1 %lnot, label %if.then47, label %if.else96
-
-if.then47:                                        ; preds = %lor.lhs.false, %land.lhs.true
-  %85 = load ptr, ptr %J.addr, align 8
-  %86 = load i32, ptr %trstr, align 4
-  %conv48 = trunc i32 %86 to i16
-  %87 = load i32, ptr %trstart, align 4
-  %conv49 = trunc i32 %87 to i16
-  store ptr %85, ptr %J.addr.i170, align 8
-  store i16 16393, ptr %ot.addr.i171, align 2
-  store i16 %conv48, ptr %a.addr.i172, align 2
-  store i16 %conv49, ptr %b.addr.i173, align 2
-  %88 = load i16, ptr %ot.addr.i171, align 2
-  %89 = load ptr, ptr %J.addr.i170, align 8
-  %fold.i174 = getelementptr inbounds %struct.jit_State, ptr %89, i32 0, i32 14
-  %ot1.i175 = getelementptr inbounds %struct.anon.2, ptr %fold.i174, i32 0, i32 2
-  store i16 %88, ptr %ot1.i175, align 4
-  %90 = load i16, ptr %a.addr.i172, align 2
-  %91 = load ptr, ptr %J.addr.i170, align 8
-  %fold2.i176 = getelementptr inbounds %struct.jit_State, ptr %91, i32 0, i32 14
-  store i16 %90, ptr %fold2.i176, align 8
-  %92 = load i16, ptr %b.addr.i173, align 2
-  %93 = load ptr, ptr %J.addr.i170, align 8
-  %fold4.i177 = getelementptr inbounds %struct.jit_State, ptr %93, i32 0, i32 14
-  %op2.i178 = getelementptr inbounds %struct.anon.2, ptr %fold4.i177, i32 0, i32 1
-  store i16 %92, ptr %op2.i178, align 2
-  %94 = load ptr, ptr %J.addr, align 8
-  %call50 = call i32 @lj_opt_fold(ptr noundef %94)
-  store i32 %call50, ptr %trsptr, align 4
-  %95 = load ptr, ptr %J.addr, align 8
-  %96 = load i32, ptr %trpat, align 4
-  %conv51 = trunc i32 %96 to i16
-  %97 = load i32, ptr %tr0, align 4
-  %conv52 = trunc i32 %97 to i16
-  store ptr %95, ptr %J.addr.i161, align 8
-  store i16 16393, ptr %ot.addr.i162, align 2
-  store i16 %conv51, ptr %a.addr.i163, align 2
-  store i16 %conv52, ptr %b.addr.i164, align 2
-  %98 = load i16, ptr %ot.addr.i162, align 2
-  %99 = load ptr, ptr %J.addr.i161, align 8
-  %fold.i165 = getelementptr inbounds %struct.jit_State, ptr %99, i32 0, i32 14
-  %ot1.i166 = getelementptr inbounds %struct.anon.2, ptr %fold.i165, i32 0, i32 2
-  store i16 %98, ptr %ot1.i166, align 4
-  %100 = load i16, ptr %a.addr.i163, align 2
-  %101 = load ptr, ptr %J.addr.i161, align 8
-  %fold2.i167 = getelementptr inbounds %struct.jit_State, ptr %101, i32 0, i32 14
-  store i16 %100, ptr %fold2.i167, align 8
-  %102 = load i16, ptr %b.addr.i164, align 2
-  %103 = load ptr, ptr %J.addr.i161, align 8
-  %fold4.i168 = getelementptr inbounds %struct.jit_State, ptr %103, i32 0, i32 14
-  %op2.i169 = getelementptr inbounds %struct.anon.2, ptr %fold4.i168, i32 0, i32 1
-  store i16 %102, ptr %op2.i169, align 2
-  %104 = load ptr, ptr %J.addr, align 8
-  %call53 = call i32 @lj_opt_fold(ptr noundef %104)
-  store i32 %call53, ptr %trpptr, align 4
-  %105 = load ptr, ptr %J.addr, align 8
-  %106 = load i32, ptr %trlen, align 4
-  %conv54 = trunc i32 %106 to i16
-  %107 = load i32, ptr %trstart, align 4
-  %conv55 = trunc i32 %107 to i16
-  store ptr %105, ptr %J.addr.i152, align 8
-  store i16 10771, ptr %ot.addr.i153, align 2
-  store i16 %conv54, ptr %a.addr.i154, align 2
-  store i16 %conv55, ptr %b.addr.i155, align 2
-  %108 = load i16, ptr %ot.addr.i153, align 2
-  %109 = load ptr, ptr %J.addr.i152, align 8
-  %fold.i156 = getelementptr inbounds %struct.jit_State, ptr %109, i32 0, i32 14
-  %ot1.i157 = getelementptr inbounds %struct.anon.2, ptr %fold.i156, i32 0, i32 2
-  store i16 %108, ptr %ot1.i157, align 4
-  %110 = load i16, ptr %a.addr.i154, align 2
-  %111 = load ptr, ptr %J.addr.i152, align 8
-  %fold2.i158 = getelementptr inbounds %struct.jit_State, ptr %111, i32 0, i32 14
-  store i16 %110, ptr %fold2.i158, align 8
-  %112 = load i16, ptr %b.addr.i155, align 2
-  %113 = load ptr, ptr %J.addr.i152, align 8
-  %fold4.i159 = getelementptr inbounds %struct.jit_State, ptr %113, i32 0, i32 14
-  %op2.i160 = getelementptr inbounds %struct.anon.2, ptr %fold4.i159, i32 0, i32 1
-  store i16 %112, ptr %op2.i160, align 2
-  %114 = load ptr, ptr %J.addr, align 8
-  %call56 = call i32 @lj_opt_fold(ptr noundef %114)
-  store i32 %call56, ptr %trslen, align 4
-  %115 = load ptr, ptr %J.addr, align 8
-  %116 = load i32, ptr %trpat, align 4
-  %conv57 = trunc i32 %116 to i16
-  store ptr %115, ptr %J.addr.i143, align 8
-  store i16 17683, ptr %ot.addr.i144, align 2
-  store i16 %conv57, ptr %a.addr.i145, align 2
-  store i16 0, ptr %b.addr.i146, align 2
-  %117 = load i16, ptr %ot.addr.i144, align 2
-  %118 = load ptr, ptr %J.addr.i143, align 8
-  %fold.i147 = getelementptr inbounds %struct.jit_State, ptr %118, i32 0, i32 14
-  %ot1.i148 = getelementptr inbounds %struct.anon.2, ptr %fold.i147, i32 0, i32 2
-  store i16 %117, ptr %ot1.i148, align 4
-  %119 = load i16, ptr %a.addr.i145, align 2
-  %120 = load ptr, ptr %J.addr.i143, align 8
-  %fold2.i149 = getelementptr inbounds %struct.jit_State, ptr %120, i32 0, i32 14
-  store i16 %119, ptr %fold2.i149, align 8
-  %121 = load i16, ptr %b.addr.i146, align 2
-  %122 = load ptr, ptr %J.addr.i143, align 8
-  %fold4.i150 = getelementptr inbounds %struct.jit_State, ptr %122, i32 0, i32 14
-  %op2.i151 = getelementptr inbounds %struct.anon.2, ptr %fold4.i150, i32 0, i32 1
-  store i16 %121, ptr %op2.i151, align 2
-  %123 = load ptr, ptr %J.addr, align 8
-  %call58 = call i32 @lj_opt_fold(ptr noundef %123)
-  store i32 %call58, ptr %trplen, align 4
-  %124 = load ptr, ptr %J.addr, align 8
-  %125 = load i32, ptr %trsptr, align 4
-  %126 = load i32, ptr %trpptr, align 4
-  %127 = load i32, ptr %trslen, align 4
-  %128 = load i32, ptr %trplen, align 4
-  %call59 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %124, i32 noundef 1, i32 noundef %125, i32 noundef %126, i32 noundef %127, i32 noundef %128)
-  store i32 %call59, ptr %tr, align 4
-  %129 = load ptr, ptr %J.addr, align 8
-  %call60 = call i32 @lj_ir_kptr_(ptr noundef %129, i32 noundef 26, ptr noundef null)
-  store i32 %call60, ptr %trp0, align 4
-  %130 = load ptr, ptr %str, align 8
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %130, i64 1
-  %131 = load i32, ptr %start, align 4
-  %idx.ext = zext i32 %131 to i64
-  %add.ptr61 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
-  %132 = load ptr, ptr %pat, align 8
-  %add.ptr62 = getelementptr inbounds %struct.GCstr, ptr %132, i64 1
-  %133 = load ptr, ptr %str, align 8
-  %len63 = getelementptr inbounds %struct.GCstr, ptr %133, i32 0, i32 7
-  %134 = load i32, ptr %len63, align 4
-  %135 = load i32, ptr %start, align 4
-  %sub64 = sub i32 %134, %135
-  %136 = load ptr, ptr %pat, align 8
-  %len65 = getelementptr inbounds %struct.GCstr, ptr %136, i32 0, i32 7
-  %137 = load i32, ptr %len65, align 4
-  %call66 = call ptr @lj_str_find(ptr noundef %add.ptr61, ptr noundef %add.ptr62, i32 noundef %sub64, i32 noundef %137)
-  %tobool67 = icmp ne ptr %call66, null
-  br i1 %tobool67, label %if.then68, label %if.else89
-
-if.then68:                                        ; preds = %if.then47
-  %138 = load ptr, ptr %J.addr, align 8
-  %139 = load i32, ptr %tr, align 4
-  %conv69 = trunc i32 %139 to i16
-  %140 = load i32, ptr %trp0, align 4
-  %conv70 = trunc i32 %140 to i16
-  store ptr %138, ptr %J.addr.i134, align 8
-  store i16 2441, ptr %ot.addr.i135, align 2
-  store i16 %conv69, ptr %a.addr.i136, align 2
-  store i16 %conv70, ptr %b.addr.i137, align 2
-  %141 = load i16, ptr %ot.addr.i135, align 2
-  %142 = load ptr, ptr %J.addr.i134, align 8
-  %fold.i138 = getelementptr inbounds %struct.jit_State, ptr %142, i32 0, i32 14
-  %ot1.i139 = getelementptr inbounds %struct.anon.2, ptr %fold.i138, i32 0, i32 2
-  store i16 %141, ptr %ot1.i139, align 4
-  %143 = load i16, ptr %a.addr.i136, align 2
-  %144 = load ptr, ptr %J.addr.i134, align 8
-  %fold2.i140 = getelementptr inbounds %struct.jit_State, ptr %144, i32 0, i32 14
-  store i16 %143, ptr %fold2.i140, align 8
-  %145 = load i16, ptr %b.addr.i137, align 2
-  %146 = load ptr, ptr %J.addr.i134, align 8
-  %fold4.i141 = getelementptr inbounds %struct.jit_State, ptr %146, i32 0, i32 14
-  %op2.i142 = getelementptr inbounds %struct.anon.2, ptr %fold4.i141, i32 0, i32 1
-  store i16 %145, ptr %op2.i142, align 2
-  %147 = load ptr, ptr %J.addr, align 8
-  %call71 = call i32 @lj_opt_fold(ptr noundef %147)
-  %148 = load ptr, ptr %J.addr, align 8
-  %149 = load ptr, ptr %J.addr, align 8
-  %150 = load i32, ptr %tr, align 4
-  %conv72 = trunc i32 %150 to i16
-  %151 = load i32, ptr %trsptr, align 4
-  %conv73 = trunc i32 %151 to i16
-  store ptr %149, ptr %J.addr.i125, align 8
-  store i16 10771, ptr %ot.addr.i126, align 2
-  store i16 %conv72, ptr %a.addr.i127, align 2
-  store i16 %conv73, ptr %b.addr.i128, align 2
-  %152 = load i16, ptr %ot.addr.i126, align 2
-  %153 = load ptr, ptr %J.addr.i125, align 8
-  %fold.i129 = getelementptr inbounds %struct.jit_State, ptr %153, i32 0, i32 14
-  %ot1.i130 = getelementptr inbounds %struct.anon.2, ptr %fold.i129, i32 0, i32 2
-  store i16 %152, ptr %ot1.i130, align 4
-  %154 = load i16, ptr %a.addr.i127, align 2
-  %155 = load ptr, ptr %J.addr.i125, align 8
-  %fold2.i131 = getelementptr inbounds %struct.jit_State, ptr %155, i32 0, i32 14
-  store i16 %154, ptr %fold2.i131, align 8
-  %156 = load i16, ptr %b.addr.i128, align 2
-  %157 = load ptr, ptr %J.addr.i125, align 8
-  %fold4.i132 = getelementptr inbounds %struct.jit_State, ptr %157, i32 0, i32 14
-  %op2.i133 = getelementptr inbounds %struct.anon.2, ptr %fold4.i132, i32 0, i32 1
-  store i16 %156, ptr %op2.i133, align 2
-  %158 = load ptr, ptr %J.addr, align 8
-  %call74 = call i32 @lj_opt_fold(ptr noundef %158)
-  %conv75 = trunc i32 %call74 to i16
-  %159 = load i32, ptr %trstart, align 4
-  %conv76 = trunc i32 %159 to i16
-  store ptr %148, ptr %J.addr.i116, align 8
-  store i16 10515, ptr %ot.addr.i117, align 2
-  store i16 %conv75, ptr %a.addr.i118, align 2
-  store i16 %conv76, ptr %b.addr.i119, align 2
-  %160 = load i16, ptr %ot.addr.i117, align 2
-  %161 = load ptr, ptr %J.addr.i116, align 8
-  %fold.i120 = getelementptr inbounds %struct.jit_State, ptr %161, i32 0, i32 14
-  %ot1.i121 = getelementptr inbounds %struct.anon.2, ptr %fold.i120, i32 0, i32 2
-  store i16 %160, ptr %ot1.i121, align 4
-  %162 = load i16, ptr %a.addr.i118, align 2
-  %163 = load ptr, ptr %J.addr.i116, align 8
-  %fold2.i122 = getelementptr inbounds %struct.jit_State, ptr %163, i32 0, i32 14
-  store i16 %162, ptr %fold2.i122, align 8
-  %164 = load i16, ptr %b.addr.i119, align 2
-  %165 = load ptr, ptr %J.addr.i116, align 8
-  %fold4.i123 = getelementptr inbounds %struct.jit_State, ptr %165, i32 0, i32 14
-  %op2.i124 = getelementptr inbounds %struct.anon.2, ptr %fold4.i123, i32 0, i32 1
-  store i16 %164, ptr %op2.i124, align 2
-  %166 = load ptr, ptr %J.addr, align 8
-  %call77 = call i32 @lj_opt_fold(ptr noundef %166)
-  store i32 %call77, ptr %pos, align 4
-  %167 = load ptr, ptr %J.addr, align 8
-  %168 = load i32, ptr %pos, align 4
-  %conv78 = trunc i32 %168 to i16
-  %169 = load ptr, ptr %J.addr, align 8
-  %call79 = call i32 @lj_ir_kint(ptr noundef %169, i32 noundef 1)
-  %conv80 = trunc i32 %call79 to i16
-  store ptr %167, ptr %J.addr.i107, align 8
-  store i16 10515, ptr %ot.addr.i108, align 2
-  store i16 %conv78, ptr %a.addr.i109, align 2
-  store i16 %conv80, ptr %b.addr.i110, align 2
-  %170 = load i16, ptr %ot.addr.i108, align 2
-  %171 = load ptr, ptr %J.addr.i107, align 8
-  %fold.i111 = getelementptr inbounds %struct.jit_State, ptr %171, i32 0, i32 14
-  %ot1.i112 = getelementptr inbounds %struct.anon.2, ptr %fold.i111, i32 0, i32 2
-  store i16 %170, ptr %ot1.i112, align 4
-  %172 = load i16, ptr %a.addr.i109, align 2
-  %173 = load ptr, ptr %J.addr.i107, align 8
-  %fold2.i113 = getelementptr inbounds %struct.jit_State, ptr %173, i32 0, i32 14
-  store i16 %172, ptr %fold2.i113, align 8
-  %174 = load i16, ptr %b.addr.i110, align 2
-  %175 = load ptr, ptr %J.addr.i107, align 8
-  %fold4.i114 = getelementptr inbounds %struct.jit_State, ptr %175, i32 0, i32 14
-  %op2.i115 = getelementptr inbounds %struct.anon.2, ptr %fold4.i114, i32 0, i32 1
-  store i16 %174, ptr %op2.i115, align 2
-  %176 = load ptr, ptr %J.addr, align 8
-  %call81 = call i32 @lj_opt_fold(ptr noundef %176)
-  %177 = load ptr, ptr %J.addr, align 8
-  %base82 = getelementptr inbounds %struct.jit_State, ptr %177, i32 0, i32 6
-  %178 = load ptr, ptr %base82, align 8
-  %arrayidx83 = getelementptr inbounds i32, ptr %178, i64 0
-  store i32 %call81, ptr %arrayidx83, align 4
-  %179 = load ptr, ptr %J.addr, align 8
-  %180 = load i32, ptr %pos, align 4
-  %conv84 = trunc i32 %180 to i16
-  %181 = load i32, ptr %trplen, align 4
-  %conv85 = trunc i32 %181 to i16
-  store ptr %179, ptr %J.addr.i98, align 8
-  store i16 10515, ptr %ot.addr.i99, align 2
-  store i16 %conv84, ptr %a.addr.i100, align 2
-  store i16 %conv85, ptr %b.addr.i101, align 2
-  %182 = load i16, ptr %ot.addr.i99, align 2
-  %183 = load ptr, ptr %J.addr.i98, align 8
-  %fold.i102 = getelementptr inbounds %struct.jit_State, ptr %183, i32 0, i32 14
-  %ot1.i103 = getelementptr inbounds %struct.anon.2, ptr %fold.i102, i32 0, i32 2
-  store i16 %182, ptr %ot1.i103, align 4
-  %184 = load i16, ptr %a.addr.i100, align 2
-  %185 = load ptr, ptr %J.addr.i98, align 8
-  %fold2.i104 = getelementptr inbounds %struct.jit_State, ptr %185, i32 0, i32 14
-  store i16 %184, ptr %fold2.i104, align 8
-  %186 = load i16, ptr %b.addr.i101, align 2
-  %187 = load ptr, ptr %J.addr.i98, align 8
-  %fold4.i105 = getelementptr inbounds %struct.jit_State, ptr %187, i32 0, i32 14
-  %op2.i106 = getelementptr inbounds %struct.anon.2, ptr %fold4.i105, i32 0, i32 1
-  store i16 %186, ptr %op2.i106, align 2
-  %188 = load ptr, ptr %J.addr, align 8
-  %call86 = call i32 @lj_opt_fold(ptr noundef %188)
-  %189 = load ptr, ptr %J.addr, align 8
-  %base87 = getelementptr inbounds %struct.jit_State, ptr %189, i32 0, i32 6
-  %190 = load ptr, ptr %base87, align 8
-  %arrayidx88 = getelementptr inbounds i32, ptr %190, i64 1
-  store i32 %call86, ptr %arrayidx88, align 4
-  %191 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %191, i32 0, i32 1
-  store i64 2, ptr %nres, align 8
-  br label %if.end95
-
-if.else89:                                        ; preds = %if.then47
-  %192 = load ptr, ptr %J.addr, align 8
-  %193 = load i32, ptr %tr, align 4
-  %conv90 = trunc i32 %193 to i16
-  %194 = load i32, ptr %trp0, align 4
-  %conv91 = trunc i32 %194 to i16
-  store ptr %192, ptr %J.addr.i, align 8
-  store i16 2185, ptr %ot.addr.i, align 2
-  store i16 %conv90, ptr %a.addr.i, align 2
-  store i16 %conv91, ptr %b.addr.i, align 2
-  %195 = load i16, ptr %ot.addr.i, align 2
-  %196 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %196, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %195, ptr %ot1.i, align 4
-  %197 = load i16, ptr %a.addr.i, align 2
-  %198 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %198, i32 0, i32 14
-  store i16 %197, ptr %fold2.i, align 8
-  %199 = load i16, ptr %b.addr.i, align 2
-  %200 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %200, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %199, ptr %op2.i, align 2
-  %201 = load ptr, ptr %J.addr, align 8
-  %call92 = call i32 @lj_opt_fold(ptr noundef %201)
-  %202 = load ptr, ptr %J.addr, align 8
-  %base93 = getelementptr inbounds %struct.jit_State, ptr %202, i32 0, i32 6
-  %203 = load ptr, ptr %base93, align 8
-  %arrayidx94 = getelementptr inbounds i32, ptr %203, i64 0
-  store i32 32767, ptr %arrayidx94, align 4
-  br label %if.end95
-
-if.end95:                                         ; preds = %if.else89, %if.then68
-  br label %if.end97
-
-if.else96:                                        ; preds = %lor.lhs.false
-  %204 = load ptr, ptr %J.addr, align 8
-  %205 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %204, ptr noundef %205)
-  br label %if.end97
-
-if.end97:                                         ; preds = %if.else96, %if.end95
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_string_format(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %2 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @recff_bufhdr(ptr noundef %2)
-  call void @recff_format(ptr noundef %0, ptr noundef %1, i32 noundef %call, i32 noundef 0)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_table_insert(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %o.addr.i32 = alloca ptr, align 8
-  %v.addr.i33 = alloca ptr, align 8
-  %itype.addr.i = alloca i32, align 4
-  %L.addr.i.i = alloca ptr, align 8
-  %o.addr.i.i = alloca ptr, align 8
-  %msg.addr.i.i = alloca ptr, align 8
-  %L.addr.i29 = alloca ptr, align 8
-  %o.addr.i30 = alloca ptr, align 8
-  %v.addr.i31 = alloca ptr, align 8
-  %it.addr.i = alloca i32, align 4
-  %L.addr.i = alloca ptr, align 8
-  %o.addr.i28 = alloca ptr, align 8
-  %v.addr.i = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %i.addr.i = alloca i32, align 4
-  %J.addr.i19 = alloca ptr, align 8
-  %ot.addr.i20 = alloca i16, align 2
-  %a.addr.i21 = alloca i16, align 2
-  %b.addr.i22 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ix = alloca %struct.RecordIndex, align 8
-  %trlen = alloca i32, align 4
-  %t = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  %tab = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %2, ptr %tab, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %4, i64 1
-  %5 = load i32, ptr %arrayidx2, align 4
-  %val = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 8
-  store i32 %5, ptr %val, align 8
-  %6 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %6, i32 0, i32 1
-  store i64 0, ptr %nres, align 8
-  %tab3 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  %7 = load i32, ptr %tab3, align 8
-  %and = and i32 %7, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %land.lhs.true, label %if.end18
-
-land.lhs.true:                                    ; preds = %entry
-  %val4 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 8
-  %8 = load i32, ptr %val4, align 8
-  %tobool = icmp ne i32 %8, 0
-  br i1 %tobool, label %if.then, label %if.end18
-
-if.then:                                          ; preds = %land.lhs.true
-  %9 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %9, i32 0, i32 6
-  %10 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %10, i64 2
-  %11 = load i32, ptr %arrayidx6, align 4
-  %tobool7 = icmp ne i32 %11, 0
-  br i1 %tobool7, label %if.else, label %if.then8
-
-if.then8:                                         ; preds = %if.then
-  %12 = load ptr, ptr %J.addr, align 8
-  %tab9 = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  %13 = load i32, ptr %tab9, align 8
-  %conv = trunc i32 %13 to i16
-  store ptr %12, ptr %J.addr.i19, align 8
-  store i16 18707, ptr %ot.addr.i20, align 2
-  store i16 %conv, ptr %a.addr.i21, align 2
-  store i16 32767, ptr %b.addr.i22, align 2
-  %14 = load i16, ptr %ot.addr.i20, align 2
-  %15 = load ptr, ptr %J.addr.i19, align 8
-  %fold.i23 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  %ot1.i24 = getelementptr inbounds %struct.anon.2, ptr %fold.i23, i32 0, i32 2
-  store i16 %14, ptr %ot1.i24, align 4
-  %16 = load i16, ptr %a.addr.i21, align 2
-  %17 = load ptr, ptr %J.addr.i19, align 8
-  %fold2.i25 = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  store i16 %16, ptr %fold2.i25, align 8
-  %18 = load i16, ptr %b.addr.i22, align 2
-  %19 = load ptr, ptr %J.addr.i19, align 8
-  %fold4.i26 = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 14
-  %op2.i27 = getelementptr inbounds %struct.anon.2, ptr %fold4.i26, i32 0, i32 1
-  store i16 %18, ptr %op2.i27, align 2
-  %20 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_opt_fold(ptr noundef %20)
-  store i32 %call, ptr %trlen, align 4
-  %21 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %argv, align 8
-  %arrayidx10 = getelementptr inbounds %union.TValue, ptr %22, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx10, i32 0, i32 0
-  %23 = load i64, ptr %gcptr64, align 8
-  %and11 = and i64 %23, 140737488355327
-  %24 = inttoptr i64 %and11 to ptr
-  store ptr %24, ptr %t, align 8
-  %25 = load ptr, ptr %J.addr, align 8
-  %26 = load i32, ptr %trlen, align 4
-  %conv12 = trunc i32 %26 to i16
-  %27 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_ir_kint(ptr noundef %27, i32 noundef 1)
-  %conv14 = trunc i32 %call13 to i16
-  store ptr %25, ptr %J.addr.i, align 8
-  store i16 10515, ptr %ot.addr.i, align 2
-  store i16 %conv12, ptr %a.addr.i, align 2
-  store i16 %conv14, ptr %b.addr.i, align 2
-  %28 = load i16, ptr %ot.addr.i, align 2
-  %29 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %28, ptr %ot1.i, align 4
-  %30 = load i16, ptr %a.addr.i, align 2
-  %31 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 14
-  store i16 %30, ptr %fold2.i, align 8
-  %32 = load i16, ptr %b.addr.i, align 2
-  %33 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %32, ptr %op2.i, align 2
-  %34 = load ptr, ptr %J.addr, align 8
-  %call15 = call i32 @lj_opt_fold(ptr noundef %34)
-  %key = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 7
-  store i32 %call15, ptr %key, align 4
-  %35 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %37 = load ptr, ptr %t, align 8
-  store ptr %36, ptr %L.addr.i, align 8
-  store ptr %tabv, ptr %o.addr.i28, align 8
-  store ptr %37, ptr %v.addr.i, align 8
-  %38 = load ptr, ptr %L.addr.i, align 8
-  %39 = load ptr, ptr %o.addr.i28, align 8
-  %40 = load ptr, ptr %v.addr.i, align 8
-  store ptr %38, ptr %L.addr.i29, align 8
-  store ptr %39, ptr %o.addr.i30, align 8
-  store ptr %40, ptr %v.addr.i31, align 8
-  store i32 -12, ptr %it.addr.i, align 4
-  %41 = load ptr, ptr %o.addr.i30, align 8
-  %42 = load ptr, ptr %v.addr.i31, align 8
-  %43 = load i32, ptr %it.addr.i, align 4
-  store ptr %41, ptr %o.addr.i32, align 8
-  store ptr %42, ptr %v.addr.i33, align 8
-  store i32 %43, ptr %itype.addr.i, align 4
-  %44 = load ptr, ptr %v.addr.i33, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = load i32, ptr %itype.addr.i, align 4
-  %conv.i34 = zext i32 %46 to i64
-  %shl.i = shl i64 %conv.i34, 47
-  %or.i = or i64 %45, %shl.i
-  %47 = load ptr, ptr %o.addr.i32, align 8
-  store i64 %or.i, ptr %47, align 8
-  %48 = load ptr, ptr %L.addr.i29, align 8
-  %49 = load ptr, ptr %o.addr.i30, align 8
-  store ptr %48, ptr %L.addr.i.i, align 8
-  store ptr %49, ptr %o.addr.i.i, align 8
-  store ptr @.str.1, ptr %msg.addr.i.i, align 8
-  %keyv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 1
-  %50 = load ptr, ptr %t, align 8
-  %call16 = call i32 @lj_tab_len(ptr noundef %50)
-  %add = add i32 %call16, 1
-  store ptr %keyv, ptr %o.addr.i, align 8
-  store i32 %add, ptr %i.addr.i, align 4
-  %51 = load i32, ptr %i.addr.i, align 4
-  %conv.i = sitofp i32 %51 to double
-  %52 = load ptr, ptr %o.addr.i, align 8
-  store double %conv.i, ptr %52, align 8
-  %idxchain = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 11
-  store i32 0, ptr %idxchain, align 4
-  %53 = load ptr, ptr %J.addr, align 8
-  %call17 = call i32 @lj_record_idx(ptr noundef %53, ptr noundef %ix)
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %54 = load ptr, ptr %J.addr, align 8
-  %55 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %54, ptr noundef %55)
-  br label %if.end18
-
-if.end:                                           ; preds = %if.then8
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.end, %if.else, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_table_concat(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i62 = alloca ptr, align 8
-  %ot.addr.i63 = alloca i16, align 2
-  %a.addr.i64 = alloca i16, align 2
-  %b.addr.i65 = alloca i16, align 2
-  %J.addr.i53 = alloca ptr, align 8
-  %ot.addr.i54 = alloca i16, align 2
-  %a.addr.i55 = alloca i16, align 2
-  %b.addr.i56 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tab = alloca i32, align 4
-  %sep = alloca i32, align 4
-  %tri = alloca i32, align 4
-  %tre = alloca i32, align 4
-  %hdr = alloca i32, align 4
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tab, align 4
-  %3 = load i32, ptr %tab, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 6
-  %5 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %5, i64 1
-  %6 = load i32, ptr %arrayidx2, align 4
-  %and3 = and i32 %6, 520093696
-  %cmp4 = icmp eq i32 %and3, 0
-  br i1 %cmp4, label %cond.false, label %cond.true
-
-cond.true:                                        ; preds = %if.then
-  %7 = load ptr, ptr %J.addr, align 8
-  %8 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 6
-  %9 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %9, i64 1
-  %10 = load i32, ptr %arrayidx6, align 4
-  %call = call i32 @lj_ir_tostr(ptr noundef %7, i32 noundef %10)
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then
-  %11 = load ptr, ptr %J.addr, align 8
-  %call7 = call i32 @lj_ir_knull(ptr noundef %11, i32 noundef 4)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call, %cond.true ], [ %call7, %cond.false ]
-  store i32 %cond, ptr %sep, align 4
-  %12 = load ptr, ptr %J.addr, align 8
-  %base8 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %base8, align 8
-  %arrayidx9 = getelementptr inbounds i32, ptr %13, i64 1
-  %14 = load i32, ptr %arrayidx9, align 4
-  %tobool = icmp ne i32 %14, 0
-  br i1 %tobool, label %land.lhs.true, label %cond.false18
-
-land.lhs.true:                                    ; preds = %cond.end
-  %15 = load ptr, ptr %J.addr, align 8
-  %base10 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 6
-  %16 = load ptr, ptr %base10, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %16, i64 2
-  %17 = load i32, ptr %arrayidx11, align 4
-  %and12 = and i32 %17, 520093696
-  %cmp13 = icmp eq i32 %and12, 0
-  br i1 %cmp13, label %cond.false18, label %cond.true14
-
-cond.true14:                                      ; preds = %land.lhs.true
-  %18 = load ptr, ptr %J.addr, align 8
-  %19 = load ptr, ptr %J.addr, align 8
-  %base15 = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 6
-  %20 = load ptr, ptr %base15, align 8
-  %arrayidx16 = getelementptr inbounds i32, ptr %20, i64 2
-  %21 = load i32, ptr %arrayidx16, align 4
-  %call17 = call i32 @lj_opt_narrow_toint(ptr noundef %18, i32 noundef %21)
-  br label %cond.end20
-
-cond.false18:                                     ; preds = %land.lhs.true, %cond.end
-  %22 = load ptr, ptr %J.addr, align 8
-  %call19 = call i32 @lj_ir_kint(ptr noundef %22, i32 noundef 1)
-  br label %cond.end20
-
-cond.end20:                                       ; preds = %cond.false18, %cond.true14
-  %cond21 = phi i32 [ %call17, %cond.true14 ], [ %call19, %cond.false18 ]
-  store i32 %cond21, ptr %tri, align 4
-  %23 = load ptr, ptr %J.addr, align 8
-  %base22 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 6
-  %24 = load ptr, ptr %base22, align 8
-  %arrayidx23 = getelementptr inbounds i32, ptr %24, i64 1
-  %25 = load i32, ptr %arrayidx23, align 4
-  %tobool24 = icmp ne i32 %25, 0
-  br i1 %tobool24, label %land.lhs.true25, label %cond.false38
-
-land.lhs.true25:                                  ; preds = %cond.end20
-  %26 = load ptr, ptr %J.addr, align 8
-  %base26 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %base26, align 8
-  %arrayidx27 = getelementptr inbounds i32, ptr %27, i64 2
-  %28 = load i32, ptr %arrayidx27, align 4
-  %tobool28 = icmp ne i32 %28, 0
-  br i1 %tobool28, label %land.lhs.true29, label %cond.false38
-
-land.lhs.true29:                                  ; preds = %land.lhs.true25
-  %29 = load ptr, ptr %J.addr, align 8
-  %base30 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 6
-  %30 = load ptr, ptr %base30, align 8
-  %arrayidx31 = getelementptr inbounds i32, ptr %30, i64 3
-  %31 = load i32, ptr %arrayidx31, align 4
-  %and32 = and i32 %31, 520093696
-  %cmp33 = icmp eq i32 %and32, 0
-  br i1 %cmp33, label %cond.false38, label %cond.true34
-
-cond.true34:                                      ; preds = %land.lhs.true29
-  %32 = load ptr, ptr %J.addr, align 8
-  %33 = load ptr, ptr %J.addr, align 8
-  %base35 = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 6
-  %34 = load ptr, ptr %base35, align 8
-  %arrayidx36 = getelementptr inbounds i32, ptr %34, i64 3
-  %35 = load i32, ptr %arrayidx36, align 4
-  %call37 = call i32 @lj_opt_narrow_toint(ptr noundef %32, i32 noundef %35)
-  br label %cond.end40
-
-cond.false38:                                     ; preds = %land.lhs.true29, %land.lhs.true25, %cond.end20
-  %36 = load ptr, ptr %J.addr, align 8
-  %37 = load i32, ptr %tab, align 4
-  %conv = trunc i32 %37 to i16
-  store ptr %36, ptr %J.addr.i62, align 8
-  store i16 18707, ptr %ot.addr.i63, align 2
-  store i16 %conv, ptr %a.addr.i64, align 2
-  store i16 32767, ptr %b.addr.i65, align 2
-  %38 = load i16, ptr %ot.addr.i63, align 2
-  %39 = load ptr, ptr %J.addr.i62, align 8
-  %fold.i66 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %ot1.i67 = getelementptr inbounds %struct.anon.2, ptr %fold.i66, i32 0, i32 2
-  store i16 %38, ptr %ot1.i67, align 4
-  %40 = load i16, ptr %a.addr.i64, align 2
-  %41 = load ptr, ptr %J.addr.i62, align 8
-  %fold2.i68 = getelementptr inbounds %struct.jit_State, ptr %41, i32 0, i32 14
-  store i16 %40, ptr %fold2.i68, align 8
-  %42 = load i16, ptr %b.addr.i65, align 2
-  %43 = load ptr, ptr %J.addr.i62, align 8
-  %fold4.i69 = getelementptr inbounds %struct.jit_State, ptr %43, i32 0, i32 14
-  %op2.i70 = getelementptr inbounds %struct.anon.2, ptr %fold4.i69, i32 0, i32 1
-  store i16 %42, ptr %op2.i70, align 2
-  %44 = load ptr, ptr %J.addr, align 8
-  %call39 = call i32 @lj_opt_fold(ptr noundef %44)
-  br label %cond.end40
-
-cond.end40:                                       ; preds = %cond.false38, %cond.true34
-  %cond41 = phi i32 [ %call37, %cond.true34 ], [ %call39, %cond.false38 ]
-  store i32 %cond41, ptr %tre, align 4
-  %45 = load ptr, ptr %J.addr, align 8
-  %call42 = call i32 @recff_bufhdr(ptr noundef %45)
-  store i32 %call42, ptr %hdr, align 4
-  %46 = load ptr, ptr %J.addr, align 8
-  %47 = load i32, ptr %hdr, align 4
-  %48 = load i32, ptr %tab, align 4
-  %49 = load i32, ptr %sep, align 4
-  %50 = load i32, ptr %tri, align 4
-  %51 = load i32, ptr %tre, align 4
-  %call43 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %46, i32 noundef 23, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51)
-  store i32 %call43, ptr %tr, align 4
-  %52 = load ptr, ptr %J.addr, align 8
-  %53 = load i32, ptr %tr, align 4
-  %conv44 = trunc i32 %53 to i16
-  %54 = load ptr, ptr %J.addr, align 8
-  %call45 = call i32 @lj_ir_kptr_(ptr noundef %54, i32 noundef 25, ptr noundef null)
-  %conv46 = trunc i32 %call45 to i16
-  store ptr %52, ptr %J.addr.i53, align 8
-  store i16 2441, ptr %ot.addr.i54, align 2
-  store i16 %conv44, ptr %a.addr.i55, align 2
-  store i16 %conv46, ptr %b.addr.i56, align 2
-  %55 = load i16, ptr %ot.addr.i54, align 2
-  %56 = load ptr, ptr %J.addr.i53, align 8
-  %fold.i57 = getelementptr inbounds %struct.jit_State, ptr %56, i32 0, i32 14
-  %ot1.i58 = getelementptr inbounds %struct.anon.2, ptr %fold.i57, i32 0, i32 2
-  store i16 %55, ptr %ot1.i58, align 4
-  %57 = load i16, ptr %a.addr.i55, align 2
-  %58 = load ptr, ptr %J.addr.i53, align 8
-  %fold2.i59 = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 14
-  store i16 %57, ptr %fold2.i59, align 8
-  %59 = load i16, ptr %b.addr.i56, align 2
-  %60 = load ptr, ptr %J.addr.i53, align 8
-  %fold4.i60 = getelementptr inbounds %struct.jit_State, ptr %60, i32 0, i32 14
-  %op2.i61 = getelementptr inbounds %struct.anon.2, ptr %fold4.i60, i32 0, i32 1
-  store i16 %59, ptr %op2.i61, align 2
-  %61 = load ptr, ptr %J.addr, align 8
-  %call47 = call i32 @lj_opt_fold(ptr noundef %61)
-  %62 = load ptr, ptr %J.addr, align 8
-  %63 = load i32, ptr %tr, align 4
-  %conv48 = trunc i32 %63 to i16
-  %64 = load i32, ptr %hdr, align 4
-  %conv49 = trunc i32 %64 to i16
-  store ptr %62, ptr %J.addr.i, align 8
-  store i16 22404, ptr %ot.addr.i, align 2
-  store i16 %conv48, ptr %a.addr.i, align 2
-  store i16 %conv49, ptr %b.addr.i, align 2
-  %65 = load i16, ptr %ot.addr.i, align 2
-  %66 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %66, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %65, ptr %ot1.i, align 4
-  %67 = load i16, ptr %a.addr.i, align 2
-  %68 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %68, i32 0, i32 14
-  store i16 %67, ptr %fold2.i, align 8
-  %69 = load i16, ptr %b.addr.i, align 2
-  %70 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %70, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %69, ptr %op2.i, align 2
-  %71 = load ptr, ptr %J.addr, align 8
-  %call50 = call i32 @lj_opt_fold(ptr noundef %71)
-  %72 = load ptr, ptr %J.addr, align 8
-  %base51 = getelementptr inbounds %struct.jit_State, ptr %72, i32 0, i32 6
-  %73 = load ptr, ptr %base51, align 8
-  %arrayidx52 = getelementptr inbounds i32, ptr %73, i64 0
-  store i32 %call50, ptr %arrayidx52, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %cond.end40, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_table_new(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tra = alloca i32, align 4
-  %trh = alloca i32, align 4
-  %a = alloca i32, align 4
-  %hbits = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_opt_narrow_toint(ptr noundef %0, i32 noundef %3)
-  store i32 %call, ptr %tra, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base1 = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base1, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx2, align 4
-  %call3 = call i32 @lj_opt_narrow_toint(ptr noundef %4, i32 noundef %7)
-  store i32 %call3, ptr %trh, align 4
-  %8 = load i32, ptr %tra, align 4
-  %conv = trunc i32 %8 to i16
-  %conv4 = zext i16 %conv to i32
-  %cmp = icmp slt i32 %conv4, 32768
-  br i1 %cmp, label %land.lhs.true, label %if.end48
-
-land.lhs.true:                                    ; preds = %entry
-  %9 = load i32, ptr %trh, align 4
-  %conv6 = trunc i32 %9 to i16
-  %conv7 = zext i16 %conv6 to i32
-  %cmp8 = icmp slt i32 %conv7, 32768
-  br i1 %cmp8, label %if.then, label %if.end48
-
-if.then:                                          ; preds = %land.lhs.true
-  %10 = load ptr, ptr %J.addr, align 8
-  %cur = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 0
-  %ir = getelementptr inbounds %struct.GCtrace, ptr %cur, i32 0, i32 7
-  %11 = load ptr, ptr %ir, align 8
-  %12 = load i32, ptr %tra, align 4
-  %conv10 = trunc i32 %12 to i16
-  %idxprom = zext i16 %conv10 to i64
-  %arrayidx11 = getelementptr inbounds %union.IRIns, ptr %11, i64 %idxprom
-  %13 = load i32, ptr %arrayidx11, align 8
-  store i32 %13, ptr %a, align 4
-  %14 = load i32, ptr %a, align 4
-  %cmp12 = icmp slt i32 %14, 32767
-  br i1 %cmp12, label %if.then14, label %if.end
-
-if.then14:                                        ; preds = %if.then
-  %15 = load ptr, ptr %J.addr, align 8
-  %cur15 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 0
-  %ir16 = getelementptr inbounds %struct.GCtrace, ptr %cur15, i32 0, i32 7
-  %16 = load ptr, ptr %ir16, align 8
-  %17 = load i32, ptr %trh, align 4
-  %conv17 = trunc i32 %17 to i16
-  %idxprom18 = zext i16 %conv17 to i64
-  %arrayidx19 = getelementptr inbounds %union.IRIns, ptr %16, i64 %idxprom18
-  %18 = load i32, ptr %arrayidx19, align 8
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %cond.true, label %cond.false33
-
-cond.true:                                        ; preds = %if.then14
-  %19 = load ptr, ptr %J.addr, align 8
-  %cur20 = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 0
-  %ir21 = getelementptr inbounds %struct.GCtrace, ptr %cur20, i32 0, i32 7
-  %20 = load ptr, ptr %ir21, align 8
-  %21 = load i32, ptr %trh, align 4
-  %conv22 = trunc i32 %21 to i16
-  %idxprom23 = zext i16 %conv22 to i64
-  %arrayidx24 = getelementptr inbounds %union.IRIns, ptr %20, i64 %idxprom23
-  %22 = load i32, ptr %arrayidx24, align 8
-  %cmp25 = icmp eq i32 %22, 1
-  br i1 %cmp25, label %cond.true27, label %cond.false
-
-cond.true27:                                      ; preds = %cond.true
-  br label %cond.end
-
-cond.false:                                       ; preds = %cond.true
-  %23 = load ptr, ptr %J.addr, align 8
-  %cur28 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 0
-  %ir29 = getelementptr inbounds %struct.GCtrace, ptr %cur28, i32 0, i32 7
-  %24 = load ptr, ptr %ir29, align 8
-  %25 = load i32, ptr %trh, align 4
-  %conv30 = trunc i32 %25 to i16
-  %idxprom31 = zext i16 %conv30 to i64
-  %arrayidx32 = getelementptr inbounds %union.IRIns, ptr %24, i64 %idxprom31
-  %26 = load i32, ptr %arrayidx32, align 8
-  %sub = sub nsw i32 %26, 1
-  %27 = call i32 @llvm.ctlz.i32(i32 %sub, i1 true)
-  %xor = xor i32 %27, 31
-  %add = add i32 1, %xor
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true27
-  %cond = phi i32 [ 1, %cond.true27 ], [ %add, %cond.false ]
-  br label %cond.end34
-
-cond.false33:                                     ; preds = %if.then14
-  br label %cond.end34
-
-cond.end34:                                       ; preds = %cond.false33, %cond.end
-  %cond35 = phi i32 [ %cond, %cond.end ], [ 0, %cond.false33 ]
-  store i32 %cond35, ptr %hbits, align 4
-  %28 = load i32, ptr %a, align 4
-  %cmp36 = icmp sgt i32 %28, 0
-  br i1 %cmp36, label %cond.true38, label %cond.false40
-
-cond.true38:                                      ; preds = %cond.end34
-  %29 = load i32, ptr %a, align 4
-  %add39 = add nsw i32 %29, 1
-  br label %cond.end41
-
-cond.false40:                                     ; preds = %cond.end34
-  br label %cond.end41
-
-cond.end41:                                       ; preds = %cond.false40, %cond.true38
-  %cond42 = phi i32 [ %add39, %cond.true38 ], [ 0, %cond.false40 ]
-  store i32 %cond42, ptr %a, align 4
-  %30 = load ptr, ptr %J.addr, align 8
-  %31 = load i32, ptr %a, align 4
-  %conv43 = trunc i32 %31 to i16
-  %32 = load i32, ptr %hbits, align 4
-  %conv44 = trunc i32 %32 to i16
-  store ptr %30, ptr %J.addr.i, align 8
-  store i16 20875, ptr %ot.addr.i, align 2
-  store i16 %conv43, ptr %a.addr.i, align 2
-  store i16 %conv44, ptr %b.addr.i, align 2
-  %33 = load i16, ptr %ot.addr.i, align 2
-  %34 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %34, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %33, ptr %ot1.i, align 4
-  %35 = load i16, ptr %a.addr.i, align 2
-  %36 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 14
-  store i16 %35, ptr %fold2.i, align 8
-  %37 = load i16, ptr %b.addr.i, align 2
-  %38 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %38, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %37, ptr %op2.i, align 2
-  %39 = load ptr, ptr %J.addr, align 8
-  %call45 = call i32 @lj_opt_fold(ptr noundef %39)
-  %40 = load ptr, ptr %J.addr, align 8
-  %base46 = getelementptr inbounds %struct.jit_State, ptr %40, i32 0, i32 6
-  %41 = load ptr, ptr %base46, align 8
-  %arrayidx47 = getelementptr inbounds i32, ptr %41, i64 0
-  store i32 %call45, ptr %arrayidx47, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %42 = load ptr, ptr %J.addr, align 8
-  %43 = load i32, ptr %tra, align 4
-  %44 = load i32, ptr %trh, align 4
-  %call49 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %42, i32 noundef 31, i32 noundef %43, i32 noundef %44)
-  %45 = load ptr, ptr %J.addr, align 8
-  %base50 = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 6
-  %46 = load ptr, ptr %base50, align 8
-  %arrayidx51 = getelementptr inbounds i32, ptr %46, i64 0
-  store i32 %call49, ptr %arrayidx51, align 4
-  br label %return
-
-return:                                           ; preds = %if.end48, %cond.end41
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_table_clear(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %4, i32 0, i32 1
-  store i64 0, ptr %nres, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %6 = load i32, ptr %tr, align 4
-  %call = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %5, i32 noundef 34, i32 noundef %6)
-  %7 = load ptr, ptr %J.addr, align 8
-  %needsnap = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 11
-  store i8 1, ptr %needsnap, align 1
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_io_write(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i85 = alloca ptr, align 8
-  %ot.addr.i86 = alloca i16, align 2
-  %a.addr.i87 = alloca i16, align 2
-  %b.addr.i88 = alloca i16, align 2
-  %J.addr.i76 = alloca ptr, align 8
-  %ot.addr.i77 = alloca i16, align 2
-  %a.addr.i78 = alloca i16, align 2
-  %b.addr.i79 = alloca i16, align 2
-  %J.addr.i67 = alloca ptr, align 8
-  %ot.addr.i68 = alloca i16, align 2
-  %a.addr.i69 = alloca i16, align 2
-  %b.addr.i70 = alloca i16, align 2
-  %J.addr.i58 = alloca ptr, align 8
-  %ot.addr.i59 = alloca i16, align 2
-  %a.addr.i60 = alloca i16, align 2
-  %b.addr.i61 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %fp = alloca i32, align 4
-  %zero = alloca i32, align 4
-  %one = alloca i32, align 4
-  %i = alloca i64, align 8
-  %str = alloca i32, align 4
-  %buf = alloca i32, align 4
-  %len = alloca i32, align 4
-  %irs = alloca ptr, align 8
-  %tr = alloca i32, align 4
-  %tr45 = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %data, align 8
-  %call = call i32 @recff_io_fp(ptr noundef %0, ptr noundef %ud, i32 noundef %2)
-  store i32 %call, ptr %fp, align 4
-  %3 = load ptr, ptr %J.addr, align 8
-  %call1 = call i32 @lj_ir_kint(ptr noundef %3, i32 noundef 0)
-  store i32 %call1, ptr %zero, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_ir_kint(ptr noundef %4, i32 noundef 1)
-  store i32 %call2, ptr %one, align 4
-  %5 = load ptr, ptr %rd.addr, align 8
-  %data3 = getelementptr inbounds %struct.RecordFFData, ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %data3, align 8
-  %cmp = icmp eq i32 %6, 0
-  %cond = select i1 %cmp, i32 1, i32 0
-  %conv = sext i32 %cond to i64
-  store i64 %conv, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %7 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 6
-  %8 = load ptr, ptr %base, align 8
-  %9 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %8, i64 %9
-  %10 = load i32, ptr %arrayidx, align 4
-  %tobool = icmp ne i32 %10, 0
-  br i1 %tobool, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %J.addr, align 8
-  %12 = load ptr, ptr %J.addr, align 8
-  %base4 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %base4, align 8
-  %14 = load i64, ptr %i, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %13, i64 %14
-  %15 = load i32, ptr %arrayidx5, align 4
-  %call6 = call i32 @lj_ir_tostr(ptr noundef %11, i32 noundef %15)
-  store i32 %call6, ptr %str, align 4
-  %16 = load ptr, ptr %J.addr, align 8
-  %17 = load i32, ptr %str, align 4
-  %conv7 = trunc i32 %17 to i16
-  %18 = load i32, ptr %zero, align 4
-  %conv8 = trunc i32 %18 to i16
-  store ptr %16, ptr %J.addr.i85, align 8
-  store i16 16393, ptr %ot.addr.i86, align 2
-  store i16 %conv7, ptr %a.addr.i87, align 2
-  store i16 %conv8, ptr %b.addr.i88, align 2
-  %19 = load i16, ptr %ot.addr.i86, align 2
-  %20 = load ptr, ptr %J.addr.i85, align 8
-  %fold.i89 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i90 = getelementptr inbounds %struct.anon.2, ptr %fold.i89, i32 0, i32 2
-  store i16 %19, ptr %ot1.i90, align 4
-  %21 = load i16, ptr %a.addr.i87, align 2
-  %22 = load ptr, ptr %J.addr.i85, align 8
-  %fold2.i91 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i91, align 8
-  %23 = load i16, ptr %b.addr.i88, align 2
-  %24 = load ptr, ptr %J.addr.i85, align 8
-  %fold4.i92 = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i93 = getelementptr inbounds %struct.anon.2, ptr %fold4.i92, i32 0, i32 1
-  store i16 %23, ptr %op2.i93, align 2
-  %25 = load ptr, ptr %J.addr, align 8
-  %call9 = call i32 @lj_opt_fold(ptr noundef %25)
-  store i32 %call9, ptr %buf, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %str, align 4
-  %conv10 = trunc i32 %27 to i16
-  store ptr %26, ptr %J.addr.i76, align 8
-  store i16 17683, ptr %ot.addr.i77, align 2
-  store i16 %conv10, ptr %a.addr.i78, align 2
-  store i16 0, ptr %b.addr.i79, align 2
-  %28 = load i16, ptr %ot.addr.i77, align 2
-  %29 = load ptr, ptr %J.addr.i76, align 8
-  %fold.i80 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 14
-  %ot1.i81 = getelementptr inbounds %struct.anon.2, ptr %fold.i80, i32 0, i32 2
-  store i16 %28, ptr %ot1.i81, align 4
-  %30 = load i16, ptr %a.addr.i78, align 2
-  %31 = load ptr, ptr %J.addr.i76, align 8
-  %fold2.i82 = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 14
-  store i16 %30, ptr %fold2.i82, align 8
-  %32 = load i16, ptr %b.addr.i79, align 2
-  %33 = load ptr, ptr %J.addr.i76, align 8
-  %fold4.i83 = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  %op2.i84 = getelementptr inbounds %struct.anon.2, ptr %fold4.i83, i32 0, i32 1
-  store i16 %32, ptr %op2.i84, align 2
-  %34 = load ptr, ptr %J.addr, align 8
-  %call11 = call i32 @lj_opt_fold(ptr noundef %34)
-  store i32 %call11, ptr %len, align 4
-  %35 = load i32, ptr %len, align 4
-  %conv12 = trunc i32 %35 to i16
-  %conv13 = zext i16 %conv12 to i32
-  %cmp14 = icmp slt i32 %conv13, 32768
-  br i1 %cmp14, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %for.body
-  %36 = load ptr, ptr %J.addr, align 8
-  %cur = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 0
-  %ir = getelementptr inbounds %struct.GCtrace, ptr %cur, i32 0, i32 7
-  %37 = load ptr, ptr %ir, align 8
-  %38 = load i32, ptr %len, align 4
-  %conv16 = trunc i32 %38 to i16
-  %idxprom = zext i16 %conv16 to i64
-  %arrayidx17 = getelementptr inbounds %union.IRIns, ptr %37, i64 %idxprom
-  %39 = load i32, ptr %arrayidx17, align 8
-  %cmp18 = icmp eq i32 %39, 1
-  br i1 %cmp18, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  %40 = load ptr, ptr %J.addr, align 8
-  %cur20 = getelementptr inbounds %struct.jit_State, ptr %40, i32 0, i32 0
-  %ir21 = getelementptr inbounds %struct.GCtrace, ptr %cur20, i32 0, i32 7
-  %41 = load ptr, ptr %ir21, align 8
-  %42 = load i32, ptr %str, align 4
-  %conv22 = trunc i32 %42 to i16
-  %idxprom23 = zext i16 %conv22 to i64
-  %arrayidx24 = getelementptr inbounds %union.IRIns, ptr %41, i64 %idxprom23
-  store ptr %arrayidx24, ptr %irs, align 8
-  %43 = load ptr, ptr %irs, align 8
-  %o = getelementptr inbounds %struct.anon.3, ptr %43, i32 0, i32 2
-  %44 = load i8, ptr %o, align 1
-  %conv25 = zext i8 %44 to i32
-  %cmp26 = icmp eq i32 %conv25, 93
-  br i1 %cmp26, label %land.lhs.true28, label %cond.false
-
-land.lhs.true28:                                  ; preds = %if.then
-  %45 = load ptr, ptr %irs, align 8
-  %op2 = getelementptr inbounds %struct.anon.2, ptr %45, i32 0, i32 1
-  %46 = load i16, ptr %op2, align 2
-  %conv29 = zext i16 %46 to i32
-  %cmp30 = icmp eq i32 %conv29, 2
-  br i1 %cmp30, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %land.lhs.true28
-  %47 = load ptr, ptr %irs, align 8
-  %op1 = getelementptr inbounds %struct.anon.2, ptr %47, i32 0, i32 0
-  %48 = load i16, ptr %op1, align 8
-  %conv32 = zext i16 %48 to i32
-  br label %cond.end
-
-cond.false:                                       ; preds = %land.lhs.true28, %if.then
-  %49 = load ptr, ptr %J.addr, align 8
-  %50 = load i32, ptr %buf, align 4
-  %conv33 = trunc i32 %50 to i16
-  store ptr %49, ptr %J.addr.i67, align 8
-  store i16 17936, ptr %ot.addr.i68, align 2
-  store i16 %conv33, ptr %a.addr.i69, align 2
-  store i16 1, ptr %b.addr.i70, align 2
-  %51 = load i16, ptr %ot.addr.i68, align 2
-  %52 = load ptr, ptr %J.addr.i67, align 8
-  %fold.i71 = getelementptr inbounds %struct.jit_State, ptr %52, i32 0, i32 14
-  %ot1.i72 = getelementptr inbounds %struct.anon.2, ptr %fold.i71, i32 0, i32 2
-  store i16 %51, ptr %ot1.i72, align 4
-  %53 = load i16, ptr %a.addr.i69, align 2
-  %54 = load ptr, ptr %J.addr.i67, align 8
-  %fold2.i73 = getelementptr inbounds %struct.jit_State, ptr %54, i32 0, i32 14
-  store i16 %53, ptr %fold2.i73, align 8
-  %55 = load i16, ptr %b.addr.i70, align 2
-  %56 = load ptr, ptr %J.addr.i67, align 8
-  %fold4.i74 = getelementptr inbounds %struct.jit_State, ptr %56, i32 0, i32 14
-  %op2.i75 = getelementptr inbounds %struct.anon.2, ptr %fold4.i74, i32 0, i32 1
-  store i16 %55, ptr %op2.i75, align 2
-  %57 = load ptr, ptr %J.addr, align 8
-  %call34 = call i32 @lj_opt_fold(ptr noundef %57)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond35 = phi i32 [ %conv32, %cond.true ], [ %call34, %cond.false ]
-  store i32 %cond35, ptr %tr, align 4
-  %58 = load ptr, ptr %J.addr, align 8
-  %59 = load i32, ptr %tr, align 4
-  %60 = load i32, ptr %fp, align 4
-  %call36 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %58, i32 noundef 56, i32 noundef %59, i32 noundef %60)
-  store i32 %call36, ptr %tr, align 4
-  %61 = load ptr, ptr %J.addr, align 8
-  %call37 = call i64 @results_wanted(ptr noundef %61)
-  %cmp38 = icmp ne i64 %call37, 0
-  br i1 %cmp38, label %if.then40, label %if.end
-
-if.then40:                                        ; preds = %cond.end
-  %62 = load ptr, ptr %J.addr, align 8
-  %63 = load i32, ptr %tr, align 4
-  %conv41 = trunc i32 %63 to i16
-  %64 = load ptr, ptr %J.addr, align 8
-  %call42 = call i32 @lj_ir_kint(ptr noundef %64, i32 noundef -1)
-  %conv43 = trunc i32 %call42 to i16
-  store ptr %62, ptr %J.addr.i58, align 8
-  store i16 2451, ptr %ot.addr.i59, align 2
-  store i16 %conv41, ptr %a.addr.i60, align 2
-  store i16 %conv43, ptr %b.addr.i61, align 2
-  %65 = load i16, ptr %ot.addr.i59, align 2
-  %66 = load ptr, ptr %J.addr.i58, align 8
-  %fold.i62 = getelementptr inbounds %struct.jit_State, ptr %66, i32 0, i32 14
-  %ot1.i63 = getelementptr inbounds %struct.anon.2, ptr %fold.i62, i32 0, i32 2
-  store i16 %65, ptr %ot1.i63, align 4
-  %67 = load i16, ptr %a.addr.i60, align 2
-  %68 = load ptr, ptr %J.addr.i58, align 8
-  %fold2.i64 = getelementptr inbounds %struct.jit_State, ptr %68, i32 0, i32 14
-  store i16 %67, ptr %fold2.i64, align 8
-  %69 = load i16, ptr %b.addr.i61, align 2
-  %70 = load ptr, ptr %J.addr.i58, align 8
-  %fold4.i65 = getelementptr inbounds %struct.jit_State, ptr %70, i32 0, i32 14
-  %op2.i66 = getelementptr inbounds %struct.anon.2, ptr %fold4.i65, i32 0, i32 1
-  store i16 %69, ptr %op2.i66, align 2
-  %71 = load ptr, ptr %J.addr, align 8
-  %call44 = call i32 @lj_opt_fold(ptr noundef %71)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then40, %cond.end
-  br label %if.end55
-
-if.else:                                          ; preds = %land.lhs.true, %for.body
-  %72 = load ptr, ptr %J.addr, align 8
-  %73 = load i32, ptr %buf, align 4
-  %74 = load i32, ptr %one, align 4
-  %75 = load i32, ptr %len, align 4
-  %76 = load i32, ptr %fp, align 4
-  %call46 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %72, i32 noundef 57, i32 noundef %73, i32 noundef %74, i32 noundef %75, i32 noundef %76)
-  store i32 %call46, ptr %tr45, align 4
-  %77 = load ptr, ptr %J.addr, align 8
-  %call47 = call i64 @results_wanted(ptr noundef %77)
-  %cmp48 = icmp ne i64 %call47, 0
-  br i1 %cmp48, label %if.then50, label %if.end54
-
-if.then50:                                        ; preds = %if.else
-  %78 = load ptr, ptr %J.addr, align 8
-  %79 = load i32, ptr %tr45, align 4
-  %conv51 = trunc i32 %79 to i16
-  %80 = load i32, ptr %len, align 4
-  %conv52 = trunc i32 %80 to i16
-  store ptr %78, ptr %J.addr.i, align 8
-  store i16 2195, ptr %ot.addr.i, align 2
-  store i16 %conv51, ptr %a.addr.i, align 2
-  store i16 %conv52, ptr %b.addr.i, align 2
-  %81 = load i16, ptr %ot.addr.i, align 2
-  %82 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %82, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %81, ptr %ot1.i, align 4
-  %83 = load i16, ptr %a.addr.i, align 2
-  %84 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %84, i32 0, i32 14
-  store i16 %83, ptr %fold2.i, align 8
-  %85 = load i16, ptr %b.addr.i, align 2
-  %86 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %86, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %85, ptr %op2.i, align 2
-  %87 = load ptr, ptr %J.addr, align 8
-  %call53 = call i32 @lj_opt_fold(ptr noundef %87)
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.then50, %if.else
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.end54, %if.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end55
-  %88 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %88, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
-  %89 = load ptr, ptr %J.addr, align 8
-  %base56 = getelementptr inbounds %struct.jit_State, ptr %89, i32 0, i32 6
-  %90 = load ptr, ptr %base56, align 8
-  %arrayidx57 = getelementptr inbounds i32, ptr %90, i64 0
-  store i32 33587197, ptr %arrayidx57, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_io_flush(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %fp = alloca i32, align 4
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %data = getelementptr inbounds %struct.RecordFFData, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %data, align 8
-  %call = call i32 @recff_io_fp(ptr noundef %0, ptr noundef %ud, i32 noundef %2)
-  store i32 %call, ptr %fp, align 4
-  %3 = load ptr, ptr %J.addr, align 8
-  %4 = load i32, ptr %fp, align 4
-  %call1 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %3, i32 noundef 58, i32 noundef %4)
-  store i32 %call1, ptr %tr, align 4
-  %5 = load ptr, ptr %J.addr, align 8
-  %call2 = call i64 @results_wanted(ptr noundef %5)
-  %cmp = icmp ne i64 %call2, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %7 to i16
-  %8 = load ptr, ptr %J.addr, align 8
-  %call3 = call i32 @lj_ir_kint(ptr noundef %8, i32 noundef 0)
-  %conv4 = trunc i32 %call3 to i16
-  store ptr %6, ptr %J.addr.i, align 8
-  store i16 2195, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv4, ptr %b.addr.i, align 2
-  %9 = load i16, ptr %ot.addr.i, align 2
-  %10 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %9, ptr %ot1.i, align 4
-  %11 = load i16, ptr %a.addr.i, align 2
-  %12 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  store i16 %11, ptr %fold2.i, align 8
-  %13 = load i16, ptr %b.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %13, ptr %op2.i, align 2
-  %15 = load ptr, ptr %J.addr, align 8
-  %call5 = call i32 @lj_opt_fold(ptr noundef %15)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %16 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 6
-  %17 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %17, i64 0
-  store i32 33587197, ptr %arrayidx, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_debug_getmetatable(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i59 = alloca ptr, align 8
-  %ot.addr.i60 = alloca i16, align 2
-  %a.addr.i61 = alloca i16, align 2
-  %b.addr.i62 = alloca i16, align 2
-  %J.addr.i50 = alloca ptr, align 8
-  %ot.addr.i51 = alloca i16, align 2
-  %a.addr.i52 = alloca i16, align 2
-  %b.addr.i53 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %mt = alloca ptr, align 8
-  %mtref = alloca i32, align 4
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %tr, align 4
-  %3 = load i32, ptr %tr, align 4
-  %and = and i32 %3, 520093696
-  %cmp = icmp eq i32 %and, 184549376
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %argv, align 8
-  %arrayidx1 = getelementptr inbounds %union.TValue, ptr %5, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx1, i32 0, i32 0
-  %6 = load i64, ptr %gcptr64, align 8
-  %and2 = and i64 %6, 140737488355327
-  %7 = inttoptr i64 %and2 to ptr
-  %metatable = getelementptr inbounds %struct.GCtab, ptr %7, i32 0, i32 7
-  %gcptr643 = getelementptr inbounds %struct.GCRef, ptr %metatable, i32 0, i32 0
-  %8 = load i64, ptr %gcptr643, align 8
-  %9 = inttoptr i64 %8 to ptr
-  store ptr %9, ptr %mt, align 8
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %11 to i16
-  store ptr %10, ptr %J.addr.i59, align 8
-  store i16 17675, ptr %ot.addr.i60, align 2
-  store i16 %conv, ptr %a.addr.i61, align 2
-  store i16 5, ptr %b.addr.i62, align 2
-  %12 = load i16, ptr %ot.addr.i60, align 2
-  %13 = load ptr, ptr %J.addr.i59, align 8
-  %fold.i63 = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  %ot1.i64 = getelementptr inbounds %struct.anon.2, ptr %fold.i63, i32 0, i32 2
-  store i16 %12, ptr %ot1.i64, align 4
-  %14 = load i16, ptr %a.addr.i61, align 2
-  %15 = load ptr, ptr %J.addr.i59, align 8
-  %fold2.i65 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  store i16 %14, ptr %fold2.i65, align 8
-  %16 = load i16, ptr %b.addr.i62, align 2
-  %17 = load ptr, ptr %J.addr.i59, align 8
-  %fold4.i66 = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  %op2.i67 = getelementptr inbounds %struct.anon.2, ptr %fold4.i66, i32 0, i32 1
-  store i16 %16, ptr %op2.i67, align 2
-  %18 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_opt_fold(ptr noundef %18)
-  store i32 %call, ptr %mtref, align 4
-  br label %if.end35
-
-if.else:                                          ; preds = %entry
-  %19 = load i32, ptr %tr, align 4
-  %and4 = and i32 %19, 520093696
-  %cmp5 = icmp eq i32 %and4, 201326592
-  br i1 %cmp5, label %if.then7, label %if.else16
-
-if.then7:                                         ; preds = %if.else
-  %20 = load ptr, ptr %rd.addr, align 8
-  %argv8 = getelementptr inbounds %struct.RecordFFData, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %argv8, align 8
-  %arrayidx9 = getelementptr inbounds %union.TValue, ptr %21, i64 0
-  %gcptr6410 = getelementptr inbounds %struct.GCRef, ptr %arrayidx9, i32 0, i32 0
-  %22 = load i64, ptr %gcptr6410, align 8
-  %and11 = and i64 %22, 140737488355327
-  %23 = inttoptr i64 %and11 to ptr
-  %metatable12 = getelementptr inbounds %struct.GCudata, ptr %23, i32 0, i32 7
-  %gcptr6413 = getelementptr inbounds %struct.GCRef, ptr %metatable12, i32 0, i32 0
-  %24 = load i64, ptr %gcptr6413, align 8
-  %25 = inttoptr i64 %24 to ptr
-  store ptr %25, ptr %mt, align 8
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %tr, align 4
-  %conv14 = trunc i32 %27 to i16
-  store ptr %26, ptr %J.addr.i50, align 8
-  store i16 17675, ptr %ot.addr.i51, align 2
-  store i16 %conv14, ptr %a.addr.i52, align 2
-  store i16 11, ptr %b.addr.i53, align 2
-  %28 = load i16, ptr %ot.addr.i51, align 2
-  %29 = load ptr, ptr %J.addr.i50, align 8
-  %fold.i54 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 14
-  %ot1.i55 = getelementptr inbounds %struct.anon.2, ptr %fold.i54, i32 0, i32 2
-  store i16 %28, ptr %ot1.i55, align 4
-  %30 = load i16, ptr %a.addr.i52, align 2
-  %31 = load ptr, ptr %J.addr.i50, align 8
-  %fold2.i56 = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 14
-  store i16 %30, ptr %fold2.i56, align 8
-  %32 = load i16, ptr %b.addr.i53, align 2
-  %33 = load ptr, ptr %J.addr.i50, align 8
-  %fold4.i57 = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  %op2.i58 = getelementptr inbounds %struct.anon.2, ptr %fold4.i57, i32 0, i32 1
-  store i16 %32, ptr %op2.i58, align 2
-  %34 = load ptr, ptr %J.addr, align 8
-  %call15 = call i32 @lj_opt_fold(ptr noundef %34)
-  store i32 %call15, ptr %mtref, align 4
-  br label %if.end
-
-if.else16:                                        ; preds = %if.else
-  %35 = load ptr, ptr %J.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %35, i64 -824
-  %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
-  %gcroot = getelementptr inbounds %struct.global_State, ptr %g, i32 0, i32 28
-  %36 = load ptr, ptr %rd.addr, align 8
-  %argv17 = getelementptr inbounds %struct.RecordFFData, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %argv17, align 8
-  %arrayidx18 = getelementptr inbounds %union.TValue, ptr %37, i64 0
-  %38 = load i64, ptr %arrayidx18, align 8
-  %shr = ashr i64 %38, 47
-  %conv19 = trunc i64 %shr to i32
-  %cmp20 = icmp ule i32 %conv19, -14
-  br i1 %cmp20, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.else16
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.else16
-  %39 = load ptr, ptr %rd.addr, align 8
-  %argv22 = getelementptr inbounds %struct.RecordFFData, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %argv22, align 8
-  %arrayidx23 = getelementptr inbounds %union.TValue, ptr %40, i64 0
-  %41 = load i64, ptr %arrayidx23, align 8
-  %shr24 = ashr i64 %41, 47
-  %conv25 = trunc i64 %shr24 to i32
-  %not = xor i32 %conv25, -1
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 13, %cond.true ], [ %not, %cond.false ]
-  %add = add i32 22, %cond
-  %idxprom = zext i32 %add to i64
-  %arrayidx26 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %idxprom
-  %gcptr6427 = getelementptr inbounds %struct.GCRef, ptr %arrayidx26, i32 0, i32 0
-  %42 = load i64, ptr %gcptr6427, align 8
-  %43 = inttoptr i64 %42 to ptr
-  store ptr %43, ptr %mt, align 8
-  %44 = load ptr, ptr %mt, align 8
-  %tobool = icmp ne ptr %44, null
-  br i1 %tobool, label %cond.true28, label %cond.false30
-
-cond.true28:                                      ; preds = %cond.end
-  %45 = load ptr, ptr %J.addr, align 8
-  %46 = load ptr, ptr %mt, align 8
-  %call29 = call i32 @lj_ir_kgc(ptr noundef %45, ptr noundef %46, i32 noundef 11)
-  br label %cond.end31
-
-cond.false30:                                     ; preds = %cond.end
-  br label %cond.end31
-
-cond.end31:                                       ; preds = %cond.false30, %cond.true28
-  %cond32 = phi i32 [ %call29, %cond.true28 ], [ 32767, %cond.false30 ]
-  %47 = load ptr, ptr %J.addr, align 8
-  %base33 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 6
-  %48 = load ptr, ptr %base33, align 8
-  %arrayidx34 = getelementptr inbounds i32, ptr %48, i64 0
-  store i32 %cond32, ptr %arrayidx34, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then7
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end, %if.then
-  %49 = load ptr, ptr %J.addr, align 8
-  %50 = load ptr, ptr %mt, align 8
-  %tobool36 = icmp ne ptr %50, null
-  %cond37 = select i1 %tobool36, i32 9, i32 8
-  %shl = shl i32 %cond37, 8
-  %or = or i32 %shl, 139
-  %conv38 = trunc i32 %or to i16
-  %51 = load i32, ptr %mtref, align 4
-  %conv39 = trunc i32 %51 to i16
-  %52 = load ptr, ptr %J.addr, align 8
-  %call40 = call i32 @lj_ir_knull(ptr noundef %52, i32 noundef 11)
-  %conv41 = trunc i32 %call40 to i16
-  store ptr %49, ptr %J.addr.i, align 8
-  store i16 %conv38, ptr %ot.addr.i, align 2
-  store i16 %conv39, ptr %a.addr.i, align 2
-  store i16 %conv41, ptr %b.addr.i, align 2
-  %53 = load i16, ptr %ot.addr.i, align 2
-  %54 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %54, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %53, ptr %ot1.i, align 4
-  %55 = load i16, ptr %a.addr.i, align 2
-  %56 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %56, i32 0, i32 14
-  store i16 %55, ptr %fold2.i, align 8
-  %57 = load i16, ptr %b.addr.i, align 2
-  %58 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %57, ptr %op2.i, align 2
-  %59 = load ptr, ptr %J.addr, align 8
-  %call42 = call i32 @lj_opt_fold(ptr noundef %59)
-  %60 = load ptr, ptr %mt, align 8
-  %tobool43 = icmp ne ptr %60, null
-  br i1 %tobool43, label %cond.true44, label %cond.false45
-
-cond.true44:                                      ; preds = %if.end35
-  %61 = load i32, ptr %mtref, align 4
-  br label %cond.end46
-
-cond.false45:                                     ; preds = %if.end35
-  br label %cond.end46
-
-cond.end46:                                       ; preds = %cond.false45, %cond.true44
-  %cond47 = phi i32 [ %61, %cond.true44 ], [ 32767, %cond.false45 ]
-  %62 = load ptr, ptr %J.addr, align 8
-  %base48 = getelementptr inbounds %struct.jit_State, ptr %62, i32 0, i32 6
-  %63 = load ptr, ptr %base48, align 8
-  %arrayidx49 = getelementptr inbounds i32, ptr %63, i64 0
-  store i32 %cond47, ptr %arrayidx49, align 4
-  br label %return
-
-return:                                           ; preds = %cond.end46, %cond.end31
-  ret void
-}
-
-declare hidden void @recff_cdata_index(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_cdata_arith(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_cdata_call(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_clib_index(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_new(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_typeof(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_istype(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_xof(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_errno(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_string(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_copy(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_fill(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_abi(ptr noundef, ptr noundef) #1
-
-declare hidden void @recff_ffi_gc(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_reset(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i.i236 = alloca ptr, align 8
-  %ot.addr.i.i237 = alloca i16, align 2
-  %a.addr.i.i238 = alloca i16, align 2
-  %b.addr.i.i239 = alloca i16, align 2
-  %J.addr.i240 = alloca ptr, align 8
-  %ud.addr.i241 = alloca i32, align 4
-  %fl.addr.i242 = alloca i32, align 4
-  %J.addr.i4.i = alloca ptr, align 8
-  %ot.addr.i5.i = alloca i16, align 2
-  %a.addr.i6.i = alloca i16, align 2
-  %b.addr.i7.i = alloca i16, align 2
-  %J.addr.i.i219 = alloca ptr, align 8
-  %ot.addr.i.i220 = alloca i16, align 2
-  %a.addr.i.i221 = alloca i16, align 2
-  %b.addr.i.i222 = alloca i16, align 2
-  %J.addr.i223 = alloca ptr, align 8
-  %ud.addr.i224 = alloca i32, align 4
-  %val.addr.i225 = alloca i32, align 4
-  %fref.i226 = alloca i32, align 4
-  %J.addr.i5.i190 = alloca ptr, align 8
-  %ot.addr.i6.i191 = alloca i16, align 2
-  %a.addr.i7.i192 = alloca i16, align 2
-  %b.addr.i8.i193 = alloca i16, align 2
-  %J.addr.i.i194 = alloca ptr, align 8
-  %ot.addr.i.i195 = alloca i16, align 2
-  %a.addr.i.i196 = alloca i16, align 2
-  %b.addr.i.i197 = alloca i16, align 2
-  %J.addr.i198 = alloca ptr, align 8
-  %ud.addr.i199 = alloca i32, align 4
-  %fl.addr.i200 = alloca i32, align 4
-  %val.addr.i201 = alloca i32, align 4
-  %fref.i202 = alloca i32, align 4
-  %J.addr.i5.i161 = alloca ptr, align 8
-  %ot.addr.i6.i162 = alloca i16, align 2
-  %a.addr.i7.i163 = alloca i16, align 2
-  %b.addr.i8.i164 = alloca i16, align 2
-  %J.addr.i.i165 = alloca ptr, align 8
-  %ot.addr.i.i166 = alloca i16, align 2
-  %a.addr.i.i167 = alloca i16, align 2
-  %b.addr.i.i168 = alloca i16, align 2
-  %J.addr.i169 = alloca ptr, align 8
-  %ud.addr.i170 = alloca i32, align 4
-  %fl.addr.i171 = alloca i32, align 4
-  %val.addr.i172 = alloca i32, align 4
-  %fref.i173 = alloca i32, align 4
-  %J.addr.i5.i132 = alloca ptr, align 8
-  %ot.addr.i6.i133 = alloca i16, align 2
-  %a.addr.i7.i134 = alloca i16, align 2
-  %b.addr.i8.i135 = alloca i16, align 2
-  %J.addr.i.i136 = alloca ptr, align 8
-  %ot.addr.i.i137 = alloca i16, align 2
-  %a.addr.i.i138 = alloca i16, align 2
-  %b.addr.i.i139 = alloca i16, align 2
-  %J.addr.i140 = alloca ptr, align 8
-  %ud.addr.i141 = alloca i32, align 4
-  %fl.addr.i142 = alloca i32, align 4
-  %val.addr.i143 = alloca i32, align 4
-  %fref.i144 = alloca i32, align 4
-  %J.addr.i5.i103 = alloca ptr, align 8
-  %ot.addr.i6.i104 = alloca i16, align 2
-  %a.addr.i7.i105 = alloca i16, align 2
-  %b.addr.i8.i106 = alloca i16, align 2
-  %J.addr.i.i107 = alloca ptr, align 8
-  %ot.addr.i.i108 = alloca i16, align 2
-  %a.addr.i.i109 = alloca i16, align 2
-  %b.addr.i.i110 = alloca i16, align 2
-  %J.addr.i111 = alloca ptr, align 8
-  %ud.addr.i112 = alloca i32, align 4
-  %fl.addr.i113 = alloca i32, align 4
-  %val.addr.i114 = alloca i32, align 4
-  %fref.i115 = alloca i32, align 4
-  %J.addr.i5.i74 = alloca ptr, align 8
-  %ot.addr.i6.i75 = alloca i16, align 2
-  %a.addr.i7.i76 = alloca i16, align 2
-  %b.addr.i8.i77 = alloca i16, align 2
-  %J.addr.i.i78 = alloca ptr, align 8
-  %ot.addr.i.i79 = alloca i16, align 2
-  %a.addr.i.i80 = alloca i16, align 2
-  %b.addr.i.i81 = alloca i16, align 2
-  %J.addr.i82 = alloca ptr, align 8
-  %ud.addr.i83 = alloca i32, align 4
-  %fl.addr.i84 = alloca i32, align 4
-  %val.addr.i85 = alloca i32, align 4
-  %fref.i86 = alloca i32, align 4
-  %J.addr.i5.i = alloca ptr, align 8
-  %ot.addr.i6.i = alloca i16, align 2
-  %a.addr.i7.i = alloca i16, align 2
-  %b.addr.i8.i = alloca i16, align 2
-  %J.addr.i.i61 = alloca ptr, align 8
-  %ot.addr.i.i62 = alloca i16, align 2
-  %a.addr.i.i63 = alloca i16, align 2
-  %b.addr.i.i64 = alloca i16, align 2
-  %J.addr.i65 = alloca ptr, align 8
-  %ud.addr.i66 = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %val.addr.i = alloca i32, align 4
-  %fref.i = alloca i32, align 4
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i60 = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %J.addr.i51 = alloca ptr, align 8
-  %ot.addr.i52 = alloca i16, align 2
-  %a.addr.i53 = alloca i16, align 2
-  %b.addr.i54 = alloca i16, align 2
-  %J.addr.i42 = alloca ptr, align 8
-  %ot.addr.i43 = alloca i16, align 2
-  %a.addr.i44 = alloca i16, align 2
-  %b.addr.i45 = alloca i16, align 2
-  %J.addr.i33 = alloca ptr, align 8
-  %ot.addr.i34 = alloca i16, align 2
-  %a.addr.i35 = alloca i16, align 2
-  %b.addr.i36 = alloca i16, align 2
-  %J.addr.i24 = alloca ptr, align 8
-  %ot.addr.i25 = alloca i16, align 2
-  %a.addr.i26 = alloca i16, align 2
-  %b.addr.i27 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %sbx = alloca ptr, align 8
-  %iscow = alloca i32, align 4
-  %trl = alloca i32, align 4
-  %trcow = alloca i32, align 4
-  %zeropgc = alloca i32, align 4
-  %zerop = alloca i32, align 4
-  %trb = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %3, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx, i32 0, i32 0
-  %4 = load i64, ptr %gcptr64, align 8
-  %and = and i64 %4, 140737488355327
-  %5 = inttoptr i64 %and to ptr
-  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %5, i64 1
-  store ptr %add.ptr, ptr %sbx, align 8
-  %6 = load ptr, ptr %sbx, align 8
-  %L = getelementptr inbounds %struct.SBufExt, ptr %6, i32 0, i32 3
-  %ptr64 = getelementptr inbounds %struct.MRef, ptr %L, i32 0, i32 0
-  %7 = load i64, ptr %ptr64, align 8
-  %and1 = and i64 %7, 2
-  %conv = trunc i64 %and1 to i32
-  store i32 %conv, ptr %iscow, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %ud, align 4
-  store ptr %8, ptr %J.addr.i60, align 8
-  store i32 %9, ptr %ud.addr.i, align 4
-  %10 = load ptr, ptr %J.addr.i60, align 8
-  %11 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %11 to i16
-  store ptr %10, ptr %J.addr.i.i, align 8
-  store i16 17673, ptr %ot.addr.i.i, align 2
-  store i16 %conv.i, ptr %a.addr.i.i, align 2
-  store i16 17, ptr %b.addr.i.i, align 2
-  %12 = load i16, ptr %ot.addr.i.i, align 2
-  %13 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %12, ptr %ot1.i.i, align 4
-  %14 = load i16, ptr %a.addr.i.i, align 2
-  %15 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  store i16 %14, ptr %fold2.i.i, align 8
-  %16 = load i16, ptr %b.addr.i.i, align 2
-  %17 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %16, ptr %op2.i.i, align 2
-  %18 = load ptr, ptr %J.addr.i60, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %18) #7
-  store i32 %call.i, ptr %trl, align 4
-  %19 = load ptr, ptr %J.addr, align 8
-  %20 = load i32, ptr %trl, align 4
-  %conv3 = trunc i32 %20 to i16
-  %21 = load ptr, ptr %J.addr, align 8
-  %call4 = call i32 @lj_ir_kint64(ptr noundef %21, i64 noundef 2)
-  %conv5 = trunc i32 %call4 to i16
-  store ptr %19, ptr %J.addr.i51, align 8
-  store i16 8469, ptr %ot.addr.i52, align 2
-  store i16 %conv3, ptr %a.addr.i53, align 2
-  store i16 %conv5, ptr %b.addr.i54, align 2
-  %22 = load i16, ptr %ot.addr.i52, align 2
-  %23 = load ptr, ptr %J.addr.i51, align 8
-  %fold.i55 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  %ot1.i56 = getelementptr inbounds %struct.anon.2, ptr %fold.i55, i32 0, i32 2
-  store i16 %22, ptr %ot1.i56, align 4
-  %24 = load i16, ptr %a.addr.i53, align 2
-  %25 = load ptr, ptr %J.addr.i51, align 8
-  %fold2.i57 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  store i16 %24, ptr %fold2.i57, align 8
-  %26 = load i16, ptr %b.addr.i54, align 2
-  %27 = load ptr, ptr %J.addr.i51, align 8
-  %fold4.i58 = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 14
-  %op2.i59 = getelementptr inbounds %struct.anon.2, ptr %fold4.i58, i32 0, i32 1
-  store i16 %26, ptr %op2.i59, align 2
-  %28 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %28)
-  store i32 %call6, ptr %trcow, align 4
-  %29 = load ptr, ptr %J.addr, align 8
-  %call7 = call i32 @lj_ir_kint64(ptr noundef %29, i64 noundef 0)
-  store i32 %call7, ptr %zeropgc, align 4
-  %30 = load ptr, ptr %J.addr, align 8
-  %31 = load i32, ptr %iscow, align 4
-  %tobool = icmp ne i32 %31, 0
-  %cond = select i1 %tobool, i32 9, i32 8
-  %shl = shl i32 %cond, 8
-  %or = or i32 %shl, 149
-  %conv8 = trunc i32 %or to i16
-  %32 = load i32, ptr %trcow, align 4
-  %conv9 = trunc i32 %32 to i16
-  %33 = load i32, ptr %zeropgc, align 4
-  %conv10 = trunc i32 %33 to i16
-  store ptr %30, ptr %J.addr.i42, align 8
-  store i16 %conv8, ptr %ot.addr.i43, align 2
-  store i16 %conv9, ptr %a.addr.i44, align 2
-  store i16 %conv10, ptr %b.addr.i45, align 2
-  %34 = load i16, ptr %ot.addr.i43, align 2
-  %35 = load ptr, ptr %J.addr.i42, align 8
-  %fold.i46 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %ot1.i47 = getelementptr inbounds %struct.anon.2, ptr %fold.i46, i32 0, i32 2
-  store i16 %34, ptr %ot1.i47, align 4
-  %36 = load i16, ptr %a.addr.i44, align 2
-  %37 = load ptr, ptr %J.addr.i42, align 8
-  %fold2.i48 = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  store i16 %36, ptr %fold2.i48, align 8
-  %38 = load i16, ptr %b.addr.i45, align 2
-  %39 = load ptr, ptr %J.addr.i42, align 8
-  %fold4.i49 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %op2.i50 = getelementptr inbounds %struct.anon.2, ptr %fold4.i49, i32 0, i32 1
-  store i16 %38, ptr %op2.i50, align 2
-  %40 = load ptr, ptr %J.addr, align 8
-  %call11 = call i32 @lj_opt_fold(ptr noundef %40)
-  %41 = load i32, ptr %iscow, align 4
-  %tobool12 = icmp ne i32 %41, 0
-  br i1 %tobool12, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %42 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_ir_kint64(ptr noundef %42, i64 noundef 0)
-  store i32 %call13, ptr %zerop, align 4
-  %43 = load ptr, ptr %J.addr, align 8
-  %44 = load i32, ptr %trl, align 4
-  %conv14 = trunc i32 %44 to i16
-  %45 = load ptr, ptr %J.addr, align 8
-  %call15 = call i32 @lj_ir_kint64(ptr noundef %45, i64 noundef 2)
-  %conv16 = trunc i32 %call15 to i16
-  store ptr %43, ptr %J.addr.i33, align 8
-  store i16 8981, ptr %ot.addr.i34, align 2
-  store i16 %conv14, ptr %a.addr.i35, align 2
-  store i16 %conv16, ptr %b.addr.i36, align 2
-  %46 = load i16, ptr %ot.addr.i34, align 2
-  %47 = load ptr, ptr %J.addr.i33, align 8
-  %fold.i37 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 14
-  %ot1.i38 = getelementptr inbounds %struct.anon.2, ptr %fold.i37, i32 0, i32 2
-  store i16 %46, ptr %ot1.i38, align 4
-  %48 = load i16, ptr %a.addr.i35, align 2
-  %49 = load ptr, ptr %J.addr.i33, align 8
-  %fold2.i39 = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 14
-  store i16 %48, ptr %fold2.i39, align 8
-  %50 = load i16, ptr %b.addr.i36, align 2
-  %51 = load ptr, ptr %J.addr.i33, align 8
-  %fold4.i40 = getelementptr inbounds %struct.jit_State, ptr %51, i32 0, i32 14
-  %op2.i41 = getelementptr inbounds %struct.anon.2, ptr %fold4.i40, i32 0, i32 1
-  store i16 %50, ptr %op2.i41, align 2
-  %52 = load ptr, ptr %J.addr, align 8
-  %call17 = call i32 @lj_opt_fold(ptr noundef %52)
-  store i32 %call17, ptr %trl, align 4
-  %53 = load ptr, ptr %J.addr, align 8
-  %54 = load i32, ptr %ud, align 4
-  %55 = load i32, ptr %zerop, align 4
-  store ptr %53, ptr %J.addr.i198, align 8
-  store i32 %54, ptr %ud.addr.i199, align 4
-  store i32 14, ptr %fl.addr.i200, align 4
-  store i32 %55, ptr %val.addr.i201, align 4
-  %56 = load ptr, ptr %J.addr.i198, align 8
-  %57 = load i32, ptr %ud.addr.i199, align 4
-  %conv.i203 = trunc i32 %57 to i16
-  %58 = load i32, ptr %fl.addr.i200, align 4
-  %conv1.i204 = trunc i32 %58 to i16
-  store ptr %56, ptr %J.addr.i5.i190, align 8
-  store i16 15881, ptr %ot.addr.i6.i191, align 2
-  store i16 %conv.i203, ptr %a.addr.i7.i192, align 2
-  store i16 %conv1.i204, ptr %b.addr.i8.i193, align 2
-  %59 = load i16, ptr %ot.addr.i6.i191, align 2
-  %60 = load ptr, ptr %J.addr.i5.i190, align 8
-  %fold.i9.i205 = getelementptr inbounds %struct.jit_State, ptr %60, i32 0, i32 14
-  %ot1.i10.i206 = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i205, i32 0, i32 2
-  store i16 %59, ptr %ot1.i10.i206, align 4
-  %61 = load i16, ptr %a.addr.i7.i192, align 2
-  %62 = load ptr, ptr %J.addr.i5.i190, align 8
-  %fold2.i11.i207 = getelementptr inbounds %struct.jit_State, ptr %62, i32 0, i32 14
-  store i16 %61, ptr %fold2.i11.i207, align 8
-  %63 = load i16, ptr %b.addr.i8.i193, align 2
-  %64 = load ptr, ptr %J.addr.i5.i190, align 8
-  %fold4.i12.i208 = getelementptr inbounds %struct.jit_State, ptr %64, i32 0, i32 14
-  %op2.i13.i209 = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i208, i32 0, i32 1
-  store i16 %63, ptr %op2.i13.i209, align 2
-  %65 = load ptr, ptr %J.addr.i198, align 8
-  %call.i210 = call i32 @lj_opt_fold(ptr noundef %65) #7
-  store i32 %call.i210, ptr %fref.i202, align 4
-  %66 = load ptr, ptr %J.addr.i198, align 8
-  %67 = load i32, ptr %fref.i202, align 4
-  %conv2.i211 = trunc i32 %67 to i16
-  %68 = load i32, ptr %val.addr.i201, align 4
-  %conv3.i212 = trunc i32 %68 to i16
-  store ptr %66, ptr %J.addr.i.i194, align 8
-  store i16 19721, ptr %ot.addr.i.i195, align 2
-  store i16 %conv2.i211, ptr %a.addr.i.i196, align 2
-  store i16 %conv3.i212, ptr %b.addr.i.i197, align 2
-  %69 = load i16, ptr %ot.addr.i.i195, align 2
-  %70 = load ptr, ptr %J.addr.i.i194, align 8
-  %fold.i.i213 = getelementptr inbounds %struct.jit_State, ptr %70, i32 0, i32 14
-  %ot1.i.i214 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i213, i32 0, i32 2
-  store i16 %69, ptr %ot1.i.i214, align 4
-  %71 = load i16, ptr %a.addr.i.i196, align 2
-  %72 = load ptr, ptr %J.addr.i.i194, align 8
-  %fold2.i.i215 = getelementptr inbounds %struct.jit_State, ptr %72, i32 0, i32 14
-  store i16 %71, ptr %fold2.i.i215, align 8
-  %73 = load i16, ptr %b.addr.i.i197, align 2
-  %74 = load ptr, ptr %J.addr.i.i194, align 8
-  %fold4.i.i216 = getelementptr inbounds %struct.jit_State, ptr %74, i32 0, i32 14
-  %op2.i.i217 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i216, i32 0, i32 1
-  store i16 %73, ptr %op2.i.i217, align 2
-  %75 = load ptr, ptr %J.addr.i198, align 8
-  %call4.i218 = call i32 @lj_opt_fold(ptr noundef %75) #7
-  %76 = load ptr, ptr %J.addr, align 8
-  %77 = load i32, ptr %ud, align 4
-  %78 = load i32, ptr %zerop, align 4
-  store ptr %76, ptr %J.addr.i169, align 8
-  store i32 %77, ptr %ud.addr.i170, align 4
-  store i32 15, ptr %fl.addr.i171, align 4
-  store i32 %78, ptr %val.addr.i172, align 4
-  %79 = load ptr, ptr %J.addr.i169, align 8
-  %80 = load i32, ptr %ud.addr.i170, align 4
-  %conv.i174 = trunc i32 %80 to i16
-  %81 = load i32, ptr %fl.addr.i171, align 4
-  %conv1.i175 = trunc i32 %81 to i16
-  store ptr %79, ptr %J.addr.i5.i161, align 8
-  store i16 15881, ptr %ot.addr.i6.i162, align 2
-  store i16 %conv.i174, ptr %a.addr.i7.i163, align 2
-  store i16 %conv1.i175, ptr %b.addr.i8.i164, align 2
-  %82 = load i16, ptr %ot.addr.i6.i162, align 2
-  %83 = load ptr, ptr %J.addr.i5.i161, align 8
-  %fold.i9.i176 = getelementptr inbounds %struct.jit_State, ptr %83, i32 0, i32 14
-  %ot1.i10.i177 = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i176, i32 0, i32 2
-  store i16 %82, ptr %ot1.i10.i177, align 4
-  %84 = load i16, ptr %a.addr.i7.i163, align 2
-  %85 = load ptr, ptr %J.addr.i5.i161, align 8
-  %fold2.i11.i178 = getelementptr inbounds %struct.jit_State, ptr %85, i32 0, i32 14
-  store i16 %84, ptr %fold2.i11.i178, align 8
-  %86 = load i16, ptr %b.addr.i8.i164, align 2
-  %87 = load ptr, ptr %J.addr.i5.i161, align 8
-  %fold4.i12.i179 = getelementptr inbounds %struct.jit_State, ptr %87, i32 0, i32 14
-  %op2.i13.i180 = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i179, i32 0, i32 1
-  store i16 %86, ptr %op2.i13.i180, align 2
-  %88 = load ptr, ptr %J.addr.i169, align 8
-  %call.i181 = call i32 @lj_opt_fold(ptr noundef %88) #7
-  store i32 %call.i181, ptr %fref.i173, align 4
-  %89 = load ptr, ptr %J.addr.i169, align 8
-  %90 = load i32, ptr %fref.i173, align 4
-  %conv2.i182 = trunc i32 %90 to i16
-  %91 = load i32, ptr %val.addr.i172, align 4
-  %conv3.i183 = trunc i32 %91 to i16
-  store ptr %89, ptr %J.addr.i.i165, align 8
-  store i16 19721, ptr %ot.addr.i.i166, align 2
-  store i16 %conv2.i182, ptr %a.addr.i.i167, align 2
-  store i16 %conv3.i183, ptr %b.addr.i.i168, align 2
-  %92 = load i16, ptr %ot.addr.i.i166, align 2
-  %93 = load ptr, ptr %J.addr.i.i165, align 8
-  %fold.i.i184 = getelementptr inbounds %struct.jit_State, ptr %93, i32 0, i32 14
-  %ot1.i.i185 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i184, i32 0, i32 2
-  store i16 %92, ptr %ot1.i.i185, align 4
-  %94 = load i16, ptr %a.addr.i.i167, align 2
-  %95 = load ptr, ptr %J.addr.i.i165, align 8
-  %fold2.i.i186 = getelementptr inbounds %struct.jit_State, ptr %95, i32 0, i32 14
-  store i16 %94, ptr %fold2.i.i186, align 8
-  %96 = load i16, ptr %b.addr.i.i168, align 2
-  %97 = load ptr, ptr %J.addr.i.i165, align 8
-  %fold4.i.i187 = getelementptr inbounds %struct.jit_State, ptr %97, i32 0, i32 14
-  %op2.i.i188 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i187, i32 0, i32 1
-  store i16 %96, ptr %op2.i.i188, align 2
-  %98 = load ptr, ptr %J.addr.i169, align 8
-  %call4.i189 = call i32 @lj_opt_fold(ptr noundef %98) #7
-  %99 = load ptr, ptr %J.addr, align 8
-  %100 = load i32, ptr %ud, align 4
-  %101 = load i32, ptr %zerop, align 4
-  store ptr %99, ptr %J.addr.i140, align 8
-  store i32 %100, ptr %ud.addr.i141, align 4
-  store i32 16, ptr %fl.addr.i142, align 4
-  store i32 %101, ptr %val.addr.i143, align 4
-  %102 = load ptr, ptr %J.addr.i140, align 8
-  %103 = load i32, ptr %ud.addr.i141, align 4
-  %conv.i145 = trunc i32 %103 to i16
-  %104 = load i32, ptr %fl.addr.i142, align 4
-  %conv1.i146 = trunc i32 %104 to i16
-  store ptr %102, ptr %J.addr.i5.i132, align 8
-  store i16 15881, ptr %ot.addr.i6.i133, align 2
-  store i16 %conv.i145, ptr %a.addr.i7.i134, align 2
-  store i16 %conv1.i146, ptr %b.addr.i8.i135, align 2
-  %105 = load i16, ptr %ot.addr.i6.i133, align 2
-  %106 = load ptr, ptr %J.addr.i5.i132, align 8
-  %fold.i9.i147 = getelementptr inbounds %struct.jit_State, ptr %106, i32 0, i32 14
-  %ot1.i10.i148 = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i147, i32 0, i32 2
-  store i16 %105, ptr %ot1.i10.i148, align 4
-  %107 = load i16, ptr %a.addr.i7.i134, align 2
-  %108 = load ptr, ptr %J.addr.i5.i132, align 8
-  %fold2.i11.i149 = getelementptr inbounds %struct.jit_State, ptr %108, i32 0, i32 14
-  store i16 %107, ptr %fold2.i11.i149, align 8
-  %109 = load i16, ptr %b.addr.i8.i135, align 2
-  %110 = load ptr, ptr %J.addr.i5.i132, align 8
-  %fold4.i12.i150 = getelementptr inbounds %struct.jit_State, ptr %110, i32 0, i32 14
-  %op2.i13.i151 = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i150, i32 0, i32 1
-  store i16 %109, ptr %op2.i13.i151, align 2
-  %111 = load ptr, ptr %J.addr.i140, align 8
-  %call.i152 = call i32 @lj_opt_fold(ptr noundef %111) #7
-  store i32 %call.i152, ptr %fref.i144, align 4
-  %112 = load ptr, ptr %J.addr.i140, align 8
-  %113 = load i32, ptr %fref.i144, align 4
-  %conv2.i153 = trunc i32 %113 to i16
-  %114 = load i32, ptr %val.addr.i143, align 4
-  %conv3.i154 = trunc i32 %114 to i16
-  store ptr %112, ptr %J.addr.i.i136, align 8
-  store i16 19721, ptr %ot.addr.i.i137, align 2
-  store i16 %conv2.i153, ptr %a.addr.i.i138, align 2
-  store i16 %conv3.i154, ptr %b.addr.i.i139, align 2
-  %115 = load i16, ptr %ot.addr.i.i137, align 2
-  %116 = load ptr, ptr %J.addr.i.i136, align 8
-  %fold.i.i155 = getelementptr inbounds %struct.jit_State, ptr %116, i32 0, i32 14
-  %ot1.i.i156 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i155, i32 0, i32 2
-  store i16 %115, ptr %ot1.i.i156, align 4
-  %117 = load i16, ptr %a.addr.i.i138, align 2
-  %118 = load ptr, ptr %J.addr.i.i136, align 8
-  %fold2.i.i157 = getelementptr inbounds %struct.jit_State, ptr %118, i32 0, i32 14
-  store i16 %117, ptr %fold2.i.i157, align 8
-  %119 = load i16, ptr %b.addr.i.i139, align 2
-  %120 = load ptr, ptr %J.addr.i.i136, align 8
-  %fold4.i.i158 = getelementptr inbounds %struct.jit_State, ptr %120, i32 0, i32 14
-  %op2.i.i159 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i158, i32 0, i32 1
-  store i16 %119, ptr %op2.i.i159, align 2
-  %121 = load ptr, ptr %J.addr.i140, align 8
-  %call4.i160 = call i32 @lj_opt_fold(ptr noundef %121) #7
-  %122 = load ptr, ptr %J.addr, align 8
-  %123 = load i32, ptr %ud, align 4
-  %124 = load i32, ptr %trl, align 4
-  store ptr %122, ptr %J.addr.i223, align 8
-  store i32 %123, ptr %ud.addr.i224, align 4
-  store i32 %124, ptr %val.addr.i225, align 4
-  %125 = load ptr, ptr %J.addr.i223, align 8
-  %126 = load i32, ptr %ud.addr.i224, align 4
-  %conv.i227 = trunc i32 %126 to i16
-  store ptr %125, ptr %J.addr.i4.i, align 8
-  store i16 15881, ptr %ot.addr.i5.i, align 2
-  store i16 %conv.i227, ptr %a.addr.i6.i, align 2
-  store i16 17, ptr %b.addr.i7.i, align 2
-  %127 = load i16, ptr %ot.addr.i5.i, align 2
-  %128 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold.i8.i = getelementptr inbounds %struct.jit_State, ptr %128, i32 0, i32 14
-  %ot1.i9.i = getelementptr inbounds %struct.anon.2, ptr %fold.i8.i, i32 0, i32 2
-  store i16 %127, ptr %ot1.i9.i, align 4
-  %129 = load i16, ptr %a.addr.i6.i, align 2
-  %130 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold2.i10.i = getelementptr inbounds %struct.jit_State, ptr %130, i32 0, i32 14
-  store i16 %129, ptr %fold2.i10.i, align 8
-  %131 = load i16, ptr %b.addr.i7.i, align 2
-  %132 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold4.i11.i = getelementptr inbounds %struct.jit_State, ptr %132, i32 0, i32 14
-  %op2.i12.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i11.i, i32 0, i32 1
-  store i16 %131, ptr %op2.i12.i, align 2
-  %133 = load ptr, ptr %J.addr.i223, align 8
-  %call.i228 = call i32 @lj_opt_fold(ptr noundef %133) #7
-  store i32 %call.i228, ptr %fref.i226, align 4
-  %134 = load ptr, ptr %J.addr.i223, align 8
-  %135 = load i32, ptr %fref.i226, align 4
-  %conv1.i229 = trunc i32 %135 to i16
-  %136 = load i32, ptr %val.addr.i225, align 4
-  %conv2.i230 = trunc i32 %136 to i16
-  store ptr %134, ptr %J.addr.i.i219, align 8
-  store i16 19721, ptr %ot.addr.i.i220, align 2
-  store i16 %conv1.i229, ptr %a.addr.i.i221, align 2
-  store i16 %conv2.i230, ptr %b.addr.i.i222, align 2
-  %137 = load i16, ptr %ot.addr.i.i220, align 2
-  %138 = load ptr, ptr %J.addr.i.i219, align 8
-  %fold.i.i231 = getelementptr inbounds %struct.jit_State, ptr %138, i32 0, i32 14
-  %ot1.i.i232 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i231, i32 0, i32 2
-  store i16 %137, ptr %ot1.i.i232, align 4
-  %139 = load i16, ptr %a.addr.i.i221, align 2
-  %140 = load ptr, ptr %J.addr.i.i219, align 8
-  %fold2.i.i233 = getelementptr inbounds %struct.jit_State, ptr %140, i32 0, i32 14
-  store i16 %139, ptr %fold2.i.i233, align 8
-  %141 = load i16, ptr %b.addr.i.i222, align 2
-  %142 = load ptr, ptr %J.addr.i.i219, align 8
-  %fold4.i.i234 = getelementptr inbounds %struct.jit_State, ptr %142, i32 0, i32 14
-  %op2.i.i235 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i234, i32 0, i32 1
-  store i16 %141, ptr %op2.i.i235, align 2
-  %143 = load ptr, ptr %J.addr.i223, align 8
-  %call3.i = call i32 @lj_opt_fold(ptr noundef %143) #7
-  %144 = load ptr, ptr %J.addr, align 8
-  %145 = load ptr, ptr %J.addr, align 8
-  %146 = load i32, ptr %ud, align 4
-  %conv18 = trunc i32 %146 to i16
-  store ptr %145, ptr %J.addr.i24, align 8
-  store i16 15881, ptr %ot.addr.i25, align 2
-  store i16 %conv18, ptr %a.addr.i26, align 2
-  store i16 18, ptr %b.addr.i27, align 2
-  %147 = load i16, ptr %ot.addr.i25, align 2
-  %148 = load ptr, ptr %J.addr.i24, align 8
-  %fold.i28 = getelementptr inbounds %struct.jit_State, ptr %148, i32 0, i32 14
-  %ot1.i29 = getelementptr inbounds %struct.anon.2, ptr %fold.i28, i32 0, i32 2
-  store i16 %147, ptr %ot1.i29, align 4
-  %149 = load i16, ptr %a.addr.i26, align 2
-  %150 = load ptr, ptr %J.addr.i24, align 8
-  %fold2.i30 = getelementptr inbounds %struct.jit_State, ptr %150, i32 0, i32 14
-  store i16 %149, ptr %fold2.i30, align 8
-  %151 = load i16, ptr %b.addr.i27, align 2
-  %152 = load ptr, ptr %J.addr.i24, align 8
-  %fold4.i31 = getelementptr inbounds %struct.jit_State, ptr %152, i32 0, i32 14
-  %op2.i32 = getelementptr inbounds %struct.anon.2, ptr %fold4.i31, i32 0, i32 1
-  store i16 %151, ptr %op2.i32, align 2
-  %153 = load ptr, ptr %J.addr, align 8
-  %call19 = call i32 @lj_opt_fold(ptr noundef %153)
-  %conv20 = trunc i32 %call19 to i16
-  %154 = load i32, ptr %zeropgc, align 4
-  %conv21 = trunc i32 %154 to i16
-  store ptr %144, ptr %J.addr.i, align 8
-  store i16 19721, ptr %ot.addr.i, align 2
-  store i16 %conv20, ptr %a.addr.i, align 2
-  store i16 %conv21, ptr %b.addr.i, align 2
-  %155 = load i16, ptr %ot.addr.i, align 2
-  %156 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %156, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %155, ptr %ot1.i, align 4
-  %157 = load i16, ptr %a.addr.i, align 2
-  %158 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %158, i32 0, i32 14
-  store i16 %157, ptr %fold2.i, align 8
-  %159 = load i16, ptr %b.addr.i, align 2
-  %160 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %160, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %159, ptr %op2.i, align 2
-  %161 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_opt_fold(ptr noundef %161)
-  %162 = load ptr, ptr %J.addr, align 8
-  %163 = load i32, ptr %ud, align 4
-  %164 = load i32, ptr %zerop, align 4
-  store ptr %162, ptr %J.addr.i111, align 8
-  store i32 %163, ptr %ud.addr.i112, align 4
-  store i32 19, ptr %fl.addr.i113, align 4
-  store i32 %164, ptr %val.addr.i114, align 4
-  %165 = load ptr, ptr %J.addr.i111, align 8
-  %166 = load i32, ptr %ud.addr.i112, align 4
-  %conv.i116 = trunc i32 %166 to i16
-  %167 = load i32, ptr %fl.addr.i113, align 4
-  %conv1.i117 = trunc i32 %167 to i16
-  store ptr %165, ptr %J.addr.i5.i103, align 8
-  store i16 15881, ptr %ot.addr.i6.i104, align 2
-  store i16 %conv.i116, ptr %a.addr.i7.i105, align 2
-  store i16 %conv1.i117, ptr %b.addr.i8.i106, align 2
-  %168 = load i16, ptr %ot.addr.i6.i104, align 2
-  %169 = load ptr, ptr %J.addr.i5.i103, align 8
-  %fold.i9.i118 = getelementptr inbounds %struct.jit_State, ptr %169, i32 0, i32 14
-  %ot1.i10.i119 = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i118, i32 0, i32 2
-  store i16 %168, ptr %ot1.i10.i119, align 4
-  %170 = load i16, ptr %a.addr.i7.i105, align 2
-  %171 = load ptr, ptr %J.addr.i5.i103, align 8
-  %fold2.i11.i120 = getelementptr inbounds %struct.jit_State, ptr %171, i32 0, i32 14
-  store i16 %170, ptr %fold2.i11.i120, align 8
-  %172 = load i16, ptr %b.addr.i8.i106, align 2
-  %173 = load ptr, ptr %J.addr.i5.i103, align 8
-  %fold4.i12.i121 = getelementptr inbounds %struct.jit_State, ptr %173, i32 0, i32 14
-  %op2.i13.i122 = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i121, i32 0, i32 1
-  store i16 %172, ptr %op2.i13.i122, align 2
-  %174 = load ptr, ptr %J.addr.i111, align 8
-  %call.i123 = call i32 @lj_opt_fold(ptr noundef %174) #7
-  store i32 %call.i123, ptr %fref.i115, align 4
-  %175 = load ptr, ptr %J.addr.i111, align 8
-  %176 = load i32, ptr %fref.i115, align 4
-  %conv2.i124 = trunc i32 %176 to i16
-  %177 = load i32, ptr %val.addr.i114, align 4
-  %conv3.i125 = trunc i32 %177 to i16
-  store ptr %175, ptr %J.addr.i.i107, align 8
-  store i16 19721, ptr %ot.addr.i.i108, align 2
-  store i16 %conv2.i124, ptr %a.addr.i.i109, align 2
-  store i16 %conv3.i125, ptr %b.addr.i.i110, align 2
-  %178 = load i16, ptr %ot.addr.i.i108, align 2
-  %179 = load ptr, ptr %J.addr.i.i107, align 8
-  %fold.i.i126 = getelementptr inbounds %struct.jit_State, ptr %179, i32 0, i32 14
-  %ot1.i.i127 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i126, i32 0, i32 2
-  store i16 %178, ptr %ot1.i.i127, align 4
-  %180 = load i16, ptr %a.addr.i.i109, align 2
-  %181 = load ptr, ptr %J.addr.i.i107, align 8
-  %fold2.i.i128 = getelementptr inbounds %struct.jit_State, ptr %181, i32 0, i32 14
-  store i16 %180, ptr %fold2.i.i128, align 8
-  %182 = load i16, ptr %b.addr.i.i110, align 2
-  %183 = load ptr, ptr %J.addr.i.i107, align 8
-  %fold4.i.i129 = getelementptr inbounds %struct.jit_State, ptr %183, i32 0, i32 14
-  %op2.i.i130 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i129, i32 0, i32 1
-  store i16 %182, ptr %op2.i.i130, align 2
-  %184 = load ptr, ptr %J.addr.i111, align 8
-  %call4.i131 = call i32 @lj_opt_fold(ptr noundef %184) #7
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %185 = load ptr, ptr %J.addr, align 8
-  %186 = load i32, ptr %ud, align 4
-  store ptr %185, ptr %J.addr.i240, align 8
-  store i32 %186, ptr %ud.addr.i241, align 4
-  store i32 16, ptr %fl.addr.i242, align 4
-  %187 = load ptr, ptr %J.addr.i240, align 8
-  %188 = load i32, ptr %ud.addr.i241, align 4
-  %conv.i243 = trunc i32 %188 to i16
-  %189 = load i32, ptr %fl.addr.i242, align 4
-  %conv1.i244 = trunc i32 %189 to i16
-  store ptr %187, ptr %J.addr.i.i236, align 8
-  store i16 17673, ptr %ot.addr.i.i237, align 2
-  store i16 %conv.i243, ptr %a.addr.i.i238, align 2
-  store i16 %conv1.i244, ptr %b.addr.i.i239, align 2
-  %190 = load i16, ptr %ot.addr.i.i237, align 2
-  %191 = load ptr, ptr %J.addr.i.i236, align 8
-  %fold.i.i245 = getelementptr inbounds %struct.jit_State, ptr %191, i32 0, i32 14
-  %ot1.i.i246 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i245, i32 0, i32 2
-  store i16 %190, ptr %ot1.i.i246, align 4
-  %192 = load i16, ptr %a.addr.i.i238, align 2
-  %193 = load ptr, ptr %J.addr.i.i236, align 8
-  %fold2.i.i247 = getelementptr inbounds %struct.jit_State, ptr %193, i32 0, i32 14
-  store i16 %192, ptr %fold2.i.i247, align 8
-  %194 = load i16, ptr %b.addr.i.i239, align 2
-  %195 = load ptr, ptr %J.addr.i.i236, align 8
-  %fold4.i.i248 = getelementptr inbounds %struct.jit_State, ptr %195, i32 0, i32 14
-  %op2.i.i249 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i248, i32 0, i32 1
-  store i16 %194, ptr %op2.i.i249, align 2
-  %196 = load ptr, ptr %J.addr.i240, align 8
-  %call.i250 = call i32 @lj_opt_fold(ptr noundef %196) #7
-  store i32 %call.i250, ptr %trb, align 4
-  %197 = load ptr, ptr %J.addr, align 8
-  %198 = load i32, ptr %ud, align 4
-  %199 = load i32, ptr %trb, align 4
-  store ptr %197, ptr %J.addr.i82, align 8
-  store i32 %198, ptr %ud.addr.i83, align 4
-  store i32 14, ptr %fl.addr.i84, align 4
-  store i32 %199, ptr %val.addr.i85, align 4
-  %200 = load ptr, ptr %J.addr.i82, align 8
-  %201 = load i32, ptr %ud.addr.i83, align 4
-  %conv.i87 = trunc i32 %201 to i16
-  %202 = load i32, ptr %fl.addr.i84, align 4
-  %conv1.i88 = trunc i32 %202 to i16
-  store ptr %200, ptr %J.addr.i5.i74, align 8
-  store i16 15881, ptr %ot.addr.i6.i75, align 2
-  store i16 %conv.i87, ptr %a.addr.i7.i76, align 2
-  store i16 %conv1.i88, ptr %b.addr.i8.i77, align 2
-  %203 = load i16, ptr %ot.addr.i6.i75, align 2
-  %204 = load ptr, ptr %J.addr.i5.i74, align 8
-  %fold.i9.i89 = getelementptr inbounds %struct.jit_State, ptr %204, i32 0, i32 14
-  %ot1.i10.i90 = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i89, i32 0, i32 2
-  store i16 %203, ptr %ot1.i10.i90, align 4
-  %205 = load i16, ptr %a.addr.i7.i76, align 2
-  %206 = load ptr, ptr %J.addr.i5.i74, align 8
-  %fold2.i11.i91 = getelementptr inbounds %struct.jit_State, ptr %206, i32 0, i32 14
-  store i16 %205, ptr %fold2.i11.i91, align 8
-  %207 = load i16, ptr %b.addr.i8.i77, align 2
-  %208 = load ptr, ptr %J.addr.i5.i74, align 8
-  %fold4.i12.i92 = getelementptr inbounds %struct.jit_State, ptr %208, i32 0, i32 14
-  %op2.i13.i93 = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i92, i32 0, i32 1
-  store i16 %207, ptr %op2.i13.i93, align 2
-  %209 = load ptr, ptr %J.addr.i82, align 8
-  %call.i94 = call i32 @lj_opt_fold(ptr noundef %209) #7
-  store i32 %call.i94, ptr %fref.i86, align 4
-  %210 = load ptr, ptr %J.addr.i82, align 8
-  %211 = load i32, ptr %fref.i86, align 4
-  %conv2.i95 = trunc i32 %211 to i16
-  %212 = load i32, ptr %val.addr.i85, align 4
-  %conv3.i96 = trunc i32 %212 to i16
-  store ptr %210, ptr %J.addr.i.i78, align 8
-  store i16 19721, ptr %ot.addr.i.i79, align 2
-  store i16 %conv2.i95, ptr %a.addr.i.i80, align 2
-  store i16 %conv3.i96, ptr %b.addr.i.i81, align 2
-  %213 = load i16, ptr %ot.addr.i.i79, align 2
-  %214 = load ptr, ptr %J.addr.i.i78, align 8
-  %fold.i.i97 = getelementptr inbounds %struct.jit_State, ptr %214, i32 0, i32 14
-  %ot1.i.i98 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i97, i32 0, i32 2
-  store i16 %213, ptr %ot1.i.i98, align 4
-  %215 = load i16, ptr %a.addr.i.i80, align 2
-  %216 = load ptr, ptr %J.addr.i.i78, align 8
-  %fold2.i.i99 = getelementptr inbounds %struct.jit_State, ptr %216, i32 0, i32 14
-  store i16 %215, ptr %fold2.i.i99, align 8
-  %217 = load i16, ptr %b.addr.i.i81, align 2
-  %218 = load ptr, ptr %J.addr.i.i78, align 8
-  %fold4.i.i100 = getelementptr inbounds %struct.jit_State, ptr %218, i32 0, i32 14
-  %op2.i.i101 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i100, i32 0, i32 1
-  store i16 %217, ptr %op2.i.i101, align 2
-  %219 = load ptr, ptr %J.addr.i82, align 8
-  %call4.i102 = call i32 @lj_opt_fold(ptr noundef %219) #7
-  %220 = load ptr, ptr %J.addr, align 8
-  %221 = load i32, ptr %ud, align 4
-  %222 = load i32, ptr %trb, align 4
-  store ptr %220, ptr %J.addr.i65, align 8
-  store i32 %221, ptr %ud.addr.i66, align 4
-  store i32 19, ptr %fl.addr.i, align 4
-  store i32 %222, ptr %val.addr.i, align 4
-  %223 = load ptr, ptr %J.addr.i65, align 8
-  %224 = load i32, ptr %ud.addr.i66, align 4
-  %conv.i67 = trunc i32 %224 to i16
-  %225 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %225 to i16
-  store ptr %223, ptr %J.addr.i5.i, align 8
-  store i16 15881, ptr %ot.addr.i6.i, align 2
-  store i16 %conv.i67, ptr %a.addr.i7.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i8.i, align 2
-  %226 = load i16, ptr %ot.addr.i6.i, align 2
-  %227 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold.i9.i = getelementptr inbounds %struct.jit_State, ptr %227, i32 0, i32 14
-  %ot1.i10.i = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i, i32 0, i32 2
-  store i16 %226, ptr %ot1.i10.i, align 4
-  %228 = load i16, ptr %a.addr.i7.i, align 2
-  %229 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold2.i11.i = getelementptr inbounds %struct.jit_State, ptr %229, i32 0, i32 14
-  store i16 %228, ptr %fold2.i11.i, align 8
-  %230 = load i16, ptr %b.addr.i8.i, align 2
-  %231 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold4.i12.i = getelementptr inbounds %struct.jit_State, ptr %231, i32 0, i32 14
-  %op2.i13.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i, i32 0, i32 1
-  store i16 %230, ptr %op2.i13.i, align 2
-  %232 = load ptr, ptr %J.addr.i65, align 8
-  %call.i68 = call i32 @lj_opt_fold(ptr noundef %232) #7
-  store i32 %call.i68, ptr %fref.i, align 4
-  %233 = load ptr, ptr %J.addr.i65, align 8
-  %234 = load i32, ptr %fref.i, align 4
-  %conv2.i = trunc i32 %234 to i16
-  %235 = load i32, ptr %val.addr.i, align 4
-  %conv3.i = trunc i32 %235 to i16
-  store ptr %233, ptr %J.addr.i.i61, align 8
-  store i16 19721, ptr %ot.addr.i.i62, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i63, align 2
-  store i16 %conv3.i, ptr %b.addr.i.i64, align 2
-  %236 = load i16, ptr %ot.addr.i.i62, align 2
-  %237 = load ptr, ptr %J.addr.i.i61, align 8
-  %fold.i.i69 = getelementptr inbounds %struct.jit_State, ptr %237, i32 0, i32 14
-  %ot1.i.i70 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i69, i32 0, i32 2
-  store i16 %236, ptr %ot1.i.i70, align 4
-  %238 = load i16, ptr %a.addr.i.i63, align 2
-  %239 = load ptr, ptr %J.addr.i.i61, align 8
-  %fold2.i.i71 = getelementptr inbounds %struct.jit_State, ptr %239, i32 0, i32 14
-  store i16 %238, ptr %fold2.i.i71, align 8
-  %240 = load i16, ptr %b.addr.i.i64, align 2
-  %241 = load ptr, ptr %J.addr.i.i61, align 8
-  %fold4.i.i72 = getelementptr inbounds %struct.jit_State, ptr %241, i32 0, i32 14
-  %op2.i.i73 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i72, i32 0, i32 1
-  store i16 %240, ptr %op2.i.i73, align 2
-  %242 = load ptr, ptr %J.addr.i65, align 8
-  %call4.i = call i32 @lj_opt_fold(ptr noundef %242) #7
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_skip(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i4.i = alloca ptr, align 8
-  %ot.addr.i5.i = alloca i16, align 2
-  %a.addr.i6.i = alloca i16, align 2
-  %b.addr.i7.i = alloca i16, align 2
-  %J.addr.i.i50 = alloca ptr, align 8
-  %ot.addr.i.i51 = alloca i16, align 2
-  %a.addr.i.i52 = alloca i16, align 2
-  %b.addr.i.i53 = alloca i16, align 2
-  %J.addr.i54 = alloca ptr, align 8
-  %trr.addr.i = alloca i32, align 4
-  %trw.addr.i = alloca i32, align 4
-  %len.i = alloca i32, align 4
-  %J.addr.i.i35 = alloca ptr, align 8
-  %ot.addr.i.i36 = alloca i16, align 2
-  %a.addr.i.i37 = alloca i16, align 2
-  %b.addr.i.i38 = alloca i16, align 2
-  %J.addr.i39 = alloca ptr, align 8
-  %ud.addr.i40 = alloca i32, align 4
-  %fl.addr.i41 = alloca i32, align 4
-  %J.addr.i.i20 = alloca ptr, align 8
-  %ot.addr.i.i21 = alloca i16, align 2
-  %a.addr.i.i22 = alloca i16, align 2
-  %b.addr.i.i23 = alloca i16, align 2
-  %J.addr.i24 = alloca ptr, align 8
-  %ud.addr.i25 = alloca i32, align 4
-  %fl.addr.i26 = alloca i32, align 4
-  %J.addr.i5.i = alloca ptr, align 8
-  %ot.addr.i6.i = alloca i16, align 2
-  %a.addr.i7.i = alloca i16, align 2
-  %b.addr.i8.i = alloca i16, align 2
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i19 = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %val.addr.i = alloca i32, align 4
-  %fref.i = alloca i32, align 4
-  %J.addr.i10 = alloca ptr, align 8
-  %ot.addr.i11 = alloca i16, align 2
-  %a.addr.i12 = alloca i16, align 2
-  %b.addr.i13 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trr = alloca i32, align 4
-  %trw = alloca i32, align 4
-  %len = alloca i32, align 4
-  %trn = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  store ptr %2, ptr %J.addr.i39, align 8
-  store i32 %3, ptr %ud.addr.i40, align 4
-  store i32 19, ptr %fl.addr.i41, align 4
-  %4 = load ptr, ptr %J.addr.i39, align 8
-  %5 = load i32, ptr %ud.addr.i40, align 4
-  %conv.i42 = trunc i32 %5 to i16
-  %6 = load i32, ptr %fl.addr.i41, align 4
-  %conv1.i43 = trunc i32 %6 to i16
-  store ptr %4, ptr %J.addr.i.i35, align 8
-  store i16 17673, ptr %ot.addr.i.i36, align 2
-  store i16 %conv.i42, ptr %a.addr.i.i37, align 2
-  store i16 %conv1.i43, ptr %b.addr.i.i38, align 2
-  %7 = load i16, ptr %ot.addr.i.i36, align 2
-  %8 = load ptr, ptr %J.addr.i.i35, align 8
-  %fold.i.i44 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %ot1.i.i45 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i44, i32 0, i32 2
-  store i16 %7, ptr %ot1.i.i45, align 4
-  %9 = load i16, ptr %a.addr.i.i37, align 2
-  %10 = load ptr, ptr %J.addr.i.i35, align 8
-  %fold2.i.i46 = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  store i16 %9, ptr %fold2.i.i46, align 8
-  %11 = load i16, ptr %b.addr.i.i38, align 2
-  %12 = load ptr, ptr %J.addr.i.i35, align 8
-  %fold4.i.i47 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %op2.i.i48 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i47, i32 0, i32 1
-  store i16 %11, ptr %op2.i.i48, align 2
-  %13 = load ptr, ptr %J.addr.i39, align 8
-  %call.i49 = call i32 @lj_opt_fold(ptr noundef %13) #7
-  store i32 %call.i49, ptr %trr, align 4
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load i32, ptr %ud, align 4
-  store ptr %14, ptr %J.addr.i24, align 8
-  store i32 %15, ptr %ud.addr.i25, align 4
-  store i32 14, ptr %fl.addr.i26, align 4
-  %16 = load ptr, ptr %J.addr.i24, align 8
-  %17 = load i32, ptr %ud.addr.i25, align 4
-  %conv.i27 = trunc i32 %17 to i16
-  %18 = load i32, ptr %fl.addr.i26, align 4
-  %conv1.i28 = trunc i32 %18 to i16
-  store ptr %16, ptr %J.addr.i.i20, align 8
-  store i16 17673, ptr %ot.addr.i.i21, align 2
-  store i16 %conv.i27, ptr %a.addr.i.i22, align 2
-  store i16 %conv1.i28, ptr %b.addr.i.i23, align 2
-  %19 = load i16, ptr %ot.addr.i.i21, align 2
-  %20 = load ptr, ptr %J.addr.i.i20, align 8
-  %fold.i.i29 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i.i30 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i29, i32 0, i32 2
-  store i16 %19, ptr %ot1.i.i30, align 4
-  %21 = load i16, ptr %a.addr.i.i22, align 2
-  %22 = load ptr, ptr %J.addr.i.i20, align 8
-  %fold2.i.i31 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i.i31, align 8
-  %23 = load i16, ptr %b.addr.i.i23, align 2
-  %24 = load ptr, ptr %J.addr.i.i20, align 8
-  %fold4.i.i32 = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i.i33 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i32, i32 0, i32 1
-  store i16 %23, ptr %op2.i.i33, align 2
-  %25 = load ptr, ptr %J.addr.i24, align 8
-  %call.i34 = call i32 @lj_opt_fold(ptr noundef %25) #7
-  store i32 %call.i34, ptr %trw, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %trr, align 4
-  %28 = load i32, ptr %trw, align 4
-  store ptr %26, ptr %J.addr.i54, align 8
-  store i32 %27, ptr %trr.addr.i, align 4
-  store i32 %28, ptr %trw.addr.i, align 4
-  %29 = load ptr, ptr %J.addr.i54, align 8
-  %30 = load i32, ptr %trw.addr.i, align 4
-  %conv.i55 = trunc i32 %30 to i16
-  %31 = load i32, ptr %trr.addr.i, align 4
-  %conv1.i56 = trunc i32 %31 to i16
-  store ptr %29, ptr %J.addr.i4.i, align 8
-  store i16 10773, ptr %ot.addr.i5.i, align 2
-  store i16 %conv.i55, ptr %a.addr.i6.i, align 2
-  store i16 %conv1.i56, ptr %b.addr.i7.i, align 2
-  %32 = load i16, ptr %ot.addr.i5.i, align 2
-  %33 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold.i8.i = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  %ot1.i9.i = getelementptr inbounds %struct.anon.2, ptr %fold.i8.i, i32 0, i32 2
-  store i16 %32, ptr %ot1.i9.i, align 4
-  %34 = load i16, ptr %a.addr.i6.i, align 2
-  %35 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold2.i10.i = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  store i16 %34, ptr %fold2.i10.i, align 8
-  %36 = load i16, ptr %b.addr.i7.i, align 2
-  %37 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold4.i11.i = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  %op2.i12.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i11.i, i32 0, i32 1
-  store i16 %36, ptr %op2.i12.i, align 2
-  %38 = load ptr, ptr %J.addr.i54, align 8
-  %call.i57 = call i32 @lj_opt_fold(ptr noundef %38) #7
-  store i32 %call.i57, ptr %len.i, align 4
-  %39 = load ptr, ptr %J.addr.i54, align 8
-  %40 = load i32, ptr %len.i, align 4
-  %conv2.i58 = trunc i32 %40 to i16
-  store ptr %39, ptr %J.addr.i.i50, align 8
-  store i16 23315, ptr %ot.addr.i.i51, align 2
-  store i16 %conv2.i58, ptr %a.addr.i.i52, align 2
-  store i16 4725, ptr %b.addr.i.i53, align 2
-  %41 = load i16, ptr %ot.addr.i.i51, align 2
-  %42 = load ptr, ptr %J.addr.i.i50, align 8
-  %fold.i.i59 = getelementptr inbounds %struct.jit_State, ptr %42, i32 0, i32 14
-  %ot1.i.i60 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i59, i32 0, i32 2
-  store i16 %41, ptr %ot1.i.i60, align 4
-  %43 = load i16, ptr %a.addr.i.i52, align 2
-  %44 = load ptr, ptr %J.addr.i.i50, align 8
-  %fold2.i.i61 = getelementptr inbounds %struct.jit_State, ptr %44, i32 0, i32 14
-  store i16 %43, ptr %fold2.i.i61, align 8
-  %45 = load i16, ptr %b.addr.i.i53, align 2
-  %46 = load ptr, ptr %J.addr.i.i50, align 8
-  %fold4.i.i62 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  %op2.i.i63 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i62, i32 0, i32 1
-  store i16 %45, ptr %op2.i.i63, align 2
-  %47 = load ptr, ptr %J.addr.i54, align 8
-  %call3.i = call i32 @lj_opt_fold(ptr noundef %47) #7
-  store i32 %call3.i, ptr %len.i, align 4
-  %48 = load i32, ptr %len.i, align 4
-  store i32 %48, ptr %len, align 4
-  %49 = load ptr, ptr %J.addr, align 8
-  %50 = load ptr, ptr %rd.addr, align 8
-  %call4 = call i32 @recff_sbufx_checkint(ptr noundef %49, ptr noundef %50, i64 noundef 1)
-  store i32 %call4, ptr %trn, align 4
-  %51 = load ptr, ptr %J.addr, align 8
-  %52 = load i32, ptr %len, align 4
-  %conv = trunc i32 %52 to i16
-  %53 = load i32, ptr %trn, align 4
-  %conv5 = trunc i32 %53 to i16
-  store ptr %51, ptr %J.addr.i10, align 8
-  store i16 12819, ptr %ot.addr.i11, align 2
-  store i16 %conv, ptr %a.addr.i12, align 2
-  store i16 %conv5, ptr %b.addr.i13, align 2
-  %54 = load i16, ptr %ot.addr.i11, align 2
-  %55 = load ptr, ptr %J.addr.i10, align 8
-  %fold.i14 = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 14
-  %ot1.i15 = getelementptr inbounds %struct.anon.2, ptr %fold.i14, i32 0, i32 2
-  store i16 %54, ptr %ot1.i15, align 4
-  %56 = load i16, ptr %a.addr.i12, align 2
-  %57 = load ptr, ptr %J.addr.i10, align 8
-  %fold2.i16 = getelementptr inbounds %struct.jit_State, ptr %57, i32 0, i32 14
-  store i16 %56, ptr %fold2.i16, align 8
-  %58 = load i16, ptr %b.addr.i13, align 2
-  %59 = load ptr, ptr %J.addr.i10, align 8
-  %fold4.i17 = getelementptr inbounds %struct.jit_State, ptr %59, i32 0, i32 14
-  %op2.i18 = getelementptr inbounds %struct.anon.2, ptr %fold4.i17, i32 0, i32 1
-  store i16 %58, ptr %op2.i18, align 2
-  %60 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %60)
-  store i32 %call6, ptr %len, align 4
-  %61 = load ptr, ptr %J.addr, align 8
-  %62 = load i32, ptr %trr, align 4
-  %conv7 = trunc i32 %62 to i16
-  %63 = load i32, ptr %len, align 4
-  %conv8 = trunc i32 %63 to i16
-  store ptr %61, ptr %J.addr.i, align 8
-  store i16 10505, ptr %ot.addr.i, align 2
-  store i16 %conv7, ptr %a.addr.i, align 2
-  store i16 %conv8, ptr %b.addr.i, align 2
-  %64 = load i16, ptr %ot.addr.i, align 2
-  %65 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %65, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %64, ptr %ot1.i, align 4
-  %66 = load i16, ptr %a.addr.i, align 2
-  %67 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %67, i32 0, i32 14
-  store i16 %66, ptr %fold2.i, align 8
-  %68 = load i16, ptr %b.addr.i, align 2
-  %69 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %68, ptr %op2.i, align 2
-  %70 = load ptr, ptr %J.addr, align 8
-  %call9 = call i32 @lj_opt_fold(ptr noundef %70)
-  store i32 %call9, ptr %trr, align 4
-  %71 = load ptr, ptr %J.addr, align 8
-  %72 = load i32, ptr %ud, align 4
-  %73 = load i32, ptr %trr, align 4
-  store ptr %71, ptr %J.addr.i19, align 8
-  store i32 %72, ptr %ud.addr.i, align 4
-  store i32 19, ptr %fl.addr.i, align 4
-  store i32 %73, ptr %val.addr.i, align 4
-  %74 = load ptr, ptr %J.addr.i19, align 8
-  %75 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %75 to i16
-  %76 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %76 to i16
-  store ptr %74, ptr %J.addr.i5.i, align 8
-  store i16 15881, ptr %ot.addr.i6.i, align 2
-  store i16 %conv.i, ptr %a.addr.i7.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i8.i, align 2
-  %77 = load i16, ptr %ot.addr.i6.i, align 2
-  %78 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold.i9.i = getelementptr inbounds %struct.jit_State, ptr %78, i32 0, i32 14
-  %ot1.i10.i = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i, i32 0, i32 2
-  store i16 %77, ptr %ot1.i10.i, align 4
-  %79 = load i16, ptr %a.addr.i7.i, align 2
-  %80 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold2.i11.i = getelementptr inbounds %struct.jit_State, ptr %80, i32 0, i32 14
-  store i16 %79, ptr %fold2.i11.i, align 8
-  %81 = load i16, ptr %b.addr.i8.i, align 2
-  %82 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold4.i12.i = getelementptr inbounds %struct.jit_State, ptr %82, i32 0, i32 14
-  %op2.i13.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i, i32 0, i32 1
-  store i16 %81, ptr %op2.i13.i, align 2
-  %83 = load ptr, ptr %J.addr.i19, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %83) #7
-  store i32 %call.i, ptr %fref.i, align 4
-  %84 = load ptr, ptr %J.addr.i19, align 8
-  %85 = load i32, ptr %fref.i, align 4
-  %conv2.i = trunc i32 %85 to i16
-  %86 = load i32, ptr %val.addr.i, align 4
-  %conv3.i = trunc i32 %86 to i16
-  store ptr %84, ptr %J.addr.i.i, align 8
-  store i16 19721, ptr %ot.addr.i.i, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i, align 2
-  store i16 %conv3.i, ptr %b.addr.i.i, align 2
-  %87 = load i16, ptr %ot.addr.i.i, align 2
-  %88 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %88, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %87, ptr %ot1.i.i, align 4
-  %89 = load i16, ptr %a.addr.i.i, align 2
-  %90 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %90, i32 0, i32 14
-  store i16 %89, ptr %fold2.i.i, align 8
-  %91 = load i16, ptr %b.addr.i.i, align 2
-  %92 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %92, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %91, ptr %op2.i.i, align 2
-  %93 = load ptr, ptr %J.addr.i19, align 8
-  %call4.i = call i32 @lj_opt_fold(ptr noundef %93) #7
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_set(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i47 = alloca ptr, align 8
-  %ot.addr.i48 = alloca i16, align 2
-  %a.addr.i49 = alloca i16, align 2
-  %b.addr.i50 = alloca i16, align 2
-  %J.addr.i38 = alloca ptr, align 8
-  %ot.addr.i39 = alloca i16, align 2
-  %a.addr.i40 = alloca i16, align 2
-  %b.addr.i41 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %trp = alloca i32, align 4
-  %len = alloca i32, align 4
-  %irp = alloca ptr, align 8
-  %trp30 = alloca i32, align 4
-  %len33 = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  %call1 = call i32 @recff_sbufx_write(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %trbuf, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 6
-  %5 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 1
-  %6 = load i32, ptr %arrayidx, align 4
-  store i32 %6, ptr %tr, align 4
-  %7 = load i32, ptr %tr, align 4
-  %and = and i32 %7, 520093696
-  %cmp = icmp eq i32 %and, 67108864
-  br i1 %cmp, label %if.then, label %if.else25
-
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %9 to i16
-  %10 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_ir_kint(ptr noundef %10, i32 noundef 0)
-  %conv3 = trunc i32 %call2 to i16
-  store ptr %8, ptr %J.addr.i47, align 8
-  store i16 16393, ptr %ot.addr.i48, align 2
-  store i16 %conv, ptr %a.addr.i49, align 2
-  store i16 %conv3, ptr %b.addr.i50, align 2
-  %11 = load i16, ptr %ot.addr.i48, align 2
-  %12 = load ptr, ptr %J.addr.i47, align 8
-  %fold.i51 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %ot1.i52 = getelementptr inbounds %struct.anon.2, ptr %fold.i51, i32 0, i32 2
-  store i16 %11, ptr %ot1.i52, align 4
-  %13 = load i16, ptr %a.addr.i49, align 2
-  %14 = load ptr, ptr %J.addr.i47, align 8
-  %fold2.i53 = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  store i16 %13, ptr %fold2.i53, align 8
-  %15 = load i16, ptr %b.addr.i50, align 2
-  %16 = load ptr, ptr %J.addr.i47, align 8
-  %fold4.i54 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  %op2.i55 = getelementptr inbounds %struct.anon.2, ptr %fold4.i54, i32 0, i32 1
-  store i16 %15, ptr %op2.i55, align 2
-  %17 = load ptr, ptr %J.addr, align 8
-  %call4 = call i32 @lj_opt_fold(ptr noundef %17)
-  store i32 %call4, ptr %trp, align 4
-  %18 = load ptr, ptr %J.addr, align 8
-  %19 = load i32, ptr %tr, align 4
-  %conv5 = trunc i32 %19 to i16
-  store ptr %18, ptr %J.addr.i38, align 8
-  store i16 17683, ptr %ot.addr.i39, align 2
-  store i16 %conv5, ptr %a.addr.i40, align 2
-  store i16 0, ptr %b.addr.i41, align 2
-  %20 = load i16, ptr %ot.addr.i39, align 2
-  %21 = load ptr, ptr %J.addr.i38, align 8
-  %fold.i42 = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 14
-  %ot1.i43 = getelementptr inbounds %struct.anon.2, ptr %fold.i42, i32 0, i32 2
-  store i16 %20, ptr %ot1.i43, align 4
-  %22 = load i16, ptr %a.addr.i40, align 2
-  %23 = load ptr, ptr %J.addr.i38, align 8
-  %fold2.i44 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  store i16 %22, ptr %fold2.i44, align 8
-  %24 = load i16, ptr %b.addr.i41, align 2
-  %25 = load ptr, ptr %J.addr.i38, align 8
-  %fold4.i45 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  %op2.i46 = getelementptr inbounds %struct.anon.2, ptr %fold4.i45, i32 0, i32 1
-  store i16 %24, ptr %op2.i46, align 2
-  %26 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %26)
-  store i32 %call6, ptr %len, align 4
-  %27 = load ptr, ptr %J.addr, align 8
-  %cur = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 0
-  %ir = getelementptr inbounds %struct.GCtrace, ptr %cur, i32 0, i32 7
-  %28 = load ptr, ptr %ir, align 8
-  %29 = load i32, ptr %trp, align 4
-  %conv7 = trunc i32 %29 to i16
-  %idxprom = zext i16 %conv7 to i64
-  %arrayidx8 = getelementptr inbounds %union.IRIns, ptr %28, i64 %idxprom
-  store ptr %arrayidx8, ptr %irp, align 8
-  %30 = load ptr, ptr %irp, align 8
-  %o = getelementptr inbounds %struct.anon.3, ptr %30, i32 0, i32 2
-  %31 = load i8, ptr %o, align 1
-  %conv9 = zext i8 %31 to i32
-  %cmp10 = icmp eq i32 %conv9, 64
-  br i1 %cmp10, label %if.then12, label %if.else
-
-if.then12:                                        ; preds = %if.then
-  %32 = load ptr, ptr %irp, align 8
-  %op1 = getelementptr inbounds %struct.anon.2, ptr %32, i32 0, i32 0
-  %33 = load i16, ptr %op1, align 8
-  %conv13 = zext i16 %33 to i32
-  store i32 %conv13, ptr %tr, align 4
-  br label %if.end23
-
-if.else:                                          ; preds = %if.then
-  %34 = load i32, ptr %tr, align 4
-  %conv14 = trunc i32 %34 to i16
-  %conv15 = zext i16 %conv14 to i32
-  %cmp16 = icmp slt i32 %conv15, 32768
-  br i1 %cmp16, label %if.end, label %if.then18
-
-if.then18:                                        ; preds = %if.else
-  %35 = load ptr, ptr %J.addr, align 8
-  %36 = load i32, ptr %tr, align 4
-  %conv19 = trunc i32 %36 to i16
-  %37 = load ptr, ptr %J.addr, align 8
-  %call20 = call i32 @lj_ir_kint64(ptr noundef %37, i64 noundef 24)
-  %conv21 = trunc i32 %call20 to i16
-  store ptr %35, ptr %J.addr.i, align 8
-  store i16 10505, ptr %ot.addr.i, align 2
-  store i16 %conv19, ptr %a.addr.i, align 2
-  store i16 %conv21, ptr %b.addr.i, align 2
-  %38 = load i16, ptr %ot.addr.i, align 2
-  %39 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %38, ptr %ot1.i, align 4
-  %40 = load i16, ptr %a.addr.i, align 2
-  %41 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %41, i32 0, i32 14
-  store i16 %40, ptr %fold2.i, align 8
-  %42 = load i16, ptr %b.addr.i, align 2
-  %43 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %43, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %42, ptr %op2.i, align 2
-  %44 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_opt_fold(ptr noundef %44)
-  store i32 %call22, ptr %trp, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then18, %if.else
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end, %if.then12
-  %45 = load ptr, ptr %J.addr, align 8
-  %46 = load i32, ptr %trbuf, align 4
-  %47 = load i32, ptr %trp, align 4
-  %48 = load i32, ptr %len, align 4
-  %49 = load i32, ptr %tr, align 4
-  %call24 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %45, i32 noundef 24, i32 noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %49)
-  br label %if.end37
-
-if.else25:                                        ; preds = %entry
-  %50 = load i32, ptr %tr, align 4
-  %and26 = and i32 %50, 520093696
-  %cmp27 = icmp eq i32 %and26, 167772160
-  br i1 %cmp27, label %if.then29, label %if.end36
-
-if.then29:                                        ; preds = %if.else25
-  %51 = load ptr, ptr %J.addr, align 8
-  %52 = load i32, ptr %tr, align 4
-  %53 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %53, i32 0, i32 0
-  %54 = load ptr, ptr %argv, align 8
-  %arrayidx31 = getelementptr inbounds %union.TValue, ptr %54, i64 1
-  %call32 = call i32 @lj_crecord_topcvoid(ptr noundef %51, i32 noundef %52, ptr noundef %arrayidx31)
-  store i32 %call32, ptr %trp30, align 4
-  %55 = load ptr, ptr %J.addr, align 8
-  %56 = load ptr, ptr %rd.addr, align 8
-  %call34 = call i32 @recff_sbufx_checkint(ptr noundef %55, ptr noundef %56, i64 noundef 2)
-  store i32 %call34, ptr %len33, align 4
-  %57 = load ptr, ptr %J.addr, align 8
-  %58 = load i32, ptr %trbuf, align 4
-  %59 = load i32, ptr %trp30, align 4
-  %60 = load i32, ptr %len33, align 4
-  %61 = load i32, ptr %tr, align 4
-  %call35 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %57, i32 noundef 24, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %61)
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.then29, %if.else25
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end36, %if.end23
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_put(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i4.i = alloca ptr, align 8
-  %ot.addr.i5.i = alloca i16, align 2
-  %a.addr.i6.i = alloca i16, align 2
-  %b.addr.i7.i = alloca i16, align 2
-  %J.addr.i.i105 = alloca ptr, align 8
-  %ot.addr.i.i106 = alloca i16, align 2
-  %a.addr.i.i107 = alloca i16, align 2
-  %b.addr.i.i108 = alloca i16, align 2
-  %J.addr.i109 = alloca ptr, align 8
-  %trr.addr.i = alloca i32, align 4
-  %trw.addr.i = alloca i32, align 4
-  %len.i = alloca i32, align 4
-  %J.addr.i.i90 = alloca ptr, align 8
-  %ot.addr.i.i91 = alloca i16, align 2
-  %a.addr.i.i92 = alloca i16, align 2
-  %b.addr.i.i93 = alloca i16, align 2
-  %J.addr.i94 = alloca ptr, align 8
-  %ud.addr.i95 = alloca i32, align 4
-  %fl.addr.i96 = alloca i32, align 4
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i89 = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %J.addr.i80 = alloca ptr, align 8
-  %ot.addr.i81 = alloca i16, align 2
-  %a.addr.i82 = alloca i16, align 2
-  %b.addr.i83 = alloca i16, align 2
-  %J.addr.i71 = alloca ptr, align 8
-  %ot.addr.i72 = alloca i16, align 2
-  %a.addr.i73 = alloca i16, align 2
-  %b.addr.i74 = alloca i16, align 2
-  %J.addr.i62 = alloca ptr, align 8
-  %ot.addr.i63 = alloca i16, align 2
-  %a.addr.i64 = alloca i16, align 2
-  %b.addr.i65 = alloca i16, align 2
-  %J.addr.i53 = alloca ptr, align 8
-  %ot.addr.i54 = alloca i16, align 2
-  %a.addr.i55 = alloca i16, align 2
-  %b.addr.i56 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %arg = alloca i64, align 8
-  %ud2 = alloca i32, align 4
-  %trr = alloca i32, align 4
-  %trw = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  %call1 = call i32 @recff_sbufx_write(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %trbuf, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 6
-  %5 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 1
-  %6 = load i32, ptr %arrayidx, align 4
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i64 1, ptr %arg, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load ptr, ptr %J.addr, align 8
-  %base2 = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 6
-  %8 = load ptr, ptr %base2, align 8
-  %9 = load i64, ptr %arg, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %8, i64 %9
-  %10 = load i32, ptr %arrayidx3, align 4
-  store i32 %10, ptr %tr, align 4
-  %tobool4 = icmp ne i32 %10, 0
-  br i1 %tobool4, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %11 = load i32, ptr %tr, align 4
-  %and = and i32 %11, 520093696
-  %cmp = icmp eq i32 %and, 201326592
-  br i1 %cmp, label %if.then5, label %if.end9
-
-if.then5:                                         ; preds = %for.body
-  %12 = load ptr, ptr %J.addr, align 8
-  %13 = load ptr, ptr %rd.addr, align 8
-  %14 = load i64, ptr %arg, align 8
-  %call6 = call i32 @recff_sbufx_check(ptr noundef %12, ptr noundef %13, i64 noundef %14)
-  store i32 %call6, ptr %ud2, align 4
-  %15 = load ptr, ptr %J.addr, align 8
-  %16 = load i32, ptr %ud, align 4
-  %conv = trunc i32 %16 to i16
-  %17 = load i32, ptr %ud2, align 4
-  %conv7 = trunc i32 %17 to i16
-  store ptr %15, ptr %J.addr.i80, align 8
-  store i16 2441, ptr %ot.addr.i81, align 2
-  store i16 %conv, ptr %a.addr.i82, align 2
-  store i16 %conv7, ptr %b.addr.i83, align 2
-  %18 = load i16, ptr %ot.addr.i81, align 2
-  %19 = load ptr, ptr %J.addr.i80, align 8
-  %fold.i84 = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 14
-  %ot1.i85 = getelementptr inbounds %struct.anon.2, ptr %fold.i84, i32 0, i32 2
-  store i16 %18, ptr %ot1.i85, align 4
-  %20 = load i16, ptr %a.addr.i82, align 2
-  %21 = load ptr, ptr %J.addr.i80, align 8
-  %fold2.i86 = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 14
-  store i16 %20, ptr %fold2.i86, align 8
-  %22 = load i16, ptr %b.addr.i83, align 2
-  %23 = load ptr, ptr %J.addr.i80, align 8
-  %fold4.i87 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  %op2.i88 = getelementptr inbounds %struct.anon.2, ptr %fold4.i87, i32 0, i32 1
-  store i16 %22, ptr %op2.i88, align 2
-  %24 = load ptr, ptr %J.addr, align 8
-  %call8 = call i32 @lj_opt_fold(ptr noundef %24)
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.then5, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end9
-  %25 = load i64, ptr %arg, align 8
-  %inc = add nsw i64 %25, 1
-  store i64 %inc, ptr %arg, align 8
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  store i64 1, ptr %arg, align 8
-  br label %for.cond10
-
-for.cond10:                                       ; preds = %for.inc48, %for.end
-  %26 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %base11, align 8
-  %28 = load i64, ptr %arg, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %27, i64 %28
-  %29 = load i32, ptr %arrayidx12, align 4
-  store i32 %29, ptr %tr, align 4
-  %tobool13 = icmp ne i32 %29, 0
-  br i1 %tobool13, label %for.body14, label %for.end50
-
-for.body14:                                       ; preds = %for.cond10
-  %30 = load i32, ptr %tr, align 4
-  %and15 = and i32 %30, 520093696
-  %cmp16 = icmp eq i32 %and15, 67108864
-  br i1 %cmp16, label %if.then18, label %if.else
-
-if.then18:                                        ; preds = %for.body14
-  %31 = load ptr, ptr %J.addr, align 8
-  %32 = load i32, ptr %trbuf, align 4
-  %conv19 = trunc i32 %32 to i16
-  %33 = load i32, ptr %tr, align 4
-  %conv20 = trunc i32 %33 to i16
-  store ptr %31, ptr %J.addr.i71, align 8
-  store i16 22153, ptr %ot.addr.i72, align 2
-  store i16 %conv19, ptr %a.addr.i73, align 2
-  store i16 %conv20, ptr %b.addr.i74, align 2
-  %34 = load i16, ptr %ot.addr.i72, align 2
-  %35 = load ptr, ptr %J.addr.i71, align 8
-  %fold.i75 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %ot1.i76 = getelementptr inbounds %struct.anon.2, ptr %fold.i75, i32 0, i32 2
-  store i16 %34, ptr %ot1.i76, align 4
-  %36 = load i16, ptr %a.addr.i73, align 2
-  %37 = load ptr, ptr %J.addr.i71, align 8
-  %fold2.i77 = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  store i16 %36, ptr %fold2.i77, align 8
-  %38 = load i16, ptr %b.addr.i74, align 2
-  %39 = load ptr, ptr %J.addr.i71, align 8
-  %fold4.i78 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %op2.i79 = getelementptr inbounds %struct.anon.2, ptr %fold4.i78, i32 0, i32 1
-  store i16 %38, ptr %op2.i79, align 2
-  %40 = load ptr, ptr %J.addr, align 8
-  %call21 = call i32 @lj_opt_fold(ptr noundef %40)
-  store i32 %call21, ptr %trbuf, align 4
-  br label %if.end47
-
-if.else:                                          ; preds = %for.body14
-  %41 = load i32, ptr %tr, align 4
-  %shr = lshr i32 %41, 24
-  %and22 = and i32 %shr, 31
-  %sub = sub i32 %and22, 14
-  %cmp23 = icmp ule i32 %sub, 5
-  br i1 %cmp23, label %if.then25, label %if.else35
-
-if.then25:                                        ; preds = %if.else
-  %42 = load ptr, ptr %J.addr, align 8
-  %43 = load i32, ptr %trbuf, align 4
-  %conv26 = trunc i32 %43 to i16
-  %44 = load ptr, ptr %J.addr, align 8
-  %45 = load i32, ptr %tr, align 4
-  %conv27 = trunc i32 %45 to i16
-  %46 = load i32, ptr %tr, align 4
-  %and28 = and i32 %46, 520093696
-  %cmp29 = icmp eq i32 %and28, 234881024
-  %cond = select i1 %cmp29, i32 1, i32 0
-  %conv31 = trunc i32 %cond to i16
-  store ptr %44, ptr %J.addr.i62, align 8
-  store i16 23812, ptr %ot.addr.i63, align 2
-  store i16 %conv27, ptr %a.addr.i64, align 2
-  store i16 %conv31, ptr %b.addr.i65, align 2
-  %47 = load i16, ptr %ot.addr.i63, align 2
-  %48 = load ptr, ptr %J.addr.i62, align 8
-  %fold.i66 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  %ot1.i67 = getelementptr inbounds %struct.anon.2, ptr %fold.i66, i32 0, i32 2
-  store i16 %47, ptr %ot1.i67, align 4
-  %49 = load i16, ptr %a.addr.i64, align 2
-  %50 = load ptr, ptr %J.addr.i62, align 8
-  %fold2.i68 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 14
-  store i16 %49, ptr %fold2.i68, align 8
-  %51 = load i16, ptr %b.addr.i65, align 2
-  %52 = load ptr, ptr %J.addr.i62, align 8
-  %fold4.i69 = getelementptr inbounds %struct.jit_State, ptr %52, i32 0, i32 14
-  %op2.i70 = getelementptr inbounds %struct.anon.2, ptr %fold4.i69, i32 0, i32 1
-  store i16 %51, ptr %op2.i70, align 2
-  %53 = load ptr, ptr %J.addr, align 8
-  %call32 = call i32 @lj_opt_fold(ptr noundef %53)
-  %conv33 = trunc i32 %call32 to i16
-  store ptr %42, ptr %J.addr.i53, align 8
-  store i16 22153, ptr %ot.addr.i54, align 2
-  store i16 %conv26, ptr %a.addr.i55, align 2
-  store i16 %conv33, ptr %b.addr.i56, align 2
-  %54 = load i16, ptr %ot.addr.i54, align 2
-  %55 = load ptr, ptr %J.addr.i53, align 8
-  %fold.i57 = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 14
-  %ot1.i58 = getelementptr inbounds %struct.anon.2, ptr %fold.i57, i32 0, i32 2
-  store i16 %54, ptr %ot1.i58, align 4
-  %56 = load i16, ptr %a.addr.i55, align 2
-  %57 = load ptr, ptr %J.addr.i53, align 8
-  %fold2.i59 = getelementptr inbounds %struct.jit_State, ptr %57, i32 0, i32 14
-  store i16 %56, ptr %fold2.i59, align 8
-  %58 = load i16, ptr %b.addr.i56, align 2
-  %59 = load ptr, ptr %J.addr.i53, align 8
-  %fold4.i60 = getelementptr inbounds %struct.jit_State, ptr %59, i32 0, i32 14
-  %op2.i61 = getelementptr inbounds %struct.anon.2, ptr %fold4.i60, i32 0, i32 1
-  store i16 %58, ptr %op2.i61, align 2
-  %60 = load ptr, ptr %J.addr, align 8
-  %call34 = call i32 @lj_opt_fold(ptr noundef %60)
-  store i32 %call34, ptr %trbuf, align 4
-  br label %if.end46
-
-if.else35:                                        ; preds = %if.else
-  %61 = load i32, ptr %tr, align 4
-  %and36 = and i32 %61, 520093696
-  %cmp37 = icmp eq i32 %and36, 201326592
-  br i1 %cmp37, label %if.then39, label %if.else44
-
-if.then39:                                        ; preds = %if.else35
-  %62 = load ptr, ptr %J.addr, align 8
-  %63 = load i32, ptr %tr, align 4
-  store ptr %62, ptr %J.addr.i94, align 8
-  store i32 %63, ptr %ud.addr.i95, align 4
-  store i32 19, ptr %fl.addr.i96, align 4
-  %64 = load ptr, ptr %J.addr.i94, align 8
-  %65 = load i32, ptr %ud.addr.i95, align 4
-  %conv.i97 = trunc i32 %65 to i16
-  %66 = load i32, ptr %fl.addr.i96, align 4
-  %conv1.i98 = trunc i32 %66 to i16
-  store ptr %64, ptr %J.addr.i.i90, align 8
-  store i16 17673, ptr %ot.addr.i.i91, align 2
-  store i16 %conv.i97, ptr %a.addr.i.i92, align 2
-  store i16 %conv1.i98, ptr %b.addr.i.i93, align 2
-  %67 = load i16, ptr %ot.addr.i.i91, align 2
-  %68 = load ptr, ptr %J.addr.i.i90, align 8
-  %fold.i.i99 = getelementptr inbounds %struct.jit_State, ptr %68, i32 0, i32 14
-  %ot1.i.i100 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i99, i32 0, i32 2
-  store i16 %67, ptr %ot1.i.i100, align 4
-  %69 = load i16, ptr %a.addr.i.i92, align 2
-  %70 = load ptr, ptr %J.addr.i.i90, align 8
-  %fold2.i.i101 = getelementptr inbounds %struct.jit_State, ptr %70, i32 0, i32 14
-  store i16 %69, ptr %fold2.i.i101, align 8
-  %71 = load i16, ptr %b.addr.i.i93, align 2
-  %72 = load ptr, ptr %J.addr.i.i90, align 8
-  %fold4.i.i102 = getelementptr inbounds %struct.jit_State, ptr %72, i32 0, i32 14
-  %op2.i.i103 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i102, i32 0, i32 1
-  store i16 %71, ptr %op2.i.i103, align 2
-  %73 = load ptr, ptr %J.addr.i94, align 8
-  %call.i104 = call i32 @lj_opt_fold(ptr noundef %73) #7
-  store i32 %call.i104, ptr %trr, align 4
-  %74 = load ptr, ptr %J.addr, align 8
-  %75 = load i32, ptr %tr, align 4
-  store ptr %74, ptr %J.addr.i89, align 8
-  store i32 %75, ptr %ud.addr.i, align 4
-  store i32 14, ptr %fl.addr.i, align 4
-  %76 = load ptr, ptr %J.addr.i89, align 8
-  %77 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %77 to i16
-  %78 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %78 to i16
-  store ptr %76, ptr %J.addr.i.i, align 8
-  store i16 17673, ptr %ot.addr.i.i, align 2
-  store i16 %conv.i, ptr %a.addr.i.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i.i, align 2
-  %79 = load i16, ptr %ot.addr.i.i, align 2
-  %80 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %80, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %79, ptr %ot1.i.i, align 4
-  %81 = load i16, ptr %a.addr.i.i, align 2
-  %82 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %82, i32 0, i32 14
-  store i16 %81, ptr %fold2.i.i, align 8
-  %83 = load i16, ptr %b.addr.i.i, align 2
-  %84 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %84, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %83, ptr %op2.i.i, align 2
-  %85 = load ptr, ptr %J.addr.i89, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %85) #7
-  store i32 %call.i, ptr %trw, align 4
-  %86 = load ptr, ptr %J.addr, align 8
-  %87 = load i32, ptr %trr, align 4
-  %88 = load i32, ptr %trw, align 4
-  store ptr %86, ptr %J.addr.i109, align 8
-  store i32 %87, ptr %trr.addr.i, align 4
-  store i32 %88, ptr %trw.addr.i, align 4
-  %89 = load ptr, ptr %J.addr.i109, align 8
-  %90 = load i32, ptr %trw.addr.i, align 4
-  %conv.i110 = trunc i32 %90 to i16
-  %91 = load i32, ptr %trr.addr.i, align 4
-  %conv1.i111 = trunc i32 %91 to i16
-  store ptr %89, ptr %J.addr.i4.i, align 8
-  store i16 10773, ptr %ot.addr.i5.i, align 2
-  store i16 %conv.i110, ptr %a.addr.i6.i, align 2
-  store i16 %conv1.i111, ptr %b.addr.i7.i, align 2
-  %92 = load i16, ptr %ot.addr.i5.i, align 2
-  %93 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold.i8.i = getelementptr inbounds %struct.jit_State, ptr %93, i32 0, i32 14
-  %ot1.i9.i = getelementptr inbounds %struct.anon.2, ptr %fold.i8.i, i32 0, i32 2
-  store i16 %92, ptr %ot1.i9.i, align 4
-  %94 = load i16, ptr %a.addr.i6.i, align 2
-  %95 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold2.i10.i = getelementptr inbounds %struct.jit_State, ptr %95, i32 0, i32 14
-  store i16 %94, ptr %fold2.i10.i, align 8
-  %96 = load i16, ptr %b.addr.i7.i, align 2
-  %97 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold4.i11.i = getelementptr inbounds %struct.jit_State, ptr %97, i32 0, i32 14
-  %op2.i12.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i11.i, i32 0, i32 1
-  store i16 %96, ptr %op2.i12.i, align 2
-  %98 = load ptr, ptr %J.addr.i109, align 8
-  %call.i112 = call i32 @lj_opt_fold(ptr noundef %98) #7
-  store i32 %call.i112, ptr %len.i, align 4
-  %99 = load ptr, ptr %J.addr.i109, align 8
-  %100 = load i32, ptr %len.i, align 4
-  %conv2.i = trunc i32 %100 to i16
-  store ptr %99, ptr %J.addr.i.i105, align 8
-  store i16 23315, ptr %ot.addr.i.i106, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i107, align 2
-  store i16 4725, ptr %b.addr.i.i108, align 2
-  %101 = load i16, ptr %ot.addr.i.i106, align 2
-  %102 = load ptr, ptr %J.addr.i.i105, align 8
-  %fold.i.i113 = getelementptr inbounds %struct.jit_State, ptr %102, i32 0, i32 14
-  %ot1.i.i114 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i113, i32 0, i32 2
-  store i16 %101, ptr %ot1.i.i114, align 4
-  %103 = load i16, ptr %a.addr.i.i107, align 2
-  %104 = load ptr, ptr %J.addr.i.i105, align 8
-  %fold2.i.i115 = getelementptr inbounds %struct.jit_State, ptr %104, i32 0, i32 14
-  store i16 %103, ptr %fold2.i.i115, align 8
-  %105 = load i16, ptr %b.addr.i.i108, align 2
-  %106 = load ptr, ptr %J.addr.i.i105, align 8
-  %fold4.i.i116 = getelementptr inbounds %struct.jit_State, ptr %106, i32 0, i32 14
-  %op2.i.i117 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i116, i32 0, i32 1
-  store i16 %105, ptr %op2.i.i117, align 2
-  %107 = load ptr, ptr %J.addr.i109, align 8
-  %call3.i = call i32 @lj_opt_fold(ptr noundef %107) #7
-  store i32 %call3.i, ptr %len.i, align 4
-  %108 = load i32, ptr %len.i, align 4
-  store i32 %108, ptr %len, align 4
-  %109 = load ptr, ptr %J.addr, align 8
-  %110 = load i32, ptr %trbuf, align 4
-  %111 = load i32, ptr %trr, align 4
-  %112 = load i32, ptr %len, align 4
-  %call43 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %109, i32 noundef 16, i32 noundef %110, i32 noundef %111, i32 noundef %112)
-  store i32 %call43, ptr %trbuf, align 4
-  br label %if.end45
-
-if.else44:                                        ; preds = %if.else35
-  %113 = load ptr, ptr %J.addr, align 8
-  %114 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %113, ptr noundef %114)
-  br label %if.end45
-
-if.end45:                                         ; preds = %if.else44, %if.then39
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.end45, %if.then25
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.end46, %if.then18
-  br label %for.inc48
-
-for.inc48:                                        ; preds = %if.end47
-  %115 = load i64, ptr %arg, align 8
-  %inc49 = add nsw i64 %115, 1
-  store i64 %inc49, ptr %arg, align 8
-  br label %for.cond10, !llvm.loop !13
-
-for.end50:                                        ; preds = %for.cond10
-  %116 = load ptr, ptr %J.addr, align 8
-  %117 = load i32, ptr %trbuf, align 4
-  %conv51 = trunc i32 %117 to i16
-  store ptr %116, ptr %J.addr.i, align 8
-  store i16 4608, ptr %ot.addr.i, align 2
-  store i16 %conv51, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %118 = load i16, ptr %ot.addr.i, align 2
-  %119 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %119, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %118, ptr %ot1.i, align 4
-  %120 = load i16, ptr %a.addr.i, align 2
-  %121 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %121, i32 0, i32 14
-  store i16 %120, ptr %fold2.i, align 8
-  %122 = load i16, ptr %b.addr.i, align 2
-  %123 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %123, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %122, ptr %op2.i, align 2
-  %124 = load ptr, ptr %J.addr, align 8
-  %call52 = call i32 @lj_opt_fold(ptr noundef %124)
-  br label %return
-
-return:                                           ; preds = %for.end50, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_putf(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  %call1 = call i32 @recff_sbufx_write(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %trbuf, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %rd.addr, align 8
-  %6 = load i32, ptr %trbuf, align 4
-  call void @recff_format(ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef 1)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_get(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i4.i = alloca ptr, align 8
-  %ot.addr.i5.i = alloca i16, align 2
-  %a.addr.i6.i = alloca i16, align 2
-  %b.addr.i7.i = alloca i16, align 2
-  %J.addr.i.i104 = alloca ptr, align 8
-  %ot.addr.i.i105 = alloca i16, align 2
-  %a.addr.i.i106 = alloca i16, align 2
-  %b.addr.i.i107 = alloca i16, align 2
-  %J.addr.i108 = alloca ptr, align 8
-  %trr.addr.i = alloca i32, align 4
-  %trw.addr.i = alloca i32, align 4
-  %len.i = alloca i32, align 4
-  %J.addr.i.i89 = alloca ptr, align 8
-  %ot.addr.i.i90 = alloca i16, align 2
-  %a.addr.i.i91 = alloca i16, align 2
-  %b.addr.i.i92 = alloca i16, align 2
-  %J.addr.i93 = alloca ptr, align 8
-  %ud.addr.i94 = alloca i32, align 4
-  %fl.addr.i95 = alloca i32, align 4
-  %J.addr.i.i74 = alloca ptr, align 8
-  %ot.addr.i.i75 = alloca i16, align 2
-  %a.addr.i.i76 = alloca i16, align 2
-  %b.addr.i.i77 = alloca i16, align 2
-  %J.addr.i78 = alloca ptr, align 8
-  %ud.addr.i79 = alloca i32, align 4
-  %fl.addr.i80 = alloca i32, align 4
-  %J.addr.i5.i = alloca ptr, align 8
-  %ot.addr.i6.i = alloca i16, align 2
-  %a.addr.i7.i = alloca i16, align 2
-  %b.addr.i8.i = alloca i16, align 2
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i73 = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %val.addr.i = alloca i32, align 4
-  %fref.i = alloca i32, align 4
-  %J.addr.i64 = alloca ptr, align 8
-  %ot.addr.i65 = alloca i16, align 2
-  %a.addr.i66 = alloca i16, align 2
-  %b.addr.i67 = alloca i16, align 2
-  %J.addr.i55 = alloca ptr, align 8
-  %ot.addr.i56 = alloca i16, align 2
-  %a.addr.i57 = alloca i16, align 2
-  %b.addr.i58 = alloca i16, align 2
-  %J.addr.i46 = alloca ptr, align 8
-  %ot.addr.i47 = alloca i16, align 2
-  %a.addr.i48 = alloca i16, align 2
-  %b.addr.i49 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trr = alloca i32, align 4
-  %trw = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %arg = alloca i64, align 8
-  %len = alloca i32, align 4
-  %tru = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  store ptr %2, ptr %J.addr.i93, align 8
-  store i32 %3, ptr %ud.addr.i94, align 4
-  store i32 19, ptr %fl.addr.i95, align 4
-  %4 = load ptr, ptr %J.addr.i93, align 8
-  %5 = load i32, ptr %ud.addr.i94, align 4
-  %conv.i96 = trunc i32 %5 to i16
-  %6 = load i32, ptr %fl.addr.i95, align 4
-  %conv1.i97 = trunc i32 %6 to i16
-  store ptr %4, ptr %J.addr.i.i89, align 8
-  store i16 17673, ptr %ot.addr.i.i90, align 2
-  store i16 %conv.i96, ptr %a.addr.i.i91, align 2
-  store i16 %conv1.i97, ptr %b.addr.i.i92, align 2
-  %7 = load i16, ptr %ot.addr.i.i90, align 2
-  %8 = load ptr, ptr %J.addr.i.i89, align 8
-  %fold.i.i98 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %ot1.i.i99 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i98, i32 0, i32 2
-  store i16 %7, ptr %ot1.i.i99, align 4
-  %9 = load i16, ptr %a.addr.i.i91, align 2
-  %10 = load ptr, ptr %J.addr.i.i89, align 8
-  %fold2.i.i100 = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  store i16 %9, ptr %fold2.i.i100, align 8
-  %11 = load i16, ptr %b.addr.i.i92, align 2
-  %12 = load ptr, ptr %J.addr.i.i89, align 8
-  %fold4.i.i101 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %op2.i.i102 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i101, i32 0, i32 1
-  store i16 %11, ptr %op2.i.i102, align 2
-  %13 = load ptr, ptr %J.addr.i93, align 8
-  %call.i103 = call i32 @lj_opt_fold(ptr noundef %13) #7
-  store i32 %call.i103, ptr %trr, align 4
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load i32, ptr %ud, align 4
-  store ptr %14, ptr %J.addr.i78, align 8
-  store i32 %15, ptr %ud.addr.i79, align 4
-  store i32 14, ptr %fl.addr.i80, align 4
-  %16 = load ptr, ptr %J.addr.i78, align 8
-  %17 = load i32, ptr %ud.addr.i79, align 4
-  %conv.i81 = trunc i32 %17 to i16
-  %18 = load i32, ptr %fl.addr.i80, align 4
-  %conv1.i82 = trunc i32 %18 to i16
-  store ptr %16, ptr %J.addr.i.i74, align 8
-  store i16 17673, ptr %ot.addr.i.i75, align 2
-  store i16 %conv.i81, ptr %a.addr.i.i76, align 2
-  store i16 %conv1.i82, ptr %b.addr.i.i77, align 2
-  %19 = load i16, ptr %ot.addr.i.i75, align 2
-  %20 = load ptr, ptr %J.addr.i.i74, align 8
-  %fold.i.i83 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i.i84 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i83, i32 0, i32 2
-  store i16 %19, ptr %ot1.i.i84, align 4
-  %21 = load i16, ptr %a.addr.i.i76, align 2
-  %22 = load ptr, ptr %J.addr.i.i74, align 8
-  %fold2.i.i85 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i.i85, align 8
-  %23 = load i16, ptr %b.addr.i.i77, align 2
-  %24 = load ptr, ptr %J.addr.i.i74, align 8
-  %fold4.i.i86 = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i.i87 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i86, i32 0, i32 1
-  store i16 %23, ptr %op2.i.i87, align 2
-  %25 = load ptr, ptr %J.addr.i78, align 8
-  %call.i88 = call i32 @lj_opt_fold(ptr noundef %25) #7
-  store i32 %call.i88, ptr %trw, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 6
-  %27 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %27, i64 1
-  %28 = load i32, ptr %arrayidx, align 4
-  %tobool = icmp ne i32 %28, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %29 = load ptr, ptr %J.addr, align 8
-  %base3 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 6
-  %30 = load ptr, ptr %base3, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %30, i64 1
-  store i32 32767, ptr %arrayidx4, align 4
-  %31 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 6
-  %32 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %32, i64 2
-  store i32 0, ptr %arrayidx6, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  store i64 0, ptr %arg, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %33 = load ptr, ptr %J.addr, align 8
-  %base7 = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 6
-  %34 = load ptr, ptr %base7, align 8
-  %35 = load i64, ptr %arg, align 8
-  %add = add nsw i64 %35, 1
-  %arrayidx8 = getelementptr inbounds i32, ptr %34, i64 %add
-  %36 = load i32, ptr %arrayidx8, align 4
-  store i32 %36, ptr %tr, align 4
-  %tobool9 = icmp ne i32 %36, 0
-  br i1 %tobool9, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %37 = load i32, ptr %tr, align 4
-  %and = and i32 %37, 520093696
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.end16, label %if.then10
-
-if.then10:                                        ; preds = %for.body
-  %38 = load ptr, ptr %J.addr, align 8
-  %39 = load ptr, ptr %rd.addr, align 8
-  %40 = load i64, ptr %arg, align 8
-  %add11 = add nsw i64 %40, 1
-  %call12 = call i32 @recff_sbufx_checkint(ptr noundef %38, ptr noundef %39, i64 noundef %add11)
-  %41 = load ptr, ptr %J.addr, align 8
-  %base13 = getelementptr inbounds %struct.jit_State, ptr %41, i32 0, i32 6
-  %42 = load ptr, ptr %base13, align 8
-  %43 = load i64, ptr %arg, align 8
-  %add14 = add nsw i64 %43, 1
-  %arrayidx15 = getelementptr inbounds i32, ptr %42, i64 %add14
-  store i32 %call12, ptr %arrayidx15, align 4
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.then10, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end16
-  %44 = load i64, ptr %arg, align 8
-  %inc = add nsw i64 %44, 1
-  store i64 %inc, ptr %arg, align 8
-  br label %for.cond, !llvm.loop !14
-
-for.end:                                          ; preds = %for.cond
-  store i64 0, ptr %arg, align 8
-  br label %for.cond17
-
-for.cond17:                                       ; preds = %for.inc43, %for.end
-  %45 = load ptr, ptr %J.addr, align 8
-  %base18 = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 6
-  %46 = load ptr, ptr %base18, align 8
-  %47 = load i64, ptr %arg, align 8
-  %add19 = add nsw i64 %47, 1
-  %arrayidx20 = getelementptr inbounds i32, ptr %46, i64 %add19
-  %48 = load i32, ptr %arrayidx20, align 4
-  store i32 %48, ptr %tr, align 4
-  %tobool21 = icmp ne i32 %48, 0
-  br i1 %tobool21, label %for.body22, label %for.end45
-
-for.body22:                                       ; preds = %for.cond17
-  %49 = load ptr, ptr %J.addr, align 8
-  %50 = load i32, ptr %trr, align 4
-  %51 = load i32, ptr %trw, align 4
-  store ptr %49, ptr %J.addr.i108, align 8
-  store i32 %50, ptr %trr.addr.i, align 4
-  store i32 %51, ptr %trw.addr.i, align 4
-  %52 = load ptr, ptr %J.addr.i108, align 8
-  %53 = load i32, ptr %trw.addr.i, align 4
-  %conv.i109 = trunc i32 %53 to i16
-  %54 = load i32, ptr %trr.addr.i, align 4
-  %conv1.i110 = trunc i32 %54 to i16
-  store ptr %52, ptr %J.addr.i4.i, align 8
-  store i16 10773, ptr %ot.addr.i5.i, align 2
-  store i16 %conv.i109, ptr %a.addr.i6.i, align 2
-  store i16 %conv1.i110, ptr %b.addr.i7.i, align 2
-  %55 = load i16, ptr %ot.addr.i5.i, align 2
-  %56 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold.i8.i = getelementptr inbounds %struct.jit_State, ptr %56, i32 0, i32 14
-  %ot1.i9.i = getelementptr inbounds %struct.anon.2, ptr %fold.i8.i, i32 0, i32 2
-  store i16 %55, ptr %ot1.i9.i, align 4
-  %57 = load i16, ptr %a.addr.i6.i, align 2
-  %58 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold2.i10.i = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 14
-  store i16 %57, ptr %fold2.i10.i, align 8
-  %59 = load i16, ptr %b.addr.i7.i, align 2
-  %60 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold4.i11.i = getelementptr inbounds %struct.jit_State, ptr %60, i32 0, i32 14
-  %op2.i12.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i11.i, i32 0, i32 1
-  store i16 %59, ptr %op2.i12.i, align 2
-  %61 = load ptr, ptr %J.addr.i108, align 8
-  %call.i111 = call i32 @lj_opt_fold(ptr noundef %61) #7
-  store i32 %call.i111, ptr %len.i, align 4
-  %62 = load ptr, ptr %J.addr.i108, align 8
-  %63 = load i32, ptr %len.i, align 4
-  %conv2.i112 = trunc i32 %63 to i16
-  store ptr %62, ptr %J.addr.i.i104, align 8
-  store i16 23315, ptr %ot.addr.i.i105, align 2
-  store i16 %conv2.i112, ptr %a.addr.i.i106, align 2
-  store i16 4725, ptr %b.addr.i.i107, align 2
-  %64 = load i16, ptr %ot.addr.i.i105, align 2
-  %65 = load ptr, ptr %J.addr.i.i104, align 8
-  %fold.i.i113 = getelementptr inbounds %struct.jit_State, ptr %65, i32 0, i32 14
-  %ot1.i.i114 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i113, i32 0, i32 2
-  store i16 %64, ptr %ot1.i.i114, align 4
-  %66 = load i16, ptr %a.addr.i.i106, align 2
-  %67 = load ptr, ptr %J.addr.i.i104, align 8
-  %fold2.i.i115 = getelementptr inbounds %struct.jit_State, ptr %67, i32 0, i32 14
-  store i16 %66, ptr %fold2.i.i115, align 8
-  %68 = load i16, ptr %b.addr.i.i107, align 2
-  %69 = load ptr, ptr %J.addr.i.i104, align 8
-  %fold4.i.i116 = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 14
-  %op2.i.i117 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i116, i32 0, i32 1
-  store i16 %68, ptr %op2.i.i117, align 2
-  %70 = load ptr, ptr %J.addr.i108, align 8
-  %call3.i = call i32 @lj_opt_fold(ptr noundef %70) #7
-  store i32 %call3.i, ptr %len.i, align 4
-  %71 = load i32, ptr %len.i, align 4
-  store i32 %71, ptr %len, align 4
-  %72 = load i32, ptr %tr, align 4
-  %and24 = and i32 %72, 520093696
-  %cmp25 = icmp eq i32 %and24, 0
-  br i1 %cmp25, label %if.then26, label %if.else
-
-if.then26:                                        ; preds = %for.body22
-  %73 = load ptr, ptr %J.addr, align 8
-  %74 = load i32, ptr %trr, align 4
-  %conv = trunc i32 %74 to i16
-  %75 = load i32, ptr %len, align 4
-  %conv27 = trunc i32 %75 to i16
-  store ptr %73, ptr %J.addr.i64, align 8
-  store i16 20484, ptr %ot.addr.i65, align 2
-  store i16 %conv, ptr %a.addr.i66, align 2
-  store i16 %conv27, ptr %b.addr.i67, align 2
-  %76 = load i16, ptr %ot.addr.i65, align 2
-  %77 = load ptr, ptr %J.addr.i64, align 8
-  %fold.i68 = getelementptr inbounds %struct.jit_State, ptr %77, i32 0, i32 14
-  %ot1.i69 = getelementptr inbounds %struct.anon.2, ptr %fold.i68, i32 0, i32 2
-  store i16 %76, ptr %ot1.i69, align 4
-  %78 = load i16, ptr %a.addr.i66, align 2
-  %79 = load ptr, ptr %J.addr.i64, align 8
-  %fold2.i70 = getelementptr inbounds %struct.jit_State, ptr %79, i32 0, i32 14
-  store i16 %78, ptr %fold2.i70, align 8
-  %80 = load i16, ptr %b.addr.i67, align 2
-  %81 = load ptr, ptr %J.addr.i64, align 8
-  %fold4.i71 = getelementptr inbounds %struct.jit_State, ptr %81, i32 0, i32 14
-  %op2.i72 = getelementptr inbounds %struct.anon.2, ptr %fold4.i71, i32 0, i32 1
-  store i16 %80, ptr %op2.i72, align 2
-  %82 = load ptr, ptr %J.addr, align 8
-  %call28 = call i32 @lj_opt_fold(ptr noundef %82)
-  %83 = load ptr, ptr %J.addr, align 8
-  %base29 = getelementptr inbounds %struct.jit_State, ptr %83, i32 0, i32 6
-  %84 = load ptr, ptr %base29, align 8
-  %85 = load i64, ptr %arg, align 8
-  %arrayidx30 = getelementptr inbounds i32, ptr %84, i64 %85
-  store i32 %call28, ptr %arrayidx30, align 4
-  %86 = load i32, ptr %trw, align 4
-  store i32 %86, ptr %trr, align 4
-  br label %if.end42
-
-if.else:                                          ; preds = %for.body22
-  %87 = load ptr, ptr %J.addr, align 8
-  %88 = load i32, ptr %len, align 4
-  %conv31 = trunc i32 %88 to i16
-  %89 = load i32, ptr %tr, align 4
-  %conv32 = trunc i32 %89 to i16
-  store ptr %87, ptr %J.addr.i55, align 8
-  store i16 12819, ptr %ot.addr.i56, align 2
-  store i16 %conv31, ptr %a.addr.i57, align 2
-  store i16 %conv32, ptr %b.addr.i58, align 2
-  %90 = load i16, ptr %ot.addr.i56, align 2
-  %91 = load ptr, ptr %J.addr.i55, align 8
-  %fold.i59 = getelementptr inbounds %struct.jit_State, ptr %91, i32 0, i32 14
-  %ot1.i60 = getelementptr inbounds %struct.anon.2, ptr %fold.i59, i32 0, i32 2
-  store i16 %90, ptr %ot1.i60, align 4
-  %92 = load i16, ptr %a.addr.i57, align 2
-  %93 = load ptr, ptr %J.addr.i55, align 8
-  %fold2.i61 = getelementptr inbounds %struct.jit_State, ptr %93, i32 0, i32 14
-  store i16 %92, ptr %fold2.i61, align 8
-  %94 = load i16, ptr %b.addr.i58, align 2
-  %95 = load ptr, ptr %J.addr.i55, align 8
-  %fold4.i62 = getelementptr inbounds %struct.jit_State, ptr %95, i32 0, i32 14
-  %op2.i63 = getelementptr inbounds %struct.anon.2, ptr %fold4.i62, i32 0, i32 1
-  store i16 %94, ptr %op2.i63, align 2
-  %96 = load ptr, ptr %J.addr, align 8
-  %call33 = call i32 @lj_opt_fold(ptr noundef %96)
-  store i32 %call33, ptr %len, align 4
-  %97 = load ptr, ptr %J.addr, align 8
-  %98 = load i32, ptr %trr, align 4
-  %conv34 = trunc i32 %98 to i16
-  %99 = load i32, ptr %len, align 4
-  %conv35 = trunc i32 %99 to i16
-  store ptr %97, ptr %J.addr.i46, align 8
-  store i16 10505, ptr %ot.addr.i47, align 2
-  store i16 %conv34, ptr %a.addr.i48, align 2
-  store i16 %conv35, ptr %b.addr.i49, align 2
-  %100 = load i16, ptr %ot.addr.i47, align 2
-  %101 = load ptr, ptr %J.addr.i46, align 8
-  %fold.i50 = getelementptr inbounds %struct.jit_State, ptr %101, i32 0, i32 14
-  %ot1.i51 = getelementptr inbounds %struct.anon.2, ptr %fold.i50, i32 0, i32 2
-  store i16 %100, ptr %ot1.i51, align 4
-  %102 = load i16, ptr %a.addr.i48, align 2
-  %103 = load ptr, ptr %J.addr.i46, align 8
-  %fold2.i52 = getelementptr inbounds %struct.jit_State, ptr %103, i32 0, i32 14
-  store i16 %102, ptr %fold2.i52, align 8
-  %104 = load i16, ptr %b.addr.i49, align 2
-  %105 = load ptr, ptr %J.addr.i46, align 8
-  %fold4.i53 = getelementptr inbounds %struct.jit_State, ptr %105, i32 0, i32 14
-  %op2.i54 = getelementptr inbounds %struct.anon.2, ptr %fold4.i53, i32 0, i32 1
-  store i16 %104, ptr %op2.i54, align 2
-  %106 = load ptr, ptr %J.addr, align 8
-  %call36 = call i32 @lj_opt_fold(ptr noundef %106)
-  store i32 %call36, ptr %tru, align 4
-  %107 = load ptr, ptr %J.addr, align 8
-  %108 = load i32, ptr %trr, align 4
-  %conv37 = trunc i32 %108 to i16
-  %109 = load i32, ptr %len, align 4
-  %conv38 = trunc i32 %109 to i16
-  store ptr %107, ptr %J.addr.i, align 8
-  store i16 20484, ptr %ot.addr.i, align 2
-  store i16 %conv37, ptr %a.addr.i, align 2
-  store i16 %conv38, ptr %b.addr.i, align 2
-  %110 = load i16, ptr %ot.addr.i, align 2
-  %111 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %111, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %110, ptr %ot1.i, align 4
-  %112 = load i16, ptr %a.addr.i, align 2
-  %113 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %113, i32 0, i32 14
-  store i16 %112, ptr %fold2.i, align 8
-  %114 = load i16, ptr %b.addr.i, align 2
-  %115 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %115, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %114, ptr %op2.i, align 2
-  %116 = load ptr, ptr %J.addr, align 8
-  %call39 = call i32 @lj_opt_fold(ptr noundef %116)
-  %117 = load ptr, ptr %J.addr, align 8
-  %base40 = getelementptr inbounds %struct.jit_State, ptr %117, i32 0, i32 6
-  %118 = load ptr, ptr %base40, align 8
-  %119 = load i64, ptr %arg, align 8
-  %arrayidx41 = getelementptr inbounds i32, ptr %118, i64 %119
-  store i32 %call39, ptr %arrayidx41, align 4
-  %120 = load i32, ptr %tru, align 4
-  store i32 %120, ptr %trr, align 4
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.else, %if.then26
-  %121 = load ptr, ptr %J.addr, align 8
-  %122 = load i32, ptr %ud, align 4
-  %123 = load i32, ptr %trr, align 4
-  store ptr %121, ptr %J.addr.i73, align 8
-  store i32 %122, ptr %ud.addr.i, align 4
-  store i32 19, ptr %fl.addr.i, align 4
-  store i32 %123, ptr %val.addr.i, align 4
-  %124 = load ptr, ptr %J.addr.i73, align 8
-  %125 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %125 to i16
-  %126 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %126 to i16
-  store ptr %124, ptr %J.addr.i5.i, align 8
-  store i16 15881, ptr %ot.addr.i6.i, align 2
-  store i16 %conv.i, ptr %a.addr.i7.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i8.i, align 2
-  %127 = load i16, ptr %ot.addr.i6.i, align 2
-  %128 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold.i9.i = getelementptr inbounds %struct.jit_State, ptr %128, i32 0, i32 14
-  %ot1.i10.i = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i, i32 0, i32 2
-  store i16 %127, ptr %ot1.i10.i, align 4
-  %129 = load i16, ptr %a.addr.i7.i, align 2
-  %130 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold2.i11.i = getelementptr inbounds %struct.jit_State, ptr %130, i32 0, i32 14
-  store i16 %129, ptr %fold2.i11.i, align 8
-  %131 = load i16, ptr %b.addr.i8.i, align 2
-  %132 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold4.i12.i = getelementptr inbounds %struct.jit_State, ptr %132, i32 0, i32 14
-  %op2.i13.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i, i32 0, i32 1
-  store i16 %131, ptr %op2.i13.i, align 2
-  %133 = load ptr, ptr %J.addr.i73, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %133) #7
-  store i32 %call.i, ptr %fref.i, align 4
-  %134 = load ptr, ptr %J.addr.i73, align 8
-  %135 = load i32, ptr %fref.i, align 4
-  %conv2.i = trunc i32 %135 to i16
-  %136 = load i32, ptr %val.addr.i, align 4
-  %conv3.i = trunc i32 %136 to i16
-  store ptr %134, ptr %J.addr.i.i, align 8
-  store i16 19721, ptr %ot.addr.i.i, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i, align 2
-  store i16 %conv3.i, ptr %b.addr.i.i, align 2
-  %137 = load i16, ptr %ot.addr.i.i, align 2
-  %138 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %138, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %137, ptr %ot1.i.i, align 4
-  %139 = load i16, ptr %a.addr.i.i, align 2
-  %140 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %140, i32 0, i32 14
-  store i16 %139, ptr %fold2.i.i, align 8
-  %141 = load i16, ptr %b.addr.i.i, align 2
-  %142 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %142, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %141, ptr %op2.i.i, align 2
-  %143 = load ptr, ptr %J.addr.i73, align 8
-  %call4.i = call i32 @lj_opt_fold(ptr noundef %143) #7
-  br label %for.inc43
-
-for.inc43:                                        ; preds = %if.end42
-  %144 = load i64, ptr %arg, align 8
-  %inc44 = add nsw i64 %144, 1
-  store i64 %inc44, ptr %arg, align 8
-  br label %for.cond17, !llvm.loop !15
-
-for.end45:                                        ; preds = %for.cond17
-  %145 = load i64, ptr %arg, align 8
-  %146 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %146, i32 0, i32 1
-  store i64 %145, ptr %nres, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_putcdata(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %len = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  %call1 = call i32 @recff_sbufx_write(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %trbuf, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx, align 4
-  %8 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds %union.TValue, ptr %9, i64 1
-  %call3 = call i32 @lj_crecord_topcvoid(ptr noundef %4, i32 noundef %7, ptr noundef %arrayidx2)
-  store i32 %call3, ptr %tr, align 4
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load ptr, ptr %rd.addr, align 8
-  %call4 = call i32 @recff_sbufx_checkint(ptr noundef %10, ptr noundef %11, i64 noundef 2)
-  store i32 %call4, ptr %len, align 4
-  %12 = load ptr, ptr %J.addr, align 8
-  %13 = load i32, ptr %trbuf, align 4
-  %14 = load i32, ptr %tr, align 4
-  %15 = load i32, ptr %len, align 4
-  %call5 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %12, i32 noundef 16, i32 noundef %13, i32 noundef %14, i32 noundef %15)
-  store i32 %call5, ptr %trbuf, align 4
-  %16 = load ptr, ptr %J.addr, align 8
-  %17 = load i32, ptr %trbuf, align 4
-  %conv = trunc i32 %17 to i16
-  store ptr %16, ptr %J.addr.i, align 8
-  store i16 4608, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %18 = load i16, ptr %ot.addr.i, align 2
-  %19 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %18, ptr %ot1.i, align 4
-  %20 = load i16, ptr %a.addr.i, align 2
-  %21 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 14
-  store i16 %20, ptr %fold2.i, align 8
-  %22 = load i16, ptr %b.addr.i, align 2
-  %23 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %22, ptr %op2.i, align 2
-  %24 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %24)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_reserve(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  %trsz = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  %call1 = call i32 @recff_sbufx_write(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %trbuf, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %rd.addr, align 8
-  %call2 = call i32 @recff_sbufx_checkint(ptr noundef %4, ptr noundef %5, i64 noundef 1)
-  store i32 %call2, ptr %trsz, align 4
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load i32, ptr %trbuf, align 4
-  %8 = load i32, ptr %trsz, align 4
-  %call3 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %6, i32 noundef 25, i32 noundef %7, i32 noundef %8)
-  %9 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %9, i32 0, i32 6
-  %10 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %10, i64 1
-  store i32 %call3, ptr %arrayidx, align 4
-  %11 = load ptr, ptr %J.addr, align 8
-  %12 = load ptr, ptr %J.addr, align 8
-  %13 = load i32, ptr %ud, align 4
-  store ptr %12, ptr %J.addr.i, align 8
-  store i32 %13, ptr %ud.addr.i, align 4
-  store i32 14, ptr %fl.addr.i, align 4
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %15 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %15 to i16
-  %16 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %16 to i16
-  store ptr %14, ptr %J.addr.i.i, align 8
-  store i16 17673, ptr %ot.addr.i.i, align 2
-  store i16 %conv.i, ptr %a.addr.i.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i.i, align 2
-  %17 = load i16, ptr %ot.addr.i.i, align 2
-  %18 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %17, ptr %ot1.i.i, align 4
-  %19 = load i16, ptr %a.addr.i.i, align 2
-  %20 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  store i16 %19, ptr %fold2.i.i, align 8
-  %21 = load i16, ptr %b.addr.i.i, align 2
-  %22 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %21, ptr %op2.i.i, align 2
-  %23 = load ptr, ptr %J.addr.i, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %23) #7
-  %call5 = call i32 @lj_crecord_topuint8(ptr noundef %11, i32 noundef %call.i)
-  %24 = load ptr, ptr %J.addr, align 8
-  %base6 = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 6
-  %25 = load ptr, ptr %base6, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %25, i64 0
-  store i32 %call5, ptr %arrayidx7, align 4
-  %26 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %26, i32 0, i32 1
-  store i64 2, ptr %nres, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_commit(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i.i57 = alloca ptr, align 8
-  %ot.addr.i.i58 = alloca i16, align 2
-  %a.addr.i.i59 = alloca i16, align 2
-  %b.addr.i.i60 = alloca i16, align 2
-  %J.addr.i61 = alloca ptr, align 8
-  %ud.addr.i62 = alloca i32, align 4
-  %fl.addr.i63 = alloca i32, align 4
-  %J.addr.i.i42 = alloca ptr, align 8
-  %ot.addr.i.i43 = alloca i16, align 2
-  %a.addr.i.i44 = alloca i16, align 2
-  %b.addr.i.i45 = alloca i16, align 2
-  %J.addr.i46 = alloca ptr, align 8
-  %ud.addr.i47 = alloca i32, align 4
-  %fl.addr.i48 = alloca i32, align 4
-  %J.addr.i5.i = alloca ptr, align 8
-  %ot.addr.i6.i = alloca i16, align 2
-  %a.addr.i7.i = alloca i16, align 2
-  %b.addr.i8.i = alloca i16, align 2
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i41 = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %val.addr.i = alloca i32, align 4
-  %fref.i = alloca i32, align 4
-  %J.addr.i32 = alloca ptr, align 8
-  %ot.addr.i33 = alloca i16, align 2
-  %a.addr.i34 = alloca i16, align 2
-  %b.addr.i35 = alloca i16, align 2
-  %J.addr.i23 = alloca ptr, align 8
-  %ot.addr.i24 = alloca i16, align 2
-  %a.addr.i25 = alloca i16, align 2
-  %b.addr.i26 = alloca i16, align 2
-  %J.addr.i14 = alloca ptr, align 8
-  %ot.addr.i15 = alloca i16, align 2
-  %a.addr.i16 = alloca i16, align 2
-  %b.addr.i17 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %len = alloca i32, align 4
-  %trw = alloca i32, align 4
-  %tre = alloca i32, align 4
-  %left = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load ptr, ptr %rd.addr, align 8
-  %call1 = call i32 @recff_sbufx_checkint(ptr noundef %2, ptr noundef %3, i64 noundef 1)
-  store i32 %call1, ptr %len, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load i32, ptr %ud, align 4
-  store ptr %4, ptr %J.addr.i61, align 8
-  store i32 %5, ptr %ud.addr.i62, align 4
-  store i32 14, ptr %fl.addr.i63, align 4
-  %6 = load ptr, ptr %J.addr.i61, align 8
-  %7 = load i32, ptr %ud.addr.i62, align 4
-  %conv.i64 = trunc i32 %7 to i16
-  %8 = load i32, ptr %fl.addr.i63, align 4
-  %conv1.i65 = trunc i32 %8 to i16
-  store ptr %6, ptr %J.addr.i.i57, align 8
-  store i16 17673, ptr %ot.addr.i.i58, align 2
-  store i16 %conv.i64, ptr %a.addr.i.i59, align 2
-  store i16 %conv1.i65, ptr %b.addr.i.i60, align 2
-  %9 = load i16, ptr %ot.addr.i.i58, align 2
-  %10 = load ptr, ptr %J.addr.i.i57, align 8
-  %fold.i.i66 = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  %ot1.i.i67 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i66, i32 0, i32 2
-  store i16 %9, ptr %ot1.i.i67, align 4
-  %11 = load i16, ptr %a.addr.i.i59, align 2
-  %12 = load ptr, ptr %J.addr.i.i57, align 8
-  %fold2.i.i68 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  store i16 %11, ptr %fold2.i.i68, align 8
-  %13 = load i16, ptr %b.addr.i.i60, align 2
-  %14 = load ptr, ptr %J.addr.i.i57, align 8
-  %fold4.i.i69 = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %op2.i.i70 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i69, i32 0, i32 1
-  store i16 %13, ptr %op2.i.i70, align 2
-  %15 = load ptr, ptr %J.addr.i61, align 8
-  %call.i71 = call i32 @lj_opt_fold(ptr noundef %15) #7
-  store i32 %call.i71, ptr %trw, align 4
-  %16 = load ptr, ptr %J.addr, align 8
-  %17 = load i32, ptr %ud, align 4
-  store ptr %16, ptr %J.addr.i46, align 8
-  store i32 %17, ptr %ud.addr.i47, align 4
-  store i32 15, ptr %fl.addr.i48, align 4
-  %18 = load ptr, ptr %J.addr.i46, align 8
-  %19 = load i32, ptr %ud.addr.i47, align 4
-  %conv.i49 = trunc i32 %19 to i16
-  %20 = load i32, ptr %fl.addr.i48, align 4
-  %conv1.i50 = trunc i32 %20 to i16
-  store ptr %18, ptr %J.addr.i.i42, align 8
-  store i16 17673, ptr %ot.addr.i.i43, align 2
-  store i16 %conv.i49, ptr %a.addr.i.i44, align 2
-  store i16 %conv1.i50, ptr %b.addr.i.i45, align 2
-  %21 = load i16, ptr %ot.addr.i.i43, align 2
-  %22 = load ptr, ptr %J.addr.i.i42, align 8
-  %fold.i.i51 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  %ot1.i.i52 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i51, i32 0, i32 2
-  store i16 %21, ptr %ot1.i.i52, align 4
-  %23 = load i16, ptr %a.addr.i.i44, align 2
-  %24 = load ptr, ptr %J.addr.i.i42, align 8
-  %fold2.i.i53 = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  store i16 %23, ptr %fold2.i.i53, align 8
-  %25 = load i16, ptr %b.addr.i.i45, align 2
-  %26 = load ptr, ptr %J.addr.i.i42, align 8
-  %fold4.i.i54 = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 14
-  %op2.i.i55 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i54, i32 0, i32 1
-  store i16 %25, ptr %op2.i.i55, align 2
-  %27 = load ptr, ptr %J.addr.i46, align 8
-  %call.i56 = call i32 @lj_opt_fold(ptr noundef %27) #7
-  store i32 %call.i56, ptr %tre, align 4
-  %28 = load ptr, ptr %J.addr, align 8
-  %29 = load i32, ptr %tre, align 4
-  %conv = trunc i32 %29 to i16
-  %30 = load i32, ptr %trw, align 4
-  %conv4 = trunc i32 %30 to i16
-  store ptr %28, ptr %J.addr.i32, align 8
-  store i16 10773, ptr %ot.addr.i33, align 2
-  store i16 %conv, ptr %a.addr.i34, align 2
-  store i16 %conv4, ptr %b.addr.i35, align 2
-  %31 = load i16, ptr %ot.addr.i33, align 2
-  %32 = load ptr, ptr %J.addr.i32, align 8
-  %fold.i36 = getelementptr inbounds %struct.jit_State, ptr %32, i32 0, i32 14
-  %ot1.i37 = getelementptr inbounds %struct.anon.2, ptr %fold.i36, i32 0, i32 2
-  store i16 %31, ptr %ot1.i37, align 4
-  %33 = load i16, ptr %a.addr.i34, align 2
-  %34 = load ptr, ptr %J.addr.i32, align 8
-  %fold2.i38 = getelementptr inbounds %struct.jit_State, ptr %34, i32 0, i32 14
-  store i16 %33, ptr %fold2.i38, align 8
-  %35 = load i16, ptr %b.addr.i35, align 2
-  %36 = load ptr, ptr %J.addr.i32, align 8
-  %fold4.i39 = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 14
-  %op2.i40 = getelementptr inbounds %struct.anon.2, ptr %fold4.i39, i32 0, i32 1
-  store i16 %35, ptr %op2.i40, align 2
-  %37 = load ptr, ptr %J.addr, align 8
-  %call5 = call i32 @lj_opt_fold(ptr noundef %37)
-  store i32 %call5, ptr %left, align 4
-  %38 = load ptr, ptr %J.addr, align 8
-  %39 = load i32, ptr %left, align 4
-  %conv6 = trunc i32 %39 to i16
-  store ptr %38, ptr %J.addr.i23, align 8
-  store i16 23315, ptr %ot.addr.i24, align 2
-  store i16 %conv6, ptr %a.addr.i25, align 2
-  store i16 4725, ptr %b.addr.i26, align 2
-  %40 = load i16, ptr %ot.addr.i24, align 2
-  %41 = load ptr, ptr %J.addr.i23, align 8
-  %fold.i27 = getelementptr inbounds %struct.jit_State, ptr %41, i32 0, i32 14
-  %ot1.i28 = getelementptr inbounds %struct.anon.2, ptr %fold.i27, i32 0, i32 2
-  store i16 %40, ptr %ot1.i28, align 4
-  %42 = load i16, ptr %a.addr.i25, align 2
-  %43 = load ptr, ptr %J.addr.i23, align 8
-  %fold2.i29 = getelementptr inbounds %struct.jit_State, ptr %43, i32 0, i32 14
-  store i16 %42, ptr %fold2.i29, align 8
-  %44 = load i16, ptr %b.addr.i26, align 2
-  %45 = load ptr, ptr %J.addr.i23, align 8
-  %fold4.i30 = getelementptr inbounds %struct.jit_State, ptr %45, i32 0, i32 14
-  %op2.i31 = getelementptr inbounds %struct.anon.2, ptr %fold4.i30, i32 0, i32 1
-  store i16 %44, ptr %op2.i31, align 2
-  %46 = load ptr, ptr %J.addr, align 8
-  %call7 = call i32 @lj_opt_fold(ptr noundef %46)
-  store i32 %call7, ptr %left, align 4
-  %47 = load ptr, ptr %J.addr, align 8
-  %48 = load i32, ptr %len, align 4
-  %conv8 = trunc i32 %48 to i16
-  %49 = load i32, ptr %left, align 4
-  %conv9 = trunc i32 %49 to i16
-  store ptr %47, ptr %J.addr.i14, align 8
-  store i16 1683, ptr %ot.addr.i15, align 2
-  store i16 %conv8, ptr %a.addr.i16, align 2
-  store i16 %conv9, ptr %b.addr.i17, align 2
-  %50 = load i16, ptr %ot.addr.i15, align 2
-  %51 = load ptr, ptr %J.addr.i14, align 8
-  %fold.i18 = getelementptr inbounds %struct.jit_State, ptr %51, i32 0, i32 14
-  %ot1.i19 = getelementptr inbounds %struct.anon.2, ptr %fold.i18, i32 0, i32 2
-  store i16 %50, ptr %ot1.i19, align 4
-  %52 = load i16, ptr %a.addr.i16, align 2
-  %53 = load ptr, ptr %J.addr.i14, align 8
-  %fold2.i20 = getelementptr inbounds %struct.jit_State, ptr %53, i32 0, i32 14
-  store i16 %52, ptr %fold2.i20, align 8
-  %54 = load i16, ptr %b.addr.i17, align 2
-  %55 = load ptr, ptr %J.addr.i14, align 8
-  %fold4.i21 = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 14
-  %op2.i22 = getelementptr inbounds %struct.anon.2, ptr %fold4.i21, i32 0, i32 1
-  store i16 %54, ptr %op2.i22, align 2
-  %56 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_opt_fold(ptr noundef %56)
-  %57 = load ptr, ptr %J.addr, align 8
-  %58 = load i32, ptr %trw, align 4
-  %conv11 = trunc i32 %58 to i16
-  %59 = load i32, ptr %len, align 4
-  %conv12 = trunc i32 %59 to i16
-  store ptr %57, ptr %J.addr.i, align 8
-  store i16 10505, ptr %ot.addr.i, align 2
-  store i16 %conv11, ptr %a.addr.i, align 2
-  store i16 %conv12, ptr %b.addr.i, align 2
-  %60 = load i16, ptr %ot.addr.i, align 2
-  %61 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %61, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %60, ptr %ot1.i, align 4
-  %62 = load i16, ptr %a.addr.i, align 2
-  %63 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %63, i32 0, i32 14
-  store i16 %62, ptr %fold2.i, align 8
-  %64 = load i16, ptr %b.addr.i, align 2
-  %65 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %65, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %64, ptr %op2.i, align 2
-  %66 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_opt_fold(ptr noundef %66)
-  store i32 %call13, ptr %trw, align 4
-  %67 = load ptr, ptr %J.addr, align 8
-  %68 = load i32, ptr %ud, align 4
-  %69 = load i32, ptr %trw, align 4
-  store ptr %67, ptr %J.addr.i41, align 8
-  store i32 %68, ptr %ud.addr.i, align 4
-  store i32 14, ptr %fl.addr.i, align 4
-  store i32 %69, ptr %val.addr.i, align 4
-  %70 = load ptr, ptr %J.addr.i41, align 8
-  %71 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %71 to i16
-  %72 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %72 to i16
-  store ptr %70, ptr %J.addr.i5.i, align 8
-  store i16 15881, ptr %ot.addr.i6.i, align 2
-  store i16 %conv.i, ptr %a.addr.i7.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i8.i, align 2
-  %73 = load i16, ptr %ot.addr.i6.i, align 2
-  %74 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold.i9.i = getelementptr inbounds %struct.jit_State, ptr %74, i32 0, i32 14
-  %ot1.i10.i = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i, i32 0, i32 2
-  store i16 %73, ptr %ot1.i10.i, align 4
-  %75 = load i16, ptr %a.addr.i7.i, align 2
-  %76 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold2.i11.i = getelementptr inbounds %struct.jit_State, ptr %76, i32 0, i32 14
-  store i16 %75, ptr %fold2.i11.i, align 8
-  %77 = load i16, ptr %b.addr.i8.i, align 2
-  %78 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold4.i12.i = getelementptr inbounds %struct.jit_State, ptr %78, i32 0, i32 14
-  %op2.i13.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i, i32 0, i32 1
-  store i16 %77, ptr %op2.i13.i, align 2
-  %79 = load ptr, ptr %J.addr.i41, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %79) #7
-  store i32 %call.i, ptr %fref.i, align 4
-  %80 = load ptr, ptr %J.addr.i41, align 8
-  %81 = load i32, ptr %fref.i, align 4
-  %conv2.i = trunc i32 %81 to i16
-  %82 = load i32, ptr %val.addr.i, align 4
-  %conv3.i = trunc i32 %82 to i16
-  store ptr %80, ptr %J.addr.i.i, align 8
-  store i16 19721, ptr %ot.addr.i.i, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i, align 2
-  store i16 %conv3.i, ptr %b.addr.i.i, align 2
-  %83 = load i16, ptr %ot.addr.i.i, align 2
-  %84 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %84, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %83, ptr %ot1.i.i, align 4
-  %85 = load i16, ptr %a.addr.i.i, align 2
-  %86 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %86, i32 0, i32 14
-  store i16 %85, ptr %fold2.i.i, align 8
-  %87 = load i16, ptr %b.addr.i.i, align 2
-  %88 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %88, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %87, ptr %op2.i.i, align 2
-  %89 = load ptr, ptr %J.addr.i41, align 8
-  %call4.i = call i32 @lj_opt_fold(ptr noundef %89) #7
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_ref(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i4.i = alloca ptr, align 8
-  %ot.addr.i5.i = alloca i16, align 2
-  %a.addr.i6.i = alloca i16, align 2
-  %b.addr.i7.i = alloca i16, align 2
-  %J.addr.i.i22 = alloca ptr, align 8
-  %ot.addr.i.i23 = alloca i16, align 2
-  %a.addr.i.i24 = alloca i16, align 2
-  %b.addr.i.i25 = alloca i16, align 2
-  %J.addr.i26 = alloca ptr, align 8
-  %trr.addr.i = alloca i32, align 4
-  %trw.addr.i = alloca i32, align 4
-  %len.i = alloca i32, align 4
-  %J.addr.i.i7 = alloca ptr, align 8
-  %ot.addr.i.i8 = alloca i16, align 2
-  %a.addr.i.i9 = alloca i16, align 2
-  %b.addr.i.i10 = alloca i16, align 2
-  %J.addr.i11 = alloca ptr, align 8
-  %ud.addr.i12 = alloca i32, align 4
-  %fl.addr.i13 = alloca i32, align 4
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trr = alloca i32, align 4
-  %trw = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  store ptr %2, ptr %J.addr.i11, align 8
-  store i32 %3, ptr %ud.addr.i12, align 4
-  store i32 19, ptr %fl.addr.i13, align 4
-  %4 = load ptr, ptr %J.addr.i11, align 8
-  %5 = load i32, ptr %ud.addr.i12, align 4
-  %conv.i14 = trunc i32 %5 to i16
-  %6 = load i32, ptr %fl.addr.i13, align 4
-  %conv1.i15 = trunc i32 %6 to i16
-  store ptr %4, ptr %J.addr.i.i7, align 8
-  store i16 17673, ptr %ot.addr.i.i8, align 2
-  store i16 %conv.i14, ptr %a.addr.i.i9, align 2
-  store i16 %conv1.i15, ptr %b.addr.i.i10, align 2
-  %7 = load i16, ptr %ot.addr.i.i8, align 2
-  %8 = load ptr, ptr %J.addr.i.i7, align 8
-  %fold.i.i16 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %ot1.i.i17 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i16, i32 0, i32 2
-  store i16 %7, ptr %ot1.i.i17, align 4
-  %9 = load i16, ptr %a.addr.i.i9, align 2
-  %10 = load ptr, ptr %J.addr.i.i7, align 8
-  %fold2.i.i18 = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  store i16 %9, ptr %fold2.i.i18, align 8
-  %11 = load i16, ptr %b.addr.i.i10, align 2
-  %12 = load ptr, ptr %J.addr.i.i7, align 8
-  %fold4.i.i19 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %op2.i.i20 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i19, i32 0, i32 1
-  store i16 %11, ptr %op2.i.i20, align 2
-  %13 = load ptr, ptr %J.addr.i11, align 8
-  %call.i21 = call i32 @lj_opt_fold(ptr noundef %13) #7
-  store i32 %call.i21, ptr %trr, align 4
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load i32, ptr %ud, align 4
-  store ptr %14, ptr %J.addr.i, align 8
-  store i32 %15, ptr %ud.addr.i, align 4
-  store i32 14, ptr %fl.addr.i, align 4
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %17 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %17 to i16
-  %18 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %18 to i16
-  store ptr %16, ptr %J.addr.i.i, align 8
-  store i16 17673, ptr %ot.addr.i.i, align 2
-  store i16 %conv.i, ptr %a.addr.i.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i.i, align 2
-  %19 = load i16, ptr %ot.addr.i.i, align 2
-  %20 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %19, ptr %ot1.i.i, align 4
-  %21 = load i16, ptr %a.addr.i.i, align 2
-  %22 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i.i, align 8
-  %23 = load i16, ptr %b.addr.i.i, align 2
-  %24 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %23, ptr %op2.i.i, align 2
-  %25 = load ptr, ptr %J.addr.i, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %25) #7
-  store i32 %call.i, ptr %trw, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %trr, align 4
-  %call3 = call i32 @lj_crecord_topuint8(ptr noundef %26, i32 noundef %27)
-  %28 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %28, i32 0, i32 6
-  %29 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %29, i64 0
-  store i32 %call3, ptr %arrayidx, align 4
-  %30 = load ptr, ptr %J.addr, align 8
-  %31 = load i32, ptr %trr, align 4
-  %32 = load i32, ptr %trw, align 4
-  store ptr %30, ptr %J.addr.i26, align 8
-  store i32 %31, ptr %trr.addr.i, align 4
-  store i32 %32, ptr %trw.addr.i, align 4
-  %33 = load ptr, ptr %J.addr.i26, align 8
-  %34 = load i32, ptr %trw.addr.i, align 4
-  %conv.i27 = trunc i32 %34 to i16
-  %35 = load i32, ptr %trr.addr.i, align 4
-  %conv1.i28 = trunc i32 %35 to i16
-  store ptr %33, ptr %J.addr.i4.i, align 8
-  store i16 10773, ptr %ot.addr.i5.i, align 2
-  store i16 %conv.i27, ptr %a.addr.i6.i, align 2
-  store i16 %conv1.i28, ptr %b.addr.i7.i, align 2
-  %36 = load i16, ptr %ot.addr.i5.i, align 2
-  %37 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold.i8.i = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  %ot1.i9.i = getelementptr inbounds %struct.anon.2, ptr %fold.i8.i, i32 0, i32 2
-  store i16 %36, ptr %ot1.i9.i, align 4
-  %38 = load i16, ptr %a.addr.i6.i, align 2
-  %39 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold2.i10.i = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  store i16 %38, ptr %fold2.i10.i, align 8
-  %40 = load i16, ptr %b.addr.i7.i, align 2
-  %41 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold4.i11.i = getelementptr inbounds %struct.jit_State, ptr %41, i32 0, i32 14
-  %op2.i12.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i11.i, i32 0, i32 1
-  store i16 %40, ptr %op2.i12.i, align 2
-  %42 = load ptr, ptr %J.addr.i26, align 8
-  %call.i29 = call i32 @lj_opt_fold(ptr noundef %42) #7
-  store i32 %call.i29, ptr %len.i, align 4
-  %43 = load ptr, ptr %J.addr.i26, align 8
-  %44 = load i32, ptr %len.i, align 4
-  %conv2.i = trunc i32 %44 to i16
-  store ptr %43, ptr %J.addr.i.i22, align 8
-  store i16 23315, ptr %ot.addr.i.i23, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i24, align 2
-  store i16 4725, ptr %b.addr.i.i25, align 2
-  %45 = load i16, ptr %ot.addr.i.i23, align 2
-  %46 = load ptr, ptr %J.addr.i.i22, align 8
-  %fold.i.i30 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  %ot1.i.i31 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i30, i32 0, i32 2
-  store i16 %45, ptr %ot1.i.i31, align 4
-  %47 = load i16, ptr %a.addr.i.i24, align 2
-  %48 = load ptr, ptr %J.addr.i.i22, align 8
-  %fold2.i.i32 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  store i16 %47, ptr %fold2.i.i32, align 8
-  %49 = load i16, ptr %b.addr.i.i25, align 2
-  %50 = load ptr, ptr %J.addr.i.i22, align 8
-  %fold4.i.i33 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 14
-  %op2.i.i34 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i33, i32 0, i32 1
-  store i16 %49, ptr %op2.i.i34, align 2
-  %51 = load ptr, ptr %J.addr.i26, align 8
-  %call3.i = call i32 @lj_opt_fold(ptr noundef %51) #7
-  store i32 %call3.i, ptr %len.i, align 4
-  %52 = load i32, ptr %len.i, align 4
-  %53 = load ptr, ptr %J.addr, align 8
-  %base5 = getelementptr inbounds %struct.jit_State, ptr %53, i32 0, i32 6
-  %54 = load ptr, ptr %base5, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %54, i64 1
-  store i32 %52, ptr %arrayidx6, align 4
-  %55 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %55, i32 0, i32 1
-  store i64 2, ptr %nres, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_encode(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  %tmp = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  %call1 = call i32 @recff_sbufx_write(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %trbuf, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %6, i64 1
-  %7 = load i32, ptr %arrayidx, align 4
-  %call2 = call i32 @recff_tmpref(ptr noundef %4, i32 noundef %7, i32 noundef 1)
-  store i32 %call2, ptr %tmp, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %trbuf, align 4
-  %10 = load i32, ptr %tmp, align 4
-  %call3 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %8, i32 noundef 26, i32 noundef %9, i32 noundef %10)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_decode(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i5.i = alloca ptr, align 8
-  %ot.addr.i6.i = alloca i16, align 2
-  %a.addr.i7.i = alloca i16, align 2
-  %b.addr.i8.i = alloca i16, align 2
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %val.addr.i = alloca i32, align 4
-  %fref.i = alloca i32, align 4
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  %tmp = alloca i32, align 4
-  %trr = alloca i32, align 4
-  %t = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  %call1 = call i32 @recff_sbufx_write(ptr noundef %2, i32 noundef %3)
-  store i32 %call1, ptr %trbuf, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @recff_tmpref(ptr noundef %4, i32 noundef 32767, i32 noundef 2)
-  store i32 %call2, ptr %tmp, align 4
-  %5 = load ptr, ptr %J.addr, align 8
-  %6 = load i32, ptr %trbuf, align 4
-  %7 = load i32, ptr %tmp, align 4
-  %call3 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %5, i32 noundef 27, i32 noundef %6, i32 noundef %7)
-  store i32 %call3, ptr %trr, align 4
-  %8 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %9, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx, i32 0, i32 0
-  %10 = load i64, ptr %gcptr64, align 8
-  %and = and i64 %10, 140737488355327
-  %11 = inttoptr i64 %and to ptr
-  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %11, i64 1
-  %call4 = call i32 @lj_serialize_peektype(ptr noundef %add.ptr)
-  store i32 %call4, ptr %t, align 4
-  %12 = load ptr, ptr %J.addr, align 8
-  %13 = load i32, ptr %tmp, align 4
-  %14 = load i32, ptr %t, align 4
-  %call5 = call i32 @lj_record_vload(ptr noundef %12, i32 noundef %13, i32 noundef 0, i32 noundef %14)
-  %15 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 6
-  %16 = load ptr, ptr %base, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %16, i64 0
-  store i32 %call5, ptr %arrayidx6, align 4
-  %17 = load ptr, ptr %J.addr, align 8
-  %18 = load i32, ptr %ud, align 4
-  %19 = load i32, ptr %trr, align 4
-  store ptr %17, ptr %J.addr.i, align 8
-  store i32 %18, ptr %ud.addr.i, align 4
-  store i32 19, ptr %fl.addr.i, align 4
-  store i32 %19, ptr %val.addr.i, align 4
-  %20 = load ptr, ptr %J.addr.i, align 8
-  %21 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %21 to i16
-  %22 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %22 to i16
-  store ptr %20, ptr %J.addr.i5.i, align 8
-  store i16 15881, ptr %ot.addr.i6.i, align 2
-  store i16 %conv.i, ptr %a.addr.i7.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i8.i, align 2
-  %23 = load i16, ptr %ot.addr.i6.i, align 2
-  %24 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold.i9.i = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %ot1.i10.i = getelementptr inbounds %struct.anon.2, ptr %fold.i9.i, i32 0, i32 2
-  store i16 %23, ptr %ot1.i10.i, align 4
-  %25 = load i16, ptr %a.addr.i7.i, align 2
-  %26 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold2.i11.i = getelementptr inbounds %struct.jit_State, ptr %26, i32 0, i32 14
-  store i16 %25, ptr %fold2.i11.i, align 8
-  %27 = load i16, ptr %b.addr.i8.i, align 2
-  %28 = load ptr, ptr %J.addr.i5.i, align 8
-  %fold4.i12.i = getelementptr inbounds %struct.jit_State, ptr %28, i32 0, i32 14
-  %op2.i13.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i12.i, i32 0, i32 1
-  store i16 %27, ptr %op2.i13.i, align 2
-  %29 = load ptr, ptr %J.addr.i, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %29) #7
-  store i32 %call.i, ptr %fref.i, align 4
-  %30 = load ptr, ptr %J.addr.i, align 8
-  %31 = load i32, ptr %fref.i, align 4
-  %conv2.i = trunc i32 %31 to i16
-  %32 = load i32, ptr %val.addr.i, align 4
-  %conv3.i = trunc i32 %32 to i16
-  store ptr %30, ptr %J.addr.i.i, align 8
-  store i16 19721, ptr %ot.addr.i.i, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i, align 2
-  store i16 %conv3.i, ptr %b.addr.i.i, align 2
-  %33 = load i16, ptr %ot.addr.i.i, align 2
-  %34 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %34, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %33, ptr %ot1.i.i, align 4
-  %35 = load i16, ptr %a.addr.i.i, align 2
-  %36 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 14
-  store i16 %35, ptr %fold2.i.i, align 8
-  %37 = load i16, ptr %b.addr.i.i, align 2
-  %38 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %38, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %37, ptr %op2.i.i, align 2
-  %39 = load ptr, ptr %J.addr.i, align 8
-  %call4.i = call i32 @lj_opt_fold(ptr noundef %39) #7
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method___tostring(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i4.i = alloca ptr, align 8
-  %ot.addr.i5.i = alloca i16, align 2
-  %a.addr.i6.i = alloca i16, align 2
-  %b.addr.i7.i = alloca i16, align 2
-  %J.addr.i.i22 = alloca ptr, align 8
-  %ot.addr.i.i23 = alloca i16, align 2
-  %a.addr.i.i24 = alloca i16, align 2
-  %b.addr.i.i25 = alloca i16, align 2
-  %J.addr.i26 = alloca ptr, align 8
-  %trr.addr.i = alloca i32, align 4
-  %trw.addr.i = alloca i32, align 4
-  %len.i = alloca i32, align 4
-  %J.addr.i.i7 = alloca ptr, align 8
-  %ot.addr.i.i8 = alloca i16, align 2
-  %a.addr.i.i9 = alloca i16, align 2
-  %b.addr.i.i10 = alloca i16, align 2
-  %J.addr.i11 = alloca ptr, align 8
-  %ud.addr.i12 = alloca i32, align 4
-  %fl.addr.i13 = alloca i32, align 4
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i6 = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trr = alloca i32, align 4
-  %trw = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  store ptr %2, ptr %J.addr.i11, align 8
-  store i32 %3, ptr %ud.addr.i12, align 4
-  store i32 19, ptr %fl.addr.i13, align 4
-  %4 = load ptr, ptr %J.addr.i11, align 8
-  %5 = load i32, ptr %ud.addr.i12, align 4
-  %conv.i14 = trunc i32 %5 to i16
-  %6 = load i32, ptr %fl.addr.i13, align 4
-  %conv1.i15 = trunc i32 %6 to i16
-  store ptr %4, ptr %J.addr.i.i7, align 8
-  store i16 17673, ptr %ot.addr.i.i8, align 2
-  store i16 %conv.i14, ptr %a.addr.i.i9, align 2
-  store i16 %conv1.i15, ptr %b.addr.i.i10, align 2
-  %7 = load i16, ptr %ot.addr.i.i8, align 2
-  %8 = load ptr, ptr %J.addr.i.i7, align 8
-  %fold.i.i16 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %ot1.i.i17 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i16, i32 0, i32 2
-  store i16 %7, ptr %ot1.i.i17, align 4
-  %9 = load i16, ptr %a.addr.i.i9, align 2
-  %10 = load ptr, ptr %J.addr.i.i7, align 8
-  %fold2.i.i18 = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  store i16 %9, ptr %fold2.i.i18, align 8
-  %11 = load i16, ptr %b.addr.i.i10, align 2
-  %12 = load ptr, ptr %J.addr.i.i7, align 8
-  %fold4.i.i19 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %op2.i.i20 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i19, i32 0, i32 1
-  store i16 %11, ptr %op2.i.i20, align 2
-  %13 = load ptr, ptr %J.addr.i11, align 8
-  %call.i21 = call i32 @lj_opt_fold(ptr noundef %13) #7
-  store i32 %call.i21, ptr %trr, align 4
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load i32, ptr %ud, align 4
-  store ptr %14, ptr %J.addr.i6, align 8
-  store i32 %15, ptr %ud.addr.i, align 4
-  store i32 14, ptr %fl.addr.i, align 4
-  %16 = load ptr, ptr %J.addr.i6, align 8
-  %17 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %17 to i16
-  %18 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %18 to i16
-  store ptr %16, ptr %J.addr.i.i, align 8
-  store i16 17673, ptr %ot.addr.i.i, align 2
-  store i16 %conv.i, ptr %a.addr.i.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i.i, align 2
-  %19 = load i16, ptr %ot.addr.i.i, align 2
-  %20 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %19, ptr %ot1.i.i, align 4
-  %21 = load i16, ptr %a.addr.i.i, align 2
-  %22 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i.i, align 8
-  %23 = load i16, ptr %b.addr.i.i, align 2
-  %24 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %23, ptr %op2.i.i, align 2
-  %25 = load ptr, ptr %J.addr.i6, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %25) #7
-  store i32 %call.i, ptr %trw, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %trr, align 4
-  %conv = trunc i32 %27 to i16
-  %28 = load ptr, ptr %J.addr, align 8
-  %29 = load i32, ptr %trr, align 4
-  %30 = load i32, ptr %trw, align 4
-  store ptr %28, ptr %J.addr.i26, align 8
-  store i32 %29, ptr %trr.addr.i, align 4
-  store i32 %30, ptr %trw.addr.i, align 4
-  %31 = load ptr, ptr %J.addr.i26, align 8
-  %32 = load i32, ptr %trw.addr.i, align 4
-  %conv.i27 = trunc i32 %32 to i16
-  %33 = load i32, ptr %trr.addr.i, align 4
-  %conv1.i28 = trunc i32 %33 to i16
-  store ptr %31, ptr %J.addr.i4.i, align 8
-  store i16 10773, ptr %ot.addr.i5.i, align 2
-  store i16 %conv.i27, ptr %a.addr.i6.i, align 2
-  store i16 %conv1.i28, ptr %b.addr.i7.i, align 2
-  %34 = load i16, ptr %ot.addr.i5.i, align 2
-  %35 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold.i8.i = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %ot1.i9.i = getelementptr inbounds %struct.anon.2, ptr %fold.i8.i, i32 0, i32 2
-  store i16 %34, ptr %ot1.i9.i, align 4
-  %36 = load i16, ptr %a.addr.i6.i, align 2
-  %37 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold2.i10.i = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  store i16 %36, ptr %fold2.i10.i, align 8
-  %38 = load i16, ptr %b.addr.i7.i, align 2
-  %39 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold4.i11.i = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 14
-  %op2.i12.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i11.i, i32 0, i32 1
-  store i16 %38, ptr %op2.i12.i, align 2
-  %40 = load ptr, ptr %J.addr.i26, align 8
-  %call.i29 = call i32 @lj_opt_fold(ptr noundef %40) #7
-  store i32 %call.i29, ptr %len.i, align 4
-  %41 = load ptr, ptr %J.addr.i26, align 8
-  %42 = load i32, ptr %len.i, align 4
-  %conv2.i = trunc i32 %42 to i16
-  store ptr %41, ptr %J.addr.i.i22, align 8
-  store i16 23315, ptr %ot.addr.i.i23, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i24, align 2
-  store i16 4725, ptr %b.addr.i.i25, align 2
-  %43 = load i16, ptr %ot.addr.i.i23, align 2
-  %44 = load ptr, ptr %J.addr.i.i22, align 8
-  %fold.i.i30 = getelementptr inbounds %struct.jit_State, ptr %44, i32 0, i32 14
-  %ot1.i.i31 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i30, i32 0, i32 2
-  store i16 %43, ptr %ot1.i.i31, align 4
-  %45 = load i16, ptr %a.addr.i.i24, align 2
-  %46 = load ptr, ptr %J.addr.i.i22, align 8
-  %fold2.i.i32 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  store i16 %45, ptr %fold2.i.i32, align 8
-  %47 = load i16, ptr %b.addr.i.i25, align 2
-  %48 = load ptr, ptr %J.addr.i.i22, align 8
-  %fold4.i.i33 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  %op2.i.i34 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i33, i32 0, i32 1
-  store i16 %47, ptr %op2.i.i34, align 2
-  %49 = load ptr, ptr %J.addr.i26, align 8
-  %call3.i = call i32 @lj_opt_fold(ptr noundef %49) #7
-  store i32 %call3.i, ptr %len.i, align 4
-  %50 = load i32, ptr %len.i, align 4
-  %conv4 = trunc i32 %50 to i16
-  store ptr %26, ptr %J.addr.i, align 8
-  store i16 20484, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 %conv4, ptr %b.addr.i, align 2
-  %51 = load i16, ptr %ot.addr.i, align 2
-  %52 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %52, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %51, ptr %ot1.i, align 4
-  %53 = load i16, ptr %a.addr.i, align 2
-  %54 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %54, i32 0, i32 14
-  store i16 %53, ptr %fold2.i, align 8
-  %55 = load i16, ptr %b.addr.i, align 2
-  %56 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %56, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %55, ptr %op2.i, align 2
-  %57 = load ptr, ptr %J.addr, align 8
-  %call5 = call i32 @lj_opt_fold(ptr noundef %57)
-  %58 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 6
-  %59 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %59, i64 0
-  store i32 %call5, ptr %arrayidx, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method___len(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i4.i = alloca ptr, align 8
-  %ot.addr.i5.i = alloca i16, align 2
-  %a.addr.i6.i = alloca i16, align 2
-  %b.addr.i7.i = alloca i16, align 2
-  %J.addr.i.i19 = alloca ptr, align 8
-  %ot.addr.i.i20 = alloca i16, align 2
-  %a.addr.i.i21 = alloca i16, align 2
-  %b.addr.i.i22 = alloca i16, align 2
-  %J.addr.i23 = alloca ptr, align 8
-  %trr.addr.i = alloca i32, align 4
-  %trw.addr.i = alloca i32, align 4
-  %len.i = alloca i32, align 4
-  %J.addr.i.i4 = alloca ptr, align 8
-  %ot.addr.i.i5 = alloca i16, align 2
-  %a.addr.i.i6 = alloca i16, align 2
-  %b.addr.i.i7 = alloca i16, align 2
-  %J.addr.i8 = alloca ptr, align 8
-  %ud.addr.i9 = alloca i32, align 4
-  %fl.addr.i10 = alloca i32, align 4
-  %J.addr.i.i = alloca ptr, align 8
-  %ot.addr.i.i = alloca i16, align 2
-  %a.addr.i.i = alloca i16, align 2
-  %b.addr.i.i = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ud.addr.i = alloca i32, align 4
-  %fl.addr.i = alloca i32, align 4
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %ud = alloca i32, align 4
-  %trr = alloca i32, align 4
-  %trw = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %rd.addr, align 8
-  %call = call i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  store i32 %call, ptr %ud, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load i32, ptr %ud, align 4
-  store ptr %2, ptr %J.addr.i8, align 8
-  store i32 %3, ptr %ud.addr.i9, align 4
-  store i32 19, ptr %fl.addr.i10, align 4
-  %4 = load ptr, ptr %J.addr.i8, align 8
-  %5 = load i32, ptr %ud.addr.i9, align 4
-  %conv.i11 = trunc i32 %5 to i16
-  %6 = load i32, ptr %fl.addr.i10, align 4
-  %conv1.i12 = trunc i32 %6 to i16
-  store ptr %4, ptr %J.addr.i.i4, align 8
-  store i16 17673, ptr %ot.addr.i.i5, align 2
-  store i16 %conv.i11, ptr %a.addr.i.i6, align 2
-  store i16 %conv1.i12, ptr %b.addr.i.i7, align 2
-  %7 = load i16, ptr %ot.addr.i.i5, align 2
-  %8 = load ptr, ptr %J.addr.i.i4, align 8
-  %fold.i.i13 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %ot1.i.i14 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i13, i32 0, i32 2
-  store i16 %7, ptr %ot1.i.i14, align 4
-  %9 = load i16, ptr %a.addr.i.i6, align 2
-  %10 = load ptr, ptr %J.addr.i.i4, align 8
-  %fold2.i.i15 = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  store i16 %9, ptr %fold2.i.i15, align 8
-  %11 = load i16, ptr %b.addr.i.i7, align 2
-  %12 = load ptr, ptr %J.addr.i.i4, align 8
-  %fold4.i.i16 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  %op2.i.i17 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i16, i32 0, i32 1
-  store i16 %11, ptr %op2.i.i17, align 2
-  %13 = load ptr, ptr %J.addr.i8, align 8
-  %call.i18 = call i32 @lj_opt_fold(ptr noundef %13) #7
-  store i32 %call.i18, ptr %trr, align 4
-  %14 = load ptr, ptr %J.addr, align 8
-  %15 = load i32, ptr %ud, align 4
-  store ptr %14, ptr %J.addr.i, align 8
-  store i32 %15, ptr %ud.addr.i, align 4
-  store i32 14, ptr %fl.addr.i, align 4
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %17 = load i32, ptr %ud.addr.i, align 4
-  %conv.i = trunc i32 %17 to i16
-  %18 = load i32, ptr %fl.addr.i, align 4
-  %conv1.i = trunc i32 %18 to i16
-  store ptr %16, ptr %J.addr.i.i, align 8
-  store i16 17673, ptr %ot.addr.i.i, align 2
-  store i16 %conv.i, ptr %a.addr.i.i, align 2
-  store i16 %conv1.i, ptr %b.addr.i.i, align 2
-  %19 = load i16, ptr %ot.addr.i.i, align 2
-  %20 = load ptr, ptr %J.addr.i.i, align 8
-  %fold.i.i = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i.i = getelementptr inbounds %struct.anon.2, ptr %fold.i.i, i32 0, i32 2
-  store i16 %19, ptr %ot1.i.i, align 4
-  %21 = load i16, ptr %a.addr.i.i, align 2
-  %22 = load ptr, ptr %J.addr.i.i, align 8
-  %fold2.i.i = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i.i, align 8
-  %23 = load i16, ptr %b.addr.i.i, align 2
-  %24 = load ptr, ptr %J.addr.i.i, align 8
-  %fold4.i.i = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i, i32 0, i32 1
-  store i16 %23, ptr %op2.i.i, align 2
-  %25 = load ptr, ptr %J.addr.i, align 8
-  %call.i = call i32 @lj_opt_fold(ptr noundef %25) #7
-  store i32 %call.i, ptr %trw, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %trr, align 4
-  %28 = load i32, ptr %trw, align 4
-  store ptr %26, ptr %J.addr.i23, align 8
-  store i32 %27, ptr %trr.addr.i, align 4
-  store i32 %28, ptr %trw.addr.i, align 4
-  %29 = load ptr, ptr %J.addr.i23, align 8
-  %30 = load i32, ptr %trw.addr.i, align 4
-  %conv.i24 = trunc i32 %30 to i16
-  %31 = load i32, ptr %trr.addr.i, align 4
-  %conv1.i25 = trunc i32 %31 to i16
-  store ptr %29, ptr %J.addr.i4.i, align 8
-  store i16 10773, ptr %ot.addr.i5.i, align 2
-  store i16 %conv.i24, ptr %a.addr.i6.i, align 2
-  store i16 %conv1.i25, ptr %b.addr.i7.i, align 2
-  %32 = load i16, ptr %ot.addr.i5.i, align 2
-  %33 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold.i8.i = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  %ot1.i9.i = getelementptr inbounds %struct.anon.2, ptr %fold.i8.i, i32 0, i32 2
-  store i16 %32, ptr %ot1.i9.i, align 4
-  %34 = load i16, ptr %a.addr.i6.i, align 2
-  %35 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold2.i10.i = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  store i16 %34, ptr %fold2.i10.i, align 8
-  %36 = load i16, ptr %b.addr.i7.i, align 2
-  %37 = load ptr, ptr %J.addr.i4.i, align 8
-  %fold4.i11.i = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 14
-  %op2.i12.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i11.i, i32 0, i32 1
-  store i16 %36, ptr %op2.i12.i, align 2
-  %38 = load ptr, ptr %J.addr.i23, align 8
-  %call.i26 = call i32 @lj_opt_fold(ptr noundef %38) #7
-  store i32 %call.i26, ptr %len.i, align 4
-  %39 = load ptr, ptr %J.addr.i23, align 8
-  %40 = load i32, ptr %len.i, align 4
-  %conv2.i = trunc i32 %40 to i16
-  store ptr %39, ptr %J.addr.i.i19, align 8
-  store i16 23315, ptr %ot.addr.i.i20, align 2
-  store i16 %conv2.i, ptr %a.addr.i.i21, align 2
-  store i16 4725, ptr %b.addr.i.i22, align 2
-  %41 = load i16, ptr %ot.addr.i.i20, align 2
-  %42 = load ptr, ptr %J.addr.i.i19, align 8
-  %fold.i.i27 = getelementptr inbounds %struct.jit_State, ptr %42, i32 0, i32 14
-  %ot1.i.i28 = getelementptr inbounds %struct.anon.2, ptr %fold.i.i27, i32 0, i32 2
-  store i16 %41, ptr %ot1.i.i28, align 4
-  %43 = load i16, ptr %a.addr.i.i21, align 2
-  %44 = load ptr, ptr %J.addr.i.i19, align 8
-  %fold2.i.i29 = getelementptr inbounds %struct.jit_State, ptr %44, i32 0, i32 14
-  store i16 %43, ptr %fold2.i.i29, align 8
-  %45 = load i16, ptr %b.addr.i.i22, align 2
-  %46 = load ptr, ptr %J.addr.i.i19, align 8
-  %fold4.i.i30 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  %op2.i.i31 = getelementptr inbounds %struct.anon.2, ptr %fold4.i.i30, i32 0, i32 1
-  store i16 %45, ptr %op2.i.i31, align 2
-  %47 = load ptr, ptr %J.addr.i23, align 8
-  %call3.i = call i32 @lj_opt_fold(ptr noundef %47) #7
-  store i32 %call3.i, ptr %len.i, align 4
-  %48 = load i32, ptr %len.i, align 4
-  %49 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %49, i32 0, i32 6
-  %50 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %50, i64 0
-  store i32 %48, ptr %arrayidx, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_encode(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 0
-  %3 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @recff_tmpref(ptr noundef %0, i32 noundef %3, i32 noundef 1)
-  store i32 %call, ptr %tmp, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %5 = load i32, ptr %tmp, align 4
-  %call1 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %4, i32 noundef 28, i32 noundef %5)
-  %6 = load ptr, ptr %J.addr, align 8
-  %base2 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %base2, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %7, i64 0
-  store i32 %call1, ptr %arrayidx3, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load ptr, ptr %J.addr, align 8
-  %base4 = getelementptr inbounds %struct.jit_State, ptr %9, i32 0, i32 6
-  %10 = load ptr, ptr %base4, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %10, i64 0
-  %11 = load i32, ptr %arrayidx5, align 4
-  %conv = trunc i32 %11 to i16
-  store ptr %8, ptr %J.addr.i, align 8
-  store i16 4608, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %12 = load i16, ptr %ot.addr.i, align 2
-  %13 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %12, ptr %ot1.i, align 4
-  %14 = load i16, ptr %a.addr.i, align 2
-  %15 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  store i16 %14, ptr %fold2.i, align 8
-  %16 = load i16, ptr %b.addr.i, align 2
-  %17 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %16, ptr %op2.i, align 2
-  %18 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %18)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_decode(ptr noundef %J, ptr noundef %rd) #0 {
-entry:
-  %L.addr.i = alloca ptr, align 8
-  %sbx.addr.i = alloca ptr, align 8
-  %p.addr.i = alloca ptr, align 8
-  %len.addr.i = alloca i32, align 4
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %str = alloca ptr, align 8
-  %sbx = alloca %struct.SBufExt, align 8
-  %t = alloca i32, align 4
-  %tmp = alloca i32, align 4
-  %tr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  %0 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %1, i64 0
-  %2 = load i64, ptr %arrayidx, align 8
-  %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
-  %cmp = icmp eq i32 %conv, -5
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %rd.addr, align 8
-  %argv2 = getelementptr inbounds %struct.RecordFFData, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %argv2, align 8
-  %arrayidx3 = getelementptr inbounds %union.TValue, ptr %4, i64 0
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx3, i32 0, i32 0
-  %5 = load i64, ptr %gcptr64, align 8
-  %and = and i64 %5, 140737488355327
-  %6 = inttoptr i64 %and to ptr
-  store ptr %6, ptr %str, align 8
-  %7 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @recff_tmpref(ptr noundef %7, i32 noundef 32767, i32 noundef 2)
-  store i32 %call, ptr %tmp, align 4
-  %8 = load ptr, ptr %J.addr, align 8
-  %9 = load i32, ptr %tmp, align 4
-  %10 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 6
-  %11 = load ptr, ptr %base, align 8
-  %arrayidx4 = getelementptr inbounds i32, ptr %11, i64 0
-  %12 = load i32, ptr %arrayidx4, align 4
-  %call5 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %8, i32 noundef 29, i32 noundef %9, i32 noundef %12)
-  store i32 %call5, ptr %tr, align 4
-  %13 = load ptr, ptr %J.addr, align 8
-  %14 = load i32, ptr %tr, align 4
-  %conv6 = trunc i32 %14 to i16
-  store ptr %13, ptr %J.addr.i, align 8
-  store i16 4608, ptr %ot.addr.i, align 2
-  store i16 %conv6, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %15 = load i16, ptr %ot.addr.i, align 2
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %15, ptr %ot1.i, align 4
-  %17 = load i16, ptr %a.addr.i, align 2
-  %18 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  store i16 %17, ptr %fold2.i, align 8
-  %19 = load i16, ptr %b.addr.i, align 2
-  %20 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %19, ptr %op2.i, align 2
-  %21 = load ptr, ptr %J.addr, align 8
-  %call7 = call i32 @lj_opt_fold(ptr noundef %21)
-  call void @llvm.memset.p0.i64(ptr align 8 %sbx, i8 0, i64 72, i1 false)
-  %22 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %L, align 8
-  %24 = load ptr, ptr %str, align 8
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %24, i64 1
-  %25 = load ptr, ptr %str, align 8
-  %len = getelementptr inbounds %struct.GCstr, ptr %25, i32 0, i32 7
-  %26 = load i32, ptr %len, align 4
-  store ptr %23, ptr %L.addr.i, align 8
-  store ptr %sbx, ptr %sbx.addr.i, align 8
-  store ptr %add.ptr, ptr %p.addr.i, align 8
-  store i32 %26, ptr %len.addr.i, align 4
-  %27 = load ptr, ptr %L.addr.i, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %add.i = add i64 %28, 3
-  %29 = load ptr, ptr %sbx.addr.i, align 8
-  %L1.i = getelementptr inbounds %struct.SBufExt, ptr %29, i32 0, i32 3
-  store i64 %add.i, ptr %L1.i, align 8
-  %30 = load ptr, ptr %p.addr.i, align 8
-  %31 = load ptr, ptr %sbx.addr.i, align 8
-  %b.i = getelementptr inbounds %struct.SBufExt, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %b.i, align 8
-  %32 = load ptr, ptr %sbx.addr.i, align 8
-  %r.i = getelementptr inbounds %struct.SBufExt, ptr %32, i32 0, i32 5
-  store ptr %30, ptr %r.i, align 8
-  %33 = load ptr, ptr %p.addr.i, align 8
-  %34 = load i32, ptr %len.addr.i, align 4
-  %idx.ext.i = zext i32 %34 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %33, i64 %idx.ext.i
-  %35 = load ptr, ptr %sbx.addr.i, align 8
-  %e.i = getelementptr inbounds %struct.SBufExt, ptr %35, i32 0, i32 1
-  store ptr %add.ptr.i, ptr %e.i, align 8
-  %36 = load ptr, ptr %sbx.addr.i, align 8
-  store ptr %add.ptr.i, ptr %36, align 8
-  %call8 = call i32 @lj_serialize_peektype(ptr noundef %sbx)
-  store i32 %call8, ptr %t, align 4
-  %37 = load ptr, ptr %J.addr, align 8
-  %38 = load i32, ptr %tmp, align 4
-  %39 = load i32, ptr %t, align 4
-  %call9 = call i32 @lj_record_vload(ptr noundef %37, i32 noundef %38, i32 noundef 0, i32 noundef %39)
-  %40 = load ptr, ptr %J.addr, align 8
-  %base10 = getelementptr inbounds %struct.jit_State, ptr %40, i32 0, i32 6
-  %41 = load ptr, ptr %base10, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %41, i64 0
-  store i32 %call9, ptr %arrayidx11, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: noreturn
-declare hidden void @lj_trace_err_info(ptr noundef, i32 noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_stitch(ptr noundef %J) #0 {
-entry:
-  %J.addr = alloca ptr, align 8
-  %cont = alloca ptr, align 8
-  %L = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  %nslot = alloca i32, align 4
-  %nframe = alloca ptr, align 8
-  %pc = alloca ptr, align 8
-  %pframe = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr @lj_cont_stitch, ptr %cont, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %L1 = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %L1, align 8
-  store ptr %1, ptr %L, align 8
-  %2 = load ptr, ptr %L, align 8
-  %base2 = getelementptr inbounds %struct.lua_State, ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %base2, align 8
-  store ptr %3, ptr %base, align 8
-  %4 = load ptr, ptr %J.addr, align 8
-  %maxslot = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 8
-  %5 = load i32, ptr %maxslot, align 4
-  %add = add i32 %5, 1
-  %add3 = add i32 %add, 1
-  store i32 %add3, ptr %nslot, align 4
-  %6 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %6, i64 1
-  %add.ptr4 = getelementptr inbounds %union.TValue, ptr %add.ptr, i64 1
-  store ptr %add.ptr4, ptr %nframe, align 8
-  %7 = load ptr, ptr %base, align 8
-  %add.ptr5 = getelementptr inbounds %union.TValue, ptr %7, i64 -1
-  %8 = load i64, ptr %add.ptr5, align 8
-  %9 = inttoptr i64 %8 to ptr
-  store ptr %9, ptr %pc, align 8
-  %10 = load ptr, ptr %base, align 8
-  %add.ptr6 = getelementptr inbounds %union.TValue, ptr %10, i64 -1
-  %11 = load ptr, ptr %base, align 8
-  %add.ptr7 = getelementptr inbounds %union.TValue, ptr %11, i64 -1
-  %12 = load i64, ptr %add.ptr7, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %arrayidx = getelementptr inbounds i32, ptr %13, i64 -1
-  %14 = load i32, ptr %arrayidx, align 4
-  %shr = lshr i32 %14, 8
-  %and = and i32 %shr, 255
-  %add8 = add i32 2, %and
-  %idx.ext = zext i32 %add8 to i64
-  %idx.neg = sub i64 0, %idx.ext
-  %add.ptr9 = getelementptr inbounds %union.TValue, ptr %add.ptr6, i64 %idx.neg
-  store ptr %add.ptr9, ptr %pframe, align 8
-  %15 = load ptr, ptr %J.addr, align 8
-  %cur = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 0
-  %nsnap = getelementptr inbounds %struct.GCtrace, ptr %cur, i32 0, i32 3
-  %16 = load i16, ptr %nsnap, align 2
-  %conv = zext i16 %16 to i32
-  %17 = load ptr, ptr %J.addr, align 8
-  %param = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 42
-  %arrayidx10 = getelementptr inbounds [15 x i32], ptr %param, i64 0, i64 4
-  %18 = load i32, ptr %arrayidx10, align 4
-  %cmp = icmp uge i32 %conv, %18
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %19 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %19, i32 noundef 4) #6
-  unreachable
-
-if.end:                                           ; preds = %entry
-  %20 = load ptr, ptr %base, align 8
-  %arrayidx12 = getelementptr inbounds %union.TValue, ptr %20, i64 1
-  %21 = load ptr, ptr %base, align 8
-  %arrayidx13 = getelementptr inbounds %union.TValue, ptr %21, i64 -2
-  %22 = load i32, ptr %nslot, align 4
-  %conv14 = zext i32 %22 to i64
-  %mul = mul i64 8, %conv14
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx12, ptr align 8 %arrayidx13, i64 %mul, i1 false)
-  %23 = load ptr, ptr %nframe, align 8
-  %24 = load ptr, ptr %pframe, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %24 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %add15 = add nsw i64 %sub.ptr.sub, 2
-  %25 = load ptr, ptr %nframe, align 8
-  store i64 %add15, ptr %25, align 8
-  %26 = load ptr, ptr %cont, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = load ptr, ptr %base, align 8
-  %add.ptr16 = getelementptr inbounds %union.TValue, ptr %28, i64 -1
-  store i64 %27, ptr %add.ptr16, align 8
-  %29 = load ptr, ptr %pc, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = load ptr, ptr %base, align 8
-  store i64 %30, ptr %31, align 8
-  %32 = load ptr, ptr %base, align 8
-  %add.ptr17 = getelementptr inbounds %union.TValue, ptr %32, i64 -1
-  %add.ptr18 = getelementptr inbounds %union.TValue, ptr %add.ptr17, i64 -1
-  store i64 -1, ptr %add.ptr18, align 8
-  %33 = load ptr, ptr %L, align 8
-  %base19 = getelementptr inbounds %struct.lua_State, ptr %33, i32 0, i32 7
-  %34 = load ptr, ptr %base19, align 8
-  %add.ptr20 = getelementptr inbounds %union.TValue, ptr %34, i64 3
-  store ptr %add.ptr20, ptr %base19, align 8
-  %35 = load ptr, ptr %L, align 8
-  %top = getelementptr inbounds %struct.lua_State, ptr %35, i32 0, i32 8
-  %36 = load ptr, ptr %top, align 8
-  %add.ptr21 = getelementptr inbounds %union.TValue, ptr %36, i64 3
-  store ptr %add.ptr21, ptr %top, align 8
-  %37 = load ptr, ptr %J.addr, align 8
-  %base22 = getelementptr inbounds %struct.jit_State, ptr %37, i32 0, i32 6
-  %38 = load ptr, ptr %base22, align 8
-  %arrayidx23 = getelementptr inbounds i32, ptr %38, i64 1
-  %39 = load ptr, ptr %J.addr, align 8
-  %base24 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 6
-  %40 = load ptr, ptr %base24, align 8
-  %arrayidx25 = getelementptr inbounds i32, ptr %40, i64 -2
-  %41 = load i32, ptr %nslot, align 4
-  %conv26 = zext i32 %41 to i64
-  %mul27 = mul i64 4, %conv26
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %arrayidx23, ptr align 4 %arrayidx25, i64 %mul27, i1 false)
-  %42 = load ptr, ptr %J.addr, align 8
-  %base28 = getelementptr inbounds %struct.jit_State, ptr %42, i32 0, i32 6
-  %43 = load ptr, ptr %base28, align 8
-  %arrayidx29 = getelementptr inbounds i32, ptr %43, i64 2
-  store i32 65536, ptr %arrayidx29, align 4
-  %44 = load ptr, ptr %J.addr, align 8
-  %45 = load ptr, ptr %cont, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %call = call i32 @lj_ir_k64(ptr noundef %44, i32 noundef 28, i64 noundef %46)
-  %47 = load ptr, ptr %J.addr, align 8
-  %base30 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 6
-  %48 = load ptr, ptr %base30, align 8
-  %arrayidx31 = getelementptr inbounds i32, ptr %48, i64 -1
-  store i32 %call, ptr %arrayidx31, align 4
-  %49 = load ptr, ptr %J.addr, align 8
-  %50 = load ptr, ptr %pc, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %call32 = call i32 @lj_ir_k64(ptr noundef %49, i32 noundef 28, i64 noundef %51)
-  %or = or i32 %call32, 131072
-  %52 = load ptr, ptr %J.addr, align 8
-  %base33 = getelementptr inbounds %struct.jit_State, ptr %52, i32 0, i32 6
-  %53 = load ptr, ptr %base33, align 8
-  %arrayidx34 = getelementptr inbounds i32, ptr %53, i64 0
-  store i32 %or, ptr %arrayidx34, align 4
-  %54 = load ptr, ptr %J.addr, align 8
-  %call35 = call i32 @lj_ir_ktrace(ptr noundef %54)
-  %55 = load ptr, ptr %J.addr, align 8
-  %base36 = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 6
-  %56 = load ptr, ptr %base36, align 8
-  %arrayidx37 = getelementptr inbounds i32, ptr %56, i64 -2
-  store i32 %call35, ptr %arrayidx37, align 4
-  %conv38 = trunc i32 %call35 to i16
-  %57 = load ptr, ptr %J.addr, align 8
-  %ktrace = getelementptr inbounds %struct.jit_State, ptr %57, i32 0, i32 39
-  store i16 %conv38, ptr %ktrace, align 8
-  %58 = load ptr, ptr %J.addr, align 8
-  %base39 = getelementptr inbounds %struct.jit_State, ptr %58, i32 0, i32 6
-  %59 = load ptr, ptr %base39, align 8
-  %add.ptr40 = getelementptr inbounds i32, ptr %59, i64 3
-  store ptr %add.ptr40, ptr %base39, align 8
-  %60 = load ptr, ptr %J.addr, align 8
-  %baseslot = getelementptr inbounds %struct.jit_State, ptr %60, i32 0, i32 9
-  %61 = load i32, ptr %baseslot, align 8
-  %add41 = add i32 %61, 3
-  store i32 %add41, ptr %baseslot, align 8
-  %62 = load ptr, ptr %J.addr, align 8
-  %framedepth = getelementptr inbounds %struct.jit_State, ptr %62, i32 0, i32 21
-  %63 = load i32, ptr %framedepth, align 4
-  %inc = add nsw i32 %63, 1
-  store i32 %inc, ptr %framedepth, align 4
-  %64 = load ptr, ptr %J.addr, align 8
-  call void @lj_record_stop(ptr noundef %64, i32 noundef 8, i32 noundef 0)
-  %65 = load ptr, ptr %base, align 8
-  %arrayidx42 = getelementptr inbounds %union.TValue, ptr %65, i64 -2
-  %66 = load ptr, ptr %base, align 8
-  %arrayidx43 = getelementptr inbounds %union.TValue, ptr %66, i64 1
-  %67 = load i32, ptr %nslot, align 4
-  %conv44 = zext i32 %67 to i64
-  %mul45 = mul i64 8, %conv44
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx42, ptr align 8 %arrayidx43, i64 %mul45, i1 false)
-  %68 = load ptr, ptr %pc, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = load ptr, ptr %base, align 8
-  %add.ptr46 = getelementptr inbounds %union.TValue, ptr %70, i64 -1
-  store i64 %69, ptr %add.ptr46, align 8
-  %71 = load ptr, ptr %L, align 8
-  %base47 = getelementptr inbounds %struct.lua_State, ptr %71, i32 0, i32 7
-  %72 = load ptr, ptr %base47, align 8
-  %add.ptr48 = getelementptr inbounds %union.TValue, ptr %72, i64 -3
-  store ptr %add.ptr48, ptr %base47, align 8
-  %73 = load ptr, ptr %L, align 8
-  %top49 = getelementptr inbounds %struct.lua_State, ptr %73, i32 0, i32 8
-  %74 = load ptr, ptr %top49, align 8
-  %add.ptr50 = getelementptr inbounds %union.TValue, ptr %74, i64 -3
-  store ptr %add.ptr50, ptr %top49, align 8
-  ret void
-}
-
-declare hidden void @lj_record_stop(ptr noundef, i32 noundef, i32 noundef) #1
-
-declare hidden void @lj_cont_stitch() #1
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
-
-declare hidden i32 @lj_ir_k64(ptr noundef, i32 noundef, i64 noundef) #1
-
-declare hidden i32 @lj_ir_ktrace(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @recff_tmpref(ptr noundef %J, i32 noundef %tr, i32 noundef %mode) #0 {
-entry:
-  %J.addr.i4 = alloca ptr, align 8
-  %ot.addr.i5 = alloca i16, align 2
-  %a.addr.i6 = alloca i16, align 2
-  %b.addr.i7 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %tr.addr = alloca i32, align 4
-  %mode.addr = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store i32 %tr, ptr %tr.addr, align 4
-  store i32 %mode, ptr %mode.addr, align 4
-  %0 = load i32, ptr %tr.addr, align 4
-  %shr = lshr i32 %0, 24
-  %and = and i32 %shr, 31
-  %sub = sub i32 %and, 15
-  %cmp = icmp ule i32 %sub, 4
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %J.addr, align 8
-  %2 = load i32, ptr %tr.addr, align 4
-  %conv = trunc i32 %2 to i16
-  store ptr %1, ptr %J.addr.i4, align 8
-  store i16 23310, ptr %ot.addr.i5, align 2
-  store i16 %conv, ptr %a.addr.i6, align 2
-  store i16 467, ptr %b.addr.i7, align 2
-  %3 = load i16, ptr %ot.addr.i5, align 2
-  %4 = load ptr, ptr %J.addr.i4, align 8
-  %fold.i8 = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 14
-  %ot1.i9 = getelementptr inbounds %struct.anon.2, ptr %fold.i8, i32 0, i32 2
-  store i16 %3, ptr %ot1.i9, align 4
-  %5 = load i16, ptr %a.addr.i6, align 2
-  %6 = load ptr, ptr %J.addr.i4, align 8
-  %fold2.i10 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 14
-  store i16 %5, ptr %fold2.i10, align 8
-  %7 = load i16, ptr %b.addr.i7, align 2
-  %8 = load ptr, ptr %J.addr.i4, align 8
-  %fold4.i11 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %op2.i12 = getelementptr inbounds %struct.anon.2, ptr %fold4.i11, i32 0, i32 1
-  store i16 %7, ptr %op2.i12, align 2
-  %9 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_opt_fold(ptr noundef %9)
-  store i32 %call, ptr %tr.addr, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load i32, ptr %tr.addr, align 4
-  %conv1 = trunc i32 %11 to i16
-  %12 = load i32, ptr %mode.addr, align 4
-  %conv2 = trunc i32 %12 to i16
-  store ptr %10, ptr %J.addr.i, align 8
-  store i16 16137, ptr %ot.addr.i, align 2
-  store i16 %conv1, ptr %a.addr.i, align 2
-  store i16 %conv2, ptr %b.addr.i, align 2
-  %13 = load i16, ptr %ot.addr.i, align 2
-  %14 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %13, ptr %ot1.i, align 4
-  %15 = load i16, ptr %a.addr.i, align 2
-  %16 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  store i16 %15, ptr %fold2.i, align 8
-  %17 = load i16, ptr %b.addr.i, align 2
-  %18 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %17, ptr %op2.i, align 2
-  %19 = load ptr, ptr %J.addr, align 8
-  %call3 = call i32 @lj_opt_fold(ptr noundef %19)
-  ret i32 %call3
-}
-
-declare hidden i32 @lj_ir_call(ptr noundef, i32 noundef, ...) #1
-
-declare hidden i32 @lj_tab_keyindex(ptr noundef, ptr noundef) #1
-
-declare hidden i32 @lj_record_next(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
-
-; Function Attrs: nounwind uwtable
-define internal i32 @recff_metacall(ptr noundef %J, ptr noundef %rd, i32 noundef %mm) #0 {
-entry:
-  %L.addr.i50 = alloca ptr, align 8
-  %o.addr.i51 = alloca ptr, align 8
-  %msg.addr.i52 = alloca ptr, align 8
-  %L.addr.i47 = alloca ptr, align 8
-  %o.addr.i48 = alloca ptr, align 8
-  %msg.addr.i49 = alloca ptr, align 8
-  %L.addr.i44 = alloca ptr, align 8
-  %o.addr.i45 = alloca ptr, align 8
-  %msg.addr.i46 = alloca ptr, align 8
-  %L.addr.i41 = alloca ptr, align 8
-  %o.addr.i42 = alloca ptr, align 8
-  %msg.addr.i43 = alloca ptr, align 8
-  %L.addr.i40 = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %msg.addr.i = alloca ptr, align 8
-  %L.addr.i37 = alloca ptr, align 8
-  %o1.addr.i38 = alloca ptr, align 8
-  %o2.addr.i39 = alloca ptr, align 8
-  %L.addr.i34 = alloca ptr, align 8
-  %o1.addr.i35 = alloca ptr, align 8
-  %o2.addr.i36 = alloca ptr, align 8
-  %L.addr.i31 = alloca ptr, align 8
-  %o1.addr.i32 = alloca ptr, align 8
-  %o2.addr.i33 = alloca ptr, align 8
-  %L.addr.i28 = alloca ptr, align 8
-  %o1.addr.i29 = alloca ptr, align 8
-  %o2.addr.i30 = alloca ptr, align 8
-  %L.addr.i = alloca ptr, align 8
-  %o1.addr.i = alloca ptr, align 8
-  %o2.addr.i = alloca ptr, align 8
-  %retval = alloca i32, align 4
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %mm.addr = alloca i32, align 4
-  %ix = alloca %struct.RecordIndex, align 8
-  %errcode = alloca i32, align 4
-  %argv0 = alloca %union.TValue, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  store i32 %mm, ptr %mm.addr, align 4
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 0
-  %2 = load i32, ptr %arrayidx, align 4
-  %tab = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 6
-  store i32 %2, ptr %tab, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %L, align 8
-  %tabv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 0
-  %5 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %argv, align 8
-  %arrayidx1 = getelementptr inbounds %union.TValue, ptr %6, i64 0
-  store ptr %4, ptr %L.addr.i37, align 8
-  store ptr %tabv, ptr %o1.addr.i38, align 8
-  store ptr %arrayidx1, ptr %o2.addr.i39, align 8
-  %7 = load ptr, ptr %o1.addr.i38, align 8
-  %8 = load ptr, ptr %o2.addr.i39, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 8, i1 false)
-  %9 = load ptr, ptr %L.addr.i37, align 8
-  %10 = load ptr, ptr %o1.addr.i38, align 8
-  store ptr %9, ptr %L.addr.i40, align 8
-  store ptr %10, ptr %o.addr.i, align 8
-  store ptr @.str, ptr %msg.addr.i, align 8
-  %11 = load ptr, ptr %J.addr, align 8
-  %12 = load i32, ptr %mm.addr, align 4
-  %call = call i32 @lj_record_mm_lookup(ptr noundef %11, ptr noundef %ix, i32 noundef %12)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end27
-
-if.then:                                          ; preds = %entry
-  %13 = load ptr, ptr %J.addr, align 8
-  %base2 = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 6
-  %14 = load ptr, ptr %base2, align 8
-  %arrayidx3 = getelementptr inbounds i32, ptr %14, i64 0
-  %15 = load i32, ptr %arrayidx3, align 4
-  %16 = load ptr, ptr %J.addr, align 8
-  %base4 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 6
-  %17 = load ptr, ptr %base4, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %17, i64 2
-  store i32 %15, ptr %arrayidx5, align 4
-  %mobj = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 10
-  %18 = load i32, ptr %mobj, align 8
-  %19 = load ptr, ptr %J.addr, align 8
-  %base6 = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 6
-  %20 = load ptr, ptr %base6, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %20, i64 0
-  store i32 %18, ptr %arrayidx7, align 4
-  %21 = load ptr, ptr %J.addr, align 8
-  %L8 = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %L8, align 8
-  %23 = load ptr, ptr %rd.addr, align 8
-  %argv9 = getelementptr inbounds %struct.RecordFFData, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %argv9, align 8
-  %arrayidx10 = getelementptr inbounds %union.TValue, ptr %24, i64 0
-  store ptr %22, ptr %L.addr.i34, align 8
-  store ptr %argv0, ptr %o1.addr.i35, align 8
-  store ptr %arrayidx10, ptr %o2.addr.i36, align 8
-  %25 = load ptr, ptr %o1.addr.i35, align 8
-  %26 = load ptr, ptr %o2.addr.i36, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %26, i64 8, i1 false)
-  %27 = load ptr, ptr %L.addr.i34, align 8
-  %28 = load ptr, ptr %o1.addr.i35, align 8
-  store ptr %27, ptr %L.addr.i41, align 8
-  store ptr %28, ptr %o.addr.i42, align 8
-  store ptr @.str, ptr %msg.addr.i43, align 8
-  %29 = load ptr, ptr %J.addr, align 8
-  %L11 = getelementptr inbounds %struct.jit_State, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %L11, align 8
-  %31 = load ptr, ptr %rd.addr, align 8
-  %argv12 = getelementptr inbounds %struct.RecordFFData, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %argv12, align 8
-  %arrayidx13 = getelementptr inbounds %union.TValue, ptr %32, i64 2
-  %33 = load ptr, ptr %rd.addr, align 8
-  %argv14 = getelementptr inbounds %struct.RecordFFData, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %argv14, align 8
-  %arrayidx15 = getelementptr inbounds %union.TValue, ptr %34, i64 0
-  store ptr %30, ptr %L.addr.i31, align 8
-  store ptr %arrayidx13, ptr %o1.addr.i32, align 8
-  store ptr %arrayidx15, ptr %o2.addr.i33, align 8
-  %35 = load ptr, ptr %o1.addr.i32, align 8
-  %36 = load ptr, ptr %o2.addr.i33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %36, i64 8, i1 false)
-  %37 = load ptr, ptr %L.addr.i31, align 8
-  %38 = load ptr, ptr %o1.addr.i32, align 8
-  store ptr %37, ptr %L.addr.i44, align 8
-  store ptr %38, ptr %o.addr.i45, align 8
-  store ptr @.str, ptr %msg.addr.i46, align 8
-  %39 = load ptr, ptr %J.addr, align 8
-  %L16 = getelementptr inbounds %struct.jit_State, ptr %39, i32 0, i32 2
-  %40 = load ptr, ptr %L16, align 8
-  %41 = load ptr, ptr %rd.addr, align 8
-  %argv17 = getelementptr inbounds %struct.RecordFFData, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %argv17, align 8
-  %arrayidx18 = getelementptr inbounds %union.TValue, ptr %42, i64 0
-  %mobjv = getelementptr inbounds %struct.RecordIndex, ptr %ix, i32 0, i32 3
-  store ptr %40, ptr %L.addr.i28, align 8
-  store ptr %arrayidx18, ptr %o1.addr.i29, align 8
-  store ptr %mobjv, ptr %o2.addr.i30, align 8
-  %43 = load ptr, ptr %o1.addr.i29, align 8
-  %44 = load ptr, ptr %o2.addr.i30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %44, i64 8, i1 false)
-  %45 = load ptr, ptr %L.addr.i28, align 8
-  %46 = load ptr, ptr %o1.addr.i29, align 8
-  store ptr %45, ptr %L.addr.i47, align 8
-  store ptr %46, ptr %o.addr.i48, align 8
-  store ptr @.str, ptr %msg.addr.i49, align 8
-  %47 = load ptr, ptr %J.addr, align 8
-  %L19 = getelementptr inbounds %struct.jit_State, ptr %47, i32 0, i32 2
-  %48 = load ptr, ptr %L19, align 8
-  %49 = load ptr, ptr %J.addr, align 8
-  %call20 = call i32 @lj_vm_cpcall(ptr noundef %48, ptr noundef null, ptr noundef %49, ptr noundef @recff_metacall_cp)
-  store i32 %call20, ptr %errcode, align 4
-  %50 = load ptr, ptr %J.addr, align 8
-  %L21 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 2
-  %51 = load ptr, ptr %L21, align 8
-  %52 = load ptr, ptr %rd.addr, align 8
-  %argv22 = getelementptr inbounds %struct.RecordFFData, ptr %52, i32 0, i32 0
-  %53 = load ptr, ptr %argv22, align 8
-  %arrayidx23 = getelementptr inbounds %union.TValue, ptr %53, i64 0
-  store ptr %51, ptr %L.addr.i, align 8
-  store ptr %arrayidx23, ptr %o1.addr.i, align 8
-  store ptr %argv0, ptr %o2.addr.i, align 8
-  %54 = load ptr, ptr %o1.addr.i, align 8
-  %55 = load ptr, ptr %o2.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %55, i64 8, i1 false)
-  %56 = load ptr, ptr %L.addr.i, align 8
-  %57 = load ptr, ptr %o1.addr.i, align 8
-  store ptr %56, ptr %L.addr.i50, align 8
-  store ptr %57, ptr %o.addr.i51, align 8
-  store ptr @.str, ptr %msg.addr.i52, align 8
-  %58 = load i32, ptr %errcode, align 4
-  %tobool24 = icmp ne i32 %58, 0
-  br i1 %tobool24, label %if.then25, label %if.end
-
-if.then25:                                        ; preds = %if.then
-  %59 = load ptr, ptr %J.addr, align 8
-  %L26 = getelementptr inbounds %struct.jit_State, ptr %59, i32 0, i32 2
-  %60 = load ptr, ptr %L26, align 8
-  %61 = load i32, ptr %errcode, align 4
-  call void @lj_err_throw(ptr noundef %60, i32 noundef %61) #6
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  %62 = load ptr, ptr %rd.addr, align 8
-  %nres = getelementptr inbounds %struct.RecordFFData, ptr %62, i32 0, i32 1
-  store i64 -1, ptr %nres, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end27:                                         ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end27, %if.end
-  %63 = load i32, ptr %retval, align 4
-  ret i32 %63
-}
-
-declare hidden i32 @lj_record_mm_lookup(ptr noundef, ptr noundef, i32 noundef) #1
-
-declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @recff_metacall_cp(ptr noundef %L, ptr noundef %dummy, ptr noundef %ud) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %dummy.addr = alloca ptr, align 8
-  %ud.addr = alloca ptr, align 8
-  %J = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %dummy, ptr %dummy.addr, align 8
-  store ptr %ud, ptr %ud.addr, align 8
-  %0 = load ptr, ptr %ud.addr, align 8
-  store ptr %0, ptr %J, align 8
-  %1 = load ptr, ptr %J, align 8
-  call void @lj_record_tailcall(ptr noundef %1, i32 noundef 0, i64 noundef 1)
+define internal ptr @recff_xpcall_cp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !43
+  store ptr %2, ptr %6, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %8 = load ptr, ptr %6, align 8, !tbaa !43
+  store ptr %8, ptr %7, align 8, !tbaa !4
+  %9 = load ptr, ptr %7, align 8, !tbaa !4
+  %10 = load ptr, ptr %7, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.jit_State, ptr %10, i32 0, i32 8
+  %12 = load i32, ptr %11, align 4, !tbaa !42
+  %13 = sub i32 %12, 2
+  %14 = zext i32 %13 to i64
+  call void @lj_record_call(ptr noundef %9, i32 noundef 1, i64 noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
   ret ptr null
 }
 
-; Function Attrs: noreturn
-declare hidden void @lj_err_throw(ptr noundef, i32 noundef) #2
+declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) #2
 
-declare hidden void @lj_record_tailcall(ptr noundef, i32 noundef, i64 noundef) #1
+declare hidden i32 @lj_ir_ggfload(ptr noundef, i32 noundef, i64 noundef) #2
 
-declare hidden i32 @lj_opt_narrow_toint(ptr noundef, i32 noundef) #1
+declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) #2
 
-declare hidden i32 @lj_record_idx(ptr noundef, ptr noundef) #1
+declare hidden i32 @lj_opt_narrow_arith(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-declare hidden i32 @lj_ir_knull(ptr noundef, i32 noundef) #1
+declare hidden i32 @lj_ir_tonumber(ptr noundef, i32 noundef) #2
 
-declare hidden i32 @lj_record_objcmp(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare hidden i32 @lj_ir_kptr_(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare hidden void @lj_crecord_tonumber(ptr noundef, ptr noundef) #1
+declare hidden void @recff_bit64_tobit(ptr noundef, ptr noundef) #2
 
-declare hidden ptr @lj_strfmt_obj(ptr noundef, ptr noundef) #1
+declare hidden i32 @lj_opt_narrow_tobit(ptr noundef, i32 noundef) #2
 
-declare hidden void @lj_record_call(ptr noundef, i32 noundef, i64 noundef) #1
+declare hidden i32 @recff_bit64_unary(ptr noundef, ptr noundef) #2
+
+declare hidden i32 @recff_bit64_shift(ptr noundef, ptr noundef) #2
+
+declare hidden i32 @recff_bit64_nary(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @recff_xpcall_cp(ptr noundef %L, ptr noundef %dummy, ptr noundef %ud) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %dummy.addr = alloca ptr, align 8
-  %ud.addr = alloca ptr, align 8
-  %J = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %dummy, ptr %dummy.addr, align 8
-  store ptr %ud, ptr %ud.addr, align 8
-  %0 = load ptr, ptr %ud.addr, align 8
-  store ptr %0, ptr %J, align 8
-  %1 = load ptr, ptr %J, align 8
-  %2 = load ptr, ptr %J, align 8
-  %maxslot = getelementptr inbounds %struct.jit_State, ptr %2, i32 0, i32 8
-  %3 = load i32, ptr %maxslot, align 4
-  %sub = sub i32 %3, 2
-  %conv = zext i32 %sub to i64
-  call void @lj_record_call(ptr noundef %1, i32 noundef 1, i64 noundef %conv)
-  ret ptr null
+define internal i32 @recff_bufhdr(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds i8, ptr %5, i64 -832
+  %7 = getelementptr inbounds nuw %struct.GG_State, ptr %6, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.global_State, ptr %7, i32 0, i32 11
+  %9 = call i32 @lj_ir_kptr_(ptr noundef %4, i32 noundef 25, ptr noundef %8)
+  %10 = trunc i32 %9 to i16
+  call void @lj_ir_set_(ptr noundef %3, i16 noundef zeroext 21769, i16 noundef zeroext %10, i16 noundef zeroext 0)
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = call i32 @lj_opt_fold(ptr noundef %11)
+  ret i32 %12
 }
 
-declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) #1
+declare hidden i32 @recff_bit64_tohex(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare hidden i32 @lj_ir_ggfload(ptr noundef, i32 noundef, i64 noundef) #1
-
-declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) #1
-
-declare hidden i32 @lj_opt_narrow_arith(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
-
-declare hidden i32 @lj_ir_tonumber(ptr noundef, i32 noundef) #1
-
-declare hidden i32 @lj_ir_kptr_(ptr noundef, i32 noundef, ptr noundef) #1
-
-declare hidden void @recff_bit64_tobit(ptr noundef, ptr noundef) #1
-
-declare hidden i32 @lj_opt_narrow_tobit(ptr noundef, i32 noundef) #1
-
-declare hidden i32 @recff_bit64_unary(ptr noundef, ptr noundef) #1
-
-declare hidden i32 @recff_bit64_shift(ptr noundef, ptr noundef) #1
-
-declare hidden i32 @recff_bit64_nary(ptr noundef, ptr noundef) #1
+declare hidden i32 @lj_ir_tostr(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recff_bufhdr(ptr noundef %J) #0 {
-entry:
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load ptr, ptr %J.addr, align 8
-  %2 = load ptr, ptr %J.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 -824
-  %g = getelementptr inbounds %struct.GG_State, ptr %add.ptr, i32 0, i32 1
-  %tmpbuf = getelementptr inbounds %struct.global_State, ptr %g, i32 0, i32 11
-  %call = call i32 @lj_ir_kptr_(ptr noundef %1, i32 noundef 25, ptr noundef %tmpbuf)
-  %conv = trunc i32 %call to i16
-  store ptr %0, ptr %J.addr.i, align 8
-  store i16 21769, ptr %ot.addr.i, align 2
-  store i16 %conv, ptr %a.addr.i, align 2
-  store i16 0, ptr %b.addr.i, align 2
-  %3 = load i16, ptr %ot.addr.i, align 2
-  %4 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %3, ptr %ot1.i, align 4
-  %5 = load i16, ptr %a.addr.i, align 2
-  %6 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 14
-  store i16 %5, ptr %fold2.i, align 8
-  %7 = load i16, ptr %b.addr.i, align 2
-  %8 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %7, ptr %op2.i, align 2
-  %9 = load ptr, ptr %J.addr, align 8
-  %call1 = call i32 @lj_opt_fold(ptr noundef %9)
-  ret i32 %call1
-}
+define internal ptr @argv2str(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %5, align 8, !tbaa !11
+  %8 = load i64, ptr %7, align 8, !tbaa !13
+  %9 = ashr i64 %8, 47
+  %10 = trunc i64 %9 to i32
+  %11 = icmp eq i32 %10, -5
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 1)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %24
 
-declare hidden i32 @recff_bit64_tohex(ptr noundef, ptr noundef, i32 noundef) #1
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %5, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.GCRef, ptr %19, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8, !tbaa !13
+  %22 = and i64 %21, 140737488355327
+  %23 = inttoptr i64 %22 to ptr
+  store ptr %23, ptr %3, align 8
+  br label %44
 
-declare hidden i32 @lj_ir_tostr(ptr noundef, i32 noundef) #1
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %25 = load ptr, ptr %5, align 8, !tbaa !11
+  %26 = load i64, ptr %25, align 8, !tbaa !13
+  %27 = ashr i64 %26, 47
+  %28 = trunc i64 %27 to i32
+  %29 = icmp ule i32 %28, -14
+  br i1 %29, label %32, label %30
 
-; Function Attrs: nounwind uwtable
-define internal ptr @argv2str(ptr noundef %J, ptr noundef %o) #0 {
-entry:
-  %o.addr.i1.i = alloca ptr, align 8
-  %v.addr.i2.i = alloca ptr, align 8
-  %itype.addr.i.i = alloca i32, align 4
-  %L.addr.i.i.i = alloca ptr, align 8
-  %o.addr.i.i.i = alloca ptr, align 8
-  %msg.addr.i.i.i = alloca ptr, align 8
-  %L.addr.i.i = alloca ptr, align 8
-  %o.addr.i.i = alloca ptr, align 8
-  %v.addr.i.i = alloca ptr, align 8
-  %it.addr.i.i = alloca i32, align 4
-  %L.addr.i = alloca ptr, align 8
-  %o.addr.i = alloca ptr, align 8
-  %v.addr.i = alloca ptr, align 8
-  %retval = alloca ptr, align 8
-  %J.addr = alloca ptr, align 8
-  %o.addr = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %o, ptr %o.addr, align 8
-  %0 = load ptr, ptr %o.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %shr = ashr i64 %1, 47
-  %conv = trunc i64 %shr to i32
-  %cmp = icmp eq i32 %conv, -5
-  %lnot = xor i1 %cmp, true
-  %lnot2 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot2 to i32
-  %conv3 = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv3, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %o.addr, align 8
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %2, i32 0, i32 0
-  %3 = load i64, ptr %gcptr64, align 8
-  %and = and i64 %3, 140737488355327
-  %4 = inttoptr i64 %and to ptr
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %o.addr, align 8
-  %6 = load i64, ptr %5, align 8
-  %shr4 = ashr i64 %6, 47
-  %conv5 = trunc i64 %shr4 to i32
-  %cmp6 = icmp ule i32 %conv5, -14
-  br i1 %cmp6, label %if.end, label %if.then8
-
-if.then8:                                         ; preds = %if.else
-  %7 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %7, i32 noundef 11) #6
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %31, i32 noundef 11) #10
   unreachable
 
-if.end:                                           ; preds = %if.else
-  %8 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %L, align 8
-  %10 = load ptr, ptr %o.addr, align 8
-  %call = call ptr @lj_strfmt_number(ptr noundef %9, ptr noundef %10)
-  store ptr %call, ptr %s, align 8
-  %11 = load ptr, ptr %J.addr, align 8
-  %L9 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %L9, align 8
-  %13 = load ptr, ptr %o.addr, align 8
-  %14 = load ptr, ptr %s, align 8
-  store ptr %12, ptr %L.addr.i, align 8
-  store ptr %13, ptr %o.addr.i, align 8
-  store ptr %14, ptr %v.addr.i, align 8
-  %15 = load ptr, ptr %L.addr.i, align 8
-  %16 = load ptr, ptr %o.addr.i, align 8
-  %17 = load ptr, ptr %v.addr.i, align 8
-  store ptr %15, ptr %L.addr.i.i, align 8
-  store ptr %16, ptr %o.addr.i.i, align 8
-  store ptr %17, ptr %v.addr.i.i, align 8
-  store i32 -5, ptr %it.addr.i.i, align 4
-  %18 = load ptr, ptr %o.addr.i.i, align 8
-  %19 = load ptr, ptr %v.addr.i.i, align 8
-  %20 = load i32, ptr %it.addr.i.i, align 4
-  store ptr %18, ptr %o.addr.i1.i, align 8
-  store ptr %19, ptr %v.addr.i2.i, align 8
-  store i32 %20, ptr %itype.addr.i.i, align 4
-  %21 = load ptr, ptr %v.addr.i2.i, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %23 = load i32, ptr %itype.addr.i.i, align 4
-  %conv.i.i = zext i32 %23 to i64
-  %shl.i.i = shl i64 %conv.i.i, 47
-  %or.i.i = or i64 %22, %shl.i.i
-  %24 = load ptr, ptr %o.addr.i1.i, align 8
-  store i64 %or.i.i, ptr %24, align 8
-  %25 = load ptr, ptr %L.addr.i.i, align 8
-  %26 = load ptr, ptr %o.addr.i.i, align 8
-  store ptr %25, ptr %L.addr.i.i.i, align 8
-  store ptr %26, ptr %o.addr.i.i.i, align 8
-  store ptr @.str.1, ptr %msg.addr.i.i.i, align 8
-  %27 = load ptr, ptr %s, align 8
-  store ptr %27, ptr %retval, align 8
-  br label %return
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %4, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw %struct.jit_State, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !37
+  %36 = load ptr, ptr %5, align 8, !tbaa !11
+  %37 = call ptr @lj_strfmt_number(ptr noundef %35, ptr noundef %36)
+  store ptr %37, ptr %6, align 8, !tbaa !67
+  %38 = load ptr, ptr %4, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.jit_State, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  %41 = load ptr, ptr %5, align 8, !tbaa !11
+  %42 = load ptr, ptr %6, align 8, !tbaa !67
+  call void @setstrV(ptr noundef %40, ptr noundef %41, ptr noundef %42)
+  %43 = load ptr, ptr %6, align 8, !tbaa !67
+  store ptr %43, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %44
 
-return:                                           ; preds = %if.end, %if.then
-  %28 = load ptr, ptr %retval, align 8
-  ret ptr %28
+44:                                               ; preds = %32, %18
+  %45 = load ptr, ptr %3, align 8
+  ret ptr %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recff_string_start(ptr noundef %J, ptr noundef %s, ptr noundef %st, i32 noundef %tr, i32 noundef %trlen, i32 noundef %tr0) #0 {
-entry:
-  %J.addr.i66 = alloca ptr, align 8
-  %ot.addr.i67 = alloca i16, align 2
-  %a.addr.i68 = alloca i16, align 2
-  %b.addr.i69 = alloca i16, align 2
-  %J.addr.i57 = alloca ptr, align 8
-  %ot.addr.i58 = alloca i16, align 2
-  %a.addr.i59 = alloca i16, align 2
-  %b.addr.i60 = alloca i16, align 2
-  %J.addr.i48 = alloca ptr, align 8
-  %ot.addr.i49 = alloca i16, align 2
-  %a.addr.i50 = alloca i16, align 2
-  %b.addr.i51 = alloca i16, align 2
-  %J.addr.i39 = alloca ptr, align 8
-  %ot.addr.i40 = alloca i16, align 2
-  %a.addr.i41 = alloca i16, align 2
-  %b.addr.i42 = alloca i16, align 2
-  %J.addr.i30 = alloca ptr, align 8
-  %ot.addr.i31 = alloca i16, align 2
-  %a.addr.i32 = alloca i16, align 2
-  %b.addr.i33 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %st.addr = alloca ptr, align 8
-  %tr.addr = alloca i32, align 4
-  %trlen.addr = alloca i32, align 4
-  %tr0.addr = alloca i32, align 4
-  %start = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %st, ptr %st.addr, align 8
-  store i32 %tr, ptr %tr.addr, align 4
-  store i32 %trlen, ptr %trlen.addr, align 4
-  store i32 %tr0, ptr %tr0.addr, align 4
-  %0 = load ptr, ptr %st.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %start, align 4
-  %2 = load i32, ptr %start, align 4
-  %cmp = icmp slt i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @recff_string_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store ptr %1, ptr %8, align 8, !tbaa !67
+  store ptr %2, ptr %9, align 8, !tbaa !88
+  store i32 %3, ptr %10, align 4, !tbaa !9
+  store i32 %4, ptr %11, align 4, !tbaa !9
+  store i32 %5, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  %14 = load ptr, ptr %9, align 8, !tbaa !88
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %15, ptr %13, align 4, !tbaa !9
+  %16 = load i32, ptr %13, align 4, !tbaa !9
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %54
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %J.addr, align 8
-  %4 = load i32, ptr %tr.addr, align 4
-  %conv = trunc i32 %4 to i16
-  %5 = load i32, ptr %tr0.addr, align 4
-  %conv1 = trunc i32 %5 to i16
-  store ptr %3, ptr %J.addr.i66, align 8
-  store i16 147, ptr %ot.addr.i67, align 2
-  store i16 %conv, ptr %a.addr.i68, align 2
-  store i16 %conv1, ptr %b.addr.i69, align 2
-  %6 = load i16, ptr %ot.addr.i67, align 2
-  %7 = load ptr, ptr %J.addr.i66, align 8
-  %fold.i70 = getelementptr inbounds %struct.jit_State, ptr %7, i32 0, i32 14
-  %ot1.i71 = getelementptr inbounds %struct.anon.2, ptr %fold.i70, i32 0, i32 2
-  store i16 %6, ptr %ot1.i71, align 4
-  %8 = load i16, ptr %a.addr.i68, align 2
-  %9 = load ptr, ptr %J.addr.i66, align 8
-  %fold2.i72 = getelementptr inbounds %struct.jit_State, ptr %9, i32 0, i32 14
-  store i16 %8, ptr %fold2.i72, align 8
-  %10 = load i16, ptr %b.addr.i69, align 2
-  %11 = load ptr, ptr %J.addr.i66, align 8
-  %fold4.i73 = getelementptr inbounds %struct.jit_State, ptr %11, i32 0, i32 14
-  %op2.i74 = getelementptr inbounds %struct.anon.2, ptr %fold4.i73, i32 0, i32 1
-  store i16 %10, ptr %op2.i74, align 2
-  %12 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_opt_fold(ptr noundef %12)
-  %13 = load ptr, ptr %J.addr, align 8
-  %14 = load i32, ptr %trlen.addr, align 4
-  %conv2 = trunc i32 %14 to i16
-  %15 = load i32, ptr %tr.addr, align 4
-  %conv3 = trunc i32 %15 to i16
-  store ptr %13, ptr %J.addr.i57, align 8
-  store i16 10515, ptr %ot.addr.i58, align 2
-  store i16 %conv2, ptr %a.addr.i59, align 2
-  store i16 %conv3, ptr %b.addr.i60, align 2
-  %16 = load i16, ptr %ot.addr.i58, align 2
-  %17 = load ptr, ptr %J.addr.i57, align 8
-  %fold.i61 = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  %ot1.i62 = getelementptr inbounds %struct.anon.2, ptr %fold.i61, i32 0, i32 2
-  store i16 %16, ptr %ot1.i62, align 4
-  %18 = load i16, ptr %a.addr.i59, align 2
-  %19 = load ptr, ptr %J.addr.i57, align 8
-  %fold2.i63 = getelementptr inbounds %struct.jit_State, ptr %19, i32 0, i32 14
-  store i16 %18, ptr %fold2.i63, align 8
-  %20 = load i16, ptr %b.addr.i60, align 2
-  %21 = load ptr, ptr %J.addr.i57, align 8
-  %fold4.i64 = getelementptr inbounds %struct.jit_State, ptr %21, i32 0, i32 14
-  %op2.i65 = getelementptr inbounds %struct.anon.2, ptr %fold4.i64, i32 0, i32 1
-  store i16 %20, ptr %op2.i65, align 2
-  %22 = load ptr, ptr %J.addr, align 8
-  %call4 = call i32 @lj_opt_fold(ptr noundef %22)
-  store i32 %call4, ptr %tr.addr, align 4
-  %23 = load i32, ptr %start, align 4
-  %24 = load ptr, ptr %s.addr, align 8
-  %len = getelementptr inbounds %struct.GCstr, ptr %24, i32 0, i32 7
-  %25 = load i32, ptr %len, align 4
-  %add = add nsw i32 %23, %25
-  store i32 %add, ptr %start, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %start, align 4
-  %cmp5 = icmp slt i32 %27, 0
-  %cond = select i1 %cmp5, i32 147, i32 403
-  %conv7 = trunc i32 %cond to i16
-  %28 = load i32, ptr %tr.addr, align 4
-  %conv8 = trunc i32 %28 to i16
-  %29 = load i32, ptr %tr0.addr, align 4
-  %conv9 = trunc i32 %29 to i16
-  store ptr %26, ptr %J.addr.i48, align 8
-  store i16 %conv7, ptr %ot.addr.i49, align 2
-  store i16 %conv8, ptr %a.addr.i50, align 2
-  store i16 %conv9, ptr %b.addr.i51, align 2
-  %30 = load i16, ptr %ot.addr.i49, align 2
-  %31 = load ptr, ptr %J.addr.i48, align 8
-  %fold.i52 = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 14
-  %ot1.i53 = getelementptr inbounds %struct.anon.2, ptr %fold.i52, i32 0, i32 2
-  store i16 %30, ptr %ot1.i53, align 4
-  %32 = load i16, ptr %a.addr.i50, align 2
-  %33 = load ptr, ptr %J.addr.i48, align 8
-  %fold2.i54 = getelementptr inbounds %struct.jit_State, ptr %33, i32 0, i32 14
-  store i16 %32, ptr %fold2.i54, align 8
-  %34 = load i16, ptr %b.addr.i51, align 2
-  %35 = load ptr, ptr %J.addr.i48, align 8
-  %fold4.i55 = getelementptr inbounds %struct.jit_State, ptr %35, i32 0, i32 14
-  %op2.i56 = getelementptr inbounds %struct.anon.2, ptr %fold4.i55, i32 0, i32 1
-  store i16 %34, ptr %op2.i56, align 2
-  %36 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_opt_fold(ptr noundef %36)
-  %37 = load i32, ptr %start, align 4
-  %cmp11 = icmp slt i32 %37, 0
-  br i1 %cmp11, label %if.then13, label %if.end
+18:                                               ; preds = %6
+  %19 = load ptr, ptr %7, align 8, !tbaa !4
+  %20 = load i32, ptr %10, align 4, !tbaa !9
+  %21 = trunc i32 %20 to i16
+  %22 = load i32, ptr %12, align 4, !tbaa !9
+  %23 = trunc i32 %22 to i16
+  call void @lj_ir_set_(ptr noundef %19, i16 noundef zeroext 147, i16 noundef zeroext %21, i16 noundef zeroext %23)
+  %24 = load ptr, ptr %7, align 8, !tbaa !4
+  %25 = call i32 @lj_opt_fold(ptr noundef %24)
+  %26 = load ptr, ptr %7, align 8, !tbaa !4
+  %27 = load i32, ptr %11, align 4, !tbaa !9
+  %28 = trunc i32 %27 to i16
+  %29 = load i32, ptr %10, align 4, !tbaa !9
+  %30 = trunc i32 %29 to i16
+  call void @lj_ir_set_(ptr noundef %26, i16 noundef zeroext 10515, i16 noundef zeroext %28, i16 noundef zeroext %30)
+  %31 = load ptr, ptr %7, align 8, !tbaa !4
+  %32 = call i32 @lj_opt_fold(ptr noundef %31)
+  store i32 %32, ptr %10, align 4, !tbaa !9
+  %33 = load i32, ptr %13, align 4, !tbaa !9
+  %34 = load ptr, ptr %8, align 8, !tbaa !67
+  %35 = getelementptr inbounds nuw %struct.GCstr, ptr %34, i32 0, i32 7
+  %36 = load i32, ptr %35, align 4, !tbaa !69
+  %37 = add nsw i32 %33, %36
+  store i32 %37, ptr %13, align 4, !tbaa !9
+  %38 = load ptr, ptr %7, align 8, !tbaa !4
+  %39 = load i32, ptr %13, align 4, !tbaa !9
+  %40 = icmp slt i32 %39, 0
+  %41 = select i1 %40, i32 147, i32 403
+  %42 = trunc i32 %41 to i16
+  %43 = load i32, ptr %10, align 4, !tbaa !9
+  %44 = trunc i32 %43 to i16
+  %45 = load i32, ptr %12, align 4, !tbaa !9
+  %46 = trunc i32 %45 to i16
+  call void @lj_ir_set_(ptr noundef %38, i16 noundef zeroext %42, i16 noundef zeroext %44, i16 noundef zeroext %46)
+  %47 = load ptr, ptr %7, align 8, !tbaa !4
+  %48 = call i32 @lj_opt_fold(ptr noundef %47)
+  %49 = load i32, ptr %13, align 4, !tbaa !9
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %53
 
-if.then13:                                        ; preds = %if.then
-  %38 = load i32, ptr %tr0.addr, align 4
-  store i32 %38, ptr %tr.addr, align 4
-  store i32 0, ptr %start, align 4
-  br label %if.end
+51:                                               ; preds = %18
+  %52 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %52, ptr %10, align 4, !tbaa !9
+  store i32 0, ptr %13, align 4, !tbaa !9
+  br label %53
 
-if.end:                                           ; preds = %if.then13, %if.then
-  br label %if.end29
+53:                                               ; preds = %51, %18
+  br label %85
 
-if.else:                                          ; preds = %entry
-  %39 = load i32, ptr %start, align 4
-  %cmp14 = icmp eq i32 %39, 0
-  br i1 %cmp14, label %if.then16, label %if.else20
+54:                                               ; preds = %6
+  %55 = load i32, ptr %13, align 4, !tbaa !9
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %66
 
-if.then16:                                        ; preds = %if.else
-  %40 = load ptr, ptr %J.addr, align 8
-  %41 = load i32, ptr %tr.addr, align 4
-  %conv17 = trunc i32 %41 to i16
-  %42 = load i32, ptr %tr0.addr, align 4
-  %conv18 = trunc i32 %42 to i16
-  store ptr %40, ptr %J.addr.i39, align 8
-  store i16 2195, ptr %ot.addr.i40, align 2
-  store i16 %conv17, ptr %a.addr.i41, align 2
-  store i16 %conv18, ptr %b.addr.i42, align 2
-  %43 = load i16, ptr %ot.addr.i40, align 2
-  %44 = load ptr, ptr %J.addr.i39, align 8
-  %fold.i43 = getelementptr inbounds %struct.jit_State, ptr %44, i32 0, i32 14
-  %ot1.i44 = getelementptr inbounds %struct.anon.2, ptr %fold.i43, i32 0, i32 2
-  store i16 %43, ptr %ot1.i44, align 4
-  %45 = load i16, ptr %a.addr.i41, align 2
-  %46 = load ptr, ptr %J.addr.i39, align 8
-  %fold2.i45 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  store i16 %45, ptr %fold2.i45, align 8
-  %47 = load i16, ptr %b.addr.i42, align 2
-  %48 = load ptr, ptr %J.addr.i39, align 8
-  %fold4.i46 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  %op2.i47 = getelementptr inbounds %struct.anon.2, ptr %fold4.i46, i32 0, i32 1
-  store i16 %47, ptr %op2.i47, align 2
-  %49 = load ptr, ptr %J.addr, align 8
-  %call19 = call i32 @lj_opt_fold(ptr noundef %49)
-  %50 = load i32, ptr %tr0.addr, align 4
-  store i32 %50, ptr %tr.addr, align 4
-  br label %if.end28
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %7, align 8, !tbaa !4
+  %59 = load i32, ptr %10, align 4, !tbaa !9
+  %60 = trunc i32 %59 to i16
+  %61 = load i32, ptr %12, align 4, !tbaa !9
+  %62 = trunc i32 %61 to i16
+  call void @lj_ir_set_(ptr noundef %58, i16 noundef zeroext 2195, i16 noundef zeroext %60, i16 noundef zeroext %62)
+  %63 = load ptr, ptr %7, align 8, !tbaa !4
+  %64 = call i32 @lj_opt_fold(ptr noundef %63)
+  %65 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %65, ptr %10, align 4, !tbaa !9
+  br label %84
 
-if.else20:                                        ; preds = %if.else
-  %51 = load ptr, ptr %J.addr, align 8
-  %52 = load i32, ptr %tr.addr, align 4
-  %conv21 = trunc i32 %52 to i16
-  %53 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_ir_kint(ptr noundef %53, i32 noundef -1)
-  %conv23 = trunc i32 %call22 to i16
-  store ptr %51, ptr %J.addr.i30, align 8
-  store i16 10515, ptr %ot.addr.i31, align 2
-  store i16 %conv21, ptr %a.addr.i32, align 2
-  store i16 %conv23, ptr %b.addr.i33, align 2
-  %54 = load i16, ptr %ot.addr.i31, align 2
-  %55 = load ptr, ptr %J.addr.i30, align 8
-  %fold.i34 = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 14
-  %ot1.i35 = getelementptr inbounds %struct.anon.2, ptr %fold.i34, i32 0, i32 2
-  store i16 %54, ptr %ot1.i35, align 4
-  %56 = load i16, ptr %a.addr.i32, align 2
-  %57 = load ptr, ptr %J.addr.i30, align 8
-  %fold2.i36 = getelementptr inbounds %struct.jit_State, ptr %57, i32 0, i32 14
-  store i16 %56, ptr %fold2.i36, align 8
-  %58 = load i16, ptr %b.addr.i33, align 2
-  %59 = load ptr, ptr %J.addr.i30, align 8
-  %fold4.i37 = getelementptr inbounds %struct.jit_State, ptr %59, i32 0, i32 14
-  %op2.i38 = getelementptr inbounds %struct.anon.2, ptr %fold4.i37, i32 0, i32 1
-  store i16 %58, ptr %op2.i38, align 2
-  %60 = load ptr, ptr %J.addr, align 8
-  %call24 = call i32 @lj_opt_fold(ptr noundef %60)
-  store i32 %call24, ptr %tr.addr, align 4
-  %61 = load ptr, ptr %J.addr, align 8
-  %62 = load i32, ptr %tr.addr, align 4
-  %conv25 = trunc i32 %62 to i16
-  %63 = load i32, ptr %tr0.addr, align 4
-  %conv26 = trunc i32 %63 to i16
-  store ptr %61, ptr %J.addr.i, align 8
-  store i16 403, ptr %ot.addr.i, align 2
-  store i16 %conv25, ptr %a.addr.i, align 2
-  store i16 %conv26, ptr %b.addr.i, align 2
-  %64 = load i16, ptr %ot.addr.i, align 2
-  %65 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %65, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %64, ptr %ot1.i, align 4
-  %66 = load i16, ptr %a.addr.i, align 2
-  %67 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %67, i32 0, i32 14
-  store i16 %66, ptr %fold2.i, align 8
-  %68 = load i16, ptr %b.addr.i, align 2
-  %69 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %68, ptr %op2.i, align 2
-  %70 = load ptr, ptr %J.addr, align 8
-  %call27 = call i32 @lj_opt_fold(ptr noundef %70)
-  %71 = load i32, ptr %start, align 4
-  %dec = add nsw i32 %71, -1
-  store i32 %dec, ptr %start, align 4
-  br label %if.end28
+66:                                               ; preds = %54
+  %67 = load ptr, ptr %7, align 8, !tbaa !4
+  %68 = load i32, ptr %10, align 4, !tbaa !9
+  %69 = trunc i32 %68 to i16
+  %70 = load ptr, ptr %7, align 8, !tbaa !4
+  %71 = call i32 @lj_ir_kint(ptr noundef %70, i32 noundef -1)
+  %72 = trunc i32 %71 to i16
+  call void @lj_ir_set_(ptr noundef %67, i16 noundef zeroext 10515, i16 noundef zeroext %69, i16 noundef zeroext %72)
+  %73 = load ptr, ptr %7, align 8, !tbaa !4
+  %74 = call i32 @lj_opt_fold(ptr noundef %73)
+  store i32 %74, ptr %10, align 4, !tbaa !9
+  %75 = load ptr, ptr %7, align 8, !tbaa !4
+  %76 = load i32, ptr %10, align 4, !tbaa !9
+  %77 = trunc i32 %76 to i16
+  %78 = load i32, ptr %12, align 4, !tbaa !9
+  %79 = trunc i32 %78 to i16
+  call void @lj_ir_set_(ptr noundef %75, i16 noundef zeroext 403, i16 noundef zeroext %77, i16 noundef zeroext %79)
+  %80 = load ptr, ptr %7, align 8, !tbaa !4
+  %81 = call i32 @lj_opt_fold(ptr noundef %80)
+  %82 = load i32, ptr %13, align 4, !tbaa !9
+  %83 = add nsw i32 %82, -1
+  store i32 %83, ptr %13, align 4, !tbaa !9
+  br label %84
 
-if.end28:                                         ; preds = %if.else20, %if.then16
-  br label %if.end29
+84:                                               ; preds = %66, %57
+  br label %85
 
-if.end29:                                         ; preds = %if.end28, %if.end
-  %72 = load i32, ptr %start, align 4
-  %73 = load ptr, ptr %st.addr, align 8
-  store i32 %72, ptr %73, align 4
-  %74 = load i32, ptr %tr.addr, align 4
-  ret i32 %74
+85:                                               ; preds = %84, %53
+  %86 = load i32, ptr %13, align 4, !tbaa !9
+  %87 = load ptr, ptr %9, align 8, !tbaa !88
+  store i32 %86, ptr %87, align 4, !tbaa !9
+  %88 = load i32, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  ret i32 %88
 }
 
-declare hidden ptr @lj_strfmt_number(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #6
 
-declare hidden i32 @lj_str_haspattern(ptr noundef) #1
+declare hidden ptr @lj_strfmt_number(ptr noundef, ptr noundef) #2
 
-declare hidden ptr @lj_str_find(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @recff_format(ptr noundef %J, ptr noundef %rd, i32 noundef %hdr, i32 noundef %sbufx) #0 {
-entry:
-  %fs.addr.i = alloca ptr, align 8
-  %p.addr.i = alloca ptr, align 8
-  %len.addr.i = alloca i32, align 4
-  %J.addr.i167 = alloca ptr, align 8
-  %ot.addr.i168 = alloca i16, align 2
-  %a.addr.i169 = alloca i16, align 2
-  %b.addr.i170 = alloca i16, align 2
-  %J.addr.i158 = alloca ptr, align 8
-  %ot.addr.i159 = alloca i16, align 2
-  %a.addr.i160 = alloca i16, align 2
-  %b.addr.i161 = alloca i16, align 2
-  %J.addr.i149 = alloca ptr, align 8
-  %ot.addr.i150 = alloca i16, align 2
-  %a.addr.i151 = alloca i16, align 2
-  %b.addr.i152 = alloca i16, align 2
-  %J.addr.i140 = alloca ptr, align 8
-  %ot.addr.i141 = alloca i16, align 2
-  %a.addr.i142 = alloca i16, align 2
-  %b.addr.i143 = alloca i16, align 2
-  %J.addr.i131 = alloca ptr, align 8
-  %ot.addr.i132 = alloca i16, align 2
-  %a.addr.i133 = alloca i16, align 2
-  %b.addr.i134 = alloca i16, align 2
-  %J.addr.i122 = alloca ptr, align 8
-  %ot.addr.i123 = alloca i16, align 2
-  %a.addr.i124 = alloca i16, align 2
-  %b.addr.i125 = alloca i16, align 2
-  %J.addr.i113 = alloca ptr, align 8
-  %ot.addr.i114 = alloca i16, align 2
-  %a.addr.i115 = alloca i16, align 2
-  %b.addr.i116 = alloca i16, align 2
-  %J.addr.i104 = alloca ptr, align 8
-  %ot.addr.i105 = alloca i16, align 2
-  %a.addr.i106 = alloca i16, align 2
-  %b.addr.i107 = alloca i16, align 2
-  %J.addr.i95 = alloca ptr, align 8
-  %ot.addr.i96 = alloca i16, align 2
-  %a.addr.i97 = alloca i16, align 2
-  %b.addr.i98 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %hdr.addr = alloca i32, align 4
-  %sbufx.addr = alloca i32, align 4
-  %arg = alloca i64, align 8
-  %tr = alloca i32, align 4
-  %trfmt = alloca i32, align 4
-  %fmt = alloca ptr, align 8
-  %fs = alloca %struct.FormatState, align 8
-  %sf = alloca i32, align 4
-  %tra = alloca i32, align 4
-  %trsf = alloca i32, align 4
-  %id = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  store i32 %hdr, ptr %hdr.addr, align 4
-  store i32 %sbufx, ptr %sbufx.addr, align 4
-  %0 = load i32, ptr %sbufx.addr, align 4
-  %conv = sext i32 %0 to i64
-  store i64 %conv, ptr %arg, align 8
-  %1 = load i32, ptr %hdr.addr, align 4
-  store i32 %1, ptr %tr, align 4
-  %2 = load ptr, ptr %J.addr, align 8
-  %3 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %base, align 8
-  %5 = load i64, ptr %arg, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 %5
-  %6 = load i32, ptr %arrayidx, align 4
-  %call = call i32 @lj_ir_tostr(ptr noundef %2, i32 noundef %6)
-  store i32 %call, ptr %trfmt, align 4
-  %7 = load ptr, ptr %J.addr, align 8
-  %8 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %argv, align 8
-  %10 = load i64, ptr %arg, align 8
-  %arrayidx1 = getelementptr inbounds %union.TValue, ptr %9, i64 %10
-  %call2 = call ptr @argv2str(ptr noundef %7, ptr noundef %arrayidx1)
-  store ptr %call2, ptr %fmt, align 8
-  %11 = load ptr, ptr %J.addr, align 8
-  %12 = load i32, ptr %trfmt, align 4
-  %conv3 = trunc i32 %12 to i16
-  %13 = load ptr, ptr %J.addr, align 8
-  %14 = load ptr, ptr %fmt, align 8
-  %call4 = call i32 @lj_ir_kgc(ptr noundef %13, ptr noundef %14, i32 noundef 4)
-  %conv5 = trunc i32 %call4 to i16
-  store ptr %11, ptr %J.addr.i167, align 8
-  store i16 2180, ptr %ot.addr.i168, align 2
-  store i16 %conv3, ptr %a.addr.i169, align 2
-  store i16 %conv5, ptr %b.addr.i170, align 2
-  %15 = load i16, ptr %ot.addr.i168, align 2
-  %16 = load ptr, ptr %J.addr.i167, align 8
-  %fold.i171 = getelementptr inbounds %struct.jit_State, ptr %16, i32 0, i32 14
-  %ot1.i172 = getelementptr inbounds %struct.anon.2, ptr %fold.i171, i32 0, i32 2
-  store i16 %15, ptr %ot1.i172, align 4
-  %17 = load i16, ptr %a.addr.i169, align 2
-  %18 = load ptr, ptr %J.addr.i167, align 8
-  %fold2.i173 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  store i16 %17, ptr %fold2.i173, align 8
-  %19 = load i16, ptr %b.addr.i170, align 2
-  %20 = load ptr, ptr %J.addr.i167, align 8
-  %fold4.i174 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %op2.i175 = getelementptr inbounds %struct.anon.2, ptr %fold4.i174, i32 0, i32 1
-  store i16 %19, ptr %op2.i175, align 2
-  %21 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %21)
-  %22 = load ptr, ptr %fmt, align 8
-  %add.ptr = getelementptr inbounds %struct.GCstr, ptr %22, i64 1
-  %23 = load ptr, ptr %fmt, align 8
-  %len = getelementptr inbounds %struct.GCstr, ptr %23, i32 0, i32 7
-  %24 = load i32, ptr %len, align 4
-  store ptr %fs, ptr %fs.addr.i, align 8
-  store ptr %add.ptr, ptr %p.addr.i, align 8
-  store i32 %24, ptr %len.addr.i, align 4
-  %25 = load ptr, ptr %p.addr.i, align 8
-  %26 = load ptr, ptr %fs.addr.i, align 8
-  store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %p.addr.i, align 8
-  %28 = load i32, ptr %len.addr.i, align 4
-  %idx.ext.i = zext i32 %28 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %27, i64 %idx.ext.i
-  %29 = load ptr, ptr %fs.addr.i, align 8
-  %e.i = getelementptr inbounds %struct.FormatState, ptr %29, i32 0, i32 1
-  store ptr %add.ptr.i, ptr %e.i, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %sw.epilog, %entry
-  %call7 = call i32 @lj_strfmt_parse(ptr noundef %fs)
-  store i32 %call7, ptr %sf, align 4
-  %cmp = icmp ne i32 %call7, 0
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %30 = load i32, ptr %sf, align 4
-  %cmp9 = icmp eq i32 %30, 2
-  br i1 %cmp9, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %while.body
-  br label %cond.end
-
-cond.false:                                       ; preds = %while.body
-  %31 = load ptr, ptr %J.addr, align 8
-  %base11 = getelementptr inbounds %struct.jit_State, ptr %31, i32 0, i32 6
-  %32 = load ptr, ptr %base11, align 8
-  %33 = load i64, ptr %arg, align 8
-  %inc = add nsw i64 %33, 1
-  store i64 %inc, ptr %arg, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %32, i64 %inc
-  %34 = load i32, ptr %arrayidx12, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %34, %cond.false ]
-  store i32 %cond, ptr %tra, align 4
-  %35 = load ptr, ptr %J.addr, align 8
-  %36 = load i32, ptr %sf, align 4
-  %call13 = call i32 @lj_ir_kint(ptr noundef %35, i32 noundef %36)
-  store i32 %call13, ptr %trsf, align 4
-  %37 = load i32, ptr %sf, align 4
-  %and = and i32 %37, 15
-  switch i32 %and, label %sw.default [
-    i32 2, label %sw.bb
-    i32 3, label %sw.bb21
-    i32 4, label %sw.bb46
-    i32 5, label %sw.bb47
-    i32 6, label %sw.bb50
-    i32 7, label %sw.bb70
-    i32 8, label %sw.bb83
-    i32 1, label %sw.bb83
-  ]
-
-sw.bb:                                            ; preds = %cond.end
-  %38 = load ptr, ptr %J.addr, align 8
-  %39 = load i32, ptr %tr, align 4
-  %conv14 = trunc i32 %39 to i16
-  %40 = load ptr, ptr %J.addr, align 8
-  %41 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %41, i32 0, i32 2
-  %42 = load ptr, ptr %L, align 8
-  %str = getelementptr inbounds %struct.FormatState, ptr %fs, i32 0, i32 2
-  %43 = load ptr, ptr %str, align 8
-  %len15 = getelementptr inbounds %struct.FormatState, ptr %fs, i32 0, i32 3
-  %44 = load i32, ptr %len15, align 8
-  %conv16 = zext i32 %44 to i64
-  %call17 = call ptr @lj_str_new(ptr noundef %42, ptr noundef %43, i64 noundef %conv16)
-  %call18 = call i32 @lj_ir_kgc(ptr noundef %40, ptr noundef %call17, i32 noundef 4)
-  %conv19 = trunc i32 %call18 to i16
-  store ptr %38, ptr %J.addr.i158, align 8
-  store i16 22153, ptr %ot.addr.i159, align 2
-  store i16 %conv14, ptr %a.addr.i160, align 2
-  store i16 %conv19, ptr %b.addr.i161, align 2
-  %45 = load i16, ptr %ot.addr.i159, align 2
-  %46 = load ptr, ptr %J.addr.i158, align 8
-  %fold.i162 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  %ot1.i163 = getelementptr inbounds %struct.anon.2, ptr %fold.i162, i32 0, i32 2
-  store i16 %45, ptr %ot1.i163, align 4
-  %47 = load i16, ptr %a.addr.i160, align 2
-  %48 = load ptr, ptr %J.addr.i158, align 8
-  %fold2.i164 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  store i16 %47, ptr %fold2.i164, align 8
-  %49 = load i16, ptr %b.addr.i161, align 2
-  %50 = load ptr, ptr %J.addr.i158, align 8
-  %fold4.i165 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 14
-  %op2.i166 = getelementptr inbounds %struct.anon.2, ptr %fold4.i165, i32 0, i32 1
-  store i16 %49, ptr %op2.i166, align 2
-  %51 = load ptr, ptr %J.addr, align 8
-  %call20 = call i32 @lj_opt_fold(ptr noundef %51)
-  store i32 %call20, ptr %tr, align 4
-  br label %sw.epilog
-
-sw.bb21:                                          ; preds = %cond.end
-  store i32 11, ptr %id, align 4
-  br label %handle_int
-
-handle_int:                                       ; preds = %sw.bb46, %sw.bb21
-  %52 = load i32, ptr %tra, align 4
-  %shr = lshr i32 %52, 24
-  %and22 = and i32 %shr, 31
-  %sub = sub i32 %and22, 15
-  %cmp23 = icmp ule i32 %sub, 4
-  br i1 %cmp23, label %if.end33, label %if.then
-
-if.then:                                          ; preds = %handle_int
-  %53 = load i32, ptr %tra, align 4
-  %and25 = and i32 %53, 520093696
-  %cmp26 = icmp eq i32 %and25, 167772160
-  br i1 %cmp26, label %if.then28, label %if.end
-
-if.then28:                                        ; preds = %if.then
-  %54 = load ptr, ptr %J.addr, align 8
-  %55 = load i32, ptr %tra, align 4
-  %56 = load ptr, ptr %rd.addr, align 8
-  %argv29 = getelementptr inbounds %struct.RecordFFData, ptr %56, i32 0, i32 0
-  %57 = load ptr, ptr %argv29, align 8
-  %58 = load i64, ptr %arg, align 8
-  %arrayidx30 = getelementptr inbounds %union.TValue, ptr %57, i64 %58
-  %call31 = call i32 @lj_crecord_loadiu64(ptr noundef %54, i32 noundef %55, ptr noundef %arrayidx30)
-  store i32 %call31, ptr %tra, align 4
-  %59 = load ptr, ptr %J.addr, align 8
-  %60 = load i32, ptr %tr, align 4
-  %61 = load i32, ptr %trsf, align 4
-  %62 = load i32, ptr %tra, align 4
-  %call32 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %59, i32 noundef 10, i32 noundef %60, i32 noundef %61, i32 noundef %62)
-  store i32 %call32, ptr %tr, align 4
-  br label %sw.epilog
-
-if.end:                                           ; preds = %if.then
-  br label %handle_num
-
-if.end33:                                         ; preds = %handle_int
-  %63 = load i32, ptr %sf, align 4
-  %cmp34 = icmp eq i32 %63, 3
-  br i1 %cmp34, label %if.then36, label %if.else
-
-if.then36:                                        ; preds = %if.end33
-  %64 = load ptr, ptr %J.addr, align 8
-  %65 = load i32, ptr %tr, align 4
-  %conv37 = trunc i32 %65 to i16
-  %66 = load ptr, ptr %J.addr, align 8
-  %67 = load i32, ptr %tra, align 4
-  %conv38 = trunc i32 %67 to i16
-  store ptr %66, ptr %J.addr.i149, align 8
-  store i16 23812, ptr %ot.addr.i150, align 2
-  store i16 %conv38, ptr %a.addr.i151, align 2
-  store i16 0, ptr %b.addr.i152, align 2
-  %68 = load i16, ptr %ot.addr.i150, align 2
-  %69 = load ptr, ptr %J.addr.i149, align 8
-  %fold.i153 = getelementptr inbounds %struct.jit_State, ptr %69, i32 0, i32 14
-  %ot1.i154 = getelementptr inbounds %struct.anon.2, ptr %fold.i153, i32 0, i32 2
-  store i16 %68, ptr %ot1.i154, align 4
-  %70 = load i16, ptr %a.addr.i151, align 2
-  %71 = load ptr, ptr %J.addr.i149, align 8
-  %fold2.i155 = getelementptr inbounds %struct.jit_State, ptr %71, i32 0, i32 14
-  store i16 %70, ptr %fold2.i155, align 8
-  %72 = load i16, ptr %b.addr.i152, align 2
-  %73 = load ptr, ptr %J.addr.i149, align 8
-  %fold4.i156 = getelementptr inbounds %struct.jit_State, ptr %73, i32 0, i32 14
-  %op2.i157 = getelementptr inbounds %struct.anon.2, ptr %fold4.i156, i32 0, i32 1
-  store i16 %72, ptr %op2.i157, align 2
-  %74 = load ptr, ptr %J.addr, align 8
-  %call39 = call i32 @lj_opt_fold(ptr noundef %74)
-  %conv40 = trunc i32 %call39 to i16
-  store ptr %64, ptr %J.addr.i140, align 8
-  store i16 22153, ptr %ot.addr.i141, align 2
-  store i16 %conv37, ptr %a.addr.i142, align 2
-  store i16 %conv40, ptr %b.addr.i143, align 2
-  %75 = load i16, ptr %ot.addr.i141, align 2
-  %76 = load ptr, ptr %J.addr.i140, align 8
-  %fold.i144 = getelementptr inbounds %struct.jit_State, ptr %76, i32 0, i32 14
-  %ot1.i145 = getelementptr inbounds %struct.anon.2, ptr %fold.i144, i32 0, i32 2
-  store i16 %75, ptr %ot1.i145, align 4
-  %77 = load i16, ptr %a.addr.i142, align 2
-  %78 = load ptr, ptr %J.addr.i140, align 8
-  %fold2.i146 = getelementptr inbounds %struct.jit_State, ptr %78, i32 0, i32 14
-  store i16 %77, ptr %fold2.i146, align 8
-  %79 = load i16, ptr %b.addr.i143, align 2
-  %80 = load ptr, ptr %J.addr.i140, align 8
-  %fold4.i147 = getelementptr inbounds %struct.jit_State, ptr %80, i32 0, i32 14
-  %op2.i148 = getelementptr inbounds %struct.anon.2, ptr %fold4.i147, i32 0, i32 1
-  store i16 %79, ptr %op2.i148, align 2
-  %81 = load ptr, ptr %J.addr, align 8
-  %call41 = call i32 @lj_opt_fold(ptr noundef %81)
-  store i32 %call41, ptr %tr, align 4
-  br label %if.end45
-
-if.else:                                          ; preds = %if.end33
-  %82 = load ptr, ptr %J.addr, align 8
-  %83 = load i32, ptr %tra, align 4
-  %conv42 = trunc i32 %83 to i16
-  store ptr %82, ptr %J.addr.i131, align 8
-  store i16 23318, ptr %ot.addr.i132, align 2
-  store i16 %conv42, ptr %a.addr.i133, align 2
-  store i16 2771, ptr %b.addr.i134, align 2
-  %84 = load i16, ptr %ot.addr.i132, align 2
-  %85 = load ptr, ptr %J.addr.i131, align 8
-  %fold.i135 = getelementptr inbounds %struct.jit_State, ptr %85, i32 0, i32 14
-  %ot1.i136 = getelementptr inbounds %struct.anon.2, ptr %fold.i135, i32 0, i32 2
-  store i16 %84, ptr %ot1.i136, align 4
-  %86 = load i16, ptr %a.addr.i133, align 2
-  %87 = load ptr, ptr %J.addr.i131, align 8
-  %fold2.i137 = getelementptr inbounds %struct.jit_State, ptr %87, i32 0, i32 14
-  store i16 %86, ptr %fold2.i137, align 8
-  %88 = load i16, ptr %b.addr.i134, align 2
-  %89 = load ptr, ptr %J.addr.i131, align 8
-  %fold4.i138 = getelementptr inbounds %struct.jit_State, ptr %89, i32 0, i32 14
-  %op2.i139 = getelementptr inbounds %struct.anon.2, ptr %fold4.i138, i32 0, i32 1
-  store i16 %88, ptr %op2.i139, align 2
-  %90 = load ptr, ptr %J.addr, align 8
-  %call43 = call i32 @lj_opt_fold(ptr noundef %90)
-  store i32 %call43, ptr %tra, align 4
-  %91 = load ptr, ptr %J.addr, align 8
-  %92 = load i32, ptr %tr, align 4
-  %93 = load i32, ptr %trsf, align 4
-  %94 = load i32, ptr %tra, align 4
-  %call44 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %91, i32 noundef 10, i32 noundef %92, i32 noundef %93, i32 noundef %94)
-  store i32 %call44, ptr %tr, align 4
-  br label %if.end45
-
-if.end45:                                         ; preds = %if.else, %if.then36
-  br label %sw.epilog
-
-sw.bb46:                                          ; preds = %cond.end
-  store i32 12, ptr %id, align 4
-  br label %handle_int
-
-sw.bb47:                                          ; preds = %cond.end
-  store i32 13, ptr %id, align 4
-  br label %handle_num
-
-handle_num:                                       ; preds = %sw.bb47, %if.end
-  %95 = load ptr, ptr %J.addr, align 8
-  %96 = load i32, ptr %tra, align 4
-  %call48 = call i32 @lj_ir_tonum(ptr noundef %95, i32 noundef %96)
-  store i32 %call48, ptr %tra, align 4
-  %97 = load ptr, ptr %J.addr, align 8
-  %98 = load i32, ptr %id, align 4
-  %99 = load i32, ptr %tr, align 4
-  %100 = load i32, ptr %trsf, align 4
-  %101 = load i32, ptr %tra, align 4
-  %call49 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %97, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %101)
-  store i32 %call49, ptr %tr, align 4
-  br label %sw.epilog
-
-sw.bb50:                                          ; preds = %cond.end
-  %102 = load i32, ptr %tra, align 4
-  %and51 = and i32 %102, 520093696
-  %cmp52 = icmp eq i32 %and51, 67108864
-  br i1 %cmp52, label %if.end55, label %if.then54
-
-if.then54:                                        ; preds = %sw.bb50
-  %103 = load ptr, ptr %J.addr, align 8
-  %104 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %103, ptr noundef %104)
-  br label %if.end94
-
-if.end55:                                         ; preds = %sw.bb50
-  %105 = load i32, ptr %sf, align 4
-  %cmp56 = icmp eq i32 %105, 6
-  br i1 %cmp56, label %if.then58, label %if.else62
-
-if.then58:                                        ; preds = %if.end55
-  %106 = load ptr, ptr %J.addr, align 8
-  %107 = load i32, ptr %tr, align 4
-  %conv59 = trunc i32 %107 to i16
-  %108 = load i32, ptr %tra, align 4
-  %conv60 = trunc i32 %108 to i16
-  store ptr %106, ptr %J.addr.i122, align 8
-  store i16 22153, ptr %ot.addr.i123, align 2
-  store i16 %conv59, ptr %a.addr.i124, align 2
-  store i16 %conv60, ptr %b.addr.i125, align 2
-  %109 = load i16, ptr %ot.addr.i123, align 2
-  %110 = load ptr, ptr %J.addr.i122, align 8
-  %fold.i126 = getelementptr inbounds %struct.jit_State, ptr %110, i32 0, i32 14
-  %ot1.i127 = getelementptr inbounds %struct.anon.2, ptr %fold.i126, i32 0, i32 2
-  store i16 %109, ptr %ot1.i127, align 4
-  %111 = load i16, ptr %a.addr.i124, align 2
-  %112 = load ptr, ptr %J.addr.i122, align 8
-  %fold2.i128 = getelementptr inbounds %struct.jit_State, ptr %112, i32 0, i32 14
-  store i16 %111, ptr %fold2.i128, align 8
-  %113 = load i16, ptr %b.addr.i125, align 2
-  %114 = load ptr, ptr %J.addr.i122, align 8
-  %fold4.i129 = getelementptr inbounds %struct.jit_State, ptr %114, i32 0, i32 14
-  %op2.i130 = getelementptr inbounds %struct.anon.2, ptr %fold4.i129, i32 0, i32 1
-  store i16 %113, ptr %op2.i130, align 2
-  %115 = load ptr, ptr %J.addr, align 8
-  %call61 = call i32 @lj_opt_fold(ptr noundef %115)
-  store i32 %call61, ptr %tr, align 4
-  br label %if.end69
-
-if.else62:                                        ; preds = %if.end55
-  %116 = load i32, ptr %sf, align 4
-  %and63 = and i32 %116, 16
-  %tobool = icmp ne i32 %and63, 0
-  br i1 %tobool, label %if.then64, label %if.else66
-
-if.then64:                                        ; preds = %if.else62
-  %117 = load ptr, ptr %J.addr, align 8
-  %118 = load i32, ptr %tr, align 4
-  %119 = load i32, ptr %tra, align 4
-  %call65 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %117, i32 noundef 9, i32 noundef %118, i32 noundef %119)
-  store i32 %call65, ptr %tr, align 4
-  br label %if.end68
-
-if.else66:                                        ; preds = %if.else62
-  %120 = load ptr, ptr %J.addr, align 8
-  %121 = load i32, ptr %tr, align 4
-  %122 = load i32, ptr %trsf, align 4
-  %123 = load i32, ptr %tra, align 4
-  %call67 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %120, i32 noundef 14, i32 noundef %121, i32 noundef %122, i32 noundef %123)
-  store i32 %call67, ptr %tr, align 4
-  br label %if.end68
-
-if.end68:                                         ; preds = %if.else66, %if.then64
-  br label %if.end69
-
-if.end69:                                         ; preds = %if.end68, %if.then58
-  br label %sw.epilog
-
-sw.bb70:                                          ; preds = %cond.end
-  %124 = load ptr, ptr %J.addr, align 8
-  %125 = load i32, ptr %tra, align 4
-  %call71 = call i32 @lj_opt_narrow_toint(ptr noundef %124, i32 noundef %125)
-  store i32 %call71, ptr %tra, align 4
-  %126 = load i32, ptr %sf, align 4
-  %cmp72 = icmp eq i32 %126, 7
-  br i1 %cmp72, label %if.then74, label %if.else80
-
-if.then74:                                        ; preds = %sw.bb70
-  %127 = load ptr, ptr %J.addr, align 8
-  %128 = load i32, ptr %tr, align 4
-  %conv75 = trunc i32 %128 to i16
-  %129 = load ptr, ptr %J.addr, align 8
-  %130 = load i32, ptr %tra, align 4
-  %conv76 = trunc i32 %130 to i16
-  store ptr %129, ptr %J.addr.i113, align 8
-  store i16 23812, ptr %ot.addr.i114, align 2
-  store i16 %conv76, ptr %a.addr.i115, align 2
-  store i16 2, ptr %b.addr.i116, align 2
-  %131 = load i16, ptr %ot.addr.i114, align 2
-  %132 = load ptr, ptr %J.addr.i113, align 8
-  %fold.i117 = getelementptr inbounds %struct.jit_State, ptr %132, i32 0, i32 14
-  %ot1.i118 = getelementptr inbounds %struct.anon.2, ptr %fold.i117, i32 0, i32 2
-  store i16 %131, ptr %ot1.i118, align 4
-  %133 = load i16, ptr %a.addr.i115, align 2
-  %134 = load ptr, ptr %J.addr.i113, align 8
-  %fold2.i119 = getelementptr inbounds %struct.jit_State, ptr %134, i32 0, i32 14
-  store i16 %133, ptr %fold2.i119, align 8
-  %135 = load i16, ptr %b.addr.i116, align 2
-  %136 = load ptr, ptr %J.addr.i113, align 8
-  %fold4.i120 = getelementptr inbounds %struct.jit_State, ptr %136, i32 0, i32 14
-  %op2.i121 = getelementptr inbounds %struct.anon.2, ptr %fold4.i120, i32 0, i32 1
-  store i16 %135, ptr %op2.i121, align 2
-  %137 = load ptr, ptr %J.addr, align 8
-  %call77 = call i32 @lj_opt_fold(ptr noundef %137)
-  %conv78 = trunc i32 %call77 to i16
-  store ptr %127, ptr %J.addr.i104, align 8
-  store i16 22153, ptr %ot.addr.i105, align 2
-  store i16 %conv75, ptr %a.addr.i106, align 2
-  store i16 %conv78, ptr %b.addr.i107, align 2
-  %138 = load i16, ptr %ot.addr.i105, align 2
-  %139 = load ptr, ptr %J.addr.i104, align 8
-  %fold.i108 = getelementptr inbounds %struct.jit_State, ptr %139, i32 0, i32 14
-  %ot1.i109 = getelementptr inbounds %struct.anon.2, ptr %fold.i108, i32 0, i32 2
-  store i16 %138, ptr %ot1.i109, align 4
-  %140 = load i16, ptr %a.addr.i106, align 2
-  %141 = load ptr, ptr %J.addr.i104, align 8
-  %fold2.i110 = getelementptr inbounds %struct.jit_State, ptr %141, i32 0, i32 14
-  store i16 %140, ptr %fold2.i110, align 8
-  %142 = load i16, ptr %b.addr.i107, align 2
-  %143 = load ptr, ptr %J.addr.i104, align 8
-  %fold4.i111 = getelementptr inbounds %struct.jit_State, ptr %143, i32 0, i32 14
-  %op2.i112 = getelementptr inbounds %struct.anon.2, ptr %fold4.i111, i32 0, i32 1
-  store i16 %142, ptr %op2.i112, align 2
-  %144 = load ptr, ptr %J.addr, align 8
-  %call79 = call i32 @lj_opt_fold(ptr noundef %144)
-  store i32 %call79, ptr %tr, align 4
-  br label %if.end82
-
-if.else80:                                        ; preds = %sw.bb70
-  %145 = load ptr, ptr %J.addr, align 8
-  %146 = load i32, ptr %tr, align 4
-  %147 = load i32, ptr %trsf, align 4
-  %148 = load i32, ptr %tra, align 4
-  %call81 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %145, i32 noundef 15, i32 noundef %146, i32 noundef %147, i32 noundef %148)
-  store i32 %call81, ptr %tr, align 4
-  br label %if.end82
-
-if.end82:                                         ; preds = %if.else80, %if.then74
-  br label %sw.epilog
-
-sw.bb83:                                          ; preds = %cond.end, %cond.end
-  br label %sw.default
-
-sw.default:                                       ; preds = %sw.bb83, %cond.end
-  %149 = load ptr, ptr %J.addr, align 8
-  %150 = load ptr, ptr %rd.addr, align 8
-  call void @recff_nyi(ptr noundef %149, ptr noundef %150)
-  br label %if.end94
-
-sw.epilog:                                        ; preds = %if.end82, %if.end69, %handle_num, %if.end45, %if.then28, %sw.bb
-  br label %while.cond, !llvm.loop !16
-
-while.end:                                        ; preds = %while.cond
-  %151 = load i32, ptr %sbufx.addr, align 4
-  %tobool84 = icmp ne i32 %151, 0
-  br i1 %tobool84, label %if.then85, label %if.else88
-
-if.then85:                                        ; preds = %while.end
-  %152 = load ptr, ptr %J.addr, align 8
-  %153 = load i32, ptr %tr, align 4
-  %conv86 = trunc i32 %153 to i16
-  store ptr %152, ptr %J.addr.i95, align 8
-  store i16 4608, ptr %ot.addr.i96, align 2
-  store i16 %conv86, ptr %a.addr.i97, align 2
-  store i16 0, ptr %b.addr.i98, align 2
-  %154 = load i16, ptr %ot.addr.i96, align 2
-  %155 = load ptr, ptr %J.addr.i95, align 8
-  %fold.i99 = getelementptr inbounds %struct.jit_State, ptr %155, i32 0, i32 14
-  %ot1.i100 = getelementptr inbounds %struct.anon.2, ptr %fold.i99, i32 0, i32 2
-  store i16 %154, ptr %ot1.i100, align 4
-  %156 = load i16, ptr %a.addr.i97, align 2
-  %157 = load ptr, ptr %J.addr.i95, align 8
-  %fold2.i101 = getelementptr inbounds %struct.jit_State, ptr %157, i32 0, i32 14
-  store i16 %156, ptr %fold2.i101, align 8
-  %158 = load i16, ptr %b.addr.i98, align 2
-  %159 = load ptr, ptr %J.addr.i95, align 8
-  %fold4.i102 = getelementptr inbounds %struct.jit_State, ptr %159, i32 0, i32 14
-  %op2.i103 = getelementptr inbounds %struct.anon.2, ptr %fold4.i102, i32 0, i32 1
-  store i16 %158, ptr %op2.i103, align 2
-  %160 = load ptr, ptr %J.addr, align 8
-  %call87 = call i32 @lj_opt_fold(ptr noundef %160)
-  br label %if.end94
-
-if.else88:                                        ; preds = %while.end
-  %161 = load ptr, ptr %J.addr, align 8
-  %162 = load i32, ptr %tr, align 4
-  %conv89 = trunc i32 %162 to i16
-  %163 = load i32, ptr %hdr.addr, align 4
-  %conv90 = trunc i32 %163 to i16
-  store ptr %161, ptr %J.addr.i, align 8
-  store i16 22404, ptr %ot.addr.i, align 2
-  store i16 %conv89, ptr %a.addr.i, align 2
-  store i16 %conv90, ptr %b.addr.i, align 2
-  %164 = load i16, ptr %ot.addr.i, align 2
-  %165 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %165, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %164, ptr %ot1.i, align 4
-  %166 = load i16, ptr %a.addr.i, align 2
-  %167 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %167, i32 0, i32 14
-  store i16 %166, ptr %fold2.i, align 8
-  %168 = load i16, ptr %b.addr.i, align 2
-  %169 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %169, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %168, ptr %op2.i, align 2
-  %170 = load ptr, ptr %J.addr, align 8
-  %call91 = call i32 @lj_opt_fold(ptr noundef %170)
-  %171 = load ptr, ptr %J.addr, align 8
-  %base92 = getelementptr inbounds %struct.jit_State, ptr %171, i32 0, i32 6
-  %172 = load ptr, ptr %base92, align 8
-  %arrayidx93 = getelementptr inbounds i32, ptr %172, i64 0
-  store i32 %call91, ptr %arrayidx93, align 4
-  br label %if.end94
-
-if.end94:                                         ; preds = %if.else88, %if.then85, %sw.default, %if.then54
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @setstrV(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !67
+  %7 = load ptr, ptr %4, align 8, !tbaa !87
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = load ptr, ptr %6, align 8, !tbaa !67
+  call void @setgcV(ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef -5)
   ret void
 }
 
-declare hidden i32 @lj_strfmt_parse(ptr noundef) #1
+declare hidden i32 @lj_str_haspattern(ptr noundef) #2
 
-declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) #1
+declare hidden ptr @lj_str_find(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare hidden i32 @lj_crecord_loadiu64(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nounwind uwtable
+define internal void @recff_format(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.FormatState, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !46
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %20 = load i32, ptr %8, align 4, !tbaa !9
+  %21 = sext i32 %20 to i64
+  store i64 %21, ptr %9, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %22 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 %22, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %23 = load ptr, ptr %5, align 8, !tbaa !4
+  %24 = load ptr, ptr %5, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.jit_State, ptr %24, i32 0, i32 6
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
+  %27 = load i64, ptr %9, align 8, !tbaa !60
+  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !9
+  %30 = call i32 @lj_ir_tostr(ptr noundef %23, i32 noundef %29)
+  store i32 %30, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %31 = load ptr, ptr %5, align 8, !tbaa !4
+  %32 = load ptr, ptr %6, align 8, !tbaa !46
+  %33 = getelementptr inbounds nuw %struct.RecordFFData, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !40
+  %35 = load i64, ptr %9, align 8, !tbaa !60
+  %36 = getelementptr inbounds %union.TValue, ptr %34, i64 %35
+  %37 = call ptr @argv2str(ptr noundef %31, ptr noundef %36)
+  store ptr %37, ptr %12, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #9
+  store i32 0, ptr %15, align 4, !tbaa !9
+  %38 = load ptr, ptr %5, align 8, !tbaa !4
+  %39 = load i32, ptr %11, align 4, !tbaa !9
+  %40 = trunc i32 %39 to i16
+  %41 = load ptr, ptr %5, align 8, !tbaa !4
+  %42 = load ptr, ptr %12, align 8, !tbaa !67
+  %43 = call i32 @lj_ir_kgc(ptr noundef %41, ptr noundef %42, i32 noundef 4)
+  %44 = trunc i32 %43 to i16
+  call void @lj_ir_set_(ptr noundef %38, i16 noundef zeroext 2180, i16 noundef zeroext %40, i16 noundef zeroext %44)
+  %45 = load ptr, ptr %5, align 8, !tbaa !4
+  %46 = call i32 @lj_opt_fold(ptr noundef %45)
+  %47 = load ptr, ptr %12, align 8, !tbaa !67
+  %48 = getelementptr inbounds %struct.GCstr, ptr %47, i64 1
+  %49 = load ptr, ptr %12, align 8, !tbaa !67
+  %50 = getelementptr inbounds nuw %struct.GCstr, ptr %49, i32 0, i32 7
+  %51 = load i32, ptr %50, align 4, !tbaa !69
+  call void @lj_strfmt_init(ptr noundef %13, ptr noundef %48, i32 noundef %51)
+  br label %52
 
-declare hidden i32 @lj_tab_len(ptr noundef) #1
+52:                                               ; preds = %230, %4
+  %53 = call i32 @lj_strfmt_parse(ptr noundef %13)
+  store i32 %53, ptr %14, align 4, !tbaa !9
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %231
+
+55:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #9
+  %56 = load i32, ptr %14, align 4, !tbaa !9
+  %57 = icmp eq i32 %56, 2
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %55
+  br label %67
+
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %5, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.jit_State, ptr %60, i32 0, i32 6
+  %62 = load ptr, ptr %61, align 8, !tbaa !41
+  %63 = load i64, ptr %9, align 8, !tbaa !60
+  %64 = add nsw i64 %63, 1
+  store i64 %64, ptr %9, align 8, !tbaa !60
+  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !9
+  br label %67
+
+67:                                               ; preds = %59, %58
+  %68 = phi i32 [ 0, %58 ], [ %66, %59 ]
+  store i32 %68, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  %69 = load ptr, ptr %5, align 8, !tbaa !4
+  %70 = load i32, ptr %14, align 4, !tbaa !9
+  %71 = call i32 @lj_ir_kint(ptr noundef %69, i32 noundef %70)
+  store i32 %71, ptr %17, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  %72 = load i32, ptr %14, align 4, !tbaa !9
+  %73 = and i32 %72, 15
+  switch i32 %73, label %218 [
+    i32 2, label %74
+    i32 3, label %92
+    i32 4, label %145
+    i32 5, label %146
+    i32 6, label %157
+    i32 7, label %192
+    i32 8, label %217
+    i32 1, label %217
+  ]
+
+74:                                               ; preds = %67
+  %75 = load ptr, ptr %5, align 8, !tbaa !4
+  %76 = load i32, ptr %10, align 4, !tbaa !9
+  %77 = trunc i32 %76 to i16
+  %78 = load ptr, ptr %5, align 8, !tbaa !4
+  %79 = load ptr, ptr %5, align 8, !tbaa !4
+  %80 = getelementptr inbounds nuw %struct.jit_State, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !37
+  %82 = getelementptr inbounds nuw %struct.FormatState, ptr %13, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8, !tbaa !95
+  %84 = getelementptr inbounds nuw %struct.FormatState, ptr %13, i32 0, i32 3
+  %85 = load i32, ptr %84, align 8, !tbaa !97
+  %86 = zext i32 %85 to i64
+  %87 = call ptr @lj_str_new(ptr noundef %81, ptr noundef %83, i64 noundef %86)
+  %88 = call i32 @lj_ir_kgc(ptr noundef %78, ptr noundef %87, i32 noundef 4)
+  %89 = trunc i32 %88 to i16
+  call void @lj_ir_set_(ptr noundef %75, i16 noundef zeroext 22153, i16 noundef zeroext %77, i16 noundef zeroext %89)
+  %90 = load ptr, ptr %5, align 8, !tbaa !4
+  %91 = call i32 @lj_opt_fold(ptr noundef %90)
+  store i32 %91, ptr %10, align 4, !tbaa !9
+  br label %221
+
+92:                                               ; preds = %67
+  store i32 11, ptr %18, align 4, !tbaa !9
+  br label %93
+
+93:                                               ; preds = %145, %92
+  %94 = load i32, ptr %16, align 4, !tbaa !9
+  %95 = lshr i32 %94, 24
+  %96 = and i32 %95, 31
+  %97 = sub i32 %96, 15
+  %98 = icmp ule i32 %97, 4
+  br i1 %98, label %118, label %99
+
+99:                                               ; preds = %93
+  %100 = load i32, ptr %16, align 4, !tbaa !9
+  %101 = and i32 %100, 520093696
+  %102 = icmp eq i32 %101, 167772160
+  br i1 %102, label %103, label %117
+
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %5, align 8, !tbaa !4
+  %105 = load i32, ptr %16, align 4, !tbaa !9
+  %106 = load ptr, ptr %6, align 8, !tbaa !46
+  %107 = getelementptr inbounds nuw %struct.RecordFFData, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8, !tbaa !40
+  %109 = load i64, ptr %9, align 8, !tbaa !60
+  %110 = getelementptr inbounds %union.TValue, ptr %108, i64 %109
+  %111 = call i32 @lj_crecord_loadiu64(ptr noundef %104, i32 noundef %105, ptr noundef %110)
+  store i32 %111, ptr %16, align 4, !tbaa !9
+  %112 = load ptr, ptr %5, align 8, !tbaa !4
+  %113 = load i32, ptr %10, align 4, !tbaa !9
+  %114 = load i32, ptr %17, align 4, !tbaa !9
+  %115 = load i32, ptr %16, align 4, !tbaa !9
+  %116 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %112, i32 noundef 10, i32 noundef %113, i32 noundef %114, i32 noundef %115)
+  store i32 %116, ptr %10, align 4, !tbaa !9
+  br label %221
+
+117:                                              ; preds = %99
+  br label %147
+
+118:                                              ; preds = %93
+  %119 = load i32, ptr %14, align 4, !tbaa !9
+  %120 = icmp eq i32 %119, 3
+  br i1 %120, label %121, label %133
+
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %5, align 8, !tbaa !4
+  %123 = load i32, ptr %10, align 4, !tbaa !9
+  %124 = trunc i32 %123 to i16
+  %125 = load ptr, ptr %5, align 8, !tbaa !4
+  %126 = load i32, ptr %16, align 4, !tbaa !9
+  %127 = trunc i32 %126 to i16
+  call void @lj_ir_set_(ptr noundef %125, i16 noundef zeroext 23812, i16 noundef zeroext %127, i16 noundef zeroext 0)
+  %128 = load ptr, ptr %5, align 8, !tbaa !4
+  %129 = call i32 @lj_opt_fold(ptr noundef %128)
+  %130 = trunc i32 %129 to i16
+  call void @lj_ir_set_(ptr noundef %122, i16 noundef zeroext 22153, i16 noundef zeroext %124, i16 noundef zeroext %130)
+  %131 = load ptr, ptr %5, align 8, !tbaa !4
+  %132 = call i32 @lj_opt_fold(ptr noundef %131)
+  store i32 %132, ptr %10, align 4, !tbaa !9
+  br label %144
+
+133:                                              ; preds = %118
+  %134 = load ptr, ptr %5, align 8, !tbaa !4
+  %135 = load i32, ptr %16, align 4, !tbaa !9
+  %136 = trunc i32 %135 to i16
+  call void @lj_ir_set_(ptr noundef %134, i16 noundef zeroext 23318, i16 noundef zeroext %136, i16 noundef zeroext 2771)
+  %137 = load ptr, ptr %5, align 8, !tbaa !4
+  %138 = call i32 @lj_opt_fold(ptr noundef %137)
+  store i32 %138, ptr %16, align 4, !tbaa !9
+  %139 = load ptr, ptr %5, align 8, !tbaa !4
+  %140 = load i32, ptr %10, align 4, !tbaa !9
+  %141 = load i32, ptr %17, align 4, !tbaa !9
+  %142 = load i32, ptr %16, align 4, !tbaa !9
+  %143 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %139, i32 noundef 10, i32 noundef %140, i32 noundef %141, i32 noundef %142)
+  store i32 %143, ptr %10, align 4, !tbaa !9
+  br label %144
+
+144:                                              ; preds = %133, %121
+  br label %221
+
+145:                                              ; preds = %67
+  store i32 12, ptr %18, align 4, !tbaa !9
+  br label %93
+
+146:                                              ; preds = %67
+  store i32 13, ptr %18, align 4, !tbaa !9
+  br label %147
+
+147:                                              ; preds = %146, %117
+  %148 = load ptr, ptr %5, align 8, !tbaa !4
+  %149 = load i32, ptr %16, align 4, !tbaa !9
+  %150 = call i32 @lj_ir_tonum(ptr noundef %148, i32 noundef %149)
+  store i32 %150, ptr %16, align 4, !tbaa !9
+  %151 = load ptr, ptr %5, align 8, !tbaa !4
+  %152 = load i32, ptr %18, align 4, !tbaa !9
+  %153 = load i32, ptr %10, align 4, !tbaa !9
+  %154 = load i32, ptr %17, align 4, !tbaa !9
+  %155 = load i32, ptr %16, align 4, !tbaa !9
+  %156 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155)
+  store i32 %156, ptr %10, align 4, !tbaa !9
+  br label %221
+
+157:                                              ; preds = %67
+  %158 = load i32, ptr %16, align 4, !tbaa !9
+  %159 = and i32 %158, 520093696
+  %160 = icmp eq i32 %159, 67108864
+  br i1 %160, label %164, label %161
+
+161:                                              ; preds = %157
+  %162 = load ptr, ptr %5, align 8, !tbaa !4
+  %163 = load ptr, ptr %6, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %162, ptr noundef %163)
+  store i32 1, ptr %19, align 4
+  br label %228
+
+164:                                              ; preds = %157
+  %165 = load i32, ptr %14, align 4, !tbaa !9
+  %166 = icmp eq i32 %165, 6
+  br i1 %166, label %167, label %175
+
+167:                                              ; preds = %164
+  %168 = load ptr, ptr %5, align 8, !tbaa !4
+  %169 = load i32, ptr %10, align 4, !tbaa !9
+  %170 = trunc i32 %169 to i16
+  %171 = load i32, ptr %16, align 4, !tbaa !9
+  %172 = trunc i32 %171 to i16
+  call void @lj_ir_set_(ptr noundef %168, i16 noundef zeroext 22153, i16 noundef zeroext %170, i16 noundef zeroext %172)
+  %173 = load ptr, ptr %5, align 8, !tbaa !4
+  %174 = call i32 @lj_opt_fold(ptr noundef %173)
+  store i32 %174, ptr %10, align 4, !tbaa !9
+  br label %191
+
+175:                                              ; preds = %164
+  %176 = load i32, ptr %14, align 4, !tbaa !9
+  %177 = and i32 %176, 16
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %184
+
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %5, align 8, !tbaa !4
+  %181 = load i32, ptr %10, align 4, !tbaa !9
+  %182 = load i32, ptr %16, align 4, !tbaa !9
+  %183 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %180, i32 noundef 9, i32 noundef %181, i32 noundef %182)
+  store i32 %183, ptr %10, align 4, !tbaa !9
+  br label %190
+
+184:                                              ; preds = %175
+  %185 = load ptr, ptr %5, align 8, !tbaa !4
+  %186 = load i32, ptr %10, align 4, !tbaa !9
+  %187 = load i32, ptr %17, align 4, !tbaa !9
+  %188 = load i32, ptr %16, align 4, !tbaa !9
+  %189 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %185, i32 noundef 14, i32 noundef %186, i32 noundef %187, i32 noundef %188)
+  store i32 %189, ptr %10, align 4, !tbaa !9
+  br label %190
+
+190:                                              ; preds = %184, %179
+  br label %191
+
+191:                                              ; preds = %190, %167
+  br label %221
+
+192:                                              ; preds = %67
+  %193 = load ptr, ptr %5, align 8, !tbaa !4
+  %194 = load i32, ptr %16, align 4, !tbaa !9
+  %195 = call i32 @lj_opt_narrow_toint(ptr noundef %193, i32 noundef %194)
+  store i32 %195, ptr %16, align 4, !tbaa !9
+  %196 = load i32, ptr %14, align 4, !tbaa !9
+  %197 = icmp eq i32 %196, 7
+  br i1 %197, label %198, label %210
+
+198:                                              ; preds = %192
+  %199 = load ptr, ptr %5, align 8, !tbaa !4
+  %200 = load i32, ptr %10, align 4, !tbaa !9
+  %201 = trunc i32 %200 to i16
+  %202 = load ptr, ptr %5, align 8, !tbaa !4
+  %203 = load i32, ptr %16, align 4, !tbaa !9
+  %204 = trunc i32 %203 to i16
+  call void @lj_ir_set_(ptr noundef %202, i16 noundef zeroext 23812, i16 noundef zeroext %204, i16 noundef zeroext 2)
+  %205 = load ptr, ptr %5, align 8, !tbaa !4
+  %206 = call i32 @lj_opt_fold(ptr noundef %205)
+  %207 = trunc i32 %206 to i16
+  call void @lj_ir_set_(ptr noundef %199, i16 noundef zeroext 22153, i16 noundef zeroext %201, i16 noundef zeroext %207)
+  %208 = load ptr, ptr %5, align 8, !tbaa !4
+  %209 = call i32 @lj_opt_fold(ptr noundef %208)
+  store i32 %209, ptr %10, align 4, !tbaa !9
+  br label %216
+
+210:                                              ; preds = %192
+  %211 = load ptr, ptr %5, align 8, !tbaa !4
+  %212 = load i32, ptr %10, align 4, !tbaa !9
+  %213 = load i32, ptr %17, align 4, !tbaa !9
+  %214 = load i32, ptr %16, align 4, !tbaa !9
+  %215 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %211, i32 noundef 15, i32 noundef %212, i32 noundef %213, i32 noundef %214)
+  store i32 %215, ptr %10, align 4, !tbaa !9
+  br label %216
+
+216:                                              ; preds = %210, %198
+  br label %221
+
+217:                                              ; preds = %67, %67
+  br label %218
+
+218:                                              ; preds = %67, %217
+  %219 = load ptr, ptr %5, align 8, !tbaa !4
+  %220 = load ptr, ptr %6, align 8, !tbaa !46
+  call void @recff_nyi(ptr noundef %219, ptr noundef %220)
+  store i32 1, ptr %19, align 4
+  br label %228
+
+221:                                              ; preds = %216, %191, %147, %144, %103, %74
+  %222 = load i32, ptr %15, align 4, !tbaa !9
+  %223 = add nsw i32 %222, 1
+  store i32 %223, ptr %15, align 4, !tbaa !9
+  %224 = icmp sgt i32 %223, 100
+  br i1 %224, label %225, label %227
+
+225:                                              ; preds = %221
+  %226 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %226, i32 noundef 2) #10
+  unreachable
+
+227:                                              ; preds = %221
+  store i32 0, ptr %19, align 4
+  br label %228
+
+228:                                              ; preds = %227, %218, %161
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #9
+  %229 = load i32, ptr %19, align 4
+  switch i32 %229, label %253 [
+    i32 0, label %230
+  ]
+
+230:                                              ; preds = %228
+  br label %52, !llvm.loop !98
+
+231:                                              ; preds = %52
+  %232 = load i32, ptr %8, align 4, !tbaa !9
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %234, label %240
+
+234:                                              ; preds = %231
+  %235 = load ptr, ptr %5, align 8, !tbaa !4
+  %236 = load i32, ptr %10, align 4, !tbaa !9
+  %237 = trunc i32 %236 to i16
+  call void @lj_ir_set_(ptr noundef %235, i16 noundef zeroext 4608, i16 noundef zeroext %237, i16 noundef zeroext 0)
+  %238 = load ptr, ptr %5, align 8, !tbaa !4
+  %239 = call i32 @lj_opt_fold(ptr noundef %238)
+  br label %252
+
+240:                                              ; preds = %231
+  %241 = load ptr, ptr %5, align 8, !tbaa !4
+  %242 = load i32, ptr %10, align 4, !tbaa !9
+  %243 = trunc i32 %242 to i16
+  %244 = load i32, ptr %7, align 4, !tbaa !9
+  %245 = trunc i32 %244 to i16
+  call void @lj_ir_set_(ptr noundef %241, i16 noundef zeroext 22404, i16 noundef zeroext %243, i16 noundef zeroext %245)
+  %246 = load ptr, ptr %5, align 8, !tbaa !4
+  %247 = call i32 @lj_opt_fold(ptr noundef %246)
+  %248 = load ptr, ptr %5, align 8, !tbaa !4
+  %249 = getelementptr inbounds nuw %struct.jit_State, ptr %248, i32 0, i32 6
+  %250 = load ptr, ptr %249, align 8, !tbaa !41
+  %251 = getelementptr inbounds i32, ptr %250, i64 0
+  store i32 %247, ptr %251, align 4, !tbaa !9
+  br label %252
+
+252:                                              ; preds = %240, %234
+  store i32 0, ptr %19, align 4
+  br label %253
+
+253:                                              ; preds = %252, %228
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  %254 = load i32, ptr %19, align 4
+  switch i32 %254, label %256 [
+    i32 0, label %255
+    i32 1, label %255
+  ]
+
+255:                                              ; preds = %253, %253
+  ret void
+
+256:                                              ; preds = %253
+  unreachable
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lj_strfmt_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !99
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %5, align 8, !tbaa !92
+  %8 = load ptr, ptr %4, align 8, !tbaa !99
+  %9 = getelementptr inbounds nuw %struct.FormatState, ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !101
+  %10 = load ptr, ptr %5, align 8, !tbaa !92
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
+  %14 = load ptr, ptr %4, align 8, !tbaa !99
+  %15 = getelementptr inbounds nuw %struct.FormatState, ptr %14, i32 0, i32 1
+  store ptr %13, ptr %15, align 8, !tbaa !102
+  ret void
+}
+
+declare hidden i32 @lj_strfmt_parse(ptr noundef) #2
+
+declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) #2
+
+declare hidden i32 @lj_crecord_loadiu64(ptr noundef, i32 noundef, ptr noundef) #2
+
+declare hidden i32 @lj_tab_len(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recff_io_fp(ptr noundef %J, ptr noundef %udp, i32 noundef %id) #0 {
-entry:
-  %J.addr.i36 = alloca ptr, align 8
-  %ot.addr.i37 = alloca i16, align 2
-  %a.addr.i38 = alloca i16, align 2
-  %b.addr.i39 = alloca i16, align 2
-  %J.addr.i27 = alloca ptr, align 8
-  %ot.addr.i28 = alloca i16, align 2
-  %a.addr.i29 = alloca i16, align 2
-  %b.addr.i30 = alloca i16, align 2
-  %J.addr.i18 = alloca ptr, align 8
-  %ot.addr.i19 = alloca i16, align 2
-  %a.addr.i20 = alloca i16, align 2
-  %b.addr.i21 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %udp.addr = alloca ptr, align 8
-  %id.addr = alloca i32, align 4
-  %tr = alloca i32, align 4
-  %ud = alloca i32, align 4
-  %fp = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %udp, ptr %udp.addr, align 8
-  store i32 %id, ptr %id.addr, align 4
-  %0 = load i32, ptr %id.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.else
+define internal i32 @recff_io_fp(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %10 = load i32, ptr %6, align 4, !tbaa !9
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %21
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %J.addr, align 8
-  %2 = load i32, ptr %id.addr, align 4
-  %conv = sext i32 %2 to i64
-  %3 = mul i64 %conv, 8
-  %4 = add i64 520, %3
-  %conv1 = trunc i64 %4 to i32
-  %conv2 = sext i32 %conv1 to i64
-  %call = call i32 @lj_ir_ggfload(ptr noundef %1, i32 noundef 12, i64 noundef %conv2)
-  store i32 %call, ptr %ud, align 4
-  br label %if.end11
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = load i32, ptr %6, align 4, !tbaa !9
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 %15, 8
+  %17 = add i64 520, %16
+  %18 = trunc i64 %17 to i32
+  %19 = sext i32 %18 to i64
+  %20 = call i32 @lj_ir_ggfload(ptr noundef %13, i32 noundef 12, i64 noundef %19)
+  store i32 %20, ptr %8, align 4, !tbaa !9
+  br label %46
 
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %6, i64 0
-  %7 = load i32, ptr %arrayidx, align 4
-  store i32 %7, ptr %ud, align 4
-  %8 = load i32, ptr %ud, align 4
-  %and = and i32 %8, 520093696
-  %cmp = icmp eq i32 %and, 201326592
-  br i1 %cmp, label %if.end, label %if.then4
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %4, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.jit_State, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %25 = getelementptr inbounds i32, ptr %24, i64 0
+  %26 = load i32, ptr %25, align 4, !tbaa !9
+  store i32 %26, ptr %8, align 4, !tbaa !9
+  %27 = load i32, ptr %8, align 4, !tbaa !9
+  %28 = and i32 %27, 520093696
+  %29 = icmp eq i32 %28, 201326592
+  br i1 %29, label %32, label %30
 
-if.then4:                                         ; preds = %if.else
-  %9 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %9, i32 noundef 11) #6
+30:                                               ; preds = %21
+  %31 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %31, i32 noundef 11) #10
   unreachable
 
-if.end:                                           ; preds = %if.else
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load i32, ptr %ud, align 4
-  %conv5 = trunc i32 %11 to i16
-  store ptr %10, ptr %J.addr.i36, align 8
-  store i16 17680, ptr %ot.addr.i37, align 2
-  store i16 %conv5, ptr %a.addr.i38, align 2
-  store i16 12, ptr %b.addr.i39, align 2
-  %12 = load i16, ptr %ot.addr.i37, align 2
-  %13 = load ptr, ptr %J.addr.i36, align 8
-  %fold.i40 = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  %ot1.i41 = getelementptr inbounds %struct.anon.2, ptr %fold.i40, i32 0, i32 2
-  store i16 %12, ptr %ot1.i41, align 4
-  %14 = load i16, ptr %a.addr.i38, align 2
-  %15 = load ptr, ptr %J.addr.i36, align 8
-  %fold2.i42 = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  store i16 %14, ptr %fold2.i42, align 8
-  %16 = load i16, ptr %b.addr.i39, align 2
-  %17 = load ptr, ptr %J.addr.i36, align 8
-  %fold4.i43 = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  %op2.i44 = getelementptr inbounds %struct.anon.2, ptr %fold4.i43, i32 0, i32 1
-  store i16 %16, ptr %op2.i44, align 2
-  %18 = load ptr, ptr %J.addr, align 8
-  %call6 = call i32 @lj_opt_fold(ptr noundef %18)
-  store i32 %call6, ptr %tr, align 4
-  %19 = load ptr, ptr %J.addr, align 8
-  %20 = load i32, ptr %tr, align 4
-  %conv7 = trunc i32 %20 to i16
-  %21 = load ptr, ptr %J.addr, align 8
-  %call8 = call i32 @lj_ir_kint(ptr noundef %21, i32 noundef 1)
-  %conv9 = trunc i32 %call8 to i16
-  store ptr %19, ptr %J.addr.i27, align 8
-  store i16 2195, ptr %ot.addr.i28, align 2
-  store i16 %conv7, ptr %a.addr.i29, align 2
-  store i16 %conv9, ptr %b.addr.i30, align 2
-  %22 = load i16, ptr %ot.addr.i28, align 2
-  %23 = load ptr, ptr %J.addr.i27, align 8
-  %fold.i31 = getelementptr inbounds %struct.jit_State, ptr %23, i32 0, i32 14
-  %ot1.i32 = getelementptr inbounds %struct.anon.2, ptr %fold.i31, i32 0, i32 2
-  store i16 %22, ptr %ot1.i32, align 4
-  %24 = load i16, ptr %a.addr.i29, align 2
-  %25 = load ptr, ptr %J.addr.i27, align 8
-  %fold2.i33 = getelementptr inbounds %struct.jit_State, ptr %25, i32 0, i32 14
-  store i16 %24, ptr %fold2.i33, align 8
-  %26 = load i16, ptr %b.addr.i30, align 2
-  %27 = load ptr, ptr %J.addr.i27, align 8
-  %fold4.i34 = getelementptr inbounds %struct.jit_State, ptr %27, i32 0, i32 14
-  %op2.i35 = getelementptr inbounds %struct.anon.2, ptr %fold4.i34, i32 0, i32 1
-  store i16 %26, ptr %op2.i35, align 2
-  %28 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_opt_fold(ptr noundef %28)
-  br label %if.end11
+32:                                               ; preds = %21
+  %33 = load ptr, ptr %4, align 8, !tbaa !4
+  %34 = load i32, ptr %8, align 4, !tbaa !9
+  %35 = trunc i32 %34 to i16
+  call void @lj_ir_set_(ptr noundef %33, i16 noundef zeroext 17680, i16 noundef zeroext %35, i16 noundef zeroext 12)
+  %36 = load ptr, ptr %4, align 8, !tbaa !4
+  %37 = call i32 @lj_opt_fold(ptr noundef %36)
+  store i32 %37, ptr %7, align 4, !tbaa !9
+  %38 = load ptr, ptr %4, align 8, !tbaa !4
+  %39 = load i32, ptr %7, align 4, !tbaa !9
+  %40 = trunc i32 %39 to i16
+  %41 = load ptr, ptr %4, align 8, !tbaa !4
+  %42 = call i32 @lj_ir_kint(ptr noundef %41, i32 noundef 1)
+  %43 = trunc i32 %42 to i16
+  call void @lj_ir_set_(ptr noundef %38, i16 noundef zeroext 2195, i16 noundef zeroext %40, i16 noundef zeroext %43)
+  %44 = load ptr, ptr %4, align 8, !tbaa !4
+  %45 = call i32 @lj_opt_fold(ptr noundef %44)
+  br label %46
 
-if.end11:                                         ; preds = %if.end, %if.then
-  %29 = load i32, ptr %ud, align 4
-  %30 = load ptr, ptr %udp.addr, align 8
-  store i32 %29, ptr %30, align 4
-  %31 = load ptr, ptr %J.addr, align 8
-  %32 = load i32, ptr %ud, align 4
-  %conv12 = trunc i32 %32 to i16
-  store ptr %31, ptr %J.addr.i18, align 8
-  store i16 17673, ptr %ot.addr.i19, align 2
-  store i16 %conv12, ptr %a.addr.i20, align 2
-  store i16 13, ptr %b.addr.i21, align 2
-  %33 = load i16, ptr %ot.addr.i19, align 2
-  %34 = load ptr, ptr %J.addr.i18, align 8
-  %fold.i22 = getelementptr inbounds %struct.jit_State, ptr %34, i32 0, i32 14
-  %ot1.i23 = getelementptr inbounds %struct.anon.2, ptr %fold.i22, i32 0, i32 2
-  store i16 %33, ptr %ot1.i23, align 4
-  %35 = load i16, ptr %a.addr.i20, align 2
-  %36 = load ptr, ptr %J.addr.i18, align 8
-  %fold2.i24 = getelementptr inbounds %struct.jit_State, ptr %36, i32 0, i32 14
-  store i16 %35, ptr %fold2.i24, align 8
-  %37 = load i16, ptr %b.addr.i21, align 2
-  %38 = load ptr, ptr %J.addr.i18, align 8
-  %fold4.i25 = getelementptr inbounds %struct.jit_State, ptr %38, i32 0, i32 14
-  %op2.i26 = getelementptr inbounds %struct.anon.2, ptr %fold4.i25, i32 0, i32 1
-  store i16 %37, ptr %op2.i26, align 2
-  %39 = load ptr, ptr %J.addr, align 8
-  %call13 = call i32 @lj_opt_fold(ptr noundef %39)
-  store i32 %call13, ptr %fp, align 4
-  %40 = load ptr, ptr %J.addr, align 8
-  %41 = load i32, ptr %fp, align 4
-  %conv14 = trunc i32 %41 to i16
-  %42 = load ptr, ptr %J.addr, align 8
-  %call15 = call i32 @lj_ir_knull(ptr noundef %42, i32 noundef 9)
-  %conv16 = trunc i32 %call15 to i16
-  store ptr %40, ptr %J.addr.i, align 8
-  store i16 2441, ptr %ot.addr.i, align 2
-  store i16 %conv14, ptr %a.addr.i, align 2
-  store i16 %conv16, ptr %b.addr.i, align 2
-  %43 = load i16, ptr %ot.addr.i, align 2
-  %44 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %44, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %43, ptr %ot1.i, align 4
-  %45 = load i16, ptr %a.addr.i, align 2
-  %46 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  store i16 %45, ptr %fold2.i, align 8
-  %47 = load i16, ptr %b.addr.i, align 2
-  %48 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %47, ptr %op2.i, align 2
-  %49 = load ptr, ptr %J.addr, align 8
-  %call17 = call i32 @lj_opt_fold(ptr noundef %49)
-  %50 = load i32, ptr %fp, align 4
-  ret i32 %50
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @results_wanted(ptr noundef %J) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %J.addr = alloca ptr, align 8
-  %frame = alloca ptr, align 8
-  store ptr %J, ptr %J.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %L = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %L, align 8
-  %base = getelementptr inbounds %struct.lua_State, ptr %1, i32 0, i32 7
-  %2 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %2, i64 -1
-  store ptr %add.ptr, ptr %frame, align 8
-  %3 = load ptr, ptr %frame, align 8
-  %4 = load i64, ptr %3, align 8
-  %and = and i64 %4, 3
-  %cmp = icmp eq i64 %and, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %frame, align 8
-  %6 = load i64, ptr %5, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %arrayidx = getelementptr inbounds i32, ptr %7, i64 -1
-  %8 = load i32, ptr %arrayidx, align 4
-  %shr = lshr i32 %8, 24
-  %conv = zext i32 %shr to i64
-  %sub = sub nsw i64 %conv, 1
-  store i64 %sub, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  store i64 -1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %9 = load i64, ptr %retval, align 8
-  ret i64 %9
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @recff_sbufx_check(ptr noundef %J, ptr noundef %rd, i64 noundef %arg) #0 {
-entry:
-  %J.addr.i13 = alloca ptr, align 8
-  %ot.addr.i14 = alloca i16, align 2
-  %a.addr.i15 = alloca i16, align 2
-  %b.addr.i16 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %arg.addr = alloca i64, align 8
-  %trtype = alloca i32, align 4
-  %ud = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  store i64 %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %2 = load i64, ptr %arg.addr, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 %2
-  %3 = load i32, ptr %arrayidx, align 4
-  store i32 %3, ptr %ud, align 4
-  %4 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %argv, align 8
-  %6 = load i64, ptr %arg.addr, align 8
-  %arrayidx1 = getelementptr inbounds %union.TValue, ptr %5, i64 %6
-  %7 = load i64, ptr %arrayidx1, align 8
-  %shr = ashr i64 %7, 47
-  %conv = trunc i64 %shr to i32
-  %cmp = icmp eq i32 %conv, -13
-  br i1 %cmp, label %land.lhs.true, label %if.then
-
-land.lhs.true:                                    ; preds = %entry
-  %8 = load ptr, ptr %rd.addr, align 8
-  %argv3 = getelementptr inbounds %struct.RecordFFData, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %argv3, align 8
-  %10 = load i64, ptr %arg.addr, align 8
-  %arrayidx4 = getelementptr inbounds %union.TValue, ptr %9, i64 %10
-  %gcptr64 = getelementptr inbounds %struct.GCRef, ptr %arrayidx4, i32 0, i32 0
-  %11 = load i64, ptr %gcptr64, align 8
-  %and = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and to ptr
-  %udtype = getelementptr inbounds %struct.GCudata, ptr %12, i32 0, i32 3
-  %13 = load i8, ptr %udtype, align 2
-  %conv5 = zext i8 %13 to i32
-  %cmp6 = icmp eq i32 %conv5, 3
-  br i1 %cmp6, label %if.end, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true, %entry
-  %14 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %14, i32 noundef 11) #6
-  unreachable
-
-if.end:                                           ; preds = %land.lhs.true
-  %15 = load ptr, ptr %J.addr, align 8
-  %16 = load i32, ptr %ud, align 4
-  %conv8 = trunc i32 %16 to i16
-  store ptr %15, ptr %J.addr.i13, align 8
-  store i16 17680, ptr %ot.addr.i14, align 2
-  store i16 %conv8, ptr %a.addr.i15, align 2
-  store i16 12, ptr %b.addr.i16, align 2
-  %17 = load i16, ptr %ot.addr.i14, align 2
-  %18 = load ptr, ptr %J.addr.i13, align 8
-  %fold.i17 = getelementptr inbounds %struct.jit_State, ptr %18, i32 0, i32 14
-  %ot1.i18 = getelementptr inbounds %struct.anon.2, ptr %fold.i17, i32 0, i32 2
-  store i16 %17, ptr %ot1.i18, align 4
-  %19 = load i16, ptr %a.addr.i15, align 2
-  %20 = load ptr, ptr %J.addr.i13, align 8
-  %fold2.i19 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  store i16 %19, ptr %fold2.i19, align 8
-  %21 = load i16, ptr %b.addr.i16, align 2
-  %22 = load ptr, ptr %J.addr.i13, align 8
-  %fold4.i20 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  %op2.i21 = getelementptr inbounds %struct.anon.2, ptr %fold4.i20, i32 0, i32 1
-  store i16 %21, ptr %op2.i21, align 2
-  %23 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_opt_fold(ptr noundef %23)
-  store i32 %call, ptr %trtype, align 4
-  %24 = load ptr, ptr %J.addr, align 8
-  %25 = load i32, ptr %trtype, align 4
-  %conv9 = trunc i32 %25 to i16
-  %26 = load ptr, ptr %J.addr, align 8
-  %call10 = call i32 @lj_ir_kint(ptr noundef %26, i32 noundef 3)
-  %conv11 = trunc i32 %call10 to i16
-  store ptr %24, ptr %J.addr.i, align 8
-  store i16 2195, ptr %ot.addr.i, align 2
-  store i16 %conv9, ptr %a.addr.i, align 2
-  store i16 %conv11, ptr %b.addr.i, align 2
-  %27 = load i16, ptr %ot.addr.i, align 2
-  %28 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %28, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %27, ptr %ot1.i, align 4
-  %29 = load i16, ptr %a.addr.i, align 2
-  %30 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %30, i32 0, i32 14
-  store i16 %29, ptr %fold2.i, align 8
-  %31 = load i16, ptr %b.addr.i, align 2
-  %32 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %32, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %31, ptr %op2.i, align 2
-  %33 = load ptr, ptr %J.addr, align 8
-  %call12 = call i32 @lj_opt_fold(ptr noundef %33)
-  %34 = load ptr, ptr %J.addr, align 8
-  %needsnap = getelementptr inbounds %struct.jit_State, ptr %34, i32 0, i32 11
-  store i8 1, ptr %needsnap, align 1
-  %35 = load i32, ptr %ud, align 4
-  ret i32 %35
-}
-
-declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @recff_sbufx_checkint(ptr noundef %J, ptr noundef %rd, i64 noundef %arg) #0 {
-entry:
-  %J.addr.i55 = alloca ptr, align 8
-  %ot.addr.i56 = alloca i16, align 2
-  %a.addr.i57 = alloca i16, align 2
-  %b.addr.i58 = alloca i16, align 2
-  %J.addr.i46 = alloca ptr, align 8
-  %ot.addr.i47 = alloca i16, align 2
-  %a.addr.i48 = alloca i16, align 2
-  %b.addr.i49 = alloca i16, align 2
-  %J.addr.i37 = alloca ptr, align 8
-  %ot.addr.i38 = alloca i16, align 2
-  %a.addr.i39 = alloca i16, align 2
-  %b.addr.i40 = alloca i16, align 2
-  %J.addr.i28 = alloca ptr, align 8
-  %ot.addr.i29 = alloca i16, align 2
-  %a.addr.i30 = alloca i16, align 2
-  %b.addr.i31 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %rd.addr = alloca ptr, align 8
-  %arg.addr = alloca i64, align 8
-  %tr = alloca i32, align 4
-  %trlim = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store ptr %rd, ptr %rd.addr, align 8
-  store i64 %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %J.addr, align 8
-  %base = getelementptr inbounds %struct.jit_State, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %base, align 8
-  %2 = load i64, ptr %arg.addr, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 %2
-  %3 = load i32, ptr %arrayidx, align 4
-  store i32 %3, ptr %tr, align 4
-  %4 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_ir_kint(ptr noundef %4, i32 noundef 2147483392)
-  store i32 %call, ptr %trlim, align 4
-  %5 = load i32, ptr %tr, align 4
-  %shr = lshr i32 %5, 24
-  %and = and i32 %shr, 31
-  %sub = sub i32 %and, 15
-  %cmp = icmp ule i32 %sub, 4
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %J.addr, align 8
-  %7 = load i32, ptr %tr, align 4
-  %conv = trunc i32 %7 to i16
-  %8 = load i32, ptr %trlim, align 4
-  %conv1 = trunc i32 %8 to i16
-  store ptr %6, ptr %J.addr.i55, align 8
-  store i16 1683, ptr %ot.addr.i56, align 2
-  store i16 %conv, ptr %a.addr.i57, align 2
-  store i16 %conv1, ptr %b.addr.i58, align 2
-  %9 = load i16, ptr %ot.addr.i56, align 2
-  %10 = load ptr, ptr %J.addr.i55, align 8
-  %fold.i59 = getelementptr inbounds %struct.jit_State, ptr %10, i32 0, i32 14
-  %ot1.i60 = getelementptr inbounds %struct.anon.2, ptr %fold.i59, i32 0, i32 2
-  store i16 %9, ptr %ot1.i60, align 4
-  %11 = load i16, ptr %a.addr.i57, align 2
-  %12 = load ptr, ptr %J.addr.i55, align 8
-  %fold2.i61 = getelementptr inbounds %struct.jit_State, ptr %12, i32 0, i32 14
-  store i16 %11, ptr %fold2.i61, align 8
-  %13 = load i16, ptr %b.addr.i58, align 2
-  %14 = load ptr, ptr %J.addr.i55, align 8
-  %fold4.i62 = getelementptr inbounds %struct.jit_State, ptr %14, i32 0, i32 14
-  %op2.i63 = getelementptr inbounds %struct.anon.2, ptr %fold4.i62, i32 0, i32 1
-  store i16 %13, ptr %op2.i63, align 2
-  %15 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_opt_fold(ptr noundef %15)
-  br label %if.end27
-
-if.else:                                          ; preds = %entry
-  %16 = load i32, ptr %tr, align 4
-  %and3 = and i32 %16, 520093696
-  %cmp4 = icmp eq i32 %and3, 234881024
-  br i1 %cmp4, label %if.then6, label %if.else12
-
-if.then6:                                         ; preds = %if.else
-  %17 = load ptr, ptr %J.addr, align 8
-  %18 = load i32, ptr %tr, align 4
-  %conv7 = trunc i32 %18 to i16
-  store ptr %17, ptr %J.addr.i46, align 8
-  store i16 23315, ptr %ot.addr.i47, align 2
-  store i16 %conv7, ptr %a.addr.i48, align 2
-  store i16 4718, ptr %b.addr.i49, align 2
-  %19 = load i16, ptr %ot.addr.i47, align 2
-  %20 = load ptr, ptr %J.addr.i46, align 8
-  %fold.i50 = getelementptr inbounds %struct.jit_State, ptr %20, i32 0, i32 14
-  %ot1.i51 = getelementptr inbounds %struct.anon.2, ptr %fold.i50, i32 0, i32 2
-  store i16 %19, ptr %ot1.i51, align 4
-  %21 = load i16, ptr %a.addr.i48, align 2
-  %22 = load ptr, ptr %J.addr.i46, align 8
-  %fold2.i52 = getelementptr inbounds %struct.jit_State, ptr %22, i32 0, i32 14
-  store i16 %21, ptr %fold2.i52, align 8
-  %23 = load i16, ptr %b.addr.i49, align 2
-  %24 = load ptr, ptr %J.addr.i46, align 8
-  %fold4.i53 = getelementptr inbounds %struct.jit_State, ptr %24, i32 0, i32 14
-  %op2.i54 = getelementptr inbounds %struct.anon.2, ptr %fold4.i53, i32 0, i32 1
-  store i16 %23, ptr %op2.i54, align 2
-  %25 = load ptr, ptr %J.addr, align 8
-  %call8 = call i32 @lj_opt_fold(ptr noundef %25)
-  store i32 %call8, ptr %tr, align 4
-  %26 = load ptr, ptr %J.addr, align 8
-  %27 = load i32, ptr %tr, align 4
-  %conv9 = trunc i32 %27 to i16
-  %28 = load i32, ptr %trlim, align 4
-  %conv10 = trunc i32 %28 to i16
-  store ptr %26, ptr %J.addr.i37, align 8
-  store i16 1683, ptr %ot.addr.i38, align 2
-  store i16 %conv9, ptr %a.addr.i39, align 2
-  store i16 %conv10, ptr %b.addr.i40, align 2
-  %29 = load i16, ptr %ot.addr.i38, align 2
-  %30 = load ptr, ptr %J.addr.i37, align 8
-  %fold.i41 = getelementptr inbounds %struct.jit_State, ptr %30, i32 0, i32 14
-  %ot1.i42 = getelementptr inbounds %struct.anon.2, ptr %fold.i41, i32 0, i32 2
-  store i16 %29, ptr %ot1.i42, align 4
-  %31 = load i16, ptr %a.addr.i39, align 2
-  %32 = load ptr, ptr %J.addr.i37, align 8
-  %fold2.i43 = getelementptr inbounds %struct.jit_State, ptr %32, i32 0, i32 14
-  store i16 %31, ptr %fold2.i43, align 8
-  %33 = load i16, ptr %b.addr.i40, align 2
-  %34 = load ptr, ptr %J.addr.i37, align 8
-  %fold4.i44 = getelementptr inbounds %struct.jit_State, ptr %34, i32 0, i32 14
-  %op2.i45 = getelementptr inbounds %struct.anon.2, ptr %fold4.i44, i32 0, i32 1
-  store i16 %33, ptr %op2.i45, align 2
-  %35 = load ptr, ptr %J.addr, align 8
-  %call11 = call i32 @lj_opt_fold(ptr noundef %35)
-  br label %if.end26
-
-if.else12:                                        ; preds = %if.else
-  %36 = load i32, ptr %tr, align 4
-  %and13 = and i32 %36, 520093696
-  %cmp14 = icmp eq i32 %and13, 167772160
-  br i1 %cmp14, label %if.then16, label %if.else25
-
-if.then16:                                        ; preds = %if.else12
-  %37 = load ptr, ptr %J.addr, align 8
-  %38 = load i32, ptr %tr, align 4
-  %39 = load ptr, ptr %rd.addr, align 8
-  %argv = getelementptr inbounds %struct.RecordFFData, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %argv, align 8
-  %41 = load i64, ptr %arg.addr, align 8
-  %arrayidx17 = getelementptr inbounds %union.TValue, ptr %40, i64 %41
-  %call18 = call i32 @lj_crecord_loadiu64(ptr noundef %37, i32 noundef %38, ptr noundef %arrayidx17)
-  store i32 %call18, ptr %tr, align 4
-  %42 = load ptr, ptr %J.addr, align 8
-  %43 = load i32, ptr %tr, align 4
-  %conv19 = trunc i32 %43 to i16
-  %44 = load ptr, ptr %J.addr, align 8
-  %call20 = call i32 @lj_ir_kint64(ptr noundef %44, i64 noundef 2147483392)
-  %conv21 = trunc i32 %call20 to i16
-  store ptr %42, ptr %J.addr.i28, align 8
-  store i16 1686, ptr %ot.addr.i29, align 2
-  store i16 %conv19, ptr %a.addr.i30, align 2
-  store i16 %conv21, ptr %b.addr.i31, align 2
-  %45 = load i16, ptr %ot.addr.i29, align 2
-  %46 = load ptr, ptr %J.addr.i28, align 8
-  %fold.i32 = getelementptr inbounds %struct.jit_State, ptr %46, i32 0, i32 14
-  %ot1.i33 = getelementptr inbounds %struct.anon.2, ptr %fold.i32, i32 0, i32 2
-  store i16 %45, ptr %ot1.i33, align 4
-  %47 = load i16, ptr %a.addr.i30, align 2
-  %48 = load ptr, ptr %J.addr.i28, align 8
-  %fold2.i34 = getelementptr inbounds %struct.jit_State, ptr %48, i32 0, i32 14
-  store i16 %47, ptr %fold2.i34, align 8
-  %49 = load i16, ptr %b.addr.i31, align 2
-  %50 = load ptr, ptr %J.addr.i28, align 8
-  %fold4.i35 = getelementptr inbounds %struct.jit_State, ptr %50, i32 0, i32 14
-  %op2.i36 = getelementptr inbounds %struct.anon.2, ptr %fold4.i35, i32 0, i32 1
-  store i16 %49, ptr %op2.i36, align 2
-  %51 = load ptr, ptr %J.addr, align 8
-  %call22 = call i32 @lj_opt_fold(ptr noundef %51)
-  %52 = load ptr, ptr %J.addr, align 8
-  %53 = load i32, ptr %tr, align 4
-  %conv23 = trunc i32 %53 to i16
-  store ptr %52, ptr %J.addr.i, align 8
-  store i16 23315, ptr %ot.addr.i, align 2
-  store i16 %conv23, ptr %a.addr.i, align 2
-  store i16 4725, ptr %b.addr.i, align 2
-  %54 = load i16, ptr %ot.addr.i, align 2
-  %55 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %55, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %54, ptr %ot1.i, align 4
-  %56 = load i16, ptr %a.addr.i, align 2
-  %57 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %57, i32 0, i32 14
-  store i16 %56, ptr %fold2.i, align 8
-  %58 = load i16, ptr %b.addr.i, align 2
-  %59 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %59, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %58, ptr %op2.i, align 2
-  %60 = load ptr, ptr %J.addr, align 8
-  %call24 = call i32 @lj_opt_fold(ptr noundef %60)
-  store i32 %call24, ptr %tr, align 4
-  br label %if.end
-
-if.else25:                                        ; preds = %if.else12
-  %61 = load ptr, ptr %J.addr, align 8
-  call void @lj_trace_err(ptr noundef %61, i32 noundef 11) #6
-  unreachable
-
-if.end:                                           ; preds = %if.then16
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end, %if.then6
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end26, %if.then
-  %62 = load i32, ptr %tr, align 4
+46:                                               ; preds = %32, %12
+  %47 = load i32, ptr %8, align 4, !tbaa !9
+  %48 = load ptr, ptr %5, align 8, !tbaa !88
+  store i32 %47, ptr %48, align 4, !tbaa !9
+  %49 = load ptr, ptr %4, align 8, !tbaa !4
+  %50 = load i32, ptr %8, align 4, !tbaa !9
+  %51 = trunc i32 %50 to i16
+  call void @lj_ir_set_(ptr noundef %49, i16 noundef zeroext 17673, i16 noundef zeroext %51, i16 noundef zeroext 13)
+  %52 = load ptr, ptr %4, align 8, !tbaa !4
+  %53 = call i32 @lj_opt_fold(ptr noundef %52)
+  store i32 %53, ptr %9, align 4, !tbaa !9
+  %54 = load ptr, ptr %4, align 8, !tbaa !4
+  %55 = load i32, ptr %9, align 4, !tbaa !9
+  %56 = trunc i32 %55 to i16
+  %57 = load ptr, ptr %4, align 8, !tbaa !4
+  %58 = call i32 @lj_ir_knull(ptr noundef %57, i32 noundef 9)
+  %59 = trunc i32 %58 to i16
+  call void @lj_ir_set_(ptr noundef %54, i16 noundef zeroext 2441, i16 noundef zeroext %56, i16 noundef zeroext %59)
+  %60 = load ptr, ptr %4, align 8, !tbaa !4
+  %61 = call i32 @lj_opt_fold(ptr noundef %60)
+  %62 = load i32, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
   ret i32 %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recff_sbufx_write(ptr noundef %J, i32 noundef %ud) #0 {
-entry:
-  %J.addr.i5 = alloca ptr, align 8
-  %ot.addr.i6 = alloca i16, align 2
-  %a.addr.i7 = alloca i16, align 2
-  %b.addr.i8 = alloca i16, align 2
-  %J.addr.i = alloca ptr, align 8
-  %ot.addr.i = alloca i16, align 2
-  %a.addr.i = alloca i16, align 2
-  %b.addr.i = alloca i16, align 2
-  %J.addr = alloca ptr, align 8
-  %ud.addr = alloca i32, align 4
-  %trbuf = alloca i32, align 4
-  store ptr %J, ptr %J.addr, align 8
-  store i32 %ud, ptr %ud.addr, align 4
-  %0 = load ptr, ptr %J.addr, align 8
-  %1 = load i32, ptr %ud.addr, align 4
-  %conv = trunc i32 %1 to i16
-  %2 = load ptr, ptr %J.addr, align 8
-  %call = call i32 @lj_ir_kint64(ptr noundef %2, i64 noundef 48)
-  %conv1 = trunc i32 %call to i16
-  store ptr %0, ptr %J.addr.i5, align 8
-  store i16 10505, ptr %ot.addr.i6, align 2
-  store i16 %conv, ptr %a.addr.i7, align 2
-  store i16 %conv1, ptr %b.addr.i8, align 2
-  %3 = load i16, ptr %ot.addr.i6, align 2
-  %4 = load ptr, ptr %J.addr.i5, align 8
-  %fold.i9 = getelementptr inbounds %struct.jit_State, ptr %4, i32 0, i32 14
-  %ot1.i10 = getelementptr inbounds %struct.anon.2, ptr %fold.i9, i32 0, i32 2
-  store i16 %3, ptr %ot1.i10, align 4
-  %5 = load i16, ptr %a.addr.i7, align 2
-  %6 = load ptr, ptr %J.addr.i5, align 8
-  %fold2.i11 = getelementptr inbounds %struct.jit_State, ptr %6, i32 0, i32 14
-  store i16 %5, ptr %fold2.i11, align 8
-  %7 = load i16, ptr %b.addr.i8, align 2
-  %8 = load ptr, ptr %J.addr.i5, align 8
-  %fold4.i12 = getelementptr inbounds %struct.jit_State, ptr %8, i32 0, i32 14
-  %op2.i13 = getelementptr inbounds %struct.anon.2, ptr %fold4.i12, i32 0, i32 1
-  store i16 %7, ptr %op2.i13, align 2
-  %9 = load ptr, ptr %J.addr, align 8
-  %call2 = call i32 @lj_opt_fold(ptr noundef %9)
-  store i32 %call2, ptr %trbuf, align 4
-  %10 = load ptr, ptr %J.addr, align 8
-  %11 = load i32, ptr %trbuf, align 4
-  %conv3 = trunc i32 %11 to i16
-  store ptr %10, ptr %J.addr.i, align 8
-  store i16 21769, ptr %ot.addr.i, align 2
-  store i16 %conv3, ptr %a.addr.i, align 2
-  store i16 2, ptr %b.addr.i, align 2
-  %12 = load i16, ptr %ot.addr.i, align 2
-  %13 = load ptr, ptr %J.addr.i, align 8
-  %fold.i = getelementptr inbounds %struct.jit_State, ptr %13, i32 0, i32 14
-  %ot1.i = getelementptr inbounds %struct.anon.2, ptr %fold.i, i32 0, i32 2
-  store i16 %12, ptr %ot1.i, align 4
-  %14 = load i16, ptr %a.addr.i, align 2
-  %15 = load ptr, ptr %J.addr.i, align 8
-  %fold2.i = getelementptr inbounds %struct.jit_State, ptr %15, i32 0, i32 14
-  store i16 %14, ptr %fold2.i, align 8
-  %16 = load i16, ptr %b.addr.i, align 2
-  %17 = load ptr, ptr %J.addr.i, align 8
-  %fold4.i = getelementptr inbounds %struct.jit_State, ptr %17, i32 0, i32 14
-  %op2.i = getelementptr inbounds %struct.anon.2, ptr %fold4.i, i32 0, i32 1
-  store i16 %16, ptr %op2.i, align 2
-  %18 = load ptr, ptr %J.addr, align 8
-  %call4 = call i32 @lj_opt_fold(ptr noundef %18)
-  ret i32 %call4
+define internal i64 @results_wanted(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.jit_State, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
+  %9 = getelementptr inbounds nuw %struct.lua_State, ptr %8, i32 0, i32 7
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  %11 = getelementptr inbounds %union.TValue, ptr %10, i64 -1
+  store ptr %11, ptr %4, align 8, !tbaa !11
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  %13 = load i64, ptr %12, align 8, !tbaa !13
+  %14 = and i64 %13, 3
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %16, label %25
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %4, align 8, !tbaa !11
+  %18 = load i64, ptr %17, align 8, !tbaa !13
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds i32, ptr %19, i64 -1
+  %21 = load i32, ptr %20, align 4, !tbaa !9
+  %22 = lshr i32 %21, 24
+  %23 = zext i32 %22 to i64
+  %24 = sub nsw i64 %23, 1
+  store i64 %24, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %26
+
+25:                                               ; preds = %1
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %26
+
+26:                                               ; preds = %25, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  %27 = load i64, ptr %2, align 8
+  ret i64 %27
 }
 
-declare hidden i32 @lj_crecord_topcvoid(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nounwind uwtable
+define internal i32 @recff_sbufx_check(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !46
+  store i64 %2, ptr %6, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %9 = load ptr, ptr %4, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = load i64, ptr %6, align 8, !tbaa !60
+  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %14, ptr %8, align 4, !tbaa !9
+  %15 = load ptr, ptr %5, align 8, !tbaa !46
+  %16 = getelementptr inbounds nuw %struct.RecordFFData, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  %18 = load i64, ptr %6, align 8, !tbaa !60
+  %19 = getelementptr inbounds %union.TValue, ptr %17, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !13
+  %21 = ashr i64 %20, 47
+  %22 = trunc i64 %21 to i32
+  %23 = icmp eq i32 %22, -13
+  br i1 %23, label %24, label %38
 
-declare hidden i32 @lj_crecord_topuint8(ptr noundef, i32 noundef) #1
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %5, align 8, !tbaa !46
+  %26 = getelementptr inbounds nuw %struct.RecordFFData, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  %28 = load i64, ptr %6, align 8, !tbaa !60
+  %29 = getelementptr inbounds %union.TValue, ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw %struct.GCRef, ptr %29, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !13
+  %32 = and i64 %31, 140737488355327
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds nuw %struct.GCudata, ptr %33, i32 0, i32 3
+  %35 = load i8, ptr %34, align 2, !tbaa !13
+  %36 = zext i8 %35 to i32
+  %37 = icmp eq i32 %36, 3
+  br i1 %37, label %40, label %38
 
-declare hidden i32 @lj_serialize_peektype(ptr noundef) #1
+38:                                               ; preds = %24, %3
+  %39 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %39, i32 noundef 11) #10
+  unreachable
 
-declare hidden i32 @lj_record_vload(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+40:                                               ; preds = %24
+  %41 = load ptr, ptr %4, align 8, !tbaa !4
+  %42 = load i32, ptr %8, align 4, !tbaa !9
+  %43 = trunc i32 %42 to i16
+  call void @lj_ir_set_(ptr noundef %41, i16 noundef zeroext 17680, i16 noundef zeroext %43, i16 noundef zeroext 12)
+  %44 = load ptr, ptr %4, align 8, !tbaa !4
+  %45 = call i32 @lj_opt_fold(ptr noundef %44)
+  store i32 %45, ptr %7, align 4, !tbaa !9
+  %46 = load ptr, ptr %4, align 8, !tbaa !4
+  %47 = load i32, ptr %7, align 4, !tbaa !9
+  %48 = trunc i32 %47 to i16
+  %49 = load ptr, ptr %4, align 8, !tbaa !4
+  %50 = call i32 @lj_ir_kint(ptr noundef %49, i32 noundef 3)
+  %51 = trunc i32 %50 to i16
+  call void @lj_ir_set_(ptr noundef %46, i16 noundef zeroext 2195, i16 noundef zeroext %48, i16 noundef zeroext %51)
+  %52 = load ptr, ptr %4, align 8, !tbaa !4
+  %53 = call i32 @lj_opt_fold(ptr noundef %52)
+  %54 = load ptr, ptr %4, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.jit_State, ptr %54, i32 0, i32 11
+  store i8 1, ptr %55, align 1, !tbaa !58
+  %56 = load i32, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  ret i32 %56
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @recff_sbufx_get_L(ptr noundef %0, i32 noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load i32, ptr %4, align 4, !tbaa !9
+  %7 = trunc i32 %6 to i16
+  call void @lj_ir_set_(ptr noundef %5, i16 noundef zeroext 17673, i16 noundef zeroext %7, i16 noundef zeroext 17)
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = call i32 @lj_opt_fold(ptr noundef %8)
+  ret i32 %9
+}
+
+declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @recff_sbufx_set_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = load i32, ptr %6, align 4, !tbaa !9
+  %12 = trunc i32 %11 to i16
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = trunc i32 %13 to i16
+  call void @lj_ir_set_(ptr noundef %10, i16 noundef zeroext 15881, i16 noundef zeroext %12, i16 noundef zeroext %14)
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = call i32 @lj_opt_fold(ptr noundef %15)
+  store i32 %16, ptr %9, align 4, !tbaa !9
+  %17 = load ptr, ptr %5, align 8, !tbaa !4
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = trunc i32 %18 to i16
+  %20 = load i32, ptr %8, align 4, !tbaa !9
+  %21 = trunc i32 %20 to i16
+  call void @lj_ir_set_(ptr noundef %17, i16 noundef zeroext 19721, i16 noundef zeroext %19, i16 noundef zeroext %21)
+  %22 = load ptr, ptr %5, align 8, !tbaa !4
+  %23 = call i32 @lj_opt_fold(ptr noundef %22)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @recff_sbufx_set_L(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load i32, ptr %5, align 4, !tbaa !9
+  %10 = trunc i32 %9 to i16
+  call void @lj_ir_set_(ptr noundef %8, i16 noundef zeroext 15881, i16 noundef zeroext %10, i16 noundef zeroext 17)
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = call i32 @lj_opt_fold(ptr noundef %11)
+  store i32 %12, ptr %7, align 4, !tbaa !9
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = load i32, ptr %7, align 4, !tbaa !9
+  %15 = trunc i32 %14 to i16
+  %16 = load i32, ptr %6, align 4, !tbaa !9
+  %17 = trunc i32 %16 to i16
+  call void @lj_ir_set_(ptr noundef %13, i16 noundef zeroext 19721, i16 noundef zeroext %15, i16 noundef zeroext %17)
+  %18 = load ptr, ptr %4, align 8, !tbaa !4
+  %19 = call i32 @lj_opt_fold(ptr noundef %18)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @recff_sbufx_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = trunc i32 %8 to i16
+  %10 = load i32, ptr %6, align 4, !tbaa !9
+  %11 = trunc i32 %10 to i16
+  call void @lj_ir_set_(ptr noundef %7, i16 noundef zeroext 17673, i16 noundef zeroext %9, i16 noundef zeroext %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = call i32 @lj_opt_fold(ptr noundef %12)
+  ret i32 %13
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @recff_sbufx_len(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = trunc i32 %9 to i16
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = trunc i32 %11 to i16
+  call void @lj_ir_set_(ptr noundef %8, i16 noundef zeroext 10773, i16 noundef zeroext %10, i16 noundef zeroext %12)
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = call i32 @lj_opt_fold(ptr noundef %13)
+  store i32 %14, ptr %7, align 4, !tbaa !9
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = load i32, ptr %7, align 4, !tbaa !9
+  %17 = trunc i32 %16 to i16
+  call void @lj_ir_set_(ptr noundef %15, i16 noundef zeroext 23315, i16 noundef zeroext %17, i16 noundef zeroext 4725)
+  %18 = load ptr, ptr %4, align 8, !tbaa !4
+  %19 = call i32 @lj_opt_fold(ptr noundef %18)
+  store i32 %19, ptr %7, align 4, !tbaa !9
+  %20 = load i32, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  ret i32 %20
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @recff_sbufx_checkint(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !46
+  store i64 %2, ptr %6, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %9 = load ptr, ptr %4, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.jit_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = load i64, ptr %6, align 8, !tbaa !60
+  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %14, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = call i32 @lj_ir_kint(ptr noundef %15, i32 noundef 2147483392)
+  store i32 %16, ptr %8, align 4, !tbaa !9
+  %17 = load i32, ptr %7, align 4, !tbaa !9
+  %18 = lshr i32 %17, 24
+  %19 = and i32 %18, 31
+  %20 = sub i32 %19, 15
+  %21 = icmp ule i32 %20, 4
+  br i1 %21, label %22, label %30
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8, !tbaa !4
+  %24 = load i32, ptr %7, align 4, !tbaa !9
+  %25 = trunc i32 %24 to i16
+  %26 = load i32, ptr %8, align 4, !tbaa !9
+  %27 = trunc i32 %26 to i16
+  call void @lj_ir_set_(ptr noundef %23, i16 noundef zeroext 1683, i16 noundef zeroext %25, i16 noundef zeroext %27)
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = call i32 @lj_opt_fold(ptr noundef %28)
+  br label %77
+
+30:                                               ; preds = %3
+  %31 = load i32, ptr %7, align 4, !tbaa !9
+  %32 = and i32 %31, 520093696
+  %33 = icmp eq i32 %32, 234881024
+  br i1 %33, label %34, label %47
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %4, align 8, !tbaa !4
+  %36 = load i32, ptr %7, align 4, !tbaa !9
+  %37 = trunc i32 %36 to i16
+  call void @lj_ir_set_(ptr noundef %35, i16 noundef zeroext 23315, i16 noundef zeroext %37, i16 noundef zeroext 4718)
+  %38 = load ptr, ptr %4, align 8, !tbaa !4
+  %39 = call i32 @lj_opt_fold(ptr noundef %38)
+  store i32 %39, ptr %7, align 4, !tbaa !9
+  %40 = load ptr, ptr %4, align 8, !tbaa !4
+  %41 = load i32, ptr %7, align 4, !tbaa !9
+  %42 = trunc i32 %41 to i16
+  %43 = load i32, ptr %8, align 4, !tbaa !9
+  %44 = trunc i32 %43 to i16
+  call void @lj_ir_set_(ptr noundef %40, i16 noundef zeroext 1683, i16 noundef zeroext %42, i16 noundef zeroext %44)
+  %45 = load ptr, ptr %4, align 8, !tbaa !4
+  %46 = call i32 @lj_opt_fold(ptr noundef %45)
+  br label %76
+
+47:                                               ; preds = %30
+  %48 = load i32, ptr %7, align 4, !tbaa !9
+  %49 = and i32 %48, 520093696
+  %50 = icmp eq i32 %49, 167772160
+  br i1 %50, label %51, label %73
+
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %4, align 8, !tbaa !4
+  %53 = load i32, ptr %7, align 4, !tbaa !9
+  %54 = load ptr, ptr %5, align 8, !tbaa !46
+  %55 = getelementptr inbounds nuw %struct.RecordFFData, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !40
+  %57 = load i64, ptr %6, align 8, !tbaa !60
+  %58 = getelementptr inbounds %union.TValue, ptr %56, i64 %57
+  %59 = call i32 @lj_crecord_loadiu64(ptr noundef %52, i32 noundef %53, ptr noundef %58)
+  store i32 %59, ptr %7, align 4, !tbaa !9
+  %60 = load ptr, ptr %4, align 8, !tbaa !4
+  %61 = load i32, ptr %7, align 4, !tbaa !9
+  %62 = trunc i32 %61 to i16
+  %63 = load ptr, ptr %4, align 8, !tbaa !4
+  %64 = call i32 @lj_ir_kint64(ptr noundef %63, i64 noundef 2147483392)
+  %65 = trunc i32 %64 to i16
+  call void @lj_ir_set_(ptr noundef %60, i16 noundef zeroext 1686, i16 noundef zeroext %62, i16 noundef zeroext %65)
+  %66 = load ptr, ptr %4, align 8, !tbaa !4
+  %67 = call i32 @lj_opt_fold(ptr noundef %66)
+  %68 = load ptr, ptr %4, align 8, !tbaa !4
+  %69 = load i32, ptr %7, align 4, !tbaa !9
+  %70 = trunc i32 %69 to i16
+  call void @lj_ir_set_(ptr noundef %68, i16 noundef zeroext 23315, i16 noundef zeroext %70, i16 noundef zeroext 4725)
+  %71 = load ptr, ptr %4, align 8, !tbaa !4
+  %72 = call i32 @lj_opt_fold(ptr noundef %71)
+  store i32 %72, ptr %7, align 4, !tbaa !9
+  br label %75
+
+73:                                               ; preds = %47
+  %74 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @lj_trace_err(ptr noundef %74, i32 noundef 11) #10
+  unreachable
+
+75:                                               ; preds = %51
+  br label %76
+
+76:                                               ; preds = %75, %34
+  br label %77
+
+77:                                               ; preds = %76, %22
+  %78 = load i32, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  ret i32 %78
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @recff_sbufx_write(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  %8 = trunc i32 %7 to i16
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = call i32 @lj_ir_kint64(ptr noundef %9, i64 noundef 48)
+  %11 = trunc i32 %10 to i16
+  call void @lj_ir_set_(ptr noundef %6, i16 noundef zeroext 10505, i16 noundef zeroext %8, i16 noundef zeroext %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = call i32 @lj_opt_fold(ptr noundef %12)
+  store i32 %13, ptr %5, align 4, !tbaa !9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = trunc i32 %15 to i16
+  call void @lj_ir_set_(ptr noundef %14, i16 noundef zeroext 21769, i16 noundef zeroext %16, i16 noundef zeroext 2)
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = call i32 @lj_opt_fold(ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret i32 %18
+}
+
+declare hidden i32 @lj_crecord_topcvoid(ptr noundef, i32 noundef, ptr noundef) #2
+
+declare hidden i32 @lj_crecord_topuint8(ptr noundef, i32 noundef) #2
+
+declare hidden i32 @lj_serialize_peektype(ptr noundef) #2
+
+declare hidden i32 @lj_record_vload(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lj_bufx_set_cow(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !87
+  store ptr %1, ptr %6, align 8, !tbaa !79
+  store ptr %2, ptr %7, align 8, !tbaa !92
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  %9 = load ptr, ptr %5, align 8, !tbaa !87
+  %10 = ptrtoint ptr %9 to i64
+  %11 = add i64 %10, 3
+  %12 = load ptr, ptr %6, align 8, !tbaa !79
+  %13 = getelementptr inbounds nuw %struct.SBufExt, ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds nuw %struct.MRef, ptr %13, i32 0, i32 0
+  store i64 %11, ptr %14, align 8, !tbaa !81
+  %15 = load ptr, ptr %7, align 8, !tbaa !92
+  %16 = load ptr, ptr %6, align 8, !tbaa !79
+  %17 = getelementptr inbounds nuw %struct.SBufExt, ptr %16, i32 0, i32 2
+  store ptr %15, ptr %17, align 8, !tbaa !103
+  %18 = load ptr, ptr %6, align 8, !tbaa !79
+  %19 = getelementptr inbounds nuw %struct.SBufExt, ptr %18, i32 0, i32 5
+  store ptr %15, ptr %19, align 8, !tbaa !104
+  %20 = load ptr, ptr %7, align 8, !tbaa !92
+  %21 = load i32, ptr %8, align 4, !tbaa !9
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %22
+  %24 = load ptr, ptr %6, align 8, !tbaa !79
+  %25 = getelementptr inbounds nuw %struct.SBufExt, ptr %24, i32 0, i32 1
+  store ptr %23, ptr %25, align 8, !tbaa !105
+  %26 = load ptr, ptr %6, align 8, !tbaa !79
+  %27 = getelementptr inbounds nuw %struct.SBufExt, ptr %26, i32 0, i32 0
+  store ptr %23, ptr %27, align 8, !tbaa !106
+  ret void
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn }
-attributes #7 = { nounwind }
+attributes #1 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -13253,16 +8801,106 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS9jit_State", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS6TValue", !6, i64 0}
+!13 = !{!7, !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !7, i64 0}
+!16 = !{!17, !28, i64 144}
+!17 = !{!"jit_State", !18, i64 0, !26, i64 120, !27, i64 128, !23, i64 136, !28, i64 144, !29, i64 152, !23, i64 160, !10, i64 168, !10, i64 172, !10, i64 176, !7, i64 180, !7, i64 181, !30, i64 182, !7, i64 183, !31, i64 184, !23, i64 224, !10, i64 232, !10, i64 236, !10, i64 240, !10, i64 244, !10, i64 248, !10, i64 252, !10, i64 256, !7, i64 260, !7, i64 264, !7, i64 304, !21, i64 328, !10, i64 336, !10, i64 340, !10, i64 344, !10, i64 348, !22, i64 352, !23, i64 360, !10, i64 368, !10, i64 372, !7, i64 376, !32, i64 384, !10, i64 392, !10, i64 396, !15, i64 400, !7, i64 402, !7, i64 604, !7, i64 1636, !7, i64 1696, !7, i64 1824, !10, i64 2848, !7, i64 2852, !10, i64 2980, !33, i64 2984, !23, i64 3008, !10, i64 3016, !10, i64 3020, !10, i64 3024, !23, i64 3032, !10, i64 3040, !10, i64 3044, !25, i64 3048, !25, i64 3056, !25, i64 3064, !20, i64 3072, !20, i64 3080, !7, i64 3088, !29, i64 3096, !10, i64 3104, !10, i64 3108}
+!18 = !{!"GCtrace", !19, i64 0, !7, i64 8, !7, i64 9, !15, i64 10, !10, i64 12, !10, i64 16, !19, i64 24, !21, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !23, i64 56, !19, i64 64, !24, i64 72, !10, i64 80, !10, i64 84, !25, i64 88, !10, i64 96, !15, i64 100, !15, i64 102, !15, i64 104, !15, i64 106, !15, i64 108, !15, i64 110, !15, i64 112, !7, i64 114, !7, i64 115, !7, i64 116, !7, i64 117}
+!19 = !{!"GCRef", !20, i64 0}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!"p1 _ZTS5IRIns", !6, i64 0}
+!22 = !{!"p1 _ZTS8SnapShot", !6, i64 0}
+!23 = !{!"p1 int", !6, i64 0}
+!24 = !{!"MRef", !20, i64 0}
+!25 = !{!"p1 omnipotent char", !6, i64 0}
+!26 = !{!"p1 _ZTS7GCtrace", !6, i64 0}
+!27 = !{!"p1 _ZTS9lua_State", !6, i64 0}
+!28 = !{!"p1 _ZTS6GCfunc", !6, i64 0}
+!29 = !{!"p1 _ZTS7GCproto", !6, i64 0}
+!30 = !{!"IRType1", !7, i64 0}
+!31 = !{!"FoldState", !7, i64 0, !7, i64 8, !7, i64 24}
+!32 = !{!"p1 _ZTS5GCRef", !6, i64 0}
+!33 = !{!"ScEvEntry", !24, i64 0, !15, i64 8, !15, i64 10, !15, i64 12, !15, i64 14, !30, i64 16, !7, i64 17}
+!34 = !{!35, !10, i64 16}
+!35 = !{!"RecordFFData", !12, i64 0, !20, i64 8, !10, i64 16}
+!36 = !{!35, !20, i64 8}
+!37 = !{!17, !27, i64 128}
+!38 = !{!39, !12, i64 32}
+!39 = !{!"lua_State", !19, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !24, i64 16, !19, i64 24, !12, i64 32, !12, i64 40, !24, i64 48, !24, i64 56, !19, i64 64, !19, i64 72, !6, i64 80, !10, i64 88}
+!40 = !{!35, !12, i64 0}
+!41 = !{!17, !23, i64 160}
+!42 = !{!17, !10, i64 172}
+!43 = !{!6, !6, i64 0}
+!44 = !{!17, !10, i64 372}
+!45 = !{!28, !28, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS12RecordFFData", !6, i64 0}
+!48 = !{!17, !10, i64 12}
+!49 = !{!17, !10, i64 252}
+!50 = !{!51, !10, i64 48}
+!51 = !{!"RecordIndex", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !52, i64 32, !12, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68}
+!52 = !{!"p1 _ZTS5GCtab", !6, i64 0}
+!53 = !{!51, !10, i64 52}
+!54 = !{!51, !10, i64 68}
+!55 = !{!51, !10, i64 64}
+!56 = !{!51, !10, i64 56}
+!57 = !{!51, !10, i64 60}
+!58 = !{!17, !7, i64 181}
+!59 = !{!17, !21, i64 32}
+!60 = !{!20, !20, i64 0}
+!61 = distinct !{!61, !62}
+!62 = !{!"llvm.loop.mustprogress"}
+!63 = distinct !{!63, !62}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS7GCudata", !6, i64 0}
+!66 = distinct !{!66, !62}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS5GCstr", !6, i64 0}
+!69 = !{!70, !10, i64 20}
+!70 = !{!"GCstr", !19, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !10, i64 12, !10, i64 16, !10, i64 20}
+!71 = !{!17, !10, i64 176}
+!72 = distinct !{!72, !62}
+!73 = distinct !{!73, !62}
+!74 = distinct !{!74, !62}
+!75 = !{!52, !52, i64 0}
+!76 = !{!21, !21, i64 0}
+!77 = distinct !{!77, !62}
+!78 = !{!19, !20, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTS7SBufExt", !6, i64 0}
+!81 = !{!82, !20, i64 24}
+!82 = !{!"SBufExt", !25, i64 0, !25, i64 8, !25, i64 16, !24, i64 24, !7, i64 32, !25, i64 40, !19, i64 48, !19, i64 56, !10, i64 64}
+!83 = distinct !{!83, !62}
+!84 = distinct !{!84, !62}
+!85 = distinct !{!85, !62}
+!86 = distinct !{!86, !62}
+!87 = !{!27, !27, i64 0}
+!88 = !{!23, !23, i64 0}
+!89 = !{!39, !12, i64 40}
+!90 = !{!17, !15, i64 400}
+!91 = !{i64 0, i64 8, !13}
+!92 = !{!25, !25, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTS5GCobj", !6, i64 0}
+!95 = !{!96, !25, i64 16}
+!96 = !{!"FormatState", !25, i64 0, !25, i64 8, !25, i64 16, !10, i64 24}
+!97 = !{!96, !10, i64 24}
+!98 = distinct !{!98, !62}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTS11FormatState", !6, i64 0}
+!101 = !{!96, !25, i64 0}
+!102 = !{!96, !25, i64 8}
+!103 = !{!82, !25, i64 16}
+!104 = !{!82, !25, i64 40}
+!105 = !{!82, !25, i64 8}
+!106 = !{!82, !25, i64 0}

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/luajit/original/lj_lex.ll'
 source_filename = "bench/luajit/original/lj_lex.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -44,4381 +44,2841 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [6 x i8] c"<eof>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_lex_setup(ptr noundef %L, ptr noundef initializes((0, 16), (32, 48), (52, 60), (112, 120), (144, 172), (176, 180)) %ls) local_unnamed_addr #0 {
-cond.false.i61:
-  %sz.i74 = alloca i64, align 8
-  %sz.i50 = alloca i64, align 8
-  %sz.i = alloca i64, align 8
-  %L1 = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  store ptr %L, ptr %L1, align 8
-  store ptr null, ptr %ls, align 8
-  %p = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %pe = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %vstack = getelementptr inbounds nuw i8, ptr %ls, i64 144
-  %tok = getelementptr inbounds nuw i8, ptr %ls, i64 52
-  store i32 0, ptr %tok, align 4
-  %lookahead = getelementptr inbounds nuw i8, ptr %ls, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %vstack, i8 0, i64 28, i1 false)
-  store i32 289, ptr %lookahead, align 8
-  %linenumber = getelementptr inbounds nuw i8, ptr %ls, i64 112
-  store i32 1, ptr %linenumber, align 8
-  %lastline = getelementptr inbounds nuw i8, ptr %ls, i64 116
-  store i32 1, ptr %lastline, align 4
-  %endmark = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  store i32 0, ptr %endmark, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %0 = load ptr, ptr %rfunc.i, align 8
-  %rdata.i = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %1 = load ptr, ptr %rdata.i, align 8
-  %call.i47 = call ptr %0(ptr noundef %L, ptr noundef %1, ptr noundef nonnull %sz.i) #9
-  %cmp.i48 = icmp eq ptr %call.i47, null
-  %2 = load i64, ptr %sz.i, align 8
-  %cmp1.i = icmp eq i64 %2, 0
-  %or.cond.i = select i1 %cmp.i48, i1 true, i1 %cmp1.i
-  br i1 %or.cond.i, label %if.end34.thread, label %if.end.i
+define hidden range(i32 0, 2) i32 @lj_lex_setup(ptr noundef %0, ptr noundef initializes((0, 16), (32, 48), (52, 60), (112, 120), (144, 172), (176, 184)) %1) local_unnamed_addr #0 {
+lex_next.exit:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  store ptr null, ptr %1, align 8, !tbaa !19
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  store i32 0, ptr %6, align 4, !tbaa !20
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
+  store i32 289, ptr %7, align 8, !tbaa !21
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 1, ptr %8, align 8, !tbaa !22
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  store i32 1, ptr %9, align 4, !tbaa !23
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  store i32 0, ptr %10, align 8, !tbaa !24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 180
+  store i32 1, ptr %11, align 4, !tbaa !25
+  %12 = tail call fastcc i32 @lex_more(ptr noundef nonnull %1)
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 %12, ptr %13, align 8, !tbaa !26
+  %14 = icmp ne i32 %12, 239
+  br i1 %14, label %thread-pre-split, label %15
 
-if.end34.thread:                                  ; preds = %cond.false.i61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  %c.i6499 = getelementptr inbounds nuw i8, ptr %ls, i64 48
-  store i32 -1, ptr %c.i6499, align 8
-  br label %return
+15:                                               ; preds = %lex_next.exit
+  %16 = load ptr, ptr %3, align 8, !tbaa !27
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load ptr, ptr %4, align 8, !tbaa !28
+  %.not = icmp ugt ptr %17, %18
+  br i1 %.not, label %.loopexit, label %19
 
-if.end.i:                                         ; preds = %cond.false.i61
-  %cmp2.i = icmp ugt i64 %2, 2147483391
-  br i1 %cmp2.i, label %if.then3.i, label %lex_next.exit69
+19:                                               ; preds = %15
+  %20 = load i8, ptr %16, align 1, !tbaa !29
+  %21 = icmp eq i8 %20, -69
+  br i1 %21, label %22, label %.loopexit
 
-if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.not.i = icmp eq i64 %2, -1
-  br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %24 = load i8, ptr %23, align 1, !tbaa !29
+  %25 = icmp eq i8 %24, -65
+  br i1 %25, label %26, label %.loopexit
 
-if.then5.i:                                       ; preds = %if.then3.i
-  %3 = load ptr, ptr %L1, align 8
-  call void @lj_err_mem(ptr noundef %3) #10
-  unreachable
+26:                                               ; preds = %22
+  store ptr %17, ptr %3, align 8, !tbaa !27
+  %27 = icmp ult ptr %17, %18
+  br i1 %27, label %28, label %32
 
-if.end7.i:                                        ; preds = %if.then3.i
-  %4 = ptrtoint ptr %call.i47 to i64
-  %5 = call i64 @llvm.umax.i64(i64 %4, i64 -2147483392)
-  %spec.store.select.i = xor i64 %5, -1
-  store i64 %spec.store.select.i, ptr %sz.i, align 8
-  store i32 1, ptr %endmark, align 8
-  br label %lex_next.exit69
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 3
+  store ptr %29, ptr %3, align 8, !tbaa !27
+  %30 = load i8, ptr %17, align 1, !tbaa !29
+  %31 = zext i8 %30 to i32
+  br label %lex_next.exit40
 
-lex_next.exit69:                                  ; preds = %if.end.i, %if.end7.i
-  %6 = phi i64 [ %spec.store.select.i, %if.end7.i ], [ %2, %if.end.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i47, i64 %6
-  store ptr %add.ptr.i, ptr %pe, align 8
-  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %call.i47, i64 1
-  store ptr %add.ptr12.i, ptr %p, align 8
-  %7 = load i8, ptr %call.i47, align 1
-  %conv.i49 = zext i8 %7 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  %c.i64 = getelementptr inbounds nuw i8, ptr %ls, i64 48
-  store i32 %conv.i49, ptr %c.i64, align 8
-  %cmp = icmp ne i8 %7, -17
-  br i1 %cmp, label %if.end, label %land.lhs.true
+32:                                               ; preds = %26
+  %33 = tail call fastcc i32 @lex_more(ptr noundef nonnull %1)
+  br label %lex_next.exit40
 
-land.lhs.true:                                    ; preds = %lex_next.exit69
-  %add.ptr = getelementptr inbounds nuw i8, ptr %call.i47, i64 3
-  %cmp4.not = icmp samesign ult i64 %6, 3
-  br i1 %cmp4.not, label %return, label %land.lhs.true5
+lex_next.exit40:                                  ; preds = %28, %32
+  %34 = phi i32 [ %31, %28 ], [ %33, %32 ]
+  store i32 %34, ptr %13, align 8, !tbaa !26
+  br label %thread-pre-split
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %8 = load i8, ptr %add.ptr12.i, align 1
-  %cmp7 = icmp eq i8 %8, -69
-  br i1 %cmp7, label %land.lhs.true9, label %return
+thread-pre-split:                                 ; preds = %lex_next.exit40, %lex_next.exit
+  %35 = phi i32 [ %34, %lex_next.exit40 ], [ %12, %lex_next.exit ]
+  %36 = icmp eq i32 %35, 35
+  br i1 %36, label %.critedge, label %lex_newline.exit
 
-land.lhs.true9:                                   ; preds = %land.lhs.true5
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %call.i47, i64 2
-  %9 = load i8, ptr %arrayidx11, align 1
-  %cmp13 = icmp eq i8 %9, -65
-  br i1 %cmp13, label %if.then, label %return
+.critedge:                                        ; preds = %thread-pre-split, %lex_next.exit41
+  %37 = load ptr, ptr %3, align 8, !tbaa !27
+  %38 = load ptr, ptr %4, align 8, !tbaa !28
+  %39 = icmp ult ptr %37, %38
+  br i1 %39, label %40, label %44
 
-if.then:                                          ; preds = %land.lhs.true9
-  store ptr %add.ptr, ptr %p, align 8
-  %cmp.i47.not = icmp eq i64 %6, 3
-  br i1 %cmp.i47.not, label %cond.false.i48, label %cond.true.i52
+40:                                               ; preds = %.critedge
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store ptr %41, ptr %3, align 8, !tbaa !27
+  %42 = load i8, ptr %37, align 1, !tbaa !29
+  %43 = zext i8 %42 to i32
+  br label %lex_next.exit41
 
-cond.true.i52:                                    ; preds = %if.then
-  %incdec.ptr.i54 = getelementptr inbounds nuw i8, ptr %call.i47, i64 4
-  store ptr %incdec.ptr.i54, ptr %p, align 8
-  %10 = load i8, ptr %add.ptr, align 1
-  %conv.i55 = zext i8 %10 to i32
-  br label %lex_next.exit56
+44:                                               ; preds = %.critedge
+  %45 = tail call fastcc i32 @lex_more(ptr noundef nonnull %1)
+  br label %lex_next.exit41
 
-cond.false.i48:                                   ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i50)
-  %11 = load ptr, ptr %rfunc.i, align 8
-  %12 = load ptr, ptr %L1, align 8
-  %13 = load ptr, ptr %rdata.i, align 8
-  %call.i54 = call ptr %11(ptr noundef %12, ptr noundef %13, ptr noundef nonnull %sz.i50) #9
-  %cmp.i55 = icmp eq ptr %call.i54, null
-  %14 = load i64, ptr %sz.i50, align 8
-  %cmp1.i56 = icmp eq i64 %14, 0
-  %or.cond.i57 = select i1 %cmp.i55, i1 true, i1 %cmp1.i56
-  br i1 %or.cond.i57, label %lex_more.exit73, label %if.end.i58
-
-if.end.i58:                                       ; preds = %cond.false.i48
-  %cmp2.i59 = icmp ugt i64 %14, 2147483391
-  br i1 %cmp2.i59, label %if.then3.i67, label %if.end11.i60
-
-if.then3.i67:                                     ; preds = %if.end.i58
-  %cmp4.not.i68 = icmp eq i64 %14, -1
-  br i1 %cmp4.not.i68, label %if.end7.i70, label %if.then5.i69
-
-if.then5.i69:                                     ; preds = %if.then3.i67
-  %15 = load ptr, ptr %L1, align 8
-  call void @lj_err_mem(ptr noundef %15) #10
-  unreachable
-
-if.end7.i70:                                      ; preds = %if.then3.i67
-  %16 = ptrtoint ptr %call.i54 to i64
-  %17 = call i64 @llvm.umax.i64(i64 %16, i64 -2147483392)
-  %spec.store.select.i71 = xor i64 %17, -1
-  store i64 %spec.store.select.i71, ptr %sz.i50, align 8
-  store i32 1, ptr %endmark, align 8
-  br label %if.end11.i60
-
-if.end11.i60:                                     ; preds = %if.end7.i70, %if.end.i58
-  %18 = phi i64 [ %spec.store.select.i71, %if.end7.i70 ], [ %14, %if.end.i58 ]
-  %add.ptr.i61 = getelementptr inbounds i8, ptr %call.i54, i64 %18
-  store ptr %add.ptr.i61, ptr %pe, align 8
-  %add.ptr12.i63 = getelementptr inbounds nuw i8, ptr %call.i54, i64 1
-  store ptr %add.ptr12.i63, ptr %p, align 8
-  %19 = load i8, ptr %call.i54, align 1
-  %conv.i65 = zext i8 %19 to i32
-  br label %lex_more.exit73
-
-lex_more.exit73:                                  ; preds = %cond.false.i48, %if.end11.i60
-  %retval.0.i66 = phi i32 [ %conv.i65, %if.end11.i60 ], [ -1, %cond.false.i48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i50)
-  br label %lex_next.exit56
-
-lex_next.exit56:                                  ; preds = %lex_more.exit73, %cond.true.i52
-  %cond.i50 = phi i32 [ %conv.i55, %cond.true.i52 ], [ %retval.0.i66, %lex_more.exit73 ]
-  store i32 %cond.i50, ptr %c.i64, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %lex_next.exit56, %lex_next.exit69
-  %.pr106 = phi i32 [ %cond.i50, %lex_next.exit56 ], [ %conv.i49, %lex_next.exit69 ]
-  %cmp19 = icmp eq i32 %.pr106, 35
-  br i1 %cmp19, label %do.body, label %if.end34
-
-do.body:                                          ; preds = %if.end, %lex_next.exit
-  %20 = load ptr, ptr %p, align 8
-  %21 = load ptr, ptr %pe, align 8
-  %cmp.i = icmp ult ptr %20, %21
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %do.body
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 1
-  store ptr %incdec.ptr.i, ptr %p, align 8
-  %22 = load i8, ptr %20, align 1
-  %conv.i = zext i8 %22 to i32
-  br label %lex_next.exit
-
-cond.false.i:                                     ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i74)
-  %23 = load ptr, ptr %rfunc.i, align 8
-  %24 = load ptr, ptr %L1, align 8
-  %25 = load ptr, ptr %rdata.i, align 8
-  %call.i78 = call ptr %23(ptr noundef %24, ptr noundef %25, ptr noundef nonnull %sz.i74) #9
-  %cmp.i79 = icmp eq ptr %call.i78, null
-  %26 = load i64, ptr %sz.i74, align 8
-  %cmp1.i80 = icmp eq i64 %26, 0
-  %or.cond.i81 = select i1 %cmp.i79, i1 true, i1 %cmp1.i80
-  br i1 %or.cond.i81, label %lex_more.exit97, label %if.end.i82
-
-if.end.i82:                                       ; preds = %cond.false.i
-  %cmp2.i83 = icmp ugt i64 %26, 2147483391
-  br i1 %cmp2.i83, label %if.then3.i91, label %if.end11.i84
-
-if.then3.i91:                                     ; preds = %if.end.i82
-  %cmp4.not.i92 = icmp eq i64 %26, -1
-  br i1 %cmp4.not.i92, label %if.end7.i94, label %if.then5.i93
-
-if.then5.i93:                                     ; preds = %if.then3.i91
-  %27 = load ptr, ptr %L1, align 8
-  call void @lj_err_mem(ptr noundef %27) #10
-  unreachable
-
-if.end7.i94:                                      ; preds = %if.then3.i91
-  %28 = ptrtoint ptr %call.i78 to i64
-  %29 = call i64 @llvm.umax.i64(i64 %28, i64 -2147483392)
-  %spec.store.select.i95 = xor i64 %29, -1
-  store i64 %spec.store.select.i95, ptr %sz.i74, align 8
-  store i32 1, ptr %endmark, align 8
-  br label %if.end11.i84
-
-if.end11.i84:                                     ; preds = %if.end7.i94, %if.end.i82
-  %30 = phi i64 [ %spec.store.select.i95, %if.end7.i94 ], [ %26, %if.end.i82 ]
-  %add.ptr.i85 = getelementptr inbounds i8, ptr %call.i78, i64 %30
-  store ptr %add.ptr.i85, ptr %pe, align 8
-  %add.ptr12.i87 = getelementptr inbounds nuw i8, ptr %call.i78, i64 1
-  store ptr %add.ptr12.i87, ptr %p, align 8
-  %31 = load i8, ptr %call.i78, align 1
-  %conv.i89 = zext i8 %31 to i32
-  br label %lex_more.exit97
-
-lex_more.exit97:                                  ; preds = %cond.false.i, %if.end11.i84
-  %retval.0.i90 = phi i32 [ %conv.i89, %if.end11.i84 ], [ -1, %cond.false.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i74)
-  br label %lex_next.exit
-
-lex_next.exit:                                    ; preds = %lex_more.exit97, %cond.true.i
-  %cond.i = phi i32 [ %conv.i, %cond.true.i ], [ %retval.0.i90, %lex_more.exit97 ]
-  store i32 %cond.i, ptr %c.i64, align 8
-  switch i32 %cond.i, label %do.body [
-    i32 -1, label %return
-    i32 10, label %if.end34.thread110
-    i32 13, label %if.end34.thread110
+lex_next.exit41:                                  ; preds = %40, %44
+  %46 = phi i32 [ %43, %40 ], [ %45, %44 ]
+  store i32 %46, ptr %13, align 8, !tbaa !26
+  switch i32 %46, label %.critedge [
+    i32 -1, label %.loopexit
+    i32 10, label %switch.edge
+    i32 13, label %switch.edge
   ]
 
-if.end34:                                         ; preds = %if.end
-  %cmp37 = icmp ne i32 %.pr106, 27
-  %brmerge = or i1 %cmp, %cmp37
-  %not.cmp37 = xor i1 %cmp37, true
-  %.mux = zext i1 %not.cmp37 to i32
-  br i1 %brmerge, label %return, label %if.then40
+switch.edge:                                      ; preds = %lex_next.exit41, %lex_next.exit41
+  %47 = load ptr, ptr %3, align 8, !tbaa !27
+  %48 = load ptr, ptr %4, align 8, !tbaa !28
+  %49 = icmp ult ptr %47, %48
+  br i1 %49, label %50, label %54
 
-if.end34.thread110:                               ; preds = %lex_next.exit, %lex_next.exit
-  call fastcc void @lex_newline(ptr noundef nonnull %ls)
-  %.pr106112 = load i32, ptr %c.i64, align 8
-  %cmp37113 = icmp eq i32 %.pr106112, 27
-  br i1 %cmp37113, label %if.then40, label %return
+50:                                               ; preds = %switch.edge
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  store ptr %51, ptr %3, align 8, !tbaa !27
+  %52 = load i8, ptr %47, align 1, !tbaa !29
+  %53 = zext i8 %52 to i32
+  br label %lex_next.exit9.i
 
-if.then40:                                        ; preds = %if.end34, %if.end34.thread110
-  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
-  %32 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %incdec.ptr, ptr %top, align 8
-  %call41 = call ptr @lj_err_str(ptr noundef %L, i32 noundef 2965) #9
-  %33 = ptrtoint ptr %call41 to i64
-  %or.i = or i64 %33, -703687441776640
-  store i64 %or.i, ptr %32, align 8
-  call void @lj_err_throw(ptr noundef %L, i32 noundef 3) #10
-  unreachable
+54:                                               ; preds = %switch.edge
+  %55 = tail call fastcc i32 @lex_more(ptr noundef nonnull %1)
+  br label %lex_next.exit9.i
 
-return:                                           ; preds = %lex_next.exit, %land.lhs.true, %land.lhs.true5, %land.lhs.true9, %if.end34, %if.end34.thread110, %if.end34.thread
-  %retval.0 = phi i32 [ %.mux, %if.end34 ], [ 0, %if.end34.thread ], [ 0, %if.end34.thread110 ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true5 ], [ 0, %land.lhs.true ], [ 0, %lex_next.exit ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @lex_newline(ptr noundef %ls) unnamed_addr #0 {
-entry:
-  %sz.i21 = alloca i64, align 8
-  %sz.i = alloca i64, align 8
-  %c = getelementptr inbounds nuw i8, ptr %ls, i64 48
-  %0 = load i32, ptr %c, align 8
-  %p.i11 = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %1 = load ptr, ptr %p.i11, align 8
-  %pe.i12 = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %2 = load ptr, ptr %pe.i12, align 8
-  %cmp.i13 = icmp ult ptr %1, %2
-  br i1 %cmp.i13, label %cond.true.i18, label %cond.false.i14
-
-cond.true.i18:                                    ; preds = %entry
-  %incdec.ptr.i20 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store ptr %incdec.ptr.i20, ptr %p.i11, align 8
-  %3 = load i8, ptr %1, align 1
-  %conv.i21 = zext i8 %3 to i32
-  br label %lex_next.exit22
-
-cond.false.i14:                                   ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %4 = load ptr, ptr %rfunc.i, align 8
-  %L.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %5 = load ptr, ptr %L.i, align 8
-  %rdata.i = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %6 = load ptr, ptr %rdata.i, align 8
-  %call.i18 = call ptr %4(ptr noundef %5, ptr noundef %6, ptr noundef nonnull %sz.i) #9
-  %cmp.i19 = icmp eq ptr %call.i18, null
-  %7 = load i64, ptr %sz.i, align 8
-  %cmp1.i = icmp eq i64 %7, 0
-  %or.cond.i = select i1 %cmp.i19, i1 true, i1 %cmp1.i
-  br i1 %or.cond.i, label %lex_more.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %cond.false.i14
-  %cmp2.i = icmp ugt i64 %7, 2147483391
-  br i1 %cmp2.i, label %if.then3.i, label %if.end11.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.not.i = icmp eq i64 %7, -1
-  br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.then3.i
-  %8 = load ptr, ptr %L.i, align 8
-  call void @lj_err_mem(ptr noundef %8) #10
-  unreachable
-
-if.end7.i:                                        ; preds = %if.then3.i
-  %9 = ptrtoint ptr %call.i18 to i64
-  %10 = call i64 @llvm.umax.i64(i64 %9, i64 -2147483392)
-  %spec.store.select.i = xor i64 %10, -1
-  store i64 %spec.store.select.i, ptr %sz.i, align 8
-  %endmark.i = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  store i32 1, ptr %endmark.i, align 8
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %if.end7.i, %if.end.i
-  %11 = phi i64 [ %spec.store.select.i, %if.end7.i ], [ %7, %if.end.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i18, i64 %11
-  store ptr %add.ptr.i, ptr %pe.i12, align 8
-  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %call.i18, i64 1
-  store ptr %add.ptr12.i, ptr %p.i11, align 8
-  %12 = load i8, ptr %call.i18, align 1
-  %conv.i20 = zext i8 %12 to i32
-  br label %lex_more.exit
-
-lex_more.exit:                                    ; preds = %cond.false.i14, %if.end11.i
-  %retval.0.i = phi i32 [ %conv.i20, %if.end11.i ], [ -1, %cond.false.i14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  br label %lex_next.exit22
-
-lex_next.exit22:                                  ; preds = %lex_more.exit, %cond.true.i18
-  %cond.i16 = phi i32 [ %conv.i21, %cond.true.i18 ], [ %retval.0.i, %lex_more.exit ]
-  store i32 %cond.i16, ptr %c, align 8
-  switch i32 %cond.i16, label %if.end [
-    i32 10, label %land.lhs.true
-    i32 13, label %land.lhs.true
+lex_next.exit9.i:                                 ; preds = %54, %50
+  %56 = phi i32 [ %53, %50 ], [ %55, %54 ]
+  store i32 %56, ptr %13, align 8, !tbaa !26
+  switch i32 %56, label %69 [
+    i32 10, label %57
+    i32 13, label %57
   ]
 
-land.lhs.true:                                    ; preds = %lex_next.exit22, %lex_next.exit22
-  %cmp5.not = icmp eq i32 %cond.i16, %0
-  br i1 %cmp5.not, label %if.end, label %if.then
+57:                                               ; preds = %lex_next.exit9.i, %lex_next.exit9.i
+  %.not.i = icmp eq i32 %56, %46
+  br i1 %.not.i, label %69, label %58
 
-if.then:                                          ; preds = %land.lhs.true
-  %13 = load ptr, ptr %p.i11, align 8
-  %14 = load ptr, ptr %pe.i12, align 8
-  %cmp.i = icmp ult ptr %13, %14
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %3, align 8, !tbaa !27
+  %60 = load ptr, ptr %4, align 8, !tbaa !28
+  %61 = icmp ult ptr %59, %60
+  br i1 %61, label %62, label %66
 
-cond.true.i:                                      ; preds = %if.then
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store ptr %incdec.ptr.i, ptr %p.i11, align 8
-  %15 = load i8, ptr %13, align 1
-  %conv.i = zext i8 %15 to i32
-  br label %lex_next.exit
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  store ptr %63, ptr %3, align 8, !tbaa !27
+  %64 = load i8, ptr %59, align 1, !tbaa !29
+  %65 = zext i8 %64 to i32
+  br label %lex_next.exit.i
 
-cond.false.i:                                     ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i21)
-  %rfunc.i22 = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %16 = load ptr, ptr %rfunc.i22, align 8
-  %L.i23 = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %17 = load ptr, ptr %L.i23, align 8
-  %rdata.i24 = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %18 = load ptr, ptr %rdata.i24, align 8
-  %call.i25 = call ptr %16(ptr noundef %17, ptr noundef %18, ptr noundef nonnull %sz.i21) #9
-  %cmp.i26 = icmp eq ptr %call.i25, null
-  %19 = load i64, ptr %sz.i21, align 8
-  %cmp1.i27 = icmp eq i64 %19, 0
-  %or.cond.i28 = select i1 %cmp.i26, i1 true, i1 %cmp1.i27
-  br i1 %or.cond.i28, label %lex_more.exit44, label %if.end.i29
+66:                                               ; preds = %58
+  %67 = tail call fastcc i32 @lex_more(ptr noundef nonnull %1)
+  br label %lex_next.exit.i
 
-if.end.i29:                                       ; preds = %cond.false.i
-  %cmp2.i30 = icmp ugt i64 %19, 2147483391
-  br i1 %cmp2.i30, label %if.then3.i38, label %if.end11.i31
+lex_next.exit.i:                                  ; preds = %66, %62
+  %68 = phi i32 [ %65, %62 ], [ %67, %66 ]
+  store i32 %68, ptr %13, align 8, !tbaa !26
+  br label %69
 
-if.then3.i38:                                     ; preds = %if.end.i29
-  %cmp4.not.i39 = icmp eq i64 %19, -1
-  br i1 %cmp4.not.i39, label %if.end7.i41, label %if.then5.i40
+69:                                               ; preds = %lex_next.exit.i, %57, %lex_next.exit9.i
+  %70 = phi i32 [ %68, %lex_next.exit.i ], [ %46, %57 ], [ %56, %lex_next.exit9.i ]
+  %71 = load i32, ptr %8, align 8, !tbaa !22
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %8, align 8, !tbaa !22
+  %73 = icmp sgt i32 %71, 2147483390
+  br i1 %73, label %74, label %lex_newline.exit.thread
 
-if.then5.i40:                                     ; preds = %if.then3.i38
-  %20 = load ptr, ptr %L.i23, align 8
-  call void @lj_err_mem(ptr noundef %20) #10
+74:                                               ; preds = %69
+  %75 = load i32, ptr %6, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %1, i32 noundef %75, i32 noundef 2191) #10
   unreachable
 
-if.end7.i41:                                      ; preds = %if.then3.i38
-  %21 = ptrtoint ptr %call.i25 to i64
-  %22 = call i64 @llvm.umax.i64(i64 %21, i64 -2147483392)
-  %spec.store.select.i42 = xor i64 %22, -1
-  store i64 %spec.store.select.i42, ptr %sz.i21, align 8
-  %endmark.i43 = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  store i32 1, ptr %endmark.i43, align 8
-  br label %if.end11.i31
+lex_newline.exit:                                 ; preds = %thread-pre-split
+  %76 = icmp ne i32 %35, 27
+  %brmerge = or i1 %14, %76
+  %not. = xor i1 %76, true
+  %.mux = zext i1 %not. to i32
+  br i1 %brmerge, label %.loopexit, label %.thread
 
-if.end11.i31:                                     ; preds = %if.end7.i41, %if.end.i29
-  %23 = phi i64 [ %spec.store.select.i42, %if.end7.i41 ], [ %19, %if.end.i29 ]
-  %add.ptr.i32 = getelementptr inbounds i8, ptr %call.i25, i64 %23
-  store ptr %add.ptr.i32, ptr %pe.i12, align 8
-  %add.ptr12.i34 = getelementptr inbounds nuw i8, ptr %call.i25, i64 1
-  store ptr %add.ptr12.i34, ptr %p.i11, align 8
-  %24 = load i8, ptr %call.i25, align 1
-  %conv.i36 = zext i8 %24 to i32
-  br label %lex_more.exit44
+lex_newline.exit.thread:                          ; preds = %69
+  %77 = icmp eq i32 %70, 27
+  br i1 %77, label %.thread, label %.loopexit
 
-lex_more.exit44:                                  ; preds = %cond.false.i, %if.end11.i31
-  %retval.0.i37 = phi i32 [ %conv.i36, %if.end11.i31 ], [ -1, %cond.false.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i21)
-  br label %lex_next.exit
-
-lex_next.exit:                                    ; preds = %lex_more.exit44, %cond.true.i
-  %cond.i = phi i32 [ %conv.i, %cond.true.i ], [ %retval.0.i37, %lex_more.exit44 ]
-  store i32 %cond.i, ptr %c, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %lex_next.exit22, %lex_next.exit, %land.lhs.true
-  %linenumber = getelementptr inbounds nuw i8, ptr %ls, i64 112
-  %25 = load i32, ptr %linenumber, align 8
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %linenumber, align 8
-  %cmp7 = icmp sgt i32 %25, 2147483390
-  br i1 %cmp7, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %if.end
-  %tok = getelementptr inbounds nuw i8, ptr %ls, i64 52
-  %26 = load i32, ptr %tok, align 4
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef %26, i32 noundef 2171) #11
+.thread:                                          ; preds = %lex_newline.exit, %lex_newline.exit.thread
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !30
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %80, ptr %78, align 8, !tbaa !30
+  %81 = tail call ptr @lj_err_str(ptr noundef %0, i32 noundef 2985) #11
+  %82 = ptrtoint ptr %81 to i64
+  %83 = or i64 %82, -703687441776640
+  store i64 %83, ptr %79, align 8, !tbaa !29
+  tail call void @lj_err_throw(ptr noundef %0, i32 noundef 3) #12
   unreachable
 
-if.end9:                                          ; preds = %if.end
-  ret void
+.loopexit:                                        ; preds = %lex_next.exit41, %15, %19, %22, %lex_newline.exit, %lex_newline.exit.thread
+  %.036 = phi i32 [ %.mux, %lex_newline.exit ], [ 0, %lex_newline.exit.thread ], [ 0, %22 ], [ 0, %19 ], [ 0, %15 ], [ 0, %lex_next.exit41 ]
+  ret i32 %.036
 }
 
-declare hidden ptr @lj_err_str(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare hidden ptr @lj_err_str(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_lex_cleanup(ptr noundef readonly captures(none) %L, ptr noundef readonly captures(none) %ls) local_unnamed_addr #0 {
-entry:
-  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
-  %0 = load i64, ptr %glref, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %bcstack = getelementptr inbounds nuw i8, ptr %ls, i64 160
-  %2 = load ptr, ptr %bcstack, align 8
-  %sizebcstack = getelementptr inbounds nuw i8, ptr %ls, i64 168
-  %3 = load i32, ptr %sizebcstack, align 8
-  %conv = zext i32 %3 to i64
-  %mul = shl nuw nsw i64 %conv, 3
-  %gc.i6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i64, ptr %gc.i6, align 8
-  %sub.i7 = sub i64 %4, %mul
-  store i64 %sub.i7, ptr %gc.i6, align 8
-  %5 = load ptr, ptr %1, align 8
-  %allocd.i8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %allocd.i8, align 8
-  %call.i9 = tail call ptr %5(ptr noundef %6, ptr noundef %2, i64 noundef %mul, i64 noundef 0) #9
-  %vstack = getelementptr inbounds nuw i8, ptr %ls, i64 144
-  %7 = load ptr, ptr %vstack, align 8
-  %sizevstack = getelementptr inbounds nuw i8, ptr %ls, i64 152
-  %8 = load i32, ptr %sizevstack, align 8
-  %conv1 = zext i32 %8 to i64
-  %mul2 = mul nuw nsw i64 %conv1, 24
-  %9 = load i64, ptr %gc.i6, align 8
-  %sub.i = sub i64 %9, %mul2
-  store i64 %sub.i, ptr %gc.i6, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr %allocd.i8, align 8
-  %call.i = tail call ptr %10(ptr noundef %11, ptr noundef %7, i64 noundef %mul2, i64 noundef 0) #9
-  %b.i = getelementptr inbounds nuw i8, ptr %ls, i64 80
-  %12 = load ptr, ptr %b.i, align 8
-  %e.i = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %13 = load ptr, ptr %e.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %14 = load i64, ptr %gc.i6, align 8
-  %sub.i.i = sub i64 %14, %conv2.i
-  store i64 %sub.i.i, ptr %gc.i6, align 8
-  %15 = load ptr, ptr %1, align 8
-  %16 = load ptr, ptr %allocd.i8, align 8
-  %call.i.i = tail call ptr %15(ptr noundef %16, ptr noundef %12, i64 noundef %conv2.i, i64 noundef 0) #9
+define hidden void @lj_lex_cleanup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 8, !tbaa !34
+  %5 = inttoptr i64 %4 to ptr
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %9 = load i32, ptr %8, align 8, !tbaa !36
+  %10 = zext i32 %9 to i64
+  %11 = shl nuw nsw i64 %10, 3
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !37
+  %14 = sub i64 %13, %11
+  store i64 %14, ptr %12, align 8, !tbaa !37
+  %15 = load ptr, ptr %5, align 8, !tbaa !46
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !47
+  %18 = tail call ptr %15(ptr noundef %17, ptr noundef %7, i64 noundef range(i64 0, 103079215081) %11, i64 noundef 0) #11
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %22 = load i32, ptr %21, align 8, !tbaa !49
+  %23 = zext i32 %22 to i64
+  %24 = mul nuw nsw i64 %23, 24
+  %25 = load i64, ptr %12, align 8, !tbaa !37
+  %26 = sub i64 %25, %24
+  store i64 %26, ptr %12, align 8, !tbaa !37
+  %27 = load ptr, ptr %5, align 8, !tbaa !46
+  %28 = load ptr, ptr %16, align 8, !tbaa !47
+  %29 = tail call ptr %27(ptr noundef %28, ptr noundef %20, i64 noundef range(i64 0, 103079215081) %24, i64 noundef 0) #11
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %31 = load ptr, ptr %30, align 8, !tbaa !50
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %33 = load ptr, ptr %32, align 8, !tbaa !51
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %31 to i64
+  %36 = sub i64 %34, %35
+  %37 = and i64 %36, 4294967295
+  %38 = load i64, ptr %12, align 8, !tbaa !37
+  %39 = sub i64 %38, %37
+  store i64 %39, ptr %12, align 8, !tbaa !37
+  %40 = load ptr, ptr %5, align 8, !tbaa !46
+  %41 = load ptr, ptr %16, align 8, !tbaa !47
+  %42 = tail call ptr %40(ptr noundef %41, ptr noundef %31, i64 noundef range(i64 0, 103079215081) %37, i64 noundef 0) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_lex_next(ptr noundef initializes((116, 120)) %ls) local_unnamed_addr #0 {
-entry:
-  %linenumber = getelementptr inbounds nuw i8, ptr %ls, i64 112
-  %0 = load i32, ptr %linenumber, align 8
-  %lastline = getelementptr inbounds nuw i8, ptr %ls, i64 116
-  store i32 %0, ptr %lastline, align 4
-  %lookahead = getelementptr inbounds nuw i8, ptr %ls, i64 56
-  %1 = load i32, ptr %lookahead, align 8
-  %cmp = icmp eq i32 %1, 289
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @lj_lex_next(ptr noundef initializes((116, 120)) %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %3 = load i32, ptr %2, align 8, !tbaa !22
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 %3, ptr %4, align 4, !tbaa !23
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = load i32, ptr %5, align 8, !tbaa !21
+  %7 = icmp eq i32 %6, 289
+  br i1 %7, label %8, label %11, !prof !52
 
-if.then:                                          ; preds = %entry
-  %tokval = getelementptr inbounds nuw i8, ptr %ls, i64 16
-  %call = tail call fastcc i32 @lex_scan(ptr noundef nonnull %ls, ptr noundef nonnull %tokval)
-  br label %if.end
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = tail call fastcc i32 @lex_scan(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  br label %15
 
-if.else:                                          ; preds = %entry
-  store i32 289, ptr %lookahead, align 8
-  %tokval5 = getelementptr inbounds nuw i8, ptr %ls, i64 16
-  %lookaheadval = getelementptr inbounds nuw i8, ptr %ls, i64 24
-  %2 = load i64, ptr %lookaheadval, align 8
-  store i64 %2, ptr %tokval5, align 8
-  br label %if.end
+11:                                               ; preds = %1
+  store i32 289, ptr %5, align 8, !tbaa !21
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8, !tbaa !29
+  store i64 %14, ptr %12, align 8, !tbaa !29
+  br label %15
 
-if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi i32 [ %call, %if.then ], [ %1, %if.else ]
-  %3 = getelementptr inbounds nuw i8, ptr %ls, i64 52
-  store i32 %.sink, ptr %3, align 4
+15:                                               ; preds = %11, %8
+  %.sink = phi i32 [ %10, %8 ], [ %6, %11 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %.sink, ptr %16, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 13, 11) i32 @lex_scan(ptr noundef initializes((64, 72)) %ls, ptr noundef %tv) unnamed_addr #0 {
-entry:
-  %sz.i440 = alloca i64, align 8
-  %sz.i416 = alloca i64, align 8
-  %sz.i538.i = alloca i64, align 8
-  %sz.i515.i = alloca i64, align 8
-  %sz.i491.i = alloca i64, align 8
-  %sz.i467.i = alloca i64, align 8
-  %sz.i443.i = alloca i64, align 8
-  %sz.i419.i = alloca i64, align 8
-  %sz.i395.i = alloca i64, align 8
-  %sz.i371.i = alloca i64, align 8
-  %sz.i347.i = alloca i64, align 8
-  %sz.i323.i = alloca i64, align 8
-  %sz.i298.i = alloca i64, align 8
-  %sz.i274.i = alloca i64, align 8
-  %sz.i249.i = alloca i64, align 8
-  %sz.i225.i = alloca i64, align 8
-  %sz.i.i = alloca i64, align 8
-  %sz.i377 = alloca i64, align 8
-  %sz.i353 = alloca i64, align 8
-  %sz.i329 = alloca i64, align 8
-  %sz.i304 = alloca i64, align 8
-  %sz.i280 = alloca i64, align 8
-  %sz.i255 = alloca i64, align 8
-  %sz.i231 = alloca i64, align 8
-  %sz.i207 = alloca i64, align 8
-  %sz.i183 = alloca i64, align 8
-  %sz.i = alloca i64, align 8
-  %sb = getelementptr inbounds nuw i8, ptr %ls, i64 64
-  %b.i356 = getelementptr inbounds nuw i8, ptr %ls, i64 80
-  %0 = load ptr, ptr %b.i356, align 8
-  store ptr %0, ptr %sb, align 8
-  %c = getelementptr inbounds nuw i8, ptr %ls, i64 48
-  %1 = load i32, ptr %c, align 8
-  %idxprom510 = sext i32 %1 to i64
-  %arrayidx511 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom510
-  %2 = load i8, ptr %arrayidx511, align 1
-  %tobool.not512 = icmp sgt i8 %2, -1
-  br i1 %tobool.not512, label %if.end27.lr.ph, label %if.then
+define internal fastcc range(i32 13, 11) i32 @lex_scan(ptr noundef initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  store ptr %5, ptr %3, align 8, !tbaa !53
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load i32, ptr %6, align 8, !tbaa !26
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !29
+  %.not157 = icmp sgt i8 %10, -1
+  br i1 %.not157, label %.lr.ph, label %lex_newline.exit._crit_edge
 
-if.end27.lr.ph:                                   ; preds = %entry
-  %p.i320 = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %pe.i321 = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %rfunc.i208 = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %L.i209 = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %rdata.i210 = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %endmark.i229 = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  br label %if.end27
+.lr.ph:                                           ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  br label %62
 
-if.then:                                          ; preds = %for.cond.backedge, %entry
-  %3 = phi i32 [ %1, %entry ], [ %27, %for.cond.backedge ]
-  %.lcssa = phi i8 [ %2, %entry ], [ %28, %for.cond.backedge ]
-  %4 = and i8 %.lcssa, 8
-  %tobool6.not = icmp eq i8 %4, 0
-  br i1 %tobool6.not, label %do.body.preheader, label %if.then7
+lex_newline.exit._crit_edge:                      ; preds = %lex_newline.exit.backedge, %2
+  %15 = phi i32 [ %7, %2 ], [ %106, %lex_newline.exit.backedge ]
+  %.lcssa121 = phi i8 [ %10, %2 ], [ %109, %lex_newline.exit.backedge ]
+  %16 = and i8 %.lcssa121, 8
+  %.not82 = icmp eq i8 %16, 0
+  br i1 %.not82, label %.preheader, label %20
 
-do.body.preheader:                                ; preds = %if.then
-  %e.i394 = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %p.i.i365 = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %pe.i.i366 = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %rfunc.i = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %L.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %rdata.i = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %endmark.i = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  br label %do.body
+.preheader:                                       ; preds = %lex_newline.exit._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %21
 
-if.then7:                                         ; preds = %if.then
-  call fastcc void @lex_number(ptr noundef nonnull %ls, ptr noundef %tv)
-  br label %return
+20:                                               ; preds = %lex_newline.exit._crit_edge
+  tail call fastcc void @lex_number(ptr noundef nonnull %0, ptr noundef %1)
+  br label %.loopexit
 
-do.body:                                          ; preds = %do.body.preheader, %lex_savenext.exit376
-  %5 = phi i32 [ %3, %do.body.preheader ], [ %cond.i.i370, %lex_savenext.exit376 ]
-  %6 = load ptr, ptr %e.i394, align 8
-  %7 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i395 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i396 = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i397 = sub i64 %sub.ptr.lhs.cast.i395, %sub.ptr.rhs.cast.i396
-  %8 = and i64 %sub.ptr.sub.i397, 4294967295
-  %cmp.i399 = icmp eq i64 %8, 0
-  br i1 %cmp.i399, label %if.then.i404, label %lj_buf_more.exit406
+21:                                               ; preds = %.preheader, %lex_savenext.exit
+  %22 = phi i32 [ %15, %.preheader ], [ %43, %lex_savenext.exit ]
+  %23 = load ptr, ptr %17, align 8, !tbaa !51
+  %24 = load ptr, ptr %3, align 8, !tbaa !53
+  %25 = ptrtoint ptr %23 to i64
+  %26 = ptrtoint ptr %24 to i64
+  %27 = sub i64 %25, %26
+  %28 = and i64 %27, 4294967295
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %lj_buf_more.exit, !prof !54
 
-if.then.i404:                                     ; preds = %do.body
-  %call.i405 = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit406
+30:                                               ; preds = %21
+  %31 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit
 
-lj_buf_more.exit406:                              ; preds = %do.body, %if.then.i404
-  %retval.i391.0 = phi ptr [ %call.i405, %if.then.i404 ], [ %7, %do.body ]
-  %conv.i379 = trunc i32 %5 to i8
-  %incdec.ptr.i380 = getelementptr inbounds nuw i8, ptr %retval.i391.0, i64 1
-  store i8 %conv.i379, ptr %retval.i391.0, align 1
-  store ptr %incdec.ptr.i380, ptr %sb, align 8
-  %9 = load ptr, ptr %p.i.i365, align 8
-  %10 = load ptr, ptr %pe.i.i366, align 8
-  %cmp.i.i367 = icmp ult ptr %9, %10
-  br i1 %cmp.i.i367, label %cond.true.i.i372, label %cond.false.i.i368
+lj_buf_more.exit:                                 ; preds = %21, %30
+  %.0.i = phi ptr [ %31, %30 ], [ %24, %21 ]
+  %32 = trunc i32 %22 to i8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  store i8 %32, ptr %.0.i, align 1, !tbaa !29
+  store ptr %33, ptr %3, align 8, !tbaa !53
+  %34 = load ptr, ptr %18, align 8, !tbaa !27
+  %35 = load ptr, ptr %19, align 8, !tbaa !28
+  %36 = icmp ult ptr %34, %35
+  br i1 %36, label %37, label %41
 
-cond.true.i.i372:                                 ; preds = %lj_buf_more.exit406
-  %incdec.ptr.i.i374 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store ptr %incdec.ptr.i.i374, ptr %p.i.i365, align 8
-  %11 = load i8, ptr %9, align 1
-  %conv.i.i375 = zext i8 %11 to i32
-  br label %lex_savenext.exit376
+37:                                               ; preds = %lj_buf_more.exit
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  store ptr %38, ptr %18, align 8, !tbaa !27
+  %39 = load i8, ptr %34, align 1, !tbaa !29
+  %40 = zext i8 %39 to i32
+  br label %lex_savenext.exit
 
-cond.false.i.i368:                                ; preds = %lj_buf_more.exit406
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %12 = load ptr, ptr %rfunc.i, align 8
-  %13 = load ptr, ptr %L.i, align 8
-  %14 = load ptr, ptr %rdata.i, align 8
-  %call.i178 = call ptr %12(ptr noundef %13, ptr noundef %14, ptr noundef nonnull %sz.i) #9
-  %cmp.i180 = icmp eq ptr %call.i178, null
-  %15 = load i64, ptr %sz.i, align 8
-  %cmp1.i = icmp eq i64 %15, 0
-  %or.cond.i = select i1 %cmp.i180, i1 true, i1 %cmp1.i
-  br i1 %or.cond.i, label %lex_more.exit, label %if.end.i
+41:                                               ; preds = %lj_buf_more.exit
+  %42 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit
 
-if.end.i:                                         ; preds = %cond.false.i.i368
-  %cmp2.i = icmp ugt i64 %15, 2147483391
-  br i1 %cmp2.i, label %if.then3.i, label %if.end11.i
+lex_savenext.exit:                                ; preds = %37, %41
+  %43 = phi i32 [ %40, %37 ], [ %42, %41 ]
+  store i32 %43, ptr %6, align 8, !tbaa !26
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !29
+  %.not83 = icmp sgt i8 %46, -1
+  br i1 %.not83, label %47, label %21, !llvm.loop !55
 
-if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.not.i = icmp eq i64 %15, -1
-  br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
+47:                                               ; preds = %lex_savenext.exit
+  %48 = load ptr, ptr %4, align 8, !tbaa !57
+  %49 = load ptr, ptr %3, align 8, !tbaa !58
+  %50 = ptrtoint ptr %49 to i64
+  %51 = ptrtoint ptr %48 to i64
+  %52 = sub i64 %50, %51
+  %53 = and i64 %52, 4294967295
+  %54 = tail call ptr @lj_parse_keepstr(ptr noundef nonnull %0, ptr noundef %48, i64 noundef %53) #11
+  %55 = ptrtoint ptr %54 to i64
+  %56 = or i64 %55, -703687441776640
+  store i64 %56, ptr %1, align 8, !tbaa !29
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 10
+  %58 = load i8, ptr %57, align 2, !tbaa !59
+  %.not84 = icmp eq i8 %58, 0
+  br i1 %.not84, label %.loopexit, label %59
 
-if.then5.i:                                       ; preds = %if.then3.i
-  %16 = load ptr, ptr %L.i, align 8
-  call void @lj_err_mem(ptr noundef %16) #10
-  unreachable
+59:                                               ; preds = %47
+  %60 = zext i8 %58 to i32
+  %61 = or disjoint i32 %60, 256
+  br label %.loopexit
 
-if.end7.i:                                        ; preds = %if.then3.i
-  %17 = ptrtoint ptr %call.i178 to i64
-  %18 = call i64 @llvm.umax.i64(i64 %17, i64 -2147483392)
-  %spec.store.select.i = xor i64 %18, -1
-  store i64 %spec.store.select.i, ptr %sz.i, align 8
-  store i32 1, ptr %endmark.i, align 8
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %if.end7.i, %if.end.i
-  %19 = phi i64 [ %spec.store.select.i, %if.end7.i ], [ %15, %if.end.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i178, i64 %19
-  store ptr %add.ptr.i, ptr %pe.i.i366, align 8
-  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %call.i178, i64 1
-  store ptr %add.ptr12.i, ptr %p.i.i365, align 8
-  %20 = load i8, ptr %call.i178, align 1
-  %conv.i182 = zext i8 %20 to i32
-  br label %lex_more.exit
-
-lex_more.exit:                                    ; preds = %cond.false.i.i368, %if.end11.i
-  %retval.0.i = phi i32 [ %conv.i182, %if.end11.i ], [ -1, %cond.false.i.i368 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  br label %lex_savenext.exit376
-
-lex_savenext.exit376:                             ; preds = %lex_more.exit, %cond.true.i.i372
-  %cond.i.i370 = phi i32 [ %conv.i.i375, %cond.true.i.i372 ], [ %retval.0.i, %lex_more.exit ]
-  store i32 %cond.i.i370, ptr %c, align 8
-  %idxprom9 = sext i32 %cond.i.i370 to i64
-  %arrayidx10 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom9
-  %21 = load i8, ptr %arrayidx10, align 1
-  %tobool13.not = icmp sgt i8 %21, -1
-  br i1 %tobool13.not, label %do.end, label %do.body, !llvm.loop !4
-
-do.end:                                           ; preds = %lex_savenext.exit376
-  %22 = load ptr, ptr %b.i356, align 8
-  %23 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %22 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv19 = and i64 %sub.ptr.sub, 4294967295
-  %call20 = call ptr @lj_parse_keepstr(ptr noundef nonnull %ls, ptr noundef %22, i64 noundef %conv19) #9
-  %24 = ptrtoint ptr %call20 to i64
-  %or.i = or i64 %24, -703687441776640
-  store i64 %or.i, ptr %tv, align 8
-  %reserved = getelementptr inbounds nuw i8, ptr %call20, i64 10
-  %25 = load i8, ptr %reserved, align 2
-  %cmp.not = icmp eq i8 %25, 0
-  br i1 %cmp.not, label %return, label %if.then23
-
-if.then23:                                        ; preds = %do.end
-  %conv21 = zext i8 %25 to i32
-  %add = or disjoint i32 %conv21, 256
-  br label %return
-
-if.end27:                                         ; preds = %if.end27.lr.ph, %for.cond.backedge
-  %26 = phi i32 [ %1, %if.end27.lr.ph ], [ %27, %for.cond.backedge ]
-  switch i32 %26, label %sw.default [
-    i32 10, label %sw.bb
-    i32 13, label %sw.bb
-    i32 32, label %sw.bb29
-    i32 9, label %sw.bb29
-    i32 11, label %sw.bb29
-    i32 12, label %sw.bb29
-    i32 45, label %sw.bb31
-    i32 91, label %sw.bb61
-    i32 61, label %sw.bb71
-    i32 60, label %sw.bb79
-    i32 62, label %sw.bb87
-    i32 126, label %sw.bb95
-    i32 58, label %sw.bb103
-    i32 34, label %sw.bb111
-    i32 39, label %sw.bb111
-    i32 46, label %sw.bb112
-    i32 -1, label %return
+62:                                               ; preds = %.lr.ph, %lex_newline.exit.backedge
+  %63 = phi i32 [ %7, %.lr.ph ], [ %106, %lex_newline.exit.backedge ]
+  switch i32 %63, label %821 [
+    i32 10, label %64
+    i32 13, label %64
+    i32 32, label %95
+    i32 9, label %95
+    i32 11, label %95
+    i32 12, label %95
+    i32 45, label %110
+    i32 91, label %.preheader193
+    i32 61, label %205
+    i32 60, label %227
+    i32 62, label %249
+    i32 126, label %271
+    i32 58, label %293
+    i32 34, label %315
+    i32 39, label %315
+    i32 46, label %770
+    i32 -1, label %.loopexit
   ]
 
-sw.bb:                                            ; preds = %if.end27, %if.end27
-  call fastcc void @lex_newline(ptr noundef nonnull %ls)
-  br label %for.cond.backedge
+64:                                               ; preds = %62, %62
+  %65 = load ptr, ptr %11, align 8, !tbaa !27
+  %66 = load ptr, ptr %12, align 8, !tbaa !28
+  %67 = icmp ult ptr %65, %66
+  br i1 %67, label %68, label %72
 
-for.cond.backedge:                                ; preds = %while.cond, %while.cond, %while.cond, %sw.bb, %lex_next.exit344, %if.then47
-  %27 = load i32, ptr %c, align 8
-  %idxprom = sext i32 %27 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %28 = load i8, ptr %arrayidx, align 1
-  %tobool.not = icmp sgt i8 %28, -1
-  br i1 %tobool.not, label %if.end27, label %if.then
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store ptr %69, ptr %11, align 8, !tbaa !27
+  %70 = load i8, ptr %65, align 1, !tbaa !29
+  %71 = zext i8 %70 to i32
+  br label %lex_next.exit9.i
 
-sw.bb29:                                          ; preds = %if.end27, %if.end27, %if.end27, %if.end27
-  %29 = load ptr, ptr %p.i320, align 8
-  %30 = load ptr, ptr %pe.i321, align 8
-  %cmp.i335 = icmp ult ptr %29, %30
-  br i1 %cmp.i335, label %cond.true.i340, label %cond.false.i336
+72:                                               ; preds = %64
+  %73 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit9.i
 
-cond.true.i340:                                   ; preds = %sw.bb29
-  %incdec.ptr.i342 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %incdec.ptr.i342, ptr %p.i320, align 8
-  %31 = load i8, ptr %29, align 1
-  %conv.i343 = zext i8 %31 to i32
-  br label %lex_next.exit344
-
-cond.false.i336:                                  ; preds = %sw.bb29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i183)
-  %32 = load ptr, ptr %rfunc.i208, align 8
-  %33 = load ptr, ptr %L.i209, align 8
-  %34 = load ptr, ptr %rdata.i210, align 8
-  %call.i187 = call ptr %32(ptr noundef %33, ptr noundef %34, ptr noundef nonnull %sz.i183) #9
-  %cmp.i188 = icmp eq ptr %call.i187, null
-  %35 = load i64, ptr %sz.i183, align 8
-  %cmp1.i189 = icmp eq i64 %35, 0
-  %or.cond.i190 = select i1 %cmp.i188, i1 true, i1 %cmp1.i189
-  br i1 %or.cond.i190, label %lex_more.exit206, label %if.end.i191
-
-if.end.i191:                                      ; preds = %cond.false.i336
-  %cmp2.i192 = icmp ugt i64 %35, 2147483391
-  br i1 %cmp2.i192, label %if.then3.i200, label %if.end11.i193
-
-if.then3.i200:                                    ; preds = %if.end.i191
-  %cmp4.not.i201 = icmp eq i64 %35, -1
-  br i1 %cmp4.not.i201, label %if.end7.i203, label %if.then5.i202
-
-if.then5.i202:                                    ; preds = %if.then3.i200
-  %36 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %36) #10
-  unreachable
-
-if.end7.i203:                                     ; preds = %if.then3.i200
-  %37 = ptrtoint ptr %call.i187 to i64
-  %38 = call i64 @llvm.umax.i64(i64 %37, i64 -2147483392)
-  %spec.store.select.i204 = xor i64 %38, -1
-  store i64 %spec.store.select.i204, ptr %sz.i183, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i193
-
-if.end11.i193:                                    ; preds = %if.end7.i203, %if.end.i191
-  %39 = phi i64 [ %spec.store.select.i204, %if.end7.i203 ], [ %35, %if.end.i191 ]
-  %add.ptr.i194 = getelementptr inbounds i8, ptr %call.i187, i64 %39
-  store ptr %add.ptr.i194, ptr %pe.i321, align 8
-  %add.ptr12.i196 = getelementptr inbounds nuw i8, ptr %call.i187, i64 1
-  store ptr %add.ptr12.i196, ptr %p.i320, align 8
-  %40 = load i8, ptr %call.i187, align 1
-  %conv.i198 = zext i8 %40 to i32
-  br label %lex_more.exit206
-
-lex_more.exit206:                                 ; preds = %cond.false.i336, %if.end11.i193
-  %retval.0.i199 = phi i32 [ %conv.i198, %if.end11.i193 ], [ -1, %cond.false.i336 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i183)
-  br label %lex_next.exit344
-
-lex_next.exit344:                                 ; preds = %lex_more.exit206, %cond.true.i340
-  %cond.i338 = phi i32 [ %conv.i343, %cond.true.i340 ], [ %retval.0.i199, %lex_more.exit206 ]
-  store i32 %cond.i338, ptr %c, align 8
-  br label %for.cond.backedge
-
-sw.bb31:                                          ; preds = %if.end27
-  %41 = load ptr, ptr %p.i320, align 8
-  %42 = load ptr, ptr %pe.i321, align 8
-  %cmp.i322 = icmp ult ptr %41, %42
-  br i1 %cmp.i322, label %cond.true.i327, label %cond.false.i323
-
-cond.true.i327:                                   ; preds = %sw.bb31
-  %incdec.ptr.i329 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store ptr %incdec.ptr.i329, ptr %p.i320, align 8
-  %43 = load i8, ptr %41, align 1
-  %conv.i330 = zext i8 %43 to i32
-  br label %lex_next.exit331
-
-cond.false.i323:                                  ; preds = %sw.bb31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i207)
-  %44 = load ptr, ptr %rfunc.i208, align 8
-  %45 = load ptr, ptr %L.i209, align 8
-  %46 = load ptr, ptr %rdata.i210, align 8
-  %call.i211 = call ptr %44(ptr noundef %45, ptr noundef %46, ptr noundef nonnull %sz.i207) #9
-  %cmp.i212 = icmp eq ptr %call.i211, null
-  %47 = load i64, ptr %sz.i207, align 8
-  %cmp1.i213 = icmp eq i64 %47, 0
-  %or.cond.i214 = select i1 %cmp.i212, i1 true, i1 %cmp1.i213
-  br i1 %or.cond.i214, label %lex_more.exit230, label %if.end.i215
-
-if.end.i215:                                      ; preds = %cond.false.i323
-  %cmp2.i216 = icmp ugt i64 %47, 2147483391
-  br i1 %cmp2.i216, label %if.then3.i224, label %if.end11.i217
-
-if.then3.i224:                                    ; preds = %if.end.i215
-  %cmp4.not.i225 = icmp eq i64 %47, -1
-  br i1 %cmp4.not.i225, label %if.end7.i227, label %if.then5.i226
-
-if.then5.i226:                                    ; preds = %if.then3.i224
-  %48 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %48) #10
-  unreachable
-
-if.end7.i227:                                     ; preds = %if.then3.i224
-  %49 = ptrtoint ptr %call.i211 to i64
-  %50 = call i64 @llvm.umax.i64(i64 %49, i64 -2147483392)
-  %spec.store.select.i228 = xor i64 %50, -1
-  store i64 %spec.store.select.i228, ptr %sz.i207, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i217
-
-if.end11.i217:                                    ; preds = %if.end7.i227, %if.end.i215
-  %51 = phi i64 [ %spec.store.select.i228, %if.end7.i227 ], [ %47, %if.end.i215 ]
-  %add.ptr.i218 = getelementptr inbounds i8, ptr %call.i211, i64 %51
-  store ptr %add.ptr.i218, ptr %pe.i321, align 8
-  %add.ptr12.i220 = getelementptr inbounds nuw i8, ptr %call.i211, i64 1
-  store ptr %add.ptr12.i220, ptr %p.i320, align 8
-  %52 = load i8, ptr %call.i211, align 1
-  %conv.i222 = zext i8 %52 to i32
-  br label %lex_more.exit230
-
-lex_more.exit230:                                 ; preds = %cond.false.i323, %if.end11.i217
-  %retval.0.i223 = phi i32 [ %conv.i222, %if.end11.i217 ], [ -1, %cond.false.i323 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i207)
-  br label %lex_next.exit331
-
-lex_next.exit331:                                 ; preds = %lex_more.exit230, %cond.true.i327
-  %cond.i325 = phi i32 [ %conv.i330, %cond.true.i327 ], [ %retval.0.i223, %lex_more.exit230 ]
-  store i32 %cond.i325, ptr %c, align 8
-  %cmp34.not = icmp eq i32 %cond.i325, 45
-  br i1 %cmp34.not, label %if.end37, label %return
-
-if.end37:                                         ; preds = %lex_next.exit331
-  %53 = load ptr, ptr %p.i320, align 8
-  %54 = load ptr, ptr %pe.i321, align 8
-  %cmp.i309 = icmp ult ptr %53, %54
-  br i1 %cmp.i309, label %cond.true.i314, label %cond.false.i310
-
-cond.true.i314:                                   ; preds = %if.end37
-  %incdec.ptr.i316 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  store ptr %incdec.ptr.i316, ptr %p.i320, align 8
-  %55 = load i8, ptr %53, align 1
-  %conv.i317 = zext i8 %55 to i32
-  br label %lex_next.exit318
-
-cond.false.i310:                                  ; preds = %if.end37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i231)
-  %56 = load ptr, ptr %rfunc.i208, align 8
-  %57 = load ptr, ptr %L.i209, align 8
-  %58 = load ptr, ptr %rdata.i210, align 8
-  %call.i235 = call ptr %56(ptr noundef %57, ptr noundef %58, ptr noundef nonnull %sz.i231) #9
-  %cmp.i236 = icmp eq ptr %call.i235, null
-  %59 = load i64, ptr %sz.i231, align 8
-  %cmp1.i237 = icmp eq i64 %59, 0
-  %or.cond.i238 = select i1 %cmp.i236, i1 true, i1 %cmp1.i237
-  br i1 %or.cond.i238, label %lex_more.exit254, label %if.end.i239
-
-if.end.i239:                                      ; preds = %cond.false.i310
-  %cmp2.i240 = icmp ugt i64 %59, 2147483391
-  br i1 %cmp2.i240, label %if.then3.i248, label %if.end11.i241
-
-if.then3.i248:                                    ; preds = %if.end.i239
-  %cmp4.not.i249 = icmp eq i64 %59, -1
-  br i1 %cmp4.not.i249, label %if.end7.i251, label %if.then5.i250
-
-if.then5.i250:                                    ; preds = %if.then3.i248
-  %60 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %60) #10
-  unreachable
-
-if.end7.i251:                                     ; preds = %if.then3.i248
-  %61 = ptrtoint ptr %call.i235 to i64
-  %62 = call i64 @llvm.umax.i64(i64 %61, i64 -2147483392)
-  %spec.store.select.i252 = xor i64 %62, -1
-  store i64 %spec.store.select.i252, ptr %sz.i231, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i241
-
-if.end11.i241:                                    ; preds = %if.end7.i251, %if.end.i239
-  %63 = phi i64 [ %spec.store.select.i252, %if.end7.i251 ], [ %59, %if.end.i239 ]
-  %add.ptr.i242 = getelementptr inbounds i8, ptr %call.i235, i64 %63
-  store ptr %add.ptr.i242, ptr %pe.i321, align 8
-  %add.ptr12.i244 = getelementptr inbounds nuw i8, ptr %call.i235, i64 1
-  store ptr %add.ptr12.i244, ptr %p.i320, align 8
-  %64 = load i8, ptr %call.i235, align 1
-  %conv.i246 = zext i8 %64 to i32
-  br label %lex_more.exit254
-
-lex_more.exit254:                                 ; preds = %cond.false.i310, %if.end11.i241
-  %retval.0.i247 = phi i32 [ %conv.i246, %if.end11.i241 ], [ -1, %cond.false.i310 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i231)
-  br label %lex_next.exit318
-
-lex_next.exit318:                                 ; preds = %lex_more.exit254, %cond.true.i314
-  %cond.i312 = phi i32 [ %conv.i317, %cond.true.i314 ], [ %retval.0.i247, %lex_more.exit254 ]
-  store i32 %cond.i312, ptr %c, align 8
-  %cmp40 = icmp eq i32 %cond.i312, 91
-  br i1 %cmp40, label %if.then42, label %while.cond.preheader
-
-while.cond.preheader:                             ; preds = %if.then42.if.end50_crit_edge, %lex_next.exit318
-  %.ph = phi i32 [ %cond.i312, %lex_next.exit318 ], [ %.pr.pre, %if.then42.if.end50_crit_edge ]
-  br label %while.cond
-
-if.then42:                                        ; preds = %lex_next.exit318
-  %call43 = call fastcc i32 @lex_skipeq(ptr noundef nonnull %ls)
-  %65 = load ptr, ptr %b.i356, align 8
-  store ptr %65, ptr %sb, align 8
-  %cmp45 = icmp sgt i32 %call43, -1
-  br i1 %cmp45, label %if.then47, label %if.then42.if.end50_crit_edge
-
-if.then42.if.end50_crit_edge:                     ; preds = %if.then42
-  %.pr.pre = load i32, ptr %c, align 8
-  br label %while.cond.preheader
-
-if.then47:                                        ; preds = %if.then42
-  call fastcc void @lex_longstring(ptr noundef nonnull %ls, ptr noundef null, i32 noundef %call43)
-  %66 = load ptr, ptr %b.i356, align 8
-  store ptr %66, ptr %sb, align 8
-  br label %for.cond.backedge
-
-while.cond:                                       ; preds = %while.cond.preheader, %lex_next.exit305
-  %67 = phi i32 [ %cond.i299, %lex_next.exit305 ], [ %.ph, %while.cond.preheader ]
-  switch i32 %67, label %while.body [
-    i32 10, label %for.cond.backedge
-    i32 13, label %for.cond.backedge
-    i32 -1, label %for.cond.backedge
+lex_next.exit9.i:                                 ; preds = %72, %68
+  %74 = phi i32 [ %71, %68 ], [ %73, %72 ]
+  store i32 %74, ptr %6, align 8, !tbaa !26
+  switch i32 %74, label %87 [
+    i32 10, label %75
+    i32 13, label %75
   ]
 
-while.body:                                       ; preds = %while.cond
-  %68 = load ptr, ptr %p.i320, align 8
-  %69 = load ptr, ptr %pe.i321, align 8
-  %cmp.i296 = icmp ult ptr %68, %69
-  br i1 %cmp.i296, label %cond.true.i301, label %cond.false.i297
+75:                                               ; preds = %lex_next.exit9.i, %lex_next.exit9.i
+  %.not.i = icmp eq i32 %74, %63
+  br i1 %.not.i, label %87, label %76
 
-cond.true.i301:                                   ; preds = %while.body
-  %incdec.ptr.i303 = getelementptr inbounds nuw i8, ptr %68, i64 1
-  store ptr %incdec.ptr.i303, ptr %p.i320, align 8
-  %70 = load i8, ptr %68, align 1
-  %conv.i304 = zext i8 %70 to i32
-  br label %lex_next.exit305
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %11, align 8, !tbaa !27
+  %78 = load ptr, ptr %12, align 8, !tbaa !28
+  %79 = icmp ult ptr %77, %78
+  br i1 %79, label %80, label %84
 
-cond.false.i297:                                  ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i255)
-  %71 = load ptr, ptr %rfunc.i208, align 8
-  %72 = load ptr, ptr %L.i209, align 8
-  %73 = load ptr, ptr %rdata.i210, align 8
-  %call.i260 = call ptr %71(ptr noundef %72, ptr noundef %73, ptr noundef nonnull %sz.i255) #9
-  %cmp.i261 = icmp eq ptr %call.i260, null
-  %74 = load i64, ptr %sz.i255, align 8
-  %cmp1.i262 = icmp eq i64 %74, 0
-  %or.cond.i263 = select i1 %cmp.i261, i1 true, i1 %cmp1.i262
-  br i1 %or.cond.i263, label %lex_more.exit279, label %if.end.i264
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  store ptr %81, ptr %11, align 8, !tbaa !27
+  %82 = load i8, ptr %77, align 1, !tbaa !29
+  %83 = zext i8 %82 to i32
+  br label %lex_next.exit.i
 
-if.end.i264:                                      ; preds = %cond.false.i297
-  %cmp2.i265 = icmp ugt i64 %74, 2147483391
-  br i1 %cmp2.i265, label %if.then3.i273, label %if.end11.i266
+84:                                               ; preds = %76
+  %85 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit.i
 
-if.then3.i273:                                    ; preds = %if.end.i264
-  %cmp4.not.i274 = icmp eq i64 %74, -1
-  br i1 %cmp4.not.i274, label %if.end7.i276, label %if.then5.i275
+lex_next.exit.i:                                  ; preds = %84, %80
+  %86 = phi i32 [ %83, %80 ], [ %85, %84 ]
+  store i32 %86, ptr %6, align 8, !tbaa !26
+  br label %87
 
-if.then5.i275:                                    ; preds = %if.then3.i273
-  %75 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %75) #10
+87:                                               ; preds = %lex_next.exit.i, %75, %lex_next.exit9.i
+  %88 = phi i32 [ %86, %lex_next.exit.i ], [ %63, %75 ], [ %74, %lex_next.exit9.i ]
+  %89 = load i32, ptr %14, align 8, !tbaa !22
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %14, align 8, !tbaa !22
+  %91 = icmp sgt i32 %89, 2147483390
+  br i1 %91, label %92, label %lex_newline.exit.backedge
+
+92:                                               ; preds = %87
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %94 = load i32, ptr %93, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %94, i32 noundef 2191) #10
   unreachable
 
-if.end7.i276:                                     ; preds = %if.then3.i273
-  %76 = ptrtoint ptr %call.i260 to i64
-  %77 = call i64 @llvm.umax.i64(i64 %76, i64 -2147483392)
-  %spec.store.select.i277 = xor i64 %77, -1
-  store i64 %spec.store.select.i277, ptr %sz.i255, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i266
-
-if.end11.i266:                                    ; preds = %if.end7.i276, %if.end.i264
-  %78 = phi i64 [ %spec.store.select.i277, %if.end7.i276 ], [ %74, %if.end.i264 ]
-  %add.ptr.i267 = getelementptr inbounds i8, ptr %call.i260, i64 %78
-  store ptr %add.ptr.i267, ptr %pe.i321, align 8
-  %add.ptr12.i269 = getelementptr inbounds nuw i8, ptr %call.i260, i64 1
-  store ptr %add.ptr12.i269, ptr %p.i320, align 8
-  %79 = load i8, ptr %call.i260, align 1
-  %conv.i271 = zext i8 %79 to i32
-  br label %lex_more.exit279
-
-lex_more.exit279:                                 ; preds = %cond.false.i297, %if.end11.i266
-  %retval.0.i272 = phi i32 [ %conv.i271, %if.end11.i266 ], [ -1, %cond.false.i297 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i255)
-  br label %lex_next.exit305
-
-lex_next.exit305:                                 ; preds = %lex_more.exit279, %cond.true.i301
-  %cond.i299 = phi i32 [ %conv.i304, %cond.true.i301 ], [ %retval.0.i272, %lex_more.exit279 ]
-  store i32 %cond.i299, ptr %c, align 8
-  br label %while.cond, !llvm.loop !6
-
-sw.bb61:                                          ; preds = %if.end27
-  %call63 = call fastcc i32 @lex_skipeq(ptr noundef nonnull %ls)
-  %cmp64 = icmp sgt i32 %call63, -1
-  br i1 %cmp64, label %if.then66, label %if.else
-
-if.then66:                                        ; preds = %sw.bb61
-  call fastcc void @lex_longstring(ptr noundef nonnull %ls, ptr noundef %tv, i32 noundef %call63)
-  br label %return
-
-if.else:                                          ; preds = %sw.bb61
-  %cmp67 = icmp eq i32 %call63, -1
-  br i1 %cmp67, label %return, label %if.else70
-
-if.else70:                                        ; preds = %if.else
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef 288, i32 noundef 2335) #11
-  unreachable
-
-sw.bb71:                                          ; preds = %if.end27
-  %80 = load ptr, ptr %p.i320, align 8
-  %81 = load ptr, ptr %pe.i321, align 8
-  %cmp.i283 = icmp ult ptr %80, %81
-  br i1 %cmp.i283, label %cond.true.i288, label %cond.false.i284
-
-cond.true.i288:                                   ; preds = %sw.bb71
-  %incdec.ptr.i290 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  store ptr %incdec.ptr.i290, ptr %p.i320, align 8
-  %82 = load i8, ptr %80, align 1
-  %conv.i291 = zext i8 %82 to i32
-  br label %lex_next.exit292
-
-cond.false.i284:                                  ; preds = %sw.bb71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i280)
-  %83 = load ptr, ptr %rfunc.i208, align 8
-  %84 = load ptr, ptr %L.i209, align 8
-  %85 = load ptr, ptr %rdata.i210, align 8
-  %call.i284 = call ptr %83(ptr noundef %84, ptr noundef %85, ptr noundef nonnull %sz.i280) #9
-  %cmp.i285 = icmp eq ptr %call.i284, null
-  %86 = load i64, ptr %sz.i280, align 8
-  %cmp1.i286 = icmp eq i64 %86, 0
-  %or.cond.i287 = select i1 %cmp.i285, i1 true, i1 %cmp1.i286
-  br i1 %or.cond.i287, label %lex_more.exit303, label %if.end.i288
-
-if.end.i288:                                      ; preds = %cond.false.i284
-  %cmp2.i289 = icmp ugt i64 %86, 2147483391
-  br i1 %cmp2.i289, label %if.then3.i297, label %if.end11.i290
-
-if.then3.i297:                                    ; preds = %if.end.i288
-  %cmp4.not.i298 = icmp eq i64 %86, -1
-  br i1 %cmp4.not.i298, label %if.end7.i300, label %if.then5.i299
-
-if.then5.i299:                                    ; preds = %if.then3.i297
-  %87 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %87) #10
-  unreachable
-
-if.end7.i300:                                     ; preds = %if.then3.i297
-  %88 = ptrtoint ptr %call.i284 to i64
-  %89 = call i64 @llvm.umax.i64(i64 %88, i64 -2147483392)
-  %spec.store.select.i301 = xor i64 %89, -1
-  store i64 %spec.store.select.i301, ptr %sz.i280, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i290
-
-if.end11.i290:                                    ; preds = %if.end7.i300, %if.end.i288
-  %90 = phi i64 [ %spec.store.select.i301, %if.end7.i300 ], [ %86, %if.end.i288 ]
-  %add.ptr.i291 = getelementptr inbounds i8, ptr %call.i284, i64 %90
-  store ptr %add.ptr.i291, ptr %pe.i321, align 8
-  %add.ptr12.i293 = getelementptr inbounds nuw i8, ptr %call.i284, i64 1
-  store ptr %add.ptr12.i293, ptr %p.i320, align 8
-  %91 = load i8, ptr %call.i284, align 1
-  %conv.i295 = zext i8 %91 to i32
-  br label %lex_more.exit303
-
-lex_more.exit303:                                 ; preds = %cond.false.i284, %if.end11.i290
-  %retval.0.i296 = phi i32 [ %conv.i295, %if.end11.i290 ], [ -1, %cond.false.i284 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i280)
-  br label %lex_next.exit292
-
-lex_next.exit292:                                 ; preds = %lex_more.exit303, %cond.true.i288
-  %cond.i286 = phi i32 [ %conv.i291, %cond.true.i288 ], [ %retval.0.i296, %lex_more.exit303 ]
-  store i32 %cond.i286, ptr %c, align 8
-  %cmp74.not = icmp eq i32 %cond.i286, 61
-  br i1 %cmp74.not, label %if.else77, label %return
-
-if.else77:                                        ; preds = %lex_next.exit292
-  %92 = load ptr, ptr %p.i320, align 8
-  %93 = load ptr, ptr %pe.i321, align 8
-  %cmp.i270 = icmp ult ptr %92, %93
-  br i1 %cmp.i270, label %cond.true.i275, label %cond.false.i271
-
-cond.true.i275:                                   ; preds = %if.else77
-  %incdec.ptr.i277 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  store ptr %incdec.ptr.i277, ptr %p.i320, align 8
-  %94 = load i8, ptr %92, align 1
-  %conv.i278 = zext i8 %94 to i32
-  br label %lex_next.exit279
-
-cond.false.i271:                                  ; preds = %if.else77
-  %call.i272 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
-  br label %lex_next.exit279
-
-lex_next.exit279:                                 ; preds = %cond.false.i271, %cond.true.i275
-  %cond.i273 = phi i32 [ %conv.i278, %cond.true.i275 ], [ %call.i272, %cond.false.i271 ]
-  store i32 %cond.i273, ptr %c, align 8
-  br label %return
-
-sw.bb79:                                          ; preds = %if.end27
-  %95 = load ptr, ptr %p.i320, align 8
-  %96 = load ptr, ptr %pe.i321, align 8
-  %cmp.i257 = icmp ult ptr %95, %96
-  br i1 %cmp.i257, label %cond.true.i262, label %cond.false.i258
-
-cond.true.i262:                                   ; preds = %sw.bb79
-  %incdec.ptr.i264 = getelementptr inbounds nuw i8, ptr %95, i64 1
-  store ptr %incdec.ptr.i264, ptr %p.i320, align 8
-  %97 = load i8, ptr %95, align 1
-  %conv.i265 = zext i8 %97 to i32
-  br label %lex_next.exit266
-
-cond.false.i258:                                  ; preds = %sw.bb79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i304)
-  %98 = load ptr, ptr %rfunc.i208, align 8
-  %99 = load ptr, ptr %L.i209, align 8
-  %100 = load ptr, ptr %rdata.i210, align 8
-  %call.i308 = call ptr %98(ptr noundef %99, ptr noundef %100, ptr noundef nonnull %sz.i304) #9
-  %cmp.i310 = icmp eq ptr %call.i308, null
-  %101 = load i64, ptr %sz.i304, align 8
-  %cmp1.i311 = icmp eq i64 %101, 0
-  %or.cond.i312 = select i1 %cmp.i310, i1 true, i1 %cmp1.i311
-  br i1 %or.cond.i312, label %lex_more.exit328, label %if.end.i313
-
-if.end.i313:                                      ; preds = %cond.false.i258
-  %cmp2.i314 = icmp ugt i64 %101, 2147483391
-  br i1 %cmp2.i314, label %if.then3.i322, label %if.end11.i315
-
-if.then3.i322:                                    ; preds = %if.end.i313
-  %cmp4.not.i323 = icmp eq i64 %101, -1
-  br i1 %cmp4.not.i323, label %if.end7.i325, label %if.then5.i324
-
-if.then5.i324:                                    ; preds = %if.then3.i322
-  %102 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %102) #10
-  unreachable
-
-if.end7.i325:                                     ; preds = %if.then3.i322
-  %103 = ptrtoint ptr %call.i308 to i64
-  %104 = call i64 @llvm.umax.i64(i64 %103, i64 -2147483392)
-  %spec.store.select.i326 = xor i64 %104, -1
-  store i64 %spec.store.select.i326, ptr %sz.i304, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i315
-
-if.end11.i315:                                    ; preds = %if.end7.i325, %if.end.i313
-  %105 = phi i64 [ %spec.store.select.i326, %if.end7.i325 ], [ %101, %if.end.i313 ]
-  %add.ptr.i316 = getelementptr inbounds i8, ptr %call.i308, i64 %105
-  store ptr %add.ptr.i316, ptr %pe.i321, align 8
-  %add.ptr12.i318 = getelementptr inbounds nuw i8, ptr %call.i308, i64 1
-  store ptr %add.ptr12.i318, ptr %p.i320, align 8
-  %106 = load i8, ptr %call.i308, align 1
-  %conv.i320 = zext i8 %106 to i32
-  br label %lex_more.exit328
-
-lex_more.exit328:                                 ; preds = %cond.false.i258, %if.end11.i315
-  %retval.0.i321 = phi i32 [ %conv.i320, %if.end11.i315 ], [ -1, %cond.false.i258 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i304)
-  br label %lex_next.exit266
-
-lex_next.exit266:                                 ; preds = %lex_more.exit328, %cond.true.i262
-  %cond.i260 = phi i32 [ %conv.i265, %cond.true.i262 ], [ %retval.0.i321, %lex_more.exit328 ]
-  store i32 %cond.i260, ptr %c, align 8
-  %cmp82.not = icmp eq i32 %cond.i260, 61
-  br i1 %cmp82.not, label %if.else85, label %return
-
-if.else85:                                        ; preds = %lex_next.exit266
-  %107 = load ptr, ptr %p.i320, align 8
-  %108 = load ptr, ptr %pe.i321, align 8
-  %cmp.i244 = icmp ult ptr %107, %108
-  br i1 %cmp.i244, label %cond.true.i249, label %cond.false.i245
-
-cond.true.i249:                                   ; preds = %if.else85
-  %incdec.ptr.i251 = getelementptr inbounds nuw i8, ptr %107, i64 1
-  store ptr %incdec.ptr.i251, ptr %p.i320, align 8
-  %109 = load i8, ptr %107, align 1
-  %conv.i252 = zext i8 %109 to i32
-  br label %lex_next.exit253
-
-cond.false.i245:                                  ; preds = %if.else85
-  %call.i246 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
-  br label %lex_next.exit253
-
-lex_next.exit253:                                 ; preds = %cond.false.i245, %cond.true.i249
-  %cond.i247 = phi i32 [ %conv.i252, %cond.true.i249 ], [ %call.i246, %cond.false.i245 ]
-  store i32 %cond.i247, ptr %c, align 8
-  br label %return
-
-sw.bb87:                                          ; preds = %if.end27
-  %110 = load ptr, ptr %p.i320, align 8
-  %111 = load ptr, ptr %pe.i321, align 8
-  %cmp.i231 = icmp ult ptr %110, %111
-  br i1 %cmp.i231, label %cond.true.i236, label %cond.false.i232
-
-cond.true.i236:                                   ; preds = %sw.bb87
-  %incdec.ptr.i238 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  store ptr %incdec.ptr.i238, ptr %p.i320, align 8
-  %112 = load i8, ptr %110, align 1
-  %conv.i239 = zext i8 %112 to i32
-  br label %lex_next.exit240
-
-cond.false.i232:                                  ; preds = %sw.bb87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i329)
-  %113 = load ptr, ptr %rfunc.i208, align 8
-  %114 = load ptr, ptr %L.i209, align 8
-  %115 = load ptr, ptr %rdata.i210, align 8
-  %call.i333 = call ptr %113(ptr noundef %114, ptr noundef %115, ptr noundef nonnull %sz.i329) #9
-  %cmp.i334 = icmp eq ptr %call.i333, null
-  %116 = load i64, ptr %sz.i329, align 8
-  %cmp1.i335 = icmp eq i64 %116, 0
-  %or.cond.i336 = select i1 %cmp.i334, i1 true, i1 %cmp1.i335
-  br i1 %or.cond.i336, label %lex_more.exit352, label %if.end.i337
-
-if.end.i337:                                      ; preds = %cond.false.i232
-  %cmp2.i338 = icmp ugt i64 %116, 2147483391
-  br i1 %cmp2.i338, label %if.then3.i346, label %if.end11.i339
-
-if.then3.i346:                                    ; preds = %if.end.i337
-  %cmp4.not.i347 = icmp eq i64 %116, -1
-  br i1 %cmp4.not.i347, label %if.end7.i349, label %if.then5.i348
-
-if.then5.i348:                                    ; preds = %if.then3.i346
-  %117 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %117) #10
-  unreachable
-
-if.end7.i349:                                     ; preds = %if.then3.i346
-  %118 = ptrtoint ptr %call.i333 to i64
-  %119 = call i64 @llvm.umax.i64(i64 %118, i64 -2147483392)
-  %spec.store.select.i350 = xor i64 %119, -1
-  store i64 %spec.store.select.i350, ptr %sz.i329, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i339
-
-if.end11.i339:                                    ; preds = %if.end7.i349, %if.end.i337
-  %120 = phi i64 [ %spec.store.select.i350, %if.end7.i349 ], [ %116, %if.end.i337 ]
-  %add.ptr.i340 = getelementptr inbounds i8, ptr %call.i333, i64 %120
-  store ptr %add.ptr.i340, ptr %pe.i321, align 8
-  %add.ptr12.i342 = getelementptr inbounds nuw i8, ptr %call.i333, i64 1
-  store ptr %add.ptr12.i342, ptr %p.i320, align 8
-  %121 = load i8, ptr %call.i333, align 1
-  %conv.i344 = zext i8 %121 to i32
-  br label %lex_more.exit352
-
-lex_more.exit352:                                 ; preds = %cond.false.i232, %if.end11.i339
-  %retval.0.i345 = phi i32 [ %conv.i344, %if.end11.i339 ], [ -1, %cond.false.i232 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i329)
-  br label %lex_next.exit240
-
-lex_next.exit240:                                 ; preds = %lex_more.exit352, %cond.true.i236
-  %cond.i234 = phi i32 [ %conv.i239, %cond.true.i236 ], [ %retval.0.i345, %lex_more.exit352 ]
-  store i32 %cond.i234, ptr %c, align 8
-  %cmp90.not = icmp eq i32 %cond.i234, 61
-  br i1 %cmp90.not, label %if.else93, label %return
-
-if.else93:                                        ; preds = %lex_next.exit240
-  %122 = load ptr, ptr %p.i320, align 8
-  %123 = load ptr, ptr %pe.i321, align 8
-  %cmp.i218 = icmp ult ptr %122, %123
-  br i1 %cmp.i218, label %cond.true.i223, label %cond.false.i219
-
-cond.true.i223:                                   ; preds = %if.else93
-  %incdec.ptr.i225 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  store ptr %incdec.ptr.i225, ptr %p.i320, align 8
-  %124 = load i8, ptr %122, align 1
-  %conv.i226 = zext i8 %124 to i32
-  br label %lex_next.exit227
-
-cond.false.i219:                                  ; preds = %if.else93
-  %call.i220 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
-  br label %lex_next.exit227
-
-lex_next.exit227:                                 ; preds = %cond.false.i219, %cond.true.i223
-  %cond.i221 = phi i32 [ %conv.i226, %cond.true.i223 ], [ %call.i220, %cond.false.i219 ]
-  store i32 %cond.i221, ptr %c, align 8
-  br label %return
-
-sw.bb95:                                          ; preds = %if.end27
-  %125 = load ptr, ptr %p.i320, align 8
-  %126 = load ptr, ptr %pe.i321, align 8
-  %cmp.i205 = icmp ult ptr %125, %126
-  br i1 %cmp.i205, label %cond.true.i210, label %cond.false.i206
-
-cond.true.i210:                                   ; preds = %sw.bb95
-  %incdec.ptr.i212 = getelementptr inbounds nuw i8, ptr %125, i64 1
-  store ptr %incdec.ptr.i212, ptr %p.i320, align 8
-  %127 = load i8, ptr %125, align 1
-  %conv.i213 = zext i8 %127 to i32
-  br label %lex_next.exit214
-
-cond.false.i206:                                  ; preds = %sw.bb95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i353)
-  %128 = load ptr, ptr %rfunc.i208, align 8
-  %129 = load ptr, ptr %L.i209, align 8
-  %130 = load ptr, ptr %rdata.i210, align 8
-  %call.i357 = call ptr %128(ptr noundef %129, ptr noundef %130, ptr noundef nonnull %sz.i353) #9
-  %cmp.i358 = icmp eq ptr %call.i357, null
-  %131 = load i64, ptr %sz.i353, align 8
-  %cmp1.i359 = icmp eq i64 %131, 0
-  %or.cond.i360 = select i1 %cmp.i358, i1 true, i1 %cmp1.i359
-  br i1 %or.cond.i360, label %lex_more.exit376, label %if.end.i361
-
-if.end.i361:                                      ; preds = %cond.false.i206
-  %cmp2.i362 = icmp ugt i64 %131, 2147483391
-  br i1 %cmp2.i362, label %if.then3.i370, label %if.end11.i363
-
-if.then3.i370:                                    ; preds = %if.end.i361
-  %cmp4.not.i371 = icmp eq i64 %131, -1
-  br i1 %cmp4.not.i371, label %if.end7.i373, label %if.then5.i372
-
-if.then5.i372:                                    ; preds = %if.then3.i370
-  %132 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %132) #10
-  unreachable
-
-if.end7.i373:                                     ; preds = %if.then3.i370
-  %133 = ptrtoint ptr %call.i357 to i64
-  %134 = call i64 @llvm.umax.i64(i64 %133, i64 -2147483392)
-  %spec.store.select.i374 = xor i64 %134, -1
-  store i64 %spec.store.select.i374, ptr %sz.i353, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i363
-
-if.end11.i363:                                    ; preds = %if.end7.i373, %if.end.i361
-  %135 = phi i64 [ %spec.store.select.i374, %if.end7.i373 ], [ %131, %if.end.i361 ]
-  %add.ptr.i364 = getelementptr inbounds i8, ptr %call.i357, i64 %135
-  store ptr %add.ptr.i364, ptr %pe.i321, align 8
-  %add.ptr12.i366 = getelementptr inbounds nuw i8, ptr %call.i357, i64 1
-  store ptr %add.ptr12.i366, ptr %p.i320, align 8
-  %136 = load i8, ptr %call.i357, align 1
-  %conv.i368 = zext i8 %136 to i32
-  br label %lex_more.exit376
-
-lex_more.exit376:                                 ; preds = %cond.false.i206, %if.end11.i363
-  %retval.0.i369 = phi i32 [ %conv.i368, %if.end11.i363 ], [ -1, %cond.false.i206 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i353)
-  br label %lex_next.exit214
-
-lex_next.exit214:                                 ; preds = %lex_more.exit376, %cond.true.i210
-  %cond.i208 = phi i32 [ %conv.i213, %cond.true.i210 ], [ %retval.0.i369, %lex_more.exit376 ]
-  store i32 %cond.i208, ptr %c, align 8
-  %cmp98.not = icmp eq i32 %cond.i208, 61
-  br i1 %cmp98.not, label %if.else101, label %return
-
-if.else101:                                       ; preds = %lex_next.exit214
-  %137 = load ptr, ptr %p.i320, align 8
-  %138 = load ptr, ptr %pe.i321, align 8
-  %cmp.i192 = icmp ult ptr %137, %138
-  br i1 %cmp.i192, label %cond.true.i197, label %cond.false.i193
-
-cond.true.i197:                                   ; preds = %if.else101
-  %incdec.ptr.i199 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  store ptr %incdec.ptr.i199, ptr %p.i320, align 8
-  %139 = load i8, ptr %137, align 1
-  %conv.i200 = zext i8 %139 to i32
-  br label %lex_next.exit201
-
-cond.false.i193:                                  ; preds = %if.else101
-  %call.i194 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
-  br label %lex_next.exit201
-
-lex_next.exit201:                                 ; preds = %cond.false.i193, %cond.true.i197
-  %cond.i195 = phi i32 [ %conv.i200, %cond.true.i197 ], [ %call.i194, %cond.false.i193 ]
-  store i32 %cond.i195, ptr %c, align 8
-  br label %return
-
-sw.bb103:                                         ; preds = %if.end27
-  %140 = load ptr, ptr %p.i320, align 8
-  %141 = load ptr, ptr %pe.i321, align 8
-  %cmp.i179 = icmp ult ptr %140, %141
-  br i1 %cmp.i179, label %cond.true.i184, label %cond.false.i180
-
-cond.true.i184:                                   ; preds = %sw.bb103
-  %incdec.ptr.i186 = getelementptr inbounds nuw i8, ptr %140, i64 1
-  store ptr %incdec.ptr.i186, ptr %p.i320, align 8
-  %142 = load i8, ptr %140, align 1
-  %conv.i187 = zext i8 %142 to i32
-  br label %lex_next.exit188
-
-cond.false.i180:                                  ; preds = %sw.bb103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i377)
-  %143 = load ptr, ptr %rfunc.i208, align 8
-  %144 = load ptr, ptr %L.i209, align 8
-  %145 = load ptr, ptr %rdata.i210, align 8
-  %call.i381 = call ptr %143(ptr noundef %144, ptr noundef %145, ptr noundef nonnull %sz.i377) #9
-  %cmp.i382 = icmp eq ptr %call.i381, null
-  %146 = load i64, ptr %sz.i377, align 8
-  %cmp1.i383 = icmp eq i64 %146, 0
-  %or.cond.i384 = select i1 %cmp.i382, i1 true, i1 %cmp1.i383
-  br i1 %or.cond.i384, label %lex_more.exit400, label %if.end.i385
-
-if.end.i385:                                      ; preds = %cond.false.i180
-  %cmp2.i386 = icmp ugt i64 %146, 2147483391
-  br i1 %cmp2.i386, label %if.then3.i394, label %if.end11.i387
-
-if.then3.i394:                                    ; preds = %if.end.i385
-  %cmp4.not.i395 = icmp eq i64 %146, -1
-  br i1 %cmp4.not.i395, label %if.end7.i397, label %if.then5.i396
-
-if.then5.i396:                                    ; preds = %if.then3.i394
-  %147 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %147) #10
-  unreachable
-
-if.end7.i397:                                     ; preds = %if.then3.i394
-  %148 = ptrtoint ptr %call.i381 to i64
-  %149 = call i64 @llvm.umax.i64(i64 %148, i64 -2147483392)
-  %spec.store.select.i398 = xor i64 %149, -1
-  store i64 %spec.store.select.i398, ptr %sz.i377, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i387
-
-if.end11.i387:                                    ; preds = %if.end7.i397, %if.end.i385
-  %150 = phi i64 [ %spec.store.select.i398, %if.end7.i397 ], [ %146, %if.end.i385 ]
-  %add.ptr.i388 = getelementptr inbounds i8, ptr %call.i381, i64 %150
-  store ptr %add.ptr.i388, ptr %pe.i321, align 8
-  %add.ptr12.i390 = getelementptr inbounds nuw i8, ptr %call.i381, i64 1
-  store ptr %add.ptr12.i390, ptr %p.i320, align 8
-  %151 = load i8, ptr %call.i381, align 1
-  %conv.i392 = zext i8 %151 to i32
-  br label %lex_more.exit400
-
-lex_more.exit400:                                 ; preds = %cond.false.i180, %if.end11.i387
-  %retval.0.i393 = phi i32 [ %conv.i392, %if.end11.i387 ], [ -1, %cond.false.i180 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i377)
-  br label %lex_next.exit188
-
-lex_next.exit188:                                 ; preds = %lex_more.exit400, %cond.true.i184
-  %cond.i182 = phi i32 [ %conv.i187, %cond.true.i184 ], [ %retval.0.i393, %lex_more.exit400 ]
-  store i32 %cond.i182, ptr %c, align 8
-  %cmp106.not = icmp eq i32 %cond.i182, 58
-  br i1 %cmp106.not, label %if.else109, label %return
-
-if.else109:                                       ; preds = %lex_next.exit188
-  %152 = load ptr, ptr %p.i320, align 8
-  %153 = load ptr, ptr %pe.i321, align 8
-  %cmp.i166 = icmp ult ptr %152, %153
-  br i1 %cmp.i166, label %cond.true.i171, label %cond.false.i167
-
-cond.true.i171:                                   ; preds = %if.else109
-  %incdec.ptr.i173 = getelementptr inbounds nuw i8, ptr %152, i64 1
-  store ptr %incdec.ptr.i173, ptr %p.i320, align 8
-  %154 = load i8, ptr %152, align 1
-  %conv.i174 = zext i8 %154 to i32
-  br label %lex_next.exit175
-
-cond.false.i167:                                  ; preds = %if.else109
-  %call.i168 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
-  br label %lex_next.exit175
-
-lex_next.exit175:                                 ; preds = %cond.false.i167, %cond.true.i171
-  %cond.i169 = phi i32 [ %conv.i174, %cond.true.i171 ], [ %call.i168, %cond.false.i167 ]
-  store i32 %cond.i169, ptr %c, align 8
-  br label %return
-
-sw.bb111:                                         ; preds = %if.end27, %if.end27
-  %e.i609.i = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %155 = load ptr, ptr %e.i609.i, align 8
-  %156 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i610.i = ptrtoint ptr %155 to i64
-  %sub.ptr.rhs.cast.i611.i = ptrtoint ptr %156 to i64
-  %sub.ptr.sub.i612.i = sub i64 %sub.ptr.lhs.cast.i610.i, %sub.ptr.rhs.cast.i611.i
-  %157 = and i64 %sub.ptr.sub.i612.i, 4294967295
-  %cmp.i614.i = icmp eq i64 %157, 0
-  br i1 %cmp.i614.i, label %if.then.i619.i, label %lj_buf_more.exit621.i
-
-if.then.i619.i:                                   ; preds = %sw.bb111
-  %call.i620.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit621.i
-
-lj_buf_more.exit621.i:                            ; preds = %if.then.i619.i, %sw.bb111
-  %retval.i606.0.i = phi ptr [ %call.i620.i, %if.then.i619.i ], [ %156, %sw.bb111 ]
-  %conv.i396.i = trunc i32 %26 to i8
-  %incdec.ptr.i397.i = getelementptr inbounds nuw i8, ptr %retval.i606.0.i, i64 1
-  store i8 %conv.i396.i, ptr %retval.i606.0.i, align 1
-  store ptr %incdec.ptr.i397.i, ptr %sb, align 8
-  %158 = load ptr, ptr %p.i320, align 8
-  %159 = load ptr, ptr %pe.i321, align 8
-  %cmp.i.i384.i = icmp ult ptr %158, %159
-  br i1 %cmp.i.i384.i, label %cond.true.i.i389.i, label %cond.false.i.i385.i
-
-cond.true.i.i389.i:                               ; preds = %lj_buf_more.exit621.i
-  %incdec.ptr.i.i391.i = getelementptr inbounds nuw i8, ptr %158, i64 1
-  store ptr %incdec.ptr.i.i391.i, ptr %p.i320, align 8
-  %160 = load i8, ptr %158, align 1
-  %conv.i.i392.i = zext i8 %160 to i32
-  br label %lex_savenext.exit393.i
-
-cond.false.i.i385.i:                              ; preds = %lj_buf_more.exit621.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i.i)
-  %161 = load ptr, ptr %rfunc.i208, align 8
-  %162 = load ptr, ptr %L.i209, align 8
-  %163 = load ptr, ptr %rdata.i210, align 8
-  %call.i222.i = call ptr %161(ptr noundef %162, ptr noundef %163, ptr noundef nonnull %sz.i.i) #9
-  %cmp.i223.i = icmp eq ptr %call.i222.i, null
-  %164 = load i64, ptr %sz.i.i, align 8
-  %cmp1.i.i = icmp eq i64 %164, 0
-  %or.cond.i.i = select i1 %cmp.i223.i, i1 true, i1 %cmp1.i.i
-  br i1 %or.cond.i.i, label %lex_more.exit.i, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %cond.false.i.i385.i
-  %cmp2.i.i = icmp ugt i64 %164, 2147483391
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end11.i.i
-
-if.then3.i.i:                                     ; preds = %if.end.i.i
-  %cmp4.not.i.i = icmp eq i64 %164, -1
-  br i1 %cmp4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
-
-if.then5.i.i:                                     ; preds = %if.then3.i.i
-  %165 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %165) #10
-  unreachable
-
-if.end7.i.i:                                      ; preds = %if.then3.i.i
-  %166 = ptrtoint ptr %call.i222.i to i64
-  %167 = call i64 @llvm.umax.i64(i64 %166, i64 -2147483392)
-  %spec.store.select.i.i = xor i64 %167, -1
-  store i64 %spec.store.select.i.i, ptr %sz.i.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i.i
-
-if.end11.i.i:                                     ; preds = %if.end7.i.i, %if.end.i.i
-  %168 = phi i64 [ %spec.store.select.i.i, %if.end7.i.i ], [ %164, %if.end.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i222.i, i64 %168
-  store ptr %add.ptr.i.i, ptr %pe.i321, align 8
-  %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %call.i222.i, i64 1
-  store ptr %add.ptr12.i.i, ptr %p.i320, align 8
-  %169 = load i8, ptr %call.i222.i, align 1
-  %conv.i224.i = zext i8 %169 to i32
-  br label %lex_more.exit.i
-
-lex_more.exit.i:                                  ; preds = %if.end11.i.i, %cond.false.i.i385.i
-  %retval.0.i.i = phi i32 [ %conv.i224.i, %if.end11.i.i ], [ -1, %cond.false.i.i385.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i.i)
-  br label %lex_savenext.exit393.i
-
-lex_savenext.exit393.i:                           ; preds = %lex_more.exit.i, %cond.true.i.i389.i
-  %cond.i.i387.i = phi i32 [ %conv.i.i392.i, %cond.true.i.i389.i ], [ %retval.0.i.i, %lex_more.exit.i ]
-  store i32 %cond.i.i387.i, ptr %c, align 8
-  %cmp.not585.i = icmp eq i32 %cond.i.i387.i, %26
-  br i1 %cmp.not585.i, label %while.end174.i, label %while.body.i
-
-while.condthread-pre-split.i:                     ; preds = %if.end131.i, %lj_buf_more.exit477.i, %lj_buf_more.exit493.i, %lex_next.exit247.i
-  %.pr.i = load i32, ptr %c, align 8
-  br label %while.cond.backedge.i
-
-while.body.i:                                     ; preds = %lex_savenext.exit393.i, %while.cond.backedge.i
-  %170 = phi i32 [ %.be.i, %while.cond.backedge.i ], [ %cond.i.i387.i, %lex_savenext.exit393.i ]
-  switch i32 %170, label %sw.default171.i [
-    i32 -1, label %sw.bb.i
-    i32 10, label %sw.bb3.i
-    i32 13, label %sw.bb3.i
-    i32 92, label %sw.bb4.i
-  ]
-
-sw.bb.i:                                          ; preds = %while.body.i
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef 289, i32 noundef 2293) #11
-  unreachable
-
-sw.bb3.i:                                         ; preds = %while.body.i, %while.body.i
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef 288, i32 noundef 2293) #11
-  unreachable
-
-sw.bb4.i:                                         ; preds = %while.body.i
-  %171 = load ptr, ptr %p.i320, align 8
-  %172 = load ptr, ptr %pe.i321, align 8
-  %cmp.i316.i = icmp ult ptr %171, %172
-  br i1 %cmp.i316.i, label %cond.true.i321.i, label %cond.false.i317.i
-
-cond.true.i321.i:                                 ; preds = %sw.bb4.i
-  %incdec.ptr.i323.i = getelementptr inbounds nuw i8, ptr %171, i64 1
-  store ptr %incdec.ptr.i323.i, ptr %p.i320, align 8
-  %173 = load i8, ptr %171, align 1
-  %conv.i324.i = zext i8 %173 to i32
-  br label %lex_next.exit325.i
-
-cond.false.i317.i:                                ; preds = %sw.bb4.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i225.i)
-  %174 = load ptr, ptr %rfunc.i208, align 8
-  %175 = load ptr, ptr %L.i209, align 8
-  %176 = load ptr, ptr %rdata.i210, align 8
-  %call.i229.i = call ptr %174(ptr noundef %175, ptr noundef %176, ptr noundef nonnull %sz.i225.i) #9
-  %cmp.i230.i = icmp eq ptr %call.i229.i, null
-  %177 = load i64, ptr %sz.i225.i, align 8
-  %cmp1.i231.i = icmp eq i64 %177, 0
-  %or.cond.i232.i = select i1 %cmp.i230.i, i1 true, i1 %cmp1.i231.i
-  br i1 %or.cond.i232.i, label %lex_more.exit248.i, label %if.end.i233.i
-
-if.end.i233.i:                                    ; preds = %cond.false.i317.i
-  %cmp2.i234.i = icmp ugt i64 %177, 2147483391
-  br i1 %cmp2.i234.i, label %if.then3.i242.i, label %if.end11.i235.i
-
-if.then3.i242.i:                                  ; preds = %if.end.i233.i
-  %cmp4.not.i243.i = icmp eq i64 %177, -1
-  br i1 %cmp4.not.i243.i, label %if.end7.i245.i, label %if.then5.i244.i
-
-if.then5.i244.i:                                  ; preds = %if.then3.i242.i
-  %178 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %178) #10
-  unreachable
-
-if.end7.i245.i:                                   ; preds = %if.then3.i242.i
-  %179 = ptrtoint ptr %call.i229.i to i64
-  %180 = call i64 @llvm.umax.i64(i64 %179, i64 -2147483392)
-  %spec.store.select.i246.i = xor i64 %180, -1
-  store i64 %spec.store.select.i246.i, ptr %sz.i225.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i235.i
-
-if.end11.i235.i:                                  ; preds = %if.end7.i245.i, %if.end.i233.i
-  %181 = phi i64 [ %spec.store.select.i246.i, %if.end7.i245.i ], [ %177, %if.end.i233.i ]
-  %add.ptr.i236.i = getelementptr inbounds i8, ptr %call.i229.i, i64 %181
-  store ptr %add.ptr.i236.i, ptr %pe.i321, align 8
-  %add.ptr12.i238.i = getelementptr inbounds nuw i8, ptr %call.i229.i, i64 1
-  store ptr %add.ptr12.i238.i, ptr %p.i320, align 8
-  %182 = load i8, ptr %call.i229.i, align 1
-  %conv.i240.i = zext i8 %182 to i32
-  br label %lex_more.exit248.i
-
-lex_more.exit248.i:                               ; preds = %if.end11.i235.i, %cond.false.i317.i
-  %retval.0.i241.i = phi i32 [ %conv.i240.i, %if.end11.i235.i ], [ -1, %cond.false.i317.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i225.i)
-  br label %lex_next.exit325.i
-
-lex_next.exit325.i:                               ; preds = %lex_more.exit248.i, %cond.true.i321.i
-  %cond.i319.i = phi i32 [ %conv.i324.i, %cond.true.i321.i ], [ %retval.0.i241.i, %lex_more.exit248.i ]
-  store i32 %cond.i319.i, ptr %c, align 8
-  switch i32 %cond.i319.i, label %sw.default.i [
-    i32 97, label %sw.bb7.i
-    i32 98, label %sw.bb8.i
-    i32 102, label %sw.bb9.i
-    i32 110, label %sw.bb10.i
-    i32 114, label %sw.bb11.i
-    i32 116, label %sw.bb12.i
-    i32 118, label %sw.bb13.i
-    i32 120, label %sw.bb14.i
-    i32 117, label %sw.bb46.i
-    i32 122, label %sw.bb112.i
-    i32 10, label %sw.bb132.i
-    i32 13, label %sw.bb132.i
-    i32 92, label %sw.epilog.i
-    i32 34, label %sw.epilog.i
-    i32 39, label %sw.epilog.i
-    i32 -1, label %while.cond.backedge.i
-  ]
-
-sw.bb7.i:                                         ; preds = %lex_next.exit325.i
-  br label %sw.epilog.i
-
-sw.bb8.i:                                         ; preds = %lex_next.exit325.i
-  br label %sw.epilog.i
-
-sw.bb9.i:                                         ; preds = %lex_next.exit325.i
-  br label %sw.epilog.i
-
-sw.bb10.i:                                        ; preds = %lex_next.exit325.i
-  br label %sw.epilog.i
-
-sw.bb11.i:                                        ; preds = %lex_next.exit325.i
-  br label %sw.epilog.i
-
-sw.bb12.i:                                        ; preds = %lex_next.exit325.i
-  br label %sw.epilog.i
-
-sw.bb13.i:                                        ; preds = %lex_next.exit325.i
-  br label %sw.epilog.i
-
-sw.bb14.i:                                        ; preds = %lex_next.exit325.i
-  %183 = load ptr, ptr %p.i320, align 8
-  %184 = load ptr, ptr %pe.i321, align 8
-  %cmp.i303.i = icmp ult ptr %183, %184
-  br i1 %cmp.i303.i, label %cond.true.i308.i, label %cond.false.i304.i
-
-cond.true.i308.i:                                 ; preds = %sw.bb14.i
-  %incdec.ptr.i310.i = getelementptr inbounds nuw i8, ptr %183, i64 1
-  store ptr %incdec.ptr.i310.i, ptr %p.i320, align 8
-  %185 = load i8, ptr %183, align 1
-  %conv.i311.i = zext i8 %185 to i32
-  br label %lex_next.exit312.i
-
-cond.false.i304.i:                                ; preds = %sw.bb14.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i249.i)
-  %186 = load ptr, ptr %rfunc.i208, align 8
-  %187 = load ptr, ptr %L.i209, align 8
-  %188 = load ptr, ptr %rdata.i210, align 8
-  %call.i254.i = call ptr %186(ptr noundef %187, ptr noundef %188, ptr noundef nonnull %sz.i249.i) #9
-  %cmp.i255.i = icmp eq ptr %call.i254.i, null
-  %189 = load i64, ptr %sz.i249.i, align 8
-  %cmp1.i256.i = icmp eq i64 %189, 0
-  %or.cond.i257.i = select i1 %cmp.i255.i, i1 true, i1 %cmp1.i256.i
-  br i1 %or.cond.i257.i, label %lex_more.exit273.i, label %if.end.i258.i
-
-if.end.i258.i:                                    ; preds = %cond.false.i304.i
-  %cmp2.i259.i = icmp ugt i64 %189, 2147483391
-  br i1 %cmp2.i259.i, label %if.then3.i267.i, label %if.end11.i260.i
-
-if.then3.i267.i:                                  ; preds = %if.end.i258.i
-  %cmp4.not.i268.i = icmp eq i64 %189, -1
-  br i1 %cmp4.not.i268.i, label %if.end7.i270.i, label %if.then5.i269.i
-
-if.then5.i269.i:                                  ; preds = %if.then3.i267.i
-  %190 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %190) #10
-  unreachable
-
-if.end7.i270.i:                                   ; preds = %if.then3.i267.i
-  %191 = ptrtoint ptr %call.i254.i to i64
-  %192 = call i64 @llvm.umax.i64(i64 %191, i64 -2147483392)
-  %spec.store.select.i271.i = xor i64 %192, -1
-  store i64 %spec.store.select.i271.i, ptr %sz.i249.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i260.i
-
-if.end11.i260.i:                                  ; preds = %if.end7.i270.i, %if.end.i258.i
-  %193 = phi i64 [ %spec.store.select.i271.i, %if.end7.i270.i ], [ %189, %if.end.i258.i ]
-  %add.ptr.i261.i = getelementptr inbounds i8, ptr %call.i254.i, i64 %193
-  store ptr %add.ptr.i261.i, ptr %pe.i321, align 8
-  %add.ptr12.i263.i = getelementptr inbounds nuw i8, ptr %call.i254.i, i64 1
-  store ptr %add.ptr12.i263.i, ptr %p.i320, align 8
-  %194 = load i8, ptr %call.i254.i, align 1
-  %conv.i265.i = zext i8 %194 to i32
-  br label %lex_more.exit273.i
-
-lex_more.exit273.i:                               ; preds = %if.end11.i260.i, %cond.false.i304.i
-  %retval.0.i266.i = phi i32 [ %conv.i265.i, %if.end11.i260.i ], [ -1, %cond.false.i304.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i249.i)
-  br label %lex_next.exit312.i
-
-lex_next.exit312.i:                               ; preds = %lex_more.exit273.i, %cond.true.i308.i
-  %cond.i306.i = phi i32 [ %conv.i311.i, %cond.true.i308.i ], [ %retval.0.i266.i, %lex_more.exit273.i ]
-  store i32 %cond.i306.i, ptr %c, align 8
-  %and.i = shl nsw i32 %cond.i306.i, 4
-  %shl.i = and i32 %and.i, 240
-  %idxprom.i = sext i32 %cond.i306.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom.i
-  %195 = load i8, ptr %arrayidx.i, align 1
-  %conv.i412 = zext i8 %195 to i32
-  %and17.i = and i32 %conv.i412, 8
-  %tobool.not.i = icmp eq i32 %and17.i, 0
-  br i1 %tobool.not.i, label %if.then.i413, label %if.end25.i
-
-if.then.i413:                                     ; preds = %lex_next.exit312.i
-  %and22.i = and i32 %conv.i412, 16
-  %tobool23.not.i = icmp eq i32 %and22.i, 0
-  br i1 %tobool23.not.i, label %err_xesc.i, label %if.end.i414
-
-if.end.i414:                                      ; preds = %if.then.i413
-  %add.i = add nuw nsw i32 %shl.i, 144
-  br label %if.end25.i
-
-if.end25.i:                                       ; preds = %if.end.i414, %lex_next.exit312.i
-  %c5.1.i = phi i32 [ %shl.i, %lex_next.exit312.i ], [ %add.i, %if.end.i414 ]
-  %196 = load ptr, ptr %p.i320, align 8
-  %197 = load ptr, ptr %pe.i321, align 8
-  %cmp.i290.i = icmp ult ptr %196, %197
-  br i1 %cmp.i290.i, label %cond.true.i295.i, label %cond.false.i291.i
-
-cond.true.i295.i:                                 ; preds = %if.end25.i
-  %incdec.ptr.i297.i = getelementptr inbounds nuw i8, ptr %196, i64 1
-  store ptr %incdec.ptr.i297.i, ptr %p.i320, align 8
-  %198 = load i8, ptr %196, align 1
-  %conv.i298.i = zext i8 %198 to i32
-  br label %lex_next.exit299.i
-
-cond.false.i291.i:                                ; preds = %if.end25.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i274.i)
-  %199 = load ptr, ptr %rfunc.i208, align 8
-  %200 = load ptr, ptr %L.i209, align 8
-  %201 = load ptr, ptr %rdata.i210, align 8
-  %call.i278.i = call ptr %199(ptr noundef %200, ptr noundef %201, ptr noundef nonnull %sz.i274.i) #9
-  %cmp.i279.i = icmp eq ptr %call.i278.i, null
-  %202 = load i64, ptr %sz.i274.i, align 8
-  %cmp1.i280.i = icmp eq i64 %202, 0
-  %or.cond.i281.i = select i1 %cmp.i279.i, i1 true, i1 %cmp1.i280.i
-  br i1 %or.cond.i281.i, label %lex_more.exit297.i, label %if.end.i282.i
-
-if.end.i282.i:                                    ; preds = %cond.false.i291.i
-  %cmp2.i283.i = icmp ugt i64 %202, 2147483391
-  br i1 %cmp2.i283.i, label %if.then3.i291.i, label %if.end11.i284.i
-
-if.then3.i291.i:                                  ; preds = %if.end.i282.i
-  %cmp4.not.i292.i = icmp eq i64 %202, -1
-  br i1 %cmp4.not.i292.i, label %if.end7.i294.i, label %if.then5.i293.i
-
-if.then5.i293.i:                                  ; preds = %if.then3.i291.i
-  %203 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %203) #10
-  unreachable
-
-if.end7.i294.i:                                   ; preds = %if.then3.i291.i
-  %204 = ptrtoint ptr %call.i278.i to i64
-  %205 = call i64 @llvm.umax.i64(i64 %204, i64 -2147483392)
-  %spec.store.select.i295.i = xor i64 %205, -1
-  store i64 %spec.store.select.i295.i, ptr %sz.i274.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i284.i
-
-if.end11.i284.i:                                  ; preds = %if.end7.i294.i, %if.end.i282.i
-  %206 = phi i64 [ %spec.store.select.i295.i, %if.end7.i294.i ], [ %202, %if.end.i282.i ]
-  %add.ptr.i285.i = getelementptr inbounds i8, ptr %call.i278.i, i64 %206
-  store ptr %add.ptr.i285.i, ptr %pe.i321, align 8
-  %add.ptr12.i287.i = getelementptr inbounds nuw i8, ptr %call.i278.i, i64 1
-  store ptr %add.ptr12.i287.i, ptr %p.i320, align 8
-  %207 = load i8, ptr %call.i278.i, align 1
-  %conv.i289.i = zext i8 %207 to i32
-  br label %lex_more.exit297.i
-
-lex_more.exit297.i:                               ; preds = %if.end11.i284.i, %cond.false.i291.i
-  %retval.0.i290.i = phi i32 [ %conv.i289.i, %if.end11.i284.i ], [ -1, %cond.false.i291.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i274.i)
-  br label %lex_next.exit299.i
-
-lex_next.exit299.i:                               ; preds = %lex_more.exit297.i, %cond.true.i295.i
-  %cond.i293.i = phi i32 [ %conv.i298.i, %cond.true.i295.i ], [ %retval.0.i290.i, %lex_more.exit297.i ]
-  store i32 %cond.i293.i, ptr %c, align 8
-  %and27.i = and i32 %cond.i293.i, 15
-  %add28.i = add nuw nsw i32 %and27.i, %c5.1.i
-  %idxprom30.i = sext i32 %cond.i293.i to i64
-  %arrayidx31.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom30.i
-  %208 = load i8, ptr %arrayidx31.i, align 1
-  %conv32.i = zext i8 %208 to i32
-  %and33.i = and i32 %conv32.i, 8
-  %tobool34.not.i = icmp eq i32 %and33.i, 0
-  br i1 %tobool34.not.i, label %if.then35.i, label %sw.epilog.i
-
-if.then35.i:                                      ; preds = %lex_next.exit299.i
-  %and40.i = and i32 %conv32.i, 16
-  %tobool41.not.i = icmp eq i32 %and40.i, 0
-  br i1 %tobool41.not.i, label %err_xesc.i, label %if.end43.i
-
-if.end43.i:                                       ; preds = %if.then35.i
-  %add44.i = add nuw nsw i32 %add28.i, 9
-  br label %sw.epilog.i
-
-sw.bb46.i:                                        ; preds = %lex_next.exit325.i
-  %209 = load ptr, ptr %p.i320, align 8
-  %210 = load ptr, ptr %pe.i321, align 8
-  %cmp.i277.i = icmp ult ptr %209, %210
-  br i1 %cmp.i277.i, label %cond.true.i282.i, label %cond.false.i278.i
-
-cond.true.i282.i:                                 ; preds = %sw.bb46.i
-  %incdec.ptr.i284.i = getelementptr inbounds nuw i8, ptr %209, i64 1
-  store ptr %incdec.ptr.i284.i, ptr %p.i320, align 8
-  %211 = load i8, ptr %209, align 1
-  %conv.i285.i = zext i8 %211 to i32
-  br label %lex_next.exit286.i
-
-cond.false.i278.i:                                ; preds = %sw.bb46.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i298.i)
-  %212 = load ptr, ptr %rfunc.i208, align 8
-  %213 = load ptr, ptr %L.i209, align 8
-  %214 = load ptr, ptr %rdata.i210, align 8
-  %call.i302.i = call ptr %212(ptr noundef %213, ptr noundef %214, ptr noundef nonnull %sz.i298.i) #9
-  %cmp.i304.i = icmp eq ptr %call.i302.i, null
-  %215 = load i64, ptr %sz.i298.i, align 8
-  %cmp1.i305.i = icmp eq i64 %215, 0
-  %or.cond.i306.i = select i1 %cmp.i304.i, i1 true, i1 %cmp1.i305.i
-  br i1 %or.cond.i306.i, label %lex_more.exit322.i, label %if.end.i307.i
-
-if.end.i307.i:                                    ; preds = %cond.false.i278.i
-  %cmp2.i308.i = icmp ugt i64 %215, 2147483391
-  br i1 %cmp2.i308.i, label %if.then3.i316.i, label %if.end11.i309.i
-
-if.then3.i316.i:                                  ; preds = %if.end.i307.i
-  %cmp4.not.i317.i = icmp eq i64 %215, -1
-  br i1 %cmp4.not.i317.i, label %if.end7.i319.i, label %if.then5.i318.i
-
-if.then5.i318.i:                                  ; preds = %if.then3.i316.i
-  %216 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %216) #10
-  unreachable
-
-if.end7.i319.i:                                   ; preds = %if.then3.i316.i
-  %217 = ptrtoint ptr %call.i302.i to i64
-  %218 = call i64 @llvm.umax.i64(i64 %217, i64 -2147483392)
-  %spec.store.select.i320.i = xor i64 %218, -1
-  store i64 %spec.store.select.i320.i, ptr %sz.i298.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i309.i
-
-if.end11.i309.i:                                  ; preds = %if.end7.i319.i, %if.end.i307.i
-  %219 = phi i64 [ %spec.store.select.i320.i, %if.end7.i319.i ], [ %215, %if.end.i307.i ]
-  %add.ptr.i310.i = getelementptr inbounds i8, ptr %call.i302.i, i64 %219
-  store ptr %add.ptr.i310.i, ptr %pe.i321, align 8
-  %add.ptr12.i312.i = getelementptr inbounds nuw i8, ptr %call.i302.i, i64 1
-  store ptr %add.ptr12.i312.i, ptr %p.i320, align 8
-  %220 = load i8, ptr %call.i302.i, align 1
-  %conv.i314.i = zext i8 %220 to i32
-  br label %lex_more.exit322.i
-
-lex_more.exit322.i:                               ; preds = %if.end11.i309.i, %cond.false.i278.i
-  %retval.0.i315.i = phi i32 [ %conv.i314.i, %if.end11.i309.i ], [ -1, %cond.false.i278.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i298.i)
-  br label %lex_next.exit286.i
-
-lex_next.exit286.i:                               ; preds = %lex_more.exit322.i, %cond.true.i282.i
-  %cond.i280.i = phi i32 [ %conv.i285.i, %cond.true.i282.i ], [ %retval.0.i315.i, %lex_more.exit322.i ]
-  store i32 %cond.i280.i, ptr %c, align 8
-  %cmp48.not.i = icmp eq i32 %cond.i280.i, 123
-  br i1 %cmp48.not.i, label %if.end51.i, label %err_xesc.i
-
-if.end51.i:                                       ; preds = %lex_next.exit286.i
-  %221 = load ptr, ptr %p.i320, align 8
-  %222 = load ptr, ptr %pe.i321, align 8
-  %cmp.i264.i = icmp ult ptr %221, %222
-  br i1 %cmp.i264.i, label %cond.true.i269.i, label %cond.false.i265.i
-
-cond.true.i269.i:                                 ; preds = %if.end51.i
-  %incdec.ptr.i271.i = getelementptr inbounds nuw i8, ptr %221, i64 1
-  store ptr %incdec.ptr.i271.i, ptr %p.i320, align 8
-  %223 = load i8, ptr %221, align 1
-  %conv.i272.i = zext i8 %223 to i32
-  br label %lex_next.exit273.i
-
-cond.false.i265.i:                                ; preds = %if.end51.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i323.i)
-  %224 = load ptr, ptr %rfunc.i208, align 8
-  %225 = load ptr, ptr %L.i209, align 8
-  %226 = load ptr, ptr %rdata.i210, align 8
-  %call.i327.i = call ptr %224(ptr noundef %225, ptr noundef %226, ptr noundef nonnull %sz.i323.i) #9
-  %cmp.i328.i = icmp eq ptr %call.i327.i, null
-  %227 = load i64, ptr %sz.i323.i, align 8
-  %cmp1.i329.i = icmp eq i64 %227, 0
-  %or.cond.i330.i = select i1 %cmp.i328.i, i1 true, i1 %cmp1.i329.i
-  br i1 %or.cond.i330.i, label %lex_more.exit346.i, label %if.end.i331.i
-
-if.end.i331.i:                                    ; preds = %cond.false.i265.i
-  %cmp2.i332.i = icmp ugt i64 %227, 2147483391
-  br i1 %cmp2.i332.i, label %if.then3.i340.i, label %if.end11.i333.i
-
-if.then3.i340.i:                                  ; preds = %if.end.i331.i
-  %cmp4.not.i341.i = icmp eq i64 %227, -1
-  br i1 %cmp4.not.i341.i, label %if.end7.i343.i, label %if.then5.i342.i
-
-if.then5.i342.i:                                  ; preds = %if.then3.i340.i
-  %228 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %228) #10
-  unreachable
-
-if.end7.i343.i:                                   ; preds = %if.then3.i340.i
-  %229 = ptrtoint ptr %call.i327.i to i64
-  %230 = call i64 @llvm.umax.i64(i64 %229, i64 -2147483392)
-  %spec.store.select.i344.i = xor i64 %230, -1
-  store i64 %spec.store.select.i344.i, ptr %sz.i323.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i333.i
-
-if.end11.i333.i:                                  ; preds = %if.end7.i343.i, %if.end.i331.i
-  %231 = phi i64 [ %spec.store.select.i344.i, %if.end7.i343.i ], [ %227, %if.end.i331.i ]
-  %add.ptr.i334.i = getelementptr inbounds i8, ptr %call.i327.i, i64 %231
-  store ptr %add.ptr.i334.i, ptr %pe.i321, align 8
-  %add.ptr12.i336.i = getelementptr inbounds nuw i8, ptr %call.i327.i, i64 1
-  store ptr %add.ptr12.i336.i, ptr %p.i320, align 8
-  %232 = load i8, ptr %call.i327.i, align 1
-  %conv.i338.i = zext i8 %232 to i32
-  br label %lex_more.exit346.i
-
-lex_more.exit346.i:                               ; preds = %if.end11.i333.i, %cond.false.i265.i
-  %retval.0.i339.i = phi i32 [ %conv.i338.i, %if.end11.i333.i ], [ -1, %cond.false.i265.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i323.i)
-  br label %lex_next.exit273.i
-
-lex_next.exit273.i:                               ; preds = %lex_more.exit346.i, %cond.true.i269.i
-  %cond.i267.i = phi i32 [ %conv.i272.i, %cond.true.i269.i ], [ %retval.0.i339.i, %lex_more.exit346.i ]
-  store i32 %cond.i267.i, ptr %c, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %lex_next.exit260.i, %lex_next.exit273.i
-  %233 = phi i32 [ %cond.i267.i, %lex_next.exit273.i ], [ %cond.i254.i, %lex_next.exit260.i ]
-  %c5.2.i = phi i32 [ 0, %lex_next.exit273.i ], [ %c5.3.i, %lex_next.exit260.i ]
-  %shl53.i = shl i32 %c5.2.i, 4
-  %and55.i = and i32 %233, 15
-  %or.i410 = or disjoint i32 %shl53.i, %and55.i
-  %idxprom57.i = sext i32 %233 to i64
-  %arrayidx58.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom57.i
-  %234 = load i8, ptr %arrayidx58.i, align 1
-  %conv59.i = zext i8 %234 to i32
-  %and60.i = and i32 %conv59.i, 8
-  %tobool61.not.i = icmp eq i32 %and60.i, 0
-  br i1 %tobool61.not.i, label %if.then62.i, label %if.end72.i
-
-if.then62.i:                                      ; preds = %do.body.i
-  %and67.i = and i32 %conv59.i, 16
-  %tobool68.not.i = icmp eq i32 %and67.i, 0
-  br i1 %tobool68.not.i, label %err_xesc.i, label %if.end70.i
-
-if.end70.i:                                       ; preds = %if.then62.i
-  %add71.i = add nsw i32 %or.i410, 9
-  br label %if.end72.i
-
-if.end72.i:                                       ; preds = %if.end70.i, %do.body.i
-  %c5.3.i = phi i32 [ %or.i410, %do.body.i ], [ %add71.i, %if.end70.i ]
-  %cmp73.i = icmp sgt i32 %c5.3.i, 1114111
-  br i1 %cmp73.i, label %err_xesc.i, label %do.cond.i
-
-do.cond.i:                                        ; preds = %if.end72.i
-  %235 = load ptr, ptr %p.i320, align 8
-  %236 = load ptr, ptr %pe.i321, align 8
-  %cmp.i251.i = icmp ult ptr %235, %236
-  br i1 %cmp.i251.i, label %cond.true.i256.i, label %cond.false.i252.i
-
-cond.true.i256.i:                                 ; preds = %do.cond.i
-  %incdec.ptr.i258.i = getelementptr inbounds nuw i8, ptr %235, i64 1
-  store ptr %incdec.ptr.i258.i, ptr %p.i320, align 8
-  %237 = load i8, ptr %235, align 1
-  %conv.i259.i = zext i8 %237 to i32
-  br label %lex_next.exit260.i
-
-cond.false.i252.i:                                ; preds = %do.cond.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i347.i)
-  %238 = load ptr, ptr %rfunc.i208, align 8
-  %239 = load ptr, ptr %L.i209, align 8
-  %240 = load ptr, ptr %rdata.i210, align 8
-  %call.i351.i = call ptr %238(ptr noundef %239, ptr noundef %240, ptr noundef nonnull %sz.i347.i) #9
-  %cmp.i352.i = icmp eq ptr %call.i351.i, null
-  %241 = load i64, ptr %sz.i347.i, align 8
-  %cmp1.i353.i = icmp eq i64 %241, 0
-  %or.cond.i354.i = select i1 %cmp.i352.i, i1 true, i1 %cmp1.i353.i
-  br i1 %or.cond.i354.i, label %lex_more.exit370.i, label %if.end.i355.i
-
-if.end.i355.i:                                    ; preds = %cond.false.i252.i
-  %cmp2.i356.i = icmp ugt i64 %241, 2147483391
-  br i1 %cmp2.i356.i, label %if.then3.i364.i, label %if.end11.i357.i
-
-if.then3.i364.i:                                  ; preds = %if.end.i355.i
-  %cmp4.not.i365.i = icmp eq i64 %241, -1
-  br i1 %cmp4.not.i365.i, label %if.end7.i367.i, label %if.then5.i366.i
-
-if.then5.i366.i:                                  ; preds = %if.then3.i364.i
-  %242 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %242) #10
-  unreachable
-
-if.end7.i367.i:                                   ; preds = %if.then3.i364.i
-  %243 = ptrtoint ptr %call.i351.i to i64
-  %244 = call i64 @llvm.umax.i64(i64 %243, i64 -2147483392)
-  %spec.store.select.i368.i = xor i64 %244, -1
-  store i64 %spec.store.select.i368.i, ptr %sz.i347.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i357.i
-
-if.end11.i357.i:                                  ; preds = %if.end7.i367.i, %if.end.i355.i
-  %245 = phi i64 [ %spec.store.select.i368.i, %if.end7.i367.i ], [ %241, %if.end.i355.i ]
-  %add.ptr.i358.i = getelementptr inbounds i8, ptr %call.i351.i, i64 %245
-  store ptr %add.ptr.i358.i, ptr %pe.i321, align 8
-  %add.ptr12.i360.i = getelementptr inbounds nuw i8, ptr %call.i351.i, i64 1
-  store ptr %add.ptr12.i360.i, ptr %p.i320, align 8
-  %246 = load i8, ptr %call.i351.i, align 1
-  %conv.i362.i = zext i8 %246 to i32
-  br label %lex_more.exit370.i
-
-lex_more.exit370.i:                               ; preds = %if.end11.i357.i, %cond.false.i252.i
-  %retval.0.i363.i = phi i32 [ %conv.i362.i, %if.end11.i357.i ], [ -1, %cond.false.i252.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i347.i)
-  br label %lex_next.exit260.i
-
-lex_next.exit260.i:                               ; preds = %lex_more.exit370.i, %cond.true.i256.i
-  %cond.i254.i = phi i32 [ %conv.i259.i, %cond.true.i256.i ], [ %retval.0.i363.i, %lex_more.exit370.i ]
-  store i32 %cond.i254.i, ptr %c, align 8
-  %cmp78.not.i = icmp eq i32 %cond.i254.i, 125
-  br i1 %cmp78.not.i, label %do.end.i, label %do.body.i, !llvm.loop !7
-
-do.end.i:                                         ; preds = %lex_next.exit260.i
-  %cmp80.i = icmp slt i32 %c5.3.i, 2048
-  br i1 %cmp80.i, label %if.then82.i, label %if.else.i
-
-if.then82.i:                                      ; preds = %do.end.i
-  %cmp83.i = icmp slt i32 %c5.3.i, 128
-  br i1 %cmp83.i, label %sw.epilog.i, label %if.end86.i
-
-if.end86.i:                                       ; preds = %if.then82.i
-  %shr.i = lshr i32 %c5.3.i, 6
-  %247 = load ptr, ptr %e.i609.i, align 8
-  %248 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i562.i = ptrtoint ptr %247 to i64
-  %sub.ptr.rhs.cast.i563.i = ptrtoint ptr %248 to i64
-  %sub.ptr.sub.i564.i = sub i64 %sub.ptr.lhs.cast.i562.i, %sub.ptr.rhs.cast.i563.i
-  %249 = and i64 %sub.ptr.sub.i564.i, 4294967295
-  %cmp.i566.i = icmp eq i64 %249, 0
-  br i1 %cmp.i566.i, label %if.then.i571.i, label %lj_buf_more.exit573.i
-
-if.then.i571.i:                                   ; preds = %if.end86.i
-  %call.i572.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit573.i
-
-lj_buf_more.exit573.i:                            ; preds = %if.then.i571.i, %if.end86.i
-  %retval.i558.0.i = phi ptr [ %call.i572.i, %if.then.i571.i ], [ %248, %if.end86.i ]
-  %250 = trunc i32 %shr.i to i8
-  %conv.i414.i = or i8 %250, -64
-  store i8 %conv.i414.i, ptr %retval.i558.0.i, align 1
-  br label %if.end109.i
-
-if.else.i:                                        ; preds = %do.end.i
-  %cmp88.i = icmp samesign ugt i32 %c5.3.i, 65535
-  br i1 %cmp88.i, label %if.then90.i, label %if.else96.i
-
-if.then90.i:                                      ; preds = %if.else.i
-  %shr91.i = lshr i32 %c5.3.i, 18
-  %251 = load ptr, ptr %e.i609.i, align 8
-  %252 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i546.i = ptrtoint ptr %251 to i64
-  %sub.ptr.rhs.cast.i547.i = ptrtoint ptr %252 to i64
-  %sub.ptr.sub.i548.i = sub i64 %sub.ptr.lhs.cast.i546.i, %sub.ptr.rhs.cast.i547.i
-  %253 = and i64 %sub.ptr.sub.i548.i, 4294967295
-  %cmp.i550.i = icmp eq i64 %253, 0
-  br i1 %cmp.i550.i, label %if.then.i555.i, label %lj_buf_more.exit557.i
-
-if.then.i555.i:                                   ; preds = %if.then90.i
-  %call.i556.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit557.i
-
-lj_buf_more.exit557.i:                            ; preds = %if.then.i555.i, %if.then90.i
-  %retval.i542.0.i = phi ptr [ %call.i556.i, %if.then.i555.i ], [ %252, %if.then90.i ]
-  %254 = trunc i32 %shr91.i to i8
-  %conv.i420.i = or i8 %254, -16
-  %incdec.ptr.i421.i = getelementptr inbounds nuw i8, ptr %retval.i542.0.i, i64 1
-  store i8 %conv.i420.i, ptr %retval.i542.0.i, align 1
-  store ptr %incdec.ptr.i421.i, ptr %sb, align 8
-  %shr93.i = lshr i32 %c5.3.i, 12
-  %255 = load ptr, ptr %e.i609.i, align 8
-  %sub.ptr.lhs.cast.i530.i = ptrtoint ptr %255 to i64
-  %sub.ptr.rhs.cast.i531.i = ptrtoint ptr %incdec.ptr.i421.i to i64
-  %sub.ptr.sub.i532.i = sub i64 %sub.ptr.lhs.cast.i530.i, %sub.ptr.rhs.cast.i531.i
-  %256 = and i64 %sub.ptr.sub.i532.i, 4294967295
-  %cmp.i534.i = icmp eq i64 %256, 0
-  br i1 %cmp.i534.i, label %if.then.i539.i, label %lj_buf_more.exit541.i
-
-if.then.i539.i:                                   ; preds = %lj_buf_more.exit557.i
-  %call.i540.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit541.i
-
-lj_buf_more.exit541.i:                            ; preds = %if.then.i539.i, %lj_buf_more.exit557.i
-  %retval.i526.0.i = phi ptr [ %call.i540.i, %if.then.i539.i ], [ %incdec.ptr.i421.i, %lj_buf_more.exit557.i ]
-  %257 = trunc i32 %shr93.i to i8
-  %258 = and i8 %257, 63
-  %conv.i426.i = or disjoint i8 %258, -128
-  store i8 %conv.i426.i, ptr %retval.i526.0.i, align 1
-  br label %if.end105.i
-
-if.else96.i:                                      ; preds = %if.else.i
-  %259 = and i32 %c5.3.i, 63488
-  %or.cond.i411 = icmp eq i32 %259, 55296
-  br i1 %or.cond.i411, label %err_xesc.i, label %if.end102.i
-
-if.end102.i:                                      ; preds = %if.else96.i
-  %shr103.i = lshr i32 %c5.3.i, 12
-  %260 = load ptr, ptr %e.i609.i, align 8
-  %261 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i514.i = ptrtoint ptr %260 to i64
-  %sub.ptr.rhs.cast.i515.i = ptrtoint ptr %261 to i64
-  %sub.ptr.sub.i516.i = sub i64 %sub.ptr.lhs.cast.i514.i, %sub.ptr.rhs.cast.i515.i
-  %262 = and i64 %sub.ptr.sub.i516.i, 4294967295
-  %cmp.i518.i = icmp eq i64 %262, 0
-  br i1 %cmp.i518.i, label %if.then.i523.i, label %lj_buf_more.exit525.i
-
-if.then.i523.i:                                   ; preds = %if.end102.i
-  %call.i524.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit525.i
-
-lj_buf_more.exit525.i:                            ; preds = %if.then.i523.i, %if.end102.i
-  %retval.i510.0.i = phi ptr [ %call.i524.i, %if.then.i523.i ], [ %261, %if.end102.i ]
-  %263 = trunc nuw i32 %shr103.i to i8
-  %conv.i432.i = or disjoint i8 %263, -32
-  store i8 %conv.i432.i, ptr %retval.i510.0.i, align 1
-  br label %if.end105.i
-
-if.end105.i:                                      ; preds = %lj_buf_more.exit525.i, %lj_buf_more.exit541.i
-  %retval.i510.0.pn.i = phi ptr [ %retval.i510.0.i, %lj_buf_more.exit525.i ], [ %retval.i526.0.i, %lj_buf_more.exit541.i ]
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %retval.i510.0.pn.i, i64 1
-  store ptr %storemerge.i, ptr %sb, align 8
-  %shr106.i = lshr i32 %c5.3.i, 6
-  %264 = load ptr, ptr %e.i609.i, align 8
-  %sub.ptr.lhs.cast.i498.i = ptrtoint ptr %264 to i64
-  %sub.ptr.rhs.cast.i499.i = ptrtoint ptr %storemerge.i to i64
-  %sub.ptr.sub.i500.i = sub i64 %sub.ptr.lhs.cast.i498.i, %sub.ptr.rhs.cast.i499.i
-  %265 = and i64 %sub.ptr.sub.i500.i, 4294967295
-  %cmp.i502.i = icmp eq i64 %265, 0
-  br i1 %cmp.i502.i, label %if.then.i507.i, label %lj_buf_more.exit509.i
-
-if.then.i507.i:                                   ; preds = %if.end105.i
-  %call.i508.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit509.i
-
-lj_buf_more.exit509.i:                            ; preds = %if.then.i507.i, %if.end105.i
-  %retval.i494.0.i = phi ptr [ %call.i508.i, %if.then.i507.i ], [ %storemerge.i, %if.end105.i ]
-  %266 = trunc i32 %shr106.i to i8
-  %267 = and i8 %266, 63
-  %conv.i438.i = or disjoint i8 %267, -128
-  store i8 %conv.i438.i, ptr %retval.i494.0.i, align 1
-  br label %if.end109.i
-
-if.end109.i:                                      ; preds = %lj_buf_more.exit509.i, %lj_buf_more.exit573.i
-  %retval.i494.0.pn.i = phi ptr [ %retval.i494.0.i, %lj_buf_more.exit509.i ], [ %retval.i558.0.i, %lj_buf_more.exit573.i ]
-  %storemerge221.i = getelementptr inbounds nuw i8, ptr %retval.i494.0.pn.i, i64 1
-  store ptr %storemerge221.i, ptr %sb, align 8
-  %and110.i = and i32 %c5.3.i, 63
-  %or111.i = or disjoint i32 %and110.i, 128
-  br label %sw.epilog.i
-
-sw.bb112.i:                                       ; preds = %lex_next.exit325.i
-  %268 = load ptr, ptr %p.i320, align 8
-  %269 = load ptr, ptr %pe.i321, align 8
-  %cmp.i238.i = icmp ult ptr %268, %269
-  br i1 %cmp.i238.i, label %cond.true.i243.i, label %cond.false.i239.i
-
-cond.true.i243.i:                                 ; preds = %sw.bb112.i
-  %incdec.ptr.i245.i = getelementptr inbounds nuw i8, ptr %268, i64 1
-  store ptr %incdec.ptr.i245.i, ptr %p.i320, align 8
-  %270 = load i8, ptr %268, align 1
-  %conv.i246.i = zext i8 %270 to i32
-  br label %lex_next.exit247.i
-
-cond.false.i239.i:                                ; preds = %sw.bb112.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i371.i)
-  %271 = load ptr, ptr %rfunc.i208, align 8
-  %272 = load ptr, ptr %L.i209, align 8
-  %273 = load ptr, ptr %rdata.i210, align 8
-  %call.i375.i = call ptr %271(ptr noundef %272, ptr noundef %273, ptr noundef nonnull %sz.i371.i) #9
-  %cmp.i376.i = icmp eq ptr %call.i375.i, null
-  %274 = load i64, ptr %sz.i371.i, align 8
-  %cmp1.i377.i = icmp eq i64 %274, 0
-  %or.cond.i378.i = select i1 %cmp.i376.i, i1 true, i1 %cmp1.i377.i
-  br i1 %or.cond.i378.i, label %lex_more.exit394.i, label %if.end.i379.i
-
-if.end.i379.i:                                    ; preds = %cond.false.i239.i
-  %cmp2.i380.i = icmp ugt i64 %274, 2147483391
-  br i1 %cmp2.i380.i, label %if.then3.i388.i, label %if.end11.i381.i
-
-if.then3.i388.i:                                  ; preds = %if.end.i379.i
-  %cmp4.not.i389.i = icmp eq i64 %274, -1
-  br i1 %cmp4.not.i389.i, label %if.end7.i391.i, label %if.then5.i390.i
-
-if.then5.i390.i:                                  ; preds = %if.then3.i388.i
-  %275 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %275) #10
-  unreachable
-
-if.end7.i391.i:                                   ; preds = %if.then3.i388.i
-  %276 = ptrtoint ptr %call.i375.i to i64
-  %277 = call i64 @llvm.umax.i64(i64 %276, i64 -2147483392)
-  %spec.store.select.i392.i = xor i64 %277, -1
-  store i64 %spec.store.select.i392.i, ptr %sz.i371.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i381.i
-
-if.end11.i381.i:                                  ; preds = %if.end7.i391.i, %if.end.i379.i
-  %278 = phi i64 [ %spec.store.select.i392.i, %if.end7.i391.i ], [ %274, %if.end.i379.i ]
-  %add.ptr.i382.i = getelementptr inbounds i8, ptr %call.i375.i, i64 %278
-  store ptr %add.ptr.i382.i, ptr %pe.i321, align 8
-  %add.ptr12.i384.i = getelementptr inbounds nuw i8, ptr %call.i375.i, i64 1
-  store ptr %add.ptr12.i384.i, ptr %p.i320, align 8
-  %279 = load i8, ptr %call.i375.i, align 1
-  %conv.i386.i = zext i8 %279 to i32
-  br label %lex_more.exit394.i
-
-lex_more.exit394.i:                               ; preds = %if.end11.i381.i, %cond.false.i239.i
-  %retval.0.i387.i = phi i32 [ %conv.i386.i, %if.end11.i381.i ], [ -1, %cond.false.i239.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i371.i)
-  br label %lex_next.exit247.i
-
-lex_next.exit247.i:                               ; preds = %lex_more.exit394.i, %cond.true.i243.i
-  %cond.i241.i = phi i32 [ %conv.i246.i, %cond.true.i243.i ], [ %retval.0.i387.i, %lex_more.exit394.i ]
-  store i32 %cond.i241.i, ptr %c, align 8
-  %idxprom116582.i = sext i32 %cond.i241.i to i64
-  %arrayidx117583.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom116582.i
-  %280 = load i8, ptr %arrayidx117583.i, align 1
-  %281 = and i8 %280, 2
-  %tobool120.not584.i = icmp eq i8 %281, 0
-  br i1 %tobool120.not584.i, label %while.condthread-pre-split.i, label %while.body121.i, !llvm.loop !8
-
-while.body121.i:                                  ; preds = %lex_next.exit247.i, %if.end131.i
-  %282 = phi i32 [ %.pr562.i, %if.end131.i ], [ %cond.i241.i, %lex_next.exit247.i ]
-  switch i32 %282, label %if.else129.i [
-    i32 10, label %if.then128.i
-    i32 13, label %if.then128.i
-  ]
-
-if.then128.i:                                     ; preds = %while.body121.i, %while.body121.i
-  call fastcc void @lex_newline(ptr noundef nonnull %ls)
-  %.pr562.pre.i = load i32, ptr %c, align 8
-  br label %if.end131.i
-
-if.else129.i:                                     ; preds = %while.body121.i
-  %283 = load ptr, ptr %p.i320, align 8
-  %284 = load ptr, ptr %pe.i321, align 8
-  %cmp.i225.i = icmp ult ptr %283, %284
-  br i1 %cmp.i225.i, label %cond.true.i230.i, label %cond.false.i226.i
-
-cond.true.i230.i:                                 ; preds = %if.else129.i
-  %incdec.ptr.i232.i = getelementptr inbounds nuw i8, ptr %283, i64 1
-  store ptr %incdec.ptr.i232.i, ptr %p.i320, align 8
-  %285 = load i8, ptr %283, align 1
-  %conv.i233.i = zext i8 %285 to i32
-  br label %lex_next.exit234.i
-
-cond.false.i226.i:                                ; preds = %if.else129.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i395.i)
-  %286 = load ptr, ptr %rfunc.i208, align 8
-  %287 = load ptr, ptr %L.i209, align 8
-  %288 = load ptr, ptr %rdata.i210, align 8
-  %call.i399.i = call ptr %286(ptr noundef %287, ptr noundef %288, ptr noundef nonnull %sz.i395.i) #9
-  %cmp.i400.i = icmp eq ptr %call.i399.i, null
-  %289 = load i64, ptr %sz.i395.i, align 8
-  %cmp1.i401.i = icmp eq i64 %289, 0
-  %or.cond.i402.i = select i1 %cmp.i400.i, i1 true, i1 %cmp1.i401.i
-  br i1 %or.cond.i402.i, label %lex_more.exit418.i, label %if.end.i403.i
-
-if.end.i403.i:                                    ; preds = %cond.false.i226.i
-  %cmp2.i404.i = icmp ugt i64 %289, 2147483391
-  br i1 %cmp2.i404.i, label %if.then3.i412.i, label %if.end11.i405.i
-
-if.then3.i412.i:                                  ; preds = %if.end.i403.i
-  %cmp4.not.i413.i = icmp eq i64 %289, -1
-  br i1 %cmp4.not.i413.i, label %if.end7.i415.i, label %if.then5.i414.i
-
-if.then5.i414.i:                                  ; preds = %if.then3.i412.i
-  %290 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %290) #10
-  unreachable
-
-if.end7.i415.i:                                   ; preds = %if.then3.i412.i
-  %291 = ptrtoint ptr %call.i399.i to i64
-  %292 = call i64 @llvm.umax.i64(i64 %291, i64 -2147483392)
-  %spec.store.select.i416.i = xor i64 %292, -1
-  store i64 %spec.store.select.i416.i, ptr %sz.i395.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i405.i
-
-if.end11.i405.i:                                  ; preds = %if.end7.i415.i, %if.end.i403.i
-  %293 = phi i64 [ %spec.store.select.i416.i, %if.end7.i415.i ], [ %289, %if.end.i403.i ]
-  %add.ptr.i406.i = getelementptr inbounds i8, ptr %call.i399.i, i64 %293
-  store ptr %add.ptr.i406.i, ptr %pe.i321, align 8
-  %add.ptr12.i408.i = getelementptr inbounds nuw i8, ptr %call.i399.i, i64 1
-  store ptr %add.ptr12.i408.i, ptr %p.i320, align 8
-  %294 = load i8, ptr %call.i399.i, align 1
-  %conv.i410.i = zext i8 %294 to i32
-  br label %lex_more.exit418.i
-
-lex_more.exit418.i:                               ; preds = %if.end11.i405.i, %cond.false.i226.i
-  %retval.0.i411.i = phi i32 [ %conv.i410.i, %if.end11.i405.i ], [ -1, %cond.false.i226.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i395.i)
-  br label %lex_next.exit234.i
-
-lex_next.exit234.i:                               ; preds = %lex_more.exit418.i, %cond.true.i230.i
-  %cond.i228.i = phi i32 [ %conv.i233.i, %cond.true.i230.i ], [ %retval.0.i411.i, %lex_more.exit418.i ]
-  store i32 %cond.i228.i, ptr %c, align 8
-  br label %if.end131.i
-
-if.end131.i:                                      ; preds = %lex_next.exit234.i, %if.then128.i
-  %.pr562.i = phi i32 [ %cond.i228.i, %lex_next.exit234.i ], [ %.pr562.pre.i, %if.then128.i ]
-  %idxprom116.i = sext i32 %.pr562.i to i64
-  %arrayidx117.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom116.i
-  %295 = load i8, ptr %arrayidx117.i, align 1
-  %296 = and i8 %295, 2
-  %tobool120.not.i = icmp eq i8 %296, 0
-  br i1 %tobool120.not.i, label %while.condthread-pre-split.i, label %while.body121.i, !llvm.loop !9
-
-sw.bb132.i:                                       ; preds = %lex_next.exit325.i, %lex_next.exit325.i
-  %297 = load ptr, ptr %e.i609.i, align 8
-  %298 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i482.i = ptrtoint ptr %297 to i64
-  %sub.ptr.rhs.cast.i483.i = ptrtoint ptr %298 to i64
-  %sub.ptr.sub.i484.i = sub i64 %sub.ptr.lhs.cast.i482.i, %sub.ptr.rhs.cast.i483.i
-  %299 = and i64 %sub.ptr.sub.i484.i, 4294967295
-  %cmp.i486.i = icmp eq i64 %299, 0
-  br i1 %cmp.i486.i, label %if.then.i491.i, label %lj_buf_more.exit493.i
-
-if.then.i491.i:                                   ; preds = %sw.bb132.i
-  %call.i492.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit493.i
-
-lj_buf_more.exit493.i:                            ; preds = %if.then.i491.i, %sw.bb132.i
-  %retval.i478.0.i = phi ptr [ %call.i492.i, %if.then.i491.i ], [ %298, %sw.bb132.i ]
-  %incdec.ptr.i445.i = getelementptr inbounds nuw i8, ptr %retval.i478.0.i, i64 1
-  store i8 10, ptr %retval.i478.0.i, align 1
-  store ptr %incdec.ptr.i445.i, ptr %sb, align 8
-  call fastcc void @lex_newline(ptr noundef nonnull %ls)
-  br label %while.condthread-pre-split.i, !llvm.loop !8
-
-sw.default.i:                                     ; preds = %lex_next.exit325.i
-  %idxprom135.i = sext i32 %cond.i319.i to i64
-  %arrayidx136.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom135.i
-  %300 = load i8, ptr %arrayidx136.i, align 1
-  %301 = and i8 %300, 8
-  %tobool139.not.i = icmp eq i8 %301, 0
-  br i1 %tobool139.not.i, label %err_xesc.i, label %if.end141.i
-
-if.end141.i:                                      ; preds = %sw.default.i
-  %sub.i = add nsw i32 %cond.i319.i, -48
-  %302 = load ptr, ptr %p.i320, align 8
-  %303 = load ptr, ptr %pe.i321, align 8
-  %cmp.i212.i = icmp ult ptr %302, %303
-  br i1 %cmp.i212.i, label %cond.true.i217.i, label %cond.false.i213.i
-
-cond.true.i217.i:                                 ; preds = %if.end141.i
-  %incdec.ptr.i219.i = getelementptr inbounds nuw i8, ptr %302, i64 1
-  store ptr %incdec.ptr.i219.i, ptr %p.i320, align 8
-  %304 = load i8, ptr %302, align 1
-  %conv.i220.i = zext i8 %304 to i32
-  br label %lex_next.exit221.i
-
-cond.false.i213.i:                                ; preds = %if.end141.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i419.i)
-  %305 = load ptr, ptr %rfunc.i208, align 8
-  %306 = load ptr, ptr %L.i209, align 8
-  %307 = load ptr, ptr %rdata.i210, align 8
-  %call.i423.i = call ptr %305(ptr noundef %306, ptr noundef %307, ptr noundef nonnull %sz.i419.i) #9
-  %cmp.i424.i = icmp eq ptr %call.i423.i, null
-  %308 = load i64, ptr %sz.i419.i, align 8
-  %cmp1.i425.i = icmp eq i64 %308, 0
-  %or.cond.i426.i = select i1 %cmp.i424.i, i1 true, i1 %cmp1.i425.i
-  br i1 %or.cond.i426.i, label %lex_more.exit442.i, label %if.end.i427.i
-
-if.end.i427.i:                                    ; preds = %cond.false.i213.i
-  %cmp2.i428.i = icmp ugt i64 %308, 2147483391
-  br i1 %cmp2.i428.i, label %if.then3.i436.i, label %if.end11.i429.i
-
-if.then3.i436.i:                                  ; preds = %if.end.i427.i
-  %cmp4.not.i437.i = icmp eq i64 %308, -1
-  br i1 %cmp4.not.i437.i, label %if.end7.i439.i, label %if.then5.i438.i
-
-if.then5.i438.i:                                  ; preds = %if.then3.i436.i
-  %309 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %309) #10
-  unreachable
-
-if.end7.i439.i:                                   ; preds = %if.then3.i436.i
-  %310 = ptrtoint ptr %call.i423.i to i64
-  %311 = call i64 @llvm.umax.i64(i64 %310, i64 -2147483392)
-  %spec.store.select.i440.i = xor i64 %311, -1
-  store i64 %spec.store.select.i440.i, ptr %sz.i419.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i429.i
-
-if.end11.i429.i:                                  ; preds = %if.end7.i439.i, %if.end.i427.i
-  %312 = phi i64 [ %spec.store.select.i440.i, %if.end7.i439.i ], [ %308, %if.end.i427.i ]
-  %add.ptr.i430.i = getelementptr inbounds i8, ptr %call.i423.i, i64 %312
-  store ptr %add.ptr.i430.i, ptr %pe.i321, align 8
-  %add.ptr12.i432.i = getelementptr inbounds nuw i8, ptr %call.i423.i, i64 1
-  store ptr %add.ptr12.i432.i, ptr %p.i320, align 8
-  %313 = load i8, ptr %call.i423.i, align 1
-  %conv.i434.i = zext i8 %313 to i32
-  br label %lex_more.exit442.i
-
-lex_more.exit442.i:                               ; preds = %if.end11.i429.i, %cond.false.i213.i
-  %retval.0.i435.i = phi i32 [ %conv.i434.i, %if.end11.i429.i ], [ -1, %cond.false.i213.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i419.i)
-  br label %lex_next.exit221.i
-
-lex_next.exit221.i:                               ; preds = %lex_more.exit442.i, %cond.true.i217.i
-  %cond.i215.i = phi i32 [ %conv.i220.i, %cond.true.i217.i ], [ %retval.0.i435.i, %lex_more.exit442.i ]
-  store i32 %cond.i215.i, ptr %c, align 8
-  %idxprom143.i = sext i32 %cond.i215.i to i64
-  %arrayidx144.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom143.i
-  %314 = load i8, ptr %arrayidx144.i, align 1
-  %315 = and i8 %314, 8
-  %tobool147.not.i = icmp eq i8 %315, 0
-  br i1 %tobool147.not.i, label %if.end169.i, label %if.then148.i
-
-if.then148.i:                                     ; preds = %lex_next.exit221.i
-  %mul.i = mul nsw i32 %sub.i, 10
-  %sub150.i = add nsw i32 %mul.i, -48
-  %add151.i = add nsw i32 %sub150.i, %cond.i215.i
-  %316 = load ptr, ptr %p.i320, align 8
-  %317 = load ptr, ptr %pe.i321, align 8
-  %cmp.i199.i = icmp ult ptr %316, %317
-  br i1 %cmp.i199.i, label %cond.true.i204.i, label %cond.false.i200.i
-
-cond.true.i204.i:                                 ; preds = %if.then148.i
-  %incdec.ptr.i206.i = getelementptr inbounds nuw i8, ptr %316, i64 1
-  store ptr %incdec.ptr.i206.i, ptr %p.i320, align 8
-  %318 = load i8, ptr %316, align 1
-  %conv.i207.i = zext i8 %318 to i32
-  br label %lex_next.exit208.i
-
-cond.false.i200.i:                                ; preds = %if.then148.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i443.i)
-  %319 = load ptr, ptr %rfunc.i208, align 8
-  %320 = load ptr, ptr %L.i209, align 8
-  %321 = load ptr, ptr %rdata.i210, align 8
-  %call.i447.i = call ptr %319(ptr noundef %320, ptr noundef %321, ptr noundef nonnull %sz.i443.i) #9
-  %cmp.i448.i = icmp eq ptr %call.i447.i, null
-  %322 = load i64, ptr %sz.i443.i, align 8
-  %cmp1.i449.i = icmp eq i64 %322, 0
-  %or.cond.i450.i = select i1 %cmp.i448.i, i1 true, i1 %cmp1.i449.i
-  br i1 %or.cond.i450.i, label %lex_more.exit466.i, label %if.end.i451.i
-
-if.end.i451.i:                                    ; preds = %cond.false.i200.i
-  %cmp2.i452.i = icmp ugt i64 %322, 2147483391
-  br i1 %cmp2.i452.i, label %if.then3.i460.i, label %if.end11.i453.i
-
-if.then3.i460.i:                                  ; preds = %if.end.i451.i
-  %cmp4.not.i461.i = icmp eq i64 %322, -1
-  br i1 %cmp4.not.i461.i, label %if.end7.i463.i, label %if.then5.i462.i
-
-if.then5.i462.i:                                  ; preds = %if.then3.i460.i
-  %323 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %323) #10
-  unreachable
-
-if.end7.i463.i:                                   ; preds = %if.then3.i460.i
-  %324 = ptrtoint ptr %call.i447.i to i64
-  %325 = call i64 @llvm.umax.i64(i64 %324, i64 -2147483392)
-  %spec.store.select.i464.i = xor i64 %325, -1
-  store i64 %spec.store.select.i464.i, ptr %sz.i443.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i453.i
-
-if.end11.i453.i:                                  ; preds = %if.end7.i463.i, %if.end.i451.i
-  %326 = phi i64 [ %spec.store.select.i464.i, %if.end7.i463.i ], [ %322, %if.end.i451.i ]
-  %add.ptr.i454.i = getelementptr inbounds i8, ptr %call.i447.i, i64 %326
-  store ptr %add.ptr.i454.i, ptr %pe.i321, align 8
-  %add.ptr12.i456.i = getelementptr inbounds nuw i8, ptr %call.i447.i, i64 1
-  store ptr %add.ptr12.i456.i, ptr %p.i320, align 8
-  %327 = load i8, ptr %call.i447.i, align 1
-  %conv.i458.i = zext i8 %327 to i32
-  br label %lex_more.exit466.i
-
-lex_more.exit466.i:                               ; preds = %if.end11.i453.i, %cond.false.i200.i
-  %retval.0.i459.i = phi i32 [ %conv.i458.i, %if.end11.i453.i ], [ -1, %cond.false.i200.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i443.i)
-  br label %lex_next.exit208.i
-
-lex_next.exit208.i:                               ; preds = %lex_more.exit466.i, %cond.true.i204.i
-  %cond.i202.i = phi i32 [ %conv.i207.i, %cond.true.i204.i ], [ %retval.0.i459.i, %lex_more.exit466.i ]
-  store i32 %cond.i202.i, ptr %c, align 8
-  %idxprom153.i = sext i32 %cond.i202.i to i64
-  %arrayidx154.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom153.i
-  %328 = load i8, ptr %arrayidx154.i, align 1
-  %329 = and i8 %328, 8
-  %tobool157.not.i = icmp eq i8 %329, 0
-  br i1 %tobool157.not.i, label %if.end169.i, label %if.then158.i
-
-if.then158.i:                                     ; preds = %lex_next.exit208.i
-  %mul159.i = mul nsw i32 %add151.i, 10
-  %sub161.i = add nsw i32 %mul159.i, -48
-  %add162.i = add nsw i32 %sub161.i, %cond.i202.i
-  %cmp163.i = icmp sgt i32 %add162.i, 255
-  br i1 %cmp163.i, label %err_xesc.i, label %if.end166.i
-
-err_xesc.i:                                       ; preds = %if.then158.i, %sw.default.i, %if.else96.i, %lex_next.exit286.i, %if.then35.i, %if.then.i413, %if.end72.i, %if.then62.i
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef 288, i32 noundef 2311) #11
-  unreachable
-
-if.end166.i:                                      ; preds = %if.then158.i
-  %330 = load ptr, ptr %p.i320, align 8
-  %331 = load ptr, ptr %pe.i321, align 8
-  %cmp.i186.i = icmp ult ptr %330, %331
-  br i1 %cmp.i186.i, label %cond.true.i191.i, label %cond.false.i187.i
-
-cond.true.i191.i:                                 ; preds = %if.end166.i
-  %incdec.ptr.i193.i = getelementptr inbounds nuw i8, ptr %330, i64 1
-  store ptr %incdec.ptr.i193.i, ptr %p.i320, align 8
-  %332 = load i8, ptr %330, align 1
-  %conv.i194.i = zext i8 %332 to i32
-  br label %lex_next.exit195.i
-
-cond.false.i187.i:                                ; preds = %if.end166.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i467.i)
-  %333 = load ptr, ptr %rfunc.i208, align 8
-  %334 = load ptr, ptr %L.i209, align 8
-  %335 = load ptr, ptr %rdata.i210, align 8
-  %call.i471.i = call ptr %333(ptr noundef %334, ptr noundef %335, ptr noundef nonnull %sz.i467.i) #9
-  %cmp.i472.i = icmp eq ptr %call.i471.i, null
-  %336 = load i64, ptr %sz.i467.i, align 8
-  %cmp1.i473.i = icmp eq i64 %336, 0
-  %or.cond.i474.i = select i1 %cmp.i472.i, i1 true, i1 %cmp1.i473.i
-  br i1 %or.cond.i474.i, label %lex_more.exit490.i, label %if.end.i475.i
-
-if.end.i475.i:                                    ; preds = %cond.false.i187.i
-  %cmp2.i476.i = icmp ugt i64 %336, 2147483391
-  br i1 %cmp2.i476.i, label %if.then3.i484.i, label %if.end11.i477.i
-
-if.then3.i484.i:                                  ; preds = %if.end.i475.i
-  %cmp4.not.i485.i = icmp eq i64 %336, -1
-  br i1 %cmp4.not.i485.i, label %if.end7.i487.i, label %if.then5.i486.i
-
-if.then5.i486.i:                                  ; preds = %if.then3.i484.i
-  %337 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %337) #10
-  unreachable
-
-if.end7.i487.i:                                   ; preds = %if.then3.i484.i
-  %338 = ptrtoint ptr %call.i471.i to i64
-  %339 = call i64 @llvm.umax.i64(i64 %338, i64 -2147483392)
-  %spec.store.select.i488.i = xor i64 %339, -1
-  store i64 %spec.store.select.i488.i, ptr %sz.i467.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i477.i
-
-if.end11.i477.i:                                  ; preds = %if.end7.i487.i, %if.end.i475.i
-  %340 = phi i64 [ %spec.store.select.i488.i, %if.end7.i487.i ], [ %336, %if.end.i475.i ]
-  %add.ptr.i478.i = getelementptr inbounds i8, ptr %call.i471.i, i64 %340
-  store ptr %add.ptr.i478.i, ptr %pe.i321, align 8
-  %add.ptr12.i480.i = getelementptr inbounds nuw i8, ptr %call.i471.i, i64 1
-  store ptr %add.ptr12.i480.i, ptr %p.i320, align 8
-  %341 = load i8, ptr %call.i471.i, align 1
-  %conv.i482.i = zext i8 %341 to i32
-  br label %lex_more.exit490.i
-
-lex_more.exit490.i:                               ; preds = %if.end11.i477.i, %cond.false.i187.i
-  %retval.0.i483.i = phi i32 [ %conv.i482.i, %if.end11.i477.i ], [ -1, %cond.false.i187.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i467.i)
-  br label %lex_next.exit195.i
-
-lex_next.exit195.i:                               ; preds = %lex_more.exit490.i, %cond.true.i191.i
-  %cond.i189.i = phi i32 [ %conv.i194.i, %cond.true.i191.i ], [ %retval.0.i483.i, %lex_more.exit490.i ]
-  store i32 %cond.i189.i, ptr %c, align 8
-  br label %if.end169.i
-
-if.end169.i:                                      ; preds = %lex_next.exit195.i, %lex_next.exit208.i, %lex_next.exit221.i
-  %c5.4.i = phi i32 [ %add162.i, %lex_next.exit195.i ], [ %add151.i, %lex_next.exit208.i ], [ %sub.i, %lex_next.exit221.i ]
-  %342 = load ptr, ptr %e.i609.i, align 8
-  %343 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i466.i = ptrtoint ptr %342 to i64
-  %sub.ptr.rhs.cast.i467.i = ptrtoint ptr %343 to i64
-  %sub.ptr.sub.i468.i = sub i64 %sub.ptr.lhs.cast.i466.i, %sub.ptr.rhs.cast.i467.i
-  %344 = and i64 %sub.ptr.sub.i468.i, 4294967295
-  %cmp.i470.i = icmp eq i64 %344, 0
-  br i1 %cmp.i470.i, label %if.then.i475.i, label %lj_buf_more.exit477.i
-
-if.then.i475.i:                                   ; preds = %if.end169.i
-  %call.i476.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit477.i
-
-lj_buf_more.exit477.i:                            ; preds = %if.then.i475.i, %if.end169.i
-  %retval.i462.0.i = phi ptr [ %call.i476.i, %if.then.i475.i ], [ %343, %if.end169.i ]
-  %conv.i450.i = trunc i32 %c5.4.i to i8
-  %incdec.ptr.i451.i = getelementptr inbounds nuw i8, ptr %retval.i462.0.i, i64 1
-  store i8 %conv.i450.i, ptr %retval.i462.0.i, align 1
-  store ptr %incdec.ptr.i451.i, ptr %sb, align 8
-  br label %while.condthread-pre-split.i, !llvm.loop !8
-
-sw.epilog.i:                                      ; preds = %if.end109.i, %if.then82.i, %if.end43.i, %lex_next.exit299.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %lex_next.exit325.i, %lex_next.exit325.i, %lex_next.exit325.i
-  %c5.0.i = phi i32 [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %c5.3.i, %if.then82.i ], [ %or111.i, %if.end109.i ], [ %add28.i, %lex_next.exit299.i ], [ %add44.i, %if.end43.i ], [ 11, %sw.bb13.i ], [ 9, %sw.bb12.i ], [ 13, %sw.bb11.i ], [ 10, %sw.bb10.i ], [ 12, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 7, %sw.bb7.i ]
-  %345 = load ptr, ptr %e.i609.i, align 8
-  %346 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %345 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %346 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %347 = and i64 %sub.ptr.sub.i.i, 4294967295
-  %cmp.i460.i = icmp eq i64 %347, 0
-  br i1 %cmp.i460.i, label %if.then.i.i, label %lj_buf_more.exit.i
-
-if.then.i.i:                                      ; preds = %sw.epilog.i
-  %call.i461.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
+95:                                               ; preds = %62, %62, %62, %62
+  %96 = load ptr, ptr %11, align 8, !tbaa !27
+  %97 = load ptr, ptr %12, align 8, !tbaa !28
+  %98 = icmp ult ptr %96, %97
+  br i1 %98, label %99, label %103
+
+99:                                               ; preds = %95
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  store ptr %100, ptr %11, align 8, !tbaa !27
+  %101 = load i8, ptr %96, align 1, !tbaa !29
+  %102 = zext i8 %101 to i32
+  br label %lex_next.exit100
+
+103:                                              ; preds = %95
+  %104 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit100
+
+lex_next.exit100:                                 ; preds = %99, %103
+  %105 = phi i32 [ %102, %99 ], [ %104, %103 ]
+  store i32 %105, ptr %6, align 8, !tbaa !26
+  br label %lex_newline.exit.backedge
+
+lex_newline.exit.backedge:                        ; preds = %.thread, %.thread, %.thread, %lex_next.exit100, %159, %87
+  %106 = phi i32 [ %105, %lex_next.exit100 ], [ %.pre, %159 ], [ %88, %87 ], [ %161, %.thread ], [ %161, %.thread ], [ %161, %.thread ]
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %107
+  %109 = load i8, ptr %108, align 1, !tbaa !29
+  %.not = icmp sgt i8 %109, -1
+  br i1 %.not, label %62, label %lex_newline.exit._crit_edge
+
+110:                                              ; preds = %62
+  %111 = load ptr, ptr %11, align 8, !tbaa !27
+  %112 = load ptr, ptr %12, align 8, !tbaa !28
+  %113 = icmp ult ptr %111, %112
+  br i1 %113, label %114, label %118
+
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  store ptr %115, ptr %11, align 8, !tbaa !27
+  %116 = load i8, ptr %111, align 1, !tbaa !29
+  %117 = zext i8 %116 to i32
+  br label %lex_next.exit99
+
+118:                                              ; preds = %110
+  %119 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit99
+
+lex_next.exit99:                                  ; preds = %114, %118
+  %120 = phi i32 [ %117, %114 ], [ %119, %118 ]
+  store i32 %120, ptr %6, align 8, !tbaa !26
+  %.not80 = icmp eq i32 %120, 45
+  br i1 %.not80, label %121, label %.loopexit
+
+121:                                              ; preds = %lex_next.exit99
+  %122 = load ptr, ptr %11, align 8, !tbaa !27
+  %123 = load ptr, ptr %12, align 8, !tbaa !28
+  %124 = icmp ult ptr %122, %123
+  br i1 %124, label %125, label %129
+
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 1
+  store ptr %126, ptr %11, align 8, !tbaa !27
+  %127 = load i8, ptr %122, align 1, !tbaa !29
+  %128 = zext i8 %127 to i32
+  br label %lex_next.exit98
+
+129:                                              ; preds = %121
+  %130 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit98
+
+lex_next.exit98:                                  ; preds = %125, %129
+  %131 = phi i32 [ %128, %125 ], [ %130, %129 ]
+  store i32 %131, ptr %6, align 8, !tbaa !26
+  %132 = icmp eq i32 %131, 91
+  br i1 %132, label %.preheader160, label %.thread.preheader
+
+.thread.preheader:                                ; preds = %lex_skipeq.exit, %lex_next.exit98
+  %.ph = phi i32 [ %131, %lex_next.exit98 ], [ %153, %lex_skipeq.exit ]
+  br label %.thread
+
+.preheader160:                                    ; preds = %lex_next.exit98, %lex_savenext.exit.i
+  %133 = phi i8 [ 61, %lex_savenext.exit.i ], [ 91, %lex_next.exit98 ]
+  %.0.i104 = phi i32 [ %157, %lex_savenext.exit.i ], [ 0, %lex_next.exit98 ]
+  %134 = load ptr, ptr %13, align 8, !tbaa !51
+  %135 = load ptr, ptr %3, align 8, !tbaa !53
+  %136 = ptrtoint ptr %134 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  %139 = and i64 %138, 4294967295
+  %140 = icmp eq i64 %139, 0
+  br i1 %140, label %141, label %lj_buf_more.exit.i, !prof !54
+
+141:                                              ; preds = %.preheader160
+  %142 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %lj_buf_more.exit.i
 
-lj_buf_more.exit.i:                               ; preds = %if.then.i.i, %sw.epilog.i
-  %retval.i.0.i = phi ptr [ %call.i461.i, %if.then.i.i ], [ %346, %sw.epilog.i ]
-  %conv.i456.i = trunc i32 %c5.0.i to i8
-  %incdec.ptr.i457.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 1
-  store i8 %conv.i456.i, ptr %retval.i.0.i, align 1
-  store ptr %incdec.ptr.i457.i, ptr %sb, align 8
-  %348 = load ptr, ptr %p.i320, align 8
-  %349 = load ptr, ptr %pe.i321, align 8
-  %cmp.i.i404 = icmp ult ptr %348, %349
-  br i1 %cmp.i.i404, label %cond.true.i.i407, label %cond.false.i.i405
+lj_buf_more.exit.i:                               ; preds = %141, %.preheader160
+  %.0.i.i = phi ptr [ %142, %141 ], [ %135, %.preheader160 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
+  store i8 %133, ptr %.0.i.i, align 1, !tbaa !29
+  store ptr %143, ptr %3, align 8, !tbaa !53
+  %144 = load ptr, ptr %11, align 8, !tbaa !27
+  %145 = load ptr, ptr %12, align 8, !tbaa !28
+  %146 = icmp ult ptr %144, %145
+  br i1 %146, label %147, label %151
 
-cond.true.i.i407:                                 ; preds = %lj_buf_more.exit.i
-  %incdec.ptr.i.i408 = getelementptr inbounds nuw i8, ptr %348, i64 1
-  store ptr %incdec.ptr.i.i408, ptr %p.i320, align 8
-  %350 = load i8, ptr %348, align 1
-  %conv.i.i409 = zext i8 %350 to i32
-  br label %lex_next.exit.i
+147:                                              ; preds = %lj_buf_more.exit.i
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 1
+  store ptr %148, ptr %11, align 8, !tbaa !27
+  %149 = load i8, ptr %144, align 1, !tbaa !29
+  %150 = zext i8 %149 to i32
+  br label %lex_savenext.exit.i
 
-cond.false.i.i405:                                ; preds = %lj_buf_more.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i491.i)
-  %351 = load ptr, ptr %rfunc.i208, align 8
-  %352 = load ptr, ptr %L.i209, align 8
-  %353 = load ptr, ptr %rdata.i210, align 8
-  %call.i495.i = call ptr %351(ptr noundef %352, ptr noundef %353, ptr noundef nonnull %sz.i491.i) #9
-  %cmp.i496.i = icmp eq ptr %call.i495.i, null
-  %354 = load i64, ptr %sz.i491.i, align 8
-  %cmp1.i497.i = icmp eq i64 %354, 0
-  %or.cond.i498.i = select i1 %cmp.i496.i, i1 true, i1 %cmp1.i497.i
-  br i1 %or.cond.i498.i, label %lex_more.exit514.i, label %if.end.i499.i
+151:                                              ; preds = %lj_buf_more.exit.i
+  %152 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit.i
 
-if.end.i499.i:                                    ; preds = %cond.false.i.i405
-  %cmp2.i500.i = icmp ugt i64 %354, 2147483391
-  br i1 %cmp2.i500.i, label %if.then3.i508.i, label %if.end11.i501.i
+lex_savenext.exit.i:                              ; preds = %151, %147
+  %153 = phi i32 [ %150, %147 ], [ %152, %151 ]
+  store i32 %153, ptr %6, align 8, !tbaa !26
+  %154 = icmp eq i32 %153, 61
+  %155 = icmp samesign ult i32 %.0.i104, 536870912
+  %156 = select i1 %154, i1 %155, i1 false
+  %157 = add nuw nsw i32 %.0.i104, 1
+  br i1 %156, label %.preheader160, label %lex_skipeq.exit, !llvm.loop !60
 
-if.then3.i508.i:                                  ; preds = %if.end.i499.i
-  %cmp4.not.i509.i = icmp eq i64 %354, -1
-  br i1 %cmp4.not.i509.i, label %if.end7.i511.i, label %if.then5.i510.i
+lex_skipeq.exit:                                  ; preds = %lex_savenext.exit.i
+  %.not118 = icmp eq i32 %153, 91
+  %158 = load ptr, ptr %4, align 8, !tbaa !50
+  store ptr %158, ptr %3, align 8, !tbaa !53
+  br i1 %.not118, label %159, label %.thread.preheader
 
-if.then5.i510.i:                                  ; preds = %if.then3.i508.i
-  %355 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %355) #10
+159:                                              ; preds = %lex_skipeq.exit
+  tail call fastcc void @lex_longstring(ptr noundef nonnull %0, ptr noundef null, i32 noundef %.0.i104)
+  %160 = load ptr, ptr %4, align 8, !tbaa !50
+  store ptr %160, ptr %3, align 8, !tbaa !53
+  %.pre = load i32, ptr %6, align 8, !tbaa !26
+  br label %lex_newline.exit.backedge
+
+.thread:                                          ; preds = %.thread.preheader, %lex_next.exit97
+  %161 = phi i32 [ %172, %lex_next.exit97 ], [ %.ph, %.thread.preheader ]
+  switch i32 %161, label %162 [
+    i32 10, label %lex_newline.exit.backedge
+    i32 13, label %lex_newline.exit.backedge
+    i32 -1, label %lex_newline.exit.backedge
+  ]
+
+162:                                              ; preds = %.thread
+  %163 = load ptr, ptr %11, align 8, !tbaa !27
+  %164 = load ptr, ptr %12, align 8, !tbaa !28
+  %165 = icmp ult ptr %163, %164
+  br i1 %165, label %166, label %170
+
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 1
+  store ptr %167, ptr %11, align 8, !tbaa !27
+  %168 = load i8, ptr %163, align 1, !tbaa !29
+  %169 = zext i8 %168 to i32
+  br label %lex_next.exit97
+
+170:                                              ; preds = %162
+  %171 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit97
+
+lex_next.exit97:                                  ; preds = %166, %170
+  %172 = phi i32 [ %169, %166 ], [ %171, %170 ]
+  store i32 %172, ptr %6, align 8, !tbaa !26
+  br label %.thread, !llvm.loop !61
+
+.preheader193:                                    ; preds = %62, %lex_savenext.exit.i108
+  %173 = phi i8 [ 61, %lex_savenext.exit.i108 ], [ 91, %62 ]
+  %.0.i105 = phi i32 [ %197, %lex_savenext.exit.i108 ], [ 0, %62 ]
+  %174 = load ptr, ptr %13, align 8, !tbaa !51
+  %175 = load ptr, ptr %3, align 8, !tbaa !53
+  %176 = ptrtoint ptr %174 to i64
+  %177 = ptrtoint ptr %175 to i64
+  %178 = sub i64 %176, %177
+  %179 = and i64 %178, 4294967295
+  %180 = icmp eq i64 %179, 0
+  br i1 %180, label %181, label %lj_buf_more.exit.i106, !prof !54
+
+181:                                              ; preds = %.preheader193
+  %182 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit.i106
+
+lj_buf_more.exit.i106:                            ; preds = %181, %.preheader193
+  %.0.i.i107 = phi ptr [ %182, %181 ], [ %175, %.preheader193 ]
+  %183 = getelementptr inbounds nuw i8, ptr %.0.i.i107, i64 1
+  store i8 %173, ptr %.0.i.i107, align 1, !tbaa !29
+  store ptr %183, ptr %3, align 8, !tbaa !53
+  %184 = load ptr, ptr %11, align 8, !tbaa !27
+  %185 = load ptr, ptr %12, align 8, !tbaa !28
+  %186 = icmp ult ptr %184, %185
+  br i1 %186, label %187, label %191
+
+187:                                              ; preds = %lj_buf_more.exit.i106
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 1
+  store ptr %188, ptr %11, align 8, !tbaa !27
+  %189 = load i8, ptr %184, align 1, !tbaa !29
+  %190 = zext i8 %189 to i32
+  br label %lex_savenext.exit.i108
+
+191:                                              ; preds = %lj_buf_more.exit.i106
+  %192 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit.i108
+
+lex_savenext.exit.i108:                           ; preds = %191, %187
+  %193 = phi i32 [ %190, %187 ], [ %192, %191 ]
+  store i32 %193, ptr %6, align 8, !tbaa !26
+  %194 = icmp eq i32 %193, 61
+  %195 = icmp samesign ult i32 %.0.i105, 536870912
+  %196 = select i1 %194, i1 %195, i1 false
+  %197 = add nuw nsw i32 %.0.i105, 1
+  br i1 %196, label %.preheader193, label %lex_skipeq.exit109, !llvm.loop !60
+
+lex_skipeq.exit109:                               ; preds = %lex_savenext.exit.i108
+  %198 = icmp ne i32 %193, 91
+  %199 = sext i1 %198 to i32
+  %200 = xor i32 %.0.i105, %199
+  br i1 %198, label %202, label %201
+
+201:                                              ; preds = %lex_skipeq.exit109
+  tail call fastcc void @lex_longstring(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %200)
+  br label %.loopexit
+
+202:                                              ; preds = %lex_skipeq.exit109
+  %203 = icmp eq i32 %200, -1
+  br i1 %203, label %.loopexit, label %204
+
+204:                                              ; preds = %202
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef 288, i32 noundef 2355) #10
   unreachable
 
-if.end7.i511.i:                                   ; preds = %if.then3.i508.i
-  %356 = ptrtoint ptr %call.i495.i to i64
-  %357 = call i64 @llvm.umax.i64(i64 %356, i64 -2147483392)
-  %spec.store.select.i512.i = xor i64 %357, -1
-  store i64 %spec.store.select.i512.i, ptr %sz.i491.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i501.i
+205:                                              ; preds = %62
+  %206 = load ptr, ptr %11, align 8, !tbaa !27
+  %207 = load ptr, ptr %12, align 8, !tbaa !28
+  %208 = icmp ult ptr %206, %207
+  br i1 %208, label %209, label %213
 
-if.end11.i501.i:                                  ; preds = %if.end7.i511.i, %if.end.i499.i
-  %358 = phi i64 [ %spec.store.select.i512.i, %if.end7.i511.i ], [ %354, %if.end.i499.i ]
-  %add.ptr.i502.i = getelementptr inbounds i8, ptr %call.i495.i, i64 %358
-  store ptr %add.ptr.i502.i, ptr %pe.i321, align 8
-  %add.ptr12.i504.i = getelementptr inbounds nuw i8, ptr %call.i495.i, i64 1
-  store ptr %add.ptr12.i504.i, ptr %p.i320, align 8
-  %359 = load i8, ptr %call.i495.i, align 1
-  %conv.i506.i = zext i8 %359 to i32
-  br label %lex_more.exit514.i
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw i8, ptr %206, i64 1
+  store ptr %210, ptr %11, align 8, !tbaa !27
+  %211 = load i8, ptr %206, align 1, !tbaa !29
+  %212 = zext i8 %211 to i32
+  br label %lex_next.exit96
 
-lex_more.exit514.i:                               ; preds = %if.end11.i501.i, %cond.false.i.i405
-  %retval.0.i507.i = phi i32 [ %conv.i506.i, %if.end11.i501.i ], [ -1, %cond.false.i.i405 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i491.i)
-  br label %lex_next.exit.i
+213:                                              ; preds = %205
+  %214 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit96
 
-lex_next.exit.i:                                  ; preds = %lex_more.exit514.i, %cond.true.i.i407
-  %cond.i.i406 = phi i32 [ %conv.i.i409, %cond.true.i.i407 ], [ %retval.0.i507.i, %lex_more.exit514.i ]
-  store i32 %cond.i.i406, ptr %c, align 8
-  br label %while.cond.backedge.i
+lex_next.exit96:                                  ; preds = %209, %213
+  %215 = phi i32 [ %212, %209 ], [ %214, %213 ]
+  store i32 %215, ptr %6, align 8, !tbaa !26
+  %.not79 = icmp eq i32 %215, 61
+  br i1 %.not79, label %216, label %.loopexit
 
-while.cond.backedge.i:                            ; preds = %lex_savenext.exit375.i, %lex_next.exit.i, %lex_next.exit325.i, %while.condthread-pre-split.i
-  %.be.i = phi i32 [ %.pr.i, %while.condthread-pre-split.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i.i369.i, %lex_savenext.exit375.i ], [ %cond.i.i406, %lex_next.exit.i ]
-  %cmp.not.i = icmp eq i32 %.be.i, %26
-  br i1 %cmp.not.i, label %while.end174.i, label %while.body.i, !llvm.loop !8
+216:                                              ; preds = %lex_next.exit96
+  %217 = load ptr, ptr %11, align 8, !tbaa !27
+  %218 = load ptr, ptr %12, align 8, !tbaa !28
+  %219 = icmp ult ptr %217, %218
+  br i1 %219, label %220, label %224
 
-sw.default171.i:                                  ; preds = %while.body.i
-  %360 = load ptr, ptr %e.i609.i, align 8
-  %361 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i594.i = ptrtoint ptr %360 to i64
-  %sub.ptr.rhs.cast.i595.i = ptrtoint ptr %361 to i64
-  %sub.ptr.sub.i596.i = sub i64 %sub.ptr.lhs.cast.i594.i, %sub.ptr.rhs.cast.i595.i
-  %362 = and i64 %sub.ptr.sub.i596.i, 4294967295
-  %cmp.i598.i = icmp eq i64 %362, 0
-  br i1 %cmp.i598.i, label %if.then.i603.i, label %lj_buf_more.exit605.i
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 1
+  store ptr %221, ptr %11, align 8, !tbaa !27
+  %222 = load i8, ptr %217, align 1, !tbaa !29
+  %223 = zext i8 %222 to i32
+  br label %lex_next.exit95
 
-if.then.i603.i:                                   ; preds = %sw.default171.i
-  %call.i604.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit605.i
+224:                                              ; preds = %216
+  %225 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit95
 
-lj_buf_more.exit605.i:                            ; preds = %if.then.i603.i, %sw.default171.i
-  %retval.i590.0.i = phi ptr [ %call.i604.i, %if.then.i603.i ], [ %361, %sw.default171.i ]
-  %conv.i402.i = trunc i32 %170 to i8
-  %incdec.ptr.i403.i = getelementptr inbounds nuw i8, ptr %retval.i590.0.i, i64 1
-  store i8 %conv.i402.i, ptr %retval.i590.0.i, align 1
-  store ptr %incdec.ptr.i403.i, ptr %sb, align 8
-  %363 = load ptr, ptr %p.i320, align 8
-  %364 = load ptr, ptr %pe.i321, align 8
-  %cmp.i.i366.i = icmp ult ptr %363, %364
-  br i1 %cmp.i.i366.i, label %cond.true.i.i371.i, label %cond.false.i.i367.i
+lex_next.exit95:                                  ; preds = %220, %224
+  %226 = phi i32 [ %223, %220 ], [ %225, %224 ]
+  store i32 %226, ptr %6, align 8, !tbaa !26
+  br label %.loopexit
 
-cond.true.i.i371.i:                               ; preds = %lj_buf_more.exit605.i
-  %incdec.ptr.i.i373.i = getelementptr inbounds nuw i8, ptr %363, i64 1
-  store ptr %incdec.ptr.i.i373.i, ptr %p.i320, align 8
-  %365 = load i8, ptr %363, align 1
-  %conv.i.i374.i = zext i8 %365 to i32
-  br label %lex_savenext.exit375.i
+227:                                              ; preds = %62
+  %228 = load ptr, ptr %11, align 8, !tbaa !27
+  %229 = load ptr, ptr %12, align 8, !tbaa !28
+  %230 = icmp ult ptr %228, %229
+  br i1 %230, label %231, label %235
 
-cond.false.i.i367.i:                              ; preds = %lj_buf_more.exit605.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i515.i)
-  %366 = load ptr, ptr %rfunc.i208, align 8
-  %367 = load ptr, ptr %L.i209, align 8
-  %368 = load ptr, ptr %rdata.i210, align 8
-  %call.i.i415 = call ptr %366(ptr noundef %367, ptr noundef %368, ptr noundef nonnull %sz.i515.i) #9
-  %cmp.i519.i = icmp eq ptr %call.i.i415, null
-  %369 = load i64, ptr %sz.i515.i, align 8
-  %cmp1.i520.i = icmp eq i64 %369, 0
-  %or.cond.i521.i = select i1 %cmp.i519.i, i1 true, i1 %cmp1.i520.i
-  br i1 %or.cond.i521.i, label %lex_more.exit537.i, label %if.end.i522.i
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds nuw i8, ptr %228, i64 1
+  store ptr %232, ptr %11, align 8, !tbaa !27
+  %233 = load i8, ptr %228, align 1, !tbaa !29
+  %234 = zext i8 %233 to i32
+  br label %lex_next.exit94
 
-if.end.i522.i:                                    ; preds = %cond.false.i.i367.i
-  %cmp2.i523.i = icmp ugt i64 %369, 2147483391
-  br i1 %cmp2.i523.i, label %if.then3.i531.i, label %if.end11.i524.i
+235:                                              ; preds = %227
+  %236 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit94
 
-if.then3.i531.i:                                  ; preds = %if.end.i522.i
-  %cmp4.not.i532.i = icmp eq i64 %369, -1
-  br i1 %cmp4.not.i532.i, label %if.end7.i534.i, label %if.then5.i533.i
+lex_next.exit94:                                  ; preds = %231, %235
+  %237 = phi i32 [ %234, %231 ], [ %236, %235 ]
+  store i32 %237, ptr %6, align 8, !tbaa !26
+  %.not78 = icmp eq i32 %237, 61
+  br i1 %.not78, label %238, label %.loopexit
 
-if.then5.i533.i:                                  ; preds = %if.then3.i531.i
-  %370 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %370) #10
+238:                                              ; preds = %lex_next.exit94
+  %239 = load ptr, ptr %11, align 8, !tbaa !27
+  %240 = load ptr, ptr %12, align 8, !tbaa !28
+  %241 = icmp ult ptr %239, %240
+  br i1 %241, label %242, label %246
+
+242:                                              ; preds = %238
+  %243 = getelementptr inbounds nuw i8, ptr %239, i64 1
+  store ptr %243, ptr %11, align 8, !tbaa !27
+  %244 = load i8, ptr %239, align 1, !tbaa !29
+  %245 = zext i8 %244 to i32
+  br label %lex_next.exit93
+
+246:                                              ; preds = %238
+  %247 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit93
+
+lex_next.exit93:                                  ; preds = %242, %246
+  %248 = phi i32 [ %245, %242 ], [ %247, %246 ]
+  store i32 %248, ptr %6, align 8, !tbaa !26
+  br label %.loopexit
+
+249:                                              ; preds = %62
+  %250 = load ptr, ptr %11, align 8, !tbaa !27
+  %251 = load ptr, ptr %12, align 8, !tbaa !28
+  %252 = icmp ult ptr %250, %251
+  br i1 %252, label %253, label %257
+
+253:                                              ; preds = %249
+  %254 = getelementptr inbounds nuw i8, ptr %250, i64 1
+  store ptr %254, ptr %11, align 8, !tbaa !27
+  %255 = load i8, ptr %250, align 1, !tbaa !29
+  %256 = zext i8 %255 to i32
+  br label %lex_next.exit92
+
+257:                                              ; preds = %249
+  %258 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit92
+
+lex_next.exit92:                                  ; preds = %253, %257
+  %259 = phi i32 [ %256, %253 ], [ %258, %257 ]
+  store i32 %259, ptr %6, align 8, !tbaa !26
+  %.not77 = icmp eq i32 %259, 61
+  br i1 %.not77, label %260, label %.loopexit
+
+260:                                              ; preds = %lex_next.exit92
+  %261 = load ptr, ptr %11, align 8, !tbaa !27
+  %262 = load ptr, ptr %12, align 8, !tbaa !28
+  %263 = icmp ult ptr %261, %262
+  br i1 %263, label %264, label %268
+
+264:                                              ; preds = %260
+  %265 = getelementptr inbounds nuw i8, ptr %261, i64 1
+  store ptr %265, ptr %11, align 8, !tbaa !27
+  %266 = load i8, ptr %261, align 1, !tbaa !29
+  %267 = zext i8 %266 to i32
+  br label %lex_next.exit91
+
+268:                                              ; preds = %260
+  %269 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit91
+
+lex_next.exit91:                                  ; preds = %264, %268
+  %270 = phi i32 [ %267, %264 ], [ %269, %268 ]
+  store i32 %270, ptr %6, align 8, !tbaa !26
+  br label %.loopexit
+
+271:                                              ; preds = %62
+  %272 = load ptr, ptr %11, align 8, !tbaa !27
+  %273 = load ptr, ptr %12, align 8, !tbaa !28
+  %274 = icmp ult ptr %272, %273
+  br i1 %274, label %275, label %279
+
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds nuw i8, ptr %272, i64 1
+  store ptr %276, ptr %11, align 8, !tbaa !27
+  %277 = load i8, ptr %272, align 1, !tbaa !29
+  %278 = zext i8 %277 to i32
+  br label %lex_next.exit90
+
+279:                                              ; preds = %271
+  %280 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit90
+
+lex_next.exit90:                                  ; preds = %275, %279
+  %281 = phi i32 [ %278, %275 ], [ %280, %279 ]
+  store i32 %281, ptr %6, align 8, !tbaa !26
+  %.not76 = icmp eq i32 %281, 61
+  br i1 %.not76, label %282, label %.loopexit
+
+282:                                              ; preds = %lex_next.exit90
+  %283 = load ptr, ptr %11, align 8, !tbaa !27
+  %284 = load ptr, ptr %12, align 8, !tbaa !28
+  %285 = icmp ult ptr %283, %284
+  br i1 %285, label %286, label %290
+
+286:                                              ; preds = %282
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 1
+  store ptr %287, ptr %11, align 8, !tbaa !27
+  %288 = load i8, ptr %283, align 1, !tbaa !29
+  %289 = zext i8 %288 to i32
+  br label %lex_next.exit89
+
+290:                                              ; preds = %282
+  %291 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit89
+
+lex_next.exit89:                                  ; preds = %286, %290
+  %292 = phi i32 [ %289, %286 ], [ %291, %290 ]
+  store i32 %292, ptr %6, align 8, !tbaa !26
+  br label %.loopexit
+
+293:                                              ; preds = %62
+  %294 = load ptr, ptr %11, align 8, !tbaa !27
+  %295 = load ptr, ptr %12, align 8, !tbaa !28
+  %296 = icmp ult ptr %294, %295
+  br i1 %296, label %297, label %301
+
+297:                                              ; preds = %293
+  %298 = getelementptr inbounds nuw i8, ptr %294, i64 1
+  store ptr %298, ptr %11, align 8, !tbaa !27
+  %299 = load i8, ptr %294, align 1, !tbaa !29
+  %300 = zext i8 %299 to i32
+  br label %lex_next.exit88
+
+301:                                              ; preds = %293
+  %302 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit88
+
+lex_next.exit88:                                  ; preds = %297, %301
+  %303 = phi i32 [ %300, %297 ], [ %302, %301 ]
+  store i32 %303, ptr %6, align 8, !tbaa !26
+  %.not75 = icmp eq i32 %303, 58
+  br i1 %.not75, label %304, label %.loopexit
+
+304:                                              ; preds = %lex_next.exit88
+  %305 = load ptr, ptr %11, align 8, !tbaa !27
+  %306 = load ptr, ptr %12, align 8, !tbaa !28
+  %307 = icmp ult ptr %305, %306
+  br i1 %307, label %308, label %312
+
+308:                                              ; preds = %304
+  %309 = getelementptr inbounds nuw i8, ptr %305, i64 1
+  store ptr %309, ptr %11, align 8, !tbaa !27
+  %310 = load i8, ptr %305, align 1, !tbaa !29
+  %311 = zext i8 %310 to i32
+  br label %lex_next.exit87
+
+312:                                              ; preds = %304
+  %313 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit87
+
+lex_next.exit87:                                  ; preds = %308, %312
+  %314 = phi i32 [ %311, %308 ], [ %313, %312 ]
+  store i32 %314, ptr %6, align 8, !tbaa !26
+  br label %.loopexit
+
+315:                                              ; preds = %62, %62
+  %316 = load ptr, ptr %13, align 8, !tbaa !51
+  %317 = load ptr, ptr %3, align 8, !tbaa !53
+  %318 = ptrtoint ptr %316 to i64
+  %319 = ptrtoint ptr %317 to i64
+  %320 = sub i64 %318, %319
+  %321 = and i64 %320, 4294967295
+  %322 = icmp eq i64 %321, 0
+  br i1 %322, label %323, label %lj_buf_more.exit122.i, !prof !54
+
+323:                                              ; preds = %315
+  %324 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit122.i
+
+lj_buf_more.exit122.i:                            ; preds = %323, %315
+  %.0.i121.i = phi ptr [ %324, %323 ], [ %317, %315 ]
+  %325 = trunc i32 %63 to i8
+  %326 = getelementptr inbounds nuw i8, ptr %.0.i121.i, i64 1
+  store i8 %325, ptr %.0.i121.i, align 1, !tbaa !29
+  store ptr %326, ptr %3, align 8, !tbaa !53
+  %327 = load ptr, ptr %11, align 8, !tbaa !27
+  %328 = load ptr, ptr %12, align 8, !tbaa !28
+  %329 = icmp ult ptr %327, %328
+  br i1 %329, label %330, label %334
+
+330:                                              ; preds = %lj_buf_more.exit122.i
+  %331 = getelementptr inbounds nuw i8, ptr %327, i64 1
+  store ptr %331, ptr %11, align 8, !tbaa !27
+  %332 = load i8, ptr %327, align 1, !tbaa !29
+  %333 = zext i8 %332 to i32
+  br label %lex_savenext.exit102.i
+
+334:                                              ; preds = %lj_buf_more.exit122.i
+  %335 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit102.i
+
+lex_savenext.exit102.i:                           ; preds = %334, %330
+  %336 = phi i32 [ %333, %330 ], [ %335, %334 ]
+  store i32 %336, ptr %6, align 8, !tbaa !26
+  %.not137.i = icmp eq i32 %336, %63
+  br i1 %.not137.i, label %._crit_edge.i, label %.lr.ph138.i
+
+.lr.ph138.i:                                      ; preds = %lex_savenext.exit102.i, %.backedge.i
+  %337 = phi i32 [ %.be.i, %.backedge.i ], [ %336, %lex_savenext.exit102.i ]
+  switch i32 %337, label %718 [
+    i32 -1, label %338
+    i32 10, label %339
+    i32 13, label %339
+    i32 92, label %340
+  ]
+
+338:                                              ; preds = %.lr.ph138.i
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef 289, i32 noundef 2313) #10
   unreachable
 
-if.end7.i534.i:                                   ; preds = %if.then3.i531.i
-  %371 = ptrtoint ptr %call.i.i415 to i64
-  %372 = call i64 @llvm.umax.i64(i64 %371, i64 -2147483392)
-  %spec.store.select.i535.i = xor i64 %372, -1
-  store i64 %spec.store.select.i535.i, ptr %sz.i515.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i524.i
+339:                                              ; preds = %.lr.ph138.i, %.lr.ph138.i
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef 288, i32 noundef 2313) #10
+  unreachable
 
-if.end11.i524.i:                                  ; preds = %if.end7.i534.i, %if.end.i522.i
-  %373 = phi i64 [ %spec.store.select.i535.i, %if.end7.i534.i ], [ %369, %if.end.i522.i ]
-  %add.ptr.i525.i = getelementptr inbounds i8, ptr %call.i.i415, i64 %373
-  store ptr %add.ptr.i525.i, ptr %pe.i321, align 8
-  %add.ptr12.i527.i = getelementptr inbounds nuw i8, ptr %call.i.i415, i64 1
-  store ptr %add.ptr12.i527.i, ptr %p.i320, align 8
-  %374 = load i8, ptr %call.i.i415, align 1
-  %conv.i529.i = zext i8 %374 to i32
-  br label %lex_more.exit537.i
+340:                                              ; preds = %.lr.ph138.i
+  %341 = load ptr, ptr %11, align 8, !tbaa !27
+  %342 = load ptr, ptr %12, align 8, !tbaa !28
+  %343 = icmp ult ptr %341, %342
+  br i1 %343, label %344, label %348
 
-lex_more.exit537.i:                               ; preds = %if.end11.i524.i, %cond.false.i.i367.i
-  %retval.0.i530.i = phi i32 [ %conv.i529.i, %if.end11.i524.i ], [ -1, %cond.false.i.i367.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i515.i)
-  br label %lex_savenext.exit375.i
+344:                                              ; preds = %340
+  %345 = getelementptr inbounds nuw i8, ptr %341, i64 1
+  store ptr %345, ptr %11, align 8, !tbaa !27
+  %346 = load i8, ptr %341, align 1, !tbaa !29
+  %347 = zext i8 %346 to i32
+  br label %lex_next.exit100.i
 
-lex_savenext.exit375.i:                           ; preds = %lex_more.exit537.i, %cond.true.i.i371.i
-  %cond.i.i369.i = phi i32 [ %conv.i.i374.i, %cond.true.i.i371.i ], [ %retval.0.i530.i, %lex_more.exit537.i ]
-  store i32 %cond.i.i369.i, ptr %c, align 8
-  br label %while.cond.backedge.i
+348:                                              ; preds = %340
+  %349 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit100.i
 
-while.end174.i:                                   ; preds = %while.cond.backedge.i, %lex_savenext.exit393.i
-  %375 = load ptr, ptr %e.i609.i, align 8
-  %376 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i578.i = ptrtoint ptr %375 to i64
-  %sub.ptr.rhs.cast.i579.i = ptrtoint ptr %376 to i64
-  %sub.ptr.sub.i580.i = sub i64 %sub.ptr.lhs.cast.i578.i, %sub.ptr.rhs.cast.i579.i
-  %377 = and i64 %sub.ptr.sub.i580.i, 4294967295
-  %cmp.i582.i = icmp eq i64 %377, 0
-  br i1 %cmp.i582.i, label %if.then.i587.i, label %lj_buf_more.exit589.i
+lex_next.exit100.i:                               ; preds = %348, %344
+  %350 = phi i32 [ %347, %344 ], [ %349, %348 ]
+  store i32 %350, ptr %6, align 8, !tbaa !26
+  switch i32 %350, label %629 [
+    i32 97, label %351
+    i32 98, label %352
+    i32 102, label %353
+    i32 110, label %354
+    i32 114, label %355
+    i32 116, label %356
+    i32 118, label %357
+    i32 120, label %358
+    i32 117, label %402
+    i32 122, label %527
+    i32 10, label %588
+    i32 13, label %588
+    i32 92, label %696
+    i32 34, label %696
+    i32 39, label %696
+    i32 -1, label %.backedge.i
+  ], !llvm.loop !62
 
-if.then.i587.i:                                   ; preds = %while.end174.i
-  %call.i588.i = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit589.i
+351:                                              ; preds = %lex_next.exit100.i
+  br label %696
 
-lj_buf_more.exit589.i:                            ; preds = %if.then.i587.i, %while.end174.i
-  %retval.i574.0.i = phi ptr [ %call.i588.i, %if.then.i587.i ], [ %376, %while.end174.i ]
-  %incdec.ptr.i409.i = getelementptr inbounds nuw i8, ptr %retval.i574.0.i, i64 1
-  store i8 %conv.i396.i, ptr %retval.i574.0.i, align 1
-  store ptr %incdec.ptr.i409.i, ptr %sb, align 8
-  %378 = load ptr, ptr %p.i320, align 8
-  %379 = load ptr, ptr %pe.i321, align 8
-  %cmp.i.i.i = icmp ult ptr %378, %379
-  br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
+352:                                              ; preds = %lex_next.exit100.i
+  br label %696
 
-cond.true.i.i.i:                                  ; preds = %lj_buf_more.exit589.i
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %378, i64 1
-  store ptr %incdec.ptr.i.i.i, ptr %p.i320, align 8
-  %380 = load i8, ptr %378, align 1
-  %conv.i.i.i = zext i8 %380 to i32
+353:                                              ; preds = %lex_next.exit100.i
+  br label %696
+
+354:                                              ; preds = %lex_next.exit100.i
+  br label %696
+
+355:                                              ; preds = %lex_next.exit100.i
+  br label %696
+
+356:                                              ; preds = %lex_next.exit100.i
+  br label %696
+
+357:                                              ; preds = %lex_next.exit100.i
+  br label %696
+
+358:                                              ; preds = %lex_next.exit100.i
+  %359 = load ptr, ptr %11, align 8, !tbaa !27
+  %360 = load ptr, ptr %12, align 8, !tbaa !28
+  %361 = icmp ult ptr %359, %360
+  br i1 %361, label %362, label %366
+
+362:                                              ; preds = %358
+  %363 = getelementptr inbounds nuw i8, ptr %359, i64 1
+  store ptr %363, ptr %11, align 8, !tbaa !27
+  %364 = load i8, ptr %359, align 1, !tbaa !29
+  %365 = zext i8 %364 to i32
+  br label %lex_next.exit99.i
+
+366:                                              ; preds = %358
+  %367 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit99.i
+
+lex_next.exit99.i:                                ; preds = %366, %362
+  %368 = phi i32 [ %365, %362 ], [ %367, %366 ]
+  store i32 %368, ptr %6, align 8, !tbaa !26
+  %369 = shl nsw i32 %368, 4
+  %370 = and i32 %369, 240
+  %371 = sext i32 %368 to i64
+  %372 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %371
+  %373 = load i8, ptr %372, align 1, !tbaa !29
+  %374 = zext i8 %373 to i32
+  %375 = and i32 %374, 8
+  %.not83.i = icmp eq i32 %375, 0
+  br i1 %.not83.i, label %376, label %380
+
+376:                                              ; preds = %lex_next.exit99.i
+  %377 = and i32 %374, 16
+  %.not84.i = icmp eq i32 %377, 0
+  br i1 %.not84.i, label %.loopexit.i, label %378
+
+378:                                              ; preds = %376
+  %379 = add nuw nsw i32 %370, 144
+  br label %380
+
+380:                                              ; preds = %378, %lex_next.exit99.i
+  %.1.i = phi i32 [ %370, %lex_next.exit99.i ], [ %379, %378 ]
+  %381 = load ptr, ptr %11, align 8, !tbaa !27
+  %382 = load ptr, ptr %12, align 8, !tbaa !28
+  %383 = icmp ult ptr %381, %382
+  br i1 %383, label %384, label %388
+
+384:                                              ; preds = %380
+  %385 = getelementptr inbounds nuw i8, ptr %381, i64 1
+  store ptr %385, ptr %11, align 8, !tbaa !27
+  %386 = load i8, ptr %381, align 1, !tbaa !29
+  %387 = zext i8 %386 to i32
+  br label %lex_next.exit98.i
+
+388:                                              ; preds = %380
+  %389 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit98.i
+
+lex_next.exit98.i:                                ; preds = %388, %384
+  %390 = phi i32 [ %387, %384 ], [ %389, %388 ]
+  store i32 %390, ptr %6, align 8, !tbaa !26
+  %391 = and i32 %390, 15
+  %392 = add nuw nsw i32 %391, %.1.i
+  %393 = sext i32 %390 to i64
+  %394 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %393
+  %395 = load i8, ptr %394, align 1, !tbaa !29
+  %396 = zext i8 %395 to i32
+  %397 = and i32 %396, 8
+  %.not85.i = icmp eq i32 %397, 0
+  br i1 %.not85.i, label %398, label %696
+
+398:                                              ; preds = %lex_next.exit98.i
+  %399 = and i32 %396, 16
+  %.not86.i = icmp eq i32 %399, 0
+  br i1 %.not86.i, label %.loopexit.i, label %400
+
+400:                                              ; preds = %398
+  %401 = add nuw nsw i32 %392, 9
+  br label %696
+
+402:                                              ; preds = %lex_next.exit100.i
+  %403 = load ptr, ptr %11, align 8, !tbaa !27
+  %404 = load ptr, ptr %12, align 8, !tbaa !28
+  %405 = icmp ult ptr %403, %404
+  br i1 %405, label %406, label %410
+
+406:                                              ; preds = %402
+  %407 = getelementptr inbounds nuw i8, ptr %403, i64 1
+  store ptr %407, ptr %11, align 8, !tbaa !27
+  %408 = load i8, ptr %403, align 1, !tbaa !29
+  %409 = zext i8 %408 to i32
+  br label %lex_next.exit97.i
+
+410:                                              ; preds = %402
+  %411 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit97.i
+
+lex_next.exit97.i:                                ; preds = %410, %406
+  %412 = phi i32 [ %409, %406 ], [ %411, %410 ]
+  store i32 %412, ptr %6, align 8, !tbaa !26
+  %.not79.i = icmp eq i32 %412, 123
+  br i1 %.not79.i, label %413, label %.loopexit.i
+
+413:                                              ; preds = %lex_next.exit97.i
+  %414 = load ptr, ptr %11, align 8, !tbaa !27
+  %415 = load ptr, ptr %12, align 8, !tbaa !28
+  %416 = icmp ult ptr %414, %415
+  br i1 %416, label %417, label %421
+
+417:                                              ; preds = %413
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 1
+  store ptr %418, ptr %11, align 8, !tbaa !27
+  %419 = load i8, ptr %414, align 1, !tbaa !29
+  %420 = zext i8 %419 to i32
+  br label %lex_next.exit96.i
+
+421:                                              ; preds = %413
+  %422 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit96.i
+
+lex_next.exit96.i:                                ; preds = %421, %417
+  %423 = phi i32 [ %420, %417 ], [ %422, %421 ]
+  store i32 %423, ptr %6, align 8, !tbaa !26
+  br label %424
+
+424:                                              ; preds = %lex_next.exit95.i, %lex_next.exit96.i
+  %425 = phi i32 [ %423, %lex_next.exit96.i ], [ %450, %lex_next.exit95.i ]
+  %.2.i = phi i32 [ 0, %lex_next.exit96.i ], [ %.3.i, %lex_next.exit95.i ]
+  %426 = shl i32 %.2.i, 4
+  %427 = and i32 %425, 15
+  %428 = or disjoint i32 %426, %427
+  %429 = sext i32 %425 to i64
+  %430 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %429
+  %431 = load i8, ptr %430, align 1, !tbaa !29
+  %432 = zext i8 %431 to i32
+  %433 = and i32 %432, 8
+  %.not80.i = icmp eq i32 %433, 0
+  br i1 %.not80.i, label %434, label %438
+
+434:                                              ; preds = %424
+  %435 = and i32 %432, 16
+  %.not81.i = icmp eq i32 %435, 0
+  br i1 %.not81.i, label %.loopexit.i, label %436
+
+436:                                              ; preds = %434
+  %437 = add nsw i32 %428, 9
+  br label %438
+
+438:                                              ; preds = %436, %424
+  %.3.i = phi i32 [ %428, %424 ], [ %437, %436 ]
+  %439 = icmp sgt i32 %.3.i, 1114111
+  br i1 %439, label %.loopexit.i, label %440
+
+440:                                              ; preds = %438
+  %441 = load ptr, ptr %11, align 8, !tbaa !27
+  %442 = load ptr, ptr %12, align 8, !tbaa !28
+  %443 = icmp ult ptr %441, %442
+  br i1 %443, label %444, label %448
+
+444:                                              ; preds = %440
+  %445 = getelementptr inbounds nuw i8, ptr %441, i64 1
+  store ptr %445, ptr %11, align 8, !tbaa !27
+  %446 = load i8, ptr %441, align 1, !tbaa !29
+  %447 = zext i8 %446 to i32
+  br label %lex_next.exit95.i
+
+448:                                              ; preds = %440
+  %449 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit95.i
+
+lex_next.exit95.i:                                ; preds = %448, %444
+  %450 = phi i32 [ %447, %444 ], [ %449, %448 ]
+  store i32 %450, ptr %6, align 8, !tbaa !26
+  %.not82.i = icmp eq i32 %450, 125
+  br i1 %.not82.i, label %451, label %424, !llvm.loop !63
+
+451:                                              ; preds = %lex_next.exit95.i
+  %452 = icmp slt i32 %.3.i, 2048
+  br i1 %452, label %453, label %468
+
+453:                                              ; preds = %451
+  %454 = icmp slt i32 %.3.i, 128
+  br i1 %454, label %696, label %455
+
+455:                                              ; preds = %453
+  %456 = lshr i32 %.3.i, 6
+  %457 = load ptr, ptr %13, align 8, !tbaa !51
+  %458 = load ptr, ptr %3, align 8, !tbaa !53
+  %459 = ptrtoint ptr %457 to i64
+  %460 = ptrtoint ptr %458 to i64
+  %461 = sub i64 %459, %460
+  %462 = and i64 %461, 4294967295
+  %463 = icmp eq i64 %462, 0
+  br i1 %463, label %464, label %lj_buf_more.exit116.i, !prof !54
+
+464:                                              ; preds = %455
+  %465 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit116.i
+
+lj_buf_more.exit116.i:                            ; preds = %464, %455
+  %.0.i115.i = phi ptr [ %465, %464 ], [ %458, %455 ]
+  %466 = trunc i32 %456 to i8
+  %467 = or i8 %466, -64
+  store i8 %467, ptr %.0.i115.i, align 1, !tbaa !29
+  br label %524
+
+468:                                              ; preds = %451
+  %469 = icmp samesign ugt i32 %.3.i, 65535
+  br i1 %469, label %470, label %496
+
+470:                                              ; preds = %468
+  %471 = lshr i32 %.3.i, 18
+  %472 = load ptr, ptr %13, align 8, !tbaa !51
+  %473 = load ptr, ptr %3, align 8, !tbaa !53
+  %474 = ptrtoint ptr %472 to i64
+  %475 = ptrtoint ptr %473 to i64
+  %476 = sub i64 %474, %475
+  %477 = and i64 %476, 4294967295
+  %478 = icmp eq i64 %477, 0
+  br i1 %478, label %479, label %lj_buf_more.exit114.i, !prof !54
+
+479:                                              ; preds = %470
+  %480 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit114.i
+
+lj_buf_more.exit114.i:                            ; preds = %479, %470
+  %.0.i113.i = phi ptr [ %480, %479 ], [ %473, %470 ]
+  %481 = trunc i32 %471 to i8
+  %482 = or i8 %481, -16
+  %483 = getelementptr inbounds nuw i8, ptr %.0.i113.i, i64 1
+  store i8 %482, ptr %.0.i113.i, align 1, !tbaa !29
+  store ptr %483, ptr %3, align 8, !tbaa !53
+  %484 = lshr i32 %.3.i, 12
+  %485 = load ptr, ptr %13, align 8, !tbaa !51
+  %486 = ptrtoint ptr %485 to i64
+  %487 = ptrtoint ptr %483 to i64
+  %488 = sub i64 %486, %487
+  %489 = and i64 %488, 4294967295
+  %490 = icmp eq i64 %489, 0
+  br i1 %490, label %491, label %lj_buf_more.exit112.i, !prof !54
+
+491:                                              ; preds = %lj_buf_more.exit114.i
+  %492 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit112.i
+
+lj_buf_more.exit112.i:                            ; preds = %491, %lj_buf_more.exit114.i
+  %.0.i111.i = phi ptr [ %492, %491 ], [ %483, %lj_buf_more.exit114.i ]
+  %493 = trunc i32 %484 to i8
+  %494 = and i8 %493, 63
+  %495 = or disjoint i8 %494, -128
+  store i8 %495, ptr %.0.i111.i, align 1, !tbaa !29
+  br label %511
+
+496:                                              ; preds = %468
+  %497 = and i32 %.3.i, 63488
+  %or.cond.i = icmp eq i32 %497, 55296
+  br i1 %or.cond.i, label %.loopexit.i, label %498
+
+498:                                              ; preds = %496
+  %499 = lshr i32 %.3.i, 12
+  %500 = load ptr, ptr %13, align 8, !tbaa !51
+  %501 = load ptr, ptr %3, align 8, !tbaa !53
+  %502 = ptrtoint ptr %500 to i64
+  %503 = ptrtoint ptr %501 to i64
+  %504 = sub i64 %502, %503
+  %505 = and i64 %504, 4294967295
+  %506 = icmp eq i64 %505, 0
+  br i1 %506, label %507, label %lj_buf_more.exit110.i, !prof !54
+
+507:                                              ; preds = %498
+  %508 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit110.i
+
+lj_buf_more.exit110.i:                            ; preds = %507, %498
+  %.0.i109.i = phi ptr [ %508, %507 ], [ %501, %498 ]
+  %509 = trunc nuw i32 %499 to i8
+  %510 = or disjoint i8 %509, -32
+  store i8 %510, ptr %.0.i109.i, align 1, !tbaa !29
+  br label %511
+
+511:                                              ; preds = %lj_buf_more.exit110.i, %lj_buf_more.exit112.i
+  %.0.i109.pn.i = phi ptr [ %.0.i109.i, %lj_buf_more.exit110.i ], [ %.0.i111.i, %lj_buf_more.exit112.i ]
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.0.i109.pn.i, i64 1
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !53
+  %512 = lshr i32 %.3.i, 6
+  %513 = load ptr, ptr %13, align 8, !tbaa !51
+  %514 = ptrtoint ptr %513 to i64
+  %515 = ptrtoint ptr %storemerge.i to i64
+  %516 = sub i64 %514, %515
+  %517 = and i64 %516, 4294967295
+  %518 = icmp eq i64 %517, 0
+  br i1 %518, label %519, label %lj_buf_more.exit108.i, !prof !54
+
+519:                                              ; preds = %511
+  %520 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit108.i
+
+lj_buf_more.exit108.i:                            ; preds = %519, %511
+  %.0.i107.i = phi ptr [ %520, %519 ], [ %storemerge.i, %511 ]
+  %521 = trunc i32 %512 to i8
+  %522 = and i8 %521, 63
+  %523 = or disjoint i8 %522, -128
+  store i8 %523, ptr %.0.i107.i, align 1, !tbaa !29
+  br label %524
+
+524:                                              ; preds = %lj_buf_more.exit108.i, %lj_buf_more.exit116.i
+  %.0.i107.pn.i = phi ptr [ %.0.i107.i, %lj_buf_more.exit108.i ], [ %.0.i115.i, %lj_buf_more.exit116.i ]
+  %storemerge128.i = getelementptr inbounds nuw i8, ptr %.0.i107.pn.i, i64 1
+  store ptr %storemerge128.i, ptr %3, align 8, !tbaa !53
+  %525 = and i32 %.3.i, 63
+  %526 = or disjoint i32 %525, 128
+  br label %696
+
+527:                                              ; preds = %lex_next.exit100.i
+  %528 = load ptr, ptr %11, align 8, !tbaa !27
+  %529 = load ptr, ptr %12, align 8, !tbaa !28
+  %530 = icmp ult ptr %528, %529
+  br i1 %530, label %531, label %535
+
+531:                                              ; preds = %527
+  %532 = getelementptr inbounds nuw i8, ptr %528, i64 1
+  store ptr %532, ptr %11, align 8, !tbaa !27
+  %533 = load i8, ptr %528, align 1, !tbaa !29
+  %534 = zext i8 %533 to i32
+  br label %lex_next.exit94.i
+
+535:                                              ; preds = %527
+  %536 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit94.i
+
+lex_next.exit94.i:                                ; preds = %535, %531
+  %537 = phi i32 [ %534, %531 ], [ %536, %535 ]
+  store i32 %537, ptr %6, align 8, !tbaa !26
+  %538 = sext i32 %537 to i64
+  %539 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %538
+  %540 = load i8, ptr %539, align 1, !tbaa !29
+  %541 = and i8 %540, 2
+  %.not78136.i = icmp eq i8 %541, 0
+  br i1 %.not78136.i, label %.backedge.i, label %.lr.ph.i, !llvm.loop !62
+
+.lr.ph.i:                                         ; preds = %lex_next.exit94.i, %lex_newline.exit.i
+  %542 = phi i32 [ %.pr127.i, %lex_newline.exit.i ], [ %537, %lex_next.exit94.i ]
+  switch i32 %542, label %573 [
+    i32 10, label %543
+    i32 13, label %543
+  ]
+
+543:                                              ; preds = %.lr.ph.i, %.lr.ph.i
+  %544 = load ptr, ptr %11, align 8, !tbaa !27
+  %545 = load ptr, ptr %12, align 8, !tbaa !28
+  %546 = icmp ult ptr %544, %545
+  br i1 %546, label %547, label %551
+
+547:                                              ; preds = %543
+  %548 = getelementptr inbounds nuw i8, ptr %544, i64 1
+  store ptr %548, ptr %11, align 8, !tbaa !27
+  %549 = load i8, ptr %544, align 1, !tbaa !29
+  %550 = zext i8 %549 to i32
+  br label %lex_next.exit9.i.i
+
+551:                                              ; preds = %543
+  %552 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit9.i.i
+
+lex_next.exit9.i.i:                               ; preds = %551, %547
+  %553 = phi i32 [ %550, %547 ], [ %552, %551 ]
+  store i32 %553, ptr %6, align 8, !tbaa !26
+  switch i32 %553, label %566 [
+    i32 10, label %554
+    i32 13, label %554
+  ]
+
+554:                                              ; preds = %lex_next.exit9.i.i, %lex_next.exit9.i.i
+  %.not.i.i = icmp eq i32 %553, %542
+  br i1 %.not.i.i, label %566, label %555
+
+555:                                              ; preds = %554
+  %556 = load ptr, ptr %11, align 8, !tbaa !27
+  %557 = load ptr, ptr %12, align 8, !tbaa !28
+  %558 = icmp ult ptr %556, %557
+  br i1 %558, label %559, label %563
+
+559:                                              ; preds = %555
+  %560 = getelementptr inbounds nuw i8, ptr %556, i64 1
+  store ptr %560, ptr %11, align 8, !tbaa !27
+  %561 = load i8, ptr %556, align 1, !tbaa !29
+  %562 = zext i8 %561 to i32
+  br label %lex_next.exit.i.i
+
+563:                                              ; preds = %555
+  %564 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit.i.i
+
+lex_next.exit.i.i:                                ; preds = %563, %559
+  %565 = phi i32 [ %562, %559 ], [ %564, %563 ]
+  store i32 %565, ptr %6, align 8, !tbaa !26
+  br label %566
+
+566:                                              ; preds = %lex_next.exit.i.i, %554, %lex_next.exit9.i.i
+  %.pr127141.i = phi i32 [ %565, %lex_next.exit.i.i ], [ %542, %554 ], [ %553, %lex_next.exit9.i.i ]
+  %567 = load i32, ptr %14, align 8, !tbaa !22
+  %568 = add nsw i32 %567, 1
+  store i32 %568, ptr %14, align 8, !tbaa !22
+  %569 = icmp sgt i32 %567, 2147483390
+  br i1 %569, label %570, label %lex_newline.exit.i
+
+570:                                              ; preds = %566
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %572 = load i32, ptr %571, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %572, i32 noundef 2191) #10
+  unreachable
+
+573:                                              ; preds = %.lr.ph.i
+  %574 = load ptr, ptr %11, align 8, !tbaa !27
+  %575 = load ptr, ptr %12, align 8, !tbaa !28
+  %576 = icmp ult ptr %574, %575
+  br i1 %576, label %577, label %581
+
+577:                                              ; preds = %573
+  %578 = getelementptr inbounds nuw i8, ptr %574, i64 1
+  store ptr %578, ptr %11, align 8, !tbaa !27
+  %579 = load i8, ptr %574, align 1, !tbaa !29
+  %580 = zext i8 %579 to i32
+  br label %lex_next.exit93.i
+
+581:                                              ; preds = %573
+  %582 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit93.i
+
+lex_next.exit93.i:                                ; preds = %581, %577
+  %583 = phi i32 [ %580, %577 ], [ %582, %581 ]
+  store i32 %583, ptr %6, align 8, !tbaa !26
+  br label %lex_newline.exit.i
+
+lex_newline.exit.i:                               ; preds = %lex_next.exit93.i, %566
+  %.pr127.i = phi i32 [ %.pr127141.i, %566 ], [ %583, %lex_next.exit93.i ]
+  %584 = sext i32 %.pr127.i to i64
+  %585 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %584
+  %586 = load i8, ptr %585, align 1, !tbaa !29
+  %587 = and i8 %586, 2
+  %.not78.i = icmp eq i8 %587, 0
+  br i1 %.not78.i, label %.backedge.i, label %.lr.ph.i, !llvm.loop !64
+
+588:                                              ; preds = %lex_next.exit100.i, %lex_next.exit100.i
+  %589 = load ptr, ptr %13, align 8, !tbaa !51
+  %590 = load ptr, ptr %3, align 8, !tbaa !53
+  %591 = ptrtoint ptr %589 to i64
+  %592 = ptrtoint ptr %590 to i64
+  %593 = sub i64 %591, %592
+  %594 = and i64 %593, 4294967295
+  %595 = icmp eq i64 %594, 0
+  br i1 %595, label %596, label %lj_buf_more.exit106.i, !prof !54
+
+596:                                              ; preds = %588
+  %597 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit106.i
+
+lj_buf_more.exit106.i:                            ; preds = %596, %588
+  %.0.i105.i = phi ptr [ %597, %596 ], [ %590, %588 ]
+  %598 = getelementptr inbounds nuw i8, ptr %.0.i105.i, i64 1
+  store i8 10, ptr %.0.i105.i, align 1, !tbaa !29
+  store ptr %598, ptr %3, align 8, !tbaa !53
+  %599 = load i32, ptr %6, align 8, !tbaa !26
+  %600 = load ptr, ptr %11, align 8, !tbaa !27
+  %601 = load ptr, ptr %12, align 8, !tbaa !28
+  %602 = icmp ult ptr %600, %601
+  br i1 %602, label %603, label %607
+
+603:                                              ; preds = %lj_buf_more.exit106.i
+  %604 = getelementptr inbounds nuw i8, ptr %600, i64 1
+  store ptr %604, ptr %11, align 8, !tbaa !27
+  %605 = load i8, ptr %600, align 1, !tbaa !29
+  %606 = zext i8 %605 to i32
+  br label %lex_next.exit9.i123.i
+
+607:                                              ; preds = %lj_buf_more.exit106.i
+  %608 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit9.i123.i
+
+lex_next.exit9.i123.i:                            ; preds = %607, %603
+  %609 = phi i32 [ %606, %603 ], [ %608, %607 ]
+  store i32 %609, ptr %6, align 8, !tbaa !26
+  switch i32 %609, label %622 [
+    i32 10, label %610
+    i32 13, label %610
+  ]
+
+610:                                              ; preds = %lex_next.exit9.i123.i, %lex_next.exit9.i123.i
+  %.not.i124.i = icmp eq i32 %609, %599
+  br i1 %.not.i124.i, label %622, label %611
+
+611:                                              ; preds = %610
+  %612 = load ptr, ptr %11, align 8, !tbaa !27
+  %613 = load ptr, ptr %12, align 8, !tbaa !28
+  %614 = icmp ult ptr %612, %613
+  br i1 %614, label %615, label %619
+
+615:                                              ; preds = %611
+  %616 = getelementptr inbounds nuw i8, ptr %612, i64 1
+  store ptr %616, ptr %11, align 8, !tbaa !27
+  %617 = load i8, ptr %612, align 1, !tbaa !29
+  %618 = zext i8 %617 to i32
+  br label %lex_next.exit.i125.i
+
+619:                                              ; preds = %611
+  %620 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit.i125.i
+
+lex_next.exit.i125.i:                             ; preds = %619, %615
+  %621 = phi i32 [ %618, %615 ], [ %620, %619 ]
+  store i32 %621, ptr %6, align 8, !tbaa !26
+  br label %622
+
+622:                                              ; preds = %lex_next.exit.i125.i, %610, %lex_next.exit9.i123.i
+  %.pr143.i = phi i32 [ %621, %lex_next.exit.i125.i ], [ %599, %610 ], [ %609, %lex_next.exit9.i123.i ]
+  %623 = load i32, ptr %14, align 8, !tbaa !22
+  %624 = add nsw i32 %623, 1
+  store i32 %624, ptr %14, align 8, !tbaa !22
+  %625 = icmp sgt i32 %623, 2147483390
+  br i1 %625, label %626, label %.backedge.i, !llvm.loop !62
+
+626:                                              ; preds = %622
+  %627 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %628 = load i32, ptr %627, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %628, i32 noundef 2191) #10
+  unreachable
+
+629:                                              ; preds = %lex_next.exit100.i
+  %630 = sext i32 %350 to i64
+  %631 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %630
+  %632 = load i8, ptr %631, align 1, !tbaa !29
+  %633 = and i8 %632, 8
+  %.not87.i = icmp eq i8 %633, 0
+  br i1 %.not87.i, label %.loopexit.i, label %634
+
+634:                                              ; preds = %629
+  %635 = add nsw i32 %350, -48
+  %636 = load ptr, ptr %11, align 8, !tbaa !27
+  %637 = load ptr, ptr %12, align 8, !tbaa !28
+  %638 = icmp ult ptr %636, %637
+  br i1 %638, label %639, label %643
+
+639:                                              ; preds = %634
+  %640 = getelementptr inbounds nuw i8, ptr %636, i64 1
+  store ptr %640, ptr %11, align 8, !tbaa !27
+  %641 = load i8, ptr %636, align 1, !tbaa !29
+  %642 = zext i8 %641 to i32
+  br label %lex_next.exit92.i
+
+643:                                              ; preds = %634
+  %644 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit92.i
+
+lex_next.exit92.i:                                ; preds = %643, %639
+  %645 = phi i32 [ %642, %639 ], [ %644, %643 ]
+  store i32 %645, ptr %6, align 8, !tbaa !26
+  %646 = sext i32 %645 to i64
+  %647 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %646
+  %648 = load i8, ptr %647, align 1, !tbaa !29
+  %649 = and i8 %648, 8
+  %.not88.i = icmp eq i8 %649, 0
+  br i1 %.not88.i, label %684, label %650
+
+650:                                              ; preds = %lex_next.exit92.i
+  %651 = mul nsw i32 %635, 10
+  %652 = add nsw i32 %651, -48
+  %653 = add nsw i32 %652, %645
+  %654 = load ptr, ptr %11, align 8, !tbaa !27
+  %655 = load ptr, ptr %12, align 8, !tbaa !28
+  %656 = icmp ult ptr %654, %655
+  br i1 %656, label %657, label %661
+
+657:                                              ; preds = %650
+  %658 = getelementptr inbounds nuw i8, ptr %654, i64 1
+  store ptr %658, ptr %11, align 8, !tbaa !27
+  %659 = load i8, ptr %654, align 1, !tbaa !29
+  %660 = zext i8 %659 to i32
+  br label %lex_next.exit91.i
+
+661:                                              ; preds = %650
+  %662 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit91.i
+
+lex_next.exit91.i:                                ; preds = %661, %657
+  %663 = phi i32 [ %660, %657 ], [ %662, %661 ]
+  store i32 %663, ptr %6, align 8, !tbaa !26
+  %664 = sext i32 %663 to i64
+  %665 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %664
+  %666 = load i8, ptr %665, align 1, !tbaa !29
+  %667 = and i8 %666, 8
+  %.not89.i = icmp eq i8 %667, 0
+  br i1 %.not89.i, label %684, label %668
+
+668:                                              ; preds = %lex_next.exit91.i
+  %669 = mul nsw i32 %653, 10
+  %670 = add nsw i32 %669, -48
+  %671 = add nsw i32 %670, %663
+  %672 = icmp sgt i32 %671, 255
+  br i1 %672, label %.loopexit.i, label %673
+
+.loopexit.i:                                      ; preds = %668, %629, %496, %lex_next.exit97.i, %398, %376, %438, %434
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef 288, i32 noundef 2331) #10
+  unreachable
+
+673:                                              ; preds = %668
+  %674 = load ptr, ptr %11, align 8, !tbaa !27
+  %675 = load ptr, ptr %12, align 8, !tbaa !28
+  %676 = icmp ult ptr %674, %675
+  br i1 %676, label %677, label %681
+
+677:                                              ; preds = %673
+  %678 = getelementptr inbounds nuw i8, ptr %674, i64 1
+  store ptr %678, ptr %11, align 8, !tbaa !27
+  %679 = load i8, ptr %674, align 1, !tbaa !29
+  %680 = zext i8 %679 to i32
+  br label %lex_next.exit90.i
+
+681:                                              ; preds = %673
+  %682 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit90.i
+
+lex_next.exit90.i:                                ; preds = %681, %677
+  %683 = phi i32 [ %680, %677 ], [ %682, %681 ]
+  store i32 %683, ptr %6, align 8, !tbaa !26
+  br label %684
+
+684:                                              ; preds = %lex_next.exit90.i, %lex_next.exit91.i, %lex_next.exit92.i
+  %.4.i = phi i32 [ %671, %lex_next.exit90.i ], [ %653, %lex_next.exit91.i ], [ %635, %lex_next.exit92.i ]
+  %685 = load ptr, ptr %13, align 8, !tbaa !51
+  %686 = load ptr, ptr %3, align 8, !tbaa !53
+  %687 = ptrtoint ptr %685 to i64
+  %688 = ptrtoint ptr %686 to i64
+  %689 = sub i64 %687, %688
+  %690 = and i64 %689, 4294967295
+  %691 = icmp eq i64 %690, 0
+  br i1 %691, label %692, label %lj_buf_more.exit104.i, !prof !54
+
+692:                                              ; preds = %684
+  %693 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit104.i
+
+lj_buf_more.exit104.i:                            ; preds = %692, %684
+  %.0.i103.i = phi ptr [ %693, %692 ], [ %686, %684 ]
+  %694 = trunc i32 %.4.i to i8
+  %695 = getelementptr inbounds nuw i8, ptr %.0.i103.i, i64 1
+  store i8 %694, ptr %.0.i103.i, align 1, !tbaa !29
+  store ptr %695, ptr %3, align 8, !tbaa !53
+  %.pr.pre.i = load i32, ptr %6, align 8, !tbaa !26
+  br label %.backedge.i, !llvm.loop !62
+
+696:                                              ; preds = %524, %453, %400, %lex_next.exit98.i, %357, %356, %355, %354, %353, %352, %351, %lex_next.exit100.i, %lex_next.exit100.i, %lex_next.exit100.i
+  %.0.i112 = phi i32 [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ], [ %.3.i, %453 ], [ %526, %524 ], [ %392, %lex_next.exit98.i ], [ %401, %400 ], [ 11, %357 ], [ 9, %356 ], [ 13, %355 ], [ 10, %354 ], [ 12, %353 ], [ 8, %352 ], [ 7, %351 ]
+  %697 = load ptr, ptr %13, align 8, !tbaa !51
+  %698 = load ptr, ptr %3, align 8, !tbaa !53
+  %699 = ptrtoint ptr %697 to i64
+  %700 = ptrtoint ptr %698 to i64
+  %701 = sub i64 %699, %700
+  %702 = and i64 %701, 4294967295
+  %703 = icmp eq i64 %702, 0
+  br i1 %703, label %704, label %lj_buf_more.exit.i113, !prof !54
+
+704:                                              ; preds = %696
+  %705 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit.i113
+
+lj_buf_more.exit.i113:                            ; preds = %704, %696
+  %.0.i.i114 = phi ptr [ %705, %704 ], [ %698, %696 ]
+  %706 = trunc i32 %.0.i112 to i8
+  %707 = getelementptr inbounds nuw i8, ptr %.0.i.i114, i64 1
+  store i8 %706, ptr %.0.i.i114, align 1, !tbaa !29
+  store ptr %707, ptr %3, align 8, !tbaa !53
+  %708 = load ptr, ptr %11, align 8, !tbaa !27
+  %709 = load ptr, ptr %12, align 8, !tbaa !28
+  %710 = icmp ult ptr %708, %709
+  br i1 %710, label %711, label %715
+
+711:                                              ; preds = %lj_buf_more.exit.i113
+  %712 = getelementptr inbounds nuw i8, ptr %708, i64 1
+  store ptr %712, ptr %11, align 8, !tbaa !27
+  %713 = load i8, ptr %708, align 1, !tbaa !29
+  %714 = zext i8 %713 to i32
+  br label %lex_next.exit.i115
+
+715:                                              ; preds = %lj_buf_more.exit.i113
+  %716 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit.i115
+
+lex_next.exit.i115:                               ; preds = %715, %711
+  %717 = phi i32 [ %714, %711 ], [ %716, %715 ]
+  store i32 %717, ptr %6, align 8, !tbaa !26
+  br label %.backedge.i, !llvm.loop !62
+
+.backedge.i:                                      ; preds = %lex_newline.exit.i, %lex_savenext.exit101.i, %lex_next.exit.i115, %lj_buf_more.exit104.i, %622, %lex_next.exit94.i, %lex_next.exit100.i
+  %.be.i = phi i32 [ %739, %lex_savenext.exit101.i ], [ %537, %lex_next.exit94.i ], [ %.pr143.i, %622 ], [ %350, %lex_next.exit100.i ], [ %717, %lex_next.exit.i115 ], [ %.pr.pre.i, %lj_buf_more.exit104.i ], [ %.pr127.i, %lex_newline.exit.i ]
+  %.not.i110 = icmp eq i32 %.be.i, %63
+  br i1 %.not.i110, label %._crit_edge.i, label %.lr.ph138.i, !llvm.loop !62
+
+718:                                              ; preds = %.lr.ph138.i
+  %719 = load ptr, ptr %13, align 8, !tbaa !51
+  %720 = load ptr, ptr %3, align 8, !tbaa !53
+  %721 = ptrtoint ptr %719 to i64
+  %722 = ptrtoint ptr %720 to i64
+  %723 = sub i64 %721, %722
+  %724 = and i64 %723, 4294967295
+  %725 = icmp eq i64 %724, 0
+  br i1 %725, label %726, label %lj_buf_more.exit120.i, !prof !54
+
+726:                                              ; preds = %718
+  %727 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit120.i
+
+lj_buf_more.exit120.i:                            ; preds = %726, %718
+  %.0.i119.i = phi ptr [ %727, %726 ], [ %720, %718 ]
+  %728 = trunc i32 %337 to i8
+  %729 = getelementptr inbounds nuw i8, ptr %.0.i119.i, i64 1
+  store i8 %728, ptr %.0.i119.i, align 1, !tbaa !29
+  store ptr %729, ptr %3, align 8, !tbaa !53
+  %730 = load ptr, ptr %11, align 8, !tbaa !27
+  %731 = load ptr, ptr %12, align 8, !tbaa !28
+  %732 = icmp ult ptr %730, %731
+  br i1 %732, label %733, label %737
+
+733:                                              ; preds = %lj_buf_more.exit120.i
+  %734 = getelementptr inbounds nuw i8, ptr %730, i64 1
+  store ptr %734, ptr %11, align 8, !tbaa !27
+  %735 = load i8, ptr %730, align 1, !tbaa !29
+  %736 = zext i8 %735 to i32
+  br label %lex_savenext.exit101.i
+
+737:                                              ; preds = %lj_buf_more.exit120.i
+  %738 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit101.i
+
+lex_savenext.exit101.i:                           ; preds = %737, %733
+  %739 = phi i32 [ %736, %733 ], [ %738, %737 ]
+  store i32 %739, ptr %6, align 8, !tbaa !26
+  br label %.backedge.i
+
+._crit_edge.i:                                    ; preds = %.backedge.i, %lex_savenext.exit102.i
+  %740 = load ptr, ptr %13, align 8, !tbaa !51
+  %741 = load ptr, ptr %3, align 8, !tbaa !53
+  %742 = ptrtoint ptr %740 to i64
+  %743 = ptrtoint ptr %741 to i64
+  %744 = sub i64 %742, %743
+  %745 = and i64 %744, 4294967295
+  %746 = icmp eq i64 %745, 0
+  br i1 %746, label %747, label %lj_buf_more.exit118.i, !prof !54
+
+747:                                              ; preds = %._crit_edge.i
+  %748 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit118.i
+
+lj_buf_more.exit118.i:                            ; preds = %747, %._crit_edge.i
+  %.0.i117.i = phi ptr [ %748, %747 ], [ %741, %._crit_edge.i ]
+  %749 = getelementptr inbounds nuw i8, ptr %.0.i117.i, i64 1
+  store i8 %325, ptr %.0.i117.i, align 1, !tbaa !29
+  store ptr %749, ptr %3, align 8, !tbaa !53
+  %750 = load ptr, ptr %11, align 8, !tbaa !27
+  %751 = load ptr, ptr %12, align 8, !tbaa !28
+  %752 = icmp ult ptr %750, %751
+  br i1 %752, label %753, label %757
+
+753:                                              ; preds = %lj_buf_more.exit118.i
+  %754 = getelementptr inbounds nuw i8, ptr %750, i64 1
+  store ptr %754, ptr %11, align 8, !tbaa !27
+  %755 = load i8, ptr %750, align 1, !tbaa !29
+  %756 = zext i8 %755 to i32
   br label %lex_string.exit
 
-cond.false.i.i.i:                                 ; preds = %lj_buf_more.exit589.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i538.i)
-  %381 = load ptr, ptr %rfunc.i208, align 8
-  %382 = load ptr, ptr %L.i209, align 8
-  %383 = load ptr, ptr %rdata.i210, align 8
-  %call.i542.i = call ptr %381(ptr noundef %382, ptr noundef %383, ptr noundef nonnull %sz.i538.i) #9
-  %cmp.i543.i = icmp eq ptr %call.i542.i, null
-  %384 = load i64, ptr %sz.i538.i, align 8
-  %cmp1.i544.i = icmp eq i64 %384, 0
-  %or.cond.i545.i = select i1 %cmp.i543.i, i1 true, i1 %cmp1.i544.i
-  br i1 %or.cond.i545.i, label %lex_more.exit561.i, label %if.end.i546.i
-
-if.end.i546.i:                                    ; preds = %cond.false.i.i.i
-  %cmp2.i547.i = icmp ugt i64 %384, 2147483391
-  br i1 %cmp2.i547.i, label %if.then3.i555.i, label %if.end11.i548.i
-
-if.then3.i555.i:                                  ; preds = %if.end.i546.i
-  %cmp4.not.i556.i = icmp eq i64 %384, -1
-  br i1 %cmp4.not.i556.i, label %if.end7.i558.i, label %if.then5.i557.i
-
-if.then5.i557.i:                                  ; preds = %if.then3.i555.i
-  %385 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %385) #10
-  unreachable
-
-if.end7.i558.i:                                   ; preds = %if.then3.i555.i
-  %386 = ptrtoint ptr %call.i542.i to i64
-  %387 = call i64 @llvm.umax.i64(i64 %386, i64 -2147483392)
-  %spec.store.select.i559.i = xor i64 %387, -1
-  store i64 %spec.store.select.i559.i, ptr %sz.i538.i, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i548.i
-
-if.end11.i548.i:                                  ; preds = %if.end7.i558.i, %if.end.i546.i
-  %388 = phi i64 [ %spec.store.select.i559.i, %if.end7.i558.i ], [ %384, %if.end.i546.i ]
-  %add.ptr.i549.i = getelementptr inbounds i8, ptr %call.i542.i, i64 %388
-  store ptr %add.ptr.i549.i, ptr %pe.i321, align 8
-  %add.ptr12.i551.i = getelementptr inbounds nuw i8, ptr %call.i542.i, i64 1
-  store ptr %add.ptr12.i551.i, ptr %p.i320, align 8
-  %389 = load i8, ptr %call.i542.i, align 1
-  %conv.i553.i = zext i8 %389 to i32
-  br label %lex_more.exit561.i
-
-lex_more.exit561.i:                               ; preds = %if.end11.i548.i, %cond.false.i.i.i
-  %retval.0.i554.i = phi i32 [ %conv.i553.i, %if.end11.i548.i ], [ -1, %cond.false.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i538.i)
-  %.pre.i = load ptr, ptr %sb, align 8
+757:                                              ; preds = %lj_buf_more.exit118.i
+  %758 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  %.pre.i = load ptr, ptr %3, align 8, !tbaa !58
   br label %lex_string.exit
 
-lex_string.exit:                                  ; preds = %cond.true.i.i.i, %lex_more.exit561.i
-  %390 = phi ptr [ %incdec.ptr.i409.i, %cond.true.i.i.i ], [ %.pre.i, %lex_more.exit561.i ]
-  %cond.i.i.i = phi i32 [ %conv.i.i.i, %cond.true.i.i.i ], [ %retval.0.i554.i, %lex_more.exit561.i ]
-  store i32 %cond.i.i.i, ptr %c, align 8
-  %391 = load ptr, ptr %b.i356, align 8
-  %add.ptr.i401 = getelementptr inbounds nuw i8, ptr %391, i64 1
-  %sub.ptr.lhs.cast.i402 = ptrtoint ptr %390 to i64
-  %sub.ptr.rhs.cast.i403 = ptrtoint ptr %391 to i64
-  %reass.sub.i = add i64 %sub.ptr.lhs.cast.i402, 4294967294
-  %sub180.i = sub i64 %reass.sub.i, %sub.ptr.rhs.cast.i403
-  %conv181.i = and i64 %sub180.i, 4294967295
-  %call182.i = call ptr @lj_parse_keepstr(ptr noundef nonnull %ls, ptr noundef nonnull %add.ptr.i401, i64 noundef %conv181.i) #9
-  %392 = ptrtoint ptr %call182.i to i64
-  %or.i.i = or i64 %392, -703687441776640
-  store i64 %or.i.i, ptr %tv, align 8
-  br label %return
+lex_string.exit:                                  ; preds = %753, %757
+  %759 = phi ptr [ %749, %753 ], [ %.pre.i, %757 ]
+  %760 = phi i32 [ %756, %753 ], [ %758, %757 ]
+  store i32 %760, ptr %6, align 8, !tbaa !26
+  %761 = load ptr, ptr %4, align 8, !tbaa !57
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 1
+  %763 = ptrtoint ptr %759 to i64
+  %764 = ptrtoint ptr %761 to i64
+  %reass.sub.i = add i64 %763, 4294967294
+  %765 = sub i64 %reass.sub.i, %764
+  %766 = and i64 %765, 4294967295
+  %767 = tail call ptr @lj_parse_keepstr(ptr noundef nonnull %0, ptr noundef nonnull %762, i64 noundef %766) #11
+  %768 = ptrtoint ptr %767 to i64
+  %769 = or i64 %768, -703687441776640
+  store i64 %769, ptr %1, align 8, !tbaa !29
+  br label %.loopexit
 
-sw.bb112:                                         ; preds = %if.end27
-  %e.i = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %393 = load ptr, ptr %e.i, align 8
-  %394 = load ptr, ptr %sb, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %393 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %394 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %395 = and i64 %sub.ptr.sub.i, 4294967295
-  %cmp.i389 = icmp eq i64 %395, 0
-  br i1 %cmp.i389, label %if.then.i, label %lj_buf_more.exit
+770:                                              ; preds = %62
+  %771 = load ptr, ptr %13, align 8, !tbaa !51
+  %772 = load ptr, ptr %3, align 8, !tbaa !53
+  %773 = ptrtoint ptr %771 to i64
+  %774 = ptrtoint ptr %772 to i64
+  %775 = sub i64 %773, %774
+  %776 = and i64 %775, 4294967295
+  %777 = icmp eq i64 %776, 0
+  br i1 %777, label %778, label %lj_buf_more.exit103, !prof !54
 
-if.then.i:                                        ; preds = %sw.bb112
-  %call.i390 = call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #9
-  br label %lj_buf_more.exit
+778:                                              ; preds = %770
+  %779 = tail call ptr @lj_buf_more2(ptr noundef nonnull %3, i32 noundef 1) #11
+  br label %lj_buf_more.exit103
 
-lj_buf_more.exit:                                 ; preds = %sw.bb112, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i390, %if.then.i ], [ %394, %sw.bb112 ]
-  %incdec.ptr.i386 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
-  store i8 46, ptr %retval.i.0, align 1
-  store ptr %incdec.ptr.i386, ptr %sb, align 8
-  %396 = load ptr, ptr %p.i320, align 8
-  %397 = load ptr, ptr %pe.i321, align 8
-  %cmp.i.i = icmp ult ptr %396, %397
-  br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
+lj_buf_more.exit103:                              ; preds = %770, %778
+  %.0.i102 = phi ptr [ %779, %778 ], [ %772, %770 ]
+  %780 = getelementptr inbounds nuw i8, ptr %.0.i102, i64 1
+  store i8 46, ptr %.0.i102, align 1, !tbaa !29
+  store ptr %780, ptr %3, align 8, !tbaa !53
+  %781 = load ptr, ptr %11, align 8, !tbaa !27
+  %782 = load ptr, ptr %12, align 8, !tbaa !28
+  %783 = icmp ult ptr %781, %782
+  br i1 %783, label %784, label %788
 
-cond.true.i.i:                                    ; preds = %lj_buf_more.exit
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %396, i64 1
-  store ptr %incdec.ptr.i.i, ptr %p.i320, align 8
-  %398 = load i8, ptr %396, align 1
-  %conv.i.i = zext i8 %398 to i32
-  br label %lex_savenext.exit
+784:                                              ; preds = %lj_buf_more.exit103
+  %785 = getelementptr inbounds nuw i8, ptr %781, i64 1
+  store ptr %785, ptr %11, align 8, !tbaa !27
+  %786 = load i8, ptr %781, align 1, !tbaa !29
+  %787 = zext i8 %786 to i32
+  br label %lex_savenext.exit101
 
-cond.false.i.i:                                   ; preds = %lj_buf_more.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i416)
-  %399 = load ptr, ptr %rfunc.i208, align 8
-  %400 = load ptr, ptr %L.i209, align 8
-  %401 = load ptr, ptr %rdata.i210, align 8
-  %call.i420 = call ptr %399(ptr noundef %400, ptr noundef %401, ptr noundef nonnull %sz.i416) #9
-  %cmp.i421 = icmp eq ptr %call.i420, null
-  %402 = load i64, ptr %sz.i416, align 8
-  %cmp1.i422 = icmp eq i64 %402, 0
-  %or.cond.i423 = select i1 %cmp.i421, i1 true, i1 %cmp1.i422
-  br i1 %or.cond.i423, label %lex_more.exit439, label %if.end.i424
+788:                                              ; preds = %lj_buf_more.exit103
+  %789 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit101
 
-if.end.i424:                                      ; preds = %cond.false.i.i
-  %cmp2.i425 = icmp ugt i64 %402, 2147483391
-  br i1 %cmp2.i425, label %if.then3.i433, label %if.end11.i426
+lex_savenext.exit101:                             ; preds = %784, %788
+  %790 = phi i32 [ %787, %784 ], [ %789, %788 ]
+  store i32 %790, ptr %6, align 8, !tbaa !26
+  %791 = icmp eq i32 %790, 46
+  br i1 %791, label %792, label %815
 
-if.then3.i433:                                    ; preds = %if.end.i424
-  %cmp4.not.i434 = icmp eq i64 %402, -1
-  br i1 %cmp4.not.i434, label %if.end7.i436, label %if.then5.i435
+792:                                              ; preds = %lex_savenext.exit101
+  %793 = load ptr, ptr %11, align 8, !tbaa !27
+  %794 = load ptr, ptr %12, align 8, !tbaa !28
+  %795 = icmp ult ptr %793, %794
+  br i1 %795, label %796, label %800
 
-if.then5.i435:                                    ; preds = %if.then3.i433
-  %403 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %403) #10
-  unreachable
+796:                                              ; preds = %792
+  %797 = getelementptr inbounds nuw i8, ptr %793, i64 1
+  store ptr %797, ptr %11, align 8, !tbaa !27
+  %798 = load i8, ptr %793, align 1, !tbaa !29
+  %799 = zext i8 %798 to i32
+  br label %lex_next.exit86
 
-if.end7.i436:                                     ; preds = %if.then3.i433
-  %404 = ptrtoint ptr %call.i420 to i64
-  %405 = call i64 @llvm.umax.i64(i64 %404, i64 -2147483392)
-  %spec.store.select.i437 = xor i64 %405, -1
-  store i64 %spec.store.select.i437, ptr %sz.i416, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i426
+800:                                              ; preds = %792
+  %801 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit86
 
-if.end11.i426:                                    ; preds = %if.end7.i436, %if.end.i424
-  %406 = phi i64 [ %spec.store.select.i437, %if.end7.i436 ], [ %402, %if.end.i424 ]
-  %add.ptr.i427 = getelementptr inbounds i8, ptr %call.i420, i64 %406
-  store ptr %add.ptr.i427, ptr %pe.i321, align 8
-  %add.ptr12.i429 = getelementptr inbounds nuw i8, ptr %call.i420, i64 1
-  store ptr %add.ptr12.i429, ptr %p.i320, align 8
-  %407 = load i8, ptr %call.i420, align 1
-  %conv.i431 = zext i8 %407 to i32
-  br label %lex_more.exit439
+lex_next.exit86:                                  ; preds = %796, %800
+  %802 = phi i32 [ %799, %796 ], [ %801, %800 ]
+  store i32 %802, ptr %6, align 8, !tbaa !26
+  %803 = icmp eq i32 %802, 46
+  br i1 %803, label %804, label %.loopexit
 
-lex_more.exit439:                                 ; preds = %cond.false.i.i, %if.end11.i426
-  %retval.0.i432 = phi i32 [ %conv.i431, %if.end11.i426 ], [ -1, %cond.false.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i416)
-  br label %lex_savenext.exit
+804:                                              ; preds = %lex_next.exit86
+  %805 = load ptr, ptr %11, align 8, !tbaa !27
+  %806 = load ptr, ptr %12, align 8, !tbaa !28
+  %807 = icmp ult ptr %805, %806
+  br i1 %807, label %808, label %812
 
-lex_savenext.exit:                                ; preds = %lex_more.exit439, %cond.true.i.i
-  %cond.i.i = phi i32 [ %conv.i.i, %cond.true.i.i ], [ %retval.0.i432, %lex_more.exit439 ]
-  store i32 %cond.i.i, ptr %c, align 8
-  %cmp114 = icmp eq i32 %cond.i.i, 46
-  br i1 %cmp114, label %if.then116, label %if.else124
+808:                                              ; preds = %804
+  %809 = getelementptr inbounds nuw i8, ptr %805, i64 1
+  store ptr %809, ptr %11, align 8, !tbaa !27
+  %810 = load i8, ptr %805, align 1, !tbaa !29
+  %811 = zext i8 %810 to i32
+  br label %lex_next.exit85
 
-if.then116:                                       ; preds = %lex_savenext.exit
-  %408 = load ptr, ptr %p.i320, align 8
-  %409 = load ptr, ptr %pe.i321, align 8
-  %cmp.i153 = icmp ult ptr %408, %409
-  br i1 %cmp.i153, label %cond.true.i158, label %cond.false.i154
+812:                                              ; preds = %804
+  %813 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit85
 
-cond.true.i158:                                   ; preds = %if.then116
-  %incdec.ptr.i160 = getelementptr inbounds nuw i8, ptr %408, i64 1
-  store ptr %incdec.ptr.i160, ptr %p.i320, align 8
-  %410 = load i8, ptr %408, align 1
-  %conv.i161 = zext i8 %410 to i32
-  br label %lex_next.exit162
+lex_next.exit85:                                  ; preds = %808, %812
+  %814 = phi i32 [ %811, %808 ], [ %813, %812 ]
+  store i32 %814, ptr %6, align 8, !tbaa !26
+  br label %.loopexit
 
-cond.false.i154:                                  ; preds = %if.then116
-  %call.i155 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
-  br label %lex_next.exit162
+815:                                              ; preds = %lex_savenext.exit101
+  %816 = sext i32 %790 to i64
+  %817 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %816
+  %818 = load i8, ptr %817, align 1, !tbaa !29
+  %819 = and i8 %818, 8
+  %.not74 = icmp eq i8 %819, 0
+  br i1 %.not74, label %.loopexit, label %820
 
-lex_next.exit162:                                 ; preds = %cond.false.i154, %cond.true.i158
-  %cond.i156 = phi i32 [ %conv.i161, %cond.true.i158 ], [ %call.i155, %cond.false.i154 ]
-  store i32 %cond.i156, ptr %c, align 8
-  %cmp119 = icmp eq i32 %cond.i156, 46
-  br i1 %cmp119, label %if.then121, label %return
+820:                                              ; preds = %815
+  tail call fastcc void @lex_number(ptr noundef nonnull %0, ptr noundef %1)
+  br label %.loopexit
 
-if.then121:                                       ; preds = %lex_next.exit162
-  %411 = load ptr, ptr %p.i320, align 8
-  %412 = load ptr, ptr %pe.i321, align 8
-  %cmp.i140 = icmp ult ptr %411, %412
-  br i1 %cmp.i140, label %cond.true.i145, label %cond.false.i141
+821:                                              ; preds = %62
+  %822 = load ptr, ptr %11, align 8, !tbaa !27
+  %823 = load ptr, ptr %12, align 8, !tbaa !28
+  %824 = icmp ult ptr %822, %823
+  br i1 %824, label %825, label %829
 
-cond.true.i145:                                   ; preds = %if.then121
-  %incdec.ptr.i147 = getelementptr inbounds nuw i8, ptr %411, i64 1
-  store ptr %incdec.ptr.i147, ptr %p.i320, align 8
-  %413 = load i8, ptr %411, align 1
-  %conv.i148 = zext i8 %413 to i32
-  br label %lex_next.exit149
-
-cond.false.i141:                                  ; preds = %if.then121
-  %call.i142 = call fastcc i32 @lex_more(ptr noundef nonnull %ls)
-  br label %lex_next.exit149
-
-lex_next.exit149:                                 ; preds = %cond.false.i141, %cond.true.i145
-  %cond.i143 = phi i32 [ %conv.i148, %cond.true.i145 ], [ %call.i142, %cond.false.i141 ]
-  store i32 %cond.i143, ptr %c, align 8
-  br label %return
-
-if.else124:                                       ; preds = %lex_savenext.exit
-  %idxprom126 = sext i32 %cond.i.i to i64
-  %arrayidx127 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom126
-  %414 = load i8, ptr %arrayidx127, align 1
-  %415 = and i8 %414, 8
-  %tobool130.not = icmp eq i8 %415, 0
-  br i1 %tobool130.not, label %return, label %if.else132
-
-if.else132:                                       ; preds = %if.else124
-  call fastcc void @lex_number(ptr noundef nonnull %ls, ptr noundef %tv)
-  br label %return
-
-sw.default:                                       ; preds = %if.end27
-  %416 = load ptr, ptr %p.i320, align 8
-  %417 = load ptr, ptr %pe.i321, align 8
-  %cmp.i = icmp ult ptr %416, %417
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %sw.default
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %416, i64 1
-  store ptr %incdec.ptr.i, ptr %p.i320, align 8
-  %418 = load i8, ptr %416, align 1
-  %conv.i = zext i8 %418 to i32
+825:                                              ; preds = %821
+  %826 = getelementptr inbounds nuw i8, ptr %822, i64 1
+  store ptr %826, ptr %11, align 8, !tbaa !27
+  %827 = load i8, ptr %822, align 1, !tbaa !29
+  %828 = zext i8 %827 to i32
   br label %lex_next.exit
 
-cond.false.i:                                     ; preds = %sw.default
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i440)
-  %419 = load ptr, ptr %rfunc.i208, align 8
-  %420 = load ptr, ptr %L.i209, align 8
-  %421 = load ptr, ptr %rdata.i210, align 8
-  %call.i444 = call ptr %419(ptr noundef %420, ptr noundef %421, ptr noundef nonnull %sz.i440) #9
-  %cmp.i445 = icmp eq ptr %call.i444, null
-  %422 = load i64, ptr %sz.i440, align 8
-  %cmp1.i446 = icmp eq i64 %422, 0
-  %or.cond.i447 = select i1 %cmp.i445, i1 true, i1 %cmp1.i446
-  br i1 %or.cond.i447, label %lex_more.exit463, label %if.end.i448
-
-if.end.i448:                                      ; preds = %cond.false.i
-  %cmp2.i449 = icmp ugt i64 %422, 2147483391
-  br i1 %cmp2.i449, label %if.then3.i457, label %if.end11.i450
-
-if.then3.i457:                                    ; preds = %if.end.i448
-  %cmp4.not.i458 = icmp eq i64 %422, -1
-  br i1 %cmp4.not.i458, label %if.end7.i460, label %if.then5.i459
-
-if.then5.i459:                                    ; preds = %if.then3.i457
-  %423 = load ptr, ptr %L.i209, align 8
-  call void @lj_err_mem(ptr noundef %423) #10
-  unreachable
-
-if.end7.i460:                                     ; preds = %if.then3.i457
-  %424 = ptrtoint ptr %call.i444 to i64
-  %425 = call i64 @llvm.umax.i64(i64 %424, i64 -2147483392)
-  %spec.store.select.i461 = xor i64 %425, -1
-  store i64 %spec.store.select.i461, ptr %sz.i440, align 8
-  store i32 1, ptr %endmark.i229, align 8
-  br label %if.end11.i450
-
-if.end11.i450:                                    ; preds = %if.end7.i460, %if.end.i448
-  %426 = phi i64 [ %spec.store.select.i461, %if.end7.i460 ], [ %422, %if.end.i448 ]
-  %add.ptr.i451 = getelementptr inbounds i8, ptr %call.i444, i64 %426
-  store ptr %add.ptr.i451, ptr %pe.i321, align 8
-  %add.ptr12.i453 = getelementptr inbounds nuw i8, ptr %call.i444, i64 1
-  store ptr %add.ptr12.i453, ptr %p.i320, align 8
-  %427 = load i8, ptr %call.i444, align 1
-  %conv.i455 = zext i8 %427 to i32
-  br label %lex_more.exit463
-
-lex_more.exit463:                                 ; preds = %cond.false.i, %if.end11.i450
-  %retval.0.i456 = phi i32 [ %conv.i455, %if.end11.i450 ], [ -1, %cond.false.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i440)
+829:                                              ; preds = %821
+  %830 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
   br label %lex_next.exit
 
-lex_next.exit:                                    ; preds = %lex_more.exit463, %cond.true.i
-  %cond.i = phi i32 [ %conv.i, %cond.true.i ], [ %retval.0.i456, %lex_more.exit463 ]
-  store i32 %cond.i, ptr %c, align 8
-  br label %return
+lex_next.exit:                                    ; preds = %825, %829
+  %831 = phi i32 [ %828, %825 ], [ %830, %829 ]
+  store i32 %831, ptr %6, align 8, !tbaa !26
+  br label %.loopexit
 
-return:                                           ; preds = %if.end27, %lex_next.exit331, %if.else124, %lex_next.exit162, %lex_next.exit188, %lex_next.exit214, %lex_next.exit240, %lex_next.exit266, %lex_next.exit292, %if.else, %do.end, %lex_next.exit, %if.else132, %lex_next.exit149, %lex_string.exit, %lex_next.exit175, %lex_next.exit201, %lex_next.exit227, %lex_next.exit253, %lex_next.exit279, %if.then66, %if.then23, %if.then7
-  %retval.0 = phi i32 [ 286, %if.then7 ], [ %add, %if.then23 ], [ %26, %lex_next.exit ], [ 280, %lex_next.exit149 ], [ 286, %if.else132 ], [ 288, %lex_string.exit ], [ 285, %lex_next.exit175 ], [ 284, %lex_next.exit201 ], [ 282, %lex_next.exit227 ], [ 283, %lex_next.exit253 ], [ 281, %lex_next.exit279 ], [ 288, %if.then66 ], [ 287, %do.end ], [ 91, %if.else ], [ 61, %lex_next.exit292 ], [ 60, %lex_next.exit266 ], [ 62, %lex_next.exit240 ], [ 126, %lex_next.exit214 ], [ 58, %lex_next.exit188 ], [ 279, %lex_next.exit162 ], [ 46, %if.else124 ], [ 289, %if.end27 ], [ 45, %lex_next.exit331 ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %62, %lex_next.exit99, %815, %lex_next.exit86, %lex_next.exit88, %lex_next.exit90, %lex_next.exit92, %lex_next.exit94, %lex_next.exit96, %201, %202, %20, %59, %47, %lex_next.exit, %820, %lex_next.exit85, %lex_string.exit, %lex_next.exit87, %lex_next.exit89, %lex_next.exit91, %lex_next.exit93, %lex_next.exit95
+  %.1 = phi i32 [ %63, %lex_next.exit ], [ 280, %lex_next.exit85 ], [ 286, %820 ], [ 288, %lex_string.exit ], [ 285, %lex_next.exit87 ], [ 284, %lex_next.exit89 ], [ 282, %lex_next.exit91 ], [ 283, %lex_next.exit93 ], [ 281, %lex_next.exit95 ], [ 286, %20 ], [ %61, %59 ], [ 287, %47 ], [ 288, %201 ], [ 91, %202 ], [ 61, %lex_next.exit96 ], [ 60, %lex_next.exit94 ], [ 62, %lex_next.exit92 ], [ 126, %lex_next.exit90 ], [ 58, %lex_next.exit88 ], [ 279, %lex_next.exit86 ], [ 46, %815 ], [ 289, %62 ], [ 45, %lex_next.exit99 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 13, 11) i32 @lj_lex_lookahead(ptr noundef %ls) local_unnamed_addr #0 {
-entry:
-  %lookaheadval = getelementptr inbounds nuw i8, ptr %ls, i64 24
-  %call = tail call fastcc i32 @lex_scan(ptr noundef %ls, ptr noundef nonnull %lookaheadval)
-  %lookahead = getelementptr inbounds nuw i8, ptr %ls, i64 56
-  store i32 %call, ptr %lookahead, align 8
-  ret i32 %call
+define hidden range(i32 13, 11) i32 @lj_lex_lookahead(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = tail call fastcc i32 @lex_scan(ptr noundef %0, ptr noundef nonnull %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %3, ptr %4, align 8, !tbaa !21
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_lex_token2str(ptr noundef readonly captures(none) %ls, i32 noundef %tok) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp sgt i32 %tok, 256
-  br i1 %cmp, label %if.then, label %if.else
+define hidden ptr @lj_lex_token2str(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp sgt i32 %1, 256
+  br i1 %3, label %4, label %9
 
-if.then:                                          ; preds = %entry
-  %sub1 = add nsw i32 %tok, -257
-  %idxprom = zext nneg i32 %sub1 to i64
-  %arrayidx = getelementptr inbounds nuw [34 x ptr], ptr @tokennames, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
-  br label %return
+4:                                                ; preds = %2
+  %5 = add nsw i32 %1, -257
+  %6 = zext nneg i32 %5 to i64
+  %7 = getelementptr inbounds nuw [34 x ptr], ptr @tokennames, i64 0, i64 %6
+  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  br label %20
 
-if.else:                                          ; preds = %entry
-  %idxprom2 = sext i32 %tok to i64
-  %arrayidx3 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom2
-  %1 = load i8, ptr %arrayidx3, align 1
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
-  %L = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %3 = load ptr, ptr %L, align 8
-  br i1 %tobool.not, label %if.then4, label %if.else5
+9:                                                ; preds = %2
+  %10 = sext i32 %1 to i64
+  %11 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %10
+  %12 = load i8, ptr %11, align 1, !tbaa !29
+  %13 = and i8 %12, 1
+  %.not = icmp eq i8 %13, 0
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !4
+  br i1 %.not, label %16, label %18
 
-if.then4:                                         ; preds = %if.else
-  %call = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef %tok) #9
-  br label %return
+16:                                               ; preds = %9
+  %17 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %15, ptr noundef nonnull @.str.1, i32 noundef %1) #11
+  br label %20
 
-if.else5:                                         ; preds = %if.else
-  %call7 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef %tok) #9
-  br label %return
+18:                                               ; preds = %9
+  %19 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %15, ptr noundef nonnull @.str.2, i32 noundef %1) #11
+  br label %20
 
-return:                                           ; preds = %if.else5, %if.then4, %if.then
-  %retval.0 = phi ptr [ %0, %if.then ], [ %call7, %if.else5 ], [ %call, %if.then4 ]
-  ret ptr %retval.0
+20:                                               ; preds = %18, %16, %4
+  %.0 = phi ptr [ %8, %4 ], [ %19, %18 ], [ %17, %16 ]
+  ret ptr %.0
 }
 
-declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_lex_error(ptr noundef %ls, i32 noundef %tok, i32 noundef %em, ...) local_unnamed_addr #3 {
-entry:
-  %argp = alloca [1 x %struct.__va_list_tag], align 16
-  %cmp = icmp eq i32 %tok, 0
-  br i1 %cmp, label %if.end7, label %if.else
+define hidden void @lj_lex_error(ptr noundef %0, i32 noundef %1, i32 noundef %2, ...) local_unnamed_addr #4 {
+  %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  %5 = icmp eq i32 %1, 0
+  br i1 %5, label %lj_lex_token2str.exit, label %6
 
-if.else:                                          ; preds = %entry
-  %0 = add i32 %tok, -286
-  %or.cond1 = icmp ult i32 %0, 3
-  br i1 %or.cond1, label %if.then5, label %if.else6
+6:                                                ; preds = %3
+  %7 = add i32 %1, -286
+  %or.cond3 = icmp ult i32 %7, 3
+  br i1 %or.cond3, label %8, label %23
 
-if.then5:                                         ; preds = %if.else
-  %sb.i = getelementptr inbounds nuw i8, ptr %ls, i64 64
-  %e.i = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %1 = load ptr, ptr %e.i, align 8
-  %2 = load ptr, ptr %sb.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %3 = and i64 %sub.ptr.sub.i, 4294967295
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = load ptr, ptr %10, align 8, !tbaa !51
+  %12 = load ptr, ptr %9, align 8, !tbaa !53
+  %13 = ptrtoint ptr %11 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = and i64 %15, 4294967295
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %lj_buf_more.exit, !prof !54
 
-if.then.i:                                        ; preds = %if.then5
-  %call.i12 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb.i, i32 noundef 1) #9
+18:                                               ; preds = %8
+  %19 = tail call ptr @lj_buf_more2(ptr noundef nonnull %9, i32 noundef 1) #11
   br label %lj_buf_more.exit
 
-lj_buf_more.exit:                                 ; preds = %if.then5, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i12, %if.then.i ], [ %2, %if.then5 ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
-  store i8 0, ptr %retval.i.0, align 1
-  store ptr %incdec.ptr.i, ptr %sb.i, align 8
-  %b = getelementptr inbounds nuw i8, ptr %ls, i64 80
-  %4 = load ptr, ptr %b, align 8
-  br label %if.end7
+lj_buf_more.exit:                                 ; preds = %8, %18
+  %.0.i = phi ptr [ %19, %18 ], [ %12, %8 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  store i8 0, ptr %.0.i, align 1, !tbaa !29
+  store ptr %20, ptr %9, align 8, !tbaa !53
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %22 = load ptr, ptr %21, align 8, !tbaa !57
+  br label %lj_lex_token2str.exit
 
-if.else6:                                         ; preds = %if.else
-  %cmp.i17 = icmp sgt i32 %tok, 256
-  br i1 %cmp.i17, label %if.then.i18, label %if.else.i
+23:                                               ; preds = %6
+  %24 = icmp sgt i32 %1, 256
+  br i1 %24, label %25, label %30
 
-if.then.i18:                                      ; preds = %if.else6
-  %sub1.i = add nsw i32 %tok, -257
-  %idxprom.i = zext nneg i32 %sub1.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [34 x ptr], ptr @tokennames, i64 0, i64 %idxprom.i
-  %5 = load ptr, ptr %arrayidx.i, align 8
-  br label %if.end7
+25:                                               ; preds = %23
+  %26 = add nsw i32 %1, -257
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw [34 x ptr], ptr @tokennames, i64 0, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !65
+  br label %lj_lex_token2str.exit
 
-if.else.i:                                        ; preds = %if.else6
-  %idxprom2.i = sext i32 %tok to i64
-  %arrayidx3.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom2.i
-  %6 = load i8, ptr %arrayidx3.i, align 1
-  %7 = and i8 %6, 1
-  %tobool.not.i = icmp eq i8 %7, 0
-  %L.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %8 = load ptr, ptr %L.i, align 8
-  br i1 %tobool.not.i, label %if.then4.i, label %if.else5.i
+30:                                               ; preds = %23
+  %31 = sext i32 %1 to i64
+  %32 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !29
+  %34 = and i8 %33, 1
+  %.not.i = icmp eq i8 %34, 0
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !4
+  br i1 %.not.i, label %37, label %39
 
-if.then4.i:                                       ; preds = %if.else.i
-  %call.i = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef %tok) #9
-  br label %if.end7
+37:                                               ; preds = %30
+  %38 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %36, ptr noundef nonnull @.str.1, i32 noundef %1) #11
+  br label %lj_lex_token2str.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %call7.i = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef %tok) #9
-  br label %if.end7
+39:                                               ; preds = %30
+  %40 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %36, ptr noundef nonnull @.str.2, i32 noundef %1) #11
+  br label %lj_lex_token2str.exit
 
-if.end7:                                          ; preds = %if.else5.i, %if.then4.i, %if.then.i18, %entry, %lj_buf_more.exit
-  %tokstr.0 = phi ptr [ %4, %lj_buf_more.exit ], [ null, %entry ], [ %5, %if.then.i18 ], [ %call7.i, %if.else5.i ], [ %call.i, %if.then4.i ]
-  call void @llvm.va_start.p0(ptr nonnull %argp)
-  %L = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %9 = load ptr, ptr %L, align 8
-  %chunkname = getelementptr inbounds nuw i8, ptr %ls, i64 120
-  %10 = load ptr, ptr %chunkname, align 8
-  %linenumber = getelementptr inbounds nuw i8, ptr %ls, i64 112
-  %11 = load i32, ptr %linenumber, align 8
-  call void @lj_err_lex(ptr noundef %9, ptr noundef %10, ptr noundef %tokstr.0, i32 noundef %11, i32 noundef %em, ptr noundef nonnull %argp) #10
+lj_lex_token2str.exit:                            ; preds = %39, %37, %25, %3, %lj_buf_more.exit
+  %.0 = phi ptr [ %22, %lj_buf_more.exit ], [ null, %3 ], [ %29, %25 ], [ %40, %39 ], [ %38, %37 ]
+  call void @llvm.va_start.p0(ptr nonnull %4)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %44 = load ptr, ptr %43, align 8, !tbaa !66
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %46 = load i32, ptr %45, align 8, !tbaa !22
+  call void @lj_err_lex(ptr noundef %42, ptr noundef %44, ptr noundef %.0, i32 noundef %46, i32 noundef %2, ptr noundef nonnull %4) #12
   unreachable
 }
-
-; Function Attrs: noreturn
-declare hidden void @lj_err_lex(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
-define hidden void @lj_lex_init(ptr noundef %L) local_unnamed_addr #0 {
-entry:
-  br label %for.body
-
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [34 x ptr], ptr @tokennames, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %0, i64 noundef %call) #9
-  %marked = getelementptr inbounds nuw i8, ptr %call3, i64 8
-  %1 = load i8, ptr %marked, align 8
-  %2 = or i8 %1, 32
-  store i8 %2, ptr %marked, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %reserved = getelementptr inbounds nuw i8, ptr %call3, i64 10
-  %3 = trunc nuw nsw i64 %indvars.iv.next to i8
-  store i8 %3, ptr %reserved, align 2
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 22
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
-
-for.end:                                          ; preds = %for.body
-  ret void
-}
-
-declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 256) i32 @lex_more(ptr noundef captures(none) %ls) unnamed_addr #0 {
-entry:
-  %sz = alloca i64, align 8
-  %rfunc = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %0 = load ptr, ptr %rfunc, align 8
-  %L = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %1 = load ptr, ptr %L, align 8
-  %rdata = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %2 = load ptr, ptr %rdata, align 8
-  %call = call ptr %0(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %sz) #9
-  %cmp = icmp eq ptr %call, null
-  %3 = load i64, ptr %sz, align 8
-  %cmp1 = icmp eq i64 %3, 0
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp1
-  br i1 %or.cond, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i64 %3, 2147483391
-  br i1 %cmp2, label %if.then3, label %if.end11
-
-if.then3:                                         ; preds = %if.end
-  %cmp4.not = icmp eq i64 %3, -1
-  br i1 %cmp4.not, label %if.end7, label %if.then5
-
-if.then5:                                         ; preds = %if.then3
-  %4 = load ptr, ptr %L, align 8
-  call void @lj_err_mem(ptr noundef %4) #10
-  unreachable
-
-if.end7:                                          ; preds = %if.then3
-  %5 = ptrtoint ptr %call to i64
-  %6 = call i64 @llvm.umax.i64(i64 %5, i64 -2147483392)
-  %spec.store.select = xor i64 %6, -1
-  store i64 %spec.store.select, ptr %sz, align 8
-  %endmark = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  store i32 1, ptr %endmark, align 8
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end7, %if.end
-  %7 = phi i64 [ %spec.store.select, %if.end7 ], [ %3, %if.end ]
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %7
-  %pe = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  store ptr %add.ptr, ptr %pe, align 8
-  %add.ptr12 = getelementptr inbounds nuw i8, ptr %call, i64 1
-  %p13 = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  store ptr %add.ptr12, ptr %p13, align 8
-  %8 = load i8, ptr %call, align 1
-  %conv = zext i8 %8 to i32
-  br label %return
-
-return:                                           ; preds = %entry, %if.end11
-  %retval.0 = phi i32 [ %conv, %if.end11 ], [ -1, %entry ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: noreturn
-declare hidden void @lj_err_mem(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @lex_number(ptr noundef %ls, ptr noundef %tv) unnamed_addr #0 {
-entry:
-  %sz.i70 = alloca i64, align 8
-  %sz.i = alloca i64, align 8
-  %c1 = getelementptr inbounds nuw i8, ptr %ls, i64 48
-  %0 = load i32, ptr %c1, align 8
-  %cmp = icmp eq i32 %0, 48
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %sb.i.i66 = getelementptr inbounds nuw i8, ptr %ls, i64 64
-  %e.i127 = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %1 = load ptr, ptr %e.i127, align 8
-  %2 = load ptr, ptr %sb.i.i66, align 8
-  %sub.ptr.lhs.cast.i128 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i129 = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i130 = sub i64 %sub.ptr.lhs.cast.i128, %sub.ptr.rhs.cast.i129
-  %3 = and i64 %sub.ptr.sub.i130, 4294967295
-  %cmp.i132 = icmp eq i64 %3, 0
-  br i1 %cmp.i132, label %if.then.i137, label %lj_buf_more.exit139
-
-if.then.i137:                                     ; preds = %land.lhs.true
-  %call.i138 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i66, i32 noundef 1) #9
-  br label %lj_buf_more.exit139
-
-lj_buf_more.exit139:                              ; preds = %land.lhs.true, %if.then.i137
-  %retval.i124.0 = phi ptr [ %call.i138, %if.then.i137 ], [ %2, %land.lhs.true ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %retval.i124.0, i64 1
-  store i8 48, ptr %retval.i124.0, align 1
-  store ptr %incdec.ptr.i, ptr %sb.i.i66, align 8
-  %p.i.i67 = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %4 = load ptr, ptr %p.i.i67, align 8
-  %pe.i.i68 = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %5 = load ptr, ptr %pe.i.i68, align 8
-  %cmp.i.i69 = icmp ult ptr %4, %5
-  br i1 %cmp.i.i69, label %cond.true.i.i74, label %cond.false.i.i70
-
-cond.true.i.i74:                                  ; preds = %lj_buf_more.exit139
-  %incdec.ptr.i.i76 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %incdec.ptr.i.i76, ptr %p.i.i67, align 8
-  %6 = load i8, ptr %4, align 1
-  %conv.i.i77 = zext i8 %6 to i32
-  br label %lex_savenext.exit78
-
-cond.false.i.i70:                                 ; preds = %lj_buf_more.exit139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %7 = load ptr, ptr %rfunc.i, align 8
-  %L.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %8 = load ptr, ptr %L.i, align 8
-  %rdata.i = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %9 = load ptr, ptr %rdata.i, align 8
-  %call.i68 = call ptr %7(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %sz.i) #9
-  %cmp.i69 = icmp eq ptr %call.i68, null
-  %10 = load i64, ptr %sz.i, align 8
-  %cmp1.i = icmp eq i64 %10, 0
-  %or.cond.i = select i1 %cmp.i69, i1 true, i1 %cmp1.i
-  br i1 %or.cond.i, label %lex_more.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %cond.false.i.i70
-  %cmp2.i = icmp ugt i64 %10, 2147483391
-  br i1 %cmp2.i, label %if.then3.i, label %if.end11.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.not.i = icmp eq i64 %10, -1
-  br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.then3.i
-  %11 = load ptr, ptr %L.i, align 8
-  call void @lj_err_mem(ptr noundef %11) #10
-  unreachable
-
-if.end7.i:                                        ; preds = %if.then3.i
-  %12 = ptrtoint ptr %call.i68 to i64
-  %13 = call i64 @llvm.umax.i64(i64 %12, i64 -2147483392)
-  %spec.store.select.i = xor i64 %13, -1
-  store i64 %spec.store.select.i, ptr %sz.i, align 8
-  %endmark.i = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  store i32 1, ptr %endmark.i, align 8
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %if.end7.i, %if.end.i
-  %14 = phi i64 [ %spec.store.select.i, %if.end7.i ], [ %10, %if.end.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i68, i64 %14
-  store ptr %add.ptr.i, ptr %pe.i.i68, align 8
-  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %call.i68, i64 1
-  store ptr %add.ptr12.i, ptr %p.i.i67, align 8
-  %15 = load i8, ptr %call.i68, align 1
-  %conv.i = zext i8 %15 to i32
-  br label %lex_more.exit
-
-lex_more.exit:                                    ; preds = %cond.false.i.i70, %if.end11.i
-  %retval.0.i = phi i32 [ %conv.i, %if.end11.i ], [ -1, %cond.false.i.i70 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  br label %lex_savenext.exit78
-
-lex_savenext.exit78:                              ; preds = %lex_more.exit, %cond.true.i.i74
-  %cond.i.i72 = phi i32 [ %conv.i.i77, %cond.true.i.i74 ], [ %retval.0.i, %lex_more.exit ]
-  store i32 %cond.i.i72, ptr %c1, align 8
-  %16 = and i32 %cond.i.i72, -33
-  %cmp2 = icmp eq i32 %16, 88
-  %spec.select = select i1 %cmp2, i32 112, i32 101
-  br label %if.end
-
-if.end:                                           ; preds = %lex_savenext.exit78, %entry
-  %.pr = phi i32 [ %0, %entry ], [ %cond.i.i72, %lex_savenext.exit78 ]
-  %xp.0 = phi i32 [ 101, %entry ], [ %spec.select, %lex_savenext.exit78 ]
-  %sb.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 64
-  %e.i111 = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %p.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %pe.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %rfunc.i71 = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %L.i72 = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %rdata.i73 = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %endmark.i92 = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  br label %while.cond
-
-while.cond:                                       ; preds = %lex_savenext.exit, %if.end
-  %17 = phi i32 [ %cond.i.i, %lex_savenext.exit ], [ %.pr, %if.end ]
-  %c.0 = phi i32 [ %17, %lex_savenext.exit ], [ %0, %if.end ]
-  %idxprom = sext i32 %17 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %18 = load i8, ptr %arrayidx, align 1
-  %tobool.not = icmp slt i8 %18, 0
-  %cmp5 = icmp eq i32 %17, 46
-  %or.cond = or i1 %cmp5, %tobool.not
-  br i1 %or.cond, label %while.body, label %lor.rhs
-
-lor.rhs:                                          ; preds = %while.cond
-  switch i32 %17, label %while.end [
-    i32 45, label %land.rhs
-    i32 43, label %land.rhs
-  ]
-
-land.rhs:                                         ; preds = %lor.rhs, %lor.rhs
-  %or14 = or i32 %c.0, 32
-  %cmp15 = icmp eq i32 %or14, %xp.0
-  br i1 %cmp15, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond, %land.rhs
-  %19 = load ptr, ptr %e.i111, align 8
-  %20 = load ptr, ptr %sb.i.i, align 8
-  %sub.ptr.lhs.cast.i112 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i113 = ptrtoint ptr %20 to i64
-  %sub.ptr.sub.i114 = sub i64 %sub.ptr.lhs.cast.i112, %sub.ptr.rhs.cast.i113
-  %21 = and i64 %sub.ptr.sub.i114, 4294967295
-  %cmp.i116 = icmp eq i64 %21, 0
-  br i1 %cmp.i116, label %if.then.i121, label %lj_buf_more.exit123
-
-if.then.i121:                                     ; preds = %while.body
-  %call.i122 = call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i, i32 noundef 1) #9
-  br label %lj_buf_more.exit123
-
-lj_buf_more.exit123:                              ; preds = %while.body, %if.then.i121
-  %retval.i108.0 = phi ptr [ %call.i122, %if.then.i121 ], [ %20, %while.body ]
-  %conv.i96 = trunc i32 %17 to i8
-  %incdec.ptr.i97 = getelementptr inbounds nuw i8, ptr %retval.i108.0, i64 1
-  store i8 %conv.i96, ptr %retval.i108.0, align 1
-  store ptr %incdec.ptr.i97, ptr %sb.i.i, align 8
-  %22 = load ptr, ptr %p.i.i, align 8
-  %23 = load ptr, ptr %pe.i.i, align 8
-  %cmp.i.i = icmp ult ptr %22, %23
-  br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
-
-cond.true.i.i:                                    ; preds = %lj_buf_more.exit123
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store ptr %incdec.ptr.i.i, ptr %p.i.i, align 8
-  %24 = load i8, ptr %22, align 1
-  %conv.i.i = zext i8 %24 to i32
-  br label %lex_savenext.exit
-
-cond.false.i.i:                                   ; preds = %lj_buf_more.exit123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i70)
-  %25 = load ptr, ptr %rfunc.i71, align 8
-  %26 = load ptr, ptr %L.i72, align 8
-  %27 = load ptr, ptr %rdata.i73, align 8
-  %call.i74 = call ptr %25(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %sz.i70) #9
-  %cmp.i75 = icmp eq ptr %call.i74, null
-  %28 = load i64, ptr %sz.i70, align 8
-  %cmp1.i76 = icmp eq i64 %28, 0
-  %or.cond.i77 = select i1 %cmp.i75, i1 true, i1 %cmp1.i76
-  br i1 %or.cond.i77, label %lex_more.exit93, label %if.end.i78
-
-if.end.i78:                                       ; preds = %cond.false.i.i
-  %cmp2.i79 = icmp ugt i64 %28, 2147483391
-  br i1 %cmp2.i79, label %if.then3.i87, label %if.end11.i80
-
-if.then3.i87:                                     ; preds = %if.end.i78
-  %cmp4.not.i88 = icmp eq i64 %28, -1
-  br i1 %cmp4.not.i88, label %if.end7.i90, label %if.then5.i89
-
-if.then5.i89:                                     ; preds = %if.then3.i87
-  %29 = load ptr, ptr %L.i72, align 8
-  call void @lj_err_mem(ptr noundef %29) #10
-  unreachable
-
-if.end7.i90:                                      ; preds = %if.then3.i87
-  %30 = ptrtoint ptr %call.i74 to i64
-  %31 = call i64 @llvm.umax.i64(i64 %30, i64 -2147483392)
-  %spec.store.select.i91 = xor i64 %31, -1
-  store i64 %spec.store.select.i91, ptr %sz.i70, align 8
-  store i32 1, ptr %endmark.i92, align 8
-  br label %if.end11.i80
-
-if.end11.i80:                                     ; preds = %if.end7.i90, %if.end.i78
-  %32 = phi i64 [ %spec.store.select.i91, %if.end7.i90 ], [ %28, %if.end.i78 ]
-  %add.ptr.i81 = getelementptr inbounds i8, ptr %call.i74, i64 %32
-  store ptr %add.ptr.i81, ptr %pe.i.i, align 8
-  %add.ptr12.i83 = getelementptr inbounds nuw i8, ptr %call.i74, i64 1
-  store ptr %add.ptr12.i83, ptr %p.i.i, align 8
-  %33 = load i8, ptr %call.i74, align 1
-  %conv.i85 = zext i8 %33 to i32
-  br label %lex_more.exit93
-
-lex_more.exit93:                                  ; preds = %cond.false.i.i, %if.end11.i80
-  %retval.0.i86 = phi i32 [ %conv.i85, %if.end11.i80 ], [ -1, %cond.false.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i70)
-  br label %lex_savenext.exit
-
-lex_savenext.exit:                                ; preds = %lex_more.exit93, %cond.true.i.i
-  %cond.i.i = phi i32 [ %conv.i.i, %cond.true.i.i ], [ %retval.0.i86, %lex_more.exit93 ]
-  store i32 %cond.i.i, ptr %c1, align 8
-  br label %while.cond, !llvm.loop !11
-
-while.end:                                        ; preds = %lor.rhs, %land.rhs
-  %34 = load ptr, ptr %e.i111, align 8
-  %35 = load ptr, ptr %sb.i.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %35 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %36 = and i64 %sub.ptr.sub.i, 4294967295
-  %cmp.i = icmp eq i64 %36, 0
-  br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
-
-if.then.i:                                        ; preds = %while.end
-  %call.i107 = call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i, i32 noundef 1) #9
-  br label %lj_buf_more.exit
-
-lj_buf_more.exit:                                 ; preds = %while.end, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i107, %if.then.i ], [ %35, %while.end ]
-  %incdec.ptr.i103 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
-  store i8 0, ptr %retval.i.0, align 1
-  store ptr %incdec.ptr.i103, ptr %sb.i.i, align 8
-  %b = getelementptr inbounds nuw i8, ptr %ls, i64 80
-  %37 = load ptr, ptr %b, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr.i103 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %37 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv22 = trunc i64 %sub.ptr.sub to i32
-  %sub = add i32 %conv22, -1
-  %call23 = call i32 @lj_strscan_scan(ptr noundef %37, i32 noundef %sub, ptr noundef %tv, i32 noundef 14) #9
-  switch i32 %call23, label %if.then29 [
-    i32 1, label %if.end59
-    i32 0, label %if.else57
-  ]
-
-if.then29:                                        ; preds = %lj_buf_more.exit
-  %38 = load ptr, ptr %L.i72, align 8
-  %glref = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %39 = load i64, ptr %glref, align 8
-  %40 = inttoptr i64 %39 to ptr
-  %ctype_state = getelementptr inbounds nuw i8, ptr %40, i64 384
-  %41 = load i64, ptr %ctype_state, align 8
-  %tobool32.not = icmp eq i64 %41, 0
-  br i1 %tobool32.not, label %if.then33, label %do.end
-
-if.then33:                                        ; preds = %if.then29
-  %top = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %42 = load ptr, ptr %top, align 8
-  %stack = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %43 = load i64, ptr %stack, align 8
-  %sub.ptr.lhs.cast35 = ptrtoint ptr %42 to i64
-  %sub.ptr.sub37 = sub i64 %sub.ptr.lhs.cast35, %43
-  %call38 = call i32 @luaopen_ffi(ptr noundef nonnull %38) #9
-  %44 = load i64, ptr %stack, align 8
-  %45 = inttoptr i64 %44 to ptr
-  %add.ptr = getelementptr inbounds i8, ptr %45, i64 %sub.ptr.sub37
-  store ptr %add.ptr, ptr %top, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %if.then29, %if.then33
-  %cmp43 = icmp eq i32 %call23, 2
-  br i1 %cmp43, label %if.then45, label %if.else51
-
-if.then45:                                        ; preds = %do.end
-  %call.i85 = call ptr @lj_mem_newgco(ptr noundef nonnull %38, i64 noundef 32) #9
-  %gct.i86 = getelementptr inbounds nuw i8, ptr %call.i85, i64 9
-  store i8 10, ptr %gct.i86, align 1
-  %ctypeid.i88 = getelementptr inbounds nuw i8, ptr %call.i85, i64 10
-  store i16 16, ptr %ctypeid.i88, align 2
-  %add.ptr47 = getelementptr inbounds nuw i8, ptr %call.i85, i64 16
-  store double 0.000000e+00, ptr %add.ptr47, align 8
-  %46 = load double, ptr %tv, align 8
-  %arrayidx50 = getelementptr inbounds nuw i8, ptr %call.i85, i64 24
-  store double %46, ptr %arrayidx50, align 8
-  br label %if.end56
-
-if.else51:                                        ; preds = %do.end
-  %cmp52 = icmp eq i32 %call23, 5
-  %call.i = call ptr @lj_mem_newgco(ptr noundef nonnull %38, i64 noundef 24) #9
-  %gct.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9
-  store i8 10, ptr %gct.i, align 1
-  %conv1.i = select i1 %cmp52, i16 11, i16 12
-  %ctypeid.i = getelementptr inbounds nuw i8, ptr %call.i, i64 10
-  store i16 %conv1.i, ptr %ctypeid.i, align 2
-  %47 = load i64, ptr %tv, align 8
-  %add.ptr55 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store i64 %47, ptr %add.ptr55, align 8
-  br label %if.end56
-
-if.end56:                                         ; preds = %if.else51, %if.then45
-  %cd.0 = phi ptr [ %call.i85, %if.then45 ], [ %call.i, %if.else51 ]
-  call void @lj_parse_keepcdata(ptr noundef nonnull %ls, ptr noundef nonnull %tv, ptr noundef nonnull %cd.0) #9
-  br label %if.end59
-
-if.else57:                                        ; preds = %lj_buf_more.exit
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef 286, i32 noundef 2229) #11
-  unreachable
-
-if.end59:                                         ; preds = %lj_buf_more.exit, %if.end56
-  ret void
-}
-
-declare hidden ptr @lj_parse_keepstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lex_skipeq(ptr noundef %ls) unnamed_addr #0 {
-entry:
-  %sz.i = alloca i64, align 8
-  %c = getelementptr inbounds nuw i8, ptr %ls, i64 48
-  %0 = load i32, ptr %c, align 8
-  %sb.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 64
-  %e.i = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %p.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %pe.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %rfunc.i = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %L.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %rdata.i = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %endmark.i = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  %1 = trunc i32 %0 to i8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %conv.i = phi i8 [ %1, %entry ], [ 61, %while.body ]
-  %count.0 = phi i32 [ 0, %entry ], [ %inc, %while.body ]
-  %2 = load ptr, ptr %e.i, align 8
-  %3 = load ptr, ptr %sb.i.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %4 = and i64 %sub.ptr.sub.i, 4294967295
-  %cmp.i = icmp eq i64 %4, 0
-  br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
-
-if.then.i:                                        ; preds = %while.cond
-  %call.i7 = call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i, i32 noundef 1) #9
-  br label %lj_buf_more.exit
-
-lj_buf_more.exit:                                 ; preds = %while.cond, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i7, %if.then.i ], [ %3, %while.cond ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
-  store i8 %conv.i, ptr %retval.i.0, align 1
-  store ptr %incdec.ptr.i, ptr %sb.i.i, align 8
-  %5 = load ptr, ptr %p.i.i, align 8
-  %6 = load ptr, ptr %pe.i.i, align 8
-  %cmp.i.i = icmp ult ptr %5, %6
-  br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
-
-cond.true.i.i:                                    ; preds = %lj_buf_more.exit
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store ptr %incdec.ptr.i.i, ptr %p.i.i, align 8
-  %7 = load i8, ptr %5, align 1
-  %conv.i.i = zext i8 %7 to i32
-  br label %lex_savenext.exit
-
-cond.false.i.i:                                   ; preds = %lj_buf_more.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %8 = load ptr, ptr %rfunc.i, align 8
-  %9 = load ptr, ptr %L.i, align 8
-  %10 = load ptr, ptr %rdata.i, align 8
-  %call.i = call ptr %8(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %sz.i) #9
-  %cmp.i18 = icmp eq ptr %call.i, null
-  %11 = load i64, ptr %sz.i, align 8
-  %cmp1.i = icmp eq i64 %11, 0
-  %or.cond.i = select i1 %cmp.i18, i1 true, i1 %cmp1.i
-  br i1 %or.cond.i, label %lex_more.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %cond.false.i.i
-  %cmp2.i = icmp ugt i64 %11, 2147483391
-  br i1 %cmp2.i, label %if.then3.i, label %if.end11.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.not.i = icmp eq i64 %11, -1
-  br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.then3.i
-  %12 = load ptr, ptr %L.i, align 8
-  call void @lj_err_mem(ptr noundef %12) #10
-  unreachable
-
-if.end7.i:                                        ; preds = %if.then3.i
-  %13 = ptrtoint ptr %call.i to i64
-  %14 = call i64 @llvm.umax.i64(i64 %13, i64 -2147483392)
-  %spec.store.select.i = xor i64 %14, -1
-  store i64 %spec.store.select.i, ptr %sz.i, align 8
-  store i32 1, ptr %endmark.i, align 8
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %if.end7.i, %if.end.i
-  %15 = phi i64 [ %spec.store.select.i, %if.end7.i ], [ %11, %if.end.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %15
-  store ptr %add.ptr.i, ptr %pe.i.i, align 8
-  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
-  store ptr %add.ptr12.i, ptr %p.i.i, align 8
-  %16 = load i8, ptr %call.i, align 1
-  %conv.i19 = zext i8 %16 to i32
-  br label %lex_more.exit
-
-lex_more.exit:                                    ; preds = %cond.false.i.i, %if.end11.i
-  %retval.0.i = phi i32 [ %conv.i19, %if.end11.i ], [ -1, %cond.false.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  br label %lex_savenext.exit
-
-lex_savenext.exit:                                ; preds = %lex_more.exit, %cond.true.i.i
-  %cond.i.i = phi i32 [ %conv.i.i, %cond.true.i.i ], [ %retval.0.i, %lex_more.exit ]
-  store i32 %cond.i.i, ptr %c, align 8
-  %cmp = icmp eq i32 %cond.i.i, 61
-  %cmp1 = icmp samesign ult i32 %count.0, 536870912
-  %17 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %17, label %while.body, label %while.end
-
-while.body:                                       ; preds = %lex_savenext.exit
-  %inc = add nuw nsw i32 %count.0, 1
-  br label %while.cond, !llvm.loop !12
-
-while.end:                                        ; preds = %lex_savenext.exit
-  %cmp3 = icmp ne i32 %cond.i.i, %0
-  %sub4 = sext i1 %cmp3 to i32
-  %cond = xor i32 %count.0, %sub4
-  ret i32 %cond
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @lex_longstring(ptr noundef %ls, ptr noundef writeonly captures(address_is_null) %tv, i32 noundef range(i32 0, -2147483648) %sep) unnamed_addr #0 {
-entry:
-  %sz.i101 = alloca i64, align 8
-  %sz.i21.i = alloca i64, align 8
-  %sz.i.i = alloca i64, align 8
-  %sz.i69 = alloca i64, align 8
-  %sz.i = alloca i64, align 8
-  %c.i55 = getelementptr inbounds nuw i8, ptr %ls, i64 48
-  %0 = load i32, ptr %c.i55, align 8
-  %sb.i.i56 = getelementptr inbounds nuw i8, ptr %ls, i64 64
-  %e.i128 = getelementptr inbounds nuw i8, ptr %ls, i64 72
-  %1 = load ptr, ptr %e.i128, align 8
-  %2 = load ptr, ptr %sb.i.i56, align 8
-  %sub.ptr.lhs.cast.i129 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i130 = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i131 = sub i64 %sub.ptr.lhs.cast.i129, %sub.ptr.rhs.cast.i130
-  %3 = and i64 %sub.ptr.sub.i131, 4294967295
-  %cmp.i133 = icmp eq i64 %3, 0
-  br i1 %cmp.i133, label %if.then.i138, label %lj_buf_more.exit140
-
-if.then.i138:                                     ; preds = %entry
-  %call.i139 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i56, i32 noundef 1) #9
-  br label %lj_buf_more.exit140
-
-lj_buf_more.exit140:                              ; preds = %entry, %if.then.i138
-  %retval.i125.0 = phi ptr [ %call.i139, %if.then.i138 ], [ %2, %entry ]
-  %conv.i71 = trunc i32 %0 to i8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %retval.i125.0, i64 1
-  store i8 %conv.i71, ptr %retval.i125.0, align 1
-  store ptr %incdec.ptr.i, ptr %sb.i.i56, align 8
-  %p.i.i57 = getelementptr inbounds nuw i8, ptr %ls, i64 32
-  %4 = load ptr, ptr %p.i.i57, align 8
-  %pe.i.i58 = getelementptr inbounds nuw i8, ptr %ls, i64 40
-  %5 = load ptr, ptr %pe.i.i58, align 8
-  %cmp.i.i59 = icmp ult ptr %4, %5
-  br i1 %cmp.i.i59, label %cond.true.i.i64, label %cond.false.i.i60
-
-cond.true.i.i64:                                  ; preds = %lj_buf_more.exit140
-  %incdec.ptr.i.i66 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %incdec.ptr.i.i66, ptr %p.i.i57, align 8
-  %6 = load i8, ptr %4, align 1
-  %conv.i.i67 = zext i8 %6 to i32
-  br label %lex_savenext.exit68
-
-cond.false.i.i60:                                 ; preds = %lj_buf_more.exit140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %7 = load ptr, ptr %rfunc.i, align 8
-  %L.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %8 = load ptr, ptr %L.i, align 8
-  %rdata.i = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %9 = load ptr, ptr %rdata.i, align 8
-  %call.i = call ptr %7(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %sz.i) #9
-  %cmp.i68 = icmp eq ptr %call.i, null
-  %10 = load i64, ptr %sz.i, align 8
-  %cmp1.i = icmp eq i64 %10, 0
-  %or.cond.i = select i1 %cmp.i68, i1 true, i1 %cmp1.i
-  br i1 %or.cond.i, label %lex_more.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %cond.false.i.i60
-  %cmp2.i = icmp ugt i64 %10, 2147483391
-  br i1 %cmp2.i, label %if.then3.i, label %if.end11.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.not.i = icmp eq i64 %10, -1
-  br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.then3.i
-  %11 = load ptr, ptr %L.i, align 8
-  call void @lj_err_mem(ptr noundef %11) #10
-  unreachable
-
-if.end7.i:                                        ; preds = %if.then3.i
-  %12 = ptrtoint ptr %call.i to i64
-  %13 = call i64 @llvm.umax.i64(i64 %12, i64 -2147483392)
-  %spec.store.select.i = xor i64 %13, -1
-  store i64 %spec.store.select.i, ptr %sz.i, align 8
-  %endmark.i = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  store i32 1, ptr %endmark.i, align 8
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %if.end7.i, %if.end.i
-  %14 = phi i64 [ %spec.store.select.i, %if.end7.i ], [ %10, %if.end.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %14
-  store ptr %add.ptr.i, ptr %pe.i.i58, align 8
-  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
-  store ptr %add.ptr12.i, ptr %p.i.i57, align 8
-  %15 = load i8, ptr %call.i, align 1
-  %conv.i = zext i8 %15 to i32
-  br label %lex_more.exit
-
-lex_more.exit:                                    ; preds = %cond.false.i.i60, %if.end11.i
-  %retval.0.i = phi i32 [ %conv.i, %if.end11.i ], [ -1, %cond.false.i.i60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  br label %lex_savenext.exit68
-
-lex_savenext.exit68:                              ; preds = %lex_more.exit, %cond.true.i.i64
-  %cond.i.i62 = phi i32 [ %conv.i.i67, %cond.true.i.i64 ], [ %retval.0.i, %lex_more.exit ]
-  store i32 %cond.i.i62, ptr %c.i55, align 8
-  switch i32 %cond.i.i62, label %if.end [
-    i32 10, label %if.then
-    i32 13, label %if.then
-  ]
-
-if.then:                                          ; preds = %lex_savenext.exit68, %lex_savenext.exit68
-  call fastcc void @lex_newline(ptr noundef nonnull %ls)
-  br label %if.end
-
-if.end:                                           ; preds = %lex_savenext.exit68, %if.then
-  %rfunc.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 96
-  %L.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
-  %rdata.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 104
-  %endmark.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 176
-  %linenumber.i = getelementptr inbounds nuw i8, ptr %ls, i64 112
-  %tobool11.not = icmp eq ptr %tv, null
-  %b.i = getelementptr inbounds nuw i8, ptr %ls, i64 80
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.cond.backedge, %if.end
-  %16 = load i32, ptr %c.i55, align 8
-  switch i32 %16, label %sw.default [
-    i32 -1, label %sw.bb
-    i32 93, label %sw.bb4
-    i32 10, label %sw.bb10
-    i32 13, label %sw.bb10
-  ]
-
-sw.bb:                                            ; preds = %for.cond
-  %cond = select i1 %tobool11.not, i32 2269, i32 2246
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef 289, i32 noundef %cond) #11
-  unreachable
-
-sw.bb4:                                           ; preds = %for.cond
-  %call5 = call fastcc i32 @lex_skipeq(ptr noundef nonnull %ls)
-  %cmp6 = icmp eq i32 %call5, %sep
-  br i1 %cmp6, label %if.then7, label %for.cond.backedge
-
-if.then7:                                         ; preds = %sw.bb4
-  %17 = load i32, ptr %c.i55, align 8
-  %18 = load ptr, ptr %e.i128, align 8
-  %19 = load ptr, ptr %sb.i.i56, align 8
-  %sub.ptr.lhs.cast.i113 = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i114 = ptrtoint ptr %19 to i64
-  %sub.ptr.sub.i115 = sub i64 %sub.ptr.lhs.cast.i113, %sub.ptr.rhs.cast.i114
-  %20 = and i64 %sub.ptr.sub.i115, 4294967295
-  %cmp.i117 = icmp eq i64 %20, 0
-  br i1 %cmp.i117, label %if.then.i122, label %lj_buf_more.exit124
-
-if.then.i122:                                     ; preds = %if.then7
-  %call.i123 = call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i56, i32 noundef 1) #9
-  br label %lj_buf_more.exit124
-
-lj_buf_more.exit124:                              ; preds = %if.then7, %if.then.i122
-  %retval.i109.0 = phi ptr [ %call.i123, %if.then.i122 ], [ %19, %if.then7 ]
-  %conv.i76 = trunc i32 %17 to i8
-  %incdec.ptr.i77 = getelementptr inbounds nuw i8, ptr %retval.i109.0, i64 1
-  store i8 %conv.i76, ptr %retval.i109.0, align 1
-  store ptr %incdec.ptr.i77, ptr %sb.i.i56, align 8
-  %21 = load ptr, ptr %p.i.i57, align 8
-  %22 = load ptr, ptr %pe.i.i58, align 8
-  %cmp.i.i41 = icmp ult ptr %21, %22
-  br i1 %cmp.i.i41, label %cond.true.i.i46, label %cond.false.i.i42
-
-cond.true.i.i46:                                  ; preds = %lj_buf_more.exit124
-  %incdec.ptr.i.i48 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store ptr %incdec.ptr.i.i48, ptr %p.i.i57, align 8
-  %23 = load i8, ptr %21, align 1
-  %conv.i.i49 = zext i8 %23 to i32
-  br label %lex_savenext.exit50
-
-cond.false.i.i42:                                 ; preds = %lj_buf_more.exit124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i69)
-  %24 = load ptr, ptr %rfunc.i.i, align 8
-  %25 = load ptr, ptr %L.i.i, align 8
-  %26 = load ptr, ptr %rdata.i.i, align 8
-  %call.i73 = call ptr %24(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %sz.i69) #9
-  %cmp.i74 = icmp eq ptr %call.i73, null
-  %27 = load i64, ptr %sz.i69, align 8
-  %cmp1.i75 = icmp eq i64 %27, 0
-  %or.cond.i76 = select i1 %cmp.i74, i1 true, i1 %cmp1.i75
-  br i1 %or.cond.i76, label %lex_more.exit92, label %if.end.i77
-
-if.end.i77:                                       ; preds = %cond.false.i.i42
-  %cmp2.i78 = icmp ugt i64 %27, 2147483391
-  br i1 %cmp2.i78, label %if.then3.i86, label %if.end11.i79
-
-if.then3.i86:                                     ; preds = %if.end.i77
-  %cmp4.not.i87 = icmp eq i64 %27, -1
-  br i1 %cmp4.not.i87, label %if.end7.i89, label %if.then5.i88
-
-if.then5.i88:                                     ; preds = %if.then3.i86
-  %28 = load ptr, ptr %L.i.i, align 8
-  call void @lj_err_mem(ptr noundef %28) #10
-  unreachable
-
-if.end7.i89:                                      ; preds = %if.then3.i86
-  %29 = ptrtoint ptr %call.i73 to i64
-  %30 = call i64 @llvm.umax.i64(i64 %29, i64 -2147483392)
-  %spec.store.select.i90 = xor i64 %30, -1
-  store i64 %spec.store.select.i90, ptr %sz.i69, align 8
-  store i32 1, ptr %endmark.i.i, align 8
-  br label %if.end11.i79
-
-if.end11.i79:                                     ; preds = %if.end7.i89, %if.end.i77
-  %31 = phi i64 [ %spec.store.select.i90, %if.end7.i89 ], [ %27, %if.end.i77 ]
-  %add.ptr.i80 = getelementptr inbounds i8, ptr %call.i73, i64 %31
-  store ptr %add.ptr.i80, ptr %pe.i.i58, align 8
-  %add.ptr12.i82 = getelementptr inbounds nuw i8, ptr %call.i73, i64 1
-  store ptr %add.ptr12.i82, ptr %p.i.i57, align 8
-  %32 = load i8, ptr %call.i73, align 1
-  %conv.i84 = zext i8 %32 to i32
-  br label %lex_more.exit92
-
-lex_more.exit92:                                  ; preds = %cond.false.i.i42, %if.end11.i79
-  %retval.0.i85 = phi i32 [ %conv.i84, %if.end11.i79 ], [ -1, %cond.false.i.i42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i69)
-  br label %lex_savenext.exit50
-
-lex_savenext.exit50:                              ; preds = %lex_more.exit92, %cond.true.i.i46
-  %cond.i.i44 = phi i32 [ %conv.i.i49, %cond.true.i.i46 ], [ %retval.0.i85, %lex_more.exit92 ]
-  store i32 %cond.i.i44, ptr %c.i55, align 8
-  br i1 %tobool11.not, label %if.end24, label %if.then16
-
-sw.bb10:                                          ; preds = %for.cond, %for.cond
-  %33 = load ptr, ptr %e.i128, align 8
-  %34 = load ptr, ptr %sb.i.i56, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %33 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %34 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %35 = and i64 %sub.ptr.sub.i, 4294967295
-  %cmp.i = icmp eq i64 %35, 0
-  br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
-
-if.then.i:                                        ; preds = %sw.bb10
-  %call.i92 = call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i56, i32 noundef 1) #9
-  br label %lj_buf_more.exit
-
-lj_buf_more.exit:                                 ; preds = %sw.bb10, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i92, %if.then.i ], [ %34, %sw.bb10 ]
-  %incdec.ptr.i89 = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 1
-  store i8 10, ptr %retval.i.0, align 1
-  store ptr %incdec.ptr.i89, ptr %sb.i.i56, align 8
-  %36 = load i32, ptr %c.i55, align 8
-  %37 = load ptr, ptr %p.i.i57, align 8
-  %38 = load ptr, ptr %pe.i.i58, align 8
-  %cmp.i13.i = icmp ult ptr %37, %38
-  br i1 %cmp.i13.i, label %cond.true.i18.i, label %cond.false.i14.i
-
-cond.true.i18.i:                                  ; preds = %lj_buf_more.exit
-  %incdec.ptr.i20.i = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store ptr %incdec.ptr.i20.i, ptr %p.i.i57, align 8
-  %39 = load i8, ptr %37, align 1
-  %conv.i21.i = zext i8 %39 to i32
-  br label %lex_next.exit22.i
-
-cond.false.i14.i:                                 ; preds = %lj_buf_more.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i.i)
-  %40 = load ptr, ptr %rfunc.i.i, align 8
-  %41 = load ptr, ptr %L.i.i, align 8
-  %42 = load ptr, ptr %rdata.i.i, align 8
-  %call.i18.i = call ptr %40(ptr noundef %41, ptr noundef %42, ptr noundef nonnull %sz.i.i) #9
-  %cmp.i19.i = icmp eq ptr %call.i18.i, null
-  %43 = load i64, ptr %sz.i.i, align 8
-  %cmp1.i.i = icmp eq i64 %43, 0
-  %or.cond.i.i = select i1 %cmp.i19.i, i1 true, i1 %cmp1.i.i
-  br i1 %or.cond.i.i, label %lex_more.exit.i, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %cond.false.i14.i
-  %cmp2.i.i = icmp ugt i64 %43, 2147483391
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end11.i.i
-
-if.then3.i.i:                                     ; preds = %if.end.i.i
-  %cmp4.not.i.i = icmp eq i64 %43, -1
-  br i1 %cmp4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
-
-if.then5.i.i:                                     ; preds = %if.then3.i.i
-  %44 = load ptr, ptr %L.i.i, align 8
-  call void @lj_err_mem(ptr noundef %44) #10
-  unreachable
-
-if.end7.i.i:                                      ; preds = %if.then3.i.i
-  %45 = ptrtoint ptr %call.i18.i to i64
-  %46 = call i64 @llvm.umax.i64(i64 %45, i64 -2147483392)
-  %spec.store.select.i.i = xor i64 %46, -1
-  store i64 %spec.store.select.i.i, ptr %sz.i.i, align 8
-  store i32 1, ptr %endmark.i.i, align 8
-  br label %if.end11.i.i
-
-if.end11.i.i:                                     ; preds = %if.end7.i.i, %if.end.i.i
-  %47 = phi i64 [ %spec.store.select.i.i, %if.end7.i.i ], [ %43, %if.end.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i18.i, i64 %47
-  store ptr %add.ptr.i.i, ptr %pe.i.i58, align 8
-  %add.ptr12.i.i = getelementptr inbounds nuw i8, ptr %call.i18.i, i64 1
-  store ptr %add.ptr12.i.i, ptr %p.i.i57, align 8
-  %48 = load i8, ptr %call.i18.i, align 1
-  %conv.i20.i = zext i8 %48 to i32
-  br label %lex_more.exit.i
-
-lex_more.exit.i:                                  ; preds = %if.end11.i.i, %cond.false.i14.i
-  %retval.0.i.i = phi i32 [ %conv.i20.i, %if.end11.i.i ], [ -1, %cond.false.i14.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i.i)
-  br label %lex_next.exit22.i
-
-lex_next.exit22.i:                                ; preds = %lex_more.exit.i, %cond.true.i18.i
-  %cond.i16.i = phi i32 [ %conv.i21.i, %cond.true.i18.i ], [ %retval.0.i.i, %lex_more.exit.i ]
-  store i32 %cond.i16.i, ptr %c.i55, align 8
-  switch i32 %cond.i16.i, label %if.end.i97 [
-    i32 10, label %land.lhs.true.i
-    i32 13, label %land.lhs.true.i
-  ]
-
-land.lhs.true.i:                                  ; preds = %lex_next.exit22.i, %lex_next.exit22.i
-  %cmp5.not.i = icmp eq i32 %cond.i16.i, %36
-  br i1 %cmp5.not.i, label %if.end.i97, label %if.then.i93
-
-if.then.i93:                                      ; preds = %land.lhs.true.i
-  %49 = load ptr, ptr %p.i.i57, align 8
-  %50 = load ptr, ptr %pe.i.i58, align 8
-  %cmp.i.i94 = icmp ult ptr %49, %50
-  br i1 %cmp.i.i94, label %cond.true.i.i98, label %cond.false.i.i95
-
-cond.true.i.i98:                                  ; preds = %if.then.i93
-  %incdec.ptr.i.i99 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  store ptr %incdec.ptr.i.i99, ptr %p.i.i57, align 8
-  %51 = load i8, ptr %49, align 1
-  %conv.i.i100 = zext i8 %51 to i32
-  br label %lex_next.exit.i
-
-cond.false.i.i95:                                 ; preds = %if.then.i93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i21.i)
-  %52 = load ptr, ptr %rfunc.i.i, align 8
-  %53 = load ptr, ptr %L.i.i, align 8
-  %54 = load ptr, ptr %rdata.i.i, align 8
-  %call.i25.i = call ptr %52(ptr noundef %53, ptr noundef %54, ptr noundef nonnull %sz.i21.i) #9
-  %cmp.i26.i = icmp eq ptr %call.i25.i, null
-  %55 = load i64, ptr %sz.i21.i, align 8
-  %cmp1.i27.i = icmp eq i64 %55, 0
-  %or.cond.i28.i = select i1 %cmp.i26.i, i1 true, i1 %cmp1.i27.i
-  br i1 %or.cond.i28.i, label %lex_more.exit44.i, label %if.end.i29.i
-
-if.end.i29.i:                                     ; preds = %cond.false.i.i95
-  %cmp2.i30.i = icmp ugt i64 %55, 2147483391
-  br i1 %cmp2.i30.i, label %if.then3.i38.i, label %if.end11.i31.i
-
-if.then3.i38.i:                                   ; preds = %if.end.i29.i
-  %cmp4.not.i39.i = icmp eq i64 %55, -1
-  br i1 %cmp4.not.i39.i, label %if.end7.i41.i, label %if.then5.i40.i
-
-if.then5.i40.i:                                   ; preds = %if.then3.i38.i
-  %56 = load ptr, ptr %L.i.i, align 8
-  call void @lj_err_mem(ptr noundef %56) #10
-  unreachable
-
-if.end7.i41.i:                                    ; preds = %if.then3.i38.i
-  %57 = ptrtoint ptr %call.i25.i to i64
-  %58 = call i64 @llvm.umax.i64(i64 %57, i64 -2147483392)
-  %spec.store.select.i42.i = xor i64 %58, -1
-  store i64 %spec.store.select.i42.i, ptr %sz.i21.i, align 8
-  store i32 1, ptr %endmark.i.i, align 8
-  br label %if.end11.i31.i
-
-if.end11.i31.i:                                   ; preds = %if.end7.i41.i, %if.end.i29.i
-  %59 = phi i64 [ %spec.store.select.i42.i, %if.end7.i41.i ], [ %55, %if.end.i29.i ]
-  %add.ptr.i32.i = getelementptr inbounds i8, ptr %call.i25.i, i64 %59
-  store ptr %add.ptr.i32.i, ptr %pe.i.i58, align 8
-  %add.ptr12.i34.i = getelementptr inbounds nuw i8, ptr %call.i25.i, i64 1
-  store ptr %add.ptr12.i34.i, ptr %p.i.i57, align 8
-  %60 = load i8, ptr %call.i25.i, align 1
-  %conv.i36.i = zext i8 %60 to i32
-  br label %lex_more.exit44.i
-
-lex_more.exit44.i:                                ; preds = %if.end11.i31.i, %cond.false.i.i95
-  %retval.0.i37.i = phi i32 [ %conv.i36.i, %if.end11.i31.i ], [ -1, %cond.false.i.i95 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i21.i)
-  br label %lex_next.exit.i
-
-lex_next.exit.i:                                  ; preds = %lex_more.exit44.i, %cond.true.i.i98
-  %cond.i.i96 = phi i32 [ %conv.i.i100, %cond.true.i.i98 ], [ %retval.0.i37.i, %lex_more.exit44.i ]
-  store i32 %cond.i.i96, ptr %c.i55, align 8
-  br label %if.end.i97
-
-if.end.i97:                                       ; preds = %lex_next.exit.i, %land.lhs.true.i, %lex_next.exit22.i
-  %61 = load i32, ptr %linenumber.i, align 8
-  %inc.i = add nsw i32 %61, 1
-  store i32 %inc.i, ptr %linenumber.i, align 8
-  %cmp7.i = icmp sgt i32 %61, 2147483390
-  br i1 %cmp7.i, label %if.then8.i, label %lex_newline.exit
-
-if.then8.i:                                       ; preds = %if.end.i97
-  %tok.i = getelementptr inbounds nuw i8, ptr %ls, i64 52
-  %62 = load i32, ptr %tok.i, align 4
-  call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef %62, i32 noundef 2171) #11
-  unreachable
-
-lex_newline.exit:                                 ; preds = %if.end.i97
-  br i1 %tobool11.not, label %if.then12, label %for.cond.backedge
-
-for.cond.backedge:                                ; preds = %lex_newline.exit, %if.then12, %sw.bb4, %lex_savenext.exit
-  br label %for.cond
-
-if.then12:                                        ; preds = %lex_newline.exit
-  %63 = load ptr, ptr %b.i, align 8
-  store ptr %63, ptr %sb.i.i56, align 8
-  br label %for.cond.backedge
-
-sw.default:                                       ; preds = %for.cond
-  %64 = load ptr, ptr %e.i128, align 8
-  %65 = load ptr, ptr %sb.i.i56, align 8
-  %sub.ptr.lhs.cast.i97 = ptrtoint ptr %64 to i64
-  %sub.ptr.rhs.cast.i98 = ptrtoint ptr %65 to i64
-  %sub.ptr.sub.i99 = sub i64 %sub.ptr.lhs.cast.i97, %sub.ptr.rhs.cast.i98
-  %66 = and i64 %sub.ptr.sub.i99, 4294967295
-  %cmp.i101 = icmp eq i64 %66, 0
-  br i1 %cmp.i101, label %if.then.i106, label %lj_buf_more.exit108
-
-if.then.i106:                                     ; preds = %sw.default
-  %call.i107 = call ptr @lj_buf_more2(ptr noundef nonnull %sb.i.i56, i32 noundef 1) #9
-  br label %lj_buf_more.exit108
-
-lj_buf_more.exit108:                              ; preds = %sw.default, %if.then.i106
-  %retval.i93.0 = phi ptr [ %call.i107, %if.then.i106 ], [ %65, %sw.default ]
-  %conv.i82 = trunc i32 %16 to i8
-  %incdec.ptr.i83 = getelementptr inbounds nuw i8, ptr %retval.i93.0, i64 1
-  store i8 %conv.i82, ptr %retval.i93.0, align 1
-  store ptr %incdec.ptr.i83, ptr %sb.i.i56, align 8
-  %67 = load ptr, ptr %p.i.i57, align 8
-  %68 = load ptr, ptr %pe.i.i58, align 8
-  %cmp.i.i = icmp ult ptr %67, %68
-  br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
-
-cond.true.i.i:                                    ; preds = %lj_buf_more.exit108
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store ptr %incdec.ptr.i.i, ptr %p.i.i57, align 8
-  %69 = load i8, ptr %67, align 1
-  %conv.i.i = zext i8 %69 to i32
-  br label %lex_savenext.exit
-
-cond.false.i.i:                                   ; preds = %lj_buf_more.exit108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i101)
-  %70 = load ptr, ptr %rfunc.i.i, align 8
-  %71 = load ptr, ptr %L.i.i, align 8
-  %72 = load ptr, ptr %rdata.i.i, align 8
-  %call.i105 = call ptr %70(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %sz.i101) #9
-  %cmp.i106 = icmp eq ptr %call.i105, null
-  %73 = load i64, ptr %sz.i101, align 8
-  %cmp1.i107 = icmp eq i64 %73, 0
-  %or.cond.i108 = select i1 %cmp.i106, i1 true, i1 %cmp1.i107
-  br i1 %or.cond.i108, label %lex_more.exit124, label %if.end.i109
-
-if.end.i109:                                      ; preds = %cond.false.i.i
-  %cmp2.i110 = icmp ugt i64 %73, 2147483391
-  br i1 %cmp2.i110, label %if.then3.i118, label %if.end11.i111
-
-if.then3.i118:                                    ; preds = %if.end.i109
-  %cmp4.not.i119 = icmp eq i64 %73, -1
-  br i1 %cmp4.not.i119, label %if.end7.i121, label %if.then5.i120
-
-if.then5.i120:                                    ; preds = %if.then3.i118
-  %74 = load ptr, ptr %L.i.i, align 8
-  call void @lj_err_mem(ptr noundef %74) #10
-  unreachable
-
-if.end7.i121:                                     ; preds = %if.then3.i118
-  %75 = ptrtoint ptr %call.i105 to i64
-  %76 = call i64 @llvm.umax.i64(i64 %75, i64 -2147483392)
-  %spec.store.select.i122 = xor i64 %76, -1
-  store i64 %spec.store.select.i122, ptr %sz.i101, align 8
-  store i32 1, ptr %endmark.i.i, align 8
-  br label %if.end11.i111
-
-if.end11.i111:                                    ; preds = %if.end7.i121, %if.end.i109
-  %77 = phi i64 [ %spec.store.select.i122, %if.end7.i121 ], [ %73, %if.end.i109 ]
-  %add.ptr.i112 = getelementptr inbounds i8, ptr %call.i105, i64 %77
-  store ptr %add.ptr.i112, ptr %pe.i.i58, align 8
-  %add.ptr12.i114 = getelementptr inbounds nuw i8, ptr %call.i105, i64 1
-  store ptr %add.ptr12.i114, ptr %p.i.i57, align 8
-  %78 = load i8, ptr %call.i105, align 1
-  %conv.i116 = zext i8 %78 to i32
-  br label %lex_more.exit124
-
-lex_more.exit124:                                 ; preds = %cond.false.i.i, %if.end11.i111
-  %retval.0.i117 = phi i32 [ %conv.i116, %if.end11.i111 ], [ -1, %cond.false.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i101)
-  br label %lex_savenext.exit
-
-lex_savenext.exit:                                ; preds = %lex_more.exit124, %cond.true.i.i
-  %cond.i.i = phi i32 [ %conv.i.i, %cond.true.i.i ], [ %retval.0.i117, %lex_more.exit124 ]
-  store i32 %cond.i.i, ptr %c.i55, align 8
-  br label %for.cond.backedge
-
-if.then16:                                        ; preds = %lex_savenext.exit50
-  %79 = load ptr, ptr %b.i, align 8
-  %add = add nuw i32 %sep, 2
-  %idx.ext = zext i32 %add to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %79, i64 %idx.ext
-  %80 = load ptr, ptr %sb.i.i56, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %80 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %79 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  %mul = shl i32 %add, 1
-  %sub = sub i32 %conv, %mul
-  %conv22 = zext i32 %sub to i64
-  %call23 = call ptr @lj_parse_keepstr(ptr noundef nonnull %ls, ptr noundef nonnull %add.ptr, i64 noundef %conv22) #9
-  %81 = ptrtoint ptr %call23 to i64
-  %or.i = or i64 %81, -703687441776640
-  store i64 %or.i, ptr %tv, align 8
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.then16, %lex_savenext.exit50
-  ret void
-}
-
-declare hidden i32 @lj_strscan_scan(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare i32 @luaopen_ffi(ptr noundef) local_unnamed_addr #1
-
-declare hidden void @lj_parse_keepcdata(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #5
 
+; Function Attrs: noreturn
+declare hidden void @lj_err_lex(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define hidden void @lj_lex_init(ptr noundef %0) local_unnamed_addr #0 {
+  br label %2
+
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = getelementptr inbounds nuw [34 x ptr], ptr @tokennames, i64 0, i64 %indvars.iv
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
+  %6 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %5) #11
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i8, ptr %7, align 8, !tbaa !67
+  %9 = or i8 %8, 32
+  store i8 %9, ptr %7, align 8, !tbaa !67
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %11 = trunc nuw nsw i64 %indvars.iv.next to i8
+  store i8 %11, ptr %10, align 2, !tbaa !59
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 22
+  br i1 %exitcond.not, label %12, label %2, !llvm.loop !68
+
+12:                                               ; preds = %2
+  ret void
+}
+
+declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+
+; Function Attrs: noinline nounwind uwtable
+define internal fastcc range(i32 -1, 256) i32 @lex_more(ptr noundef captures(none) %0) unnamed_addr #7 {
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %4 = load ptr, ptr %3, align 8, !tbaa !69
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %8 = load ptr, ptr %7, align 8, !tbaa !70
+  %9 = call ptr %4(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %2) #11
+  %10 = icmp eq ptr %9, null
+  %11 = load i64, ptr %2, align 8
+  %12 = icmp eq i64 %11, 0
+  %or.cond = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond, label %30, label %13
+
+13:                                               ; preds = %1
+  %14 = icmp ugt i64 %11, 2147483391
+  br i1 %14, label %15, label %22
+
+15:                                               ; preds = %13
+  %.not = icmp eq i64 %11, -1
+  br i1 %.not, label %18, label %16
+
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @lj_err_mem(ptr noundef %17) #12
+  unreachable
+
+18:                                               ; preds = %15
+  %19 = ptrtoint ptr %9 to i64
+  %20 = call i64 @llvm.umax.i64(i64 %19, i64 -2147483392)
+  %spec.store.select = xor i64 %20, -1
+  store i64 %spec.store.select, ptr %2, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 1, ptr %21, align 8, !tbaa !24
+  br label %22
+
+22:                                               ; preds = %18, %13
+  %23 = phi i64 [ %spec.store.select, %18 ], [ %11, %13 ]
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %24, ptr %25, align 8, !tbaa !28
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %26, ptr %27, align 8, !tbaa !27
+  %28 = load i8, ptr %9, align 1, !tbaa !29
+  %29 = zext i8 %28 to i32
+  br label %30
+
+30:                                               ; preds = %1, %22
+  %.0 = phi i32 [ %29, %22 ], [ -1, %1 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  ret i32 %.0
+}
+
+; Function Attrs: noreturn
+declare hidden void @lj_err_mem(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @lex_number(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = load i32, ptr %3, align 8, !tbaa !26
+  %5 = icmp eq i32 %4, 48
+  br i1 %5, label %6, label %33
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %10 = load ptr, ptr %7, align 8, !tbaa !53
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = and i64 %13, 4294967295
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %16, label %lj_buf_more.exit47, !prof !54
+
+16:                                               ; preds = %6
+  %17 = tail call ptr @lj_buf_more2(ptr noundef nonnull %7, i32 noundef 1) #11
+  br label %lj_buf_more.exit47
+
+lj_buf_more.exit47:                               ; preds = %6, %16
+  %.0.i46 = phi ptr [ %17, %16 ], [ %10, %6 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i46, i64 1
+  store i8 48, ptr %.0.i46, align 1, !tbaa !29
+  store ptr %18, ptr %7, align 8, !tbaa !53
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %23 = icmp ult ptr %20, %22
+  br i1 %23, label %24, label %28
+
+24:                                               ; preds = %lj_buf_more.exit47
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store ptr %25, ptr %19, align 8, !tbaa !27
+  %26 = load i8, ptr %20, align 1, !tbaa !29
+  %27 = zext i8 %26 to i32
+  br label %lex_savenext.exit
+
+28:                                               ; preds = %lj_buf_more.exit47
+  %29 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit
+
+lex_savenext.exit:                                ; preds = %24, %28
+  %30 = phi i32 [ %27, %24 ], [ %29, %28 ]
+  store i32 %30, ptr %3, align 8, !tbaa !26
+  %31 = and i32 %30, -33
+  %32 = icmp eq i32 %31, 88
+  %spec.select = select i1 %32, i32 112, i32 101
+  br label %33
+
+33:                                               ; preds = %lex_savenext.exit, %2
+  %.pr = phi i32 [ %4, %2 ], [ %30, %lex_savenext.exit ]
+  %.040 = phi i32 [ 101, %2 ], [ %spec.select, %lex_savenext.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %38
+
+38:                                               ; preds = %lex_savenext.exit45, %33
+  %39 = phi i32 [ %68, %lex_savenext.exit45 ], [ %.pr, %33 ]
+  %.0 = phi i32 [ %39, %lex_savenext.exit45 ], [ %4, %33 ]
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !29
+  %.not = icmp slt i8 %42, 0
+  %43 = icmp eq i32 %39, 46
+  %or.cond = or i1 %43, %.not
+  br i1 %or.cond, label %.critedge, label %44
+
+44:                                               ; preds = %38
+  switch i32 %39, label %.critedge2 [
+    i32 45, label %45
+    i32 43, label %45
+  ]
+
+45:                                               ; preds = %44, %44
+  %46 = or i32 %.0, 32
+  %47 = icmp eq i32 %46, %.040
+  br i1 %47, label %.critedge, label %.critedge2
+
+.critedge:                                        ; preds = %38, %45
+  %48 = load ptr, ptr %35, align 8, !tbaa !51
+  %49 = load ptr, ptr %34, align 8, !tbaa !53
+  %50 = ptrtoint ptr %48 to i64
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  %53 = and i64 %52, 4294967295
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %55, label %lj_buf_more.exit49, !prof !54
+
+55:                                               ; preds = %.critedge
+  %56 = tail call ptr @lj_buf_more2(ptr noundef nonnull %34, i32 noundef 1) #11
+  br label %lj_buf_more.exit49
+
+lj_buf_more.exit49:                               ; preds = %.critedge, %55
+  %.0.i48 = phi ptr [ %56, %55 ], [ %49, %.critedge ]
+  %57 = trunc i32 %39 to i8
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 1
+  store i8 %57, ptr %.0.i48, align 1, !tbaa !29
+  store ptr %58, ptr %34, align 8, !tbaa !53
+  %59 = load ptr, ptr %36, align 8, !tbaa !27
+  %60 = load ptr, ptr %37, align 8, !tbaa !28
+  %61 = icmp ult ptr %59, %60
+  br i1 %61, label %62, label %66
+
+62:                                               ; preds = %lj_buf_more.exit49
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  store ptr %63, ptr %36, align 8, !tbaa !27
+  %64 = load i8, ptr %59, align 1, !tbaa !29
+  %65 = zext i8 %64 to i32
+  br label %lex_savenext.exit45
+
+66:                                               ; preds = %lj_buf_more.exit49
+  %67 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit45
+
+lex_savenext.exit45:                              ; preds = %62, %66
+  %68 = phi i32 [ %65, %62 ], [ %67, %66 ]
+  store i32 %68, ptr %3, align 8, !tbaa !26
+  br label %38, !llvm.loop !71
+
+.critedge2:                                       ; preds = %44, %45
+  %69 = load ptr, ptr %35, align 8, !tbaa !51
+  %70 = load ptr, ptr %34, align 8, !tbaa !53
+  %71 = ptrtoint ptr %69 to i64
+  %72 = ptrtoint ptr %70 to i64
+  %73 = sub i64 %71, %72
+  %74 = and i64 %73, 4294967295
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %lj_buf_more.exit, !prof !54
+
+76:                                               ; preds = %.critedge2
+  %77 = tail call ptr @lj_buf_more2(ptr noundef nonnull %34, i32 noundef 1) #11
+  br label %lj_buf_more.exit
+
+lj_buf_more.exit:                                 ; preds = %.critedge2, %76
+  %.0.i = phi ptr [ %77, %76 ], [ %70, %.critedge2 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  store i8 0, ptr %.0.i, align 1, !tbaa !29
+  store ptr %78, ptr %34, align 8, !tbaa !53
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %80 = load ptr, ptr %79, align 8, !tbaa !57
+  %81 = ptrtoint ptr %78 to i64
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = trunc i64 %83 to i32
+  %85 = add i32 %84, -1
+  %86 = tail call i32 @lj_strscan_scan(ptr noundef %80, i32 noundef %85, ptr noundef %1, i32 noundef 14) #11
+  switch i32 %86, label %87 [
+    i32 1, label %125
+    i32 0, label %124
+  ]
+
+87:                                               ; preds = %lj_buf_more.exit
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %91 = load i64, ptr %90, align 8, !tbaa !34
+  %92 = inttoptr i64 %91 to ptr
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 384
+  %94 = load i64, ptr %93, align 8, !tbaa !72
+  %.not44 = icmp eq i64 %94, 0
+  br i1 %.not44, label %95, label %106
+
+95:                                               ; preds = %87
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %97 = load ptr, ptr %96, align 8, !tbaa !30
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 56
+  %99 = load i64, ptr %98, align 8, !tbaa !73
+  %100 = ptrtoint ptr %97 to i64
+  %101 = sub i64 %100, %99
+  %102 = tail call i32 @luaopen_ffi(ptr noundef nonnull %89) #11
+  %103 = load i64, ptr %98, align 8, !tbaa !73
+  %104 = inttoptr i64 %103 to ptr
+  %105 = getelementptr inbounds i8, ptr %104, i64 %101
+  store ptr %105, ptr %96, align 8, !tbaa !30
+  br label %106
+
+106:                                              ; preds = %95, %87
+  %107 = icmp eq i32 %86, 2
+  br i1 %107, label %108, label %115
+
+108:                                              ; preds = %106
+  %109 = tail call ptr @lj_mem_newgco(ptr noundef nonnull %89, i64 noundef 32) #11
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 9
+  store i8 10, ptr %110, align 1, !tbaa !74
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 10
+  store i16 16, ptr %111, align 2, !tbaa !77
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  store double 0.000000e+00, ptr %112, align 8, !tbaa !78
+  %113 = load double, ptr %1, align 8, !tbaa !29
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  store double %113, ptr %114, align 8, !tbaa !78
+  br label %123
+
+115:                                              ; preds = %106
+  %116 = icmp eq i32 %86, 5
+  %117 = tail call ptr @lj_mem_newgco(ptr noundef nonnull %89, i64 noundef 24) #11
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 9
+  store i8 10, ptr %118, align 1, !tbaa !74
+  %119 = select i1 %116, i16 11, i16 12
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 10
+  store i16 %119, ptr %120, align 2, !tbaa !77
+  %121 = load i64, ptr %1, align 8, !tbaa !29
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i64 %121, ptr %122, align 8, !tbaa !80
+  br label %123
+
+123:                                              ; preds = %115, %108
+  %.039 = phi ptr [ %109, %108 ], [ %117, %115 ]
+  tail call void @lj_parse_keepcdata(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.039) #11
+  br label %125
+
+124:                                              ; preds = %lj_buf_more.exit
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef 286, i32 noundef 2249) #10
+  unreachable
+
+125:                                              ; preds = %lj_buf_more.exit, %123
+  ret void
+}
+
+declare hidden ptr @lj_parse_keepstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @lex_longstring(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = load i32, ptr %4, align 8, !tbaa !26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %9 = load ptr, ptr %6, align 8, !tbaa !53
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = and i64 %12, 4294967295
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %lj_buf_more.exit35, !prof !54
+
+15:                                               ; preds = %3
+  %16 = tail call ptr @lj_buf_more2(ptr noundef nonnull %6, i32 noundef 1) #11
+  br label %lj_buf_more.exit35
+
+lj_buf_more.exit35:                               ; preds = %3, %15
+  %.0.i34 = phi ptr [ %16, %15 ], [ %9, %3 ]
+  %17 = trunc i32 %5 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 1
+  store i8 %17, ptr %.0.i34, align 1, !tbaa !29
+  store ptr %18, ptr %6, align 8, !tbaa !53
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %23 = icmp ult ptr %20, %22
+  br i1 %23, label %24, label %28
+
+24:                                               ; preds = %lj_buf_more.exit35
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store ptr %25, ptr %19, align 8, !tbaa !27
+  %26 = load i8, ptr %20, align 1, !tbaa !29
+  %27 = zext i8 %26 to i32
+  br label %lex_savenext.exit29
+
+28:                                               ; preds = %lj_buf_more.exit35
+  %29 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit29
+
+lex_savenext.exit29:                              ; preds = %24, %28
+  %30 = phi i32 [ %27, %24 ], [ %29, %28 ]
+  store i32 %30, ptr %4, align 8, !tbaa !26
+  switch i32 %30, label %lex_newline.exit [
+    i32 10, label %31
+    i32 13, label %31
+  ]
+
+31:                                               ; preds = %lex_savenext.exit29, %lex_savenext.exit29
+  %32 = load ptr, ptr %19, align 8, !tbaa !27
+  %33 = load ptr, ptr %21, align 8, !tbaa !28
+  %34 = icmp ult ptr %32, %33
+  br i1 %34, label %35, label %39
+
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store ptr %36, ptr %19, align 8, !tbaa !27
+  %37 = load i8, ptr %32, align 1, !tbaa !29
+  %38 = zext i8 %37 to i32
+  br label %lex_next.exit9.i
+
+39:                                               ; preds = %31
+  %40 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit9.i
+
+lex_next.exit9.i:                                 ; preds = %39, %35
+  %41 = phi i32 [ %38, %35 ], [ %40, %39 ]
+  store i32 %41, ptr %4, align 8, !tbaa !26
+  switch i32 %41, label %54 [
+    i32 10, label %42
+    i32 13, label %42
+  ]
+
+42:                                               ; preds = %lex_next.exit9.i, %lex_next.exit9.i
+  %.not.i = icmp eq i32 %41, %30
+  br i1 %.not.i, label %54, label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %19, align 8, !tbaa !27
+  %45 = load ptr, ptr %21, align 8, !tbaa !28
+  %46 = icmp ult ptr %44, %45
+  br i1 %46, label %47, label %51
+
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  store ptr %48, ptr %19, align 8, !tbaa !27
+  %49 = load i8, ptr %44, align 1, !tbaa !29
+  %50 = zext i8 %49 to i32
+  br label %lex_next.exit.i
+
+51:                                               ; preds = %43
+  %52 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit.i
+
+lex_next.exit.i:                                  ; preds = %51, %47
+  %53 = phi i32 [ %50, %47 ], [ %52, %51 ]
+  store i32 %53, ptr %4, align 8, !tbaa !26
+  br label %54
+
+54:                                               ; preds = %lex_next.exit.i, %42, %lex_next.exit9.i
+  %55 = phi i32 [ %53, %lex_next.exit.i ], [ %30, %42 ], [ %41, %lex_next.exit9.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %57 = load i32, ptr %56, align 8, !tbaa !22
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %56, align 8, !tbaa !22
+  %59 = icmp sgt i32 %57, 2147483390
+  br i1 %59, label %60, label %lex_newline.exit
+
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %62 = load i32, ptr %61, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %62, i32 noundef 2191) #10
+  unreachable
+
+lex_newline.exit:                                 ; preds = %54, %lex_savenext.exit29
+  %63 = phi i32 [ %55, %54 ], [ %30, %lex_savenext.exit29 ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.not = icmp eq ptr %1, null
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %66
+
+66:                                               ; preds = %.backedge, %lex_newline.exit
+  %67 = phi i32 [ %63, %lex_newline.exit ], [ %.be, %.backedge ]
+  switch i32 %67, label %165 [
+    i32 -1, label %68
+    i32 93, label %.preheader
+    i32 10, label %121
+    i32 13, label %121
+  ]
+
+68:                                               ; preds = %66
+  %69 = select i1 %.not, i32 2289, i32 2266
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef 289, i32 noundef %69) #10
+  unreachable
+
+.preheader:                                       ; preds = %66, %lex_savenext.exit.i
+  %70 = phi i8 [ 61, %lex_savenext.exit.i ], [ 93, %66 ]
+  %.0.i36 = phi i32 [ %94, %lex_savenext.exit.i ], [ 0, %66 ]
+  %71 = load ptr, ptr %7, align 8, !tbaa !51
+  %72 = load ptr, ptr %6, align 8, !tbaa !53
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = and i64 %75, 4294967295
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %78, label %lj_buf_more.exit.i, !prof !54
+
+78:                                               ; preds = %.preheader
+  %79 = tail call ptr @lj_buf_more2(ptr noundef nonnull %6, i32 noundef 1) #11
+  br label %lj_buf_more.exit.i
+
+lj_buf_more.exit.i:                               ; preds = %78, %.preheader
+  %.0.i.i = phi ptr [ %79, %78 ], [ %72, %.preheader ]
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
+  store i8 %70, ptr %.0.i.i, align 1, !tbaa !29
+  store ptr %80, ptr %6, align 8, !tbaa !53
+  %81 = load ptr, ptr %19, align 8, !tbaa !27
+  %82 = load ptr, ptr %21, align 8, !tbaa !28
+  %83 = icmp ult ptr %81, %82
+  br i1 %83, label %84, label %88
+
+84:                                               ; preds = %lj_buf_more.exit.i
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  store ptr %85, ptr %19, align 8, !tbaa !27
+  %86 = load i8, ptr %81, align 1, !tbaa !29
+  %87 = zext i8 %86 to i32
+  br label %lex_savenext.exit.i
+
+88:                                               ; preds = %lj_buf_more.exit.i
+  %89 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit.i
+
+lex_savenext.exit.i:                              ; preds = %88, %84
+  %90 = phi i32 [ %87, %84 ], [ %89, %88 ]
+  store i32 %90, ptr %4, align 8, !tbaa !26
+  %91 = icmp eq i32 %90, 61
+  %92 = icmp samesign ult i32 %.0.i36, 536870912
+  %93 = select i1 %91, i1 %92, i1 false
+  %94 = add nuw nsw i32 %.0.i36, 1
+  br i1 %93, label %.preheader, label %lex_skipeq.exit, !llvm.loop !60
+
+lex_skipeq.exit:                                  ; preds = %lex_savenext.exit.i
+  %95 = icmp ne i32 %90, 93
+  %96 = sext i1 %95 to i32
+  %97 = xor i32 %.0.i36, %96
+  %98 = icmp eq i32 %97, %2
+  br i1 %98, label %99, label %.backedge
+
+99:                                               ; preds = %lex_skipeq.exit
+  %100 = load ptr, ptr %7, align 8, !tbaa !51
+  %101 = load ptr, ptr %6, align 8, !tbaa !53
+  %102 = ptrtoint ptr %100 to i64
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %105 = and i64 %104, 4294967295
+  %106 = icmp eq i64 %105, 0
+  br i1 %106, label %107, label %lj_buf_more.exit33, !prof !54
+
+107:                                              ; preds = %99
+  %108 = tail call ptr @lj_buf_more2(ptr noundef nonnull %6, i32 noundef 1) #11
+  br label %lj_buf_more.exit33
+
+lj_buf_more.exit33:                               ; preds = %99, %107
+  %.0.i32 = phi ptr [ %108, %107 ], [ %101, %99 ]
+  %109 = trunc i32 %90 to i8
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 1
+  store i8 %109, ptr %.0.i32, align 1, !tbaa !29
+  store ptr %110, ptr %6, align 8, !tbaa !53
+  %111 = load ptr, ptr %19, align 8, !tbaa !27
+  %112 = load ptr, ptr %21, align 8, !tbaa !28
+  %113 = icmp ult ptr %111, %112
+  br i1 %113, label %114, label %118
+
+114:                                              ; preds = %lj_buf_more.exit33
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  store ptr %115, ptr %19, align 8, !tbaa !27
+  %116 = load i8, ptr %111, align 1, !tbaa !29
+  %117 = zext i8 %116 to i32
+  br label %lex_savenext.exit28
+
+118:                                              ; preds = %lj_buf_more.exit33
+  %119 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit28
+
+lex_savenext.exit28:                              ; preds = %114, %118
+  %120 = phi i32 [ %117, %114 ], [ %119, %118 ]
+  store i32 %120, ptr %4, align 8, !tbaa !26
+  br i1 %.not, label %203, label %187
+
+121:                                              ; preds = %66, %66
+  %122 = load ptr, ptr %7, align 8, !tbaa !51
+  %123 = load ptr, ptr %6, align 8, !tbaa !53
+  %124 = ptrtoint ptr %122 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = and i64 %126, 4294967295
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %129, label %lj_buf_more.exit, !prof !54
+
+129:                                              ; preds = %121
+  %130 = tail call ptr @lj_buf_more2(ptr noundef nonnull %6, i32 noundef 1) #11
+  br label %lj_buf_more.exit
+
+lj_buf_more.exit:                                 ; preds = %121, %129
+  %.0.i = phi ptr [ %130, %129 ], [ %123, %121 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  store i8 10, ptr %.0.i, align 1, !tbaa !29
+  store ptr %131, ptr %6, align 8, !tbaa !53
+  %132 = load i32, ptr %4, align 8, !tbaa !26
+  %133 = load ptr, ptr %19, align 8, !tbaa !27
+  %134 = load ptr, ptr %21, align 8, !tbaa !28
+  %135 = icmp ult ptr %133, %134
+  br i1 %135, label %136, label %140
+
+136:                                              ; preds = %lj_buf_more.exit
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 1
+  store ptr %137, ptr %19, align 8, !tbaa !27
+  %138 = load i8, ptr %133, align 1, !tbaa !29
+  %139 = zext i8 %138 to i32
+  br label %lex_next.exit9.i37
+
+140:                                              ; preds = %lj_buf_more.exit
+  %141 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit9.i37
+
+lex_next.exit9.i37:                               ; preds = %140, %136
+  %142 = phi i32 [ %139, %136 ], [ %141, %140 ]
+  store i32 %142, ptr %4, align 8, !tbaa !26
+  switch i32 %142, label %155 [
+    i32 10, label %143
+    i32 13, label %143
+  ]
+
+143:                                              ; preds = %lex_next.exit9.i37, %lex_next.exit9.i37
+  %.not.i38 = icmp eq i32 %142, %132
+  br i1 %.not.i38, label %155, label %144
+
+144:                                              ; preds = %143
+  %145 = load ptr, ptr %19, align 8, !tbaa !27
+  %146 = load ptr, ptr %21, align 8, !tbaa !28
+  %147 = icmp ult ptr %145, %146
+  br i1 %147, label %148, label %152
+
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 1
+  store ptr %149, ptr %19, align 8, !tbaa !27
+  %150 = load i8, ptr %145, align 1, !tbaa !29
+  %151 = zext i8 %150 to i32
+  br label %lex_next.exit.i39
+
+152:                                              ; preds = %144
+  %153 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_next.exit.i39
+
+lex_next.exit.i39:                                ; preds = %152, %148
+  %154 = phi i32 [ %151, %148 ], [ %153, %152 ]
+  store i32 %154, ptr %4, align 8, !tbaa !26
+  br label %155
+
+155:                                              ; preds = %lex_next.exit.i39, %143, %lex_next.exit9.i37
+  %156 = phi i32 [ %154, %lex_next.exit.i39 ], [ %132, %143 ], [ %142, %lex_next.exit9.i37 ]
+  %157 = load i32, ptr %64, align 8, !tbaa !22
+  %158 = add nsw i32 %157, 1
+  store i32 %158, ptr %64, align 8, !tbaa !22
+  %159 = icmp sgt i32 %157, 2147483390
+  br i1 %159, label %160, label %lex_newline.exit40
+
+160:                                              ; preds = %155
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %162 = load i32, ptr %161, align 4, !tbaa !20
+  tail call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %0, i32 noundef %162, i32 noundef 2191) #10
+  unreachable
+
+lex_newline.exit40:                               ; preds = %155
+  br i1 %.not, label %163, label %.backedge
+
+.backedge:                                        ; preds = %lex_newline.exit40, %163, %lex_skipeq.exit, %lex_savenext.exit
+  %.be = phi i32 [ %156, %lex_newline.exit40 ], [ %156, %163 ], [ %90, %lex_skipeq.exit ], [ %186, %lex_savenext.exit ]
+  br label %66
+
+163:                                              ; preds = %lex_newline.exit40
+  %164 = load ptr, ptr %65, align 8, !tbaa !50
+  store ptr %164, ptr %6, align 8, !tbaa !53
+  br label %.backedge
+
+165:                                              ; preds = %66
+  %166 = load ptr, ptr %7, align 8, !tbaa !51
+  %167 = load ptr, ptr %6, align 8, !tbaa !53
+  %168 = ptrtoint ptr %166 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = and i64 %170, 4294967295
+  %172 = icmp eq i64 %171, 0
+  br i1 %172, label %173, label %lj_buf_more.exit31, !prof !54
+
+173:                                              ; preds = %165
+  %174 = tail call ptr @lj_buf_more2(ptr noundef nonnull %6, i32 noundef 1) #11
+  br label %lj_buf_more.exit31
+
+lj_buf_more.exit31:                               ; preds = %165, %173
+  %.0.i30 = phi ptr [ %174, %173 ], [ %167, %165 ]
+  %175 = trunc i32 %67 to i8
+  %176 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 1
+  store i8 %175, ptr %.0.i30, align 1, !tbaa !29
+  store ptr %176, ptr %6, align 8, !tbaa !53
+  %177 = load ptr, ptr %19, align 8, !tbaa !27
+  %178 = load ptr, ptr %21, align 8, !tbaa !28
+  %179 = icmp ult ptr %177, %178
+  br i1 %179, label %180, label %184
+
+180:                                              ; preds = %lj_buf_more.exit31
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 1
+  store ptr %181, ptr %19, align 8, !tbaa !27
+  %182 = load i8, ptr %177, align 1, !tbaa !29
+  %183 = zext i8 %182 to i32
+  br label %lex_savenext.exit
+
+184:                                              ; preds = %lj_buf_more.exit31
+  %185 = tail call fastcc i32 @lex_more(ptr noundef nonnull %0)
+  br label %lex_savenext.exit
+
+lex_savenext.exit:                                ; preds = %180, %184
+  %186 = phi i32 [ %183, %180 ], [ %185, %184 ]
+  store i32 %186, ptr %4, align 8, !tbaa !26
+  br label %.backedge
+
+187:                                              ; preds = %lex_savenext.exit28
+  %188 = load ptr, ptr %65, align 8, !tbaa !57
+  %189 = add nuw i32 %2, 2
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 %190
+  %192 = load ptr, ptr %6, align 8, !tbaa !58
+  %193 = ptrtoint ptr %192 to i64
+  %194 = ptrtoint ptr %188 to i64
+  %195 = sub i64 %193, %194
+  %196 = trunc i64 %195 to i32
+  %197 = shl i32 %189, 1
+  %198 = sub i32 %196, %197
+  %199 = zext i32 %198 to i64
+  %200 = tail call ptr @lj_parse_keepstr(ptr noundef nonnull %0, ptr noundef nonnull %191, i64 noundef %199) #11
+  %201 = ptrtoint ptr %200 to i64
+  %202 = or i64 %201, -703687441776640
+  store i64 %202, ptr %1, align 8, !tbaa !29
+  br label %203
+
+203:                                              ; preds = %187, %lex_savenext.exit28
+  ret void
+}
+
+declare hidden i32 @lj_strscan_scan(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @luaopen_ffi(ptr noundef) local_unnamed_addr #2
+
+declare hidden void @lj_parse_keepcdata(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { noreturn }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -4426,12 +2886,80 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!4 = !{!5, !10, i64 8}
+!5 = !{!"LexState", !6, i64 0, !10, i64 8, !8, i64 16, !8, i64 24, !11, i64 32, !11, i64 40, !12, i64 48, !12, i64 52, !12, i64 56, !13, i64 64, !7, i64 96, !7, i64 104, !12, i64 112, !12, i64 116, !16, i64 120, !11, i64 128, !11, i64 136, !17, i64 144, !12, i64 152, !12, i64 156, !18, i64 160, !12, i64 168, !12, i64 172, !12, i64 176, !12, i64 180}
+!6 = !{!"p1 _ZTS9FuncState", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"p1 _ZTS9lua_State", !7, i64 0}
+!11 = !{!"p1 omnipotent char", !7, i64 0}
+!12 = !{!"int", !8, i64 0}
+!13 = !{!"SBuf", !11, i64 0, !11, i64 8, !11, i64 16, !14, i64 24}
+!14 = !{!"MRef", !15, i64 0}
+!15 = !{!"long", !8, i64 0}
+!16 = !{!"p1 _ZTS5GCstr", !7, i64 0}
+!17 = !{!"p1 _ZTS7VarInfo", !7, i64 0}
+!18 = !{!"p1 _ZTS9BCInsLine", !7, i64 0}
+!19 = !{!5, !6, i64 0}
+!20 = !{!5, !12, i64 52}
+!21 = !{!5, !12, i64 56}
+!22 = !{!5, !12, i64 112}
+!23 = !{!5, !12, i64 116}
+!24 = !{!5, !12, i64 176}
+!25 = !{!5, !12, i64 180}
+!26 = !{!5, !12, i64 48}
+!27 = !{!5, !11, i64 32}
+!28 = !{!5, !11, i64 40}
+!29 = !{!8, !8, i64 0}
+!30 = !{!31, !33, i64 40}
+!31 = !{!"lua_State", !32, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !14, i64 16, !32, i64 24, !33, i64 32, !33, i64 40, !14, i64 48, !14, i64 56, !32, i64 64, !32, i64 72, !7, i64 80, !12, i64 88}
+!32 = !{!"GCRef", !15, i64 0}
+!33 = !{!"p1 _ZTS6TValue", !7, i64 0}
+!34 = !{!31, !15, i64 16}
+!35 = !{!5, !18, i64 160}
+!36 = !{!5, !12, i64 168}
+!37 = !{!38, !15, i64 16}
+!38 = !{!"global_State", !7, i64 0, !7, i64 8, !39, i64 16, !40, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !41, i64 152, !12, i64 184, !32, i64 192, !13, i64 200, !8, i64 232, !8, i64 240, !43, i64 248, !8, i64 272, !44, i64 280, !12, i64 328, !12, i64 332, !7, i64 336, !7, i64 344, !7, i64 352, !12, i64 360, !12, i64 364, !32, i64 368, !14, i64 376, !14, i64 384, !45, i64 392, !8, i64 424}
+!39 = !{!"GCState", !15, i64 0, !15, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !12, i64 20, !32, i64 24, !14, i64 32, !32, i64 40, !32, i64 48, !32, i64 56, !32, i64 64, !15, i64 72, !15, i64 80, !12, i64 88, !12, i64 92, !14, i64 96}
+!40 = !{!"GCstr", !32, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !12, i64 12, !12, i64 16, !12, i64 20}
+!41 = !{!"StrInternState", !42, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !15, i64 24}
+!42 = !{!"p1 _ZTS5GCRef", !7, i64 0}
+!43 = !{!"Node", !8, i64 0, !8, i64 8, !14, i64 16}
+!44 = !{!"GCupval", !32, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !14, i64 32, !12, i64 40}
+!45 = !{!"PRNGState", !8, i64 0}
+!46 = !{!38, !7, i64 0}
+!47 = !{!38, !7, i64 8}
+!48 = !{!5, !17, i64 144}
+!49 = !{!5, !12, i64 152}
+!50 = !{!13, !11, i64 16}
+!51 = !{!13, !11, i64 8}
+!52 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!53 = !{!13, !11, i64 0}
+!54 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.mustprogress"}
+!57 = !{!5, !11, i64 80}
+!58 = !{!5, !11, i64 64}
+!59 = !{!40, !8, i64 10}
+!60 = distinct !{!60, !56}
+!61 = distinct !{!61, !56}
+!62 = distinct !{!62, !56}
+!63 = distinct !{!63, !56}
+!64 = distinct !{!64, !56}
+!65 = !{!11, !11, i64 0}
+!66 = !{!5, !16, i64 120}
+!67 = !{!40, !8, i64 8}
+!68 = distinct !{!68, !56}
+!69 = !{!5, !7, i64 96}
+!70 = !{!5, !7, i64 104}
+!71 = distinct !{!71, !56}
+!72 = !{!38, !15, i64 384}
+!73 = !{!31, !15, i64 56}
+!74 = !{!75, !8, i64 9}
+!75 = !{!"GCcdata", !32, i64 0, !8, i64 8, !8, i64 9, !76, i64 10}
+!76 = !{!"short", !8, i64 0}
+!77 = !{!75, !76, i64 10}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"double", !8, i64 0}
+!80 = !{!15, !15, i64 0}
