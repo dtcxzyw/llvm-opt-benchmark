@@ -81,8 +81,8 @@ define range(i32 0, 2) i32 @SuiteSparse_divcomplex(double noundef %0, double nou
   %.034 = phi double [ %15, %11 ], [ %22, %18 ]
   %.033 = phi double [ %17, %11 ], [ %24, %18 ]
   %.0 = phi double [ %13, %11 ], [ %20, %18 ]
-  store double %.034, ptr %4, align 8
-  store double %.033, ptr %5, align 8
+  store double %.034, ptr %4, align 8, !tbaa !3
+  store double %.033, ptr %5, align 8, !tbaa !3
   %26 = fcmp oeq double %.0, 0.000000e+00
   %27 = zext i1 %26 to i32
   ret i32 %27
@@ -101,7 +101,7 @@ define ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef %1) local_unnamed_add
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr @SuiteSparse_config, align 8
+  %10 = load ptr, ptr @SuiteSparse_config, align 8, !tbaa !7
   %11 = tail call ptr %10(i64 noundef %3) #10
   br label %12
 
@@ -128,7 +128,7 @@ define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %13, label %SuiteSparse_malloc.exit, label %17
 
 SuiteSparse_malloc.exit:                          ; preds = %12
-  %14 = load ptr, ptr @SuiteSparse_config, align 8
+  %14 = load ptr, ptr @SuiteSparse_config, align 8, !tbaa !7
   %15 = tail call ptr %14(i64 noundef %6) #10
   %16 = icmp ne ptr %15, null
   br label %23
@@ -149,7 +149,7 @@ SuiteSparse_malloc.exit:                          ; preds = %12
   %.sink.shrunk = phi i1 [ %16, %SuiteSparse_malloc.exit ], [ false, %5 ], [ true, %17 ], [ %spec.select, %19 ]
   %.0 = phi ptr [ %15, %SuiteSparse_malloc.exit ], [ %3, %5 ], [ %3, %17 ], [ %spec.select30, %19 ]
   %.sink = zext i1 %.sink.shrunk to i32
-  store i32 %.sink, ptr %4, align 4
+  store i32 %.sink, ptr %4, align 4, !tbaa !10
   ret ptr %.0
 }
 
@@ -159,7 +159,7 @@ define noundef ptr @SuiteSparse_free(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SuiteSparse_config, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SuiteSparse_config, i64 16), align 8, !tbaa !12
   tail call void %3(ptr noundef nonnull %0) #10
   br label %4
 
@@ -175,10 +175,10 @@ define void @SuiteSparse_tic(ptr noundef writeonly captures(none) initializes((0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define double @SuiteSparse_toc(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = load double, ptr %0, align 8
+  %2 = load double, ptr %0, align 8, !tbaa !3
   %3 = fsub double 0.000000e+00, %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load double, ptr %4, align 8
+  %5 = load double, ptr %4, align 8, !tbaa !3
   %6 = fsub double 0.000000e+00, %5
   %7 = tail call double @llvm.fmuladd.f64(double %6, double 1.000000e-09, double %3)
   ret double %7
@@ -198,11 +198,11 @@ define noundef i32 @SuiteSparse_version(ptr noundef writeonly captures(address_i
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  store i32 4, ptr %0, align 4
+  store i32 4, ptr %0, align 4, !tbaa !10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 5, ptr %3, align 4
+  store i32 5, ptr %3, align 4, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %4, align 4
+  store i32 3, ptr %4, align 4, !tbaa !10
   br label %5
 
 5:                                                ; preds = %2, %1
@@ -221,22 +221,31 @@ declare double @llvm.sqrt.f64(double) #8
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-attributes #0 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"SuiteSparse_config_struct", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!8, !9, i64 16}

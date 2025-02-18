@@ -46,6 +46,7 @@ supported_project = [
     "oniguruma",
     "openblas",
     "openssl",
+    "osqp",
 ]
 
 modify_only = [

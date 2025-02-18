@@ -25,29 +25,29 @@ define void @osqp_algebra_free_libs() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i64 @osqp_algebra_name(ptr noundef writeonly captures(none) initializes((0, 9)) %0, i64 noundef %1) local_unnamed_addr #1 {
-  store i8 66, ptr %0, align 1
+  store i8 66, ptr %0, align 1, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 117, ptr %3, align 1
+  store i8 117, ptr %3, align 1, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 105, ptr %4, align 1
+  store i8 105, ptr %4, align 1, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 108, ptr %5, align 1
+  store i8 108, ptr %5, align 1, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 116, ptr %6, align 1
+  store i8 116, ptr %6, align 1, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 45, ptr %7, align 1
+  store i8 45, ptr %7, align 1, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 105, ptr %8, align 1
+  store i8 105, ptr %8, align 1, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 110, ptr %9, align 1
+  store i8 110, ptr %9, align 1, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %10, align 1
+  store i8 0, ptr %10, align 1, !tbaa !3
   ret i64 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i64 @osqp_algebra_device_name(ptr noundef writeonly captures(none) initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #1 {
-  store i8 0, ptr %0, align 1
+  store i8 0, ptr %0, align 1, !tbaa !3
   ret i64 0
 }
 
@@ -67,15 +67,17 @@ define i64 @adjoint_derivative_linsys_solver(ptr noundef %0, ptr noundef readnon
 
 declare i64 @adjoint_derivative_qdldl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

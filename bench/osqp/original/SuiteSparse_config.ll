@@ -20,81 +20,85 @@ define double @SuiteSparse_hypot(double noundef %0, double noundef %1) #3 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
-  store double %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
-  %7 = load double, ptr %3, align 8
+  store double %0, ptr %3, align 8, !tbaa !3
+  store double %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %7 = load double, ptr %3, align 8, !tbaa !3
   %8 = call double @llvm.fabs.f64(double %7)
-  store double %8, ptr %3, align 8
-  %9 = load double, ptr %4, align 8
+  store double %8, ptr %3, align 8, !tbaa !3
+  %9 = load double, ptr %4, align 8, !tbaa !3
   %10 = call double @llvm.fabs.f64(double %9)
-  store double %10, ptr %4, align 8
-  %11 = load double, ptr %3, align 8
-  %12 = load double, ptr %4, align 8
+  store double %10, ptr %4, align 8, !tbaa !3
+  %11 = load double, ptr %3, align 8, !tbaa !3
+  %12 = load double, ptr %4, align 8, !tbaa !3
   %13 = fcmp oge double %11, %12
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %2
-  %15 = load double, ptr %3, align 8
-  %16 = load double, ptr %4, align 8
+  %15 = load double, ptr %3, align 8, !tbaa !3
+  %16 = load double, ptr %4, align 8, !tbaa !3
   %17 = fadd double %15, %16
-  %18 = load double, ptr %3, align 8
+  %18 = load double, ptr %3, align 8, !tbaa !3
   %19 = fcmp oeq double %17, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %14
-  %21 = load double, ptr %3, align 8
-  store double %21, ptr %5, align 8
+  %21 = load double, ptr %3, align 8, !tbaa !3
+  store double %21, ptr %5, align 8, !tbaa !3
   br label %32
 
 22:                                               ; preds = %14
-  %23 = load double, ptr %4, align 8
-  %24 = load double, ptr %3, align 8
+  %23 = load double, ptr %4, align 8, !tbaa !3
+  %24 = load double, ptr %3, align 8, !tbaa !3
   %25 = fdiv double %23, %24
-  store double %25, ptr %6, align 8
-  %26 = load double, ptr %3, align 8
-  %27 = load double, ptr %6, align 8
-  %28 = load double, ptr %6, align 8
+  store double %25, ptr %6, align 8, !tbaa !3
+  %26 = load double, ptr %3, align 8, !tbaa !3
+  %27 = load double, ptr %6, align 8, !tbaa !3
+  %28 = load double, ptr %6, align 8, !tbaa !3
   %29 = call double @llvm.fmuladd.f64(double %27, double %28, double 1.000000e+00)
-  %30 = call double @sqrt(double noundef %29) #5
+  %30 = call double @sqrt(double noundef %29) #6, !tbaa !7
   %31 = fmul double %26, %30
-  store double %31, ptr %5, align 8
+  store double %31, ptr %5, align 8, !tbaa !3
   br label %32
 
 32:                                               ; preds = %22, %20
   br label %52
 
 33:                                               ; preds = %2
-  %34 = load double, ptr %4, align 8
-  %35 = load double, ptr %3, align 8
+  %34 = load double, ptr %4, align 8, !tbaa !3
+  %35 = load double, ptr %3, align 8, !tbaa !3
   %36 = fadd double %34, %35
-  %37 = load double, ptr %4, align 8
+  %37 = load double, ptr %4, align 8, !tbaa !3
   %38 = fcmp oeq double %36, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %33
-  %40 = load double, ptr %4, align 8
-  store double %40, ptr %5, align 8
+  %40 = load double, ptr %4, align 8, !tbaa !3
+  store double %40, ptr %5, align 8, !tbaa !3
   br label %51
 
 41:                                               ; preds = %33
-  %42 = load double, ptr %3, align 8
-  %43 = load double, ptr %4, align 8
+  %42 = load double, ptr %3, align 8, !tbaa !3
+  %43 = load double, ptr %4, align 8, !tbaa !3
   %44 = fdiv double %42, %43
-  store double %44, ptr %6, align 8
-  %45 = load double, ptr %4, align 8
-  %46 = load double, ptr %6, align 8
-  %47 = load double, ptr %6, align 8
+  store double %44, ptr %6, align 8, !tbaa !3
+  %45 = load double, ptr %4, align 8, !tbaa !3
+  %46 = load double, ptr %6, align 8, !tbaa !3
+  %47 = load double, ptr %6, align 8, !tbaa !3
   %48 = call double @llvm.fmuladd.f64(double %46, double %47, double 1.000000e+00)
-  %49 = call double @sqrt(double noundef %48) #5
+  %49 = call double @sqrt(double noundef %48) #6, !tbaa !7
   %50 = fmul double %45, %49
-  store double %50, ptr %5, align 8
+  store double %50, ptr %5, align 8, !tbaa !3
   br label %51
 
 51:                                               ; preds = %41, %39
   br label %52
 
 52:                                               ; preds = %51, %32
-  %53 = load double, ptr %5, align 8
+  %53 = load double, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret double %53
 }
 
@@ -110,83 +114,91 @@ define i32 @SuiteSparse_divcomplex(double noundef %0, double noundef %1, double 
   %14 = alloca double, align 8
   %15 = alloca double, align 8
   %16 = alloca double, align 8
-  store double %0, ptr %7, align 8
-  store double %1, ptr %8, align 8
-  store double %2, ptr %9, align 8
-  store double %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
-  %17 = load double, ptr %9, align 8
+  store double %0, ptr %7, align 8, !tbaa !3
+  store double %1, ptr %8, align 8, !tbaa !3
+  store double %2, ptr %9, align 8, !tbaa !3
+  store double %3, ptr %10, align 8, !tbaa !3
+  store ptr %4, ptr %11, align 8, !tbaa !9
+  store ptr %5, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %17 = load double, ptr %9, align 8, !tbaa !3
   %18 = call double @llvm.fabs.f64(double %17)
-  %19 = load double, ptr %10, align 8
+  %19 = load double, ptr %10, align 8, !tbaa !3
   %20 = call double @llvm.fabs.f64(double %19)
   %21 = fcmp oge double %18, %20
   br i1 %21, label %22, label %43
 
 22:                                               ; preds = %6
-  %23 = load double, ptr %10, align 8
-  %24 = load double, ptr %9, align 8
+  %23 = load double, ptr %10, align 8, !tbaa !3
+  %24 = load double, ptr %9, align 8, !tbaa !3
   %25 = fdiv double %23, %24
-  store double %25, ptr %15, align 8
-  %26 = load double, ptr %9, align 8
-  %27 = load double, ptr %15, align 8
-  %28 = load double, ptr %10, align 8
+  store double %25, ptr %15, align 8, !tbaa !3
+  %26 = load double, ptr %9, align 8, !tbaa !3
+  %27 = load double, ptr %15, align 8, !tbaa !3
+  %28 = load double, ptr %10, align 8, !tbaa !3
   %29 = call double @llvm.fmuladd.f64(double %27, double %28, double %26)
-  store double %29, ptr %16, align 8
-  %30 = load double, ptr %7, align 8
-  %31 = load double, ptr %8, align 8
-  %32 = load double, ptr %15, align 8
+  store double %29, ptr %16, align 8, !tbaa !3
+  %30 = load double, ptr %7, align 8, !tbaa !3
+  %31 = load double, ptr %8, align 8, !tbaa !3
+  %32 = load double, ptr %15, align 8, !tbaa !3
   %33 = call double @llvm.fmuladd.f64(double %31, double %32, double %30)
-  %34 = load double, ptr %16, align 8
+  %34 = load double, ptr %16, align 8, !tbaa !3
   %35 = fdiv double %33, %34
-  store double %35, ptr %13, align 8
-  %36 = load double, ptr %8, align 8
-  %37 = load double, ptr %7, align 8
-  %38 = load double, ptr %15, align 8
+  store double %35, ptr %13, align 8, !tbaa !3
+  %36 = load double, ptr %8, align 8, !tbaa !3
+  %37 = load double, ptr %7, align 8, !tbaa !3
+  %38 = load double, ptr %15, align 8, !tbaa !3
   %39 = fneg double %37
   %40 = call double @llvm.fmuladd.f64(double %39, double %38, double %36)
-  %41 = load double, ptr %16, align 8
+  %41 = load double, ptr %16, align 8, !tbaa !3
   %42 = fdiv double %40, %41
-  store double %42, ptr %14, align 8
+  store double %42, ptr %14, align 8, !tbaa !3
   br label %64
 
 43:                                               ; preds = %6
-  %44 = load double, ptr %9, align 8
-  %45 = load double, ptr %10, align 8
+  %44 = load double, ptr %9, align 8, !tbaa !3
+  %45 = load double, ptr %10, align 8, !tbaa !3
   %46 = fdiv double %44, %45
-  store double %46, ptr %15, align 8
-  %47 = load double, ptr %15, align 8
-  %48 = load double, ptr %9, align 8
-  %49 = load double, ptr %10, align 8
+  store double %46, ptr %15, align 8, !tbaa !3
+  %47 = load double, ptr %15, align 8, !tbaa !3
+  %48 = load double, ptr %9, align 8, !tbaa !3
+  %49 = load double, ptr %10, align 8, !tbaa !3
   %50 = call double @llvm.fmuladd.f64(double %47, double %48, double %49)
-  store double %50, ptr %16, align 8
-  %51 = load double, ptr %7, align 8
-  %52 = load double, ptr %15, align 8
-  %53 = load double, ptr %8, align 8
+  store double %50, ptr %16, align 8, !tbaa !3
+  %51 = load double, ptr %7, align 8, !tbaa !3
+  %52 = load double, ptr %15, align 8, !tbaa !3
+  %53 = load double, ptr %8, align 8, !tbaa !3
   %54 = call double @llvm.fmuladd.f64(double %51, double %52, double %53)
-  %55 = load double, ptr %16, align 8
+  %55 = load double, ptr %16, align 8, !tbaa !3
   %56 = fdiv double %54, %55
-  store double %56, ptr %13, align 8
-  %57 = load double, ptr %8, align 8
-  %58 = load double, ptr %15, align 8
-  %59 = load double, ptr %7, align 8
+  store double %56, ptr %13, align 8, !tbaa !3
+  %57 = load double, ptr %8, align 8, !tbaa !3
+  %58 = load double, ptr %15, align 8, !tbaa !3
+  %59 = load double, ptr %7, align 8, !tbaa !3
   %60 = fneg double %59
   %61 = call double @llvm.fmuladd.f64(double %57, double %58, double %60)
-  %62 = load double, ptr %16, align 8
+  %62 = load double, ptr %16, align 8, !tbaa !3
   %63 = fdiv double %61, %62
-  store double %63, ptr %14, align 8
+  store double %63, ptr %14, align 8, !tbaa !3
   br label %64
 
 64:                                               ; preds = %43, %22
-  %65 = load double, ptr %13, align 8
-  %66 = load ptr, ptr %11, align 8
-  store double %65, ptr %66, align 8
-  %67 = load double, ptr %14, align 8
-  %68 = load ptr, ptr %12, align 8
-  store double %67, ptr %68, align 8
-  %69 = load double, ptr %16, align 8
+  %65 = load double, ptr %13, align 8, !tbaa !3
+  %66 = load ptr, ptr %11, align 8, !tbaa !9
+  store double %65, ptr %66, align 8, !tbaa !3
+  %67 = load double, ptr %14, align 8, !tbaa !3
+  %68 = load ptr, ptr %12, align 8, !tbaa !9
+  store double %67, ptr %68, align 8, !tbaa !3
+  %69 = load double, ptr %16, align 8, !tbaa !3
   %70 = fcmp oeq double %69, 0.000000e+00
   %71 = zext i1 %70 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
   ret i32 %71
 }
 
@@ -196,55 +208,65 @@ define ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef %1) #3 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %7 = load i64, ptr %3, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !12
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %7 = load i64, ptr %3, align 8, !tbaa !12
   %8 = icmp ult i64 %7, 1
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  store i64 1, ptr %3, align 8
+  store i64 1, ptr %3, align 8, !tbaa !12
   br label %10
 
 10:                                               ; preds = %9, %2
-  %11 = load i64, ptr %4, align 8
+  %11 = load i64, ptr %4, align 8, !tbaa !12
   %12 = icmp ult i64 %11, 1
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  store i64 1, ptr %4, align 8
+  store i64 1, ptr %4, align 8, !tbaa !12
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = load i64, ptr %3, align 8
-  %16 = load i64, ptr %4, align 8
+  %15 = load i64, ptr %3, align 8, !tbaa !12
+  %16 = load i64, ptr %4, align 8, !tbaa !12
   %17 = mul i64 %15, %16
-  store i64 %17, ptr %6, align 8
-  %18 = load i64, ptr %6, align 8
+  store i64 %17, ptr %6, align 8, !tbaa !12
+  %18 = load i64, ptr %6, align 8, !tbaa !12
   %19 = uitofp i64 %18 to double
-  %20 = load i64, ptr %3, align 8
+  %20 = load i64, ptr %3, align 8, !tbaa !12
   %21 = uitofp i64 %20 to double
-  %22 = load i64, ptr %4, align 8
+  %22 = load i64, ptr %4, align 8, !tbaa !12
   %23 = uitofp i64 %22 to double
   %24 = fmul double %21, %23
   %25 = fcmp une double %19, %24
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %14
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !14
   br label %31
 
 27:                                               ; preds = %14
-  %28 = load ptr, ptr @SuiteSparse_config, align 8
-  %29 = load i64, ptr %6, align 8
+  %28 = load ptr, ptr @SuiteSparse_config, align 8, !tbaa !15
+  %29 = load i64, ptr %6, align 8, !tbaa !12
   %30 = call ptr %28(i64 noundef %29)
-  store ptr %30, ptr %5, align 8
+  store ptr %30, ptr %5, align 8, !tbaa !14
   br label %31
 
 31:                                               ; preds = %27, %26
-  %32 = load ptr, ptr %5, align 8
+  %32 = load ptr, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %32
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #3 {
@@ -255,121 +277,124 @@ define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
   %12 = alloca ptr, align 8
-  store i64 %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  %13 = load i64, ptr %7, align 8
+  store i64 %0, ptr %6, align 8, !tbaa !12
+  store i64 %1, ptr %7, align 8, !tbaa !12
+  store i64 %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !14
+  store ptr %4, ptr %10, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %13 = load i64, ptr %7, align 8, !tbaa !12
   %14 = icmp ult i64 %13, 1
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %5
-  store i64 1, ptr %7, align 8
+  store i64 1, ptr %7, align 8, !tbaa !12
   br label %16
 
 16:                                               ; preds = %15, %5
-  %17 = load i64, ptr %6, align 8
+  %17 = load i64, ptr %6, align 8, !tbaa !12
   %18 = icmp ult i64 %17, 1
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
-  store i64 1, ptr %6, align 8
+  store i64 1, ptr %6, align 8, !tbaa !12
   br label %20
 
 20:                                               ; preds = %19, %16
-  %21 = load i64, ptr %8, align 8
+  %21 = load i64, ptr %8, align 8, !tbaa !12
   %22 = icmp ult i64 %21, 1
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
-  store i64 1, ptr %8, align 8
+  store i64 1, ptr %8, align 8, !tbaa !12
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = load i64, ptr %6, align 8
-  %26 = load i64, ptr %8, align 8
+  %25 = load i64, ptr %6, align 8, !tbaa !12
+  %26 = load i64, ptr %8, align 8, !tbaa !12
   %27 = mul i64 %25, %26
-  store i64 %27, ptr %11, align 8
-  %28 = load i64, ptr %11, align 8
+  store i64 %27, ptr %11, align 8, !tbaa !12
+  %28 = load i64, ptr %11, align 8, !tbaa !12
   %29 = uitofp i64 %28 to double
-  %30 = load i64, ptr %6, align 8
+  %30 = load i64, ptr %6, align 8, !tbaa !12
   %31 = uitofp i64 %30 to double
-  %32 = load i64, ptr %8, align 8
+  %32 = load i64, ptr %8, align 8, !tbaa !12
   %33 = uitofp i64 %32 to double
   %34 = fmul double %31, %33
   %35 = fcmp une double %29, %34
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %24
-  %37 = load ptr, ptr %10, align 8
-  store i32 0, ptr %37, align 4
+  %37 = load ptr, ptr %10, align 8, !tbaa !17
+  store i32 0, ptr %37, align 4, !tbaa !7
   br label %76
 
 38:                                               ; preds = %24
-  %39 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %9, align 8, !tbaa !14
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %38
-  %42 = load i64, ptr %6, align 8
-  %43 = load i64, ptr %8, align 8
+  %42 = load i64, ptr %6, align 8, !tbaa !12
+  %43 = load i64, ptr %8, align 8, !tbaa !12
   %44 = call ptr @SuiteSparse_malloc(i64 noundef %42, i64 noundef %43)
-  store ptr %44, ptr %9, align 8
-  %45 = load ptr, ptr %9, align 8
+  store ptr %44, ptr %9, align 8, !tbaa !14
+  %45 = load ptr, ptr %9, align 8, !tbaa !14
   %46 = icmp ne ptr %45, null
   %47 = zext i1 %46 to i32
-  %48 = load ptr, ptr %10, align 8
-  store i32 %47, ptr %48, align 4
+  %48 = load ptr, ptr %10, align 8, !tbaa !17
+  store i32 %47, ptr %48, align 4, !tbaa !7
   br label %75
 
 49:                                               ; preds = %38
-  %50 = load i64, ptr %7, align 8
-  %51 = load i64, ptr %6, align 8
+  %50 = load i64, ptr %7, align 8, !tbaa !12
+  %51 = load i64, ptr %6, align 8, !tbaa !12
   %52 = icmp eq i64 %50, %51
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %49
-  %54 = load ptr, ptr %10, align 8
-  store i32 1, ptr %54, align 4
+  %54 = load ptr, ptr %10, align 8, !tbaa !17
+  store i32 1, ptr %54, align 4, !tbaa !7
   br label %74
 
 55:                                               ; preds = %49
-  %56 = load ptr, ptr %9, align 8
-  %57 = load i64, ptr %11, align 8
-  %58 = call ptr @realloc(ptr noundef %56, i64 noundef %57) #6
-  store ptr %58, ptr %12, align 8
-  %59 = load ptr, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %56 = load ptr, ptr %9, align 8, !tbaa !14
+  %57 = load i64, ptr %11, align 8, !tbaa !12
+  %58 = call ptr @realloc(ptr noundef %56, i64 noundef %57) #7
+  store ptr %58, ptr %12, align 8, !tbaa !14
+  %59 = load ptr, ptr %12, align 8, !tbaa !14
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %70
 
 61:                                               ; preds = %55
-  %62 = load i64, ptr %6, align 8
-  %63 = load i64, ptr %7, align 8
+  %62 = load i64, ptr %6, align 8, !tbaa !12
+  %63 = load i64, ptr %7, align 8, !tbaa !12
   %64 = icmp ult i64 %62, %63
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %61
-  %66 = load ptr, ptr %10, align 8
-  store i32 1, ptr %66, align 4
+  %66 = load ptr, ptr %10, align 8, !tbaa !17
+  store i32 1, ptr %66, align 4, !tbaa !7
   br label %69
 
 67:                                               ; preds = %61
-  %68 = load ptr, ptr %10, align 8
-  store i32 0, ptr %68, align 4
+  %68 = load ptr, ptr %10, align 8, !tbaa !17
+  store i32 0, ptr %68, align 4, !tbaa !7
   br label %69
 
 69:                                               ; preds = %67, %65
   br label %73
 
 70:                                               ; preds = %55
-  %71 = load ptr, ptr %12, align 8
-  store ptr %71, ptr %9, align 8
-  %72 = load ptr, ptr %10, align 8
-  store i32 1, ptr %72, align 4
+  %71 = load ptr, ptr %12, align 8, !tbaa !14
+  store ptr %71, ptr %9, align 8, !tbaa !14
+  %72 = load ptr, ptr %10, align 8, !tbaa !17
+  store i32 1, ptr %72, align 4, !tbaa !7
   br label %73
 
 73:                                               ; preds = %70, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
   br label %74
 
 74:                                               ; preds = %73, %53
@@ -379,39 +404,39 @@ define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %76
 
 76:                                               ; preds = %75, %36
-  %77 = load ptr, ptr %9, align 8
+  %77 = load ptr, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
   ret ptr %77
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @SuiteSparse_free(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %2, align 8
-  call void %7(ptr noundef %8)
-  br label %9
+  %6 = load ptr, ptr getelementptr inbounds nuw (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 2), align 8, !tbaa !19
+  %7 = load ptr, ptr %2, align 8, !tbaa !14
+  call void %6(ptr noundef %7)
+  br label %8
 
-9:                                                ; preds = %5, %1
+8:                                                ; preds = %5, %1
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
 define void @SuiteSparse_tic(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds double, ptr %3, i64 0
-  store double 0.000000e+00, ptr %4, align 8
-  %5 = load ptr, ptr %2, align 8
+  store double 0.000000e+00, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8, !tbaa !9
   %6 = getelementptr inbounds double, ptr %5, i64 1
-  store double 0.000000e+00, ptr %6, align 8
+  store double 0.000000e+00, ptr %6, align 8, !tbaa !3
   ret void
 }
 
@@ -419,59 +444,63 @@ define void @SuiteSparse_tic(ptr noundef %0) #3 {
 define double @SuiteSparse_toc(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca [2 x double], align 16
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #6
   %4 = getelementptr inbounds [2 x double], ptr %3, i64 0, i64 0
   call void @SuiteSparse_tic(ptr noundef %4)
   %5 = getelementptr inbounds [2 x double], ptr %3, i64 0, i64 0
-  %6 = load double, ptr %5, align 16
-  %7 = load ptr, ptr %2, align 8
+  %6 = load double, ptr %5, align 16, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !9
   %8 = getelementptr inbounds double, ptr %7, i64 0
-  %9 = load double, ptr %8, align 8
+  %9 = load double, ptr %8, align 8, !tbaa !3
   %10 = fsub double %6, %9
   %11 = getelementptr inbounds [2 x double], ptr %3, i64 0, i64 1
-  %12 = load double, ptr %11, align 8
-  %13 = load ptr, ptr %2, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !3
+  %13 = load ptr, ptr %2, align 8, !tbaa !9
   %14 = getelementptr inbounds double, ptr %13, i64 1
-  %15 = load double, ptr %14, align 8
+  %15 = load double, ptr %14, align 8, !tbaa !3
   %16 = fsub double %12, %15
   %17 = call double @llvm.fmuladd.f64(double 1.000000e-09, double %16, double %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #6
   ret double %17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
 define double @SuiteSparse_time() #3 {
   %1 = alloca [2 x double], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %1) #6
   %2 = getelementptr inbounds [2 x double], ptr %1, i64 0, i64 0
   call void @SuiteSparse_tic(ptr noundef %2)
   %3 = getelementptr inbounds [2 x double], ptr %1, i64 0, i64 0
-  %4 = load double, ptr %3, align 16
+  %4 = load double, ptr %3, align 16, !tbaa !3
   %5 = getelementptr inbounds [2 x double], ptr %1, i64 0, i64 1
-  %6 = load double, ptr %5, align 8
+  %6 = load double, ptr %5, align 8, !tbaa !3
   %7 = call double @llvm.fmuladd.f64(double 1.000000e-09, double %6, double %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %1) #6
   ret double %7
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @SuiteSparse_version(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !17
   %7 = getelementptr inbounds i32, ptr %6, i64 0
-  store i32 4, ptr %7, align 4
-  %8 = load ptr, ptr %2, align 8
+  store i32 4, ptr %7, align 4, !tbaa !7
+  %8 = load ptr, ptr %2, align 8, !tbaa !17
   %9 = getelementptr inbounds i32, ptr %8, i64 1
-  store i32 5, ptr %9, align 4
-  %10 = load ptr, ptr %2, align 8
+  store i32 5, ptr %9, align 4, !tbaa !7
+  %10 = load ptr, ptr %2, align 8, !tbaa !17
   %11 = getelementptr inbounds i32, ptr %10, i64 2
-  store i32 3, ptr %11, align 4
+  store i32 3, ptr %11, align 4, !tbaa !7
   br label %12
 
 12:                                               ; preds = %5, %1
@@ -479,22 +508,39 @@ define i32 @SuiteSparse_version(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nounwind
 declare double @sqrt(double noundef) #2
 
-attributes #0 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(1) }
+attributes #0 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 double", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !5, i64 0}
+!14 = !{!11, !11, i64 0}
+!15 = !{!16, !11, i64 0}
+!16 = !{!"SuiteSparse_config_struct", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 int", !11, i64 0}
+!19 = !{!16, !11, i64 16}

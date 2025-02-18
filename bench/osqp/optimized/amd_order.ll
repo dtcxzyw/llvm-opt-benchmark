@@ -11,16 +11,16 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 .preheader:                                       ; preds = %6, %.preheader
   %.0150173 = phi i64 [ %8, %.preheader ], [ 0, %6 ]
   %7 = getelementptr inbounds nuw double, ptr %5, i64 %.0150173
-  store double -1.000000e+00, ptr %7, align 8
+  store double -1.000000e+00, ptr %7, align 8, !tbaa !3
   %8 = add nuw nsw i64 %.0150173, 1
   %exitcond.not = icmp eq i64 %8, 20
-  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !4
+  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !7
 
 9:                                                ; preds = %.preheader
   %10 = sitofp i64 %0 to double
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %10, ptr %11, align 8
-  store double 0.000000e+00, ptr %5, align 8
+  store double %10, ptr %11, align 8, !tbaa !3
+  store double 0.000000e+00, ptr %5, align 8, !tbaa !3
   br label %12
 
 12:                                               ; preds = %9, %6
@@ -37,7 +37,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not, label %108, label %18
 
 18:                                               ; preds = %17
-  store double -2.000000e+00, ptr %5, align 8
+  store double -2.000000e+00, ptr %5, align 8, !tbaa !3
   br label %108
 
 19:                                               ; preds = %12
@@ -46,7 +46,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i64, ptr %1, i64 %0
-  %23 = load i64, ptr %22, align 8
+  %23 = load i64, ptr %22, align 8, !tbaa !9
   br i1 %.not, label %24, label %.thread
 
 24:                                               ; preds = %21
@@ -56,12 +56,12 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 .thread:                                          ; preds = %21
   %26 = sitofp i64 %23 to double
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double %26, ptr %27, align 8
+  store double %26, ptr %27, align 8, !tbaa !3
   %28 = icmp slt i64 %23, 0
   br i1 %28, label %29, label %.thread165
 
 29:                                               ; preds = %.thread
-  store double -2.000000e+00, ptr %5, align 8
+  store double -2.000000e+00, ptr %5, align 8, !tbaa !3
   br label %108
 
 30:                                               ; preds = %24
@@ -77,7 +77,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %or.cond7166, label %35, label %.thread168
 
 35:                                               ; preds = %.thread165
-  store double -1.000000e+00, ptr %5, align 8
+  store double -1.000000e+00, ptr %5, align 8, !tbaa !3
   br label %108
 
 36:                                               ; preds = %30
@@ -91,7 +91,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %40, label %.thread169, label %41
 
 .thread169:                                       ; preds = %.thread168
-  store double -2.000000e+00, ptr %5, align 8
+  store double -2.000000e+00, ptr %5, align 8, !tbaa !3
   br label %108
 
 41:                                               ; preds = %.thread168, %36
@@ -111,7 +111,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not, label %108, label %52
 
 52:                                               ; preds = %49
-  store double -1.000000e+00, ptr %5, align 8
+  store double -1.000000e+00, ptr %5, align 8, !tbaa !3
   br label %108
 
 53:                                               ; preds = %41
@@ -135,7 +135,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not, label %108, label %66
 
 66:                                               ; preds = %61
-  store double -1.000000e+00, ptr %5, align 8
+  store double -1.000000e+00, ptr %5, align 8, !tbaa !3
   br label %108
 
 67:                                               ; preds = %55
@@ -167,7 +167,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %79 = add nuw nsw i64 %.1174, 1
   %80 = icmp samesign ult i64 %.1174, 6
   %81 = select i1 %78, i1 %80, i1 false
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %82 = uitofp i64 %77 to double
@@ -189,7 +189,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not, label %108, label %92
 
 92:                                               ; preds = %.thread170
-  store double -1.000000e+00, ptr %5, align 8
+  store double -1.000000e+00, ptr %5, align 8, !tbaa !3
   br label %108
 
 93:                                               ; preds = %86
@@ -198,7 +198,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 94:                                               ; preds = %93
   %95 = fmul double %83, 8.000000e+00
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store double %95, ptr %96, align 8
+  store double %95, ptr %96, align 8, !tbaa !3
   tail call void @amd_l1(i64 noundef %0, ptr noundef nonnull %.0146, ptr noundef nonnull %.0145, ptr noundef nonnull %3, ptr noundef nonnull %44, ptr noundef nonnull %43, i64 noundef %77, ptr noundef nonnull %87, ptr noundef %4, ptr noundef nonnull %5) #3
   %97 = tail call ptr @SuiteSparse_free(ptr noundef %.0148) #3
   %98 = tail call ptr @SuiteSparse_free(ptr noundef %.0147) #3
@@ -206,7 +206,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %100 = tail call ptr @SuiteSparse_free(ptr noundef nonnull %44) #3
   %101 = tail call ptr @SuiteSparse_free(ptr noundef nonnull %87) #3
   %102 = sitofp i64 %42 to double
-  store double %102, ptr %5, align 8
+  store double %102, ptr %5, align 8, !tbaa !3
   br label %108
 
 .critedge:                                        ; preds = %93
@@ -238,17 +238,22 @@ declare void @amd_l1(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long long", !5, i64 0}
+!11 = distinct !{!11, !8}

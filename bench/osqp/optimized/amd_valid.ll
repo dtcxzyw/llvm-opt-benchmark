@@ -15,8 +15,8 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i64, ptr %2, i64 %1
-  %10 = load i64, ptr %9, align 8
-  %11 = load i64, ptr %2, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !3
+  %11 = load i64, ptr %2, align 8, !tbaa !3
   %12 = icmp ne i64 %11, 0
   %13 = icmp slt i64 %10, 0
   %or.cond7 = select i1 %12, i1 true, i1 %13
@@ -29,7 +29,7 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
 .loopexit:                                        ; preds = %24, %.preheader
   %.1.lcssa = phi i64 [ %.058, %.preheader ], [ %spec.select, %24 ]
   %exitcond64.not = icmp eq i64 %16, %1
-  br i1 %exitcond64.not, label %.loopexit50, label %.lr.ph59, !llvm.loop !4
+  br i1 %exitcond64.not, label %.loopexit50, label %.lr.ph59, !llvm.loop !7
 
 .lr.ph59:                                         ; preds = %.preheader51, %.loopexit
   %15 = phi i64 [ %18, %.loopexit ], [ 0, %.preheader51 ]
@@ -37,7 +37,7 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
   %.04057 = phi i64 [ %16, %.loopexit ], [ 0, %.preheader51 ]
   %16 = add nuw nsw i64 %.04057, 1
   %17 = getelementptr inbounds nuw i64, ptr %2, i64 %16
-  %18 = load i64, ptr %17, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = icmp sgt i64 %15, %18
   br i1 %19, label %.loopexit50, label %.preheader
 
@@ -50,7 +50,7 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
   %.03755 = phi i64 [ %25, %24 ], [ %15, %.preheader ]
   %.03954 = phi i64 [ %22, %24 ], [ -1, %.preheader ]
   %21 = getelementptr inbounds i64, ptr %3, i64 %.03755
-  %22 = load i64, ptr %21, align 8
+  %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = icmp sgt i64 %22, -1
   %.not = icmp slt i64 %22, %0
   %or.cond49 = and i1 %23, %.not
@@ -61,21 +61,24 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
   %spec.select = select i1 %.not48, i64 %.156, i64 1
   %25 = add i64 %.03755, 1
   %exitcond.not = icmp eq i64 %25, %18
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit50:                                      ; preds = %.lr.ph59, %.loopexit, %.lr.ph, %.preheader51, %8, %4
   %.038 = phi i64 [ -2, %4 ], [ -2, %8 ], [ 0, %.preheader51 ], [ -2, %.lr.ph ], [ -2, %.lr.ph59 ], [ %.1.lcssa, %.loopexit ]
   ret i64 %.038
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"long long", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
