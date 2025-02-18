@@ -375,10 +375,8 @@ define dso_local { i64, ptr } @_jq_path_append(ptr noundef captures(none) %0, i6
 
 31:                                               ; preds = %22
   tail call void @jv_free(i64 %3, ptr %4) #13
-  %.sroa.026.0.copyload27 = load i64, ptr %5, align 8
-  %.sroa.428.0.copyload30 = load ptr, ptr %16, align 8, !tbaa !19
-  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.026.0.copyload27, 0
-  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.428.0.copyload30, 1
+  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.026.0.copyload.pre37, 0
+  %33 = insertvalue { i64, ptr } %32, ptr %17, 1
   br label %47
 
 34:                                               ; preds = %22

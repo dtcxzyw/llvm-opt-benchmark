@@ -4245,7 +4245,6 @@ _ZNKSt14default_deleteIN6duckdb20ExtensionInstallInfoEEclEPS1_.exit.i: ; preds =
   br label %_ZNSt10unique_ptrIN6duckdb20ExtensionInstallInfoESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb20ExtensionInstallInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %40, %_ZNKSt14default_deleteIN6duckdb20ExtensionInstallInfoEEclEPS1_.exit.i
-  store ptr null, ptr %7, align 8, !tbaa !262
   %71 = load ptr, ptr %33, align 8, !tbaa !17
   %72 = icmp eq ptr %71, %34
   br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -4942,7 +4941,6 @@ _ZNKSt14default_deleteIN6duckdb20ExtensionInstallInfoEEclEPS1_.exit.i: ; preds =
   br label %_ZNSt10unique_ptrIN6duckdb20ExtensionInstallInfoESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb20ExtensionInstallInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %42, %_ZNKSt14default_deleteIN6duckdb20ExtensionInstallInfoEEclEPS1_.exit.i
-  store ptr null, ptr %6, align 8, !tbaa !262
   %73 = load ptr, ptr %20, align 8, !tbaa !17
   %74 = icmp eq ptr %73, %21
   br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i17
@@ -9819,7 +9817,6 @@ _ZNKSt14default_deleteIN6duckdb20ExtensionInstallInfoEEclEPS1_.exit.i: ; preds =
   br label %_ZNSt10unique_ptrIN6duckdb20ExtensionInstallInfoESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb20ExtensionInstallInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %42, %_ZNKSt14default_deleteIN6duckdb20ExtensionInstallInfoEEclEPS1_.exit.i
-  store ptr null, ptr %7, align 8, !tbaa !262
   %73 = load ptr, ptr %19, align 8, !tbaa !17
   %74 = icmp eq ptr %73, %20
   br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -23490,7 +23487,7 @@ _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_st
 
 _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_2ciESaISt4pairIKS7_S7_EEERSA_mPKc.exit.i: ; preds = %.noexc425
   %1010 = getelementptr inbounds nuw i8, ptr %1007, i64 64
-  %1011 = load ptr, ptr %1010, align 8, !tbaa !17
+  %1011 = load ptr, ptr %1010, align 8, !tbaa !17, !noalias !596
   %1012 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr %1012, ptr %75, align 8, !tbaa !13, !alias.scope !596
   %1013 = icmp eq ptr %1011, null
@@ -24474,7 +24471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i: ; preds
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #34
+  call void @__clang_call_terminate(ptr %123) #34, !noalias !604
   unreachable
 
 .critedge.i:                                      ; preds = %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i
@@ -24687,7 +24684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i24: ; pre
   %193 = landingpad { ptr, i32 }
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #34
+  call void @__clang_call_terminate(ptr %194) #34, !noalias !608
   unreachable
 
 .critedge.i26:                                    ; preds = %185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i24
@@ -24895,7 +24892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i48: ; pre
   %260 = landingpad { ptr, i32 }
           catch ptr null
   %261 = extractvalue { ptr, i32 } %260, 0
-  call void @__clang_call_terminate(ptr %261) #34
+  call void @__clang_call_terminate(ptr %261) #34, !noalias !611
   unreachable
 
 .critedge.i50:                                    ; preds = %252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i48
@@ -25103,7 +25100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i72: ; pre
   %327 = landingpad { ptr, i32 }
           catch ptr null
   %328 = extractvalue { ptr, i32 } %327, 0
-  call void @__clang_call_terminate(ptr %328) #34
+  call void @__clang_call_terminate(ptr %328) #34, !noalias !614
   unreachable
 
 .critedge.i74:                                    ; preds = %319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i72
@@ -25212,7 +25209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i84: ; pre
   %368 = landingpad { ptr, i32 }
           catch ptr null
   %369 = extractvalue { ptr, i32 } %368, 0
-  call void @__clang_call_terminate(ptr %369) #34
+  call void @__clang_call_terminate(ptr %369) #34, !noalias !619
   unreachable
 
 .critedge.i86:                                    ; preds = %360, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i84
@@ -25430,7 +25427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i108: ; pr
   %440 = landingpad { ptr, i32 }
           catch ptr null
   %441 = extractvalue { ptr, i32 } %440, 0
-  call void @__clang_call_terminate(ptr %441) #34
+  call void @__clang_call_terminate(ptr %441) #34, !noalias !622
   unreachable
 
 .critedge.i110:                                   ; preds = %432, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i108
@@ -25651,7 +25648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i132: ; pr
   %514 = landingpad { ptr, i32 }
           catch ptr null
   %515 = extractvalue { ptr, i32 } %514, 0
-  call void @__clang_call_terminate(ptr %515) #34
+  call void @__clang_call_terminate(ptr %515) #34, !noalias !625
   unreachable
 
 .critedge.i134:                                   ; preds = %506, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv.exit.i132
@@ -56149,7 +56146,7 @@ _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_st
 
 _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_2ciESaISt4pairIKS7_S7_EEERSA_mPKc.exit.i: ; preds = %.noexc69
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 64
-  %131 = load ptr, ptr %130, align 8, !tbaa !17
+  %131 = load ptr, ptr %130, align 8, !tbaa !17, !noalias !1169
   %132 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %132, ptr %12, align 8, !tbaa !13, !alias.scope !1169
   %133 = icmp eq ptr %131, null
@@ -58301,7 +58298,7 @@ _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_st
 
 _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_2ciESaISt4pairIKS7_S7_EEERSA_mPKc.exit.i: ; preds = %.noexc60
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %42 = load ptr, ptr %41, align 8, !tbaa !17
+  %42 = load ptr, ptr %41, align 8, !tbaa !17, !noalias !1197
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %43, ptr %14, align 8, !tbaa !13, !alias.scope !1197
   %44 = icmp eq ptr %42, null
@@ -71717,7 +71714,7 @@ _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_st
 
 _ZN14duckdb_httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_2ciESaISt4pairIKS7_S7_EEERSA_mPKc.exit.i: ; preds = %.noexc22
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !17
+  %25 = load ptr, ptr %24, align 8, !tbaa !17, !noalias !1370
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %26, ptr %8, align 8, !tbaa !13, !alias.scope !1370
   %27 = icmp eq ptr %25, null

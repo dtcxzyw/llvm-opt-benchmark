@@ -6076,7 +6076,7 @@ _ZNO5arrow17MakeFormatterImpl4MakeERKNS_8DataTypeE.exit.i: ; preds = %24, %20, %
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #27
+  call void @__clang_call_terminate(ptr %47) #27, !noalias !272
   unreachable
 
 _ZN5arrow17MakeFormatterImplD2Ev.exit3.i:         ; preds = %43, %39
@@ -6112,7 +6112,7 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.thread: ; preds = %50
   br label %_ZN5arrow20UnifiedDiffFormatterC2EPSoSt8functionIFvRKNS_5ArrayElS1_EE.exit
 
 _ZN5arrow20UnifiedDiffFormatterC2EPSoSt8functionIFvRKNS_5ArrayElS1_EE.exit: ; preds = %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.thread, %55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %57 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
           to label %.noexc.i.i.i unwind label %60
 
@@ -21100,7 +21100,7 @@ define linkonce_odr void @_ZN5arrow15VisitTypeInlineINS_17MakeFormatterImplEJEEE
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #27
+  call void @__clang_call_terminate(ptr %45) #27, !noalias !1112
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitERKNS_11BooleanTypeE.exit: ; preds = %34, %41
@@ -21134,7 +21134,7 @@ _ZN5arrow17MakeFormatterImpl5VisitERKNS_11BooleanTypeE.exit: ; preds = %34, %41
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #27
+  call void @__clang_call_terminate(ptr %57) #27, !noalias !1119
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %46, %53
@@ -21168,7 +21168,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_8Int8TypeEEENSt9enable_ifIXsr14is_number_t
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #27
+  call void @__clang_call_terminate(ptr %69) #27, !noalias !1125
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %58, %65
@@ -21202,7 +21202,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr14is_number_
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #27
+  call void @__clang_call_terminate(ptr %81) #27, !noalias !1131
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %70, %77
@@ -21236,7 +21236,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_9Int16TypeEEENSt9enable_ifIXsr14is_number_
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #27
+  call void @__clang_call_terminate(ptr %93) #27, !noalias !1137
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %82, %89
@@ -21270,7 +21270,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr14is_numbe
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #27
+  call void @__clang_call_terminate(ptr %105) #27, !noalias !1143
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %94, %101
@@ -21304,7 +21304,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_9Int32TypeEEENSt9enable_ifIXsr14is_number_
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #27
+  call void @__clang_call_terminate(ptr %117) #27, !noalias !1149
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %106, %113
@@ -21338,7 +21338,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr14is_numbe
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #27
+  call void @__clang_call_terminate(ptr %129) #27, !noalias !1155
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %118, %125
@@ -21372,7 +21372,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_9Int64TypeEEENSt9enable_ifIXsr14is_number_
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #27
+  call void @__clang_call_terminate(ptr %141) #27, !noalias !1161
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %130, %137
@@ -21406,7 +21406,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr14is_numbe
   %152 = landingpad { ptr, i32 }
           catch ptr null
   %153 = extractvalue { ptr, i32 } %152, 0
-  call void @__clang_call_terminate(ptr %153) #27
+  call void @__clang_call_terminate(ptr %153) #27, !noalias !1167
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %142, %149
@@ -21440,7 +21440,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr14is_nu
   %164 = landingpad { ptr, i32 }
           catch ptr null
   %165 = extractvalue { ptr, i32 } %164, 0
-  call void @__clang_call_terminate(ptr %165) #27
+  call void @__clang_call_terminate(ptr %165) #27, !noalias !1173
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %154, %161
@@ -21474,7 +21474,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_9FloatTypeEEENSt9enable_ifIXsr14is_number_
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #27
+  call void @__clang_call_terminate(ptr %177) #27, !noalias !1179
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %166, %173
@@ -21508,7 +21508,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10DoubleTypeEEENSt9enable_ifIXsr14is_numbe
   %188 = landingpad { ptr, i32 }
           catch ptr null
   %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #27
+  call void @__clang_call_terminate(ptr %189) #27, !noalias !1185
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10StringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %178, %185
@@ -21542,7 +21542,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10StringTypeEEENSt9enable_ifIXsr15has_stri
   %200 = landingpad { ptr, i32 }
           catch ptr null
   %201 = extractvalue { ptr, i32 } %200, 0
-  call void @__clang_call_terminate(ptr %201) #27
+  call void @__clang_call_terminate(ptr %201) #27, !noalias !1191
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_14StringViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %190, %197
@@ -21576,7 +21576,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_14StringViewTypeEEENSt9enable_ifIXsr15has_
   %212 = landingpad { ptr, i32 }
           catch ptr null
   %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #27
+  call void @__clang_call_terminate(ptr %213) #27, !noalias !1197
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10BinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %202, %209
@@ -21610,7 +21610,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10BinaryTypeEEENSt9enable_ifIXsr15has_stri
   %224 = landingpad { ptr, i32 }
           catch ptr null
   %225 = extractvalue { ptr, i32 } %224, 0
-  call void @__clang_call_terminate(ptr %225) #27
+  call void @__clang_call_terminate(ptr %225) #27, !noalias !1203
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %214, %221
@@ -21644,7 +21644,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXsr15has_
   %236 = landingpad { ptr, i32 }
           catch ptr null
   %237 = extractvalue { ptr, i32 } %236, 0
-  call void @__clang_call_terminate(ptr %237) #27
+  call void @__clang_call_terminate(ptr %237) #27, !noalias !1209
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_15LargeStringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %226, %233
@@ -21678,7 +21678,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_15LargeStringTypeEEENSt9enable_ifIXsr15has
   %248 = landingpad { ptr, i32 }
           catch ptr null
   %249 = extractvalue { ptr, i32 } %248, 0
-  call void @__clang_call_terminate(ptr %249) #27
+  call void @__clang_call_terminate(ptr %249) #27, !noalias !1215
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %238, %245
@@ -21712,7 +21712,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXsr15has
   %260 = landingpad { ptr, i32 }
           catch ptr null
   %261 = extractvalue { ptr, i32 } %260, 0
-  call void @__clang_call_terminate(ptr %261) #27
+  call void @__clang_call_terminate(ptr %261) #27, !noalias !1221
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %250, %257
@@ -21750,7 +21750,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXsr1
   %273 = landingpad { ptr, i32 }
           catch ptr null
   %274 = extractvalue { ptr, i32 } %273, 0
-  call void @__clang_call_terminate(ptr %274) #27
+  call void @__clang_call_terminate(ptr %274) #27, !noalias !1227
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10Date32TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %263, %270
@@ -21784,7 +21784,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10Date32TypeEEENSt9enable_ifIXsr12is_date_
   %285 = landingpad { ptr, i32 }
           catch ptr null
   %286 = extractvalue { ptr, i32 } %285, 0
-  call void @__clang_call_terminate(ptr %286) #27
+  call void @__clang_call_terminate(ptr %286) #27, !noalias !1233
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_10Date64TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %275, %282
@@ -21830,7 +21830,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_10Date64TypeEEENSt9enable_ifIXsr12is_date_
   %300 = landingpad { ptr, i32 }
           catch ptr null
   %301 = extractvalue { ptr, i32 } %300, 0
-  call void @__clang_call_terminate(ptr %301) #27
+  call void @__clang_call_terminate(ptr %301) #27, !noalias !1239
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitERKNS_24MonthDayNanoIntervalTypeE.exit: ; preds = %290, %297
@@ -21868,7 +21868,7 @@ _ZN5arrow17MakeFormatterImpl5VisitERKNS_24MonthDayNanoIntervalTypeE.exit: ; pred
   %313 = landingpad { ptr, i32 }
           catch ptr null
   %314 = extractvalue { ptr, i32 } %313, 0
-  call void @__clang_call_terminate(ptr %314) #27
+  call void @__clang_call_terminate(ptr %314) #27, !noalias !1245
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitERKNS_19DayTimeIntervalTypeE.exit: ; preds = %303, %310
@@ -21902,7 +21902,7 @@ _ZN5arrow17MakeFormatterImpl5VisitERKNS_19DayTimeIntervalTypeE.exit: ; preds = %
   %325 = landingpad { ptr, i32 }
           catch ptr null
   %326 = extractvalue { ptr, i32 } %325, 0
-  call void @__clang_call_terminate(ptr %326) #27
+  call void @__clang_call_terminate(ptr %326) #27, !noalias !1251
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_13Decimal32TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %315, %322
@@ -21936,7 +21936,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_13Decimal32TypeEEENSt9enable_ifIXsr15is_de
   %337 = landingpad { ptr, i32 }
           catch ptr null
   %338 = extractvalue { ptr, i32 } %337, 0
-  call void @__clang_call_terminate(ptr %338) #27
+  call void @__clang_call_terminate(ptr %338) #27, !noalias !1257
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_13Decimal64TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %327, %334
@@ -21970,7 +21970,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_13Decimal64TypeEEENSt9enable_ifIXsr15is_de
   %349 = landingpad { ptr, i32 }
           catch ptr null
   %350 = extractvalue { ptr, i32 } %349, 0
-  call void @__clang_call_terminate(ptr %350) #27
+  call void @__clang_call_terminate(ptr %350) #27, !noalias !1263
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_14Decimal128TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %339, %346
@@ -22004,7 +22004,7 @@ _ZN5arrow17MakeFormatterImpl5VisitINS_14Decimal128TypeEEENSt9enable_ifIXsr15is_d
   %361 = landingpad { ptr, i32 }
           catch ptr null
   %362 = extractvalue { ptr, i32 } %361, 0
-  call void @__clang_call_terminate(ptr %362) #27
+  call void @__clang_call_terminate(ptr %362) #27, !noalias !1269
   unreachable
 
 _ZN5arrow17MakeFormatterImpl5VisitINS_14Decimal256TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit: ; preds = %351, %358
@@ -24453,7 +24453,6 @@ _ZN5arrow6ResultISt8functionIFvRKNS_5ArrayElPSoEEED2Ev.exit: ; preds = %104, %_Z
   store ptr %27, ptr %122, align 8, !tbaa !1376
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %26, ptr %123, align 8, !tbaa !1375
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr %119, ptr %6, align 8, !tbaa !1396
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i31, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false), !tbaa.struct !285
@@ -24885,7 +24884,6 @@ _ZN5arrow6ResultISt8functionIFvRKNS_5ArrayElPSoEEED2Ev.exit: ; preds = %109, %_Z
   store ptr %scevgep.i.i.i.i.i, ptr %131, align 8, !tbaa !1376
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %21, ptr %132, align 8, !tbaa !1375
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr %128, ptr %6, align 8, !tbaa !1422
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i35, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false), !tbaa.struct !285
@@ -24955,7 +24953,6 @@ _ZNSt6vectorISt8functionIFvRKN5arrow5ArrayElPSoEESaIS7_EED2Ev.exit: ; preds = %1
   store ptr %scevgep.i.i.i.i.i, ptr %153, align 8, !tbaa !1376
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store ptr %21, ptr %154, align 8, !tbaa !1375
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store ptr %150, ptr %5, align 8, !tbaa !1424
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i41, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !285

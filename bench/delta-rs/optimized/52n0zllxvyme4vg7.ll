@@ -487,11 +487,9 @@ define hidden void @_ZN12futures_task8arc_wake7ArcWake4wake17he3ed4aad46511151E(
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, ptr } @"_ZN12object_store11ObjectStore10get_ranges28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfc778409d3cd3dcbE.llvm.8182007033918664789"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.7 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !86, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !align !86, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   %7 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.4766490671745005879(ptr noalias noundef nonnull readonly align 1 @anon.9b59801bc093cbb0cd5c40a0cece3ede.7.llvm.4766490671745005879, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false)
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = icmp eq ptr %8, null
@@ -509,11 +507,8 @@ define hidden { ptr, ptr } @"_ZN12object_store11ObjectStore10get_ranges28_$u7b$$
   store i64 %1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   %.sroa.71.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i8 0, ptr %.sroa.71.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   %10 = insertvalue { ptr, ptr } poison, ptr %8, 0
   %11 = insertvalue { ptr, ptr } %10, ptr @anon.9b59801bc093cbb0cd5c40a0cece3ede.62.llvm.4766490671745005879, 1
   ret { ptr, ptr } %11
@@ -1311,12 +1306,10 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17hecfba31bc8bbc29fE(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @"_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$GT$8call_mut17h3fd778b0c9b8e56fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.7.i = alloca [16 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   %4 = load ptr, ptr %0, align 8, !alias.scope !199, !nonnull !4, !align !86, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !199, !nonnull !4, !align !86, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7.i)
   %7 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.4766490671745005879(ptr noalias noundef nonnull readonly align 1 @anon.9b59801bc093cbb0cd5c40a0cece3ede.7.llvm.4766490671745005879, i64 noundef 8, i64 noundef 56, i1 noundef zeroext false), !noalias !199
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = icmp eq ptr %8, null
@@ -1327,18 +1320,15 @@ define hidden { ptr, ptr } @"_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT
   unreachable
 
 "_ZN12object_store11ObjectStore10get_ranges28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfc778409d3cd3dcbE.llvm.8182007033918664789.exit": ; preds = %3
-  store ptr %4, ptr %8, align 8
+  store ptr %4, ptr %8, align 8, !noalias !199
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %6, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store ptr %6, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !199
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %1, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i64 %1, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !199
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %2, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, i64 16, i1 false)
+  store i64 %2, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !199
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i8 0, ptr %.sroa.71.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7.i)
+  store i8 0, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !199
   %10 = insertvalue { ptr, ptr } poison, ptr %8, 0
   %11 = insertvalue { ptr, ptr } %10, ptr @anon.9b59801bc093cbb0cd5c40a0cece3ede.62.llvm.4766490671745005879, 1
   ret { ptr, ptr } %11

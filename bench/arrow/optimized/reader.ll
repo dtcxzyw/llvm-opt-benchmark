@@ -98604,58 +98604,57 @@ _ZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorC2ESt10shared_ptrINS0_25RecordBat
   store ptr %5, ptr %222, align 8, !tbaa !530
   %223 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store i32 0, ptr %223, align 8, !tbaa !548
-  %224 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %224, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  %225 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #39
-          to label %229 unwind label %226
+  %224 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #39
+          to label %228 unwind label %225
 
-226:                                              ; preds = %_ZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorC2ESt10shared_ptrINS0_25RecordBatchFileReaderImplEES2_INS_2io8internal14ReadRangeCacheEERKNS5_9IOContextEPNS_8internal8ExecutorE.exit
-  %227 = landingpad { ptr, i32 }
+225:                                              ; preds = %_ZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorC2ESt10shared_ptrINS0_25RecordBatchFileReaderImplEES2_INS_2io8internal14ReadRangeCacheEERKNS5_9IOContextEPNS_8internal8ExecutorE.exit
+  %226 = landingpad { ptr, i32 }
           catch ptr null
-  %228 = extractvalue { ptr, i32 } %227, 0
-  call void @__clang_call_terminate(ptr %228) #40
+  %227 = extractvalue { ptr, i32 } %226, 0
+  call void @__clang_call_terminate(ptr %227) #40
   unreachable
 
-229:                                              ; preds = %_ZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorC2ESt10shared_ptrINS0_25RecordBatchFileReaderImplEES2_INS_2io8internal14ReadRangeCacheEERKNS5_9IOContextEPNS_8internal8ExecutorE.exit
+228:                                              ; preds = %_ZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorC2ESt10shared_ptrINS0_25RecordBatchFileReaderImplEES2_INS_2io8internal14ReadRangeCacheEERKNS5_9IOContextEPNS_8internal8ExecutorE.exit
+  %229 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %233 = load ptr, ptr %17, align 8, !tbaa !360
-  store ptr %233, ptr %225, align 8, !tbaa !360
-  %234 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  store ptr %233, ptr %224, align 8, !tbaa !360
+  %234 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %235 = load ptr, ptr %204, align 8, !tbaa !79
   store ptr null, ptr %204, align 8, !tbaa !79
   store ptr %235, ptr %234, align 8, !tbaa !79
   store ptr null, ptr %17, align 8, !tbaa !360
-  %236 = getelementptr inbounds nuw i8, ptr %225, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %237 = load ptr, ptr %205, align 8, !tbaa !370
   store ptr %237, ptr %236, align 8, !tbaa !370
-  %238 = getelementptr inbounds nuw i8, ptr %225, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %224, i64 24
   %239 = load ptr, ptr %206, align 8, !tbaa !79
   store ptr null, ptr %206, align 8, !tbaa !79
   store ptr %239, ptr %238, align 8, !tbaa !79
   store ptr null, ptr %205, align 8, !tbaa !370
-  %240 = getelementptr inbounds nuw i8, ptr %225, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %224, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %240, ptr noundef nonnull align 8 dereferenceable(40) %207, i64 24, i1 false)
-  %241 = getelementptr inbounds nuw i8, ptr %225, i64 56
+  %241 = getelementptr inbounds nuw i8, ptr %224, i64 56
   %242 = load ptr, ptr %208, align 8, !tbaa !1341
   store ptr %242, ptr %241, align 8, !tbaa !1341
-  %243 = getelementptr inbounds nuw i8, ptr %225, i64 64
+  %243 = getelementptr inbounds nuw i8, ptr %224, i64 64
   %244 = load ptr, ptr %211, align 8, !tbaa !79
   store ptr null, ptr %211, align 8, !tbaa !79
   store ptr %244, ptr %243, align 8, !tbaa !79
   store ptr null, ptr %208, align 8, !tbaa !1341
-  %245 = getelementptr inbounds nuw i8, ptr %225, i64 72
+  %245 = getelementptr inbounds nuw i8, ptr %224, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %245, ptr noundef nonnull align 8 dereferenceable(12) %222, i64 12, i1 false)
-  %246 = getelementptr inbounds nuw i8, ptr %225, i64 88
+  %246 = getelementptr inbounds nuw i8, ptr %224, i64 88
   store ptr null, ptr %246, align 8, !tbaa !447
-  %247 = getelementptr inbounds nuw i8, ptr %225, i64 96
+  %247 = getelementptr inbounds nuw i8, ptr %224, i64 96
   %248 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store ptr null, ptr %248, align 8, !tbaa !79
   store ptr null, ptr %247, align 8, !tbaa !79
-  store ptr null, ptr %224, align 8, !tbaa !447
-  store ptr %225, ptr %230, align 8, !tbaa !3189
+  store ptr null, ptr %229, align 8, !tbaa !447
+  store ptr %224, ptr %230, align 8, !tbaa !3189
   store ptr @_ZNSt17_Function_handlerIFN5arrow6FutureISt10shared_ptrINS0_11RecordBatchEEEEvENS0_3ipc32WholeIpcFileRecordBatchGeneratorEE9_M_invokeERKSt9_Any_data, ptr %231, align 8, !tbaa !3181
   store ptr @_ZNSt17_Function_handlerIFN5arrow6FutureISt10shared_ptrINS0_11RecordBatchEEEEvENS0_3ipc32WholeIpcFileRecordBatchGeneratorEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %232, align 8, !tbaa !2409
   call void @_ZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %17) #36
@@ -98664,8 +98663,8 @@ _ZN5arrow3ipc32WholeIpcFileRecordBatchGeneratorC2ESt10shared_ptrINS0_25RecordBat
   %.not.i.i60 = icmp eq ptr %.pre89, null
   br i1 %.not.i.i60, label %_ZNSt12__shared_ptrIN5arrow2io8internal14ReadRangeCacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64, label %249
 
-249:                                              ; preds = %.thread91, %229
-  %250 = phi ptr [ %159, %.thread91 ], [ %.pre89, %229 ]
+249:                                              ; preds = %.thread91, %228
+  %250 = phi ptr [ %159, %.thread91 ], [ %.pre89, %228 ]
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load atomic i64, ptr %251 acquire, align 8
   %253 = icmp eq i64 %252, 4294967297
@@ -98709,7 +98708,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62: ; preds = %267, %26
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %250) #36
   br label %_ZNSt12__shared_ptrIN5arrow2io8internal14ReadRangeCacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64
 
-_ZNSt12__shared_ptrIN5arrow2io8internal14ReadRangeCacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64: ; preds = %.thread, %229, %255, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62, %270
+_ZNSt12__shared_ptrIN5arrow2io8internal14ReadRangeCacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64: ; preds = %.thread, %228, %255, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62, %270
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #36
   br label %271
 

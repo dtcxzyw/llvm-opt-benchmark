@@ -1593,7 +1593,6 @@ _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i: ; preds = %invoke.c
   br label %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp2, align 8
   %4 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i1 = icmp eq ptr %4, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEED2Ev.exit, label %if.then.i
@@ -1630,7 +1629,6 @@ _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i5: ; preds = %lpad
   br label %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit8
 
 _ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit8: ; preds = %lpad, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i5
-  store ptr null, ptr %agg.tmp2, align 8
   %11 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i9 = icmp eq ptr %11, null
   br i1 %cmp.not.i9, label %_ZNSt10unique_ptrIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEED2Ev.exit14, label %if.then.i10
@@ -17130,15 +17128,12 @@ _ZN5folly8FunctionIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS1_27HTTPSessio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %obj_.i = getelementptr inbounds nuw i8, ptr %this, i64 2424
   %6 = load ptr, ptr %obj_.i, align 8
-  store ptr null, ptr %ref.tmp.i, align 16
-  %call_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE12ObserverBaseEPS6_EE10uninitCallESC_SD_RNS1_4DataE, ptr %call_.i.i.i, align 16
-  %exec_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
-  store ptr null, ptr %exec_.i.i.i, align 8
   %call3.i.i1.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #43
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN5folly8FunctionIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS1_27HTTPSessionObserverAccessorEEEC2EOS7_.exit.i.i.i
+  %exec_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
+  %call_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
   %sessionObserverContainer_ = getelementptr inbounds nuw i8, ptr %this, i64 2416
   %call_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i1.i, i64 48
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession11onPingReplyEmE3$_0EEvS5_S7_RNS1_4DataE", ptr %call_.i.i.i.i, align 16
@@ -18210,10 +18205,10 @@ cond.true58:                                      ; preds = %if.else54
 cond.false61:                                     ; preds = %if.else54
   %22 = load i32, ptr %21, align 4
   %cmp62 = icmp sgt i32 %22, 3
-  br i1 %cmp62, label %cond.false68, label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33
+  br i1 %cmp62, label %cond.false68, label %if.then.i
 
 cond.end63:                                       ; preds = %cond.true58
-  br i1 %call60, label %cond.false68, label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33
+  br i1 %call60, label %cond.false68, label %if.then.i
 
 cond.false68:                                     ; preds = %cond.false61, %cond.end63
   invoke void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp71, ptr noundef nonnull @.str, i32 noundef 1366)
@@ -18229,7 +18224,7 @@ invoke.cont75:                                    ; preds = %invoke.cont72
 
 cleanup.action82:                                 ; preds = %invoke.cont75
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp71) #41
-  br label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33
+  br label %if.then.i
 
 lpad74:                                           ; preds = %invoke.cont75, %invoke.cont72
   %23 = landingpad { ptr, i32 }
@@ -18275,11 +18270,11 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i28: ; preds = %invoke.cont94
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29: ; preds = %invoke.cont94, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i28
   store ptr null, ptr %agg.tmp90, align 8
-  br i1 %cmp96.not, label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33, label %if.then97
+  br i1 %cmp96.not, label %if.then.i, label %if.then97
 
 if.then97:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29
   invoke void @_ZN8proxygen11HTTPSession13scheduleWriteEv(ptr noundef nonnull align 8 dereferenceable(2504) %this)
-          to label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33 unwind label %lpad26.loopexit.split-lp
+          to label %if.then.i unwind label %lpad26.loopexit.split-lp
 
 lpad93:                                           ; preds = %invoke.cont88
   %29 = landingpad { ptr, i32 }
@@ -18287,11 +18282,7 @@ lpad93:                                           ; preds = %invoke.cont88
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp90) #41
   br label %ehcleanup
 
-_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33: ; preds = %cond.end63, %cleanup.action82, %if.then97, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29, %cond.false61
-  store ptr null, ptr %second.i, align 8
-  br label %if.then.i
-
-if.then.i:                                        ; preds = %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33, %cleanup.done
+if.then.i:                                        ; preds = %cond.false61, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29, %if.then97, %cleanup.action82, %cond.end63, %cleanup.done
   %guardCount_.i35 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %30 = load i32, ptr %guardCount_.i35, align 8
   %dec.i = add i32 %30, -1
@@ -20925,15 +20916,12 @@ _ZN5folly8FunctionIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS1_27HTTPSessio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %obj_.i = getelementptr inbounds nuw i8, ptr %this, i64 2424
   %97 = load ptr, ptr %obj_.i, align 8
-  store ptr null, ptr %ref.tmp.i, align 16
-  %call_.i.i.i159 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE12ObserverBaseEPS6_EE10uninitCallESC_SD_RNS1_4DataE, ptr %call_.i.i.i159, align 16
-  %exec_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
-  store ptr null, ptr %exec_.i.i.i, align 8
   %call3.i.i1.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #43
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN5folly8FunctionIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS1_27HTTPSessionObserverAccessorEEEC2EOS7_.exit.i.i.i
+  %exec_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
+  %call_.i.i.i159 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
   %sessionObserverContainer_ = getelementptr inbounds nuw i8, ptr %this, i64 2416
   %call_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i1.i, i64 48
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession11sendHeadersEPNS3_15HTTPTransactionERKNS3_11HTTPMessageEPNS3_14HTTPHeaderSizeEbE3$_0EEvS5_S7_RNS1_4DataE", ptr %call_.i.i.i.i, align 16

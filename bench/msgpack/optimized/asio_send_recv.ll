@@ -22213,36 +22213,33 @@ define internal void @"_ZN5boost4asio6detail23reactive_socket_recv_opINS0_17muta
   %9 = alloca %"struct.boost::asio::detail::reactive_socket_recv_op<boost::asio::mutable_buffers_1, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/msgpack/msgpack-c/example/boost/asio_send_recv.cpp:45:25), boost::asio::execution::any_executor<boost::asio::execution::context_as_t<boost::asio::execution_context &>, boost::asio::execution::detail::blocking::never_t<0>, boost::asio::execution::prefer_only<boost::asio::execution::detail::blocking::possibly_t<>>, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::tracked_t<>>, boost::asio::execution::prefer_only<boost::asio::execution::detail::outstanding_work::untracked_t<>>, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::fork_t<>>, boost::asio::execution::prefer_only<boost::asio::execution::detail::relationship::continuation_t<>>>>::ptr", align 8
   %10 = alloca %"class.boost::asio::detail::handler_work.132", align 8
   %11 = alloca %"class.boost::asio::detail::binder2", align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %12, ptr %9, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %19, align 8
-  store ptr @_ZZN5boost4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS3_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %17, align 8
-  store ptr @_ZZN5boost4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS3_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %15)
-          to label %27 unwind label %24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %15, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %18, align 8
+  store ptr @_ZZN5boost4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS3_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8
+  store ptr @_ZZN5boost4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS3_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %14)
+          to label %26 unwind label %23
 
-24:                                               ; preds = %4
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %4
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #32
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #32
   unreachable
 
-27:                                               ; preds = %4
+26:                                               ; preds = %4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -22252,27 +22249,27 @@ define internal void @"_ZN5boost4asio6detail23reactive_socket_recv_opINS0_17muta
   store ptr @_ZZN5boost4asio9execution12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS1_6detail8blocking7never_tILi0EEENS1_11prefer_onlyINS8_10possibly_tILi0EEEEENSB_INS7_16outstanding_work9tracked_tILi0EEEEENSB_INSF_11untracked_tILi0EEEEENSB_INS7_12relationship6fork_tILi0EEEEENSB_INSM_14continuation_tILi0EEEEEEE14prop_fns_tableIvEEPKNS7_17any_executor_base8prop_fnsIST_EEvE3fns, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, i64 16, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull readonly align 8 dereferenceable(16) %32, i64 16, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %36 = load i64, ptr %33, align 8
   store i64 %36, ptr %35, align 8
   store ptr %11, ptr %9, align 8
-  %37 = load ptr, ptr %17, align 8
+  %37 = load ptr, ptr %16, align 8
   %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(48) %15)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(48) %14)
           to label %42 unwind label %39
 
-39:                                               ; preds = %27
+39:                                               ; preds = %26
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
   call void @__clang_call_terminate(ptr %41) #32
   unreachable
 
-42:                                               ; preds = %27
-  store ptr null, ptr %14, align 8
+42:                                               ; preds = %26
+  store ptr null, ptr %13, align 8
   %43 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5boost4asio6detail15keyword_tss_ptrINS1_10call_stackINS1_14thread_contextENS1_16thread_info_baseEE7contextEE6value_E)
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i.i.i = icmp eq ptr %44, null
@@ -22301,7 +22298,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   br label %53
 
 53:                                               ; preds = %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i, %50
-  store ptr null, ptr %13, align 8
+  store ptr null, ptr %12, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %140, label %54
 
@@ -22323,7 +22320,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   %59 = load ptr, ptr %29, align 8, !noalias !362
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 8, !noalias !362
-  %62 = load ptr, ptr %16, align 8, !noalias !362
+  %62 = load ptr, ptr %15, align 8, !noalias !362
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !noalias !362
   %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(48) %10)
@@ -22531,13 +22528,13 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
 .body:                                            ; preds = %.body.i.i, %136
   %eh.lpad-body = phi { ptr, i32 } [ %137, %136 ], [ %eh.lpad-body.i.i, %.body.i.i ]
   fence release
-  %138 = load ptr, ptr %16, align 8
+  %138 = load ptr, ptr %15, align 8
   %139 = load ptr, ptr %138, align 8
   invoke void %139(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %"_ZN5boost4asio6detail12handler_workIZZZZ4mainENK3$_0clEvENKUlRKNS_6system10error_codeEE_clES7_ENKUlvE_clEvEUlS7_mE_NS0_9execution12any_executorIJNSB_12context_as_tIRNS0_17execution_contextEEENSB_6detail8blocking7never_tILi0EEENSB_11prefer_onlyINSI_10possibly_tILi0EEEEENSL_INSH_16outstanding_work9tracked_tILi0EEEEENSL_INSP_11untracked_tILi0EEEEENSL_INSH_12relationship6fork_tILi0EEEEENSL_INSW_14continuation_tILi0EEEEEEEEvED2Ev.exit17" unwind label %146
 
 140:                                              ; preds = %"_ZN5boost4asio6detail12handler_workIZZZZ4mainENK3$_0clEvENKUlRKNS_6system10error_codeEE_clES7_ENKUlvE_clEvEUlS7_mE_NS0_9execution12any_executorIJNSB_12context_as_tIRNS0_17execution_contextEEENSB_6detail8blocking7never_tILi0EEENSB_11prefer_onlyINSI_10possibly_tILi0EEEEENSL_INSH_16outstanding_work9tracked_tILi0EEEEENSL_INSP_11untracked_tILi0EEEEENSL_INSH_12relationship6fork_tILi0EEEEENSL_INSW_14continuation_tILi0EEEEEEEEvE8completeINS1_7binder2ISA_S5_mEEEEvRT_RSA_.exit", %53
-  %141 = load ptr, ptr %16, align 8
+  %141 = load ptr, ptr %15, align 8
   %142 = load ptr, ptr %141, align 8
   invoke void %142(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %"_ZN5boost4asio6detail23reactive_socket_recv_opINS0_17mutable_buffers_1EZZZZ4mainENK3$_0clEvENKUlRKNS_6system10error_codeEE_clES8_ENKUlvE_clEvEUlS8_mE_NS0_9execution12any_executorIJNSC_12context_as_tIRNS0_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrD2Ev.exit" unwind label %143

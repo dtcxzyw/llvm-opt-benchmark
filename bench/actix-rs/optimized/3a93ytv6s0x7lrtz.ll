@@ -1133,7 +1133,7 @@ common.ret:                                       ; preds = %161, %47
   %156 = extractvalue { i64, ptr } %154, 1
   %157 = icmp ne ptr %156, null
   tail call void @llvm.assume(i1 %157)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %156, ptr nonnull readonly align 1 %150, i64 %151, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %156, ptr nonnull readonly align 1 %150, i64 %151, i1 false), !noalias !161
   br label %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit": ; preds = %.noexc31, %149
@@ -1210,16 +1210,16 @@ common.ret:                                       ; preds = %161, %47
 
 162:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12)
-  call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  call void @llvm.experimental.noalias.scope.decl(metadata !164)
-  %163 = load ptr, ptr %13, align 8, !alias.scope !167, !nonnull !9, !align !31, !noundef !9
+  call void @llvm.experimental.noalias.scope.decl(metadata !168)
+  call void @llvm.experimental.noalias.scope.decl(metadata !171)
+  %163 = load ptr, ptr %13, align 8, !alias.scope !174, !nonnull !9, !align !31, !noundef !9
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %165 = load ptr, ptr %164, align 8, !noalias !167, !nonnull !9, !noundef !9
+  %165 = load ptr, ptr %164, align 8, !noalias !174, !nonnull !9, !noundef !9
   %166 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %167 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %168 = load ptr, ptr %167, align 8, !alias.scope !167, !noundef !9
+  %168 = load ptr, ptr %167, align 8, !alias.scope !174, !noundef !9
   %169 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %170 = load i64, ptr %169, align 8, !alias.scope !167, !noundef !9
+  %170 = load i64, ptr %169, align 8, !alias.scope !174, !noundef !9
   invoke void %165(ptr noalias noundef nonnull align 8 dereferenceable(8) %166, ptr noundef %168, i64 noundef %170)
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit33" unwind label %81
 
@@ -1574,10 +1574,17 @@ attributes #16 = { nounwind }
 !158 = distinct !{!158, !159, !"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d79c6c23a1dbab7E: argument 0"}
 !159 = distinct !{!159, !"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d79c6c23a1dbab7E"}
 !160 = !{!158, !155}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E: argument 0"}
-!163 = distinct !{!163, !"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E"}
-!164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d79c6c23a1dbab7E: argument 0"}
-!166 = distinct !{!166, !"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d79c6c23a1dbab7E"}
-!167 = !{!165, !162}
+!161 = !{!162, !164, !166}
+!162 = distinct !{!162, !163, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 0"}
+!163 = distinct !{!163, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE"}
+!164 = distinct !{!164, !165, !"_ZN4core3ops8function6FnOnce9call_once17ha262734f3fd49426E: argument 0"}
+!165 = distinct !{!165, !"_ZN4core3ops8function6FnOnce9call_once17ha262734f3fd49426E"}
+!166 = distinct !{!166, !167, !"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E: argument 0"}
+!167 = distinct !{!167, !"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E"}
+!168 = !{!169}
+!169 = distinct !{!169, !170, !"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E: argument 0"}
+!170 = distinct !{!170, !"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E"}
+!171 = !{!172}
+!172 = distinct !{!172, !173, !"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d79c6c23a1dbab7E: argument 0"}
+!173 = distinct !{!173, !"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d79c6c23a1dbab7E"}
+!174 = !{!172, !169}

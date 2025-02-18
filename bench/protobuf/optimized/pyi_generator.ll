@@ -1119,9 +1119,7 @@ lpad12.loopexit.split-lp:                         ; preds = %while.end, %if.end
   br label %ehcleanup
 
 while.end:                                        ; preds = %invoke.cont18
-  %agg.tmp23.sroa.0.0.copyload = load i64, ptr %module_name, align 8
-  %agg.tmp23.sroa.2.0.copyload = load ptr, ptr %4, align 8
-  %call25 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler6python21ContainsPythonKeywordESt17basic_string_viewIcSt11char_traitsIcEE(i64 %agg.tmp23.sroa.0.0.copyload, ptr %agg.tmp23.sroa.2.0.copyload)
+  %call25 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler6python21ContainsPythonKeywordESt17basic_string_viewIcSt11char_traitsIcEE(i64 %3, ptr %5)
           to label %invoke.cont24 unwind label %lpad12.loopexit.split-lp
 
 invoke.cont24:                                    ; preds = %while.end
@@ -1183,51 +1181,38 @@ if.end:                                           ; preds = %invoke.cont28, %if.
 if.else:                                          ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %import_statement) #25
   %cmp32 = icmp eq i64 %retval.0.i, -1
-  br i1 %cmp32, label %invoke.cont37, label %invoke.cont53
+  br i1 %cmp32, label %invoke.cont37, label %invoke.cont57
 
 invoke.cont37:                                    ; preds = %if.else
   store i64 7, ptr %ref.tmp35, align 8
   %23 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 8
   store ptr @.str.14, ptr %23, align 8
-  store i64 %agg.tmp23.sroa.0.0.copyload, ptr %ref.tmp38, align 8
+  store i64 %3, ptr %ref.tmp38, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
-  store ptr %agg.tmp23.sroa.2.0.copyload, ptr %pc.sroa.2.0.piece_.sroa_idx.i20, align 8
+  store ptr %5, ptr %pc.sroa.2.0.piece_.sroa_idx.i20, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp38)
           to label %if.end62 unwind label %lpad36
 
-lpad36:                                           ; preds = %if.then.i.i.i.i.i.i, %invoke.cont68, %if.then.i.i.i, %invoke.cont65, %if.then.i.i38, %invoke.cont66, %if.end62, %invoke.cont57, %invoke.cont37
+lpad36:                                           ; preds = %if.then.i.i.i.i.i.i, %invoke.cont68, %if.then.i.i.i, %invoke.cont65, %invoke.cont66, %if.end62, %invoke.cont57, %invoke.cont37
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %import_statement) #25
   br label %ehcleanup
 
-invoke.cont53:                                    ; preds = %if.else
+invoke.cont57:                                    ; preds = %if.else
   store i64 5, ptr %ref.tmp45, align 8
   %25 = getelementptr inbounds nuw i8, ptr %ref.tmp45, i64 8
   store ptr @.str.15, ptr %25, align 8
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %agg.tmp23.sroa.0.0.copyload, i64 %retval.0.i)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %3, i64 %retval.0.i)
   store i64 %.sroa.speculated.i, ptr %ref.tmp47, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 8
-  store ptr %agg.tmp23.sroa.2.0.copyload, ptr %pc.sroa.2.0.piece_.sroa_idx.i29, align 8
+  store ptr %5, ptr %pc.sroa.2.0.piece_.sroa_idx.i29, align 8
   store i64 8, ptr %ref.tmp52, align 8
   %26 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 8
   store ptr @.str.16, ptr %26, align 8
-  %cmp.i.i31 = icmp ugt i64 %add, %agg.tmp23.sroa.0.0.copyload
-  br i1 %cmp.i.i31, label %if.then.i.i38, label %invoke.cont57
-
-if.then.i.i38:                                    ; preds = %invoke.cont53
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.101, i64 noundef %add, i64 noundef %agg.tmp23.sroa.0.0.copyload) #27
-          to label %.noexc39 unwind label %lpad36
-
-.noexc39:                                         ; preds = %if.then.i.i38
-  unreachable
-
-invoke.cont57:                                    ; preds = %invoke.cont53
-  %sub.i32 = sub nuw i64 %agg.tmp23.sroa.0.0.copyload, %add
-  %add.ptr.i35 = getelementptr inbounds i8, ptr %agg.tmp23.sroa.2.0.copyload, i64 %add
-  store i64 %sub.i32, ptr %ref.tmp54, align 8
+  store i64 %sub.i, ptr %ref.tmp54, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 8
-  store ptr %add.ptr.i35, ptr %pc.sroa.2.0.piece_.sroa_idx.i41, align 8
+  store ptr %add.ptr.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i41, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp54)
           to label %if.end62 unwind label %lpad36
 

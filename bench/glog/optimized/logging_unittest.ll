@@ -3513,7 +3513,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %131
   %142 = landingpad { ptr, i32 }
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
-  tail call void @__clang_call_terminate(ptr %143) #47
+  tail call void @__clang_call_terminate(ptr %143) #47, !noalias !127
   unreachable
 
 _ZnwmRKSt9nothrow_t.exit.i.i.i.i.i.i.i.i.i.i:     ; preds = %140, %138
@@ -3724,7 +3724,7 @@ _ZNSt10unique_ptrI8_IO_FILESt14default_deleteIS0_EED2Ev.exit39.i.i: ; preds = %2
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #47
+  call void @__clang_call_terminate(ptr %212) #47, !noalias !113
   unreachable
 
 _ZN6googleL21GetCapturedTestStderrB5cxx11Ev.exit: ; preds = %_ZNSt10unique_ptrI8_IO_FILESt14default_deleteIS0_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN6google14CapturedStreamEEclEPS1_.exit.i.i.i
@@ -19185,10 +19185,8 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
   br label %26
 
 23:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %17, %15
-  %.pr38 = phi i64 [ %19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %19, %17 ], [ %.pr3639, %15 ]
   %24 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.pr38, ptr %1, align 8
   invoke void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2)
           to label %25 unwind label %75
 
@@ -26878,7 +26876,6 @@ _Znwm.exit:                                       ; preds = %_ZnwmRKSt9nothrow_t
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i16, ptr %31, align 8
   store i16 %32, ptr %30, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTableB5cxx11, ptr %33, align 8, !tbaa !368
   %34 = load ptr, ptr @_ZN6google10g_new_hookE, align 8, !tbaa !52
@@ -41466,7 +41463,6 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %._crit_edge210, %16
   br i1 %28, label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit, label %169
 
 169:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit
-  store i32 -1, ptr %7, align 4, !tbaa !53
   %170 = invoke i32 @close(i32 noundef %27)
           to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit unwind label %171
 
@@ -48990,7 +48986,6 @@ _ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15Monomorphic
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i8, ptr %26, align 8, !tbaa !770, !range !105, !noundef !106
   store i8 %27, ptr %25, align 8, !tbaa !770
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTableB5cxx11, ptr %28, align 8, !tbaa !368
   %29 = load ptr, ptr @_ZN6google10g_new_hookE, align 8, !tbaa !52
@@ -52754,7 +52749,6 @@ _Znwm.exit:                                       ; preds = %_ZnwmRKSt9nothrow_t
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %26
   store i8 0, ptr %29, align 1, !tbaa !128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #46
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTableB5cxx11, ptr %30, align 8, !tbaa !368
   %31 = load ptr, ptr @_ZN6google10g_new_hookE, align 8, !tbaa !52

@@ -293,7 +293,6 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9e8e2a7c9d51da6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store ptr %14, ptr %1, align 8
   store i64 %15, ptr %11, align 8
-  store i64 0, ptr %4, align 8
   br label %24
 
 16:                                               ; preds = %7
@@ -301,7 +300,6 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9e8e2a7c9d51da6
   %18 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb7ee974697ca325fE"(i64 noundef %17, i1 noundef zeroext false)
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
-  store i64 %2, ptr %4, align 8
   %21 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds i8, ptr %21, i64 %2
   %23 = icmp ne ptr %19, null
@@ -315,6 +313,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9e8e2a7c9d51da6
   br label %24
 
 24:                                               ; preds = %10, %16
+  store i64 %2, ptr %4, align 8
   ret void
 }
 
@@ -2013,25 +2012,24 @@ define hidden void @_ZN15ockam_multiaddr9split_off17hbc66e5754c724a50E(ptr noali
   %.sroa.0.0.copyload1 = load ptr, ptr %41, align 8, !alias.scope !577
   store ptr %56, ptr %41, align 8, !alias.scope !575, !noalias !572
   store i64 %57, ptr %53, align 8, !alias.scope !575, !noalias !572
-  store i64 0, ptr %42, align 8, !alias.scope !575, !noalias !572
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9e8e2a7c9d51da68E.llvm.15521009673977008026.exit"
 
 58:                                               ; preds = %49
   %59 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb7ee974697ca325fE"(i64 noundef %44, i1 noundef zeroext false), !noalias !577
   %60 = extractvalue { ptr, i64 } %59, 0
   %61 = extractvalue { ptr, i64 } %59, 1
-  store i64 %2, ptr %42, align 8, !alias.scope !575, !noalias !572
   %62 = load ptr, ptr %41, align 8, !alias.scope !575, !noalias !572, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds i8, ptr %62, i64 %2
   %64 = icmp ne ptr %60, null
   tail call void @llvm.assume(i1 %64)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %63, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %63, i64 %44, i1 false), !noalias !577
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9e8e2a7c9d51da68E.llvm.15521009673977008026.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9e8e2a7c9d51da68E.llvm.15521009673977008026.exit": ; preds = %52, %58
   %.sroa.6.0 = phi i64 [ %43, %52 ], [ %44, %58 ]
   %.sroa.5.0 = phi i64 [ %54, %52 ], [ %61, %58 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload1, %52 ], [ %60, %58 ]
+  store i64 %2, ptr %42, align 8, !alias.scope !575, !noalias !572
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %65, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2672,7 +2670,7 @@ attributes #18 = { noinline noreturn nounwind }
 !412 = distinct !{!412, !"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4d64c97c9456e213E.llvm.2331115699542867012"}
 !413 = !{!414, !407}
 !414 = distinct !{!414, !412, !"_ZN87_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4d64c97c9456e213E.llvm.2331115699542867012: argument 1"}
-!415 = !{!416, !403, !407, !400}
+!415 = !{!416, !414, !403, !407, !400}
 !416 = distinct !{!416, !417, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.llvm.2331115699542867012: argument 0"}
 !417 = distinct !{!417, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.llvm.2331115699542867012"}
 !418 = !{!419}

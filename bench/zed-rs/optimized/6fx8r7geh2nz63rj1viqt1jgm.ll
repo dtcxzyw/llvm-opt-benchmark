@@ -6318,7 +6318,6 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %.sroa.679.sroa.7.sroa.0 = alloca [408 x i8], align 8
   %.sroa.679.sroa.7.sroa.7 = alloca [48 x i8], align 8
   %.sroa.679.sroa.7.sroa.8 = alloca [88 x i8], align 8
-  %.sroa.679.sroa.8 = alloca [16 x i8], align 8
   %.sroa.038 = alloca [592 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -6418,7 +6417,6 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %.sroa.679.sroa.7.sroa.0)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.679.sroa.7.sroa.7)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.679.sroa.7.sroa.8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.679.sroa.8)
   %45 = invoke { i64, ptr } @"_ZN17async_tungstenite6compat17AllowStd$LT$S$GT$12with_context17h07714523fba4d6b0E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(552) %1, i1 noundef zeroext true)
           to label %154 unwind label %15
 
@@ -6846,7 +6844,6 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %.sroa.679.sroa.7.sroa.0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.679.sroa.7.sroa.7)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.679.sroa.7.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.679.sroa.8)
   br label %"_ZN4core3ptr77drop_in_place$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hb3c73d54f0cc1b34E.exit171"
 
 163:                                              ; preds = %.noexc174
@@ -6884,13 +6881,10 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.679.sroa.7.sroa.7.0..sroa.679.sroa.7.0..sroa.679.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.679.sroa.7.sroa.7, i64 48, i1 false)
   %.sroa.679.sroa.7.sroa.8.0..sroa.679.sroa.7.0..sroa.679.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.679.sroa.7.sroa.8.0..sroa.679.sroa.7.0..sroa.679.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.679.sroa.7.sroa.8, i64 88, i1 false)
-  %.sroa.679.sroa.8.0..sroa.679.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 704
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.679.sroa.8.0..sroa.679.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.679.sroa.8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.679.sroa.0)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %.sroa.679.sroa.7.sroa.0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.679.sroa.7.sroa.7)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.679.sroa.7.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.679.sroa.8)
   br label %"_ZN4core3ptr77drop_in_place$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hb3c73d54f0cc1b34E.exit173"
 
 .thread245:                                       ; preds = %99, %.thread
@@ -6949,7 +6943,6 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %3 = alloca [16 x i8], align 8
   %.sroa.692.sroa.6 = alloca [48 x i8], align 8
   %.sroa.692.sroa.7 = alloca [32 x i8], align 8
-  %.sroa.794 = alloca [96 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -7045,7 +7038,6 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
 44:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.692.sroa.6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.692.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.794)
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %46 = invoke { i64, ptr } @"_ZN17async_tungstenite6compat17AllowStd$LT$S$GT$12with_context17ha498aa824ea7d835E.llvm.11381115128112186458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext true)
           to label %159 unwind label %15
@@ -7477,7 +7469,6 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   store i64 6, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.692.sroa.6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.692.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.794)
   br label %"_ZN4core3ptr77drop_in_place$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hb3c73d54f0cc1b34E.exit184"
 
 168:                                              ; preds = %.noexc187
@@ -7500,11 +7491,8 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.692.sroa.6.0..sroa.692.0..sroa_idx93.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.692.sroa.6, i64 48, i1 false)
   %.sroa.692.sroa.7.0..sroa.692.0..sroa_idx93.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.692.sroa.7.0..sroa.692.0..sroa_idx93.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.692.sroa.7, i64 32, i1 false)
-  %.sroa.794.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.794.0..sroa_idx95, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.794, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.692.sroa.6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.692.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.794)
   br label %"_ZN4core3ptr77drop_in_place$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hb3c73d54f0cc1b34E.exit186"
 
 .thread261:                                       ; preds = %101, %.thread

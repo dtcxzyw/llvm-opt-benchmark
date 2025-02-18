@@ -7585,7 +7585,6 @@ _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt8fun
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   %15 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i14 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i14, label %_ZN8facebook3jsi6ObjectD2Ev.exit, label %if.then.i.i15
@@ -7650,21 +7649,17 @@ terminate.lpad.i.i28:                             ; preds = %if.then.i.i26
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29: ; preds = %_ZNSt8functionIFvvEED2Ev.exit23, %if.then.i.i26
   %27 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i30 = icmp eq ptr %27, null
-  br i1 %cmp.not.i30, label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34, label %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31
+  br i1 %cmp.not.i30, label %ehcleanup, label %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29
   %vtable.i.i32 = load ptr, ptr %27, align 8
   %vfn.i.i33 = getelementptr inbounds nuw i8, ptr %vtable.i.i32, i64 8
   %28 = load ptr, ptr %vfn.i.i33, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(36) %27) #29
-  br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34
-
-_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31
-  store ptr null, ptr %agg.tmp, align 8
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34, %lpad
-  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34 ], [ %19, %lpad ]
+ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29, %lpad
+  %.pn = phi { ptr, i32 } [ %19, %lpad ], [ %20, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29 ], [ %20, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31 ]
   %29 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i35 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i35, label %_ZN8facebook3jsi6ObjectD2Ev.exit39, label %if.then.i.i36
@@ -12552,7 +12547,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #31
+  call void @__clang_call_terminate(ptr %10) #31, !noalias !354
   unreachable
 
 lpad11.i.i.i:                                     ; preds = %if.end.i.i.i
@@ -12582,7 +12577,7 @@ terminate.lpad.i.i11.i.i.i:                       ; preds = %if.then.i.i9.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #31
+  call void @__clang_call_terminate(ptr %16) #31, !noalias !354
   unreachable
 
 eh.resume.i.i.i:                                  ; preds = %if.then.i.i9.i.i.i, %ehcleanup16.i.i.i, %cleanup.action.i.i.i, %ehcleanup7.i.i.i
@@ -13306,7 +13301,7 @@ terminate.lpad.i.i53.i.i.i:                       ; preds = %if.then.i.i51.i.i.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #31
+  call void @__clang_call_terminate(ptr %15) #31, !noalias !402
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit.i.i.i:           ; preds = %if.then.i.i51.i.i.i, %invoke.cont23.i.i.i
@@ -13469,7 +13464,7 @@ terminate.lpad.i.i98.i.i.i:                       ; preds = %if.then.i.i96.i.i.i
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #31
+  call void @__clang_call_terminate(ptr %46) #31, !noalias !402
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %if.then.i.i96.i.i.i, %lpad22.i.i.i, %lpad20.i.i.i
@@ -16807,8 +16802,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %call7.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #29, !noalias !555
   %vtable.i.i.i.i = load ptr, ptr %3, align 8, !noalias !558
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
-  %4 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !561
-  call void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %2)
+  %4 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !558
+  call void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %2), !noalias !555
   %call9.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i.i.i) #29, !noalias !555
   invoke void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.29, ptr noundef %call6.i.i.i, ptr noundef %call7.i.i.i, ptr noundef %call9.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !555
@@ -17830,7 +17825,6 @@ attributes #34 = { nounwind willreturn memory(none) }
 !555 = !{!556, !551, !553}
 !556 = distinct !{!556, !557, !"_ZZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St8functionIFbvEEENK3$_0clB5cxx11Ev: %agg.result"}
 !557 = distinct !{!557, !"_ZZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St8functionIFbvEEENK3$_0clB5cxx11Ev"}
-!558 = !{!559}
+!558 = !{!559, !556, !551, !553}
 !559 = distinct !{!559, !560, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
 !560 = distinct !{!560, !"_ZNKSt10error_code7messageB5cxx11Ev"}
-!561 = !{!559, !556, !551, !553}

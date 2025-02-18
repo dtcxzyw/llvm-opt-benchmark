@@ -51,7 +51,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 20:                                               ; preds = %3
   %21 = load i64, ptr %13, align 8
-  call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %12, i64 %21) #7
+  call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %12, i64 %21) #6
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %37
@@ -66,7 +66,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 22:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr145drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h09e0e24fb0248e79E"(ptr nonnull align 8 %7) #8
+  invoke void @"_ZN4core3ptr145drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h09e0e24fb0248e79E"(ptr nonnull align 8 %7) #7
           to label %45 unwind label %43
 
 23:                                               ; preds = %14
@@ -110,7 +110,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
           to label %40 unwind label %.loopexit
 
 38:                                               ; preds = %35
-  invoke void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 %32, i64 %25, ptr nonnull align 8 @anon.0bd0d872490927865d589593d9801a8f.4) #7
+  invoke void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 %32, i64 %25, ptr nonnull align 8 @anon.0bd0d872490927865d589593d9801a8f.4) #6
           to label %39 unwind label %.loopexit.split-lp
 
 39:                                               ; preds = %38
@@ -118,7 +118,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds [0 x { [5 x i64] }], ptr %24, i64 0, i64 %32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %42 = icmp eq i64 %.pr, 0
   br i1 %42, label %._crit_edge, label %.lr.ph
@@ -126,11 +126,11 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 43:                                               ; preds = %45, %22
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #8
   unreachable
 
 45:                                               ; preds = %22
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$$GT$17hc20cac6ab2edaf04E"(ptr nonnull align 8 %8) #8
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$$GT$17hc20cac6ab2edaf04E"(ptr nonnull align 8 %8) #7
           to label %46 unwind label %43
 
 46:                                               ; preds = %45
@@ -181,19 +181,15 @@ declare void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64, i64) unnamed_addr #4
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
-
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn }
-attributes #8 = { cold }
-attributes #9 = { cold noreturn nounwind }
+attributes #6 = { noreturn }
+attributes #7 = { cold }
+attributes #8 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

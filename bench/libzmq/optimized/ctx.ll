@@ -4570,37 +4570,36 @@ for.end:                                          ; preds = %invoke.cont15, %inv
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %for.end
-  %8 = load ptr, ptr %locker, align 8
-  %call.i.i7 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %8) #20
+  %call.i.i7 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %_endpoints_sync) #20
   %tobool.not.i.i8 = icmp eq i32 %call.i.i7, 0
   br i1 %tobool.not.i.i8, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %invoke.cont25
   %call2.i.i10 = call ptr @strerror(i32 noundef %call.i.i7) #20
+  %8 = load ptr, ptr @stderr, align 8
+  %call3.i.i11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef %call2.i.i10, ptr noundef nonnull @.str.10, i32 noundef 125) #22
   %9 = load ptr, ptr @stderr, align 8
-  %call3.i.i11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %call2.i.i10, ptr noundef nonnull @.str.10, i32 noundef 125) #22
-  %10 = load ptr, ptr @stderr, align 8
-  %call4.i.i12 = call i32 @fflush(ptr noundef %10)
+  %call4.i.i12 = call i32 @fflush(ptr noundef %9)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i.i10)
           to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i9
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #23
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 _ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %invoke.cont25, %if.then.i.i9
   ret void
 
 lpad24:                                           ; preds = %for.end
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %lpad24, %ehcleanup17, %ehcleanup
-  %.pn3.pn = phi { ptr, i32 } [ %.pn3, %ehcleanup17 ], [ %13, %lpad24 ], [ %.pn, %ehcleanup ]
+  %.pn3.pn = phi { ptr, i32 } [ %.pn3, %ehcleanup17 ], [ %12, %lpad24 ], [ %.pn, %ehcleanup ]
   call void @_ZN3zmq13scoped_lock_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %locker) #20
   resume { ptr, i32 } %.pn3.pn
 }

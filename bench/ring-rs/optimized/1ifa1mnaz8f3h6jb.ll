@@ -432,7 +432,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
   %5 = tail call { ptr, i64 } @"_ZN4ring10arithmetic6bigint11boxed_limbs19BoxedLimbs$LT$M$GT$30from_be_bytes_padded_less_than17h5bde64a0c5abdb2bE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
   %.fca.0.extract = extractvalue { ptr, i64 } %5, 0
   %6 = icmp eq ptr %.fca.0.extract, null
-  br i1 %6, label %17, label %7
+  br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
   %.fca.1.extract = extractvalue { ptr, i64 } %5, 1
@@ -446,31 +446,26 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit" unwind label %20
+          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit" unwind label %17
 
 12:                                               ; preds = %7
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %13, label %16
+  br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !nonnull !4, !align !50, !noundef !4
-  %15 = load i64, ptr %8, align 8, !noundef !4
-  br label %17
-
-16:                                               ; preds = %12
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  br label %17
+  br label %14
 
-17:                                               ; preds = %16, %3, %13
-  %.sroa.4.0 = phi i64 [ %15, %13 ], [ undef, %3 ], [ undef, %16 ]
-  %.sroa.0.1 = phi ptr [ %14, %13 ], [ null, %3 ], [ null, %16 ]
+14:                                               ; preds = %12, %13, %3
+  %.sroa.4.0 = phi i64 [ undef, %3 ], [ undef, %13 ], [ %.fca.1.extract, %12 ]
+  %.sroa.0.1 = phi ptr [ null, %3 ], [ null, %13 ], [ %.fca.0.extract, %12 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %19
+  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %16
 
-20:                                               ; preds = %10
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
@@ -486,7 +481,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
   %5 = tail call { ptr, i64 } @"_ZN4ring10arithmetic6bigint11boxed_limbs19BoxedLimbs$LT$M$GT$30from_be_bytes_padded_less_than17hcc1c8cde7baf9932E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
   %.fca.0.extract = extractvalue { ptr, i64 } %5, 0
   %6 = icmp eq ptr %.fca.0.extract, null
-  br i1 %6, label %17, label %7
+  br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
   %.fca.1.extract = extractvalue { ptr, i64 } %5, 1
@@ -500,31 +495,26 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit" unwind label %20
+          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit" unwind label %17
 
 12:                                               ; preds = %7
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %13, label %16
+  br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !nonnull !4, !align !50, !noundef !4
-  %15 = load i64, ptr %8, align 8, !noundef !4
-  br label %17
-
-16:                                               ; preds = %12
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  br label %17
+  br label %14
 
-17:                                               ; preds = %16, %3, %13
-  %.sroa.4.0 = phi i64 [ %15, %13 ], [ undef, %3 ], [ undef, %16 ]
-  %.sroa.0.1 = phi ptr [ %14, %13 ], [ null, %3 ], [ null, %16 ]
+14:                                               ; preds = %12, %13, %3
+  %.sroa.4.0 = phi i64 [ undef, %3 ], [ undef, %13 ], [ %.fca.1.extract, %12 ]
+  %.sroa.0.1 = phi ptr [ null, %3 ], [ null, %13 ], [ %.fca.0.extract, %12 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %19
+  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %16
 
-20:                                               ; preds = %10
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable

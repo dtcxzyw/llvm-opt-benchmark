@@ -965,7 +965,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -1191,7 +1190,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -1417,7 +1415,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -1643,7 +1640,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -1869,7 +1865,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -2095,7 +2090,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -2321,7 +2315,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -2547,7 +2540,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 
@@ -2773,7 +2765,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE, i64 16), ptr %22, align 8, !tbaa !3
   store ptr %22, ptr %4, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !13
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %39 unwind label %26
 

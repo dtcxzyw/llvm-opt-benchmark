@@ -6087,7 +6087,7 @@ define hidden void @"_ZN102_$LT$rayon..iter..extend..ListVecFolder$LT$T$GT$$u20$
   %34 = extractvalue { ptr, ptr } %24, 1
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 24, i1 false), !noalias !1749
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !1741
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
@@ -6172,7 +6172,7 @@ define hidden void @"_ZN102_$LT$rayon..iter..extend..ListVecFolder$LT$T$GT$$u20$
   %24 = extractvalue { ptr, ptr } %14, 1
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 24, i1 false), !noalias !1758
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !1750
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
@@ -15264,7 +15264,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   unreachable
 
 50:                                               ; preds = %.noexc.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %42, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %42, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4)
   store i64 1, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17967,7 +17967,7 @@ common.resume.i.i.i:                              ; preds = %61, %58, %.noexc.i1
 
 37:                                               ; preds = %.noexc.i
   invoke void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$8schedule17he8a38ba47af6ca0aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, ptr noundef nonnull %35)
-          to label %63 unwind label %38
+          to label %63 unwind label %38, !noalias !5333
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -17975,14 +17975,14 @@ common.resume.i.i.i:                              ; preds = %61, %58, %.noexc.i1
   %40 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %40)
   %41 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h017c652fb4642e52E(ptr noundef nonnull align 8 %34)
-          to label %.noexc.i.i.i.i unwind label %43
+          to label %.noexc.i.i.i.i unwind label %43, !noalias !5333
 
 .noexc.i.i.i.i:                                   ; preds = %38
   br i1 %41, label %42, label %common.resume.i.i.i
 
 42:                                               ; preds = %.noexc.i.i.i.i
   invoke void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17h430ff7571b004f61E(ptr noundef nonnull %34)
-          to label %common.resume.i.i.i unwind label %43
+          to label %common.resume.i.i.i unwind label %43, !noalias !5333
 
 43:                                               ; preds = %42, %38
   %44 = landingpad { ptr, i32 }
@@ -18013,7 +18013,7 @@ common.resume.i.i.i:                              ; preds = %61, %58, %.noexc.i1
   %53 = extractvalue { ptr, ptr } %50, 1
   call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %3), !noalias !5339
   invoke void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$34schedule_option_task_without_yield17hb7c820b49aebcc4eE"(ptr noundef nonnull align 8 %51, ptr noundef %53)
-          to label %63 unwind label %54
+          to label %63 unwind label %54, !noalias !5339
 
 54:                                               ; preds = %.noexc8.i
   %55 = landingpad { ptr, i32 }
@@ -18021,14 +18021,14 @@ common.resume.i.i.i:                              ; preds = %61, %58, %.noexc.i1
   %56 = icmp ne ptr %52, null
   tail call void @llvm.assume(i1 %56)
   %57 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h017c652fb4642e52E(ptr noundef nonnull align 8 %52)
-          to label %.noexc.i1.i.i.i unwind label %59
+          to label %.noexc.i1.i.i.i unwind label %59, !noalias !5339
 
 .noexc.i1.i.i.i:                                  ; preds = %54
   br i1 %57, label %58, label %common.resume.i.i.i
 
 58:                                               ; preds = %.noexc.i1.i.i.i
   invoke void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17h430ff7571b004f61E(ptr noundef nonnull %52)
-          to label %common.resume.i.i.i unwind label %59
+          to label %common.resume.i.i.i unwind label %59, !noalias !5339
 
 59:                                               ; preds = %58, %54
   %60 = landingpad { ptr, i32 }
@@ -122312,9 +122312,6 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #55
-
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove13assert_failed17ha1f1406c93facb73E"(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #47
 
@@ -137699,7 +137696,7 @@ attributes #73 = { "function-inline-cost-multiplier"="2" }
 !10782 = distinct !{!10782, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hccc16b8904f5f4f4E.llvm.8666068179502612882"}
 !10783 = distinct !{!10783, !10782, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hccc16b8904f5f4f4E.llvm.8666068179502612882: argument 1"}
 !10784 = distinct !{!10784, !10779, !"_ZN11meilisearch6routes7api_key7KeyView8from_key28_$u7b$$u7b$closure$u7d$$u7d$17h0c8929376ef519cdE: argument 1"}
-!10785 = !{!10781}
+!10785 = !{!10781, !10778, !10775}
 !10786 = !{!10787, !10789, !10791, !10793, !10795, !10778, !10784, !10775}
 !10787 = distinct !{!10787, !10788, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5cec23cd4139c38E.llvm.4616129397091597767: argument 0"}
 !10788 = distinct !{!10788, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5cec23cd4139c38E.llvm.4616129397091597767"}

@@ -677,7 +677,7 @@ define void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9
   %17 = extractvalue { i64, ptr } %12, 1
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !87
   store i64 %16, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %17, ptr %.sroa.4.0..sroa_idx, align 8
@@ -743,15 +743,15 @@ define noundef zeroext i1 @"_ZN100_$LT$diesel_migrations..file_based_migrations.
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4c603e1027e347b1E.llvm.8019910602108487998", ptr %5, align 8
-  store ptr @anon.f05583c20e936c7444078a8b9c1f847e.6.llvm.8019910602108487998, ptr %4, align 8, !alias.scope !87, !noalias !90
+  store ptr @anon.f05583c20e936c7444078a8b9c1f847e.6.llvm.8019910602108487998, ptr %4, align 8, !alias.scope !90, !noalias !93
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %6, align 8, !alias.scope !87, !noalias !90
+  store i64 1, ptr %6, align 8, !alias.scope !90, !noalias !93
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %7, align 8, !alias.scope !87, !noalias !90
+  store ptr null, ptr %7, align 8, !alias.scope !90, !noalias !93
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %8, align 8, !alias.scope !87, !noalias !90
+  store ptr %3, ptr %8, align 8, !alias.scope !90, !noalias !93
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %9, align 8, !alias.scope !87, !noalias !90
+  store i64 1, ptr %9, align 8, !alias.scope !90, !noalias !93
   %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -976,8 +976,11 @@ attributes #13 = { cold noreturn nounwind }
 !85 = distinct !{!85, !86, !"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E: argument 0"}
 !86 = distinct !{!86, !"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998: argument 0"}
-!89 = distinct !{!89, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998"}
-!90 = !{!91, !92}
-!91 = distinct !{!91, !89, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998: argument 1"}
-!92 = distinct !{!92, !89, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998: argument 2"}
+!88 = distinct !{!88, !89, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf2bc0573058dd4b7E: argument 0"}
+!89 = distinct !{!89, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf2bc0573058dd4b7E"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998: argument 0"}
+!92 = distinct !{!92, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998"}
+!93 = !{!94, !95}
+!94 = distinct !{!94, !92, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998: argument 1"}
+!95 = distinct !{!95, !92, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.8019910602108487998: argument 2"}

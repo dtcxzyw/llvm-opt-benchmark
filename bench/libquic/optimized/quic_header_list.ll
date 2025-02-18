@@ -2008,8 +2008,8 @@ define linkonce_odr void @_ZSt16__do_uninit_copyISt15_Deque_iteratorISt4pairINSt
   store ptr %16, ptr %14, align 8, !tbaa !23
   %17 = load ptr, ptr %1, align 8, !tbaa !39
   %18 = load ptr, ptr %2, align 8, !tbaa !39
-  %.not12 = icmp eq ptr %17, %18
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %17, %18
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2086,52 +2086,48 @@ _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %59 = load ptr, ptr %15, align 8, !tbaa !23
   store ptr %59, ptr %58, align 8, !tbaa !23
-  %60 = load ptr, ptr %0, align 8, !tbaa !20
-  store ptr %60, ptr %6, align 8, !tbaa !20
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %62 = load ptr, ptr %8, align 8, !tbaa !21
-  store ptr %62, ptr %61, align 8, !tbaa !21
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %64 = load ptr, ptr %11, align 8, !tbaa !22
-  store ptr %64, ptr %63, align 8, !tbaa !22
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %66 = load ptr, ptr %14, align 8, !tbaa !23
-  store ptr %66, ptr %65, align 8, !tbaa !23
+  store ptr %24, ptr %6, align 8, !tbaa !20
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %27, ptr %60, align 8, !tbaa !21
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %25, ptr %61, align 8, !tbaa !22
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %26, ptr %62, align 8, !tbaa !23
   invoke void @_ZSt8_DestroyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEvT_SC_(ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %67 unwind label %68
+          to label %63 unwind label %64
 
-67:                                               ; preds = %49
+63:                                               ; preds = %49
   invoke void @__cxa_rethrow() #20
-          to label %74 unwind label %68
+          to label %70 unwind label %64
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit, %4
-  %.lcssa10 = phi ptr [ %10, %4 ], [ %44, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
-  %.lcssa7 = phi ptr [ %16, %4 ], [ %45, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
-  %.lcssa4 = phi ptr [ %13, %4 ], [ %46, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
-  %.lcssa = phi ptr [ %7, %4 ], [ %47, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
-  store ptr %.lcssa, ptr %0, align 8
-  store ptr %.lcssa4, ptr %11, align 8
-  store ptr %.lcssa7, ptr %14, align 8
-  store ptr %.lcssa10, ptr %8, align 8
+  %.lcssa11 = phi ptr [ %10, %4 ], [ %44, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
+  %.lcssa8 = phi ptr [ %16, %4 ], [ %45, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
+  %.lcssa5 = phi ptr [ %13, %4 ], [ %46, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
+  %.lcssa2 = phi ptr [ %7, %4 ], [ %47, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
+  store ptr %.lcssa2, ptr %0, align 8
+  store ptr %.lcssa5, ptr %11, align 8
+  store ptr %.lcssa8, ptr %14, align 8
+  store ptr %.lcssa11, ptr %8, align 8
   ret void
 
-68:                                               ; preds = %67, %49
-  %69 = landingpad { ptr, i32 }
+64:                                               ; preds = %63, %49
+  %65 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %70 unwind label %71
+          to label %66 unwind label %67
 
-70:                                               ; preds = %68
-  resume { ptr, i32 } %69
+66:                                               ; preds = %64
+  resume { ptr, i32 } %65
 
-71:                                               ; preds = %68
-  %72 = landingpad { ptr, i32 }
+67:                                               ; preds = %64
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #19
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #19
   unreachable
 
-74:                                               ; preds = %67
+70:                                               ; preds = %63
   unreachable
 }
 

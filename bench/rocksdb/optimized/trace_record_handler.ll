@@ -1425,6 +1425,7 @@ cond.false.i:                                     ; preds = %invoke.cont92
 
 cond.end.i:                                       ; preds = %cond.false.i
   %.pre.i = load ptr, ptr %ref.tmp.i, align 8
+  store ptr null, ptr %ref.tmp.i, align 8
   store ptr %.pre.i, ptr %state_.i, align 8
   br label %invoke.cont95
 

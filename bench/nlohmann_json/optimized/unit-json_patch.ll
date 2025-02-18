@@ -38785,7 +38785,6 @@ sw.default.i.i.i:                                 ; preds = %invoke.cont440
 if.then.i:                                        ; preds = %invoke.cont440
   %161 = load ptr, ptr %m_value8.i.i.i, align 8, !noalias !631
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store ptr %add.ptr.i.i.i.i.i, ptr %m_it.i.i.i, align 8, !alias.scope !631
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %161, i64 16
   %162 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !625
   %cmp.not6.i.i.i.i = icmp eq ptr %162, null
@@ -38802,7 +38801,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  call void @__clang_call_terminate(ptr %164) #25
+  call void @__clang_call_terminate(ptr %164) #25, !noalias !625
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -38827,7 +38826,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #25
+  call void @__clang_call_terminate(ptr %166) #25, !noalias !625
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
@@ -39404,7 +39403,6 @@ sw.default.i.i.i496:                              ; preds = %invoke.cont580
 if.then.i467:                                     ; preds = %invoke.cont580
   %230 = load ptr, ptr %m_value.i.i319, align 8, !noalias !664
   %add.ptr.i.i.i.i.i469 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store ptr %add.ptr.i.i.i.i.i469, ptr %m_it.i.i.i461, align 8, !alias.scope !664
   %_M_parent.i.i.i.i.i470 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %231 = load ptr, ptr %_M_parent.i.i.i.i.i470, align 8, !noalias !658
   %cmp.not6.i.i.i.i471 = icmp eq ptr %231, null
@@ -39421,7 +39419,7 @@ terminate.lpad.i.i.i.i.i.i477:                    ; preds = %while.body.i.i.i.i4
   %232 = landingpad { ptr, i32 }
           catch ptr null
   %233 = extractvalue { ptr, i32 } %232, 0
-  call void @__clang_call_terminate(ptr %233) #25
+  call void @__clang_call_terminate(ptr %233) #25, !noalias !658
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i478: ; preds = %while.body.i.i.i.i472
@@ -39446,7 +39444,7 @@ terminate.lpad.i.i.i.i.i490:                      ; preds = %lor.lhs.false.i.i.i
   %234 = landingpad { ptr, i32 }
           catch ptr null
   %235 = extractvalue { ptr, i32 } %234, 0
-  call void @__clang_call_terminate(ptr %235) #25
+  call void @__clang_call_terminate(ptr %235) #25, !noalias !658
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i491: ; preds = %lor.lhs.false.i.i.i487
@@ -41128,7 +41126,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #25, !noalias !688
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -41153,7 +41151,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  tail call void @__clang_call_terminate(ptr %7) #25, !noalias !688
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
@@ -41314,7 +41312,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #25, !noalias !702
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -41339,7 +41337,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  tail call void @__clang_call_terminate(ptr %7) #25, !noalias !702
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
@@ -41487,7 +41485,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #25, !noalias !716
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -41512,7 +41510,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  tail call void @__clang_call_terminate(ptr %7) #25, !noalias !716
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
@@ -63259,7 +63257,6 @@ if.then.i:                                        ; preds = %invoke.cont2
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i11, i64 8
   %5 = load ptr, ptr %m_value.i.i.i, align 8, !noalias !895
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %add.ptr.i.i.i.i.i, ptr %m_it.i.i.i, align 8, !alias.scope !895
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !noalias !889
   %cmp.not6.i.i.i.i = icmp eq ptr %6, null
@@ -63276,7 +63273,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #25
+  call void @__clang_call_terminate(ptr %8) #25, !noalias !889
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -63301,7 +63298,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #25
+  call void @__clang_call_terminate(ptr %10) #25, !noalias !889
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
