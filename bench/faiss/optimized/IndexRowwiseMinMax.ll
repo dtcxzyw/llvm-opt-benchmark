@@ -1412,14 +1412,10 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
 .lr.ph141.i:                                      ; preds = %.preheader.i
   %123 = sext i32 %12 to i64
   %124 = icmp sgt i32 %12, 0
-  br i1 %124, label %.lr.ph138.us.preheader.i, label %._crit_edge142.i
+  br i1 %124, label %.lr.ph138.us.i, label %._crit_edge142.i
 
-.lr.ph138.us.preheader.i:                         ; preds = %.lr.ph141.i
-  %smax.i = call i64 @llvm.smax.i64(i64 %1, i64 1)
-  br label %.lr.ph138.us.i
-
-.lr.ph138.us.i:                                   ; preds = %._crit_edge139.us.i, %.lr.ph138.us.preheader.i
-  %.057140.us.i = phi i64 [ %168, %._crit_edge139.us.i ], [ 0, %.lr.ph138.us.preheader.i ]
+.lr.ph138.us.i:                                   ; preds = %.lr.ph141.i, %._crit_edge139.us.i
+  %.057140.us.i = phi i64 [ %168, %._crit_edge139.us.i ], [ 0, %.lr.ph141.i ]
   %125 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.095.0106.i, i64 %.057140.us.i
   %.val.us.i = load i16, ptr %125, align 2, !tbaa !37
   %126 = getelementptr i8, ptr %125, i64 2
@@ -1476,7 +1472,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
 
 ._crit_edge139.us.i:                              ; preds = %163
   %168 = add nuw nsw i64 %.057140.us.i, 1
-  %exitcond148.not.i = icmp eq i64 %168, %smax.i
+  %exitcond148.not.i = icmp eq i64 %168, %1
   br i1 %exitcond148.not.i, label %._crit_edge142.i, label %.lr.ph138.us.i, !llvm.loop !52
 
 ._crit_edge142.i:                                 ; preds = %._crit_edge139.us.i, %.lr.ph141.i, %.preheader.i
@@ -2502,14 +2498,10 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
 .lr.ph125.i:                                      ; preds = %.preheader.i
   %59 = sext i32 %12 to i64
   %60 = icmp sgt i32 %12, 0
-  br i1 %60, label %.lr.ph.us127.preheader.i, label %._crit_edge126.i
+  br i1 %60, label %.lr.ph.us127.i, label %._crit_edge126.i
 
-.lr.ph.us127.preheader.i:                         ; preds = %.lr.ph125.i
-  %smax.i = call i64 @llvm.smax.i64(i64 %1, i64 1)
-  br label %.lr.ph.us127.i
-
-.lr.ph.us127.i:                                   ; preds = %._crit_edge.us128.i, %.lr.ph.us127.preheader.i
-  %.057124.us.i = phi i64 [ %72, %._crit_edge.us128.i ], [ 0, %.lr.ph.us127.preheader.i ]
+.lr.ph.us127.i:                                   ; preds = %.lr.ph125.i, %._crit_edge.us128.i
+  %.057124.us.i = phi i64 [ %72, %._crit_edge.us128.i ], [ 0, %.lr.ph125.i ]
   %61 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.087.097.i, i64 %.057124.us.i
   %62 = load float, ptr %61, align 4, !tbaa !59
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -2530,7 +2522,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
 
 ._crit_edge.us128.i:                              ; preds = %67
   %72 = add nuw nsw i64 %.057124.us.i, 1
-  %exitcond136.not.i = icmp eq i64 %72, %smax.i
+  %exitcond136.not.i = icmp eq i64 %72, %1
   br i1 %exitcond136.not.i, label %._crit_edge126.i, label %.lr.ph.us127.i, !llvm.loop !71
 
 ._crit_edge126.i:                                 ; preds = %._crit_edge.us128.i, %.lr.ph125.i, %.preheader.i
@@ -2805,9 +2797,6 @@ declare i64 @llvm.smin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #21
 
 attributes #0 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

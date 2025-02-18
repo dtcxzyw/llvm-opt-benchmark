@@ -9362,8 +9362,7 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.
   br i1 %.not, label %._crit_edge.thread, label %.preheader168.us.preheader
 
 .preheader168.us.preheader:                       ; preds = %.preheader168.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %34 to i64
   br label %.preheader168.us
 
 .preheader168.us:                                 ; preds = %.preheader168.us.preheader, %._crit_edge.us
@@ -9464,8 +9463,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.us:       ; preds = %_ZNSt6vectorIhSaIhE
 
 .lr.ph236:                                        ; preds = %.preheader164
   %172 = add nsw i32 %135, 1
-  %smax277 = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
-  %wide.trip.count278 = zext nneg i32 %smax277 to i64
+  %wide.trip.count278 = zext nneg i32 %34 to i64
   br label %175
 
 .split.us.invoke:                                 ; preds = %150, %204, %244

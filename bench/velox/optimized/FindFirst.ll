@@ -11151,9 +11151,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %add5.i.i.i.i.i.i = add nsw i32 %38, 1
   %add6.i.i.i.i.i.i = add nsw i32 %40, %add5.i.i.i.i.i.i
   %cmp.i9.i.i.i.i.i.i = icmp eq i32 %40, 0
-  br i1 %cmp.i9.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i, label %if.end.i19.i.i.i.i.i.i
+  br i1 %cmp.i9.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_ENKUlT_E_clImEEDaSB_.exit.i.i.i.i.i, label %if.end.i10.i.i.i.i.i.i
 
-if.end.i19.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
+if.end.i10.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
   %47 = load ptr, ptr %33, align 8
   %add.i.i20.i.i.i.i.i.i = add i32 %add6.i.i.i.i.i.i, 63
   %48 = srem i32 %add.i.i20.i.i.i.i.i.i, 64
@@ -11162,7 +11162,7 @@ if.end.i19.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
   %cmp2.i22.i.i.i.i.i.i = icmp slt i32 %49, %mul.i.i21.i.i.i.i.i.i
   br i1 %cmp2.i22.i.i.i.i.i.i, label %if.then3.i60.i.i.i.i.i.i, label %if.end8.i23.i.i.i.i.i.i
 
-if.then3.i60.i.i.i.i.i.i:                         ; preds = %if.end.i19.i.i.i.i.i.i
+if.then3.i60.i.i.i.i.i.i:                         ; preds = %if.end.i10.i.i.i.i.i.i
   %sub.i62.i.i.i.i.i.i = and i32 %add5.i.i.i.i.i.i, 63
   %sh_prom.i.i63.i.i.i.i.i.i = zext nneg i32 %sub.i62.i.i.i.i.i.i to i64
   %notmask.i.i64.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i63.i.i.i.i.i.i
@@ -11177,7 +11177,7 @@ if.then3.i60.i.i.i.i.i.i:                         ; preds = %if.end.i19.i.i.i.i.
   %and7.i73.i.i.i.i.i.i = and i64 %shl.i.i72.i.i.i.i.i.i, %sub.i22.i65.i.i.i.i.i.i
   br label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.sink.split.i.i.i.i.i.i
 
-if.end8.i23.i.i.i.i.i.i:                          ; preds = %if.end.i19.i.i.i.i.i.i
+if.end8.i23.i.i.i.i.i.i:                          ; preds = %if.end.i10.i.i.i.i.i.i
   %cmp9.not.i24.i.i.i.i.i.i = icmp eq i32 %add6.i.i.i.i.i.i, %mul.i.i21.i.i.i.i.i.i
   br i1 %cmp9.not.i24.i.i.i.i.i.i, label %if.end14.i37.i.i.i.i.i.i, label %if.then10.i25.i.i.i.i.i.i
 
@@ -12771,9 +12771,9 @@ if.else:                                          ; preds = %if.end
   %add6 = add nsw i32 %6, 1
   %add7 = add nsw i32 %10, %add6
   %cmp.i9 = icmp eq i32 %10, 0
-  br i1 %cmp.i9, label %if.end9, label %if.end.i19
+  br i1 %cmp.i9, label %if.end9, label %if.end.i10
 
-if.end.i19:                                       ; preds = %if.else
+if.end.i10:                                       ; preds = %if.else
   %19 = load ptr, ptr %12, align 8
   %add.i.i20 = add i32 %add7, 63
   %20 = srem i32 %add.i.i20, 64
@@ -12782,7 +12782,7 @@ if.end.i19:                                       ; preds = %if.else
   %cmp2.i22 = icmp slt i32 %21, %mul.i.i21
   br i1 %cmp2.i22, label %if.then3.i60, label %if.end8.i23
 
-if.then3.i60:                                     ; preds = %if.end.i19
+if.then3.i60:                                     ; preds = %if.end.i10
   %sub.i62 = and i32 %add6, 63
   %sh_prom.i.i63 = zext nneg i32 %sub.i62 to i64
   %notmask.i.i64 = shl nsw i64 -1, %sh_prom.i.i63
@@ -12797,7 +12797,7 @@ if.then3.i60:                                     ; preds = %if.end.i19
   %and7.i73 = and i64 %shl.i.i72, %sub.i22.i65
   br label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.sink.split
 
-if.end8.i23:                                      ; preds = %if.end.i19
+if.end8.i23:                                      ; preds = %if.end.i10
   %cmp9.not.i24 = icmp eq i32 %add7, %mul.i.i21
   br i1 %cmp9.not.i24, label %if.end14.i37, label %if.then10.i25
 

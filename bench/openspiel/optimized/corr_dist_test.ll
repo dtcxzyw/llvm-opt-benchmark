@@ -8109,14 +8109,10 @@ _ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i: ; preds = %
           to label %.preheader.i198 unwind label %.loopexit54.i
 
 .preheader.i198:                                  ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i
-  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i198
-  %smax.i = call i32 @llvm.smax.i32(i32 %2922, i32 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209, %.lr.ph.preheader.i
-  %.061.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i198, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209
+  %.061.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.preheader.i198 ]
   invoke void @_ZN10open_spiel10algorithms13CFRSolverBase23EvaluateAndUpdatePolicyEv(ptr noundef nonnull align 8 dereferenceable(5128) %10)
           to label %2942 unwind label %.loopexit.i199
 
@@ -8375,7 +8371,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit.i209:     ; preds = %3046, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i208
   %3049 = add nuw nsw i32 %.061.i, 1
-  %exitcond.not.i = icmp eq i32 %3049, %smax.i
+  %exitcond.not.i = icmp eq i32 %3049, %2922
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !58
 
 3050:                                             ; preds = %.noexc.i191, %_ZN10open_spiel10algorithms12_GLOBAL__N_128TestGreenwaldSarfatiExample1Ev.exit
@@ -25568,9 +25564,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

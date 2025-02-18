@@ -29654,8 +29654,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_9ArrayDataEEED2Ev.exit.i87: ; preds = %1234, 
   store ptr %1239, ptr %1241, align 8, !tbaa !1029, !noalias !1019
   store ptr %scevgep.i.i.i.i.i190.i, ptr %1240, align 8, !tbaa !1024, !noalias !1019
   %1242 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %smax319.i = call i32 @llvm.smax.i32(i32 %882, i32 1)
-  %wide.trip.count320.i = zext nneg i32 %smax319.i to i64
+  %wide.trip.count320.i = zext nneg i32 %882 to i64
   br label %1264
 
 ._crit_edge304.i:                                 ; preds = %_ZNSt12__shared_ptrIN5arrow12ChunkedArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212.i, %.thread328.i
@@ -35152,9 +35151,6 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24

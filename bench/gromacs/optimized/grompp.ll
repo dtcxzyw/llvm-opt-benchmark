@@ -7393,8 +7393,6 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.us.i.i: ; preds = %2229
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i514
   %2240 = load ptr, ptr %2206, align 8
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %2198, i32 1)
-  %wide.trip.count95.i.i = zext nneg i32 %smax.i.i to i64
   br label %2280
 
 2241:                                             ; preds = %.loopexit.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
@@ -7501,7 +7499,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.us.i.i: ; preds = %2229
 2288:                                             ; preds = %2283, %2280
   %.148.i.i = phi i32 [ %.04778.i.i, %2280 ], [ %spec.select.i.i, %2283 ]
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
-  %exitcond96.not.i.i = icmp eq i64 %indvars.iv.next93.i.i, %wide.trip.count95.i.i
+  %exitcond96.not.i.i = icmp eq i64 %indvars.iv.next93.i.i, %2201
   br i1 %exitcond96.not.i.i, label %._crit_edge.i.i516, label %2280, !llvm.loop !41
 
 ._crit_edge.i.i516:                               ; preds = %2288, %2235

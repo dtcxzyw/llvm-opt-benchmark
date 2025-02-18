@@ -2642,9 +2642,9 @@ define dso_local void @diff_tree_combined(ptr noundef %0, ptr noundef readonly c
   %162 = icmp slt i64 %indvars.iv.next112.i.i, %161
   br i1 %162, label %.lr.ph107.split.i.i, label %intersect_paths.exit.i, !llvm.loop !231
 
-thread-pre-split.i.i:                             ; preds = %227, %198, %._crit_edge.i.i
-  %.2.ph.i.i = phi ptr [ %163, %227 ], [ %.2102.i.i, %198 ], [ %.2102.i.i, %._crit_edge.i.i ]
-  %.1.ph.i.i = phi i32 [ %228, %227 ], [ %199, %198 ], [ %.1103.i.i, %._crit_edge.i.i ]
+thread-pre-split.i.i:                             ; preds = %227, %198, %._crit_edge.i.loopexit.i
+  %.2.ph.i.i = phi ptr [ %163, %227 ], [ %.2102.i.i, %198 ], [ %.2102.i.i, %._crit_edge.i.loopexit.i ]
+  %.1.ph.i.i = phi i32 [ %228, %227 ], [ %199, %198 ], [ %.1103.i.i, %._crit_edge.i.loopexit.i ]
   %.pr.i.i = load ptr, ptr %.2.ph.i.i, align 8, !tbaa !212
   %.not87.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not87.i.i, label %intersect_paths.exit.i, label %.lr.ph104.i.i
@@ -2655,7 +2655,7 @@ thread-pre-split.i.i:                             ; preds = %227, %198, %._crit_
   %163 = phi ptr [ %.pr.i.i, %thread-pre-split.i.i ], [ %.041.i, %.preheader98.i.i ]
   %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !214
   %.not88.i.i = icmp slt i32 %.1103.i.i, %164
-  br i1 %.not88.i.i, label %165, label %.lr.ph.i.i
+  br i1 %.not88.i.i, label %165, label %compare_paths.exit.thread.i.i
 
 165:                                              ; preds = %.lr.ph104.i.i
   %166 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !217
@@ -2695,25 +2695,25 @@ thread-pre-split.i.i:                             ; preds = %227, %198, %._crit_
 compare_paths.exit.i.i:                           ; preds = %._crit_edge.i.i.i, %180
   %190 = phi i32 [ %189, %._crit_edge.i.i.i ], [ %183, %180 ]
   %191 = icmp slt i32 %190, 0
-  br i1 %191, label %.lr.ph.i.i, label %197
+  br i1 %191, label %compare_paths.exit.thread.i.i, label %197
 
-.lr.ph.i.i:                                       ; preds = %compare_paths.exit.i.i, %.lr.ph104.i.i
+compare_paths.exit.thread.i.i:                    ; preds = %compare_paths.exit.i.i, %.lr.ph104.i.i
   %192 = load ptr, ptr %163, align 8, !tbaa !212
   store ptr %192, ptr %.2102.i.i, align 8, !tbaa !212
   %193 = getelementptr i8, ptr %163, i64 104
   br label %194
 
-194:                                              ; preds = %194, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %194 ]
+194:                                              ; preds = %194, %compare_paths.exit.thread.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %compare_paths.exit.thread.i.i ], [ %indvars.iv.next.i.i, %194 ]
   %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 56
   %195 = getelementptr i8, ptr %193, i64 %.idx.i.i
   %196 = load ptr, ptr %195, align 8, !tbaa !72
   call void @free(ptr noundef %196) #15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %194, !llvm.loop !232
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.loopexit.i, label %194, !llvm.loop !232
 
-._crit_edge.i.i:                                  ; preds = %194
+._crit_edge.i.loopexit.i:                         ; preds = %194
   call void @free(ptr noundef nonnull %163) #15
   br label %thread-pre-split.i.i, !llvm.loop !233
 

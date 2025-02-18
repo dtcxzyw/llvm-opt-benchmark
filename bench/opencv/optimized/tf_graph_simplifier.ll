@@ -14184,8 +14184,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i48.i: ; preds = %.noexc52.
 
 .preheader.i:                                     ; preds = %.lr.ph.i
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %smax98.i = call i32 @llvm.smax.i32(i32 %306, i32 1)
-  %wide.trip.count99.i = zext nneg i32 %smax98.i to i64
   br label %334
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -14234,7 +14232,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i48.i: ; preds = %.noexc52.
 
 355:                                              ; preds = %341, %334
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
-  %exitcond100.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count99.i
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count.i
   br i1 %exitcond100.not.i, label %.thread, label %334, !llvm.loop !138
 
 .thread:                                          ; preds = %355
@@ -23672,9 +23670,6 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

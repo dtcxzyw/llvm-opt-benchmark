@@ -3584,8 +3584,6 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %5, label %.lr.ph76.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge73.i, %._crit_edge73.thread.i
-  %smax98.i = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
-  %wide.trip.count99.i = zext nneg i32 %smax98.i to i64
   br i1 %8, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -3600,12 +3598,10 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.speculated.us.i = select i1 %31, float %7, float %.sroa.speculated62.us.i
   store float %.sroa.speculated.us.i, ptr %29, align 4
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
-  %exitcond100.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count99.i
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next96.i, %12
   br i1 %exitcond100.not.i, label %.loopexit.thread.i, label %.lr.ph.split.us.i, !llvm.loop !43
 
 .lr.ph76.i:                                       ; preds = %._crit_edge73.i, %._crit_edge73.thread.i
-  %smax110.i = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
-  %wide.trip.count111.i = zext nneg i32 %smax110.i to i64
   br i1 %8, label %.lr.ph76.split.us.i, label %.lr.ph76.split.i
 
 .lr.ph76.split.us.i:                              ; preds = %.lr.ph76.i, %.lr.ph76.split.us.i
@@ -3622,7 +3618,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.speculated59.us.i = select i1 %39, float %7, float %.sroa.speculated65.us.i
   store float %.sroa.speculated59.us.i, ptr %35, align 4
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
-  %exitcond112.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count111.i
+  %exitcond112.not.i = icmp eq i64 %indvars.iv.next108.i, %12
   br i1 %exitcond112.not.i, label %.loopexit.thread.i, label %.lr.ph76.split.us.i, !llvm.loop !44
 
 .lr.ph76.split.i:                                 ; preds = %.lr.ph76.i, %.lr.ph76.split.i
@@ -3635,7 +3631,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %45 = fadd float %44, %42
   store float %45, ptr %43, align 4
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
-  %exitcond106.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count111.i
+  %exitcond106.not.i = icmp eq i64 %indvars.iv.next102.i, %12
   br i1 %exitcond106.not.i, label %.loopexit.thread.i, label %.lr.ph76.split.i, !llvm.loop !44
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
@@ -3646,7 +3642,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %49 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv89.i
   store float %48, ptr %49, align 4
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
-  %exitcond94.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count99.i
+  %exitcond94.not.i = icmp eq i64 %indvars.iv.next90.i, %12
   br i1 %exitcond94.not.i, label %.loopexit.thread.i, label %.lr.ph.split.i, !llvm.loop !43
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph76.split.i, %.lr.ph76.split.us.i
@@ -7083,8 +7079,6 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   br i1 %339, label %.lr.ph76.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge73.thread.i.i.i.i.i, %._crit_edge73.i.i.i.i.i
-  %smax98.i.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated285.i.i.i, i32 1)
-  %wide.trip.count99.i.i.i.i.i = zext nneg i32 %smax98.i.i.i.i.i to i64
   br i1 %346, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i
@@ -7099,12 +7093,10 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %.sroa.speculated.us.i.i.i.i.i = select i1 %366, float %343, float %.sroa.speculated62.us.i.i.i.i.i
   store float %.sroa.speculated.us.i.i.i.i.i, ptr %364, align 4
   %indvars.iv.next96.i.i.i.i.i = add nuw nsw i64 %indvars.iv95.i.i.i.i.i, 1
-  %exitcond100.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next96.i.i.i.i.i, %wide.trip.count99.i.i.i.i.i
+  %exitcond100.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next96.i.i.i.i.i, %347
   br i1 %exitcond100.not.i.i.i.i.i, label %.loopexit.thread.i.i.i.i.i, label %.lr.ph.split.us.i.i.i.i.i, !llvm.loop !43
 
 .lr.ph76.i.i.i.i.i:                               ; preds = %._crit_edge73.thread.i.i.i.i.i, %._crit_edge73.i.i.i.i.i
-  %smax110.i.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated285.i.i.i, i32 1)
-  %wide.trip.count111.i.i.i.i.i = zext nneg i32 %smax110.i.i.i.i.i to i64
   br i1 %346, label %.lr.ph76.split.us.i.i.i.i.i, label %.lr.ph76.split.i.i.i.i.i
 
 .lr.ph76.split.us.i.i.i.i.i:                      ; preds = %.lr.ph76.i.i.i.i.i, %.lr.ph76.split.us.i.i.i.i.i
@@ -7121,7 +7113,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %.sroa.speculated59.us.i.i.i.i.i = select i1 %374, float %343, float %.sroa.speculated65.us.i.i.i.i.i
   store float %.sroa.speculated59.us.i.i.i.i.i, ptr %370, align 4
   %indvars.iv.next108.i.i.i.i.i = add nuw nsw i64 %indvars.iv107.i.i.i.i.i, 1
-  %exitcond112.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next108.i.i.i.i.i, %wide.trip.count111.i.i.i.i.i
+  %exitcond112.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next108.i.i.i.i.i, %347
   br i1 %exitcond112.not.i.i.i.i.i, label %.loopexit.thread.i.i.i.i.i, label %.lr.ph76.split.us.i.i.i.i.i, !llvm.loop !44
 
 .lr.ph76.split.i.i.i.i.i:                         ; preds = %.lr.ph76.i.i.i.i.i, %.lr.ph76.split.i.i.i.i.i
@@ -7134,7 +7126,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %380 = fadd float %379, %377
   store float %380, ptr %378, align 4
   %indvars.iv.next102.i.i.i.i.i = add nuw nsw i64 %indvars.iv101.i.i.i.i.i, 1
-  %exitcond106.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next102.i.i.i.i.i, %wide.trip.count111.i.i.i.i.i
+  %exitcond106.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next102.i.i.i.i.i, %347
   br i1 %exitcond106.not.i.i.i.i.i, label %.loopexit.thread.i.i.i.i.i, label %.lr.ph76.split.i.i.i.i.i, !llvm.loop !44
 
 .lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i
@@ -7145,7 +7137,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %384 = getelementptr inbounds nuw float, ptr %.0216.i.i.i, i64 %indvars.iv89.i.i.i.i.i
   store float %383, ptr %384, align 4
   %indvars.iv.next90.i.i.i.i.i = add nuw nsw i64 %indvars.iv89.i.i.i.i.i, 1
-  %exitcond94.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next90.i.i.i.i.i, %wide.trip.count99.i.i.i.i.i
+  %exitcond94.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next90.i.i.i.i.i, %347
   br i1 %exitcond94.not.i.i.i.i.i, label %.loopexit.thread.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i, !llvm.loop !43
 
 .loopexit.thread.i.i.i.i.i:                       ; preds = %.lr.ph.split.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i, %.lr.ph76.split.i.i.i.i.i, %.lr.ph76.split.us.i.i.i.i.i

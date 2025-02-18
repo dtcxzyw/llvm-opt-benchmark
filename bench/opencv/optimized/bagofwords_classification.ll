@@ -15393,8 +15393,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEbEvT_S7_RKT0_.exit
   br i1 %.not.i.i.i.i.i175, label %._crit_edge.i, label %_ZN2cv3RNGclEj.exit82.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN2cv3RNGclEj.exit82.i
-  %smax121.i = call i32 @llvm.smax.i32(i32 %784, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax121.i to i64
+  %wide.trip.count.i = zext nneg i32 %784 to i64
   br label %.lr.ph.i
 
 _ZN2cv3RNGclEj.exit82.i:                          ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEbEvT_S7_RKT0_.exit.i, %_ZN2cv3RNGclEj.exit82.i
