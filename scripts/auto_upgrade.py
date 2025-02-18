@@ -55,6 +55,7 @@ supported_project = [
     "quickjs",
     "raylib",
     "redis",
+    "spike",
 ]
 
 modify_only = [
@@ -72,6 +73,7 @@ modify_only = [
     "qemu",
     "raylib",
     "redis",
+    "spike",
 ]
 
 

@@ -3,12 +3,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.dtm_t::req" = type { i32, i32, i32 }
 %class.dtm_t = type { %class.htif_t, %class.context_t, ptr, i64, %union.sem_t, %union.sem_t, %union.sem_t, %union.sem_t, %"struct.dtm_t::req", %"struct.dtm_t::resp", i8, i8, i8, i32, i32, i64, i64, i32, i32 }
-%class.htif_t = type { %class.chunked_memif_t, i32, %class.memif_t, i64, i8, %"class.std::vector", %"class.std::vector", %"class.std::__cxx11::basic_string", i32, i64, i64, i64, i64, i32, i8, %class.device_list_t, %class.syscall_t, %class.bcd_t, %"class.std::vector.3", %"class.std::vector", %"class.std::vector", %"class.std::map" }
+%class.htif_t = type { %class.chunked_memif_t, i32, i64, %class.memif_t, i64, i8, %"class.std::vector", %"class.std::vector", %"class.std::__cxx11::basic_string", i32, i64, i64, i64, i64, %"class.std::optional", i8, %class.device_list_t, %class.syscall_t, %class.bcd_t, %"class.std::vector.3", %"class.std::vector", %"class.std::vector", %"class.std::map" }
 %class.chunked_memif_t = type { ptr }
 %class.memif_t = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.std::optional" = type { %"struct.std::_Optional_base" }
+%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
+%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
+%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<int>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<int>::_Storage" = type { i32 }
 %class.device_list_t = type { %"class.std::vector.3", %class.null_device_t, i64 }
 %class.null_device_t = type { %class.device_t }
 %class.device_t = type { ptr, %"class.std::vector.8", %"class.std::vector" }
@@ -47,9 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %class.context_t = type { ptr, ptr, ptr, %"class.std::unique_ptr" }
@@ -84,315 +87,375 @@ $_ZN6htif_t20is_address_preloadedEmm = comdat any
 @_ZTISt13runtime_error = external constant ptr
 @.str.10 = private unnamed_addr constant [41 x i8] c"FESVR DTM can't determine XLEN. Aborting\00", align 1
 @__const._ZN5dtm_t7fence_iEv.prog = private unnamed_addr constant [2 x i32] [i32 4111, i32 1048691], align 4
-@_ZTV5dtm_t = unnamed_addr constant { [18 x ptr] } { [18 x ptr] [ptr null, ptr @_ZTI5dtm_t, ptr @_ZN5dtm_t10read_chunkEmmPv, ptr @_ZN5dtm_t11write_chunkEmmPKv, ptr @_ZN5dtm_t11clear_chunkEmm, ptr @_ZN5dtm_t11chunk_alignEv, ptr @_ZN5dtm_t14chunk_max_sizeEv, ptr @_ZNK15chunked_memif_t21get_target_endiannessEv, ptr @_ZN5dtm_tD1Ev, ptr @_ZN5dtm_tD0Ev, ptr @_ZN6htif_t5startEv, ptr @_ZN6htif_t4stopEv, ptr @_ZN6htif_t5memifEv, ptr @_ZN5dtm_t5resetEv, ptr @_ZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm, ptr @_ZN6htif_t12load_programEv, ptr @_ZN5dtm_t4idleEv, ptr @_ZN6htif_t20is_address_preloadedEmm] }, align 8
+@_ZTV5dtm_t = unnamed_addr constant { [18 x ptr] } { [18 x ptr] [ptr null, ptr @_ZTI5dtm_t, ptr @_ZN5dtm_t10read_chunkEmmPv, ptr @_ZN5dtm_t11write_chunkEmmPKv, ptr @_ZN5dtm_t11clear_chunkEmm, ptr @_ZN5dtm_t11chunk_alignEv, ptr @_ZN5dtm_t14chunk_max_sizeEv, ptr @_ZNK15chunked_memif_t21get_target_endiannessEv, ptr @_ZN5dtm_tD1Ev, ptr @_ZN5dtm_tD0Ev, ptr @_ZN6htif_t5startEv, ptr @_ZN6htif_t4stopEv, ptr @_ZN6htif_t5memifEv, ptr @_ZN5dtm_t5resetEv, ptr @_ZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmm, ptr @_ZN6htif_t12load_programEv, ptr @_ZN5dtm_t4idleEv, ptr @_ZN6htif_t20is_address_preloadedEmm] }, align 8
+@_ZTI5dtm_t = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS5dtm_t, ptr @_ZTI6htif_t }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS5dtm_t = constant [7 x i8] c"5dtm_t\00", align 1
 @_ZTI6htif_t = external constant ptr
-@_ZTI5dtm_t = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS5dtm_t, ptr @_ZTI6htif_t }, align 8
 
 @_ZN5dtm_tC1EiPPc = unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN5dtm_tC2EiPPc
 @_ZN5dtm_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5dtm_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(928) %0, i64 %1, i32 %2) #0 align 2 {
+define noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(944) %0, i64 %1, i32 %2) #0 align 2 {
   %4 = alloca %"struct.dtm_t::req", align 4
   %5 = alloca { i64, i32 }, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds { i64, i32 }, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 0
   store i64 %1, ptr %7, align 4
-  %8 = getelementptr inbounds { i64, i32 }, ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 1
   store i32 %2, ptr %8, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %5, i64 12, i1 false)
-  store ptr %0, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 4 %4, i64 12, i1 false)
-  %11 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %10 = getelementptr inbounds nuw %class.dtm_t, ptr %9, i32 0, i32 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 4 %4, i64 12, i1 false), !tbaa.struct !8
+  %11 = getelementptr inbounds nuw %class.dtm_t, ptr %9, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !11
   call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %13 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 9
-  %14 = getelementptr inbounds %"struct.dtm_t::resp", ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw %class.dtm_t, ptr %9, i32 0, i32 9
+  %14 = getelementptr inbounds nuw %"struct.dtm_t::resp", ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !91
   ret i32 %15
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) #0 align 2 {
+define noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %"struct.dtm_t::req", align 4
   %6 = alloca { i64, i32 }, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %"struct.dtm_t::req", ptr %5, i32 0, i32 0
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %"struct.dtm_t::req", ptr %5, i32 0, i32 1
-  store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds %"struct.dtm_t::req", ptr %5, i32 0, i32 2
-  store i32 0, ptr %11, align 4
+  %8 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %5, i32 0, i32 0
+  %9 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %9, ptr %8, align 4, !tbaa !92
+  %10 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %5, i32 0, i32 1
+  store i32 1, ptr %10, align 4, !tbaa !93
+  %11 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %5, i32 0, i32 2
+  store i32 0, ptr %11, align 4, !tbaa !94
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %5, i64 12, i1 false)
-  %12 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 0
+  %12 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
   %13 = load i64, ptr %12, align 4
-  %14 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 1
+  %14 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
   %15 = load i32, ptr %14, align 4
-  %16 = call noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(928) %7, i64 %13, i32 %15)
+  %16 = call noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(944) %7, i64 %13, i32 %15)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i32 noundef %2) #0 align 2 {
+define noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, i32 noundef %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"struct.dtm_t::req", align 4
   %8 = alloca { i64, i32 }, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !9
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.dtm_t::req", ptr %7, i32 0, i32 0
-  %11 = load i32, ptr %5, align 4
-  store i32 %11, ptr %10, align 4
-  %12 = getelementptr inbounds %"struct.dtm_t::req", ptr %7, i32 0, i32 1
-  store i32 2, ptr %12, align 4
-  %13 = getelementptr inbounds %"struct.dtm_t::req", ptr %7, i32 0, i32 2
-  %14 = load i32, ptr %6, align 4
-  store i32 %14, ptr %13, align 4
+  %10 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %7, i32 0, i32 0
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %11, ptr %10, align 4, !tbaa !92
+  %12 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %7, i32 0, i32 1
+  store i32 2, ptr %12, align 4, !tbaa !93
+  %13 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %7, i32 0, i32 2
+  %14 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %14, ptr %13, align 4, !tbaa !94
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %7, i64 12, i1 false)
-  %15 = getelementptr inbounds { i64, i32 }, ptr %8, i32 0, i32 0
+  %15 = getelementptr inbounds nuw { i64, i32 }, ptr %8, i32 0, i32 0
   %16 = load i64, ptr %15, align 4
-  %17 = getelementptr inbounds { i64, i32 }, ptr %8, i32 0, i32 1
+  %17 = getelementptr inbounds nuw { i64, i32 }, ptr %8, i32 0, i32 1
   %18 = load i32, ptr %17, align 4
-  %19 = call noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(928) %9, i64 %16, i32 %18)
+  %19 = call noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(944) %9, i64 %16, i32 %18)
   ret i32 %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t3nopEv(ptr noundef nonnull align 8 dereferenceable(928) %0) #0 align 2 {
+define void @_ZN5dtm_t3nopEv(ptr noundef nonnull align 8 dereferenceable(944) %0) #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.dtm_t::req", align 4
   %4 = alloca { i64, i32 }, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"struct.dtm_t::req", ptr %3, i32 0, i32 0
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"struct.dtm_t::req", ptr %3, i32 0, i32 1
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds %"struct.dtm_t::req", ptr %3, i32 0, i32 2
-  store i32 0, ptr %8, align 4
+  %6 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %3, i32 0, i32 0
+  store i32 0, ptr %6, align 4, !tbaa !92
+  %7 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %3, i32 0, i32 1
+  store i32 0, ptr %7, align 4, !tbaa !93
+  %8 = getelementptr inbounds nuw %"struct.dtm_t::req", ptr %3, i32 0, i32 2
+  store i32 0, ptr %8, align 4, !tbaa !94
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %3, i64 12, i1 false)
-  %9 = getelementptr inbounds { i64, i32 }, ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw { i64, i32 }, ptr %4, i32 0, i32 0
   %10 = load i64, ptr %9, align 4
-  %11 = getelementptr inbounds { i64, i32 }, ptr %4, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { i64, i32 }, ptr %4, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
-  %13 = call noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(928) %5, i64 %10, i32 %12)
+  %13 = call noundef i32 @_ZN5dtm_t10do_commandENS_3reqE(ptr noundef nonnull align 8 dereferenceable(944) %5, i64 %10, i32 %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) #0 align 2 {
+define void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %6 = load ptr, ptr %3, align 8
-  %7 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef 16)
-  store i32 %7, ptr %5, align 4
-  %8 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %7 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %6, i32 noundef 16)
+  store i32 %7, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
   %9 = and i32 %8, -67108865
-  %10 = load i32, ptr %4, align 4
-  %11 = mul nsw i32 %10, 67108864
-  %12 = and i32 %11, 67108864
-  %13 = or i32 %9, %12
-  %14 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef 16, i32 noundef %13)
-  %15 = load i32, ptr %4, align 4
-  %16 = getelementptr inbounds %class.dtm_t, ptr %6, i32 0, i32 18
-  store i32 %15, ptr %16, align 4
+  %10 = sext i32 %9 to i64
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = sext i32 %11 to i64
+  %13 = mul i64 %12, 67108864
+  %14 = and i64 %13, 67108864
+  %15 = or i64 %10, %14
+  %16 = trunc i64 %15 to i32
+  %17 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %6, i32 noundef 16, i32 noundef %16)
+  %18 = load i32, ptr %4, align 4, !tbaa !9
+  %19 = getelementptr inbounds nuw %class.dtm_t, ptr %6, i32 0, i32 18
+  store i32 %18, ptr %19, align 4, !tbaa !95
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 dereferenceable(928) %0) #0 align 2 {
+define noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 dereferenceable(944) %0) #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
-  store i32 1, ptr %3, align 4
-  %7 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef 16)
-  %8 = and i32 %7, -67108865
-  %9 = load i32, ptr %3, align 4
-  %10 = mul i32 %9, 67108864
-  %11 = and i32 %10, 67108864
-  %12 = or i32 %8, %11
-  %13 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef 16, i32 noundef %12)
-  %14 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef 17)
-  %15 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef 16)
-  %16 = and i32 %15, 67108864
-  %17 = udiv i32 %16, 67108864
-  store i32 %17, ptr %3, align 4
-  store i32 0, ptr %4, align 4
-  br label %18
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  store i32 1, ptr %3, align 4, !tbaa !9
+  %8 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16)
+  %9 = and i32 %8, -67108865
+  %10 = zext i32 %9 to i64
+  %11 = load i32, ptr %3, align 4, !tbaa !9
+  %12 = zext i32 %11 to i64
+  %13 = mul i64 %12, 67108864
+  %14 = and i64 %13, 67108864
+  %15 = or i64 %10, %14
+  %16 = trunc i64 %15 to i32
+  %17 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16, i32 noundef %16)
+  %18 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
+  %19 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16)
+  %20 = and i32 %19, 67108864
+  %21 = zext i32 %20 to i64
+  %22 = udiv i64 %21, 67108864
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  store i32 0, ptr %4, align 4, !tbaa !9
+  br label %24
 
-18:                                               ; preds = %31, %1
-  %19 = load i32, ptr %4, align 4
-  %20 = load i32, ptr %3, align 4
-  %21 = icmp sle i32 %19, %20
-  br i1 %21, label %22, label %34
+24:                                               ; preds = %41, %1
+  %25 = load i32, ptr %4, align 4, !tbaa !9
+  %26 = load i32, ptr %3, align 4, !tbaa !9
+  %27 = icmp sle i32 %25, %26
+  br i1 %27, label %28, label %44
 
-22:                                               ; preds = %18
-  %23 = load i32, ptr %4, align 4
-  call void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef %23)
-  %24 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef 17)
-  store i32 %24, ptr %5, align 4
-  %25 = load i32, ptr %5, align 4
-  %26 = and i32 %25, 16384
-  %27 = sdiv i32 %26, 16384
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %30
+28:                                               ; preds = %24
+  %29 = load i32, ptr %4, align 4, !tbaa !9
+  call void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef %29)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %30 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
+  store i32 %30, ptr %5, align 4, !tbaa !9
+  %31 = load i32, ptr %5, align 4, !tbaa !9
+  %32 = and i32 %31, 16384
+  %33 = sext i32 %32 to i64
+  %34 = udiv i64 %33, 16384
+  %35 = icmp ne i64 %34, 0
+  br i1 %35, label %36, label %37
 
-29:                                               ; preds = %22
-  br label %34
+36:                                               ; preds = %28
+  store i32 2, ptr %6, align 4
+  br label %38
 
-30:                                               ; preds = %22
-  br label %31
+37:                                               ; preds = %28
+  store i32 0, ptr %6, align 4
+  br label %38
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr %4, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %4, align 4
-  br label %18, !llvm.loop !4
+38:                                               ; preds = %37, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  %39 = load i32, ptr %6, align 4
+  switch i32 %39, label %46 [
+    i32 0, label %40
+    i32 2, label %44
+  ]
 
-34:                                               ; preds = %29, %18
-  %35 = load i32, ptr %4, align 4
-  ret i32 %35
+40:                                               ; preds = %38
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load i32, ptr %4, align 4, !tbaa !9
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %4, align 4, !tbaa !9
+  br label %24, !llvm.loop !96
+
+44:                                               ; preds = %38, %24
+  %45 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 1, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %45
+
+46:                                               ; preds = %38
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) #0 align 2 {
+define void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %class.dtm_t, ptr %7, i32 0, i32 10
-  %9 = load i8, ptr %8, align 4
+  %8 = getelementptr inbounds nuw %class.dtm_t, ptr %7, i32 0, i32 10
+  %9 = load i8, ptr %8, align 4, !tbaa !98, !range !99, !noundef !100
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 16, i32 noundef 1)
-  %13 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 17)
+  %12 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16, i32 noundef 1)
+  %13 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
   br label %14
 
 14:                                               ; preds = %11, %2
-  store i32 -2147483647, ptr %5, align 4
-  %15 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 -2147483647, ptr %5, align 4, !tbaa !9
+  %15 = load i32, ptr %5, align 4, !tbaa !9
   %16 = and i32 %15, -67108865
-  %17 = load i32, ptr %4, align 4
-  %18 = mul nsw i32 %17, 67108864
-  %19 = and i32 %18, 67108864
-  %20 = or i32 %16, %19
-  store i32 %20, ptr %5, align 4
-  %21 = load i32, ptr %5, align 4
-  %22 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 16, i32 noundef %21)
-  br label %23
+  %17 = sext i32 %16 to i64
+  %18 = load i32, ptr %4, align 4, !tbaa !9
+  %19 = sext i32 %18 to i64
+  %20 = mul i64 %19, 67108864
+  %21 = and i64 %20, 67108864
+  %22 = or i64 %17, %21
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %5, align 4, !tbaa !9
+  %24 = load i32, ptr %5, align 4, !tbaa !9
+  %25 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16, i32 noundef %24)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  br label %26
 
-23:                                               ; preds = %25, %14
-  %24 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 17)
-  store i32 %24, ptr %6, align 4
-  br label %25
+26:                                               ; preds = %28, %14
+  %27 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
+  store i32 %27, ptr %6, align 4, !tbaa !9
+  br label %28
 
-25:                                               ; preds = %23
-  %26 = load i32, ptr %6, align 4
-  %27 = and i32 %26, 512
-  %28 = sdiv i32 %27, 512
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %23, label %30, !llvm.loop !6
+28:                                               ; preds = %26
+  %29 = load i32, ptr %6, align 4, !tbaa !9
+  %30 = and i32 %29, 512
+  %31 = sext i32 %30 to i64
+  %32 = udiv i64 %31, 512
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %26, label %34, !llvm.loop !101
 
-30:                                               ; preds = %25
-  %31 = load i32, ptr %5, align 4
-  %32 = and i32 %31, 2147483647
-  store i32 %32, ptr %5, align 4
-  %33 = load i32, ptr %5, align 4
-  %34 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 16, i32 noundef %33)
-  %35 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 17)
-  %36 = load i32, ptr %4, align 4
-  %37 = getelementptr inbounds %class.dtm_t, ptr %7, i32 0, i32 18
-  store i32 %36, ptr %37, align 4
+34:                                               ; preds = %28
+  %35 = load i32, ptr %5, align 4, !tbaa !9
+  %36 = sext i32 %35 to i64
+  %37 = and i64 %36, -2147483649
+  %38 = trunc i64 %37 to i32
+  store i32 %38, ptr %5, align 4, !tbaa !9
+  %39 = load i32, ptr %5, align 4, !tbaa !9
+  %40 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16, i32 noundef %39)
+  %41 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
+  %42 = load i32, ptr %4, align 4, !tbaa !9
+  %43 = getelementptr inbounds nuw %class.dtm_t, ptr %7, i32 0, i32 18
+  store i32 %42, ptr %43, align 4, !tbaa !95
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) #0 align 2 {
+define void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %7 = load ptr, ptr %3, align 8
-  store i32 1073741825, ptr %5, align 4
-  %8 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 1073741825, ptr %5, align 4, !tbaa !9
+  %8 = load i32, ptr %5, align 4, !tbaa !9
   %9 = and i32 %8, -67108865
-  %10 = load i32, ptr %4, align 4
-  %11 = mul nsw i32 %10, 67108864
-  %12 = and i32 %11, 67108864
-  %13 = or i32 %9, %12
-  store i32 %13, ptr %5, align 4
-  %14 = load i32, ptr %5, align 4
-  %15 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 16, i32 noundef %14)
-  br label %16
+  %10 = sext i32 %9 to i64
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = sext i32 %11 to i64
+  %13 = mul i64 %12, 67108864
+  %14 = and i64 %13, 67108864
+  %15 = or i64 %10, %14
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %5, align 4, !tbaa !9
+  %17 = load i32, ptr %5, align 4, !tbaa !9
+  %18 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16, i32 noundef %17)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  br label %19
 
-16:                                               ; preds = %18, %2
-  %17 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 17)
-  store i32 %17, ptr %6, align 4
-  br label %18
+19:                                               ; preds = %21, %2
+  %20 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
+  store i32 %20, ptr %6, align 4, !tbaa !9
+  br label %21
 
-18:                                               ; preds = %16
-  %19 = load i32, ptr %6, align 4
-  %20 = and i32 %19, 131072
-  %21 = sdiv i32 %20, 131072
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %16, label %23, !llvm.loop !7
+21:                                               ; preds = %19
+  %22 = load i32, ptr %6, align 4, !tbaa !9
+  %23 = and i32 %22, 131072
+  %24 = sext i32 %23 to i64
+  %25 = udiv i64 %24, 131072
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %19, label %27, !llvm.loop !102
 
-23:                                               ; preds = %18
-  %24 = load i32, ptr %5, align 4
-  %25 = and i32 %24, -1073741825
-  store i32 %25, ptr %5, align 4
-  %26 = load i32, ptr %5, align 4
-  %27 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 16, i32 noundef %26)
-  %28 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 17)
-  %29 = load i32, ptr %4, align 4
-  %30 = getelementptr inbounds %class.dtm_t, ptr %7, i32 0, i32 18
-  store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds %class.dtm_t, ptr %7, i32 0, i32 10
-  %32 = load i8, ptr %31, align 4
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %37
+27:                                               ; preds = %21
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = sext i32 %28 to i64
+  %30 = and i64 %29, -1073741825
+  %31 = trunc i64 %30 to i32
+  store i32 %31, ptr %5, align 4, !tbaa !9
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  %33 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16, i32 noundef %32)
+  %34 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
+  %35 = load i32, ptr %4, align 4, !tbaa !9
+  %36 = getelementptr inbounds nuw %class.dtm_t, ptr %7, i32 0, i32 18
+  store i32 %35, ptr %36, align 4, !tbaa !95
+  %37 = getelementptr inbounds nuw %class.dtm_t, ptr %7, i32 0, i32 10
+  %38 = load i8, ptr %37, align 4, !tbaa !98, !range !99, !noundef !100
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %43
 
-34:                                               ; preds = %23
-  %35 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 16, i32 noundef 1)
-  %36 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 17)
-  br label %37
+40:                                               ; preds = %27
+  %41 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 16, i32 noundef 1)
+  %42 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 17)
+  br label %43
 
-37:                                               ; preds = %34, %23
+43:                                               ; preds = %40, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) #0 align 2 {
+define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -400,19 +463,20 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereference
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %class.dtm_t, ptr %10, i32 0, i32 14
-  %12 = load i32, ptr %11, align 4
+  %11 = getelementptr inbounds nuw %class.dtm_t, ptr %10, i32 0, i32 14
+  %12 = load i32, ptr %11, align 4, !tbaa !103
   %13 = udiv i32 %12, 32
   %14 = zext i32 %13 to i64
   %15 = call ptr @llvm.stacksave.p0()
   store ptr %15, ptr %5, align 8
   %16 = alloca i32, i64 %14, align 16
   store i64 %14, ptr %6, align 8
-  %17 = getelementptr inbounds %class.dtm_t, ptr %10, i32 0, i32 14
-  %18 = load i32, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %17 = getelementptr inbounds nuw %class.dtm_t, ptr %10, i32 0, i32 14
+  %18 = load i32, ptr %17, align 4, !tbaa !103
   %19 = icmp eq i32 %18, 128
   br i1 %19, label %20, label %21
 
@@ -420,8 +484,8 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereference
   br label %26
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds %class.dtm_t, ptr %10, i32 0, i32 14
-  %23 = load i32, ptr %22, align 4
+  %22 = getelementptr inbounds nuw %class.dtm_t, ptr %10, i32 0, i32 14
+  %23 = load i32, ptr %22, align 4, !tbaa !103
   %24 = icmp eq i32 %23, 64
   %25 = select i1 %24, i32 3, i32 2
   br label %26
@@ -429,60 +493,68 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereference
 26:                                               ; preds = %21, %20
   %27 = phi i32 [ 4, %20 ], [ %25, %21 ]
   %28 = shl i32 %27, 20
-  %29 = or i32 131072, %28
-  %30 = load i32, ptr %4, align 4
-  %31 = or i32 4096, %30
-  %32 = shl i32 %31, 0
-  %33 = or i32 %29, %32
-  store i32 %33, ptr %7, align 4
-  %34 = load i32, ptr %7, align 4
-  %35 = getelementptr inbounds %class.dtm_t, ptr %10, i32 0, i32 14
-  %36 = load i32, ptr %35, align 4
-  %37 = udiv i32 %36, 32
-  %38 = zext i32 %37 to i64
-  %39 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %10, i32 noundef %34, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef %38)
-  store i32 %39, ptr %8, align 4
-  %40 = load i32, ptr %8, align 4
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %44
+  %29 = sext i32 %28 to i64
+  %30 = or i64 131072, %29
+  %31 = load i32, ptr %4, align 4, !tbaa !9
+  %32 = or i32 4096, %31
+  %33 = shl i32 %32, 0
+  %34 = zext i32 %33 to i64
+  %35 = or i64 %30, %34
+  %36 = trunc i64 %35 to i32
+  store i32 %36, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %37 = load i32, ptr %7, align 4, !tbaa !9
+  %38 = getelementptr inbounds nuw %class.dtm_t, ptr %10, i32 0, i32 14
+  %39 = load i32, ptr %38, align 4, !tbaa !103
+  %40 = udiv i32 %39, 32
+  %41 = zext i32 %40 to i64
+  %42 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %10, i32 noundef %37, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef %41)
+  store i32 %42, ptr %8, align 4, !tbaa !9
+  %43 = load i32, ptr %8, align 4, !tbaa !9
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %47
 
-42:                                               ; preds = %26
-  %43 = load i32, ptr %8, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %10, i32 noundef %43)
-  br label %44
+45:                                               ; preds = %26
+  %46 = load i32, ptr %8, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %10, i32 noundef %46)
+  br label %47
 
-44:                                               ; preds = %42, %26
-  %45 = getelementptr inbounds i32, ptr %16, i64 0
-  %46 = load i32, ptr %45, align 16
-  %47 = zext i32 %46 to i64
-  store i64 %47, ptr %9, align 8
-  %48 = getelementptr inbounds %class.dtm_t, ptr %10, i32 0, i32 14
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp ugt i32 %49, 32
-  br i1 %50, label %51, label %58
+47:                                               ; preds = %45, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %48 = getelementptr inbounds i32, ptr %16, i64 0
+  %49 = load i32, ptr %48, align 16, !tbaa !9
+  %50 = zext i32 %49 to i64
+  store i64 %50, ptr %9, align 8, !tbaa !104
+  %51 = getelementptr inbounds nuw %class.dtm_t, ptr %10, i32 0, i32 14
+  %52 = load i32, ptr %51, align 4, !tbaa !103
+  %53 = icmp ugt i32 %52, 32
+  br i1 %53, label %54, label %61
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds i32, ptr %16, i64 1
-  %53 = load i32, ptr %52, align 4
-  %54 = zext i32 %53 to i64
-  %55 = shl i64 %54, 32
-  %56 = load i64, ptr %9, align 8
-  %57 = or i64 %56, %55
-  store i64 %57, ptr %9, align 8
-  br label %58
+54:                                               ; preds = %47
+  %55 = getelementptr inbounds i32, ptr %16, i64 1
+  %56 = load i32, ptr %55, align 4, !tbaa !9
+  %57 = zext i32 %56 to i64
+  %58 = shl i64 %57, 32
+  %59 = load i64, ptr %9, align 8, !tbaa !104
+  %60 = or i64 %59, %58
+  store i64 %60, ptr %9, align 8, !tbaa !104
+  br label %61
 
-58:                                               ; preds = %51, %44
-  %59 = load i64, ptr %9, align 8
-  %60 = load ptr, ptr %5, align 8
-  call void @llvm.stackrestore.p0(ptr %60)
-  ret i64 %59
+61:                                               ; preds = %54, %47
+  %62 = load i64, ptr %9, align 8, !tbaa !104
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  %63 = load ptr, ptr %5, align 8
+  call void @llvm.stackrestore.p0(ptr %63)
+  ret i64 %62
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #3
+declare ptr @llvm.stacksave.p0() #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 align 2 {
+define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -493,191 +565,219 @@ define noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull
   %14 = alloca i64, align 8
   %15 = alloca i32, align 4
   %16 = alloca i64, align 8
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store ptr %2, ptr %9, align 8
-  store i64 %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store i64 %5, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i32 %1, ptr %8, align 4, !tbaa !9
+  store ptr %2, ptr %9, align 8, !tbaa !105
+  store i64 %3, ptr %10, align 8, !tbaa !104
+  store ptr %4, ptr %11, align 8, !tbaa !105
+  store i64 %5, ptr %12, align 8, !tbaa !104
   %17 = load ptr, ptr %7, align 8
-  store i64 0, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  store i64 0, ptr %13, align 8, !tbaa !104
   br label %18
 
-18:                                               ; preds = %31, %6
-  %19 = load i64, ptr %13, align 8
-  %20 = load i64, ptr %10, align 8
+18:                                               ; preds = %32, %6
+  %19 = load i64, ptr %13, align 8, !tbaa !104
+  %20 = load i64, ptr %10, align 8, !tbaa !104
   %21 = icmp ult i64 %19, %20
-  br i1 %21, label %22, label %34
+  br i1 %21, label %23, label %22
 
 22:                                               ; preds = %18
-  %23 = load i64, ptr %13, align 8
-  %24 = add i64 32, %23
-  %25 = trunc i64 %24 to i32
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i64, ptr %13, align 8
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %17, i32 noundef %25, i32 noundef %29)
-  br label %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  br label %35
 
-31:                                               ; preds = %22
-  %32 = load i64, ptr %13, align 8
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %13, align 8
-  br label %18, !llvm.loop !8
+23:                                               ; preds = %18
+  %24 = load i64, ptr %13, align 8, !tbaa !104
+  %25 = add i64 32, %24
+  %26 = trunc i64 %25 to i32
+  %27 = load ptr, ptr %9, align 8, !tbaa !105
+  %28 = load i64, ptr %13, align 8, !tbaa !104
+  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !9
+  %31 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %17, i32 noundef %26, i32 noundef %30)
+  br label %32
 
-34:                                               ; preds = %18
-  %35 = load i32, ptr %8, align 4
-  %36 = and i32 %35, 65536
-  %37 = udiv i32 %36, 65536
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %62
+32:                                               ; preds = %23
+  %33 = load i64, ptr %13, align 8, !tbaa !104
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %13, align 8, !tbaa !104
+  br label %18, !llvm.loop !106
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr %8, align 4
-  %41 = and i32 %40, 131072
-  %42 = udiv i32 %41, 131072
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %62
+35:                                               ; preds = %22
+  %36 = load i32, ptr %8, align 4, !tbaa !9
+  %37 = and i32 %36, 65536
+  %38 = zext i32 %37 to i64
+  %39 = udiv i64 %38, 65536
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %66
 
-44:                                               ; preds = %39
-  store i64 0, ptr %14, align 8
-  br label %45
+41:                                               ; preds = %35
+  %42 = load i32, ptr %8, align 4, !tbaa !9
+  %43 = and i32 %42, 131072
+  %44 = zext i32 %43 to i64
+  %45 = udiv i64 %44, 131072
+  %46 = icmp ne i64 %45, 0
+  br i1 %46, label %47, label %66
 
-45:                                               ; preds = %58, %44
-  %46 = load i64, ptr %14, align 8
-  %47 = load i64, ptr %12, align 8
-  %48 = icmp ult i64 %46, %47
-  br i1 %48, label %49, label %61
+47:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  store i64 0, ptr %14, align 8, !tbaa !104
+  br label %48
 
-49:                                               ; preds = %45
-  %50 = load i64, ptr %14, align 8
-  %51 = add i64 4, %50
-  %52 = trunc i64 %51 to i32
-  %53 = load ptr, ptr %11, align 8
-  %54 = load i64, ptr %14, align 8
-  %55 = getelementptr inbounds i32, ptr %53, i64 %54
-  %56 = load i32, ptr %55, align 4
-  %57 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %17, i32 noundef %52, i32 noundef %56)
-  br label %58
+48:                                               ; preds = %62, %47
+  %49 = load i64, ptr %14, align 8, !tbaa !104
+  %50 = load i64, ptr %12, align 8, !tbaa !104
+  %51 = icmp ult i64 %49, %50
+  br i1 %51, label %53, label %52
 
-58:                                               ; preds = %49
-  %59 = load i64, ptr %14, align 8
-  %60 = add i64 %59, 1
-  store i64 %60, ptr %14, align 8
-  br label %45, !llvm.loop !9
-
-61:                                               ; preds = %45
-  br label %62
-
-62:                                               ; preds = %61, %39, %34
-  %63 = load i32, ptr %8, align 4
-  %64 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %17, i32 noundef 23, i32 noundef %63)
+52:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
   br label %65
 
-65:                                               ; preds = %67, %62
-  %66 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %17, i32 noundef 22)
-  store i32 %66, ptr %15, align 4
-  br label %67
+53:                                               ; preds = %48
+  %54 = load i64, ptr %14, align 8, !tbaa !104
+  %55 = add i64 4, %54
+  %56 = trunc i64 %55 to i32
+  %57 = load ptr, ptr %11, align 8, !tbaa !105
+  %58 = load i64, ptr %14, align 8, !tbaa !104
+  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !9
+  %61 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %17, i32 noundef %56, i32 noundef %60)
+  br label %62
 
-67:                                               ; preds = %65
-  %68 = load i32, ptr %15, align 4
-  %69 = and i32 %68, 4096
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %65, label %71, !llvm.loop !10
+62:                                               ; preds = %53
+  %63 = load i64, ptr %14, align 8, !tbaa !104
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %14, align 8, !tbaa !104
+  br label %48, !llvm.loop !107
 
-71:                                               ; preds = %67
-  %72 = load i32, ptr %8, align 4
-  %73 = and i32 %72, 65536
-  %74 = udiv i32 %73, 65536
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %98
+65:                                               ; preds = %52
+  br label %66
+
+66:                                               ; preds = %65, %41, %35
+  %67 = load i32, ptr %8, align 4, !tbaa !9
+  %68 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %17, i32 noundef 23, i32 noundef %67)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  br label %69
+
+69:                                               ; preds = %71, %66
+  %70 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %17, i32 noundef 22)
+  store i32 %70, ptr %15, align 4, !tbaa !9
+  br label %71
+
+71:                                               ; preds = %69
+  %72 = load i32, ptr %15, align 4, !tbaa !9
+  %73 = zext i32 %72 to i64
+  %74 = and i64 %73, 4096
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %69, label %76, !llvm.loop !108
 
 76:                                               ; preds = %71
-  %77 = load i32, ptr %8, align 4
-  %78 = and i32 %77, 131072
-  %79 = udiv i32 %78, 131072
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %98
+  %77 = load i32, ptr %8, align 4, !tbaa !9
+  %78 = and i32 %77, 65536
+  %79 = zext i32 %78 to i64
+  %80 = udiv i64 %79, 65536
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %82, label %106
 
-81:                                               ; preds = %76
-  store i64 0, ptr %16, align 8
-  br label %82
+82:                                               ; preds = %76
+  %83 = load i32, ptr %8, align 4, !tbaa !9
+  %84 = and i32 %83, 131072
+  %85 = zext i32 %84 to i64
+  %86 = udiv i64 %85, 131072
+  %87 = icmp ne i64 %86, 0
+  br i1 %87, label %88, label %106
 
-82:                                               ; preds = %94, %81
-  %83 = load i64, ptr %16, align 8
-  %84 = load i64, ptr %12, align 8
-  %85 = icmp ult i64 %83, %84
-  br i1 %85, label %86, label %97
+88:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  store i64 0, ptr %16, align 8, !tbaa !104
+  br label %89
 
-86:                                               ; preds = %82
-  %87 = load i64, ptr %16, align 8
-  %88 = add i64 4, %87
-  %89 = trunc i64 %88 to i32
-  %90 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %17, i32 noundef %89)
-  %91 = load ptr, ptr %11, align 8
-  %92 = load i64, ptr %16, align 8
-  %93 = getelementptr inbounds i32, ptr %91, i64 %92
-  store i32 %90, ptr %93, align 4
-  br label %94
+89:                                               ; preds = %102, %88
+  %90 = load i64, ptr %16, align 8, !tbaa !104
+  %91 = load i64, ptr %12, align 8, !tbaa !104
+  %92 = icmp ult i64 %90, %91
+  br i1 %92, label %94, label %93
 
-94:                                               ; preds = %86
-  %95 = load i64, ptr %16, align 8
-  %96 = add i64 %95, 1
-  store i64 %96, ptr %16, align 8
-  br label %82, !llvm.loop !11
+93:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  br label %105
 
-97:                                               ; preds = %82
-  br label %98
+94:                                               ; preds = %89
+  %95 = load i64, ptr %16, align 8, !tbaa !104
+  %96 = add i64 4, %95
+  %97 = trunc i64 %96 to i32
+  %98 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %17, i32 noundef %97)
+  %99 = load ptr, ptr %11, align 8, !tbaa !105
+  %100 = load i64, ptr %16, align 8, !tbaa !104
+  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  store i32 %98, ptr %101, align 4, !tbaa !9
+  br label %102
 
-98:                                               ; preds = %97, %76, %71
-  %99 = load i32, ptr %15, align 4
-  %100 = and i32 %99, 1792
-  %101 = udiv i32 %100, 256
-  ret i32 %101
+102:                                              ; preds = %94
+  %103 = load i64, ptr %16, align 8, !tbaa !104
+  %104 = add i64 %103, 1
+  store i64 %104, ptr %16, align 8, !tbaa !104
+  br label %89, !llvm.loop !109
+
+105:                                              ; preds = %93
+  br label %106
+
+106:                                              ; preds = %105, %82, %76
+  %107 = load i32, ptr %15, align 4, !tbaa !9
+  %108 = and i32 %107, 1792
+  %109 = zext i32 %108 to i64
+  %110 = udiv i64 %109, 256
+  %111 = trunc i64 %110 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  ret i32 %111
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) #0 align 2 {
+define void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [5 x ptr], align 16
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %5) #8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %5, ptr align 16 @__const._ZN5dtm_t3dieEj.codes, i64 40, i1 false)
-  %8 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load i32, ptr %4, align 4, !tbaa !9
   %9 = zext i32 %8 to i64
   %10 = icmp ult i64 %9, 5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %4, align 4
+  %12 = load i32, ptr %4, align 4, !tbaa !9
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds [5 x ptr], ptr %5, i64 0, i64 %13
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %6, align 8
+  %14 = getelementptr inbounds nuw [5 x ptr], ptr %5, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !110
+  store ptr %15, ptr %6, align 8, !tbaa !110
   br label %17
 
 16:                                               ; preds = %2
-  store ptr @.str.5, ptr %6, align 8
+  store ptr @.str.5, ptr %6, align 8, !tbaa !110
   br label %17
 
 17:                                               ; preds = %16, %11
-  %18 = load i32, ptr %4, align 4
-  %19 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %4, align 4, !tbaa !9
+  %19 = load ptr, ptr %6, align 8, !tbaa !110
   %20 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 357, i32 noundef %18, ptr noundef %19)
   %21 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, ptr noundef @.str.7, i32 noundef 358)
-  %22 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef 22, i32 noundef 1792)
+  %22 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef 22, i32 noundef 1792)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #3
+declare void @llvm.stackrestore.p0(ptr) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
+define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
@@ -685,38 +785,39 @@ define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceab
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !104
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 14
-  %13 = load i32, ptr %12, align 4
+  %12 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 14
+  %13 = load i32, ptr %12, align 4, !tbaa !103
   %14 = udiv i32 %13, 32
   %15 = zext i32 %14 to i64
   %16 = call ptr @llvm.stacksave.p0()
   store ptr %16, ptr %7, align 8
   %17 = alloca i32, i64 %15, align 16
   store i64 %15, ptr %8, align 8
-  %18 = load i64, ptr %6, align 8
+  %18 = load i64, ptr %6, align 8, !tbaa !104
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds i32, ptr %17, i64 0
-  store i32 %19, ptr %20, align 16
-  %21 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 14
-  %22 = load i32, ptr %21, align 4
+  store i32 %19, ptr %20, align 16, !tbaa !9
+  %21 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 14
+  %22 = load i32, ptr %21, align 4, !tbaa !103
   %23 = icmp ugt i32 %22, 32
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %3
-  %25 = load i64, ptr %6, align 8
+  %25 = load i64, ptr %6, align 8, !tbaa !104
   %26 = lshr i64 %25, 32
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds i32, ptr %17, i64 1
-  store i32 %27, ptr %28, align 4
+  store i32 %27, ptr %28, align 4, !tbaa !9
   br label %29
 
 29:                                               ; preds = %24, %3
-  %30 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 14
-  %31 = load i32, ptr %30, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %30 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 14
+  %31 = load i32, ptr %30, align 4, !tbaa !103
   %32 = icmp eq i32 %31, 128
   br i1 %32, label %33, label %34
 
@@ -724,8 +825,8 @@ define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceab
   br label %39
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 14
-  %36 = load i32, ptr %35, align 4
+  %35 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 14
+  %36 = load i32, ptr %35, align 4, !tbaa !103
   %37 = icmp eq i32 %36, 64
   %38 = select i1 %37, i32 3, i32 2
   br label %39
@@ -733,48 +834,54 @@ define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceab
 39:                                               ; preds = %34, %33
   %40 = phi i32 [ 4, %33 ], [ %38, %34 ]
   %41 = shl i32 %40, 20
-  %42 = or i32 196608, %41
-  %43 = load i32, ptr %5, align 4
-  %44 = or i32 4096, %43
-  %45 = shl i32 %44, 0
-  %46 = or i32 %42, %45
-  store i32 %46, ptr %9, align 4
-  %47 = load i32, ptr %9, align 4
-  %48 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 14
-  %49 = load i32, ptr %48, align 4
-  %50 = udiv i32 %49, 32
-  %51 = zext i32 %50 to i64
-  %52 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %11, i32 noundef %47, ptr noundef null, i64 noundef 0, ptr noundef %17, i64 noundef %51)
-  store i32 %52, ptr %10, align 4
-  %53 = load i32, ptr %10, align 4
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %57
+  %42 = sext i32 %41 to i64
+  %43 = or i64 196608, %42
+  %44 = load i32, ptr %5, align 4, !tbaa !9
+  %45 = or i32 4096, %44
+  %46 = shl i32 %45, 0
+  %47 = zext i32 %46 to i64
+  %48 = or i64 %43, %47
+  %49 = trunc i64 %48 to i32
+  store i32 %49, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %50 = load i32, ptr %9, align 4, !tbaa !9
+  %51 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 14
+  %52 = load i32, ptr %51, align 4, !tbaa !103
+  %53 = udiv i32 %52, 32
+  %54 = zext i32 %53 to i64
+  %55 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %11, i32 noundef %50, ptr noundef null, i64 noundef 0, ptr noundef %17, i64 noundef %54)
+  store i32 %55, ptr %10, align 4, !tbaa !9
+  %56 = load i32, ptr %10, align 4, !tbaa !9
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %60
 
-55:                                               ; preds = %39
-  %56 = load i32, ptr %10, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %11, i32 noundef %56)
-  br label %57
+58:                                               ; preds = %39
+  %59 = load i32, ptr %10, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %11, i32 noundef %59)
+  br label %60
 
-57:                                               ; preds = %55, %39
-  %58 = load ptr, ptr %7, align 8
-  call void @llvm.stackrestore.p0(ptr %58)
+60:                                               ; preds = %58, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  %61 = load ptr, ptr %7, align 8
+  call void @llvm.stackrestore.p0(ptr %61)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN5dtm_t11chunk_alignEv(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #4 align 2 {
+define noundef i64 @_ZN5dtm_t11chunk_alignEv(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 14
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %class.dtm_t, ptr %3, i32 0, i32 14
+  %5 = load i32, ptr %4, align 4, !tbaa !103
   %6 = udiv i32 %5, 8
   %7 = zext i32 %6 to i64
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 dereferenceable(928) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 dereferenceable(944) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -789,70 +896,74 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 dereferencea
   %16 = alloca i32, align 4
   %17 = alloca i64, align 8
   %18 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !104
+  store i64 %2, ptr %7, align 8, !tbaa !104
+  store ptr %3, ptr %8, align 8, !tbaa !111
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 15
-  %21 = load i64, ptr %20, align 8
+  %20 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 15
+  %21 = load i64, ptr %20, align 8, !tbaa !112
   %22 = call ptr @llvm.stacksave.p0()
   store ptr %22, ptr %9, align 8
   %23 = alloca i32, i64 %21, align 16
   store i64 %21, ptr %10, align 8
-  %24 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 16
-  %25 = load i64, ptr %24, align 8
+  %24 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 16
+  %25 = load i64, ptr %24, align 8, !tbaa !113
   %26 = alloca i32, i64 %25, align 16
   store i64 %25, ptr %11, align 8
-  %27 = load ptr, ptr %8, align 8
-  store ptr %27, ptr %12, align 8
-  %28 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 18
-  %29 = load i32, ptr %28, align 4
-  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef %29)
-  %30 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef 8)
-  store i64 %30, ptr %13, align 8
-  %31 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef 9)
-  store i64 %31, ptr %14, align 8
-  %32 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %33 = load i32, ptr %32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %27 = load ptr, ptr %8, align 8, !tbaa !111
+  store ptr %27, ptr %12, align 8, !tbaa !110
+  %28 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 18
+  %29 = load i32, ptr %28, align 4, !tbaa !95
+  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef %29)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %30 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef 8)
+  store i64 %30, ptr %13, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %31 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef 9)
+  store i64 %31, ptr %14, align 8, !tbaa !104
+  %32 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %33 = load i32, ptr %32, align 4, !tbaa !103
   %34 = icmp eq i32 %33, 64
   %35 = select i1 %34, i32 12291, i32 8195
   %36 = or i32 %35, 1152
   %37 = or i32 %36, 262144
   %38 = or i32 %37, 0
   %39 = getelementptr inbounds i32, ptr %23, i64 0
-  store i32 %38, ptr %39, align 16
-  %40 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %41 = load i32, ptr %40, align 4
+  store i32 %38, ptr %39, align 16, !tbaa !9
+  %40 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %41 = load i32, ptr %40, align 4, !tbaa !103
   %42 = udiv i32 %41, 8
   %43 = lshr i32 %42, 0
   %44 = and i32 %43, 4095
   %45 = shl i32 %44, 20
   %46 = or i32 263187, %45
   %47 = getelementptr inbounds i32, ptr %23, i64 1
-  store i32 %46, ptr %47, align 4
+  store i32 %46, ptr %47, align 4, !tbaa !9
   %48 = getelementptr inbounds i32, ptr %23, i64 2
-  store i32 1048691, ptr %48, align 8
-  %49 = load i64, ptr %6, align 8
+  store i32 1048691, ptr %48, align 8, !tbaa !9
+  %49 = load i64, ptr %6, align 8, !tbaa !104
   %50 = trunc i64 %49 to i32
   %51 = getelementptr inbounds i32, ptr %26, i64 0
-  store i32 %50, ptr %51, align 16
-  %52 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %53 = load i32, ptr %52, align 4
+  store i32 %50, ptr %51, align 16, !tbaa !9
+  %52 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %53 = load i32, ptr %52, align 4, !tbaa !103
   %54 = icmp ugt i32 %53, 32
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %4
-  %56 = load i64, ptr %6, align 8
+  %56 = load i64, ptr %6, align 8, !tbaa !104
   %57 = lshr i64 %56, 32
   %58 = trunc i64 %57 to i32
   %59 = getelementptr inbounds i32, ptr %26, i64 1
-  store i32 %58, ptr %59, align 4
+  store i32 %58, ptr %59, align 4, !tbaa !9
   br label %60
 
 60:                                               ; preds = %55, %4
-  %61 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %62 = load i32, ptr %61, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %61 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %62 = load i32, ptr %61, align 4, !tbaa !103
   %63 = icmp eq i32 %62, 128
   br i1 %63, label %64, label %65
 
@@ -860,8 +971,8 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 dereferencea
   br label %70
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %67 = load i32, ptr %66, align 4
+  %66 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %67 = load i32, ptr %66, align 4, !tbaa !103
   %68 = icmp eq i32 %67, 64
   %69 = select i1 %68, i32 3, i32 2
   br label %70
@@ -869,133 +980,152 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 dereferencea
 70:                                               ; preds = %65, %64
   %71 = phi i32 [ 4, %64 ], [ %69, %65 ]
   %72 = shl i32 %71, 20
-  %73 = or i32 458752, %72
-  %74 = or i32 %73, 4104
-  store i32 %74, ptr %15, align 4
-  %75 = load i32, ptr %15, align 4
-  %76 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %77 = load i32, ptr %76, align 4
-  %78 = udiv i32 %77, 32
-  %79 = zext i32 %78 to i64
-  %80 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef %75, ptr noundef %23, i64 noundef 3, ptr noundef %26, i64 noundef %79)
-  store i32 %80, ptr %16, align 4
-  %81 = load i32, ptr %16, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %85
+  %73 = sext i32 %72 to i64
+  %74 = or i64 458752, %73
+  %75 = or i64 %74, 4104
+  %76 = trunc i64 %75 to i32
+  store i32 %76, ptr %15, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %77 = load i32, ptr %15, align 4, !tbaa !9
+  %78 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %79 = load i32, ptr %78, align 4, !tbaa !103
+  %80 = udiv i32 %79, 32
+  %81 = zext i32 %80 to i64
+  %82 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef %77, ptr noundef %23, i64 noundef 3, ptr noundef %26, i64 noundef %81)
+  store i32 %82, ptr %16, align 4, !tbaa !9
+  %83 = load i32, ptr %16, align 4, !tbaa !9
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %87
 
-83:                                               ; preds = %70
-  %84 = load i32, ptr %16, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef %84)
-  br label %85
+85:                                               ; preds = %70
+  %86 = load i32, ptr %16, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef %86)
+  br label %87
 
-85:                                               ; preds = %83, %70
-  store i64 0, ptr %17, align 8
-  br label %86
+87:                                               ; preds = %85, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  store i64 0, ptr %17, align 8, !tbaa !104
+  br label %88
 
-86:                                               ; preds = %145, %85
-  %87 = load i64, ptr %17, align 8
-  %88 = load i64, ptr %7, align 8
-  %89 = mul i64 %88, 8
-  %90 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %91 = load i32, ptr %90, align 4
-  %92 = zext i32 %91 to i64
-  %93 = udiv i64 %89, %92
-  %94 = icmp ult i64 %87, %93
-  br i1 %94, label %95, label %148
+88:                                               ; preds = %152, %87
+  %89 = load i64, ptr %17, align 8, !tbaa !104
+  %90 = load i64, ptr %7, align 8, !tbaa !104
+  %91 = mul i64 %90, 8
+  %92 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %93 = load i32, ptr %92, align 4, !tbaa !103
+  %94 = zext i32 %93 to i64
+  %95 = udiv i64 %91, %94
+  %96 = icmp ult i64 %89, %95
+  br i1 %96, label %98, label %97
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp eq i32 %97, 128
-  br i1 %98, label %99, label %100
+97:                                               ; preds = %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  br label %155
 
-99:                                               ; preds = %95
-  br label %105
+98:                                               ; preds = %88
+  %99 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %100 = load i32, ptr %99, align 4, !tbaa !103
+  %101 = icmp eq i32 %100, 128
+  br i1 %101, label %102, label %103
 
-100:                                              ; preds = %95
-  %101 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %102, 64
-  %104 = select i1 %103, i32 3, i32 2
-  br label %105
+102:                                              ; preds = %98
+  br label %108
 
-105:                                              ; preds = %100, %99
-  %106 = phi i32 [ 4, %99 ], [ %104, %100 ]
-  %107 = shl i32 %106, 20
-  %108 = or i32 131072, %107
-  %109 = or i32 %108, 4105
-  store i32 %109, ptr %15, align 4
-  %110 = load i64, ptr %17, align 8
-  %111 = add i64 %110, 1
-  %112 = load i64, ptr %7, align 8
-  %113 = mul i64 %112, 8
-  %114 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %115 = load i32, ptr %114, align 4
-  %116 = zext i32 %115 to i64
-  %117 = udiv i64 %113, %116
-  %118 = icmp ult i64 %111, %117
-  br i1 %118, label %119, label %122
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %105 = load i32, ptr %104, align 4, !tbaa !103
+  %106 = icmp eq i32 %105, 64
+  %107 = select i1 %106, i32 3, i32 2
+  br label %108
 
-119:                                              ; preds = %105
-  %120 = load i32, ptr %15, align 4
-  %121 = or i32 %120, 262144
-  store i32 %121, ptr %15, align 4
-  br label %122
+108:                                              ; preds = %103, %102
+  %109 = phi i32 [ 4, %102 ], [ %107, %103 ]
+  %110 = shl i32 %109, 20
+  %111 = sext i32 %110 to i64
+  %112 = or i64 131072, %111
+  %113 = or i64 %112, 4105
+  %114 = trunc i64 %113 to i32
+  store i32 %114, ptr %15, align 4, !tbaa !9
+  %115 = load i64, ptr %17, align 8, !tbaa !104
+  %116 = add i64 %115, 1
+  %117 = load i64, ptr %7, align 8, !tbaa !104
+  %118 = mul i64 %117, 8
+  %119 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %120 = load i32, ptr %119, align 4, !tbaa !103
+  %121 = zext i32 %120 to i64
+  %122 = udiv i64 %118, %121
+  %123 = icmp ult i64 %116, %122
+  br i1 %123, label %124, label %129
 
-122:                                              ; preds = %119, %105
-  %123 = load i32, ptr %15, align 4
-  %124 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %125 = load i32, ptr %124, align 4
-  %126 = udiv i32 %125, 32
-  %127 = zext i32 %126 to i64
-  %128 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef %123, ptr noundef null, i64 noundef 0, ptr noundef %26, i64 noundef %127)
-  store i32 %128, ptr %18, align 4
-  %129 = load i32, ptr %18, align 4
-  %130 = icmp ne i32 %129, 0
-  br i1 %130, label %131, label %133
+124:                                              ; preds = %108
+  %125 = load i32, ptr %15, align 4, !tbaa !9
+  %126 = zext i32 %125 to i64
+  %127 = or i64 %126, 262144
+  %128 = trunc i64 %127 to i32
+  store i32 %128, ptr %15, align 4, !tbaa !9
+  br label %129
 
-131:                                              ; preds = %122
-  %132 = load i32, ptr %18, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef %132)
-  br label %133
+129:                                              ; preds = %124, %108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  %130 = load i32, ptr %15, align 4, !tbaa !9
+  %131 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %132 = load i32, ptr %131, align 4, !tbaa !103
+  %133 = udiv i32 %132, 32
+  %134 = zext i32 %133 to i64
+  %135 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef %130, ptr noundef null, i64 noundef 0, ptr noundef %26, i64 noundef %134)
+  store i32 %135, ptr %18, align 4, !tbaa !9
+  %136 = load i32, ptr %18, align 4, !tbaa !9
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %138, label %140
 
-133:                                              ; preds = %131, %122
-  %134 = load ptr, ptr %12, align 8
-  %135 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %136 = load i32, ptr %135, align 4
-  %137 = udiv i32 %136, 8
-  %138 = zext i32 %137 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 16 %26, i64 %138, i1 false)
-  %139 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 14
-  %140 = load i32, ptr %139, align 4
-  %141 = udiv i32 %140, 8
-  %142 = load ptr, ptr %12, align 8
-  %143 = zext i32 %141 to i64
-  %144 = getelementptr inbounds i8, ptr %142, i64 %143
-  store ptr %144, ptr %12, align 8
-  br label %145
+138:                                              ; preds = %129
+  %139 = load i32, ptr %18, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef %139)
+  br label %140
 
-145:                                              ; preds = %133
-  %146 = load i64, ptr %17, align 8
-  %147 = add i64 %146, 1
-  store i64 %147, ptr %17, align 8
-  br label %86, !llvm.loop !12
+140:                                              ; preds = %138, %129
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  %141 = load ptr, ptr %12, align 8, !tbaa !110
+  %142 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %143 = load i32, ptr %142, align 4, !tbaa !103
+  %144 = udiv i32 %143, 8
+  %145 = zext i32 %144 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr align 16 %26, i64 %145, i1 false)
+  %146 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 14
+  %147 = load i32, ptr %146, align 4, !tbaa !103
+  %148 = udiv i32 %147, 8
+  %149 = load ptr, ptr %12, align 8, !tbaa !110
+  %150 = zext i32 %148 to i64
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 %150
+  store ptr %151, ptr %12, align 8, !tbaa !110
+  br label %152
 
-148:                                              ; preds = %86
-  %149 = load i64, ptr %13, align 8
-  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef 8, i64 noundef %149)
-  %150 = load i64, ptr %14, align 8
-  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef 9, i64 noundef %150)
-  %151 = getelementptr inbounds %class.dtm_t, ptr %19, i32 0, i32 18
-  %152 = load i32, ptr %151, align 4
-  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %19, i32 noundef %152)
-  %153 = load ptr, ptr %9, align 8
-  call void @llvm.stackrestore.p0(ptr %153)
+152:                                              ; preds = %140
+  %153 = load i64, ptr %17, align 8, !tbaa !104
+  %154 = add i64 %153, 1
+  store i64 %154, ptr %17, align 8, !tbaa !104
+  br label %88, !llvm.loop !114
+
+155:                                              ; preds = %97
+  %156 = load i64, ptr %13, align 8, !tbaa !104
+  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef 8, i64 noundef %156)
+  %157 = load i64, ptr %14, align 8, !tbaa !104
+  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef 9, i64 noundef %157)
+  %158 = getelementptr inbounds nuw %class.dtm_t, ptr %19, i32 0, i32 18
+  %159 = load i32, ptr %158, align 4, !tbaa !95
+  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %19, i32 noundef %159)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %160 = load ptr, ptr %9, align 8
+  call void @llvm.stackrestore.p0(ptr %160)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 dereferenceable(928) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 dereferenceable(944) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -1011,70 +1141,74 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 dereferenc
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !104
+  store i64 %2, ptr %7, align 8, !tbaa !104
+  store ptr %3, ptr %8, align 8, !tbaa !111
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 15
-  %22 = load i64, ptr %21, align 8
+  %21 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 15
+  %22 = load i64, ptr %21, align 8, !tbaa !112
   %23 = call ptr @llvm.stacksave.p0()
   store ptr %23, ptr %9, align 8
   %24 = alloca i32, i64 %22, align 16
   store i64 %22, ptr %10, align 8
-  %25 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 16
-  %26 = load i64, ptr %25, align 8
+  %25 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 16
+  %26 = load i64, ptr %25, align 8, !tbaa !113
   %27 = alloca i32, i64 %26, align 16
   store i64 %26, ptr %11, align 8
-  %28 = load ptr, ptr %8, align 8
-  store ptr %28, ptr %12, align 8
-  %29 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 18
-  %30 = load i32, ptr %29, align 4
-  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef %30)
-  %31 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 8)
-  store i64 %31, ptr %13, align 8
-  %32 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 9)
-  store i64 %32, ptr %14, align 8
-  %33 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %34 = load i32, ptr %33, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %28 = load ptr, ptr %8, align 8, !tbaa !111
+  store ptr %28, ptr %12, align 8, !tbaa !110
+  %29 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 18
+  %30 = load i32, ptr %29, align 4, !tbaa !95
+  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef %30)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %31 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 8)
+  store i64 %31, ptr %13, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %32 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 9)
+  store i64 %32, ptr %14, align 8, !tbaa !104
+  %33 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %34 = load i32, ptr %33, align 4, !tbaa !103
   %35 = icmp eq i32 %34, 64
   %36 = select i1 %35, i32 12323, i32 8227
   %37 = or i32 %36, 9437184
   %38 = or i32 %37, 262144
   %39 = or i32 %38, 0
   %40 = getelementptr inbounds i32, ptr %24, i64 0
-  store i32 %39, ptr %40, align 16
-  %41 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %42 = load i32, ptr %41, align 4
+  store i32 %39, ptr %40, align 16, !tbaa !9
+  %41 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %42 = load i32, ptr %41, align 4, !tbaa !103
   %43 = udiv i32 %42, 8
   %44 = lshr i32 %43, 0
   %45 = and i32 %44, 4095
   %46 = shl i32 %45, 20
   %47 = or i32 263187, %46
   %48 = getelementptr inbounds i32, ptr %24, i64 1
-  store i32 %47, ptr %48, align 4
+  store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = getelementptr inbounds i32, ptr %24, i64 2
-  store i32 1048691, ptr %49, align 8
-  %50 = load i64, ptr %6, align 8
+  store i32 1048691, ptr %49, align 8, !tbaa !9
+  %50 = load i64, ptr %6, align 8, !tbaa !104
   %51 = trunc i64 %50 to i32
   %52 = getelementptr inbounds i32, ptr %27, i64 0
-  store i32 %51, ptr %52, align 16
-  %53 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %54 = load i32, ptr %53, align 4
+  store i32 %51, ptr %52, align 16, !tbaa !9
+  %53 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %54 = load i32, ptr %53, align 4, !tbaa !103
   %55 = icmp ugt i32 %54, 32
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %4
-  %57 = load i64, ptr %6, align 8
+  %57 = load i64, ptr %6, align 8, !tbaa !104
   %58 = lshr i64 %57, 32
   %59 = trunc i64 %58 to i32
   %60 = getelementptr inbounds i32, ptr %27, i64 1
-  store i32 %59, ptr %60, align 4
+  store i32 %59, ptr %60, align 4, !tbaa !9
   br label %61
 
 61:                                               ; preds = %56, %4
-  %62 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %63 = load i32, ptr %62, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %62 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %63 = load i32, ptr %62, align 4, !tbaa !103
   %64 = icmp eq i32 %63, 128
   br i1 %64, label %65, label %66
 
@@ -1082,8 +1216,8 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 dereferenc
   br label %71
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %68 = load i32, ptr %67, align 4
+  %67 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %68 = load i32, ptr %67, align 4, !tbaa !103
   %69 = icmp eq i32 %68, 64
   %70 = select i1 %69, i32 3, i32 2
   br label %71
@@ -1091,196 +1225,219 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 dereferenc
 71:                                               ; preds = %66, %65
   %72 = phi i32 [ 4, %65 ], [ %70, %66 ]
   %73 = shl i32 %72, 20
-  %74 = or i32 196608, %73
-  %75 = or i32 %74, 4104
-  store i32 %75, ptr %15, align 4
-  %76 = load i32, ptr %15, align 4
-  %77 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %78 = load i32, ptr %77, align 4
-  %79 = udiv i32 %78, 32
-  %80 = zext i32 %79 to i64
-  %81 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef %76, ptr noundef %24, i64 noundef 3, ptr noundef %27, i64 noundef %80)
-  store i32 %81, ptr %16, align 4
-  %82 = load i32, ptr %16, align 4
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %86
+  %74 = sext i32 %73 to i64
+  %75 = or i64 196608, %74
+  %76 = or i64 %75, 4104
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %15, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %78 = load i32, ptr %15, align 4, !tbaa !9
+  %79 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %80 = load i32, ptr %79, align 4, !tbaa !103
+  %81 = udiv i32 %80, 32
+  %82 = zext i32 %81 to i64
+  %83 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef %78, ptr noundef %24, i64 noundef 3, ptr noundef %27, i64 noundef %82)
+  store i32 %83, ptr %16, align 4, !tbaa !9
+  %84 = load i32, ptr %16, align 4, !tbaa !9
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %88
 
-84:                                               ; preds = %71
-  %85 = load i32, ptr %16, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef %85)
-  br label %86
+86:                                               ; preds = %71
+  %87 = load i32, ptr %16, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef %87)
+  br label %88
 
-86:                                               ; preds = %84, %71
-  %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %89 = load i32, ptr %88, align 4
-  %90 = udiv i32 %89, 8
-  %91 = zext i32 %90 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %27, ptr align 1 %87, i64 %91, i1 false)
-  %92 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %93 = load i32, ptr %92, align 4
-  %94 = udiv i32 %93, 8
-  %95 = load ptr, ptr %12, align 8
-  %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds i8, ptr %95, i64 %96
-  store ptr %97, ptr %12, align 8
-  %98 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, 128
-  br i1 %100, label %101, label %102
+88:                                               ; preds = %86, %71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  %89 = load ptr, ptr %12, align 8, !tbaa !110
+  %90 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %91 = load i32, ptr %90, align 4, !tbaa !103
+  %92 = udiv i32 %91, 8
+  %93 = zext i32 %92 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %27, ptr align 1 %89, i64 %93, i1 false)
+  %94 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %95 = load i32, ptr %94, align 4, !tbaa !103
+  %96 = udiv i32 %95, 8
+  %97 = load ptr, ptr %12, align 8, !tbaa !110
+  %98 = zext i32 %96 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 %98
+  store ptr %99, ptr %12, align 8, !tbaa !110
+  %100 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %101 = load i32, ptr %100, align 4, !tbaa !103
+  %102 = icmp eq i32 %101, 128
+  br i1 %102, label %103, label %104
 
-101:                                              ; preds = %86
-  br label %107
+103:                                              ; preds = %88
+  br label %109
 
-102:                                              ; preds = %86
-  %103 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %104, 64
-  %106 = select i1 %105, i32 3, i32 2
-  br label %107
+104:                                              ; preds = %88
+  %105 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %106 = load i32, ptr %105, align 4, !tbaa !103
+  %107 = icmp eq i32 %106, 64
+  %108 = select i1 %107, i32 3, i32 2
+  br label %109
 
-107:                                              ; preds = %102, %101
-  %108 = phi i32 [ 4, %101 ], [ %106, %102 ]
-  %109 = shl i32 %108, 20
-  %110 = or i32 458752, %109
-  %111 = or i32 %110, 4105
-  store i32 %111, ptr %15, align 4
-  %112 = load i32, ptr %15, align 4
-  %113 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %114 = load i32, ptr %113, align 4
-  %115 = udiv i32 %114, 32
-  %116 = zext i32 %115 to i64
-  %117 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef %112, ptr noundef null, i64 noundef 0, ptr noundef %27, i64 noundef %116)
-  store i32 %117, ptr %17, align 4
-  %118 = load i32, ptr %17, align 4
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %120, label %122
+109:                                              ; preds = %104, %103
+  %110 = phi i32 [ 4, %103 ], [ %108, %104 ]
+  %111 = shl i32 %110, 20
+  %112 = sext i32 %111 to i64
+  %113 = or i64 458752, %112
+  %114 = or i64 %113, 4105
+  %115 = trunc i64 %114 to i32
+  store i32 %115, ptr %15, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  %116 = load i32, ptr %15, align 4, !tbaa !9
+  %117 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %118 = load i32, ptr %117, align 4, !tbaa !103
+  %119 = udiv i32 %118, 32
+  %120 = zext i32 %119 to i64
+  %121 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef %116, ptr noundef null, i64 noundef 0, ptr noundef %27, i64 noundef %120)
+  store i32 %121, ptr %17, align 4, !tbaa !9
+  %122 = load i32, ptr %17, align 4, !tbaa !9
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %126
 
-120:                                              ; preds = %107
-  %121 = load i32, ptr %17, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef %121)
-  br label %122
+124:                                              ; preds = %109
+  %125 = load i32, ptr %17, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef %125)
+  br label %126
 
-122:                                              ; preds = %120, %107
-  store i64 1, ptr %19, align 8
-  br label %123
+126:                                              ; preds = %124, %109
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  store i64 1, ptr %19, align 8, !tbaa !104
+  br label %127
 
-123:                                              ; preds = %176, %122
-  %124 = load i64, ptr %19, align 8
-  %125 = load i64, ptr %7, align 8
-  %126 = mul i64 %125, 8
-  %127 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %128 = load i32, ptr %127, align 4
-  %129 = zext i32 %128 to i64
-  %130 = udiv i64 %126, %129
-  %131 = icmp ult i64 %124, %130
-  br i1 %131, label %132, label %179
+127:                                              ; preds = %185, %126
+  %128 = load i64, ptr %19, align 8, !tbaa !104
+  %129 = load i64, ptr %7, align 8, !tbaa !104
+  %130 = mul i64 %129, 8
+  %131 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %132 = load i32, ptr %131, align 4, !tbaa !103
+  %133 = zext i32 %132 to i64
+  %134 = udiv i64 %130, %133
+  %135 = icmp ult i64 %128, %134
+  br i1 %135, label %137, label %136
 
-132:                                              ; preds = %123
-  %133 = load i64, ptr %19, align 8
-  %134 = icmp eq i64 %133, 1
-  br i1 %134, label %135, label %137
+136:                                              ; preds = %127
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  br label %188
 
-135:                                              ; preds = %132
-  %136 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 24, i32 noundef 1)
-  br label %137
+137:                                              ; preds = %127
+  %138 = load i64, ptr %19, align 8, !tbaa !104
+  %139 = icmp eq i64 %138, 1
+  br i1 %139, label %140, label %142
 
-137:                                              ; preds = %135, %132
-  %138 = load ptr, ptr %12, align 8
-  %139 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %140 = load i32, ptr %139, align 4
-  %141 = udiv i32 %140, 8
-  %142 = zext i32 %141 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %27, ptr align 1 %138, i64 %142, i1 false)
-  %143 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %144 = load i32, ptr %143, align 4
-  %145 = udiv i32 %144, 8
-  %146 = load ptr, ptr %12, align 8
-  %147 = zext i32 %145 to i64
-  %148 = getelementptr inbounds i8, ptr %146, i64 %147
-  store ptr %148, ptr %12, align 8
-  %149 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp eq i32 %150, 64
-  br i1 %151, label %152, label %156
+140:                                              ; preds = %137
+  %141 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 24, i32 noundef 1)
+  br label %142
 
-152:                                              ; preds = %137
-  %153 = getelementptr inbounds i32, ptr %27, i64 1
-  %154 = load i32, ptr %153, align 4
-  %155 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 5, i32 noundef %154)
-  br label %156
+142:                                              ; preds = %140, %137
+  %143 = load ptr, ptr %12, align 8, !tbaa !110
+  %144 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %145 = load i32, ptr %144, align 4, !tbaa !103
+  %146 = udiv i32 %145, 8
+  %147 = zext i32 %146 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %27, ptr align 1 %143, i64 %147, i1 false)
+  %148 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %149 = load i32, ptr %148, align 4, !tbaa !103
+  %150 = udiv i32 %149, 8
+  %151 = load ptr, ptr %12, align 8, !tbaa !110
+  %152 = zext i32 %150 to i64
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 %152
+  store ptr %153, ptr %12, align 8, !tbaa !110
+  %154 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %155 = load i32, ptr %154, align 4, !tbaa !103
+  %156 = icmp eq i32 %155, 64
+  br i1 %156, label %157, label %161
 
-156:                                              ; preds = %152, %137
-  %157 = getelementptr inbounds i32, ptr %27, i64 0
-  %158 = load i32, ptr %157, align 16
-  %159 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 4, i32 noundef %158)
-  br label %160
+157:                                              ; preds = %142
+  %158 = getelementptr inbounds i32, ptr %27, i64 1
+  %159 = load i32, ptr %158, align 4, !tbaa !9
+  %160 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 5, i32 noundef %159)
+  br label %161
 
-160:                                              ; preds = %162, %156
-  %161 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 22)
-  store i32 %161, ptr %18, align 4
-  br label %162
+161:                                              ; preds = %157, %142
+  %162 = getelementptr inbounds i32, ptr %27, i64 0
+  %163 = load i32, ptr %162, align 16, !tbaa !9
+  %164 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 4, i32 noundef %163)
+  br label %165
 
-162:                                              ; preds = %160
-  %163 = load i32, ptr %18, align 4
-  %164 = and i32 %163, 4096
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %160, label %166, !llvm.loop !13
+165:                                              ; preds = %167, %161
+  %166 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 22)
+  store i32 %166, ptr %18, align 4, !tbaa !9
+  br label %167
 
-166:                                              ; preds = %162
-  %167 = load i32, ptr %18, align 4
-  %168 = and i32 %167, 1792
-  %169 = udiv i32 %168, 256
-  %170 = icmp ne i32 %169, 0
-  br i1 %170, label %171, label %175
+167:                                              ; preds = %165
+  %168 = load i32, ptr %18, align 4, !tbaa !9
+  %169 = zext i32 %168 to i64
+  %170 = and i64 %169, 4096
+  %171 = icmp ne i64 %170, 0
+  br i1 %171, label %165, label %172, !llvm.loop !115
 
-171:                                              ; preds = %166
-  %172 = load i32, ptr %18, align 4
-  %173 = and i32 %172, 1792
-  %174 = udiv i32 %173, 256
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef %174)
-  br label %175
+172:                                              ; preds = %167
+  %173 = load i32, ptr %18, align 4, !tbaa !9
+  %174 = and i32 %173, 1792
+  %175 = zext i32 %174 to i64
+  %176 = udiv i64 %175, 256
+  %177 = icmp ne i64 %176, 0
+  br i1 %177, label %178, label %184
 
-175:                                              ; preds = %171, %166
-  br label %176
+178:                                              ; preds = %172
+  %179 = load i32, ptr %18, align 4, !tbaa !9
+  %180 = and i32 %179, 1792
+  %181 = zext i32 %180 to i64
+  %182 = udiv i64 %181, 256
+  %183 = trunc i64 %182 to i32
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef %183)
+  br label %184
 
-176:                                              ; preds = %175
-  %177 = load i64, ptr %19, align 8
-  %178 = add i64 %177, 1
-  store i64 %178, ptr %19, align 8
-  br label %123, !llvm.loop !14
+184:                                              ; preds = %178, %172
+  br label %185
 
-179:                                              ; preds = %123
-  %180 = load i64, ptr %7, align 8
-  %181 = mul i64 %180, 8
-  %182 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 14
-  %183 = load i32, ptr %182, align 4
-  %184 = zext i32 %183 to i64
-  %185 = udiv i64 %181, %184
-  %186 = icmp ugt i64 %185, 1
-  br i1 %186, label %187, label %189
+185:                                              ; preds = %184
+  %186 = load i64, ptr %19, align 8, !tbaa !104
+  %187 = add i64 %186, 1
+  store i64 %187, ptr %19, align 8, !tbaa !104
+  br label %127, !llvm.loop !116
 
-187:                                              ; preds = %179
-  %188 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 24, i32 noundef 0)
-  br label %189
+188:                                              ; preds = %136
+  %189 = load i64, ptr %7, align 8, !tbaa !104
+  %190 = mul i64 %189, 8
+  %191 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 14
+  %192 = load i32, ptr %191, align 4, !tbaa !103
+  %193 = zext i32 %192 to i64
+  %194 = udiv i64 %190, %193
+  %195 = icmp ugt i64 %194, 1
+  br i1 %195, label %196, label %198
 
-189:                                              ; preds = %187, %179
-  %190 = load i64, ptr %13, align 8
-  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 8, i64 noundef %190)
-  %191 = load i64, ptr %14, align 8
-  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef 9, i64 noundef %191)
-  %192 = getelementptr inbounds %class.dtm_t, ptr %20, i32 0, i32 18
-  %193 = load i32, ptr %192, align 4
-  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %20, i32 noundef %193)
-  %194 = load ptr, ptr %9, align 8
-  call void @llvm.stackrestore.p0(ptr %194)
+196:                                              ; preds = %188
+  %197 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 24, i32 noundef 0)
+  br label %198
+
+198:                                              ; preds = %196, %188
+  %199 = load i64, ptr %13, align 8, !tbaa !104
+  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 8, i64 noundef %199)
+  %200 = load i64, ptr %14, align 8, !tbaa !104
+  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef 9, i64 noundef %200)
+  %201 = getelementptr inbounds nuw %class.dtm_t, ptr %20, i32 0, i32 18
+  %202 = load i32, ptr %201, align 4, !tbaa !95
+  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %20, i32 noundef %202)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %203 = load ptr, ptr %9, align 8
+  call void @llvm.stackrestore.p0(ptr %203)
   ret void
 }
 
 declare i32 @printf(ptr noundef, ...) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 dereferenceable(928) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 dereferenceable(944) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1292,38 +1449,41 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 dereferenceab
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !104
+  store i64 %2, ptr %6, align 8, !tbaa !104
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 15
-  %17 = load i64, ptr %16, align 8
+  %16 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 15
+  %17 = load i64, ptr %16, align 8, !tbaa !112
   %18 = call ptr @llvm.stacksave.p0()
   store ptr %18, ptr %7, align 8
   %19 = alloca i32, i64 %17, align 16
   store i64 %17, ptr %8, align 8
-  %20 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 16
-  %21 = load i64, ptr %20, align 8
+  %20 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 16
+  %21 = load i64, ptr %20, align 8, !tbaa !113
   %22 = alloca i32, i64 %21, align 16
   store i64 %21, ptr %9, align 8
-  %23 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 18
-  %24 = load i32, ptr %23, align 4
-  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef %24)
-  %25 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef 8)
-  store i64 %25, ptr %10, align 8
-  %26 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef 9)
-  store i64 %26, ptr %11, align 8
-  %27 = load i64, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 18
+  %24 = load i32, ptr %23, align 4, !tbaa !95
+  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef %24)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %25 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef 8)
+  store i64 %25, ptr %10, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %26 = call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef 9)
+  store i64 %26, ptr %11, align 8, !tbaa !104
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %27 = load i64, ptr %5, align 8, !tbaa !104
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds i32, ptr %22, i64 0
-  store i32 %28, ptr %29, align 16
-  %30 = load i64, ptr %5, align 8
+  store i32 %28, ptr %29, align 16, !tbaa !9
+  %30 = load i64, ptr %5, align 8, !tbaa !104
   %31 = lshr i64 %30, 32
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds i32, ptr %22, i64 1
-  store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %35 = load i32, ptr %34, align 4
+  store i32 %32, ptr %33, align 4, !tbaa !9
+  %34 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %35 = load i32, ptr %34, align 4, !tbaa !103
   %36 = icmp eq i32 %35, 128
   br i1 %36, label %37, label %38
 
@@ -1331,8 +1491,8 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 dereferenceab
   br label %43
 
 38:                                               ; preds = %3
-  %39 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %40 = load i32, ptr %39, align 4
+  %39 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %40 = load i32, ptr %39, align 4, !tbaa !103
   %41 = icmp eq i32 %40, 64
   %42 = select i1 %41, i32 3, i32 2
   br label %43
@@ -1340,129 +1500,140 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 dereferenceab
 43:                                               ; preds = %38, %37
   %44 = phi i32 [ 4, %37 ], [ %42, %38 ]
   %45 = shl i32 %44, 20
-  %46 = or i32 196608, %45
-  %47 = or i32 %46, 4104
-  store i32 %47, ptr %12, align 4
-  %48 = load i32, ptr %12, align 4
-  %49 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %50 = load i32, ptr %49, align 4
-  %51 = udiv i32 %50, 32
-  %52 = zext i32 %51 to i64
-  %53 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef %48, ptr noundef null, i64 noundef 0, ptr noundef %22, i64 noundef %52)
-  store i32 %53, ptr %13, align 4
-  %54 = load i32, ptr %13, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %58
+  %46 = sext i32 %45 to i64
+  %47 = or i64 196608, %46
+  %48 = or i64 %47, 4104
+  %49 = trunc i64 %48 to i32
+  store i32 %49, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %50 = load i32, ptr %12, align 4, !tbaa !9
+  %51 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %52 = load i32, ptr %51, align 4, !tbaa !103
+  %53 = udiv i32 %52, 32
+  %54 = zext i32 %53 to i64
+  %55 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef %50, ptr noundef null, i64 noundef 0, ptr noundef %22, i64 noundef %54)
+  store i32 %55, ptr %13, align 4, !tbaa !9
+  %56 = load i32, ptr %13, align 4, !tbaa !9
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %60
 
-56:                                               ; preds = %43
-  %57 = load i32, ptr %13, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef %57)
-  br label %58
+58:                                               ; preds = %43
+  %59 = load i32, ptr %13, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef %59)
+  br label %60
 
-58:                                               ; preds = %56, %43
-  %59 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, 64
-  %62 = select i1 %61, i32 12323, i32 8227
-  %63 = or i32 %62, 0
-  %64 = or i32 %63, 262144
+60:                                               ; preds = %58, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  %61 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %62 = load i32, ptr %61, align 4, !tbaa !103
+  %63 = icmp eq i32 %62, 64
+  %64 = select i1 %63, i32 12323, i32 8227
   %65 = or i32 %64, 0
-  %66 = getelementptr inbounds i32, ptr %19, i64 0
-  store i32 %65, ptr %66, align 16
-  %67 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %68 = load i32, ptr %67, align 4
-  %69 = udiv i32 %68, 8
-  %70 = lshr i32 %69, 0
-  %71 = and i32 %70, 4095
-  %72 = shl i32 %71, 20
-  %73 = or i32 263187, %72
-  %74 = getelementptr inbounds i32, ptr %19, i64 1
-  store i32 %73, ptr %74, align 4
-  %75 = getelementptr inbounds i32, ptr %19, i64 2
-  store i32 -23847709, ptr %75, align 8
-  %76 = getelementptr inbounds i32, ptr %19, i64 3
-  store i32 1048691, ptr %76, align 4
-  %77 = load i64, ptr %5, align 8
-  %78 = load i64, ptr %6, align 8
-  %79 = add i64 %77, %78
-  %80 = trunc i64 %79 to i32
-  %81 = getelementptr inbounds i32, ptr %22, i64 0
-  store i32 %80, ptr %81, align 16
-  %82 = load i64, ptr %5, align 8
-  %83 = load i64, ptr %6, align 8
-  %84 = add i64 %82, %83
-  %85 = lshr i64 %84, 32
-  %86 = trunc i64 %85 to i32
-  %87 = getelementptr inbounds i32, ptr %22, i64 1
-  store i32 %86, ptr %87, align 4
-  %88 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp eq i32 %89, 128
-  br i1 %90, label %91, label %92
+  %66 = or i32 %65, 262144
+  %67 = or i32 %66, 0
+  %68 = getelementptr inbounds i32, ptr %19, i64 0
+  store i32 %67, ptr %68, align 16, !tbaa !9
+  %69 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %70 = load i32, ptr %69, align 4, !tbaa !103
+  %71 = udiv i32 %70, 8
+  %72 = lshr i32 %71, 0
+  %73 = and i32 %72, 4095
+  %74 = shl i32 %73, 20
+  %75 = or i32 263187, %74
+  %76 = getelementptr inbounds i32, ptr %19, i64 1
+  store i32 %75, ptr %76, align 4, !tbaa !9
+  %77 = getelementptr inbounds i32, ptr %19, i64 2
+  store i32 -23847709, ptr %77, align 8, !tbaa !9
+  %78 = getelementptr inbounds i32, ptr %19, i64 3
+  store i32 1048691, ptr %78, align 4, !tbaa !9
+  %79 = load i64, ptr %5, align 8, !tbaa !104
+  %80 = load i64, ptr %6, align 8, !tbaa !104
+  %81 = add i64 %79, %80
+  %82 = trunc i64 %81 to i32
+  %83 = getelementptr inbounds i32, ptr %22, i64 0
+  store i32 %82, ptr %83, align 16, !tbaa !9
+  %84 = load i64, ptr %5, align 8, !tbaa !104
+  %85 = load i64, ptr %6, align 8, !tbaa !104
+  %86 = add i64 %84, %85
+  %87 = lshr i64 %86, 32
+  %88 = trunc i64 %87 to i32
+  %89 = getelementptr inbounds i32, ptr %22, i64 1
+  store i32 %88, ptr %89, align 4, !tbaa !9
+  %90 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %91 = load i32, ptr %90, align 4, !tbaa !103
+  %92 = icmp eq i32 %91, 128
+  br i1 %92, label %93, label %94
 
-91:                                               ; preds = %58
-  br label %97
+93:                                               ; preds = %60
+  br label %99
 
-92:                                               ; preds = %58
-  %93 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, 64
-  %96 = select i1 %95, i32 3, i32 2
-  br label %97
+94:                                               ; preds = %60
+  %95 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %96 = load i32, ptr %95, align 4, !tbaa !103
+  %97 = icmp eq i32 %96, 64
+  %98 = select i1 %97, i32 3, i32 2
+  br label %99
 
-97:                                               ; preds = %92, %91
-  %98 = phi i32 [ 4, %91 ], [ %96, %92 ]
-  %99 = shl i32 %98, 20
-  %100 = or i32 196608, %99
-  %101 = or i32 %100, 4105
-  %102 = or i32 %101, 262144
-  store i32 %102, ptr %12, align 4
-  %103 = load i32, ptr %12, align 4
-  %104 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 14
-  %105 = load i32, ptr %104, align 4
-  %106 = udiv i32 %105, 32
-  %107 = zext i32 %106 to i64
-  %108 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef %103, ptr noundef %19, i64 noundef 4, ptr noundef %22, i64 noundef %107)
-  store i32 %108, ptr %14, align 4
-  %109 = load i32, ptr %14, align 4
-  %110 = icmp ne i32 %109, 0
-  br i1 %110, label %111, label %113
+99:                                               ; preds = %94, %93
+  %100 = phi i32 [ 4, %93 ], [ %98, %94 ]
+  %101 = shl i32 %100, 20
+  %102 = sext i32 %101 to i64
+  %103 = or i64 196608, %102
+  %104 = or i64 %103, 4105
+  %105 = or i64 %104, 262144
+  %106 = trunc i64 %105 to i32
+  store i32 %106, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %107 = load i32, ptr %12, align 4, !tbaa !9
+  %108 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 14
+  %109 = load i32, ptr %108, align 4, !tbaa !103
+  %110 = udiv i32 %109, 32
+  %111 = zext i32 %110 to i64
+  %112 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef %107, ptr noundef %19, i64 noundef 4, ptr noundef %22, i64 noundef %111)
+  store i32 %112, ptr %14, align 4, !tbaa !9
+  %113 = load i32, ptr %14, align 4, !tbaa !9
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %117
 
-111:                                              ; preds = %97
-  %112 = load i32, ptr %14, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef %112)
-  br label %113
+115:                                              ; preds = %99
+  %116 = load i32, ptr %14, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef %116)
+  br label %117
 
-113:                                              ; preds = %111, %97
-  %114 = load i64, ptr %10, align 8
-  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef 8, i64 noundef %114)
-  %115 = load i64, ptr %11, align 8
-  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef 9, i64 noundef %115)
-  %116 = getelementptr inbounds %class.dtm_t, ptr %15, i32 0, i32 18
-  %117 = load i32, ptr %116, align 4
-  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %15, i32 noundef %117)
-  %118 = load ptr, ptr %7, align 8
-  call void @llvm.stackrestore.p0(ptr %118)
+117:                                              ; preds = %115, %99
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %118 = load i64, ptr %10, align 8, !tbaa !104
+  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef 8, i64 noundef %118)
+  %119 = load i64, ptr %11, align 8, !tbaa !104
+  call void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef 9, i64 noundef %119)
+  %120 = getelementptr inbounds nuw %class.dtm_t, ptr %15, i32 0, i32 18
+  %121 = load i32, ptr %120, align 4, !tbaa !95
+  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %15, i32 noundef %121)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %122 = load ptr, ptr %7, align 8
+  call void @llvm.stackrestore.p0(ptr %122)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t9write_csrEjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
+define noundef i64 @_ZN5dtm_t9write_csrEjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !104
   %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = load i64, ptr %6, align 8
-  %10 = call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef %8, i64 noundef %9, i32 noundef 1)
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = load i64, ptr %6, align 8, !tbaa !104
+  %10 = call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef %8, i64 noundef %9, i32 noundef 1)
   ret i64 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #0 align 2 {
+define noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -1472,188 +1643,198 @@ define noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 derefe
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i64 %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !104
+  store i32 %3, ptr %8, align 4, !tbaa !9
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 18
-  %16 = load i32, ptr %15, align 4
-  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %14, i32 noundef %16)
-  %17 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 0
-  store i32 2065962099, ptr %17, align 4
-  %18 = getelementptr inbounds i32, ptr %17, i64 1
-  %19 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 14
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, 64
-  %22 = select i1 %21, i32 12291, i32 8195
-  %23 = or i32 %22, 1024
-  %24 = or i32 %23, 0
-  %25 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 13
-  %26 = load i32, ptr %25, align 8
-  %27 = lshr i32 %26, 0
-  %28 = and i32 %27, 4095
-  %29 = shl i32 %28, 20
-  %30 = or i32 %24, %29
-  store i32 %30, ptr %18, align 4
-  %31 = getelementptr inbounds i32, ptr %18, i64 1
-  %32 = load i32, ptr %8, align 4
-  %33 = shl i32 %32, 12
-  %34 = or i32 115, %33
-  %35 = or i32 %34, 1024
-  %36 = or i32 %35, 262144
-  %37 = load i32, ptr %6, align 4
-  %38 = shl i32 %37, 20
-  %39 = or i32 %36, %38
-  store i32 %39, ptr %31, align 4
-  %40 = getelementptr inbounds i32, ptr %31, i64 1
-  %41 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 14
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, 64
-  %44 = select i1 %43, i32 12323, i32 8227
-  %45 = or i32 %44, 8388608
-  %46 = or i32 %45, 0
-  %47 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 13
-  %48 = load i32, ptr %47, align 8
-  %49 = lshr i32 %48, 0
-  %50 = and i32 %49, 31
-  %51 = shl i32 %50, 7
-  %52 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 13
-  %53 = load i32, ptr %52, align 8
-  %54 = lshr i32 %53, 5
-  %55 = and i32 %54, 127
-  %56 = shl i32 %55, 25
-  %57 = or i32 %51, %56
-  %58 = or i32 %46, %57
-  store i32 %58, ptr %40, align 4
-  %59 = getelementptr inbounds i32, ptr %40, i64 1
-  store i32 2065962099, ptr %59, align 4
-  %60 = getelementptr inbounds i32, ptr %59, i64 1
-  store i32 1048691, ptr %60, align 4
-  %61 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
-  %62 = load i64, ptr %7, align 8
-  %63 = trunc i64 %62 to i32
-  store i32 %63, ptr %61, align 4
-  %64 = getelementptr inbounds i32, ptr %61, i64 1
-  %65 = load i64, ptr %7, align 8
-  %66 = lshr i64 %65, 32
-  %67 = trunc i64 %66 to i32
-  store i32 %67, ptr %64, align 4
-  %68 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 14
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, 128
-  br i1 %70, label %71, label %72
+  %15 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 18
+  %16 = load i32, ptr %15, align 4, !tbaa !95
+  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %14, i32 noundef %16)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #8
+  store i32 2065962099, ptr %9, align 4, !tbaa !9
+  %17 = getelementptr inbounds i32, ptr %9, i64 1
+  %18 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 14
+  %19 = load i32, ptr %18, align 4, !tbaa !103
+  %20 = icmp eq i32 %19, 64
+  %21 = select i1 %20, i32 12291, i32 8195
+  %22 = or i32 %21, 1024
+  %23 = or i32 %22, 0
+  %24 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 13
+  %25 = load i32, ptr %24, align 8, !tbaa !117
+  %26 = lshr i32 %25, 0
+  %27 = and i32 %26, 4095
+  %28 = shl i32 %27, 20
+  %29 = or i32 %23, %28
+  store i32 %29, ptr %17, align 4, !tbaa !9
+  %30 = getelementptr inbounds i32, ptr %9, i64 2
+  %31 = load i32, ptr %8, align 4, !tbaa !9
+  %32 = shl i32 %31, 12
+  %33 = or i32 115, %32
+  %34 = or i32 %33, 1024
+  %35 = or i32 %34, 262144
+  %36 = load i32, ptr %6, align 4, !tbaa !9
+  %37 = shl i32 %36, 20
+  %38 = or i32 %35, %37
+  store i32 %38, ptr %30, align 4, !tbaa !9
+  %39 = getelementptr inbounds i32, ptr %9, i64 3
+  %40 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 14
+  %41 = load i32, ptr %40, align 4, !tbaa !103
+  %42 = icmp eq i32 %41, 64
+  %43 = select i1 %42, i32 12323, i32 8227
+  %44 = or i32 %43, 8388608
+  %45 = or i32 %44, 0
+  %46 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 13
+  %47 = load i32, ptr %46, align 8, !tbaa !117
+  %48 = lshr i32 %47, 0
+  %49 = and i32 %48, 31
+  %50 = shl i32 %49, 7
+  %51 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 13
+  %52 = load i32, ptr %51, align 8, !tbaa !117
+  %53 = lshr i32 %52, 5
+  %54 = and i32 %53, 127
+  %55 = shl i32 %54, 25
+  %56 = or i32 %50, %55
+  %57 = or i32 %45, %56
+  store i32 %57, ptr %39, align 4, !tbaa !9
+  %58 = getelementptr inbounds i32, ptr %9, i64 4
+  store i32 2065962099, ptr %58, align 4, !tbaa !9
+  %59 = getelementptr inbounds i32, ptr %9, i64 5
+  store i32 1048691, ptr %59, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %60 = load i64, ptr %7, align 8, !tbaa !104
+  %61 = trunc i64 %60 to i32
+  store i32 %61, ptr %10, align 4, !tbaa !9
+  %62 = getelementptr inbounds i32, ptr %10, i64 1
+  %63 = load i64, ptr %7, align 8, !tbaa !104
+  %64 = lshr i64 %63, 32
+  %65 = trunc i64 %64 to i32
+  store i32 %65, ptr %62, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %66 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 14
+  %67 = load i32, ptr %66, align 4, !tbaa !103
+  %68 = icmp eq i32 %67, 128
+  br i1 %68, label %69, label %70
 
-71:                                               ; preds = %4
-  br label %77
+69:                                               ; preds = %4
+  br label %75
 
-72:                                               ; preds = %4
-  %73 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 14
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, 64
-  %76 = select i1 %75, i32 3, i32 2
-  br label %77
+70:                                               ; preds = %4
+  %71 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 14
+  %72 = load i32, ptr %71, align 4, !tbaa !103
+  %73 = icmp eq i32 %72, 64
+  %74 = select i1 %73, i32 3, i32 2
+  br label %75
 
-77:                                               ; preds = %72, %71
-  %78 = phi i32 [ 4, %71 ], [ %76, %72 ]
-  %79 = shl i32 %78, 20
-  %80 = or i32 458752, %79
-  %81 = or i32 %80, 4096
-  store i32 %81, ptr %11, align 4
-  %82 = load i32, ptr %11, align 4
+75:                                               ; preds = %70, %69
+  %76 = phi i32 [ 4, %69 ], [ %74, %70 ]
+  %77 = shl i32 %76, 20
+  %78 = sext i32 %77 to i64
+  %79 = or i64 458752, %78
+  %80 = or i64 %79, 4096
+  %81 = trunc i64 %80 to i32
+  store i32 %81, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  %82 = load i32, ptr %11, align 4, !tbaa !9
   %83 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 0
   %84 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
-  %85 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 14
-  %86 = load i32, ptr %85, align 4
+  %85 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 14
+  %86 = load i32, ptr %85, align 4, !tbaa !103
   %87 = udiv i32 %86, 32
   %88 = zext i32 %87 to i64
-  %89 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %14, i32 noundef %82, ptr noundef %83, i64 noundef 6, ptr noundef %84, i64 noundef %88)
-  store i32 %89, ptr %12, align 4
-  %90 = load i32, ptr %12, align 4
+  %89 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %14, i32 noundef %82, ptr noundef %83, i64 noundef 6, ptr noundef %84, i64 noundef %88)
+  store i32 %89, ptr %12, align 4, !tbaa !9
+  %90 = load i32, ptr %12, align 4, !tbaa !9
   %91 = icmp ne i32 %90, 0
   br i1 %91, label %92, label %94
 
-92:                                               ; preds = %77
-  %93 = load i32, ptr %12, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %14, i32 noundef %93)
+92:                                               ; preds = %75
+  %93 = load i32, ptr %12, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %14, i32 noundef %93)
   br label %94
 
-94:                                               ; preds = %92, %77
-  %95 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %14, i32 noundef 4)
+94:                                               ; preds = %92, %75
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %95 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %14, i32 noundef 4)
   %96 = zext i32 %95 to i64
-  store i64 %96, ptr %13, align 8
-  %97 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 14
-  %98 = load i32, ptr %97, align 4
+  store i64 %96, ptr %13, align 8, !tbaa !104
+  %97 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 14
+  %98 = load i32, ptr %97, align 4, !tbaa !103
   %99 = icmp eq i32 %98, 64
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %94
-  %101 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %14, i32 noundef 5)
+  %101 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %14, i32 noundef 5)
   %102 = zext i32 %101 to i64
-  %103 = load i64, ptr %13, align 8
+  %103 = load i64, ptr %13, align 8, !tbaa !104
   %104 = or i64 %103, %102
-  store i64 %104, ptr %13, align 8
+  store i64 %104, ptr %13, align 8, !tbaa !104
   br label %105
 
 105:                                              ; preds = %100, %94
-  %106 = getelementptr inbounds %class.dtm_t, ptr %14, i32 0, i32 18
-  %107 = load i32, ptr %106, align 4
-  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %14, i32 noundef %107)
-  %108 = load i64, ptr %13, align 8
+  %106 = getelementptr inbounds nuw %class.dtm_t, ptr %14, i32 0, i32 18
+  %107 = load i32, ptr %106, align 4, !tbaa !95
+  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %14, i32 noundef %107)
+  %108 = load i64, ptr %13, align 8, !tbaa !104
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #8
   ret i64 %108
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t7set_csrEjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
+define noundef i64 @_ZN5dtm_t7set_csrEjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !104
   %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = load i64, ptr %6, align 8
-  %10 = call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef %8, i64 noundef %9, i32 noundef 2)
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = load i64, ptr %6, align 8, !tbaa !104
+  %10 = call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef %8, i64 noundef %9, i32 noundef 2)
   ret i64 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t9clear_csrEjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
+define noundef i64 @_ZN5dtm_t9clear_csrEjm(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, i64 noundef %2) #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !104
   %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = load i64, ptr %6, align 8
-  %10 = call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(928) %7, i32 noundef %8, i64 noundef %9, i32 noundef 3)
+  %8 = load i32, ptr %5, align 4, !tbaa !9
+  %9 = load i64, ptr %6, align 8, !tbaa !104
+  %10 = call noundef i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(944) %7, i32 noundef %8, i64 noundef %9, i32 noundef 3)
   ret i64 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5dtm_t8read_csrEj(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) #0 align 2 {
+define noundef i64 @_ZN5dtm_t8read_csrEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = call noundef i64 @_ZN5dtm_t7set_csrEjm(ptr noundef nonnull align 8 dereferenceable(928) %5, i32 noundef %6, i64 noundef 0)
+  %6 = load i32, ptr %4, align 4, !tbaa !9
+  %7 = call noundef i64 @_ZN5dtm_t7set_csrEjm(ptr noundef nonnull align 8 dereferenceable(944) %5, i32 noundef %6, i64 noundef 0)
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN5dtm_t14chunk_max_sizeEv(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #4 align 2 {
+define noundef i64 @_ZN5dtm_t14chunk_max_sizeEv(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i64 4096
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereferenceable(928) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereferenceable(944) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1662,99 +1843,117 @@ define noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereference
   %7 = alloca [0 x i32], align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %10 = load ptr, ptr %3, align 8
-  store i32 135176, ptr %4, align 4
-  %11 = load i32, ptr %4, align 4
-  %12 = or i32 %11, 4194304
-  %13 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 0
-  %14 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 0
-  %15 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %10, i32 noundef %12, ptr noundef %13, i64 noundef 0, ptr noundef %14, i64 noundef 0)
-  store i32 %15, ptr %5, align 4
-  %16 = load i32, ptr %5, align 4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %25
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  store i32 135176, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 0, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 0, ptr %7) #8
+  %12 = load i32, ptr %4, align 4, !tbaa !9
+  %13 = or i32 %12, 4194304
+  %14 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 0
+  %15 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 0
+  %16 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %11, i32 noundef %13, ptr noundef %14, i64 noundef 0, ptr noundef %15, i64 noundef 0)
+  store i32 %16, ptr %5, align 4, !tbaa !9
+  %17 = load i32, ptr %5, align 4, !tbaa !9
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %26
 
-18:                                               ; preds = %1
-  %19 = call ptr @__cxa_allocate_exception(i64 16) #7
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef @.str.9)
-          to label %20 unwind label %21
+19:                                               ; preds = %1
+  %20 = call ptr @__cxa_allocate_exception(i64 16) #8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef @.str.9)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %18
-  call void @__cxa_throw(ptr %19, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #8
+21:                                               ; preds = %19
+  call void @__cxa_throw(ptr %20, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #9
   unreachable
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %8, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %9, align 4
-  call void @__cxa_free_exception(ptr %19) #7
-  br label %54
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %8, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %20) #8
+  br label %55
 
-25:                                               ; preds = %1
-  %26 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %10, i32 noundef 22, i32 noundef 1792)
-  %27 = load i32, ptr %4, align 4
-  %28 = or i32 %27, 3145728
-  %29 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 0
-  %30 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 0
-  %31 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %10, i32 noundef %28, ptr noundef %29, i64 noundef 0, ptr noundef %30, i64 noundef 0)
-  store i32 %31, ptr %5, align 4
-  %32 = load i32, ptr %5, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %35
+26:                                               ; preds = %1
+  %27 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %11, i32 noundef 22, i32 noundef 1792)
+  %28 = load i32, ptr %4, align 4, !tbaa !9
+  %29 = or i32 %28, 3145728
+  %30 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 0
+  %31 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 0
+  %32 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %11, i32 noundef %29, ptr noundef %30, i64 noundef 0, ptr noundef %31, i64 noundef 0)
+  store i32 %32, ptr %5, align 4, !tbaa !9
+  %33 = load i32, ptr %5, align 4, !tbaa !9
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %25
+35:                                               ; preds = %26
   store i32 64, ptr %2, align 4
-  br label %52
+  store i32 1, ptr %10, align 4
+  br label %53
 
-35:                                               ; preds = %25
-  %36 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %10, i32 noundef 22, i32 noundef 1792)
-  %37 = load i32, ptr %4, align 4
-  %38 = or i32 %37, 2097152
-  %39 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 0
-  %40 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 0
-  %41 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %10, i32 noundef %38, ptr noundef %39, i64 noundef 0, ptr noundef %40, i64 noundef 0)
-  store i32 %41, ptr %5, align 4
-  %42 = load i32, ptr %5, align 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %45
+36:                                               ; preds = %26
+  %37 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %11, i32 noundef 22, i32 noundef 1792)
+  %38 = load i32, ptr %4, align 4, !tbaa !9
+  %39 = or i32 %38, 2097152
+  %40 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 0
+  %41 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 0
+  %42 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %11, i32 noundef %39, ptr noundef %40, i64 noundef 0, ptr noundef %41, i64 noundef 0)
+  store i32 %42, ptr %5, align 4, !tbaa !9
+  %43 = load i32, ptr %5, align 4, !tbaa !9
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %35
+45:                                               ; preds = %36
   store i32 32, ptr %2, align 4
-  br label %52
+  store i32 1, ptr %10, align 4
+  br label %53
 
-45:                                               ; preds = %35
-  %46 = call ptr @__cxa_allocate_exception(i64 16) #7
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef @.str.10)
-          to label %47 unwind label %48
+46:                                               ; preds = %36
+  %47 = call ptr @__cxa_allocate_exception(i64 16) #8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef @.str.10)
+          to label %48 unwind label %49
 
-47:                                               ; preds = %45
-  call void @__cxa_throw(ptr %46, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #8
+48:                                               ; preds = %46
+  call void @__cxa_throw(ptr %47, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #9
   unreachable
 
-48:                                               ; preds = %45
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %46
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %8, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %9, align 4
-  call void @__cxa_free_exception(ptr %46) #7
-  br label %54
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %8, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %47) #8
+  br label %55
 
-52:                                               ; preds = %44, %34
-  %53 = load i32, ptr %2, align 4
-  ret i32 %53
+53:                                               ; preds = %45, %35
+  call void @llvm.lifetime.end.p0(i64 0, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 0, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %54 = load i32, ptr %2, align 4
+  ret i32 %54
 
-54:                                               ; preds = %48, %21
-  %55 = load ptr, ptr %8, align 8
-  %56 = load i32, ptr %9, align 4
-  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
-  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
-  resume { ptr, i32 } %58
+55:                                               ; preds = %49, %22
+  call void @llvm.lifetime.end.p0(i64 0, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 0, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %8, align 8
+  %58 = load i32, ptr %9, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
 }
 
 declare ptr @__cxa_allocate_exception(i64)
@@ -1766,24 +1965,26 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_free_exception(ptr)
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 declare void @__cxa_throw(ptr, ptr, ptr)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(928) %0) #0 align 2 {
+define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(944) %0) #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [2 x i32], align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %class.dtm_t, ptr %6, i32 0, i32 18
-  %8 = load i32, ptr %7, align 4
-  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef %8)
+  %7 = getelementptr inbounds nuw %class.dtm_t, ptr %6, i32 0, i32 18
+  %8 = load i32, ptr %7, align 4, !tbaa !95
+  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %6, i32 noundef %8)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 @__const._ZN5dtm_t7fence_iEv.prog, i64 8, i1 false)
-  %9 = getelementptr inbounds %class.dtm_t, ptr %6, i32 0, i32 14
-  %10 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %9 = getelementptr inbounds nuw %class.dtm_t, ptr %6, i32 0, i32 14
+  %10 = load i32, ptr %9, align 4, !tbaa !103
   %11 = icmp eq i32 %10, 128
   br i1 %11, label %12, label %13
 
@@ -1791,8 +1992,8 @@ define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(928
   br label %18
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds %class.dtm_t, ptr %6, i32 0, i32 14
-  %15 = load i32, ptr %14, align 4
+  %14 = getelementptr inbounds nuw %class.dtm_t, ptr %6, i32 0, i32 14
+  %15 = load i32, ptr %14, align 4, !tbaa !103
   %16 = icmp eq i32 %15, 64
   %17 = select i1 %16, i32 3, i32 2
   br label %18
@@ -1800,188 +2001,212 @@ define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(928
 18:                                               ; preds = %13, %12
   %19 = phi i32 [ 4, %12 ], [ %17, %13 ]
   %20 = shl i32 %19, 20
-  %21 = or i32 458752, %20
-  %22 = or i32 %21, 4096
-  store i32 %22, ptr %4, align 4
-  %23 = load i32, ptr %4, align 4
-  %24 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 0
-  %25 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef %23, ptr noundef %24, i64 noundef 2, ptr noundef null, i64 noundef 0)
-  store i32 %25, ptr %5, align 4
-  %26 = load i32, ptr %5, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %30
+  %21 = sext i32 %20 to i64
+  %22 = or i64 458752, %21
+  %23 = or i64 %22, 4096
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %25 = load i32, ptr %4, align 4, !tbaa !9
+  %26 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 0
+  %27 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(944) %6, i32 noundef %25, ptr noundef %26, i64 noundef 2, ptr noundef null, i64 noundef 0)
+  store i32 %27, ptr %5, align 4, !tbaa !9
+  %28 = load i32, ptr %5, align 4, !tbaa !9
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %32
 
-28:                                               ; preds = %18
-  %29 = load i32, ptr %5, align 4
-  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef %29)
-  br label %30
+30:                                               ; preds = %18
+  %31 = load i32, ptr %5, align 4, !tbaa !9
+  call void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 dereferenceable(944) %6, i32 noundef %31)
+  br label %32
 
-30:                                               ; preds = %28, %18
-  %31 = getelementptr inbounds %class.dtm_t, ptr %6, i32 0, i32 18
-  %32 = load i32, ptr %31, align 4
-  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %6, i32 noundef %32)
+32:                                               ; preds = %30, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  %33 = getelementptr inbounds nuw %class.dtm_t, ptr %6, i32 0, i32 18
+  %34 = load i32, ptr %33, align 4, !tbaa !95
+  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %6, i32 noundef %34)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z16host_thread_mainPv(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenceable(928) %3)
+  store ptr %0, ptr %2, align 8, !tbaa !111
+  %3 = load ptr, ptr %2, align 8, !tbaa !111
+  call void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenceable(944) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenceable(928) %0) #0 align 2 {
+define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenceable(944) %0) #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(928) %5, i32 noundef 16, i32 noundef 1)
+  %6 = call noundef i32 @_ZN5dtm_t5writeEjj(ptr noundef nonnull align 8 dereferenceable(944) %5, i32 noundef 16, i32 noundef 1)
   br label %7
 
-7:                                                ; preds = %11, %1
-  %8 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %5, i32 noundef 16)
-  %9 = and i32 %8, 1
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %7
-  br label %7, !llvm.loop !15
+7:                                                ; preds = %12, %1
+  %8 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %5, i32 noundef 16)
+  %9 = zext i32 %8 to i64
+  %10 = and i64 %9, 1
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  %13 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %5, i32 noundef 22)
-  store i32 %13, ptr %3, align 4
-  %14 = load i32, ptr %3, align 4
-  %15 = and i32 %14, 520093696
-  %16 = udiv i32 %15, 16777216
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 15
-  store i64 %17, ptr %18, align 8
-  %19 = load i32, ptr %3, align 4
-  %20 = and i32 %19, 15
-  %21 = udiv i32 %20, 1
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 16
-  store i64 %22, ptr %23, align 8
-  %24 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %5, i32 noundef 18)
-  store i32 %24, ptr %4, align 4
-  %25 = load i32, ptr %4, align 4
-  %26 = and i32 %25, 4095
-  %27 = udiv i32 %26, 1
-  %28 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 13
-  store i32 %27, ptr %28, align 8
-  %29 = call noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 dereferenceable(928) %5)
-  %30 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 17
-  store i32 %29, ptr %30, align 8
-  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(928) %5, i32 noundef 0)
-  %31 = call noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereferenceable(928) %5)
-  %32 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 14
-  store i32 %31, ptr %32, align 4
-  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(928) %5, i32 noundef 0)
-  %33 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 10
-  store i8 1, ptr %33, align 4
-  %34 = call noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(696) %5)
-  br label %35
+  br label %7, !llvm.loop !118
 
-35:                                               ; preds = %35, %12
-  call void @_ZN5dtm_t3nopEv(ptr noundef nonnull align 8 dereferenceable(928) %5)
-  br label %35, !llvm.loop !16
+13:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %14 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %5, i32 noundef 22)
+  store i32 %14, ptr %3, align 4, !tbaa !9
+  %15 = load i32, ptr %3, align 4, !tbaa !9
+  %16 = and i32 %15, 520093696
+  %17 = zext i32 %16 to i64
+  %18 = udiv i64 %17, 16777216
+  %19 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 15
+  store i64 %18, ptr %19, align 8, !tbaa !112
+  %20 = load i32, ptr %3, align 4, !tbaa !9
+  %21 = and i32 %20, 15
+  %22 = zext i32 %21 to i64
+  %23 = udiv i64 %22, 1
+  %24 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 16
+  store i64 %23, ptr %24, align 8, !tbaa !113
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %25 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %5, i32 noundef 18)
+  store i32 %25, ptr %4, align 4, !tbaa !9
+  %26 = load i32, ptr %4, align 4, !tbaa !9
+  %27 = and i32 %26, 4095
+  %28 = zext i32 %27 to i64
+  %29 = udiv i64 %28, 1
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 13
+  store i32 %30, ptr %31, align 8, !tbaa !117
+  %32 = call noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 dereferenceable(944) %5)
+  %33 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 17
+  store i32 %32, ptr %33, align 8, !tbaa !119
+  call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %5, i32 noundef 0)
+  %34 = call noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereferenceable(944) %5)
+  %35 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 14
+  store i32 %34, ptr %35, align 4, !tbaa !103
+  call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %5, i32 noundef 0)
+  %36 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 10
+  store i8 1, ptr %36, align 4, !tbaa !98
+  %37 = call noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(712) %5)
+  br label %38
+
+38:                                               ; preds = %39, %13
+  br label %39
+
+39:                                               ; preds = %38
+  call void @_ZN5dtm_t3nopEv(ptr noundef nonnull align 8 dereferenceable(944) %5)
+  br label %38, !llvm.loop !120
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t5resetEv(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t5resetEv(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  store i32 0, ptr %3, align 4, !tbaa !9
   br label %5
 
-5:                                                ; preds = %14, %1
-  %6 = load i32, ptr %3, align 4
-  %7 = getelementptr inbounds %class.dtm_t, ptr %4, i32 0, i32 17
-  %8 = load i32, ptr %7, align 8
+5:                                                ; preds = %15, %1
+  %6 = load i32, ptr %3, align 4, !tbaa !9
+  %7 = getelementptr inbounds nuw %class.dtm_t, ptr %4, i32 0, i32 17
+  %8 = load i32, ptr %7, align 8, !tbaa !119
   %9 = icmp slt i32 %6, %8
-  br i1 %9, label %10, label %17
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr %3, align 4
-  call void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(928) %4, i32 noundef %11)
-  call void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(928) %4)
-  %12 = call noundef i64 @_ZN6htif_t15get_entry_pointEv(ptr noundef nonnull align 8 dereferenceable(696) %4)
-  %13 = call noundef i64 @_ZN5dtm_t9write_csrEjm(ptr noundef nonnull align 8 dereferenceable(928) %4, i32 noundef 1969, i64 noundef %12)
-  br label %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  br label %18
 
-14:                                               ; preds = %10
-  %15 = load i32, ptr %3, align 4
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %3, align 4
-  br label %5, !llvm.loop !17
+11:                                               ; preds = %5
+  %12 = load i32, ptr %3, align 4, !tbaa !9
+  call void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(944) %4, i32 noundef %12)
+  call void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(944) %4)
+  %13 = call noundef i64 @_ZN6htif_t15get_entry_pointEv(ptr noundef nonnull align 8 dereferenceable(712) %4)
+  %14 = call noundef i64 @_ZN5dtm_t9write_csrEjm(ptr noundef nonnull align 8 dereferenceable(944) %4, i32 noundef 1969, i64 noundef %13)
+  br label %15
 
-17:                                               ; preds = %5
-  call void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(928) %4, i32 noundef 0)
-  %18 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(928) %4, i32 noundef 17)
+15:                                               ; preds = %11
+  %16 = load i32, ptr %3, align 4, !tbaa !9
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %3, align 4, !tbaa !9
+  br label %5, !llvm.loop !121
+
+18:                                               ; preds = %10
+  call void @_ZN5dtm_t11select_hartEi(ptr noundef nonnull align 8 dereferenceable(944) %4, i32 noundef 0)
+  %19 = call noundef i32 @_ZN5dtm_t4readEj(ptr noundef nonnull align 8 dereferenceable(944) %4, i32 noundef 17)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN6htif_t15get_entry_pointEv(ptr noundef nonnull align 8 dereferenceable(696) %0) #4 comdat align 2 {
+define linkonce_odr noundef i64 @_ZN6htif_t15get_entry_pointEv(ptr noundef nonnull align 8 dereferenceable(712) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !122
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.htif_t, ptr %3, i32 0, i32 3
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %class.htif_t, ptr %3, i32 0, i32 4
+  %5 = load i64, ptr %4, align 8, !tbaa !123
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t4idleEv(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #0 align 2 {
+define void @_ZN5dtm_t4idleEv(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  store i32 0, ptr %3, align 4, !tbaa !9
   br label %5
 
-5:                                                ; preds = %9, %1
-  %6 = load i32, ptr %3, align 4
+5:                                                ; preds = %10, %1
+  %6 = load i32, ptr %3, align 4, !tbaa !9
   %7 = icmp slt i32 %6, 10000
-  br i1 %7, label %8, label %12
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  call void @_ZN5dtm_t3nopEv(ptr noundef nonnull align 8 dereferenceable(928) %4)
-  br label %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  br label %13
 
-9:                                                ; preds = %8
-  %10 = load i32, ptr %3, align 4
-  %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %3, align 4
-  br label %5, !llvm.loop !18
+9:                                                ; preds = %5
+  call void @_ZN5dtm_t3nopEv(ptr noundef nonnull align 8 dereferenceable(944) %4)
+  br label %10
 
-12:                                               ; preds = %5
+10:                                               ; preds = %9
+  %11 = load i32, ptr %3, align 4, !tbaa !9
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %3, align 4, !tbaa !9
+  br label %5, !llvm.loop !124
+
+13:                                               ; preds = %8
   ret void
 }
 
-declare noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(696)) #2
+declare noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(712)) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t17start_host_threadEv(ptr noundef nonnull align 8 dereferenceable(928) %0) #0 align 2 {
+define void @_ZN5dtm_t17start_host_threadEv(ptr noundef nonnull align 8 dereferenceable(944) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 11
-  store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 12
-  store i8 0, ptr %5, align 2
+  %4 = getelementptr inbounds nuw %class.dtm_t, ptr %3, i32 0, i32 11
+  store i8 0, ptr %4, align 1, !tbaa !125
+  %5 = getelementptr inbounds nuw %class.dtm_t, ptr %3, i32 0, i32 12
+  store i8 0, ptr %5, align 2, !tbaa !126
   %6 = call noundef ptr @_ZN9context_t7currentEv()
-  %7 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 2
-  store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %class.dtm_t, ptr %3, i32 0, i32 2
+  store ptr %6, ptr %7, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %class.dtm_t, ptr %3, i32 0, i32 1
   call void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @_Z16host_thread_mainPv, ptr noundef %3)
-  %9 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %class.dtm_t, ptr %3, i32 0, i32 1
   call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
@@ -1991,140 +2216,138 @@ declare noundef ptr @_ZN9context_t7currentEv() #2
 declare void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5dtm_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !127
   %9 = load ptr, ptr %4, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = load ptr, ptr %6, align 8
-  call void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696) %9, i32 noundef %10, ptr noundef %11)
-  %12 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2
-  store ptr %12, ptr %9, align 8
-  %13 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 1
-  invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %14 unwind label %17
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = load ptr, ptr %6, align 8, !tbaa !127
+  call void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(712) %9, i32 noundef %10, ptr noundef %11)
+  store ptr getelementptr inbounds inrange(-16, 128) ({ [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2), ptr %9, align 8, !tbaa !129
+  %12 = getelementptr inbounds nuw %class.dtm_t, ptr %9, i32 0, i32 1
+  invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %16
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 10
-  store i8 0, ptr %15, align 4
-  invoke void @_ZN5dtm_t17start_host_threadEv(ptr noundef nonnull align 8 dereferenceable(928) %9)
-          to label %16 unwind label %21
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw %class.dtm_t, ptr %9, i32 0, i32 10
+  store i8 0, ptr %14, align 4, !tbaa !98
+  invoke void @_ZN5dtm_t17start_host_threadEv(ptr noundef nonnull align 8 dereferenceable(944) %9)
+          to label %15 unwind label %20
 
-16:                                               ; preds = %14
+15:                                               ; preds = %13
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
+  br label %24
+
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
+  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #8
+  br label %24
+
+24:                                               ; preds = %20, %16
+  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %9) #8
   br label %25
 
-21:                                               ; preds = %14
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %7, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %8, align 4
-  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #7
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %9) #7
-  br label %26
-
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %7, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
-declare void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696), i32 noundef, ptr noundef) unnamed_addr #2
+declare void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(712), i32 noundef, ptr noundef) unnamed_addr #2
 
 declare void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
+declare void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696)) unnamed_addr #5
+declare void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(712)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5dtm_tD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #4 align 2 {
+define void @_ZN5dtm_tD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 1
-  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %3) #7
+  store ptr getelementptr inbounds inrange(-16, 128) ({ [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !129
+  %4 = getelementptr inbounds nuw %class.dtm_t, ptr %3, i32 0, i32 1
+  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %3) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5dtm_tD0Ev(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #4 align 2 {
+define void @_ZN5dtm_tD0Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN5dtm_tD1Ev(ptr noundef nonnull align 8 dereferenceable(928) %3) #7
-  call void @_ZdlPv(ptr noundef %3) #9
+  call void @_ZN5dtm_tD1Ev(ptr noundef nonnull align 8 dereferenceable(944) %3) #8
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 944) #10
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t4tickEbbNS_4respE(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 %3) #0 align 2 {
+define void @_ZN5dtm_t4tickEbbNS_4respE(ptr noundef nonnull align 8 dereferenceable(944) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 %3) #0 align 2 {
   %5 = alloca %"struct.dtm_t::resp", align 4
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   store i64 %3, ptr %5, align 4
-  store ptr %0, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
   %9 = zext i1 %1 to i8
-  store i8 %9, ptr %7, align 1
+  store i8 %9, ptr %7, align 1, !tbaa !131
   %10 = zext i1 %2 to i8
-  store i8 %10, ptr %8, align 1
+  store i8 %10, ptr %8, align 1, !tbaa !131
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 12
-  %13 = load i8, ptr %12, align 2
+  %12 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 12
+  %13 = load i8, ptr %12, align 2, !tbaa !126, !range !99, !noundef !100
   %14 = trunc i8 %13 to i1
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 11
-  %17 = load i8, ptr %16, align 1
+  %16 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 11
+  %17 = load i8, ptr %16, align 1, !tbaa !125, !range !99, !noundef !100
   %18 = trunc i8 %17 to i1
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 11
-  store i8 1, ptr %20, align 1
+  %20 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 11
+  store i8 1, ptr %20, align 1, !tbaa !125
   br label %28
 
 21:                                               ; preds = %15
-  %22 = load i8, ptr %7, align 1
+  %22 = load i8, ptr %7, align 1, !tbaa !131, !range !99, !noundef !100
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 11
-  store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 12
-  store i8 1, ptr %26, align 2
+  %25 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 11
+  store i8 0, ptr %25, align 1, !tbaa !125
+  %26 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 12
+  store i8 1, ptr %26, align 2, !tbaa !126
   br label %27
 
 27:                                               ; preds = %24, %21
@@ -2134,19 +2357,19 @@ define void @_ZN5dtm_t4tickEbbNS_4respE(ptr noundef nonnull align 8 dereferencea
   br label %29
 
 29:                                               ; preds = %28, %4
-  %30 = load i8, ptr %8, align 1
+  %30 = load i8, ptr %8, align 1, !tbaa !131, !range !99, !noundef !100
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 12
-  store i8 0, ptr %33, align 2
-  %34 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 4 %5, i64 8, i1 false)
+  %33 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 12
+  store i8 0, ptr %33, align 2, !tbaa !126
+  %34 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 4 %5, i64 8, i1 false), !tbaa.struct !132
   %35 = call noundef ptr @_ZN9context_t7currentEv()
-  %36 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 2
-  store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds %class.dtm_t, ptr %11, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 2
+  store ptr %35, ptr %36, align 8, !tbaa !11
+  %37 = getelementptr inbounds nuw %class.dtm_t, ptr %11, i32 0, i32 1
   call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %37)
   br label %38
 
@@ -2155,87 +2378,203 @@ define void @_ZN5dtm_t4tickEbbNS_4respE(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5dtm_t11return_respENS_4respE(ptr noundef nonnull align 8 dereferenceable(928) %0, i64 %1) #0 align 2 {
+define void @_ZN5dtm_t11return_respENS_4respE(ptr noundef nonnull align 8 dereferenceable(944) %0, i64 %1) #0 align 2 {
   %3 = alloca %"struct.dtm_t::resp", align 4
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 4
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %3, i64 8, i1 false)
+  %6 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %3, i64 8, i1 false), !tbaa.struct !132
   %7 = call noundef ptr @_ZN9context_t7currentEv()
-  %8 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 2
-  store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds %class.dtm_t, ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 2
+  store ptr %7, ptr %8, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %class.dtm_t, ptr %5, i32 0, i32 1
   call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK15chunked_memif_t21get_target_endiannessEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK15chunked_memif_t21get_target_endiannessEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !133
   ret i32 0
 }
 
-declare void @_ZN6htif_t5startEv(ptr noundef nonnull align 8 dereferenceable(696)) unnamed_addr #2
+declare void @_ZN6htif_t5startEv(ptr noundef nonnull align 8 dereferenceable(712)) unnamed_addr #2
 
-declare void @_ZN6htif_t4stopEv(ptr noundef nonnull align 8 dereferenceable(696)) unnamed_addr #2
+declare void @_ZN6htif_t4stopEv(ptr noundef nonnull align 8 dereferenceable(712)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6htif_t5memifEv(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6htif_t5memifEv(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !122
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.htif_t, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %class.htif_t, ptr %3, i32 0, i32 3
   ret ptr %4
 }
 
-declare void @_ZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm() unnamed_addr
+declare void @_ZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmm() unnamed_addr
 
-declare void @_ZN6htif_t12load_programEv(ptr noundef nonnull align 8 dereferenceable(696)) unnamed_addr #2
+declare void @_ZN6htif_t12load_programEv(ptr noundef nonnull align 8 dereferenceable(712)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN6htif_t20is_address_preloadedEmm(ptr noundef nonnull align 8 dereferenceable(696) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZN6htif_t20is_address_preloadedEmm(ptr noundef nonnull align 8 dereferenceable(712) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !122
+  store i64 %1, ptr %5, align 8, !tbaa !104
+  store i64 %2, ptr %6, align 8, !tbaa !104
   ret i1 false
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn }
-attributes #9 = { builtin nounwind }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { builtin nounwind }
 
 !llvm.linker.options = !{}
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS5dtm_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{i64 0, i64 4, !9, i64 4, i64 4, !9, i64 8, i64 4, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !81, i64 744}
+!12 = !{!"_ZTS5dtm_t", !13, i64 0, !80, i64 712, !81, i64 744, !15, i64 752, !6, i64 760, !6, i64 792, !6, i64 824, !6, i64 856, !89, i64 888, !90, i64 900, !18, i64 908, !18, i64 909, !18, i64 910, !10, i64 912, !10, i64 916, !15, i64 920, !15, i64 928, !10, i64 936, !10, i64 940}
+!13 = !{!"_ZTS6htif_t", !14, i64 0, !10, i64 8, !15, i64 16, !16, i64 24, !15, i64 40, !18, i64 48, !19, i64 56, !19, i64 80, !24, i64 104, !10, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !27, i64 176, !18, i64 184, !31, i64 192, !44, i64 280, !62, i64 456, !32, i64 592, !19, i64 616, !19, i64 640, !71, i64 664}
+!14 = !{!"_ZTS15chunked_memif_t"}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!"_ZTS7memif_t", !17, i64 8}
+!17 = !{!"p1 _ZTS15chunked_memif_t", !5, i64 0}
+!18 = !{!"bool", !6, i64 0}
+!19 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !20, i64 0}
+!20 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !21, i64 0}
+!21 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !22, i64 0}
+!22 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !23, i64 0, !23, i64 8, !23, i64 16}
+!23 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !25, i64 0, !15, i64 8, !6, i64 16}
+!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !26, i64 0}
+!26 = !{!"p1 omnipotent char", !5, i64 0}
+!27 = !{!"_ZTSSt8optionalIiE", !28, i64 0}
+!28 = !{!"_ZTSSt14_Optional_baseIiLb1ELb1EE", !29, i64 0}
+!29 = !{!"_ZTSSt17_Optional_payloadIiLb1ELb1ELb1EE", !30, i64 0}
+!30 = !{!"_ZTSSt22_Optional_payload_baseIiE", !6, i64 0, !18, i64 4}
+!31 = !{!"_ZTS13device_list_t", !32, i64 0, !37, i64 24, !15, i64 80}
+!32 = !{!"_ZTSSt6vectorIP8device_tSaIS1_EE", !33, i64 0}
+!33 = !{!"_ZTSSt12_Vector_baseIP8device_tSaIS1_EE", !34, i64 0}
+!34 = !{!"_ZTSNSt12_Vector_baseIP8device_tSaIS1_EE12_Vector_implE", !35, i64 0}
+!35 = !{!"_ZTSNSt12_Vector_baseIP8device_tSaIS1_EE17_Vector_impl_dataE", !36, i64 0, !36, i64 8, !36, i64 16}
+!36 = !{!"p2 _ZTS8device_t", !5, i64 0}
+!37 = !{!"_ZTS13null_device_t", !38, i64 0}
+!38 = !{!"_ZTS8device_t", !39, i64 8, !19, i64 32}
+!39 = !{!"_ZTSSt6vectorISt8functionIFv9command_tEESaIS3_EE", !40, i64 0}
+!40 = !{!"_ZTSSt12_Vector_baseISt8functionIFv9command_tEESaIS3_EE", !41, i64 0}
+!41 = !{!"_ZTSNSt12_Vector_baseISt8functionIFv9command_tEESaIS3_EE12_Vector_implE", !42, i64 0}
+!42 = !{!"_ZTSNSt12_Vector_baseISt8functionIFv9command_tEESaIS3_EE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
+!43 = !{!"p1 _ZTSSt8functionIFv9command_tEE", !5, i64 0}
+!44 = !{!"_ZTS9syscall_t", !38, i64 0, !45, i64 56, !46, i64 64, !47, i64 72, !51, i64 96, !57, i64 120, !24, i64 144}
+!45 = !{!"p1 _ZTS6htif_t", !5, i64 0}
+!46 = !{!"p1 _ZTS7memif_t", !5, i64 0}
+!47 = !{!"_ZTSSt6vectorIM9syscall_tFmmmmmmmmESaIS2_EE", !48, i64 0}
+!48 = !{!"_ZTSSt12_Vector_baseIM9syscall_tFmmmmmmmmESaIS2_EE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIM9syscall_tFmmmmmmmmESaIS2_EE12_Vector_implE", !50, i64 0}
+!50 = !{!"_ZTSNSt12_Vector_baseIM9syscall_tFmmmmmmmmESaIS2_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!51 = !{!"_ZTS5fds_t", !52, i64 0}
+!52 = !{!"_ZTSSt6vectorIiSaIiEE", !53, i64 0}
+!53 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !54, i64 0}
+!54 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !55, i64 0}
+!55 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !56, i64 0, !56, i64 8, !56, i64 16}
+!56 = !{!"p1 int", !5, i64 0}
+!57 = !{!"_ZTSSt6vectorImSaImEE", !58, i64 0}
+!58 = !{!"_ZTSSt12_Vector_baseImSaImEE", !59, i64 0}
+!59 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !60, i64 0}
+!60 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !61, i64 0, !61, i64 8, !61, i64 16}
+!61 = !{!"p1 long", !5, i64 0}
+!62 = !{!"_ZTS5bcd_t", !38, i64 0, !63, i64 56}
+!63 = !{!"_ZTSSt5queueI9command_tSt5dequeIS0_SaIS0_EEE", !64, i64 0}
+!64 = !{!"_ZTSSt5dequeI9command_tSaIS0_EE", !65, i64 0}
+!65 = !{!"_ZTSSt11_Deque_baseI9command_tSaIS0_EE", !66, i64 0}
+!66 = !{!"_ZTSNSt11_Deque_baseI9command_tSaIS0_EE11_Deque_implE", !67, i64 0}
+!67 = !{!"_ZTSNSt11_Deque_baseI9command_tSaIS0_EE16_Deque_impl_dataE", !68, i64 0, !15, i64 8, !69, i64 16, !69, i64 48}
+!68 = !{!"p2 _ZTS9command_t", !5, i64 0}
+!69 = !{!"_ZTSSt15_Deque_iteratorI9command_tRS0_PS0_E", !70, i64 0, !70, i64 8, !70, i64 16, !68, i64 24}
+!70 = !{!"p1 _ZTS9command_t", !5, i64 0}
+!71 = !{!"_ZTSSt3mapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessImESaISt4pairIKmS5_EEE", !72, i64 0}
+!72 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE", !73, i64 0}
+!73 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !74, i64 0, !76, i64 8}
+!74 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !75, i64 0}
+!75 = !{!"_ZTSSt4lessImE"}
+!76 = !{!"_ZTSSt15_Rb_tree_header", !77, i64 0, !15, i64 32}
+!77 = !{!"_ZTSSt18_Rb_tree_node_base", !78, i64 0, !79, i64 8, !79, i64 16, !79, i64 24}
+!78 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
+!79 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
+!80 = !{!"_ZTS9context_t", !81, i64 0, !5, i64 8, !5, i64 16, !82, i64 24}
+!81 = !{!"p1 _ZTS9context_t", !5, i64 0}
+!82 = !{!"_ZTSSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE", !83, i64 0}
+!83 = !{!"_ZTSSt15__uniq_ptr_dataI10ucontext_tSt14default_deleteIS0_ELb1ELb1EE", !84, i64 0}
+!84 = !{!"_ZTSSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE", !85, i64 0}
+!85 = !{!"_ZTSSt5tupleIJP10ucontext_tSt14default_deleteIS0_EEE", !86, i64 0}
+!86 = !{!"_ZTSSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE", !87, i64 0}
+!87 = !{!"_ZTSSt10_Head_baseILm0EP10ucontext_tLb0EE", !88, i64 0}
+!88 = !{!"p1 _ZTS10ucontext_t", !5, i64 0}
+!89 = !{!"_ZTSN5dtm_t3reqE", !10, i64 0, !10, i64 4, !10, i64 8}
+!90 = !{!"_ZTSN5dtm_t4respE", !10, i64 0, !10, i64 4}
+!91 = !{!12, !10, i64 904}
+!92 = !{!89, !10, i64 0}
+!93 = !{!89, !10, i64 4}
+!94 = !{!89, !10, i64 8}
+!95 = !{!12, !10, i64 940}
+!96 = distinct !{!96, !97}
+!97 = !{!"llvm.loop.mustprogress"}
+!98 = !{!12, !18, i64 908}
+!99 = !{i8 0, i8 2}
+!100 = !{}
+!101 = distinct !{!101, !97}
+!102 = distinct !{!102, !97}
+!103 = !{!12, !10, i64 916}
+!104 = !{!15, !15, i64 0}
+!105 = !{!56, !56, i64 0}
+!106 = distinct !{!106, !97}
+!107 = distinct !{!107, !97}
+!108 = distinct !{!108, !97}
+!109 = distinct !{!109, !97}
+!110 = !{!26, !26, i64 0}
+!111 = !{!5, !5, i64 0}
+!112 = !{!12, !15, i64 920}
+!113 = !{!12, !15, i64 928}
+!114 = distinct !{!114, !97}
+!115 = distinct !{!115, !97}
+!116 = distinct !{!116, !97}
+!117 = !{!12, !10, i64 912}
+!118 = distinct !{!118, !97}
+!119 = !{!12, !10, i64 936}
+!120 = distinct !{!120, !97}
+!121 = distinct !{!121, !97}
+!122 = !{!45, !45, i64 0}
+!123 = !{!13, !15, i64 40}
+!124 = distinct !{!124, !97}
+!125 = !{!12, !18, i64 909}
+!126 = !{!12, !18, i64 910}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p2 omnipotent char", !5, i64 0}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"vtable pointer", !7, i64 0}
+!131 = !{!18, !18, i64 0}
+!132 = !{i64 0, i64 4, !9, i64 4, i64 4, !9}
+!133 = !{!17, !17, i64 0}

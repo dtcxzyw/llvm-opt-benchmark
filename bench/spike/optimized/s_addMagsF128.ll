@@ -89,14 +89,16 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 
 50:                                               ; preds = %48, %46
   %.096 = phi i64 [ %14, %46 ], [ %49, %48 ]
-  %.sroa.762.0 = phi i64 [ %47, %46 ], [ %10, %48 ]
+  %.sroa.962.0 = phi i64 [ %47, %46 ], [ %10, %48 ]
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #4
   %51 = sub nsw i64 0, %.096
-  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %6, i64 noundef %.sroa.762.0, i64 noundef %1, i64 noundef 0, i64 noundef %51) #3
-  %.sroa.06.0.copyload = load i64, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.6.sroa.0.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.6.sroa.6.0.copyload = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx, align 8
+  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %6, i64 noundef %.sroa.962.0, i64 noundef %1, i64 noundef 0, i64 noundef %51) #4
+  %.sroa.06.0.copyload = load i64, ptr %6, align 8, !tbaa !3
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.8.sroa.0.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !3
+  %.sroa.8.sroa.8.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.8.sroa.8.0.copyload = load i64, ptr %.sroa.8.sroa.8.0..sroa.8.0..sroa_idx.sroa_idx, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #4
   br label %65
 
 52:                                               ; preds = %36
@@ -128,25 +130,27 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 
 64:                                               ; preds = %62, %60
   %.197 = phi i64 [ %14, %60 ], [ %63, %62 ]
-  %.sroa.7.1 = phi i64 [ %61, %60 ], [ %13, %62 ]
-  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %7, i64 noundef %.sroa.7.1, i64 noundef %3, i64 noundef 0, i64 noundef %.197) #3
-  %.sroa.06.0.copyload9 = load i64, ptr %7, align 8
-  %.sroa.6.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.6.sroa.0.0.copyload25 = load i64, ptr %.sroa.6.0..sroa_idx11, align 8
-  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx11.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.6.sroa.6.0.copyload29 = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx11.sroa_idx, align 8
+  %.sroa.9.1 = phi i64 [ %61, %60 ], [ %13, %62 ]
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #4
+  call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %7, i64 noundef %.sroa.9.1, i64 noundef %3, i64 noundef 0, i64 noundef %.197) #4
+  %.sroa.06.0.copyload9 = load i64, ptr %7, align 8, !tbaa !3
+  %.sroa.8.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.8.sroa.0.0.copyload25 = load i64, ptr %.sroa.8.0..sroa_idx11, align 8, !tbaa !3
+  %.sroa.8.sroa.8.0..sroa.8.0..sroa_idx11.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.8.sroa.8.0.copyload29 = load i64, ptr %.sroa.8.sroa.8.0..sroa.8.0..sroa_idx11.sroa_idx, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
   br label %65
 
 65:                                               ; preds = %50, %64, %62, %48
   %.194 = phi i64 [ %12, %50 ], [ %12, %48 ], [ %9, %64 ], [ %9, %62 ]
   %.1 = phi i64 [ %.sroa.06.0.copyload, %50 ], [ 0, %48 ], [ %.sroa.06.0.copyload9, %64 ], [ 0, %62 ]
-  %.sroa.043.0 = phi i64 [ %3, %50 ], [ %3, %48 ], [ %.sroa.6.sroa.0.0.copyload25, %64 ], [ %3, %62 ]
-  %.sroa.7.0 = phi i64 [ %13, %50 ], [ %13, %48 ], [ %.sroa.6.sroa.6.0.copyload29, %64 ], [ %13, %62 ]
-  %.sroa.057.0 = phi i64 [ %.sroa.6.sroa.0.0.copyload, %50 ], [ %1, %48 ], [ %1, %64 ], [ %1, %62 ]
-  %.sroa.762.1 = phi i64 [ %.sroa.6.sroa.6.0.copyload, %50 ], [ %10, %48 ], [ %10, %64 ], [ %10, %62 ]
-  %66 = or i64 %.sroa.762.1, 281474976710656
+  %.sroa.043.0 = phi i64 [ %3, %50 ], [ %3, %48 ], [ %.sroa.8.sroa.0.0.copyload25, %64 ], [ %3, %62 ]
+  %.sroa.9.0 = phi i64 [ %13, %50 ], [ %13, %48 ], [ %.sroa.8.sroa.8.0.copyload29, %64 ], [ %13, %62 ]
+  %.sroa.057.0 = phi i64 [ %.sroa.8.sroa.0.0.copyload, %50 ], [ %1, %48 ], [ %1, %64 ], [ %1, %62 ]
+  %.sroa.962.1 = phi i64 [ %.sroa.8.sroa.8.0.copyload, %50 ], [ %10, %48 ], [ %10, %64 ], [ %10, %62 ]
+  %66 = or i64 %.sroa.962.1, 281474976710656
   %67 = add i64 %.sroa.057.0, %.sroa.043.0
-  %68 = add i64 %66, %.sroa.7.0
+  %68 = add i64 %66, %.sroa.9.0
   %69 = icmp ult i64 %67, %.sroa.057.0
   %70 = zext i1 %69 to i64
   %71 = add i64 %68, %70
@@ -155,12 +159,12 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   br i1 %73, label %81, label %74
 
 74:                                               ; preds = %65, %34
-  %.sroa.620.0 = phi i64 [ %35, %34 ], [ %71, %65 ]
+  %.sroa.820.0 = phi i64 [ %35, %34 ], [ %71, %65 ]
   %.sroa.017.0 = phi i64 [ %25, %34 ], [ %67, %65 ]
   %.093 = phi i64 [ %9, %34 ], [ %.194, %65 ]
   %.0 = phi i64 [ 0, %34 ], [ %.1, %65 ]
-  %75 = lshr i64 %.sroa.620.0, 1
-  %76 = call i64 @llvm.fshl.i64(i64 range(i64 562949953421312, 0) %.sroa.620.0, i64 %.sroa.017.0, i64 63)
+  %75 = lshr i64 %.sroa.820.0, 1
+  %76 = call i64 @llvm.fshl.i64(i64 range(i64 562949953421312, 0) %.sroa.820.0, i64 %.sroa.017.0, i64 63)
   %77 = shl i64 %.sroa.017.0, 63
   %78 = icmp ne i64 %.0, 0
   %79 = zext i1 %78 to i64
@@ -168,15 +172,15 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   br label %81
 
 81:                                               ; preds = %65, %74
-  %.sroa.620.1 = phi i64 [ %71, %65 ], [ %75, %74 ]
+  %.sroa.820.1 = phi i64 [ %71, %65 ], [ %75, %74 ]
   %.sroa.017.1 = phi i64 [ %67, %65 ], [ %76, %74 ]
   %.295 = phi i64 [ %72, %65 ], [ %.093, %74 ]
   %.2 = phi i64 [ %.1, %65 ], [ %80, %74 ]
-  %82 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %4, i64 noundef %.295, i64 noundef %.sroa.620.1, i64 noundef %.sroa.017.1, i64 noundef %.2) #3
+  %82 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %4, i64 noundef %.295, i64 noundef %.sroa.820.1, i64 noundef %.sroa.017.1, i64 noundef %.2) #4
   br label %85
 
 83:                                               ; preds = %54, %40, %17
-  %84 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #3
+  %84 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #4
   br label %85
 
 85:                                               ; preds = %21, %30, %42, %56, %83, %81
@@ -184,23 +188,33 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   ret { i64, i64 } %.fca.1.insert.merged
 }
 
-declare void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind writable sret(%struct.uint128_extra) align 8, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+declare void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind writable sret(%struct.uint128_extra) align 8, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+
+declare { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+
+declare { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #2
+declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"long", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

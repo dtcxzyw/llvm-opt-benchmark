@@ -25,270 +25,333 @@ define i64 @f64_sqrt(i64 %0) #0 {
   %17 = alloca i64, align 8
   %18 = alloca i64, align 8
   %19 = alloca %union.ui64_f64, align 8
-  %20 = alloca %struct.exp16_sig64, align 8
-  %21 = getelementptr inbounds %struct.float64_t, ptr %3, i32 0, i32 0
-  store i64 %0, ptr %21, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %3, i64 8, i1 false)
-  %22 = load i64, ptr %4, align 8
-  store i64 %22, ptr %5, align 8
-  %23 = load i64, ptr %5, align 8
-  %24 = lshr i64 %23, 63
-  %25 = icmp ne i64 %24, 0
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %6, align 1
-  %27 = load i64, ptr %5, align 8
-  %28 = lshr i64 %27, 52
-  %29 = and i64 %28, 2047
-  store i64 %29, ptr %7, align 8
-  %30 = load i64, ptr %5, align 8
-  %31 = and i64 %30, 4503599627370495
-  store i64 %31, ptr %8, align 8
-  %32 = load i64, ptr %7, align 8
-  %33 = icmp eq i64 %32, 2047
-  br i1 %33, label %34, label %45
+  %20 = alloca i32, align 4
+  %21 = alloca %struct.exp16_sig64, align 8
+  %22 = getelementptr inbounds nuw %struct.float64_t, ptr %3, i32 0, i32 0
+  store i64 %0, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !3
+  %23 = load i64, ptr %4, align 8, !tbaa !8
+  store i64 %23, ptr %5, align 8, !tbaa !4
+  %24 = load i64, ptr %5, align 8, !tbaa !4
+  %25 = lshr i64 %24, 63
+  %26 = icmp ne i64 %25, 0
+  %27 = zext i1 %26 to i8
+  store i8 %27, ptr %6, align 1, !tbaa !9
+  %28 = load i64, ptr %5, align 8, !tbaa !4
+  %29 = lshr i64 %28, 52
+  %30 = and i64 %29, 2047
+  store i64 %30, ptr %7, align 8, !tbaa !4
+  %31 = load i64, ptr %5, align 8, !tbaa !4
+  %32 = and i64 %31, 4503599627370495
+  store i64 %32, ptr %8, align 8, !tbaa !4
+  %33 = load i64, ptr %7, align 8, !tbaa !4
+  %34 = icmp eq i64 %33, 2047
+  br i1 %34, label %35, label %46
 
-34:                                               ; preds = %1
-  %35 = load i64, ptr %8, align 8
-  %36 = icmp ne i64 %35, 0
-  br i1 %36, label %37, label %40
+35:                                               ; preds = %1
+  %36 = load i64, ptr %8, align 8, !tbaa !4
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %34
-  %38 = load i64, ptr %5, align 8
-  %39 = call i64 @softfloat_propagateNaNF64UI(i64 noundef %38, i64 noundef 0)
-  store i64 %39, ptr %9, align 8
+38:                                               ; preds = %35
+  %39 = load i64, ptr %5, align 8, !tbaa !4
+  %40 = call i64 @softfloat_propagateNaNF64UI(i64 noundef %39, i64 noundef 0)
+  store i64 %40, ptr %9, align 8, !tbaa !4
+  br label %166
+
+41:                                               ; preds = %35
+  %42 = load i8, ptr %6, align 1, !tbaa !9, !range !11, !noundef !12
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %41
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !3
+  store i32 1, ptr %20, align 4
+  br label %168
+
+45:                                               ; preds = %41
   br label %165
 
-40:                                               ; preds = %34
-  %41 = load i8, ptr %6, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %44, label %43
+46:                                               ; preds = %1
+  %47 = load i8, ptr %6, align 1, !tbaa !9, !range !11, !noundef !12
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %56
 
-43:                                               ; preds = %40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false)
-  br label %167
+49:                                               ; preds = %46
+  %50 = load i64, ptr %7, align 8, !tbaa !4
+  %51 = load i64, ptr %8, align 8, !tbaa !4
+  %52 = or i64 %50, %51
+  %53 = icmp ne i64 %52, 0
+  br i1 %53, label %55, label %54
 
-44:                                               ; preds = %40
-  br label %164
+54:                                               ; preds = %49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !3
+  store i32 1, ptr %20, align 4
+  br label %168
 
-45:                                               ; preds = %1
-  %46 = load i8, ptr %6, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %55
+55:                                               ; preds = %49
+  br label %165
 
-48:                                               ; preds = %45
-  %49 = load i64, ptr %7, align 8
-  %50 = load i64, ptr %8, align 8
-  %51 = or i64 %49, %50
-  %52 = icmp ne i64 %51, 0
-  br i1 %52, label %54, label %53
+56:                                               ; preds = %46
+  %57 = load i64, ptr %7, align 8, !tbaa !4
+  %58 = icmp ne i64 %57, 0
+  br i1 %58, label %74, label %59
 
-53:                                               ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false)
-  br label %167
+59:                                               ; preds = %56
+  %60 = load i64, ptr %8, align 8, !tbaa !4
+  %61 = icmp ne i64 %60, 0
+  br i1 %61, label %63, label %62
 
-54:                                               ; preds = %48
-  br label %164
+62:                                               ; preds = %59
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !3
+  store i32 1, ptr %20, align 4
+  br label %168
 
-55:                                               ; preds = %45
-  %56 = load i64, ptr %7, align 8
-  %57 = icmp ne i64 %56, 0
-  br i1 %57, label %73, label %58
+63:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #4
+  %64 = load i64, ptr %8, align 8, !tbaa !4
+  %65 = call { i64, i64 } @softfloat_normSubnormalF64Sig(i64 noundef %64)
+  %66 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i32 0, i32 0
+  %67 = extractvalue { i64, i64 } %65, 0
+  store i64 %67, ptr %66, align 8
+  %68 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i32 0, i32 1
+  %69 = extractvalue { i64, i64 } %65, 1
+  store i64 %69, ptr %68, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %21, i64 16, i1 false), !tbaa.struct !13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #4
+  %70 = getelementptr inbounds nuw %struct.exp16_sig64, ptr %10, i32 0, i32 0
+  %71 = load i64, ptr %70, align 8, !tbaa !14
+  store i64 %71, ptr %7, align 8, !tbaa !4
+  %72 = getelementptr inbounds nuw %struct.exp16_sig64, ptr %10, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8, !tbaa !16
+  store i64 %73, ptr %8, align 8, !tbaa !4
+  br label %74
 
-58:                                               ; preds = %55
-  %59 = load i64, ptr %8, align 8
-  %60 = icmp ne i64 %59, 0
-  br i1 %60, label %62, label %61
+74:                                               ; preds = %63, %56
+  %75 = load i64, ptr %7, align 8, !tbaa !4
+  %76 = sub nsw i64 %75, 1023
+  %77 = ashr i64 %76, 1
+  %78 = add nsw i64 %77, 1022
+  store i64 %78, ptr %11, align 8, !tbaa !4
+  %79 = load i64, ptr %7, align 8, !tbaa !4
+  %80 = and i64 %79, 1
+  store i64 %80, ptr %7, align 8, !tbaa !4
+  %81 = load i64, ptr %8, align 8, !tbaa !4
+  %82 = or i64 %81, 4503599627370496
+  store i64 %82, ptr %8, align 8, !tbaa !4
+  %83 = load i64, ptr %8, align 8, !tbaa !4
+  %84 = lshr i64 %83, 21
+  %85 = trunc i64 %84 to i32
+  store i32 %85, ptr %12, align 4, !tbaa !17
+  %86 = load i64, ptr %7, align 8, !tbaa !4
+  %87 = trunc i64 %86 to i32
+  %88 = load i32, ptr %12, align 4, !tbaa !17
+  %89 = call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %87, i32 noundef %88)
+  store i32 %89, ptr %13, align 4, !tbaa !17
+  %90 = load i32, ptr %12, align 4, !tbaa !17
+  %91 = zext i32 %90 to i64
+  %92 = load i32, ptr %13, align 4, !tbaa !17
+  %93 = zext i32 %92 to i64
+  %94 = mul i64 %91, %93
+  %95 = lshr i64 %94, 32
+  %96 = trunc i64 %95 to i32
+  store i32 %96, ptr %14, align 4, !tbaa !17
+  %97 = load i64, ptr %7, align 8, !tbaa !4
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %99, label %104
 
-61:                                               ; preds = %58
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false)
-  br label %167
+99:                                               ; preds = %74
+  %100 = load i64, ptr %8, align 8, !tbaa !4
+  %101 = shl i64 %100, 8
+  store i64 %101, ptr %8, align 8, !tbaa !4
+  %102 = load i32, ptr %14, align 4, !tbaa !17
+  %103 = lshr i32 %102, 1
+  store i32 %103, ptr %14, align 4, !tbaa !17
+  br label %107
 
-62:                                               ; preds = %58
-  %63 = load i64, ptr %8, align 8
-  %64 = call { i64, i64 } @softfloat_normSubnormalF64Sig(i64 noundef %63)
-  %65 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 0
-  %66 = extractvalue { i64, i64 } %64, 0
-  store i64 %66, ptr %65, align 8
-  %67 = getelementptr inbounds { i64, i64 }, ptr %20, i32 0, i32 1
-  %68 = extractvalue { i64, i64 } %64, 1
-  store i64 %68, ptr %67, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %20, i64 16, i1 false)
-  %69 = getelementptr inbounds %struct.exp16_sig64, ptr %10, i32 0, i32 0
-  %70 = load i64, ptr %69, align 8
-  store i64 %70, ptr %7, align 8
-  %71 = getelementptr inbounds %struct.exp16_sig64, ptr %10, i32 0, i32 1
-  %72 = load i64, ptr %71, align 8
-  store i64 %72, ptr %8, align 8
-  br label %73
+104:                                              ; preds = %74
+  %105 = load i64, ptr %8, align 8, !tbaa !4
+  %106 = shl i64 %105, 9
+  store i64 %106, ptr %8, align 8, !tbaa !4
+  br label %107
 
-73:                                               ; preds = %62, %55
-  %74 = load i64, ptr %7, align 8
-  %75 = sub nsw i64 %74, 1023
-  %76 = ashr i64 %75, 1
-  %77 = add nsw i64 %76, 1022
-  store i64 %77, ptr %11, align 8
-  %78 = load i64, ptr %7, align 8
-  %79 = and i64 %78, 1
-  store i64 %79, ptr %7, align 8
-  %80 = load i64, ptr %8, align 8
-  %81 = or i64 %80, 4503599627370496
-  store i64 %81, ptr %8, align 8
-  %82 = load i64, ptr %8, align 8
-  %83 = lshr i64 %82, 21
-  %84 = trunc i64 %83 to i32
-  store i32 %84, ptr %12, align 4
-  %85 = load i64, ptr %7, align 8
-  %86 = trunc i64 %85 to i32
-  %87 = load i32, ptr %12, align 4
-  %88 = call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %86, i32 noundef %87)
-  store i32 %88, ptr %13, align 4
-  %89 = load i32, ptr %12, align 4
-  %90 = zext i32 %89 to i64
-  %91 = load i32, ptr %13, align 4
-  %92 = zext i32 %91 to i64
-  %93 = mul i64 %90, %92
-  %94 = lshr i64 %93, 32
-  %95 = trunc i64 %94 to i32
-  store i32 %95, ptr %14, align 4
-  %96 = load i64, ptr %7, align 8
-  %97 = icmp ne i64 %96, 0
-  br i1 %97, label %98, label %103
+107:                                              ; preds = %104, %99
+  %108 = load i64, ptr %8, align 8, !tbaa !4
+  %109 = load i32, ptr %14, align 4, !tbaa !17
+  %110 = zext i32 %109 to i64
+  %111 = load i32, ptr %14, align 4, !tbaa !17
+  %112 = zext i32 %111 to i64
+  %113 = mul i64 %110, %112
+  %114 = sub i64 %108, %113
+  store i64 %114, ptr %15, align 8, !tbaa !4
+  %115 = load i64, ptr %15, align 8, !tbaa !4
+  %116 = lshr i64 %115, 2
+  %117 = trunc i64 %116 to i32
+  %118 = zext i32 %117 to i64
+  %119 = load i32, ptr %13, align 4, !tbaa !17
+  %120 = zext i32 %119 to i64
+  %121 = mul i64 %118, %120
+  %122 = lshr i64 %121, 32
+  %123 = trunc i64 %122 to i32
+  store i32 %123, ptr %16, align 4, !tbaa !17
+  %124 = load i32, ptr %14, align 4, !tbaa !17
+  %125 = zext i32 %124 to i64
+  %126 = shl i64 %125, 32
+  %127 = or i64 %126, 32
+  %128 = load i32, ptr %16, align 4, !tbaa !17
+  %129 = zext i32 %128 to i64
+  %130 = shl i64 %129, 3
+  %131 = add i64 %127, %130
+  store i64 %131, ptr %17, align 8, !tbaa !4
+  %132 = load i64, ptr %17, align 8, !tbaa !4
+  %133 = and i64 %132, 511
+  %134 = icmp ult i64 %133, 34
+  br i1 %134, label %135, label %160
 
-98:                                               ; preds = %73
-  %99 = load i64, ptr %8, align 8
-  %100 = shl i64 %99, 8
-  store i64 %100, ptr %8, align 8
-  %101 = load i32, ptr %14, align 4
-  %102 = lshr i32 %101, 1
-  store i32 %102, ptr %14, align 4
-  br label %106
+135:                                              ; preds = %107
+  %136 = load i64, ptr %17, align 8, !tbaa !4
+  %137 = and i64 %136, -64
+  store i64 %137, ptr %17, align 8, !tbaa !4
+  %138 = load i64, ptr %17, align 8, !tbaa !4
+  %139 = lshr i64 %138, 6
+  store i64 %139, ptr %18, align 8, !tbaa !4
+  %140 = load i64, ptr %8, align 8, !tbaa !4
+  %141 = shl i64 %140, 52
+  %142 = load i64, ptr %18, align 8, !tbaa !4
+  %143 = load i64, ptr %18, align 8, !tbaa !4
+  %144 = mul i64 %142, %143
+  %145 = sub i64 %141, %144
+  store i64 %145, ptr %15, align 8, !tbaa !4
+  %146 = load i64, ptr %15, align 8, !tbaa !4
+  %147 = and i64 %146, -9223372036854775808
+  %148 = icmp ne i64 %147, 0
+  br i1 %148, label %149, label %152
 
-103:                                              ; preds = %73
-  %104 = load i64, ptr %8, align 8
-  %105 = shl i64 %104, 9
-  store i64 %105, ptr %8, align 8
-  br label %106
-
-106:                                              ; preds = %103, %98
-  %107 = load i64, ptr %8, align 8
-  %108 = load i32, ptr %14, align 4
-  %109 = zext i32 %108 to i64
-  %110 = load i32, ptr %14, align 4
-  %111 = zext i32 %110 to i64
-  %112 = mul i64 %109, %111
-  %113 = sub i64 %107, %112
-  store i64 %113, ptr %15, align 8
-  %114 = load i64, ptr %15, align 8
-  %115 = lshr i64 %114, 2
-  %116 = trunc i64 %115 to i32
-  %117 = zext i32 %116 to i64
-  %118 = load i32, ptr %13, align 4
-  %119 = zext i32 %118 to i64
-  %120 = mul i64 %117, %119
-  %121 = lshr i64 %120, 32
-  %122 = trunc i64 %121 to i32
-  store i32 %122, ptr %16, align 4
-  %123 = load i32, ptr %14, align 4
-  %124 = zext i32 %123 to i64
-  %125 = shl i64 %124, 32
-  %126 = or i64 %125, 32
-  %127 = load i32, ptr %16, align 4
-  %128 = zext i32 %127 to i64
-  %129 = shl i64 %128, 3
-  %130 = add i64 %126, %129
-  store i64 %130, ptr %17, align 8
-  %131 = load i64, ptr %17, align 8
-  %132 = and i64 %131, 511
-  %133 = icmp ult i64 %132, 34
-  br i1 %133, label %134, label %159
-
-134:                                              ; preds = %106
-  %135 = load i64, ptr %17, align 8
-  %136 = and i64 %135, -64
-  store i64 %136, ptr %17, align 8
-  %137 = load i64, ptr %17, align 8
-  %138 = lshr i64 %137, 6
-  store i64 %138, ptr %18, align 8
-  %139 = load i64, ptr %8, align 8
-  %140 = shl i64 %139, 52
-  %141 = load i64, ptr %18, align 8
-  %142 = load i64, ptr %18, align 8
-  %143 = mul i64 %141, %142
-  %144 = sub i64 %140, %143
-  store i64 %144, ptr %15, align 8
-  %145 = load i64, ptr %15, align 8
-  %146 = and i64 %145, -9223372036854775808
-  %147 = icmp ne i64 %146, 0
-  br i1 %147, label %148, label %151
-
-148:                                              ; preds = %134
-  %149 = load i64, ptr %17, align 8
-  %150 = add i64 %149, -1
-  store i64 %150, ptr %17, align 8
-  br label %158
-
-151:                                              ; preds = %134
-  %152 = load i64, ptr %15, align 8
-  %153 = icmp ne i64 %152, 0
-  br i1 %153, label %154, label %157
-
-154:                                              ; preds = %151
-  %155 = load i64, ptr %17, align 8
-  %156 = or i64 %155, 1
-  store i64 %156, ptr %17, align 8
-  br label %157
-
-157:                                              ; preds = %154, %151
-  br label %158
-
-158:                                              ; preds = %157, %148
+149:                                              ; preds = %135
+  %150 = load i64, ptr %17, align 8, !tbaa !4
+  %151 = add i64 %150, -1
+  store i64 %151, ptr %17, align 8, !tbaa !4
   br label %159
 
-159:                                              ; preds = %158, %106
-  %160 = load i64, ptr %11, align 8
-  %161 = load i64, ptr %17, align 8
-  %162 = call i64 @softfloat_roundPackToF64(i1 noundef zeroext false, i64 noundef %160, i64 noundef %161)
-  %163 = getelementptr inbounds %struct.float64_t, ptr %2, i32 0, i32 0
-  store i64 %162, ptr %163, align 8
-  br label %167
+152:                                              ; preds = %135
+  %153 = load i64, ptr %15, align 8, !tbaa !4
+  %154 = icmp ne i64 %153, 0
+  br i1 %154, label %155, label %158
 
-164:                                              ; preds = %54, %44
+155:                                              ; preds = %152
+  %156 = load i64, ptr %17, align 8, !tbaa !4
+  %157 = or i64 %156, 1
+  store i64 %157, ptr %17, align 8, !tbaa !4
+  br label %158
+
+158:                                              ; preds = %155, %152
+  br label %159
+
+159:                                              ; preds = %158, %149
+  br label %160
+
+160:                                              ; preds = %159, %107
+  %161 = load i64, ptr %11, align 8, !tbaa !4
+  %162 = load i64, ptr %17, align 8, !tbaa !4
+  %163 = call i64 @softfloat_roundPackToF64(i1 noundef zeroext false, i64 noundef %161, i64 noundef %162)
+  %164 = getelementptr inbounds nuw %struct.float64_t, ptr %2, i32 0, i32 0
+  store i64 %163, ptr %164, align 8
+  store i32 1, ptr %20, align 4
+  br label %168
+
+165:                                              ; preds = %55, %45
   call void @softfloat_raiseFlags(i8 noundef zeroext 16)
-  store i64 9221120237041090560, ptr %9, align 8
-  br label %165
+  store i64 9221120237041090560, ptr %9, align 8, !tbaa !4
+  br label %166
 
-165:                                              ; preds = %164, %37
-  %166 = load i64, ptr %9, align 8
-  store i64 %166, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %19, i64 8, i1 false)
-  br label %167
+166:                                              ; preds = %165, %38
+  %167 = load i64, ptr %9, align 8, !tbaa !4
+  store i64 %167, ptr %19, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %19, i64 8, i1 false), !tbaa.struct !3
+  store i32 1, ptr %20, align 4
+  br label %168
 
-167:                                              ; preds = %165, %159, %61, %53, %43
-  %168 = getelementptr inbounds %struct.float64_t, ptr %2, i32 0, i32 0
-  %169 = load i64, ptr %168, align 8
-  ret i64 %169
+168:                                              ; preds = %166, %160, %62, %54, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %169 = getelementptr inbounds nuw %struct.float64_t, ptr %2, i32 0, i32 0
+  %170 = load i64, ptr %169, align 8
+  ret i64 %170
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i64 @softfloat_propagateNaNF64UI(i64 noundef, i64 noundef) #2
+declare i64 @softfloat_propagateNaNF64UI(i64 noundef, i64 noundef) #3
 
-declare { i64, i64 } @softfloat_normSubnormalF64Sig(i64 noundef) #2
+declare { i64, i64 } @softfloat_normSubnormalF64Sig(i64 noundef) #3
 
-declare i32 @softfloat_approxRecipSqrt32_1(i32 noundef, i32 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i64 @softfloat_roundPackToF64(i1 noundef zeroext, i64 noundef, i64 noundef) #2
+declare i32 @softfloat_approxRecipSqrt32_1(i32 noundef, i32 noundef) #3
 
-declare void @softfloat_raiseFlags(i8 noundef zeroext) #2
+declare i64 @softfloat_roundPackToF64(i1 noundef zeroext, i64 noundef, i64 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+declare void @softfloat_raiseFlags(i8 noundef zeroext) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i64 0, i64 8, !4}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"_Bool", !6, i64 0}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = !{i64 0, i64 8, !4, i64 8, i64 8, !4}
+!14 = !{!15, !5, i64 0}
+!15 = !{!"exp16_sig64", !5, i64 0, !5, i64 8}
+!16 = !{!15, !5, i64 8}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !6, i64 0}

@@ -4,8 +4,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.float16_t = type { i16 }
 %union.ui16_f16 = type { i16 }
 
-@softfloat_roundingMode = external global i8, align 1
-@softfloat_exceptionFlags = external global i8, align 1
+@softfloat_roundingMode = external thread_local global i8, align 1
+@softfloat_exceptionFlags = external thread_local global i8, align 1
 @softfloat_countLeadingZeros8 = external constant [256 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
@@ -29,601 +29,669 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) #0 {
   %19 = alloca i64, align 8
   %20 = alloca i8, align 1
   %21 = alloca %union.ui16_f16, align 2
-  store i64 %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %22 = load i64, ptr %4, align 8
-  %23 = lshr i64 %22, 10
-  %24 = trunc i64 %23 to i8
-  %25 = sext i8 %24 to i32
-  %26 = and i32 %25, 31
-  %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %6, align 1
-  %28 = load i64, ptr %4, align 8
-  %29 = and i64 %28, 1023
-  store i64 %29, ptr %7, align 8
-  %30 = load i64, ptr %5, align 8
-  %31 = lshr i64 %30, 10
-  %32 = trunc i64 %31 to i8
-  %33 = sext i8 %32 to i32
-  %34 = and i32 %33, 31
-  %35 = trunc i32 %34 to i8
-  store i8 %35, ptr %8, align 1
-  %36 = load i64, ptr %5, align 8
-  %37 = and i64 %36, 1023
-  store i64 %37, ptr %9, align 8
-  %38 = load i8, ptr %6, align 1
-  %39 = sext i8 %38 to i32
-  %40 = load i8, ptr %8, align 1
-  %41 = sext i8 %40 to i32
-  %42 = sub nsw i32 %39, %41
-  %43 = trunc i32 %42 to i8
-  store i8 %43, ptr %10, align 1
-  %44 = load i8, ptr %10, align 1
-  %45 = icmp ne i8 %44, 0
-  br i1 %45, label %120, label %46
+  %22 = alloca i32, align 4
+  store i64 %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #6
+  %23 = load i64, ptr %4, align 8, !tbaa !3
+  %24 = lshr i64 %23, 10
+  %25 = trunc i64 %24 to i8
+  %26 = sext i8 %25 to i32
+  %27 = and i32 %26, 31
+  %28 = trunc i32 %27 to i8
+  store i8 %28, ptr %6, align 1, !tbaa !7
+  %29 = load i64, ptr %4, align 8, !tbaa !3
+  %30 = and i64 %29, 1023
+  store i64 %30, ptr %7, align 8, !tbaa !3
+  %31 = load i64, ptr %5, align 8, !tbaa !3
+  %32 = lshr i64 %31, 10
+  %33 = trunc i64 %32 to i8
+  %34 = sext i8 %33 to i32
+  %35 = and i32 %34, 31
+  %36 = trunc i32 %35 to i8
+  store i8 %36, ptr %8, align 1, !tbaa !7
+  %37 = load i64, ptr %5, align 8, !tbaa !3
+  %38 = and i64 %37, 1023
+  store i64 %38, ptr %9, align 8, !tbaa !3
+  %39 = load i8, ptr %6, align 1, !tbaa !7
+  %40 = sext i8 %39 to i32
+  %41 = load i8, ptr %8, align 1, !tbaa !7
+  %42 = sext i8 %41 to i32
+  %43 = sub nsw i32 %40, %42
+  %44 = trunc i32 %43 to i8
+  store i8 %44, ptr %10, align 1, !tbaa !7
+  %45 = load i8, ptr %10, align 1, !tbaa !7
+  %46 = icmp ne i8 %45, 0
+  br i1 %46, label %122, label %47
 
-46:                                               ; preds = %2
-  %47 = load i8, ptr %6, align 1
-  %48 = sext i8 %47 to i32
-  %49 = icmp eq i32 %48, 31
-  br i1 %49, label %50, label %57
+47:                                               ; preds = %2
+  %48 = load i8, ptr %6, align 1, !tbaa !7
+  %49 = sext i8 %48 to i32
+  %50 = icmp eq i32 %49, 31
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %46
-  %51 = load i64, ptr %7, align 8
-  %52 = load i64, ptr %9, align 8
-  %53 = or i64 %51, %52
-  %54 = icmp ne i64 %53, 0
-  br i1 %54, label %55, label %56
+51:                                               ; preds = %47
+  %52 = load i64, ptr %7, align 8, !tbaa !3
+  %53 = load i64, ptr %9, align 8, !tbaa !3
+  %54 = or i64 %52, %53
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %50
-  br label %289
+56:                                               ; preds = %51
+  br label %291
 
-56:                                               ; preds = %50
+57:                                               ; preds = %51
   call void @softfloat_raiseFlags(i8 noundef zeroext 16)
-  store i64 32256, ptr %11, align 8
-  br label %344
+  store i64 32256, ptr %11, align 8, !tbaa !3
+  br label %348
 
-57:                                               ; preds = %46
-  %58 = load i64, ptr %7, align 8
-  %59 = load i64, ptr %9, align 8
-  %60 = sub i64 %58, %59
-  store i64 %60, ptr %12, align 8
-  %61 = load i64, ptr %12, align 8
-  %62 = icmp ne i64 %61, 0
-  br i1 %62, label %74, label %63
+58:                                               ; preds = %47
+  %59 = load i64, ptr %7, align 8, !tbaa !3
+  %60 = load i64, ptr %9, align 8, !tbaa !3
+  %61 = sub i64 %59, %60
+  store i64 %61, ptr %12, align 8, !tbaa !3
+  %62 = load i64, ptr %12, align 8, !tbaa !3
+  %63 = icmp ne i64 %62, 0
+  br i1 %63, label %76, label %64
 
-63:                                               ; preds = %57
-  %64 = load i8, ptr @softfloat_roundingMode, align 1
-  %65 = zext i8 %64 to i32
-  %66 = icmp eq i32 %65, 2
-  %67 = zext i1 %66 to i32
-  %68 = trunc i32 %67 to i16
-  %69 = zext i16 %68 to i32
-  %70 = shl i32 %69, 15
-  %71 = add nsw i32 %70, 0
-  %72 = add nsw i32 %71, 0
-  %73 = sext i32 %72 to i64
-  store i64 %73, ptr %11, align 8
-  br label %344
+64:                                               ; preds = %58
+  %65 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  %66 = load i8, ptr %65, align 1, !tbaa !7
+  %67 = zext i8 %66 to i32
+  %68 = icmp eq i32 %67, 2
+  %69 = zext i1 %68 to i32
+  %70 = trunc i32 %69 to i16
+  %71 = zext i16 %70 to i32
+  %72 = shl i32 %71, 15
+  %73 = add nsw i32 %72, 0
+  %74 = add nsw i32 %73, 0
+  %75 = sext i32 %74 to i64
+  store i64 %75, ptr %11, align 8, !tbaa !3
+  br label %348
 
-74:                                               ; preds = %57
-  %75 = load i8, ptr %6, align 1
-  %76 = icmp ne i8 %75, 0
-  br i1 %76, label %77, label %80
+76:                                               ; preds = %58
+  %77 = load i8, ptr %6, align 1, !tbaa !7
+  %78 = icmp ne i8 %77, 0
+  br i1 %78, label %79, label %82
 
-77:                                               ; preds = %74
-  %78 = load i8, ptr %6, align 1
-  %79 = add i8 %78, -1
-  store i8 %79, ptr %6, align 1
-  br label %80
+79:                                               ; preds = %76
+  %80 = load i8, ptr %6, align 1, !tbaa !7
+  %81 = add i8 %80, -1
+  store i8 %81, ptr %6, align 1, !tbaa !7
+  br label %82
 
-80:                                               ; preds = %77, %74
-  %81 = load i64, ptr %4, align 8
-  %82 = trunc i64 %81 to i16
-  %83 = zext i16 %82 to i32
-  %84 = ashr i32 %83, 15
-  %85 = icmp ne i32 %84, 0
-  %86 = zext i1 %85 to i8
-  store i8 %86, ptr %13, align 1
-  %87 = load i64, ptr %12, align 8
-  %88 = icmp slt i64 %87, 0
-  br i1 %88, label %89, label %96
+82:                                               ; preds = %79, %76
+  %83 = load i64, ptr %4, align 8, !tbaa !3
+  %84 = trunc i64 %83 to i16
+  %85 = zext i16 %84 to i32
+  %86 = ashr i32 %85, 15
+  %87 = icmp ne i32 %86, 0
+  %88 = zext i1 %87 to i8
+  store i8 %88, ptr %13, align 1, !tbaa !8
+  %89 = load i64, ptr %12, align 8, !tbaa !3
+  %90 = icmp slt i64 %89, 0
+  br i1 %90, label %91, label %98
 
-89:                                               ; preds = %80
-  %90 = load i8, ptr %13, align 1
-  %91 = trunc i8 %90 to i1
-  %92 = xor i1 %91, true
-  %93 = zext i1 %92 to i8
-  store i8 %93, ptr %13, align 1
-  %94 = load i64, ptr %12, align 8
-  %95 = sub nsw i64 0, %94
-  store i64 %95, ptr %12, align 8
-  br label %96
+91:                                               ; preds = %82
+  %92 = load i8, ptr %13, align 1, !tbaa !8, !range !10, !noundef !11
+  %93 = trunc i8 %92 to i1
+  %94 = xor i1 %93, true
+  %95 = zext i1 %94 to i8
+  store i8 %95, ptr %13, align 1, !tbaa !8
+  %96 = load i64, ptr %12, align 8, !tbaa !3
+  %97 = sub nsw i64 0, %96
+  store i64 %97, ptr %12, align 8, !tbaa !3
+  br label %98
 
-96:                                               ; preds = %89, %80
-  %97 = load i64, ptr %12, align 8
-  %98 = trunc i64 %97 to i16
-  %99 = call zeroext i8 @softfloat_countLeadingZeros16(i16 noundef zeroext %98)
-  %100 = zext i8 %99 to i32
-  %101 = sub nsw i32 %100, 5
-  %102 = trunc i32 %101 to i8
-  store i8 %102, ptr %14, align 1
-  %103 = load i8, ptr %6, align 1
-  %104 = sext i8 %103 to i32
-  %105 = load i8, ptr %14, align 1
+98:                                               ; preds = %91, %82
+  %99 = load i64, ptr %12, align 8, !tbaa !3
+  %100 = trunc i64 %99 to i16
+  %101 = call zeroext i8 @softfloat_countLeadingZeros16(i16 noundef zeroext %100)
+  %102 = zext i8 %101 to i32
+  %103 = sub nsw i32 %102, 5
+  %104 = trunc i32 %103 to i8
+  store i8 %104, ptr %14, align 1, !tbaa !7
+  %105 = load i8, ptr %6, align 1, !tbaa !7
   %106 = sext i8 %105 to i32
-  %107 = sub nsw i32 %104, %106
-  %108 = trunc i32 %107 to i8
-  store i8 %108, ptr %15, align 1
-  %109 = load i8, ptr %15, align 1
-  %110 = sext i8 %109 to i32
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %112, label %114
+  %107 = load i8, ptr %14, align 1, !tbaa !7
+  %108 = sext i8 %107 to i32
+  %109 = sub nsw i32 %106, %108
+  %110 = trunc i32 %109 to i8
+  store i8 %110, ptr %15, align 1, !tbaa !7
+  %111 = load i8, ptr %15, align 1, !tbaa !7
+  %112 = sext i8 %111 to i32
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %114, label %116
 
-112:                                              ; preds = %96
-  %113 = load i8, ptr %6, align 1
-  store i8 %113, ptr %14, align 1
-  store i8 0, ptr %15, align 1
-  br label %114
+114:                                              ; preds = %98
+  %115 = load i8, ptr %6, align 1, !tbaa !7
+  store i8 %115, ptr %14, align 1, !tbaa !7
+  store i8 0, ptr %15, align 1, !tbaa !7
+  br label %116
 
-114:                                              ; preds = %112, %96
-  %115 = load i64, ptr %12, align 8
-  %116 = load i8, ptr %14, align 1
-  %117 = sext i8 %116 to i32
-  %118 = zext i32 %117 to i64
-  %119 = shl i64 %115, %118
-  store i64 %119, ptr %16, align 8
-  br label %330
+116:                                              ; preds = %114, %98
+  %117 = load i64, ptr %12, align 8, !tbaa !3
+  %118 = load i8, ptr %14, align 1, !tbaa !7
+  %119 = sext i8 %118 to i32
+  %120 = zext i32 %119 to i64
+  %121 = shl i64 %117, %120
+  store i64 %121, ptr %16, align 8, !tbaa !3
+  br label %334
 
-120:                                              ; preds = %2
-  %121 = load i64, ptr %4, align 8
-  %122 = trunc i64 %121 to i16
-  %123 = zext i16 %122 to i32
-  %124 = ashr i32 %123, 15
-  %125 = icmp ne i32 %124, 0
-  %126 = zext i1 %125 to i8
-  store i8 %126, ptr %13, align 1
-  %127 = load i8, ptr %10, align 1
-  %128 = sext i8 %127 to i32
-  %129 = icmp slt i32 %128, 0
-  br i1 %129, label %130, label %197
+122:                                              ; preds = %2
+  %123 = load i64, ptr %4, align 8, !tbaa !3
+  %124 = trunc i64 %123 to i16
+  %125 = zext i16 %124 to i32
+  %126 = ashr i32 %125, 15
+  %127 = icmp ne i32 %126, 0
+  %128 = zext i1 %127 to i8
+  store i8 %128, ptr %13, align 1, !tbaa !8
+  %129 = load i8, ptr %10, align 1, !tbaa !7
+  %130 = sext i8 %129 to i32
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %132, label %199
 
-130:                                              ; preds = %120
-  %131 = load i8, ptr %13, align 1
-  %132 = trunc i8 %131 to i1
-  %133 = xor i1 %132, true
-  %134 = zext i1 %133 to i8
-  store i8 %134, ptr %13, align 1
-  %135 = load i8, ptr %8, align 1
-  %136 = sext i8 %135 to i32
-  %137 = icmp eq i32 %136, 31
-  br i1 %137, label %138, label %151
+132:                                              ; preds = %122
+  %133 = load i8, ptr %13, align 1, !tbaa !8, !range !10, !noundef !11
+  %134 = trunc i8 %133 to i1
+  %135 = xor i1 %134, true
+  %136 = zext i1 %135 to i8
+  store i8 %136, ptr %13, align 1, !tbaa !8
+  %137 = load i8, ptr %8, align 1, !tbaa !7
+  %138 = sext i8 %137 to i32
+  %139 = icmp eq i32 %138, 31
+  br i1 %139, label %140, label %153
 
-138:                                              ; preds = %130
-  %139 = load i64, ptr %9, align 8
-  %140 = icmp ne i64 %139, 0
-  br i1 %140, label %141, label %142
+140:                                              ; preds = %132
+  %141 = load i64, ptr %9, align 8, !tbaa !3
+  %142 = icmp ne i64 %141, 0
+  br i1 %142, label %143, label %144
 
-141:                                              ; preds = %138
-  br label %289
+143:                                              ; preds = %140
+  br label %291
 
-142:                                              ; preds = %138
-  %143 = load i8, ptr %13, align 1
-  %144 = trunc i8 %143 to i1
-  %145 = zext i1 %144 to i16
-  %146 = zext i16 %145 to i32
-  %147 = shl i32 %146, 15
-  %148 = add nsw i32 %147, 31744
-  %149 = add nsw i32 %148, 0
-  %150 = sext i32 %149 to i64
-  store i64 %150, ptr %11, align 8
-  br label %344
+144:                                              ; preds = %140
+  %145 = load i8, ptr %13, align 1, !tbaa !8, !range !10, !noundef !11
+  %146 = trunc i8 %145 to i1
+  %147 = zext i1 %146 to i16
+  %148 = zext i16 %147 to i32
+  %149 = shl i32 %148, 15
+  %150 = add nsw i32 %149, 31744
+  %151 = add nsw i32 %150, 0
+  %152 = sext i32 %151 to i64
+  store i64 %152, ptr %11, align 8, !tbaa !3
+  br label %348
 
-151:                                              ; preds = %130
-  %152 = load i8, ptr %10, align 1
-  %153 = sext i8 %152 to i32
-  %154 = icmp sle i32 %153, -13
-  br i1 %154, label %155, label %176
+153:                                              ; preds = %132
+  %154 = load i8, ptr %10, align 1, !tbaa !7
+  %155 = sext i8 %154 to i32
+  %156 = icmp sle i32 %155, -13
+  br i1 %156, label %157, label %178
 
-155:                                              ; preds = %151
-  %156 = load i8, ptr %13, align 1
-  %157 = trunc i8 %156 to i1
-  %158 = zext i1 %157 to i16
-  %159 = zext i16 %158 to i32
-  %160 = shl i32 %159, 15
-  %161 = load i8, ptr %8, align 1
-  %162 = sext i8 %161 to i16
-  %163 = zext i16 %162 to i32
-  %164 = shl i32 %163, 10
-  %165 = add nsw i32 %160, %164
-  %166 = sext i32 %165 to i64
-  %167 = load i64, ptr %9, align 8
-  %168 = add i64 %166, %167
-  store i64 %168, ptr %11, align 8
-  %169 = load i8, ptr %6, align 1
-  %170 = sext i8 %169 to i64
-  %171 = load i64, ptr %7, align 8
-  %172 = or i64 %170, %171
-  %173 = icmp ne i64 %172, 0
-  br i1 %173, label %174, label %175
+157:                                              ; preds = %153
+  %158 = load i8, ptr %13, align 1, !tbaa !8, !range !10, !noundef !11
+  %159 = trunc i8 %158 to i1
+  %160 = zext i1 %159 to i16
+  %161 = zext i16 %160 to i32
+  %162 = shl i32 %161, 15
+  %163 = load i8, ptr %8, align 1, !tbaa !7
+  %164 = sext i8 %163 to i16
+  %165 = zext i16 %164 to i32
+  %166 = shl i32 %165, 10
+  %167 = add nsw i32 %162, %166
+  %168 = sext i32 %167 to i64
+  %169 = load i64, ptr %9, align 8, !tbaa !3
+  %170 = add i64 %168, %169
+  store i64 %170, ptr %11, align 8, !tbaa !3
+  %171 = load i8, ptr %6, align 1, !tbaa !7
+  %172 = sext i8 %171 to i64
+  %173 = load i64, ptr %7, align 8, !tbaa !3
+  %174 = or i64 %172, %173
+  %175 = icmp ne i64 %174, 0
+  br i1 %175, label %176, label %177
 
-174:                                              ; preds = %155
-  br label %293
+176:                                              ; preds = %157
+  br label %295
 
-175:                                              ; preds = %155
-  br label %344
+177:                                              ; preds = %157
+  br label %348
 
-176:                                              ; preds = %151
-  %177 = load i8, ptr %6, align 1
-  %178 = sext i8 %177 to i32
-  %179 = add nsw i32 %178, 19
-  %180 = trunc i32 %179 to i8
-  store i8 %180, ptr %15, align 1
-  %181 = load i64, ptr %9, align 8
-  %182 = or i64 %181, 1024
-  store i64 %182, ptr %17, align 8
-  %183 = load i64, ptr %7, align 8
-  %184 = load i8, ptr %6, align 1
-  %185 = sext i8 %184 to i32
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %188
+178:                                              ; preds = %153
+  %179 = load i8, ptr %6, align 1, !tbaa !7
+  %180 = sext i8 %179 to i32
+  %181 = add nsw i32 %180, 19
+  %182 = trunc i32 %181 to i8
+  store i8 %182, ptr %15, align 1, !tbaa !7
+  %183 = load i64, ptr %9, align 8, !tbaa !3
+  %184 = or i64 %183, 1024
+  store i64 %184, ptr %17, align 8, !tbaa !3
+  %185 = load i64, ptr %7, align 8, !tbaa !3
+  %186 = load i8, ptr %6, align 1, !tbaa !7
+  %187 = sext i8 %186 to i32
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %190
 
-187:                                              ; preds = %176
-  br label %190
+189:                                              ; preds = %178
+  br label %192
 
-188:                                              ; preds = %176
-  %189 = load i64, ptr %7, align 8
-  br label %190
+190:                                              ; preds = %178
+  %191 = load i64, ptr %7, align 8, !tbaa !3
+  br label %192
 
-190:                                              ; preds = %188, %187
-  %191 = phi i64 [ 1024, %187 ], [ %189, %188 ]
-  %192 = add i64 %183, %191
-  store i64 %192, ptr %18, align 8
-  %193 = load i8, ptr %10, align 1
-  %194 = sext i8 %193 to i32
-  %195 = sub nsw i32 0, %194
-  %196 = trunc i32 %195 to i8
-  store i8 %196, ptr %10, align 1
-  br label %236
+192:                                              ; preds = %190, %189
+  %193 = phi i64 [ 1024, %189 ], [ %191, %190 ]
+  %194 = add i64 %185, %193
+  store i64 %194, ptr %18, align 8, !tbaa !3
+  %195 = load i8, ptr %10, align 1, !tbaa !7
+  %196 = sext i8 %195 to i32
+  %197 = sub nsw i32 0, %196
+  %198 = trunc i32 %197 to i8
+  store i8 %198, ptr %10, align 1, !tbaa !7
+  br label %238
 
-197:                                              ; preds = %120
-  %198 = load i64, ptr %4, align 8
-  store i64 %198, ptr %11, align 8
-  %199 = load i8, ptr %6, align 1
-  %200 = sext i8 %199 to i32
-  %201 = icmp eq i32 %200, 31
-  br i1 %201, label %202, label %207
+199:                                              ; preds = %122
+  %200 = load i64, ptr %4, align 8, !tbaa !3
+  store i64 %200, ptr %11, align 8, !tbaa !3
+  %201 = load i8, ptr %6, align 1, !tbaa !7
+  %202 = sext i8 %201 to i32
+  %203 = icmp eq i32 %202, 31
+  br i1 %203, label %204, label %209
 
-202:                                              ; preds = %197
-  %203 = load i64, ptr %7, align 8
-  %204 = icmp ne i64 %203, 0
-  br i1 %204, label %205, label %206
+204:                                              ; preds = %199
+  %205 = load i64, ptr %7, align 8, !tbaa !3
+  %206 = icmp ne i64 %205, 0
+  br i1 %206, label %207, label %208
 
-205:                                              ; preds = %202
-  br label %289
+207:                                              ; preds = %204
+  br label %291
 
-206:                                              ; preds = %202
-  br label %344
+208:                                              ; preds = %204
+  br label %348
 
-207:                                              ; preds = %197
-  %208 = load i8, ptr %10, align 1
-  %209 = sext i8 %208 to i32
-  %210 = icmp sle i32 13, %209
-  br i1 %210, label %211, label %219
+209:                                              ; preds = %199
+  %210 = load i8, ptr %10, align 1, !tbaa !7
+  %211 = sext i8 %210 to i32
+  %212 = icmp sle i32 13, %211
+  br i1 %212, label %213, label %221
 
-211:                                              ; preds = %207
-  %212 = load i8, ptr %8, align 1
-  %213 = sext i8 %212 to i64
-  %214 = load i64, ptr %9, align 8
-  %215 = or i64 %213, %214
-  %216 = icmp ne i64 %215, 0
-  br i1 %216, label %217, label %218
+213:                                              ; preds = %209
+  %214 = load i8, ptr %8, align 1, !tbaa !7
+  %215 = sext i8 %214 to i64
+  %216 = load i64, ptr %9, align 8, !tbaa !3
+  %217 = or i64 %215, %216
+  %218 = icmp ne i64 %217, 0
+  br i1 %218, label %219, label %220
 
-217:                                              ; preds = %211
-  br label %293
+219:                                              ; preds = %213
+  br label %295
 
-218:                                              ; preds = %211
-  br label %344
+220:                                              ; preds = %213
+  br label %348
 
-219:                                              ; preds = %207
-  %220 = load i8, ptr %8, align 1
-  %221 = sext i8 %220 to i32
-  %222 = add nsw i32 %221, 19
-  %223 = trunc i32 %222 to i8
-  store i8 %223, ptr %15, align 1
-  %224 = load i64, ptr %7, align 8
-  %225 = or i64 %224, 1024
-  store i64 %225, ptr %17, align 8
-  %226 = load i64, ptr %9, align 8
-  %227 = load i8, ptr %8, align 1
-  %228 = sext i8 %227 to i32
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %231
+221:                                              ; preds = %209
+  %222 = load i8, ptr %8, align 1, !tbaa !7
+  %223 = sext i8 %222 to i32
+  %224 = add nsw i32 %223, 19
+  %225 = trunc i32 %224 to i8
+  store i8 %225, ptr %15, align 1, !tbaa !7
+  %226 = load i64, ptr %7, align 8, !tbaa !3
+  %227 = or i64 %226, 1024
+  store i64 %227, ptr %17, align 8, !tbaa !3
+  %228 = load i64, ptr %9, align 8, !tbaa !3
+  %229 = load i8, ptr %8, align 1, !tbaa !7
+  %230 = sext i8 %229 to i32
+  %231 = icmp ne i32 %230, 0
+  br i1 %231, label %232, label %233
 
-230:                                              ; preds = %219
-  br label %233
+232:                                              ; preds = %221
+  br label %235
 
-231:                                              ; preds = %219
-  %232 = load i64, ptr %9, align 8
-  br label %233
+233:                                              ; preds = %221
+  %234 = load i64, ptr %9, align 8, !tbaa !3
+  br label %235
 
-233:                                              ; preds = %231, %230
-  %234 = phi i64 [ 1024, %230 ], [ %232, %231 ]
-  %235 = add i64 %226, %234
-  store i64 %235, ptr %18, align 8
-  br label %236
+235:                                              ; preds = %233, %232
+  %236 = phi i64 [ 1024, %232 ], [ %234, %233 ]
+  %237 = add i64 %228, %236
+  store i64 %237, ptr %18, align 8, !tbaa !3
+  br label %238
 
-236:                                              ; preds = %233, %190
-  %237 = load i64, ptr %17, align 8
-  %238 = load i8, ptr %10, align 1
-  %239 = sext i8 %238 to i32
-  %240 = zext i32 %239 to i64
-  %241 = shl i64 %237, %240
-  %242 = load i64, ptr %18, align 8
-  %243 = sub i64 %241, %242
-  store i64 %243, ptr %19, align 8
-  %244 = load i64, ptr %19, align 8
-  %245 = trunc i64 %244 to i32
-  %246 = call zeroext i8 @softfloat_countLeadingZeros32(i32 noundef %245)
-  %247 = zext i8 %246 to i32
-  %248 = sub nsw i32 %247, 1
-  %249 = trunc i32 %248 to i8
-  store i8 %249, ptr %14, align 1
-  %250 = load i8, ptr %14, align 1
-  %251 = sext i8 %250 to i32
-  %252 = load i64, ptr %19, align 8
-  %253 = zext i32 %251 to i64
-  %254 = shl i64 %252, %253
-  store i64 %254, ptr %19, align 8
-  %255 = load i8, ptr %14, align 1
-  %256 = sext i8 %255 to i32
-  %257 = load i8, ptr %15, align 1
+238:                                              ; preds = %235, %192
+  %239 = load i64, ptr %17, align 8, !tbaa !3
+  %240 = load i8, ptr %10, align 1, !tbaa !7
+  %241 = sext i8 %240 to i32
+  %242 = zext i32 %241 to i64
+  %243 = shl i64 %239, %242
+  %244 = load i64, ptr %18, align 8, !tbaa !3
+  %245 = sub i64 %243, %244
+  store i64 %245, ptr %19, align 8, !tbaa !3
+  %246 = load i64, ptr %19, align 8, !tbaa !3
+  %247 = trunc i64 %246 to i32
+  %248 = call zeroext i8 @softfloat_countLeadingZeros32(i32 noundef %247)
+  %249 = zext i8 %248 to i32
+  %250 = sub nsw i32 %249, 1
+  %251 = trunc i32 %250 to i8
+  store i8 %251, ptr %14, align 1, !tbaa !7
+  %252 = load i8, ptr %14, align 1, !tbaa !7
+  %253 = sext i8 %252 to i32
+  %254 = load i64, ptr %19, align 8, !tbaa !3
+  %255 = zext i32 %253 to i64
+  %256 = shl i64 %254, %255
+  store i64 %256, ptr %19, align 8, !tbaa !3
+  %257 = load i8, ptr %14, align 1, !tbaa !7
   %258 = sext i8 %257 to i32
-  %259 = sub nsw i32 %258, %256
-  %260 = trunc i32 %259 to i8
-  store i8 %260, ptr %15, align 1
-  %261 = load i64, ptr %19, align 8
-  %262 = lshr i64 %261, 16
-  store i64 %262, ptr %16, align 8
-  %263 = load i64, ptr %19, align 8
-  %264 = and i64 %263, 65535
-  %265 = icmp ne i64 %264, 0
-  br i1 %265, label %266, label %269
+  %259 = load i8, ptr %15, align 1, !tbaa !7
+  %260 = sext i8 %259 to i32
+  %261 = sub nsw i32 %260, %258
+  %262 = trunc i32 %261 to i8
+  store i8 %262, ptr %15, align 1, !tbaa !7
+  %263 = load i64, ptr %19, align 8, !tbaa !3
+  %264 = lshr i64 %263, 16
+  store i64 %264, ptr %16, align 8, !tbaa !3
+  %265 = load i64, ptr %19, align 8, !tbaa !3
+  %266 = and i64 %265, 65535
+  %267 = icmp ne i64 %266, 0
+  br i1 %267, label %268, label %271
 
-266:                                              ; preds = %236
-  %267 = load i64, ptr %16, align 8
-  %268 = or i64 %267, 1
-  store i64 %268, ptr %16, align 8
-  br label %281
+268:                                              ; preds = %238
+  %269 = load i64, ptr %16, align 8, !tbaa !3
+  %270 = or i64 %269, 1
+  store i64 %270, ptr %16, align 8, !tbaa !3
+  br label %283
 
-269:                                              ; preds = %236
-  %270 = load i64, ptr %16, align 8
-  %271 = and i64 %270, 15
-  %272 = icmp ne i64 %271, 0
-  br i1 %272, label %280, label %273
+271:                                              ; preds = %238
+  %272 = load i64, ptr %16, align 8, !tbaa !3
+  %273 = and i64 %272, 15
+  %274 = icmp ne i64 %273, 0
+  br i1 %274, label %282, label %275
 
-273:                                              ; preds = %269
-  %274 = load i8, ptr %15, align 1
-  %275 = sext i8 %274 to i32
-  %276 = icmp ult i32 %275, 30
-  br i1 %276, label %277, label %280
+275:                                              ; preds = %271
+  %276 = load i8, ptr %15, align 1, !tbaa !7
+  %277 = sext i8 %276 to i32
+  %278 = icmp ult i32 %277, 30
+  br i1 %278, label %279, label %282
 
-277:                                              ; preds = %273
-  %278 = load i64, ptr %16, align 8
-  %279 = lshr i64 %278, 4
-  store i64 %279, ptr %16, align 8
-  br label %330
+279:                                              ; preds = %275
+  %280 = load i64, ptr %16, align 8, !tbaa !3
+  %281 = lshr i64 %280, 4
+  store i64 %281, ptr %16, align 8, !tbaa !3
+  br label %334
 
-280:                                              ; preds = %273, %269
-  br label %281
+282:                                              ; preds = %275, %271
+  br label %283
 
-281:                                              ; preds = %280, %266
-  %282 = load i8, ptr %13, align 1
-  %283 = trunc i8 %282 to i1
-  %284 = load i8, ptr %15, align 1
-  %285 = sext i8 %284 to i64
-  %286 = load i64, ptr %16, align 8
-  %287 = call i16 @softfloat_roundPackToF16(i1 noundef zeroext %283, i64 noundef %285, i64 noundef %286)
-  %288 = getelementptr inbounds %struct.float16_t, ptr %3, i32 0, i32 0
-  store i16 %287, ptr %288, align 2
-  br label %347
+283:                                              ; preds = %282, %268
+  %284 = load i8, ptr %13, align 1, !tbaa !8, !range !10, !noundef !11
+  %285 = trunc i8 %284 to i1
+  %286 = load i8, ptr %15, align 1, !tbaa !7
+  %287 = sext i8 %286 to i64
+  %288 = load i64, ptr %16, align 8, !tbaa !3
+  %289 = call i16 @softfloat_roundPackToF16(i1 noundef zeroext %285, i64 noundef %287, i64 noundef %288)
+  %290 = getelementptr inbounds nuw %struct.float16_t, ptr %3, i32 0, i32 0
+  store i16 %289, ptr %290, align 2
+  store i32 1, ptr %22, align 4
+  br label %351
 
-289:                                              ; preds = %205, %141, %55
-  %290 = load i64, ptr %4, align 8
-  %291 = load i64, ptr %5, align 8
-  %292 = call i64 @softfloat_propagateNaNF16UI(i64 noundef %290, i64 noundef %291)
-  store i64 %292, ptr %11, align 8
-  br label %344
+291:                                              ; preds = %207, %143, %56
+  %292 = load i64, ptr %4, align 8, !tbaa !3
+  %293 = load i64, ptr %5, align 8, !tbaa !3
+  %294 = call i64 @softfloat_propagateNaNF16UI(i64 noundef %292, i64 noundef %293)
+  store i64 %294, ptr %11, align 8, !tbaa !3
+  br label %348
 
-293:                                              ; preds = %217, %174
-  %294 = load i8, ptr @softfloat_roundingMode, align 1
-  store i8 %294, ptr %20, align 1
-  %295 = load i8, ptr %20, align 1
-  %296 = sext i8 %295 to i32
-  %297 = icmp ne i32 %296, 0
-  br i1 %297, label %298, label %325
+295:                                              ; preds = %219, %176
+  %296 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  %297 = load i8, ptr %296, align 1, !tbaa !7
+  store i8 %297, ptr %20, align 1, !tbaa !7
+  %298 = load i8, ptr %20, align 1, !tbaa !7
+  %299 = sext i8 %298 to i32
+  %300 = icmp ne i32 %299, 0
+  br i1 %300, label %301, label %328
 
-298:                                              ; preds = %293
-  %299 = load i8, ptr %20, align 1
-  %300 = sext i8 %299 to i32
-  %301 = icmp eq i32 %300, 1
-  br i1 %301, label %312, label %302
+301:                                              ; preds = %295
+  %302 = load i8, ptr %20, align 1, !tbaa !7
+  %303 = sext i8 %302 to i32
+  %304 = icmp eq i32 %303, 1
+  br i1 %304, label %315, label %305
 
-302:                                              ; preds = %298
-  %303 = load i8, ptr %20, align 1
-  %304 = sext i8 %303 to i32
-  %305 = load i64, ptr %11, align 8
-  %306 = trunc i64 %305 to i16
-  %307 = zext i16 %306 to i32
-  %308 = ashr i32 %307, 15
-  %309 = icmp ne i32 %308, 0
-  %310 = select i1 %309, i32 3, i32 2
-  %311 = icmp eq i32 %304, %310
-  br i1 %311, label %312, label %315
+305:                                              ; preds = %301
+  %306 = load i8, ptr %20, align 1, !tbaa !7
+  %307 = sext i8 %306 to i32
+  %308 = load i64, ptr %11, align 8, !tbaa !3
+  %309 = trunc i64 %308 to i16
+  %310 = zext i16 %309 to i32
+  %311 = ashr i32 %310, 15
+  %312 = icmp ne i32 %311, 0
+  %313 = select i1 %312, i32 3, i32 2
+  %314 = icmp eq i32 %307, %313
+  br i1 %314, label %315, label %318
 
-312:                                              ; preds = %302, %298
-  %313 = load i64, ptr %11, align 8
-  %314 = add i64 %313, -1
-  store i64 %314, ptr %11, align 8
-  br label %324
+315:                                              ; preds = %305, %301
+  %316 = load i64, ptr %11, align 8, !tbaa !3
+  %317 = add i64 %316, -1
+  store i64 %317, ptr %11, align 8, !tbaa !3
+  br label %327
 
-315:                                              ; preds = %302
-  %316 = load i8, ptr %20, align 1
-  %317 = sext i8 %316 to i32
-  %318 = icmp eq i32 %317, 5
-  br i1 %318, label %319, label %323
+318:                                              ; preds = %305
+  %319 = load i8, ptr %20, align 1, !tbaa !7
+  %320 = sext i8 %319 to i32
+  %321 = icmp eq i32 %320, 5
+  br i1 %321, label %322, label %326
 
-319:                                              ; preds = %315
-  %320 = load i64, ptr %11, align 8
-  %321 = sub i64 %320, 1
-  %322 = or i64 %321, 1
-  store i64 %322, ptr %11, align 8
-  br label %323
+322:                                              ; preds = %318
+  %323 = load i64, ptr %11, align 8, !tbaa !3
+  %324 = sub i64 %323, 1
+  %325 = or i64 %324, 1
+  store i64 %325, ptr %11, align 8, !tbaa !3
+  br label %326
 
-323:                                              ; preds = %319, %315
-  br label %324
+326:                                              ; preds = %322, %318
+  br label %327
 
-324:                                              ; preds = %323, %312
-  br label %325
+327:                                              ; preds = %326, %315
+  br label %328
 
-325:                                              ; preds = %324, %293
-  %326 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %327 = zext i8 %326 to i32
-  %328 = or i32 %327, 1
-  %329 = trunc i32 %328 to i8
-  store i8 %329, ptr @softfloat_exceptionFlags, align 1
-  br label %344
+328:                                              ; preds = %327, %295
+  %329 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %330 = load i8, ptr %329, align 1, !tbaa !7
+  %331 = zext i8 %330 to i32
+  %332 = or i32 %331, 1
+  %333 = trunc i32 %332 to i8
+  store i8 %333, ptr %329, align 1, !tbaa !7
+  br label %348
 
-330:                                              ; preds = %277, %114
-  %331 = load i8, ptr %13, align 1
-  %332 = trunc i8 %331 to i1
-  %333 = zext i1 %332 to i16
-  %334 = zext i16 %333 to i32
-  %335 = shl i32 %334, 15
-  %336 = load i8, ptr %15, align 1
-  %337 = sext i8 %336 to i16
+334:                                              ; preds = %279, %116
+  %335 = load i8, ptr %13, align 1, !tbaa !8, !range !10, !noundef !11
+  %336 = trunc i8 %335 to i1
+  %337 = zext i1 %336 to i16
   %338 = zext i16 %337 to i32
-  %339 = shl i32 %338, 10
-  %340 = add nsw i32 %335, %339
-  %341 = sext i32 %340 to i64
-  %342 = load i64, ptr %16, align 8
-  %343 = add i64 %341, %342
-  store i64 %343, ptr %11, align 8
-  br label %344
+  %339 = shl i32 %338, 15
+  %340 = load i8, ptr %15, align 1, !tbaa !7
+  %341 = sext i8 %340 to i16
+  %342 = zext i16 %341 to i32
+  %343 = shl i32 %342, 10
+  %344 = add nsw i32 %339, %343
+  %345 = sext i32 %344 to i64
+  %346 = load i64, ptr %16, align 8, !tbaa !3
+  %347 = add i64 %345, %346
+  store i64 %347, ptr %11, align 8, !tbaa !3
+  br label %348
 
-344:                                              ; preds = %330, %325, %289, %218, %206, %175, %142, %63, %56
-  %345 = load i64, ptr %11, align 8
-  %346 = trunc i64 %345 to i16
-  store i16 %346, ptr %21, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 2 %21, i64 2, i1 false)
-  br label %347
+348:                                              ; preds = %334, %328, %291, %220, %208, %177, %144, %64, %57
+  %349 = load i64, ptr %11, align 8, !tbaa !3
+  %350 = trunc i64 %349 to i16
+  store i16 %350, ptr %21, align 2, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 2 %21, i64 2, i1 false), !tbaa.struct !12
+  store i32 1, ptr %22, align 4
+  br label %351
 
-347:                                              ; preds = %344, %281
-  %348 = getelementptr inbounds %struct.float16_t, ptr %3, i32 0, i32 0
-  %349 = load i16, ptr %348, align 2
-  ret i16 %349
+351:                                              ; preds = %348, %283
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #6
+  %352 = getelementptr inbounds nuw %struct.float16_t, ptr %3, i32 0, i32 0
+  %353 = load i16, ptr %352, align 2
+  ret i16 %353
 }
 
-declare void @softfloat_raiseFlags(i8 noundef zeroext) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @softfloat_countLeadingZeros16(i16 noundef zeroext %0) #0 {
+declare void @softfloat_raiseFlags(i8 noundef zeroext) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @softfloat_countLeadingZeros16(i16 noundef zeroext %0) #4 {
   %2 = alloca i16, align 2
   %3 = alloca i8, align 1
-  store i16 %0, ptr %2, align 2
-  store i8 8, ptr %3, align 1
-  %4 = load i16, ptr %2, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #6
+  store i8 8, ptr %3, align 1, !tbaa !7
+  %4 = load i16, ptr %2, align 2, !tbaa !13
   %5 = zext i16 %4 to i32
   %6 = icmp sle i32 256, %5
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
-  store i8 0, ptr %3, align 1
-  %8 = load i16, ptr %2, align 2
+  store i8 0, ptr %3, align 1, !tbaa !7
+  %8 = load i16, ptr %2, align 2, !tbaa !13
   %9 = zext i16 %8 to i32
   %10 = ashr i32 %9, 8
   %11 = trunc i32 %10 to i16
-  store i16 %11, ptr %2, align 2
+  store i16 %11, ptr %2, align 2, !tbaa !13
   br label %12
 
 12:                                               ; preds = %7, %1
-  %13 = load i16, ptr %2, align 2
+  %13 = load i16, ptr %2, align 2, !tbaa !13
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1
+  %15 = getelementptr inbounds nuw [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !7
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %3, align 1
+  %18 = load i8, ptr %3, align 1, !tbaa !7
   %19 = zext i8 %18 to i32
   %20 = add nsw i32 %19, %17
   %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %3, align 1
-  %22 = load i8, ptr %3, align 1
+  store i8 %21, ptr %3, align 1, !tbaa !7
+  %22 = load i8, ptr %3, align 1, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #6
   ret i8 %22
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @softfloat_countLeadingZeros32(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @softfloat_countLeadingZeros32(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
-  store i32 %0, ptr %2, align 4
-  store i8 0, ptr %3, align 1
-  %4 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #6
+  store i8 0, ptr %3, align 1, !tbaa !7
+  %4 = load i32, ptr %2, align 4, !tbaa !15
   %5 = icmp ult i32 %4, 65536
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  store i8 16, ptr %3, align 1
-  %7 = load i32, ptr %2, align 4
+  store i8 16, ptr %3, align 1, !tbaa !7
+  %7 = load i32, ptr %2, align 4, !tbaa !15
   %8 = shl i32 %7, 16
-  store i32 %8, ptr %2, align 4
+  store i32 %8, ptr %2, align 4, !tbaa !15
   br label %9
 
 9:                                                ; preds = %6, %1
-  %10 = load i32, ptr %2, align 4
+  %10 = load i32, ptr %2, align 4, !tbaa !15
   %11 = icmp ult i32 %10, 16777216
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %9
-  %13 = load i8, ptr %3, align 1
+  %13 = load i8, ptr %3, align 1, !tbaa !7
   %14 = zext i8 %13 to i32
   %15 = add nsw i32 %14, 8
   %16 = trunc i32 %15 to i8
-  store i8 %16, ptr %3, align 1
-  %17 = load i32, ptr %2, align 4
+  store i8 %16, ptr %3, align 1, !tbaa !7
+  %17 = load i32, ptr %2, align 4, !tbaa !15
   %18 = shl i32 %17, 8
-  store i32 %18, ptr %2, align 4
+  store i32 %18, ptr %2, align 4, !tbaa !15
   br label %19
 
 19:                                               ; preds = %12, %9
-  %20 = load i32, ptr %2, align 4
+  %20 = load i32, ptr %2, align 4, !tbaa !15
   %21 = lshr i32 %20, 24
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !7
   %25 = zext i8 %24 to i32
-  %26 = load i8, ptr %3, align 1
+  %26 = load i8, ptr %3, align 1, !tbaa !7
   %27 = zext i8 %26 to i32
   %28 = add nsw i32 %27, %25
   %29 = trunc i32 %28 to i8
-  store i8 %29, ptr %3, align 1
-  %30 = load i8, ptr %3, align 1
+  store i8 %29, ptr %3, align 1, !tbaa !7
+  %30 = load i8, ptr %3, align 1, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #6
   ret i8 %30
 }
 
-declare i16 @softfloat_roundPackToF16(i1 noundef zeroext, i64 noundef, i64 noundef) #1
+declare i16 @softfloat_roundPackToF16(i1 noundef zeroext, i64 noundef, i64 noundef) #2
 
-declare i64 @softfloat_propagateNaNF16UI(i64 noundef, i64 noundef) #1
+declare i64 @softfloat_propagateNaNF16UI(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"long", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"_Bool", !5, i64 0}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{i64 0, i64 2, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !5, i64 0}

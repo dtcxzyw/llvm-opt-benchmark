@@ -3,7 +3,7 @@ source_filename = "bench/spike/original/s_roundPackToI64.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@softfloat_exceptionFlags = external local_unnamed_addr global i8, align 1
+@softfloat_exceptionFlags = external thread_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
 define i64 @softfloat_roundPackToI64(i1 noundef zeroext %0, i64 noundef %1, i64 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -27,7 +27,7 @@ define i64 @softfloat_roundPackToI64(i1 noundef zeroext %0, i64 noundef %1, i64 
 16:                                               ; preds = %8, %14
   %17 = add i64 %1, 1
   %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %33, label %18
+  br i1 %.not, label %34, label %18
 
 18:                                               ; preds = %16
   %19 = and i64 %2, 9223372036854775807
@@ -46,38 +46,45 @@ define i64 @softfloat_roundPackToI64(i1 noundef zeroext %0, i64 noundef %1, i64 
   %27 = icmp sgt i64 %26, -1
   %.not3536 = xor i1 %0, %27
   %or.cond37 = or i1 %.not34, %.not3536
-  br i1 %or.cond37, label %28, label %33
+  br i1 %or.cond37, label %28, label %34
 
 28:                                               ; preds = %24
   %29 = icmp ne i64 %2, 0
   %or.cond4 = and i1 %29, %4
-  br i1 %or.cond4, label %30, label %35
+  br i1 %or.cond4, label %30, label %36
 
 30:                                               ; preds = %28
-  %31 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %32 = or i8 %31, 1
-  store i8 %32, ptr @softfloat_exceptionFlags, align 1
-  br label %35
+  %31 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %32 = load i8, ptr %31, align 1, !tbaa !3
+  %33 = or i8 %32, 1
+  store i8 %33, ptr %31, align 1, !tbaa !3
+  br label %36
 
-33:                                               ; preds = %24, %16
-  tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #2
-  %34 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
-  br label %35
+34:                                               ; preds = %24, %16
+  tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
+  %35 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
+  br label %36
 
-35:                                               ; preds = %28, %30, %33
-  %.0 = phi i64 [ %34, %33 ], [ %26, %30 ], [ %26, %28 ]
+36:                                               ; preds = %28, %30, %34
+  %.0 = phi i64 [ %35, %34 ], [ %26, %30 ], [ %26, %28 ]
   ret i64 %.0
 }
 
-declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

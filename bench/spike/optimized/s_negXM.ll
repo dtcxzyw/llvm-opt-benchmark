@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 define void @softfloat_negXM(i8 noundef zeroext %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = zext i8 %0 to i32
   %4 = add nsw i32 %3, -1
-  %5 = load i32, ptr %1, align 4
+  %5 = load i32, ptr %1, align 4, !tbaa !3
   %6 = sub i32 0, %5
-  store i32 %6, ptr %1, align 4
+  store i32 %6, ptr %1, align 4, !tbaa !3
   %7 = icmp eq i32 %4, 0
   br i1 %7, label %._crit_edge, label %.lr.ph.preheader
 
@@ -25,11 +25,11 @@ define void @softfloat_negXM(i8 noundef zeroext %0, ptr noundef captures(none) %
   %.not = icmp eq i32 %9, 0
   %spec.select = select i1 %.not, i8 %.01011, i8 0
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = xor i32 %11, -1
   %13 = zext nneg i8 %spec.select to i32
   %14 = add i32 %12, %13
-  store i32 %14, ptr %10, align 4
+  store i32 %14, ptr %10, align 4, !tbaa !3
   %15 = icmp eq i64 %indvars.iv.next, %8
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -37,11 +37,14 @@ define void @softfloat_negXM(i8 noundef zeroext %0, ptr noundef captures(none) %
   ret void
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

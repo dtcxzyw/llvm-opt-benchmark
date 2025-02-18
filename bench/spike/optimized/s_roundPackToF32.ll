@@ -3,154 +3,163 @@ source_filename = "bench/spike/original/s_roundPackToF32.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@softfloat_roundingMode = external local_unnamed_addr global i8, align 1
-@softfloat_detectTininess = external local_unnamed_addr global i8, align 1
-@softfloat_exceptionFlags = external local_unnamed_addr global i8, align 1
+@softfloat_roundingMode = external thread_local local_unnamed_addr global i8, align 1
+@softfloat_detectTininess = external thread_local local_unnamed_addr global i8, align 1
+@softfloat_exceptionFlags = external thread_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @softfloat_roundPackToF32(i1 noundef zeroext %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = load i8, ptr @softfloat_roundingMode, align 1
-  %5 = icmp eq i8 %4, 0
-  %6 = icmp ne i8 %4, 4
-  %or.cond = xor i1 %5, %6
-  %7 = zext i8 %4 to i32
-  %8 = select i1 %0, i32 2, i32 3
-  %9 = icmp eq i32 %8, %7
-  %10 = select i1 %9, i8 127, i8 0
-  %.046 = select i1 %or.cond, i8 %10, i8 64
-  %11 = trunc i64 %2 to i8
-  %12 = trunc i64 %1 to i32
-  %13 = icmp ugt i32 %12, 252
-  br i1 %13, label %14, label %56
+  %4 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  %5 = load i8, ptr %4, align 1, !tbaa !3
+  %6 = icmp eq i8 %5, 0
+  %7 = icmp ne i8 %5, 4
+  %or.cond = xor i1 %6, %7
+  %8 = zext i8 %5 to i32
+  %9 = select i1 %0, i32 2, i32 3
+  %10 = icmp eq i32 %9, %8
+  %11 = select i1 %10, i8 127, i8 0
+  %.046 = select i1 %or.cond, i8 %11, i8 64
+  %12 = trunc i64 %2 to i8
+  %13 = trunc i64 %1 to i32
+  %14 = icmp ugt i32 %13, 252
+  br i1 %14, label %15, label %58
 
-14:                                               ; preds = %3
-  %15 = icmp slt i64 %1, 0
-  br i1 %15, label %16, label %47
+15:                                               ; preds = %3
+  %16 = icmp slt i64 %1, 0
+  br i1 %16, label %17, label %49
 
-16:                                               ; preds = %14
-  %17 = load i8, ptr @softfloat_detectTininess, align 1
-  %18 = icmp eq i8 %17, 0
-  %19 = icmp ne i64 %1, -1
-  %or.cond4 = or i1 %19, %18
-  br i1 %or.cond4, label %24, label %20
+17:                                               ; preds = %15
+  %18 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_detectTininess)
+  %19 = load i8, ptr %18, align 1, !tbaa !3
+  %20 = icmp eq i8 %19, 0
+  %21 = icmp ne i64 %1, -1
+  %or.cond4 = or i1 %21, %20
+  br i1 %or.cond4, label %26, label %22
 
-20:                                               ; preds = %16
-  %21 = zext nneg i8 %.046 to i64
-  %22 = add i64 %2, %21
-  %23 = icmp ult i64 %22, 2147483648
-  br label %24
+22:                                               ; preds = %17
+  %23 = zext nneg i8 %.046 to i64
+  %24 = add i64 %2, %23
+  %25 = icmp ult i64 %24, 2147483648
+  br label %26
 
-24:                                               ; preds = %20, %16
-  %25 = phi i1 [ true, %16 ], [ %23, %20 ]
-  %26 = trunc i64 %2 to i32
-  %27 = sub nsw i64 0, %1
-  %28 = icmp samesign ult i64 %27, 31
-  br i1 %28, label %29, label %38
+26:                                               ; preds = %22, %17
+  %27 = phi i1 [ true, %17 ], [ %25, %22 ]
+  %28 = trunc i64 %2 to i32
+  %29 = sub nsw i64 0, %1
+  %30 = icmp samesign ult i64 %29, 31
+  br i1 %30, label %31, label %40
 
-29:                                               ; preds = %24
-  %30 = trunc nuw i64 %27 to i32
-  %31 = lshr i32 %26, %30
-  %32 = sub nsw i32 0, %30
-  %33 = and i32 %32, 31
-  %34 = shl i32 %26, %33
-  %35 = icmp ne i32 %34, 0
-  %36 = zext i1 %35 to i32
-  %37 = or i32 %31, %36
+31:                                               ; preds = %26
+  %32 = trunc nuw i64 %29 to i32
+  %33 = lshr i32 %28, %32
+  %34 = sub nsw i32 0, %32
+  %35 = and i32 %34, 31
+  %36 = shl i32 %28, %35
+  %37 = icmp ne i32 %36, 0
+  %38 = zext i1 %37 to i32
+  %39 = or i32 %33, %38
   br label %softfloat_shiftRightJam32.exit
 
-38:                                               ; preds = %24
-  %39 = icmp ne i32 %26, 0
-  %40 = zext i1 %39 to i32
+40:                                               ; preds = %26
+  %41 = icmp ne i32 %28, 0
+  %42 = zext i1 %41 to i32
   br label %softfloat_shiftRightJam32.exit
 
-softfloat_shiftRightJam32.exit:                   ; preds = %29, %38
-  %41 = phi i32 [ %37, %29 ], [ %40, %38 ]
-  %42 = zext nneg i32 %41 to i64
-  %43 = trunc i32 %41 to i8
-  %44 = and i32 %41, 127
-  %45 = icmp ne i32 %44, 0
-  %or.cond7 = select i1 %25, i1 %45, i1 false
-  br i1 %or.cond7, label %46, label %56
+softfloat_shiftRightJam32.exit:                   ; preds = %31, %40
+  %43 = phi i32 [ %39, %31 ], [ %42, %40 ]
+  %44 = zext nneg i32 %43 to i64
+  %45 = trunc i32 %43 to i8
+  %46 = and i32 %43, 127
+  %47 = icmp ne i32 %46, 0
+  %or.cond7 = select i1 %27, i1 %47, i1 false
+  br i1 %or.cond7, label %48, label %58
 
-46:                                               ; preds = %softfloat_shiftRightJam32.exit
-  tail call void @softfloat_raiseFlags(i8 noundef zeroext 2) #2
-  br label %56
+48:                                               ; preds = %softfloat_shiftRightJam32.exit
+  tail call void @softfloat_raiseFlags(i8 noundef zeroext 2) #3
+  br label %58
 
-47:                                               ; preds = %14
-  %48 = icmp samesign ugt i64 %1, 253
-  br i1 %48, label %53, label %49
+49:                                               ; preds = %15
+  %50 = icmp samesign ugt i64 %1, 253
+  br i1 %50, label %55, label %51
 
-49:                                               ; preds = %47
-  %50 = zext nneg i8 %.046 to i64
-  %51 = add i64 %2, %50
-  %52 = icmp ugt i64 %51, 2147483647
-  br i1 %52, label %53, label %56
+51:                                               ; preds = %49
+  %52 = zext nneg i8 %.046 to i64
+  %53 = add i64 %2, %52
+  %54 = icmp ugt i64 %53, 2147483647
+  br i1 %54, label %55, label %58
 
-53:                                               ; preds = %49, %47
-  tail call void @softfloat_raiseFlags(i8 noundef zeroext 5) #2
-  %54 = select i1 %0, i64 4286578688, i64 2139095040
+55:                                               ; preds = %51, %49
+  tail call void @softfloat_raiseFlags(i8 noundef zeroext 5) #3
+  %56 = select i1 %0, i64 4286578688, i64 2139095040
   %.not = icmp eq i8 %.046, 0
   %.neg = sext i1 %.not to i64
-  %55 = add nsw i64 %54, %.neg
-  br label %77
+  %57 = add nsw i64 %56, %.neg
+  br label %80
 
-56:                                               ; preds = %46, %softfloat_shiftRightJam32.exit, %49, %3
-  %.045.in = phi i8 [ %43, %46 ], [ %43, %softfloat_shiftRightJam32.exit ], [ %11, %49 ], [ %11, %3 ]
-  %.043 = phi i64 [ %42, %46 ], [ %42, %softfloat_shiftRightJam32.exit ], [ %2, %49 ], [ %2, %3 ]
-  %.0 = phi i64 [ 0, %46 ], [ 0, %softfloat_shiftRightJam32.exit ], [ 253, %49 ], [ %1, %3 ]
+58:                                               ; preds = %48, %softfloat_shiftRightJam32.exit, %51, %3
+  %.045.in = phi i8 [ %45, %48 ], [ %45, %softfloat_shiftRightJam32.exit ], [ %12, %51 ], [ %12, %3 ]
+  %.043 = phi i64 [ %44, %48 ], [ %44, %softfloat_shiftRightJam32.exit ], [ %2, %51 ], [ %2, %3 ]
+  %.0 = phi i64 [ 0, %48 ], [ 0, %softfloat_shiftRightJam32.exit ], [ 253, %51 ], [ %1, %3 ]
   %.045 = and i8 %.045.in, 127
-  %57 = zext nneg i8 %.046 to i64
-  %58 = add i64 %.043, %57
-  %59 = lshr i64 %58, 7
+  %59 = zext nneg i8 %.046 to i64
+  %60 = add i64 %.043, %59
+  %61 = lshr i64 %60, 7
   %.not52 = icmp eq i8 %.045, 0
-  br i1 %.not52, label %66, label %60
+  br i1 %.not52, label %69, label %62
 
-60:                                               ; preds = %56
-  %61 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %62 = or i8 %61, 1
-  store i8 %62, ptr @softfloat_exceptionFlags, align 1
-  %63 = icmp eq i8 %4, 5
-  br i1 %63, label %64, label %66
+62:                                               ; preds = %58
+  %63 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %64 = load i8, ptr %63, align 1, !tbaa !3
+  %65 = or i8 %64, 1
+  store i8 %65, ptr %63, align 1, !tbaa !3
+  %66 = icmp eq i8 %5, 5
+  br i1 %66, label %67, label %69
 
-64:                                               ; preds = %60
-  %65 = or i64 %59, 1
-  br label %71
+67:                                               ; preds = %62
+  %68 = or i64 %61, 1
+  br label %74
 
-66:                                               ; preds = %60, %56
+69:                                               ; preds = %62, %58
   %.not53 = icmp eq i8 %.045, 64
-  %67 = and i1 %5, %.not53
-  %68 = zext i1 %67 to i64
-  %69 = xor i64 %68, -1
-  %70 = and i64 %59, %69
-  %.not54 = icmp eq i64 %70, 0
+  %70 = and i1 %6, %.not53
+  %71 = zext i1 %70 to i64
+  %72 = xor i64 %71, -1
+  %73 = and i64 %61, %72
+  %.not54 = icmp eq i64 %73, 0
   %spec.select55 = select i1 %.not54, i64 0, i64 %.0
-  br label %71
+  br label %74
 
-71:                                               ; preds = %66, %64
-  %.144 = phi i64 [ %65, %64 ], [ %70, %66 ]
-  %.1 = phi i64 [ %.0, %64 ], [ %spec.select55, %66 ]
-  %72 = select i1 %0, i64 2147483648, i64 0
-  %73 = shl i64 %.1, 23
-  %74 = add i64 %73, %72
-  %75 = and i64 %74, 4286578688
-  %76 = add nuw nsw i64 %75, %.144
-  br label %77
+74:                                               ; preds = %69, %67
+  %.144 = phi i64 [ %68, %67 ], [ %73, %69 ]
+  %.1 = phi i64 [ %.0, %67 ], [ %spec.select55, %69 ]
+  %75 = select i1 %0, i64 2147483648, i64 0
+  %76 = shl i64 %.1, 23
+  %77 = add i64 %76, %75
+  %78 = and i64 %77, 4286578688
+  %79 = add nuw nsw i64 %78, %.144
+  br label %80
 
-77:                                               ; preds = %71, %53
-  %.042 = phi i64 [ %76, %71 ], [ %55, %53 ]
-  %78 = trunc i64 %.042 to i32
-  ret i32 %78
+80:                                               ; preds = %74, %55
+  %.042 = phi i64 [ %79, %74 ], [ %57, %55 ]
+  %81 = trunc i64 %.042 to i32
+  ret i32 %81
 }
 
-declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

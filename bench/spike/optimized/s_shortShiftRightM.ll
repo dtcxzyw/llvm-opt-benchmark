@@ -8,7 +8,7 @@ define void @softfloat_shortShiftRightM(i8 noundef zeroext %0, ptr noundef reado
   %5 = zext nneg i8 %2 to i32
   %6 = zext i8 %0 to i32
   %7 = add nsw i32 %6, -1
-  %8 = load i32, ptr %1, align 4
+  %8 = load i32, ptr %1, align 4, !tbaa !3
   %.01920 = lshr i32 %8, %5
   %.not21 = icmp eq i32 %7, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -25,14 +25,14 @@ define void @softfloat_shortShiftRightM(i8 noundef zeroext %0, ptr noundef reado
   %.01923 = phi i32 [ %.01920, %.lr.ph ], [ %.019, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = shl i32 %15, %11
   %17 = or i32 %16, %.01923
   %18 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %17, ptr %18, align 4
+  store i32 %17, ptr %18, align 4, !tbaa !3
   %.019 = lshr i32 %15, %5
   %.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !4
+  br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %13
   %19 = zext i32 %7 to i64
@@ -42,17 +42,20 @@ define void @softfloat_shortShiftRightM(i8 noundef zeroext %0, ptr noundef reado
   %.0.lcssa = phi i64 [ %19, %._crit_edge.loopexit ], [ 0, %4 ]
   %.019.lcssa = phi i32 [ %.019, %._crit_edge.loopexit ], [ %.01920, %4 ]
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %.0.lcssa
-  store i32 %.019.lcssa, ptr %20, align 4
+  store i32 %.019.lcssa, ptr %20, align 4, !tbaa !3
   ret void
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

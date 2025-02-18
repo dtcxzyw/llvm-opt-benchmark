@@ -39,110 +39,116 @@ define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr noundef nonnull align 8 
   %4 = alloca i32, align 4
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca i32, align 4
-  store ptr %2, ptr %0, align 8
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 131088
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #10
-  store i32 %10, ptr %7, align 8
+  %10 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #12
+  store i32 %10, ptr %7, align 8, !tbaa !11
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call ptr @__errno_location() #11
-  %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @strerror(i32 noundef %15) #10
-  %17 = load i32, ptr %14, align 4
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %17) #12
-  tail call void @abort() #13
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %14 = tail call ptr @__errno_location() #13
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  %16 = tail call ptr @strerror(i32 noundef %15) #12
+  %17 = load i32, ptr %14, align 4, !tbaa !15
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %17) #14
+  tail call void @abort() #15
   unreachable
 
 19:                                               ; preds = %3
   %20 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 4, i32 noundef 2048)
-  store i32 1, ptr %4, align 4
-  %21 = load i32, ptr %7, align 8
-  %22 = call i32 @setsockopt(i32 noundef %21, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  store i32 1, ptr %4, align 4, !tbaa !15
+  %21 = load i32, ptr %7, align 8, !tbaa !11
+  %22 = call i32 @setsockopt(i32 noundef %21, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4) #12
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call ptr @__errno_location() #11
-  %27 = load i32, ptr %26, align 4
-  %28 = call ptr @strerror(i32 noundef %27) #10
-  %29 = load i32, ptr %26, align 4
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.1, ptr noundef %28, i32 noundef %29) #12
-  call void @abort() #13
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %26 = tail call ptr @__errno_location() #13
+  %27 = load i32, ptr %26, align 4, !tbaa !15
+  %28 = call ptr @strerror(i32 noundef %27) #12
+  %29 = load i32, ptr %26, align 4, !tbaa !15
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.1, ptr noundef %28, i32 noundef %29) #14
+  call void @abort() #15
   unreachable
 
 31:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %32, align 4
-  store i16 2, ptr %5, align 4
+  store i16 2, ptr %5, align 4, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %33, align 4
-  %34 = call zeroext i16 @htons(i16 noundef zeroext %1) #11
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %34, ptr %35, align 2
-  %36 = load i32, ptr %7, align 8
-  %37 = call i32 @bind(i32 noundef %36, ptr noundef nonnull %5, i32 noundef 16) #10
-  %38 = icmp eq i32 %37, -1
-  br i1 %38, label %39, label %46
+  store i32 0, ptr %33, align 4, !tbaa !20
+  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %1)
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i16 %rev.i, ptr %34, align 2, !tbaa !21
+  %35 = load i32, ptr %7, align 8, !tbaa !11
+  %36 = call i32 @bind(i32 noundef %35, ptr noundef nonnull %5, i32 noundef 16) #12
+  %37 = icmp eq i32 %36, -1
+  br i1 %37, label %38, label %45
 
-39:                                               ; preds = %31
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call ptr @__errno_location() #11
-  %42 = load i32, ptr %41, align 4
-  %43 = call ptr @strerror(i32 noundef %42) #10
-  %44 = load i32, ptr %41, align 4
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, ptr noundef %43, i32 noundef %44) #12
-  call void @abort() #13
+38:                                               ; preds = %31
+  %39 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %40 = tail call ptr @__errno_location() #13
+  %41 = load i32, ptr %40, align 4, !tbaa !15
+  %42 = call ptr @strerror(i32 noundef %41) #12
+  %43 = load i32, ptr %40, align 4, !tbaa !15
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.2, ptr noundef %42, i32 noundef %43) #14
+  call void @abort() #15
   unreachable
 
-46:                                               ; preds = %31
-  %47 = load i32, ptr %7, align 8
-  %48 = call i32 @listen(i32 noundef %47, i32 noundef 1) #10
-  %49 = icmp eq i32 %48, -1
-  br i1 %49, label %50, label %57
+45:                                               ; preds = %31
+  %46 = load i32, ptr %7, align 8, !tbaa !11
+  %47 = call i32 @listen(i32 noundef %46, i32 noundef 1) #12
+  %48 = icmp eq i32 %47, -1
+  br i1 %48, label %49, label %56
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = tail call ptr @__errno_location() #11
-  %53 = load i32, ptr %52, align 4
-  %54 = call ptr @strerror(i32 noundef %53) #10
-  %55 = load i32, ptr %52, align 4
-  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.3, ptr noundef %54, i32 noundef %55) #12
-  call void @abort() #13
+49:                                               ; preds = %45
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %51 = tail call ptr @__errno_location() #13
+  %52 = load i32, ptr %51, align 4, !tbaa !15
+  %53 = call ptr @strerror(i32 noundef %52) #12
+  %54 = load i32, ptr %51, align 4, !tbaa !15
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.3, ptr noundef %53, i32 noundef %54) #14
+  call void @abort() #15
   unreachable
 
-57:                                               ; preds = %46
-  store i32 16, ptr %6, align 4
-  %58 = load i32, ptr %7, align 8
-  %59 = call i32 @getsockname(i32 noundef %58, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  %60 = icmp eq i32 %59, -1
-  br i1 %60, label %61, label %68
+56:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  store i32 16, ptr %6, align 4, !tbaa !15
+  %57 = load i32, ptr %7, align 8, !tbaa !11
+  %58 = call i32 @getsockname(i32 noundef %57, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  %59 = icmp eq i32 %58, -1
+  br i1 %59, label %60, label %67
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr @stderr, align 8
-  %63 = tail call ptr @__errno_location() #11
-  %64 = load i32, ptr %63, align 4
-  %65 = call ptr @strerror(i32 noundef %64) #10
-  %66 = load i32, ptr %63, align 4
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.4, ptr noundef %65, i32 noundef %66) #12
-  call void @abort() #13
+60:                                               ; preds = %56
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %62 = tail call ptr @__errno_location() #13
+  %63 = load i32, ptr %62, align 4, !tbaa !15
+  %64 = call ptr @strerror(i32 noundef %63) #12
+  %65 = load i32, ptr %62, align 4, !tbaa !15
+  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.4, ptr noundef %64, i32 noundef %65) #14
+  call void @abort() #15
   unreachable
 
-68:                                               ; preds = %57
-  %69 = load i16, ptr %35, align 2
-  %70 = call zeroext i16 @ntohs(i16 noundef zeroext %69) #11
-  %71 = zext i16 %70 to i32
-  %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %71)
-  %73 = load ptr, ptr @stdout, align 8
-  %74 = call i32 @fflush(ptr noundef %73)
+67:                                               ; preds = %56
+  %68 = load i16, ptr %34, align 2, !tbaa !21
+  %rev.i2 = call noundef i16 @llvm.bswap.i16(i16 %68)
+  %69 = zext i16 %rev.i2 to i32
+  %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %69)
+  %71 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %72 = call i32 @fflush(ptr noundef %71)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   ret void
 }
 
@@ -163,14 +169,14 @@ declare void @abort() local_unnamed_addr #6
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+
 ; Function Attrs: nounwind
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -184,34 +190,34 @@ declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #5
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16remote_bitbang_t6acceptEv(ptr noundef nonnull align 8 captures(none) dereferenceable(131104) initializes((12, 16)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !11
   %4 = tail call i32 @accept(i32 noundef %3, ptr noundef null, ptr noundef null)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %4, ptr %5, align 4
+  store i32 %4, ptr %5, align 4, !tbaa !12
   %6 = icmp eq i32 %4, -1
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @__errno_location() #11
-  %9 = load i32, ptr %8, align 4
+  %8 = tail call ptr @__errno_location() #13
+  %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call ptr @strerror(i32 noundef %9) #10
-  %14 = load i32, ptr %8, align 4
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef %13, i32 noundef %14) #12
-  tail call void @abort() #13
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %13 = tail call ptr @strerror(i32 noundef %9) #12
+  %14 = load i32, ptr %8, align 4, !tbaa !15
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef %13, i32 noundef %14) #14
+  tail call void @abort() #15
   unreachable
 
 16:                                               ; preds = %1
@@ -227,7 +233,7 @@ declare i32 @accept(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16remote_bitbang_t4tickEv(ptr noundef nonnull align 8 captures(none) dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4, !tbaa !12
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
@@ -237,24 +243,24 @@ define void @_ZN16remote_bitbang_t4tickEv(ptr noundef nonnull align 8 captures(n
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !11
   %9 = tail call i32 @accept(i32 noundef %8, ptr noundef null, ptr noundef null)
-  store i32 %9, ptr %2, align 4
+  store i32 %9, ptr %2, align 4, !tbaa !12
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @__errno_location() #11
-  %13 = load i32, ptr %12, align 4
+  %12 = tail call ptr @__errno_location() #13
+  %13 = load i32, ptr %12, align 4, !tbaa !15
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %_ZN16remote_bitbang_t6acceptEv.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call ptr @strerror(i32 noundef %13) #10
-  %18 = load i32, ptr %12, align 4
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef %17, i32 noundef %18) #12
-  tail call void @abort() #13
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %17 = tail call ptr @strerror(i32 noundef %13) #12
+  %18 = load i32, ptr %12, align 4, !tbaa !15
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef %17, i32 noundef %18) #14
+  tail call void @abort() #15
   unreachable
 
 20:                                               ; preds = %6
@@ -267,34 +273,34 @@ _ZN16remote_bitbang_t6acceptEv.exit:              ; preds = %20, %11, %5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !22
   %5 = icmp eq i32 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 131088
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 131096
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 65552
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre = load i64, ptr %7, align 8
+  %.pre = load i64, ptr %7, align 8, !tbaa !27
   br label %11
 
-11:                                               ; preds = %.thread51, %1
-  %12 = phi i64 [ %.pre, %1 ], [ %82, %.thread51 ]
-  %.028 = phi i1 [ %5, %1 ], [ %.129385056, %.thread51 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.1414759, %.thread51 ]
-  %13 = load i64, ptr %6, align 8
+11:                                               ; preds = %.thread62, %1
+  %12 = phi i64 [ %.pre, %1 ], [ %82, %.thread62 ]
+  %.032 = phi i1 [ %5, %1 ], [ %.133496167, %.thread62 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1525870, %.thread62 ]
+  %13 = load i64, ptr %6, align 8, !tbaa !28
   %14 = icmp slt i64 %13, %12
-  br i1 %14, label %.lr.ph, label %.thread51
+  br i1 %14, label %.lr.ph, label %.thread62
 
 .lr.ph:                                           ; preds = %11, %59
   %15 = phi i64 [ %52, %59 ], [ %13, %11 ]
-  %.266 = phi i32 [ %53, %59 ], [ %.0, %11 ]
-  %.22065 = phi i1 [ %.4, %59 ], [ false, %11 ]
-  %.02264 = phi i32 [ %.224, %59 ], [ 0, %11 ]
-  %.23063 = phi i1 [ false, %59 ], [ %.028, %11 ]
+  %.277 = phi i32 [ %53, %59 ], [ %.0, %11 ]
+  %.22276 = phi i1 [ %.4, %59 ], [ false, %11 ]
+  %.02475 = phi i32 [ %.226, %59 ], [ 0, %11 ]
+  %.23474 = phi i1 [ false, %59 ], [ %.032, %11 ]
   %16 = getelementptr inbounds [65536 x i8], ptr %8, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 1, !tbaa !29
   switch i8 %17, label %46 [
     i8 66, label %50
     i8 98, label %50
@@ -312,60 +318,60 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   ]
 
 18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %0, align 8
+  %19 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %19)
   br label %50
 
 20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %0, align 8
+  %21 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %21, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %50
 
 22:                                               ; preds = %.lr.ph
-  %23 = load ptr, ptr %0, align 8
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %23, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %50
 
 24:                                               ; preds = %.lr.ph
-  %25 = load ptr, ptr %0, align 8
+  %25 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %25, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %50
 
 26:                                               ; preds = %.lr.ph
-  %27 = load ptr, ptr %0, align 8
+  %27 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %27, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %50
 
 28:                                               ; preds = %.lr.ph
-  %29 = load ptr, ptr %0, align 8
+  %29 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %29, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %50
 
 30:                                               ; preds = %.lr.ph
-  %31 = load ptr, ptr %0, align 8
+  %31 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %31, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %50
 
 32:                                               ; preds = %.lr.ph
-  %33 = load ptr, ptr %0, align 8
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %33, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %50
 
 34:                                               ; preds = %.lr.ph
-  %35 = load ptr, ptr %0, align 8
+  %35 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72) %35, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %50
 
 36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr %0, align 8
+  %37 = load ptr, ptr %0, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 15
-  %39 = load i8, ptr %38, align 1
-  %40 = trunc i8 %39 to i1
+  %39 = load i8, ptr %38, align 1, !tbaa !30, !range !31, !noundef !32
+  %40 = trunc nuw i8 %39 to i1
   %41 = select i1 %40, i8 49, i8 48
-  %42 = add i32 %.02264, 1
-  %43 = zext i32 %.02264 to i64
+  %42 = add i32 %.02475, 1
+  %43 = zext i32 %.02475 to i64
   %44 = getelementptr inbounds nuw [65536 x i8], ptr %9, i64 0, i64 %43
-  store i8 %41, ptr %44, align 1
+  store i8 %41, ptr %44, align 1, !tbaa !29
   br label %50
 
 45:                                               ; preds = %.lr.ph
@@ -373,106 +379,106 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
 
 46:                                               ; preds = %.lr.ph
   %47 = zext i8 %17 to i32
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.7, i32 noundef %47) #12
+  %48 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.7, i32 noundef %47) #14
   br label %50
 
-50:                                               ; preds = %.lr.ph, %.lr.ph, %46, %45, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18
-  %.224 = phi i32 [ %.02264, %46 ], [ %.02264, %45 ], [ %42, %36 ], [ %.02264, %34 ], [ %.02264, %32 ], [ %.02264, %30 ], [ %.02264, %28 ], [ %.02264, %26 ], [ %.02264, %24 ], [ %.02264, %22 ], [ %.02264, %20 ], [ %.02264, %18 ], [ %.02264, %.lr.ph ], [ %.02264, %.lr.ph ]
-  %.4 = phi i1 [ %.22065, %46 ], [ true, %45 ], [ %.22065, %36 ], [ %.22065, %34 ], [ %.22065, %32 ], [ %.22065, %30 ], [ %.22065, %28 ], [ %.22065, %26 ], [ %.22065, %24 ], [ %.22065, %22 ], [ %.22065, %20 ], [ %.22065, %18 ], [ %.22065, %.lr.ph ], [ %.22065, %.lr.ph ]
-  %51 = load i64, ptr %6, align 8
+50:                                               ; preds = %46, %45, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %.lr.ph, %.lr.ph
+  %.226 = phi i32 [ %.02475, %46 ], [ %.02475, %45 ], [ %42, %36 ], [ %.02475, %34 ], [ %.02475, %32 ], [ %.02475, %30 ], [ %.02475, %28 ], [ %.02475, %26 ], [ %.02475, %24 ], [ %.02475, %22 ], [ %.02475, %20 ], [ %.02475, %18 ], [ %.02475, %.lr.ph ], [ %.02475, %.lr.ph ]
+  %.4 = phi i1 [ %.22276, %46 ], [ true, %45 ], [ %.22276, %36 ], [ %.22276, %34 ], [ %.22276, %32 ], [ %.22276, %30 ], [ %.22276, %28 ], [ %.22276, %26 ], [ %.22276, %24 ], [ %.22276, %22 ], [ %.22276, %20 ], [ %.22276, %18 ], [ %.22276, %.lr.ph ], [ %.22276, %.lr.ph ]
+  %51 = load i64, ptr %6, align 8, !tbaa !28
   %52 = add nsw i64 %51, 1
-  store i64 %52, ptr %6, align 8
-  %53 = add i32 %.266, 1
-  br i1 %.23063, label %59, label %54
+  store i64 %52, ptr %6, align 8, !tbaa !28
+  %53 = add i32 %.277, 1
+  br i1 %.23474, label %59, label %54
 
 54:                                               ; preds = %50
-  %55 = load ptr, ptr %0, align 8
+  %55 = load ptr, ptr %0, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 68
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 4, !tbaa !22
   %58 = icmp eq i32 %57, 1
-  br i1 %58, label %._crit_edge, label %59
+  br i1 %58, label %.thread, label %59
 
-59:                                               ; preds = %54, %50
-  %60 = load i64, ptr %7, align 8
+59:                                               ; preds = %50, %54
+  %60 = load i64, ptr %7, align 8, !tbaa !27
   %61 = icmp slt i64 %52, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  br i1 %61, label %.lr.ph, label %.thread
 
-._crit_edge:                                      ; preds = %59, %54
+.thread:                                          ; preds = %59, %54
   %.lcssa.ph = phi i1 [ false, %59 ], [ true, %54 ]
-  %.not = icmp eq i32 %.224, 0
-  br i1 %.not, label %._crit_edge80, label %.lr.ph79
+  %.not = icmp eq i32 %.226, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph89
 
-.lr.ph79:                                         ; preds = %._crit_edge
-  %62 = zext i32 %.224 to i64
+.lr.ph89:                                         ; preds = %.thread
+  %62 = zext i32 %.226 to i64
   br label %67
 
 63:                                               ; preds = %67
   %64 = trunc i64 %71 to i32
-  %65 = add i32 %.01777, %64
-  %66 = icmp ult i32 %65, %.224
-  br i1 %66, label %67, label %._crit_edge80, !llvm.loop !6
+  %65 = add i32 %.01888, %64
+  %66 = icmp ult i32 %65, %.226
+  br i1 %66, label %67, label %._crit_edge, !llvm.loop !33
 
-67:                                               ; preds = %.lr.ph79, %63
-  %.01777 = phi i32 [ 0, %.lr.ph79 ], [ %65, %63 ]
-  %68 = load i32, ptr %10, align 4
-  %69 = zext i32 %.01777 to i64
+67:                                               ; preds = %.lr.ph89, %63
+  %.01888 = phi i32 [ 0, %.lr.ph89 ], [ %65, %63 ]
+  %68 = load i32, ptr %10, align 4, !tbaa !12
+  %69 = zext i32 %.01888 to i64
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 %69
   %71 = tail call i64 @write(i32 noundef %68, ptr noundef nonnull %70, i64 noundef %62)
   %72 = icmp eq i64 %71, -1
   br i1 %72, label %73, label %63
 
 73:                                               ; preds = %67
-  %74 = load ptr, ptr @stderr, align 8
-  %75 = tail call ptr @__errno_location() #11
-  %76 = load i32, ptr %75, align 4
-  %77 = tail call ptr @strerror(i32 noundef %76) #10
-  %78 = load i32, ptr %75, align 4
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.8, ptr noundef %77, i32 noundef %78) #12
-  tail call void @abort() #13
+  %74 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %75 = tail call ptr @__errno_location() #13
+  %76 = load i32, ptr %75, align 4, !tbaa !15
+  %77 = tail call ptr @strerror(i32 noundef %76) #12
+  %78 = load i32, ptr %75, align 4, !tbaa !15
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.8, ptr noundef %77, i32 noundef %78) #14
+  tail call void @abort() #15
   unreachable
 
-._crit_edge80:                                    ; preds = %63, %._crit_edge
+._crit_edge:                                      ; preds = %63, %.thread
   %80 = icmp ugt i32 %53, 65536
   %brmerge = select i1 %80, i1 true, i1 %.4
-  %brmerge60 = or i1 %.lcssa.ph, %brmerge
-  br i1 %brmerge60, label %.loopexit, label %.thread51
+  %brmerge71 = or i1 %.lcssa.ph, %brmerge
+  br i1 %brmerge71, label %.loopexit, label %.thread62
 
-.thread51:                                        ; preds = %._crit_edge80, %11
-  %.1414759 = phi i32 [ %.0, %11 ], [ %53, %._crit_edge80 ]
-  %.129385056 = phi i1 [ %.028, %11 ], [ false, %._crit_edge80 ]
-  store i64 0, ptr %6, align 8
-  %81 = load i32, ptr %10, align 4
+.thread62:                                        ; preds = %._crit_edge, %11
+  %.1525870 = phi i32 [ %.0, %11 ], [ %53, %._crit_edge ]
+  %.133496167 = phi i1 [ %.032, %11 ], [ false, %._crit_edge ]
+  store i64 0, ptr %6, align 8, !tbaa !28
+  %81 = load i32, ptr %10, align 4, !tbaa !12
   %82 = tail call i64 @read(i32 noundef %81, ptr noundef nonnull %8, i64 noundef 65536)
-  store i64 %82, ptr %7, align 8
+  store i64 %82, ptr %7, align 8, !tbaa !27
   switch i64 %82, label %11 [
     i64 -1, label %83
     i64 0, label %92
   ]
 
-83:                                               ; preds = %.thread51
-  %84 = tail call ptr @__errno_location() #11
-  %85 = load i32, ptr %84, align 4
+83:                                               ; preds = %.thread62
+  %84 = tail call ptr @__errno_location() #13
+  %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = icmp eq i32 %85, 11
   br i1 %86, label %.loopexit, label %87
 
 87:                                               ; preds = %83
-  %88 = load ptr, ptr @stderr, align 8
-  %89 = tail call ptr @strerror(i32 noundef %85) #10
-  %90 = load i32, ptr %84, align 4
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.9, ptr noundef %89, i32 noundef %90) #12
-  tail call void @abort() #13
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %89 = tail call ptr @strerror(i32 noundef %85) #12
+  %90 = load i32, ptr %84, align 4, !tbaa !15
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.9, ptr noundef %89, i32 noundef %90) #14
+  tail call void @abort() #15
   unreachable
 
-92:                                               ; preds = %.thread51
-  %93 = load ptr, ptr @stderr, align 8
-  %94 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %93) #14
-  %95 = load i32, ptr %10, align 4
+92:                                               ; preds = %.thread62
+  %93 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %94 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %93) #16
+  %95 = load i32, ptr %10, align 4, !tbaa !12
   %96 = tail call i32 @close(i32 noundef %95)
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge80, %83, %92
+.loopexit:                                        ; preds = %._crit_edge, %83, %92
   ret void
 }
 
@@ -481,46 +487,79 @@ declare void @_ZN10jtag_dtm_t5resetEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @close(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_remote_bitbang.cc() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_remote_bitbang.cc() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { cold nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { cold }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { cold nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { cold }
 
 !llvm.linker.options = !{}
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTS16remote_bitbang_t", !5, i64 0, !9, i64 8, !9, i64 12, !7, i64 16, !7, i64 65552, !10, i64 131088, !10, i64 131096}
+!5 = !{!"p1 _ZTS10jtag_dtm_t", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!"long", !7, i64 0}
+!11 = !{!4, !9, i64 8}
+!12 = !{!4, !9, i64 12}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!15 = !{!9, !9, i64 0}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"_ZTS11sockaddr_in", !18, i64 0, !18, i64 2, !19, i64 4, !7, i64 8}
+!18 = !{!"short", !7, i64 0}
+!19 = !{!"_ZTS7in_addr", !9, i64 0}
+!20 = !{!17, !9, i64 4}
+!21 = !{!17, !18, i64 2}
+!22 = !{!23, !26, i64 68}
+!23 = !{!"_ZTS10jtag_dtm_t", !24, i64 0, !9, i64 8, !25, i64 12, !25, i64 13, !25, i64 14, !25, i64 15, !9, i64 16, !9, i64 20, !10, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !10, i64 48, !9, i64 56, !9, i64 60, !25, i64 64, !26, i64 68}
+!24 = !{!"p1 _ZTS14debug_module_t", !6, i64 0}
+!25 = !{!"bool", !7, i64 0}
+!26 = !{!"_ZTS12jtag_state_t", !7, i64 0}
+!27 = !{!4, !10, i64 131096}
+!28 = !{!4, !10, i64 131088}
+!29 = !{!7, !7, i64 0}
+!30 = !{!23, !25, i64 15}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}

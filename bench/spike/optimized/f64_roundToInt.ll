@@ -3,141 +3,149 @@ source_filename = "bench/spike/original/f64_roundToInt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@softfloat_exceptionFlags = external local_unnamed_addr global i8, align 1
+@softfloat_exceptionFlags = external thread_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
 define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = lshr i64 %0, 52
   %5 = and i64 %4, 2047
   %6 = icmp samesign ult i64 %5, 1023
-  br i1 %6, label %7, label %24
+  br i1 %6, label %7, label %25
 
 7:                                                ; preds = %3
   %8 = and i64 %0, 9223372036854775807
   %.not53 = icmp eq i64 %8, 0
-  br i1 %.not53, label %56, label %9
+  br i1 %.not53, label %58, label %9
 
 9:                                                ; preds = %7
-  br i1 %2, label %10, label %13
+  br i1 %2, label %10, label %14
 
 10:                                               ; preds = %9
-  %11 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %12 = or i8 %11, 1
-  store i8 %12, ptr @softfloat_exceptionFlags, align 1
-  br label %13
+  %11 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %12 = load i8, ptr %11, align 1, !tbaa !3
+  %13 = or i8 %12, 1
+  store i8 %13, ptr %11, align 1, !tbaa !3
+  br label %14
 
-13:                                               ; preds = %10, %9
-  %14 = and i64 %0, -9223372036854775808
-  switch i8 %1, label %56 [
-    i8 0, label %15
-    i8 4, label %19
-    i8 2, label %22
-    i8 3, label %23
+14:                                               ; preds = %10, %9
+  %15 = and i64 %0, -9223372036854775808
+  switch i8 %1, label %58 [
+    i8 0, label %16
+    i8 4, label %20
+    i8 2, label %23
+    i8 3, label %24
   ]
 
-15:                                               ; preds = %13
-  %16 = and i64 %0, 4503599627370495
-  %17 = icmp ne i64 %16, 0
-  %18 = icmp eq i64 %5, 1022
-  %or.cond = and i1 %17, %18
-  br i1 %or.cond, label %20, label %56
+16:                                               ; preds = %14
+  %17 = and i64 %0, 4503599627370495
+  %18 = icmp ne i64 %17, 0
+  %19 = icmp eq i64 %5, 1022
+  %or.cond = and i1 %18, %19
+  br i1 %or.cond, label %21, label %58
 
-19:                                               ; preds = %13
+20:                                               ; preds = %14
   %.old2 = icmp eq i64 %5, 1022
-  br i1 %.old2, label %20, label %56
+  br i1 %.old2, label %21, label %58
 
-20:                                               ; preds = %15, %19
-  %21 = or disjoint i64 %14, 4607182418800017408
-  br label %56
+21:                                               ; preds = %16, %20
+  %22 = or disjoint i64 %15, 4607182418800017408
+  br label %58
 
-22:                                               ; preds = %13
-  %.not55 = icmp eq i64 %14, 0
+23:                                               ; preds = %14
+  %.not55 = icmp eq i64 %15, 0
   %spec.store.select = select i1 %.not55, i64 0, i64 -4616189618054758400
-  br label %56
+  br label %58
 
-23:                                               ; preds = %13
-  %.not54 = icmp eq i64 %14, 0
+24:                                               ; preds = %14
+  %.not54 = icmp eq i64 %15, 0
   %spec.store.select1 = select i1 %.not54, i64 4607182418800017408, i64 -9223372036854775808
-  br label %56
+  br label %58
 
-24:                                               ; preds = %3
-  %25 = icmp samesign ugt i64 %5, 1074
-  br i1 %25, label %26, label %31
+25:                                               ; preds = %3
+  %26 = icmp samesign ugt i64 %5, 1074
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %24
-  %27 = icmp ne i64 %5, 2047
-  %28 = and i64 %0, 4503599627370495
-  %.not52 = icmp eq i64 %28, 0
-  %or.cond56 = or i1 %.not52, %27
-  br i1 %or.cond56, label %56, label %29
+27:                                               ; preds = %25
+  %28 = icmp ne i64 %5, 2047
+  %29 = and i64 %0, 4503599627370495
+  %.not52 = icmp eq i64 %29, 0
+  %or.cond56 = or i1 %.not52, %28
+  br i1 %or.cond56, label %58, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call i64 @softfloat_propagateNaNF64UI(i64 noundef %0, i64 noundef 0) #2
-  br label %56
+30:                                               ; preds = %27
+  %31 = tail call i64 @softfloat_propagateNaNF64UI(i64 noundef %0, i64 noundef 0) #3
+  br label %58
 
-31:                                               ; preds = %24
-  %32 = sub nuw nsw i64 1075, %5
-  %33 = shl nuw nsw i64 1, %32
-  %34 = add nsw i64 %33, -1
-  switch i8 %1, label %45 [
-    i8 4, label %35
-    i8 0, label %38
+32:                                               ; preds = %25
+  %33 = sub nuw nsw i64 1075, %5
+  %34 = shl nuw nsw i64 1, %33
+  %35 = add nsw i64 %34, -1
+  switch i8 %1, label %46 [
+    i8 4, label %36
+    i8 0, label %39
   ]
 
-35:                                               ; preds = %31
-  %36 = lshr i64 %33, 1
-  %37 = add i64 %36, %0
-  br label %50
+36:                                               ; preds = %32
+  %37 = lshr i64 %34, 1
+  %38 = add i64 %37, %0
+  br label %51
 
-38:                                               ; preds = %31
-  %39 = lshr i64 %33, 1
-  %40 = add i64 %39, %0
-  %41 = and i64 %40, %34
-  %.not50 = icmp eq i64 %41, 0
-  br i1 %.not50, label %42, label %50
+39:                                               ; preds = %32
+  %40 = lshr i64 %34, 1
+  %41 = add i64 %40, %0
+  %42 = and i64 %41, %35
+  %.not50 = icmp eq i64 %42, 0
+  br i1 %.not50, label %43, label %51
 
-42:                                               ; preds = %38
-  %43 = xor i64 %33, -1
-  %44 = and i64 %40, %43
-  br label %50
+43:                                               ; preds = %39
+  %44 = xor i64 %34, -1
+  %45 = and i64 %41, %44
+  br label %51
 
-45:                                               ; preds = %31
-  %46 = zext i8 %1 to i32
+46:                                               ; preds = %32
+  %47 = zext i8 %1 to i32
   %.not = icmp sgt i64 %0, -1
-  %47 = select i1 %.not, i32 3, i32 2
-  %48 = icmp eq i32 %47, %46
-  %49 = select i1 %48, i64 %34, i64 0
-  %spec.select = add i64 %49, %0
-  br label %50
+  %48 = select i1 %.not, i32 3, i32 2
+  %49 = icmp eq i32 %48, %47
+  %50 = select i1 %49, i64 %35, i64 0
+  %spec.select = add i64 %50, %0
+  br label %51
 
-50:                                               ; preds = %45, %42, %38, %35
-  %.1 = phi i64 [ %37, %35 ], [ %40, %38 ], [ %44, %42 ], [ %spec.select, %45 ]
-  %51 = sub nsw i64 0, %33
-  %52 = and i64 %.1, %51
-  %.not51 = icmp ne i64 %52, %0
+51:                                               ; preds = %46, %43, %39, %36
+  %.1 = phi i64 [ %38, %36 ], [ %41, %39 ], [ %45, %43 ], [ %spec.select, %46 ]
+  %52 = sub nsw i64 0, %34
+  %53 = and i64 %.1, %52
+  %.not51 = icmp ne i64 %53, %0
   %or.cond58.not = select i1 %2, i1 %.not51, i1 false
-  br i1 %or.cond58.not, label %53, label %56
+  br i1 %or.cond58.not, label %54, label %58
 
-53:                                               ; preds = %50
-  %54 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %55 = or i8 %54, 1
-  store i8 %55, ptr @softfloat_exceptionFlags, align 1
-  br label %56
+54:                                               ; preds = %51
+  %55 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %56 = load i8, ptr %55, align 1, !tbaa !3
+  %57 = or i8 %56, 1
+  store i8 %57, ptr %55, align 1, !tbaa !3
+  br label %58
 
-56:                                               ; preds = %29, %19, %20, %15, %23, %22, %13, %53, %50, %26, %7
-  %.sroa.044.0 = phi i64 [ %0, %7 ], [ %0, %26 ], [ %14, %13 ], [ %spec.store.select1, %23 ], [ %spec.store.select, %22 ], [ %21, %20 ], [ %14, %19 ], [ %14, %15 ], [ %30, %29 ], [ %52, %53 ], [ %52, %50 ]
+58:                                               ; preds = %30, %20, %21, %16, %24, %23, %14, %54, %51, %27, %7
+  %.sroa.044.0 = phi i64 [ %0, %7 ], [ %0, %27 ], [ %15, %14 ], [ %spec.store.select1, %24 ], [ %spec.store.select, %23 ], [ %22, %21 ], [ %15, %20 ], [ %15, %16 ], [ %31, %30 ], [ %53, %54 ], [ %53, %51 ]
   ret i64 %.sroa.044.0
 }
 
-declare i64 @softfloat_propagateNaNF64UI(i64 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+declare i64 @softfloat_propagateNaNF64UI(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

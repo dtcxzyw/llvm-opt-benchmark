@@ -13,7 +13,7 @@ define i64 @f128_to_ui32(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   %10 = or i64 %7, %9
   %.not = icmp eq i64 %6, 0
   %11 = or disjoint i64 %10, 281474976710656
-  %.019 = select i1 %.not, i64 %10, i64 %11
+  %.018 = select i1 %.not, i64 %10, i64 %11
   %12 = icmp samesign ult i64 %6, 16419
   br i1 %12, label %13, label %softfloat_shiftRightJam64.exit
 
@@ -33,12 +33,12 @@ define i64 @f128_to_ui32(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   br label %softfloat_shiftRightJam64.exit
 
 23:                                               ; preds = %13
-  %24 = icmp ne i64 %.019, 0
+  %24 = icmp ne i64 %.018, 0
   %25 = zext i1 %24 to i64
   br label %softfloat_shiftRightJam64.exit
 
 softfloat_shiftRightJam64.exit:                   ; preds = %23, %15, %4
-  %.1 = phi i64 [ %.019, %4 ], [ %22, %15 ], [ %25, %23 ]
+  %.1 = phi i64 [ %.018, %4 ], [ %22, %15 ], [ %25, %23 ]
   %26 = icmp eq i64 %10, 0
   %27 = icmp ne i64 %6, 32767
   %28 = icmp slt i64 %1, 0
@@ -50,13 +50,12 @@ softfloat_shiftRightJam64.exit:                   ; preds = %23, %15, %4
 
 declare i64 @softfloat_roundToUI32(i1 noundef zeroext, i64 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

@@ -22,8 +22,8 @@ define i64 @f128_to_ui64(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #2
   %14 = icmp eq i64 %7, 32767
   %15 = or i64 %8, %0
-  %.not41 = icmp ne i64 %15, 0
-  %or.cond.not = select i1 %14, i1 %.not41, i1 false
+  %.not40 = icmp ne i64 %15, 0
+  %or.cond.not = select i1 %14, i1 %.not40, i1 false
   %not. = xor i1 %5, true
   %narrow = or i1 %or.cond.not, %not.
   %16 = sext i1 %narrow to i64
@@ -31,8 +31,8 @@ define i64 @f128_to_ui64(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
 
 17:                                               ; preds = %11
   %18 = or disjoint i64 %8, 281474976710656
-  %.not40 = icmp eq i64 %7, 16431
-  br i1 %.not40, label %43, label %19
+  %.not39 = icmp eq i64 %7, 16431
+  br i1 %.not39, label %43, label %19
 
 19:                                               ; preds = %17
   %20 = add nuw nsw i64 %6, 209
@@ -74,9 +74,9 @@ softfloat_shiftRightJam64Extra.exit:              ; preds = %31, %35
   br label %43
 
 43:                                               ; preds = %17, %19, %softfloat_shiftRightJam64Extra.exit
-  %.038 = phi i64 [ %27, %19 ], [ %0, %17 ], [ %42, %softfloat_shiftRightJam64Extra.exit ]
-  %.037 = phi i64 [ %26, %19 ], [ %18, %17 ], [ %.sroa.5.0.i, %softfloat_shiftRightJam64Extra.exit ]
-  %44 = tail call i64 @softfloat_roundToUI64(i1 noundef zeroext %5, i64 noundef %.037, i64 noundef %.038, i8 noundef zeroext %2, i1 noundef zeroext %3) #2
+  %.037 = phi i64 [ %27, %19 ], [ %0, %17 ], [ %42, %softfloat_shiftRightJam64Extra.exit ]
+  %.036 = phi i64 [ %26, %19 ], [ %18, %17 ], [ %.sroa.5.0.i, %softfloat_shiftRightJam64Extra.exit ]
+  %44 = tail call i64 @softfloat_roundToUI64(i1 noundef zeroext %5, i64 noundef %.036, i64 noundef %.037, i8 noundef zeroext %2, i1 noundef zeroext %3) #2
   br label %45
 
 45:                                               ; preds = %43, %13
@@ -88,13 +88,12 @@ declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1
 
 declare i64 @softfloat_roundToUI64(i1 noundef zeroext, i64 noundef, i64 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

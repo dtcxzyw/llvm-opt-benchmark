@@ -33,8 +33,8 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) #0 {
   %25 = alloca %struct.uint128, align 8
   %26 = alloca %union.ui128_f128, align 8
   %27 = alloca %struct.uint128, align 8
-  %28 = alloca %struct.exp32_sig128, align 8
-  %29 = alloca %struct.uint128, align 8
+  %28 = alloca i32, align 4
+  %29 = alloca %struct.exp32_sig128, align 8
   %30 = alloca %struct.uint128, align 8
   %31 = alloca %struct.uint128, align 8
   %32 = alloca %struct.uint128, align 8
@@ -54,840 +54,967 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) #0 {
   %46 = alloca %struct.uint128, align 8
   %47 = alloca %struct.uint128, align 8
   %48 = alloca %struct.uint128, align 8
-  %49 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 0
-  store i64 %0, ptr %49, align 8
-  %50 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 1
-  store i64 %1, ptr %50, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %4, i64 16, i1 false)
-  %51 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 1
-  %52 = load i64, ptr %51, align 8
-  store i64 %52, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 0
-  %54 = load i64, ptr %53, align 8
-  store i64 %54, ptr %7, align 8
-  %55 = load i64, ptr %6, align 8
-  %56 = lshr i64 %55, 63
-  %57 = icmp ne i64 %56, 0
-  %58 = zext i1 %57 to i8
-  store i8 %58, ptr %8, align 1
-  %59 = load i64, ptr %6, align 8
-  %60 = lshr i64 %59, 48
-  %61 = and i64 %60, 32767
-  store i64 %61, ptr %9, align 8
-  %62 = load i64, ptr %6, align 8
-  %63 = and i64 %62, 281474976710655
-  %64 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  store i64 %63, ptr %64, align 8
-  %65 = load i64, ptr %7, align 8
-  %66 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 0
-  store i64 %65, ptr %66, align 8
-  %67 = load i64, ptr %9, align 8
-  %68 = icmp eq i64 %67, 32767
-  br i1 %68, label %69, label %89
+  %49 = alloca %struct.uint128, align 8
+  %50 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  store i64 %0, ptr %50, align 8
+  %51 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  store i64 %1, ptr %51, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 12, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !3
+  %52 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 1
+  %53 = load i64, ptr %52, align 8, !tbaa !4
+  store i64 %53, ptr %6, align 8, !tbaa !7
+  %54 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 0
+  %55 = load i64, ptr %54, align 8, !tbaa !4
+  store i64 %55, ptr %7, align 8, !tbaa !7
+  %56 = load i64, ptr %6, align 8, !tbaa !7
+  %57 = lshr i64 %56, 63
+  %58 = icmp ne i64 %57, 0
+  %59 = zext i1 %58 to i8
+  store i8 %59, ptr %8, align 1, !tbaa !9
+  %60 = load i64, ptr %6, align 8, !tbaa !7
+  %61 = lshr i64 %60, 48
+  %62 = and i64 %61, 32767
+  store i64 %62, ptr %9, align 8, !tbaa !7
+  %63 = load i64, ptr %6, align 8, !tbaa !7
+  %64 = and i64 %63, 281474976710655
+  %65 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  store i64 %64, ptr %65, align 8, !tbaa !11
+  %66 = load i64, ptr %7, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 0
+  store i64 %66, ptr %67, align 8, !tbaa !13
+  %68 = load i64, ptr %9, align 8, !tbaa !7
+  %69 = icmp eq i64 %68, 32767
+  br i1 %69, label %70, label %90
 
-69:                                               ; preds = %2
-  %70 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 0
-  %73 = load i64, ptr %72, align 8
-  %74 = or i64 %71, %73
-  %75 = icmp ne i64 %74, 0
-  br i1 %75, label %76, label %84
+70:                                               ; preds = %2
+  %71 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %72 = load i64, ptr %71, align 8, !tbaa !11
+  %73 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 0
+  %74 = load i64, ptr %73, align 8, !tbaa !13
+  %75 = or i64 %72, %74
+  %76 = icmp ne i64 %75, 0
+  br i1 %76, label %77, label %85
 
-76:                                               ; preds = %69
-  %77 = load i64, ptr %6, align 8
-  %78 = load i64, ptr %7, align 8
-  %79 = call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %77, i64 noundef %78, i64 noundef 0, i64 noundef 0)
-  %80 = getelementptr inbounds { i64, i64 }, ptr %27, i32 0, i32 0
-  %81 = extractvalue { i64, i64 } %79, 0
-  store i64 %81, ptr %80, align 8
-  %82 = getelementptr inbounds { i64, i64 }, ptr %27, i32 0, i32 1
-  %83 = extractvalue { i64, i64 } %79, 1
-  store i64 %83, ptr %82, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %27, i64 16, i1 false)
-  br label %483
-
-84:                                               ; preds = %69
-  %85 = load i8, ptr %8, align 1
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %88, label %87
-
-87:                                               ; preds = %84
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false)
+77:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 16, ptr %27) #5
+  %78 = load i64, ptr %6, align 8, !tbaa !7
+  %79 = load i64, ptr %7, align 8, !tbaa !7
+  %80 = call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %78, i64 noundef %79, i64 noundef 0, i64 noundef 0)
+  %81 = getelementptr inbounds nuw { i64, i64 }, ptr %27, i32 0, i32 0
+  %82 = extractvalue { i64, i64 } %80, 0
+  store i64 %82, ptr %81, align 8
+  %83 = getelementptr inbounds nuw { i64, i64 }, ptr %27, i32 0, i32 1
+  %84 = extractvalue { i64, i64 } %80, 1
+  store i64 %84, ptr %83, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %27, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %27) #5
   br label %484
 
-88:                                               ; preds = %84
-  br label %480
+85:                                               ; preds = %70
+  %86 = load i8, ptr %8, align 1, !tbaa !9, !range !15, !noundef !16
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %89, label %88
 
-89:                                               ; preds = %2
-  %90 = load i8, ptr %8, align 1
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %103
+88:                                               ; preds = %85
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !3
+  store i32 1, ptr %28, align 4
+  br label %485
 
-92:                                               ; preds = %89
-  %93 = load i64, ptr %9, align 8
-  %94 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %95 = load i64, ptr %94, align 8
-  %96 = or i64 %93, %95
-  %97 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 0
-  %98 = load i64, ptr %97, align 8
-  %99 = or i64 %96, %98
-  %100 = icmp ne i64 %99, 0
-  br i1 %100, label %102, label %101
+89:                                               ; preds = %85
+  br label %481
 
-101:                                              ; preds = %92
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false)
-  br label %484
+90:                                               ; preds = %2
+  %91 = load i8, ptr %8, align 1, !tbaa !9, !range !15, !noundef !16
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %104
 
-102:                                              ; preds = %92
-  br label %480
+93:                                               ; preds = %90
+  %94 = load i64, ptr %9, align 8, !tbaa !7
+  %95 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8, !tbaa !11
+  %97 = or i64 %94, %96
+  %98 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 0
+  %99 = load i64, ptr %98, align 8, !tbaa !13
+  %100 = or i64 %97, %99
+  %101 = icmp ne i64 %100, 0
+  br i1 %101, label %103, label %102
 
-103:                                              ; preds = %89
-  %104 = load i64, ptr %9, align 8
-  %105 = icmp ne i64 %104, 0
-  br i1 %105, label %122, label %106
+102:                                              ; preds = %93
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !3
+  store i32 1, ptr %28, align 4
+  br label %485
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 0
-  %110 = load i64, ptr %109, align 8
-  %111 = or i64 %108, %110
-  %112 = icmp ne i64 %111, 0
-  br i1 %112, label %114, label %113
+103:                                              ; preds = %93
+  br label %481
 
-113:                                              ; preds = %106
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false)
-  br label %484
+104:                                              ; preds = %90
+  %105 = load i64, ptr %9, align 8, !tbaa !7
+  %106 = icmp ne i64 %105, 0
+  br i1 %106, label %123, label %107
 
-114:                                              ; preds = %106
-  %115 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %116 = load i64, ptr %115, align 8
-  %117 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 0
-  %118 = load i64, ptr %117, align 8
-  call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind writable sret(%struct.exp32_sig128) align 8 %28, i64 noundef %116, i64 noundef %118)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %28, i64 24, i1 false)
-  %119 = getelementptr inbounds %struct.exp32_sig128, ptr %12, i32 0, i32 0
-  %120 = load i64, ptr %119, align 8
-  store i64 %120, ptr %9, align 8
-  %121 = getelementptr inbounds %struct.exp32_sig128, ptr %12, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %121, i64 16, i1 false)
-  br label %122
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %109 = load i64, ptr %108, align 8, !tbaa !11
+  %110 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 0
+  %111 = load i64, ptr %110, align 8, !tbaa !13
+  %112 = or i64 %109, %111
+  %113 = icmp ne i64 %112, 0
+  br i1 %113, label %115, label %114
 
-122:                                              ; preds = %114, %103
-  %123 = load i64, ptr %9, align 8
-  %124 = sub nsw i64 %123, 16383
-  %125 = ashr i64 %124, 1
-  %126 = add nsw i64 %125, 16382
-  store i64 %126, ptr %13, align 8
-  %127 = load i64, ptr %9, align 8
-  %128 = and i64 %127, 1
-  store i64 %128, ptr %9, align 8
-  %129 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %130 = load i64, ptr %129, align 8
-  %131 = or i64 %130, 281474976710656
-  store i64 %131, ptr %129, align 8
-  %132 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %133 = load i64, ptr %132, align 8
-  %134 = lshr i64 %133, 17
-  store i64 %134, ptr %14, align 8
-  %135 = load i64, ptr %9, align 8
-  %136 = trunc i64 %135 to i32
-  %137 = load i64, ptr %14, align 8
-  %138 = trunc i64 %137 to i32
-  %139 = call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %136, i32 noundef %138)
-  %140 = zext i32 %139 to i64
-  store i64 %140, ptr %15, align 8
-  %141 = load i64, ptr %14, align 8
-  %142 = load i64, ptr %15, align 8
-  %143 = mul i64 %141, %142
-  %144 = lshr i64 %143, 32
-  store i64 %144, ptr %16, align 8
-  %145 = load i64, ptr %9, align 8
-  %146 = icmp ne i64 %145, 0
-  br i1 %146, label %147, label %159
+114:                                              ; preds = %107
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !3
+  store i32 1, ptr %28, align 4
+  br label %485
 
-147:                                              ; preds = %122
-  %148 = load i64, ptr %16, align 8
-  %149 = lshr i64 %148, 1
-  store i64 %149, ptr %16, align 8
-  %150 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 0
-  %153 = load i64, ptr %152, align 8
-  %154 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %151, i64 noundef %153, i8 noundef zeroext 12)
-  %155 = getelementptr inbounds { i64, i64 }, ptr %29, i32 0, i32 0
-  %156 = extractvalue { i64, i64 } %154, 0
-  store i64 %156, ptr %155, align 8
-  %157 = getelementptr inbounds { i64, i64 }, ptr %29, i32 0, i32 1
-  %158 = extractvalue { i64, i64 } %154, 1
-  store i64 %158, ptr %157, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %29, i64 16, i1 false)
-  br label %169
+115:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 24, ptr %29) #5
+  %116 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %117 = load i64, ptr %116, align 8, !tbaa !11
+  %118 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 0
+  %119 = load i64, ptr %118, align 8, !tbaa !13
+  call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind writable sret(%struct.exp32_sig128) align 8 %29, i64 noundef %117, i64 noundef %119)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %29, i64 24, i1 false), !tbaa.struct !17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %29) #5
+  %120 = getelementptr inbounds nuw %struct.exp32_sig128, ptr %12, i32 0, i32 0
+  %121 = load i64, ptr %120, align 8, !tbaa !18
+  store i64 %121, ptr %9, align 8, !tbaa !7
+  %122 = getelementptr inbounds nuw %struct.exp32_sig128, ptr %12, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %122, i64 16, i1 false), !tbaa.struct !14
+  br label %123
 
-159:                                              ; preds = %122
-  %160 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 1
-  %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds %struct.uint128, ptr %10, i32 0, i32 0
-  %163 = load i64, ptr %162, align 8
-  %164 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %161, i64 noundef %163, i8 noundef zeroext 13)
-  %165 = getelementptr inbounds { i64, i64 }, ptr %30, i32 0, i32 0
-  %166 = extractvalue { i64, i64 } %164, 0
-  store i64 %166, ptr %165, align 8
-  %167 = getelementptr inbounds { i64, i64 }, ptr %30, i32 0, i32 1
-  %168 = extractvalue { i64, i64 } %164, 1
-  store i64 %168, ptr %167, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %30, i64 16, i1 false)
-  br label %169
+123:                                              ; preds = %115, %104
+  %124 = load i64, ptr %9, align 8, !tbaa !7
+  %125 = sub nsw i64 %124, 16383
+  %126 = ashr i64 %125, 1
+  %127 = add nsw i64 %126, 16382
+  store i64 %127, ptr %13, align 8, !tbaa !7
+  %128 = load i64, ptr %9, align 8, !tbaa !7
+  %129 = and i64 %128, 1
+  store i64 %129, ptr %9, align 8, !tbaa !7
+  %130 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %131 = load i64, ptr %130, align 8, !tbaa !11
+  %132 = or i64 %131, 281474976710656
+  store i64 %132, ptr %130, align 8, !tbaa !11
+  %133 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %134 = load i64, ptr %133, align 8, !tbaa !11
+  %135 = lshr i64 %134, 17
+  store i64 %135, ptr %14, align 8, !tbaa !7
+  %136 = load i64, ptr %9, align 8, !tbaa !7
+  %137 = trunc i64 %136 to i32
+  %138 = load i64, ptr %14, align 8, !tbaa !7
+  %139 = trunc i64 %138 to i32
+  %140 = call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %137, i32 noundef %139)
+  %141 = zext i32 %140 to i64
+  store i64 %141, ptr %15, align 8, !tbaa !7
+  %142 = load i64, ptr %14, align 8, !tbaa !7
+  %143 = load i64, ptr %15, align 8, !tbaa !7
+  %144 = mul i64 %142, %143
+  %145 = lshr i64 %144, 32
+  store i64 %145, ptr %16, align 8, !tbaa !7
+  %146 = load i64, ptr %9, align 8, !tbaa !7
+  %147 = icmp ne i64 %146, 0
+  br i1 %147, label %148, label %160
 
-169:                                              ; preds = %159, %147
-  %170 = load i64, ptr %16, align 8
-  %171 = trunc i64 %170 to i32
-  %172 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 2
-  store i32 %171, ptr %172, align 4
-  %173 = load i64, ptr %16, align 8
-  %174 = load i64, ptr %16, align 8
-  %175 = mul i64 %173, %174
-  %176 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %177 = load i64, ptr %176, align 8
-  %178 = sub i64 %177, %175
-  store i64 %178, ptr %176, align 8
-  %179 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %180 = load i64, ptr %179, align 8
-  %181 = lshr i64 %180, 2
-  %182 = trunc i64 %181 to i32
-  %183 = zext i32 %182 to i64
-  %184 = load i64, ptr %15, align 8
-  %185 = mul i64 %183, %184
-  %186 = lshr i64 %185, 32
-  store i64 %186, ptr %19, align 8
-  %187 = load i64, ptr %16, align 8
-  %188 = shl i64 %187, 32
-  store i64 %188, ptr %20, align 8
-  %189 = load i64, ptr %20, align 8
-  %190 = load i64, ptr %19, align 8
-  %191 = shl i64 %190, 3
-  %192 = add i64 %189, %191
-  store i64 %192, ptr %21, align 8
-  %193 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %194 = load i64, ptr %193, align 8
-  %195 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 0
-  %196 = load i64, ptr %195, align 8
-  %197 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %194, i64 noundef %196, i8 noundef zeroext 29)
-  %198 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 0
-  %199 = extractvalue { i64, i64 } %197, 0
-  store i64 %199, ptr %198, align 8
-  %200 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 1
-  %201 = extractvalue { i64, i64 } %197, 1
-  store i64 %201, ptr %200, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %31, i64 16, i1 false)
-  br label %202
+148:                                              ; preds = %123
+  %149 = load i64, ptr %16, align 8, !tbaa !7
+  %150 = lshr i64 %149, 1
+  store i64 %150, ptr %16, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #5
+  %151 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %152 = load i64, ptr %151, align 8, !tbaa !11
+  %153 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 0
+  %154 = load i64, ptr %153, align 8, !tbaa !13
+  %155 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %152, i64 noundef %154, i8 noundef zeroext 12)
+  %156 = getelementptr inbounds nuw { i64, i64 }, ptr %30, i32 0, i32 0
+  %157 = extractvalue { i64, i64 } %155, 0
+  store i64 %157, ptr %156, align 8
+  %158 = getelementptr inbounds nuw { i64, i64 }, ptr %30, i32 0, i32 1
+  %159 = extractvalue { i64, i64 } %155, 1
+  store i64 %159, ptr %158, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %30, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #5
+  br label %170
 
-202:                                              ; preds = %231, %169
-  %203 = load i64, ptr %20, align 8
-  %204 = load i64, ptr %21, align 8
-  %205 = add i64 %203, %204
-  %206 = load i64, ptr %19, align 8
-  %207 = trunc i64 %206 to i32
-  %208 = call { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %205, i32 noundef %207)
-  %209 = getelementptr inbounds { i64, i64 }, ptr %32, i32 0, i32 0
-  %210 = extractvalue { i64, i64 } %208, 0
-  store i64 %210, ptr %209, align 8
-  %211 = getelementptr inbounds { i64, i64 }, ptr %32, i32 0, i32 1
-  %212 = extractvalue { i64, i64 } %208, 1
-  store i64 %212, ptr %211, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %32, i64 16, i1 false)
-  %213 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 1
-  %214 = load i64, ptr %213, align 8
-  %215 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 0
-  %216 = load i64, ptr %215, align 8
-  %217 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %218 = load i64, ptr %217, align 8
-  %219 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %220 = load i64, ptr %219, align 8
-  %221 = call { i64, i64 } @softfloat_sub128(i64 noundef %214, i64 noundef %216, i64 noundef %218, i64 noundef %220)
-  %222 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 0
-  %223 = extractvalue { i64, i64 } %221, 0
-  store i64 %223, ptr %222, align 8
-  %224 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 1
-  %225 = extractvalue { i64, i64 } %221, 1
-  store i64 %225, ptr %224, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %33, i64 16, i1 false)
-  %226 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %227 = load i64, ptr %226, align 8
-  %228 = and i64 %227, -9223372036854775808
-  %229 = icmp ne i64 %228, 0
-  br i1 %229, label %231, label %230
+160:                                              ; preds = %123
+  call void @llvm.lifetime.start.p0(i64 16, ptr %31) #5
+  %161 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 1
+  %162 = load i64, ptr %161, align 8, !tbaa !11
+  %163 = getelementptr inbounds nuw %struct.uint128, ptr %10, i32 0, i32 0
+  %164 = load i64, ptr %163, align 8, !tbaa !13
+  %165 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %162, i64 noundef %164, i8 noundef zeroext 13)
+  %166 = getelementptr inbounds nuw { i64, i64 }, ptr %31, i32 0, i32 0
+  %167 = extractvalue { i64, i64 } %165, 0
+  store i64 %167, ptr %166, align 8
+  %168 = getelementptr inbounds nuw { i64, i64 }, ptr %31, i32 0, i32 1
+  %169 = extractvalue { i64, i64 } %165, 1
+  store i64 %169, ptr %168, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %31, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %31) #5
+  br label %170
 
-230:                                              ; preds = %202
-  br label %236
+170:                                              ; preds = %160, %148
+  %171 = load i64, ptr %16, align 8, !tbaa !7
+  %172 = trunc i64 %171 to i32
+  %173 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 2
+  store i32 %172, ptr %173, align 4, !tbaa !20
+  %174 = load i64, ptr %16, align 8, !tbaa !7
+  %175 = load i64, ptr %16, align 8, !tbaa !7
+  %176 = mul i64 %174, %175
+  %177 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %178 = load i64, ptr %177, align 8, !tbaa !11
+  %179 = sub i64 %178, %176
+  store i64 %179, ptr %177, align 8, !tbaa !11
+  %180 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %181 = load i64, ptr %180, align 8, !tbaa !11
+  %182 = lshr i64 %181, 2
+  %183 = trunc i64 %182 to i32
+  %184 = zext i32 %183 to i64
+  %185 = load i64, ptr %15, align 8, !tbaa !7
+  %186 = mul i64 %184, %185
+  %187 = lshr i64 %186, 32
+  store i64 %187, ptr %19, align 8, !tbaa !7
+  %188 = load i64, ptr %16, align 8, !tbaa !7
+  %189 = shl i64 %188, 32
+  store i64 %189, ptr %20, align 8, !tbaa !7
+  %190 = load i64, ptr %20, align 8, !tbaa !7
+  %191 = load i64, ptr %19, align 8, !tbaa !7
+  %192 = shl i64 %191, 3
+  %193 = add i64 %190, %192
+  store i64 %193, ptr %21, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %32) #5
+  %194 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %195 = load i64, ptr %194, align 8, !tbaa !11
+  %196 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 0
+  %197 = load i64, ptr %196, align 8, !tbaa !13
+  %198 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %195, i64 noundef %197, i8 noundef zeroext 29)
+  %199 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 0
+  %200 = extractvalue { i64, i64 } %198, 0
+  store i64 %200, ptr %199, align 8
+  %201 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i32 0, i32 1
+  %202 = extractvalue { i64, i64 } %198, 1
+  store i64 %202, ptr %201, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %32, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %32) #5
+  br label %203
 
-231:                                              ; preds = %202
-  %232 = load i64, ptr %19, align 8
-  %233 = add i64 %232, -1
-  store i64 %233, ptr %19, align 8
-  %234 = load i64, ptr %21, align 8
-  %235 = sub i64 %234, 8
-  store i64 %235, ptr %21, align 8
-  br label %202
+203:                                              ; preds = %232, %170
+  call void @llvm.lifetime.start.p0(i64 16, ptr %33) #5
+  %204 = load i64, ptr %20, align 8, !tbaa !7
+  %205 = load i64, ptr %21, align 8, !tbaa !7
+  %206 = add i64 %204, %205
+  %207 = load i64, ptr %19, align 8, !tbaa !7
+  %208 = trunc i64 %207 to i32
+  %209 = call { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %206, i32 noundef %208)
+  %210 = getelementptr inbounds nuw { i64, i64 }, ptr %33, i32 0, i32 0
+  %211 = extractvalue { i64, i64 } %209, 0
+  store i64 %211, ptr %210, align 8
+  %212 = getelementptr inbounds nuw { i64, i64 }, ptr %33, i32 0, i32 1
+  %213 = extractvalue { i64, i64 } %209, 1
+  store i64 %213, ptr %212, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %33, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %33) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %34) #5
+  %214 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 1
+  %215 = load i64, ptr %214, align 8, !tbaa !11
+  %216 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 0
+  %217 = load i64, ptr %216, align 8, !tbaa !13
+  %218 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %219 = load i64, ptr %218, align 8, !tbaa !11
+  %220 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %221 = load i64, ptr %220, align 8, !tbaa !13
+  %222 = call { i64, i64 } @softfloat_sub128(i64 noundef %215, i64 noundef %217, i64 noundef %219, i64 noundef %221)
+  %223 = getelementptr inbounds nuw { i64, i64 }, ptr %34, i32 0, i32 0
+  %224 = extractvalue { i64, i64 } %222, 0
+  store i64 %224, ptr %223, align 8
+  %225 = getelementptr inbounds nuw { i64, i64 }, ptr %34, i32 0, i32 1
+  %226 = extractvalue { i64, i64 } %222, 1
+  store i64 %226, ptr %225, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %34, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %34) #5
+  %227 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %228 = load i64, ptr %227, align 8, !tbaa !11
+  %229 = and i64 %228, -9223372036854775808
+  %230 = icmp ne i64 %229, 0
+  br i1 %230, label %232, label %231
 
-236:                                              ; preds = %230
-  %237 = load i64, ptr %19, align 8
-  %238 = trunc i64 %237 to i32
-  %239 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 1
-  store i32 %238, ptr %239, align 4
-  %240 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %241 = load i64, ptr %240, align 8
-  %242 = lshr i64 %241, 2
-  %243 = load i64, ptr %15, align 8
-  %244 = mul i64 %242, %243
-  %245 = lshr i64 %244, 32
-  store i64 %245, ptr %19, align 8
-  %246 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %247 = load i64, ptr %246, align 8
-  %248 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 0
-  %249 = load i64, ptr %248, align 8
-  %250 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %247, i64 noundef %249, i8 noundef zeroext 29)
-  %251 = getelementptr inbounds { i64, i64 }, ptr %34, i32 0, i32 0
-  %252 = extractvalue { i64, i64 } %250, 0
-  store i64 %252, ptr %251, align 8
-  %253 = getelementptr inbounds { i64, i64 }, ptr %34, i32 0, i32 1
-  %254 = extractvalue { i64, i64 } %250, 1
-  store i64 %254, ptr %253, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %34, i64 16, i1 false)
-  %255 = load i64, ptr %21, align 8
-  %256 = shl i64 %255, 1
-  store i64 %256, ptr %21, align 8
-  br label %257
+231:                                              ; preds = %203
+  br label %237
 
-257:                                              ; preds = %304, %236
-  %258 = load i64, ptr %21, align 8
-  %259 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef 0, i64 noundef %258, i8 noundef zeroext 32)
-  %260 = getelementptr inbounds { i64, i64 }, ptr %35, i32 0, i32 0
-  %261 = extractvalue { i64, i64 } %259, 0
-  store i64 %261, ptr %260, align 8
-  %262 = getelementptr inbounds { i64, i64 }, ptr %35, i32 0, i32 1
-  %263 = extractvalue { i64, i64 } %259, 1
-  store i64 %263, ptr %262, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %35, i64 16, i1 false)
-  %264 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %265 = load i64, ptr %264, align 8
-  %266 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %267 = load i64, ptr %266, align 8
-  %268 = load i64, ptr %19, align 8
-  %269 = shl i64 %268, 6
-  %270 = call { i64, i64 } @softfloat_add128(i64 noundef %265, i64 noundef %267, i64 noundef 0, i64 noundef %269)
-  %271 = getelementptr inbounds { i64, i64 }, ptr %36, i32 0, i32 0
-  %272 = extractvalue { i64, i64 } %270, 0
-  store i64 %272, ptr %271, align 8
-  %273 = getelementptr inbounds { i64, i64 }, ptr %36, i32 0, i32 1
-  %274 = extractvalue { i64, i64 } %270, 1
-  store i64 %274, ptr %273, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %36, i64 16, i1 false)
-  %275 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %276 = load i64, ptr %275, align 8
-  %277 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %278 = load i64, ptr %277, align 8
-  %279 = load i64, ptr %19, align 8
-  %280 = trunc i64 %279 to i32
-  %281 = call { i64, i64 } @softfloat_mul128By32(i64 noundef %276, i64 noundef %278, i32 noundef %280)
-  %282 = getelementptr inbounds { i64, i64 }, ptr %37, i32 0, i32 0
-  %283 = extractvalue { i64, i64 } %281, 0
-  store i64 %283, ptr %282, align 8
-  %284 = getelementptr inbounds { i64, i64 }, ptr %37, i32 0, i32 1
-  %285 = extractvalue { i64, i64 } %281, 1
-  store i64 %285, ptr %284, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %37, i64 16, i1 false)
-  %286 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 1
-  %287 = load i64, ptr %286, align 8
-  %288 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 0
-  %289 = load i64, ptr %288, align 8
-  %290 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %291 = load i64, ptr %290, align 8
-  %292 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %293 = load i64, ptr %292, align 8
-  %294 = call { i64, i64 } @softfloat_sub128(i64 noundef %287, i64 noundef %289, i64 noundef %291, i64 noundef %293)
-  %295 = getelementptr inbounds { i64, i64 }, ptr %38, i32 0, i32 0
-  %296 = extractvalue { i64, i64 } %294, 0
-  store i64 %296, ptr %295, align 8
-  %297 = getelementptr inbounds { i64, i64 }, ptr %38, i32 0, i32 1
-  %298 = extractvalue { i64, i64 } %294, 1
-  store i64 %298, ptr %297, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %38, i64 16, i1 false)
-  %299 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %300 = load i64, ptr %299, align 8
-  %301 = and i64 %300, -9223372036854775808
-  %302 = icmp ne i64 %301, 0
-  br i1 %302, label %304, label %303
+232:                                              ; preds = %203
+  %233 = load i64, ptr %19, align 8, !tbaa !7
+  %234 = add i64 %233, -1
+  store i64 %234, ptr %19, align 8, !tbaa !7
+  %235 = load i64, ptr %21, align 8, !tbaa !7
+  %236 = sub i64 %235, 8
+  store i64 %236, ptr %21, align 8, !tbaa !7
+  br label %203
 
-303:                                              ; preds = %257
-  br label %307
+237:                                              ; preds = %231
+  %238 = load i64, ptr %19, align 8, !tbaa !7
+  %239 = trunc i64 %238 to i32
+  %240 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 1
+  store i32 %239, ptr %240, align 4, !tbaa !20
+  %241 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %242 = load i64, ptr %241, align 8, !tbaa !11
+  %243 = lshr i64 %242, 2
+  %244 = load i64, ptr %15, align 8, !tbaa !7
+  %245 = mul i64 %243, %244
+  %246 = lshr i64 %245, 32
+  store i64 %246, ptr %19, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %35) #5
+  %247 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %248 = load i64, ptr %247, align 8, !tbaa !11
+  %249 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 0
+  %250 = load i64, ptr %249, align 8, !tbaa !13
+  %251 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %248, i64 noundef %250, i8 noundef zeroext 29)
+  %252 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 0
+  %253 = extractvalue { i64, i64 } %251, 0
+  store i64 %253, ptr %252, align 8
+  %254 = getelementptr inbounds nuw { i64, i64 }, ptr %35, i32 0, i32 1
+  %255 = extractvalue { i64, i64 } %251, 1
+  store i64 %255, ptr %254, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %35, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %35) #5
+  %256 = load i64, ptr %21, align 8, !tbaa !7
+  %257 = shl i64 %256, 1
+  store i64 %257, ptr %21, align 8, !tbaa !7
+  br label %258
 
-304:                                              ; preds = %257
-  %305 = load i64, ptr %19, align 8
-  %306 = add i64 %305, -1
-  store i64 %306, ptr %19, align 8
-  br label %257
+258:                                              ; preds = %305, %237
+  call void @llvm.lifetime.start.p0(i64 16, ptr %36) #5
+  %259 = load i64, ptr %21, align 8, !tbaa !7
+  %260 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef 0, i64 noundef %259, i8 noundef zeroext 32)
+  %261 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i32 0, i32 0
+  %262 = extractvalue { i64, i64 } %260, 0
+  store i64 %262, ptr %261, align 8
+  %263 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i32 0, i32 1
+  %264 = extractvalue { i64, i64 } %260, 1
+  store i64 %264, ptr %263, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %36, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %36) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %37) #5
+  %265 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %266 = load i64, ptr %265, align 8, !tbaa !11
+  %267 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %268 = load i64, ptr %267, align 8, !tbaa !13
+  %269 = load i64, ptr %19, align 8, !tbaa !7
+  %270 = shl i64 %269, 6
+  %271 = call { i64, i64 } @softfloat_add128(i64 noundef %266, i64 noundef %268, i64 noundef 0, i64 noundef %270)
+  %272 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 0
+  %273 = extractvalue { i64, i64 } %271, 0
+  store i64 %273, ptr %272, align 8
+  %274 = getelementptr inbounds nuw { i64, i64 }, ptr %37, i32 0, i32 1
+  %275 = extractvalue { i64, i64 } %271, 1
+  store i64 %275, ptr %274, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %37, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %37) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %38) #5
+  %276 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %277 = load i64, ptr %276, align 8, !tbaa !11
+  %278 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %279 = load i64, ptr %278, align 8, !tbaa !13
+  %280 = load i64, ptr %19, align 8, !tbaa !7
+  %281 = trunc i64 %280 to i32
+  %282 = call { i64, i64 } @softfloat_mul128By32(i64 noundef %277, i64 noundef %279, i32 noundef %281)
+  %283 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 0
+  %284 = extractvalue { i64, i64 } %282, 0
+  store i64 %284, ptr %283, align 8
+  %285 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i32 0, i32 1
+  %286 = extractvalue { i64, i64 } %282, 1
+  store i64 %286, ptr %285, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %38, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %38) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %39) #5
+  %287 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 1
+  %288 = load i64, ptr %287, align 8, !tbaa !11
+  %289 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 0
+  %290 = load i64, ptr %289, align 8, !tbaa !13
+  %291 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %292 = load i64, ptr %291, align 8, !tbaa !11
+  %293 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %294 = load i64, ptr %293, align 8, !tbaa !13
+  %295 = call { i64, i64 } @softfloat_sub128(i64 noundef %288, i64 noundef %290, i64 noundef %292, i64 noundef %294)
+  %296 = getelementptr inbounds nuw { i64, i64 }, ptr %39, i32 0, i32 0
+  %297 = extractvalue { i64, i64 } %295, 0
+  store i64 %297, ptr %296, align 8
+  %298 = getelementptr inbounds nuw { i64, i64 }, ptr %39, i32 0, i32 1
+  %299 = extractvalue { i64, i64 } %295, 1
+  store i64 %299, ptr %298, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %39, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %39) #5
+  %300 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %301 = load i64, ptr %300, align 8, !tbaa !11
+  %302 = and i64 %301, -9223372036854775808
+  %303 = icmp ne i64 %302, 0
+  br i1 %303, label %305, label %304
 
-307:                                              ; preds = %303
-  %308 = load i64, ptr %19, align 8
-  %309 = trunc i64 %308 to i32
-  %310 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 0
-  store i32 %309, ptr %310, align 4
-  %311 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %312 = load i64, ptr %311, align 8
-  %313 = lshr i64 %312, 2
-  %314 = load i64, ptr %15, align 8
-  %315 = mul i64 %313, %314
-  %316 = lshr i64 %315, 32
-  %317 = add i64 %316, 2
-  store i64 %317, ptr %19, align 8
-  %318 = load i64, ptr %19, align 8
-  %319 = shl i64 %318, 59
-  store i64 %319, ptr %24, align 8
-  %320 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 1
-  %321 = load i32, ptr %320, align 4
-  %322 = zext i32 %321 to i64
-  %323 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef 0, i64 noundef %322, i8 noundef zeroext 53)
-  %324 = getelementptr inbounds { i64, i64 }, ptr %39, i32 0, i32 0
-  %325 = extractvalue { i64, i64 } %323, 0
-  store i64 %325, ptr %324, align 8
-  %326 = getelementptr inbounds { i64, i64 }, ptr %39, i32 0, i32 1
-  %327 = extractvalue { i64, i64 } %323, 1
-  store i64 %327, ptr %326, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %39, i64 16, i1 false)
-  %328 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 2
-  %329 = load i32, ptr %328, align 4
-  %330 = zext i32 %329 to i64
-  %331 = shl i64 %330, 18
-  %332 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 0
-  %333 = load i32, ptr %332, align 4
-  %334 = zext i32 %333 to i64
-  %335 = shl i64 %334, 24
-  %336 = load i64, ptr %19, align 8
-  %337 = lshr i64 %336, 5
-  %338 = add i64 %335, %337
-  %339 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %340 = load i64, ptr %339, align 8
-  %341 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %342 = load i64, ptr %341, align 8
-  %343 = call { i64, i64 } @softfloat_add128(i64 noundef %331, i64 noundef %338, i64 noundef %340, i64 noundef %342)
-  %344 = getelementptr inbounds { i64, i64 }, ptr %40, i32 0, i32 0
-  %345 = extractvalue { i64, i64 } %343, 0
-  store i64 %345, ptr %344, align 8
-  %346 = getelementptr inbounds { i64, i64 }, ptr %40, i32 0, i32 1
-  %347 = extractvalue { i64, i64 } %343, 1
-  store i64 %347, ptr %346, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %40, i64 16, i1 false)
-  %348 = load i64, ptr %19, align 8
-  %349 = and i64 %348, 15
-  %350 = icmp ule i64 %349, 2
-  br i1 %350, label %351, label %467
+304:                                              ; preds = %258
+  br label %308
 
-351:                                              ; preds = %307
-  %352 = load i64, ptr %19, align 8
-  %353 = and i64 %352, -4
-  store i64 %353, ptr %19, align 8
-  %354 = load i64, ptr %19, align 8
-  %355 = shl i64 %354, 59
-  store i64 %355, ptr %24, align 8
-  %356 = getelementptr inbounds %struct.uint128, ptr %25, i32 0, i32 1
-  %357 = load i64, ptr %356, align 8
-  %358 = getelementptr inbounds %struct.uint128, ptr %25, i32 0, i32 0
-  %359 = load i64, ptr %358, align 8
-  %360 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %357, i64 noundef %359, i8 noundef zeroext 6)
-  %361 = getelementptr inbounds { i64, i64 }, ptr %41, i32 0, i32 0
-  %362 = extractvalue { i64, i64 } %360, 0
-  store i64 %362, ptr %361, align 8
-  %363 = getelementptr inbounds { i64, i64 }, ptr %41, i32 0, i32 1
-  %364 = extractvalue { i64, i64 } %360, 1
-  store i64 %364, ptr %363, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %41, i64 16, i1 false)
-  %365 = load i64, ptr %24, align 8
-  %366 = lshr i64 %365, 58
-  %367 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 0
-  %368 = load i64, ptr %367, align 8
-  %369 = or i64 %368, %366
-  store i64 %369, ptr %367, align 8
-  %370 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 1
-  %371 = load i64, ptr %370, align 8
-  %372 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 0
-  %373 = load i64, ptr %372, align 8
-  %374 = load i64, ptr %19, align 8
-  %375 = call { i64, i64 } @softfloat_sub128(i64 noundef %371, i64 noundef %373, i64 noundef 0, i64 noundef %374)
-  %376 = getelementptr inbounds { i64, i64 }, ptr %42, i32 0, i32 0
-  %377 = extractvalue { i64, i64 } %375, 0
-  store i64 %377, ptr %376, align 8
-  %378 = getelementptr inbounds { i64, i64 }, ptr %42, i32 0, i32 1
-  %379 = extractvalue { i64, i64 } %375, 1
-  store i64 %379, ptr %378, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %42, i64 16, i1 false)
-  %380 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %381 = load i64, ptr %380, align 8
-  %382 = load i64, ptr %19, align 8
-  %383 = trunc i64 %382 to i32
-  %384 = call { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %381, i32 noundef %383)
-  %385 = getelementptr inbounds { i64, i64 }, ptr %43, i32 0, i32 0
-  %386 = extractvalue { i64, i64 } %384, 0
-  store i64 %386, ptr %385, align 8
-  %387 = getelementptr inbounds { i64, i64 }, ptr %43, i32 0, i32 1
-  %388 = extractvalue { i64, i64 } %384, 1
-  store i64 %388, ptr %387, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %43, i64 16, i1 false)
-  %389 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %390 = load i64, ptr %389, align 8
-  %391 = load i64, ptr %19, align 8
-  %392 = trunc i64 %391 to i32
-  %393 = call { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %390, i32 noundef %392)
-  %394 = getelementptr inbounds { i64, i64 }, ptr %44, i32 0, i32 0
-  %395 = extractvalue { i64, i64 } %393, 0
-  store i64 %395, ptr %394, align 8
-  %396 = getelementptr inbounds { i64, i64 }, ptr %44, i32 0, i32 1
-  %397 = extractvalue { i64, i64 } %393, 1
-  store i64 %397, ptr %396, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %44, i64 16, i1 false)
-  %398 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %399 = load i64, ptr %398, align 8
-  %400 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %401 = load i64, ptr %400, align 8
-  %402 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 1
-  %403 = load i64, ptr %402, align 8
-  %404 = call { i64, i64 } @softfloat_add128(i64 noundef %399, i64 noundef %401, i64 noundef 0, i64 noundef %403)
-  %405 = getelementptr inbounds { i64, i64 }, ptr %45, i32 0, i32 0
-  %406 = extractvalue { i64, i64 } %404, 0
-  store i64 %406, ptr %405, align 8
-  %407 = getelementptr inbounds { i64, i64 }, ptr %45, i32 0, i32 1
-  %408 = extractvalue { i64, i64 } %404, 1
-  store i64 %408, ptr %407, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %45, i64 16, i1 false)
-  %409 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %410 = load i64, ptr %409, align 8
-  %411 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 0
-  %412 = load i64, ptr %411, align 8
-  %413 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %410, i64 noundef %412, i8 noundef zeroext 20)
-  %414 = getelementptr inbounds { i64, i64 }, ptr %46, i32 0, i32 0
-  %415 = extractvalue { i64, i64 } %413, 0
-  store i64 %415, ptr %414, align 8
-  %416 = getelementptr inbounds { i64, i64 }, ptr %46, i32 0, i32 1
-  %417 = extractvalue { i64, i64 } %413, 1
-  store i64 %417, ptr %416, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %46, i64 16, i1 false)
-  %418 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %419 = load i64, ptr %418, align 8
-  %420 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %421 = load i64, ptr %420, align 8
-  %422 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 1
-  %423 = load i64, ptr %422, align 8
-  %424 = getelementptr inbounds %struct.uint128, ptr %17, i32 0, i32 0
-  %425 = load i64, ptr %424, align 8
-  %426 = call { i64, i64 } @softfloat_sub128(i64 noundef %419, i64 noundef %421, i64 noundef %423, i64 noundef %425)
-  %427 = getelementptr inbounds { i64, i64 }, ptr %47, i32 0, i32 0
-  %428 = extractvalue { i64, i64 } %426, 0
-  store i64 %428, ptr %427, align 8
-  %429 = getelementptr inbounds { i64, i64 }, ptr %47, i32 0, i32 1
-  %430 = extractvalue { i64, i64 } %426, 1
-  store i64 %430, ptr %429, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %47, i64 16, i1 false)
-  %431 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %432 = load i64, ptr %431, align 8
-  %433 = and i64 %432, -9223372036854775808
-  %434 = icmp ne i64 %433, 0
-  br i1 %434, label %435, label %438
+305:                                              ; preds = %258
+  %306 = load i64, ptr %19, align 8, !tbaa !7
+  %307 = add i64 %306, -1
+  store i64 %307, ptr %19, align 8, !tbaa !7
+  br label %258
 
-435:                                              ; preds = %351
-  %436 = load i64, ptr %24, align 8
-  %437 = or i64 %436, 1
-  store i64 %437, ptr %24, align 8
-  br label %466
+308:                                              ; preds = %304
+  %309 = load i64, ptr %19, align 8, !tbaa !7
+  %310 = trunc i64 %309 to i32
+  %311 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 0
+  store i32 %310, ptr %311, align 4, !tbaa !20
+  %312 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %313 = load i64, ptr %312, align 8, !tbaa !11
+  %314 = lshr i64 %313, 2
+  %315 = load i64, ptr %15, align 8, !tbaa !7
+  %316 = mul i64 %314, %315
+  %317 = lshr i64 %316, 32
+  %318 = add i64 %317, 2
+  store i64 %318, ptr %19, align 8, !tbaa !7
+  %319 = load i64, ptr %19, align 8, !tbaa !7
+  %320 = shl i64 %319, 59
+  store i64 %320, ptr %24, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %40) #5
+  %321 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 1
+  %322 = load i32, ptr %321, align 4, !tbaa !20
+  %323 = zext i32 %322 to i64
+  %324 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef 0, i64 noundef %323, i8 noundef zeroext 53)
+  %325 = getelementptr inbounds nuw { i64, i64 }, ptr %40, i32 0, i32 0
+  %326 = extractvalue { i64, i64 } %324, 0
+  store i64 %326, ptr %325, align 8
+  %327 = getelementptr inbounds nuw { i64, i64 }, ptr %40, i32 0, i32 1
+  %328 = extractvalue { i64, i64 } %324, 1
+  store i64 %328, ptr %327, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %40, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %40) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %41) #5
+  %329 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 2
+  %330 = load i32, ptr %329, align 4, !tbaa !20
+  %331 = zext i32 %330 to i64
+  %332 = shl i64 %331, 18
+  %333 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 0
+  %334 = load i32, ptr %333, align 4, !tbaa !20
+  %335 = zext i32 %334 to i64
+  %336 = shl i64 %335, 24
+  %337 = load i64, ptr %19, align 8, !tbaa !7
+  %338 = lshr i64 %337, 5
+  %339 = add i64 %336, %338
+  %340 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %341 = load i64, ptr %340, align 8, !tbaa !11
+  %342 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %343 = load i64, ptr %342, align 8, !tbaa !13
+  %344 = call { i64, i64 } @softfloat_add128(i64 noundef %332, i64 noundef %339, i64 noundef %341, i64 noundef %343)
+  %345 = getelementptr inbounds nuw { i64, i64 }, ptr %41, i32 0, i32 0
+  %346 = extractvalue { i64, i64 } %344, 0
+  store i64 %346, ptr %345, align 8
+  %347 = getelementptr inbounds nuw { i64, i64 }, ptr %41, i32 0, i32 1
+  %348 = extractvalue { i64, i64 } %344, 1
+  store i64 %348, ptr %347, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %41, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %41) #5
+  %349 = load i64, ptr %19, align 8, !tbaa !7
+  %350 = and i64 %349, 15
+  %351 = icmp ule i64 %350, 2
+  br i1 %351, label %352, label %468
 
-438:                                              ; preds = %351
-  %439 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 1
-  %440 = load i64, ptr %439, align 8
-  %441 = getelementptr inbounds %struct.uint128, ptr %23, i32 0, i32 0
-  %442 = load i64, ptr %441, align 8
-  %443 = or i64 %440, %442
-  %444 = getelementptr inbounds %struct.uint128, ptr %22, i32 0, i32 0
-  %445 = load i64, ptr %444, align 8
-  %446 = or i64 %443, %445
-  %447 = icmp ne i64 %446, 0
-  br i1 %447, label %448, label %465
+352:                                              ; preds = %308
+  %353 = load i64, ptr %19, align 8, !tbaa !7
+  %354 = and i64 %353, -4
+  store i64 %354, ptr %19, align 8, !tbaa !7
+  %355 = load i64, ptr %19, align 8, !tbaa !7
+  %356 = shl i64 %355, 59
+  store i64 %356, ptr %24, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %42) #5
+  %357 = getelementptr inbounds nuw %struct.uint128, ptr %25, i32 0, i32 1
+  %358 = load i64, ptr %357, align 8, !tbaa !11
+  %359 = getelementptr inbounds nuw %struct.uint128, ptr %25, i32 0, i32 0
+  %360 = load i64, ptr %359, align 8, !tbaa !13
+  %361 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %358, i64 noundef %360, i8 noundef zeroext 6)
+  %362 = getelementptr inbounds nuw { i64, i64 }, ptr %42, i32 0, i32 0
+  %363 = extractvalue { i64, i64 } %361, 0
+  store i64 %363, ptr %362, align 8
+  %364 = getelementptr inbounds nuw { i64, i64 }, ptr %42, i32 0, i32 1
+  %365 = extractvalue { i64, i64 } %361, 1
+  store i64 %365, ptr %364, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %42, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %42) #5
+  %366 = load i64, ptr %24, align 8, !tbaa !7
+  %367 = lshr i64 %366, 58
+  %368 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 0
+  %369 = load i64, ptr %368, align 8, !tbaa !13
+  %370 = or i64 %369, %367
+  store i64 %370, ptr %368, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr %43) #5
+  %371 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 1
+  %372 = load i64, ptr %371, align 8, !tbaa !11
+  %373 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 0
+  %374 = load i64, ptr %373, align 8, !tbaa !13
+  %375 = load i64, ptr %19, align 8, !tbaa !7
+  %376 = call { i64, i64 } @softfloat_sub128(i64 noundef %372, i64 noundef %374, i64 noundef 0, i64 noundef %375)
+  %377 = getelementptr inbounds nuw { i64, i64 }, ptr %43, i32 0, i32 0
+  %378 = extractvalue { i64, i64 } %376, 0
+  store i64 %378, ptr %377, align 8
+  %379 = getelementptr inbounds nuw { i64, i64 }, ptr %43, i32 0, i32 1
+  %380 = extractvalue { i64, i64 } %376, 1
+  store i64 %380, ptr %379, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %43, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %43) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %44) #5
+  %381 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %382 = load i64, ptr %381, align 8, !tbaa !13
+  %383 = load i64, ptr %19, align 8, !tbaa !7
+  %384 = trunc i64 %383 to i32
+  %385 = call { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %382, i32 noundef %384)
+  %386 = getelementptr inbounds nuw { i64, i64 }, ptr %44, i32 0, i32 0
+  %387 = extractvalue { i64, i64 } %385, 0
+  store i64 %387, ptr %386, align 8
+  %388 = getelementptr inbounds nuw { i64, i64 }, ptr %44, i32 0, i32 1
+  %389 = extractvalue { i64, i64 } %385, 1
+  store i64 %389, ptr %388, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %44, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %44) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %45) #5
+  %390 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %391 = load i64, ptr %390, align 8, !tbaa !11
+  %392 = load i64, ptr %19, align 8, !tbaa !7
+  %393 = trunc i64 %392 to i32
+  %394 = call { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %391, i32 noundef %393)
+  %395 = getelementptr inbounds nuw { i64, i64 }, ptr %45, i32 0, i32 0
+  %396 = extractvalue { i64, i64 } %394, 0
+  store i64 %396, ptr %395, align 8
+  %397 = getelementptr inbounds nuw { i64, i64 }, ptr %45, i32 0, i32 1
+  %398 = extractvalue { i64, i64 } %394, 1
+  store i64 %398, ptr %397, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %45, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %45) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %46) #5
+  %399 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %400 = load i64, ptr %399, align 8, !tbaa !11
+  %401 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %402 = load i64, ptr %401, align 8, !tbaa !13
+  %403 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 1
+  %404 = load i64, ptr %403, align 8, !tbaa !11
+  %405 = call { i64, i64 } @softfloat_add128(i64 noundef %400, i64 noundef %402, i64 noundef 0, i64 noundef %404)
+  %406 = getelementptr inbounds nuw { i64, i64 }, ptr %46, i32 0, i32 0
+  %407 = extractvalue { i64, i64 } %405, 0
+  store i64 %407, ptr %406, align 8
+  %408 = getelementptr inbounds nuw { i64, i64 }, ptr %46, i32 0, i32 1
+  %409 = extractvalue { i64, i64 } %405, 1
+  store i64 %409, ptr %408, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %46, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %46) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %47) #5
+  %410 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %411 = load i64, ptr %410, align 8, !tbaa !11
+  %412 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 0
+  %413 = load i64, ptr %412, align 8, !tbaa !13
+  %414 = call { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %411, i64 noundef %413, i8 noundef zeroext 20)
+  %415 = getelementptr inbounds nuw { i64, i64 }, ptr %47, i32 0, i32 0
+  %416 = extractvalue { i64, i64 } %414, 0
+  store i64 %416, ptr %415, align 8
+  %417 = getelementptr inbounds nuw { i64, i64 }, ptr %47, i32 0, i32 1
+  %418 = extractvalue { i64, i64 } %414, 1
+  store i64 %418, ptr %417, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %47, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %47) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %48) #5
+  %419 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %420 = load i64, ptr %419, align 8, !tbaa !11
+  %421 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %422 = load i64, ptr %421, align 8, !tbaa !13
+  %423 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 1
+  %424 = load i64, ptr %423, align 8, !tbaa !11
+  %425 = getelementptr inbounds nuw %struct.uint128, ptr %17, i32 0, i32 0
+  %426 = load i64, ptr %425, align 8, !tbaa !13
+  %427 = call { i64, i64 } @softfloat_sub128(i64 noundef %420, i64 noundef %422, i64 noundef %424, i64 noundef %426)
+  %428 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 0
+  %429 = extractvalue { i64, i64 } %427, 0
+  store i64 %429, ptr %428, align 8
+  %430 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 1
+  %431 = extractvalue { i64, i64 } %427, 1
+  store i64 %431, ptr %430, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %48, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %48) #5
+  %432 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %433 = load i64, ptr %432, align 8, !tbaa !11
+  %434 = and i64 %433, -9223372036854775808
+  %435 = icmp ne i64 %434, 0
+  br i1 %435, label %436, label %439
 
-448:                                              ; preds = %438
-  %449 = load i64, ptr %24, align 8
-  %450 = icmp ne i64 %449, 0
-  br i1 %450, label %451, label %454
-
-451:                                              ; preds = %448
-  %452 = load i64, ptr %24, align 8
-  %453 = add i64 %452, -1
-  store i64 %453, ptr %24, align 8
-  br label %464
-
-454:                                              ; preds = %448
-  %455 = getelementptr inbounds %struct.uint128, ptr %25, i32 0, i32 1
-  %456 = load i64, ptr %455, align 8
-  %457 = getelementptr inbounds %struct.uint128, ptr %25, i32 0, i32 0
-  %458 = load i64, ptr %457, align 8
-  %459 = call { i64, i64 } @softfloat_sub128(i64 noundef %456, i64 noundef %458, i64 noundef 0, i64 noundef 1)
-  %460 = getelementptr inbounds { i64, i64 }, ptr %48, i32 0, i32 0
-  %461 = extractvalue { i64, i64 } %459, 0
-  store i64 %461, ptr %460, align 8
-  %462 = getelementptr inbounds { i64, i64 }, ptr %48, i32 0, i32 1
-  %463 = extractvalue { i64, i64 } %459, 1
-  store i64 %463, ptr %462, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %48, i64 16, i1 false)
-  store i64 -1, ptr %24, align 8
-  br label %464
-
-464:                                              ; preds = %454, %451
-  br label %465
-
-465:                                              ; preds = %464, %438
-  br label %466
-
-466:                                              ; preds = %465, %435
+436:                                              ; preds = %352
+  %437 = load i64, ptr %24, align 8, !tbaa !7
+  %438 = or i64 %437, 1
+  store i64 %438, ptr %24, align 8, !tbaa !7
   br label %467
 
-467:                                              ; preds = %466, %307
-  %468 = load i64, ptr %13, align 8
-  %469 = getelementptr inbounds %struct.uint128, ptr %25, i32 0, i32 1
-  %470 = load i64, ptr %469, align 8
-  %471 = getelementptr inbounds %struct.uint128, ptr %25, i32 0, i32 0
-  %472 = load i64, ptr %471, align 8
-  %473 = load i64, ptr %24, align 8
-  %474 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext false, i64 noundef %468, i64 noundef %470, i64 noundef %472, i64 noundef %473)
-  %475 = getelementptr inbounds %struct.float128_t, ptr %3, i32 0, i32 0
-  %476 = getelementptr inbounds { i64, i64 }, ptr %475, i32 0, i32 0
-  %477 = extractvalue { i64, i64 } %474, 0
-  store i64 %477, ptr %476, align 8
-  %478 = getelementptr inbounds { i64, i64 }, ptr %475, i32 0, i32 1
-  %479 = extractvalue { i64, i64 } %474, 1
-  store i64 %479, ptr %478, align 8
-  br label %484
+439:                                              ; preds = %352
+  %440 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 1
+  %441 = load i64, ptr %440, align 8, !tbaa !11
+  %442 = getelementptr inbounds nuw %struct.uint128, ptr %23, i32 0, i32 0
+  %443 = load i64, ptr %442, align 8, !tbaa !13
+  %444 = or i64 %441, %443
+  %445 = getelementptr inbounds nuw %struct.uint128, ptr %22, i32 0, i32 0
+  %446 = load i64, ptr %445, align 8, !tbaa !13
+  %447 = or i64 %444, %446
+  %448 = icmp ne i64 %447, 0
+  br i1 %448, label %449, label %466
 
-480:                                              ; preds = %102, %88
+449:                                              ; preds = %439
+  %450 = load i64, ptr %24, align 8, !tbaa !7
+  %451 = icmp ne i64 %450, 0
+  br i1 %451, label %452, label %455
+
+452:                                              ; preds = %449
+  %453 = load i64, ptr %24, align 8, !tbaa !7
+  %454 = add i64 %453, -1
+  store i64 %454, ptr %24, align 8, !tbaa !7
+  br label %465
+
+455:                                              ; preds = %449
+  call void @llvm.lifetime.start.p0(i64 16, ptr %49) #5
+  %456 = getelementptr inbounds nuw %struct.uint128, ptr %25, i32 0, i32 1
+  %457 = load i64, ptr %456, align 8, !tbaa !11
+  %458 = getelementptr inbounds nuw %struct.uint128, ptr %25, i32 0, i32 0
+  %459 = load i64, ptr %458, align 8, !tbaa !13
+  %460 = call { i64, i64 } @softfloat_sub128(i64 noundef %457, i64 noundef %459, i64 noundef 0, i64 noundef 1)
+  %461 = getelementptr inbounds nuw { i64, i64 }, ptr %49, i32 0, i32 0
+  %462 = extractvalue { i64, i64 } %460, 0
+  store i64 %462, ptr %461, align 8
+  %463 = getelementptr inbounds nuw { i64, i64 }, ptr %49, i32 0, i32 1
+  %464 = extractvalue { i64, i64 } %460, 1
+  store i64 %464, ptr %463, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %49, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %49) #5
+  store i64 -1, ptr %24, align 8, !tbaa !7
+  br label %465
+
+465:                                              ; preds = %455, %452
+  br label %466
+
+466:                                              ; preds = %465, %439
+  br label %467
+
+467:                                              ; preds = %466, %436
+  br label %468
+
+468:                                              ; preds = %467, %308
+  %469 = load i64, ptr %13, align 8, !tbaa !7
+  %470 = getelementptr inbounds nuw %struct.uint128, ptr %25, i32 0, i32 1
+  %471 = load i64, ptr %470, align 8, !tbaa !11
+  %472 = getelementptr inbounds nuw %struct.uint128, ptr %25, i32 0, i32 0
+  %473 = load i64, ptr %472, align 8, !tbaa !13
+  %474 = load i64, ptr %24, align 8, !tbaa !7
+  %475 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext false, i64 noundef %469, i64 noundef %471, i64 noundef %473, i64 noundef %474)
+  %476 = getelementptr inbounds nuw %struct.float128_t, ptr %3, i32 0, i32 0
+  %477 = getelementptr inbounds nuw { i64, i64 }, ptr %476, i32 0, i32 0
+  %478 = extractvalue { i64, i64 } %475, 0
+  store i64 %478, ptr %477, align 8
+  %479 = getelementptr inbounds nuw { i64, i64 }, ptr %476, i32 0, i32 1
+  %480 = extractvalue { i64, i64 } %475, 1
+  store i64 %480, ptr %479, align 8
+  store i32 1, ptr %28, align 4
+  br label %485
+
+481:                                              ; preds = %103, %89
   call void @softfloat_raiseFlags(i8 noundef zeroext 16)
-  %481 = getelementptr inbounds %struct.uint128, ptr %11, i32 0, i32 1
-  store i64 9223231299366420480, ptr %481, align 8
-  %482 = getelementptr inbounds %struct.uint128, ptr %11, i32 0, i32 0
-  store i64 0, ptr %482, align 8
-  br label %483
-
-483:                                              ; preds = %480, %76
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %11, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %26, i64 16, i1 false)
+  %482 = getelementptr inbounds nuw %struct.uint128, ptr %11, i32 0, i32 1
+  store i64 9223231299366420480, ptr %482, align 8, !tbaa !11
+  %483 = getelementptr inbounds nuw %struct.uint128, ptr %11, i32 0, i32 0
+  store i64 0, ptr %483, align 8, !tbaa !13
   br label %484
 
-484:                                              ; preds = %483, %467, %113, %101, %87
-  %485 = getelementptr inbounds %struct.float128_t, ptr %3, i32 0, i32 0
-  %486 = load { i64, i64 }, ptr %485, align 8
-  ret { i64, i64 } %486
+484:                                              ; preds = %481, %77
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %26, i64 16, i1 false), !tbaa.struct !3
+  store i32 1, ptr %28, align 4
+  br label %485
+
+485:                                              ; preds = %484, %468, %114, %102, %88
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 12, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #5
+  %486 = getelementptr inbounds nuw %struct.float128_t, ptr %3, i32 0, i32 0
+  %487 = load { i64, i64 }, ptr %486, align 8
+  ret { i64, i64 } %487
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef, i64 noundef, i64 noundef, i64 noundef) #2
+declare { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-declare void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind writable sret(%struct.exp32_sig128) align 8, i64 noundef, i64 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @softfloat_approxRecipSqrt32_1(i32 noundef, i32 noundef) #2
+declare void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind writable sret(%struct.exp32_sig128) align 8, i64 noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %0, i64 noundef %1, i8 noundef zeroext %2) #0 {
+declare i32 @softfloat_approxRecipSqrt32_1(i32 noundef, i32 noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal { i64, i64 } @softfloat_shortShiftLeft128(i64 noundef %0, i64 noundef %1, i8 noundef zeroext %2) #4 {
   %4 = alloca %struct.uint128, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
-  store i64 %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i8 %2, ptr %7, align 1
-  %8 = load i64, ptr %5, align 8
-  %9 = load i8, ptr %7, align 1
+  store i64 %0, ptr %5, align 8, !tbaa !7
+  store i64 %1, ptr %6, align 8, !tbaa !7
+  store i8 %2, ptr %7, align 1, !tbaa !4
+  %8 = load i64, ptr %5, align 8, !tbaa !7
+  %9 = load i8, ptr %7, align 1, !tbaa !4
   %10 = zext i8 %9 to i32
   %11 = zext i32 %10 to i64
   %12 = shl i64 %8, %11
-  %13 = load i64, ptr %6, align 8
-  %14 = load i8, ptr %7, align 1
+  %13 = load i64, ptr %6, align 8, !tbaa !7
+  %14 = load i8, ptr %7, align 1, !tbaa !4
   %15 = zext i8 %14 to i32
   %16 = sub nsw i32 0, %15
   %17 = and i32 %16, 63
   %18 = zext i32 %17 to i64
   %19 = lshr i64 %13, %18
   %20 = or i64 %12, %19
-  %21 = getelementptr inbounds %struct.uint128, ptr %4, i32 0, i32 1
-  store i64 %20, ptr %21, align 8
-  %22 = load i64, ptr %6, align 8
-  %23 = load i8, ptr %7, align 1
+  %21 = getelementptr inbounds nuw %struct.uint128, ptr %4, i32 0, i32 1
+  store i64 %20, ptr %21, align 8, !tbaa !11
+  %22 = load i64, ptr %6, align 8, !tbaa !7
+  %23 = load i8, ptr %7, align 1, !tbaa !4
   %24 = zext i8 %23 to i32
   %25 = zext i32 %24 to i64
   %26 = shl i64 %22, %25
-  %27 = getelementptr inbounds %struct.uint128, ptr %4, i32 0, i32 0
-  store i64 %26, ptr %27, align 8
+  %27 = getelementptr inbounds nuw %struct.uint128, ptr %4, i32 0, i32 0
+  store i64 %26, ptr %27, align 8, !tbaa !13
   %28 = load { i64, i64 }, ptr %4, align 8
   ret { i64, i64 } %28
 }
 
-; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal { i64, i64 } @softfloat_mul64ByShifted32To128(i64 noundef %0, i32 noundef %1) #4 {
   %3 = alloca %struct.uint128, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  store i64 %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load i64, ptr %4, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %7 = load i64, ptr %4, align 8, !tbaa !7
   %8 = trunc i64 %7 to i32
   %9 = zext i32 %8 to i64
-  %10 = load i32, ptr %5, align 4
+  %10 = load i32, ptr %5, align 4, !tbaa !20
   %11 = zext i32 %10 to i64
   %12 = mul i64 %9, %11
-  store i64 %12, ptr %6, align 8
-  %13 = load i64, ptr %6, align 8
+  store i64 %12, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %6, align 8, !tbaa !7
   %14 = shl i64 %13, 32
-  %15 = getelementptr inbounds %struct.uint128, ptr %3, i32 0, i32 0
-  store i64 %14, ptr %15, align 8
-  %16 = load i64, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.uint128, ptr %3, i32 0, i32 0
+  store i64 %14, ptr %15, align 8, !tbaa !13
+  %16 = load i64, ptr %4, align 8, !tbaa !7
   %17 = lshr i64 %16, 32
   %18 = trunc i64 %17 to i32
   %19 = zext i32 %18 to i64
-  %20 = load i32, ptr %5, align 4
+  %20 = load i32, ptr %5, align 4, !tbaa !20
   %21 = zext i32 %20 to i64
   %22 = mul i64 %19, %21
-  %23 = load i64, ptr %6, align 8
+  %23 = load i64, ptr %6, align 8, !tbaa !7
   %24 = lshr i64 %23, 32
   %25 = add i64 %22, %24
-  %26 = getelementptr inbounds %struct.uint128, ptr %3, i32 0, i32 1
-  store i64 %25, ptr %26, align 8
+  %26 = getelementptr inbounds nuw %struct.uint128, ptr %3, i32 0, i32 1
+  store i64 %25, ptr %26, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
   %27 = load { i64, i64 }, ptr %3, align 8
   ret { i64, i64 } %27
 }
 
-; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @softfloat_sub128(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal { i64, i64 } @softfloat_sub128(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #4 {
   %5 = alloca %struct.uint128, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  store i64 %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %10 = load i64, ptr %7, align 8
-  %11 = load i64, ptr %9, align 8
+  store i64 %0, ptr %6, align 8, !tbaa !7
+  store i64 %1, ptr %7, align 8, !tbaa !7
+  store i64 %2, ptr %8, align 8, !tbaa !7
+  store i64 %3, ptr %9, align 8, !tbaa !7
+  %10 = load i64, ptr %7, align 8, !tbaa !7
+  %11 = load i64, ptr %9, align 8, !tbaa !7
   %12 = sub i64 %10, %11
-  %13 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 0
-  store i64 %12, ptr %13, align 8
-  %14 = load i64, ptr %6, align 8
-  %15 = load i64, ptr %8, align 8
+  %13 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 0
+  store i64 %12, ptr %13, align 8, !tbaa !13
+  %14 = load i64, ptr %6, align 8, !tbaa !7
+  %15 = load i64, ptr %8, align 8, !tbaa !7
   %16 = sub i64 %14, %15
-  %17 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 1
-  store i64 %16, ptr %17, align 8
-  %18 = load i64, ptr %7, align 8
-  %19 = load i64, ptr %9, align 8
+  %17 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 1
+  store i64 %16, ptr %17, align 8, !tbaa !11
+  %18 = load i64, ptr %7, align 8, !tbaa !7
+  %19 = load i64, ptr %9, align 8, !tbaa !7
   %20 = icmp ult i64 %18, %19
   %21 = zext i1 %20 to i32
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
+  %23 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8, !tbaa !11
   %25 = sub i64 %24, %22
-  store i64 %25, ptr %23, align 8
+  store i64 %25, ptr %23, align 8, !tbaa !11
   %26 = load { i64, i64 }, ptr %5, align 8
   ret { i64, i64 } %26
 }
 
-; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @softfloat_add128(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal { i64, i64 } @softfloat_add128(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #4 {
   %5 = alloca %struct.uint128, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  store i64 %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %10 = load i64, ptr %7, align 8
-  %11 = load i64, ptr %9, align 8
+  store i64 %0, ptr %6, align 8, !tbaa !7
+  store i64 %1, ptr %7, align 8, !tbaa !7
+  store i64 %2, ptr %8, align 8, !tbaa !7
+  store i64 %3, ptr %9, align 8, !tbaa !7
+  %10 = load i64, ptr %7, align 8, !tbaa !7
+  %11 = load i64, ptr %9, align 8, !tbaa !7
   %12 = add i64 %10, %11
-  %13 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 0
-  store i64 %12, ptr %13, align 8
-  %14 = load i64, ptr %6, align 8
-  %15 = load i64, ptr %8, align 8
+  %13 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 0
+  store i64 %12, ptr %13, align 8, !tbaa !13
+  %14 = load i64, ptr %6, align 8, !tbaa !7
+  %15 = load i64, ptr %8, align 8, !tbaa !7
   %16 = add i64 %14, %15
-  %17 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 0
-  %18 = load i64, ptr %17, align 8
-  %19 = load i64, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8, !tbaa !13
+  %19 = load i64, ptr %7, align 8, !tbaa !7
   %20 = icmp ult i64 %18, %19
   %21 = zext i1 %20 to i32
   %22 = sext i32 %21 to i64
   %23 = add i64 %16, %22
-  %24 = getelementptr inbounds %struct.uint128, ptr %5, i32 0, i32 1
-  store i64 %23, ptr %24, align 8
+  %24 = getelementptr inbounds nuw %struct.uint128, ptr %5, i32 0, i32 1
+  store i64 %23, ptr %24, align 8, !tbaa !11
   %25 = load { i64, i64 }, ptr %5, align 8
   ret { i64, i64 } %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @softfloat_mul128By32(i64 noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal { i64, i64 } @softfloat_mul128By32(i64 noundef %0, i64 noundef %1, i32 noundef %2) #4 {
   %4 = alloca %struct.uint128, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  store i64 %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %10 = load i64, ptr %6, align 8
-  %11 = load i32, ptr %7, align 4
+  store i64 %0, ptr %5, align 8, !tbaa !7
+  store i64 %1, ptr %6, align 8, !tbaa !7
+  store i32 %2, ptr %7, align 4, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %10 = load i64, ptr %6, align 8, !tbaa !7
+  %11 = load i32, ptr %7, align 4, !tbaa !20
   %12 = zext i32 %11 to i64
   %13 = mul i64 %10, %12
-  %14 = getelementptr inbounds %struct.uint128, ptr %4, i32 0, i32 0
-  store i64 %13, ptr %14, align 8
-  %15 = load i64, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %struct.uint128, ptr %4, i32 0, i32 0
+  store i64 %13, ptr %14, align 8, !tbaa !13
+  %15 = load i64, ptr %6, align 8, !tbaa !7
   %16 = lshr i64 %15, 32
   %17 = trunc i64 %16 to i32
   %18 = zext i32 %17 to i64
-  %19 = load i32, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4, !tbaa !20
   %20 = zext i32 %19 to i64
   %21 = mul i64 %18, %20
-  store i64 %21, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.uint128, ptr %4, i32 0, i32 0
-  %23 = load i64, ptr %22, align 8
+  store i64 %21, ptr %8, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.uint128, ptr %4, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8, !tbaa !13
   %24 = lshr i64 %23, 32
-  %25 = load i64, ptr %8, align 8
+  %25 = load i64, ptr %8, align 8, !tbaa !7
   %26 = sub i64 %24, %25
   %27 = trunc i64 %26 to i32
   %28 = zext i32 %27 to i64
-  store i64 %28, ptr %9, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = load i32, ptr %7, align 4
+  store i64 %28, ptr %9, align 8, !tbaa !7
+  %29 = load i64, ptr %5, align 8, !tbaa !7
+  %30 = load i32, ptr %7, align 4, !tbaa !20
   %31 = zext i32 %30 to i64
   %32 = mul i64 %29, %31
-  %33 = load i64, ptr %8, align 8
-  %34 = load i64, ptr %9, align 8
+  %33 = load i64, ptr %8, align 8, !tbaa !7
+  %34 = load i64, ptr %9, align 8, !tbaa !7
   %35 = add i64 %33, %34
   %36 = lshr i64 %35, 32
   %37 = add i64 %32, %36
-  %38 = getelementptr inbounds %struct.uint128, ptr %4, i32 0, i32 1
-  store i64 %37, ptr %38, align 8
+  %38 = getelementptr inbounds nuw %struct.uint128, ptr %4, i32 0, i32 1
+  store i64 %37, ptr %38, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
   %39 = load { i64, i64 }, ptr %4, align 8
   ret { i64, i64 } %39
 }
 
-declare { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #2
+declare { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-declare void @softfloat_raiseFlags(i8 noundef zeroext) #2
+declare void @softfloat_raiseFlags(i8 noundef zeroext) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{i64 0, i64 16, !4}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"_Bool", !5, i64 0}
+!11 = !{!12, !8, i64 8}
+!12 = !{!"uint128", !8, i64 0, !8, i64 8}
+!13 = !{!12, !8, i64 0}
+!14 = !{i64 0, i64 8, !7, i64 8, i64 8, !7}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{i64 0, i64 8, !7, i64 8, i64 8, !7, i64 16, i64 8, !7}
+!18 = !{!19, !8, i64 0}
+!19 = !{!"exp32_sig128", !8, i64 0, !12, i64 8}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !5, i64 0}

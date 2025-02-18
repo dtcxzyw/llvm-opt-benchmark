@@ -82,17 +82,17 @@ $_ZNSt10_Head_baseILm0EP10ucontext_tLb0EE7_M_headERKS2_ = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9context_tC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.context_t, ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.context_t, ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %class.context_t, ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %class.context_t, ptr %3, i32 0, i32 3
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 968) #9
-  call void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8) #10
+  %4 = getelementptr inbounds nuw %class.context_t, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %class.context_t, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw %class.context_t, ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %class.context_t, ptr %3, i32 0, i32 3
+  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 968) #11
+  call void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8) #12
   ret void
 }
 
@@ -103,11 +103,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) #1
 define linkonce_odr void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !21
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
   invoke void @_ZNSt15__uniq_ptr_dataI10ucontext_tSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %8 unwind label %9
 
@@ -118,7 +118,7 @@ define linkonce_odr void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #11
+  call void @__clang_call_terminate(ptr %11) #13
   unreachable
 }
 
@@ -127,57 +127,67 @@ define void @_ZN9context_t7wrapperEjj(i32 noundef %0, i32 noundef %1) #0 align 2
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !22
+  store i32 %1, ptr %4, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %6 = load i32, ptr %4, align 4, !tbaa !22
   %7 = zext i32 %6 to i64
-  %8 = load i32, ptr %3, align 4
+  %8 = load i32, ptr %3, align 4, !tbaa !22
   %9 = zext i32 %8 to i64
   %10 = shl i64 %9, 32
   %11 = or i64 %7, %10
   %12 = inttoptr i64 %11 to ptr
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %class.context_t, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
+  store ptr %12, ptr %5, align 8, !tbaa !3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %class.context_t, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !8
   call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %class.context_t, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %class.context_t, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %class.context_t, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %class.context_t, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !18
   call void %18(ptr noundef %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %6, ptr %3, align 8, !tbaa !3
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
-  store ptr %4, ptr %7, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %class.context_t, ptr %8, i32 0, i32 3
-  %10 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #10
-  %11 = getelementptr inbounds %class.context_t, ptr %4, i32 0, i32 3
-  %12 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
-  %13 = call i32 @swapcontext(ptr noundef %10, ptr noundef %12) #10
+  store ptr %4, ptr %7, align 8, !tbaa !3
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %class.context_t, ptr %8, i32 0, i32 3
+  %10 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  %11 = getelementptr inbounds nuw %class.context_t, ptr %4, i32 0, i32 3
+  %12 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  %13 = call i32 @swapcontext(ptr noundef %10, ptr noundef %12) #12
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %1
-  call void @abort() #11
+  call void @abort() #13
   unreachable
 
 16:                                               ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
@@ -186,64 +196,68 @@ define void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenc
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
   %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 1
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 2
-  store ptr %12, ptr %13, align 8
+  %10 = load ptr, ptr %5, align 8, !tbaa !24
+  %11 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 1
+  store ptr %10, ptr %11, align 8, !tbaa !17
+  %12 = load ptr, ptr %6, align 8, !tbaa !24
+  %13 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 2
+  store ptr %12, ptr %13, align 8, !tbaa !18
   %14 = call noundef ptr @_ZN9context_t7currentEv()
-  %15 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 0
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 3
-  %17 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #10
-  %18 = call i32 @getcontext(ptr noundef %17) #12
-  %19 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %class.context_t, ptr %20, i32 0, i32 3
-  %22 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #10
-  %23 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 3
-  %24 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #10
-  %25 = getelementptr inbounds %struct.ucontext_t, ptr %24, i32 0, i32 1
-  store ptr %22, ptr %25, align 8
-  %26 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 3
-  %27 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #10
-  %28 = getelementptr inbounds %struct.ucontext_t, ptr %27, i32 0, i32 2
-  %29 = getelementptr inbounds %struct.stack_t, ptr %28, i32 0, i32 2
-  store i64 1048576, ptr %29, align 8
-  %30 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 3
-  %31 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #10
-  %32 = getelementptr inbounds %struct.ucontext_t, ptr %31, i32 0, i32 2
-  %33 = getelementptr inbounds %struct.stack_t, ptr %32, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
+  %15 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 0
+  store ptr %14, ptr %15, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 3
+  %17 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+  %18 = call i32 @getcontext(ptr noundef %17) #14
+  %19 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %class.context_t, ptr %20, i32 0, i32 3
+  %22 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #12
+  %23 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 3
+  %24 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #12
+  %25 = getelementptr inbounds nuw %struct.ucontext_t, ptr %24, i32 0, i32 1
+  store ptr %22, ptr %25, align 8, !tbaa !25
+  %26 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 3
+  %27 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #12
+  %28 = getelementptr inbounds nuw %struct.ucontext_t, ptr %27, i32 0, i32 2
+  %29 = getelementptr inbounds nuw %struct.stack_t, ptr %28, i32 0, i32 2
+  store i64 1048576, ptr %29, align 8, !tbaa !34
+  %30 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 3
+  %31 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %30) #12
+  %32 = getelementptr inbounds nuw %struct.ucontext_t, ptr %31, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %struct.stack_t, ptr %32, i32 0, i32 2
+  %34 = load i64, ptr %33, align 8, !tbaa !34
   %35 = udiv i64 %34, 8
   %36 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 8)
   %37 = extractvalue { i64, i1 } %36, 1
   %38 = extractvalue { i64, i1 } %36, 0
   %39 = select i1 %37, i64 -1, i64 %38
-  %40 = call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #9
-  %41 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 3
-  %42 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %41) #10
-  %43 = getelementptr inbounds %struct.ucontext_t, ptr %42, i32 0, i32 2
-  %44 = getelementptr inbounds %struct.stack_t, ptr %43, i32 0, i32 0
-  store ptr %40, ptr %44, align 8
+  %40 = call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #11
+  %41 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 3
+  %42 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %41) #12
+  %43 = getelementptr inbounds nuw %struct.ucontext_t, ptr %42, i32 0, i32 2
+  %44 = getelementptr inbounds nuw %struct.stack_t, ptr %43, i32 0, i32 0
+  store ptr %40, ptr %44, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
   %45 = ptrtoint ptr %9 to i64
   %46 = lshr i64 %45, 32
   %47 = trunc i64 %46 to i32
-  store i32 %47, ptr %7, align 4
+  store i32 %47, ptr %7, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
   %48 = ptrtoint ptr %9 to i64
   %49 = trunc i64 %48 to i32
-  store i32 %49, ptr %8, align 4
-  %50 = getelementptr inbounds %class.context_t, ptr %9, i32 0, i32 3
-  %51 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #10
-  %52 = load i32, ptr %7, align 4
-  %53 = load i32, ptr %8, align 4
-  call void (ptr, ptr, i32, ...) @makecontext(ptr noundef %51, ptr noundef @_ZN9context_t7wrapperEjj, i32 noundef 2, i32 noundef %52, i32 noundef %53) #10
+  store i32 %49, ptr %8, align 4, !tbaa !22
+  %50 = getelementptr inbounds nuw %class.context_t, ptr %9, i32 0, i32 3
+  %51 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #12
+  %52 = load i32, ptr %7, align 4, !tbaa !22
+  %53 = load i32, ptr %8, align 4, !tbaa !22
+  call void (ptr, ptr, i32, ...) @makecontext(ptr noundef %51, ptr noundef @_ZN9context_t7wrapperEjj, i32 noundef 2, i32 noundef %52, i32 noundef %53) #12
   call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
   ret void
 }
 
@@ -252,23 +266,23 @@ define noundef ptr @_ZN9context_t7currentEv() #0 align 2 personality ptr @__gxx_
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %0
-  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #9
+  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #11
   invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %8 unwind label %15
 
 8:                                                ; preds = %6
   %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
-  store ptr %7, ptr %9, align 8
+  store ptr %7, ptr %9, align 8, !tbaa !3
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %class.context_t, ptr %11, i32 0, i32 3
-  %13 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  %14 = call i32 @getcontext(ptr noundef %13) #12
+  %11 = load ptr, ptr %10, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %class.context_t, ptr %11, i32 0, i32 3
+  %13 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  %14 = call i32 @getcontext(ptr noundef %13) #14
   br label %19
 
 15:                                               ; preds = %6
@@ -278,12 +292,12 @@ define noundef ptr @_ZN9context_t7currentEv() #0 align 2 personality ptr @__gxx_
   store ptr %17, ptr %1, align 8
   %18 = extractvalue { ptr, i32 } %16, 1
   store i32 %18, ptr %2, align 4
-  call void @_ZdlPv(ptr noundef %7) #13
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef 32) #15
   br label %22
 
 19:                                               ; preds = %8, %0
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
   ret ptr %21
 
 22:                                               ; preds = %15
@@ -295,43 +309,43 @@ define noundef ptr @_ZN9context_t7currentEv() #0 align 2 personality ptr @__gxx_
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @getcontext(ptr noundef) #3
+declare i32 @getcontext(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #4
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) #1
 
 ; Function Attrs: nounwind
-declare void @makecontext(ptr noundef, ptr noundef, i32 noundef, ...) #5
+declare void @makecontext(ptr noundef, ptr noundef, i32 noundef, ...) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.context_t, ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %4 = getelementptr inbounds nuw %class.context_t, ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   ret void
 }
 
@@ -339,20 +353,21 @@ define void @_ZN9context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %
 define linkonce_odr void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"class.std::unique_ptr", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  store ptr %6, ptr %3, align 8, !tbaa !36
+  %7 = load ptr, ptr %3, align 8, !tbaa !36
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %1
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %12 = load ptr, ptr %3, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
   invoke void @_ZNKSt14default_deleteI10ucontext_tEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
           to label %14 unwind label %17
 
@@ -360,48 +375,49 @@ define linkonce_odr void @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = load ptr, ptr %3, align 8
-  store ptr null, ptr %16, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !36
+  store ptr null, ptr %16, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret void
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #11
+  call void @__clang_call_terminate(ptr %19) #13
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
 ; Function Attrs: nounwind
-declare i32 @swapcontext(ptr noundef, ptr noundef) #5
+declare i32 @swapcontext(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #6
+declare void @abort() #7
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #8
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt15__uniq_ptr_dataI10ucontext_tSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataI10ucontext_tSt14default_deleteIS0_ELb1ELb1EECI2St15__uniq_ptr_implIS0_S2_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !21
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !21
   call void @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
-  call void @_ZSt9terminatev() #11
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
+  call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -413,21 +429,21 @@ declare void @_ZSt9terminatev()
 define linkonce_odr void @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !21
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
-  call void @_ZNSt5tupleIJP10ucontext_tSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  store ptr %7, ptr %8, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJP10ucontext_tSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  store ptr %7, ptr %8, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5tupleIJP10ucontext_tSt14default_deleteIS0_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S3_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
@@ -439,24 +455,24 @@ define linkonce_odr void @_ZNSt5tupleIJP10ucontext_tSt14default_deleteIS0_EEEC2I
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #11
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10ucontext_tSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10ucontext_tSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI10ucontext_tEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -466,7 +482,7 @@ define linkonce_odr void @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_delet
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI10ucontext_tEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt10_Head_baseILm1ESt14default_deleteI10ucontext_tELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
@@ -475,63 +491,63 @@ define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteI10ucontext_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteI10ucontext_tELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10ucontext_tSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10ucontext_tJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10ucontext_tJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10ucontext_tJSt14default_deleteIS0_EEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE7_M_headERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   ret ptr %5
 }
 
@@ -539,14 +555,14 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10uniqu
 define linkonce_odr void @_ZNKSt14default_deleteI10ucontext_tEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  call void @_ZdlPv(ptr noundef %5) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 968) #15
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -556,114 +572,167 @@ define linkonce_odr void @_ZNKSt14default_deleteI10ucontext_tEclEPS0_(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP10ucontext_tSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP10ucontext_tSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP10ucontext_tSt14default_deleteIS0_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI10ucontext_tEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI10ucontext_tEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteI10ucontext_tEJEERT0_RSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI10ucontext_tEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI10ucontext_tEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteI10ucontext_tEEE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI10ucontext_tELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI10ucontext_tELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteI10ucontext_tELb1EE7_M_headERS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10ucontext_tSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10ucontext_tSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10ucontext_tSt14default_deleteIS0_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10ucontext_tJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10ucontext_tJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10ucontext_tJSt14default_deleteIS0_EEERKT0_RKSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE7_M_headERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10ucontext_tLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { builtin allocsize(0) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind returns_twice }
-attributes #13 = { builtin nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind returns_twice }
+attributes #15 = { builtin nounwind }
 
 !llvm.linker.options = !{}
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS9context_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !4, i64 0}
+!9 = !{!"_ZTS9context_t", !4, i64 0, !5, i64 8, !5, i64 16, !10, i64 24}
+!10 = !{!"_ZTSSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE", !11, i64 0}
+!11 = !{!"_ZTSSt15__uniq_ptr_dataI10ucontext_tSt14default_deleteIS0_ELb1ELb1EE", !12, i64 0}
+!12 = !{!"_ZTSSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE", !13, i64 0}
+!13 = !{!"_ZTSSt5tupleIJP10ucontext_tSt14default_deleteIS0_EEE", !14, i64 0}
+!14 = !{!"_ZTSSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE", !15, i64 0}
+!15 = !{!"_ZTSSt10_Head_baseILm0EP10ucontext_tLb0EE", !16, i64 0}
+!16 = !{!"p1 _ZTS10ucontext_t", !5, i64 0}
+!17 = !{!9, !5, i64 8}
+!18 = !{!9, !5, i64 16}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EE", !5, i64 0}
+!21 = !{!16, !16, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !6, i64 0}
+!24 = !{!5, !5, i64 0}
+!25 = !{!26, !16, i64 8}
+!26 = !{!"_ZTS10ucontext_t", !27, i64 0, !16, i64 8, !28, i64 16, !29, i64 40, !31, i64 296, !32, i64 424, !6, i64 936}
+!27 = !{!"long", !6, i64 0}
+!28 = !{!"_ZTS7stack_t", !5, i64 0, !23, i64 8, !27, i64 16}
+!29 = !{!"_ZTS10mcontext_t", !6, i64 0, !30, i64 184, !6, i64 192}
+!30 = !{!"p1 _ZTS13_libc_fpstate", !5, i64 0}
+!31 = !{!"_ZTS10__sigset_t", !6, i64 0}
+!32 = !{!"_ZTS13_libc_fpstate", !33, i64 0, !33, i64 2, !33, i64 4, !33, i64 6, !27, i64 8, !27, i64 16, !23, i64 24, !23, i64 28, !6, i64 32, !6, i64 160, !6, i64 416}
+!33 = !{!"short", !6, i64 0}
+!34 = !{!26, !27, i64 32}
+!35 = !{!26, !5, i64 16}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p2 _ZTS10ucontext_t", !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSSt15__uniq_ptr_dataI10ucontext_tSt14default_deleteIS0_ELb1ELb1EE", !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSSt15__uniq_ptr_implI10ucontext_tSt14default_deleteIS0_EE", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSSt5tupleIJP10ucontext_tSt14default_deleteIS0_EEE", !5, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP10ucontext_tSt14default_deleteIS0_EEE", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteI10ucontext_tEEE", !5, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSSt10_Head_baseILm0EP10ucontext_tLb0EE", !5, i64 0}
+!50 = !{!15, !16, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteI10ucontext_tELb1EE", !5, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSSt14default_deleteI10ucontext_tE", !5, i64 0}

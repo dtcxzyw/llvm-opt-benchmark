@@ -63,10 +63,10 @@ define i16 @f16_sqrt(i16 %0) local_unnamed_addr #0 {
   %29 = zext nneg i8 %25 to i64
   %30 = or disjoint i64 %28, %29
   %31 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecipSqrt_1k0s, i64 0, i64 %30
-  %32 = load i16, ptr %31, align 2
+  %32 = load i16, ptr %31, align 2, !tbaa !3
   %33 = zext i16 %32 to i64
   %34 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecipSqrt_1k1s, i64 0, i64 %30
-  %35 = load i16, ptr %34, align 2
+  %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = zext i16 %35 to i64
   %37 = and i64 %.057, 127
   %38 = mul nuw nsw i64 %37, %36
@@ -137,13 +137,16 @@ declare i16 @softfloat_roundPackToF16(i1 noundef zeroext, i64 noundef, i64 nound
 
 declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"short", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

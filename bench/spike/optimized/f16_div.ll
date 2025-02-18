@@ -95,9 +95,9 @@ define i16 @f16_div(i16 %0, i16 %1) local_unnamed_addr #0 {
   %41 = lshr i64 %.076, 6
   %42 = and i64 %41, 15
   %43 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecip_1k0s, i64 0, i64 %42
-  %44 = load i16, ptr %43, align 2
+  %44 = load i16, ptr %43, align 2, !tbaa !3
   %45 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecip_1k1s, i64 0, i64 %42
-  %46 = load i16, ptr %45, align 2
+  %46 = load i16, ptr %45, align 2, !tbaa !3
   %47 = zext i16 %46 to i64
   %48 = and i64 %.076, 63
   %49 = mul nuw nsw i64 %48, %47
@@ -172,13 +172,16 @@ declare i16 @softfloat_roundPackToF16(i1 noundef zeroext, i64 noundef, i64 nound
 
 declare i64 @softfloat_propagateNaNF16UI(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"short", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

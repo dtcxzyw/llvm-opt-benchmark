@@ -18,16 +18,16 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
   %3 = alloca [2 x i32], align 4
   %4 = alloca [4096 x i8], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %6 = call i32 @pipe(ptr noundef nonnull %3) #8
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %31, label %8
+  br i1 %7, label %_ZL10fork_xtermPi.exit.thread, label %8
 
 8:                                                ; preds = %2
   %9 = call i32 @fork() #8
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %31, label %11
+  br i1 %10, label %_ZL10fork_xtermPi.exit.thread, label %11
 
 11:                                               ; preds = %8
   %12 = icmp eq i32 %9, 0
@@ -36,169 +36,181 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
 13:                                               ; preds = %11
   %14 = call i32 @setpgid(i32 noundef 0, i32 noundef 0) #8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = call i32 @dup2(i32 noundef %16, i32 noundef 1) #8
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %31, label %19
+  br i1 %18, label %_ZL10fork_xtermPi.exit.thread, label %19
 
 19:                                               ; preds = %13
   %20 = call i32 (ptr, ptr, ...) @execl(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @_ZZL10fork_xtermPiE3cmd, i64 noundef 0) #8
-  br label %31
+  br label %_ZL10fork_xtermPi.exit.thread
 
 21:                                               ; preds = %11
-  %22 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #8
+  %22 = load i32, ptr %3, align 4, !tbaa !3
   %23 = call i64 @read(i32 noundef %22, ptr noundef nonnull %4, i64 noundef 4096)
   %24 = icmp slt i64 %23, 2
-  br i1 %24, label %31, label %25
+  br i1 %24, label %_ZL10fork_xtermPi.exit.thread14, label %25
 
 25:                                               ; preds = %21
   %26 = add nsw i64 %23, -1
   %27 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1
+  %28 = load i8, ptr %27, align 1, !tbaa !7
   %.not.i = icmp eq i8 %28, 10
-  br i1 %.not.i, label %29, label %31
+  br i1 %.not.i, label %29, label %_ZL10fork_xtermPi.exit.thread14
 
 29:                                               ; preds = %25
-  store i8 0, ptr %27, align 1
+  store i8 0, ptr %27, align 1, !tbaa !7
   %30 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 2)
   %.inv.i = icmp sgt i32 %30, -1
-  br i1 %.inv.i, label %34, label %31
+  br i1 %.inv.i, label %33, label %_ZL10fork_xtermPi.exit.thread14
 
-31:                                               ; preds = %19, %2, %8, %13, %25, %21, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
-  %32 = load ptr, ptr @stderr, align 8
-  %33 = call i64 @fwrite(ptr nonnull @.str, i64 21, i64 1, ptr %32) #9
-  br label %65
+_ZL10fork_xtermPi.exit.thread14:                  ; preds = %25, %21, %29
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #8
+  br label %_ZL10fork_xtermPi.exit.thread
 
-34:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
-  %35 = call ptr @signal(i32 noundef 2, ptr noundef nonnull @"_ZZ4mainEN3$_08__invokeEi") #8
-  %36 = call i32 @fork() #8
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %48, label %38
+_ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_ZL10fork_xtermPi.exit.thread14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %32 = call i64 @fwrite(ptr nonnull @.str, i64 21, i64 1, ptr %31) #9
+  br label %64
 
-38:                                               ; preds = %34
-  %39 = icmp eq i32 %36, 0
-  br i1 %39, label %40, label %_ZL10fork_spikeiPPc.exit
+33:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  %34 = call ptr @signal(i32 noundef 2, ptr noundef nonnull @"_ZZ4mainEN3$_08__invokeEi") #8
+  %35 = call i32 @fork() #8
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %47, label %37
 
-40:                                               ; preds = %38
-  %41 = call i32 @dup2(i32 noundef %30, i32 noundef 0) #8
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %48, label %43
+37:                                               ; preds = %33
+  %38 = icmp eq i32 %35, 0
+  br i1 %38, label %39, label %_ZL10fork_spikeiPPc.exit
 
-43:                                               ; preds = %40
-  %44 = call i32 @dup2(i32 noundef %30, i32 noundef 1) #8
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %48, label %46
+39:                                               ; preds = %37
+  %40 = call i32 @dup2(i32 noundef %30, i32 noundef 0) #8
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %47, label %42
 
-46:                                               ; preds = %43
-  %47 = call i32 @execvp(ptr noundef nonnull @.str.2, ptr noundef %1) #8
-  br label %48
+42:                                               ; preds = %39
+  %43 = call i32 @dup2(i32 noundef %30, i32 noundef 1) #8
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %47, label %45
 
-48:                                               ; preds = %46, %34, %43, %40
-  %49 = load ptr, ptr @stderr, align 8
-  %50 = call i64 @fwrite(ptr nonnull @.str.1, i64 21, i64 1, ptr %49) #9
-  br label %62
+45:                                               ; preds = %42
+  %46 = call i32 @execvp(ptr noundef nonnull @.str.2, ptr noundef %1) #8
+  br label %47
 
-_ZL10fork_spikeiPPc.exit:                         ; preds = %38, %53
-  %51 = call i32 @waitpid(i32 noundef %36, ptr noundef nonnull %5, i32 noundef 0)
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %.critedge
+47:                                               ; preds = %45, %33, %42, %39
+  %48 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %49 = call i64 @fwrite(ptr nonnull @.str.1, i64 21, i64 1, ptr %48) #9
+  br label %61
 
-53:                                               ; preds = %_ZL10fork_spikeiPPc.exit
+_ZL10fork_spikeiPPc.exit:                         ; preds = %37, %52
+  %50 = call i32 @waitpid(i32 noundef %35, ptr noundef nonnull %5, i32 noundef 0)
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %.critedge
+
+52:                                               ; preds = %_ZL10fork_spikeiPPc.exit
   %.b7 = load i1, ptr @_ZZ4mainE11signal_exit, align 1
-  br i1 %.b7, label %54, label %_ZL10fork_spikeiPPc.exit, !llvm.loop !4
+  br i1 %.b7, label %53, label %_ZL10fork_spikeiPPc.exit, !llvm.loop !11
 
-54:                                               ; preds = %53
-  %55 = call i32 @kill(i32 noundef %36, i32 noundef 15) #8
-  br label %62
+53:                                               ; preds = %52
+  %54 = call i32 @kill(i32 noundef %35, i32 noundef 15) #8
+  br label %61
 
 .critedge:                                        ; preds = %_ZL10fork_spikeiPPc.exit
-  %56 = load i32, ptr %5, align 4
-  %57 = and i32 %56, 127
-  %58 = icmp eq i32 %57, 0
-  %59 = lshr i32 %56, 8
-  %60 = and i32 %59, 255
-  %61 = select i1 %58, i32 %60, i32 -1
-  br label %62
+  %55 = load i32, ptr %5, align 4, !tbaa !3
+  %56 = and i32 %55, 127
+  %57 = icmp eq i32 %56, 0
+  %58 = lshr i32 %55, 8
+  %59 = and i32 %58, 255
+  %60 = select i1 %57, i32 %59, i32 -1
+  br label %61
 
-62:                                               ; preds = %54, %.critedge, %48
-  %.1 = phi i32 [ -1, %48 ], [ %51, %54 ], [ %61, %.critedge ]
-  %63 = sub nsw i32 0, %9
-  %64 = call i32 @kill(i32 noundef %63, i32 noundef 15) #8
-  br label %65
+61:                                               ; preds = %53, %.critedge, %47
+  %.1 = phi i32 [ -1, %47 ], [ %50, %53 ], [ %60, %.critedge ]
+  %62 = sub nsw i32 0, %9
+  %63 = call i32 @kill(i32 noundef %62, i32 noundef 15) #8
+  br label %64
 
-65:                                               ; preds = %62, %31
-  %.0 = phi i32 [ -1, %31 ], [ %.1, %62 ]
+64:                                               ; preds = %61, %_ZL10fork_xtermPi.exit.thread
+  %.0 = phi i32 [ -1, %_ZL10fork_xtermPi.exit.thread ], [ %.1, %61 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   ret i32 %.0
 }
 
-; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @"_ZZ4mainEN3$_08__invokeEi"(i32 %0) #3 align 2 {
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+define internal void @"_ZZ4mainEN3$_08__invokeEi"(i32 %0) #4 align 2 {
   store i1 true, ptr @_ZZ4mainE11signal_exit, align 1
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #4
+declare i32 @fork() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #1
+declare i32 @pipe(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @setpgid(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @setpgid(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare i32 @execl(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @execl(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind }
 attributes #9 = { cold }
 
 !llvm.linker.options = !{}
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}

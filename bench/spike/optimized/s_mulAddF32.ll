@@ -3,7 +3,7 @@ source_filename = "bench/spike/original/s_mulAddF32.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@softfloat_roundingMode = external local_unnamed_addr global i8, align 1
+@softfloat_roundingMode = external thread_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @softfloat_mulAddF32(i64 noundef %0, i64 noundef %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
@@ -60,7 +60,7 @@ define i32 @softfloat_mulAddF32(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 37:                                               ; preds = %35
   %.not164 = icmp eq i64 %17, 0
-  br i1 %.not164, label %187, label %178
+  br i1 %.not164, label %188, label %178
 
 38:                                               ; preds = %35
   %.not = icmp eq i64 %6, 0
@@ -71,7 +71,7 @@ define i32 @softfloat_mulAddF32(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %.not154, label %180, label %40
 
 40:                                               ; preds = %39
-  %41 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %7) #2
+  %41 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %7) #3
   %42 = extractvalue { i64, i64 } %41, 0
   %43 = extractvalue { i64, i64 } %41, 1
   br label %44
@@ -87,7 +87,7 @@ define i32 @softfloat_mulAddF32(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %.not156, label %180, label %46
 
 46:                                               ; preds = %45
-  %47 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %10) #2
+  %47 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %10) #3
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
   br label %50
@@ -123,7 +123,7 @@ define i32 @softfloat_mulAddF32(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %167
 
 67:                                               ; preds = %59
-  %68 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %17) #2
+  %68 = tail call { i64, i64 } @softfloat_normSubnormalF32Sig(i64 noundef %17) #3
   %69 = extractvalue { i64, i64 } %68, 0
   %70 = extractvalue { i64, i64 } %68, 1
   br label %71
@@ -262,7 +262,7 @@ softfloat_shiftRightJam64.exit173:                ; preds = %136, %138
   %.1137 = phi i1 [ %14, %softfloat_shiftRightJam64.exit172 ], [ %22, %softfloat_shiftRightJam64.exit173 ], [ %134, %133 ], [ %22, %132 ]
   %.2 = phi i64 [ %.0127, %softfloat_shiftRightJam64.exit172 ], [ %.0139, %softfloat_shiftRightJam64.exit173 ], [ %.0139, %133 ], [ %.0139, %132 ]
   %.0130 = phi i64 [ %128, %softfloat_shiftRightJam64.exit172 ], [ %147, %softfloat_shiftRightJam64.exit173 ], [ %135, %133 ], [ %131, %132 ]
-  %149 = tail call zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %.0130) #2
+  %149 = tail call zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %.0130) #3
   %150 = add i8 %149, -1
   %151 = sext i8 %150 to i64
   %152 = sub nsw i64 %.2, %151
@@ -291,11 +291,11 @@ softfloat_shiftRightJam64.exit173:                ; preds = %136, %138
   %.0136 = phi i1 [ %22, %111 ], [ %22, %109 ], [ %.1137, %155 ], [ %.1137, %164 ], [ %22, %60 ]
   %.0134 = phi i64 [ %112, %111 ], [ %.1135, %109 ], [ %152, %155 ], [ %152, %164 ], [ %61, %60 ]
   %.0132 = phi i64 [ %113, %111 ], [ %.1133, %109 ], [ %163, %155 ], [ %166, %164 ], [ %66, %60 ]
-  %168 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %.0136, i64 noundef %.0134, i64 noundef %.0132) #2
-  br label %189
+  %168 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %.0136, i64 noundef %.0134, i64 noundef %.0132) #3
+  br label %190
 
 169:                                              ; preds = %32, %24, %25
-  %170 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %0, i64 noundef %1) #2
+  %170 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %0, i64 noundef %1) #3
   br label %178
 
 171:                                              ; preds = %33, %28
@@ -306,7 +306,7 @@ softfloat_shiftRightJam64.exit173:                ; preds = %136, %138
 172:                                              ; preds = %171
   %173 = select i1 %22, i64 4286578688, i64 2139095040
   %.not168 = icmp eq i64 %16, 255
-  br i1 %.not168, label %174, label %187
+  br i1 %.not168, label %174, label %188
 
 174:                                              ; preds = %172
   %.not169 = icmp eq i64 %17, 0
@@ -314,37 +314,38 @@ softfloat_shiftRightJam64.exit173:                ; preds = %136, %138
 
 175:                                              ; preds = %174
   %176 = xor i1 %22, %14
-  br i1 %176, label %177, label %187
+  br i1 %176, label %177, label %188
 
 177:                                              ; preds = %175, %171
-  tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #2
+  tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
   br label %178
 
 178:                                              ; preds = %37, %174, %177, %169
   %.0131 = phi i64 [ %170, %169 ], [ %173, %174 ], [ 2143289344, %177 ], [ 0, %37 ]
-  %179 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %.0131, i64 noundef %2) #2
-  br label %187
+  %179 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %.0131, i64 noundef %2) #3
+  br label %188
 
 180:                                              ; preds = %45, %39
   %181 = or i64 %16, %17
   %.not157 = icmp eq i64 %181, 0
   %182 = xor i1 %22, %14
   %or.cond170 = and i1 %.not157, %182
-  br i1 %or.cond170, label %183, label %187
+  br i1 %or.cond170, label %183, label %188
 
 183:                                              ; preds = %180, %130
-  %184 = load i8, ptr @softfloat_roundingMode, align 1
-  %185 = icmp eq i8 %184, 2
-  %186 = select i1 %185, i64 2147483648, i64 0
-  br label %187
+  %184 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  %185 = load i8, ptr %184, align 1, !tbaa !3
+  %186 = icmp eq i8 %185, 2
+  %187 = select i1 %186, i64 2147483648, i64 0
+  br label %188
 
-187:                                              ; preds = %37, %180, %183, %175, %172, %178
-  %.1 = phi i64 [ %179, %178 ], [ %173, %172 ], [ %173, %175 ], [ %186, %183 ], [ %2, %180 ], [ %2, %37 ]
-  %188 = trunc i64 %.1 to i32
-  br label %189
+188:                                              ; preds = %37, %180, %183, %175, %172, %178
+  %.1 = phi i64 [ %179, %178 ], [ %173, %172 ], [ %173, %175 ], [ %187, %183 ], [ %2, %180 ], [ %2, %37 ]
+  %189 = trunc i64 %.1 to i32
+  br label %190
 
-189:                                              ; preds = %187, %167
-  %.sroa.0123.0 = phi i32 [ %188, %187 ], [ %168, %167 ]
+190:                                              ; preds = %188, %167
+  %.sroa.0123.0 = phi i32 [ %189, %188 ], [ %168, %167 ]
   ret i32 %.sroa.0123.0
 }
 
@@ -358,13 +359,19 @@ declare i64 @softfloat_propagateNaNF32UI(i64 noundef, i64 noundef) local_unnamed
 
 declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}

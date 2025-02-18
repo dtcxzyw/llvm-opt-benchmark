@@ -24,40 +24,41 @@ define i32 @fdt_overlay_apply(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %9 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #8
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %108, label %11
+  %10 = icmp sgt i32 %9, -1
+  br i1 %10, label %11, label %109
 
 11:                                               ; preds = %2
   %12 = tail call i32 @fdt_ro_probe_(ptr noundef %1) #8
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %108, label %14
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %109
 
 14:                                               ; preds = %11
   %15 = call i32 @fdt_find_max_phandle(ptr noundef %0, ptr noundef nonnull %8) #8
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %overlay_update_local_references.exit.thread40
+  br i1 %.not, label %16, label %overlay_update_local_references.exit.thread43
 
 16:                                               ; preds = %14
-  %17 = load i32, ptr %8, align 4
+  %17 = load i32, ptr %8, align 4, !tbaa !3
   %18 = call fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %1, i32 noundef 0, i32 noundef %17)
-  %.not32 = icmp eq i32 %18, 0
-  br i1 %.not32, label %19, label %overlay_update_local_references.exit.thread40
+  %.not35 = icmp eq i32 %18, 0
+  br i1 %.not35, label %19, label %overlay_update_local_references.exit.thread43
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr %8, align 4
+  %20 = load i32, ptr %8, align 4, !tbaa !3
   %21 = call i32 @fdt_path_offset(ptr noundef %1, ptr noundef nonnull @.str.2) #8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %overlay_update_local_references.exit
 
 23:                                               ; preds = %19
   %24 = icmp eq i32 %21, -1
-  br i1 %24, label %overlay_update_local_references.exit.thread, label %overlay_update_local_references.exit.thread40
+  br i1 %24, label %overlay_update_local_references.exit.thread, label %overlay_update_local_references.exit.thread43
 
 overlay_update_local_references.exit:             ; preds = %19
   %25 = call fastcc i32 @overlay_update_local_node_references(ptr noundef %1, i32 noundef 0, i32 noundef %21, i32 noundef %20)
-  %.not33 = icmp eq i32 %25, 0
-  br i1 %.not33, label %overlay_update_local_references.exit.thread, label %overlay_update_local_references.exit.thread40
+  %.not36 = icmp eq i32 %25, 0
+  br i1 %.not36, label %overlay_update_local_references.exit.thread, label %overlay_update_local_references.exit.thread43
 
 overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update_local_references.exit
   %26 = call i32 @fdt_path_offset(ptr noundef %1, ptr noundef nonnull @.str.3) #8
@@ -66,12 +67,12 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
 
 28:                                               ; preds = %overlay_update_local_references.exit.thread
   %29 = icmp slt i32 %26, 0
-  br i1 %29, label %overlay_update_local_references.exit.thread40, label %30
+  br i1 %29, label %overlay_update_local_references.exit.thread43, label %30
 
 30:                                               ; preds = %28
   %31 = call i32 @fdt_path_offset(ptr noundef %0, ptr noundef nonnull @.str.4) #8
   %or.cond.i = icmp slt i32 %31, -1
-  br i1 %or.cond.i, label %overlay_update_local_references.exit.thread40, label %32
+  br i1 %or.cond.i, label %overlay_update_local_references.exit.thread43, label %32
 
 32:                                               ; preds = %30
   %33 = call i32 @fdt_first_property_offset(ptr noundef %1, i32 noundef %26) #8
@@ -82,47 +83,47 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   %35 = icmp slt i32 %31, 0
   br label %36
 
-36:                                               ; preds = %102, %.lr.ph.i
-  %.02030.i = phi i32 [ %33, %.lr.ph.i ], [ %103, %102 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %37 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %.02030.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+36:                                               ; preds = %103, %.lr.ph.i
+  %.02236.i = phi i32 [ %33, %.lr.ph.i ], [ %104, %103 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  %37 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %.02236.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not.i.i = icmp eq ptr %37, null
-  %38 = load i32, ptr %6, align 4
+  %38 = load i32, ptr %6, align 4, !tbaa !3
   br i1 %.not.i.i, label %39, label %.preheader.i.i
 
 39:                                               ; preds = %36
   %40 = icmp eq i32 %38, -1
   br i1 %40, label %overlay_fixup_phandle.exit.thread.i, label %overlay_fixup_phandle.exit.i
 
-.preheader.i.i:                                   ; preds = %36, %99
-  %41 = phi i32 [ %100, %99 ], [ %38, %36 ]
-  %.042.i.i = phi ptr [ %52, %99 ], [ %37, %36 ]
+.preheader.i.i:                                   ; preds = %36, %100
+  %41 = phi i32 [ %101, %100 ], [ %38, %36 ]
+  %.043.i.i = phi ptr [ %52, %100 ], [ %37, %36 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   %42 = sext i32 %41 to i64
-  %43 = call ptr @memchr(ptr noundef %.042.i.i, i32 noundef 0, i64 noundef %42) #9
-  %.not51.i.i = icmp eq ptr %43, null
-  br i1 %.not51.i.i, label %overlay_fixup_phandle.exit.thread.i, label %44
+  %43 = call ptr @memchr(ptr noundef %.043.i.i, i32 noundef 0, i64 noundef %42) #9
+  %.not54.i.i = icmp eq ptr %43, null
+  br i1 %.not54.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %44
 
 44:                                               ; preds = %.preheader.i.i
   %45 = ptrtoint ptr %43 to i64
-  %46 = ptrtoint ptr %.042.i.i to i64
+  %46 = ptrtoint ptr %.043.i.i to i64
   %47 = sub i64 %45, %46
   %48 = trunc i64 %47 to i32
   %49 = add i32 %48, 1
   %50 = sub i32 %41, %49
-  store i32 %50, ptr %6, align 4
+  store i32 %50, ptr %6, align 4, !tbaa !3
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.042.i.i, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.043.i.i, i64 %51
   %53 = and i64 %47, 4294967295
-  %54 = call ptr @memchr(ptr noundef %.042.i.i, i32 noundef 58, i64 noundef %53) #9
-  %.not52.i.i = icmp eq ptr %54, null
-  br i1 %.not52.i.i, label %overlay_fixup_phandle.exit.thread.i, label %55
+  %54 = call ptr @memchr(ptr noundef %.043.i.i, i32 noundef 58, i64 noundef %53) #9
+  %.not55.i.i = icmp eq ptr %54, null
+  br i1 %.not55.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %55
 
 55:                                               ; preds = %44
-  %56 = load i8, ptr %54, align 1
-  %.not53.i.i = icmp eq i8 %56, 58
-  br i1 %.not53.i.i, label %57, label %overlay_fixup_phandle.exit.thread.i
+  %56 = load i8, ptr %54, align 1, !tbaa !7
+  %.not56.i.i = icmp eq i8 %56, 58
+  br i1 %.not56.i.i, label %57, label %overlay_fixup_phandle.exit.thread.sink.split.i
 
 57:                                               ; preds = %55
   %58 = ptrtoint ptr %54 to i64
@@ -130,7 +131,7 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   %60 = trunc i64 %59 to i32
   %61 = add i32 %48, -1
   %62 = icmp eq i32 %61, %60
-  br i1 %62, label %overlay_fixup_phandle.exit.thread.i, label %63
+  br i1 %62, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %63
 
 63:                                               ; preds = %57
   %.neg.i.i = xor i64 %59, -1
@@ -138,38 +139,38 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %66 = and i64 %64, 4294967295
   %67 = call ptr @memchr(ptr noundef nonnull %65, i32 noundef 58, i64 noundef %66) #9
-  %.not54.i.i = icmp eq ptr %67, null
-  br i1 %.not54.i.i, label %overlay_fixup_phandle.exit.thread.i, label %68
+  %.not57.i.i = icmp eq ptr %67, null
+  br i1 %.not57.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %68
 
 68:                                               ; preds = %63
-  %69 = load i8, ptr %67, align 1
-  %.not55.i.i = icmp eq i8 %69, 58
-  br i1 %.not55.i.i, label %70, label %overlay_fixup_phandle.exit.thread.i
+  %69 = load i8, ptr %67, align 1, !tbaa !7
+  %.not58.i.i = icmp eq i8 %69, 58
+  br i1 %.not58.i.i, label %70, label %overlay_fixup_phandle.exit.thread.sink.split.i
 
 70:                                               ; preds = %68
   %71 = ptrtoint ptr %67 to i64
   %72 = ptrtoint ptr %65 to i64
   %73 = sub i64 %71, %72
   %74 = trunc i64 %73 to i32
-  %.not56.i.i = icmp eq i32 %74, 0
-  br i1 %.not56.i.i, label %overlay_fixup_phandle.exit.thread.i, label %75
+  %.not59.i.i = icmp eq i32 %74, 0
+  br i1 %.not59.i.i, label %overlay_fixup_phandle.exit.thread.sink.split.i, label %75
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %77 = call i64 @strtoul(ptr noundef nonnull %76, ptr noundef nonnull %7, i32 noundef 10) #8
   %78 = trunc i64 %77 to i32
-  %79 = load ptr, ptr %7, align 8
-  %80 = load i8, ptr %79, align 1
-  %.not57.i.i = icmp eq i8 %80, 0
-  %.not58.i.i = icmp ugt ptr %79, %76
-  %or.cond.i.i = and i1 %.not58.i.i, %.not57.i.i
-  br i1 %or.cond.i.i, label %81, label %overlay_fixup_phandle.exit.thread.i
+  %79 = load ptr, ptr %7, align 8, !tbaa !8
+  %80 = load i8, ptr %79, align 1, !tbaa !7
+  %.not60.i.i = icmp eq i8 %80, 0
+  %.not61.i.i = icmp ugt ptr %79, %76
+  %or.cond.i.i = and i1 %.not61.i.i, %.not60.i.i
+  br i1 %or.cond.i.i, label %81, label %overlay_fixup_phandle.exit.thread.sink.split.i
 
 81:                                               ; preds = %75
-  %82 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  br i1 %35, label %overlay_fixup_one_phandle.exit.thread.i.i, label %83
+  %82 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  br i1 %35, label %.thread68.i.i, label %83
 
 83:                                               ; preds = %81
   %84 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %31, ptr noundef %82, ptr noundef nonnull %4) #8
@@ -177,141 +178,151 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   br i1 %.not.i.i.i, label %85, label %87
 
 85:                                               ; preds = %83
-  %86 = load i32, ptr %4, align 4
-  br label %overlay_fixup_one_phandle.exit.i.i
+  %86 = load i32, ptr %4, align 4, !tbaa !3
+  br label %99
 
 87:                                               ; preds = %83
   %88 = call i32 @fdt_path_offset(ptr noundef %0, ptr noundef nonnull %84) #8
   %89 = icmp slt i32 %88, 0
-  br i1 %89, label %overlay_fixup_one_phandle.exit.thread.i.i, label %90
+  br i1 %89, label %.thread68.i.i, label %90
 
 90:                                               ; preds = %87
   %91 = call i32 @fdt_get_phandle(ptr noundef %0, i32 noundef %88) #8
   %.not31.i.i.i = icmp eq i32 %91, 0
-  br i1 %.not31.i.i.i, label %overlay_fixup_one_phandle.exit.thread.i.i, label %92
+  br i1 %.not31.i.i.i, label %.thread68.i.i, label %92
 
 92:                                               ; preds = %90
-  %93 = call i32 @fdt_path_offset_namelen(ptr noundef %1, ptr noundef nonnull %.042.i.i, i32 noundef %60) #8
+  %93 = call i32 @fdt_path_offset_namelen(ptr noundef %1, ptr noundef nonnull %.043.i.i, i32 noundef %60) #8
   %94 = icmp eq i32 %93, -1
-  br i1 %94, label %overlay_fixup_one_phandle.exit.thread.i.i, label %95
+  br i1 %94, label %.thread68.i.i, label %95
 
 95:                                               ; preds = %92
   %96 = icmp slt i32 %93, 0
-  br i1 %96, label %overlay_fixup_one_phandle.exit.thread.i.i, label %97
+  br i1 %96, label %.thread68.i.i, label %97
 
 97:                                               ; preds = %95
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %91)
-  store i32 %rev.i.i.i.i, ptr %3, align 4
+  store i32 %rev.i.i.i.i, ptr %3, align 4, !tbaa !3
   %98 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %1, i32 noundef %93, ptr noundef nonnull %65, i32 noundef range(i32 1, 0) %74, i32 noundef %78, ptr noundef nonnull %3, i32 noundef 4) #8
-  br label %overlay_fixup_one_phandle.exit.i.i
+  br label %99
 
-overlay_fixup_one_phandle.exit.thread.i.i:        ; preds = %95, %92, %90, %87, %81
+.thread68.i.i:                                    ; preds = %95, %92, %90, %87, %81
   %.0.i.ph.i.i = phi i32 [ %93, %95 ], [ -16, %92 ], [ -1, %90 ], [ %88, %87 ], [ %31, %81 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  br label %overlay_fixup_phandle.exit.thread.sink.split.i
+
+99:                                               ; preds = %97, %85
+  %.0.i.i.i = phi i32 [ %98, %97 ], [ %86, %85 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  %.not62.i.i = icmp eq i32 %.0.i.i.i, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  br i1 %.not62.i.i, label %100, label %overlay_fixup_phandle.exit.thread.i
+
+100:                                              ; preds = %99
+  %101 = load i32, ptr %6, align 4, !tbaa !3
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %.preheader.i.i, label %overlay_fixup_phandle.exit.thread29.i, !llvm.loop !11
+
+overlay_fixup_phandle.exit.thread29.i:            ; preds = %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %103
+
+overlay_fixup_phandle.exit.thread.sink.split.i:   ; preds = %75, %70, %68, %63, %57, %55, %44, %.preheader.i.i, %.thread68.i.i
+  %.0.i.ph.ph.i = phi i32 [ %.0.i.ph.i.i, %.thread68.i.i ], [ -16, %.preheader.i.i ], [ -16, %44 ], [ -16, %55 ], [ -16, %57 ], [ -16, %63 ], [ -16, %68 ], [ -16, %70 ], [ -16, %75 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %overlay_fixup_phandle.exit.thread.i
 
-overlay_fixup_one_phandle.exit.i.i:               ; preds = %97, %85
-  %.0.i.i.i = phi i32 [ %98, %97 ], [ %86, %85 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %.not59.i.i = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not59.i.i, label %99, label %overlay_fixup_phandle.exit.thread.i
-
-99:                                               ; preds = %overlay_fixup_one_phandle.exit.i.i
-  %100 = load i32, ptr %6, align 4
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.preheader.i.i, label %overlay_fixup_phandle.exit.thread26.i, !llvm.loop !4
-
-overlay_fixup_phandle.exit.thread26.i:            ; preds = %99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %102
-
-overlay_fixup_phandle.exit.thread.i:              ; preds = %39, %overlay_fixup_one_phandle.exit.i.i, %75, %70, %68, %63, %57, %55, %44, %.preheader.i.i, %overlay_fixup_one_phandle.exit.thread.i.i
-  %.0.i.ph.i = phi i32 [ %.0.i.ph.i.i, %overlay_fixup_one_phandle.exit.thread.i.i ], [ -16, %.preheader.i.i ], [ -16, %55 ], [ -16, %44 ], [ -16, %57 ], [ -16, %68 ], [ -16, %63 ], [ -16, %70 ], [ -16, %75 ], [ %.0.i.i.i, %overlay_fixup_one_phandle.exit.i.i ], [ -13, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %overlay_update_local_references.exit.thread40
+overlay_fixup_phandle.exit.thread.i:              ; preds = %39, %99, %overlay_fixup_phandle.exit.thread.sink.split.i
+  %.0.i.ph.i = phi i32 [ %.0.i.ph.ph.i, %overlay_fixup_phandle.exit.thread.sink.split.i ], [ %.0.i.i.i, %99 ], [ -13, %39 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %overlay_update_local_references.exit.thread43
 
 overlay_fixup_phandle.exit.i:                     ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %102, label %overlay_update_local_references.exit.thread40
+  br i1 %.not.i, label %103, label %overlay_update_local_references.exit.thread43
 
-102:                                              ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread26.i
-  %103 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.02030.i) #8
-  %104 = icmp sgt i32 %103, -1
-  br i1 %104, label %36, label %overlay_fixup_phandles.exit, !llvm.loop !6
+103:                                              ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread29.i
+  %104 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.02236.i) #8
+  %105 = icmp sgt i32 %104, -1
+  br i1 %105, label %36, label %overlay_fixup_phandles.exit, !llvm.loop !13
 
-overlay_fixup_phandles.exit:                      ; preds = %102, %32, %overlay_update_local_references.exit.thread
-  %105 = call fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1)
-  %.not35 = icmp eq i32 %105, 0
-  br i1 %.not35, label %106, label %overlay_update_local_references.exit.thread40
+overlay_fixup_phandles.exit:                      ; preds = %103, %32, %overlay_update_local_references.exit.thread
+  %106 = call fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1)
+  %.not38 = icmp eq i32 %106, 0
+  br i1 %.not38, label %107, label %overlay_update_local_references.exit.thread43
 
-106:                                              ; preds = %overlay_fixup_phandles.exit
-  %107 = call fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1)
-  %.not36 = icmp eq i32 %107, 0
-  br i1 %.not36, label %.sink.split, label %overlay_update_local_references.exit.thread40
+107:                                              ; preds = %overlay_fixup_phandles.exit
+  %108 = call fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1)
+  %.not39 = icmp eq i32 %108, 0
+  br i1 %.not39, label %.sink.split, label %overlay_update_local_references.exit.thread43
 
-overlay_update_local_references.exit.thread40:    ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %30, %28, %23, %106, %overlay_fixup_phandles.exit, %overlay_update_local_references.exit, %16, %14
-  %.023 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %105, %overlay_fixup_phandles.exit ], [ %107, %106 ], [ %21, %23 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %31, %30 ], [ %26, %28 ], [ %38, %overlay_fixup_phandle.exit.i ]
-  store i32 -1, ptr %1, align 4
+overlay_update_local_references.exit.thread43:    ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %30, %28, %23, %107, %overlay_fixup_phandles.exit, %overlay_update_local_references.exit, %16, %14
+  %.028 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %106, %overlay_fixup_phandles.exit ], [ %108, %107 ], [ %21, %23 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %31, %30 ], [ %26, %28 ], [ %38, %overlay_fixup_phandle.exit.i ]
+  store i32 -1, ptr %1, align 4, !tbaa !14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %106, %overlay_update_local_references.exit.thread40
-  %.sink = phi ptr [ %0, %overlay_update_local_references.exit.thread40 ], [ %1, %106 ]
-  %.0.ph = phi i32 [ %.023, %overlay_update_local_references.exit.thread40 ], [ 0, %106 ]
-  store i32 -1, ptr %.sink, align 4
-  br label %108
+.sink.split:                                      ; preds = %107, %overlay_update_local_references.exit.thread43
+  %.sink = phi ptr [ %0, %overlay_update_local_references.exit.thread43 ], [ %1, %107 ]
+  %.1.ph = phi i32 [ %.028, %overlay_update_local_references.exit.thread43 ], [ 0, %107 ]
+  store i32 -1, ptr %.sink, align 4, !tbaa !14
+  br label %109
 
-108:                                              ; preds = %.sink.split, %11, %2
-  %.0 = phi i32 [ %9, %2 ], [ %12, %11 ], [ %.0.ph, %.sink.split ]
-  ret i32 %.0
+109:                                              ; preds = %.sink.split, %11, %2
+  %.1 = phi i32 [ %12, %11 ], [ %9, %2 ], [ %.1.ph, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  ret i32 %.1
 }
 
-declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @fdt_find_max_phandle(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @fdt_find_max_phandle(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @overlay_merge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @fdt_first_subnode(ptr noundef %1, i32 noundef 0) #8
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %.lr.ph, label %._crit_edge
+  br i1 %4, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %2, %14
-  %.02024 = phi i32 [ %15, %14 ], [ %3, %2 ]
-  %5 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %.02024, ptr noundef nonnull @.str.5) #8
+.lr.ph:                                           ; preds = %2, %select.unfold
+  %.02229 = phi i32 [ %14, %select.unfold ], [ %3, %2 ]
+  %5 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef %.02229, ptr noundef nonnull @.str.5) #8
   %6 = icmp eq i32 %5, -1
-  br i1 %6, label %14, label %7
+  br i1 %6, label %select.unfold, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = icmp slt i32 %5, 0
-  br i1 %8, label %._crit_edge, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %.02024, ptr noundef null)
+  %10 = tail call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %.02229, ptr noundef null)
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %._crit_edge, label %12
+  br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %9
   %13 = tail call fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %5)
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %._crit_edge
+  br i1 %.not, label %select.unfold, label %.thread
 
-14:                                               ; preds = %12, %.lr.ph
-  %15 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02024) #8
-  %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+select.unfold:                                    ; preds = %12, %.lr.ph
+  %14 = tail call i32 @fdt_next_subnode(ptr noundef %1, i32 noundef %.02229) #8
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %7, %9, %12, %14, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %14 ], [ %13, %12 ], [ %10, %9 ], [ %5, %7 ]
-  ret i32 %.0
+.thread:                                          ; preds = %select.unfold, %7, %9, %12, %2
+  %.2 = phi i32 [ 0, %2 ], [ %13, %12 ], [ %10, %9 ], [ %5, %7 ], [ 0, %select.unfold ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -321,6 +332,10 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   %8 = tail call i32 @fdt_subnode_offset(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @.str.8) #8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %.loopexit, label %10
@@ -348,7 +363,7 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   %.091125 = phi i32 [ %118, %.thread ], [ %18, %17 ]
   %20 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef %.091125, ptr noundef nonnull %5, ptr noundef nonnull %4) #8
   %.not = icmp eq ptr %20, null
-  %21 = load i32, ptr %4, align 4
+  %21 = load i32, ptr %4, align 4, !tbaa !3
   br i1 %.not, label %.loopexit, label %22
 
 22:                                               ; preds = %.lr.ph
@@ -364,7 +379,7 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   br i1 %.not111, label %29, label %.loopexit
 
 29:                                               ; preds = %24
-  %30 = load i8, ptr %20, align 1
+  %30 = load i8, ptr %20, align 1, !tbaa !7
   %.not112 = icmp eq i8 %30, 47
   br i1 %.not112, label %31, label %.loopexit
 
@@ -424,58 +439,58 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   br i1 %62, label %.loopexit, label %63
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %6, align 8, !tbaa !8
   %.not115 = icmp eq ptr %64, null
   br i1 %.not115, label %65, label %82
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   %66 = call i32 @fdt_ro_probe_(ptr noundef %0) #8
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %get_path_len.exit.thread, label %.preheader.i
+  %67 = icmp sgt i32 %66, -1
+  br i1 %67, label %.preheader.i, label %get_path_len.exit.thread
 
 .preheader.i:                                     ; preds = %65
   %68 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %61, ptr noundef nonnull %3) #8
-  %.not20.i = icmp eq ptr %68, null
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not22.i = icmp eq ptr %68, null
+  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %75, %.preheader.i
-  %69 = load i32, ptr %3, align 4
+  %69 = load i32, ptr %3, align 4, !tbaa !3
   br label %get_path_len.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %75
-  %.01322.i = phi i32 [ %73, %75 ], [ %61, %.preheader.i ]
-  %.01421.i = phi i32 [ %78, %75 ], [ 0, %.preheader.i ]
-  %70 = load i32, ptr %3, align 4
+  %.01524.i = phi i32 [ %73, %75 ], [ %61, %.preheader.i ]
+  %.01623.i = phi i32 [ %78, %75 ], [ 0, %.preheader.i ]
+  %70 = load i32, ptr %3, align 4, !tbaa !3
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %80, label %72
 
 72:                                               ; preds = %.lr.ph.i
-  %73 = call i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %.01322.i) #8
+  %73 = call i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %.01524.i) #8
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %get_path_len.exit.thread, label %75
 
 75:                                               ; preds = %72
-  %76 = load i32, ptr %3, align 4
-  %77 = add i32 %.01421.i, 1
+  %76 = load i32, ptr %3, align 4, !tbaa !3
+  %77 = add i32 %.01623.i, 1
   %78 = add i32 %77, %76
   %79 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %73, ptr noundef nonnull %3) #8
   %.not.i = icmp eq ptr %79, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 80:                                               ; preds = %.lr.ph.i
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %.01421.i, i32 1)
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %.01623.i, i32 1)
   br label %get_path_len.exit
 
 get_path_len.exit.thread:                         ; preds = %65, %72
-  %.0.i.ph = phi i32 [ %73, %72 ], [ %66, %65 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  %.1.i.ph = phi i32 [ %73, %72 ], [ %66, %65 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
   br label %.loopexit
 
 get_path_len.exit:                                ; preds = %._crit_edge.i, %80
-  %.0.i = phi i32 [ %spec.select.i, %80 ], [ %69, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %81 = icmp slt i32 %.0.i, 0
+  %.1.i = phi i32 [ %spec.select.i, %80 ], [ %69, %._crit_edge.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  %81 = icmp slt i32 %.1.i, 0
   br i1 %81, label %.loopexit, label %85
 
 82:                                               ; preds = %63
@@ -484,8 +499,8 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
   br label %85
 
 85:                                               ; preds = %get_path_len.exit, %82
-  %.093 = phi i32 [ %84, %82 ], [ %.0.i, %get_path_len.exit ]
-  %86 = load ptr, ptr %5, align 8
+  %.093 = phi i32 [ %84, %82 ], [ %.1.i, %get_path_len.exit ]
+  %86 = load ptr, ptr %5, align 8, !tbaa !8
   %87 = icmp sgt i32 %.093, 1
   %88 = zext i1 %87 to i32
   %89 = add i32 %.094, 1
@@ -496,7 +511,7 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %85
-  %95 = load ptr, ptr %6, align 8
+  %95 = load ptr, ptr %6, align 8, !tbaa !8
   %.not116 = icmp eq ptr %95, null
   br i1 %.not116, label %96, label %99
 
@@ -507,11 +522,11 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
 
 99:                                               ; preds = %96, %94
   %.092 = phi i32 [ %61, %94 ], [ %97, %96 ]
-  %100 = load ptr, ptr %7, align 8
+  %100 = load ptr, ptr %7, align 8, !tbaa !17
   br i1 %87, label %101, label %109
 
 101:                                              ; preds = %99
-  %102 = load ptr, ptr %6, align 8
+  %102 = load ptr, ptr %6, align 8, !tbaa !8
   %.not117 = icmp eq ptr %102, null
   %103 = add nuw nsw i32 %.093, 1
   br i1 %.not117, label %104, label %107
@@ -536,22 +551,26 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
   %.1 = phi i32 [ %.093, %107 ], [ %.093, %104 ], [ %110, %109 ]
   %112 = sext i32 %.1 to i64
   %113 = getelementptr inbounds i8, ptr %100, i64 %112
-  store i8 47, ptr %113, align 1
+  store i8 47, ptr %113, align 1, !tbaa !7
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
   %115 = sext i32 %.094 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %.089, i64 %115, i1 false)
   %116 = sext i32 %.pre-phi to i64
   %117 = getelementptr inbounds i8, ptr %100, i64 %116
-  store i8 0, ptr %117, align 1
+  store i8 0, ptr %117, align 1, !tbaa !7
   br label %.thread
 
 .thread:                                          ; preds = %43, %50, %52, %31, %111
   %118 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.091125) #8
   %119 = icmp sgt i32 %118, -1
-  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %24, %22, %29, %54, %57, %60, %get_path_len.exit, %85, %96, %104, %.thread, %.lr.ph, %17, %get_path_len.exit.thread, %15, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.090, %15 ], [ %.0.i.ph, %get_path_len.exit.thread ], [ 0, %17 ], [ %21, %.lr.ph ], [ -15, %24 ], [ -15, %22 ], [ -15, %29 ], [ -16, %54 ], [ -16, %57 ], [ %61, %60 ], [ %.0.i, %get_path_len.exit ], [ %92, %85 ], [ %97, %96 ], [ %105, %104 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %2 ], [ %.090, %15 ], [ %.1.i.ph, %get_path_len.exit.thread ], [ 0, %17 ], [ %21, %.lr.ph ], [ -15, %24 ], [ -15, %22 ], [ -15, %29 ], [ -16, %54 ], [ -16, %57 ], [ %61, %60 ], [ %.1.i, %get_path_len.exit ], [ %92, %85 ], [ %97, %96 ], [ %105, %104 ], [ 0, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   ret i32 %.0
 }
 
@@ -561,10 +580,10 @@ define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr no
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %8 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str, ptr noundef nonnull %7) #8
   %.not.i = icmp eq ptr %8, null
-  %9 = load i32, ptr %7, align 4
+  %9 = load i32, ptr %7, align 4, !tbaa !3
   br i1 %.not.i, label %overlay_phandle_add_offset.exit, label %10
 
 10:                                               ; preds = %3
@@ -572,7 +591,7 @@ define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr no
   br i1 %.not17.i, label %11, label %overlay_phandle_add_offset.exit.thread
 
 11:                                               ; preds = %10
-  %12 = load i32, ptr %8, align 4
+  %12 = load i32, ptr %8, align 4, !tbaa !3
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %12)
   %13 = add i32 %rev.i.i, %2
   %14 = icmp ult i32 %13, %rev.i.i
@@ -581,30 +600,30 @@ define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr no
   br i1 %or.cond.i, label %overlay_phandle_add_offset.exit.thread, label %16
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %13)
-  store i32 %rev.i.i.i, ptr %6, align 4
+  store i32 %rev.i.i.i, ptr %6, align 4, !tbaa !3
   %17 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str, ptr noundef nonnull %6, i32 noundef 4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   br label %overlay_phandle_add_offset.exit
 
 overlay_phandle_add_offset.exit.thread:           ; preds = %10, %11
   %.0.i.ph = phi i32 [ -17, %11 ], [ -6, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   br label %.loopexit
 
 overlay_phandle_add_offset.exit:                  ; preds = %3, %16
   %.0.i = phi i32 [ %17, %16 ], [ %9, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   %18 = add i32 %.0.i, -1
   %or.cond = icmp ult i32 %18, -2
   br i1 %or.cond, label %.loopexit, label %19
 
 19:                                               ; preds = %overlay_phandle_add_offset.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %20 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #8
   %.not.i29 = icmp eq ptr %20, null
-  %21 = load i32, ptr %5, align 4
+  %21 = load i32, ptr %5, align 4, !tbaa !3
   br i1 %.not.i29, label %overlay_phandle_add_offset.exit35, label %22
 
 22:                                               ; preds = %19
@@ -612,7 +631,7 @@ overlay_phandle_add_offset.exit:                  ; preds = %3, %16
   br i1 %.not17.i30, label %23, label %overlay_phandle_add_offset.exit35.thread
 
 23:                                               ; preds = %22
-  %24 = load i32, ptr %20, align 4
+  %24 = load i32, ptr %20, align 4, !tbaa !3
   %rev.i.i32 = call noundef i32 @llvm.bswap.i32(i32 %24)
   %25 = add i32 %rev.i.i32, %2
   %26 = icmp ult i32 %25, %rev.i.i32
@@ -621,21 +640,21 @@ overlay_phandle_add_offset.exit:                  ; preds = %3, %16
   br i1 %or.cond.i33, label %overlay_phandle_add_offset.exit35.thread, label %28
 
 28:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %rev.i.i.i34 = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %25)
-  store i32 %rev.i.i.i34, ptr %4, align 4
+  store i32 %rev.i.i.i34, ptr %4, align 4, !tbaa !3
   %29 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, i32 noundef 4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   br label %overlay_phandle_add_offset.exit35
 
 overlay_phandle_add_offset.exit35.thread:         ; preds = %22, %23
   %.0.i31.ph = phi i32 [ -17, %23 ], [ -6, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   br label %.loopexit
 
 overlay_phandle_add_offset.exit35:                ; preds = %19, %28
   %.0.i31 = phi i32 [ %29, %28 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   %30 = add i32 %.0.i31, -1
   %or.cond3 = icmp ult i32 %30, -2
   br i1 %or.cond3, label %.loopexit, label %31
@@ -654,22 +673,22 @@ overlay_phandle_add_offset.exit35:                ; preds = %19, %28
 35:                                               ; preds = %.lr.ph
   %36 = call i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %.040) #8
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %35, %31, %overlay_phandle_add_offset.exit35.thread, %overlay_phandle_add_offset.exit.thread, %overlay_phandle_add_offset.exit35, %overlay_phandle_add_offset.exit
   %.025 = phi i32 [ %.0.i, %overlay_phandle_add_offset.exit ], [ %.0.i31, %overlay_phandle_add_offset.exit35 ], [ %.0.i.ph, %overlay_phandle_add_offset.exit.thread ], [ %.0.i31.ph, %overlay_phandle_add_offset.exit35.thread ], [ 0, %31 ], [ %34, %.lr.ph ], [ 0, %35 ]
   ret i32 %.025
 }
 
-declare i32 @fdt_first_subnode(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_first_subnode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_next_subnode(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_next_subnode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @fdt_setprop_inplace(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop_inplace(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_path_offset(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_path_offset(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef %3) unnamed_addr #0 {
@@ -679,160 +698,181 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   %8 = alloca i32, align 4
   %9 = tail call i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %2) #8
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %.lr.ph65, label %._crit_edge66
+  br i1 %10, label %.lr.ph82, label %._crit_edge83
 
-.lr.ph65:                                         ; preds = %4, %._crit_edge
-  %.04363 = phi i32 [ %37, %._crit_edge ], [ %9, %4 ]
-  %11 = call ptr @fdt_getprop_by_offset(ptr noundef %0, i32 noundef %.04363, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %.not53 = icmp eq ptr %11, null
-  %12 = load i32, ptr %6, align 4
-  br i1 %.not53, label %.loopexit, label %13
+.lr.ph82:                                         ; preds = %4, %._crit_edge
+  %.04880 = phi i32 [ %37, %._crit_edge ], [ %9, %4 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  %11 = call ptr @fdt_getprop_by_offset(ptr noundef %0, i32 noundef %.04880, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %.not61 = icmp eq ptr %11, null
+  %12 = load i32, ptr %6, align 4, !tbaa !3
+  br i1 %.not61, label %.thread71, label %13
 
-13:                                               ; preds = %.lr.ph65
+13:                                               ; preds = %.lr.ph82
   %14 = and i32 %12, 3
-  %.not54 = icmp eq i32 %14, 0
-  br i1 %.not54, label %15, label %.loopexit
+  %.not62 = icmp eq i32 %14, 0
+  br i1 %.not62, label %15, label %.thread71
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
   %17 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef %16, ptr noundef nonnull %7) #8
-  %.not55 = icmp eq ptr %17, null
-  br i1 %.not55, label %19, label %.preheader
+  %.not63 = icmp eq ptr %17, null
+  br i1 %.not63, label %19, label %.preheader
 
 .preheader:                                       ; preds = %15
-  %18 = load i32, ptr %6, align 4
-  %.not76 = icmp ult i32 %18, 4
-  br i1 %.not76, label %._crit_edge, label %.lr.ph
+  %18 = load i32, ptr %6, align 4, !tbaa !3
+  %.not93 = icmp ult i32 %18, 4
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %15
-  %20 = load i32, ptr %7, align 4
+  %20 = load i32, ptr %7, align 4, !tbaa !3
   %21 = icmp eq i32 %20, -1
   %. = select i1 %21, i32 -16, i32 %20
-  br label %.loopexit
+  br label %.thread71
 
 .lr.ph:                                           ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.preheader ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %22 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !3
   %rev.i = call noundef i32 @llvm.bswap.i32(i32 %23)
   %24 = zext i32 %rev.i to i64
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 %24
   %26 = load i32, ptr %25, align 1
-  %rev.i57 = call noundef i32 @llvm.bswap.i32(i32 %26)
-  %27 = add i32 %rev.i57, %3
-  %rev.i58 = call noundef i32 @llvm.bswap.i32(i32 %27)
-  store i32 %rev.i58, ptr %8, align 4
-  %28 = load ptr, ptr %5, align 8
+  %rev.i66 = call noundef i32 @llvm.bswap.i32(i32 %26)
+  %27 = add i32 %rev.i66, %3
+  %rev.i67 = call noundef i32 @llvm.bswap.i32(i32 %27)
+  store i32 %rev.i67, ptr %8, align 4, !tbaa !3
+  %28 = load ptr, ptr %5, align 8, !tbaa !8
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #9
   %30 = trunc i64 %29 to i32
   %31 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %28, i32 noundef %30, i32 noundef %rev.i, ptr noundef nonnull %8, i32 noundef 4) #8
-  switch i32 %31, label %.loopexit [
-    i32 -3, label %.loopexit.loopexit91
+  switch i32 %31, label %.thread [
+    i32 -3, label %.thread.loopexit
     i32 0, label %32
   ]
 
+.thread.loopexit:                                 ; preds = %.lr.ph
+  br label %.thread
+
+.thread:                                          ; preds = %.lr.ph, %.thread.loopexit
+  %.3.ph = phi i32 [ -16, %.thread.loopexit ], [ %31, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  br label %.thread71
+
 32:                                               ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i32, ptr %6, align 4
+  %33 = load i32, ptr %6, align 4, !tbaa !3
   %34 = sext i32 %33 to i64
   %35 = lshr i64 %34, 2
   %36 = icmp samesign ugt i64 %35, %indvars.iv.next
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+
+.thread71:                                        ; preds = %13, %.lr.ph82, %19, %.thread
+  %.1.ph = phi i32 [ %.3.ph, %.thread ], [ %., %19 ], [ %12, %.lr.ph82 ], [ -16, %13 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %.thread75
 
 ._crit_edge:                                      ; preds = %32, %.preheader
-  %37 = call i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %.04363) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  %37 = call i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %.04880) #8
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph65, label %._crit_edge66, !llvm.loop !11
+  br i1 %38, label %.lr.ph82, label %._crit_edge83, !llvm.loop !21
 
-._crit_edge66:                                    ; preds = %._crit_edge, %4
+._crit_edge83:                                    ; preds = %._crit_edge, %4
   %39 = call i32 @fdt_first_subnode(ptr noundef %0, i32 noundef %2) #8
   %40 = icmp sgt i32 %39, -1
-  br i1 %40, label %.lr.ph69, label %.loopexit
+  br i1 %40, label %.lr.ph86, label %.thread75
 
-.lr.ph69:                                         ; preds = %._crit_edge66, %48
-  %.04467 = phi i32 [ %49, %48 ], [ %39, %._crit_edge66 ]
-  %41 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %.04467, ptr noundef null) #8
+.lr.ph86:                                         ; preds = %._crit_edge83, %48
+  %.04984 = phi i32 [ %49, %48 ], [ %39, %._crit_edge83 ]
+  %41 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %.04984, ptr noundef null) #8
   %42 = call i32 @fdt_subnode_offset(ptr noundef %0, i32 noundef %1, ptr noundef %41) #8
   %43 = icmp eq i32 %42, -1
-  br i1 %43, label %.loopexit, label %44
+  br i1 %43, label %.thread75, label %44
 
-44:                                               ; preds = %.lr.ph69
+44:                                               ; preds = %.lr.ph86
   %45 = icmp slt i32 %42, 0
-  br i1 %45, label %.loopexit, label %46
+  br i1 %45, label %.thread75, label %46
 
 46:                                               ; preds = %44
-  %47 = call fastcc i32 @overlay_update_local_node_references(ptr noundef %0, i32 noundef %42, i32 noundef %.04467, i32 noundef %3)
+  %47 = call fastcc i32 @overlay_update_local_node_references(ptr noundef %0, i32 noundef %42, i32 noundef %.04984, i32 noundef %3)
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %48, label %.loopexit
+  br i1 %.not, label %48, label %.thread75
 
 48:                                               ; preds = %46
-  %49 = call i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %.04467) #8
+  %49 = call i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %.04984) #8
   %50 = icmp sgt i32 %49, -1
-  br i1 %50, label %.lr.ph69, label %.loopexit, !llvm.loop !12
+  br i1 %50, label %.lr.ph86, label %.thread75, !llvm.loop !22
 
-.loopexit.loopexit91:                             ; preds = %.lr.ph
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %13, %.lr.ph65, %.lr.ph69, %44, %46, %48, %.lr.ph, %.loopexit.loopexit91, %._crit_edge66, %19
-  %.0 = phi i32 [ %., %19 ], [ 0, %._crit_edge66 ], [ -16, %.loopexit.loopexit91 ], [ %31, %.lr.ph ], [ -16, %.lr.ph69 ], [ %42, %44 ], [ %47, %46 ], [ 0, %48 ], [ %12, %.lr.ph65 ], [ -16, %13 ]
-  ret i32 %.0
+.thread75:                                        ; preds = %46, %48, %.lr.ph86, %44, %._crit_edge83, %.thread71
+  %.4 = phi i32 [ %.1.ph, %.thread71 ], [ 0, %._crit_edge83 ], [ %47, %46 ], [ 0, %48 ], [ -16, %.lr.ph86 ], [ %42, %44 ]
+  ret i32 %.4
 }
 
-declare i32 @fdt_first_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_first_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @fdt_setprop_inplace_namelen_partial(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
-
-declare i32 @fdt_next_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @fdt_subnode_offset(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop_inplace_namelen_partial(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+
+declare i32 @fdt_next_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @fdt_subnode_offset(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_path_offset_namelen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_path_offset_namelen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %7 = call ptr @fdt_getprop(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %overlay_get_target_phandle.exit.thread29, label %8
 
 overlay_get_target_phandle.exit.thread29:         ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   br label %11
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %5, align 4
+  %9 = load i32, ptr %5, align 4, !tbaa !3
   %.not6.i = icmp eq i32 %9, 4
   br i1 %.not6.i, label %overlay_get_target_phandle.exit, label %overlay_get_target_phandle.exit.thread
 
 overlay_get_target_phandle.exit.thread:           ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   br label %25
 
 overlay_get_target_phandle.exit:                  ; preds = %8
-  %10 = load i32, ptr %7, align 4
+  %10 = load i32, ptr %7, align 4, !tbaa !3
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   switch i32 %rev.i.i, label %17 [
     i32 -1, label %25
     i32 0, label %11
@@ -849,7 +889,7 @@ overlay_get_target_phandle.exit:                  ; preds = %8
   br label %19
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr %6, align 4
+  %16 = load i32, ptr %6, align 4, !tbaa !3
   br label %19
 
 17:                                               ; preds = %overlay_get_target_phandle.exit
@@ -870,11 +910,12 @@ overlay_get_target_phandle.exit:                  ; preds = %8
   br i1 %or.cond27, label %25, label %24
 
 24:                                               ; preds = %19
-  store ptr %.020, ptr %3, align 8
+  store ptr %.020, ptr %3, align 8, !tbaa !8
   br label %25
 
 25:                                               ; preds = %overlay_get_target_phandle.exit.thread, %24, %19, %overlay_get_target_phandle.exit
   %.021 = phi i32 [ -6, %overlay_get_target_phandle.exit ], [ %spec.store.select, %19 ], [ %.0, %24 ], [ -6, %overlay_get_target_phandle.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   ret i32 %.021
 }
 
@@ -887,121 +928,135 @@ define internal fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef range
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %17
-  %.03646 = phi i32 [ %18, %17 ], [ %7, %4 ]
-  %9 = call ptr @fdt_getprop_by_offset(ptr noundef %2, i32 noundef %.03646, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %10 = load i32, ptr %6, align 4
+  %.03957 = phi i32 [ %18, %17 ], [ %7, %4 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  %9 = call ptr @fdt_getprop_by_offset(ptr noundef %2, i32 noundef %.03957, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %10 = load i32, ptr %6, align 4, !tbaa !3
   %11 = icmp eq i32 %10, -1
-  br i1 %11, label %.loopexit, label %12
+  br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = icmp slt i32 %10, 0
-  br i1 %13, label %.loopexit, label %14
+  br i1 %13, label %.thread, label %14
+
+.thread:                                          ; preds = %.lr.ph, %12
+  %.1.ph = phi i32 [ %10, %12 ], [ -13, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %.thread53
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
   %16 = call i32 @fdt_setprop(ptr noundef %0, i32 noundef %1, ptr noundef %15, ptr noundef %9, i32 noundef %10) #8
-  %.not43 = icmp eq i32 %16, 0
-  br i1 %.not43, label %17, label %.loopexit
+  %.not48 = icmp eq i32 %16, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br i1 %.not48, label %17, label %.thread53
 
 17:                                               ; preds = %14
-  %18 = call i32 @fdt_next_property_offset(ptr noundef %2, i32 noundef %.03646) #8
+  %18 = call i32 @fdt_next_property_offset(ptr noundef %2, i32 noundef %.03957) #8
   %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %17, %4
   %20 = call i32 @fdt_first_subnode(ptr noundef %2, i32 noundef %3) #8
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %.lr.ph49, label %.loopexit
+  br i1 %21, label %.lr.ph60, label %.thread53
 
-.lr.ph49:                                         ; preds = %._crit_edge, %32
-  %.03747 = phi i32 [ %33, %32 ], [ %20, %._crit_edge ]
-  %22 = call ptr @fdt_get_name(ptr noundef %2, i32 noundef %.03747, ptr noundef null) #8
+.lr.ph60:                                         ; preds = %._crit_edge, %32
+  %.04258 = phi i32 [ %33, %32 ], [ %20, %._crit_edge ]
+  %22 = call ptr @fdt_get_name(ptr noundef %2, i32 noundef %.04258, ptr noundef null) #8
   %23 = call i32 @fdt_add_subnode(ptr noundef %0, i32 noundef %1, ptr noundef %22) #8
   %24 = icmp eq i32 %23, -2
   br i1 %24, label %25, label %28
 
-25:                                               ; preds = %.lr.ph49
+25:                                               ; preds = %.lr.ph60
   %26 = call i32 @fdt_subnode_offset(ptr noundef %0, i32 noundef %1, ptr noundef %22) #8
   %27 = icmp eq i32 %26, -1
-  br i1 %27, label %.loopexit, label %28
+  br i1 %27, label %.thread53, label %28
 
-28:                                               ; preds = %25, %.lr.ph49
-  %.035 = phi i32 [ %26, %25 ], [ %23, %.lr.ph49 ]
-  %29 = icmp slt i32 %.035, 0
-  br i1 %29, label %.loopexit, label %30
+28:                                               ; preds = %25, %.lr.ph60
+  %.038 = phi i32 [ %26, %25 ], [ %23, %.lr.ph60 ]
+  %29 = icmp slt i32 %.038, 0
+  br i1 %29, label %.thread53, label %30
 
 30:                                               ; preds = %28
-  %31 = call fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef %.035, ptr noundef %2, i32 noundef %.03747)
+  %31 = call fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef %.038, ptr noundef %2, i32 noundef %.04258)
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %32, label %.loopexit
+  br i1 %.not, label %32, label %.thread53
 
 32:                                               ; preds = %30
-  %33 = call i32 @fdt_next_subnode(ptr noundef %2, i32 noundef %.03747) #8
+  %33 = call i32 @fdt_next_subnode(ptr noundef %2, i32 noundef %.04258) #8
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph49, label %.loopexit, !llvm.loop !14
+  br i1 %34, label %.lr.ph60, label %.thread53, !llvm.loop !24
 
-.loopexit:                                        ; preds = %14, %12, %.lr.ph, %25, %28, %30, %32, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -13, %25 ], [ %.035, %28 ], [ %31, %30 ], [ 0, %32 ], [ %16, %14 ], [ %10, %12 ], [ -13, %.lr.ph ]
-  ret i32 %.0
+.thread53:                                        ; preds = %14, %30, %32, %25, %28, %._crit_edge, %.thread
+  %.2 = phi i32 [ %.1.ph, %.thread ], [ 0, %._crit_edge ], [ %31, %30 ], [ 0, %32 ], [ -13, %25 ], [ %.038, %28 ], [ %16, %14 ]
+  ret i32 %.2
 }
 
-declare i32 @fdt_node_offset_by_phandle(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_node_offset_by_phandle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_setprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_add_subnode(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_add_subnode(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_setprop_placeholder(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @fdt_setprop_placeholder(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @fdt_get_path(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_get_path(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @fdt_parent_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @fdt_parent_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !4, i64 0}
+!15 = !{!"fdt_header", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36}
+!16 = distinct !{!16, !12}
+!17 = !{!10, !10, i64 0}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}
+!24 = distinct !{!24, !12}
